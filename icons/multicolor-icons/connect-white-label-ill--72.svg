@@ -1,0 +1,12 @@
+<svg width="72" height="72" fill="none" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="36" cy="35.993" fill="url(#connect-white-label-ill--72_svg__a)" rx="36" ry="35.993" transform="matrix(-1 0 0 1 72 0)"/>
+  <path fill="#fff" d="M17.438 31.05 36 43.92l18.563-12.87L36 17.933 17.437 31.05Z"/>
+  <path fill="#fff" d="m36 47.632-14.032-9.636-4.53 3.201L36 54.067l18.563-12.87-4.53-3.201L36 47.632Z"/>
+  <path fill="#5D5D64" fill-rule="evenodd" d="M72 35.974C72 16.077 55.882-.053 36-.053S0 16.077 0 35.973C0 55.87 16.118 72 36 72s36-16.13 36-36.026ZM36 5.61c16.757 0 30.341 13.594 30.341 30.364 0 16.769-13.584 30.363-30.341 30.363S5.659 52.743 5.659 35.973C5.659 19.205 19.243 5.61 36 5.61Z" clip-rule="evenodd"/>
+  <defs>
+    <linearGradient id="connect-white-label-ill--72_svg__a" x1="14" x2="67.215" y1="62" y2="36.033" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B1B25"/>
+      <stop offset="1" stop-color="#414149"/>
+    </linearGradient>
+  </defs>
+</svg>

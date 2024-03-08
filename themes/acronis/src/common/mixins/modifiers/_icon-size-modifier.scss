@@ -1,0 +1,10 @@
+@mixin icon-size-modifier($size) {
+  min-width: #{$size}px;
+
+  @at-root {
+    #{&}::before {
+      font-size: #{$size}px;
+      width: #{$size}px;
+    }
+  }
+}

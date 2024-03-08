@@ -1,0 +1,12 @@
+@import '../variables';
+@import '../mixins';
+
+$overflow-values: auto hidden;
+
+@include b('overflow') {
+  @each $value in $overflow-values {
+    @include m($value) {
+      overflow: $value !important;
+    }
+  }
+}

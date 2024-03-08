@@ -1,0 +1,12 @@
+*.json
+*.sh
+node_modules
+lib
+dist
+coverage
+types
+examples/*
+build
+docker_result
+changelog
+test/*

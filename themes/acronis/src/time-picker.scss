@@ -1,0 +1,10 @@
+@import 'common/variables';
+@import 'common/mixins';
+
+@include b(time-picker) {
+  @include when(error) {
+    .el-input .el-input__container {
+      border-color: $av-fixed-danger;
+    }
+  }
+}
