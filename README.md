@@ -1,38 +1,36 @@
-# Acronis Cyber UI Kit
+# Acronis UI Component Library
 
-The Acronis Cyber UI Kit is an UI Components Library for Web applications and Web-based Desktop applications based on Vue.js v3
+The Acronis UI Component Library is meant to be used in Web applications and Web-based Desktop applications and is based on Vue.js v3
 
-# Installation
+# Developer notes
 
-```
-npm i @acronis-platform/ui-component-library
-```
+## Windows host notes
 
-# Usage
+Type the following commands to avoid the 'end of line' issues:
 
-You can either import all of UI Kit components at once and register them globally:
-
-```
-import * as UIComponentLibrary from '@acronis-platform/ui-component-library'
-
-const app = createApp(App)
-
-for (let module in UIComponentLibrary) {
-    app.component(module, UIComponentLibrary[module])
-}
-
-app.mount('#app')
+```bash
+git config core.eol lf
+git config core.autocrlf input
+git clone ...
 ```
 
-Or import them individually where required:
+## Environment setup
 
-```
-import { ElButton } from '@acronis-platform/ui-component-library'
+``` bash
+# install dependencies
+npm install
 ```
 
-Render the components as shown below:
+## Run in development
+
+```bash
+npm run docs:dev
 ```
-<el-button>This is my button</el-button>
+
+## Build for production
+
+```bash
+npm run vite:build
 ```
 
 # Browser support
