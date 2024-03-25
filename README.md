@@ -38,3 +38,4 @@ All modern browsers
 
 # License
 MIT
+
