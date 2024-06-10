@@ -14,7 +14,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
-    "test:vitest": "vitest run --coverage",
+    "test": "vitest run --coverage",
+    "build": "npm run vite:build",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
     "lint:fix": "npm run lint:eslint -- --fix && npm run lint:stylelint",
     "lint:eslint": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore --fix --quiet",
