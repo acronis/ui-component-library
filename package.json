@@ -1,6 +1,6 @@
 {
   "name": "@acronis-platform/ui-component-library",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The Acronis UI Component Library is a UI component library for Web applications and Web-based Desktop applications based on Vue.js v3",
   "license": "MIT",
   "main": "lib/ui-kit.es.js",
