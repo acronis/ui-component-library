@@ -22,9 +22,10 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+test/result
 *.lcov
 
-# nyc test coverage
+# test coverage
 .nyc_output
 
 # Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
@@ -91,6 +92,9 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+lib
+lib-web-components
+packages-licenses.html
 
 # Gatsby files
 .cache/
@@ -130,3 +134,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Idea IDE
+.idea
