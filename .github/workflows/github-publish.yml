@@ -34,8 +34,9 @@ jobs:
       - name: Install dependencies
         run: npm install
       - run: echo registry=https://npm.pkg.github.com/acronis-platform >> .npmrc
-      - name: Build and publish
+      - name: Build
         run: npm run build
-      - run: cd output/prod && npm publish
+      - name: Publish package on NPM
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
