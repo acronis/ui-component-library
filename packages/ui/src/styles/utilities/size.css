@@ -1,0 +1,23 @@
+.acv-size--height-100 {
+  height: 100% !important;
+}
+
+.acv-size--height-100vh {
+  height: 100vh !important;
+}
+
+.acv-size--height-auto {
+  height: auto !important;
+}
+
+.acv-size--width-100 {
+  width: 100% !important;
+}
+
+.acv-size--width-100vw {
+  width: 100vw !important;
+}
+
+.acv-size--width-auto {
+  width: auto !important;
+}

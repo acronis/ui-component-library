@@ -1,0 +1,37 @@
+@use 'sass:map';
+
+$breakpoints-up: (
+    small: 440px,
+    medium: 640px,
+    large: 1024px,
+    xlarge: 1400px
+);
+
+$breakpoints-down: (
+    xsmall: 439px,
+    small: 639px,
+    medium: 1023px,
+    large: 1399px
+);
+
+/* xsmall < 440 < small < 640 < medium < 1024 < large < 1400 < xlarge */
+
+/*
+ * Usage:
+ * @include breakpoint-up('medium') {
+ *   .acv-button {
+ *     background-color: blue !important;
+ *   }
+ * }
+ */
+@mixin breakpoint-up ($size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-down ($size) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}

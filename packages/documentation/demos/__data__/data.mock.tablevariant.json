@@ -1,0 +1,290 @@
+[
+  {
+    "id": 1,
+    "name": "Force Touch Cloud",
+    "status": "Critical",
+    "location": "G:/Backups/",
+    "backup": "Not Scheduled",
+    "occupied": 13,
+    "percentage": 87
+  },
+  {
+    "id": 2,
+    "name": "Blue Sky Group",
+    "status": "Critical",
+    "location": "E:/Backups/Replica",
+    "backup": "Monday to Friday at 22:00",
+    "occupied": 13,
+    "percentage": 50
+  },
+  {
+    "id": 3,
+    "name": "Westfield Labs Platform",
+    "status": "Not Protected",
+    "location": "E:/123/Protection/",
+    "backup": "Not Scheduled",
+    "occupied": 9,
+    "percentage": 95
+  },
+  {
+    "id": 4,
+    "name": "LandUp",
+    "status": "Not Protected",
+    "location": "Tape pool",
+    "backup": "-",
+    "occupied": 7,
+    "percentage": 30
+  },
+  {
+    "id": 5,
+    "name": "Fusion Media Network",
+    "status": "Not Protected",
+    "location": "C:/dedup2/",
+    "backup": "Monday to Friday at 12:00",
+    "occupied": 58,
+    "percentage": 20
+  },
+  {
+    "id": 6,
+    "name": "Tsukaeru Systems",
+    "status": "Not Protected",
+    "location": "rusp-00001506/Tibfile/",
+    "backup": "-",
+    "occupied": 58,
+    "percentage": 84
+  },
+  {
+    "id": 7,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58,
+    "percentage": 27
+  },
+  {
+    "id": 8,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20,
+    "percentage": 10
+  },
+  {
+    "id": 9,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20,
+    "percentage": 95
+  },
+  {
+    "id": 10,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12,
+    "percentage": 54
+  },
+  {
+    "id": 11,
+    "name": "Fusion Media Network",
+    "status": "Not Protected",
+    "location": "C:/dedup2/",
+    "backup": "Monday to Friday at 12:00",
+    "occupied": 58,
+    "percentage": 60
+  },
+  {
+    "id": 12,
+    "name": "Tsukaeru Systems",
+    "status": "Not Protected",
+    "location": "rusp-00001506/Tibfile/",
+    "backup": "-",
+    "occupied": 58,
+    "percentage": 95
+  },
+  {
+    "id": 13,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58,
+    "percentage": 46
+  },
+  {
+    "id": 14,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20,
+    "percentage": 10
+  },
+  {
+    "id": 15,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20,
+    "percentage": 38
+  },
+  {
+    "id": 16,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12,
+    "percentage": 62
+  },
+  {
+    "id": 17,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58,
+    "percentage": 90
+  },
+  {
+    "id": 18,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20,
+    "percentage": 34
+  },
+  {
+    "id": 19,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20,
+    "percentage": 38
+  },
+  {
+    "id": 20,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12,
+    "percentage": 96
+  },
+  {
+    "id": 21,
+    "name": "Tsukaeru Systems",
+    "status": "Not Protected",
+    "location": "rusp-00001506/Tibfile/",
+    "backup": "-",
+    "occupied": 58,
+    "percentage": 28
+  },
+  {
+    "id": 22,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58,
+    "percentage": 46
+  },
+  {
+    "id": 23,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20,
+    "percentage": 33
+  },
+  {
+    "id": 24,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20,
+    "percentage": 21
+  },
+  {
+    "id": 25,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12,
+    "percentage": 10
+  },
+  {
+    "id": 26,
+    "name": "Fusion Media Network",
+    "status": "Not Protected",
+    "location": "C:/dedup2/",
+    "backup": "Monday to Friday at 12:00",
+    "occupied": 58,
+    "percentage": 58
+  },
+  {
+    "id": 27,
+    "name": "Tsukaeru Systems",
+    "status": "Not Protected",
+    "location": "rusp-00001506/Tibfile/",
+    "backup": "-",
+    "occupied": 58,
+    "percentage": 95
+  },
+  {
+    "id": 28,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58,
+    "percentage": 27
+  },
+  {
+    "id": 29,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20,
+    "percentage": 48
+  },
+  {
+    "id": 30,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20,
+    "percentage": 28
+  },
+  {
+    "id": 31,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12,
+    "percentage": 77
+  },
+  {
+    "id": 32,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58,
+    "percentage": 82
+  }
+]

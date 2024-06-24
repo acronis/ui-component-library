@@ -1,0 +1,150 @@
+@mixin text-h1 {
+    font-size: var(--acv-base-font-size-48); /* 48px */
+    font-weight: var(--acv-font-weight-strong);
+    line-height: var(--acv-base-font-line-height-56); /* 1.25 */
+}
+
+@mixin text-h2 {
+    font-size: var(--acv-font-size-display); /* 32px */
+    font-weight: var(--acv-font-weight-strong);
+    line-height: var(--acv-font-line-height-large);
+}
+
+@mixin text-h3 {
+    font-size: var(--acv-font-size-title); /* 24px */
+    font-weight: var(--acv-font-weight-accent);
+    line-height: var(--acv-font-line-height-medium);
+}
+
+@mixin text-h4 {
+    font-size: var(--acv-font-size-accent); /* 16px */
+    font-weight: var(--acv-font-weight-accent);
+    line-height: var(--acv-font-line-height-regular); /* 1.5 */
+}
+
+@mixin text-h5 {
+    font-size: var(--acv-font-size-body); /* 14px */
+    font-weight: var(--acv-font-weight-accent);
+    line-height: var(--acv-font-line-height-small);
+}
+
+@mixin text-large {
+    font-size: var(--acv-font-size-lead);
+    font-weight: var(--acv-font-weight-regular);
+    line-height: var(--acv-font-line-height-medium);
+}
+
+@mixin text-medium {
+    font-size: var(--acv-font-size-accent);
+    font-weight: var(--acv-font-weight-regular);
+    line-height: var(--acv-font-line-height-regular);
+}
+
+@mixin text-regular {
+    font-size: var(--acv-font-size-body);
+    font-weight: var(--acv-font-weight-regular);
+    line-height: var(--acv-font-line-height-small);
+}
+
+@mixin text-heading {
+    font-size: var(--acv-font-size-caption);
+    font-weight: var(--acv-font-weight-accent);
+    letter-spacing: var(--acv-letter-spacing-xs);
+    line-height: var(--acv-font-line-height-medium);
+}
+
+@mixin text-subheading {
+    font-size: var(--acv-font-size-caption);
+    font-weight: var(--acv-font-weight-accent);
+    line-height: var(--acv-font-line-height-medium);
+}
+
+@mixin text-strong {
+    font-size: var(--acv-font-size-caption);
+    font-weight: var(--acv-font-weight-accent);
+    line-height: var(--acv-font-line-height-medium);
+}
+
+@mixin text-caption {
+    font-size: var(--acv-font-size-caption);
+    font-weight: var(--acv-font-weight-regular);
+    line-height: var(--acv-font-line-height-x-small);
+}
+
+@mixin text-accent {
+    font-size: var(--acv-font-size-accent);
+    font-weight: var(--acv-font-weight-strong);
+    line-height: var(--acv-font-line-height-x-small);
+}
+
+@mixin text-body {
+    font-size: var(--acv-font-size-body); /* 16px */
+    font-weight: var(--acv-font-weight-regular);
+    line-height: var(--acv-font-line-height-regular);
+}
+
+@mixin text-ui {
+    font-size: var(--acv-font-size-body); /* 14px */
+    line-height: var(--acv-font-line-height-small);
+}
+
+@mixin text-fineprint {
+    font-size: var(--acv-fineprint-font-size); /* 12px */
+    line-height: var(--acv-font-line-height-x-small);
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+@mixin link {
+    text-decoration: none;
+    color: var(--acv-link-color);
+
+    &:hover {
+         color: var(--acv-link-color-hover);
+        cursor: pointer;
+    }
+
+     &:active {
+       color: var(--acv-link-color-active);
+     }
+}
+
+@mixin borderless-action-state {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    border-radius: var(--acv-radius-small);
+    font-weight: var(--acv-font-weight-accent);
+
+    &:hover {
+        background-color: var(--acv-color-button-hover-primary);
+    }
+
+    &:focus {
+        background-color: var(--acv-color-button-focus);
+    }
+
+    &:active {
+        background-color: var(--acv-color-button-active);
+    }
+
+    &:not(:disabled):active,
+    &:not(:disabled).is-active {
+        background: var(--acv-color-button-active);
+    }
+
+    &:not(:disabled).is-selected {
+        background-color: var(--acv-color-button-active);
+    }
+
+    &:disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+}

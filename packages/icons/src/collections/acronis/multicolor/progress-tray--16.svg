@@ -1,0 +1,12 @@
+<svg width="16" height="16" fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#progress-tray--16_svg__a)">
+    <circle cx="8" cy="8" r="8" fill="#fff"/>
+    <path fill="#CADEF9" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/>
+    <path fill="#408BEA" d="M8 1v7L1.854 4.647A7 7 0 1 0 8 1Z"/>
+  </g>
+  <defs>
+    <clipPath id="progress-tray--16_svg__a">
+      <path fill="#fff" d="M0 0h16v16H0z"/>
+    </clipPath>
+  </defs>
+</svg>

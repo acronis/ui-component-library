@@ -1,0 +1,24 @@
+<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#21A366" d="M15.209 2.211h-7.44a.882.882 0 0 0-.893.893v3.89h8.375l-.042-4.783Z"/>
+  <path fill="#33C481" d="M22.096 2.211h-6.887v4.783h7.79v-3.9a.892.892 0 0 0-.903-.883Z"/>
+  <path fill="#107C41" d="M22.988 11.777h-7.78v4.793h7.78v-4.793Z"/>
+  <path fill="#185C37" d="M15.209 16.57v-4.793H6.834v8.683a.882.882 0 0 0 .893.892h14.369a.893.893 0 0 0 .903-.892v-3.89h-7.79Z"/>
+  <path fill="#107C41" d="M15.22 6.983H6.833v4.794h8.385V6.983Z"/>
+  <path fill="#21A366" d="M22.988 6.983h-7.78v4.794h7.78V6.983Z"/>
+  <path fill="#107C41" d="M11.914 6.388h-8.97a.903.903 0 0 0-.903.904v8.97c0 .499.404.903.903.903h8.97a.903.903 0 0 0 .903-.903v-8.97a.903.903 0 0 0-.903-.904Z"/>
+  <path fill="#fff" d="m4.825 14.7 1.881-2.923-1.721-2.912h1.392l.935 1.849a2.7 2.7 0 0 1 .18.404 3.76 3.76 0 0 1 .203-.415l1.062-1.849h1.276l-1.818 2.923 1.818 2.944h-1.36L7.61 12.669a1.244 1.244 0 0 1-.139-.265 1.84 1.84 0 0 1-.127.265l-1.127 2.052-1.392-.022Z"/>
+  <g opacity=".5" style="mix-blend-mode:soft-light">
+    <path fill="url(#prefix__a)" d="M12.914 7.388h-8.97a.903.903 0 0 0-.903.904v8.97c0 .499.404.903.903.903h8.97a.903.903 0 0 0 .903-.903v-8.97a.903.903 0 0 0-.903-.904Z" opacity=".5" style="mix-blend-mode:soft-light"/>
+    <path fill="url(#prefix__b)" d="M11.914 6.388h-8.97a.903.903 0 0 0-.903.904v8.97c0 .499.404.903.903.903h8.97a.903.903 0 0 0 .903-.903v-8.97a.903.903 0 0 0-.903-.904Z" opacity=".5" style="mix-blend-mode:soft-light"/>
+  </g>
+  <defs>
+    <linearGradient id="prefix__a" x1="4.911" x2="11.947" y1="6.687" y2="18.867" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".5"/>
+      <stop offset="1" stop-opacity=".7"/>
+    </linearGradient>
+    <linearGradient id="prefix__b" x1="3.911" x2="10.947" y1="5.687" y2="17.867" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".5"/>
+      <stop offset="1" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,88 @@
+:root {
+  --ac-font-primary: var(--ac-font-inter);
+  --ac-font-secondary: var(--ac-font-open-sans);
+
+  /* Font size */
+  --ac-text-base-size: 1em;
+  --ac-text-scale-ratio: 1.2;
+
+  /* Text scales */
+  --ac-text-xs: calc(
+    var(--ac-font-size-xsmall) /
+      (var(--ac-text-scale-ratio) * var(--ac-text-scale-ratio))
+  );
+  --ac-text-sm: calc(1em / var(--ac-text-scale-ratio));
+  --ac-text-md: calc(1em * var(--ac-text-scale-ratio));
+  --ac-text-lg: calc(
+    1em * var(--ac-text-scale-ratio) * var(--ac-text-scale-ratio)
+  );
+  --ac-text-xl: calc(
+    1em * var(--ac-text-scale-ratio) * var(--ac-text-scale-ratio) *
+      var(--ac-text-scale-ratio)
+  );
+  --ac-text-2xl: calc(
+    1em * var(--ac-text-scale-ratio) * var(--ac-text-scale-ratio) *
+      var(--ac-text-scale-ratio) * var(--ac-text-scale-ratio)
+  );
+  --ac-text-3xl: calc(
+    1em * var(--ac-text-scale-ratio) * var(--ac-text-scale-ratio) *
+      var(--ac-text-scale-ratio) * var(--ac-text-scale-ratio) *
+      var(--ac-text-scale-ratio)
+  );
+
+  /* Heading */
+  --ac-heading-line-height: var(--ac-line-height-small);
+  --ac-heading-h1-font-size: var(--ac-font-size-4xlarge);
+  --ac-heading-h1-font-weight: var(--ac-font-weight-bold);
+  --ac-heading-h1-line-height: var(--ac-line-height-small);
+  --ac-heading-h1-spacing: var(--ac-letter-spacing-normal);
+  --ac-heading-h2-font-size: var(--ac-font-size-xl);
+  --ac-heading-h2-font-weight: var(--ac-font-weight-bold);
+  --ac-heading-h2-line-height: var(--ac-line-height-sm);
+  --ac-heading-h2-spacing: var(--ac-letter-spacing-normal);
+  --ac-heading-h3-font-size: var(--ac-font-size-lg);
+  --ac-heading-h3-line-height: var(--ac-line-height-sm);
+  --ac-heading-h3-font-weight: var(--ac-font-weight-semibold);
+  --ac-heading-h4-font-size: var(--ac-font-size-sm);
+  --ac-heading-h4-line-height: var(--ac-line-height-lg);
+  --ac-heading-h4-font-weight: var(--ac-font-weight-semibold);
+  --ac-heading-h5-font-size: var(--ac-font-size-xs);
+  --ac-heading-h5-line-height: var(--ac-line-height-xs);
+  --ac-heading-h5-font-weight: var(--ac-font-weight-semibold);
+
+  /* Body */
+  --ac-body-font-size: var(--ac-font-size-sm);
+  --ac-body-line-height: var(--ac-line-height-sm);
+
+  /* Text */
+  --ac-text-font-size: var(--ac-font-size-xs);
+  --ac-text-line-height: var(--ac-line-height-xs);
+
+  /* Fine print */
+  --ac-fineprint-font-size: var(--ac-font-size-3xs);
+  --ac-fineprint-line-height: var(--ac-line-height-xs);
+
+  /* Caption */
+  --ac-typo-caption-font-size: var(--ac-font-size-sm);
+  --ac-typo-caption-font-weight: var(--ac-font-weight-regular);
+  --ac-typo-caption-line-height: var(--ac-line-height-md);
+  --ac-typo-caption-line-spacing: var(--ac-letter-spacing-lg);
+  --ac-typo-caption-medium-font-size: var(--ac-font-size-2xs);
+  --ac-typo-caption-medium-font-weight: var(--ac-font-weight-regular);
+  --ac-typo-caption-medium-line-height: var(--ac-line-height-md);
+  --ac-typo-caption-medium-line-spacing: var(--ac-letter-spacing-md);
+  --ac-typo-caption-small-font-size: var(--ac-font-size-2xs);
+  --ac-typo-caption-small-font-weight: var(--ac-font-weight-regular);
+  --ac-typo-caption-small-line-height: var(--ac-line-height-sm);
+  --ac-typo-caption-small-line-spacing: var(--ac-letter-spacing-md);
+
+  /* Link */
+  --ac-typo-link-font-size: var(--ac-font-size-sm);
+  --ac-typo-link-font-weight: var(--ac-font-weight-regular);
+  --ac-typo-link-line-height: var(--ac-line-height-lg);
+  --ac-typo-link-line-spacing: var(--ac-letter-spacing-normal);
+
+  /* Paragraph */
+  --ac-typo-paragraph-indent: var(--ac-dimension-zero);
+  --ac-typo-paragraph-spacing: var(--ac-font-size-sm);
+}

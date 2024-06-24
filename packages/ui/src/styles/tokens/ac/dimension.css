@@ -1,0 +1,35 @@
+:root {
+  --ac-dimension-zero: 0px;
+  --ac-dimension-static-size-8: 8px;
+  --ac-dimension-static-size-16: 16px;
+  --ac-dimension-static-size-100: 100px;
+  --ac-dimension-static-size-200: 200px;
+  --ac-dimension-static-size-300: 300px;
+  --ac-dimension-4xs: 0.125;
+  --ac-dimension-3xs: 0.25;
+  --ac-dimension-2xs: 0.5;
+  --ac-dimension-xs: 0.75;
+  --ac-dimension-sm: 1;
+  --ac-dimension-md: 1.5;
+  --ac-dimension-lg: 2;
+  --ac-dimension-xl: 3;
+  --ac-dimension-2xl: 4.5;
+  --ac-dimension-3xl: 6;
+  --ac-dimension-4xl: 15;
+  --ac-dimension-height-4xs: 8px;
+  --ac-dimension-height-3xs: 16px;
+  --ac-dimension-height-2xs: 24px;
+  --ac-dimension-height-xs: 32px;
+  --ac-dimension-height-sm: 48px;
+  --ac-dimension-height-md: 64px;
+  --ac-dimension-height-lg: 72px;
+  --ac-dimension-height-xl: 96px;
+  --ac-dimension-width-3xs: 320px;
+  --ac-dimension-width-2xs: 480px;
+  --ac-dimension-width-xs: 512px;
+  --ac-dimension-width-sm: 768px;
+  --ac-dimension-width-md: 1024px;
+  --ac-dimension-width-lg: 1280px;
+  --ac-dimension-width-xl: 1440px;
+  --ac-section-margin: 0 0 calc(var(--ac-spacing-md) * 16px) 0;
+}

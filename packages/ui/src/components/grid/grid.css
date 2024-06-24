@@ -1,0 +1,10 @@
+@layer acv-base {
+  :root {
+    --acv-grid-baseline: var(--acv-dimension-static-size-100);
+    --acv-grid-gutter-width: var(--acv-dimension-static-size-16);
+    --acv-grid-outer-padding: var(--acv-dimension-zero);
+    --acv-grid-columns: 24;
+    --acv-column-gap: 0;
+    --acv-row-gap: 0;
+  }
+}

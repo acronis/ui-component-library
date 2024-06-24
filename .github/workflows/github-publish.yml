@@ -9,11 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
-      - run: npm install
+      - run: npm ci
       - run: npm test
 
   publish-gpr:
@@ -24,15 +24,15 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
           scope: '@acronis-platform'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - run: echo registry=https://npm.pkg.github.com/acronis-platform >> .npmrc
       - name: Build
         run: npm run build

@@ -1,0 +1,96 @@
+{
+  "name": "@acronis-platform/icons",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Include SVG icon collections with Vue 3 examples.",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "directory": "dist",
+    "linkDirectory": false
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/lib/index.js",
+      "import": "./dist/es/public.mjs"
+    },
+    "./es": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/es/public.mjs"
+    },
+    "./lib": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/lib/public.js"
+    },
+    "./es/*.mjs": "./dist/es/*.mjs",
+    "./es/*": "./dist/es/*.mjs",
+    "./lib/*.js": "./dist/lib/*.js",
+    "./lib/*": "./dist/lib/*.js",
+    "./iconify/*": "./dist/iconify/*",
+    "./package.json": "./package.json",
+    "./*": "./*"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm run build:icons:vue && vite build && pnpm run build:json",
+    "build:icons:svg:download": "tsx bin/downloadIcons.ts",
+    "build:icons:svg:optimize": "tsx bin/optimizeIcons.ts",
+    "build:icons:svg:index": "tsx bin/indexSvgIcons.ts",
+    "build:icons:vue": "pnpm run build:icons:vue:create && pnpm run build:icons:vue:index",
+    "build:icons:vue:create": "tsx bin/createVueIcons.ts",
+    "build:icons:vue:index": "tsx bin/indexVueIcons.ts",
+    "build:demo": "vite build --config vite.demo.config.ts",
+    "build:json": "pnpm run build:json:constructor && pnpm run build:json:acronis",
+    "build:json:constructor": "node bin/generateIconifyJSON.js -c constructor",
+    "build:json:acronis": "node bin/generateIconifyJSON.js -c acronis",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "vue",
+    "vue3",
+    "ui-kit"
+  ],
+  "license": "MIT",
+  "author": "Acronis",
+  "dependencies": {
+    "vue-clipboard3": "2.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.23"
+  },
+  "devDependencies": {
+    "@iconify/tools": "4.0.4",
+    "@iconify/utils": "2.1.23",
+    "@types/fs-extra": "11.0.4",
+    "@types/node": "20.11.30",
+    "@acronis-platform/configs": "workspace:*",
+    "@acronis-platform/figma-fetcher": "workspace:*",
+    "@vitejs/plugin-vue": "5.0.4",
+    "chalk": "5.3.0",
+    "eslint": "9.3.0",
+    "fast-glob": "3.3.2",
+    "fs-extra": "11.2.0",
+    "lodash-es": "4.17.21",
+    "prettier": "3.2.5",
+    "tsx": "4.7.2",
+    "svgo": "3.0.2",
+    "svgo-add-viewbox": "3.1.0",
+    "typescript": "5.4.5",
+    "vite": "5.2.10",
+    "vite-plugin-dts": "3.8.3",
+    "vite-svg-loader": "5.1.0",
+    "vue": "3.4.30",
+    "vue-tsc": "2.0.19",
+    "yargs": "17.7.2"
+  }
+}

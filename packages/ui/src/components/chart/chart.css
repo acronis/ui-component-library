@@ -1,0 +1,23 @@
+@layer acv-base {
+  :root {
+    --acv-chart-color: var(--acv-color-chart-blue);
+    --acv-color-chart-blue: rgba(38, 104, 197, 1);
+    --acv-color-chart-brown: rgba(174, 115, 57, 1);
+    --acv-color-chart-critical: rgba(255, 129, 13, 1);
+    --acv-color-chart-danger: rgba(234, 57, 57, 1);
+    --acv-color-chart-green: rgba(8, 166, 158, 1);
+    --acv-color-chart-grey: rgba(148, 154, 163, 1);
+    --acv-color-chart-info: rgba(64, 139, 234, 1);
+    --acv-color-chart-light-blue: rgba(137, 201, 246, 1);
+    --acv-color-chart-neutral: rgba(222, 224, 227, 1);
+    --acv-color-chart-purple: rgba(206, 120, 243, 1);
+    --acv-color-chart-red: rgba(241, 92, 92, 1);
+    --acv-color-chart-success: rgba(155, 194, 37, 1);
+    --acv-color-chart-transparent: rgba(137, 201, 246, 0.5);
+    --acv-color-chart-turquoise: rgba(36, 174, 226, 1);
+    --acv-color-chart-violet: rgba(111, 91, 149, 1);
+    --acv-color-chart-warning: rgba(255, 193, 7, 1);
+    --acv-color-chart-yellow: rgba(232, 201, 77, 1);
+    --acv-color-dark: rgba(36, 49, 67, 0.9);
+  }
+}

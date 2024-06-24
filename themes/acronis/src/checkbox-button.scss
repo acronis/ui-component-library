@@ -1,6 +1,0 @@
-@import 'common/variables';
-@import 'common/mixins';
-
-@include b(checkbox-button) {
-  @include button-style;
-}

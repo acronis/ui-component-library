@@ -1,0 +1,29 @@
+<svg width="48" height="48" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <g fill-rule="evenodd" clip-path="url(#prefix__a)" clip-rule="evenodd">
+    <path fill="url(#prefix__b)" d="m19.445 48-11.84-9.62a12.283 12.283 0 0 1-4.537-9.533V8.593h32.755v20.254c0 3.7-1.667 7.2-4.538 9.533L19.445 48Z" opacity=".35"/>
+    <path fill="url(#prefix__c)" d="M19.445 48V8.593h16.377v20.254c0 3.7-1.666 7.2-4.537 9.533L19.445 48Z" opacity=".45"/>
+    <path fill="url(#prefix__d)" d="M34.166 5.664c3.836 0 6.946 3.121 6.946 6.972 0 3.85-3.11 6.97-6.946 6.97-3.837 0-6.947-3.12-6.947-6.97 0-1.518.483-2.922 1.304-4.067L25.7 6.536a10.435 10.435 0 0 0-1.955 6.1c0 5.775 4.665 10.456 10.42 10.456s10.42-4.681 10.42-10.456c0-5.776-4.666-10.457-10.42-10.457V0l-5.644 3.921 5.644 3.922V5.664Z" opacity=".6"/>
+    <path fill="url(#prefix__e)" d="M35.821 22.96v-3.553c-.53.13-1.085.2-1.656.2-3.837 0-6.947-3.122-6.947-6.972a6.96 6.96 0 0 1 1.287-4.043h-3.953a10.457 10.457 0 0 0-.807 4.043c0 5.775 4.665 10.457 10.42 10.457.563 0 1.117-.045 1.656-.131Z"/>
+  </g>
+  <defs>
+    <linearGradient id="prefix__b" x1="-16.254" x2="30.82" y1="60.761" y2="70.999" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+    <linearGradient id="prefix__c" x1="9.784" x2="34.147" y1="60.761" y2="63.41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+    <linearGradient id="prefix__d" x1="34.166" x2="57.137" y1="34.639" y2="13.908" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+    <linearGradient id="prefix__e" x1="23.583" x2="28.81" y1="15.675" y2="20.198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#295296"/>
+      <stop offset="1" stop-color="#3E78D3"/>
+    </linearGradient>
+    <clipPath id="prefix__a">
+      <path fill="#fff" d="M0 0h48v48H0z"/>
+    </clipPath>
+  </defs>
+</svg>

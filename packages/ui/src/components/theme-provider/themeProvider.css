@@ -1,0 +1,5 @@
+@layer ui-base {
+  :root {
+    --acv-theme-provider-background-color: var(--acv-color-brand-primary);
+  }
+}

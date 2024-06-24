@@ -1,0 +1,6 @@
+@layer ui-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-file-browser-color: var(--acv-color-brand-primary);
+  }
+}

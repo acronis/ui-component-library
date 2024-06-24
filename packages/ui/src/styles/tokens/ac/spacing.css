@@ -1,0 +1,38 @@
+:root {
+  --ac-spacing-base: 16px;
+  --ac-spacing-x-base: var(--ac-spacing-base);
+  --ac-spacing-y-base: var(--ac-spacing-base);
+  --ac-spacing-4xs: calc(
+    var(--ac-dimension-4xs) * var(--ac-spacing-base)
+  ); /*  2px */
+  --ac-spacing-3xs: calc(
+    var(--ac-dimension-3xs) * var(--ac-spacing-base)
+  ); /*  4px */
+  --ac-spacing-2xs: calc(
+    var(--ac-dimension-2xs) * var(--ac-spacing-base)
+  ); /*  8px */
+  --ac-spacing-xs: calc(
+    var(--ac-dimension-xs) * var(--ac-spacing-base)
+  ); /* 12px */
+  --ac-spacing-sm: calc(
+    var(--ac-dimension-sm) * var(--ac-spacing-base)
+  ); /* 16px  */
+  --ac-spacing-md: calc(
+    var(--ac-dimension-md) * var(--ac-spacing-base)
+  ); /* 24px */
+  --ac-spacing-lg: calc(
+    var(--ac-dimension-lg) * var(--ac-spacing-base)
+  ); /* 32px */
+  --ac-spacing-xl: calc(
+    var(--ac-dimension-xl) * var(--ac-spacing-base)
+  ); /* 48px */
+  --ac-spacing-2xl: calc(
+    var(--ac-dimension-2xl) * var(--ac-spacing-base)
+  ); /* 72px */
+  --ac-spacing-3xl: calc(
+    var(--ac-dimension-3xl) * var(--ac-spacing-base)
+  ); /* 96px */
+  --ac-spacing-4xl: calc(
+    var(--ac-dimension-4xl) * var(--ac-spacing-base)
+  ); /* 240px */
+}

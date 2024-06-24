@@ -1,8 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <g fill="none" fill-rule="evenodd">
-    <rect width="20" height="25" x="6" y="4" fill="#EEEEF0" fill-rule="nonzero" rx="1"/>
-    <path fill="#CBCDD1" d="M25 4a1 1 0 0 1 .993.883L26 5v23a1 1 0 0 1-.883.993L25 29H7a1 1 0 0 1-.993-.883L6 28V5a1 1 0 0 1 .883-.993L7 4h18Zm0 19H7v5h18v-5Zm-4.5 2a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm-2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm6.5-8H7v5h18v-5Zm-4.5 2a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm-2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm6.5-8H7v5h18v-5Zm-4.5 2a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm-2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1ZM25 5H7v5h18V5Zm-4.5 2a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm-2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Z"/>
-    <path fill="#92BD11" fill-rule="nonzero" d="M22.5 25a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm0-6a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm0-6a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Zm0-6a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1Z"/>
-    <path fill="#858FA2" fill-rule="nonzero" d="M6 27v1a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1Z"/>
-  </g>
-</svg>

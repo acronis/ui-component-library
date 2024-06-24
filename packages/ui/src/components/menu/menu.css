@@ -1,0 +1,10 @@
+@layer acv-base {
+  :root {
+    --acv-menu-color: var(--acv-menu-color-primary);
+    --acv-menu-color-primary: hsl(215deg, 100%, 15%);
+    --acv-menu-color-secondary: hsl(213deg, 100%, 45%);
+    --acv-menu-color-text-active: var(--acv-color-white);
+    --acv-menu-color-text-light: var(--acv-color-white-70);
+    --acv-menu-color-text: var(--acv-color-white);
+  }
+}

@@ -1,0 +1,21 @@
+:root {
+  /* letter-spacing */
+  --acv-letter-spacing-tighter: -5%;
+  --acv-letter-spacing-tight: -2.5%;
+  --acv-letter-spacing-normal: 0;
+  --acv-letter-spacing-xs: 0.3px;
+  --acv-letter-spacing-sm: 1.2px;
+  --acv-letter-spacing-md: 2.4px;
+  --acv-letter-spacing-lg: 3.2px;
+
+  /* text-transform */
+  --acv-text-transform-none: none;
+  --acv-text-transform-uppercase: uppercase;
+  --acv-text-transform-lowercase: lowercase;
+  --acv-text-transform-capitalize: capitalize;
+
+  /* text-decoration */
+  --acv-text-decoration-none: none;
+  --acv-text-decoration-underline: underline;
+  --acv-text-decoration-line-through: line-through;
+}

@@ -1,0 +1,33 @@
+:root {
+  /* z-index: https://medium.com/science-journal/z-index-organization-in-css-5913fd4c25c9 */
+
+  /*
+    0000–1999: Elements and Components
+    2000–2999: Element and Component Drop Downs
+    3000–3999: Secondary Navigation
+    4000–4999: Header / Footer
+    5000–5999: Primary Navigation
+    6000–6999: Full Screen Features
+    7000–7999: Special Cases
+    8000–8999: Modals / Dialog Windows
+    9000–9999: Notifications
+    10000: drag&drop in viewer
+   */
+  --acv-z-index-negative: -1;
+  --acv-z-index-normal: 1;
+  --acv-z-index-label: 2;
+  --acv-z-index-scrollbar: 100;
+  --acv-z-index-toolbar: 1000;
+  --acv-z-index-dropdown: 2000;
+  --acv-z-index-popover: 2500;
+  --acv-z-index-tooltip: 2600;
+  --acv-z-index-fixed: 3000;
+  --acv-z-index-header: 4000;
+  --acv-z-index-navigation: 5000;
+  --acv-z-index-overlay: 6000;
+  --acv-z-index-loading: 7000;
+  --acv-z-index-dialog: 8000;
+  --acv-z-index-close: 8500;
+  --acv-z-index-notifications: 9000;
+  --acv-z-index-draggable: 10000;
+}

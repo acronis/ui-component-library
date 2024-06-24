@@ -1,0 +1,160 @@
+@layer acv-base {
+  :root {
+    /* Colors */
+    --acv-button-color: var(--acv-button-primary-text);
+    --acv-button-color-hover: var(--acv-color-button-hover-primary);
+    --acv-button-color-focus: var(--acv-color-text-disabled);
+    --acv-button-color-active: var(--acv-color-text-disabled);
+    --acv-button-color-disabled: var(--acv-color-text-disabled);
+
+    /* Background colors */
+    --acv-button-bg: var(--acv-button-primary-bg);
+    --acv-button-bg-hover: var(--acv-button-primary-bg-hover);
+    --acv-button-bg-active: var(--acv-button-primary-bg-active);
+    --acv-button-bg-disabled: var(--acv-button-primary-bg-disabled);
+
+    /* Border colors */
+    --acv-button-border-color: var(--acv-color-button-primary);
+    --acv-button-border-color-hover: var(--acv-color-text-disabled);
+    --acv-button-border-color-focus: var(--acv-color-text-disabled);
+
+    /* Border */
+    --acv-button-border-radius: var(--acv-radius-regular);
+    --acv-button-border-width: var(--acv-button-primary-border-width);
+    --acv-button-border-style: var(--acv-border-style-solid);
+    --acv-button-outline: var(--acv-border-x-large)
+      var(--acv-border-style-solid) var(--acv-color-button-focus);
+
+    /* Padding */
+    --acv-button-padding: var(--acv-button-padding-medium);
+    --acv-button-padding-small: var(--acv-spacing-x-small);
+    --acv-button-padding-medium: var(--acv-spacing-small);
+    --acv-button-padding-large: var(--acv-spacing-regular);
+
+    /* Font sizes */
+    --acv-button-font-size: var(--acv-button-font-size-small);
+    --acv-button-font-size-small: var(--acv-font-size-body);
+    --acv-button-font-size-medium: var(--acv-font-size-body);
+    --acv-button-font-size-large: var(--acv-font-size-lead);
+
+    /* Heights */
+    --acv-button-height: var(--acv-button-height-medium);
+    --acv-button-height-small: var(--acv-height-small);
+    --acv-button-height-medium: var(--acv-height-regular);
+    --acv-button-height-large: var(--acv-height-x-large);
+
+    /* Button Variants */
+
+    /* Primary */
+    --acv-button-primary-bg-active: var(--acv-color-button-active-primary);
+    --acv-button-primary-bg-disabled: var(--acv-color-button-disabled);
+    --acv-button-primary-bg-hover: var(--acv-color-button-hover-primary);
+    --acv-button-primary-bg: var(--acv-color-button-primary);
+    --acv-button-primary-border-width: var(--acv-border-width-00);
+    --acv-button-primary-border-color: var(--acv-color-button-primary);
+    --acv-button-primary-text: var(--acv-color-text-inversed-primary);
+    --acv-button-primary-text-outline: var(--acv-color-text-status-info);
+    --acv-button-primary-text-disabled: var(--acv-color-link-disabled-inversed);
+
+    /* Outline */
+    --acv-button-outline-bg-active: var(--acv-color-button-active-secondary);
+    --acv-button-outline-bg-disabled: var(--acv-color-transparent);
+    --acv-button-outline-bg-hover: var(--acv-color-button-hover-secondary);
+    --acv-button-outline-bg: var(--acv-color-transparent);
+    --acv-button-outline-border-width: var(--acv-border-width-01);
+    --acv-button-outline-border-color: var(--acv-color-button-secondary);
+    --acv-button-outline-border-color-disabled: var(
+      --acv-color-button-disabled
+    );
+    --acv-button-outline-text-color-disabled: var(--acv-color-link-disabled);
+    --acv-button-outline-text-color: var(--acv-color-link-primary);
+
+    /* Ghost */
+    --acv-button-ghost-bg-active: var(--acv-color-button-active-secondary);
+    --acv-button-ghost-bg-disabled: var(--acv-color-transparent);
+    --acv-button-ghost-bg-hover: var(--acv-color-button-hover-secondary);
+    --acv-button-ghost-bg: var(--acv-color-transparent);
+    --acv-button-ghost-border-width: var(--acv-border-width-00);
+    --acv-button-ghost-text-disabled: var(--acv-color-link-disabled);
+    --acv-button-ghost-text: var(--acv-color-link-primary);
+
+    /* Inverted */
+    --acv-button-inverted-bg-active: var(--acv-color-button-active-inversed);
+    --acv-button-inverted-bg-disabled: var(
+      --acv-color-button-disabled-inversed
+    );
+    --acv-button-inverted-bg-hover: var(--acv-color-button-hover-inversed);
+    --acv-button-inverted-bg: var(--acv-color-button-inversed);
+    --acv-button-inverted-border-width: var(--acv-border-width-00);
+    --acv-button-inverted-text-disabled: var(
+      --acv-color-link-disabled-inversed
+    );
+    --acv-button-inverted-text: var(--acv-color-link-inversed-primary);
+
+    /* Danger */
+    --acv-button-danger-color: var(--acv-color-text-inversed-primary);
+    --acv-button-danger-color-hover: var(--acv-color-link-disabled-inversed);
+    --acv-button-danger-color-active: var(--acv-color-link-disabled-inversed);
+    --acv-button-danger-color-disabled: var(--acv-color-link-disabled-inversed);
+    --acv-button-danger-b-color: var(--acv-color-text-inversed-primary);
+    --acv-button-danger-b-color-hover: var(--acv-color-text-inversed-primary);
+    --acv-button-danger-b-color-active: var(--acv-color-text-inversed-primary);
+    --acv-button-danger-bg: var(--acv-color-button-danger);
+    --acv-button-danger-bg-active: var(--acv-color-button-active-danger);
+    --acv-button-danger-bg-disabled: var(--acv-color-button-disabled-danger);
+    --acv-button-danger-bg-hover: var(--acv-color-button-hover-danger);
+
+    /* Success */
+    --acv-button-success-bg: var(--acv-color-status-success-secondary);
+    --acv-button-success-bg-active: var(--acv-color-button-success-active);
+    --acv-button-success-bg-disabled: var(--acv-color-button-success-disabled);
+    --acv-button-success-bg-hover: var(--acv-color-button-success-hover);
+    --acv-button-success-solid-bg: var(--acv-color-button-success-active);
+    --acv-button-success-border-color: var(
+      --acv-color-status-success-secondary
+    );
+    --acv-button-success-text-color: var(--acv-color-text-status-success);
+
+    /* Warning */
+    --acv-button-warning-bg: var(--acv-color-status-warning-secondary);
+    --acv-button-warning-bg-active: hsl(
+      from var(--acv-color-status-warning-secondary) h,
+      s,
+      calc(l - 10)
+    );
+    --acv-button-warning-bg-disabled: hsl(
+      from var(--acv-color-status-warning-secondary) h,
+      s,
+      calc(l - 30)
+    );
+    --acv-button-warning-bg-hover: hsl(
+      from var(--acv-color-status-warning-secondary) h,
+      calc(s - 10),
+      calc(l - 10)
+    );
+    --acv-button-warning-border-color: var(
+      --acv-color-status-warning-secondary
+    );
+    --acv-button-warning-text-color: var(--acv-color-text-status-warning);
+
+    /* Info */
+    --acv-button-info-bg: var(--acv-color-status-info-secondary);
+    --acv-button-info-bg-active: hsl(
+      from var(--acv-color-status-info-secondary) h,
+      s,
+      calc(l - 10)
+    );
+    --acv-button-info-bg-disabled: hsl(
+      from var(--acv-color-status-info-secondary) h,
+      s,
+      calc(l - 30)
+    );
+    --acv-button-info-bg-hover: hsl(
+      from var(--acv-color-status-info-secondary) h,
+      calc(s - 10),
+      calc(l - 10)
+    );
+    --acv-button-info-border-color: var(--acv-color-status-info-secondary);
+    --acv-button-info-text-color: var(--acv-color-text-status-info);
+  }
+}

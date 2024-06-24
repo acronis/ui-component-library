@@ -1,0 +1,139 @@
+@layer acv-base {
+  :root {
+    --acv-table-color: var(--acv-color-app-base);
+
+    /* Markup */
+    --acv-table-background-color: var(--acv-color-red);
+
+    /* Rest styles */
+    --acv-table-alpine-active-color: hsl(207deg, 90%, 54%);
+    --acv-table-alpine-active: hsl(207deg, 90%, 54%);
+    --acv-table-border-color: hsl(217deg, 10%, 75%);
+    --acv-table-border-radius: var(--acv-border-radius-sm, 3px);
+    --acv-table-borders-critical: hsl(0deg, 0%, 100%);
+    --acv-table-borders-input: var(--acv-border-secondary);
+    --acv-table-borders-secondary: hsl(0deg, 0%, 100%);
+    --acv-table-card-radius: var(--acv-table-border-radius);
+    --acv-table-cell-horizontal-padding: 18px;
+    --acv-table-cell-widget-spacing: 12px;
+    --acv-table-cell-color: var(--acv-color-app-base);
+    --acv-table-checkbox-background-color: var(--acv-table-background-color);
+    --acv-table-checkbox-border-radius: var(--acv-table-border-radius);
+    --acv-table-checkbox-checked-color: var(
+      --acv-table-checkbox-background-color
+    );
+    --acv-table-checkbox-indeterminate-color: var(
+      --acv-table-checkbox-unchecked-color
+    );
+    --acv-table-checkbox-unchecked-color: hsl(0deg, 0%, 60%);
+    --acv-table-chip-background-color: rgba(24, 29, 31, 0.07);
+    --acv-table-column-hover-color: rgba(33, 150, 243, 0.1);
+    --acv-table-column-select-indent-size: var(--acv-table-icon-size);
+    --acv-table-control-panel-background-color: hsl(0deg, 0%, 97%);
+    --acv-table-disabled-foreground-color: rgba(24, 29, 31, 0.5);
+    --acv-table-filter-tool-panel-group-indent: 16px;
+    --acv-table-font-size: 13px;
+    --acv-table-foreground-color: hsl(197deg, 13%, 11%);
+    --acv-table-grid-size: 6px;
+    --acv-table-header-background-color: hsl(0deg, 0%, 97%);
+    --acv-table-header-cell-hover-background-color: rgba(255, 255, 255, 0);
+    --acv-table-header-column-resize-handle-color: var(
+      --acv-table-secondary-border-color
+    );
+    --acv-table-header-column-resize-handle-display: 0px;
+    --acv-table-header-column-resize-handle-height: 30px;
+    --acv-table-header-column-resize-handle-width: hsl(0deg, 0%, 100%);
+    --acv-table-header-column-separator-color: var(
+      --acv-table-secondary-border-color
+    );
+    --acv-table-header-column-separator-height: 100px;
+    --acv-table-header-column-separator-width: 1px;
+    --acv-table-header-foreground-color: var(
+      --acv-table-secondary-foreground-color
+    );
+    --acv-table-header-height: 48px;
+    --acv-table-icon-size: 16px;
+    --acv-table-input-border-color-invalid: var(--acv-table-invalid-color);
+    --acv-table-input-border-color: var(--acv-table-border-color);
+    --acv-table-input-disabled-background-color: var(--acv-color-grey-light-20);
+    --acv-table-input-disabled-border-color: hsla(217deg, 10%, 75%, 0.3);
+    --acv-table-input-focus-border-color: rgba(33, 150, 243, 0.4);
+    --acv-table-invalid-color: hsl(0deg, 75%, 51%);
+    --acv-table-list-item-height: 24px;
+    --acv-table-menu-min-width: 181px;
+    --acv-table-modal-overlay-background-color: hsla(0deg, 0%, 100%, 0.66);
+    --acv-table-odd-row-background-color: hsl(0deg, 0%, 99%);
+    --acv-table-range-selection-background-color-2: hsla(
+      207deg,
+      90%,
+      54%,
+      0.36
+    );
+    --acv-table-range-selection-background-color-3: rgba(33, 150, 243, 0.49);
+    --acv-table-range-selection-background-color-4: rgba(33, 150, 243, 0.59);
+    --acv-table-range-selection-background-color: rgba(33, 150, 243, 0.2);
+    --acv-table-range-selection-border-color: var(
+      --acv-table-alpine-active-color
+    );
+    --acv-table-range-selection-chart-background-color: rgba(0, 88, 255, 0.1);
+    --acv-table-range-selection-chart-category-background-color: rgba(
+      0,
+      255,
+      132,
+      0.1
+    );
+    --acv-table-range-selection-highlight-color: var(
+      --acv-table-range-selection-border-color
+    );
+    --acv-table-row-border-color: var(--acv-table-secondary-border-color);
+    --acv-table-row-border-width: 1px;
+    --acv-table-row-group-indent-size: 28px;
+    --acv-table-row-height: 42px;
+    --acv-table-row-hover-color: rgba(33, 150, 243, 0.1);
+    --acv-table-row-width: 100px;
+    --acv-table-secondary-border-color: hsl(219deg, 26%, 89%);
+    --acv-table-secondary-foreground-color: var(--acv-table-foreground-color);
+    --acv-table-selected-row-background-color: rgba(33, 150, 243, 0.3);
+    --acv-table-selected-tab-underline-color: var(
+      --acv-table-alpine-active-color
+    );
+    --acv-table-selected-tab-underline-width: 2px;
+    --acv-table-set-filter-indent-size: var(--acv-table-icon-size);
+    --acv-table-side-bar-panel-width: 250px;
+    --acv-table-side-button-selected-background-color: var(--acv-color-amber);
+    --acv-table-subheader-background-color: hsl(0deg, 0%, 100%);
+    --acv-table-subheader-toolbar-background-color: rgba(255, 255, 255, 0);
+    --acv-table-tab-min-width: 240px;
+    --acv-table-toggle-button-border-width: 1px;
+    --acv-table-toggle-button-height: 18px;
+    --acv-table-toggle-button-off-background-color: var(
+      --acv-table-checkbox-unchecked-color
+    );
+    --acv-table-toggle-button-off-border-color: var(
+      --acv-table-checkbox-unchecked-color
+    );
+    --acv-table-toggle-button-on-background-color: var(
+      --acv-table-checkbox-checked-color
+    );
+    --acv-table-toggle-button-on-border-color: var(
+      --acv-table-checkbox-checked-color
+    );
+    --acv-table-toggle-button-switch-background-color: var(
+      --acv-table-background-color
+    );
+    --acv-table-toggle-button-width: 28px;
+    --acv-table-tooltip-background-color: hsl(0deg, 0%, 97%);
+    --acv-table-value-change-delta-down-color: hsl(1deg, 77%, 55%);
+    --acv-table-value-change-delta-up-color: hsl(123deg, 41%, 45%);
+    --acv-table-value-change-value-highlight-background-color: rgba(
+      22,
+      160,
+      133,
+      0.5
+    );
+    --acv-table-widget-container-horizontal-padding: 12px;
+    --acv-table-widget-container-vertical-padding: 12px;
+    --acv-table-widget-horizontal-spacing: 12px;
+    --acv-table-widget-vertical-spacing: 9px;
+  }
+}

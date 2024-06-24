@@ -1,7 +1,0 @@
-@import '../common/mixins';
-@import '../common/variables';
-
-@include b(table-widget) {
-  position: relative;
-  width: 100%;
-}

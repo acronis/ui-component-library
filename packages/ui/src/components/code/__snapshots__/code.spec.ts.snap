@@ -1,0 +1,120 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test Code component > code should be highlighted 1`] = `
+<code
+  class="acv-code"
+  data-v-28437d1d=""
+>
+  <span
+    class="hljs-keyword"
+  >
+    from
+  </span>
+   pymatgen.core 
+  <span
+    class="hljs-keyword"
+  >
+    import
+  </span>
+   Lattice, Structure
+
+  <span
+    class="hljs-keyword"
+  >
+    from
+  </span>
+   rolos_sdk 
+  <span
+    class="hljs-keyword"
+  >
+    import
+  </span>
+   Dataframe, DataStorageInterface, DataStorageType, RawObject, TableColumn
+
+  <span
+    class="hljs-keyword"
+  >
+    from
+  </span>
+   rolos_sdk.structures.
+  <span
+    class="hljs-built_in"
+  >
+    object
+  </span>
+  .pymatgen 
+  <span
+    class="hljs-keyword"
+  >
+    import
+  </span>
+   PyMatGenObject
+
+table_schema = [
+    TableColumn(name=
+  <span
+    class="hljs-string"
+  >
+    "Index"
+  </span>
+  , 
+  <span
+    class="hljs-built_in"
+  >
+    type
+  </span>
+  =
+  <span
+    class="hljs-built_in"
+  >
+    int
+  </span>
+  ),
+    TableColumn(name=
+  <span
+    class="hljs-string"
+  >
+    "Test"
+  </span>
+  , 
+  <span
+    class="hljs-built_in"
+  >
+    type
+  </span>
+  =
+  <span
+    class="hljs-built_in"
+  >
+    float
+  </span>
+  ),
+    TableColumn(name=
+  <span
+    class="hljs-string"
+  >
+    "Structure"
+  </span>
+  , 
+  <span
+    class="hljs-built_in"
+  >
+    type
+  </span>
+  =PyMatGenObject),
+    TableColumn(name=
+  <span
+    class="hljs-string"
+  >
+    "Raw experiment data"
+  </span>
+  , 
+  <span
+    class="hljs-built_in"
+  >
+    type
+  </span>
+  =RawObject),
+]
+</code>
+`;

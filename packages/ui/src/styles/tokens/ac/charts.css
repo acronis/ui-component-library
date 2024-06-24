@@ -1,0 +1,38 @@
+:root {
+  /* Data, charts */
+
+  /* Blue */
+  --ac-color-data-blue: hsl(215deg, 68%, 46%);
+  --ac-color-data-blue-text: var(--ac-color-data-blue);
+  --ac-color-data-blue-line: hsl(215deg, 68%, 66%);
+  --ac-color-data-blue-bg: hsl(215deg, 68%, 86%);
+
+  /* Brown */
+  --ac-color-data-brown: hsl(30deg, 51%, 45%);
+  --ac-color-data-brown-text: hsl(30deg, 51%, 45%);
+  --ac-color-data-brown-line: hsl(30deg, 51%, 65%);
+  --ac-color-data-brown-bg: hsl(30deg, 51%, 85%);
+
+  /* Critical */
+  --ac-color-data-critical: hsl(29deg, 100%, 53%);
+  --ac-color-data-text: hsl(29deg, 100%, 53%);
+  --ac-color-data-line: hsl(29deg, 100%, 73%);
+  --ac-color-data-bg: hsl(29deg, 100%, 93%);
+
+  /* Danger */
+  --ac-color-data-danger: rgba(234, 57, 57, 1);
+  --ac-color-data-green: rgba(8, 166, 158, 1);
+  --ac-color-data-grey: rgba(148, 154, 163, 1);
+  --ac-color-data-info: rgba(64, 139, 234, 1);
+  --ac-color-data-light-blue: rgba(137, 201, 246, 1);
+  --ac-color-data-neutral: hsl(216deg, 8%, 88%);
+  --ac-color-data-purple: rgba(206, 120, 243, 1);
+  --ac-color-data-red: rgba(241, 92, 92, 1);
+  --ac-color-data-success: rgba(155, 194, 37, 1);
+  --ac-color-data-transparent: rgba(137, 201, 246, 0.5);
+  --ac-color-data-turquoise: rgba(36, 174, 226, 1);
+  --ac-color-data-violet: rgba(111, 91, 149, 1);
+  --ac-color-data-warning: rgba(255, 193, 7, 1);
+  --ac-color-data-yellow: rgba(232, 201, 77, 1);
+  --ac-color-dark: rgba(36, 49, 67, 0.9);
+}

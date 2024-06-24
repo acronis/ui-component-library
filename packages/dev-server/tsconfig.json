@@ -1,0 +1,11 @@
+{
+  "extends": "@acronis-platform/configs/tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "paths": {
+      "@/*": ["../ui/src/*"],
+      "uikit-ui": ["../ui/src/components"]
+    }
+  },
+  "include": ["*.vue", "*.ts", "global.d.ts"]
+}

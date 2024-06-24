@@ -1,0 +1,9 @@
+@layer acv-base {
+  :root {
+    --acv-link-color: var(--acv-color-brand-primary);
+    --acv-link-color-hover: var(--acv-color-primary-dark);
+    --acv-link-color-active: var(--acv-color-primary-hover);
+    --acv-link-color-visited: var(--acv-color-primary-light);
+    --acv-link-color-visited-hover: var(--acv-color-primary-darker);
+  }
+}

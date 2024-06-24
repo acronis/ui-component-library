@@ -1,8 +1,0 @@
-{
-  "name": "@uikit/ui-kit-documentation",
-  "description": "Acronis Cyber UI Kit documentation",
-  "license": "MIT",
-  "files": [
-    "dist"
-  ]
-}

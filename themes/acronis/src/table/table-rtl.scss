@@ -1,6 +1,0 @@
-@include b(table) {
-  &[dir='rtl'] {
-    direction: rtl;
-    unicode-bidi: embed;
-  }
-}
