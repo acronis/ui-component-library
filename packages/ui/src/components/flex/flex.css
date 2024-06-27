@@ -1,0 +1,10 @@
+@layer acv-base {
+  :root {
+    --acv-flex-cols: 12;
+    --acv-flex-gutter-xs: calc(var(--acv-spacing-base) * 0.25);
+    --acv-flex-gutter-sm: calc(var(--acv-spacing-base) * 0.5);
+    --acv-flex-gutter-md: var(--acv-spacing-base);
+    --acv-flex-gutter-lg: calc(var(--acv-spacing-base) * 1.5);
+    --acv-flex-gutter-xl: calc(var(--acv-spacing-base) * 3);
+  }
+}

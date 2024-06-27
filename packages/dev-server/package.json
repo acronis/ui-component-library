@@ -1,0 +1,23 @@
+{
+  "name": "@acronis-platform/ui-kit-dev-server",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "serve": "vite"
+  },
+  "dependencies": {
+    "@acronis-platform/icons": "workspace:*",
+    "@acronis-platform/utils": "workspace:*",
+    "autoprefixer": "10.4.19",
+    "vue-router": "4.3.2",
+    "lodash-es": "4.17.21"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "5.0.4",
+    "@vitejs/plugin-vue-jsx": "3.1.0",
+    "vite-plugin-inspect": "0.8.4",
+    "postcss": "8.4.38",
+    "unplugin-vue-components": "0.27.0",
+    "vue": "3.4.30"
+  }
+}

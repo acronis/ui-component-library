@@ -1,0 +1,44 @@
+{
+  "name": "Accordion",
+  "definitions": [
+    {
+      "name": "model",
+      "examples": [
+        { "name": "expanded", "implemented": true },
+        { "name": "updated", "implemented": true },
+        { "name": "expanded:update", "implemented": true }
+      ]
+    },
+    {
+      "name": "size",
+      "examples": [
+        { "name": "small", "implemented": true },
+        { "name": "medium", "implemented": true },
+        { "name": "large", "implemented": true }
+      ]
+    },
+    {
+      "name": "multiple",
+      "examples": [
+        { "name": "single", "implemented": true },
+        { "name": "multiple", "implemented": true }
+      ]
+    },
+    {
+      "name": "expanded",
+      "examples": [{ "name": "all", "implemented": true }]
+    },
+    {
+      "name": "Accordion",
+      "type": "component",
+      "selector": "accordion",
+      "inputs": [
+        {
+          "name": "AccordionPanel",
+          "type": "component",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

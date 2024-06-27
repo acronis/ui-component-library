@@ -1,0 +1,55 @@
+---
+title: Filter component
+lang: en-US
+editLink: true
+---
+
+# Filter
+
+The search results are displayed in the pop-up list and appear after the first character is entered. A pop-up list inherits the behavior and positioning of the Dropdown component
+
+:::info Figma mockups
+https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A13r
+:::
+
+## Basic usage
+
+::: tip
+Provide follow API for using this component: `filters`: `string[] | array[]` prop
+and map it directly on your models like in example below.
+Now supported DatePicker, Input, Select (single/multi).
+:::
+
+<FilterBasic />
+
+::: details Source code
+<<< @/demos/filter/FilterBasic.vue
+:::
+
+## Best practices
+
+A Filter should ...
+
+## Related components
+
+- [Button](/components/button/button.doc)
+
+## Props
+
+| Prop name   | Description               | Type   | Values | Default |
+| ----------- | ------------------------- | ------ | ------ | ------- |
+| title       | Title of the Filter       | string | -      |         |
+| description | Description of the Filter | string | -      |         |
+
+## Events
+
+| Event name | Properties                                                                                                      | Description                            |
+| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
+
+## Slots
+
+| Name        | Description                  | Bindings |
+| ----------- | ---------------------------- | -------- |
+| default     | The default slot content     |          |
+| description | The description slot content |          |

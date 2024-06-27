@@ -1,0 +1,20 @@
+[
+  {
+    "x": "2022-11-30T16:00:00.000Z",
+    "y": 44.1781,
+    "lowerThreshold": 30.3223,
+    "higherThreshold": 48.9132
+  },
+  {
+    "x": "2022-12-01T17:30:21.000Z",
+    "y": 42.5343,
+    "lowerThreshold": 32.123,
+    "higherThreshold": 50.0033
+  },
+  {
+    "x": "2022-12-02T19:49:02.000Z",
+    "y": 52.7055,
+    "lowerThreshold": 45.402,
+    "higherThreshold": 60
+  }
+]

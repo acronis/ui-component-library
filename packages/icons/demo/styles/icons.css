@@ -1,0 +1,36 @@
+.acv-icon {
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--acv-font-size-accent);
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.acv-icon:not(.two-tone) {
+  color: hsl(213deg, 5%, 39%);
+}
+
+.filled,
+.outlined,
+.round,
+.sharp,
+.two-tone {
+    color: inherit;
+}

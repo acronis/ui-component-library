@@ -1,0 +1,15 @@
+@layer acv-base {
+  :root {
+    --acv-icon-color: currentColor;
+    --acv-icon-size-3xl: 96px;
+    --acv-icon-size-2xl: 72px;
+    --acv-icon-size-xl: 48px;
+    --acv-icon-size-lg: 32px;
+    --acv-icon-size-md: 24px;
+    --acv-icon-size-sm: 20px;
+    --acv-icon-size-xs: 16px;
+    --acv-icon-size-xxs: 12px;
+    --acv-icon-size-xxxs: 8px;
+    --acv-base-icon-size: var(--acv-icon-size-md);
+  }
+}

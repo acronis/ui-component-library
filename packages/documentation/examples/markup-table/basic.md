@@ -1,0 +1,3 @@
+# Basic Markup Table
+
+<MarkupTableBasic />

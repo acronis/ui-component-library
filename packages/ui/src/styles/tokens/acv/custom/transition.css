@@ -1,0 +1,49 @@
+:root {
+  --acv-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --acv-transition-color: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --acv-transition-border: border-color 0.2s
+    cubic-bezier(0.645, 0.045, 0.355, 1);
+  --acv-transition-fade: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  --acv-transition-md-fade: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+    opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+  --acv-transition-fade-linear: opacity 200ms linear;
+  --acv-transition-standard: var(--acv-transition-timing-common)
+    var(--acv-transition-duration-standard);
+  --acv-transition-short: var(--acv-transition-timing-common)
+    var(--acv-transition-duration-short);
+  --acv-transition-shortest: var(--acv-transition-timing-common)
+    var(--acv-transition-duration-shortest);
+
+  /* https://next.material-ui.com/customization/transitions/#durations */
+  --acv-transition-duration-shortest: 150ms;
+  --acv-transition-duration-shorter: 200ms;
+  --acv-transition-duration-short: 250ms;
+  --acv-transition-duration-standard: 300ms; /* most basic recommended timing */
+  --acv-transition-duration-complex: 375ms; /* this is to be used in complex animations */
+  --acv-transition-duration-entering-screen: 225ms; /* recommended when something is entering screen */
+  --acv-transition-duration-leaving-screen: 195ms; /* recommended when something is leaving screen */
+
+  /* https://next.material-ui.com/customization/transitions/#easings */
+
+  /* This is the most common easing curve. */
+  --acv-transition-timing-common: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Objects enter the screen at full velocity from off-screen and slowly decelerate to a resting point. */
+  --acv-transition-timing-enter: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Objects leave the screen at full velocity. They do not decelerate when off-screen. */
+  --acv-transition-timing-leave: cubic-bezier(0.4, 0, 1, 1);
+
+  /* The sharp curve is used by objects that may return to the screen at any time. */
+  --acv-transition-timing-sharp: cubic-bezier(0.4, 0, 1, 1);
+
+  /* The easing curve is identical to acv-transition-timing-common,
+  but it is used by objects that may return to the screen at any time. */
+  --acv-transition-timing-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --acv-transition-timing-ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --acv-transition-timing-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --acv-transition-timing-ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Particular transitions */
+  --acv-transition-background: background-color 1000ms linear;
+}

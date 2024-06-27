@@ -1,0 +1,117 @@
+:root {
+  --acv-breakpoint-width--xs: 640px;
+  --acv-breakpoint-width--sm: 768px;
+  --acv-breakpoint-width--md: 1024px;
+  --acv-breakpoint-width--lg: 1280px;
+  --acv-breakpoint-width--xl: 1440px;
+  --acv-breakpoint-width--2xl: 1920px;
+  --acv-breakpoint-viewport--xs-only: "max-width: calc(768px - 1)";
+  --acv-breakpoint-viewport--sm-and-up: "min-width: 768px";
+  --acv-breakpoint-viewport--sm-only: "min-width: 768px and max-width: calc(1024px - 1)";
+  --acv-breakpoint-viewport--sm-down: "max-width: 1024px";
+  --acv-breakpoint-viewport--md: 1024px;
+  --acv-breakpoint-viewport--lg: 1280px;
+  --acv-breakpoint-viewport--xl: 1440px;
+  --acv-breakpoint-viewport--2xl: 1920px;
+  --acv-breakpoint--mobile: var(--acv-breakpoint-width--xs);
+  --acv-breakpoint--tablet: var(--acv-breakpoint-width--md);
+  --acv-breakpoint--laptop: var(--acv-breakpoint-width--lg);
+  --acv-breakpoint--desktop: var(--acv-breakpoint-width--xl);
+  --is-x-small-viewport: false;
+  --is-small-vieport: false;
+  --is-medium-viewport: false;
+  --is-large-viewport: false;
+  --is-x-large-viewport: false;
+  --is-xx-large-viewport: false;
+
+  @media (width < 768px) {
+    --is-x-small-viewport: true;
+  }
+
+  @media (width >= 768px) and (width <= 1023px) {
+    --is-small-viewport: true;
+  }
+
+  @media (width >= 1024px) and (width <= 1279px) {
+    --is-medium-viewport: true;
+  }
+
+  @media (width >= 1280px) and (width <= 1439px) {
+    --is-large-viewport: true;
+  }
+
+  @media (width >= 1440px) and (width <= 1919px) {
+    --is-x-large-viewport: true;
+  }
+
+  @media (width >= 1920px) {
+    --is-xx-large-viewport: true;
+  }
+
+  @custom-media --x-small-viewport (max-width: var(--acv-breakpoint-width--sm));
+  @custom-media --small-viewport (min-width: var(--acv-breakpoint-width--sm));
+  @custom-media --medium-viewport (min-width: var(--acv-breakpoint-width--md));
+  @custom-media --large-viewport (min-width: var(--acv-breakpoint-width--sm));
+  @custom-media --x-large-viewport (min-width: var(--acv-breakpoint-width--sm));
+  @custom-media --xx-large-viewport (min-width: var(--acv-breakpoint-width--sm));
+}
+
+/* @media only screen */
+
+/* and (width < 768px) { */
+
+/*  :root { */
+
+/*    --is-x-small-viewport: true; */
+
+/*  } */
+
+/* } */
+
+/* @media only screen */
+
+/* and (width >= 768px) { */
+
+/*  :root { */
+
+/*    --is-small-viewport: true; */
+
+/*  } */
+
+/* } */
+
+/* @media only screen */
+
+/* and (width >= 1024px) { */
+
+/*  :root { */
+
+/*    --is-medium-viewport: true; */
+
+/*  } */
+
+/* } */
+
+/* @media only screen */
+
+/* and (width >= 1280px) { */
+
+/*  :root { */
+
+/*    --is-large-viewport: true; */
+
+/*  } */
+
+/* } */
+
+/* @media only screen */
+
+/* and (width >= 1440px) { */
+
+/*  :root { */
+
+/*    --is-x-large-viewport: true; */
+
+/*  } */
+
+/* } */

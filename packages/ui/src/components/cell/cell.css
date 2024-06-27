@@ -1,0 +1,10 @@
+@layer acv-base {
+  :root {
+    --acv-cell-baseline: var(--acv-dimension-static-size-100);
+    --acv-cell-gutter-width: var(--acv-dimension-static-size-16);
+    --acv-cell-outer-padding: var(--acv-dimension-zero);
+    --acv-cell-columns: 24;
+    --acv-cell-column-gap: 0;
+    --acv-cell-row-gap: 0;
+  }
+}

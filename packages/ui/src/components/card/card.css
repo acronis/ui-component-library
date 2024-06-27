@@ -1,0 +1,7 @@
+@layer acv-base {
+  :root {
+    --acv-card-color: var(--acv-color-text-primary);
+    --acv-card-background-color: var(--acv-color-brand-secondary);
+    --acv-card-border-color: var(--acv-color-brand-primary);
+  }
+}

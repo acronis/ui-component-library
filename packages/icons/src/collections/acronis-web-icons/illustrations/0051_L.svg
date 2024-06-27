@@ -1,0 +1,14 @@
+<svg width="96" height="96" fill="none" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+  <path fill="url(#prefix__a)" d="M23.164 77h49.549C78.947 77 84 71.628 84 65s-5.053-12-11.287-12h-4.734C67.455 40.761 57.367 31 45 31c-7.187 0-13.605 3.297-17.822 8.46A19.065 19.065 0 0 0 23 39C12.508 39 4 47.507 4 58s8.508 19 19 19h.164Z" clip-rule="evenodd" opacity=".4"/>
+  <path fill="url(#prefix__b)" d="M79.172 40h1.541C86.947 40 92 45.372 92 52s-5.053 12-11.287 12H24C13.508 64 5 55.493 5 45c0-9.673 7.23-17.658 16.579-18.847C23.219 20.85 28.159 17 34 17c2.81 0 5.41.891 7.537 2.406C45.567 14.863 51.449 12 58 12c12.15 0 22 9.85 22 22 0 2.08-.289 4.093-.828 6Z" clip-rule="evenodd" opacity=".4"/>
+  <defs>
+    <linearGradient id="prefix__a" x1="48.231" x2="6.116" y1="12.865" y2="78.361" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+    <linearGradient id="prefix__b" x1="53.101" x2="4.753" y1="-8.5" y2="63.835" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+  </defs>
+</svg>

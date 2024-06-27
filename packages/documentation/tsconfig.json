@@ -1,0 +1,10 @@
+{
+  "extends": "@acronis-platform/configs/tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "esModuleInterop": true
+  },
+  "include": ["**/*.ts", "**/*.vue", ".vitepress/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

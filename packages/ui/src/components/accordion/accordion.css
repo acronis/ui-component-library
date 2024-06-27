@@ -1,0 +1,11 @@
+@layer acv-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-accordion-color: var(--acv-color-base-primary);
+    --acv-accordion-label-color: var(--acv-color-brand-primary);
+    --acv-accordion-label-bg-color: var(--acv-color-primary-lightest);
+    --acv-accordion-label-font-size-small: var(--acv-font-size-small);
+    --acv-accordion-label-font-size-medium: var(--acv-font-size-medium);
+    --acv-accordion-label-font-size-large: var(--acv-font-size-large);
+  }
+}

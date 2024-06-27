@@ -4,33 +4,37 @@ The Acronis UI Component Library is meant to be used in Web applications and Web
 
 # Developer notes
 
-## Windows host notes
-
-Type the following commands to avoid the 'end of line' issues:
-
-```bash
-git config core.eol lf
-git config core.autocrlf input
-git clone ...
-```
-
 ## Environment setup
 
 ``` bash
-# install dependencies
-npm install
+pnpm install
+
+# Start dev documentation server
+pnpm run docs:dev
 ```
 
 ## Run in development
 
 ```bash
-npm run docs:dev
+cd packages/ui
+
+# Start dev server
+pnpm run dev
+```
+
+## Run documentation
+
+```bash
+cd packages/documentation
+
+pnpm run dev
 ```
 
 ## Build for production
 
 ```bash
-npm run vite:build
+cd packages/ui
+pnpm run build
 ```
 
 # Browser support
