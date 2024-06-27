@@ -50,7 +50,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build with VitePress
+      - name: Build UI Component Library
+        run: pnpm --filter ./packages/ui run build
+
+      - name: Build icons
+        run: pnpm --filter ./packages/icons run build
+
+      - name: Build utils
+        run: pnpm --filter ./packages/utils run build
+
+      - name: Build documentation
         run: pnpm --filter ./packages/documentation run build
 
       - name: Upload artifact
