@@ -14,15 +14,15 @@ https://www.figma.com/file/
 
 ## Basic usage
 
-<toolbarBasic />
+<ToolbarBasic />
 
 ::: details Source code
-<<< @/demos/toolbar/toolbarBasic.vue
+<<< @/demos/toolbar/ToolbarBasic.vue
 :::
 
 ## Variants
 
-<toolbarVariants />
+<ToolbarVariants />
 
 ## Best practices
 
