@@ -23,7 +23,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A36
 <TreeBasic />
 
 ::: details Source code
-<<< @/demos/tree/treeBasic.vue
+<<< @/demos/tree/TreeBasic.vue
 :::
 
 ## Disabled node
