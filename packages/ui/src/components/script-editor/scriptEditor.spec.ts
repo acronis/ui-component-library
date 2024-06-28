@@ -6,7 +6,12 @@ import type { AcvScriptEditorProps } from './scriptEditor';
 describe('test ScriptEditor component', () => {
   it('default props', () => {
     const wrapper = mount(ScriptEditor);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test ScriptEditor component', () => {
       } as AcvScriptEditorProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(ScriptEditor);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-91df3ce3="" class="acv-script-editor"></div>"`);
   });
 });

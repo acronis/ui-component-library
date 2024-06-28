@@ -31,11 +31,6 @@ describe('test table component', () => {
 
   it('renders', () => {
     const wrapper = mount(table);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-3d600e1c="" class="acv-table">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-3d600e1c="" class="acv-table"></div>"`);
   });
 });

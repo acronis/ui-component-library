@@ -31,11 +31,6 @@ describe('test Flex component', () => {
 
   it('renders', () => {
     const wrapper = mount(Flex);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-0395240d="" class="acv-flex">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-0395240d="" class="acv-flex"></div>"`);
   });
 });

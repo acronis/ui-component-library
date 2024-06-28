@@ -31,11 +31,6 @@ describe('test VirtualScroll component', () => {
 
   it('renders', () => {
     const wrapper = mount(VirtualScroll);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-326fd9a1="" class="acv-virtual-scroll">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-326fd9a1="" class="acv-virtual-scroll"></div>"`);
   });
 });

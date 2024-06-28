@@ -31,13 +31,6 @@ describe('test Carousel component', () => {
 
   it('renders', () => {
     const wrapper = mount(Carousel);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-e2d8e9a6="" class="acv-carousel">
-        <!--
-            @slot description - The description slot content
-            @binding {string} description - The description prop value
-          -->
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-e2d8e9a6="" class="acv-carousel"></div>"`);
   });
 });

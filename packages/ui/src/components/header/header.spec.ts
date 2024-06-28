@@ -38,10 +38,10 @@ describe('test Header component', () => {
   it('renders', () => {
     const wrapper = mount(Header);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<header data-v-13c17110="" class="acv-header acv-header--bordered">
+      "<header data-v-a605b683="" class="acv-header acv-header--bordered acv-header--color-white">
         <!--v-if-->
         <!--v-if-->
-        <div data-v-13c17110="" class="acv-header__aside"></div>
+        <div data-v-a605b683="" class="acv-header__aside"></div>
       </header>"
     `);
   });

@@ -32,13 +32,6 @@ describe('test Combobox component', () => {
   it('renders', () => {
     const wrapper = mount(Combobox);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-86ca4ea8="" class="acv-combobox">
-        <!--
-            @slot description - The description slot content
-            @binding {string} description - The description prop value
-          -->
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-86ca4ea8="" class="acv-combobox"></div>"`);
   });
 });

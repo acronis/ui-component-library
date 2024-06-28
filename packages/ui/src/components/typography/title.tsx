@@ -29,16 +29,16 @@ export default defineComponent({
         [nameHelper]: true,
         [`${nameHelper}-vars`]: true,
         [`${nameHelper}--inherit`]: props.inherit,
-        [`${nameHelper}--${props.type}`]: props.type !== 'default',
+        [`${nameHelper}--${props.type}`]: props.type && props.type !== 'default',
         [`${nameHelper}--top`]: props.top,
         [`${nameHelper}--marker`]: props.marker,
         [`${nameHelper}--aligned`]: props.aligned,
         [`${nameHelper}--thin`]: props.thin,
         [`${nameHelper}--marker-${markerType.value}`]:
-          !coloredMarker.value && markerType.value !== 'default',
+            markerType.value && !coloredMarker.value && markerType.value !== 'default',
       }
     })
-    const level = computed(() => Math.max((Math.round(props.level), 1, 6) || 5))
+    const level = computed(() => props.level)
     const style = computed(() => {
       return coloredMarker.value
         ? {

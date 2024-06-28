@@ -6,7 +6,12 @@ import type { AcvCheckboxButtonProps } from './checkboxButton';
 describe('test CheckboxButton component', () => {
   it('default props', () => {
     const wrapper = mount(CheckboxButton);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test CheckboxButton component', () => {
       } as AcvCheckboxButtonProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(CheckboxButton);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-2396cc51="" class="acv-checkbox-button"></div>"`);
   });
 });

@@ -6,7 +6,12 @@ import type { AcvInfiniteScrollProps } from './infiniteScroll';
 describe('test InfiniteScroll component', () => {
   it('default props', () => {
     const wrapper = mount(InfiniteScroll);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test InfiniteScroll component', () => {
       } as AcvInfiniteScrollProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(InfiniteScroll);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-f14d8230="" class="acv-infinite-scroll"></div>"`);
   });
 });

@@ -32,13 +32,6 @@ describe('test Cascader component', () => {
   it('renders', () => {
     const wrapper = mount(Cascader);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-78e6fb23="" class="acv-cascader">
-        <!--
-            @slot description - The description slot content
-            @binding {string} description - The description prop value
-          -->
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-78e6fb23="" class="acv-cascader"></div>"`);
   });
 });

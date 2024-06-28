@@ -1,12 +1,13 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import AcvDialog from '../dialog/dialog.vue';
+  import AcvButton from '../button/button.vue';
   import type {
     AcvConfirmDialogEvents,
     AcvConfirmDialogProps,
     AcvConfirmDialogSlots
   } from './confirmDialog.ts';
   import './confirmDialog.css';
-  import AcvDialog from '@/components/dialog/dialog.vue';
 
   const { title, description } = defineProps<AcvConfirmDialogProps>();
 
@@ -15,12 +16,13 @@
   defineSlots<AcvConfirmDialogSlots>();
 
   const dialogValue = ref(false);
+  const confirmDialog = ref<typeof AcvDialog | HTMLDialogElement>();
 
   function onCloseDialog() {
-    if (dialogValue.value.returnValue === 'cancel') {
+    if (confirmDialog.value?.returnValue === 'cancel') {
       dialogValue.value = false;
     }
-    else if (dialogValue.value.returnValue === 'confirm') {
+    else if (confirmDialog.value?.returnValue === 'confirm') {
       dialogValue.value = false;
       emit('confirm');
     }
@@ -29,6 +31,7 @@
 
 <template>
   <AcvDialog
+    ref="confirmDialog"
     v-model="dialogValue"
     class="acv-confirm-dialog"
     @close="onCloseDialog"
@@ -42,12 +45,12 @@
     </slot>
     <template #footer>
       <menu>
-        <button value="cancel">
+        <AcvButton value="cancel">
           Cancel
-        </button>
-        <button value="confirm">
+        </AcvButton>
+        <AcvButton value="confirm">
           Confirm
-        </button>
+        </AcvButton>
       </menu>
     </template>
   </AcvDialog>

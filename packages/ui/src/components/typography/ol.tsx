@@ -22,7 +22,7 @@ export default defineComponent({
     })
 
     return () => (
-      <ol class={className} type={props.type}>
+      <ol class={className.value} type={props.type}>
         {slots.default?.()}
       </ol>
     )

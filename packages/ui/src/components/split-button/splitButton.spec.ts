@@ -6,7 +6,12 @@ import type { AcvSplitButtonProps } from './splitButton';
 describe('test SplitButton component', () => {
   it('default props', () => {
     const wrapper = mount(SplitButton);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test SplitButton component', () => {
       } as AcvSplitButtonProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(SplitButton);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-851b7187="" class="acv-split-button"></div>"`);
   });
 });

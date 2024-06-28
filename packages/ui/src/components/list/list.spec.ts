@@ -31,11 +31,6 @@ describe('test List component', () => {
 
   it('renders', () => {
     const wrapper = mount(List);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-bf9fece9="" class="acv-list">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-bf9fece9="" class="acv-list"></div>"`);
   });
 });

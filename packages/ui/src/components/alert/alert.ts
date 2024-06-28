@@ -99,16 +99,30 @@ export interface AcvAlertSlots {
   /**
    * Custom content
    */
-  default: void
+  default?: void
+
   /**
    * Title
    * @binding {string} title - content of the title
    */
-  title: void
+  title?: string | (() => NonNullable<unknown>)
+
+  /**
+   * Subtitle
+   * @binding {string} subtitle - content of the subtitle
+   */
+  description?: string | (() => NonNullable<unknown>)
+
+  /**
+   * Content for the AcvAlert icon
+   */
+  icon?: (() => NonNullable<unknown>)
+
   /**
    * Content for the actions
    */
-  actions: void
+  actions?: void
+
   /**
    * Content for the right block
    */

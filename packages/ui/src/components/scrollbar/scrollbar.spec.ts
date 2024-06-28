@@ -31,11 +31,6 @@ describe('test scrollbar component', () => {
 
   it('renders', () => {
     const wrapper = mount(Scrollbar);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-e3a4a672="" class="acv-scrollbar">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-e3a4a672="" class="acv-scrollbar"></div>"`);
   });
 });

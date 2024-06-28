@@ -51,6 +51,11 @@ describe('test Divider component', () => {
     const wrapper = mount(() => <Divider vertical></Divider>)
 
     expect(wrapper.find('.acv-divider').classes()).toContain('acv-divider--vertical')
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<div data-v-db039be1="" class="acv-divider acv-divider--vertical" role="separator">
+        <!--v-if-->
+      </div>"
+    `)
   })
 
   it('with text', async () => {
@@ -63,7 +68,8 @@ describe('test Divider component', () => {
     expect(wrapper.classes()).toContain('acv-divider--with-text')
 
     await wrapper.setProps({ vertical: true })
-    expect(wrapper.classes()).not.toContain('acv-divider--with-text')
+
+    expect(wrapper.find('.acv-divider').classes()).not.toContain('acv-divider--with-text')
   })
 
   it('text position', () => {
@@ -88,10 +94,12 @@ describe('test Divider component', () => {
       props: { margin: 10 },
     })
 
-    expect(wrapper.attributes('style')).toContain('margin-top: 10px;')
-    expect(wrapper.attributes('style')).toContain('margin-bottom: 10px;')
+    expect(wrapper.find('.acv-divider').attributes('style')).toContain('margin-top: 10px;')
+    expect(wrapper.find('.acv-divider').attributes('style')).toContain('margin-bottom: 10px;')
 
     await wrapper.setProps({ vertical: true })
+
+    expect(wrapper.attributes('style')).toMatchInlineSnapshot(`"margin-right: 10px; margin-left: 10px;"`)
     expect(wrapper.attributes('style')).not.toContain('margin-top')
     expect(wrapper.attributes('style')).not.toContain('margin-bottom')
     expect(wrapper.attributes('style')).toContain('margin-right: 10px;')

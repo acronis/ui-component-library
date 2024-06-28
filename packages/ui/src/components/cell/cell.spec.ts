@@ -10,6 +10,7 @@ describe('test Cell component', () => {
       {
         "bottom": "",
         "height": 1,
+        "inherit": false,
         "left": "auto",
         "lg": null,
         "md": null,
@@ -37,6 +38,7 @@ describe('test Cell component', () => {
       {
         "bottom": "",
         "height": 1,
+        "inherit": false,
         "left": "auto",
         "lg": null,
         "md": null,

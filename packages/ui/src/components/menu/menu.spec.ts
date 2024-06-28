@@ -31,11 +31,6 @@ describe('test Menu component', () => {
 
   it('renders', () => {
     const wrapper = mount(Menu);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-5dcaf39a="" class="acv-menu">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-5dcaf39a="" class="acv-menu"></div>"`);
   });
 });

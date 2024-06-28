@@ -4,7 +4,9 @@
   "workspaces": [
     "packages/configs",
     "packages/documentation",
-    "packages/ui"
+    "packages/icons",
+    "packages/ui",
+    "packages/utils"
   ],
   "description": "The Acronis UI Component Library is a UI component library for Web applications and Web-based Desktop applications based on Vue.js v3",
   "scripts": {
@@ -15,6 +17,7 @@
     "lint:ts": "pnpm run -r lint:ts",
     "prepare": "husky",
     "build": "pnpm -r build",
+    "test": "pnpm -r test",
     "release": "pnpm run release --workspaces && release-it"
   },
   "engines": {

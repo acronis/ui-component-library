@@ -13,27 +13,22 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
-import './commands';
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
-
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from 'cypress/vue';
 
 // Ensure global styles are loaded
 import '../../src/styles/public/acronis.css';
 
-// Example use:
-// cy.mount(MyComponent)
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
 
-Cypress.Commands.add('mount', mount);
-
-addMatchImageSnapshotCommand();
+// Example use:
+// cy.mount(MyComponent)
+Cypress.Commands.add('mount' as any, mount);
 
 // can also add any default options to be used
 // by all instances of `matchImageSnapshot`
 addMatchImageSnapshotCommand({
   failureThreshold: 0.2,
+  capture: 'viewport'
 });

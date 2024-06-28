@@ -6,7 +6,12 @@ import type { AcvTimePickerProps } from './timePicker';
 describe('test TimePicker component', () => {
   it('default props', () => {
     const wrapper = mount(TimePicker);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test TimePicker component', () => {
       } as AcvTimePickerProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(TimePicker);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-af034bac="" class="acv-time-picker"></div>"`);
   });
 });
