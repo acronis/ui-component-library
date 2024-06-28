@@ -1,0 +1,6 @@
+@layer acv-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-fitted-actions-color: var(--acv-color-brand-primary);
+  }
+}

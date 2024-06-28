@@ -1,0 +1,22 @@
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+.VPPage {
+  padding: 24px;
+
+  h1 {
+    margin: 16px 0;
+    font-size: 1.2em; /* stylelint-disable-line scale-unlimited/declaration-strict-value */
+    font-weight: 600;
+  }
+
+  h2 {
+    margin: 16px 0;
+    font-weight: 500;
+  }
+}

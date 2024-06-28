@@ -1,0 +1,10 @@
+@layer acv-base {
+  :root {
+    --acv-popover-color: var(--acv-color-brand-primary);
+    --acv-popover-padding: 1rem;
+    --acv-base-popover-padding: 1rem;
+    --acv-base-popover-border-color: var(--acv-color-brand-secondary);
+    --acv-base-popover-min-width: 140px;
+    --acv-base-popover-v-padding: 4px;
+  }
+}

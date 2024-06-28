@@ -1,0 +1,57 @@
+.acv-bg-primary {
+  background-color: var(--acv-color-brand-primary);
+}
+
+.acv-bg-secondary {
+  background-color: var(--acv-color-brand-secondary) !important;
+}
+
+.acv-bg-tertiary {
+  background-color: var(--acv-color-brand-tertiary) !important;
+}
+
+.acv-bg-inversed-primary,
+.acv-bg-inversed,
+.acv-bg-white {
+  background-color: var(--acv-color-surface-inversed-primary) !important;
+}
+
+.acv-bg-inversed-secondary {
+  background-color: var(--acv-color-surface-inversed-secondary) !important;
+}
+
+.acv-bg-critical {
+  background-color: var(--acv-color-status-critical-primary) !important;
+}
+
+.acv-bg-danger {
+  background-color: var(--acv-color-status-danger-primary) !important;
+}
+
+.acv-bg-warning {
+  background-color: var(--acv-color-status-warning-primary) !important;
+}
+
+.acv-bg-success {
+  background-color: var(--acv-color-status-success-primary) !important;
+}
+
+.acv-bg-info {
+  background-color: var(--acv-color-status-info-primary) !important;
+}
+
+.acv-bg-neutral {
+  background-color: var(--acv-color-status-neutral-primary) !important;
+}
+
+.acv-bg-nav-primary {
+  background-color: var(--acv-color-nav-primary) !important;
+}
+
+.acv-bg-nav-secondary {
+  background-color: var(--acv-color-nav-secondary) !important;
+}
+
+.acv-bg-highlight {
+  background-color: var(--acv-color-highlight) !important;
+}

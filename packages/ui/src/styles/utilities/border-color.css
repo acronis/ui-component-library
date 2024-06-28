@@ -1,0 +1,9 @@
+/* TODO use each */
+
+.acv-border-primary {
+  border-color: var(--acv-color-brand-primary);
+}
+
+.acv-border-secondary {
+  border-color: var(--acv-color-brand-secondary);
+}

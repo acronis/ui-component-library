@@ -1,0 +1,5 @@
+@layer acv-base {
+  :root {
+    --acv-loader-color: var(--acv-color-red);
+  }
+}

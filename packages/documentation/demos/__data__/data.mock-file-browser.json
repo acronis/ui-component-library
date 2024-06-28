@@ -1,0 +1,105 @@
+{
+  "children": [
+    {
+      "name": "C",
+      "description": "System",
+      "fileType": "fixedDrive",
+      "size": 3543543534,
+      "totalSize": 10000000000,
+      "children": [
+        {
+          "name": "Sample-file-one",
+          "fileType": "regular",
+          "size": 1000000
+        }
+      ]
+    },
+    {
+      "name": "D",
+      "fileType": "fixedDrive",
+      "description": "Main-drive",
+      "size": 43000000000,
+      "totalSize": 50050440000000000,
+      "children": [
+        {
+          "name": "Apps",
+          "fileType": "directory",
+          "size": 0,
+          "children": [
+            {
+              "name": "App One",
+              "fileType": "regular"
+            }
+          ]
+        },
+        {
+          "name": "Global-reports",
+          "fileType": "directory",
+          "size": 0,
+          "children": [
+            {
+              "name": "Global-report__1QTR",
+              "fileType": "regular",
+              "size": 3000000
+            },
+            {
+              "name": "Global-report__2QTR",
+              "fileType": "regular",
+              "size": 2000000
+            },
+            {
+              "name": "Global-report__3QTR",
+              "fileType": "regular",
+              "size": 1000000
+            },
+            {
+              "name": "Global-report__4QTR",
+              "fileType": "regular",
+              "size": 4000000
+            }
+          ]
+        },
+        {
+          "name": "Working-Documents-Archive-2020",
+          "fileType": "directory",
+          "size": 0,
+          "children": [
+            {
+              "name": "Working-Documents-Archive-2020 One",
+              "fileType": "regular",
+              "size": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "E",
+      "fileType": "fixedDrive",
+      "description": "Temp",
+      "size": 30000000000,
+      "totalSize": 400000000450000,
+      "children": [
+        {
+          "name": "Sample-file-two",
+          "fileType": "regular",
+          "size": 1000000
+        }
+      ]
+    },
+    {
+      "name": "F",
+      "fileType": "removableDrive",
+      "description": "Removable Temp",
+      "size": 20000000000,
+      "totalSize": -900000000450000,
+      "children": [
+        {
+          "name": "Sample-file-f",
+          "fileType": "regular",
+          "size": 100000
+        }
+      ]
+    }
+  ]
+}

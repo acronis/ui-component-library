@@ -1,0 +1,10 @@
+{
+  "name": "@acronis-platform/browserslist-config",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "scripts": {
+    "publish-to-registry": "pnpm publish --no-git-checks",
+    "build-and-publish": "pnpm publish-to-registry"
+  },
+  "main": "./index.js"
+}

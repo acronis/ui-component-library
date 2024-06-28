@@ -1,0 +1,45 @@
+{
+  "name": "@acronis-platform/utils",
+  "type": "module",
+  "version": "1.26.5",
+  "private": true,
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "lint": "npm-run-all --aggregate-output -c -p lint:code lint:ts",
+    "lint:fix": "npm-run-all -c \"lint:code --fix\" lint:ts || exit 0",
+    "lint:code": "eslint .",
+    "lint:ts": "tsc --noemit",
+    "test": "vitest run",
+    "test:cover": "vitest run --coverage",
+    "test:dev": "vitest dev"
+  },
+  "dependencies": {
+    "@acronis-platform/configs": "workspace:*",
+    "lodash-es": "4.17.21",
+    "semver": "7.6.2"
+  },
+  "devDependencies": {
+    "@pnpm/types": "9.4.2",
+    "@types/lodash-es": "4.17.12",
+    "eslint": "9.3.0",
+    "npm-run-all": "4.1.5",
+    "rollup-plugin-node-externals": "7.0.1",
+    "typescript": "5.4.5",
+    "vite": "5.2.6"
+  }
+}

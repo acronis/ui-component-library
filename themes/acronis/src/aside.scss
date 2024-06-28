@@ -1,7 +1,0 @@
-@import 'common/mixins';
-
-@include b(aside) {
-  box-sizing: border-box;
-
-  @include color-modifiers(background-color, (nav-primary: $av-nav-primary));
-}

@@ -1,0 +1,7 @@
+@layer acv-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-chip-color: var(--acv-color-brand-primary);
+    --acv-chip-height: 24px;
+  }
+}

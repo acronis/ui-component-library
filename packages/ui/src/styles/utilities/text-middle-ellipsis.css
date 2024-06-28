@@ -1,0 +1,16 @@
+.acv-text-middle-ellipsis {
+  display: flex;
+}
+
+.acv-text-middle-ellipsis span.left {
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+
+.acv-text-middle-ellipsis span.right {
+  flex: 1 0 auto;
+  overflow: hidden;
+  white-space: pre;
+}

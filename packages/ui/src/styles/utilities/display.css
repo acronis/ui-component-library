@@ -1,0 +1,23 @@
+.acv-display--block {
+  display: block;
+}
+
+.acv-display--inline-block {
+  display: inline-block;
+}
+
+.acv-display--flex {
+  display: flex;
+}
+
+.acv-display--inline-flex {
+  display: inline-flex;
+}
+
+.acv-display--inline {
+  display: inline;
+}
+
+.acv-display--none {
+  display: none;
+}

@@ -1,0 +1,43 @@
+[data-theme="Acronis"] {
+  /* numbers */
+  --ac-border-radius-small: var(--ac-border-radius-none, 0px);
+  --ac-border-radius-large: 4px;
+  --ac-border-radius-medium: 4px;
+  --ac-gaps-component-s: 4px;
+  --ac-gaps-component-m: 8px;
+  --ac-gaps-component-l: 16px;
+  --ac-gaps-wrapper-s: 8px;
+  --ac-gaps-wrapper-m: 16px;
+  --ac-gaps-wrapper-l: 24px;
+  --ac-radius-wrapper-l: 4px;
+  --ac-radius-wrapper-m: 4px;
+  --ac-radius-wrapper-s: 4px;
+  --ac-size-component-s: 24px;
+  --ac-size-component-m: 32px;
+  --ac-size-component-l: 48px;
+  --ac-size-wrapper-s: 28px;
+  --ac-size-wrapper-m: 40px;
+  --ac-size-wrapper-l: 56px;
+}
+
+[data-theme="Constructor"] {
+  /* numbers */
+  --ac-border-radius-large: 2px;
+  --ac-border-radius-medium: 2px;
+  --ac-border-radius-small: 2px;
+  --ac-gaps-component-s: 4px;
+  --ac-gaps-component-m: 12px;
+  --ac-gaps-component-l: 20px;
+  --ac-gaps-wrapper-s: 8px;
+  --ac-gaps-wrapper-m: 16px;
+  --ac-gaps-wrapper-l: 24px;
+  --ac-radius-wrapper-l: 2px;
+  --ac-radius-wrapper-m: 2px;
+  --ac-radius-wrapper-s: 2px;
+  --ac-size-component-s: 24px;
+  --ac-size-component-m: 32px;
+  --ac-size-component-l: 48px;
+  --ac-size-wrapper-s: 28px;
+  --ac-size-wrapper-m: 40px;
+  --ac-size-wrapper-l: 56px;
+}

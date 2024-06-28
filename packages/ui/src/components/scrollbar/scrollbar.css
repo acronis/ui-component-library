@@ -1,0 +1,14 @@
+@layer acv-base {
+  :root {
+    --acv-scrollbar-track-color: var(
+      --acv-color-inverted-lightest,
+      rgb(255, 255, 255, 0.8)
+    );
+    --acv-scrollbar-track-color-hover: hsl(219deg, 27%, 85%);
+    --acv-scrollbar-track-color--inverse: hsl(219deg, 27%, 70%);
+    --acv-scrollbar-thumb-color: hsl(219deg, 27%, 80%);
+
+    /* --acv-scrollbar-thumb-color-inverse: var(--acv-color-white-40); */
+    --acv-scrollbar-size: 6px;
+  }
+}

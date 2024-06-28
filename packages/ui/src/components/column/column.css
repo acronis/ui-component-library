@@ -1,0 +1,7 @@
+@layer acv-base {
+  :root {
+    --acv-column-color: var(--acv-color-brand-primary);
+    --acv-column-width: 100%;
+    --acv-column-display: block;
+  }
+}

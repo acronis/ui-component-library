@@ -1,0 +1,6 @@
+@layer acv-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-container-color: var(--acv-color-brand-primary);
+  }
+}

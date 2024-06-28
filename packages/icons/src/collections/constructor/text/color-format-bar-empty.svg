@@ -1,0 +1,10 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 18 3" xmlns="http://www.w3.org/2000/svg">
+  <path fill="currentColor" d="M0 0h18v3H0z"/>
+  <path fill="url(#prefix__a)" d="M0 0h18v3H0z"/>
+  <defs>
+    <pattern id="prefix__a" width="1" height="1" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#prefix__b" transform="matrix(.00833 0 0 .05 0 -.1)"/>
+    </pattern>
+    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAYCAYAAAAxkDmIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABjSURBVHgB7dFBDcQwEMDAvYMS/lzCIFRaFHnUmkFgyb+99zMXrbXmpnPO3PT1/v+QZnCcwXEGxxkcZ3CcwXEGxxkcZ3CcwXEGxxkcZ3CcwXEGxxkcZ3CcwXEGxxkcZ3CcwXEv1dwJnGSQZ8AAAAAASUVORK5CYII=" id="prefix__b" width="120" height="24"/>
+  </defs>
+</svg>

@@ -1,0 +1,6 @@
+@layer ui-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-modal-color: var(--acv-color-brand-primary);
+  }
+}

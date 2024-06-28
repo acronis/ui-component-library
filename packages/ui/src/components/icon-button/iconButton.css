@@ -1,0 +1,9 @@
+@layer acv-base {
+  :root {
+    --acv-icon-button-color: var(--acv-color-brand-primary);
+    --acv-icon-button-size-small: var(--acv-font-size-2xs);
+    --acv-icon-button-size-medium: var(--acv-font-size-sm);
+    --acv-icon-button-size-large: var(--acv-font-size-xl);
+    --acv-icon-button-size: var(--acv-icon-button-size-medium);
+  }
+}

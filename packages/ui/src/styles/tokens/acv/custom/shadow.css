@@ -1,0 +1,33 @@
+:root {
+  --acv-box-shadow: 0 10px 20px 0;
+  --acv-box-shadow-details: 0 15px 30px 0 hsla(218deg, 11%, 20%, 0.25);
+  --acv-box-shadow-focus: var(--acv-box-shadow) hsla(218deg, 11%, 20%, 0.25);
+  --acv-box-shadow-modal: var(--acv-box-shadow) hsla(218deg, 11%, 20%, 0.7);
+
+  /* --acv-shadow-default: 0px 4px 20px 0px var(--acv-color-white-80); */
+
+  /* --acv-shadow-danger: 0px 0px 0px 1px var(--acv-color-red) inset; */
+
+  /* --acv-shadow-danger-strong: 0px 0px 0px 1px var(--acv-color-red-shade-10) */
+
+  /*  inset; */
+
+  /* --acv-shadow-disabled: 0px 0px 0px 1px var(--acv-color-grey-light-20) inset; */
+
+  /* --acv-shadow-focus: 0px 0px 0px 4px var(--acv-color-grey-shade-10) inset; */
+
+  /* --acv-shadow-primary: 0px 0px 0px 1px var(--acv-color-blue-grey-light-20) */
+
+  /*  inset; */
+  --acv-shadow-large: 0 0 20px hsla(0deg, 0%, 0%, 0.25);
+  --acv-shadow-modal-dark: var(--acv-shadow-small);
+  --acv-shadow-modal: var(--acv-shadow-small);
+  --acv-shadow-regular-dark: var(--acv-shadow-regular-dark);
+  --acv-shadow-regular: var(--acv-shadow-regular);
+  --acv-shadow-small: 0 0 8px hsla(0deg, 0%, 0%, 0.15);
+  --acv-shadow-soft: var(--acv-shadow-small);
+  --acv-shadow-strong: var(--acv-shadow-small);
+  --acv-shadow-vertical-dark: var(--acv-shadow-vertical-dark);
+  --acv-shadow-vertical: var(--acv-shadow-vertical);
+  --acv-shadow-shape: 0 0 20px 0 hsla(218deg, 11%, 20%, 0.25);
+}

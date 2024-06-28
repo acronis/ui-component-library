@@ -1,0 +1,102 @@
+{
+  "products": [
+    "Active Directory Rights Management Services Client 2.0",
+    "Antigen for Exchange/SMTP",
+    "Bing Bar",
+    "Search Enhancement Pack",
+    "Windows Live",
+    "BizTalk Server 2002",
+    "BizTalk Server 2006R2",
+    ".NET 5.0",
+    ".NET Core 2.1",
+    "Report Viewer 2005",
+    "Report Viewer 2008",
+    "Report Viewer 2010",
+    "Visual Studio 2005",
+    "Visual Studio 2010 Tools for Office Runtime",
+    "Visual Studio 2010",
+    "Visual Studio 2012",
+    "Visual Studio 2013",
+    "Visual Studio 2015",
+    "Visual Studio 2017",
+    "Visual Studio 2019",
+    "Windows Server 2016",
+    "Windows Server 2019",
+    "Exchange 2000 Server",
+    "Exchange Server 2003",
+    "Exchange Server 2007",
+    "Exchange Server 2010",
+    "Exchange Server 2013",
+    "Exchange Server 2016"
+  ],
+  "severity": [
+    {
+      "value": "low",
+      "label": "Low"
+    },
+    {
+      "value": "medium",
+      "label": "Medium"
+    },
+    {
+      "value": "high",
+      "label": "High"
+    },
+    {
+      "value": "critical",
+      "label": "Critical"
+    },
+    {
+      "value": "none",
+      "label": "None"
+    }
+  ],
+  "status": [
+    {
+      "value": "any",
+      "label": "Any"
+    },
+    {
+      "value": "approved",
+      "label": "Approved"
+    },
+    {
+      "value": "not-declined",
+      "label": "Not declined"
+    }
+  ],
+  "category": [
+    {
+      "value": "critical-updates",
+      "label": "Critical Updates"
+    },
+    {
+      "value": "security-updates",
+      "label": "Security Updates"
+    },
+    {
+      "value": "definition-uptades",
+      "label": "Definition Updates"
+    },
+    {
+      "value": "update-rollups",
+      "label": "Update Rollups"
+    },
+    {
+      "value": "service-packs",
+      "label": "Service Packs"
+    },
+    {
+      "value": "tools",
+      "label": "Tools"
+    },
+    {
+      "value": "feature-packs",
+      "label": "Feature Packs"
+    },
+    {
+      "value": "updates",
+      "label": "Updates"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+export { default as IAccessDenied } from './access-denied.svg';
+export { default as IBigBang } from './big-bang.svg';
+export { default as IBigBangAlt } from './big-bang-alt.svg';
+export { default as IDataDownload } from './data-download.svg';
+export { default as IEmptyState } from './empty-state.svg';
+export { default as IFileNotFound } from './file-not-found.svg';
+export { default as IHpcCluster } from './hpc-cluster.svg';
+export { default as INoUser } from './no-user.svg';
+export { default as INode } from './node.svg';
+export { default as ISpinner } from './spinner.svg';
+export { default as IUfo } from './ufo.svg';

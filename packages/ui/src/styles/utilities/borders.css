@@ -1,0 +1,23 @@
+.acv-rounded-none {
+  border-radius: var(--acv-radius-zero);
+}
+
+.acv-rounded-small {
+  border-radius: var(--acv-radius-small);
+}
+
+.acv-rounded-regular {
+  border-radius: var(--acv-radius-regular);
+}
+
+.acv-rounded-medium {
+  border-radius: var(--acv-radius-medium);
+}
+
+.acv-rounded-large {
+  border-radius: var(--acv-radius-large);
+}
+
+.acv-rounded-circle {
+  border-radius: var(--acv-radius-circle);
+}

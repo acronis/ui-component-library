@@ -1,0 +1,3 @@
+<template>
+  Nested example
+</template>

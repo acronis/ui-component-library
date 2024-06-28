@@ -1,0 +1,4 @@
+:root {
+  --ac-outline-width: 2px;
+  --ac-outline: var(--ac-outline-width) solid var(--ac-color-primary);
+}

@@ -1,0 +1,18 @@
+<svg width="32" height="32" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none">
+    <path fill="#505764" d="M11 20h5v1h-5zm-3.5 2h12v.5a.5.5 0 0 1-.5.5H8a.5.5 0 0 1-.5-.5V22Z"/>
+    <path fill="#B9BCC1" d="M11 21h5l3.5 1h-12z"/>
+    <path fill="#505764" d="M2 5a1 1 0 0 1 1-1h21a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5Z"/>
+    <path fill="#B9BCC1" d="M2 18h23v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1Z"/>
+    <path fill="#6E7279" d="M3.5 19a.25.25 0 0 1 .25-.25h.5a.25.25 0 1 1 0 .5h-.5A.25.25 0 0 1 3.5 19Z"/>
+    <path fill="#6DA3DC" d="M3 5h21v12H3z"/>
+    <path fill="#FFF" d="M24 4H5l19 14h1V5a1 1 0 0 0-1-1Z" opacity=".25"/>
+    <path fill="#505764" d="M13 4.5a.25.25 0 1 1 .5 0 .25.25 0 0 1-.5 0Z"/>
+    <path fill="#00204D" d="M25 14H12a1 1 0 0 0-1 1v6l-3 1v1h17v-9Z" opacity=".35"/>
+    <path fill="#505764" d="M13 17a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v10H13V17Z"/>
+    <path fill="#B9BCC1" d="M12.5 28h17a1 1 0 0 0 1-1h-19a1 1 0 0 0 1 1Z"/>
+    <path fill="#6DA3DC" d="M14 17h14v9H14z"/>
+    <path fill="#FFF" d="M28.042 16H14l13.125 11H29V17c0-.552-.43-1-.958-1Z" opacity=".25"/>
+    <path fill="#505764" d="M21 16.5a.25.25 0 1 1 .5 0 .25.25 0 0 1-.5 0Z"/>
+  </g>
+</svg>

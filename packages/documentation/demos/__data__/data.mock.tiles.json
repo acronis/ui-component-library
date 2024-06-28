@@ -1,0 +1,774 @@
+[
+  {
+    "id": "4b61f339-13d2-412c-b9b5-6540c3cd21bd",
+    "name": "Google Home",
+    "zone": "Living Room",
+    "type": "Desktop device",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-external-drive-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-active-protection-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-active-protection-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Details",
+        "command": "DETAILS",
+        "icon": "i-text-file-o--16"
+      },
+      {
+        "label": "Details",
+        "command": "DETAILS",
+        "icon": "i-text-file-o--16"
+      },
+      {
+        "label": "Run",
+        "command": "RUN",
+        "icon": "i-run-circle--16"
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      }
+    ],
+    "time": "12min"
+  },
+  {
+    "id": "337855f0-bd17-4296-a6ee-ba85ceeba033",
+    "name": "Mac Studio",
+    "zone": "Favourite",
+    "type": "Robot vacuum",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-swiss-drive-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-customer-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-d-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-active-protection-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Alerts",
+        "command": "ALERTS",
+        "icon": "i-exclamation-circle--16"
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Alerts",
+        "command": "ALERTS",
+        "icon": "i-exclamation-circle--16"
+      },
+      {
+        "label": "Stop",
+        "command": "STOP",
+        "icon": "clr-stop-clr--16",
+        "divided": true
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      }
+    ],
+    "time": "10d"
+  },
+  {
+    "id": "5420bb06-705c-4b81-a93a-aa94c6bdfb3f",
+    "name": "Apple TV 4K",
+    "zone": "Favourite",
+    "type": "Desktop device",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": false,
+    "image": {
+      "name": "clr-workstation-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-d-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-d-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Run",
+        "command": "RUN",
+        "icon": "i-run-circle--16"
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      },
+      {
+        "label": "Edit",
+        "command": "EDIT",
+        "icon": "i-edit-o--16"
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Disable",
+        "command": "DISABLE",
+        "icon": "i-ban-o--16",
+        "divided": true
+      }
+    ],
+    "time": "12min"
+  },
+  {
+    "id": "e3402742-00c4-4a2d-90d1-712ef7a03b68",
+    "name": "iPhone 11",
+    "zone": "Living Room",
+    "type": "Robot vacuum",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-workstation-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Run",
+        "command": "RUN",
+        "icon": "i-run-circle--16"
+      },
+      {
+        "label": "Run",
+        "command": "RUN",
+        "icon": "i-run-circle--16"
+      }
+    ],
+    "time": "10d"
+  },
+  {
+    "id": "845c4e9c-e4fd-4658-9a93-5d287b48661b",
+    "name": "iPhone 11",
+    "zone": "Living Room",
+    "type": "TV",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": false,
+    "image": {
+      "name": "clr-asz-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-active-protection-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Details",
+        "command": "DETAILS",
+        "icon": "i-text-file-o--16"
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Edit",
+        "command": "EDIT",
+        "icon": "i-edit-o--16"
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Alerts",
+        "command": "ALERTS",
+        "icon": "i-exclamation-circle--16"
+      }
+    ],
+    "time": "12min"
+  },
+  {
+    "id": "17d4d5cf-b36b-4c06-99cc-816344c9e2f5",
+    "name": "Studio Display",
+    "zone": "Kitchen",
+    "type": "Desktop device",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-server-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-customer-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Edit",
+        "command": "EDIT",
+        "icon": "i-edit-o--16"
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Rename",
+        "command": "RENAME",
+        "icon": "i-rename-o--16",
+        "divided": true
+      },
+      {
+        "label": "Disable",
+        "command": "DISABLE",
+        "icon": "i-ban-o--16",
+        "divided": true
+      },
+      {
+        "label": "Edit",
+        "command": "EDIT",
+        "icon": "i-edit-o--16"
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      }
+    ],
+    "time": "10d"
+  },
+  {
+    "id": "648d471b-8d4b-4fcd-ae46-04e7d4ccf6cd",
+    "name": "Apple TV 4K",
+    "type": "Mobile device",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-laptop-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-customer-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Disable",
+        "command": "DISABLE",
+        "icon": "i-ban-o--16",
+        "divided": true
+      },
+      {
+        "label": "Rename",
+        "command": "RENAME",
+        "icon": "i-rename-o--16",
+        "divided": true
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      }
+    ],
+    "time": "now"
+  },
+  {
+    "id": "4ab1f048-cb5b-4e81-9a9d-4e550872ff78",
+    "name": "Studio Display",
+    "zone": "Living Room",
+    "type": "Robot vacuum",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-asz-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-d-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Alerts",
+        "command": "ALERTS",
+        "icon": "i-exclamation-circle--16"
+      },
+      {
+        "label": "Alerts",
+        "command": "ALERTS",
+        "icon": "i-exclamation-circle--16"
+      }
+    ],
+    "time": "1y"
+  },
+  {
+    "id": "ef9fe5c1-814d-4304-b5b2-7c343ef2a16c",
+    "name": "iPhone 11",
+    "zone": "Living Room",
+    "type": "IoT",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-imac-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Run",
+        "command": "RUN",
+        "icon": "i-run-circle--16"
+      },
+      {
+        "label": "Alerts",
+        "command": "ALERTS",
+        "icon": "i-exclamation-circle--16"
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Stop",
+        "command": "STOP",
+        "icon": "clr-stop-clr--16",
+        "divided": true
+      }
+    ],
+    "time": "10d"
+  },
+  {
+    "id": "8e10d119-b5a3-4106-bd2a-a8d83d292ed9",
+    "name": "Google Home",
+    "type": "Mobile device",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-external-drive-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-active-protection-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-d-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Stop",
+        "command": "STOP",
+        "icon": "clr-stop-clr--16",
+        "divided": true
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      }
+    ],
+    "time": "12min"
+  },
+  {
+    "id": "36efcf28-4e93-4472-bd23-b7b2dc12d6f5",
+    "name": "Mac Studio",
+    "zone": "Favourite",
+    "type": "Desktop device",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": false,
+    "image": {
+      "name": "clr-external-drive-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-d-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-customer-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Run",
+        "command": "RUN",
+        "icon": "i-run-circle--16"
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Activities",
+        "command": "ACTIVITIES",
+        "icon": "i-clock-o--16"
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      }
+    ],
+    "time": "10d"
+  },
+  {
+    "id": "14e1f6f8-8469-4699-8cbe-53672530b4d9",
+    "name": "iPhone 11",
+    "zone": "Favourite",
+    "type": "Robot vacuum",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-server-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      },
+      {
+        "label": "Enable",
+        "command": "ENABLE",
+        "icon": "i-check-circle-o--16"
+      },
+      {
+        "label": "Disable",
+        "command": "DISABLE",
+        "icon": "i-ban-o--16",
+        "divided": true
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      },
+      {
+        "label": "Disable",
+        "command": "DISABLE",
+        "icon": "i-ban-o--16",
+        "divided": true
+      },
+      {
+        "label": "Disable",
+        "command": "DISABLE",
+        "icon": "i-ban-o--16",
+        "divided": true
+      }
+    ],
+    "time": "10d"
+  },
+  {
+    "id": "41bb52ef-0849-40bb-a0e1-c44638cb1afb",
+    "name": "Apple TV 4K",
+    "zone": "Favourite",
+    "type": "Mobile device",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-asz-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-print-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-active-protection-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      },
+      {
+        "label": "Details",
+        "command": "DETAILS",
+        "icon": "i-text-file-o--16"
+      },
+      {
+        "label": "Rename",
+        "command": "RENAME",
+        "icon": "i-rename-o--16",
+        "divided": true
+      },
+      {
+        "label": "Details",
+        "command": "DETAILS",
+        "icon": "i-text-file-o--16"
+      }
+    ],
+    "time": "12min"
+  },
+  {
+    "id": "78a5aed6-3809-47c5-a2f5-e869c4d6a3a2",
+    "name": "Mac Studio",
+    "zone": "Favourite",
+    "type": "TV",
+    "network": "A1_9504",
+    "application": "Home Operations",
+    "isActive": true,
+    "image": {
+      "name": "clr-asz-ill--72"
+    },
+    "icons": [
+      {
+        "name": "i-customer-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-hosting-server-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      },
+      {
+        "name": "i-web-d-o--16",
+        "color": "fixed-info",
+        "backgroundColor": "av-fixed-info-accent"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Rename",
+        "command": "RENAME",
+        "icon": "i-rename-o--16",
+        "divided": true
+      },
+      {
+        "label": "Delete",
+        "command": "DELETE",
+        "icon": "i-trash-o--16",
+        "divided": true
+      },
+      {
+        "label": "Stop",
+        "command": "STOP",
+        "icon": "clr-stop-clr--16",
+        "divided": true
+      },
+      {
+        "label": "Disable",
+        "command": "DISABLE",
+        "icon": "i-ban-o--16",
+        "divided": true
+      }
+    ],
+    "time": "now"
+  }
+]

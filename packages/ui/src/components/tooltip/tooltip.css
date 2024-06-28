@@ -1,0 +1,11 @@
+@layer acv-base {
+  :root {
+    --acv-tooltip-color: hsl(0deg, 0%, 98%);
+    --acv-tooltip-background: var(--acv-color-dimgray);
+    --acv-tooltip-padding: 6px 10px;
+    --acv-tooltip-border-radius: var(--acv-border-md);
+    --acv-tooltip-fontsize: 10px;
+    --acv-tooltip-mobile-padding: 8px 16px;
+    --acv-tooltip-mobile-fontsize: 14px;
+  }
+}

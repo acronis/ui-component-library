@@ -1,0 +1,35 @@
+[
+  {
+    "key": "id",
+    "label": "Id",
+    "width": 64
+  },
+  {
+    "key": "firstName",
+    "label": "First Name",
+    "fixed": true,
+    "resizable": true
+  },
+  {
+    "key": "lastName",
+    "label": "Last Name",
+    "maxWidth": 200
+  },
+  {
+    "key": "email",
+    "label": "Email",
+    "width": "auto"
+  },
+  {
+    "key": "university",
+    "label": "University",
+    "width": "auto",
+    "maxWidth": 200
+  },
+  {
+    "key": "city",
+    "label": "City",
+    "width": "auto",
+    "maxWidth": 200
+  }
+]

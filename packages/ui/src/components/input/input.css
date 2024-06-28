@@ -1,0 +1,8 @@
+@layer acv-base {
+  :root {
+    --acv-input-font-size: var(--acv-font-size-body);
+    --acv-input-text-color: rgba(0, 0, 0, 0.87);
+    --acv-input-label-color: rgba(0, 0, 0, 0.6);
+    --acv-input-autofill-color: inherit;
+  }
+}

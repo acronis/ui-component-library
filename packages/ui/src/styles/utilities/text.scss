@@ -1,0 +1,327 @@
+@import '../mixins/typography.scss';
+
+.acv-text {
+  font-size: var(--acv-font-size-accent);
+  line-height: var(--acv-font-line-height-regular);
+  font-weight: var(--acv-font-weight-regular);
+}
+
+/**
+  * Typography  /  1.1.0
+  * @example
+  * <div class='acv-text acv-text--display-large'>32 / 48 – display-large</div>
+  */
+
+.acv-h1 {
+  @include text-h1;
+}
+
+.acv-h2 {
+  @include text-h2;
+}
+
+.acv-h3 {
+  @include text-h3;
+}
+
+.acv-h4 {
+  @include text-h4;
+}
+
+.acv-h5 {
+  @include text-h5;
+}
+
+.acv-text--display-large {
+  @include text-large;
+}
+
+.acv-text--display-medium {
+  @include text-medium;
+}
+
+.acv-text--display-regular {
+  @include text-regular;
+}
+
+.acv-text--heading {
+  @include text-heading;
+}
+
+.acv-text--strong {
+  @include text-strong;
+}
+
+.acv-text--subheading {
+  @include text-subheading;
+}
+
+.acv-text--caption {
+  @include text-caption;
+}
+
+.acv-text--accent {
+  @include text-accent;
+}
+
+.acv-text--body-xl {
+  @include text-body;
+
+  line-height: var(--acv-font-line-height-large);
+}
+
+.acv-text--body-lg {
+  @include text-body;
+
+  line-height: var(--acv-font-line-height-medium);
+}
+
+.acv-text--body-regular {
+  @include text-body;
+
+  line-height: var(--acv-font-line-height-regular);
+}
+
+/**
+ * font-weight
+ * @example
+ * <div class='acv-text acv-text--weight-bold'>Example usage of class</div>
+ */
+
+.acv-text--weight-regular {
+  font-weight: var(--acv-font-weight-regular);
+}
+
+.acv-text--weight-accent {
+  font-weight: var(--acv-font-weight-accent);
+}
+
+.acv-text--weight-bold {
+  font-weight: var(--acv-font-weight-strong);
+}
+
+/**
+ * font-size
+ * @example
+ * <div class='acv-text acv-text--size-xxs'>Example usage of class</div>
+ */
+
+.acv-text--size-fineprint {
+  font-size: var(--acv-font-size-fineprint);
+}
+
+.acv-text--size-note {
+  font-size: var(--acv-font-size-note);
+}
+
+.acv-text--size-caption {
+  font-size: var(--acv-font-size-caption);
+}
+
+.acv-text--size-body {
+  font-size: var(--acv-font-size-body);
+}
+
+.acv-text--size-accent {
+  font-size: var(--acv-font-size-accent);
+}
+
+.acv-text--size-lead {
+  font-size: var(--acv-font-size-lead);
+}
+
+.acv-text--size-title {
+  font-size: var(--acv-font-size-title);
+}
+
+.acv-text--size-display {
+  font-size: var(--acv-font-size-display);
+}
+
+/**
+ * line-height
+ * @example
+ * <div class='acv-text acv-text--height-xs'>Example usage of class</div>
+ */
+
+.acv-text--height-x-small {
+  line-height: var(--acv-font-line-height-x-small);
+}
+
+.acv-text--height-small {
+  line-height: var(--acv-font-line-height-small);
+}
+
+.acv-text--height-regular {
+  line-height: var(--acv-font-line-height-regular);
+}
+
+.acv-text--height-medium {
+  line-height: var(--acv-font-line-height-medium);
+}
+
+.acv-text--height-large {
+  line-height: var(--acv-font-line-height-large);
+}
+
+.acv-text--height-x-large {
+  line-height: var(--acv-font-line-height-x-large);
+}
+
+/**
+ * spacing
+ * @example
+ * <div class='acv-text acv-text--spacing-m'>Example usage of class</div>
+ */
+
+.acv-text--spacing-xs {
+  letter-spacing: var(--acv-letter-spacing-xs);
+}
+
+.acv-text--spacing-sm {
+  letter-spacing: var(--acv-letter-spacing-sm);
+}
+
+.acv-text--spacing-md {
+  letter-spacing: var(--acv-letter-spacing-md);
+}
+
+.acv-text--spacing-lg {
+  letter-spacing: var(--acv-letter-spacing-lg);
+}
+
+/**
+ * Ellipsis
+ * @example
+ * <div class='acv-text acv-text--ellipsis'>Example usage of class</div>
+ */
+
+.acv-text--ellipsis {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+
+  @include ellipsis;
+}
+
+.acv-text--highlighting {
+  background: var(--acv-color-highlight);
+}
+
+/**
+ * Text-transform
+ */
+
+.acv-text--lowercase {
+  text-transform: lowercase;
+}
+
+.acv-text--uppercase {
+  text-transform: uppercase;
+}
+
+.acv-text--capitalize {
+  text-transform: capitalize;
+}
+
+.acv-text--align-left {
+  text-align: left;
+}
+
+.acv-text--align-right {
+  text-align: right;
+}
+
+.acv-text--align-center {
+  text-align: center;
+}
+
+.acv-text--align-justify {
+  text-align: justify;
+}
+
+.acv-text--normal {
+  white-space: normal;
+}
+
+.acv-text--nowrap {
+  white-space: nowrap;
+}
+
+.acv-text--break {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.acv-text--color-primary {
+  color: var(--acv-color-text-primary);
+}
+
+.acv-text--color-secondary {
+  color: var(--acv-color-text-secondary);
+}
+
+.acv-text--color-muted,
+.acv-text-disabled,
+.acv-text-muted {
+  color: var(--acv-color-text-disabled);
+}
+
+.acv-text--color-white {
+  color: var(--acv-color-white);
+}
+
+.acv-text--color-black {
+  color: var(--acv-color-text-primary);
+}
+
+.acv-text--color-link {
+  color: var(--acv-color-link-primary);
+}
+
+.acv-text--color-inversed-secondary {
+  color: var(--acv-color-text-inversed-secondary);
+}
+
+.acv-text--color-inversed,
+.acv-text--color-white,
+.acv-text--color-inversed-primary {
+  color: var(--acv-color-text-inversed-primary);
+}
+
+.acv-text--color-disabled {
+  color: var(--acv-color-text-disabled);
+}
+
+.acv-text--color-highlight {
+  color: var(--acv-color-text-highlight-result);
+}
+
+.acv-text--color-error {
+  color: var(--acv-color-text-error);
+}
+
+.acv-text--color-critical {
+  color: var(--acv-color-text-status-critical);
+}
+
+.acv-text--color-danger {
+  color: var(--acv-color-text-status-danger);
+}
+
+.acv-text--color-info {
+  color: var(--acv-color-text-status-info);
+}
+
+.acv-text--color-neutral {
+  color: var(--acv-color-text-status-neutral);
+}
+
+.acv-text--color-success {
+  color: var(--acv-color-text-status-success);
+}
+
+.acv-text--color-warning {
+  color: var(--acv-color-text-status-warning);
+}

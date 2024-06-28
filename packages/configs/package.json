@@ -1,0 +1,59 @@
+{
+  "name": "@acronis-platform/configs",
+  "type": "module",
+  "version": "0.0.2",
+  "exports": {
+    ".": "./eslint.config.js",
+    "./eslint.config.js": "./eslint.config.js",
+    "./tsconfig.json": "./tsconfig.json",
+    "./.lintstagedrc.cjs": "./.lintstagedrc.cjs",
+    "./.stylelintrc.cjs": "./.stylelintrc.cjs",
+    "./.release-it.js": "./.release-it.js"
+  },
+  "scripts": {
+    "lint": "pnpm lint:code",
+    "lint:fix": "pnpm lint:code --fix",
+    "lint:code": "eslint .",
+    "publish-to-registry": "pnpm publish --no-git-checks",
+    "build-and-publish": "pnpm publish-to-registry",
+    "changelog": "npx auto-changelog -p  --tag-prefix @acronis-platform/configs@ --append-git-log .",
+    "release": "dotenv release-it --"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "eslint": ">= 9",
+    "prettier": ">=3",
+    "stylelint": ">=16"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "2.18.1",
+    "@eslint/eslintrc": "3.0.2",
+    "stylelint-color-format": "1.1.0",
+    "stylelint-config-recommended-vue": "1.5.0",
+    "stylelint-config-standard": "36.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "2.8.0",
+    "stylelint-declaration-strict-value": "1.10.4",
+    "stylelint-high-performance-animation": "1.10.0",
+    "stylelint-no-indistinguishable-colors": "2.3.0",
+    "stylelint-order": "6.0.4",
+    "stylelint-prettier": "5.0.0",
+    "stylelint-selector-tag-no-without-class": "3.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "18.6.1",
+    "@commitlint/config-conventional": "18.6.2",
+    "@commitlint/types": "18.6.1",
+    "@release-it/conventional-changelog": "8.0.1",
+    "dotenv-cli": "7.4.1",
+    "eslint-plugin-format": "0.1.0",
+    "release-it": "17.2.0",
+    "stylelint-value-no-unknown-custom-properties": "6.0.1"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": false,
+    "commitLimit": false,
+    "backfillLimit": false
+  }
+}

@@ -1,0 +1,6 @@
+@layer acv-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-aside-color: var(--acv-color-brand-primary);
+  }
+}
