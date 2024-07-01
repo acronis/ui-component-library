@@ -2,6 +2,8 @@ import { defineConfig } from 'cypress';
 import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin';
 
 export default defineConfig({
+  viewportWidth: 1000,
+  viewportHeight: 600,
   component: {
     devServer: {
       framework: 'vue',
@@ -11,15 +13,9 @@ export default defineConfig({
       // implement node event listeners here
       addMatchImageSnapshotPlugin(<Cypress.PluginEvents>on);
     },
-  },
-  e2e: {
-    baseUrl: 'http://localhost:5173',
-    video: false,
-    viewportHeight: 768,
-    viewportWidth: 1024,
-    setupNodeEvents(on: unknown) {
-      // implement node event listeners here
-      addMatchImageSnapshotPlugin(<Cypress.PluginEvents>on);
-    },
-  },
+    excludeSpecPattern: [
+      '**/__snapshots__/*',
+      '**/__image_snapshots__/*'
+    ]
+  }
 });

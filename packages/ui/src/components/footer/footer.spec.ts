@@ -33,9 +33,9 @@ describe('test Footer component', () => {
   it('renders', () => {
     const wrapper = mount(Footer);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<footer data-v-ec21d032="" class="acv-footer">
-        <div data-v-ec21d032="" class="acv-footer__content"></div>
-        <div data-v-ec21d032=""></div>
+      "<footer data-v-676f3426="" class="acv-footer acv-footer--color-white">
+        <div data-v-676f3426="" class="acv-footer__content"></div>
+        <div data-v-676f3426=""></div>
       </footer>"
     `);
   });
@@ -50,9 +50,9 @@ describe('test Footer component', () => {
     await nextTick();
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<footer data-v-ec21d032="" class="acv-footer" style="--ec21d032-height: 100; --ec21d032-backgroundColor: var(--acv-color-white);">
-        <div data-v-ec21d032="" class="acv-footer__content"></div>
-        <div data-v-ec21d032=""></div>
+      "<footer data-v-676f3426="" class="acv-footer acv-footer--color-white" style="--676f3426-height: 100;">
+        <div data-v-676f3426="" class="acv-footer__content"></div>
+        <div data-v-676f3426=""></div>
       </footer>"
     `);
   });

@@ -6,7 +6,12 @@ import type { AcvTabsProps } from './tabs';
 describe('test Tabs component', () => {
   it('default props', () => {
     const wrapper = mount(Tabs);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test Tabs component', () => {
       } as AcvTabsProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(Tabs);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-d73d51ff="" class="acv-tabs"></div>"`);
   });
 });

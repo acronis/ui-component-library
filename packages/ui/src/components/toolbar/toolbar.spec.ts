@@ -31,11 +31,6 @@ describe('test toolbar component', () => {
 
   it('renders', () => {
     const wrapper = mount(toolbar);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-bbb452c6="" class="acv-toolbar">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-bbb452c6="" class="acv-toolbar"></div>"`);
   });
 });

@@ -63,11 +63,6 @@ describe('test Tree component', () => {
 
   it('renders', () => {
     const wrapper = mount(Tree);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-5711e15c="" class="acv-tree">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-5711e15c="" class="acv-tree"></div>"`);
   });
 });

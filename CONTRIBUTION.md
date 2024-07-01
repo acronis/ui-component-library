@@ -26,7 +26,7 @@ For the complicated scenario, you can also create an example in the [Sandbox](ht
 
 Pull requests are welcomed for bug fixing/improvement in UI Kit.
 You can find a lot of useful information (e.g. "Directory structure" and "Setup and configuration") about the UI Kit in the [README.md](Link to setup).
-General [Git Workflow](Link to git docs) need to be followed when you prepare a pull request.
+General [CI Git Workflow](Link to git docs) need to be followed when you prepare a pull request.
 Meanwhile, below a checklist for the items need to do before raised a pull request,
 and you can find the details for each point in the remaining part of this document:
 
@@ -69,25 +69,25 @@ The following is a list of commit types:
 - chore: Other commits that don’t modify src or test files;
 - revert: Revert to a previous commit.
 
-### Unit Test and CSS Test
+### Testing source code
 
 #### Unit tests
 
-[Vitest](https://vitest.dev/) and [Vue-test-utils](https://test-utils.vuejs.org/) are used for the unit test and css test. 
+[Vitest](https://vitest.dev/) and [Vue-test-utils](https://test-utils.vuejs.org/) are used for the unit testing. 
 The spec files must be located at the `src` folder.
 
 #### Visual regression tests
 
-You can find more information about visual regression tests in the [Visual regression tests section](Link to test.md)
+You can find more information about visual regression tests in the [Visual regression tests section](https://acronis.github.io/ui-component-library/guide/testing.html#visual-regression-testing-with-cypress)
 
 #### Performance tests
 
-You can find more information about performance tests in the [Performance tests section](Link to test.md)
+You can find more information about performance tests in the [Performance tests section](https://acronis.github.io/ui-component-library/guide/testing.html#performance-tests)
 
 ### Component documentation
 
-The documentation for each component located at `docs` folder using a Markdown format.
-The examples of implementation located at `examples` in Vue.js SFC files format.
+The documentation for each component located at [`docs`](packages/documentation) folder using a Markdown format.
+The examples of implementation located at [`demos`](packages/documentation/demos) in Vue.js SFC files format.
 For internal documentation we use Vitepress, you can find more information about Vitepress in the [Vitepress documentation](https://vitepress.dev/).
 
 Each document consists of highlights of the API(props, slots, events) with examples and complete details of these components.

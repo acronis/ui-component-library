@@ -31,11 +31,6 @@ describe('test Chart component', () => {
 
   it('renders', () => {
     const wrapper = mount(Chart);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-d66479ff="" class="acv-chart">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-d66479ff="" class="acv-chart"></div>"`);
   });
 });

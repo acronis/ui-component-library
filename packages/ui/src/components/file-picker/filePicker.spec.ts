@@ -6,7 +6,12 @@ import type { AcvFilePickerProps } from './filePicker';
 describe('test FilePicker component', () => {
   it('default props', () => {
     const wrapper = mount(FilePicker);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test FilePicker component', () => {
       } as AcvFilePickerProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(FilePicker);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-e3be0cec="" class="acv-file-picker"></div>"`);
   });
 });

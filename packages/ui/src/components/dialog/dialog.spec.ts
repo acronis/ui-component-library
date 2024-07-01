@@ -8,26 +8,17 @@ describe('test Dialog component', () => {
     const wrapper = mount(Dialog);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "bottom": undefined,
-        "closable": false,
-        "closeOnClick": false,
-        "closeOnPressEscape": false,
-        "description": undefined,
+        "backdrop": true,
+        "closable": true,
+        "closeOnClickOutside": true,
+        "closeOnEscape": true,
         "draggable": false,
         "height": undefined,
-        "left": undefined,
-        "loading": false,
         "locale": undefined,
         "lockScroll": false,
-        "minHeight": undefined,
-        "minWidth": undefined,
-        "modal": false,
-        "modalClass": undefined,
-        "resizable": false,
-        "right": undefined,
+        "modelModifiers": undefined,
+        "modelValue": false,
         "title": undefined,
-        "top": undefined,
-        "transitionName": undefined,
         "type": undefined,
         "width": undefined,
       }
@@ -43,26 +34,17 @@ describe('test Dialog component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "bottom": undefined,
-        "closable": false,
-        "closeOnClick": false,
-        "closeOnPressEscape": false,
-        "description": undefined,
+        "backdrop": true,
+        "closable": true,
+        "closeOnClickOutside": true,
+        "closeOnEscape": true,
         "draggable": false,
         "height": undefined,
-        "left": undefined,
-        "loading": false,
         "locale": undefined,
         "lockScroll": false,
-        "minHeight": undefined,
-        "minWidth": undefined,
-        "modal": false,
-        "modalClass": undefined,
-        "resizable": false,
-        "right": undefined,
+        "modelModifiers": undefined,
+        "modelValue": false,
         "title": "test",
-        "top": undefined,
-        "transitionName": undefined,
         "type": undefined,
         "width": undefined,
       }
@@ -72,12 +54,15 @@ describe('test Dialog component', () => {
   it('renders', () => {
     const wrapper = mount(Dialog);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-d2f715b5="" class="acv-dialog">
-        <!--
-            @slot description - The description slot content
-            @binding {string} description - The description prop value
-          -->
-      </div>"
+      "<dialog data-v-d2f715b5="" class="acv-dialog backdrop" autofocus="" role="alertdialog" aria-labelledby="label-area" aria-describedby="content-area" aria-modal="true" aria-hidden="true"><button data-v-d2f715b5="" class="dialog-close"> X </button>
+        <section data-v-d2f715b5="" class="body">
+          <!--v-if-->
+          <main data-v-d2f715b5="" id="content-area">
+            <div data-v-d2f715b5="" class="scrollable"></div>
+          </main>
+          <!--v-if-->
+        </section>
+      </dialog>"
     `);
   });
 });

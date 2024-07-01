@@ -6,7 +6,12 @@ import type { AcvModalProps } from './modal';
 describe('test Modal component', () => {
   it('default props', () => {
     const wrapper = mount(Modal);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test Modal component', () => {
       } as AcvModalProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(Modal);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-ba0b771c="" class="acv-modal"></div>"`);
   });
 });

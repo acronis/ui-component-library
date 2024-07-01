@@ -6,7 +6,12 @@ import type { AcvDatePickerProps } from './datePicker';
 describe('test DatePicker component', () => {
   it('default props', () => {
     const wrapper = mount(DatePicker);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test DatePicker component', () => {
       } as AcvDatePickerProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(DatePicker);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-03498cc6="" class="acv-date-picker"></div>"`);
   });
 });

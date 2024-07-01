@@ -31,11 +31,6 @@ describe('test stepper component', () => {
 
   it('renders', () => {
     const wrapper = mount(Stepper);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-179b3493="" class="acv-stepper">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-179b3493="" class="acv-stepper"></div>"`);
   });
 });

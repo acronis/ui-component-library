@@ -6,7 +6,12 @@ import type { AcvTableColumnProps } from './tableColumn';
 describe('test TableColumn component', () => {
   it('default props', () => {
     const wrapper = mount(TableColumn);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test TableColumn component', () => {
       } as AcvTableColumnProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(TableColumn);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-f8ff591b="" class="acv-table-column"></div>"`);
   });
 });

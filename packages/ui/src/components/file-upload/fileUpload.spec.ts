@@ -6,7 +6,12 @@ import type { AcvFileUploadProps } from './fileUpload';
 describe('test FileUpload component', () => {
   it('default props', () => {
     const wrapper = mount(FileUpload);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test FileUpload component', () => {
       } as AcvFileUploadProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(FileUpload);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-40cec777="" class="acv-file-upload"></div>"`);
   });
 });

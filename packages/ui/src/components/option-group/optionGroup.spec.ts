@@ -6,7 +6,12 @@ import type { AcvOptionGroupProps } from './optionGroup';
 describe('test OptionGroup component', () => {
   it('default props', () => {
     const wrapper = mount(OptionGroup);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test OptionGroup component', () => {
       } as AcvOptionGroupProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(OptionGroup);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-3944f166="" class="acv-option-group"></div>"`);
   });
 });

@@ -35,10 +35,6 @@ describe('test Breadcrumbs component', () => {
 
   it('renders', () => {
     const wrapper = mount(Breadcrumbs);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-22b64bca="" class="acv-breadcrumbs" aria-label="Breadcrumb" role="navigation">
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-22b64bca="" class="acv-breadcrumbs" aria-label="Breadcrumb" role="navigation"></div>"`);
   });
 });

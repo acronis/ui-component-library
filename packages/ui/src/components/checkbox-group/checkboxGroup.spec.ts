@@ -6,7 +6,12 @@ import type { AcvCheckboxGroupProps } from './checkboxGroup';
 describe('test CheckboxGroup component', () => {
   it('default props', () => {
     const wrapper = mount(CheckboxGroup);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test CheckboxGroup component', () => {
       } as AcvCheckboxGroupProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(CheckboxGroup);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-88bdb927="" class="acv-checkbox-group"></div>"`);
   });
 });

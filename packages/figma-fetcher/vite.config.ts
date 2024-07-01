@@ -48,8 +48,5 @@ export default defineConfig({
         nodePolyfills(),
       ],
     },
-  },
-  test: {
-    // globals: true,
-  },
+  }
 });

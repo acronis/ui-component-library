@@ -31,11 +31,6 @@ describe('test skeleton component', () => {
 
   it('renders', () => {
     const wrapper = mount(Skeleton);
-    expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-67353e5b="" class="acv-skeleton">
-        
-        
-      </div>"
-    `);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-67353e5b="" class="acv-skeleton"></div>"`);
   });
 });

@@ -6,7 +6,12 @@ import type { AcvRadioGroupProps } from './radioGroup';
 describe('test RadioGroup component', () => {
   it('default props', () => {
     const wrapper = mount(RadioGroup);
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": undefined,
+      }
+    `);
   });
 
   it('pass props', () => {
@@ -16,12 +21,17 @@ describe('test RadioGroup component', () => {
       } as AcvRadioGroupProps,
     });
 
-    expect(wrapper.props()).toMatchInlineSnapshot();
+    expect(wrapper.props()).toMatchInlineSnapshot(`
+      {
+        "description": undefined,
+        "title": "test",
+      }
+    `);
   });
 
   it('renders', () => {
     const wrapper = mount(RadioGroup);
 
-    expect(wrapper.html()).toMatchInlineSnapshot();
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-74fd00e4="" class="acv-radio-group"></div>"`);
   });
 });

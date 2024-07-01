@@ -6,7 +6,10 @@ export function toPascalCase(str: string) {
 
 export function toTitleCase(str: string) {
   return str
-    .split(/(?=[A-Z])/)
-    .map(s => s.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()))
+    // Split the string into words considering spaces, underscores, and camelCase as boundaries
+    .split(' ')
+    // Convert each word to title case
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    // Join the words with a space
     .join(' ');
 }

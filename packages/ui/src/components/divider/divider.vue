@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
+  import { computed, toRefs } from 'vue';
   import { isInteger } from '@acronis-platform/utils';
   import './divider.css';
   import { isNumber } from 'lodash-es';
@@ -7,9 +7,12 @@
 
   defineOptions({ name: 'Divider' });
 
-  const { vertical, textPosition, color, margin } = defineProps<DividerProps>();
+  const props = defineProps<DividerProps>();
 
   const slots = defineSlots<{ default: () => any }>();
+
+  const { vertical, textPosition, color, margin } = toRefs(props);
+
   const hasText = computed(() => !!slots.default);
 
   const height = computed(() => {
@@ -19,20 +22,20 @@
   const dividerClasses = computed(() => {
     return {
       'acv-divider': true,
-      [`acv-divider--color-${color}`]: color,
-      'acv-divider--vertical': vertical,
-      'acv-divider--horizontal': !vertical,
-      'acv-divider--with-text': !vertical && hasText.value,
-      [`acv-divider--with-text-${textPosition}`]:
-        textPosition && !vertical && hasText.value && textPosition !== 'center'
+      [`acv-divider--color-${color.value}`]: color.value,
+      'acv-divider--vertical': vertical.value,
+      'acv-divider--horizontal': !vertical.value,
+      'acv-divider--with-text': !vertical.value && hasText.value,
+      [`acv-divider--with-text-${textPosition.value}`]:
+        textPosition.value && !vertical.value && hasText.value && textPosition.value !== 'center'
     };
   });
-  const textMargin = computed(() => isNumber(margin) ? `${margin}px` : margin);
+  const textMargin = computed(() => isNumber(margin.value) ? `${margin.value}px` : margin.value);
 
   const dividerStyles = computed(() => {
     return {
       height: `${height.value}px`,
-      ...(textMargin.value && vertical
+      ...(textMargin.value && vertical.value
         ? {
           marginRight: textMargin.value,
           marginLeft: textMargin.value
