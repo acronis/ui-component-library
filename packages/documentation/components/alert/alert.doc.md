@@ -141,11 +141,11 @@ Usually alerts provide important and time-sensitive information without interfer
 
 ## Slots
 
-| Name        | Description                 | Bindings |
-| ----------- | --------------------------- | -------- |
-| icon        |                             |          |
-| title       | Title                       |          |
-| description |                             |          |
-| default     | Custom content              |          |
-| actions     | Content for the actions     |          |
-| right       | Content for the right block |          |
+| Name        | Description                   | Bindings |
+| ----------- | ----------------------------- | -------- |
+| icon        | Content for the AcvAlert icon |          |
+| title       | Title                         |          |
+| description | Subtitle                      |          |
+| default     | Custom content                |          |
+| actions     | Content for the actions       |          |
+| right       | Content for the right block   |          |

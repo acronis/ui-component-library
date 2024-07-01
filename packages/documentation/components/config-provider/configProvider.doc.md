@@ -18,8 +18,8 @@ ConfigProvider is a component that allows you to set the default values for the 
 
 ## Props
 
-| Prop name | Description                                                                                                                    | Type        | Values | Default |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------- | ------ | ------- |
+| Prop name | Description                                                                                                                       | Type        | Values | Default |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------ | ------- |
 | props     | Components default props.<br/>Similar to what you pass to `propsDefaults` while initializing Acronis UI Component Library plugin. | NonNullable | -      |         |
 
 ## Slots
