@@ -1,0 +1,15 @@
+export { default as IAdd } from './add.svg';
+export { default as IDefaultBlank } from './default-blank.svg';
+export { default as IDefaultBlankColor } from './default-blank-color.svg';
+export { default as IImage } from './image.svg';
+export { default as IImageColor } from './image-color.svg';
+export { default as IJupyter } from './jupyter.svg';
+export { default as IJupyterColor } from './jupyter-color.svg';
+export { default as IScript } from './script.svg';
+export { default as IScriptColor } from './script-color.svg';
+export { default as ITable } from './table.svg';
+export { default as ITableColor } from './table-color.svg';
+export { default as ITextDocument } from './text-document.svg';
+export { default as ITextDocumentColor } from './text-document-color.svg';
+export { default as IVideoFile } from './video-file.svg';
+export { default as IVideoFileColor } from './video-file-color.svg';

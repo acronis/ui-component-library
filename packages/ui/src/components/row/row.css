@@ -1,0 +1,7 @@
+@layer acv-base {
+  :root {
+    --acv-row-color: var(--acv-color-brand-primary);
+    --acv-row-v-gap: 0;
+    --acv-row-h-gap: 0;
+  }
+}

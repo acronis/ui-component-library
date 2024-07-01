@@ -1,0 +1,21 @@
+{
+  "extends": "@acronis-platform/configs/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "cypress",
+      "vite/client",
+      "vitest/globals",
+      "@simonsmith/cypress-image-snapshot/types"
+    ],
+    "moduleResolution": "node"
+    //    "paths": {
+    //      "@/*": ["src/*"],
+    //      "@/components/*": ["./src/components/*"]
+    //    }
+  },
+  "include": ["src", "src/**/*.{ts,vue}", "./cypress.d.ts"],
+  "exclude": ["node_modules", "dist", "cypress.config.ts", "cypress"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

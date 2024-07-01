@@ -1,0 +1,7 @@
+[
+  { "type": "selection", "prop": "name", "label": "Icon + Name" },
+  { "prop": "status", "label": "Status" },
+  { "prop": "date", "label": "Date" },
+  { "prop": "number", "label": "Number" },
+  { "prop": "actions", "label": "Number" }
+]

@@ -1,0 +1,29 @@
+@mixin basic-styles {
+    font-family: var(--acv-font-family-default), sans-serif;
+    font-size: var(--acv-font-size-body);
+    font-variant-numeric: tabular-nums;
+    line-height: var(--acv-font-line-height-regular);
+    color: var(--acv-color-text-primary);
+
+    //&,
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+}
+
+@mixin inherit-basic-styles {
+    font-family: inherit;
+    font-size: inherit;
+    font-variant-numeric: inherit;
+    line-height: inherit;
+    user-select: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+}

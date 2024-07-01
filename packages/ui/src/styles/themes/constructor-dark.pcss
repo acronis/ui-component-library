@@ -1,0 +1,127 @@
+@define-mixin constructor-dark {
+  --ac-color-scheme: var(--ac-color-scheme-dark);
+
+  /* Default colors */
+  --ac-color-app-base: var(--ac-color-white);
+  --ac-color-transparent: transparent;
+  --ac-color-text-primary: var(--ac-color-black);
+  --ac-color-text-on-primary: var(--ac-color-white);
+  --ac-color-text-secondary: var(--ac-color-gray);
+  --ac-color-text-heading: var(--ac-color-white);
+  --ac-color-text-subtitle: var(--ac-color-white);
+
+  /* Semantic colors */
+
+  /* Primary */
+  --ac-color-primary-lightest: var(--ac-color-blue-light-40);
+  --ac-color-primary-lighter: var(--ac-color-blue-light-20);
+  --ac-color-primary-light: var(--ac-color-blue-light-10);
+  --ac-color-primary: var(--ac-color-blue);
+  --ac-color-primary-focus: var(--ac-color-blue-shade-10);
+  --ac-color-primary-hover: var(--ac-color-blue-light-20);
+  --ac-color-primary-active: var(--ac-color-blue-light-10);
+  --ac-color-primary-dark: var(--ac-color-blue-shade-10);
+  --ac-color-primary-darker: var(--ac-color-blue-shade-20);
+  --ac-color-primary-darkest: var(--ac-color-blue-shade-30);
+
+  /* Secondary */
+  --ac-color-secondary-lightest: var(--ac-color-dodge-blue-light-40);
+  --ac-color-secondary-lighter: var(--ac-color-dodge-blue-light-20);
+  --ac-color-secondary-light: var(--ac-color-dodge-blue-light-10);
+  --ac-color-secondary: var(--ac-color-dodge-blue);
+  --ac-color-secondary-focus: var(--ac-color-dodge-blue-shade-10);
+  --ac-color-secondary-dark: var(--ac-color-dodge-blue-shade-10);
+  --ac-color-secondary-darker: var(--ac-color-dodge-blue-shade-20);
+  --ac-color-secondary-darkest: var(--ac-color-dodge-blue-shade-30);
+
+  /* Accent */
+  --ac-color-accent-lighter: var(--ac-color-dodge-blue-light-40);
+  --ac-color-accent-lighter: red;
+  --ac-color-accent-light: var(--ac-color-dodge-blue-light-30);
+  --ac-color-accent: var(--ac-color-dodge-blue-light-20);
+  --ac-color-accent-focus: var(--ac-color-blue-light-10);
+  --ac-color-accent-dark: var(--ac-color-dodge-blue-shade-10);
+  --ac-color-accent-darker: var(--ac-color-dodge-blue-shade-20);
+
+  /* Status colors */
+
+  /* Critical */
+  --ac-color-critical-lighter: var(--ac-color-orange-light-40);
+  --ac-color-critical-light: var(--ac-color-orange-light-30);
+  --ac-color-critical: var(--ac-color-orange);
+  --ac-color-critical-dark: var(--ac-color-orange-shade-20);
+
+  /* Danger */
+  --ac-color-danger-lighter: var(--ac-color-red-light-40);
+  --ac-color-danger-light: var(--ac-color-red-light-30);
+  --ac-color-danger: var(--ac-color-red);
+  --ac-color-danger-dark: var(--ac-color-red-shade-20);
+
+  /* Info */
+  --ac-color-info-lighter: var(--ac-color-dodge-blue-light-40);
+  --ac-color-info-light: var(--ac-color-dodge-blue-light-30);
+  --ac-color-info: var(--ac-color-dodge-blue-light-20);
+  --ac-color-info-dark: var(--ac-color-dodge-blue-shade-10);
+
+  /* Neutral */
+  --ac-color-neutral-lighter: hsl(220deg, 7%, 92%);
+  --ac-color-neutral-light: hsl(216deg, 8%, 88%);
+  --ac-color-neutral: hsl(216deg, 8%, 61%);
+  --ac-color-neutral-dark: hsl(214deg, 11%, 41%);
+
+  /* Success */
+  --ac-color-success-lighter: var(--ac-color-light-green-light-40);
+  --ac-color-success-light: var(--ac-color-light-green-light-30);
+  --ac-color-success: var(--ac-color-light-green);
+  --ac-color-success-dark: var(--ac-color-light-green-shade-20);
+
+  /* Warning */
+  --ac-color-warning-lighter: var(--ac-color-amber-light-40);
+  --ac-color-warning-light: var(--ac-color-amber-light-30);
+  --ac-color-warning: var(--ac-color-amber);
+  --ac-color-warning-dark: var(--ac-color-orange-shade-30);
+
+  /* Utility colors */
+
+  /* Focus */
+  --ac-color-focus: var(--ac-color-dodge-blue-light-30);
+  --ac-color-highlight: var(--ac-color-yellow);
+
+  /* Transparent */
+  --ac-color-light: hsla(215deg, 30%, 20%, 0.7);
+  --ac-color-lighter: hsla(215deg, 30%, 20%, 0.4);
+  --ac-color-lightest: hsla(215deg, 30%, 20%, 0.2);
+  --ac-color-invisible: hsla(215deg, 30%, 20%, 0.1);
+
+  /* Inverted */
+  --ac-color-inverted-primary: hsl(0deg, 0%, 100%);
+  --ac-color-inverted-secondary: hsla(0deg, 0%, 95%);
+  --ac-color-inverted-accent: hsla(0deg, 0%, 95%);
+  --ac-color-inverted-invisible: hsla(0deg, 0%, 100%, 0.1);
+  --ac-color-inverted-light: hsla(0deg, 0%, 100%, 0.7);
+  --ac-color-inverted-lighter: hsla(0deg, 0%, 100%, 0.4);
+  --ac-color-inverted-lightest: hsla(0deg, 0%, 120%);
+  --ac-color-inverted-danger: hsl(10deg, 100%, 75%);
+  --ac-color-inverted-warning: hsl(44deg, 94%, 65%);
+  --ac-color-inverted-success: hsl(122deg, 46%, 75%);
+  --ac-color-inverted-info: hsl(202deg, 91%, 79%);
+  --ac-color-inverted-neutral: hsl(0deg, 0%, 100%);
+
+  /* Overlay */
+  --ac-color-overlay-accent: hsla(
+      from var(--ac-color-dodge-blue-light-20) h s l,
+      0.13
+  );
+  --ac-color-overlay-active: rgba(18, 64, 117, 0.1);
+  --ac-color-overlay-danger: hsla(
+      from var(--ac-color-red-light-30) h s l,
+      0.18
+  );
+  --ac-color-overlay-fade-to-black: hsla(0deg, 0%, 4%, 0.5);
+  --ac-color-overlay-fade-to-white: hsla(from var(--ac-color-white) h s l, 0.6);
+  --ac-color-overlay-hover-inverted: hsla(
+      from var(--ac-color-white) h s l,
+      0.25
+  );
+  --ac-color-overlay-hover: hsla(from var(--ac-color-black) h s l, 0.06);
+}

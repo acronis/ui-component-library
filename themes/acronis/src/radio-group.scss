@@ -1,8 +1,0 @@
-@import 'common/variables';
-@import 'common/mixins';
-
-@include b(radio-group) {
-  @include button-group {
-    @include button-group-item(radio-button);
-  }
-}

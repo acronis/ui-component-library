@@ -1,0 +1,8 @@
+@layer acv-base {
+  :root {
+    --acv-alert-border-radius: var(--acv-radius-medium);
+    --acv-alert-title-color: var(--acv-color-text-primary);
+    --acv-lert-plain-transition: 0.2s opacity
+      var(--acv-transition-timing-common);
+  }
+}

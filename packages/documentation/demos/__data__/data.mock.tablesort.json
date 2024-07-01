@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "username": "Tom",
+    "email": "tom@gmail.com",
+    "data": null,
+    "address": "189, Grove St, Los Angeles",
+    "state": "offline"
+  },
+  {
+    "id": 2,
+    "username": "scarlet1965",
+    "email": "écarlate@hotmail.com",
+    "data": -3,
+    "address": "345 Angus Road",
+    "state": "offline"
+  },
+  {
+    "id": 3,
+    "username": "Atlas Jeffery",
+    "email": "atlas110@hotmail.com",
+    "data": 2,
+    "address": "Canis Heights Drive",
+    "state": "offline"
+  },
+  {
+    "id": 4,
+    "username": "tara",
+    "data": "1000ms",
+    "email": "1004832@163.com",
+    "address": "3744 Sunset Drive",
+    "state": "offline"
+  },
+  {
+    "id": 5,
+    "username": "alyx pitt",
+    "data": "reference",
+    "email": "alyx@outlook.com",
+    "address": "1244 Jones Street",
+    "state": "offline"
+  }
+]

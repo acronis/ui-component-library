@@ -1,0 +1,19 @@
+<svg width="48" height="48" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <path fill="url(#prefix__a)" d="M23 4.5A1.5 1.5 0 0 1 24.5 3h5A1.5 1.5 0 0 1 31 4.5v3.044a16.652 16.652 0 0 1 4.36 1.836l2.247-2.247a1.5 1.5 0 0 1 2.121 0l3.536 3.536a1.5 1.5 0 0 1 0 2.12l-2.222 2.222a16.656 16.656 0 0 1 1.914 4.489h3.294a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5h-3.171a16.647 16.647 0 0 1-1.904 4.769l2.265 2.264a1.5 1.5 0 0 1 0 2.122l-3.535 3.535a1.5 1.5 0 0 1-2.122 0l-2.203-2.203a16.655 16.655 0 0 1-4.58 1.97V43a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 23 43v-2.921a16.65 16.65 0 0 1-4.989-2.037l-1.97 1.971a1.5 1.5 0 0 1-2.122 0l-3.536-3.535a1.5 1.5 0 0 1 0-2.121l1.997-1.997a16.645 16.645 0 0 1-1.959-4.86H7.75a1.5 1.5 0 0 1-1.5-1.5v-5a1.5 1.5 0 0 1 1.5-1.5h2.794a16.655 16.655 0 0 1 1.97-4.58l-1.954-1.953a1.5 1.5 0 0 1 0-2.122l3.535-3.535a1.5 1.5 0 0 1 2.121 0l2.015 2.015A16.647 16.647 0 0 1 23 7.42V4.5Z" clip-rule="evenodd" opacity=".38"/>
+  <path fill="url(#prefix__b)" d="M36.5 23.5 21.5 34v-5.5H0v-10h21.5V13l15 10.5Z" clip-rule="evenodd"/>
+  <path fill="url(#prefix__c)" d="M10.683 28.5c-.097-.33-.184-.663-.262-1H7.75a1.5 1.5 0 0 1-1.5-1.5v-5a1.5 1.5 0 0 1 1.5-1.5h2.794c.088-.338.187-.671.295-1H21.5V13l15 10.5-15 10.5v-5.5H10.683Z" clip-rule="evenodd"/>
+  <defs>
+    <linearGradient id="prefix__a" x1="-16.411" x2="9" y1="11.884" y2="57.205" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+    <linearGradient id="prefix__b" x1="27.433" x2="27.433" y1="38.008" y2="18.664" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A5C8F4"/>
+      <stop offset="1" stop-color="#8DB7E9"/>
+    </linearGradient>
+    <linearGradient id="prefix__c" x1="21.57" x2="49.036" y1="52.959" y2="13.301" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#295296"/>
+      <stop offset="1" stop-color="#3E78D3"/>
+    </linearGradient>
+  </defs>
+</svg>

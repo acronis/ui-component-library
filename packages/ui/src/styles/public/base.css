@@ -1,0 +1,8 @@
+/**
+ * This file contains styles for the most ground level and must be imported globally in the entry file
+ */
+@layer ui-base, components, utilities, tokens;
+
+@import "../tokens/acv/base.css" layer(tokens);
+@import "../tokens/acv/custom" layer(custom);
+@import "../utilities/index.css" layer(utilities);

@@ -1,0 +1,17 @@
+@layer acv-base {
+  :root {
+    --acv-table-background-color: var(--acv-color-divider-inversed-primary);
+    --acv-table-border-color: var(--acv-color-brand-primary);
+    --acv-table-cell-padding: 0 var(--acv-spacing-regular);
+    --acv-table-cell-padding-dense: 0 var(--acv-spacing-small);
+    --acv-table-row-height: var(--acv-height-x-large);
+    --acv-table-row-height-dense: var(--acv-height-regular);
+    --acv-table-bottom-border: 1px solid var(--acv-border-primary);
+    --acv-table-z-index-header: var(--acv-z-index-normal);
+    --acv-table-z-index-header-fixed: var(--acv-z-index-label);
+    --acv-table-padding: 8px;
+    --acv-table-color-head: hsl(0deg, 0%, 100%);
+    --acv-table-bg-head: hsl(0deg, 0%, 66%);
+    --acv-table-color-hover: hsl(0deg, 0%, 94%);
+  }
+}

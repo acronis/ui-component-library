@@ -1,0 +1,3 @@
+# Dense Markup Table
+
+<MarkupTableDense />

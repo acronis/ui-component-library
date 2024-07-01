@@ -1,0 +1,39 @@
+<svg width="96" height="96" fill="none" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+  <path fill="url(#prefix__a)" d="M6 25.769h84v54H6z" opacity=".276"/>
+  <path fill="url(#prefix__b)" d="M85.692 16c2.307 0 4.19 1.82 4.303 4.108l.005.215v5.404H6v-5.404a4.317 4.317 0 0 1 4.093-4.318l.215-.005h75.384Zm-11.307 2.162a2.697 2.697 0 0 0-2.693 2.702 2.697 2.697 0 0 0 2.693 2.702 2.697 2.697 0 0 0 2.692-2.702 2.697 2.697 0 0 0-2.692-2.702Z" clip-rule="evenodd" opacity=".55"/>
+  <path fill="url(#prefix__c)" d="M83 23.77a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd"/>
+  <path fill="url(#prefix__d)" d="M23 39a4 4 0 0 1 4-4h34a4 4 0 0 1 4 4v34a4 4 0 0 1-8 0V43H27a4 4 0 0 1-4-4Z" clip-rule="evenodd"/>
+  <path fill="url(#prefix__e)" d="M73 65a4 4 0 0 1-4 4H35a4 4 0 0 1-4-4V31a4 4 0 0 1 8 0v30h30a4 4 0 0 1 4 4Z" clip-rule="evenodd"/>
+  <path fill="url(#prefix__f)" d="M31 35h8v8h-8z"/>
+  <path fill="url(#prefix__g)" d="M57 61h8v8h-8z"/>
+  <defs>
+    <linearGradient id="prefix__a" x1="90" x2="6" y1="52.769" y2="52.769" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+    <linearGradient id="prefix__b" x1="48" x2="45.777" y1="11.136" y2="30.334" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70B1FF"/>
+      <stop offset="1" stop-color="#005CCD"/>
+    </linearGradient>
+    <linearGradient id="prefix__c" x1="101.51" x2="86.449" y1="22.911" y2="7.688" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#295296"/>
+      <stop offset="1" stop-color="#3E78D3"/>
+    </linearGradient>
+    <linearGradient id="prefix__d" x1="44" x2="86" y1="98" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#75A8F3"/>
+      <stop offset="1" stop-color="#4E86DA"/>
+    </linearGradient>
+    <linearGradient id="prefix__e" x1="52" x2="10" y1="6" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#75A8F3"/>
+      <stop offset="1" stop-color="#4E86DA"/>
+    </linearGradient>
+    <linearGradient id="prefix__f" x1="59.68" x2="39.598" y1="41.856" y2="21.558" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#295296"/>
+      <stop offset="1" stop-color="#3E78D3"/>
+    </linearGradient>
+    <linearGradient id="prefix__g" x1="85.68" x2="65.598" y1="67.856" y2="47.559" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#295296"/>
+      <stop offset="1" stop-color="#3E78D3"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,20 @@
+@layer acv-base {
+  :root {
+    --acv-breadcrumbs-color: var(--acv-color-brand-primary);
+    --acv-breadcrumbs-density-default: 0;
+    --acv-breadcrumbs-density-comfortable: -1;
+    --acv-breadcrumbs-density-compact: -2;
+    --acv-breadcrumbs-divider-padding: 0 8px;
+    --acv-breadcrumbs-item-disabled-opacity: var(--acv-color-link-disabled);
+    --acv-breadcrumbs-item-icon-font-size: var(--acv-font-size-note);
+    --acv-breadcrumbs-item-icon-margin-inline-end: 2px;
+    --acv-breadcrumbs-item-icon-margin-inline-start: -4px;
+    --acv-breadcrumbs-item-link-text-decoration: underline;
+    --acv-breadcrumbs-item-padding: 0 4px;
+    --acv-breadcrumbs-line-height: var(--acv-font-line-height-medium);
+    --acv-breadcrumbs-padding-y: 16px;
+    --acv-breadcrumbs-padding-x: 12px;
+    --acv-breadcrumbs-rounded-border-radius: var(--acv-radius-medium);
+    --acv-breadcrumbs-vertical-align: middle;
+  }
+}

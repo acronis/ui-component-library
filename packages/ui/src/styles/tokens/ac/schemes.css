@@ -1,0 +1,8 @@
+:root {
+  --ac-color-scheme: light;
+  --ac-color-scheme-light: light;
+  --ac-color-scheme-dark: dark;
+  --ac-color-scheme-light-dark: light dark;
+  --ac-color-scheme-dark-light: dark light;
+  color-scheme: var(--ac-color-scheme);
+}

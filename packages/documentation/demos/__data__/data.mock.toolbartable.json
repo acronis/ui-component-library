@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Force Touch Cloud",
+    "status": "Critical",
+    "location": "G:/Backups/",
+    "backup": "Not Scheduled",
+    "occupied": 13
+  },
+  {
+    "id": 2,
+    "name": "Blue Sky Group",
+    "status": "Critical",
+    "location": "E:/Backups/Replica",
+    "backup": "Monday to Friday at 22:00",
+    "occupied": 13
+  },
+  {
+    "id": 3,
+    "name": "Westfield Labs Platform",
+    "status": "Not Protected",
+    "location": "E:/123/Protection/",
+    "backup": "Not Scheduled",
+    "occupied": 9
+  },
+  {
+    "id": 4,
+    "name": "LandUp",
+    "status": "Not Protected",
+    "location": "Tape pool",
+    "backup": "-",
+    "occupied": 7
+  },
+  {
+    "id": 5,
+    "name": "Fusion Media Network",
+    "status": "Not Protected",
+    "location": "C:/dedup2/",
+    "backup": "Monday to Friday at 12:00",
+    "occupied": 58
+  },
+  {
+    "id": 6,
+    "name": "Tsukaeru Systems",
+    "status": "Not Protected",
+    "location": "rusp-00001506/Tibfile/",
+    "backup": "-",
+    "occupied": 58
+  },
+  {
+    "id": 7,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58
+  },
+  {
+    "id": 8,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20
+  },
+  {
+    "id": 9,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20
+  },
+  {
+    "id": 10,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12
+  },
+  {
+    "id": 11,
+    "name": "Fusion Media Network",
+    "status": "Not Protected",
+    "location": "C:/dedup2/",
+    "backup": "Monday to Friday at 12:00",
+    "occupied": 58
+  },
+  {
+    "id": 12,
+    "name": "Tsukaeru Systems",
+    "status": "Not Protected",
+    "location": "rusp-00001506/Tibfile/",
+    "backup": "-",
+    "occupied": 58
+  },
+  {
+    "id": 13,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58
+  },
+  {
+    "id": 14,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20
+  },
+  {
+    "id": 15,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20
+  },
+  {
+    "id": 16,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12
+  },
+  {
+    "id": 17,
+    "name": "Ingram Micro",
+    "status": "Ok",
+    "location": "E:/Backups/Replica",
+    "backup": "Full (Custom scheme)",
+    "occupied": 58
+  },
+  {
+    "id": 18,
+    "name": "USS Signal Limited",
+    "status": "Ok",
+    "location": "10.250.145.62/test/",
+    "backup": "Full (Custom Scheme)",
+    "occupied": 20
+  },
+  {
+    "id": 19,
+    "name": "Triple C",
+    "status": "Ok",
+    "location": "Tape Pool",
+    "backup": "Not Scheduled",
+    "occupied": 20
+  },
+  {
+    "id": 20,
+    "name": "Hope Europe DF",
+    "status": "Ok",
+    "location": "e61f7bb67356@ya.ru",
+    "backup": "Never",
+    "occupied": 12
+  }
+]

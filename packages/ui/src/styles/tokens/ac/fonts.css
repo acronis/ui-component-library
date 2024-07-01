@@ -1,0 +1,13 @@
+:root {
+  --ac-font-acronis-cyber: "Acronis Cyber", sans-serif;
+  --ac-font-jetbrains-mono: "JetBrains Mono", monospace;
+  --ac-font-inter: "Inter", sans-serif;
+  --ac-font-open-sans: "Open Sans", sans-serif;
+
+  /* font-family */
+  --ac-font-family: var(--ac-font-inter), system-ui, "Avenir", "Helvetica",
+    "Arial", sans-serif;
+  --ac-font-family-brand: var(--ac-font-acronis-cyber);
+  --ac-font-family-mono: var(--ac-font-jetbrains-mono), var(--ac-font-family),
+    monospace;
+}

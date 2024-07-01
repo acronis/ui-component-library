@@ -1,0 +1,18 @@
+@import "./base.css";
+@import "../tokens/acv/theme/constructor.css" layer(theme);
+@import "../tokens/acv/theme/dark.css" layer(theme);
+
+/* :root,
+:root[data-theme="light"] {
+  @mixin constructor-light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @mixin constructor-dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  @mixin constructor-dark;
+} */

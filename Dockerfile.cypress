@@ -1,0 +1,16 @@
+FROM cypress/included:13.12.0
+
+WORKDIR /workspace
+
+COPY pnpm-lock.yaml /workspace/
+
+ADD . /workspace
+
+# Install PNPM
+RUN npm install -g pnpm
+
+# Install app dependencies using PNPM
+RUN pnpm install -r --frozen-lockfile
+
+# Point to the ui package
+WORKDIR /workspace/packages/ui

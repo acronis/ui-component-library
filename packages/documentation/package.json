@@ -1,0 +1,52 @@
+{
+  "name": "@acronis-platform/ui-component-library-documentation",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "collect": "vue-docgen -c docgen.config.js",
+    "lint": "npm-run-all --aggregate-output -c -p lint:code lint:ts lint:stylelint",
+    "lint:stylelint": "stylelint \"**/*.{css,vue}\" --globby-options '{\"dot\":true}'",
+    "lint:stylelint:fix": "pnpm run lint:stylelint -- --fix",
+    "lint:code": "eslint .",
+    "lint:code:fix": "pnpm run lint:code --fix",
+    "lint:ts": "vue-tsc --noemit",
+    "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" lint:ts || exit 0",
+    "changelog": "npx auto-changelog -p  --tag-prefix @acronis-platform/ui-component-library-documentation@ --append-git-log .",
+    "release": "release-it"
+  },
+  "peerDependencies": {
+    "vue": "3.4.30",
+    "vue-router": "4.3.2"
+  },
+  "dependencies": {
+    "@acronis-platform/icons": "workspace:*",
+    "@acronis-platform/ui-component-library": "workspace:*",
+    "@acronis-platform/utils": "workspace:*",
+    "@vueuse/core": "10.9.0",
+    "cssom": "0.5.0"
+  },
+  "devDependencies": {
+    "@acronis-platform/configs": "workspace:*",
+    "@vue/repl": "4.1.1",
+    "npm-run-all": "4.1.5",
+    "stylelint": "16.2.1",
+    "vite": "5.2.6",
+    "vitepress": "1.2.3",
+    "vue-docgen-api": "4.78.0",
+    "vue-docgen-cli": "4.79.0",
+    "vue-tsc": "2.0.19"
+  },
+  "release-it": {
+    "git": false
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": false,
+    "commitLimit": false,
+    "backfillLimit": false
+  }
+}
