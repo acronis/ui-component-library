@@ -4,13 +4,14 @@ Here is the guide how to set up testing with Vitest and Vue Test Utils for the A
 
 ## Unit testing
 
-We use [Vue Test Utils](https://vue-test-utils.vuejs.org/) and [Vitest]((https://vitest.dev/)) for unit testing.
+We use [Vue Test Utils](https://vue-test-utils.vuejs.org/) and [Vitest](https://vitest.dev) for unit testing.
 
 ## Visual regression testing with Cypress
 
 Visual regression testing is a technique to verify that the changes in the codebase
 do not affect the visual appearance of the application.
-For that purpose we mount [test components](../demos) and take [screenshots](../../ui/cypress/snapshots) of them.
+For that purpose we mount **test components**(packages/documentation/demos) 
+and take **screenshots**(packages/ui/cypress/snapshots) of them.
 Then we compare the screenshots with the baseline screenshots.
 To run visual regression tests with Cypress, you need to run the following command:
 
@@ -37,7 +38,6 @@ or locally with [act](https://nektosact.com/) from the root directory.
 ```bash
 act -j visual-regression
 ```
-
 
 ## Performance tests
 
