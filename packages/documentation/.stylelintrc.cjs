@@ -3,5 +3,5 @@ module.exports = {
   extends: [
     '@acronis-platform/configs/.stylelintrc.cjs',
   ],
-  ignoreFiles: ['dist/**/*'],
+  ignoreFiles: ['.vitepress/dist/**/*'],
 };
