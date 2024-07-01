@@ -19,19 +19,21 @@ There are 5 variant color patterns available: `primary`, `secondary`, `success`,
 
 ### Solid color variants
 
-<ButtonSolidVariants />
+Button with a solid variant is a button with a solid background color.
+
+<ButtonKindSolid />
 
 ### Outline color variants
 
 Button with an outline variant is a button with a border and transparent background.
 
-<ButtonOutlineVariants />
+<ButtonKindOutline />
 
 ### Ghost color variants
 
 Button with a ghost variant is a button with a transparent background and a border.
 
-<ButtonGhostVariants />
+<ButtonKindGhost />
 
 ## Sizing
 
@@ -76,10 +78,6 @@ It is ignored when either _href_ or _to_ props are set.
 ## Secondary
 
 <ButtonVariantSecondary />
-
-## Ghost
-
-<ButtonVariantGhost />
 
 ## Block buttons
 
@@ -139,8 +137,6 @@ We provide the following features to make the button accessible:
 ### Router links
 
 When `href` or `to` props are set, the button is rendered as an `<a>` element with `role="button"` attribute.
-
-[//]: # (<ButtonMultilineExample />)
 
 ## See also
 

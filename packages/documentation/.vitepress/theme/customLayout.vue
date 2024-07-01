@@ -1,0 +1,21 @@
+<script setup>
+  import DefaultTheme from 'vitepress/theme';
+  import ThemeSwitcher from '@/widgets/theme-switcher/themeSwitcher.vue';
+
+  const isProd = process.env.NODE_ENV === 'production';
+
+  const { Layout } = DefaultTheme;
+</script>
+
+<template>
+  <Layout>
+    <template #nav-bar-content-after>
+      <div
+        v-if="!isProd"
+        class="ml-16"
+      >
+        <ThemeSwitcher class="ml-8" />
+      </div>
+    </template>
+  </Layout>
+</template>
