@@ -36,14 +36,13 @@ export async function getFigmaIcons(config) {
   }
   const endTime = new Date().getTime();
   console.log(chalk.cyan.bold(`Finished fetching Figma in ${(endTime - startTime) / 1000}s\n`));
-  const page = response.data.document.children.find(c => c.name === config.iconsPage);
+  const page = response.data.document.children.find(c => c.name === config.pageName);
 
   if (!page) {
     throw new Error('Cannot find Icons Page, check your settings');
   }
 
   const framesWithIcons = page.children.filter(c => c.type === 'FRAME' && config.frameNames.includes(c.name));
-  console.log(framesWithIcons);
   if (!framesWithIcons) {
     console.log(
       chalk.red.bold(
@@ -56,9 +55,10 @@ export async function getFigmaIcons(config) {
   }
   const resultIcons = [];
   const iconsArray = [];
-  framesWithIcons.map(frame => frame.children.find(c => c.type === 'GROUP' && c.name === 'Icons')).forEach((group) => {
-    iconsArray.push(...group.children);
-  });
+
+  framesWithIcons.forEach(frame => frame.children.filter(child => child.type === 'COMPONENT').forEach((child) => {
+    iconsArray.push(child);
+  }));
 
   iconsArray.forEach((icon) => {
     if (icon.name.startsWith('_')) {

@@ -10,6 +10,7 @@ export function getConfig() {
     token: envConfig.FIGMA_FETCHER_FIGMA_TOKEN,
     fileKey: envConfig.FIGMA_FETCHER_FILE_KEY,
     frameNames: envConfig.FIGMA_FETCHER_FRAME_NAMES,
+    pageName: envConfig.FIGMA_FETCHER_PAGE_NAME,
     removeFromName: ['style=', 'type=', 'status='],
     iconsPath: path.resolve(envConfig.FIGMA_ICONS_PATH ?? 'icons'),
   };

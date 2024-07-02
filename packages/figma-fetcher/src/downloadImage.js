@@ -1,5 +1,4 @@
 import path from 'node:path';
-import { promises } from 'node:fs';
 import { optimize } from 'svgo';
 import { removeFromName } from './helpers.js';
 
@@ -17,13 +16,15 @@ import { removeFromName } from './helpers.js';
 export async function downloadImage(config, icon) {
   const url = icon.image;
   const pathname = removeFromName(icon.name, config.removeFromName);
-  const directory = path.dirname(path.join(config.iconsPath, pathname));
   const nameClean = path.basename(pathname);
 
-  await promises.mkdir(directory, { recursive: true });
-
   try {
-    const imagePath = path.join(directory, `${nameClean}.svg`);
+    const isContinue = config.onBeforeDownloadIcon(nameClean);
+
+    if (isContinue === false) {
+      return;
+    }
+
     const response = await fetch(url);
     const content = optimize(await response.text(), {
       plugins: [
@@ -38,9 +39,7 @@ export async function downloadImage(config, icon) {
       ],
     }).data.replace(/#181818/g, 'currentColor');
 
-    await promises.writeFile(imagePath, content, 'utf8');
-
-    config.onDownloadedIcon({ content, pathname });
+    await config.onDownloadedIcon({ content, pathname });
   }
   catch (err) {
     throw new Error(`Failed to download Icon with name -> ${pathname}`, { cause: err });
