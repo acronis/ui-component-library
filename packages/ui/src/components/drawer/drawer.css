@@ -2,5 +2,9 @@
   :root {
     /* Insert component css variables here */
     --acv-drawer-color: var(--acv-color-brand-primary);
+    --acv-drawer-z-index: var(--acv-z-index-overlay);
+    --acv-drawer-width: 300px;
+    --acv-drawer-transition-opacity: 1;
+    --acv-drawer-transition-transform-timing: ease-in-out;
   }
 }

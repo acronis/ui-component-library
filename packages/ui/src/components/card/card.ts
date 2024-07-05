@@ -1,4 +1,4 @@
-export interface CardProps {
+export interface AcvCardProps {
   /**
    * Background color of the card
    */
