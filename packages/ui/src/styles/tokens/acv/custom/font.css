@@ -1,3 +1,6 @@
 :root {
-  --acv-font-jetbrains-mono: "JetBrains Mono", monospace;
+  --acv-base-font-family-jet-brains: "JetBrains Mono", monospace;
+  --acv-base-font-family-mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", monospace;
+  --acv-font-family-mono: var(--acv-base-font-family-jet-brains);
 }

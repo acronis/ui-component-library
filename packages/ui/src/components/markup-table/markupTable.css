@@ -10,8 +10,8 @@
     --acv-table-z-index-header: var(--acv-z-index-normal);
     --acv-table-z-index-header-fixed: var(--acv-z-index-label);
     --acv-table-padding: 8px;
-    --acv-table-color-head: hsl(0deg, 0%, 100%);
-    --acv-table-bg-head: hsl(0deg, 0%, 66%);
-    --acv-table-color-hover: hsl(0deg, 0%, 94%);
+    --acv-table-color-head: hsl(0deg 0% 100%);
+    --acv-table-bg-head: hsl(0deg 0% 66%);
+    --acv-table-color-hover: hsl(0deg 0% 94%);
   }
 }

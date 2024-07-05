@@ -21,7 +21,7 @@
     --acv-dialog-close-color: var(--acv-color-text-status-info);
     --acv-dialog-close-color-hover: var(--acv-color-surface-primary);
     --acv-dialog-resizer-color: var(--acv-color-surface-primary);
-    --acv-dialog-backdrop-color: hsl(215deg, 30%, 20%, 0.9);
+    --acv-dialog-backdrop-color: hsl(215deg 30% 20% / 0.9);
     --acv-dialog-width: var(--acv-dialog-width-small);
     --acv-dialog-width-small: 512px;
     --acv-dialog-width-medium: 672px;

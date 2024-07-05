@@ -1,6 +1,8 @@
-@import "./base.css";
+@import "../tokens/acv/base.css" layer(tokens);
 @import "../tokens/acv/theme/constructor.css" layer(theme);
 @import "../tokens/acv/theme/dark.css" layer(theme);
+@import "../tokens/acv/custom" layer(theme);
+@import "../utilities/index.css" layer(utilities);
 
 /* :root,
 :root[data-theme="light"] {

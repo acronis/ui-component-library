@@ -233,11 +233,11 @@
   .fixed-left {
     position: sticky;
     left: 0;
-    background-color: hsl(187deg, 100%, 40%);
+    background-color: hsl(187deg 100% 40%);
   }
 
   .fixed-right {
-    border-left: 1px solid hsl(0deg, 0%, 50%);
+    border-left: 1px solid hsl(0deg 0% 50%);
     border-right: none;
     position: sticky;
     right: 0;
@@ -246,8 +246,8 @@
   /* user styles */
 
   table thead {
-    color: hsl(0deg, 0%, 100%);
-    background-color: hsl(120deg, 100%, 25%);
+    color: hsl(0deg 0% 100%);
+    background-color: hsl(120deg 100% 25%);
     border-radius: 5px 5px 0 0;
   }
 
@@ -256,16 +256,16 @@
   }
 
   table tbody {
-    border: 1px solid hsl(120deg, 100%, 25%);
-    border-bottom: 3px solid hsl(120deg, 100%, 25%);
+    border: 1px solid hsl(120deg 100% 25%);
+    border-bottom: 3px solid hsl(120deg 100% 25%);
   }
 
   table tbody tr:nth-child(even) {
-    background-color: hsl(0deg, 0%, 90%);
+    background-color: hsl(0deg 0% 90%);
   }
 
   table .unknown {
-    color: hsl(0deg, 100%, 50%);
+    color: hsl(0deg 100% 50%);
     text-align: left;
   }
 
@@ -276,7 +276,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background: hsl(240deg, 100%, 27%);
+    background: hsl(240deg 100% 27%);
     opacity: 0;
     width: 4px;
     cursor: col-resize;

@@ -1,10 +1,14 @@
+@import "./reset.css";
 @import "./background-color.css";
 @import "./display.css";
+@import "./flex.css";
 @import "./grid.css";
+
+/* @import "./layer.css"; */
 @import "./overflow.css";
 @import "./position.css";
 @import "./size.css";
 @import "./spacing.css";
-@import "./text.scss";
 @import "./text-middle-ellipsis.css";
+@import "./text.scss";
 @import "./vertical-align.css";

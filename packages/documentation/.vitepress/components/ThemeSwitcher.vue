@@ -72,7 +72,7 @@
   padding: 8px;
   top: 100%;
   background-color: var(--acv-color-white);
-  border: 1px solid var(--acv-color-grey-light-20);
+  border: 1px solid var(--acv-color-gray-light-20);
 
   li {
     padding: 8px;
@@ -82,7 +82,7 @@
   }
 
   li:hover {
-    background-color: rgba(127, 127, 127, 0.38);
+    background-color: rgb(127 127 127 / 0.38);
   }
 
   li.selected {
