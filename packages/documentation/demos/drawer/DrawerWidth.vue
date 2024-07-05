@@ -1,7 +1,5 @@
 <script setup>
   import { ref } from 'vue';
-  import AcvDrawer from '@/components/drawer/drawer.vue';
-  import AcvButton from '@/components/button/button.vue';
 
   const isDrawerShown = ref(false);
 </script>
@@ -12,6 +10,7 @@
     title="CARPE DIEM, SESTIUS"
     subtitle="Solvitur acris hiems grata vice veris et Favoni
 trahuntque siccas machinae carinas"
+    class="!w-[400px]"
   />
 
   <AcvButton @click="isDrawerShown = true">

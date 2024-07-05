@@ -46,4 +46,8 @@
 
   /* Particular transitions */
   --acv-transition-background: background-color 1000ms linear;
+
+  /* Transform */
+  --acv-slide-y-reverse-opacity: 1;
+  --acv-slide-y-reverse--transform-timing: ease-in-out;
 }

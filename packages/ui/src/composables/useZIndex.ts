@@ -10,7 +10,7 @@ const zIndexCounter = ref(0);
 
 export const useZIndex = createGlobalState((defaultBaseZIndex?: number, app?: App) => {
   if (!defaultBaseZIndex || !app) {
-    throw new Error('[Anu] `useZIndex` composable must be initialized before usage.');
+    throw new Error('[Acv] `useZIndex` composable must be initialized before usage.');
   }
 
   let injectedZIndex: Ref<number | undefined> | undefined;

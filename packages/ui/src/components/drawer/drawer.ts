@@ -1,13 +1,23 @@
-export interface AcvDrawerProps {
+import type { AcvCardProps } from '../card/card';
+
+export type AcvDrawerAnchor = 'left' | 'right' | 'top' | 'bottom';
+
+export interface AcvDrawerProps extends AcvCardProps {
   /**
-   * Title of the Drawer
+   * Drawer visiblity state
    */
-  title?: string
+  modelValue?: boolean
 
   /**
-   * Description of the Drawer
+   * Persistence of drawer when clicked outside of reference element
    */
-  description?: string
+  persistent?: boolean
+
+  /**
+   * Drawer anchor/position
+   * @defaultValue 'left'
+   */
+  anchor?: AcvDrawerAnchor
 }
 
 export interface AcvDrawerEvents {
@@ -16,17 +26,7 @@ export interface AcvDrawerEvents {
    * @arg {string} eventName - The name of the event
    * @arg {string} visible - The visibility state of the component
    */
-  (eventName: 'close', visible: boolean): void
+  (eventName: 'update:modelValue', visible: boolean): void
 }
 
-export interface AcvDrawerSlots {
-  /**
-   * The default slot content
-   */
-  default: void
-  /**
-   * The description slot content
-   * @binding {string} description - The description prop value
-   */
-  description: void
-}
+export interface AcvDrawerSlots {}

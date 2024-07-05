@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Card from './card.vue';
-import type { CardProps } from './card.ts';
+import type { AcvCardProps } from './card.ts';
 
 describe('test Card component', () => {
   it('default props', () => {
@@ -19,7 +19,7 @@ describe('test Card component', () => {
     const wrapper = mount(Card, {
       props: {
         title: 'test',
-      } as CardProps,
+      } as AcvCardProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

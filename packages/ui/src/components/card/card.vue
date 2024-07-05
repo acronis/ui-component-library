@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
   import './card.css';
-  import type { CardProps } from './card.ts';
+  import type { AcvCardProps } from './card.ts';
 
-  const { backgroundColor, borderColor } = defineProps<CardProps>();
+  const { backgroundColor, borderColor } = defineProps<AcvCardProps>();
   defineEmits<{
     close: []
   }>();
