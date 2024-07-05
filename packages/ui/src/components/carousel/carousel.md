@@ -1,4 +1,4 @@
-A carousel presents a set of items, referred to as slides, 
+A carousel presents a set of items, referred to as slides,
 by sequentially displaying a subset of one or more slides.
 
 :::info Figma component anatomy
@@ -45,22 +45,22 @@ Provided features:
 - Buttons for displaying the previous and next slides.
 - Optionally, a control, or group of controls, for choosing a specific slide to display. For example, slide picker controls can be marked up as tabs in a tablist with the slide represented by a tabpanel element.
 - If the carousel can automatically rotate, it also:
-    - Has a button for stopping and restarting rotation. This is particularly important for supporting assistive technologies operating in a mode that does not move either keyboard focus or the mouse.
-    - Stops rotating when keyboard focus enters the carousel. It does not restart unless the user explicitly requests it to do so.
-    - Stops rotating whenever the mouse is hovering over the carousel.
+  - Has a button for stopping and restarting rotation. This is particularly important for supporting assistive technologies operating in a mode that does not move either keyboard focus or the mouse.
+  - Stops rotating when keyboard focus enters the carousel. It does not restart unless the user explicitly requests it to do so.
+  - Stops rotating whenever the mouse is hovering over the carousel.
 
 Provided elements:
 
 - Slide
-    A single content container within a set of content containers that hold the content to be presented by the carousel.
+  A single content container within a set of content containers that hold the content to be presented by the carousel.
 - Rotation Control
-    An interactive element that stops and starts automatic slide rotation.
+  An interactive element that stops and starts automatic slide rotation.
 - Next Slide Control
-    An interactive element, often styled as an arrow, that displays the next slide in the rotation sequence.
+  An interactive element, often styled as an arrow, that displays the next slide in the rotation sequence.
 - Previous Slide Control
-    An interactive element, often styled as an arrow, that displays the previous slide in the rotation sequence.
+  An interactive element, often styled as an arrow, that displays the previous slide in the rotation sequence.
 - Slide Picker Controls
-    A group of elements, often styled as small dots, that enable the user to pick a specific slide in the rotation sequence to display.
+  A group of elements, often styled as small dots, that enable the user to pick a specific slide in the rotation sequence to display.
 
 ### Keyboard interaction
 
@@ -76,9 +76,9 @@ Existing three types od carousel:
 
 - **Basic**: has rotation, next slide, and previous slide controls, but no slide picker control.
 - **Tabbed**: has rotation, next slide, and previous slide controls, and slide picker controls.
-- **Grouped**: has basic controls plus a series of tab stops in a group of slide picker controls where each control implements the button pattern. 
-    Because each slide selector button adds an element to the page tab sequence, this style is the least friendly for keyboard users
+- **Grouped**: has basic controls plus a series of tab stops in a group of slide picker controls where each control implements the button pattern.
 
+Because each slide selector button adds an element to the page tab sequence, this style is the least friendly for keyboard users
 
 ## Related components
 

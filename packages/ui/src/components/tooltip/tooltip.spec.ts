@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import tooltip from './tooltip.vue';
-import type { TooltipProps } from './tooltip.ts';
+import type { AcvTooltipProps } from './tooltip.ts';
 
 describe('test tooltip component', () => {
   it('default props', () => {
@@ -35,7 +35,7 @@ describe('test tooltip component', () => {
     const wrapper = mount(tooltip, {
       props: {
         title: 'test',
-      } as TooltipProps,
+      } as AcvTooltipProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

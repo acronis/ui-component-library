@@ -1,5 +1,5 @@
-Notifies the user about the status of the system, 
-from information with the ability to hide alert, 
+Notifies the user about the status of the system,
+from information with the ability to hide alert,
 to global errors or limitations within the system or a separate section without the ability to clear the message.
 
 :::info Figma mockups
@@ -100,7 +100,7 @@ Alert content is fully customizable. Provide the custom content with the default
 
 ## Accessibility
 
-`AcvAlert` component must adapt to the list of 
+`AcvAlert` component must adapt to the list of
 [WAI-ARIA alert accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/alert/).
 
 ### Overview

@@ -56,20 +56,21 @@ Provided `AcvAccordion` component must adapt to the list of
 
 ### Overview
 
-Accordion is a design pattern that allows users to expand and collapse sections of content. 
+Accordion is a design pattern that allows users to expand and collapse sections of content.
 It is especially useful when the content is organized in a way that makes it difficult to scan quickly.
-The accordion is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them. 
+The accordion is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
 The accordion typically has a single select mode, where only one section can be expanded at a time, and the opening of a new section closes the previously open section.
 
 It consists of these elements:
+
 - Accordion header: The element that is clicked to expand or collapse the associated panel.
 - Accordion panel: The element that contains the content revealed when the associated header is expanded.
 
 ### Keyboard interaction
 
 - Enter or Space:
-    - When focus is on the accordion header for a collapsed panel, expands the associated panel. If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel.
-    - When focus is on the accordion header for an expanded panel, collapses the panel if the implementation supports collapsing. Some implementations require one panel to be expanded at all times and allow only one panel to be expanded; so, they do not support a collapse function.
+  - When focus is on the accordion header for a collapsed panel, expands the associated panel. If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel.
+  - When focus is on the accordion header for an expanded panel, collapses the panel if the implementation supports collapsing. Some implementations require one panel to be expanded at all times and allow only one panel to be expanded; so, they do not support a collapse function.
 - Tab: Moves focus to the next focusable element; all focusable elements in the accordion are included in the page Tab sequence.
 - Shift + Tab: Moves focus to the previous focusable element; all focusable elements in the accordion are included in the page Tab sequence.
 - Down Arrow (Optional): If focus is on an accordion header, moves focus to the next accordion header. If focus is on the last accordion header, either does nothing or moves focus to the first accordion header.

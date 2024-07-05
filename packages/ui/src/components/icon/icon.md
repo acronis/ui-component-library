@@ -1,4 +1,6 @@
-Basic sizes, rules for building and using icons. Work with the terminal and Gulp tasks. Icons can be outline or bold, it all depends on the specific case. But, in most cases, they use outline icons.
+Basic sizes, rules for building and using icons. Work with the terminal and Gulp tasks.
+Icons can be outlined or bold, it all depends on the specific case.
+But, in most cases, they use outline icons.
 
 :::info Figma mockups
 https://www.figma.com/file/YDRlEkpDc1qcapabYuK5ID/Glyphs?node-id=0%3A1
@@ -7,7 +9,7 @@ https://www.figma.com/file/YDRlEkpDc1qcapabYuK5ID/Glyphs?node-id=0%3A1
 ## Usage
 
 ```javascript
-import { Icon } from '@acronis-platform/vue';
+import { AcvIcon } from '@acronis-platform/vue';
 // or
 import Icon from '@acronis-platform/components/Icon/Icon.vue';
 ```
@@ -23,7 +25,7 @@ The naming convention
 - `acv-icon--size` - the size of the icon
 - `acv-icon--color` - the color of the icon
 - `acv-icon--bold` - the bold icon
-:::
+  :::
 
 <IconBasic />
 

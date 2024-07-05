@@ -18,9 +18,10 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A35
 ## Placement
 
 ::: tip
-Use attribute `content` to set the display content when hovered. 
+Use attribute `content` to set the display content when hovered.
 The attribute `placement` determines the position of the tooltip.
-Its value is `[orientation]-[alignment]` with four orientations `top`, `left`, `right`, `bottom` and two alignments `start`, `end`, and the default alignment is null. 
+Its value is `[orientation]-[alignment]` with four orientations `top`, `left`, `right`, `bottom`
+and two alignments `start`, `end`, and the default alignment is null.
 Take `placement="left-end"` for example, Tooltip will display on the left of the element which you are hovering and the bottom of the tooltip aligns with the bottom of the element.
 :::
 

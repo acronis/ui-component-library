@@ -31,7 +31,7 @@
 <style scoped>
   .test-wrapper {
     background-color: var(--acv-color-brand-secondary);
-    border: 0 solid hsl(231deg, 25%, 80%);
+    border: 0 solid hsl(231deg 25% 80%);
     box-sizing: border-box;
     display: grid;
     height: 20rem;
@@ -53,8 +53,8 @@
   }
 
   .text-popover {
-    background-color: hsl(292deg, 100%, 50%);
-    color: hsl(0deg, 0%, 100%);
+    background-color: hsl(292deg 100% 50%);
+    color: hsl(0deg 0% 100%);
   }
 
   .test-container {

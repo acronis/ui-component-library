@@ -1,4 +1,5 @@
 import { createApp, h } from 'vue';
+import { describe, expect, it } from 'vitest';
 import localePlugin, { LOCALE_PLUGIN_INJECTION_KEY } from './localePlugin';
 
 describe('localePlugin', () => {

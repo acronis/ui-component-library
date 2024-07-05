@@ -2,7 +2,7 @@
 
 This document describes the roadmap for the UI-kit project.
 
-*Updated: 2021-10-01*
+*Updated: 2024-07-05*
 
 ## UI-kit
 

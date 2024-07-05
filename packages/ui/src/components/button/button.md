@@ -11,6 +11,7 @@ It supports multiple variants, sizes, and states.
 :::
 
 ## Variants
+
 Button supports the several predefined types, for different semantic purposes.
 Use the `variant` prop to set the variant of the button.
 By default, the button is rendered as a solid primary button.
@@ -47,7 +48,7 @@ Specify the size(small, large) of the button using the `size` prop.
 
 ## Types
 
-By default `<acv-button>` renders a `<button>` element. 
+By default `<acv-button>` renders a `<button>` element.
 You can change the type of the button by setting the `type` prop.
 Also, you can render a `<a>` element by setting the `href` prop.
 You may generate router-links by setting the `to` prop.
@@ -100,14 +101,16 @@ Create squared buttons by setting the `squared` prop.
 
 ## Accessibility ♿️
 
-Provided `AcvButton` component must adapt to the list of 
+Provided `AcvButton` component must adapt to the list of
 [WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
 
 ### Overview
-The button component is a simple button that allow users to trigger an action or event, 
+
+The button component is a simple button that allow users to trigger an action or event,
 such as submitting a form, opening dialog or performing operations.
 
 We provide the following features to make the button accessible:
+
 - **Accessible label** (attribute to provide a label that describes the button's action): by default it will be text content inside the `AcvButton` component, but it can be provided by applying `aria-label` or `aria-labelledby` .
 - **Accessible description** (attribute sets ID of the element that describes the button): it can be provided by applying `aria-describedby`.
 - **Inaccessible button** (if button action is not available): by applying `aria-disabled` attribute.

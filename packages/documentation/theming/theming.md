@@ -53,8 +53,7 @@ To achieve this, import the scss colors for each scheme:
 
 ```css
 /* purple.color.css */
-@import '@uikit/ui/styles/colors/css/purple';
-@import '@/styles/index';
+@import '@acronis-platform/ui-component-library/styles/purple.css';
 ```
 
 :::tip

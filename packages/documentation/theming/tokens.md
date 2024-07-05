@@ -1,20 +1,21 @@
 # Design system tokens
 
-We use Figma to generate our design system tokens. 
+We use Figma local variable to generate our design system tokens. 
 You can find the tokens in the `packages/ui/src/styles/tokens` folder.
 
 In source code we provide access to design tokens via css variables.
 These variables can be redefined in order to customize the design system.
-Css variables are defined in `packages/ui/src/styles/variables.css` file.
+Sets with css variables are defined in `packages/ui/src/styles/public` directory.
 They can be redefined in your project's css file with custom theme.
 
 ## CSS Variables Theme
 
 You can use predefined themes with css variables or create your own theme.
 All css variables can be redefined:
-- base (global) tokens that comes from Figma design system (color-palettes, brand colors, typography, etc.)
+
+- base (global) tokens that comes from Figma design system (color-palettes, brand colors, typography, etc.);
 - top level tokens that create abstract layer for core of Acronis UI Component Library components;
-- component tokens that are used in Acronis UI Component Library components.
+- component tokens that are used in Acronis UI Component Library components;
 - theme tokens, specific for each theme that used in default and dark color schemes.
 
 ## List of token types
@@ -127,4 +128,6 @@ CSS variables example:
 }
 ```
 
-## Components anatomy
+## Components extension points
+
+TBD

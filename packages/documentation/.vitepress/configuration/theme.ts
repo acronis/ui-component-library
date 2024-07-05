@@ -16,10 +16,6 @@ export const enTheme = [
     link: '/theming/dark-mode',
   },
   {
-    text: 'Spacing',
-    link: '/theming/spacing',
-  },
-  {
     text: 'Grid',
     link: '/theming/grid',
   },
@@ -31,11 +27,7 @@ export const enTheme = [
     text: 'Theming',
     link: '/theming/theming',
   },
-  {
-    text: 'ThemeProvider',
-    link: '/theming/theme-provider',
-  },
   { text: 'Icons', link: '/theming/icons' },
-  { text: 'Utilities', link: '/theming/utility-classes' },
+  { text: 'Utilities', link: '/theming/utilities' },
   { text: 'Layouts', link: '/theming/layouts' },
 ];

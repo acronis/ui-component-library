@@ -29,7 +29,7 @@ To create a new **[component]** component, you need to create sources with:
 - demos (**@acronis-platform/ui-component-library-documentation/demos/[component]/[component]Basic.vue**)
 - add export to public.ts (**@acronis-platform/ui-component-library/src/components/index.ts**)
 
-You can create them manually or use [Hygen](hygen) generator. 
+You can create them manually or use [Hygen](https://www.hygen.io) generator. 
 To use Hygen generator, you need to run the following command:
 
 ```bash
@@ -42,13 +42,15 @@ You can create as many examples for that particular component as you want.
 They can be shown in component and examples section of documentation package.
 Such examples are useful for developers to understand how to use the component.
 
+To create an example, you need to create a new file in the **packages/documentation/demos/[component]/[component][Example].vue** folder.
+
 ## Generate documentation
 
-We use jsdoc to generate markdown documentation for components, types and so on. 
+We use jsdoc codegen to generate markdown documentation for components, types and so on. 
 To generate documentation, you need to run the following command:
 
 ```bash
-pnpm run collect
+pnpm run --filter packages/documentation collect
 ```
 
 To start the Vitepress documentation server, you need to run the following command:

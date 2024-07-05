@@ -12,7 +12,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=612-341&
 <PopoverBasic />
 
 ::: tip
-Sometimes designer will have style requirement for the trigger element when popover is visible. 
+Sometimes designer will have style requirement for the trigger element when popover is visible.
 It can be easily triggered by show/hide event of Popover.
 Please confirm with designer for the style requirement.
 :::
@@ -52,7 +52,7 @@ Replace the `content` attribute with a default `slot`.
 ## Popover with Tooltip
 
 You can use both a popover and a tooltip on the same element.
-However, it is advisable to disable the tooltip whenever the popover is opened. 
+However, it is advisable to disable the tooltip whenever the popover is opened.
 Achieve this by using the element's click event (to disable tooltip) & popover's hide event (to enable tooltip).
 
 <PopoverWithTooltip />

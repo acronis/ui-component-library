@@ -34,7 +34,7 @@ and you can find the details for each point in the remaining part of this docume
 2. Enter the local project root directory and use ```pnpm i``` to install dependencies.
 3. Use ```pnpm run docs:dev``` to start the project and view the document.
 4. Please pull the latest code before submitting to avoid file conflicts.
-5. Commit your changes with a clear commit message, please abide by it at the same time. [Commit Standard](Link to commitlint)。
+5. Commit your changes with a clear commit message, please abide by it at the same time. [Commit Standard](https://acronis.github.io/ui-component-library/guide/commitlint.html)。
 6. Ensure the code follows [Style Guide for Front-end development](Link to styleguide).
 7. Update unit test case
 8. Update visual regression test case (if applicable)
@@ -86,7 +86,7 @@ You can find more information about performance tests in the [Performance tests 
 
 ### Component documentation
 
-The documentation for each component located at [`docs`](packages/documentation) folder using a Markdown format.
+The documentation for each component located at [`documentation`](packages/documentation) folder using a Markdown format.
 The examples of implementation located at [`demos`](packages/documentation/demos) in Vue.js SFC files format.
 For internal documentation we use Vitepress, you can find more information about Vitepress in the [Vitepress documentation](https://vitepress.dev/).
 

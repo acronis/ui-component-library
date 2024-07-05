@@ -64,8 +64,8 @@ table.six-columns {
 }
 
 thead {
-  color: hsl(0deg, 0%, 100%);
-  background-color: hsl(0deg, 0%, 66%);
+  color: hsl(0deg 0% 100%);
+  background-color: hsl(0deg 0% 66%);
   position: sticky;
   top: 0;
   z-index: var(--acv-z-index-normal);
@@ -80,7 +80,7 @@ td, th {
 }
 
 tbody > tr:hover {
-  background-color: hsl(0deg, 0%, 94%);
+  background-color: hsl(0deg 0% 94%);
 }
 
 tr > th:first-of-type {

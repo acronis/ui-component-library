@@ -2,7 +2,7 @@
 
 ### Naming convention
 
-The components that have the tendency of being used round the application have the 'Ui' prefix attached i.e UiInput. 
+The components that have the tendency of being used round the application have the 'Acv' prefix attached i.e. AcvInput. 
 
 ### Automation
 

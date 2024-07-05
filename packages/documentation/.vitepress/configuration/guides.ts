@@ -5,8 +5,6 @@ export const enGuides = [
   { text: 'Hygen', link: '/guide/hygen' },
   { text: 'Testing', link: '/guide/testing' },
   { text: 'Commitlint', link: '/guide/commitlint' },
-  { text: 'Roadmap', link: '/guide/roadmap' },
-  { text: 'Migration', link: '/guide/migration' },
-  { text: 'UI-kit v2', link: '/guide/migrationV3' },
-  { text: 'Examples', link: '/guide/examples' }
+  { text: 'Continuous integration', link: '/guide/ci' },
+  { text: 'Migration', link: '/guide/migration' }
 ];

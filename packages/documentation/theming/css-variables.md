@@ -23,8 +23,8 @@ Theme variables are used to define the theme-specific design tokens like colors,
 
 ::: code-group
 <<< ../../ui/src/styles/tokens/acv/base.css [Base tokens]
-<<< ../../ui/src/styles/tokens/acv/theme/acronis.css [Acronis theme]
-<<< ../../ui/src/styles/tokens/acv/theme/constructor.css [Constructor theme]
-<<< ../../ui/src/styles/tokens/acv/theme/virtuozzo.css [Virtuozzo theme]
-<<< ../../ui/src/styles/tokens/acv/theme/dark.css [Dark theme]
+<<< ../../ui/src/styles/tokens/acv/acronis.css [Acronis theme]
+<<< ../../ui/src/styles/tokens/acv/constructor.css [Constructor theme]
+<<< ../../ui/src/styles/tokens/acv/virtuozzo.css [Virtuozzo theme]
+<<< ../../ui/src/styles/tokens/acv/dark.css [Dark theme]
 :::
