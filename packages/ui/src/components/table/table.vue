@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import type { TableProps } from './table.ts';
+  import type { AcvTableProps } from './table.ts';
   import './table.css';
 
-  const { title, description } = defineProps<TableProps>();
+  const { title, description } = defineProps<AcvTableProps>();
 
   defineEmits<{
     /**

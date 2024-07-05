@@ -8,6 +8,10 @@ interface InjectedLocale {
   messages: Record<string, Record<string, string>>
 }
 
+/**
+ * A composable function to manage the locale of the application.
+ * TODO: remove this function and use the `plugin` composable instead.
+ */
 export function useLocale() {
   const {
     availableLocales,

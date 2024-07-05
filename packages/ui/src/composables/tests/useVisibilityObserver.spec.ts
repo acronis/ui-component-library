@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import type { Mock } from 'vitest';
 import { describe, expect, it, vi } from 'vitest';
-import { useVisibilityObserver } from './useVisibilityObserver.ts';
+import { useVisibilityObserver } from '../useVisibilityObserver.ts';
 
 describe('useVisibilityObserver', () => {
   let observerCallback: IntersectionObserverCallback;

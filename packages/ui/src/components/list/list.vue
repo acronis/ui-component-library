@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './list.css';
-  import type { ListProps } from './list.ts';
+  import type { AcvListProps } from './list.ts';
 
-  const { title, description } = defineProps<ListProps>();
+  const { title, description } = defineProps<AcvListProps>();
 
   defineEmits<{
     /**

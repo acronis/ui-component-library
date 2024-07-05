@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Menu from './menu.vue';
-import type { MenuProps } from './menu.ts';
+import type { AcvMenuProps } from './menu.ts';
 
 describe('test Menu component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test Menu component', () => {
     const wrapper = mount(Menu, {
       props: {
         title: 'test',
-      } as MenuProps,
+      } as AcvMenuProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

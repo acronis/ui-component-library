@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Alert from './alert.vue'
-import type { AlertProps } from './alert'
+import type { AcvAlertProps } from './alert'
 
 describe('alert', () => {
   it('default props', () => {
@@ -33,7 +33,7 @@ describe('alert', () => {
       props: {
         showClose: true,
         variant: 'success',
-      } as AlertProps,
+      } as AcvAlertProps,
     })
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
@@ -96,7 +96,7 @@ describe('alert', () => {
     const wrapper = mount(Alert, {
       props: {
         showClose: true,
-      } as AlertProps,
+      } as AcvAlertProps,
     })
 
     expect(wrapper.text()).toBe('X')

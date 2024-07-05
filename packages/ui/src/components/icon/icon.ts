@@ -7,7 +7,7 @@ type ColorNames = 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'i
 
 type Color = RGB | RGBA | HEX | ColorNames;
 
-export interface IconProps {
+export interface AcvIconProps {
   /**
    * Name of icon (e.g. `check` or `i-check--16`)
    */

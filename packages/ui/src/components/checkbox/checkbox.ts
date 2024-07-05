@@ -1,4 +1,4 @@
-export interface CheckboxProps {
+export interface AcvCheckboxProps {
   /**
    * Title of the Checkbox
    */

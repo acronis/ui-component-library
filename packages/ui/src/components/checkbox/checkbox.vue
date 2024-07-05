@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed, useAttrs } from 'vue';
   import type {
-    CheckboxProps
+    AcvCheckboxProps
   } from '../index.ts';
   import {
     IconButton,
@@ -13,7 +13,7 @@
   import type { CheckboxEvents, CheckboxSlots } from './checkbox.ts';
   import './checkbox.css';
 
-  defineProps<CheckboxProps>();
+  defineProps<AcvCheckboxProps>();
   defineEmits<CheckboxEvents>();
   defineSlots<CheckboxSlots>();
   const attrs = useAttrs();

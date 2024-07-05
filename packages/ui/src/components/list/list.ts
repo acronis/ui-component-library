@@ -1,4 +1,4 @@
-export interface ListProps {
+export interface AcvListProps {
   /**
    * Title of the List
    */
@@ -9,3 +9,5 @@ export interface ListProps {
    */
   description?: string
 }
+
+export interface AcvListItemProps {}

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import List from './list.vue';
-import type { ListProps } from './list.ts';
+import type { AcvListProps } from './list.ts';
 
 describe('test List component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test List component', () => {
     const wrapper = mount(List, {
       props: {
         title: 'test',
-      } as ListProps,
+      } as AcvListProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

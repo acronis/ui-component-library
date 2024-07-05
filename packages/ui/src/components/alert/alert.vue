@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { AcvAlertSlots, AlertEvents, AlertProps } from './alert.ts';
+  import type { AcvAlertProps, AcvAlertSlots, AlertEvents } from './alert.ts';
   import './alert.css';
 
   defineOptions({
@@ -12,7 +12,7 @@
     description,
     showClose,
     showIcon
-  } = withDefaults(defineProps<AlertProps>(), {
+  } = withDefaults(defineProps<AcvAlertProps>(), {
     showClose: false,
     variant: 'info',
   });

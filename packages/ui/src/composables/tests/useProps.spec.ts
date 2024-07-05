@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
-import propsPlugin from '../plugins/propsPlugin.ts';
-import { useProps } from './useProps.ts';
+import { describe, expect, it } from 'vitest';
+import propsPlugin from '../../plugins/propsPlugin.ts';
+import { useProps } from '../useProps.ts';
 
 describe('useProps', () => {
   it('returns default props when no props are provided', () => {

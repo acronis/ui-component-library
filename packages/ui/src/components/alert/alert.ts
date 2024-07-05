@@ -24,7 +24,7 @@ export const AlertIconTypes = {
   [ALERT_VARIANT.unknown]: 'clr-unknown--16'
 };
 
-export interface AlertProps {
+export interface AcvAlertProps {
   /** Descriptive text. Can also be passed with the default slot */
   description?: string
 
@@ -91,7 +91,7 @@ export interface AlertEvents {
   (e: 'close'): void
 }
 
-// export type AlertProps = ExtractPropTypes<typeof alertProps>;
+// export type AcvAlertProps = ExtractPropTypes<typeof alertProps>;
 
 export type AlertConfigurableProps = ConfigurableProps<ExtractPropTypes<typeof alertProps>>;
 

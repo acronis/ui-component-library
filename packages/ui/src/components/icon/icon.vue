@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed, useAttrs } from 'vue';
   import './icon.css';
-  import type { IconProps } from './icon';
+  import type { AcvIconProps } from './icon';
 
   const {
     animateOnHover,
@@ -16,7 +16,7 @@
     // state,
     stateColor,
     title,
-  } = withDefaults(defineProps<IconProps>(), {
+  } = withDefaults(defineProps<AcvIconProps>(), {
     collection: 'acronis',
     size: '16'
   });
