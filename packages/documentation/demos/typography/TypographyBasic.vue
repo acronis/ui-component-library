@@ -1,7 +1,16 @@
+<script setup>
+  import { Blockquote, H1, H2, P, Strong, UL } from '@/components/typography/public';
+  import AcvTypography from '@/components/typography/typography.vue';
+</script>
+
 <template>
   <H1 top>
     Acronis UI Component Library
   </H1>
+  <AcvTypography
+    title="Title"
+    subtitle="This is subtitle"
+  />
   <P>
     UI component Library provides a series of out-of-the-box components. Almost all the
     <Strong> default value of props </Strong>
