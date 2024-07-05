@@ -1,5 +1,22 @@
 # Base colors
 
+We will define all colors in the `:root` selector of the `:host` element.
+This way, we can use the colors in the shadow DOM of the components.
+Usually we define colors in hsl format, but we can also use hex or rgb format.
+We provide predefined themes, but also you can define your own theme.
+You can redefine any of base(theme) colors in your application in oreder to get custom theme.
+
+Colors are semantically divided into the following categories:
+- base palette, like primary, secondary, etc. (we use palletes to unify colors in the library with figma design system)
+- shades and lights (used in states, like hover, focus, etc.)
+- brand colors (provided by figma design system)
+- states colors (base colors for states, like success, error, etc., provided by figma design system)
+- chart colors (provided by figma design system)
+
+These colors will be used accordingly in the library components.
+In some components colors will be calculated depending on environment variables, 
+like `--acv-color-primary`, `--ac-color-black`, `--ac-color-gray`, `--ac-color-gray-light-10`, `--ac-color-gray-shade-10`, etc.
+
 <color name="--ac-color-white"></color>
 <color name="--ac-color-black"></color>
 <color name="--ac-color-red"></color>
@@ -9,7 +26,7 @@
 <color name="--ac-color-indigo"></color>
 <color name="--ac-color-blue"></color>
 <color name="--ac-color-dodge-blue"></color>
-<color name="--ac-color-blue-grey"></color>
+<color name="--ac-color-blue-gray"></color>
 <color name="--ac-color-light-blue"></color>
 <color name="--ac-color-cyan"></color>
 <color name="--ac-color-teal"></color>
@@ -21,7 +38,7 @@
 <color name="--ac-color-orange"></color>
 <color name="--ac-color-deep-orange"></color>
 <color name="--ac-color-brown"></color>
-<color name="--ac-color-grey"></color>
+<color name="--ac-color-gray"></color>
 
 ## Shades of gray
 
@@ -111,16 +128,16 @@
 <color name="--ac-color-dodge-blue-light-30"></color>
 <color name="--ac-color-dodge-blue-light-40"></color>
 
-## Shades of blue grey
+## Shades of blue gray
 
-<color name="--ac-color-blue-grey-shade-40"></color>
-<color name="--ac-color-blue-grey-shade-30"></color>
-<color name="--ac-color-blue-grey-shade-20"></color>
-<color name="--ac-color-blue-grey-shade-10"></color>
-<color name="--ac-color-blue-grey-light-10"></color>
-<color name="--ac-color-blue-grey-light-20"></color>
-<color name="--ac-color-blue-grey-light-30"></color>
-<color name="--ac-color-blue-grey-light-40"></color>
+<color name="--ac-color-blue-gray-shade-40"></color>
+<color name="--ac-color-blue-gray-shade-30"></color>
+<color name="--ac-color-blue-gray-shade-20"></color>
+<color name="--ac-color-blue-gray-shade-10"></color>
+<color name="--ac-color-blue-gray-light-10"></color>
+<color name="--ac-color-blue-gray-light-20"></color>
+<color name="--ac-color-blue-gray-light-30"></color>
+<color name="--ac-color-blue-gray-light-40"></color>
 
 ## Shades of light-blue
 
@@ -243,16 +260,16 @@
 <color name="--ac-color-brown-light-30"></color>
 <color name="--ac-color-brown-light-40"></color>
 
-## Shades of grey
+## Shades of gray
 
-<color name="--ac-color-grey-shade-40"></color>
-<color name="--ac-color-grey-shade-30"></color>
-<color name="--ac-color-grey-shade-20"></color>
-<color name="--ac-color-grey-shade-10"></color>
-<color name="--ac-color-grey-light-10"></color>
-<color name="--ac-color-grey-light-20"></color>
-<color name="--ac-color-grey-light-30"></color>
-<color name="--ac-color-grey-light-40"></color>
+<color name="--ac-color-gray-shade-40"></color>
+<color name="--ac-color-gray-shade-30"></color>
+<color name="--ac-color-gray-shade-20"></color>
+<color name="--ac-color-gray-shade-10"></color>
+<color name="--ac-color-gray-light-10"></color>
+<color name="--ac-color-gray-light-20"></color>
+<color name="--ac-color-gray-light-30"></color>
+<color name="--ac-color-gray-light-40"></color>
 
 ## Shades of white
 

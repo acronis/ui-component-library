@@ -135,7 +135,7 @@
     z-index: var(--acv-dialog-z-index);
     border-radius: var(--acv-radius-regular, 4px);
     border: none;
-    box-shadow: 0 10px 20px 0 rgba(36, 49, 67, 0.90);
+    box-shadow: 0 10px 20px 0 rgb(36 49 67 / 0.90);
     width: var(--acv-dialog-width);
     height: var(--acv-dialog-height);
     min-height: 256px;

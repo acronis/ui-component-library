@@ -1,9 +1,11 @@
 .acv-bg-primary {
-  background-color: var(--acv-color-brand-primary);
+  background-color: var(--acv-color-primary);
+  color: var(--acv-color-primary-text);
 }
 
 .acv-bg-secondary {
   background-color: var(--acv-color-brand-secondary) !important;
+  color: var(--acv-color-secondary-text);
 }
 
 .acv-bg-tertiary {

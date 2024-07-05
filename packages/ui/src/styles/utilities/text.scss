@@ -1,6 +1,25 @@
 @import '../mixins/typography.scss';
 
+.acv-title {
+  display: block;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 1.125em;
+  line-height: 1.75em;
+  font-weight: 500;
+  //color: var(--acv-color-text-primary);
+}
+
+.acv-subtitle {
+  display: block;
+  margin: 0;
+  font-size: .875em;
+  line-height: 1.25em;
+  //color: var(--acv-color-text-secondary);
+}
+
 .acv-text {
+  margin: 0;
   font-size: var(--acv-font-size-accent);
   line-height: var(--acv-font-line-height-regular);
   font-weight: var(--acv-font-weight-regular);
@@ -254,74 +273,79 @@
   word-wrap: break-word;
 }
 
-.acv-text--color-primary {
+/**
+ * Text color
+ * @example
+ * <div class='acv-text acv-text-color-primary'>Example usage of class</div>
+ */
+.acv-text-color-primary {
   color: var(--acv-color-text-primary);
 }
 
-.acv-text--color-secondary {
+.acv-text-color-secondary {
   color: var(--acv-color-text-secondary);
 }
 
-.acv-text--color-muted,
+.acv-text-color-muted,
 .acv-text-disabled,
 .acv-text-muted {
   color: var(--acv-color-text-disabled);
 }
 
-.acv-text--color-white {
+.acv-text-color-white {
   color: var(--acv-color-white);
 }
 
-.acv-text--color-black {
+.acv-text-color-black {
   color: var(--acv-color-text-primary);
 }
 
-.acv-text--color-link {
+.acv-text-color-link {
   color: var(--acv-color-link-primary);
 }
 
-.acv-text--color-inversed-secondary {
+.acv-text-color-inversed-secondary {
   color: var(--acv-color-text-inversed-secondary);
 }
 
-.acv-text--color-inversed,
-.acv-text--color-white,
-.acv-text--color-inversed-primary {
+.acv-text-color-inversed,
+.acv-text-color-white,
+.acv-text-color-inversed-primary {
   color: var(--acv-color-text-inversed-primary);
 }
 
-.acv-text--color-disabled {
+.acv-text-color-disabled {
   color: var(--acv-color-text-disabled);
 }
 
-.acv-text--color-highlight {
+.acv-text-color-highlight {
   color: var(--acv-color-text-highlight-result);
 }
 
-.acv-text--color-error {
+.acv-text-color-error {
   color: var(--acv-color-text-error);
 }
 
-.acv-text--color-critical {
+.acv-text-color-critical {
   color: var(--acv-color-text-status-critical);
 }
 
-.acv-text--color-danger {
+.acv-text-color-danger {
   color: var(--acv-color-text-status-danger);
 }
 
-.acv-text--color-info {
+.acv-text-color-info {
   color: var(--acv-color-text-status-info);
 }
 
-.acv-text--color-neutral {
+.acv-text-color-neutral {
   color: var(--acv-color-text-status-neutral);
 }
 
-.acv-text--color-success {
+.acv-text-color-success {
   color: var(--acv-color-text-status-success);
 }
 
-.acv-text--color-warning {
+.acv-text-color-warning {
   color: var(--acv-color-text-status-warning);
 }

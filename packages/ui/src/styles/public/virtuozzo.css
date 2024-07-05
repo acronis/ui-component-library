@@ -1,3 +1,5 @@
-@import "./base.css";
+@import "../tokens/acv/base.css" layer(tokens);
 @import "../tokens/acv/theme/virtuozzo.css";
 @import "../tokens/acv/theme/dark.css";
+@import "../tokens/acv/custom" layer(theme);
+@import "../utilities/index.css" layer(utilities);

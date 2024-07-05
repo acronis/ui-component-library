@@ -1,3 +1,19 @@
+.acv-border-width-regular {
+  border-width: var(--acv-border-regular);
+}
+
+.acv-border-width-large {
+  border-width: var(--acv-border-large);
+}
+
+.acv-border-width-x-large {
+  border-width: var(--acv-border-x-large);
+}
+
+.acv-border-color-current {
+  border-color: currentColor;
+}
+
 .acv-rounded-none {
   border-radius: var(--acv-radius-zero);
 }

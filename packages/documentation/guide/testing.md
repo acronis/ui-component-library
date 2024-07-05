@@ -26,7 +26,7 @@ To do this, we need to run cypress in docker container:
 // Prepare the environment
 pnpm run cypress:docker:build
 
-// Run the tests
+// Run the tests and update snapshots
 pnpm run cypress:docker:run
 ```
 

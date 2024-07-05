@@ -1,8 +1,8 @@
 [data-theme="Acronis"] {
   /* colors */
-  --ac-shadow-big-color: hsla(215deg, 30%, 20%, 0.9);
-  --ac-shadow-regular-color: hsla(215deg, 30%, 20%, 0.2);
-  --ac-shadow-small-color: hsla(215deg, 30%, 20%, 0.1);
+  --ac-shadow-big-color: hsl(215deg 30% 20% / 0.9);
+  --ac-shadow-regular-color: hsl(215deg 30% 20% / 0.2);
+  --ac-shadow-small-color: hsl(215deg 30% 20% / 0.1);
 
   /* numbers */
   --ac-shadow-big-x-offset: 0rem;
@@ -18,9 +18,9 @@
 
 [data-theme="Constructor"] {
   /* colors */
-  --ac-shadow-big-color: hsla(0deg, 0%, 0%, 0.25);
-  --ac-shadow-regular-color: hsla(0deg, 0%, 0%, 0.25);
-  --ac-shadow-small-color: hsla(0deg, 0%, 0%, 0.15);
+  --ac-shadow-big-color: hsl(0deg 0% 0% / 0.25);
+  --ac-shadow-regular-color: hsl(0deg 0% 0% / 0.25);
+  --ac-shadow-small-color: hsl(0deg 0% 0% / 0.15);
 
   /* numbers */
   --ac-shadow-big-x-offset: 0rem;
@@ -36,9 +36,9 @@
 
 [data-theme="Virtuozzo"] {
   /* colors */
-  --ac-shadow-big-color: hsl(0deg, 0%, 100%);
-  --ac-shadow-regular-color: hsl(0deg, 0%, 100%);
-  --ac-shadow-small-color: hsl(0deg, 0%, 100%);
+  --ac-shadow-big-color: hsl(0deg 0% 100%);
+  --ac-shadow-regular-color: hsl(0deg 0% 100%);
+  --ac-shadow-small-color: hsl(0deg 0% 100%);
 
   /* numbers */
   --ac-shadow-big-blur: 0rem;

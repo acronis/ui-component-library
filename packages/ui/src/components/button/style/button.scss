@@ -77,26 +77,26 @@
     display: block;
   }
 
-  &.solid {
-    --acv-button-border-width: var(--acv-border-width-00);
-    --acv-button-background-color: var(--acv-button-base-color);
-    --acv-button-color: var(--acv-button-primary-text);
-    --acv-button-color-hover: var(--acv-button-primary-text);
-  }
+    &.solid {
+      --acv-button-border-width: var(--acv-base-border-width-00);
+      --acv-button-background-color: var(--acv-button-base-color);
+      --acv-button-color: var(--acv-button-primary-text);
+      --acv-button-color-hover: var(--acv-button-primary-text);
+    }
 
-  &.outline {
-    --acv-button-border-width: var(--acv-border-width-01);
-    --acv-button-border-color: var(--acv-button-base-color);
-    --acv-button-background-color: var(--acv-color-transparent);
-    --acv-button-color: var(--acv-button-base-color);
-  }
+    &.outline {
+      --acv-button-border-width: var(--acv-border-regular);
+      --acv-button-border-color: var(--acv-button-base-color);
+      --acv-button-background-color: var(--acv-color-transparent);
+      --acv-button-color: var(--acv-button-base-color);
+    }
 
-  &.ghost {
-    --acv-button-border-width: var(--acv-border-width-00);
-    --acv-button-background-color: var(--acv-color-transparent);
-    --acv-button-color: var(--acv-button-base-color);
-    --acv-button-background-color-hover: var(--acv-color-transparent);
-  }
+    &.ghost {
+      --acv-button-border-width: var(--acv-base-border-width-00);
+      --acv-button-background-color: var(--acv-color-transparent);
+      --acv-button-color: var(--acv-button-base-color);
+      --acv-button-background-color-hover: var(--acv-color-transparent);
+    }
 
   /* Button variants, colors */
 

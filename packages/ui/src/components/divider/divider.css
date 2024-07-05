@@ -1,7 +1,7 @@
 @layer acv-base {
   :root {
     --acv-divider-color: var(--acv-color-divider-primary);
-    --acv-divider-border: var(--acv-border-width-01) solid
+    --acv-divider-border: var(--acv-border-regular) solid
       var(--acv-divider-color);
     --acv-divider-v-margin: 24px;
     --acv-divider-v-margin-text: 14px;

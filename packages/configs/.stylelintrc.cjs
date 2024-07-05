@@ -106,7 +106,7 @@ module.exports = {
     'alpha-value-notation': 'number', // prefer 0.5 over 50% (eg. rgba(0, 0, 0, 0.5))
     'at-rule-no-vendor-prefix': true,
     'color-format/format': { format: 'hsl' },
-    'color-function-notation': 'legacy', // legacy color notation (eg. use rgb(0, 0, 0) over rgb(0 0 0))
+    'color-function-notation': 'modern', // legacy color notation (eg. use rgb(0, 0, 0) over rgb(0 0 0))
     'color-no-hex': true, // allow hex colors
     'color-hex-length': 'short', // prefer #fff over #ffffff
     'color-named': 'never',
