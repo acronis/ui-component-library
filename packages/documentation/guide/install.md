@@ -1,6 +1,6 @@
 # Installation & Usage
 
- how to properly install and use a Acronis UI Component Library
+How to properly install and use an Acronis UI Component Library
 
 ## Install Package
 

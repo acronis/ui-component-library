@@ -52,8 +52,8 @@
   margin: 10px;
   padding-inline: 8px;
   border-radius: 5px;
-  border: 1px solid hsl(0deg, 0%, 80%);
-  color: hsl(0deg, 0%, 20%);
+  border: 1px solid hsl(0deg 0% 80%);
+  color: hsl(0deg 0% 20%);
   font-size: var(--acv-base-font-size-14);
   text-transform: capitalize;
   line-height: 24px;

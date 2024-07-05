@@ -26,7 +26,7 @@
 <style scoped>
 span {
   padding: 8px;
-  background-color: hsl(0deg, 53%, 58%);
+  background-color: hsl(0deg 53% 58%);
   border-radius: 4px;
   margin-block: 8px;
   margin-inline: 8px;

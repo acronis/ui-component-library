@@ -28,4 +28,4 @@ If you find a bug, I hope you open an [issue](https://github.com/acronis/ui-comp
 If you are interested in this project, welcome to join us.
 
 - [Code of Conduct](https://github.com/acronis/ui-component-library/blob/main/CODE_OF_CONDUCT.md)
-- [Contributing Guide](https://github.com/acronis/ui-component-library/blob/main/CONTRIBUTION.md)
+- [Contributing Guide](https://github.com/acronis/ui-component-library/blob/main/CONTRIBUTING.md)

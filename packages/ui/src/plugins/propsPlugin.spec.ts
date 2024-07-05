@@ -1,4 +1,5 @@
 import { createApp, h } from 'vue';
+import { describe, expect, it } from 'vitest';
 import propsPlugin, { PROPS_PLUGIN_INJECTION_KEY } from './propsPlugin';
 
 describe('propsPlugin', () => {

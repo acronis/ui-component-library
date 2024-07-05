@@ -20,7 +20,8 @@ There are other types, however, these don’t affect the version number of the r
 
 scope is an optional noun that describes the part of the codebase that is changed or updated by the commit. For example, in feat(pages), pages is the scope.
 
-In semantic versioning, ! correlates with MAJOR. When used after the scope, ! indicates that there are breaking changes in the commit.
+In semantic versioning, **!** correlates with MAJOR. 
+When used after the scope, **!** indicates that there are breaking changes in the commit.
 
 **description** is a brief, written explanation of the changes made to the code. For example, if we wrote a description for feat(pages), it could look like the following: feat(pages): add contact page in the side menu.
 

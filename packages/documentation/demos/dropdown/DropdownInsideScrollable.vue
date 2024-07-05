@@ -10,8 +10,8 @@
     <div
       style="
         height: 300px;
-        background-color: hsl(0deg, 0%, 13%);
-        color: hsl(0deg, 0%, 100%);
+        background-color: hsl(0deg 0% 13%);
+        color: hsl(0deg 0% 100%);
         width: 500px;
         overflow-y: scroll;
       "
@@ -19,8 +19,8 @@
       <div
         style="
           height: 200px;
-          background-color: hsl(0deg, 0%, 87%);
-          color: hsl(0deg, 0%, 0%);
+          background-color: hsl(0deg 0% 87%);
+          color: hsl(0deg 0% 0%);
           width: 300px;
           overflow-y: scroll;
         "

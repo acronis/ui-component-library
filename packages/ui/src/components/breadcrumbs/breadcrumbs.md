@@ -1,4 +1,4 @@
-Allows you to see the entire path from the parent section to the section 
+Allows you to see the entire path from the parent section to the section
 in which the user is now located and go to one or more levels above.
 
 :::info Figma component anatomy
@@ -32,7 +32,7 @@ Set `max-items` to set the max bread crumb items shown. The rest will be hidden 
 ## Icon separator
 
 :::info
-In `acv-breadcrumb`, each `acv-breadcrumb-link` is a tag that stands for every level starting from Products. 
+In `acv-breadcrumb`, each `acv-breadcrumb-link` is a tag that stands for every level starting from Products.
 This component has a `String` attribute `separator`, and it determines the separator.
 Its default value is 'chevron-right'.
 :::
@@ -50,7 +50,6 @@ Set `separator` to use icon as the separator，it will cover `separator`
 ## Multiline
 
 <BreadcrumbsMultiline />
-
 
 ## Accessibility ♿️
 

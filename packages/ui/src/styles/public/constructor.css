@@ -1,6 +1,6 @@
 @import "../tokens/acv/base.css" layer(tokens);
-@import "../tokens/acv/theme/constructor.css" layer(theme);
-@import "../tokens/acv/theme/dark.css" layer(theme);
+@import "../tokens/acv/constructor.css" layer(theme);
+@import "../tokens/acv/dark.css" layer(theme);
 @import "../tokens/acv/custom" layer(theme);
 @import "../utilities/index.css" layer(utilities);
 

@@ -100,7 +100,7 @@ You can nest Dialogs and trigger them sequentially, order of placement is import
 Normally we do not recommend using nested Dialog.
 If you need multiple Dialogs rendered on the page,
 you can simply flat them so that they're siblings to each other.
-If you want to nest a Dialog inside another Dialog and get proper behaviour of opening and closing dialogs, 
+If you want to nest a Dialog inside another Dialog and get proper behaviour of opening and closing dialogs,
 put nested dialog into parents body.
 If you want independent behaviour of opening and closing dialogs, and trigger events for all dialog at the same time,
 just put it anywhere.
@@ -122,13 +122,13 @@ Dialog is a overlaid window that appears over viewport, we use modal dialog patt
 - Dialog can contain any number of tabbable elements, that has tabindex grater than zero.
 - Initial focus placement - After opening focus must move to element inside dialog
 - Tab
-    - Moves focus to the next focusable element inside the dialog.
-    - Lock focus - If focus is on the last tabbable element inside the dialog, moves focus to the first tabbable element inside the dialog
+  - Moves focus to the next focusable element inside the dialog.
+  - Lock focus - If focus is on the last tabbable element inside the dialog, moves focus to the first tabbable element inside the dialog
 - Shift + Tab
-    - Moves focus to the previous focusable element inside the dialog.
-    - Lock focus - If focus is on the first tabbable element inside the dialog, moves focus to the last tabbable element inside the dialog
+  - Moves focus to the previous focusable element inside the dialog.
+  - Lock focus - If focus is on the first tabbable element inside the dialog, moves focus to the last tabbable element inside the dialog
 - Esc
-    - Closes the dialog and returns focus to the element that triggered the dialog to open. 
+  - Closes the dialog and returns focus to the element that triggered the dialog to open.
 
 ### WAI-ARIA roles, states, and properties
 

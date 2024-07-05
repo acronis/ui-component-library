@@ -85,7 +85,8 @@ Existing three types od carousel:
 - **Basic**: has rotation, next slide, and previous slide controls, but no slide picker control.
 - **Tabbed**: has rotation, next slide, and previous slide controls, and slide picker controls.
 - **Grouped**: has basic controls plus a series of tab stops in a group of slide picker controls where each control implements the button pattern.
-  Because each slide selector button adds an element to the page tab sequence, this style is the least friendly for keyboard users
+
+Because each slide selector button adds an element to the page tab sequence, this style is the least friendly for keyboard users
 
 ## Related components
 

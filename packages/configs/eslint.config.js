@@ -39,7 +39,7 @@ export default antfu(
      */
       // css: true,
       html: true,
-      // markdown: 'prettier',
+      markdown: 'prettier',
     }
   },
   {
@@ -166,5 +166,11 @@ export default antfu(
       'curly': ['error', 'multi-line', 'consistent'], // temporary workaround of the issue with indent in <script>
       'style/semi': ['error', 'always'],
     },
+  },
+  {
+    files: ['**/*.md'],
+    rules: {
+      'unused-imports/no-unused-imports': 'off',
+    }
   }
 );

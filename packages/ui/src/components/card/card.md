@@ -1,4 +1,4 @@
-Used to group information into logical blocks. 
+Used to group information into logical blocks.
 Any content (text blocks, form elements, buttons, collapses, icons, and illustrations) can be located inside the card.
 
 :::info Figma mockups

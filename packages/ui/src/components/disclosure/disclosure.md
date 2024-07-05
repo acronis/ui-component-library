@@ -2,7 +2,7 @@ It is used when it is necessary to show the content in a dosed manner, hiding ad
 The collapse has two basic vertical sizes: 48px and 64px.
 If the content does not fit into any of the basic sizes, the vertical collapse size becomes dependent on the amount of content.
 Hidden content is displayed by clicking on the arrow or throughout the entire block.
-A disclosure widget is a widget containing a short summary or heading, 
+A disclosure widget is a widget containing a short summary or heading,
 plus a UI control to expand that heading to show more detail.
 
 :::info Figma mockups

@@ -48,7 +48,7 @@
     height: 100px;
     border-radius: 4px;
     margin: 10px;
-    box-shadow: 0 0 4px hsla(0deg, 0%, 0%, 0.1);
+    box-shadow: 0 0 4px hsl(0deg 0% 0% / 0.1);
     border: 1px solid var(--acv-color-brand-primary);
   }
 

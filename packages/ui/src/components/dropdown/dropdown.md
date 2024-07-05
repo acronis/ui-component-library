@@ -5,6 +5,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A10
 :::
 
 ## Basic usage
+
 :::tip
 A `.is-selected` class will be added to the trigger element in the dropdown default slot when dropdown menu is visible,
 to enable trigger element keep the selected state when cursor/focus moved away.

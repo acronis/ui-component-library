@@ -22,6 +22,7 @@ We provide six types: success, warning, error, info and progress.
 Notification can emerge from any corner you like.
 
 ## Use component
+
 `message` supports component.
 
 ## Global method

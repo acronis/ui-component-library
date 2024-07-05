@@ -1,4 +1,4 @@
-CheckboxGroup component is a wrapper for multiple checkboxes. 
+CheckboxGroup component is a wrapper for multiple checkboxes.
 It is used to group checkboxes together.
 
 :::info Figma mockups

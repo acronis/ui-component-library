@@ -6,6 +6,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=23%3A744
 :::
 
 ## Basic usage
+
 It includes all kinds of input items, such as `input`, `select`, `radio` and `checkbox`.
 These examples demonstrate 4 types of forms with modal `dialog`.
 

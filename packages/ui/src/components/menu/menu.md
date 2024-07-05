@@ -14,12 +14,14 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A19
 
 ## Vertical usage
 
-Elements of the first level of navigation may contain a second level of navigation. The second level of navigation is opened by clicking on the parent element. 
+Elements of the first level of navigation may contain a second level of navigation.
+The second level of navigation is opened by clicking on the parent element.
 By default, the first element of the second navigation level will always be active.
 
 <MenuVertical />
 
 ## Scroll into expanded submenu
+
 Use `scroll-into-expanded` to automatically scroll into newly expanded submenu, only works when menu is **immediate child** of el-scrollbar.
 
 ::: info

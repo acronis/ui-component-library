@@ -11,7 +11,7 @@
     <AcvCarouselItem>
       <div
         class="custom-slide"
-        style="background-color:hsl(0deg, 0%, 40%); height: 60px; color: hsl(0deg, 0%, 100%);"
+        style="background-color:hsl(0deg 0% 40%); height: 60px; color: hsl(0deg 0% 100%);"
       >
         First slide
       </div>
@@ -19,7 +19,7 @@
     <AcvCarouselItem>
       <div
         class="custom-slide"
-        style="background-color:hsl(0deg, 0%, 13%); height: 100px; color: hsl(0deg, 0%, 100%);"
+        style="background-color:hsl(0deg 0% 13%); height: 100px; color: hsl(0deg 0% 100%);"
       >
         Second slide
       </div>
@@ -27,7 +27,7 @@
     <AcvCarouselItem>
       <div
         class="custom-slide"
-        style="background-color:hsl(0deg, 0%, 73%); height: 120px; color: hsl(0deg, 0%, 100%);"
+        style="background-color:hsl(0deg 0% 73%); height: 120px; color: hsl(0deg 0% 100%);"
       >
         Third slide
       </div>

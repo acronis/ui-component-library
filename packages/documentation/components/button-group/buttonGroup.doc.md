@@ -32,7 +32,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A4
 ## Usage
 
 ```javascript
-import { ButtonGroup } from "@acronis-platform/ui-component-library";
+import { AcvButtonGroup } from "@acronis-platform/ui-component-library";
 // or
 import ButtonGroup from "@acronis-platform/components/buttonGroup/buttonGroup.vue";
 ```

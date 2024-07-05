@@ -16,10 +16,12 @@ Then we compare the screenshots with the baseline screenshots.
 To run visual regression tests with Cypress, you need to run the following command:
 
 ```bash
-pnpm run test:visual
+pnpm run cypress:run
 ```
 
-We must run regression tests in the same environment as the development environment. 
+We must run regression tests in the same environment as the development environment.
+Generated snapshots are used as a baseline for comparison.
+Reference images taken in a docker environment are used for comparison.
 To do this, we need to run cypress in docker container:
 
 ```bash
