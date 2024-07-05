@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Chip from './chip.vue';
-import type { ChipProps } from './chip.ts';
+import type { AcvChipProps } from './chip.ts';
 
 describe('test Chip component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test Chip component', () => {
     const wrapper = mount(Chip, {
       props: {
         title: 'test',
-      } as ChipProps,
+      } as AcvChipProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

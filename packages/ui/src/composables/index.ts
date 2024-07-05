@@ -6,6 +6,5 @@
 // export * from './useScrollable';
 // export * from './useTooltip';
 // export * from './useTrapFocus';
-export * from './useColor.ts';
 export * from './useFocusableTab.ts';
 export * from './useVisibilityObserver.ts';

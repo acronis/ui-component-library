@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Icon from './icon.vue';
-import type { IconProps } from './icon.ts';
+import type { AcvIconProps } from './icon.ts';
 
 describe('test Icon component', () => {
   it('default props', () => {
@@ -32,7 +32,7 @@ describe('test Icon component', () => {
     const wrapper = mount(Icon, {
       props: {
         title: 'test',
-      } as IconProps,
+      } as AcvIconProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

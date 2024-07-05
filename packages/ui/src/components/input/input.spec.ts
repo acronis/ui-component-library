@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Input from './input.vue';
-import type { InputProps } from './input.ts';
+import type { AcvInputProps } from './input.ts';
 
 describe('test Input component', () => {
   it('default props', () => {
@@ -21,7 +21,7 @@ describe('test Input component', () => {
     const wrapper = mount(Input, {
       props: {
         title: 'test',
-      } as InputProps,
+      } as AcvInputProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

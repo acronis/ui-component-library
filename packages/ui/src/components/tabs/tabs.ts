@@ -10,6 +10,8 @@ export interface AcvTabsProps {
   description?: string
 }
 
+export interface AcvTabProps {}
+
 export interface AcvTabsEvents {
   /**
    * Triggered when the component is closed

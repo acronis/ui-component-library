@@ -1,4 +1,4 @@
-export interface MenuProps {
+export interface AcvMenuProps {
   /**
    * Title of the Menu
    */

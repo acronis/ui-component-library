@@ -1,4 +1,4 @@
-export interface ChipProps {
+export interface AcvChipProps {
   /**
    * Icon name of the Chip
    */

@@ -1,13 +1,13 @@
 <script setup lang="ts">
   import { computed, useSlots } from 'vue';
-  import type { ChipProps } from '../../components/index';
+  import type { AcvChipProps } from '../../components/index';
   import { AcvButton, Icon } from '../../components/index';
   import './chip.css';
 
   const {
     iconName,
     showClose = false
-  } = defineProps<ChipProps>();
+  } = defineProps<AcvChipProps>();
 
   defineEmits<{
     /**

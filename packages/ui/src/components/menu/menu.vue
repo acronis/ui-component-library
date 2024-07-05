@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './menu.css';
-  import type { MenuProps } from './menu.ts';
+  import type { AcvMenuProps } from './menu.ts';
 
-  const { title, description } = defineProps<MenuProps>();
+  const { title, description } = defineProps<AcvMenuProps>();
 
   defineEmits<{
     /**

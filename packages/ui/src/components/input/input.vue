@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './input.css';
-  import type { InputProps } from './input.ts';
+  import type { AcvInputProps } from './input.ts';
 
-  const { trueValue, falseValue } = defineProps<InputProps>();
+  const { trueValue, falseValue } = defineProps<AcvInputProps>();
   defineEmits<{
     /**
      * Triggered when the component is closed

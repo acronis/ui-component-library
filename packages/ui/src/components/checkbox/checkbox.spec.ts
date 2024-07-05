@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Checkbox from './checkbox.vue';
-import type { CheckboxProps } from './checkbox.ts';
+import type { AcvCheckboxProps } from './checkbox.ts';
 
 describe('test Checkbox component', () => {
   it('default props', () => {
@@ -32,7 +32,7 @@ describe('test Checkbox component', () => {
     const wrapper = mount(Checkbox, {
       props: {
         label: 'test',
-      } as CheckboxProps,
+      } as AcvCheckboxProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

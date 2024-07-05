@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import table from './table.vue';
-import type { TableProps } from './table.ts';
+import type { AcvTableProps } from './table.ts';
 
 describe('test table component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test table component', () => {
     const wrapper = mount(table, {
       props: {
         title: 'test',
-      } as TableProps,
+      } as AcvTableProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

@@ -1,7 +1,8 @@
 import { h } from 'vue';
 import { mount } from '@vue/test-utils';
-import localePlugin from '../plugins/locale/localePlugin';
-import { useLocale } from '../composables/useLocale';
+import { describe, expect, it } from 'vitest';
+import localePlugin from '../../plugins/locale/localePlugin.ts';
+import { useLocale } from '../useLocale.ts';
 
 describe('useLocale', () => {
   it('returns available locales', () => {
