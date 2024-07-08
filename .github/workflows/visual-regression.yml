@@ -48,5 +48,4 @@ jobs:
           install: false
           working-directory: packages/ui
           start: pnpm --filter ./packages/ui run cypress:run
-          headless: true
           component: true
