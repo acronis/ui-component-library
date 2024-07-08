@@ -191,7 +191,9 @@
         v-show="isPopperVisibleDebounced"
         ref="popperRef"
         class="acv-popper"
+        :data-placement="placement"
         :style="floatingStyles"
+        role="tooltip"
       >
         <div class="content">
           <slot name="content" />

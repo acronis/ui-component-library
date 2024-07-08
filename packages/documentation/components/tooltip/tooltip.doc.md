@@ -12,7 +12,7 @@ No links, icons or form elements are allowed in the tooltip. Do not confuse tool
 Tooltip is called by hover or focus state, and popover is called by clicking.
 
 :::info Figma component mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A35
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4409
 :::
 
 ## Basic usage
