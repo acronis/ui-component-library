@@ -16,7 +16,7 @@
   const hasText = computed(() => !!slots.default);
 
   const height = computed(() => {
-    return isInteger(vertical) ? vertical : null;
+    return isInteger(vertical.value) ? vertical.value : null;
   });
 
   const dividerClasses = computed(() => {
@@ -53,6 +53,8 @@
     :class="dividerClasses"
     :style="dividerStyles"
     role="separator"
+    aria-hidden="true"
+    :aria-orientation="vertical ? 'vertical' : 'horizontal'"
   >
     <span
       v-if="!vertical && hasText"
@@ -65,20 +67,49 @@
 
 <style scoped>
   .acv-divider {
+    --acv-divider-border: var(--acv-border-regular) solid var(--acv-divider-color);
     display: flex;
     padding: 0;
     border-top: var(--acv-divider-border);
 
-    &.acv-divider--color-brand {
-      background-color: var(--acv-color-brand-primary);
-    }
-
-    &.acv-divider--color-accent{
-      background-color: var(--acv-color-brand-tertiary);
+    &.acv-divider--color-primary {
+      --acv-divider-color: var(--acv-color-primary);
     }
 
     &.acv-divider--color-secondary {
-      background-color: var(--acv-color-brand-secondary);
+      --acv-divider-color: var(--acv-color-secondary);
+    }
+
+    &.acv-divider--color-tertiary {
+      --acv-divider-color: var(--acv-color-tertiary);
+    }
+
+    &.acv-divider--color-inverted {
+      --acv-divider-color: var(--acv-color-inverted);
+    }
+
+    &.acv-divider--color-neutral {
+      --acv-divider-color: var(--acv-color-neutral);
+    }
+
+    &.acv-divider--color-info {
+      --acv-divider-color: var(--acv-color-info);
+    }
+
+    &.acv-divider--color-success {
+      --acv-divider-color: var(--acv-color-success);
+    }
+
+    &.acv-divider--color-warning {
+      --acv-divider-color: var(--acv-color-warning);
+    }
+
+    &.acv-divider--color-critical {
+      --acv-divider-color: var(--acv-color-critical);
+    }
+
+    &.acv-divider--color-danger {
+      --acv-divider-color: var(--acv-color-danger);
     }
 
     &.acv-divider--horizontal {
@@ -90,7 +121,7 @@
     &.acv-divider--vertical {
       position: relative;
       display: inline-block;
-      height: 14px;
+      height: 100%;
       margin: 0 var(--acv-divider-h-margin);
       vertical-align: middle;
       border-inline-start: var(--acv-divider-border);

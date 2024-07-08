@@ -28,7 +28,7 @@ const componentsList = [
   { text: 'DatePicker', link: '/components/datePicker/datePicker.doc.md' },
   { text: 'Dialog', link: '/components/dialog/dialog.doc.md' },
   { text: 'Disclosure', link: '/components/disclosure/disclosure.doc.md' },
-  { text: 'Divider', link: '/components/divider/divider.doc.md' },
+  { text: 'Divider', link: '/components/divider/divider.doc.md', readyForProduction: true },
   { text: 'Drawer', link: '/components/drawer/drawer.doc.md' },
   { text: 'Dropdown', link: '/components/dropdown/dropdown.doc.md' },
   { text: 'FileBrowser', link: '/components/fileBrowser/fileBrowser.doc.md' },

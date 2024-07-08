@@ -41,7 +41,7 @@ describe('test Divider component', () => {
 
     expect(wrapper.classes()).toContain('acv-divider--horizontal')
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-db039be1="" class="acv-divider acv-divider--horizontal" role="separator">
+      "<div data-v-db039be1="" class="acv-divider acv-divider--horizontal" role="separator" aria-hidden="true" aria-orientation="horizontal">
         <!--v-if-->
       </div>"
     `)
@@ -52,7 +52,7 @@ describe('test Divider component', () => {
 
     expect(wrapper.find('.acv-divider').classes()).toContain('acv-divider--vertical')
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-db039be1="" class="acv-divider acv-divider--vertical" role="separator">
+      "<div data-v-db039be1="" class="acv-divider acv-divider--vertical" role="separator" aria-hidden="true" aria-orientation="vertical">
         <!--v-if-->
       </div>"
     `)

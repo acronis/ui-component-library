@@ -1,7 +1,11 @@
+<script setup>
+  import AcvDivider from '@/components/divider/divider.vue';
+</script>
+
 <template>
   <p>Some content to fill</p>
-  <Divider></Divider>
+  <AcvDivider></AcvDivider>
   <p>Some content to fill</p>
-  <Divider>Insert text</Divider>
+  <AcvDivider>Insert text</AcvDivider>
   <p>Some content to fill</p>
 </template>

@@ -1,28 +1,45 @@
 <script setup>
-  import { Divider } from '@acronis-platform/ui-component-library';
+  import AcvDivider from '@/components/divider/divider.vue';
 </script>
 
 <template>
-  <ui-grid>
-    <ui-row class="bg-brand-lightest">
-      <Divider></Divider>
-    </ui-row>
-    <ui-row
-      span="6"
-      class="bg-brand-accent"
+  <div>
+    <div class="acv-bg-primary">
+      <h3>First row</h3>
+      <AcvDivider></AcvDivider>
+      <h3>Second row</h3>
+    </div>
+    <div
+      class="my-16 acv-grid-row acv-grid--cols-3 acv-bg-primary place-items-center"
     >
-      ## Vertical
-      <Divider
+      <div>
+        <h3>First column</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit and do it. Autem commodi deleniti dolorem dolorum eligendi</p>
+      </div>
+
+      <AcvDivider
         class="mr-16"
         vertical
-      ></Divider>
-    </ui-row>
-    <ui-row
-      span="6"
-      class="bg-brand-light"
+      ></AcvDivider>
+      <div>
+        <h3>Second column</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit and do it. Autem commodi deleniti dolorem dolorum eligendi</p>
+      </div>
+    </div>
+    <div
+      class="acv-bg-primary"
     >
-      ##Vertical small
-      <Divider :vertical="24"></Divider>
-    </ui-row>
-  </ui-grid>
+      <span>Vertical small</span>
+
+      <AcvDivider :vertical="24"></AcvDivider>
+
+      <AcvDivider :vertical="48"></AcvDivider>
+
+      <AcvDivider :vertical="64"></AcvDivider>
+
+      <AcvDivider :vertical="72"></AcvDivider>
+
+      <AcvDivider :vertical="96"></AcvDivider>
+    </div>
+  </div>
 </template>
