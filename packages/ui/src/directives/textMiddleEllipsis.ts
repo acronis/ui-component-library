@@ -4,6 +4,7 @@ const windowPathValidation = (path: string) => /^[a-z]:\\.*$/i.test(path);
 const linuxPathValidation = (path: string) => /^\/|(?:\/[\w-]+)+$/.test(path);
 
 function textMiddleEllipsis(el: HTMLElement, binding: DirectiveBinding, path: string | undefined) {
+  console.log(path, binding.arg);
   if (path === undefined || (!windowPathValidation(path) && !linuxPathValidation(path))) {
     console.warn(`Invalid path for v-text-middle-ellipsis: "${path}"`);
     return;
@@ -17,7 +18,6 @@ function textMiddleEllipsis(el: HTMLElement, binding: DirectiveBinding, path: st
   rightSpan.className = 'right';
   leftSpan.textContent = path.slice(0, splitIndex);
   rightSpan.textContent = path.slice(splitIndex);
-
   if (binding.arg === 'show-hover-hint') {
     el.setAttribute('title', path);
   }
@@ -32,7 +32,7 @@ export const vTextMiddleEllipsis: Directive = {
       binding,
       Array.isArray(vnode.children)
         ? (vnode.children[0] as any)?.textContent?.trim()
-        : undefined
+        : binding.value
     );
   },
   beforeMount(el: HTMLElement, binding: DirectiveBinding) {

@@ -93,7 +93,7 @@ const componentsList = [
   { text: 'Tiles', link: '/components/tiles/tiles.doc.md' },
   { text: 'TimePicker', link: '/components/timePicker/timePicker.doc.md' },
   { text: 'Toolbar', link: '/components/toolbar/toolbar.doc.md' },
-  { text: 'Tooltip', link: '/components/tooltip/tooltip.doc.md' },
+  { text: 'Tooltip', link: '/components/tooltip/tooltip.doc.md', readyForProduction: true },
   { text: 'Tree', link: '/components/tree/tree.doc.md' },
   { text: 'Typography', link: '/components/typography/typography.doc.md' },
   { text: 'Upload', link: '/components/upload/upload.doc.md' },
@@ -101,6 +101,7 @@ const componentsList = [
   {
     text: 'Directives',
     items: directives,
+    readyForProduction: true
   }
 ];
 
