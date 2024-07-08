@@ -57,11 +57,8 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-  @import '../../styles/mixins/typography.scss';
-
+<style scoped>
   .acv-chip {
-    font-weight: var(--acv-font-weight-strong);
     color: var(--acv-chip-color);
     height: var(--acv-chip-height);
     display: inline-flex;
@@ -71,11 +68,13 @@
     vertical-align: middle;
     padding: 0 0 0 12px;
     text-align: center;
-    line-height: var(--acv-chip-height);
     border-radius: calc(var(--acv-chip-height) * .5);
     position: relative;
     background-color: var(--acv-color-accent-light);
     border: var(--acv-border-sm) var(--acv-color-primary-light);
+    font-size: var(--acv-font-size-body); /* 16px */
+    font-weight: var(--acv-font-weight-regular);
+    line-height: var(--acv-font-line-height-regular);
 
     .acv-chip__text {
       display: inline-block;
@@ -83,7 +82,11 @@
       vertical-align: top;
       padding-right: 12px;
 
-      @include ellipsis;
+      /* ellipsis */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
     }
 
     .acv-chip__icon {
@@ -97,7 +100,5 @@
     &+& {
       margin-left: 8px;
     }
-
-    @include text-body;
   }
 </style>

@@ -16,9 +16,7 @@
   ></code>
 </template>
 
-<style scoped lang="scss">
-  @import '../../styles/mixins/typography.scss';
-
+<style scoped>
   .acv-code {
     display: block;
     overflow: auto;
@@ -28,6 +26,9 @@
     font-family: var(--acv-font-family-mono);
     white-space: pre;
 
-    @include text-regular;
+    /* text-regular */
+    font-size: var(--acv-font-size-body);
+    font-weight: var(--acv-font-weight-regular);
+    line-height: var(--acv-font-line-height-small);
   }
 </style>

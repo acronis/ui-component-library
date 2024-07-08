@@ -1,21 +1,17 @@
-@import '../mixins/typography.scss';
-
 .acv-title {
   display: block;
   margin: 0;
   white-space: nowrap;
-  font-size: 1.125em;
+  font-size: var(--acv-font-size-lead);
   line-height: 1.75em;
   font-weight: 500;
-  //color: var(--acv-color-text-primary);
 }
 
 .acv-subtitle {
   display: block;
   margin: 0;
-  font-size: .875em;
+  font-size: var(--acv-font-size-body);
   line-height: 1.25em;
-  //color: var(--acv-color-text-secondary);
 }
 
 .acv-text {
@@ -32,72 +28,104 @@
   */
 
 .acv-h1 {
-  @include text-h1;
+  font-size: var(--acv-base-font-size-48); /* 48px */
+  font-weight: var(--acv-font-weight-strong);
+  line-height: var(--acv-base-font-line-height-56); /* 1.25 */
 }
 
 .acv-h2 {
-  @include text-h2;
+  font-size: var(--acv-font-size-display); /* 32px */
+  font-weight: var(--acv-font-weight-strong);
+  line-height: var(--acv-font-line-height-large);
 }
 
 .acv-h3 {
-  @include text-h3;
+  font-size: var(--acv-font-size-title); /* 24px */
+  font-weight: var(--acv-font-weight-accent);
+  line-height: var(--acv-font-line-height-medium);
 }
 
 .acv-h4 {
-  @include text-h4;
+  font-size: var(--acv-font-size-accent); /* 16px */
+  font-weight: var(--acv-font-weight-accent);
+  line-height: var(--acv-font-line-height-regular); /* 1.5 */
 }
 
 .acv-h5 {
-  @include text-h5;
+  font-size: var(--acv-font-size-body); /* 14px */
+  font-weight: var(--acv-font-weight-accent);
+  line-height: var(--acv-font-line-height-small);
 }
 
 .acv-text--display-large {
-  @include text-large;
+  font-size: var(--acv-font-size-lead);
+  font-weight: var(--acv-font-weight-regular);
+  line-height: var(--acv-font-line-height-medium);
 }
 
 .acv-text--display-medium {
-  @include text-medium;
+  font-size: var(--acv-font-size-accent);
+  font-weight: var(--acv-font-weight-regular);
+  line-height: var(--acv-font-line-height-regular);
 }
 
 .acv-text--display-regular {
-  @include text-regular;
+  font-size: var(--acv-font-size-body);
+  font-weight: var(--acv-font-weight-regular);
+  line-height: var(--acv-font-line-height-small);
 }
 
 .acv-text--heading {
-  @include text-heading;
+  font-size: var(--acv-font-size-caption);
+  font-weight: var(--acv-font-weight-accent);
+  letter-spacing: var(--acv-letter-spacing-xs);
+  line-height: var(--acv-font-line-height-medium);
 }
 
 .acv-text--strong {
-  @include text-strong;
+  font-size: var(--acv-font-size-caption);
+  font-weight: var(--acv-font-weight-accent);
+  line-height: var(--acv-font-line-height-medium);
 }
 
 .acv-text--subheading {
-  @include text-subheading;
+  font-size: var(--acv-font-size-caption);
+  font-weight: var(--acv-font-weight-accent);
+  line-height: var(--acv-font-line-height-medium);
 }
 
 .acv-text--caption {
-  @include text-caption;
+  font-size: var(--acv-font-size-caption);
+  font-weight: var(--acv-font-weight-regular);
+  line-height: var(--acv-font-line-height-x-small);
 }
 
 .acv-text--accent {
-  @include text-accent;
+  font-size: var(--acv-font-size-accent);
+  font-weight: var(--acv-font-weight-strong);
+  line-height: var(--acv-font-line-height-x-small);
+}
+
+.acv-text--fineprint {
+  font-size: var(--acv-font-size-fineprint); /* 12px */
+  line-height: var(--acv-font-line-height-x-small);
 }
 
 .acv-text--body-xl {
-  @include text-body;
-
+  font-size: var(--acv-font-size-body); /* 16px */
+  font-weight: var(--acv-font-weight-regular);
   line-height: var(--acv-font-line-height-large);
 }
 
 .acv-text--body-lg {
-  @include text-body;
-
+  font-size: var(--acv-font-size-body); /* 16px */
+  font-weight: var(--acv-font-weight-regular);
   line-height: var(--acv-font-line-height-medium);
 }
 
 .acv-text--body-regular {
-  @include text-body;
-
+  font-size: var(--acv-font-size-body); /* 16px */
+  font-weight: var(--acv-font-weight-regular);
   line-height: var(--acv-font-line-height-regular);
 }
 
@@ -216,11 +244,13 @@
  */
 
 .acv-text--ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
   max-width: 100%;
   vertical-align: middle;
   display: inline-block;
-
-  @include ellipsis;
 }
 
 .acv-text--highlighting {
@@ -278,6 +308,7 @@
  * @example
  * <div class='acv-text acv-text-color-primary'>Example usage of class</div>
  */
+
 .acv-text-color-primary {
   color: var(--acv-color-text-primary);
 }
