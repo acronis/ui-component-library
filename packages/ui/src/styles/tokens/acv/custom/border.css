@@ -4,7 +4,7 @@
   --acv-border-style-dashed: dashed;
 
   /* border */
-  --acv-border-none: none;
+  --acv-border-none: 0;
   --acv-border-small: var(--acv-border-regular) var(--acv-border-style-solid);
   --acv-border-medium: var(--acv-border-large) var(--acv-border-style-solid);
   --acv-border-large: var(--acv-border-x-large) var(--acv-border-style-solid);
