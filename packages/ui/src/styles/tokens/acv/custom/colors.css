@@ -3,6 +3,8 @@
   --acv-color-text-on-primary: var(--acv-color-white);
   --acv-color-surface-card: var(--acv-color-white);
   --acv-color-surface-opacity: 1;
+
+  /* State colors */
   --acv-color-button-success: hsl(75deg 68% 45%);
   --acv-color-button-success-active: hsl(75deg 68% 35%);
   --acv-color-button-success-disabled: hsl(75deg 68% 45% / 0.3);
