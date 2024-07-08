@@ -46,24 +46,58 @@
   </RouterLink>
 </template>
 
-<style scoped lang="scss">
-@import '../../styles/mixins/typography.scss';
-
+<style scoped>
 .acv-breadcrumbs-link {
-  color: var(--acv-breadcrumbs-color);
   max-inline-size: 212px;
   padding-block: 4px;
   padding-inline: 8px;
-  text-decoration: none;
   transition: background-color var(--acv-transition-shortest);
+
+  /* ellipsis */
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
+
+  /* link */
+  text-decoration: none;
+  color: var(--acv-link-color);
+
+  /* borderless-action-state */
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--acv-radius-small);
+  font-weight: var(--acv-font-weight-accent);
 
   &:hover {
-    background: var(--acv-color-overlay-hover);
+    color: var(--acv-link-color-hover);
+    cursor: pointer;
+    background-color: var(--acv-color-button-hover-primary);
   }
 
-  @include ellipsis;
-  @include link;
-  @include borderless-action-state;
+  &:active {
+    color: var(--acv-link-color-active);
+    background-color: var(--acv-color-button-active-primary);
+  }
+
+  &:focus {
+    background-color: var(--acv-color-button-focus);
+  }
+
+  &:not(:disabled):active,
+  &:not(:disabled).is-active {
+    background: var(--acv-color-button-active-primary);
+  }
+
+  &:not(:disabled).is-selected {
+    background-color: var(--acv-color-button-active-primary);
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
 }
 </style>

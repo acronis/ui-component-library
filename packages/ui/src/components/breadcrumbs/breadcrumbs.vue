@@ -32,9 +32,7 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-  @import '../../styles/mixins/typography.scss';
-
+<style scoped>
   .acv-breadcrumbs {
     display: flex;
     max-width: 100%;
@@ -59,11 +57,14 @@
     }
 
     &.size-md {
-      @include text-ui;
+      font-size: var(--acv-font-size-body);
+      line-height: var(--acv-font-line-height-small);
     }
 
     &.size-lg {
-      @include text-h3;
+      font-size: var(--acv-font-size-title);
+      font-weight: var(--acv-font-weight-accent);
+      line-height: var(--acv-font-line-height-medium);
     }
 
     &.is-multi-line {
