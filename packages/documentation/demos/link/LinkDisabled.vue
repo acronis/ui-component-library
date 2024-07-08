@@ -3,5 +3,7 @@
 </script>
 
 <template>
-  <AcvLink>This is link</AcvLink>
+  <AcvLink disabled>
+    This is disabled link
+  </AcvLink>
 </template>
