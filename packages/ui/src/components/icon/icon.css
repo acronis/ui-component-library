@@ -1,6 +1,7 @@
 @layer acv-base {
   :root {
     --acv-icon-color: currentColor;
+    --acv-icon-size: var(--acv-icon-size-xs);
     --acv-icon-size-3xl: 96px;
     --acv-icon-size-2xl: 72px;
     --acv-icon-size-xl: 48px;

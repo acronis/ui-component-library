@@ -1,5 +1,5 @@
-import type { ColorProps } from '../../composables/useColor.ts';
 import type { ResponsibleProps } from '../../composables/useBreakpoints.ts';
+import type { ColorProps } from '../../types/props.ts';
 
 export interface ContainerProps extends ResponsibleProps, ColorProps {
   /**

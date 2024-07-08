@@ -115,13 +115,16 @@
     flex-shrink: 0;
     block-size: var(--acv-icon-size-height, var(--acv-icon-size, var(--acv-base-icon-size)));
     inline-size: var(--acv-icon-size-width, var(--acv-icon-size, var(--acv-base-icon-size)));
-    height: var(--acv-icon-size-height, var(--acv-icon-size, var(--acv-base-icon-size)));
-    width: var(--acv-icon-size-width, var(--acv-icon-size, var(--acv-base-icon-size)));
     font-size: var(--acv-icon-size);
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
       fill: v-bind(fillColor);
+      height: var(--acv-icon-size-height, var(--acv-icon-size));
+      width: var(--acv-icon-size-width, var(--acv-icon-size));
     }
 
     &.size-xs,

@@ -19,8 +19,9 @@ describe('button', () => {
 
     expect(wrapper.find('.acv-button').classes()).toEqual([
       'acv-button',
-      'primary',
       'solid',
+      'medium',
+      'primary',
     ])
     expect(wrapper.find('.acv-button').text()).toEqual(TEXT)
   })
@@ -33,7 +34,7 @@ describe('button', () => {
 
   it('types', () => {
     Object.keys(BUTTON_VARIANT).forEach((type) => {
-      const wrapper = mount(() => <Button kind={type}></Button>)
+      const wrapper = mount(() => <Button variant={type}></Button>)
 
       if (type === 'default')
         expect(wrapper.find('.acv-button').classes()).not.toContain(`${type}`)
@@ -43,7 +44,7 @@ describe('button', () => {
   })
 
   it('ghost', () => {
-    const wrapper = mount(() => <Button kind="ghost"></Button>)
+    const wrapper = mount(() => <Button variant="ghost"></Button>)
 
     expect(wrapper.find('.acv-button').classes()).toContain('ghost')
   })
@@ -82,14 +83,12 @@ describe('button', () => {
   it('icon', async () => {
     const wrapper = mount(() => <Button icon={UserIcon}>{TEXT}</Button>)
 
-    expect(wrapper.find('.acv-button__icon').exists()).toBe(true)
     expect(wrapper.findComponent(UserIcon).exists()).toBe(true)
   })
 
   it('icon only', async () => {
     const wrapper = mount(() => <Button icon={UserIcon}></Button>)
 
-    expect(wrapper.find('.acv-button__icon').exists()).toBe(true)
     expect(wrapper.findComponent(UserIcon).exists()).toBe(true)
   })
 
@@ -148,10 +147,10 @@ describe('button', () => {
 
   it.skip('group type', () => {
     const wrapper = mount(() => (
-      <AcvButtonGroup kind="primary">
+      <AcvButtonGroup color="primary">
         <Button></Button>
         <Button></Button>
-        <Button kind="success"></Button>
+        <Button color="success"></Button>
       </AcvButtonGroup>
     ))
 
