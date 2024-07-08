@@ -8,31 +8,31 @@
 
 <template>
   <Alert
-    variant="info"
+    color="info"
     :title="text"
     :description="text"
     show-close
   />
   <Alert
-    variant="info"
+    color="info"
     title="Only title"
   />
   <Alert
-    variant="info"
+    color="info"
     title="Only description"
   />
   <Alert
-    variant="info"
+    color="info"
     title="Only title and close"
     show-close
   />
   <Alert
-    variant="info"
+    color="info"
     description="Only description and close"
     show-close
   />
   <Alert
-    variant="info"
+    color="info"
     title="Only title and actions"
   >
     <template #actions>
@@ -41,7 +41,7 @@
     </template>
   </Alert>
   <Alert
-    variant="info"
+    color="info"
     description="Only description and actions"
     show-close
   >
@@ -51,7 +51,7 @@
     </template>
   </Alert>
   <Alert
-    variant="info"
+    color="info"
     title="title and description and actions and right"
     description="Only description and actions"
     show-close

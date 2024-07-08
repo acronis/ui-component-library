@@ -7,7 +7,7 @@
   <Row gutter="24">
     <AcvButton
       pill
-      variant="primary"
+      color="primary"
     >
       Primary
     </AcvButton>
@@ -19,31 +19,37 @@
     </AcvButton>
     <AcvButton
       pill
-      variant="success"
+      color="tertiary"
+    >
+      Tertiary
+    </AcvButton>
+    <AcvButton
+      pill
+      color="success"
     >
       Success
     </AcvButton>
     <AcvButton
       pill
-      variant="danger"
+      color="danger"
     >
       Danger
     </AcvButton>
     <AcvButton
       pill
-      variant="warning"
+      color="warning"
     >
       Warning
     </AcvButton>
     <AcvButton
       pill
-      variant="info"
+      color="info"
     >
       Info
     </AcvButton>
     <AcvButton
       pill
-      variant="inverted"
+      color="inverted"
     >
       Inverted
     </AcvButton>

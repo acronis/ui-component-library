@@ -116,11 +116,11 @@
   });
   const isPopperVisibleDebounced = refDebounced(isPopperVisible, _delay);
 
-  /*
-      Event listeners on anchor
-      If moduleValue is provided don't attach any event to modify the visibility of menu
-      props.modelValue === undefined => modelValue isn't provided
-  */
+  /**
+   * Event listeners on anchor
+   * If moduleValue is provided don't attach any event to modify the visibility of menu
+   * props.modelValue === undefined => modelValue isn't provided
+   */
   if (!props.modelValue) {
     // If trigger is hover
     if (props.trigger === 'hover') {

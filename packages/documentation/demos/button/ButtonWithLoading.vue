@@ -6,7 +6,6 @@
 <template>
   <Row gutter="24">
     <Button
-      icon="trash-o"
       loading
     >
       Default

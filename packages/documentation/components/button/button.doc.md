@@ -7,7 +7,9 @@ editLink: true
 # Acv Button
 
 Button is an input that allows for user-triggered actions when clicked or pressed.
-This can be used for submitting forms, opening/closing dialogs, and much more.
+
+Use buttons for actions in forms, dialogs, and much more.
+
 It supports multiple variants, sizes, and states.
 
 ## Overview
@@ -23,36 +25,51 @@ It supports multiple variants, sizes, and states.
 Button supports the several predefined types, for different semantic purposes.
 Use the `variant` prop to set the variant of the button.
 By default, the button is rendered as a solid primary button.
-There are 3 variant types available: `solid`, `outline` and `ghost`.
+
+There are 4 variant types available: `solid`, `outline`, `ghost` and `light`.
+
 There are 5 variant color patterns available: `primary`, `secondary`, `success`, `danger`, `warning`, `info` and `inverted` for the dark surfaces.
 
-### Solid color variants
+### Solid
+
+`solid` is a default variant for button.
 
 Button with a solid variant is a button with a solid background color.
 
-<ButtonKindSolid />
+Use the `variant` prop to set the variant of the button.
 
-### Outline color variants
+<ButtonVariantSolid />
+
+### Outline
 
 Button with an outline variant is a button with a border and transparent background.
+You can use `variant="outline"` to create outlined button.
 
-<ButtonKindOutline />
+:::details Customize `border-style` of outlined buttons
+To create outlined button with different border style just add relevant class.
 
-### Ghost color variants
+e.g. To create outline button with dashed border, add `acv-border-style-dashed` class.
+:::
 
-Button with a ghost variant is a button with a transparent background and a border.
+<ButtonVariantOutline />
 
-<ButtonKindGhost />
+### Ghost
+
+You can use `variant="ghost"` to create button with a transparent background and without a border.
+
+<ButtonVariantGhost />
+
+### Light
+
+You can use `variant="light"` Button with light semi-opaque background color.
+
+<ButtonVariantLight />
 
 ## Sizing
 
 Specify the size(small, large) of the button using the `size` prop.
 
 <ButtonSizes />
-
-## States
-
-<ButtonStates />
 
 ## Types
 
@@ -68,7 +85,7 @@ It is ignored when either _href_ or _to_ props are set.
 
 <ButtonTypes />
 
-## With icon
+## With icons
 
 <ButtonWithIcons />
 
@@ -76,17 +93,22 @@ It is ignored when either _href_ or _to_ props are set.
 
 <ButtonWithSingleIcon />
 
-## With loading
+## Loading
 
 <ButtonWithLoading />
 
-## Primary
+## Colors
 
-<ButtonVariantPrimary />
+Button supports the following color variants:
+`primary`, `secondary`, `success`, `danger`, `warning`, `info` and `inverted`.
 
-## Secondary
+### Primary
 
-<ButtonVariantSecondary />
+<ButtonColorPrimary />
+
+### Secondary
+
+<ButtonColorSecondary />
 
 ## Block buttons
 
@@ -98,6 +120,8 @@ Set up the `block` prop to make the button full width.
 ## Pill buttons
 
 Create pill buttons by setting the `pill` prop.
+
+TODO: replace with _roundness_ prop
 
 <ButtonPill />
 
@@ -154,29 +178,30 @@ When `href` or `to` props are set, the button is rendered as an `<a>` element wi
 - [Button group](/components/button-group/buttonGroup.doc)
 - [Link](/components/link/link.doc)
 - [Color variants](/theming/colors)
+- [Open UI Button Research](https://open-ui.org/components/button/)
 
 ## Props
 
-| Prop name  | Description                                                                | Type             | Values                                                                    | Default  |
-| ---------- | -------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------- | -------- |
-| tag        | Button tag                                                                 | union            | a, span, button, label                                                    | 'button' |
-| buttonType | Button type                                                                | union            | button, submit, reset                                                     | button   |
-| variant    | Button variant                                                             | AcvButtonVariant | primary, secondary, ghost, danger, inverted                               | primary  |
-| icon       | Button icon, accepts an icon name of Icon component                        | IconProp         | -                                                                         |          |
-| color      | Color of the button                                                        | ColorProp        | primary, secondary, success, danger, warning, info, inverted, light, dark |          |
-| height     | Button height for fluid variant                                            | AcvButtonHeight  | 32, 48                                                                    |          |
-| size       | Button size                                                                | AcvButtonSize    | small, medium, large                                                      | medium   |
-| autofocus  | Same as native button's autofocus                                          | boolean          | -                                                                         |          |
-| disabled   | Disable the button                                                         | boolean          | -                                                                         |          |
-| loading    | Determine whether it's loading                                             | boolean          | -                                                                         |          |
-| fluid      | Whether button should fill all available width                             | boolean          | -                                                                         |          |
-| multiline  | Turn on multiline mode                                                     | boolean          | -                                                                         |          |
-| rightIcon  | Button icon on the right side,<br/> accepts an icon name of Icon component | IconProp         | -                                                                         |          |
-| kind       |                                                                            | AcvButtonKind    | -                                                                         |          |
-| block      | Whether the button is block style or not                                   | boolean          | -                                                                         |          |
-| pill       |                                                                            | boolean          | -                                                                         |          |
-| squared    |                                                                            | boolean          | -                                                                         |          |
-| to         | Button router-link path                                                    | union            | -                                                                         |          |
+| Prop name  | Description                                                                | Type             | Values                                                                    | Default   |
+| ---------- | -------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------- | --------- |
+| tag        | Button tag                                                                 | union            | a, span, button, label                                                    | 'button'  |
+| buttonType | Button type                                                                | union            | button, submit, reset                                                     | button    |
+| variant    | Button variant                                                             | AcvButtonVariant | primary, secondary, ghost, danger, inverted                               | primary   |
+| icon       | Button icon, accepts an icon name of Icon component                        | IconProp         | -                                                                         |           |
+| color      | Color of the button                                                        | ColorProp        | primary, secondary, success, danger, warning, info, inverted, light, dark | 'primary' |
+| height     | Button height for fluid variant                                            | AcvButtonHeight  | 32, 48                                                                    |           |
+| size       | Button size                                                                | AcvButtonSize    | small, medium, large                                                      | medium    |
+| autofocus  | Same as native button's autofocus                                          | boolean          | -                                                                         |           |
+| disabled   | Disable the button                                                         | boolean          | -                                                                         |           |
+| loading    | Determine whether it's loading                                             | boolean          | -                                                                         |           |
+| fluid      | Whether button should fill all available width                             | boolean          | -                                                                         |           |
+| multiline  | Turn on multiline mode                                                     | boolean          | -                                                                         |           |
+| rightIcon  | Button icon on the right side,<br/> accepts an icon name of Icon component | IconProp         | -                                                                         |           |
+| block      | Whether the button is block style or not                                   | boolean          | -                                                                         |           |
+| pill       |                                                                            | boolean          | -                                                                         |           |
+| squared    |                                                                            | boolean          | -                                                                         |           |
+| to         | Button router-link path                                                    | union            | -                                                                         |           |
+| kind       |                                                                            | -                | -                                                                         | 'solid'   |
 
 ## Slots
 
@@ -184,5 +209,4 @@ When `href` or `to` props are set, the button is rendered as an `<a>` element wi
 | --------- | ----------------------------------- | -------- |
 | icon      | Icon slot content                   |          |
 | default   | The default slot content            |          |
-| rightIcon |                                     |          |
 | iconRight | Icon on the right side slot content |          |

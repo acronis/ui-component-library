@@ -10,7 +10,7 @@
   >
     <AcvButton
       squared
-      variant="primary"
+      color="primary"
     >
       Primary squared
     </AcvButton>
@@ -22,32 +22,32 @@
     </AcvButton>
     <AcvButton
       squared
-      variant="success"
+      color="success"
     >
       Success
     </AcvButton>
 
     <AcvButton
       squared
-      variant="danger"
+      color="danger"
     >
       Danger
     </AcvButton>
     <AcvButton
       squared
-      variant="warning"
+      color="warning"
     >
       Warning
     </AcvButton>
     <AcvButton
       squared
-      variant="info"
+      color="info"
     >
       Info
     </AcvButton>
     <AcvButton
       squared
-      variant="inverted"
+      color="inverted"
     >
       Inverted
     </AcvButton>

@@ -10,7 +10,7 @@
 
 <template>
   <Alert
-    variant="info"
+    color="info"
     title="This is a title."
     description="This is a description."
     show-close
@@ -22,7 +22,7 @@
     </template>
   </Alert>
   <Alert
-    variant="success"
+    color="success"
     title="This is a title."
     description="This is a description."
     show-close
@@ -33,28 +33,28 @@
     </template>
   </Alert>
   <Alert
-    variant="warning"
+    color="warning"
     title="This is a title."
     description="This is a description."
     show-close
     @close="onClose"
   />
   <Alert
-    variant="critical"
+    color="critical"
     title="This is a title."
     description="This is a description."
     show-close
     @close="onClose"
   />
   <Alert
-    variant="error"
+    color="danger"
     title="This is a title."
     description="This is a description."
     show-close
     @close="onClose"
   />
   <Alert
-    variant="unknown"
+    color="unknown"
     title="This is a title."
     description="This is a description."
     show-close

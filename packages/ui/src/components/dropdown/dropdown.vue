@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import type { AcvDropdownEvents, AcvDropdownProps, AcvDropdownSlots } from 'src/components/dropdown/dropdown.ts';
   import './dropdown.css';
   import AcvPopper from '../popper/popper.vue';
   import AcvCard from '../card/card.vue';
+  import type { AcvDropdownEvents, AcvDropdownProps, AcvDropdownSlots } from './dropdown.ts';
 
   defineOptions({
     name: 'AcvDropdown'
