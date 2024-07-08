@@ -8,12 +8,15 @@ describe('test Container component', () => {
     const wrapper = mount(Container);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
+        "backgroundColor": undefined,
+        "borderColor": undefined,
         "color": "white",
         "direction": "vertical",
         "fluid": false,
         "lg": false,
         "md": false,
         "sm": false,
+        "textColor": undefined,
         "xl": false,
         "xs": false,
         "xxl": false,
@@ -30,12 +33,15 @@ describe('test Container component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
+        "backgroundColor": undefined,
+        "borderColor": undefined,
         "color": "white",
         "direction": "vertical",
         "fluid": false,
         "lg": false,
         "md": false,
         "sm": false,
+        "textColor": undefined,
         "xl": false,
         "xs": false,
         "xxl": false,

@@ -1,30 +1,22 @@
 import type { ColorProp, ComponentSize, IconProp } from '../../types/props.ts';
 
-export const BUTTON_KIND = {
+export const BUTTON_VARIANT = {
   solid: 'solid',
   outline: 'outline',
   ghost: 'ghost',
+  light: 'light',
 } as const;
 
 export const BUTTON_COLOR = {
   primary: 'primary',
   secondary: 'secondary',
-  success: 'success',
-  danger: 'danger',
-  warning: 'warning',
-  info: 'info',
   inverted: 'inverted',
-} as const;
-
-export const BUTTON_VARIANT = {
-  primary: 'primary',
-  secondary: 'secondary',
-  ghost: 'ghost',
-  danger: 'danger',
+  neutral: 'neutral',
+  info: 'info',
   success: 'success',
   warning: 'warning',
-  info: 'info',
-  inverted: 'inverted',
+  critical: 'critical',
+  danger: 'danger',
 } as const;
 
 export type AcvButtonVariant = typeof BUTTON_VARIANT[keyof typeof BUTTON_VARIANT];
@@ -32,8 +24,6 @@ export type AcvButtonVariant = typeof BUTTON_VARIANT[keyof typeof BUTTON_VARIANT
 export type AcvButtonHeight = '32' | '48';
 
 export type AcvButtonSize = ComponentSize;
-
-export type AcvButtonKind = typeof BUTTON_KIND[keyof typeof BUTTON_KIND];
 
 export interface AcvButtonProps {
   /**
@@ -104,8 +94,6 @@ export interface AcvButtonProps {
    *  accepts an icon name of Icon component
    */
   rightIcon?: IconProp
-
-  kind?: AcvButtonKind
 
   // /**
   //  *  Whether the button is solid style or not

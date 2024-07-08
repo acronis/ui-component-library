@@ -16,6 +16,18 @@
   background-color: var(--acv-color-brand-tertiary) !important;
 }
 
+.acv-bg-surface-fixed-primary {
+  background-color: var(--acv-color-surface-fixed-primary) !important;
+}
+
+.acv-bg-surface-primary {
+  background-color: var(--acv-color-surface-primary) !important;
+}
+
+.acv-bg-surface-secondary {
+  background-color: var(--acv-color-surface-secondary) !important;
+}
+
 .acv-bg-inversed-primary,
 .acv-bg-inversed,
 .acv-bg-white {

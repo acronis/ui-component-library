@@ -179,6 +179,7 @@ body {
 
     &:hover {
       background-color: var(--acv-color-link-inversed-secondary);
+      color: var(--acv-color-link-primary);
     }
 
     &-active,
