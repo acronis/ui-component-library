@@ -8,20 +8,20 @@ describe('alert', () => {
     const wrapper = mount(Alert)
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
+        "color": "info",
         "description": undefined,
         "showBorder": false,
         "showClose": false,
         "showIcon": false,
         "subtitle": undefined,
         "title": undefined,
-        "variant": "info",
       }
     `)
   })
 
   it('types', () => {
-    ;(['info', 'success', 'warning', 'critical', 'error', 'unknown'] as const).forEach((type) => {
-      const wrapper = mount(() => <Alert icon variant={type}></Alert>)
+    ;(['info', 'success', 'warning', 'critical', 'error', 'unknown'] as const).forEach(async (type) => {
+      const wrapper = mount(() => <Alert icon color={type}></Alert>)
 
       expect(wrapper.find('.acv-alert').classes()).toContain(`${type}`)
       // expect(wrapper.findComponent(AlertIconTypes[type]).exists()).toBe(true)
@@ -37,13 +37,13 @@ describe('alert', () => {
     })
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
+        "color": "info",
         "description": undefined,
         "showBorder": false,
         "showClose": true,
         "showIcon": false,
         "subtitle": undefined,
         "title": undefined,
-        "variant": "success",
       }
     `)
   })

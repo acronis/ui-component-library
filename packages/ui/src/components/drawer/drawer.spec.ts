@@ -75,6 +75,7 @@ describe('test Drawer component', () => {
       "<div data-v-e3acac2e="" data-v-dd14fadb="" class="acv-layer acv-card acv-drawer acv-drawer-left" modelvalue="true" persistent="false" anchor="left">
         <!--v-if-->
         <!--v-if-->
+        <div data-v-e3acac2e="" class="content"></div>
       </div>"
     `);
   });

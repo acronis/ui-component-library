@@ -15,12 +15,14 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=587-5679
 
 ## Variants
 
+<CardVariants />
+
 ### Border Colors
 
-<CardBorder />
+<CardBorders />
 
 ::: details
-<<< @/demos/card/CardBorder.vue
+<<< @/demos/card/CardBorders.vue
 :::
 
 ### Background Colors

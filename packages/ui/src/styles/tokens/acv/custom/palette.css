@@ -105,6 +105,7 @@
 
   /* Shades of tertiary color */
   --acv-color-tertiary: var(--acv-color-brand-tertiary);
+  --acv-color-inverted: var(--acv-color-button-label-inversed-primary);
 
   /* Shades of red color */
   --acv-color-red-darkest: hsl(from var(--acv-color-red) h s calc(l - 30));

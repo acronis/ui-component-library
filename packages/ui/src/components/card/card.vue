@@ -1,41 +1,117 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
+  import { computed, toRef } from 'vue';
   import './card.css';
-  import type { AcvCardProps } from './card.ts';
+  import { useLayer } from '../../composables/useLayer.ts';
+  import type { AcvCardProps, AcvCardSlots } from './card.ts';
+  import AcvLoader from '@/components/loader/loader.vue';
+  import { isBaseColor } from '@/utils/color.ts';
 
-  const { backgroundColor, borderColor } = defineProps<AcvCardProps>();
+  defineOptions({
+    name: 'AcvCard'
+  });
+  const props = withDefaults(defineProps<AcvCardProps>(), {
+    shadow: true,
+    border: true,
+    padding: true,
+    round: true,
+  });
   defineEmits<{
     close: []
   }>();
-  const classes = computed(() => {
+
+  defineSlots<AcvCardSlots>();
+
+  const { layerClasses, layerStyles } = useLayer({
+    propColor: toRef(props, 'color'),
+    propVariant: toRef(props, 'variant'),
+    propStates: toRef(props, 'states'),
+  });
+
+  const cardClasses = computed(() => {
     return {
-      [`acv-card-background-${backgroundColor}`]: backgroundColor,
-      [`acv-card-border-${backgroundColor}`]: borderColor
+      'acv-card': true,
+      'shadowed': props.shadow,
+      'rounded': props.round,
+      'bordered': props.border,
+      'padded': props.padding,
+    };
+  });
+
+  // TODO move to layer (border, background, color)
+  const cardStyles = computed(() => {
+    return {
+      ...(props.borderColor && isBaseColor(props.borderColor) && {
+        border: `1px solid var(--acv-color-${props.borderColor})`
+      }),
+      ...(props.backgroundColor && isBaseColor(props.backgroundColor) && {
+        backgroundColor: `var(--acv-color-${props.backgroundColor})`
+      })
     };
   });
 </script>
 
 <template>
   <div
-    class="acv-card"
-    :class="classes"
+    :class="[layerClasses, cardClasses]"
+    :style="[cardStyles, layerStyles]"
   >
-    <slot />
+    <slot name="loading">
+      <div
+        v-if="loading"
+        class="acv-card-loading"
+      >
+        <AcvLoader />
+      </div>
+    </slot>
+    <img
+      v-if="props.img"
+      class="img"
+      :src="props.img"
+      :alt="props.imgAlt"
+    >
+    <div class="content">
+      <slot />
+    </div>
   </div>
 </template>
 
 <style scoped>
   .acv-card {
-    font-weight: var(--acv-font-weight-strong);
-    border-width: var(--acv-border-regular);
-    border-style: var(--acv-border-style-solid);
-    border-radius: var(--acv-radius-regular);
-    border-color: var(--acv-card-border-color);
-    background-color: var(--acv-card-background-color);
+    font-weight: var(--acv-font-weight-regular);
     background-clip: padding-box;
     overflow: hidden;
-    color: var(--acv-card-color);
     font-size: var(--acv-font-size-body);
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: [full-start] var(--acv-spacing-regular) [content-start] 1fr [content-end] var(--acv-spacing-regular) [full-end];
+
+    & > *,
+    .content {
+      grid-column: content;
+    }
+
+    & > :deep(img) {
+      grid-column: full;
+      margin-block: 16px;
+      width:100%;
+    }
+
+    &.rounded {
+      border-radius: var(--acv-radius-regular);
+    }
+
+    &.shadowed {
+      box-shadow: var(--acv-shadow-regular);
+    }
+
+    &.padded {
+      padding-block: var(--acv-card-padding);
+    }
+
+    & :deep(.acv-card-padding) {
+      padding: var(--acv-card-padding);
+    }
   }
 
   .acv-card--modal {

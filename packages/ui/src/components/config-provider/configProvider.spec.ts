@@ -15,14 +15,14 @@ describe('test ConfigProvider component', () => {
 
   it('pass props', () => {
     const wrapper = mount(ConfigProvider, {
-      props: {
-        title: 'test',
+      propsData: {
+        props: 'test',
       } as AcvConfigProviderProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "props": undefined,
+        "props": "test",
       }
     `);
   });

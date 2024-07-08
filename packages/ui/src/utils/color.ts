@@ -13,7 +13,7 @@ import type {
 } from 'src/types/color.types.ts';
 import { isDefined } from './common';
 
-const BRAND_COLORS = {
+export const BRAND_COLORS = {
   primary: 'primary',
   secondary: 'secondary',
   tertiary: 'tertiary',
@@ -21,7 +21,7 @@ const BRAND_COLORS = {
 };
 export type ColorBrand = typeof BRAND_COLORS[keyof typeof BRAND_COLORS];
 
-const STATUS_COLORS = {
+export const STATUS_COLORS = {
   neutral: 'neutral',
   info: 'info',
   success: 'success',

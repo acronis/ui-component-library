@@ -1,161 +1,43 @@
-<script setup lang="ts">
+<script setup>
+  import { LAYER_VARIANT } from '@/composables/useLayer.ts';
+  import { BASE_COLORS } from '@/utils/color.ts';
+
+  const layerStates = [
+    '',
+    'hover',
+    'active',
+    'focus',
+    'disabled'
+  ];
 </script>
 
 <template>
-  <div class="acv-grid-row acv-grid--cols-5">
-    <div class="acv-layer">
-      Test default
-    </div>
-    <div class="acv-layer hover">
-      Test default hover
-    </div>
-    <div class="acv-layer active">
-      Test default active
-    </div>
-    <div class="acv-layer focus">
-      Test default focus
-    </div>
-    <div class="acv-layer disabled">
-      Test default disabled
-    </div>
-  </div>
-
-  <div class="acv-grid-row acv-grid--cols-5">
-    <div class="acv-layer solid">
-      Test solid
-    </div>
-    <div class="acv-layer solid hover">
-      Test solid hover
-    </div>
-    <div class="acv-layer solid active">
-      Test solid active
-    </div>
-    <div class="acv-layer solid focus">
-      Test solid focus
-    </div>
-    <div class="acv-layer solid disabled">
-      Test solid disabled
-    </div>
-  </div>
-
-  <div class="acv-grid-row acv-grid--cols-5">
-    <div class="acv-layer ghost">
-      Test ghost
-    </div>
-    <div class="acv-layer ghost hover">
-      Test ghost hover
-    </div>
-    <div class="acv-layer ghost active">
-      Test ghost active
-    </div>
-    <div class="acv-layer ghost focus">
-      Test ghost focus
-    </div>
-    <div class="acv-layer ghost disabled">
-      Test ghost disabled
-    </div>
-  </div>
-
-  <div class="acv-grid-row acv-grid--cols-5">
-    <div class="acv-layer outline">
-      Test outline
-    </div>
-    <div class="acv-layer outline hover">
-      Test outline hover
-    </div>
-    <div class="acv-layer outline active">
-      Test outline active
-    </div>
-    <div class="acv-layer outline focus">
-      Test outline focus
-    </div>
-    <div class="acv-layer outline disabled">
-      Test outline disabled
-    </div>
-  </div>
-
-  <div class="acv-grid-row acv-grid--cols-5">
-    <div class="acv-layer text">
-      Test text
-    </div>
-    <div class="acv-layer text hover">
-      Test text hover
-    </div>
-    <div class="acv-layer text active">
-      Test text active
-    </div>
-    <div class="acv-layer text focus">
-      Test text focus
-    </div>
-    <div class="acv-layer text disabled">
-      Test text disabled
-    </div>
-  </div>
-
   <div
+    v-for="color in BASE_COLORS"
+    :key="color"
     class="acv-grid-row acv-grid--cols-5"
   >
     <div
-      class="acv-layer solid"
-      style="--acv-layer-color: var(--acv-color-red)"
+      v-for="state in layerStates"
+      :key="state"
+      class="acv-layer"
+      :class="{
+        'acv-bg-surface-fixed-primary pa-8': color === BASE_COLORS.inverted,
+      }"
     >
-      Test solid
-    </div>
-    <div class="acv-layer solid hover">
-      Test solid hover
-    </div>
-    <div class="acv-layer solid active">
-      Test solid active
-    </div>
-    <div class="acv-layer solid focus">
-      Test solid focus
-    </div>
-    <div class="acv-layer solid disabled">
-      Test solid disabled
-    </div>
-  </div>
-
-  <div
-    class="acv-grid-row acv-grid--cols-5"
-  >
-    <div
-      class="acv-layer solid secondary"
-    >
-      Test solid secondary
-    </div>
-    <div class="acv-layer solid secondary hover">
-      Test solid secondary hover
-    </div>
-    <div class="acv-layer solid secondary active">
-      Test solid secondary active
-    </div>
-    <div class="acv-layer solid secondary focus">
-      Test solid secondary focus
-    </div>
-    <div class="acv-layer solid secondary disabled">
-      Test solid secondary disabled
-    </div>
-  </div>
-
-  <div
-    class="acv-grid-row acv-grid--cols-5"
-  >
-    <div
-      class="acv-layer outline secondary"
-    >
-      Test outline secondary
-    </div>
-    <div class="acv-layer outline secondary hover">
-      Test outline secondary hover
-    </div>
-    <div class="acv-layer outline secondary active">
-      Test outline secondary active
-    </div>
-    <div class="acv-layer outline secondary focus">
-      Test outline secondary focus
-    </div>
-    <div class="acv-layer outline secondary disabled">
-      Test outline secondary disabled
+      <div
+        v-for="variant in LAYER_VARIANT"
+        :key="variant + state"
+        class="acv-layer"
+        :class="{
+          [variant]: variant,
+          [state]: state,
+          [color]: color,
+        }"
+        :style="{ '--acv-layer-color': `var(--acv-color-${color})` }"
+      >
+        {{ variant }} {{ color }} {{ state }}
+      </div>
     </div>
   </div>
 </template>

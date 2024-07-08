@@ -14,6 +14,7 @@ import type {
   ULConfigurableProps
 } from '../components/typography/public.ts';
 import type { AlertConfigurableProps } from '../index.ts';
+import type { ColorBrand, ColorName, ColorState, ColorStatus } from '@/utils/color.ts';
 
 interface SuggestedDefault {
   size?: ComponentSize
@@ -98,6 +99,33 @@ export interface PropsOptions {
 }
 
 export type IconProp = object | (() => object) | string;
-export type ColorProp = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'inverted' | 'light' | 'dark' | string;
+export type ColorProp =
+  ColorBrand
+  | ColorStatus
+  | ColorName
+  | ColorState;
 export type ComponentSize = 'small' | 'medium' | 'large';
 export type ComponentState = 'default' | 'success' | 'warning' | 'error' | 'critical' | 'info' | 'disabled';
+
+export interface ColorProps {
+  /**
+   * Background color
+   * @values transparent, primary, secondary, success, warning, danger, info, inverted
+   */
+  color?: ColorProp
+
+  /**
+   * Layer background color
+   */
+  backgroundColor?: ColorProp
+
+  /**
+   * Layer border color
+   */
+  borderColor?: ColorProp
+
+  /**
+   * Layer text color
+   */
+  textColor?: ColorProp
+}

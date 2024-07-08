@@ -52,6 +52,7 @@
     "@acronis-platform/utils": "workspace:*",
     "@antfu/utils": "0.7.8",
     "@floating-ui/vue": "1.0.6",
+    "colord": "2.9.3",
     "@vueuse/core": "10.9.0",
     "highlight.js": "11.9.0",
     "lodash-es": "4.17.21"
@@ -94,7 +95,7 @@
     "sass": "1.77.4",
     "stylelint": "16.2.1",
     "tsx": "4.7.2",
-    "typescript": "5.4.5",
+    "typescript": "5.5.3",
     "vite": "5.2.11",
     "vite-plugin-dts": "3.8.3",
     "vite-plugin-lib-inject-css": "2.0.1",
