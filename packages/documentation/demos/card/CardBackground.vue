@@ -4,14 +4,15 @@
 
 <template>
   <Card
-    border-color="fixed-success"
-    background-color="fixed-white"
+    border-color="success"
+    background-color="white"
+    class="my-16"
   >
     Card 1
   </Card>
   <Card
-    border-color="fixed-success"
-    background-color="transparent"
+    border-color="primary"
+    background-color="yellow"
   >
     Card 2
   </Card>

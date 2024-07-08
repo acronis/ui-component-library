@@ -76,7 +76,7 @@ It can be opened and closed using `esc` key.
 | borderColor     | Layer border color                                              | ColorProp       | -                                                                         |         |
 | backgroundColor | Layer background color                                          | ColorProp       | -                                                                         |         |
 | color           | Background color                                                | ColorProp       | transparent, primary, secondary, success, warning, danger, info, inverted |         |
-| variant         | Layer variant                                                   | LayerVariant    | 'solid' \| 'outline' \| 'ghost' \| 'text'                                 | 'text'  |
+| variant         | Layer variant                                                   | LayerVariant    | 'solid' \| 'outline' \| 'ghost' \| 'light'                                | 'solid' |
 | states          | Interaction states like hover & active                          | boolean         | -                                                                         | false   |
 | modelValue      | Drawer visiblity state                                          | boolean         | -                                                                         | false   |
 | persistent      | Persistence of drawer when clicked outside of reference element | boolean         | -                                                                         | false   |

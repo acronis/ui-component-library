@@ -1,14 +1,36 @@
-export interface AcvCardProps {
+import type { AcvLayerProps } from '../../composables/useLayer.ts';
+
+export interface AcvCardProps extends AcvLayerProps {
+  // Layer props
   /**
-   * Background color of the card
+   * Whether the card should have a shadow
    */
-  backgroundColor?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
+  shadow?: boolean
+  round?: boolean
+  border?: boolean
+  padding?: boolean
+
   /**
-   * Border color of the card
+   * Render image at the top of the card (_above header_)
    */
-  borderColor?: string
+  img?: string
+
   /**
-   * Text color of the card
+   * `alt` attribute for image rendered via `img` prop
    */
-  textColor?: string
+  imgAlt?: string
+
+  /**
+   * Set loading state
+   */
+  loading?: boolean
+}
+
+export interface AcvCardSlots {
+  /**
+   * The default slot content
+   */
+  default: () => null
+
+  loading: () => null
 }

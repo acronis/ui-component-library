@@ -68,7 +68,6 @@
   <component
     :is="tag"
     v-autofocus="autofocus"
-    tabindex="0"
     :class="classes"
     :style="buttonStyles"
     :role="props.to ? 'button' : undefined"

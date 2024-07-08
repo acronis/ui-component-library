@@ -23,9 +23,11 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=587-5679
 
 ## Variants
 
+<CardVariants />
+
 ### Border Colors
 
-<CardOutline />
+<CardBorders />
 
 ::: details
 <<< @/demos/card/CardOutline.vue
@@ -44,7 +46,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=587-5679
 | Prop name       | Description                                          | Type         | Values                                                                    | Default |
 | --------------- | ---------------------------------------------------- | ------------ | ------------------------------------------------------------------------- | ------- |
 | states          | Interaction states like hover & active               | boolean      | -                                                                         | false   |
-| variant         | Layer variant                                        | LayerVariant | 'solid' \| 'outline' \| 'ghost' \| 'text'                                 | 'text'  |
+| variant         | Layer variant                                        | LayerVariant | 'solid' \| 'outline' \| 'ghost' \| 'light'                                | 'solid' |
 | color           | Background color                                     | ColorProp    | transparent, primary, secondary, success, warning, danger, info, inverted |         |
 | backgroundColor | Layer background color                               | ColorProp    | -                                                                         |         |
 | borderColor     | Layer border color                                   | ColorProp    | -                                                                         |         |

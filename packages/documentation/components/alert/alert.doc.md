@@ -131,7 +131,7 @@ Usually alerts provide important and time-sensitive information without interfer
 | showIcon    | If a variant icon is displayed                             | boolean      | -      |         |
 | title       | Title, can also be passed with the slot                    | string       | -      |         |
 | subtitle    | Subtitle, can also be passed with the slot                 | string       | -      |         |
-| variant     | Alert variant                                              | AlertVariant | -      | 'info'  |
+| color       | Alert variant                                              | AlertVariant | -      | 'info'  |
 
 ## Events
 

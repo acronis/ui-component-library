@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import './aside.css';
-  import { isColor } from '../../utils/color.ts';
+  import { isBaseColor } from '../../utils/color.ts';
   import type { AsideProps } from './aside.ts';
 
   const { width, color } = defineProps<AsideProps>();
@@ -10,7 +10,7 @@
 
   const widthPx = computed(() => width ? `${width}px` : null);
   const backgroundColor = computed(() => (
-    color && isColor(color)
+    color && isBaseColor(color)
       ? `var(--acv-color-${color})`
       : null
   ));
