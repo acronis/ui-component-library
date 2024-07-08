@@ -3,8 +3,8 @@
 :root[data-theme="acronis"] {
   /* brand color */
   --acv-color-brand-primary: hsl(215deg 68% 46%);
-  --acv-color-brand-secondary: hsl(218deg 57% 97%);
-  --acv-color-brand-tertiary: hsl(218deg 57% 97%);
+  --acv-color-brand-secondary: hsl(218deg 57% 37%);
+  --acv-color-brand-tertiary: hsl(218deg 57% 7%);
 
   /* button colors */
   --acv-color-button-active-danger: hsl(0deg 81% 45%);
@@ -28,7 +28,7 @@
   --acv-color-button-label-primary: hsl(215deg 68% 46%);
   --acv-color-button-label-secondary: hsl(0deg 0% 100%);
   --acv-color-button-primary: hsl(215deg 68% 46%);
-  --acv-color-button-secondary: hsl(215deg 68% 46%);
+  --acv-color-button-secondary: hsl(208deg 7% 46%);
 
   /* divider color */
   --acv-color-divider-inversed-primary: hsl(0deg 0% 100%);
@@ -125,6 +125,7 @@
   --acv-color-text-status-warning: hsl(30deg 50% 37%);
 
   /* border */
+  --acv-border-none: var(--acv-base-border-width-00, 0);
   --acv-border-regular: var(--acv-base-border-width-01, 1px);
   --acv-border-large: var(--acv-base-border-width-02, 2px);
   --acv-border-x-large: var(--acv-base-border-width-03, 3px);

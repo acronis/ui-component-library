@@ -8,6 +8,10 @@
   color: var(--acv-color-secondary-text);
 }
 
+.acv-bg-secondary-lightest {
+  background-color: var(--acv-color-secondary-lightest);
+}
+
 .acv-bg-tertiary {
   background-color: var(--acv-color-brand-tertiary) !important;
 }

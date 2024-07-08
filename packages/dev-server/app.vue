@@ -110,7 +110,7 @@ body {
   padding: 0;
   color: var(--acv-color-brand-primary);
   cursor: pointer;
-  background-color: var(--acv-color-brand-tertiary);
+  background-color: var(--acv-color-white);
   border: 0;
   border-radius: 50%;
   outline: 0;
@@ -135,9 +135,9 @@ body {
   inset-inline-end: 20px;
   bottom: 70px;
   z-index: var(--acv-z-index-notifications);
-  padding: var(--acv-spacing-small) 0;
+  padding: 8px;
   overflow: hidden;
-  background-color: var(--acv-color-brand-secondary);
+  background-color: var(--acv-color-secondary-lightest);
   border-radius: var(--acv-radius-regular);
 
   &__container {

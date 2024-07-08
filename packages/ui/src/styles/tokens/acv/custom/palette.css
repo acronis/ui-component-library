@@ -70,10 +70,10 @@
   --acv-color-primary-text: var(--acv-color-button-label-inversed-primary);
 
   /* Shades of secondary color */
+  --acv-color-secondary: var(--acv-color-brand-secondary);
   --acv-color-secondary-calc: hsl(
     from var(--acv-color-primary) calc(h + 3) calc(s - 11) calc(l + 51)
   );
-  --acv-color-secondary: var(--acv-color-brand-secondary);
   --acv-color-secondary-darkest: hsl(
     from var(--acv-color-secondary) h s calc(l - 30)
   );
@@ -83,14 +83,14 @@
   --acv-color-secondary-dark: hsl(
     from var(--acv-color-secondary) h s calc(l - 10)
   );
-  --acv-color-secondary-light: hsla(
-    from var(--acv-color-secondary) h s l / 0.1
+  --acv-color-secondary-light: hsl(
+    from var(--acv-color-secondary) h s calc(l + 15)
   );
-  --acv-color-secondary-lighter: hsla(
-    from var(--acv-color-secondary) h s l / 0.2
+  --acv-color-secondary-lighter: hsl(
+    from var(--acv-color-secondary) h s calc(l + 35)
   );
-  --acv-color-secondary-lightest: hsla(
-    from var(--acv-color-secondary) h s l / 0.3
+  --acv-color-secondary-lightest: hsl(
+    from var(--acv-color-secondary) h s calc(l + 55)
   );
   --acv-color-secondary-hover: var(
     --acv-color-button-hover-secondary,
@@ -102,6 +102,9 @@
   );
   --acv-color-secondary-muted: var(--acv-color-primary-lightest);
   --acv-color-secondary-text: var(--acv-color-text-primary);
+
+  /* Shades of tertiary color */
+  --acv-color-tertiary: var(--acv-color-brand-tertiary);
 
   /* Shades of red color */
   --acv-color-red-darkest: hsl(from var(--acv-color-red) h s calc(l - 30));
@@ -265,22 +268,28 @@
   --acv-color-white-0: var(--acv-color-black);
 
   /* State aliases */
-  --acv-color-success: var(--acv-color-status-success-primary);
+  --acv-color-success: var(--acv-color-status-success-secondary);
+  --acv-color-success-background: var(--acv-color-status-success-primary);
   --acv-color-success-border: var(--acv-color-status-success-secondary);
   --acv-color-success-text: var(--acv-color-text-status-success);
-  --acv-color-danger: var(--acv-color-status-danger-primary);
+  --acv-color-danger: var(--acv-color-status-danger-secondary);
+  --acv-color-danger-background: var(--acv-color-status-danger-primary);
   --acv-color-danger-border: var(--acv-color-status-danger-secondary);
   --acv-color-danger-text: var(--acv-color-text-status-danger);
-  --acv-color-critical: var(--acv-color-status-critical-primary);
+  --acv-color-critical: var(--acv-color-status-critical-secondary);
+  --acv-color-critical-background: var(--acv-color-status-critical-primary);
   --acv-color-critical-border: var(--acv-color-status-critical-secondary);
   --acv-color-critical-text: var(--acv-color-text-status-critical);
-  --acv-color-warning: var(--acv-color-status-warning-primary);
+  --acv-color-warning: var(--acv-color-status-warning-secondary);
+  --acv-color-warning-background: var(--acv-color-status-warning-primary);
   --acv-color-warning-border: var(--acv-color-status-warning-secondary);
   --acv-color-warning-text: var(--acv-color-text-status-warning);
-  --acv-color-neutral: var(--acv-color-status-neutral-primary);
+  --acv-color-neutral: var(--acv-color-status-neutral-secondary);
+  --acv-color-neutral-background: var(--acv-color-status-neutral-primary);
   --acv-color-neutral-border: var(--acv-color-status-neutral-secondary);
   --acv-color-neutral-text: var(--acv-color-text-status-neutral);
-  --acv-color-info: var(--acv-color-status-info-primary);
+  --acv-color-info: var(--acv-color-status-info-secondary);
+  --acv-color-info-background: var(--acv-color-status-info-primary);
   --acv-color-info-border: var(--acv-color-status-info-secondary);
   --acv-color-info-text: var(--acv-color-text-status-info);
   --acv-color-disabled: var(--acv-color-transparent);
