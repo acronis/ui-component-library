@@ -125,7 +125,6 @@
   --acv-color-text-status-warning: hsl(30deg 50% 37%);
 
   /* border */
-  --acv-border-none: var(--acv-base-border-width-00, 0);
   --acv-border-regular: var(--acv-base-border-width-01, 1px);
   --acv-border-large: var(--acv-base-border-width-02, 2px);
   --acv-border-x-large: var(--acv-base-border-width-03, 3px);
