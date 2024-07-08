@@ -1,3 +1,5 @@
+import type { ColorBrand, ColorStatus } from '@/utils/color.ts';
+
 export type DividerTextPosition = 'center' | 'left' | 'right';
 
 export interface DividerProps {
@@ -19,7 +21,7 @@ export interface DividerProps {
   /**
    * Color of the Divider
    * @defaultValue 'brand'
-   * @values 'brand', 'accent', 'neutral', 'success', 'warning', 'danger', 'info'
+   * @values 'primary', 'secondary', 'neutral', 'success', 'warning', 'danger', 'info'
    */
-  color?: 'brand' | 'accent' | 'neutral' | 'success' | 'warning' | 'danger' | 'info'
+  color?: ColorBrand | ColorStatus
 }

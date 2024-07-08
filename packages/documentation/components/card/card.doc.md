@@ -30,7 +30,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=587-5679
 <CardBorders />
 
 ::: details
-<<< @/demos/card/CardOutline.vue
+<<< @/demos/card/CardBorders.vue
 :::
 
 ### Background Colors

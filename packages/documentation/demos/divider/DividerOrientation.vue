@@ -5,7 +5,9 @@
 <template>
   <p>Some content to fill</p>
 
-  <AcvDivider> I'm Divider </AcvDivider>
+  <AcvDivider vertical>
+    I'm Divider
+  </AcvDivider>
   <p>Some content to fill</p>
   <AcvDivider text-position="left">
     I'm on the left
