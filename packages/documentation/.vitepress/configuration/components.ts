@@ -49,7 +49,7 @@ const componentsList = [
   { text: 'InfiniteScroll', link: '/components/infiniteScroll/infiniteScroll.doc.md' },
   { text: 'Input', link: '/components/input/input.doc.md' },
   { text: 'InputNumber', link: '/components/inputNumber/inputNumber.doc.md' },
-  { text: 'Link', link: '/components/link/link.doc.md' },
+  { text: 'Link', link: '/components/link/link.doc.md', readyForProduction: true },
   { text: 'List', link: '/components/list/list.doc.md' },
   { text: 'Loading', link: '/components/loading/loading.doc.md' },
   { text: 'Main', link: '/components/main/main.doc.md' },

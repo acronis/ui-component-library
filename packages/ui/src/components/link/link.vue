@@ -1,17 +1,27 @@
 <script lang="ts" setup>
   import './link.css';
-  import type { LinkProps } from './link.ts';
+  import { computed } from 'vue';
+  import type { AcvLinkProps } from './link.ts';
 
-  const { title } = defineProps<LinkProps>();
+  const { disabled } = defineProps<AcvLinkProps>();
   defineEmits<{
     close: []
   }>();
+
+  const linkClasses = computed(() => [
+    'acv-link',
+    { disabled: disabled }
+  ]);
 </script>
 
 <template>
-  <div class="acv-link">
-    <slot>{{ title }}</slot>
-  </div>
+  <a
+    :class="linkClasses"
+    v-bind="$attrs"
+    role="link"
+  >
+    <slot></slot>
+  </a>
 </template>
 
 <style scoped>
@@ -19,5 +29,10 @@
     font-weight: var(--acv-font-weight-strong);
     color: var(--acv-link-color);
     cursor: pointer;
+
+    &.disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
   }
 </style>

@@ -3,7 +3,8 @@
   import type { RibbonLink, RibbonProps } from '../index.ts';
   import Alert from '../alert/alert.vue';
   import Button from '../button/button.vue';
-  import { Divider, Link } from '../index.ts';
+  import AcvDivider from '../divider/divider.vue';
+  import AcvLink from '../link/link.vue';
   import type { RibbonEvents, RibbonSlots } from './ribbon.ts';
   import './ribbon.css';
 
@@ -56,13 +57,13 @@
             <div class="acv-ribbon__description">
               {{ alert.description }}
               <template v-if="alert.link">
-                <Link
+                <AcvLink
                   :href="alert.link.href"
                   :target="alert.link.target || '_blank'"
                   @click="(event: MouseEvent) => onClickLink(event, alert.link)"
                 >
                   {{ alert.link.title }}
-                </Link>
+                </AcvLink>
               </template>
             </div>
           </template>
@@ -72,7 +73,7 @@
               <div class="acv-text acv-text--body-32 pr-16">
                 {{ stepLabel }}
               </div>
-              <Divider vertical />
+              <AcvDivider vertical />
               <Button
                 variant="ghost"
                 icon="i-long-arrow-left--16"
@@ -80,7 +81,7 @@
                 class="mx-8 acv-button--previous"
                 @click="onPrevious"
               />
-              <Divider vertical />
+              <AcvDivider vertical />
               <Button
                 variant="ghost"
                 icon="i-long-arrow-right--16"
@@ -89,7 +90,7 @@
                 @click="onNext"
               />
             </template>
-            <Divider vertical />
+            <AcvDivider vertical />
             <Button
               v-if="!hideClose"
               variant="ghost"
