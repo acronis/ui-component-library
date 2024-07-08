@@ -3,10 +3,10 @@
   import { BUTTON_GROUP_KEY, BUTTON_VARIANT, Icon } from '../index.ts';
   import { vAutofocus } from '../../directives/autofocus.ts';
   import Loader from '../loader/loader.vue';
+  import { isBaseColor } from '../../utils/color.ts';
+  import { colord } from '../../utils/colord.ts';
   import type { AcvButtonProps, AcvButtonSlots } from './button.ts';
   import './style/button.css';
-  import { isBaseColor } from '@/utils/color.ts';
-  import { colord } from '@/utils/colord.ts';
 
   defineOptions({ name: 'AcvButton' });
 

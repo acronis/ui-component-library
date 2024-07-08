@@ -2,7 +2,6 @@
   "name": "@acronis-platform/ui-component-library",
   "type": "module",
   "version": "1.0.0",
-  "private": true,
   "sideEffects": [
     "**/*.css"
   ],

@@ -1,4 +1,4 @@
-import type { ColorBrand, ColorStatus } from '@/utils/color.ts';
+import type { ColorBrand, ColorStatus } from '../../utils/color.ts';
 
 export type DividerTextPosition = 'center' | 'left' | 'right';
 

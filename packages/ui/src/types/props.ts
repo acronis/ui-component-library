@@ -14,7 +14,7 @@ import type {
   ULConfigurableProps
 } from '../components/typography/public.ts';
 import type { AlertConfigurableProps } from '../index.ts';
-import type { ColorBrand, ColorName, ColorState, ColorStatus } from '@/utils/color.ts';
+import type { ColorBrand, ColorName, ColorState, ColorStatus } from '../utils/color.ts';
 
 interface SuggestedDefault {
   size?: ComponentSize
