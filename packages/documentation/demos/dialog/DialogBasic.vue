@@ -33,7 +33,7 @@
     <template #footer>
       <div class="px-24 py-16">
         <AcvButton
-          kind="secondary"
+          variant="outline"
           @click="dialogBasicVisible = false"
         >
           Cancel

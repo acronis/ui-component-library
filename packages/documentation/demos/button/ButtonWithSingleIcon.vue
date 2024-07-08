@@ -1,5 +1,5 @@
 <script setup>
-  import { ITrashOMedium } from '@acronis-platform/icons';
+  import { ISyncedDSmall, ITrashOMedium, ITrashOSmall } from '@acronis-platform/icons';
   import Button from '@/components/button/button.vue';
   import Icon from '@/components/icon/icon.vue';
   import Row from '@/components/row/row.vue';
@@ -12,25 +12,28 @@
     justify="center"
   >
     <Button
-      icon="SyncedDSmall"
+      :icon="ITrashOMedium"
       size="large"
     >
+      <template #icon>
+        <Icon
+          :icon="ITrashOSmall"
+        ></Icon>
+      </template>
     </Button>
     <Button
       size="large"
     >
       <Icon
         :icon="ITrashOMedium"
-        size="32"
-        color="primary"
       ></Icon>
     </Button>
-    <Button icon="SyncedDSmall">
+    <Button :icon="ISyncedDSmall">
     </Button>
     <Button size="small">
       <template #icon>
         <Icon
-          name="TrashOSmall"
+          :icon="ITrashOSmall"
           color="white"
         ></Icon>
       </template>

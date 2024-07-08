@@ -46,7 +46,7 @@ export interface AcvAlertProps {
   subtitle?: string
 
   /** Alert variant */
-  variant?: AlertVariant
+  color?: AlertVariant
 }
 
 export const alertProps: Expand<UikitProps<{ inherit: { default: null, type: BooleanConstructor } } & {

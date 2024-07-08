@@ -33,6 +33,6 @@
   min-height: 48px;
   color: var(--acv-color-text-on-primary);
   background-color: var(--acv-color-brand-primary);
-  border-radius: var(--acv-radius-02);
+  border-radius: var(--acv-radius-small);
 }
 </style>

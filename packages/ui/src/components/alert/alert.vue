@@ -7,14 +7,14 @@
   });
 
   const {
-    variant,
+    color,
     title,
     description,
     showClose,
     showIcon
   } = withDefaults(defineProps<AcvAlertProps>(), {
     showClose: false,
-    variant: 'info',
+    color: 'info',
   });
 
   defineEmits<AlertEvents>();
@@ -24,7 +24,7 @@
 <template>
   <div
     class="acv-alert"
-    :class="variant"
+    :class="color"
     role="alert"
   >
     <div class="content">
@@ -33,12 +33,12 @@
         class="icon"
       >
         <slot name="icon">
-          <span v-if="variant === 'info'">I</span>
-          <span v-else-if="variant === 'warning'">I</span>
-          <span v-else-if="variant === 'error'">I</span>
-          <span v-else-if="variant === 'critical'">I</span>
-          <span v-else-if="variant === 'unknown'">I</span>
-          <span v-else-if="variant === 'success'">I</span>
+          <span v-if="color === 'info'">I</span>
+          <span v-else-if="color === 'warning'">I</span>
+          <span v-else-if="color === 'error'">I</span>
+          <span v-else-if="color === 'critical'">I</span>
+          <span v-else-if="color === 'unknown'">I</span>
+          <span v-else-if="color === 'success'">I</span>
         </slot>
       </div>
       <div

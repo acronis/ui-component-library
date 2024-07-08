@@ -11,10 +11,20 @@ describe('test Drawer component', () => {
       {
         "anchor": "left",
         "backgroundColor": undefined,
+        "border": false,
         "borderColor": undefined,
+        "color": undefined,
+        "img": undefined,
+        "imgAlt": undefined,
+        "loading": false,
         "modelValue": false,
+        "padding": false,
         "persistent": false,
+        "round": false,
+        "shadow": false,
+        "states": false,
         "textColor": undefined,
+        "variant": undefined,
       }
     `);
   });
@@ -30,10 +40,20 @@ describe('test Drawer component', () => {
       {
         "anchor": "left",
         "backgroundColor": undefined,
+        "border": false,
         "borderColor": undefined,
+        "color": undefined,
+        "img": undefined,
+        "imgAlt": undefined,
+        "loading": false,
         "modelValue": false,
+        "padding": false,
         "persistent": false,
+        "round": false,
+        "shadow": false,
+        "states": false,
         "textColor": undefined,
+        "variant": undefined,
       }
     `);
   });
@@ -51,6 +71,11 @@ describe('test Drawer component', () => {
 
     const drawer = wrapper.getComponent(AcvCard);
 
-    expect(drawer.html()).toMatchInlineSnapshot(`"<div data-v-e3acac2e="" data-v-dd14fadb="" class="acv-card acv-drawer acv-drawer-left" modelvalue="true" persistent="false" anchor="left"></div>"`);
+    expect(drawer.html()).toMatchInlineSnapshot(`
+      "<div data-v-e3acac2e="" data-v-dd14fadb="" class="acv-layer acv-card acv-drawer acv-drawer-left" modelvalue="true" persistent="false" anchor="left">
+        <!--v-if-->
+        <!--v-if-->
+      </div>"
+    `);
   });
 });

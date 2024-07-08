@@ -1,7 +1,5 @@
 <script setup>
   import AcvButton from '@/components/button/button.vue';
-  import Grid from '@/components/grid/grid.vue';
-  import Cell from '@/components/cell/cell.vue';
 
   const buttonStates = [
     '',
@@ -13,8 +11,8 @@
 </script>
 
 <template>
-  <Grid :gap="32">
-    <Cell
+  <div class="acv-grid-row acv-grid--cols-5">
+    <div
       v-for="state in buttonStates"
       :key="state"
       :width="3"
@@ -22,26 +20,25 @@
     >
       <AcvButton
         :class="state"
-        variant="secondary"
+        variant="outline"
       >
-        Button solid {{ state }}
+        Solid {{ state }}
       </AcvButton>
       <AcvButton
         :class="state"
-        kind="outline"
-        variant="secondary"
+        variant="outline"
       >
-        Button outline  {{ state }}
+        Outline  {{ state }}
       </AcvButton>
       <AcvButton
         :class="state"
-        kind="ghost"
-        variant="secondary"
+        variant="ghost"
+        color="secondary"
       >
-        Button ghost {{ state }}
+        Ghost {{ state }}
       </AcvButton>
-    </Cell>
-  </Grid>
+    </div>
+  </div>
 </template>
 
 <style scoped>

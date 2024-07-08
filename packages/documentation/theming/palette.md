@@ -64,6 +64,10 @@
 <color name="--acv-color-secondary-muted"></color>
 <color name="--acv-color-secondary-text"></color>
 
+## Shades of tertiary color
+
+<color name="--acv-color-tertiary"></color>
+
 ## Shades of red color
 
 <color name="--acv-color-red-lightest"></color>

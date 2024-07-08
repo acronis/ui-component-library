@@ -1,10 +1,11 @@
 <script setup>
   import { IAcronisIconLarge } from '@acronis-platform/icons';
+  import { BUTTON_COLOR } from '@/components/button/button.ts';
   import Button from '@/components/button/button.vue';
   import Grid from '@/components/grid/grid.vue';
   import Cell from '@/components/cell/cell.vue';
 
-  const buttonVariants = [
+  const buttonColors = [
     'primary',
     'secondary',
     'ghost',
@@ -16,42 +17,42 @@
 <template>
   <Grid :gap="32">
     <Cell
-      v-for="variant in buttonVariants"
-      :key="variant"
+      v-for="color in buttonColors"
+      :key="color"
       align="center"
       :width="8"
       :class="{
-        'acv-bg-nav-primary': variant === 'inverted',
+        'acv-bg-nav-primary': color === BUTTON_COLOR.inverted,
       }"
     >
-      <Button :variant="variant">
+      <Button :color="color">
         <template #icon>
           <IAcronisIconLarge
             style="width:16px; height:16px;vertical-align: text-bottom;"
           />
         </template>
-        Default {{ variant }}
+        Default {{ color }}
       </Button>
       <Button
-        :variant="variant"
+        :color="color"
         class="hover"
       >
         Hover
       </Button>
       <Button
-        :variant="variant"
+        :color="color"
         class="active"
       >
         Active
       </Button>
       <Button
-        :variant="variant"
+        :color="color"
         class="focus"
       >
         Focus
       </Button>
       <Button
-        :variant="variant"
+        :color="color"
         disabled
       >
         Disabled
