@@ -55,6 +55,5 @@
     hide-close
     class="pb-16"
     @close="onClose"
-  >
-  </Ribbon>
+  />
 </template>

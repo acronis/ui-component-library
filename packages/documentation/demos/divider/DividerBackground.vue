@@ -6,7 +6,7 @@
   <div>
     <div class="acv-bg-primary">
       <h3>First row</h3>
-      <AcvDivider></AcvDivider>
+      <AcvDivider />
       <h3>Second row</h3>
     </div>
     <div
@@ -20,7 +20,7 @@
       <AcvDivider
         class="mr-16"
         vertical
-      ></AcvDivider>
+      />
       <div>
         <h3>Second column</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit and do it. Autem commodi deleniti dolorem dolorum eligendi</p>
@@ -31,15 +31,15 @@
     >
       <span>Vertical small</span>
 
-      <AcvDivider :vertical="24"></AcvDivider>
+      <AcvDivider :vertical="24" />
 
-      <AcvDivider :vertical="48"></AcvDivider>
+      <AcvDivider :vertical="48" />
 
-      <AcvDivider :vertical="64"></AcvDivider>
+      <AcvDivider :vertical="64" />
 
-      <AcvDivider :vertical="72"></AcvDivider>
+      <AcvDivider :vertical="72" />
 
-      <AcvDivider :vertical="96"></AcvDivider>
+      <AcvDivider :vertical="96" />
     </div>
   </div>
 </template>

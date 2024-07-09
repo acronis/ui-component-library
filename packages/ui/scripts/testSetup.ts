@@ -16,13 +16,13 @@ class IntersectionObserver {
 
   disconnect() {}
 
-  observe(target: Element) {}
+  observe(_target: Element) {}
 
   takeRecords() {
     return [];
   }
 
-  unobserve(target: Element) {}
+  unobserve(_target: Element) {}
 }
 
 config.global.stubs = {

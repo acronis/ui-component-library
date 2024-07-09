@@ -18,7 +18,7 @@
       <template #icon>
         <Icon
           :icon="ITrashOSmall"
-        ></Icon>
+        />
       </template>
       Large
     </Button>
@@ -27,7 +27,7 @@
     >
       <Icon
         :icon="ITrashOMedium"
-      ></Icon>
+      />
       Large
     </Button>
     <Button :icon="ISyncedDSmall">
@@ -36,7 +36,7 @@
     <Button size="small">
       <Icon
         :icon="ITrashOMedium"
-      ></Icon>
+      />
       Small
     </Button>
     <Button
@@ -47,11 +47,11 @@
         :icon="ITrashOMedium"
         size="32"
         color="white"
-      ></Icon>
+      />
     </Button>
     <Button
       size="large"
-      :rightIcon="ITrashOMedium"
+      :right-icon="ITrashOMedium"
     >
       Right with prop
     </Button>

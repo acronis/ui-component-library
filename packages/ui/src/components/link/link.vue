@@ -10,7 +10,7 @@
 
   const linkClasses = computed(() => [
     'acv-link',
-    { disabled: disabled }
+    { disabled }
   ]);
 </script>
 
@@ -20,7 +20,7 @@
     v-bind="$attrs"
     role="link"
   >
-    <slot></slot>
+    <slot />
   </a>
 </template>
 

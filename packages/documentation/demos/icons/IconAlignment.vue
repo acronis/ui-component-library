@@ -31,52 +31,52 @@
           <Icon
             name="i-trash-o--16"
             class="with-background mx-8"
-          ></Icon>
+          />
           <Icon
             name="i-plus--16"
             class="with-background mr-8"
-          ></Icon>
+          />
           <Icon
             name="i-image-template-o--24"
             class="with-background mr-8"
-          ></Icon>
+          />
           <Icon
             name="i-plus--24"
             class="with-background mr-16"
-          ></Icon>
+          />
           <Icon
             name="i-local-backup-o--32"
             class="with-background mr-16"
-          ></Icon>
+          />
           <Icon
             name="i-times--32"
             class="with-background mr-16"
-          ></Icon>
+          />
           <span>{{ font }}</span>
           <Icon
             name="i-times--32"
             class="with-background ml-16"
-          ></Icon>
+          />
           <Icon
             name="i-local-backup-o--32"
             class="with-background ml-16"
-          ></Icon>
+          />
           <Icon
             name="i-plus--24"
             class="with-background ml-16"
-          ></Icon>
+          />
           <Icon
             name="i-image-template-o--24"
             class="with-background ml-8"
-          ></Icon>
+          />
           <Icon
             name="i-plus--16"
             class="with-background ml-8"
-          ></Icon>
+          />
           <Icon
             name="i-trash-o--16"
             class="with-background mx-8"
-          ></Icon>
+          />
         </div>
       </div>
     </Preview>

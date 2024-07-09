@@ -7,13 +7,13 @@
   <div class="qa-grid-layout-column-offset">
     <Row :gutter="16">
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column
         :span="6"
         :offset="6"
       >
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row :gutter="16">
@@ -21,13 +21,13 @@
         :span="6"
         :offset="6"
       >
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column
         :span="6"
         :offset="6"
       >
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row :gutter="16">
@@ -35,7 +35,7 @@
         :span="12"
         :offset="6"
       >
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
   </div>

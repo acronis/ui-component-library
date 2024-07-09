@@ -15,7 +15,7 @@ export function buildCssPlugin(): Plugin {
       return {
         build: {
           lib: {
-            entry: entry
+            entry
           },
           rollupOptions: {
             output: {

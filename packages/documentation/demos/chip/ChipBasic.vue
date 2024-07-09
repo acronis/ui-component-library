@@ -9,7 +9,7 @@
     Text
   </Chip>
 
-  <Chip showClose>
+  <Chip show-close>
     Text
   </Chip>
 </template>

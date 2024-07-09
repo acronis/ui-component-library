@@ -70,8 +70,8 @@ export async function getFigmaIcons(config) {
         resultIcons.push({
           ...child,
           name: `${icon.name}${
-                        child.name.toLowerCase() === 'style=mono' ? '' : `-${child.name.toLowerCase()}`
-                    }`,
+              child.name.toLowerCase() === 'style=mono' ? '' : `-${child.name.toLowerCase()}`
+          }`,
         });
       });
     }

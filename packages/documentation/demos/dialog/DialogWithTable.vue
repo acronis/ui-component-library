@@ -16,6 +16,6 @@
     width="small"
     title="Lorem ipsum dolor sit amet, consectetur adipisicing elit and do it. Autem commodi deleniti dolorem dolorum eligendi"
   >
-    <MarkupTableSimple></MarkupTableSimple>
+    <MarkupTableSimple />
   </AcvDialog>
 </template>

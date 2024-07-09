@@ -4,6 +4,6 @@
 
 <template>
   <IconButton>
-    <Icon name="user--32"></Icon>
+    <Icon name="user--32" />
   </IconButton>
 </template>

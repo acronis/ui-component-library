@@ -1,4 +1,3 @@
-import process from 'node:process';
 import antfu from '@antfu/eslint-config';
 
 const codeExtensions = ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.cjs'];
@@ -40,42 +39,16 @@ export default antfu(
       // css: true,
       html: true,
       markdown: 'prettier',
-    }
+    },
   },
   {
     files: ['**/*.vue'],
     rules: {
-      'style/indent': 'off',
-      'vue/html-indent': ['error', 2, {
-        alignAttributesVertically: false,
-      }],
-      'vue/operator-linebreak': ['error', 'before'],
-      'vue/script-indent': ['error', 2, {
-        baseIndent: 1,
-        switchCase: 1,
-      }],
-      'vue/attribute-hyphenation': 'off',
-      'vue/component-definition-name-casing': ['error', 'PascalCase'],
-      'vue/html-closing-bracket-newline': 'error',
-      'vue/html-closing-bracket-spacing': 'error',
-      'vue/html-quotes': ['error', 'double'],
-      'vue/html-self-closing': 'off',
-      'vue/max-attributes-per-line': 'error',
       'vue/attributes-order': ['error', {
         order: ['DEFINITION', 'LIST_RENDERING', 'CONDITIONALS', 'RENDER_MODIFIERS', 'GLOBAL', ['UNIQUE', 'SLOT'], 'TWO_WAY_BINDING', 'OTHER_DIRECTIVES', 'OTHER_ATTR', 'EVENTS', 'CONTENT'],
         alphabetical: false,
       }],
-      'vue/multiline-html-element-content-newline': ['error', {
-        ignores: ['i18n', 'ui-tag'],
-      }],
       'vue/mustache-interpolation-spacing': 'error',
-      'vue/no-multi-spaces': 'error',
-      'vue/order-in-components': ['error', {
-        order: ['el', 'name', 'parent', 'functional', ['delimiters', 'comments'], ['components', 'directives', 'filters'], 'extends', 'mixins', 'inheritAttrs', 'model', ['props', 'propsData'], 'data', ['beforeRouteEnter', 'beforeRouteUpdate', 'beforeRouteLeave'], 'LIFECYCLE_HOOKS', 'computed', 'watch', 'methods', ['template', 'render'], 'renderError'],
-      }],
-      'vue/prop-name-casing': 'error',
-      'vue/require-default-prop': 'off',
-      'vue/singleline-html-element-content-newline': 'error',
     },
   },
   {
@@ -92,50 +65,32 @@ export default antfu(
           message: 'Verify enums don\'t contain StringLiteral values',
         },
       ],
-      'class-methods-use-this': 'off',
       'style/comma-dangle': 'off',
-      'default-param-last': 'off',
-      'func-names': 'off',
-      // 'import/extensions': [
-      //   'error',
-      //   'ignorePackages',
-      //   {
-      //     '': 'never',
-      //     'ts': 'never',
-      //     'js': 'always',
-      //     'd.ts': 'always',
-      //     'vue': 'always',
-      //   }
-      // ],
       'import/no-cycle': ['error', { ignoreExternal: true }],
-      'import/no-dynamic-require': 'off',
       'import/no-extraneous-dependencies': [
         'warn',
         {
           devDependencies: [
+            '**/bin/**',
+            '**/.docgen/**',
+            '**/.vitepress/**',
             '**/*.stories.*',
             '**/*.spec.*',
             '**/*.test.js',
             '**/*.test.ts',
-            'vite.config.ts'
+            'svgo.config.ts',
+            'vite.demo.config.ts',
+            'vite.config.ts',
           ],
           optionalDependencies: true,
           peerDependencies: true,
           packageDir: './',
         },
       ],
-      'import/named': ['error'],
       // TODO: remove this rule
       'no-console': 'off',
-      'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 'off',
       'no-else-return': ['error', { allowElseIf: true }],
-      'no-param-reassign': 'off',
-      'no-plusplus': 'off',
       'no-restricted-globals': [2, 'event'],
-      'no-shadow': 'off',
-      'no-unused-vars': 'off',
-      'object-shorthand': 'off',
-      'prefer-arrow-callback': 'off',
       'prefer-destructuring': [
         'error',
         {
@@ -152,18 +107,7 @@ export default antfu(
           enforceForRenamedProperties: false, // allow bar = foo.baz
         },
       ],
-      'prefer-promise-reject-errors': 'off',
-      'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': ['warn', {
-        vars: 'all',
-        varsIgnorePattern: '^_',
-        args: 'after-used',
-        argsIgnorePattern: '^_',
-        ignoreRestSiblings: true,
-      }],
-
-      'camelcase': 'off',
-      'curly': ['error', 'multi-line', 'consistent'], // temporary workaround of the issue with indent in <script>
+      // 'curly': ['error', 'multi-line', 'consistent'], // temporary workaround of the issue with indent in <script>
       'style/semi': ['error', 'always'],
     },
   },
@@ -171,6 +115,6 @@ export default antfu(
     files: ['**/*.md'],
     rules: {
       'unused-imports/no-unused-imports': 0,
-    }
-  }
+    },
+  },
 );

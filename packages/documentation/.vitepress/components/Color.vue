@@ -25,11 +25,10 @@
       ref="element"
       class="color-value"
       :style="`background-color: var(${name})`"
-    >
-    </div>
+    />
     <strong :title="name">{{ name }}</strong>
     <span :title="colorValue">{{ colorValue }}</span>
-    <span class="description"><slot></slot></span>
+    <span class="description"><slot /></span>
   </div>
 </template>
 

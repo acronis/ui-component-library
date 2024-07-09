@@ -19,7 +19,7 @@
 
 <template>
   <AcvPopover
-    :referenceEl="popoverReference"
+    :reference-el="popoverReference"
     placement="top-start"
     :width="300"
     @show="openRightStartPopover(true)"

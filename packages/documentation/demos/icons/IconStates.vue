@@ -20,21 +20,19 @@
           v-if="!iconState1"
           name="NotificationsDOSmall"
           color="brand-primary"
-          stateColor="success"
-        >
-        </Icon>
+          state-color="success"
+        />
         <Icon
           v-else
           name="NotificationsWithStateDOSmall"
           state="StateAlertDSmall"
           color="brand-primary"
-          stateColor="success"
-        >
-        </Icon>
+          state-color="success"
+        />
       </div>
-      <div class="my-8"></div>
+      <div class="my-8" />
       <Checkbox v-model="iconState1">
-        Toogle
+        Toggle
       </Checkbox>
     </Preview>
     <Preview
@@ -46,20 +44,18 @@
           v-if="!iconState2"
           name="i-folder-d-o--16"
           color="primary"
-        >
-        </Icon>
+        />
         <Icon
           v-else
           name="i-folder-with-state-d-o--16"
           state="i-state-download-d--16"
           color="primary"
-          stateColor="success"
-        >
-        </Icon>
+          state-color="success"
+        />
       </div>
-      <div class="my-8"></div>
+      <div class="my-8" />
       <Checkbox v-model="iconState2">
-        Toogle
+        Toggle
       </Checkbox>
     </Preview>
     <Preview
@@ -71,19 +67,17 @@
           v-if="!iconState3"
           name="i-folder-d-o--16"
           color="primary"
-        >
-        </Icon>
+        />
         <Icon
           v-else
           name="i-folder-with-state-d-o--16"
           state="i-state-upload-d--16"
           color="primary"
-        >
-        </Icon>
+        />
       </div>
-      <div class="my-8"></div>
+      <div class="my-8" />
       <Checkbox v-model="iconState3">
-        Toogle
+        Toggle
       </Checkbox>
     </Preview>
     <Preview
@@ -95,19 +89,17 @@
           v-if="!iconState4"
           name="i-folder-d-o--16"
           color="brand-primary"
-        >
-        </Icon>
+        />
         <Icon
           v-else
           name="i-folder-with-state-d-o--16"
           state="i-state-pause-d--16"
           color="brand-primary"
-        >
-        </Icon>
+        />
       </div>
-      <div class="my-8"></div>
+      <div class="my-8" />
       <Checkbox v-model="iconState4">
-        Toogle
+        Toggle
       </Checkbox>
     </Preview>
   </PreviewGroup>

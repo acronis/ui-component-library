@@ -12,7 +12,7 @@
         name="WorkstationsPremiumOMedium"
         color="brand-primary"
         size="16"
-      ></Icon>
+      />
     </Preview>
     <Preview
       name="medium / 24"
@@ -22,7 +22,7 @@
         name="WorkstationsPremiumOMedium"
         color="brand-primary"
         size="24"
-      ></Icon>
+      />
     </Preview>
     <Preview
       name="xl / 48"
@@ -32,7 +32,7 @@
         name="NasAbLarge"
         color="brand-primary"
         size="64"
-      ></Icon>
+      />
     </Preview>
     <Preview
       name="xxxl / 96"
@@ -42,7 +42,7 @@
         name="NasAbLarge"
         color="brand-primary"
         size="96"
-      ></Icon>
+      />
     </Preview>
   </PreviewGroup>
 </template>

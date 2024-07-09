@@ -10,13 +10,13 @@
       class="bg-row-brand-lightest"
     >
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-accent"></div>
+        <div class="grid-content bg-brand-accent" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row
@@ -25,13 +25,13 @@
       justify="center"
     >
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-accent"></div>
+        <div class="grid-content bg-brand-accent" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row
@@ -40,13 +40,13 @@
       justify="end"
     >
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-accent"></div>
+        <div class="grid-content bg-brand-accent" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row
@@ -55,13 +55,13 @@
       justify="space-between"
     >
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-accent"></div>
+        <div class="grid-content bg-brand-accent" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row
@@ -70,13 +70,13 @@
       justify="space-around"
     >
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-accent"></div>
+        <div class="grid-content bg-brand-accent" />
       </Column>
       <Column :span="6">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
   </div>

@@ -11,7 +11,7 @@
   >
     <Icon
       :icon="ITrashOSmall"
-    ></Icon>
+    />
     <template #dropdown>
       <ul>
         <li>1</li>

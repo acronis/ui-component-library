@@ -4,7 +4,7 @@
 
 <template>
   <p>Some content to fill</p>
-  <AcvDivider></AcvDivider>
+  <AcvDivider />
   <p>Some content to fill</p>
   <AcvDivider>Insert text</AcvDivider>
   <p>Some content to fill</p>

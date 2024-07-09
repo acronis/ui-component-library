@@ -20,8 +20,8 @@
 <template>
   <template v-if="renderVisiblePopover">
     <Popover
-      :referenceEl="testPopover"
-      :modelValue="renderVisiblePopover"
+      :reference-el="testPopover"
+      :model-value="renderVisiblePopover"
       placement="right-start"
       width="300"
     >

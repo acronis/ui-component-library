@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <Icons :icons="Object.keys(acronisIcons)"></Icons>
+  <Icons :icons="Object.keys(acronisIcons)" />
 </template>
 
 <style scoped></style>

@@ -40,7 +40,7 @@ export async function generateVueIcons(fromDir: string, toDir: string) {
       [...(groupExports.get(groupName) || []), fileName]
     );
 
-    fs.mkdir(`${toDir}/${groupName}`, { recursive: true }, function (err) {
+    fs.mkdir(`${toDir}/${groupName}`, { recursive: true }, (err) => {
       if (err) {
         console.error(chalk.red(err));
       }

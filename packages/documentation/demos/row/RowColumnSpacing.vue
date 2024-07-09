@@ -9,16 +9,16 @@
     :gutter="16"
   >
     <Column :span="6">
-      <div class="grid-content bg-brand-light"></div>
+      <div class="grid-content bg-brand-light" />
     </Column>
     <Column :span="6">
-      <div class="grid-content bg-brand-light"></div>
+      <div class="grid-content bg-brand-light" />
     </Column>
     <Column :span="6">
-      <div class="grid-content bg-brand-light"></div>
+      <div class="grid-content bg-brand-light" />
     </Column>
     <Column :span="6">
-      <div class="grid-content bg-brand-light"></div>
+      <div class="grid-content bg-brand-light" />
     </Column>
   </Row>
 </template>
