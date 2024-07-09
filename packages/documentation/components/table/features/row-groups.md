@@ -1,4 +1,5 @@
 ## Features
+
 RowGroup adds the following features to DataTables:
 
 Grouping of data

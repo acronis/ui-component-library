@@ -43,7 +43,7 @@ importers:
         version: 5.2.6(@types/node@20.11.30)
       vite-plugin-dts:
         specifier: 3.8.3
-        version: 3.8.3(@types/node@20.11.30)(typescript@5.5.3)(vite@5.2.6)
+        version: 3.8.3(@types/node@20.11.30)(rollup@4.17.0)(typescript@5.5.3)(vite@5.2.6)
 
   packages/browserslist-config: {}
 
@@ -162,6 +162,9 @@ importers:
 
   packages/documentation:
     dependencies:
+      '@acronis-platform/configs':
+        specifier: workspace:*
+        version: link:../configs
       '@acronis-platform/icons':
         specifier: workspace:*
         version: link:../icons
@@ -184,9 +187,6 @@ importers:
         specifier: 4.3.2
         version: 4.3.2(vue@3.4.30)
     devDependencies:
-      '@acronis-platform/configs':
-        specifier: workspace:*
-        version: link:../configs
       '@vue/repl':
         specifier: 4.1.1
         version: 4.1.1
@@ -214,6 +214,9 @@ importers:
 
   packages/figma-fetcher:
     dependencies:
+      '@acronis-platform/configs':
+        specifier: workspace:*
+        version: link:../configs
       '@types/node':
         specifier: '*'
         version: 20.11.30
@@ -227,9 +230,6 @@ importers:
         specifier: 3.0.2
         version: 3.0.2
     devDependencies:
-      '@acronis-platform/configs':
-        specifier: workspace:*
-        version: link:../configs
       eslint:
         specifier: 9.3.0
         version: 9.3.0
@@ -254,13 +254,13 @@ importers:
 
   packages/icons:
     dependencies:
+      '@acronis-platform/configs':
+        specifier: workspace:*
+        version: link:../configs
       vue-clipboard3:
         specifier: 2.0.0
         version: 2.0.0
     devDependencies:
-      '@acronis-platform/configs':
-        specifier: workspace:*
-        version: link:../configs
       '@acronis-platform/figma-fetcher':
         specifier: workspace:*
         version: link:../figma-fetcher
@@ -331,6 +331,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@acronis-platform/configs':
+        specifier: workspace:*
+        version: link:../configs
       '@acronis-platform/icons':
         specifier: workspace:*
         version: link:../icons
@@ -362,9 +365,6 @@ importers:
       '@acronis-platform/browserslist-config':
         specifier: workspace:*
         version: link:../browserslist-config
-      '@acronis-platform/configs':
-        specifier: workspace:*
-        version: link:../configs
       '@cypress/vue':
         specifier: 6.0.1
         version: 6.0.1(cypress@13.12.0)(vue@3.4.30)
@@ -528,6 +528,9 @@ importers:
       vite:
         specifier: 5.2.6
         version: 5.2.6(@types/node@20.11.30)
+      vite-plugin-dts:
+        specifier: 3.8.3
+        version: 3.8.3(@types/node@20.11.30)(rollup@4.17.0)(typescript@5.5.3)(vite@5.2.6)
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.11.30)(@vitest/ui@1.6.0)(jsdom@24.0.0)(sass@1.77.4)
@@ -4217,7 +4220,7 @@ packages:
       '@vue/compiler-dom': 3.4.30
       '@vue/shared': 3.4.30
       computeds: 0.0.1
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       muggle-string: 0.3.1
       path-browserify: 1.0.1
       typescript: 5.5.3
@@ -9382,13 +9385,6 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
-  /minimatch@9.0.3:
-    resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
-    engines: {node: '>=16 || 14 >=14.17'}
-    dependencies:
-      brace-expansion: 2.0.1
-    dev: true
-
   /minimatch@9.0.4:
     resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -12782,9 +12778,34 @@ packages:
       '@vue/language-core': 1.8.27(typescript@5.5.3)
       debug: 4.3.4(supports-color@8.1.1)
       kolorist: 1.8.0
-      magic-string: 0.30.9
+      magic-string: 0.30.10
       typescript: 5.5.3
       vite: 5.2.11(@types/node@20.11.30)(sass@1.77.4)
+      vue-tsc: 1.8.27(typescript@5.5.3)
+    transitivePeerDependencies:
+      - '@types/node'
+      - rollup
+      - supports-color
+    dev: true
+
+  /vite-plugin-dts@3.8.3(@types/node@20.11.30)(rollup@4.17.0)(typescript@5.5.3)(vite@5.2.6):
+    resolution: {integrity: sha512-yRHiRosQw7MXdOhmcrVI+kRiB8YEShbSxnADNteK4eZGdEoyOkMHihvO5XOAVlOq8ng9sIqu8vVefDK1zcj3qw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      typescript: '*'
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
+        optional: true
+    dependencies:
+      '@microsoft/api-extractor': 7.43.0(@types/node@20.11.30)
+      '@rollup/pluginutils': 5.1.0(rollup@4.17.0)
+      '@vue/language-core': 1.8.27(typescript@5.5.3)
+      debug: 4.3.4(supports-color@8.1.1)
+      kolorist: 1.8.0
+      magic-string: 0.30.10
+      typescript: 5.5.3
+      vite: 5.2.6(@types/node@20.11.30)
       vue-tsc: 1.8.27(typescript@5.5.3)
     transitivePeerDependencies:
       - '@types/node'
@@ -12807,34 +12828,9 @@ packages:
       '@vue/language-core': 1.8.27(typescript@5.5.3)
       debug: 4.3.4(supports-color@8.1.1)
       kolorist: 1.8.0
-      magic-string: 0.30.9
+      magic-string: 0.30.10
       typescript: 5.5.3
       vite: 5.2.10(@types/node@20.11.30)
-      vue-tsc: 1.8.27(typescript@5.5.3)
-    transitivePeerDependencies:
-      - '@types/node'
-      - rollup
-      - supports-color
-    dev: true
-
-  /vite-plugin-dts@3.8.3(@types/node@20.11.30)(typescript@5.5.3)(vite@5.2.6):
-    resolution: {integrity: sha512-yRHiRosQw7MXdOhmcrVI+kRiB8YEShbSxnADNteK4eZGdEoyOkMHihvO5XOAVlOq8ng9sIqu8vVefDK1zcj3qw==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    peerDependencies:
-      typescript: '*'
-      vite: '*'
-    peerDependenciesMeta:
-      vite:
-        optional: true
-    dependencies:
-      '@microsoft/api-extractor': 7.43.0(@types/node@20.11.30)
-      '@rollup/pluginutils': 5.1.0(rollup@4.17.0)
-      '@vue/language-core': 1.8.27(typescript@5.5.3)
-      debug: 4.3.4(supports-color@8.1.1)
-      kolorist: 1.8.0
-      magic-string: 0.30.9
-      typescript: 5.5.3
-      vite: 5.2.6(@types/node@20.11.30)
       vue-tsc: 1.8.27(typescript@5.5.3)
     transitivePeerDependencies:
       - '@types/node'

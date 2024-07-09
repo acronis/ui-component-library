@@ -1,6 +1,6 @@
 # Button kinds
 
-<ButtonKindSolid />  
+<ButtonKindSolid />
 
 <ButtonKindGhost />
 

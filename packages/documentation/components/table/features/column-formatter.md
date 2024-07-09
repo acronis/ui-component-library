@@ -7,44 +7,44 @@ Column custom formatters are used to format the data in a column. They are used 
 To use a custom formatter, you need to define a function that takes the cell value as an argument and returns the formatted value. You can then pass this function to the `formatter` property of the column definition.
 
 ```vue
+<script setup>
+  const columns = [
+    {
+      label: 'Name',
+      key: 'name',
+      formatter: (value) => {
+        return value.toUpperCase();
+      },
+    },
+    {
+      label: 'Position',
+      key: 'position',
+    },
+    {
+      label: 'Office',
+      key: 'office',
+    },
+    {
+      label: 'Age',
+      key: 'age',
+    },
+    {
+      label: 'Start date',
+      key: 'start_date',
+    },
+    {
+      label: 'Salary',
+      key: 'salary',
+    },
+  ];
+</script>
+
 <template>
   <AcpDataTable
     :columns="columns"
     :data="data"
   />
 </template>
-
-<script>
-const columns = [
-  {
-    label: 'Name',
-    key: 'name',
-    formatter: (value) => {
-      return value.toUpperCase();
-    },
-  },
-  {
-    label: 'Position',
-    key: 'position',
-  },
-  {
-    label: 'Office',
-    key: 'office',
-  },
-  {
-    label: 'Age',
-    key: 'age',
-  },
-  {
-    label: 'Start date',
-    key: 'start_date',
-  },
-  {
-    label: 'Salary',
-    key: 'salary',
-  },
-];
-</script>
 ```
 
 ## Predefined formatters

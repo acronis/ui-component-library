@@ -19,7 +19,6 @@ Ui kit's dual themes approach uses CSS variables to store the colors on each tok
 }
 ```
 
-
 # Class-based Dark Mode
 
 ```css
@@ -41,5 +40,5 @@ In the themes object, you can have an arbitrary number of themes,
 and specify the default theme with defaultColor option.
 
 ```html
-<span style="--acv-dark:#D8DEE9;--acv-dim:#566575">console</span>
+<span style="--acv-dark: #d8dee9; --acv-dim: #566575">console</span>
 ```

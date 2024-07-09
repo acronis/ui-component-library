@@ -22,6 +22,7 @@
     "vue-router": "4.3.2"
   },
   "dependencies": {
+    "@acronis-platform/configs": "workspace:*",
     "@acronis-platform/icons": "workspace:*",
     "@acronis-platform/ui-component-library": "workspace:*",
     "@acronis-platform/utils": "workspace:*",
@@ -29,7 +30,6 @@
     "cssom": "0.5.0"
   },
   "devDependencies": {
-    "@acronis-platform/configs": "workspace:*",
     "@vue/repl": "4.1.1",
     "npm-run-all": "4.1.5",
     "stylelint": "16.2.1",

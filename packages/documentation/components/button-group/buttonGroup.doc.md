@@ -31,10 +31,17 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A4
 
 ## Usage
 
-```javascript
-import { AcvButtonGroup } from "@acronis-platform/ui-component-library";
-// or
-import ButtonGroup from "@acronis-platform/components/buttonGroup/buttonGroup.vue";
+```vue
+<script setup>
+  import { AcvButtonGroup } from '@acronis-platform/ui-component-library';
+  // or
+  import ButtonGroup from '@acronis-platform/components/buttonGroup/buttonGroup.vue';
+</script>
+
+<template>
+  <AcvButtonGroup />
+  <ButtonGroup />
+</template>
 ```
 
 ## Props

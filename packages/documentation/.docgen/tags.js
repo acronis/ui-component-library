@@ -1,6 +1,6 @@
-function isTag(v) {
-  return !!(v).content;
-}
+// function isTag(v) {
+//   return !!(v).content;
+// }
 
 export function renderTags(tags) {
   if (!tags) {

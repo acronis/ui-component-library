@@ -1,9 +1,10 @@
+import type { ComponentPublicInstance } from 'vue';
 import AlertBasic from '../../../../documentation/demos/alert/AlertBasic.vue';
 import Alert from './alert.vue';
 
 describe('Alert', () => {
   it('render', () => {
-    cy.mount(Alert, {
+    cy.mount(Alert as Partial<ComponentPublicInstance>, {
       propsData: {
         title: 'my header',
       },

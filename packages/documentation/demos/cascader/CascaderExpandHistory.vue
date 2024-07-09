@@ -1,7 +1,6 @@
 <script>
   import AcvCascader from '@/components/cascader/cascader.vue';
 
-  const id = 0;
   export default {
     components: {
       AcvCascader

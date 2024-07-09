@@ -95,4 +95,3 @@
 <color name="--acv-color-white-20"></color>
 <color name="--acv-color-white-10"></color>
 <color name="--acv-color-white-0"></color>
-

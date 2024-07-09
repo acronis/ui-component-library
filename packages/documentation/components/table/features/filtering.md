@@ -1,10 +1,11 @@
 # Table Filtering
+
 Use _filter-options_ prop to filter items in a table.
 
 ## Filter comparisons:
 
 | Value   | Description              |
-|---------|--------------------------|
+| ------- | ------------------------ |
 | between | Between                  |
 | in      | In                       |
 | =       | Equals                   |

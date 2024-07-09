@@ -16,10 +16,20 @@ https://www.figma.com/file/YDRlEkpDc1qcapabYuK5ID/Glyphs?node-id=0%3A1
 
 ## Usage
 
-```javascript
-import { AcvIcon } from "@acronis-platform/vue";
-// or
-import Icon from "@acronis-platform/components/Icon/Icon.vue";
+```vue
+<script setup>
+  import { AcvIcon } from '@acronis-platform/vue';
+  // or
+  import Icon from '@acronis-platform/components/icon/Icon.vue';
+</script>
+
+<template>
+  <AcvIcon
+    name="i-info-circle-o--16"
+    color="brand-primary"
+  />
+  <Icon name="chevron-up" />
+</template>
 ```
 
 ## Basic usage
@@ -69,16 +79,28 @@ The naming convention
 
 The icons are tree-shakable, so only the icons that are used in the project will be included in the final bundle.
 
-```javascript
+```vue
+<script setup>
 // Tree-shaking import
-import { cog } from "@acronis-platform/icons/acronis";
+  import { CogSmall } from '@acronis-platform/icons/acronis';
+</script>
+
+<template>
+  <CogSmall />
+</template>
 ```
 
 If your tooling does not support tree-shaking, you can import the icons directly from the package:
 
-```javascript
+```vue
+<script setup>
 // Tree-shaking deep import example
-import { cog } from "@acronis-platform/icons/acronis/cog";
+  import CogSmall from '@acronis-platform/icons/acronis/cog/CogSmall.vue';
+</script>
+
+<template>
+  <CogSmall />
+</template>
 ```
 
 ## Props

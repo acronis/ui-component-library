@@ -12,8 +12,7 @@ Acronis UI Component Library is a UI component library for Web applications and 
 
 ## Special Thanks
 
-❤️ Thanks to [everyone](https://github.com/acronis/ui-component-library/graphs/contributors)  who has already contributed to ```Acronis UI Component Library```!
-
+❤️ Thanks to [everyone](https://github.com/acronis/ui-component-library/graphs/contributors) who has already contributed to `Acronis UI Component Library`!
 
 ## Latest Version
 

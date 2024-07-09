@@ -1,10 +1,10 @@
 const names = [
   'Total protect',
   'Backup + active protection',
-  'Backup with notrarization',
+  'Backup with notarization',
   'Entire machine to cloud',
   'Backup with patch management',
-  'Backup with auti-malware',
+  'Backup with anti-malware',
   'Microsoft SQL to Acronis',
   'Google cloud to Acronis',
   'Backup with URL filtering',

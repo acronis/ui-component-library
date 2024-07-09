@@ -16,7 +16,6 @@ You can specify tooltip placement as a modifier.
 
 <TooltipDirectivePlacement />
 
-
 ## Object notation
 
 You can specify tooltip placement as an object.
@@ -32,9 +31,11 @@ In this object, you can put any component props plus the additional options belo
 The content _option_ accepts a function that returns a promise:
 
 ```vue
-<button v-tooltip="{ 
+<button v-tooltip="{
     content: asyncContent,
     loadingContent: 'Loading...'
-}">Hover me</button>
+}"
+>
+Hover me
+</button>
 ```
-

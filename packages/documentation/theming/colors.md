@@ -1,6 +1,6 @@
 # Color Palette
 
-Colors are the crucial part theming of the Acronis UI Component Library. 
+Colors are the crucial part theming of the Acronis UI Component Library.
 Each theme provides a set of colors that are used to style the components.
 
 These colors are divided into basic colors, background colors, text colors and utility colors.
@@ -24,7 +24,6 @@ Accent colors are used to highlight interactive elements such as buttons, links,
 ## Status colors
 
 Status colors are used to focus attention on particular UI elements.
-
 
 <color name="--acv-color-status-critical-primary"></color>
 
@@ -81,7 +80,7 @@ Card, Modal, Dropdown background
 
 ## Text colors
 
-Text colors are used to define the main and alternative text colors. 
+Text colors are used to define the main and alternative text colors.
 Usually correct text color will be applied based on background color.
 
 <color name="--acv-color-text-disabled"></color>
@@ -138,6 +137,7 @@ Component colors are used to define the colors of specific components.
 <color name="--acv-color-button-hover-secondary"></color>
 
 #### Focus
+
 <color name="--acv-color-button-focus"></color>
 
 ### Form colors

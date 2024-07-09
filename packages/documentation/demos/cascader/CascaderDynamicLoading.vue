@@ -11,7 +11,7 @@
         const { level } = node;
         setTimeout(() => {
           const nodes = Array.from({ length: level + 1 })
-            .map(item => ({
+            .map(_item => ({
               value: ++id,
               label: `Option - ${id}`,
               leaf: level >= 2

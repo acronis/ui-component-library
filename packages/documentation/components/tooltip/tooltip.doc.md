@@ -6,10 +6,14 @@ editLink: true
 
 # Acv Tooltip
 
-A pop-up that shows additional information when you hover or focus on an element using the keyboard.
+Tooltip is a popup that displays additional information related to an element
+when you hover or focus on an element using the keyboard.
+It typically appears after small delay and disappears when mouse out.
 The tooltip is text only.
-No links, icons or form elements are allowed in the tooltip. Do not confuse tooltip and popover components.
-Tooltip is called by hover or focus state, and popover is called by clicking.
+No links, icons or form elements are allowed in the tooltip.
+Do not confuse tooltip and popover components.
+Tooltips do not receive focus, and they are not keyboard accessible.
+Tooltip is called by hover state, and popover is called by clicking.
 
 :::info Figma component mockups
 https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4409
@@ -48,6 +52,22 @@ This applies to `Popover` as well.
 Width is calculated automatically. But, you can define the maximum size of the width by setting `max-width` property. `max-width` property can be a number (in pixels) or a keyword such as `auto-width`. The default value is the `default` keyword and is approximate 300px
 
 <TooltipWidth />
+
+## Accessibility
+
+Provided `AcvTooltip` component must adapt to the list of
+[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/).
+
+## Interaction
+
+- on hover over the element to show the tooltip
+- on blur or mouse out, the tooltip will hide
+- `Escape` key to hide the tooltip
+
+### WAI-ARIA roles
+
+- tooltip has role `tooltip`
+- tooltip trigger has `aria-describedby` attribute that references the element with the tooltip content
 
 ## Related components
 

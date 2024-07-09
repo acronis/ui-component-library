@@ -2,7 +2,7 @@ Tooltip is a popup that displays additional information related to an element
 when you hover or focus on an element using the keyboard.
 It typically appears after small delay and disappears when mouse out.
 The tooltip is text only.
-No links, icons or form elements are allowed in the tooltip. 
+No links, icons or form elements are allowed in the tooltip.
 Do not confuse tooltip and popover components.
 Tooltips do not receive focus, and they are not keyboard accessible.
 Tooltip is called by hover state, and popover is called by clicking.

@@ -19,7 +19,7 @@ export function injectStrict<T>(key: typeof LOCALE_PLUGIN_INJECTION_KEY, fallbac
 // }
 
 export const ACV_LOCALE = {
-  en: 'en_US',
+  en: 'en',
   es: 'es',
   fr: 'fr',
   de: 'de',
@@ -32,19 +32,32 @@ export const ACV_LOCALE = {
 
 export type AcvLocale = typeof ACV_LOCALE[keyof typeof ACV_LOCALE];
 
-interface LocalePluginOptions {
-  defaultLocale: AcvLocale
-  locale: AcvLocale
-  messages: Record<string, Record<string, string>>
+export interface LocalePluginOptions {
+  defaultLocale?: AcvLocale
+  locale?: AcvLocale
+  messages?: Record<string, Record<string, string>>
+}
+
+export interface ITranslateModule {
+  translate: (name: string) => string
 }
 
 export default {
-  install: (app: App, options: LocalePluginOptions) => {
+  install: (app: App, options?: LocalePluginOptions) => {
     const defaultLocale = options?.defaultLocale || options?.locale;
     if (!defaultLocale) {
       throw new Error('Could not resolve defaultLocale');
     }
     const defaultLocalMessages = options?.messages || {};
+
+    app.config.globalProperties.$translate = (key) => {
+      // retrieve a nested property in `options`
+      // using `key` as the path
+      // {{ $translate('table.no-data') }}
+      return key.split('.').reduce((o, i) => {
+        return o?.[i];
+      }, options.messages?.[defaultLocale]);
+    };
 
     app.provide(LOCALE_PLUGIN_INJECTION_KEY, {
       availableLocales: Object.keys(defaultLocalMessages),

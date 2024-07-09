@@ -8,8 +8,8 @@ All changes are listed by package and component, widget, directive or composable
 
 ## Components
 
-| Name A                        | Replacement       | 
-|-------------------------------|-------------------|
+| Name A                        | Replacement       |
+| ----------------------------- | ----------------- |
 | Alert / Message               |                   |
 | Aside                         |                   |
 | Autocomplete                  |                   |
@@ -129,7 +129,7 @@ All changes are listed by package and component, widget, directive or composable
 ## Widgets
 
 | Name A           | New implementation |
-|------------------|--------------------|
+| ---------------- | ------------------ |
 | AboutWindow      | Demo in dialog     |
 | Details          |                    |
 | DetailsTable     |                    |
@@ -159,16 +159,15 @@ All changes are listed by package and component, widget, directive or composable
 ## Charts
 
 | Name A           | New name |
-|------------------|----------|
+| ---------------- | -------- |
 | LineChart        |          |
 | PieChart         |          |
 | StackedAreaChart |          |
 
-
 ### Directives
 
 | Old name           | New name |
-|--------------------|----------|
+| ------------------ | -------- |
 | Highlight          |          |
 | Loading            |          |
 | TextMiddleEllipsis |          |
@@ -179,7 +178,7 @@ All changes are listed by package and component, widget, directive or composable
 ### Mixins and composables
 
 | Old name            | New name |
-|---------------------|----------|
+| ------------------- | -------- |
 | useBrandColor       |          |
 | useColor            |          |
 | useContent          |          |
@@ -199,6 +198,7 @@ All changes are listed by package and component, widget, directive or composable
 Before migrating to a new version of the package, you need to check the release notes and changelog to see what has changed.
 
 During the migration process, you need to follow these steps:
+
 - Find the component, widget, directive or composable that you are using in the list above.
 - Replace the old name with the new name.
 - Make sure that the new component, widget, directive or composable has the same API as the old one.
@@ -227,8 +227,11 @@ During the migration process, you need to follow these steps:
 - <Badge type="danger" text="Deprecated" /> type values: success, ghost, inverted.
 
 #### ElCard
+
 #### ElDropdown
+
 #### ElLink
+
 #### ElSpinners
 
 #### ElTooltip

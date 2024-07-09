@@ -8,7 +8,6 @@
   const popover1 = ref(null);
   const popover2 = ref(null);
   const popover3 = ref(null);
-  const popover4 = ref(null);
   const popover5 = ref(null);
   const popover6 = ref(null);
   const popover7 = ref(null);
@@ -336,6 +335,6 @@
 
 <style scoped>
 .is-selected {
-  background-color: hsl(155deg, 76%, 44%);
+  background-color: hsl(155deg 76% 44%);
 }
 </style>
