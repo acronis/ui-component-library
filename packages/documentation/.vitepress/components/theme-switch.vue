@@ -38,7 +38,7 @@
     :close-icon="ISun"
     aria-label="theme"
     @change="toggleDark"
-  ></Switch>
+  />
 </template>
 
 <style lang="css">

@@ -18,8 +18,8 @@
 
 <template>
   <AcvPopover
-    :referenceEl="popoverReference"
-    :modelValue="popoverReferenceVisible"
+    :reference-el="popoverReference"
+    :model-value="popoverReferenceVisible"
     :width="300"
   >
     <div class="mx-24 my-16 acv-text acv-text--body-24">

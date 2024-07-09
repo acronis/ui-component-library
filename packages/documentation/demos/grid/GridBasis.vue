@@ -11,7 +11,6 @@
       </div>
     </Cell>
   </Grid>
-  <br />
   <Grid
     :gap="8"
     :columns="24"

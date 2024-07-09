@@ -9,7 +9,7 @@
         width: '16px',
         backgroundColor: 'var(--vxp-fill-color-humble)',
       }"
-    ></div>
+    />
     <H4
       marker
       top

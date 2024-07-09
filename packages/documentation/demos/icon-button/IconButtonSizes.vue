@@ -4,12 +4,12 @@
 
 <template>
   <IconButton size="small">
-    <Icon name="user--32"></Icon>
+    <Icon name="user--32" />
   </IconButton>
   <IconButton size="medium">
-    <Icon name="user--32"></Icon>
+    <Icon name="user--32" />
   </IconButton>
   <IconButton size="large">
-    <Icon name="user--32"></Icon>
+    <Icon name="user--32" />
   </IconButton>
 </template>

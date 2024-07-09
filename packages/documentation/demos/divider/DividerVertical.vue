@@ -1,9 +1,9 @@
 <template>
   <p>
     Some content
-    <Divider vertical></Divider>
+    <Divider vertical />
     Some content
-    <Divider vertical></Divider>
+    <Divider vertical />
     Some content
   </p>
 </template>

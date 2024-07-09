@@ -7,35 +7,35 @@
   <div class="qa-grid-layout-hybrid-layout">
     <Row :gutter="16">
       <Column :span="16">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="8">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row :gutter="16">
       <Column :span="8">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="8">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="4">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="4">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
     <Row :gutter="16">
       <Column :span="4">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="16">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
       <Column :span="4">
-        <div class="grid-content bg-brand-light"></div>
+        <div class="grid-content bg-brand-light" />
       </Column>
     </Row>
   </div>

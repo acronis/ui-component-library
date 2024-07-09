@@ -18,7 +18,7 @@
       <template #icon>
         <Icon
           :icon="ITrashOSmall"
-        ></Icon>
+        />
       </template>
     </Button>
     <Button
@@ -26,16 +26,15 @@
     >
       <Icon
         :icon="ITrashOMedium"
-      ></Icon>
+      />
     </Button>
-    <Button :icon="ISyncedDSmall">
-    </Button>
+    <Button :icon="ISyncedDSmall" />
     <Button size="small">
       <template #icon>
         <Icon
           :icon="ITrashOSmall"
           color="white"
-        ></Icon>
+        />
       </template>
     </Button>
   </Row>

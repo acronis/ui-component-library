@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <Breadcrumbs :maxItems="3">
+  <Breadcrumbs :max-items="3">
     <BreadcrumbLink to="/">
       Home
     </BreadcrumbLink>

@@ -66,7 +66,7 @@
       span="6"
     >
       <AcvPopover
-        :referenceEl="popover1"
+        :reference-el="popover1"
         placement="top-start"
         :width="300"
         @show="openTopStartPopover(true)"
@@ -99,7 +99,7 @@
       span="6"
     >
       <AcvPopover
-        :referenceEl="popover2"
+        :reference-el="popover2"
         placement="top-end"
         :width="300"
         @show="openTopEndPopover(true)"
@@ -132,7 +132,7 @@
       span="6"
     >
       <AcvPopover
-        :referenceEl="popover3"
+        :reference-el="popover3"
         placement="bottom-start"
         :width="300"
         @show="openBottomStartPopover(true)"
@@ -166,7 +166,7 @@
     >
       <AcvPopover
 
-        :referenceEl="popover5"
+        :reference-el="popover5"
         placement="bottom-end"
         :width="300"
         @show="openBottomEndPopover(true)"
@@ -200,7 +200,7 @@
     >
       <AcvPopover
 
-        :referenceEl="popover6"
+        :reference-el="popover6"
         placement="left-start"
         :width="300"
         @show="openLeftStartPopover(true)"
@@ -234,7 +234,7 @@
     >
       <AcvPopover
 
-        :referenceEl="popover7"
+        :reference-el="popover7"
         placement="left-end"
         :width="300"
         @show="openLeftEndPopover(true)"
@@ -268,7 +268,7 @@
     >
       <AcvPopover
 
-        :referenceEl="popover8"
+        :reference-el="popover8"
         placement="right-start"
         :width="300"
         @show="openRightStartPopover(true)"
@@ -302,7 +302,7 @@
     >
       <AcvPopover
 
-        :referenceEl="popover9"
+        :reference-el="popover9"
         placement="right-end"
         :width="300"
         @show="openRightEndPopover(true)"

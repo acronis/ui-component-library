@@ -3,11 +3,11 @@ import process from 'node:process';
 import { existsSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import minimist from 'minimist';
 import { format } from 'prettier';
-import { prettierConfig, rootDir } from './utils/constant.ts';
-import { specifyComponent } from './utils/specifyComponent.ts';
-import { logger } from './utils/logger.ts';
-import { run } from './utils/run.ts';
-import { queryIdlePort } from './utils/queryIdlePort.ts';
+import { prettierConfig, rootDir } from './utils/constant';
+import { specifyComponent } from './utils/specifyComponent';
+import { logger } from './utils/logger';
+import { run } from './utils/run';
+import { queryIdlePort } from './utils/queryIdlePort';
 
 const args = minimist<{
   s?: boolean
@@ -24,10 +24,10 @@ const args = minimist<{
 const sourceMap = args.sourcemap || args.s;
 const argPort = args.port || args.p || '8008';
 const prodMode = args.prod;
-const lang = args.lang || args.l;
+// const lang = args.lang || args.l;
 const theme = args.theme || args.t;
 
-const langs = ['zh-CN', 'en-US'];
+// const langs = ['zh-CN', 'en-US'];
 
 const devDir = resolve(rootDir, 'dev-server');
 

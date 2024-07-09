@@ -42,7 +42,7 @@
       span="12"
     >
       <AcvPopover
-        :referenceEl="firstPopoverReference"
+        :reference-el="firstPopoverReference"
         width="300"
         @show="openToolTipPopover(true)"
         @hide="enableTooltip"
@@ -70,7 +70,7 @@
       span="12"
     >
       <AcvPopover
-        :referenceEl="secondPopoverReference"
+        :reference-el="secondPopoverReference"
         width="300"
         @hide="enableIconTooltip"
         @show="openToolTipPopoverWithIcon(true)"

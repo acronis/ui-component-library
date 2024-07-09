@@ -63,14 +63,14 @@
     "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
-    "vue": "^3.4.23"
+    "vue": "3.4.30"
   },
   "dependencies": {
     "@acronis-platform/configs": "workspace:*",
+    "@acronis-platform/figma-fetcher": "workspace:*",
     "vue-clipboard3": "2.0.0"
   },
   "devDependencies": {
-    "@acronis-platform/figma-fetcher": "workspace:*",
     "@iconify/tools": "4.0.4",
     "@iconify/utils": "2.1.23",
     "@types/fs-extra": "11.0.4",

@@ -9,7 +9,7 @@
   >
     <div
       class="test-container"
-    ></div>
+    />
 
     <AcvPopover>
       <template #reference>

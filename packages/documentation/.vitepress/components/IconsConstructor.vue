@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <Icons :icons="Object.keys(constructorIcons)"></Icons>
+  <Icons :icons="Object.keys(constructorIcons)" />
 </template>
 
 <style scoped></style>

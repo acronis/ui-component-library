@@ -11,7 +11,7 @@
   <Input
     v-model="keyword"
     label="Keyword"
-  ></Input>
+  />
   <div
     v-highlight="keyword"
     class="acv-text acv-text--body-24 mt-16"

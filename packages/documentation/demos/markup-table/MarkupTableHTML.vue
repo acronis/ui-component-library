@@ -9,22 +9,22 @@
           <span>
             <input type="checkbox">
           </span>
-          <span class="resize-handle"></span>
+          <span class="resize-handle" />
         </th>
         <th
 
           class="fixed-left"
         >
-          First Name<span class="resize-handle"></span>
+          First Name<span class="resize-handle" />
         </th>
         <th>
-          Last Name<span class="resize-handle"></span>
+          Last Name<span class="resize-handle" />
         </th>
         <th>
-          PhD<span class="resize-handle"></span>
+          PhD<span class="resize-handle" />
         </th>
         <th>
-          Occupation<span class="resize-handle"></span>
+          Occupation<span class="resize-handle" />
         </th>
       </tr>
       <tr>

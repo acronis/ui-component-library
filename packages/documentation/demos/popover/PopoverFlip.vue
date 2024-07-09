@@ -9,7 +9,7 @@
   >
     <div
       class="test-container"
-    ></div>
+    />
 
     <AcvPopover
       :offset="10"

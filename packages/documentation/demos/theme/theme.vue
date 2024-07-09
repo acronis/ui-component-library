@@ -259,7 +259,7 @@
     <h2 style="margin: 0 20px 0 0; pointer-events: none">
       Theme Playground
     </h2>
-    <ThemeSwitch></ThemeSwitch>
+    <ThemeSwitch />
   </Row>
   <Split class="theme-view">
     <template #left>
@@ -292,7 +292,7 @@
               </AcvButton>
             </template>
           </div>
-          <br />
+          <br>
         </template>
         <template
           v-for="(meta, index) in tagMeta"
@@ -309,8 +309,8 @@
           >
             Tag
           </AcvTag>
-          <br />
-          <br />
+          <br>
+          <br>
         </template>
         <template
           v-for="state in states"
@@ -319,18 +319,18 @@
           <Input
             :state="state"
             style="margin-inline-end: 20px"
-          ></Input>
-          <NumberInput :state="state"></NumberInput>
-          <br />
-          <br />
+          />
+          <NumberInput :state="state" />
+          <br>
+          <br>
         </template>
         <Input
           disabled
           style="margin-inline-end: 20px"
-        ></Input>
-        <NumberInput disabled></NumberInput>
-        <br />
-        <br />
+        />
+        <NumberInput disabled />
+        <br>
+        <br>
         <template
           v-for="state in states"
           :key="state"
@@ -339,25 +339,25 @@
             :options="options"
             :state="state"
             style="margin-inline-end: 20px"
-          ></AcvSelect>
+          />
           <AutoComplete
             :options="options"
             :state="state"
-          ></AutoComplete>
-          <br />
-          <br />
+          />
+          <br>
+          <br>
         </template>
         <AcvSelect
           :options="options"
           disabled
           style="margin-inline-end: 20px"
-        ></AcvSelect>
+        />
         <AutoComplete
           :options="options"
           disabled
-        ></AutoComplete>
-        <br />
-        <br />
+        />
+        <br>
+        <br>
         <template
           v-for="state in states"
           :key="state"
@@ -371,9 +371,9 @@
               :disabled="index === 3 || index === 4"
               :control="index === 1"
               :partial="index === 1"
-            ></AcvCheckbox>
+            />
           </AcvCheckboxGroup>
-          <br />
+          <br>
         </template>
         <template
           v-for="(state, idx) in states"
@@ -386,53 +386,53 @@
               :state="state"
               :label="item"
               :disabled="index === 2 || index === 3"
-            ></AcvRadio>
+            />
           </AcvRadioGroup>
-          <br />
+          <br>
         </template>
-        <br />
+        <br>
         <template
           v-for="state in states"
           :key="state"
         >
-          <AcvSwitch :state="state"></AcvSwitch>
+          <AcvSwitch :state="state" />
           <AcvSwitch
             :state="state"
             open-text="Open"
             close-text="Close"
-          ></AcvSwitch>
+          />
           <AcvSwitch
             :state="state"
             disabled
-          ></AcvSwitch>
+          />
           <AcvSwitch
             :state="state"
             disabled
             open-text="Open"
             close-text="Close"
-          ></AcvSwitch>
-          <br />
-          <br />
+          />
+          <br>
+          <br>
         </template>
-        <AcvColorPicker alpha></AcvColorPicker>
-        <br />
-        <br />
+        <AcvColorPicker alpha />
+        <br>
+        <br>
         <AcvDatePicker
           range
           clearable
           transfer
           type="datetime"
           :shortcuts="dateShortcuts"
-        ></AcvDatePicker>
-        <br />
-        <br />
+        />
+        <br>
+        <br>
         <AcvTimePicker
           range
           clearable
           :shortcuts="timeShortcuts"
-        ></AcvTimePicker>
-        <br />
-        <br />
+        />
+        <br>
+        <br>
         <template
           v-for="(meta, index) in linkerMeta"
           :key="index"
@@ -450,9 +450,9 @@
               Address
             </Linker>
           </template>
-          <br />
+          <br>
         </template>
-        <br />
+        <br>
         <Row
           v-for="(meta, index) in tooltipMeta"
           :key="index"
@@ -477,7 +477,7 @@
             </AcvTooltip>
           </template>
         </Row>
-        <br />
+        <br>
         <!-- <template v-for="state in states" :key="state">
           <AcvSlider :state="state" :value="20 + Math.random() * 40"></AcvSlider>
         </template>
@@ -489,9 +489,9 @@
           <AcvSlider
             :state="meta.state"
             :value="meta.value"
-          ></AcvSlider>
+          />
         </template>
-        <br />
+        <br>
         <template
           v-for="state in states"
           :key="state"
@@ -499,16 +499,16 @@
           <AcvTextarea
             :state="state"
             :max-length="100"
-          ></AcvTextarea>
-          <br />
-          <br />
+          />
+          <br>
+          <br>
         </template>
         <AcvTextarea
           disabled
           :max-length="100"
-        ></AcvTextarea>
-        <br />
-        <br />
+        />
+        <br>
+        <br>
         <Collapse style="max-width: 600px">
           <CollapsePane
             v-for="n in 3"
@@ -519,7 +519,7 @@
             <p>Some content</p>
           </CollapsePane>
         </Collapse>
-        <br />
+        <br>
         <Collapse
           card
           style="max-width: 600px"
@@ -585,8 +585,8 @@
           <p>Some content</p>
           <p>Some content</p>
         </AcvModal>
-        <br />
-        <br />
+        <br>
+        <br>
         <div style="display: flex">
           <AcvButton
             type="primary"
@@ -617,7 +617,7 @@
           directory
           hidden-files
           style="max-width: 720px"
-        ></AcvUpload>
+        />
         <TabNav>
           <TabNavItem
             v-for="meta in tabMeta"
@@ -667,7 +667,7 @@
             <BreadcrumbItem>uikit-ui</BreadcrumbItem>
           </Breadcrumb>
         </template>
-        <br />
+        <br>
         <div style="display: flex">
           <template
             v-for="n in 2"
@@ -689,7 +689,7 @@
             </Menu>
           </template>
         </div>
-        <br />
+        <br>
         <template
           v-for="(meta, index) in messageMeta"
           :key="index"
@@ -711,8 +711,8 @@
           <!--          > -->
           <!--            {{ `${type.prefix}news` }} -->
           <!--          </AcvButton> -->
-          <br />
-          <br />
+          <br>
+          <br>
         </template>
         <template
           v-for="(meta, index) in messageMeta"
@@ -735,8 +735,8 @@
           <!--          > -->
           <!--            {{ `${type.prefix}warn` }} -->
           <!--          </AcvButton> -->
-          <br />
-          <br />
+          <br>
+          <br>
         </template>
         <template
           v-for="(meta, index) in paginationMeta"
@@ -751,10 +751,10 @@
             :total="100"
             :page-size="10"
             :max-count="8"
-          ></AcvPagination>
+          />
         </template>
-        <br />
-        <br />
+        <br>
+        <br>
         <Table
           :data="tableData"
           use-y-bar
@@ -765,12 +765,12 @@
             type="selection"
             id-key="selection"
             fixed
-          ></AcvTableColumn>
+          />
           <AcvTableColumn
             type="order"
             id-key="order"
             fixed
-          ></AcvTableColumn>
+          />
           <AcvTableColumn
             type="expand"
             id-key="expand"
@@ -798,25 +798,25 @@
             id-key="firstName"
             sorter
             :width="300"
-          ></AcvTableColumn>
+          />
           <AcvTableColumn
             name="Last Name"
             id-key="lastName"
             :width="300"
             :filter="tableFilter"
-          ></AcvTableColumn>
+          />
           <AcvTableColumn
             name="Job"
             id-key="job"
             :order="3"
             fixed="right"
-          ></AcvTableColumn>
+          />
           <AcvTableColumn
             name="Age"
             id-key="age"
             :order="2"
             :width="300"
-          ></AcvTableColumn>
+          />
           <AcvTableColumn
             name="Long Text"
             id-key="longText"
@@ -825,7 +825,6 @@
             Very long text Very long text Very long text Very long text Very long text
           </AcvTableColumn>
         </Table>
-        <br />
         <div style="display: flex">
           <Timeline
             both-sides
@@ -861,8 +860,8 @@
           </Timeline>
         </div>
         <Bubble> Some content in bubble </Bubble>
-        <br />
-        <br />
+        <br>
+        <br>
         <AcvCarousel
           loop
           arrow="inside"
@@ -899,8 +898,6 @@
             </template>
           </AcvCarouselItem>
         </AcvCarousel>
-        <br />
-        <br />
       </NativeScroll>
     </template>
   </Split>

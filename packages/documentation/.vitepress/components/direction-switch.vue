@@ -51,7 +51,7 @@
     <Icon
       :icon="rtl ? AlignRight : AlignLeft"
       :scale="1.25"
-    ></Icon>
+    />
   </div>
 </template>
 
@@ -64,7 +64,7 @@
 
   &:hover,
   &:focus {
-    color: var(--acv-color-primary-base);
+    color: var(--acv-color-primary);
   }
 }
 </style>

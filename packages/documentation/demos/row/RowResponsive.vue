@@ -15,7 +15,7 @@
       :lg="3"
       :xl="1"
     >
-      <div class="grid-content bg-brand-light"></div>
+      <div class="grid-content bg-brand-light" />
     </Column>
     <Column
       :xs="4"
@@ -24,7 +24,7 @@
       :lg="9"
       :xl="11"
     >
-      <div class="grid-content bg-brand-accent"></div>
+      <div class="grid-content bg-brand-accent" />
     </Column>
     <Column
       :xs="4"
@@ -33,7 +33,7 @@
       :lg="9"
       :xl="11"
     >
-      <div class="grid-content bg-brand-light"></div>
+      <div class="grid-content bg-brand-light" />
     </Column>
     <Column
       :xs="8"
@@ -42,7 +42,7 @@
       :lg="3"
       :xl="1"
     >
-      <div class="grid-content bg-brand-accent"></div>
+      <div class="grid-content bg-brand-accent" />
     </Column>
   </Row>
 </template>

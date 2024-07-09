@@ -13,7 +13,7 @@
         name="i-workstations-o--16"
         color="brand-primary"
         disabled
-      ></Icon>
+      />
     </Preview>
     <Preview
       name="Ghost button"

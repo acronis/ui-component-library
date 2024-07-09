@@ -14,7 +14,7 @@
         color="brand-primary"
         size="32"
         animation="spin"
-      ></Icon>
+      />
     </Preview>
     <Preview
       name="Ghost button"
@@ -47,7 +47,7 @@
       name="Multicolor icon"
       span="6"
     >
-      <Icon name="SyncedDSmall"></Icon>
+      <Icon name="SyncedDSmall" />
     </Preview>
     <Preview
       name="Legacy"
@@ -57,7 +57,7 @@
         name="i-workstations-o--16"
         color="brand-primary"
         legacy
-      ></Icon>
+      />
     </Preview>
   </PreviewGroup>
 </template>

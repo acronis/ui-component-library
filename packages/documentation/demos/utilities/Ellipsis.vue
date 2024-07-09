@@ -20,8 +20,6 @@
         <span class="acv-text--ellipsis acv-display--inline-block">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id venenatis a condimentum vitae sapien.
         </span>
-        <div>
-        </div>
       </div>
     </preview>
   </preview-group>

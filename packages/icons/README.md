@@ -181,7 +181,7 @@ Usage:
 <script setup>
   import { computed, defineAsyncComponent } from 'vue';
 
-  const props = defineProps({
+  defineProps({
     name: {
       type: String,
       required: true
@@ -189,7 +189,7 @@ Usage:
   });
   const icons = import.meta.glob(`./**/*.svg`);
   const icon = computed(() => {
-    return defineAsyncComponent(() => this.icons[`./${this.name}.svg`]());
+    return defineAsyncComponent(() => icons[`./${this.name}.svg`]());
   });
   const className = computed(() => {
     return `icon icon-${this.name}`;
