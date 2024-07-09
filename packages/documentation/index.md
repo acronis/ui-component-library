@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Acronis UI Component Library"
   text: "Vue.js 3 powered components"
-  tagline: Simple and elegant Vue3 components library 
+  tagline: Simple and elegant Vue3 components library
   actions:
     - theme: brand
       text: Get Started

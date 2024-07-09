@@ -17,21 +17,55 @@ The icons are available in SVG and Vue.js SFC format and can be used in your pro
 
 You can import icons in your project by using the following code:
 
-```javascript
-// Import icon as a Vue component
-import { IconName } from '@acronis-platform/icons';
+### Import icon as a Vue component
 
-// Import individual icon from collection
-import { IconName } from '@acronis-platform/icons/acronis';
+```vue
+<script setup>
+  import { IconName } from '@acronis-platform/icons';
+</script>
 
-// Import individual vue icon from directory
-import ChevronDown from '@acronis-platform/icons/acronis/chevron/ChevronDown.vue';
-
-// Import icons as a Iconify IconSet collection
-import collection from '@acronis-platform/icons/acronis/icons.json';
+<template>
+  <IconName />
+</template>
 ```
 
-##  What's included
+### Import individual icon from collection
+
+```vue
+<script setup>
+  import { IconName } from '@acronis-platform/icons/acronis';
+</script>
+
+<template>
+  <IconName />
+</template>
+```
+
+### Import individual vue icon from directory
+
+```vue
+<script setup>
+  import ChevronDown from '@acronis-platform/icons/acronis/chevron/ChevronDown.vue';
+</script>
+
+<template>
+  <ChevronDown />
+</template>
+```
+
+### Import icons as an Iconify IconSet collection
+
+```vue
+<script setup>
+  import collection from '@acronis-platform/icons/acronis/icons.json';
+</script>
+
+<template>
+  {{ collection }}
+</template>
+```
+
+## What's included
 
 - Figma design system provide icons;
 - With @acronis-platform/figma-fetcher and save them in SVG format, as original source files in the `src` directory;
@@ -40,7 +74,8 @@ import collection from '@acronis-platform/icons/acronis/icons.json';
 - All icons provide Vue.js component for each icon in the `vue` directory.
 
 ## How to use svg icons in Vue.js components
-Best way to use svg icons in your project is to use them as Vue components. 
+
+Best way to use svg icons in your project is to use them as Vue components.
 In order to do that, you can simply rename them from `.svg` to `.vue` extension and wrapping with template.
 
 You can use them in your project in the following ways:
@@ -48,9 +83,9 @@ You can use them in your project in the following ways:
 - As an SVG file, for instance, using [vite-svg-loader](https://www.npmjs.com/package/vite-svg-loader)
 - As a static Vue.js component:
 
-```vue  
+```vue
 <script setup>
-  import ChevronDownIcon from './components/ChevronDownIcon.vue'
+  import ChevronDownIcon from './components/ChevronDownIcon.vue';
 </script>
 
 <template>
@@ -58,39 +93,40 @@ You can use them in your project in the following ways:
 </template>
 ```
 
-
 - As a dynamic Vue component:
 
 ```vue
 <script>
-import { defineAsyncComponent } from 'vue';
+  import { defineAsyncComponent } from 'vue';
 
-export default {
-  props: {
-    name: {
-      type: String,
-      required: true,
+  export default {
+    props: {
+      name: {
+        type: String,
+        required: true,
+      },
     },
-  },
 
-  computed: {
-    dynamicComponent() {
-      const name = this.name;
+    computed: {
+      dynamicComponent() {
+        const { name } = this;
 
-      return defineAsyncComponent(() => import(`./icons/${name}.vue`));
+        return defineAsyncComponent(() => import(`./icons/${name}.vue`));
+      },
     },
-  },
-};
+  };
 </script>
 
 <template>
   <component :is="dynamicComponent" />
 </template>
 ```
+
 Usage:
+
 ```vue
 <script setup>
-  import SvgIcon from './components/SvgIcon.vue'
+  import SvgIcon from './components/SvgIcon.vue';
 </script>
 
 <template>
@@ -101,35 +137,37 @@ Usage:
 - as a Vue component with dynamic svg import:
 
 ```vue
-<template>
-    <i v-html="svg" />
-</template>
-
 <script lang="ts" setup>
-    import { computed } from 'vue';
+  import { computed } from 'vue';
 
-    const props = defineProps({
-        icon: {
-            type: String,
-            required: true,
-        },
-        src: {
-            type: String,
-            default: '',
-        },
-    });
-    const path = props.src ? props.src : '';
-    const file = `${path}icon-${props.icon}`;
-    const modules = import.meta.glob('../../assets/icons/**/*.svg', {
-        as: 'raw',
-        eager: true,
-    });
-    const svg = computed(() => {
-        return modules['../../assets/icons/' + file + '.svg'] ?? modules['../../assets/icons/icon-logo-cone.svg'];
-    });
+  const props = defineProps({
+    icon: {
+      type: String,
+      required: true,
+    },
+    src: {
+      type: String,
+      default: '',
+    },
+  });
+  const path = props.src ? props.src : '';
+  const file = `${path}icon-${props.icon}`;
+  const modules = import.meta.glob('../../assets/icons/**/*.svg', {
+    as: 'raw',
+    eager: true,
+  });
+  const svg = computed(() => {
+    return modules[`../../assets/icons/${file}.svg`] ?? modules['../../assets/icons/icon-logo-cone.svg'];
+  });
 </script>
+
+<template>
+  <i v-html="svg" />
+</template>
 ```
+
 Usage:
+
 ```vue
 <UiIcon
     class="w-4 text-gray-600"
@@ -138,30 +176,33 @@ Usage:
 ```
 
 - solution from [Vite docs](https://vitejs.dev/guide/features.html#glob-import):
+
 ```vue
 <script setup>
-  import { defineAsyncComponent, computed } from 'vue'
-  
+  import { computed, defineAsyncComponent } from 'vue';
+
   const props = defineProps({
     name: {
       type: String,
       required: true
     }
-  })
-  const icons = import.meta.glob(`./**/*.svg`)
+  });
+  const icons = import.meta.glob(`./**/*.svg`);
   const icon = computed(() => {
-    return defineAsyncComponent(() => this.icons[`./${this.name}.svg`]())
-  })
+    return defineAsyncComponent(() => this.icons[`./${this.name}.svg`]());
+  });
   const className = computed(() => {
-    return `icon icon-${this.name}`
-  })
+    return `icon icon-${this.name}`;
+  });
 </script>
 
 <template>
-  <component :is="icon" :class="className" />
+  <component
+    :is="icon"
+    :class="className"
+  />
 </template>
 ```
-
 
 ## Custom icons
 

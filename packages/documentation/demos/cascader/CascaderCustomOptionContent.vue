@@ -2,7 +2,6 @@
   import AcvCascader from '@/components/cascader/cascader.vue';
   import AcvIcon from '@/components/icon/icon.vue';
 
-  const id = 0;
   export default {
     components: {
       AcvIcon,

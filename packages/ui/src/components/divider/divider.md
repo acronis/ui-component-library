@@ -1,4 +1,4 @@
-Used to group content in horizontal or vertical lists, 
+Used to group content in horizontal or vertical lists,
 and also serves as a visual separator between logical blocks within the interface.
 
 :::info Figma mockups
@@ -15,7 +15,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=123-8541
 
 ## With text
 
-You can place text into default dividers slot and use `text-position` property 
+You can place text into default dividers slot and use `text-position` property
 to align it in a _center_, _left_ or _right_ position.
 
 <DividerVariants />
@@ -32,12 +32,10 @@ You can use `color` property to highlight the divider with a specific color.
 
 ## Accessibility
 
-Separators must be ignored by the screenreader. 
+Separators must be ignored by the screenreader.
 To achieve this, use `aria-hidden="true"` attribute.
 
-It must provide `role=separator` that indicates the element is a divider that 
+It must provide `role=separator` that indicates the element is a divider that
 separates and distinguishes sections of content or groups of elements.
 
 Optionally, you can provide `aria-orientation` attribute to describe the separator direction.
-
-

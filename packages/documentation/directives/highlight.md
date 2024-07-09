@@ -24,6 +24,7 @@ Please pass pure text node into the slot without any tags.
 :::
 
 ## Attributes
+
 | Attribute | Description                                   | Type   | Accepted Values | Default |
-|-----------|-----------------------------------------------|--------|-----------------|---------|
+| --------- | --------------------------------------------- | ------ | --------------- | ------- |
 | keyword   | String for search in inner text, can be empty | string | —               | —       |

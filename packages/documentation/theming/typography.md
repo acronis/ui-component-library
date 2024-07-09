@@ -1,11 +1,12 @@
 # Typography
 
-Typography is important part of design system. 
+Typography is important part of design system.
 It helps to create visual hierarchy and make content more readable.
 
 ## Font faces
 
 UI components use three font faces:
+
 - **Opens sans** for regular text
 - **Roboto Mono** for code snippets
 - **Inter** for headings
@@ -128,15 +129,15 @@ UI components use three font faces:
 
 ## Wrapping
 
-<div class="acv-text--normal">        
+<div class="acv-text--normal">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequatur cumque deleniti dolor dolores eaque exercitationem explicabo fugit illum ipsam laborum non officiis perferendis praesentium quae ratione similique, tenetur vitae!
 </div>
 
-<div class="acv-text--nowrap">        
+<div class="acv-text--nowrap">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequatur cumque deleniti dolor dolores eaque exercitationem explicabo fugit illum ipsam laborum non officiis perferendis praesentium quae ratione similique, tenetur vitae!
 </div>
 
-<div class="acv-text--break">        
+<div class="acv-text--break">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequatur cumque deleniti dolor dolores eaque exercitationem explicabo fugit illum ipsam laborum non officiis perferendis praesentium quae ratione similique, tenetur vitae!
 </div>
 

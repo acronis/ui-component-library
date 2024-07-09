@@ -6,7 +6,7 @@ To develop the project, you need to have the following tools installed:
 
 - nodejs >= 20.9
 - pnpm >= 8
- 
+
 To start develop new components, you need to run the following command:
 
 ```bash
@@ -20,6 +20,7 @@ pnpm run @acronis-platform/ui-component-library-documentation:dev
 ## Create new component
 
 To create a new **[component]** component, you need to create sources with:
+
 - vue component (**@acronis-platform/ui-component-library/src/components/[component]/[component].vue**)
 - unit tests (**@acronis-platform/ui-component-library/src/components/[component]/[component].spec.ts**) with Vitest
 - component types (**@acronis-platform/ui-component-library/src/components/[component]/[component].ts**)
@@ -29,7 +30,7 @@ To create a new **[component]** component, you need to create sources with:
 - demos (**@acronis-platform/ui-component-library-documentation/demos/[component]/[component]Basic.vue**)
 - add export to public.ts (**@acronis-platform/ui-component-library/src/components/index.ts**)
 
-You can create them manually or use [Hygen](https://www.hygen.io) generator. 
+You can create them manually or use [Hygen](https://www.hygen.io) generator.
 To use Hygen generator, you need to run the following command:
 
 ```bash
@@ -46,7 +47,7 @@ To create an example, you need to create a new file in the **packages/documentat
 
 ## Generate documentation
 
-We use jsdoc codegen to generate markdown documentation for components, types and so on. 
+We use jsdoc codegen to generate markdown documentation for components, types and so on.
 To generate documentation, you need to run the following command:
 
 ```bash

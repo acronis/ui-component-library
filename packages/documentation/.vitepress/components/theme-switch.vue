@@ -47,7 +47,7 @@
 
   html.dark & {
     --acv-switch-bg-color-open: var(--acv-color-brand-tertiary);
-    --acv-switch-signal-bg-color: hsl(0deg, 0%, 0%);
+    --acv-switch-signal-bg-color: hsl(0deg 0% 0%);
     --acv-switch-icon-color: var(--acv-color-brand-secondary);
   }
 }

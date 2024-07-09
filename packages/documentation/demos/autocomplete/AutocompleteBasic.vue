@@ -6,7 +6,7 @@
   const links = ref([]);
 
   function createStateFilter(queryString) {
-    return state => (state.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+    return filteredState => (filteredState.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
   }
 
   function querySearch(queryString, cb) {

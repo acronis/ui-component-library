@@ -2,7 +2,7 @@
 
 Overview the accessibility features of the Acronis UI Component Library and how to use them.
 
-Ui component Library provides a set of features to make the components accessible. 
+Ui component Library provides a set of features to make the components accessible.
 The following features are provided:
 
 - markup semantics
@@ -12,3 +12,5 @@ The following features are provided:
 - focus management
 
 Fulfill WCAG 2.1 requirements for the following criteria:
+
+- [WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/example-index/).

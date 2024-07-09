@@ -15,7 +15,7 @@ brew install act
 
 To output the GitHub Actions workflow, you can use the following command:
 
-```bash     
+```bash
 act -l
 ```
 

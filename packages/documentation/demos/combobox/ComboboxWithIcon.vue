@@ -65,10 +65,10 @@
         icon="times"
       >
         <Option
-          v-for="(value, key) in passwordOptions"
-          :key="value"
-          :label="value"
-          :value="value"
+          v-for="(passwordOption, key) in passwordOptions"
+          :key="passwordOption"
+          :label="passwordOption"
+          :value="passwordOption"
         >
           {{ key }}
         </Option>
@@ -125,10 +125,10 @@
         icon="times"
       >
         <Option
-          v-for="(value, key) in passwordOptions"
-          :key="value"
-          :label="value"
-          :value="value"
+          v-for="(passwordOption, key) in passwordOptions"
+          :key="passwordOption"
+          :label="passwordOption"
+          :value="passwordOption"
         >
           {{ key }}
         </Option>

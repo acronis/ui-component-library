@@ -1,6 +1,6 @@
 # CSS variables
 
-Acronis UI Component Library is using [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to define colors, typography, spacing, 
+Acronis UI Component Library is using [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to define colors, typography, spacing,
 and other design tokens according used theme.
 
 ## Syntax
@@ -19,7 +19,6 @@ and other design tokens according used theme.
 Basic variables are used to define the basic design tokens like colors, typography, spacing, etc.
 
 Theme variables are used to define the theme-specific design tokens like colors, spacing, components, etc.
-
 
 ::: code-group
 <<< ../../ui/src/styles/tokens/acv/base.css [Base tokens]

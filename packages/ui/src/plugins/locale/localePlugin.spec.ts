@@ -1,6 +1,6 @@
 import { createApp, h } from 'vue';
 import { describe, expect, it } from 'vitest';
-import localePlugin, { LOCALE_PLUGIN_INJECTION_KEY } from './localePlugin';
+import localePlugin, { ACV_LOCALE, LOCALE_PLUGIN_INJECTION_KEY } from './localePlugin';
 
 describe('localePlugin', () => {
   it('provides default locale to the app', () => {
@@ -9,7 +9,7 @@ describe('localePlugin', () => {
     });
 
     app.use(localePlugin, {
-      locale: 'en',
+      locale: ACV_LOCALE.en,
       messages: {
         en: {
           hello: 'Hello'

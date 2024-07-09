@@ -72,7 +72,7 @@
 }
 
 html.dark {
-  --vp-code-block-bg: var(--vp-c-bg-alt, hsl(240deg, 4%, 9%));
+  --vp-code-block-bg: var(--vp-c-bg-alt, hsl(240deg 4% 9%));
 }
 
 .demo-block .xl-button {

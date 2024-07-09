@@ -7,6 +7,7 @@ We provide predefined themes, but also you can define your own theme.
 You can redefine any of base(theme) colors in your application in oreder to get custom theme.
 
 Colors are semantically divided into the following categories:
+
 - base palette, like primary, secondary, etc. (we use palletes to unify colors in the library with figma design system)
 - shades and lights (used in states, like hover, focus, etc.)
 - brand colors (provided by figma design system)
@@ -14,7 +15,7 @@ Colors are semantically divided into the following categories:
 - chart colors (provided by figma design system)
 
 These colors will be used accordingly in the library components.
-In some components colors will be calculated depending on environment variables, 
+In some components colors will be calculated depending on environment variables,
 like `--acv-color-primary`, `--acv-color-black`, `--acv-color-gray`, `--acv-color-gray-light-10`, `--acv-color-gray-shade-10`, etc.
 
 <color name="--acv-color-white"></color>

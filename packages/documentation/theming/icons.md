@@ -1,6 +1,6 @@
 # Icons
 
-The icons are used to represent actions or objects in the user interface. 
+The icons are used to represent actions or objects in the user interface.
 They are used in buttons, menus, and other UI elements.
 
 ## Usage
@@ -12,12 +12,12 @@ In components content areas you can use icons from your custom sets.
 
 ```vue
 <script setup>
-  import { CustomIcon } from "@constructor-lab/icons";
+  import { CustomIcon } from '@constructor-lab/icons';
 </script>
 
 <template>
   <AcvButton>
-    <CustomIcon name="close"/>
+    <CustomIcon name="close" />
     Close button
   </AcvButton>
 </template>

@@ -170,7 +170,7 @@ export default antfu(
   {
     files: ['**/*.md'],
     rules: {
-      'unused-imports/no-unused-imports': 'off',
+      'unused-imports/no-unused-imports': 0,
     }
   }
 );

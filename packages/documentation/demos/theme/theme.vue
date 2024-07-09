@@ -112,19 +112,19 @@
     { label: 'Menu 4', disabled: false }
   ];
 
-  const messageTypes = [
-    { prefix: 'Normal', type: 'info' },
-    { prefix: 'Success', type: 'success' },
-    { prefix: 'Warning', type: 'warning' },
-    { prefix: 'Error', type: 'error' }
-  ];
-  const messageOptions = {
-    title: 'Title',
-    content: 'A permanent content',
-    duration: 0,
-    closable: true,
-    marker: true
-  };
+  // const messageTypes = [
+  //   { prefix: 'Normal', type: 'info' },
+  //   { prefix: 'Success', type: 'success' },
+  //   { prefix: 'Warning', type: 'warning' },
+  //   { prefix: 'Error', type: 'error' }
+  // ];
+  // const messageOptions = {
+  //   title: 'Title',
+  //   content: 'A permanent content',
+  //   duration: 0,
+  //   closable: true,
+  //   marker: true
+  // };
   const messageMeta = [
     { color: false, background: false },
     { color: true, background: false },
@@ -914,15 +914,15 @@
 }
 
 html {
-  --bg-color: hsl(0deg, 0%, 100%);
+  --bg-color: hsl(0deg 0% 100%);
   --body-bg-color: var(--acv-color-tertiary-background);
-  --ghost-bg-color: hsl(210deg, 33%, 20%);
+  --ghost-bg-color: hsl(210deg 33% 20%);
   --ghost-padding: 10px;
   height: 100%;
 
   &.dark {
-    --bg-color: hsl(200deg, 14%, 9%);
-    --body-bg-color: hsl(0deg, 0%, 11%);
+    --bg-color: hsl(200deg 14% 9%);
+    --body-bg-color: hsl(0deg 0% 11%);
     --ghost-bg-color: transparent;
     --ghost-padding: 0;
   }

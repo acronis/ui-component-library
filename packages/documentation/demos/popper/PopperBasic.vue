@@ -25,8 +25,8 @@
 
 <style scoped>
 .acv-popper {
-  background-color: hsl(28deg, 100%, 97%);
-  border: 1px solid hsl(0deg, 0%, 0%);
+  background-color: hsl(28deg 100% 97%);
+  border: 1px solid hsl(0deg 0% 0%);
   padding: 8px;
 }
 </style>

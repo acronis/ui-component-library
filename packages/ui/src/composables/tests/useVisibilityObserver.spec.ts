@@ -6,7 +6,7 @@ import { useVisibilityObserver } from '../useVisibilityObserver.ts';
 
 describe('useVisibilityObserver', () => {
   let observerCallback: IntersectionObserverCallback;
-  let IntersectionObserver: Mock<[callback: any], { observe: Mock<any, any>, unobserve: Mock<any, any> }>;
+  let IntersectionObserver: Mock<[callback: IntersectionObserverCallback], { observe: Mock<[Element], void>, unobserve: Mock<[Element], void> }>;
 
   beforeEach(() => {
     IntersectionObserver = vi.fn((callback) => {
@@ -48,7 +48,11 @@ describe('useVisibilityObserver', () => {
 
     observerCallback([{
       target: wrapper.element,
-      boundingClientRect: { top: 0, bottom: 100 },
+      // @ts-expect-error
+      boundingClientRect: {
+        top: 0,
+        bottom: 100
+      },
       isIntersecting: true
     }], IntersectionObserver);
 
@@ -70,6 +74,7 @@ describe('useVisibilityObserver', () => {
 
     observerCallback([{
       target: wrapper.element,
+      // @ts-expect-error
       boundingClientRect: {
         top: -100,
         bottom: -50
@@ -96,8 +101,11 @@ describe('useVisibilityObserver', () => {
 
     wrapper.unmount();
 
-    const unobserveSpies = IntersectionObserver.mock.results.reduce((arr, res) => {
-      res?.value?.unobserve && arr.push(res.value.unobserve);
+    const unobserveSpies = IntersectionObserver.mock.results.reduce((arr: unknown[], res) => {
+      if (typeof res?.value?.unobserve === 'function') {
+        arr.push(res.value.unobserve);
+      }
+
       return arr;
     }, []);
 
