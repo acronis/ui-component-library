@@ -1,0 +1,28 @@
+<script lang="ts" setup>
+  defineOptions({ name: 'CheckboxIndeterminate' });
+</script>
+
+<template>
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      width="16"
+      height="16"
+      rx="3.5"
+      stroke-width="1"
+      fill="currentcolor"
+    />
+    <rect
+      x="4"
+      y="7"
+      width="8"
+      height="2"
+      fill="white"
+    />
+  </svg>
+</template>

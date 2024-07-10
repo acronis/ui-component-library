@@ -1,0 +1,35 @@
+<template>
+  <svg
+    width="17"
+    height="16"
+    viewBox="0 0 17 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="0.5"
+      width="16"
+      height="16"
+      rx="4"
+      fill="#2668C5"
+      fill-opacity="0.1"
+    />
+    <rect
+      x="1"
+      y="0.5"
+      width="15"
+      height="15"
+      rx="3.5"
+      stroke="#2668C5"
+      stroke-opacity="0.1"
+    />
+    <rect
+      x="4.5"
+      y="7"
+      width="8"
+      height="2"
+      fill="#2668C5"
+      fill-opacity="0.3"
+    />
+  </svg>
+</template>

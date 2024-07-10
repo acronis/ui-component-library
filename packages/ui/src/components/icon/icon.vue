@@ -113,8 +113,8 @@
     font-weight: var(--acv-font-weight-strong);
     color: var(--acv-icon-color);
     flex-shrink: 0;
-    block-size: var(--acv-icon-size-height, var(--acv-icon-size, var(--acv-base-icon-size)));
-    inline-size: var(--acv-icon-size-width, var(--acv-icon-size, var(--acv-base-icon-size)));
+    block-size: var(--acv-icon-size-height, var(--acv-icon-size));
+    inline-size: var(--acv-icon-size-width, var(--acv-icon-size));
     font-size: var(--acv-icon-size);
     position: relative;
     display: inline-flex;
