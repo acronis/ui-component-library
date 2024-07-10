@@ -12,26 +12,20 @@ In components content areas you can use icons from your custom sets.
 
 ```vue
 <script setup>
-  import { CustomIcon } from '@constructor-lab/icons';
+  import { IChevronDownSmall } from '@acronis-platform/icons';
 </script>
 
 <template>
   <AcvButton>
-    <CustomIcon name="close" />
+    <IChevronDownSmall />
     Close button
   </AcvButton>
 </template>
 ```
 
-## Acronis
+## Common icons
 
-<IconsAcronis />
+Internally components can use icons from Acronis and Constructor icon sets.
+We provide base set of icons. They can be redefined via components props, slots or config provider.
 
-## Constructor
-
-<IconsConstructor />
-
-<script setup>
-import IconsAcronis from '../.vitepress/components/IconsAcronis.vue';
-import IconsConstructor from '../.vitepress/components/IconsConstructor.vue';
-</script>
+<IconInternalBasic />

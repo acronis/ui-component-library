@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed, defineProps, defineSlots } from 'vue';
+  import { computed } from 'vue';
   import type {
     AcvFormItemEvents,
     AcvFormItemProps,
