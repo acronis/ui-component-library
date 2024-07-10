@@ -1,10 +1,12 @@
+import type { ColorProp, ComponentSize } from '../../types/props.ts';
+
 export interface IconButtonProps {
   /**
    * Size of the IconButton
    * @defaultValue 'medium'
    * @values 'small', 'medium', 'large'
    */
-  size?: string
+  size?: ComponentSize
 
   /**
    * Color of the IconButton
@@ -12,7 +14,7 @@ export interface IconButtonProps {
    * @defaultValue 'primary'
    * @values 'primary', 'secondary', 'success', 'info', 'warning', 'error'
    */
-  color?: string
+  color?: ColorProp
 }
 
 export interface IconButtonEvents {

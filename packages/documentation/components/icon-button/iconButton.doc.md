@@ -30,10 +30,10 @@ https://www.figma.com/file/
 
 ## Props
 
-| Prop name | Description             | Type               | Values                                                        | Default   |
-| --------- | ----------------------- | ------------------ | ------------------------------------------------------------- | --------- |
-| size      | Size of the IconButton  | string             | 'small', 'medium', 'large'                                    | 'medium'  |
-| color     | Color of the IconButton | string \| Function | 'primary', 'secondary', 'success', 'info', 'warning', 'error' | 'primary' |
+| Prop name | Description             | Type          | Values                                                        | Default   |
+| --------- | ----------------------- | ------------- | ------------------------------------------------------------- | --------- |
+| size      | Size of the IconButton  | ComponentSize | 'small', 'medium', 'large'                                    | 'medium'  |
+| color     | Color of the IconButton | ColorProp     | 'primary', 'secondary', 'success', 'info', 'warning', 'error' | 'primary' |
 
 ## Events
 

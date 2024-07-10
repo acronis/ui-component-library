@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import Button from '../button/button.vue';
+  import AcvButton from '../button/button.vue';
   import type { IconButtonEvents, IconButtonProps, IconButtonSlots } from './iconButton.ts';
   import './iconButton.css';
 
@@ -18,12 +18,13 @@
 </script>
 
 <template>
-  <Button
+  <AcvButton
     class="acv-icon-button"
+    :size="size"
     :class="classes"
   >
     <slot />
-  </Button>
+  </AcvButton>
 </template>
 
 <style scoped>
@@ -42,7 +43,7 @@
 
     &[disabled] {
       background-color: transparent;
-      color: var(--acv-background-disabled);
+      color: var(--acv-color-disabled);
     }
 
     &.acv-icon-button-color-primary {
