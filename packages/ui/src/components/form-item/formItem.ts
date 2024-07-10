@@ -1,13 +1,21 @@
+import type { IconProp } from '../../types/props.ts';
+
+type componentDirections = 'left' | 'right' | 'top' | 'bottom';
+
 export interface AcvFormItemProps {
   /**
    * Title of the FormItem
    */
   title?: string
 
+  control: IconProp
+
   /**
-   * Description of the FormItem
+   * Placement of the title
+   * @values left, right
+   * @defaultValue right
    */
-  description?: string
+  titlePlacement?: componentDirections
 }
 
 export interface AcvFormItemEvents {
@@ -24,9 +32,4 @@ export interface AcvFormItemSlots {
    * The default slot content
    */
   default: void
-  /**
-   * The description slot content
-   * @binding {string} description - The description prop value
-   */
-  description: void
 }

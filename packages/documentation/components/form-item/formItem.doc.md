@@ -30,10 +30,11 @@ A FormItem should ...
 
 ## Props
 
-| Prop name   | Description                 | Type   | Values | Default |
-| ----------- | --------------------------- | ------ | ------ | ------- |
-| title       | Title of the FormItem       | string | -      |         |
-| description | Description of the FormItem | string | -      |         |
+| Prop name      | Description            | Type                | Values      | Default |
+| -------------- | ---------------------- | ------------------- | ----------- | ------- |
+| title          | Title of the FormItem  | string              | -           |         |
+| control        |                        | IconProp            | -           |         |
+| titlePlacement | Placement of the title | componentDirections | left, right | right   |
 
 ## Events
 
@@ -43,7 +44,6 @@ A FormItem should ...
 
 ## Slots
 
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |
+| Name    | Description              | Bindings |
+| ------- | ------------------------ | -------- |
+| default | The default slot content |          |
