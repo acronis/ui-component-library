@@ -37,6 +37,6 @@ describe('test InputBase component', () => {
   it('renders', () => {
     const wrapper = mount(InputBase);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<input data-v-9dbd12cf="" class="acv-base-input">"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<input data-v-9dbd12cf="" class="acv-input-base">"`);
   });
 });

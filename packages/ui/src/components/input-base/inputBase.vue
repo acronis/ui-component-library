@@ -12,7 +12,7 @@
   const value = defineModel();
 
   const inputBaseClasses = computed(() => ({
-    'acv-base-input': true,
+    'acv-input-base': true,
     'hidden': hidden
   }));
 </script>
@@ -26,7 +26,7 @@
 </template>
 
 <style scoped>
-  .acv-base-input {
+  .acv-input-base {
     background: none;
     color: inherit;
 

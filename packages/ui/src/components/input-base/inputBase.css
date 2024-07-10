@@ -1,6 +1,6 @@
 @layer ui-base {
   :root {
     /* Insert component css variables here */
-    --acv-base-input-color: var(--acv-color-brand-primary);
+    --acv-input-base-color: var(--acv-color-brand-primary);
   }
 }

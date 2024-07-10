@@ -1,2 +1,2 @@
-export { default as AcvInputBase } from 'src/components/input-base/inputBase.vue';
-export * from 'src/components/input-base/inputBase.ts';
+export { default as AcvInputBase } from './inputBase.vue';
+export * from './inputBase.ts';
