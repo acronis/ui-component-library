@@ -1,7 +1,8 @@
-Short description for CheckboxGroup component...
+CheckboxGroup component is a wrapper for multiple checkboxes.
+It is used to group checkboxes together.
 
-:::info Figma component anatomy
-https://www.figma.com/file/
+:::info Figma mockups
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4414
 :::
 
 ## Basic usage
