@@ -73,10 +73,10 @@ export default defineConfig(async () => {
       alias: [
         { find: /^@\/(.+)/, replacement: resolve(__dirname, '../ui/src/$1') },
         {
-          find: /^@uikit-ui\/(services|utils|config)/,
+          find: /^@acronis-platform\/(utils|configs)/,
           replacement: resolve(__dirname, '../$1/src')
         },
-        { find: /^uikit-ui\/ui$/, replacement: resolve(__dirname, '../ui/src/index.ts') }
+        { find: /^@acronis-platform\/ui-component-library$/, replacement: resolve(__dirname, '../ui/src/index.ts') }
       ]
     },
     server: {

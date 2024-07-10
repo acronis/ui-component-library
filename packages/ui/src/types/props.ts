@@ -98,7 +98,7 @@ export interface PropsOptions {
   strong?: StrongConfigurableProps
 }
 
-export type IconProp = object | (() => object) | string;
+export type IconProp = object | (() => NonNullable<unknown>) | string;
 export type ColorProp =
   ColorBrand
   | ColorStatus

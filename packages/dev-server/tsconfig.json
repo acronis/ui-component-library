@@ -4,8 +4,13 @@
     "types": ["vite/client"],
     "paths": {
       "@/*": ["../ui/src/*"],
-      "uikit-ui": ["../ui/src/components"]
     }
   },
-  "include": ["*.vue", "*.ts", "global.d.ts"]
+  "include": [
+    "*.vue",
+    "*.ts",
+    "global.d.ts",
+    "../ui/*/src/**/*",
+    "../ui/types.d.ts"
+  ]
 }

@@ -293,7 +293,7 @@
   --acv-color-info-background: var(--acv-color-status-info-primary);
   --acv-color-info-border: var(--acv-color-status-info-secondary);
   --acv-color-info-text: var(--acv-color-text-status-info);
-  --acv-color-disabled: var(--acv-color-transparent);
+  --acv-color-disabled: var(--acv-color-button-disabled);
   --acv-color-disabled-border: var(--acv-color-secondary-muted);
   --acv-color-disabled-text: var(--acv-color-text-disabled);
 }

@@ -128,6 +128,9 @@ importers:
       '@acronis-platform/icons':
         specifier: workspace:*
         version: link:../icons
+      '@acronis-platform/ui-component-library':
+        specifier: workspace:*
+        version: link:../ui
       '@acronis-platform/utils':
         specifier: workspace:*
         version: link:../utils
