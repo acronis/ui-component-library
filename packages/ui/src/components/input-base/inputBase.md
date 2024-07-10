@@ -1,4 +1,4 @@
-Short description for BaseInput component...
+Short description for InputBase component...
 
 :::info Figma component anatomy
 https://www.figma.com/file/
@@ -6,15 +6,15 @@ https://www.figma.com/file/
 
 ## Basic usage
 
-<BaseInputBasic />
+<InputBaseBasic />
 
 ::: details Source code
-<<< @/demos/base-input/BaseInputBasic.vue
+<<< @/demos/base-input/InputBaseBasic.vue
 :::
 
 ## Best practices
 
-A BaseInput should ...
+A InputBase should ...
 
 ## Related components
 
