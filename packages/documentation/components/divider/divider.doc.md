@@ -50,12 +50,12 @@ Optionally, you can provide `aria-orientation` attribute to describe the separat
 
 ## Props
 
-| Prop name    | Description                         | Type                | Values                                                                    | Default |
-| ------------ | ----------------------------------- | ------------------- | ------------------------------------------------------------------------- | ------- |
-| vertical     | Orientation of the Divider          | boolean             | -                                                                         |         |
-| textPosition | Position of the text in the Divider | DividerTextPosition | -                                                                         |         |
-| margin       | Margin of the Divider               | union               | -                                                                         |         |
-| color        | Color of the Divider                | union               | 'primary', 'secondary', 'neutral', 'success', 'warning', 'danger', 'info' | 'brand' |
+| Prop name    | Description                         | Type                      | Values                                                                    | Default |
+| ------------ | ----------------------------------- | ------------------------- | ------------------------------------------------------------------------- | ------- |
+| vertical     | Orientation of the Divider          | boolean                   | -                                                                         |         |
+| textPosition | Position of the text in the Divider | DividerTextPosition       | -                                                                         |         |
+| margin       | Margin of the Divider               | string \| number          | -                                                                         |         |
+| color        | Color of the Divider                | ColorBrand \| ColorStatus | 'primary', 'secondary', 'neutral', 'success', 'warning', 'danger', 'info' | 'brand' |
 
 ## Slots
 

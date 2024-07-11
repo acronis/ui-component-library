@@ -1,4 +1,5 @@
 import type { InjectionKey, Ref } from 'vue';
+import type { ComponentSize } from '../../types/props.ts';
 
 export interface AccordionProps {
   /**
@@ -10,7 +11,7 @@ export interface AccordionProps {
    * Height of the accordion
    * @values 'small', 'medium', 'large'
    */
-  size?: 'small' | 'medium' | 'large'
+  size?: ComponentSize
 
   /**
    * Whether the multiple Accordion can be open at the same time

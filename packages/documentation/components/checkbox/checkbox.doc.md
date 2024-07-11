@@ -32,22 +32,22 @@ Provided `AcvCheckbox` component must adapt to the list of
 
 ## Props
 
-| Prop name           | Description                                               | Type    | Values                                                        | Default   |
-| ------------------- | --------------------------------------------------------- | ------- | ------------------------------------------------------------- | --------- |
-| id                  | Title of the Checkbox                                     | string  | -                                                             |           |
-| label               | Value of the Checkbox when used inside a `checkbox-group` | union   | -                                                             |           |
-| trueValue           | Value of the Checkbox if it's checked                     | union   | -                                                             |           |
-| falseValue          | Value of the Checkbox if it's not checked                 | union   | -                                                             |           |
-| indeterminate       | Same as `indeterminate` in native checkbox                | boolean | -                                                             | false     |
-| disabled            | Whether the Checkbox is disabled                          | boolean | -                                                             | false     |
-| checked             | Whether Checkbox is checked                               | boolean | -                                                             | false     |
-| name                | Native `name` attribute                                   | string  | -                                                             |           |
-| showHint            | Show browser's default title hint                         | boolean | -                                                             | false     |
-| multilineLabel      | Enables multiline label                                   | boolean | -                                                             | false     |
-| multilineLabelLimit | Limit the number of lines of the label                    | number  | -                                                             |           |
-| modelValue          | Value of the Checkbox                                     | union   | -                                                             |           |
-| size                | Size of the Checkbox                                      | string  | 'small', 'medium', 'large'                                    | 'medium'  |
-| color               | Color of the Checkbox                                     | string  | 'primary', 'secondary', 'success', 'info', 'warning', 'error' | 'primary' |
+| Prop name           | Description                                               | Type                        | Values                                                        | Default   |
+| ------------------- | --------------------------------------------------------- | --------------------------- | ------------------------------------------------------------- | --------- |
+| id                  | Title of the Checkbox                                     | string                      | -                                                             |           |
+| label               | Value of the Checkbox when used inside a `checkbox-group` | string \| number \| boolean | -                                                             |           |
+| trueValue           | Value of the Checkbox if it's checked                     | string \| number            | -                                                             |           |
+| falseValue          | Value of the Checkbox if it's not checked                 | string \| number            | -                                                             |           |
+| indeterminate       | Same as `indeterminate` in native checkbox                | boolean                     | -                                                             | false     |
+| disabled            | Whether the Checkbox is disabled                          | boolean                     | -                                                             | false     |
+| checked             | Whether Checkbox is checked                               | boolean                     | -                                                             | false     |
+| name                | Native `name` attribute                                   | string                      | -                                                             |           |
+| showHint            | Show browser's default title hint                         | boolean                     | -                                                             | false     |
+| multilineLabel      | Enables multiline label                                   | boolean                     | -                                                             | false     |
+| multilineLabelLimit | Limit the number of lines of the label                    | number                      | -                                                             |           |
+| modelValue          | Value of the Checkbox                                     | boolean \| Array            | -                                                             |           |
+| size                | Size of the Checkbox                                      | string                      | 'small', 'medium', 'large'                                    | 'medium'  |
+| color               | Color of the Checkbox                                     | string                      | 'primary', 'secondary', 'success', 'info', 'warning', 'error' | 'primary' |
 
 ## Events
 
