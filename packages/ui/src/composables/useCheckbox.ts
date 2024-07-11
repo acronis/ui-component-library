@@ -14,13 +14,13 @@ export interface CheckboxProps {
    * Value of the Checkbox if it's checked
    * @defaultValue true
    */
-  checkedValue: CheckboxModelValue
+  checkedValue?: CheckboxModelValue
 
   /**
    * Value of the Checkbox if it's not checked
    * @defaultValue false
    */
-  uncheckedValue: CheckboxModelValue
+  uncheckedValue?: CheckboxModelValue
 
   /**
    * Custom value for indeterminate state of the Checkbox

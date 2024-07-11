@@ -1,10 +1,10 @@
 ---
-title: Checkbox component
+title: Acv Checkbox component
 lang: en-US
 editLink: true
 ---
 
-# Checkbox
+# Acv Checkbox
 
 Checkbox is a control that allows to select `binary` state, either checked or unchecked.
 Also it can support `indeterminate` state, which is used to represent a checkbox with a state that is neither checked nor unchecked.
@@ -52,22 +52,25 @@ It should:
 
 ## Props
 
-| Prop name           | Description                                               | Type                        | Values                                                        | Default   |
-| ------------------- | --------------------------------------------------------- | --------------------------- | ------------------------------------------------------------- | --------- |
-| id                  | Title of the Checkbox                                     | string                      | -                                                             |           |
-| label               | Value of the Checkbox when used inside a `checkbox-group` | string \| number \| boolean | -                                                             |           |
-| trueValue           | Value of the Checkbox if it's checked                     | string \| number            | -                                                             |           |
-| falseValue          | Value of the Checkbox if it's not checked                 | string \| number            | -                                                             |           |
-| indeterminate       | Same as `indeterminate` in native checkbox                | boolean                     | -                                                             | false     |
-| disabled            | Whether the Checkbox is disabled                          | boolean                     | -                                                             | false     |
-| checked             | Whether Checkbox is checked                               | boolean                     | -                                                             | false     |
-| name                | Native `name` attribute                                   | string                      | -                                                             |           |
-| showHint            | Show browser's default title hint                         | boolean                     | -                                                             | false     |
-| multilineLabel      | Enables multiline label                                   | boolean                     | -                                                             | false     |
-| multilineLabelLimit | Limit the number of lines of the label                    | number                      | -                                                             |           |
-| modelValue          | Value of the Checkbox                                     | boolean \| Array            | -                                                             |           |
-| size                | Size of the Checkbox                                      | string                      | 'small', 'medium', 'large'                                    | 'medium'  |
-| color               | Color of the Checkbox                                     | string                      | 'primary', 'secondary', 'success', 'info', 'warning', 'error' | 'primary' |
+| Prop name           | Description                                          | Type               | Values                                                        | Default   |
+| ------------------- | ---------------------------------------------------- | ------------------ | ------------------------------------------------------------- | --------- |
+| cycleIndeterminate  | Enable cycling indeterminate state                   | boolean            | -                                                             |           |
+| indeterminateValue  | Custom value for indeterminate state of the Checkbox | CheckboxModelValue | -                                                             | null      |
+| uncheckedValue      | Value of the Checkbox if it's not checked            | CheckboxModelValue | -                                                             | false     |
+| checkedValue        | Value of the Checkbox if it's checked                | CheckboxModelValue | -                                                             | true      |
+| modelValue          | Bind v-model value                                   | CheckboxModelValue | -                                                             |           |
+| id                  | Title of the Checkbox                                | string             | -                                                             |           |
+| label               | Label text inside default slot                       | string             | -                                                             |           |
+| disabled            | Whether the Checkbox is disabled                     | boolean            | -                                                             | false     |
+| name                | Native `name` attribute                              | string             | -                                                             |           |
+| showHint            | Show browser's default title hint                    | boolean            | -                                                             | false     |
+| multilineLabel      | Enables multiline label                              | boolean            | -                                                             | false     |
+| multilineLabelLimit | Limit the number of lines of the label               | number             | -                                                             |           |
+| size                | Size of the Checkbox                                 | ComponentSize      | 'small', 'medium', 'large'                                    | 'medium'  |
+| color               | Color of the Checkbox                                | ColorProp          | 'primary', 'secondary', 'success', 'info', 'warning', 'error' | 'primary' |
+| invalid             |                                                      | boolean            | -                                                             |           |
+| required            |                                                      | boolean            | -                                                             |           |
+| iconClass           | Classes for the icon element                         | string             | -                                                             |           |
 
 ## Events
 
@@ -78,7 +81,7 @@ It should:
 
 ## Slots
 
-| Name    | Description             | Bindings |
-| ------- | ----------------------- | -------- |
-| icon    | Slot for checkbox icon  |          |
-| default | Slot for checkbox label |          |
+| Name    | Description                               | Bindings |
+| ------- | ----------------------------------------- | -------- |
+| icon    | Slot for checkbox icon                    |          |
+| default | Default slot for rendering checkbox label |          |

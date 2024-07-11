@@ -8,6 +8,10 @@
   import AcvTypography from '@/components/typography/typography.vue';
   import './formItem.css';
 
+  defineOptions({
+    name: 'AcvFormItem',
+    inheritAttrs: false,
+  });
   const { title, control, titlePlacement } = defineProps<AcvFormItemProps>();
 
   defineEmits<AcvFormItemEvents>();
@@ -20,10 +24,15 @@
 </script>
 
 <template>
-  <label :class="formItemClasses">
-    <control v-bind="$attrs" />
+  <label
+    :class="formItemClasses"
+  >
+    <control
+      v-bind="$attrs"
+    />
     <AcvTypography
-      variant="body.large"
+      class="title"
+      variant="body-large"
       component="span"
       :disabled="$attrs.disabled"
     >
@@ -39,8 +48,9 @@
     display: inline-flex;
     user-select: none;
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: normal;
     cursor: pointer;
+    gap: 8px;
 
     &.top {
       flex-direction: column-reverse;

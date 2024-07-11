@@ -30,11 +30,11 @@ A InputBase should ...
 
 ## Props
 
-| Prop name  | Description                     | Type    | Values | Default |
-| ---------- | ------------------------------- | ------- | ------ | ------- |
-| modelValue | The value of the InputBase      | union   | -      |         |
-| type       | Type of the InputBase           | string  | -      |         |
-| hidden     | Whether the InputBase is hidden | boolean | -      |         |
+| Prop name  | Description                     | Type                                           | Values | Default |
+| ---------- | ------------------------------- | ---------------------------------------------- | ------ | ------- |
+| modelValue | The value of the InputBase      | string \| number \| boolean \| object \| Array | -      |         |
+| type       | Type of the InputBase           | string                                         | -      |         |
+| hidden     | Whether the InputBase is hidden | boolean                                        | -      |         |
 
 ## Events
 

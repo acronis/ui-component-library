@@ -8,8 +8,9 @@ describe('test FormItem component', () => {
     const wrapper = mount(FormItem);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
+        "control": undefined,
         "title": undefined,
+        "titlePlacement": undefined,
       }
     `);
   });
@@ -23,8 +24,9 @@ describe('test FormItem component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
+        "control": undefined,
         "title": "test",
+        "titlePlacement": undefined,
       }
     `);
   });
@@ -32,6 +34,14 @@ describe('test FormItem component', () => {
   it('renders', () => {
     const wrapper = mount(FormItem);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-414cb91d="" class="acv-form-item"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<label data-v-414cb91d="" class="acv-form-item">
+        <!---->
+        <div data-v-d623bc49="" data-v-414cb91d="" class="acv-typography title" variant="body-large" component="span">
+          <!--v-if-->
+          <p data-v-d623bc49="" class="acv-text"></p>
+        </div>
+      </label>"
+    `);
   });
 });

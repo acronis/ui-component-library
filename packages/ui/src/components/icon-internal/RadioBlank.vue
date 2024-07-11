@@ -1,22 +1,21 @@
 <script lang="ts" setup>
-  defineOptions({ name: 'RadioButtonUncheckedFilled' });
+  defineOptions({ name: 'RadioBlank' });
 </script>
 
 <template>
   <svg
-    class="acv-icon"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    height="1em"
-    viewBox="0 0 24 24"
-    width="1em"
-    fill="currentcolor"
   >
-    <path
-      d="M0 0h24v24H0z"
-      fill="none"
-    />
-    <path
-      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+    <circle
+      cx="8"
+      cy="8"
+      r="7.5"
+      fill="white"
+      stroke="#1F56A2"
     />
   </svg>
 </template>

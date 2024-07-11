@@ -16,6 +16,7 @@
   const props = withDefaults(defineProps<AcvCheckboxProps>(), {
     color: 'primary',
     size: 'medium',
+    uncheckedValue: false,
     indeterminateValue: null
   });
   const emit = defineEmits<CheckboxEvents>();

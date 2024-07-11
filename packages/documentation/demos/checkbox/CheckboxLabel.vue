@@ -1,9 +1,9 @@
-<script setup lang="ts">
+<script setup>
   import { reactive } from 'vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
   import AcvFormItem from '@/components/form-item/formItem.vue';
 
-  const checked = reactive<boolean[]>([true, true, true]);
+  const checked = reactive([true, true, true]);
 </script>
 
 <template>

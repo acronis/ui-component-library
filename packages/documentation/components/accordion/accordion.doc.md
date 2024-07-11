@@ -94,12 +94,12 @@ It consists of these elements:
 
 ## Props
 
-| Prop name  | Description                                                 | Type                           | Values                     | Default |
-| ---------- | ----------------------------------------------------------- | ------------------------------ | -------------------------- | ------- |
-| modelValue | Active panel id                                             | Array \| Array                 | -                          |         |
-| size       | Height of the accordion                                     | "small" \| "medium" \| "large" | 'small', 'medium', 'large' |         |
-| multiple   | Whether the multiple Accordion can be open at the same time | boolean                        | -                          |         |
-| expanded   | Expand all accordion items                                  | boolean                        | -                          |         |
+| Prop name  | Description                                                 | Type           | Values                     | Default |
+| ---------- | ----------------------------------------------------------- | -------------- | -------------------------- | ------- |
+| modelValue | Active panel id                                             | Array \| Array | -                          |         |
+| size       | Height of the accordion                                     | ComponentSize  | 'small', 'medium', 'large' |         |
+| multiple   | Whether the multiple Accordion can be open at the same time | boolean        | -                          |         |
+| expanded   | Expand all accordion items                                  | boolean        | -                          |         |
 
 ## Events
 

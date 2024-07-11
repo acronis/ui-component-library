@@ -15,7 +15,7 @@
 }
 
 .acv-text {
-  margin: 0;
+  margin: 0 !important;
   font-size: var(--acv-font-size-accent);
   line-height: var(--acv-font-line-height-regular);
   font-weight: var(--acv-font-weight-regular);
