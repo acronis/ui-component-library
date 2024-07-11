@@ -1,9 +1,9 @@
-<script setup lang="ts">
+<script setup>
   import { reactive } from 'vue';
   import { ICheckCircleLarge, ITimesCircleOLarge } from '@acronis-platform/icons';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
 
-  const checked = reactive<boolean[]>([false, false]);
+  const checked = reactive([false, false]);
 </script>
 
 <template>

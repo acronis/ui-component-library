@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import Checkbox from './checkbox.vue';
 import type { AcvCheckboxProps } from './checkbox.ts';
 
-describe('test Checkbox component', () => {
+describe('checkbox component', () => {
   it('default props', () => {
     const wrapper = mount(Checkbox);
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -21,6 +21,7 @@ describe('test Checkbox component', () => {
         "multilineLabel": false,
         "multilineLabelLimit": undefined,
         "name": undefined,
+        "required": false,
         "showHint": false,
         "size": "medium",
         "uncheckedValue": false,
@@ -50,6 +51,7 @@ describe('test Checkbox component', () => {
         "multilineLabel": false,
         "multilineLabelLimit": undefined,
         "name": undefined,
+        "required": false,
         "showHint": false,
         "size": "medium",
         "uncheckedValue": false,
@@ -59,12 +61,12 @@ describe('test Checkbox component', () => {
 
   it('renders', () => {
     const wrapper = mount(Checkbox, {
-      propsData: {
+      props: {
         id: 'test'
-      }
+      } as AcvCheckboxProps,
     });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<label data-v-178ad92c="" for="acv-checkbox-test" class="acv-checkbox"><input data-v-178ad92c="" id="acv-checkbox-test" name="acv-checkbox-test" class="hidden" aria-disabled="false" type="checkbox"><svg data-v-edf74d45="" data-v-178ad92c="" class="acv-checkbox-icon medium" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="--acv-checkbox-icon-color: var(--acv-color-primary);">
+      "<label data-v-178ad92c="" for="acv-checkbox-test" class="acv-checkbox"><input data-v-178ad92c="" id="acv-checkbox-test" name="acv-checkbox-test" class="hidden" aria-disabled="false" aria-invalid="false" aria-required="false" type="checkbox"><svg data-v-edf74d45="" data-v-178ad92c="" class="acv-checkbox-icon medium icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="--acv-checkbox-icon-color: var(--acv-color-primary);">
           <rect data-v-edf74d45="" class="outline" x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke-width="1" stroke="currentcolor"></rect>
           <!--v-if-->
           <!--v-if-->

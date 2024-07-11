@@ -1,8 +1,8 @@
-<script setup lang="ts">
+<script setup>
   import { ref } from 'vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
 
-  const value = ref<boolean | null>(null);
+  const value = ref(null);
 </script>
 
 <template>

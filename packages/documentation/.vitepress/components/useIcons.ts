@@ -1,5 +1,5 @@
 import { type Raw, computed, markRaw, ref, watch } from 'vue';
-import acronisCollection from '@acronis-platform/icons/vue/acronis/public';
+import * as acronisCollection from '@acronis-platform/icons/src/acronis';
 
 export function useIcons({ collection, type = '', search = '' }) {
   const iconNames = ref<string[]>([]);

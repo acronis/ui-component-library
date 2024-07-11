@@ -4,7 +4,7 @@ export { default as CalendarOSmall } from './CalendarOSmall.vue';
 export { default as CheckboxBlank } from './CheckboxBlank.vue';
 export { default as CheckboxChecked } from './CheckboxChecked.vue';
 export { default as CheckboxIndeterminate } from './CheckboxIndeterminate.vue';
-export { default as Checkbox } from 'src/components/icon-internal/CheckboxIcon.vue';
+export { default as Checkbox } from './CheckboxIcon.vue';
 export { default as CheckSmall } from './CheckSmall.vue';
 export { default as CheckSquareSmall } from './CheckSquareSmall.vue';
 export { default as ChevronDoubleLeftSmall } from './ChevronDoubleLeftSmall.vue';

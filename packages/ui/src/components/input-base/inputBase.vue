@@ -19,6 +19,7 @@
 
 <template>
   <input
+    v-bind="$attrs"
     v-model="value"
     :type="type"
     :class="inputBaseClasses"

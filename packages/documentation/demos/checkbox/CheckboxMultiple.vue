@@ -1,11 +1,11 @@
-<script setup lang="ts">
+<script setup>
   import { ref } from 'vue';
 
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
   import AcvFormItem from '@/components/form-item/formItem.vue';
   import AcvTypography from '@/components/typography/typography.vue';
 
-  const checkedNames = ref<string[]>([]);
+  const checkedNames = ref([]);
 </script>
 
 <template>

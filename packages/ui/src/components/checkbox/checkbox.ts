@@ -83,10 +83,10 @@ export interface CheckboxSlots {
   /**
    * Default slot for rendering checkbox label
    */
-  default: () => any
+  default?: void
   /**
    * Slot for checkbox icon
    * @binding {boolean} checked - The id of the checkbox
    */
-  icon: void
+  icon?: void
 }

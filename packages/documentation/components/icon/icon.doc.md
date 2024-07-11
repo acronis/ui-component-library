@@ -16,6 +16,8 @@ https://www.figma.com/file/YDRlEkpDc1qcapabYuK5ID/Glyphs?node-id=0%3A1
 
 ## Usage
 
+TODO: Replace with real-world example from /demos
+
 ```vue
 <script setup>
   import { AcvIcon } from '@acronis-platform/vue';

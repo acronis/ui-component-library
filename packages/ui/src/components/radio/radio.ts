@@ -1,32 +1,51 @@
+import type { ColorProp, ComponentSize } from '@/types/props.ts';
+
 export interface AcvRadioProps {
   /**
-   * Title of the Radio
+   * Binding value of the Radio
    */
-  title?: string
+  modelValue: string | number | boolean
 
   /**
-   * Description of the Radio
+   * Radio size
+   * @defaultValue medium
    */
-  description?: string
+  size?: ComponentSize
+
+  /**
+   * Custom color of the Radio
+   * @defaultValue primary
+   */
+  color?: ColorProp
+
+  /**
+   * Label text
+   */
+  label?: string
+
+  /**
+   * Disable radio
+   */
+  disabled?: boolean
+
+  /**
+   * Whether the Radio is invalid
+   */
+  invalid?: boolean
 }
 
 export interface AcvRadioEvents {
   /**
-   * Triggered when the component is closed
+   * Triggered when binding value changes
    * @arg {string} eventName - The name of the event
-   * @arg {string} visible - The visibility state of the component
+   * @arg {string} value - The updated value
    */
-  (eventName: 'close', visible: boolean): void
+  (eventName: 'update:modelValue', value: any): void
 }
 
 export interface AcvRadioSlots {
   /**
    * The default slot content
    */
-  default: void
-  /**
-   * The description slot content
-   * @binding {string} description - The description prop value
-   */
-  description: void
+  default?: void
 }

@@ -1,0 +1,85 @@
+<script setup>
+  import { ref } from 'vue';
+  import AcvRadio from '@/components/radio/radio.vue';
+
+  const value = ref(1);
+</script>
+
+<template>
+  <div>
+    <AcvRadio
+      v-model="value"
+      size="small"
+      :value="1"
+    />
+    <AcvRadio
+      v-model="value"
+      size="small"
+      color="danger"
+      :value="2"
+    />
+    <AcvRadio
+      v-model="value"
+      size="small"
+      color="success"
+      :value="3"
+    />
+  </div>
+  <div>
+    <AcvRadio
+      v-model="value"
+      :value="1"
+    />
+    <AcvRadio
+      v-model="value"
+      color="critical"
+      :value="2"
+    />
+    <AcvRadio
+      v-model="value"
+      color="warning"
+      :value="3"
+    />
+  </div>
+  <div>
+    <AcvRadio
+      v-model="value"
+      size="large"
+      :value="1"
+    />
+    <AcvRadio
+      v-model="value"
+      size="large"
+      color="danger"
+      :value="2"
+    />
+    <AcvRadio
+      v-model="value"
+      size="large"
+      color="lime"
+      :value="3"
+    />
+  </div>
+  <div>
+    <AcvRadio
+      v-model="value"
+      size="large"
+      :value="1"
+      label="One"
+    />
+    <AcvRadio
+      v-model="value"
+      size="large"
+      color="danger"
+      :value="2"
+      label="Two"
+    />
+    <AcvRadio
+      v-model="value"
+      size="large"
+      color="lime"
+      :value="3"
+      label="Three"
+    />
+  </div>
+</template>
