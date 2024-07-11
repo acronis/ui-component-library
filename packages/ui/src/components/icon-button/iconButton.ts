@@ -8,11 +8,11 @@ export interface IconButtonProps {
 
   /**
    * Color of the IconButton
-   * @type {string | Function}
+   * @type {string}
    * @defaultValue 'primary'
    * @values 'primary', 'secondary', 'success', 'info', 'warning', 'error'
    */
-  color?: string | Function
+  color?: string
 }
 
 export interface IconButtonEvents {

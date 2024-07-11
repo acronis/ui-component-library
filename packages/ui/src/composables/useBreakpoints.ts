@@ -48,7 +48,9 @@ export function useBreakpoints(className, props: ResponsibleProps) {
   BREAKPOINTS.forEach((bp) => {
     const breakpoint = props[bp];
 
-    breakpoint && responsiveClassNames.value.push(`${className}-${bp}`);
+    if (breakpoint) {
+      responsiveClassNames.value.push(`${className}-${bp}`);
+    }
   });
 
   return {

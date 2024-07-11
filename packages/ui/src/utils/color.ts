@@ -30,7 +30,7 @@ export const STATUS_COLORS = {
   danger: 'danger',
 };
 
-const STATE_COLORS = {
+export const STATE_COLORS = {
   disabled: 'disabled',
   accent: 'accent',
   hover: 'hover',

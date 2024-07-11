@@ -8,7 +8,9 @@ export async function getCollections() {
   return fs.readdirSync(pathCollections, {
     withFileTypes: true
   }).reduce((a: string[], c: fs.Dirent) => {
-    c.isDirectory() && a.push(c.name);
+    if (c.isDirectory()) {
+      a.push(c.name);
+    }
     return a;
   }, []);
 }

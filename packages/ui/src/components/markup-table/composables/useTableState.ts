@@ -13,14 +13,16 @@ export function useTableState(columns) {
   function applyState() {
     const savedColumns = jsonParseSafe(localStorage?.getItem(`table_state_${TABLE_KEY.toString()}`))?.columns;
 
-    savedColumns && Object.keys(savedColumns).forEach((columnKey) => {
-      const updatingColumn = columns.find(col => col.columnKey === columnKey);
-      const pickedColumnProps = pick(savedColumns[columnKey], SAVED_COLUMN_PROPS);
+    if (savedColumns) {
+      Object.keys(savedColumns).forEach((columnKey) => {
+        const updatingColumn = columns.find(col => col.columnKey === columnKey);
+        const pickedColumnProps = pick(savedColumns[columnKey], SAVED_COLUMN_PROPS);
 
-      Object.keys(pickedColumnProps).forEach((key) => {
-        updatingColumn[key] = pickedColumnProps[key];
+        Object.keys(pickedColumnProps).forEach((key) => {
+          updatingColumn[key] = pickedColumnProps[key];
+        });
       });
-    });
+    }
   }
 
   return {
