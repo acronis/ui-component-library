@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   release:
+    if: github.repository == 'acronis/ui-component-library'
     name: Release pushed tag
     runs-on: ubuntu-22.04
     steps:

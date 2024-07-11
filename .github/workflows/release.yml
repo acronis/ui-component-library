@@ -7,6 +7,7 @@ on:
 
 jobs:
   changelog:
+    if: github.repository == 'acronis/ui-component-library'
     runs-on: ubuntu-latest
 
     steps:
