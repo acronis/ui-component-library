@@ -1,6 +1,13 @@
 import { renderTag, renderTags } from './tags.js';
 import { mdclean } from './utils.js';
 
+function renderType(pr) {
+  if (pr.type?.name === 'union') {
+    return pr.type.elements.map(element => element.name).join(' | ');
+  }
+  return pr.type?.name ?? `-${pr.required ? ' (required)' : ''}`;
+}
+
 function tmpl(props) {
   return props.map((pr = { tags: {} }) => {
     const { values, defaultValue, ...restTags } = pr.tags || {};
@@ -9,7 +16,7 @@ function tmpl(props) {
 
     const p = pr.name;
     const t = pr.description ?? `${restTags ? renderTags(restTags) : ''}`;
-    const n = pr.type?.name ?? `-${pr.required ? ' (required)' : ''}`;
+    const n = renderType(pr);
     const v = values ? renderTag(valuesTag, true) : (pr.values?.map(pv => `\`${pv}\``).join(', ') ?? '-');
     const d = defaultTag ? renderTag(defaultTag, true) : pr.defaultValue?.value ?? '';
 
