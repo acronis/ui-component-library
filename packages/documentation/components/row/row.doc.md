@@ -29,13 +29,13 @@ A Row should ...
 
 ## Props
 
-| Prop name  | Description                         | Type           | Values                                                    | Default |
-| ---------- | ----------------------------------- | -------------- | --------------------------------------------------------- | ------- |
-| gap        | Grid spacing                        | union          | -                                                         | 0       |
-| justify    | Horizontal alignment of flex layout | RowGridJustify | 'start', 'end', 'center', 'space-around', 'space-between' | 'start' |
-| align      | Vertical alignment of flex layout   | RowGridAlign   | 'top', 'middle', 'bottom'                                 | 'top'   |
-| tag        | Custom tag                          | string         | -                                                         | 'div'   |
-| columnFlex |                                     | union          | -                                                         | false   |
+| Prop name  | Description                         | Type               | Values                                                    | Default |
+| ---------- | ----------------------------------- | ------------------ | --------------------------------------------------------- | ------- |
+| gap        | Grid spacing                        | number \| Array    | -                                                         | 0       |
+| justify    | Horizontal alignment of flex layout | RowGridJustify     | 'start', 'end', 'center', 'space-around', 'space-between' | 'start' |
+| align      | Vertical alignment of flex layout   | RowGridAlign       | 'top', 'middle', 'bottom'                                 | 'top'   |
+| tag        | Custom tag                          | string             | -                                                         | 'div'   |
+| columnFlex |                                     | boolean \| Partial | -                                                         | false   |
 
 ## Slots
 

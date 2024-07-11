@@ -46,10 +46,10 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A4
 
 ## Props
 
-| Prop name | Description                                   | Type    | Values               | Default |
-| --------- | --------------------------------------------- | ------- | -------------------- | ------- |
-| size      | Size of the component                         | union   | small, medium, large |         |
-| vertical  | Set of buttons that appear vertically stacked | boolean | -                    |         |
+| Prop name | Description                                   | Type          | Values               | Default |
+| --------- | --------------------------------------------- | ------------- | -------------------- | ------- |
+| size      | Size of the component                         | ComponentSize | small, medium, large |         |
+| vertical  | Set of buttons that appear vertically stacked | boolean       | -                    |         |
 
 ## Events
 

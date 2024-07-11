@@ -82,12 +82,12 @@ Breadcrumbs are often placed horizontally before a page's main content.
 
 ## Props
 
-| Prop name     | Description                                          | Type    | Values | Default |
-| ------------- | ---------------------------------------------------- | ------- | ------ | ------- |
-| maxItems      | Maximum number of items to display                   | number  | -      |         |
-| multiline     | Breadcrumb will be wrapped to multiple lines if true | boolean | -      |         |
-| separatorIcon | Separator between breadcrumbs                        | string  | -      |         |
-| size          | Size of the breadcrumbs                              | union   | -      | 'md'    |
+| Prop name     | Description                                          | Type         | Values | Default |
+| ------------- | ---------------------------------------------------- | ------------ | ------ | ------- |
+| maxItems      | Maximum number of items to display                   | number       | -      |         |
+| multiline     | Breadcrumb will be wrapped to multiple lines if true | boolean      | -      |         |
+| separatorIcon | Separator between breadcrumbs                        | string       | -      |         |
+| size          | Size of the breadcrumbs                              | "md" \| "lg" | -      | 'md'    |
 
 ## Events
 

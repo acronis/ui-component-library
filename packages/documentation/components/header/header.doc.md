@@ -30,13 +30,13 @@ A Header should ...
 
 ## Props
 
-| Prop name | Description                    | Type    | Values                                                                       | Default |
-| --------- | ------------------------------ | ------- | ---------------------------------------------------------------------------- | ------- |
-| bordered  | Bottom border of the Header    | boolean | -                                                                            | true    |
-| height    | Height of the Header           | string  | -                                                                            | 64px    |
-| color     | Background color of the Header | union   | transparent, primary, secondary, success, warning, danger, info, light, dark | white   |
-| title     | Title of the Header            | string  | -                                                                            | ''      |
-| align     | Align the title                | string  | left, center, right                                                          | center  |
+| Prop name | Description                    | Type                                                                                                                                                 | Values                                                                       | Default |
+| --------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------- |
+| bordered  | Bottom border of the Header    | boolean                                                                                                                                              | -                                                                            | true    |
+| height    | Height of the Header           | string                                                                                                                                               | -                                                                            | 64px    |
+| color     | Background color of the Header | "brand" \| "white" \| "primary" \| "secondary" \| "tertiary" \| "disabled" \| "accent" \| "danger" \| "critical" \| "warning" \| "success" \| "info" | transparent, primary, secondary, success, warning, danger, info, light, dark | white   |
+| title     | Title of the Header            | string                                                                                                                                               | -                                                                            | ''      |
+| align     | Align the title                | string                                                                                                                                               | left, center, right                                                          | center  |
 
 ## Slots
 

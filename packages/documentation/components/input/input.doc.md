@@ -47,11 +47,11 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A16
 
 ## Props
 
-| Prop name  | Description                               | Type   | Values | Default |
-| ---------- | ----------------------------------------- | ------ | ------ | ------- |
-| type       | Description of the Input                  | string | -      |         |
-| trueValue  | Value of the Checkbox if it's checked     | union  | -      |         |
-| falseValue | Value of the Checkbox if it's not checked | union  | -      |         |
+| Prop name  | Description                               | Type             | Values | Default |
+| ---------- | ----------------------------------------- | ---------------- | ------ | ------- |
+| type       | Description of the Input                  | string           | -      |         |
+| trueValue  | Value of the Checkbox if it's checked     | string \| number | -      |         |
+| falseValue | Value of the Checkbox if it's not checked | string \| number | -      |         |
 
 ## Events
 

@@ -39,14 +39,14 @@ Set `hide-close` to hide the close button
 
 ## Props
 
-| Prop name   | Description           | Type    | Values | Default |
-| ----------- | --------------------- | ------- | ------ | ------- |
-| alerts      | List of alerts        | Array   | -      |         |
-| variant     |                       | union   | -      |         |
-| title       | The alert title       | string  | -      |         |
-| description | The alert message     | string  | -      |         |
-| hideClose   | Hide the close button | boolean | -      |         |
-| closeable   | Show the close button | boolean | -      |         |
+| Prop name   | Description           | Type                                                      | Values | Default |
+| ----------- | --------------------- | --------------------------------------------------------- | ------ | ------- |
+| alerts      | List of alerts        | Array                                                     | -      |         |
+| variant     |                       | "info" \| "success" \| "warning" \| "critical" \| "error" | -      |         |
+| title       | The alert title       | string                                                    | -      |         |
+| description | The alert message     | string                                                    | -      |         |
+| hideClose   | Hide the close button | boolean                                                   | -      |         |
+| closeable   | Show the close button | boolean                                                   | -      |         |
 
 ## Events
 

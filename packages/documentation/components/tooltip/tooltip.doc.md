@@ -76,15 +76,15 @@ Provided `AcvTooltip` component must adapt to the list of
 
 ## Props
 
-| Prop name | Description                                       | Type           | Values                                                                                                 | Default |
-| --------- | ------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------ | ------- |
-| maxWidth  | Defines the behavior for maximum width of tooltip | union          | 'auto', 'none', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl', '10xl' |         |
-| size      | Size of the tooltip                               | AcvTooltipSize | tooltipSize                                                                                            |         |
-| content   | Content of the tooltip                            | string         | -                                                                                                      |         |
-| trigger   |                                                   | -              | -                                                                                                      | 'hover' |
-| placement |                                                   | -              | -                                                                                                      | 'top'   |
-| arrow     |                                                   | -              | -                                                                                                      | true    |
-| offset    |                                                   | -              | -                                                                                                      | 6       |
+| Prop name | Description                                       | Type             | Values                                                                                                 | Default |
+| --------- | ------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------ | ------- |
+| maxWidth  | Defines the behavior for maximum width of tooltip | string \| number | 'auto', 'none', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl', '10xl' |         |
+| size      | Size of the tooltip                               | AcvTooltipSize   | tooltipSize                                                                                            |         |
+| content   | Content of the tooltip                            | string           | -                                                                                                      |         |
+| trigger   |                                                   | -                | -                                                                                                      | 'hover' |
+| placement |                                                   | -                | -                                                                                                      | 'top'   |
+| arrow     |                                                   | -                | -                                                                                                      | true    |
+| offset    |                                                   | -                | -                                                                                                      | 6       |
 
 ## Slots
 

@@ -7,7 +7,7 @@ export interface ButtonGroupProps {
    * Size of the component
    * @values small, medium, large
    */
-  size?: 'small' | 'medium' | 'large'
+  size?: ComponentSize
 
   /**
    * Set of buttons that appear vertically stacked

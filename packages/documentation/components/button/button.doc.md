@@ -182,26 +182,26 @@ When `href` or `to` props are set, the button is rendered as an `<a>` element wi
 
 ## Props
 
-| Prop name  | Description                                                                | Type             | Values                                                                    | Default   |
-| ---------- | -------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------- | --------- |
-| tag        | Button tag                                                                 | union            | a, span, button, label                                                    | 'button'  |
-| buttonType | Button type                                                                | union            | button, submit, reset                                                     | button    |
-| variant    | Button variant                                                             | AcvButtonVariant | primary, secondary, ghost, danger, inverted                               | primary   |
-| icon       | Button icon, accepts an icon name of Icon component                        | IconProp         | -                                                                         |           |
-| color      | Color of the button                                                        | ColorProp        | primary, secondary, success, danger, warning, info, inverted, light, dark | 'primary' |
-| height     | Button height for fluid variant                                            | AcvButtonHeight  | 32, 48                                                                    |           |
-| size       | Button size                                                                | AcvButtonSize    | small, medium, large                                                      | medium    |
-| autofocus  | Same as native button's autofocus                                          | boolean          | -                                                                         |           |
-| disabled   | Disable the button                                                         | boolean          | -                                                                         |           |
-| loading    | Determine whether it's loading                                             | boolean          | -                                                                         |           |
-| fluid      | Whether button should fill all available width                             | boolean          | -                                                                         |           |
-| multiline  | Turn on multiline mode                                                     | boolean          | -                                                                         |           |
-| rightIcon  | Button icon on the right side,<br/> accepts an icon name of Icon component | IconProp         | -                                                                         |           |
-| block      | Whether the button is block style or not                                   | boolean          | -                                                                         |           |
-| pill       |                                                                            | boolean          | -                                                                         |           |
-| squared    |                                                                            | boolean          | -                                                                         |           |
-| to         | Button router-link path                                                    | union            | -                                                                         |           |
-| kind       |                                                                            | -                | -                                                                         | 'solid'   |
+| Prop name  | Description                                                                | Type                                 | Values                                                                    | Default   |
+| ---------- | -------------------------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------- | --------- |
+| tag        | Button tag                                                                 | "a" \| "span" \| "button" \| "label" | a, span, button, label                                                    | 'button'  |
+| buttonType | Button type                                                                | "button" \| "submit" \| "reset"      | button, submit, reset                                                     | button    |
+| variant    | Button variant                                                             | AcvButtonVariant                     | primary, secondary, ghost, danger, inverted                               | primary   |
+| icon       | Button icon, accepts an icon name of Icon component                        | IconProp                             | -                                                                         |           |
+| color      | Color of the button                                                        | ColorProp                            | primary, secondary, success, danger, warning, info, inverted, light, dark | 'primary' |
+| height     | Button height for fluid variant                                            | AcvButtonHeight                      | 32, 48                                                                    |           |
+| size       | Button size                                                                | AcvButtonSize                        | small, medium, large                                                      | medium    |
+| autofocus  | Same as native button's autofocus                                          | boolean                              | -                                                                         |           |
+| disabled   | Disable the button                                                         | boolean                              | -                                                                         |           |
+| loading    | Determine whether it's loading                                             | boolean                              | -                                                                         |           |
+| fluid      | Whether button should fill all available width                             | boolean                              | -                                                                         |           |
+| multiline  | Turn on multiline mode                                                     | boolean                              | -                                                                         |           |
+| rightIcon  | Button icon on the right side,<br/> accepts an icon name of Icon component | IconProp                             | -                                                                         |           |
+| block      | Whether the button is block style or not                                   | boolean                              | -                                                                         |           |
+| pill       |                                                                            | boolean                              | -                                                                         |           |
+| squared    |                                                                            | boolean                              | -                                                                         |           |
+| to         | Button router-link path                                                    | string \| object                     | -                                                                         |           |
+| kind       |                                                                            | -                                    | -                                                                         | 'solid'   |
 
 ## Slots
 
