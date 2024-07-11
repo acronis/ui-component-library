@@ -1,41 +1,22 @@
-export interface AcvCheckboxProps {
+import type { ColorProp, ComponentSize } from '../../types/props.ts';
+import type { CheckboxProps } from '../../composables/useCheckbox.ts';
+
+export interface AcvCheckboxProps extends CheckboxProps {
   /**
    * Title of the Checkbox
    */
   id?: string
 
   /**
-   * Value of the Checkbox when used inside a `checkbox-group`
+   * Label text inside default slot
    */
-  label?: string | number | boolean
-
-  /**
-   * Value of the Checkbox if it's checked
-   */
-  trueValue?: string | number
-
-  /**
-   * Value of the Checkbox if it's not checked
-   */
-  falseValue?: string | number
-
-  /**
-   * Same as `indeterminate` in native checkbox
-   * @defaultValue false
-   */
-  indeterminate?: boolean
+  label?: string
 
   /**
    * Whether the Checkbox is disabled
    * @defaultValue false
    */
   disabled?: boolean
-
-  /**
-   * Whether Checkbox is checked
-   * @defaultValue false
-   */
-  checked?: boolean
 
   /**
    * Native `name` attribute
@@ -60,23 +41,27 @@ export interface AcvCheckboxProps {
   multilineLabelLimit?: number
 
   /**
-   * Value of the Checkbox
-   */
-  modelValue: boolean | string[]
-
-  /**
    * Size of the Checkbox
    * @defaultValue 'medium'
    * @values 'small', 'medium', 'large'
    */
-  size?: string
+  size?: ComponentSize
 
   /**
    * Color of the Checkbox
    * @defaultValue 'primary'
    * @values 'primary', 'secondary', 'success', 'info', 'warning', 'error'
    */
-  color?: string
+  color?: ColorProp
+
+  invalid?: boolean
+
+  required?: boolean
+
+  /**
+   * Classes for the icon element
+   */
+  iconClass?: string
 }
 
 export interface CheckboxEvents {
@@ -96,9 +81,9 @@ export interface CheckboxEvents {
 
 export interface CheckboxSlots {
   /**
-   * Slot for checkbox label
+   * Default slot for rendering checkbox label
    */
-  default: void
+  default: () => any
   /**
    * Slot for checkbox icon
    * @binding {boolean} checked - The id of the checkbox

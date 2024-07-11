@@ -1,18 +1,16 @@
 <script>
-  import {
-    Checkbox
-  } from '@acronis-platform/ui-component-library';
+  import AcvCheckbox from '@/components/checkbox/checkbox.vue';
 
   export default {
     components: {
-      Checkbox
+      AcvCheckbox
     },
     data: () => ({
       counter: 1,
       indeterminate: true,
       value1: false,
       value2: true,
-      value3: false,
+      value3: null,
       value4: false,
       value5: false
     }),
@@ -39,63 +37,45 @@
 </script>
 
 <template>
-  <PreviewGroup class="qa-checkbox-disabled">
-    <Preview
-      span="6"
-      name="Default"
+  <div>
+    <AcvCheckbox disabled>
+      Default disabled
+    </AcvCheckbox>
+  </div>
+  <div>
+    <AcvCheckbox
+      v-model="value2"
+      disabled
     >
-      <Checkbox disabled>
-        Label
-      </Checkbox>
-    </Preview>
-    <Preview
-      span="6"
-      name="Checked"
+      Checked and disabled
+    </AcvCheckbox>
+  </div>
+  <div>
+    <AcvCheckbox
+      v-model="value3"
+      disabled
     >
-      <Checkbox
-        checked
-        disabled
-      >
-        Label
-      </Checkbox>
-    </Preview>
-    <Preview
-      span="6"
-      name="Indeterminate"
+      Indeterminate and disabled
+    </AcvCheckbox>
+  </div>
+  <div>
+    <AcvCheckbox
+      :checked="value4"
+      disabled
+      show-hover-hint
     >
-      <Checkbox
-        v-model="value3"
-        :indeterminate="indeterminate"
-        disabled
-      >
-        Label
-      </Checkbox>
-    </Preview>
-    <Preview
-      span="6"
-      name="Long label"
+      With hover hint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi deleniti dignissimos dolores earum eius expedita fugit ipsum natus, neque nesciunt odio officiis porro, quaerat quia quo repudiandae soluta voluptatibus.
+    </AcvCheckbox>
+  </div>
+  <div>
+    <AcvCheckbox
+      :checked="value5"
+      disabled
     >
-      <Checkbox
-        :checked="value4"
-        disabled
-        show-hover-hint
-      >
+      With description
+      <template #description>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi deleniti dignissimos dolores earum eius expedita fugit ipsum natus, neque nesciunt odio officiis porro, quaerat quia quo repudiandae soluta voluptatibus.
-      </Checkbox>
-    </Preview>
-    <Preview
-      span="24"
-      name="Description"
-    >
-      <Checkbox
-        :checked="value5"
-        disabled
-      >
-        Label
-        <template #description>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi deleniti dignissimos dolores earum eius expedita fugit ipsum natus, neque nesciunt odio officiis porro, quaerat quia quo repudiandae soluta voluptatibus.
-        </template>
-      </Checkbox>
-    </Preview>
-  </PreviewGroup>
+      </template>
+    </AcvCheckbox>
+  </div>
 </template>

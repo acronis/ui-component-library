@@ -1,8 +1,6 @@
 @layer acv-base {
   :root {
-    /* Insert component css variables here */
-    --acv-checkbox-color: var(--acv-color-brand-primary);
-    --acv-checkbox-disabled-color: var(--acv-color-bg-disabled);
-    --acv-checkbox-error-color: var(--acv-color-bg-danger);
+    --acv-checkbox-color: var(--acv-color-primary);
+    --acv-checkbox-icon-color: var(--acv-color-primary);
   }
 }

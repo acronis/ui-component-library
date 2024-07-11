@@ -4,32 +4,11 @@ const codeExtensions = ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.cjs'];
 
 export default antfu(
   {
+    stylistic: true,
     perfectionist: true,
     import: true,
-    vue: {
-      overrides: {
-        'style/indent': 'off',
-        'vue/html-indent': ['error', 2, {
-          alignAttributesVertically: false,
-        }],
-        'vue/operator-linebreak': ['error', 'before'],
-        'vue/script-indent': ['error', 2, {
-          baseIndent: 1,
-          switchCase: 1,
-        }],
-      },
-    },
-    typescript: {
-      overrides: {
-        'ts/no-shadow': 'warn',
-        'ts/no-explicit-any': 'off',
-        'ts/ban-ts-comment': 'off',
-        'ts/camelcase': 'off',
-        'ts/no-empty-function': 'off',
-        'ts/no-unused-vars': 'off', // https://stackoverflow.com/a/63767419
-        'ts/no-var-requires': 'off',
-      },
-    },
+    typescript: true,
+    vue: true,
     ignores: ['node_modules', 'reports', 'coverage', 'dist', '**/tsconfig.json'],
     formatters: {
     /**
@@ -39,11 +18,12 @@ export default antfu(
       // css: true,
       html: true,
       markdown: 'prettier',
-    },
+    }
   },
   {
     files: ['**/*.vue'],
     rules: {
+      'style/indent': 'off',
       'vue/attributes-order': ['error', {
         order: ['DEFINITION', 'LIST_RENDERING', 'CONDITIONALS', 'RENDER_MODIFIERS', 'GLOBAL', ['UNIQUE', 'SLOT'], 'TWO_WAY_BINDING', 'OTHER_DIRECTIVES', 'OTHER_ATTR', 'EVENTS', 'CONTENT'],
         alphabetical: false,
@@ -107,14 +87,18 @@ export default antfu(
           enforceForRenamedProperties: false, // allow bar = foo.baz
         },
       ],
-      // 'curly': ['error', 'multi-line', 'consistent'], // temporary workaround of the issue with indent in <script>
       'style/semi': ['error', 'always'],
+      // 'import/order': 'off', // handled by perfectionist
+      // 'sort-imports': 'off', // handled by perfectionist
+      // 'perfectionist/sort-imports': 'error',
+      // 'perfectionist/sort-named-imports': 'error',
+      // 'perfectionist/sort-exports': 'error',
     },
   },
   {
     files: ['**/*.md'],
     rules: {
       'unused-imports/no-unused-imports': 0,
-    },
-  },
+    }
+  }
 );

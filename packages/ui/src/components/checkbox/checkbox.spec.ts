@@ -8,22 +8,22 @@ describe('test Checkbox component', () => {
     const wrapper = mount(Checkbox);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "checked": false,
-        "color": undefined,
+        "checkedValue": false,
+        "color": "primary",
+        "cycleIndeterminate": false,
         "disabled": false,
-        "falseValue": undefined,
+        "iconClass": undefined,
         "id": undefined,
-        "indeterminate": undefined,
-        "indeterminateModifiers": undefined,
-        "label": false,
-        "modelModifiers": undefined,
-        "modelValue": undefined,
+        "indeterminateValue": null,
+        "invalid": false,
+        "label": undefined,
+        "modelValue": false,
         "multilineLabel": false,
         "multilineLabelLimit": undefined,
         "name": undefined,
         "showHint": false,
-        "size": undefined,
-        "trueValue": undefined,
+        "size": "medium",
+        "uncheckedValue": false,
       }
     `);
   });
@@ -37,33 +37,41 @@ describe('test Checkbox component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "checked": false,
-        "color": undefined,
+        "checkedValue": false,
+        "color": "primary",
+        "cycleIndeterminate": false,
         "disabled": false,
-        "falseValue": undefined,
+        "iconClass": undefined,
         "id": undefined,
-        "indeterminate": undefined,
-        "indeterminateModifiers": undefined,
+        "indeterminateValue": null,
+        "invalid": false,
         "label": "test",
-        "modelModifiers": undefined,
-        "modelValue": undefined,
+        "modelValue": false,
         "multilineLabel": false,
         "multilineLabelLimit": undefined,
         "name": undefined,
         "showHint": false,
-        "size": undefined,
-        "trueValue": undefined,
+        "size": "medium",
+        "uncheckedValue": false,
       }
     `);
   });
 
   it('renders', () => {
-    const wrapper = mount(Checkbox);
+    const wrapper = mount(Checkbox, {
+      propsData: {
+        id: 'test'
+      }
+    });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-178ad92c="" class="acv-checkbox"><button data-v-5aaebf8f="" data-v-178ad92c="" class="acv-button solid medium primary acv-icon-button" style="--acv-button-color: var(--acv-color-primary);" type="button">
-          <!--v-if--><span class="content"><svg data-v-178ad92c="" class="acv-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentcolor"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path></svg><input data-v-7419ef09="" data-v-178ad92c="" class="acv-input" type="checkbox"></span>
+      "<label data-v-178ad92c="" for="acv-checkbox-test" class="acv-checkbox"><input data-v-178ad92c="" id="acv-checkbox-test" name="acv-checkbox-test" class="hidden" aria-disabled="false" type="checkbox"><svg data-v-edf74d45="" data-v-178ad92c="" class="acv-checkbox-icon medium" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="--acv-checkbox-icon-color: var(--acv-color-primary);">
+          <rect data-v-edf74d45="" class="outline" x="0.5" y="0.5" width="15" height="15" rx="3.5" stroke-width="1" stroke="currentcolor"></rect>
           <!--v-if-->
-        </button></div>"
+          <!--v-if-->
+          <!--v-if-->
+        </svg>
+        <!--v-if-->
+      </label>"
     `);
   });
 });

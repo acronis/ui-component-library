@@ -7,7 +7,9 @@ export default defineConfig({
   title: 'Acronis UI Component Library',
   description: 'Vue.JS 3 components library built on a System Design',
   base: '/ui-component-library/',
-  head: [['link', { rel: 'icon', href: '/ui-kit.svg' }]],
+  head: [['link', { rel: 'icon', href: '/ui-component-library/ui-kit.svg' }]],
+  // hide dark mode switch
+  appearance: false,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
