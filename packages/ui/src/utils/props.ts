@@ -114,33 +114,34 @@ export function useProps<T extends Record<string, any>>(
     const getValue = (value: PropsConfigOptions<T>[keyof T]) =>
       !isFunc && isFunction(value) ? value() : value;
     const getDefault = () =>
-      (!isFunc && isFunction(defaultValue) ? defaultValue() : defaultValue) as T[keyof T]
+      (!isFunc && isFunction(defaultValue) ? defaultValue() : defaultValue) as T[keyof T];
 
-    ;(propOptions.required || validator)
-    && watch(
-      () => sourceProps[key],
-      (value) => {
-        if (isNull(value)) {
-          if (propOptions.required) {
-            console.warn(`${toWarnPrefix(name)}: '${key as string}' prop is required but not set`);
+    if (propOptions.required || validator) {
+      watch(
+        () => sourceProps[key],
+        (value) => {
+          if (isNull(value)) {
+            if (propOptions.required) {
+              console.warn(`${toWarnPrefix(name)}: '${key as string}' prop is required but not set`);
+            }
+
+            return;
+          }
+          else if (!validator) {
+            return;
           }
 
-          return;
-        }
-        else if (!validator) {
-          return;
-        }
+          const result = validator(value);
 
-        const result = validator(value);
-
-        if (result === false) {
-          console.warn(
+          if (result === false) {
+            console.warn(
               `${toWarnPrefix(name)}: an invalid value is set to '${key as string}' prop`
-          );
-        }
-      },
-      { immediate: true }
-    );
+            );
+          }
+        },
+        { immediate: true }
+      );
+    }
 
     if (propOptions.static) {
       props[key] = computed(() => sourceProps[key] ?? getDefault());
@@ -366,11 +367,13 @@ export function emitEvent<A extends any[]>(
     for (let i = 0, len = handlers.length; i < len; ++i) {
       const handler = handlers[i];
 
-      typeof handler === 'function' && handler(...args);
+      if (typeof handler === 'function')
+        handler(...args);
     }
   }
   else {
-    typeof handlers === 'function' && handlers(...args);
+    if (typeof handlers === 'function')
+      handlers(...args);
   }
 }
 

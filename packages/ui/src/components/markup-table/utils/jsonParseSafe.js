@@ -3,7 +3,7 @@ export default function (rawString) {
   try {
     parsed = JSON.parse(rawString);
   }
-  catch (e) {
+  catch {
     console.log(`JSON string "${rawString}" couldn't be parsed`);
   }
 

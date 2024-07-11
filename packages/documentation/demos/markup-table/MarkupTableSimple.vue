@@ -18,9 +18,13 @@
   }
 
   function toggleRowSelection(id) {
-    selectedRows.value.includes(id)
-      ? selectedRows.value.splice(selectedRows.value.indexOf(id), 1)
-      : selectedRows.value.push(id);
+    const index = selectedRows.value.indexOf(id);
+    if (index !== -1) {
+      selectedRows.value.splice(index, 1);
+    }
+    else {
+      selectedRows.value.push(id);
+    }
   }
 </script>
 

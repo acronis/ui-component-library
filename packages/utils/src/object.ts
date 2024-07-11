@@ -25,17 +25,3 @@ export function pick<Obj extends object, Keys extends keyof Obj>(
 
   return result;
 }
-
-/**
- * Parse jsonString and in case of exception return defaultValue
- */
-export function parseJsonSafe<T>(jsonString: string, defaultValue: T): T;
-export function parseJsonSafe<T>(jsonString: string): T | undefined;
-export function parseJsonSafe<T>(jsonString: string, defaultValue?: T) {
-  try {
-    return JSON.parse(jsonString);
-  }
-  catch (e) {
-    return defaultValue;
-  }
-}

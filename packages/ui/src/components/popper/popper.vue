@@ -110,6 +110,7 @@
     _delay.value = isShown ? props.hideDelay : props.delay;
 
     // Trigger events on visibility change
+    // eslint-disable-next-line ts/no-unused-expressions
     isShown
       ? emit('show')
       : emit('hide');
@@ -179,7 +180,7 @@
     ref="anchorRef"
     class="anchor"
   >
-    <slot></slot>
+    <slot />
   </div>
   <component
     :is="props.teleport ? Teleport : 'div'"
@@ -208,7 +209,7 @@
           <slot
             name="arrow"
             :side="arrowSide"
-          ></slot>
+          />
         </div>
       </div>
     </Transition>
