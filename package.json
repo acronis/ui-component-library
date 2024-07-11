@@ -17,7 +17,7 @@
     "lint:ts": "pnpm run -r lint:ts",
     "prepare": "husky",
     "build": "pnpm -r build",
-    "test": "pnpm -r test",
+    "test": "pnpm -r test -- --watch=false",
     "release": "pnpm run release --workspaces && release-it"
   },
   "engines": {
