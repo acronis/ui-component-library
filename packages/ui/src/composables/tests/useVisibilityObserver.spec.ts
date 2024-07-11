@@ -48,7 +48,7 @@ describe('useVisibilityObserver', () => {
 
     observerCallback([{
       target: wrapper.element,
-      // @ts-expect-error
+      // @ts-expect-error - need to mock all DOMRectReadOnly properties
       boundingClientRect: {
         top: 0,
         bottom: 100
@@ -74,7 +74,7 @@ describe('useVisibilityObserver', () => {
 
     observerCallback([{
       target: wrapper.element,
-      // @ts-expect-error
+      // @ts-expect-error - need to mock all DOMRectReadOnly properties
       boundingClientRect: {
         top: -100,
         bottom: -50

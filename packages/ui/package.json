@@ -47,7 +47,6 @@
     "vue-router": "4.3.2"
   },
   "dependencies": {
-    "@acronis-platform/configs": "workspace:*",
     "@acronis-platform/icons": "workspace:*",
     "@acronis-platform/utils": "workspace:*",
     "@antfu/utils": "0.7.8",
@@ -55,10 +54,12 @@
     "@vueuse/core": "10.9.0",
     "colord": "2.9.3",
     "highlight.js": "11.9.0",
-    "lodash-es": "4.17.21"
+    "lodash-es": "4.17.21",
+    "vue": "3.4.30"
   },
   "devDependencies": {
     "@acronis-platform/browserslist-config": "workspace:*",
+    "@acronis-platform/configs": "workspace:*",
     "@cypress/vue": "6.0.1",
     "@simonsmith/cypress-image-snapshot": "9.0.3",
     "@types/lodash-es": "4.17.12",
@@ -99,7 +100,6 @@
     "vite-plugin-dts": "3.8.3",
     "vite-plugin-lib-inject-css": "2.0.1",
     "vitest": "1.6.0",
-    "vue": "3.4.30",
     "vue-tsc": "2.0.19"
   },
   "browserslist": [

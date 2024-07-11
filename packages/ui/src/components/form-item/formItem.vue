@@ -15,7 +15,7 @@
 
   const formItemClasses = computed(() => ({
     'acv-form-item': true,
-    [titlePlacement]: titlePlacement,
+    [titlePlacement as string]: titlePlacement,
   }));
 </script>
 

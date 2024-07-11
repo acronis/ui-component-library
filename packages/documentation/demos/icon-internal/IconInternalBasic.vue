@@ -3,9 +3,9 @@
     ArrowSortDownSmall,
     ArrowSortUpSmall,
     CalendarOSmall,
-    CheckFilled,
     CheckSmall,
     CheckSquareSmall,
+    Checkbox,
     CheckboxBlank,
     CheckboxChecked,
     CheckboxIndeterminate,
@@ -66,7 +66,7 @@
     <ArrowSortDownSmall />
     <ArrowSortUpSmall />
     <CalendarOSmall />
-    <CheckFilled />
+    <Checkbox />
     <CheckSmall />
     <CheckSquareSmall />
     <ChevronDoubleLeftSmall />

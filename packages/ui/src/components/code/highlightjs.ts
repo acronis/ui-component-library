@@ -87,7 +87,7 @@ const extensions = languages.flatMap(language => languagesMap[language].extensio
 
 function getLanguageByExtension(extension: string): HighlightLanguage | undefined {
   for (const language of languages) {
-    // @ts-expect-error
+    // @ts-expect-error - extensions are always lowercase
     if (languagesMap[language].extensions.includes(extension.toLowerCase())) {
       return language;
     }
@@ -117,7 +117,7 @@ export function getCodeExtensions() {
 }
 
 export function isCodeExtension(extension: string) {
-  // @ts-expect-error
+  // @ts-expect-error - extensions are always lowercase
   return getCodeExtensions().includes(extension.toLowerCase());
 }
 

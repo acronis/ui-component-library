@@ -19,7 +19,7 @@
       'indeterminate': props.indeterminate,
       'disabled': props.disabled,
       'invalid': props.invalid,
-      [props.size]: props.size,
+      [props.size as string]: props.size,
     };
   });
 </script>

@@ -1,53 +1,94 @@
 <script setup lang="ts">
-  import { computed, useAttrs } from 'vue';
+  import { computed, toRef, useAttrs } from 'vue';
   import type {
     AcvCheckboxProps
   } from '../index.ts';
-  import {
-    IconButton,
-    IconCheckbox,
-    IconCheckboxIndeterminate,
-    IconCheckboxOutline,
-    Input
-  } from '../index.ts';
-  import type { CheckboxEvents, CheckboxSlots } from './checkbox.ts';
+  import { useCheckbox } from '../../composables/useCheckbox.ts';
   import './checkbox.css';
+  import CheckboxIcon from '../icon-internal/CheckboxIcon.vue';
+  import type { CheckboxEvents, CheckboxSlots } from './checkbox.ts';
 
-  defineProps<AcvCheckboxProps>();
-  defineEmits<CheckboxEvents>();
-  defineSlots<CheckboxSlots>();
+  defineOptions({
+    name: 'AcvCheckbox',
+    inheritAttrs: false,
+  });
+
+  const props = withDefaults(defineProps<AcvCheckboxProps>(), {
+    color: 'primary',
+    size: 'medium',
+    indeterminateValue: null
+  });
+  const emit = defineEmits<CheckboxEvents>();
+  const slots = defineSlots<CheckboxSlots>();
   const attrs = useAttrs();
 
-  const checked = defineModel();
-  const indeterminate = defineModel('indeterminate');
+  // const checked = defineModel();
+  // const indeterminate = defineModel('indeterminate');
+  const _checkedValue = computed<Exclude<AcvCheckboxProps['checkedValue'], undefined>>(
+    () => props.checkedValue || attrs.value as Exclude<AcvCheckboxProps['checkedValue'], undefined> || true
+  );
 
-  const showCheckedIcon = computed<boolean>(() => {
-    if (typeof checked.value === 'boolean') {
-      return checked.value;
-    }
-    return (checked.value as any[])?.includes(attrs.value);
-  });
+  const {
+    isChecked,
+    isIndeterminate,
+    onChange
+  } = useCheckbox(
+    toRef(props, 'modelValue'),
+    emit,
+    _checkedValue,
+    toRef(props, 'uncheckedValue'),
+    toRef(props, 'indeterminateValue'),
+    toRef(props, 'cycleIndeterminate')
+  );
+
+  const checkboxId = `acv-checkbox-${props.id ? props.id : attrs.value || Math.random().toString(36).slice(2, 7)}`;
+  const checkboxClasses = computed(() => ({
+    'acv-checkbox': true,
+    [attrs.class as string]: attrs.class,
+    'disabled': props.disabled
+  }));
 </script>
 
 <template>
-  <div class="acv-checkbox">
-    <IconButton>
-      <slot
-        name="icon"
-        :checked="checked"
-      >
-        <IconCheckboxIndeterminate v-if="indeterminate" />
-        <IconCheckbox v-else-if="showCheckedIcon" />
-        <IconCheckboxOutline v-else />
-      </slot>
-      <Input
-        v-bind="$attrs"
-        v-model="checked"
-        type="checkbox"
+  <label
+    :for="checkboxId"
+    :class="checkboxClasses"
+  >
+    <input
+      :id="checkboxId"
+      :name="checkboxId"
+      class="hidden"
+      :checked="isChecked"
+      :disabled="props.disabled"
+      :aria-disabled="props.disabled"
+      :aria-invalid="props.invalid"
+      :aria-required="props.required"
+      :indeterminate="isIndeterminate"
+      type="checkbox"
+      @change="onChange"
+    >
+    <slot
+      name="icon"
+      :checked="isChecked"
+    >
+      <CheckboxIcon
+        class="icon"
+        :class="props.iconClass"
+        :checked="isChecked"
+        :size="size"
+        :indeterminate="isIndeterminate"
+        :disabled="props.disabled"
+        :invalid="props.invalid"
+        :color="props.color"
       />
-    </IconButton>
-    <slot></slot>
-  </div>
+    </slot>
+    <span
+      v-if="slots.default || props.label"
+      class="px-8"
+    >
+      <slot>{{ props.label }}</slot>
+    </span>
+  </label>
 </template>
 
 <style scoped>
@@ -55,9 +96,22 @@
     font-weight: var(--acv-font-weight-strong);
     color: var(--acv-checkbox-color);
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
 
-    .acv-input {
-      flex: 0 1 auto;
+    &:has(:focus) .icon {
+      --acv-checkbox-icon-focus: true;
+      outline: var(--acv-color-form-focus) var(--acv-border-style-solid) var(--acv-border-large);
+      border-radius: 4px;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .hidden {
       cursor: inherit;
       position: absolute;
       opacity: 0;

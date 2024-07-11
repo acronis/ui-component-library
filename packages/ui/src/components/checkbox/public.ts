@@ -1,3 +1,2 @@
-export { default as Checkbox } from './checkbox.vue';
-export { default as CheckboxButton } from './checkboxButton.vue';
+export { default as AcvCheckbox } from './checkbox.vue';
 export * from './checkbox.ts';
