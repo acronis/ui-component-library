@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/acronis/ui-component-library/compare/v1.1.0...v1.2.0) (2024-07-12)
+
+
+### Features
+
+* **switch:** add simple switch ([2ba9546](https://github.com/acronis/ui-component-library/commit/2ba9546c0ed5ee777fc678c66175f86af48afc4d))
+
 ## [1.1.0](https://github.com/acronis/ui-component-library/compare/v1.0.0...v1.1.0) (2024-07-12)
 
 
