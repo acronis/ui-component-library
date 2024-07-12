@@ -18,7 +18,7 @@ export const nav = [
       },
       {
         text: 'Contributing',
-        link: 'contributing'
+        link: 'CONTRIBUTING'
       },
       {
         text: 'Release Notes',
