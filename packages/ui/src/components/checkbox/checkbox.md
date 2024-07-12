@@ -21,7 +21,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4414
 
 ## Indeterminate
 
-You
+<CheckboxIndeterminate />
 
 ## Accessibility
 

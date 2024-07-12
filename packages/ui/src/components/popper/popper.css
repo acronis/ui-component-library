@@ -1,4 +1,4 @@
-@layer ui-base {
+@layer acv-base {
   :root {
     /* Insert component css variables here */
     --acv-popper-color: var(--acv-color-brand-primary);

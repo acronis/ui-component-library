@@ -1,4 +1,4 @@
-@layer ui-base {
+@layer acv-base {
   :root {
     /* Insert component css variables here */
     --acv-tabs-color: var(--acv-color-brand-primary);
