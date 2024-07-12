@@ -1,4 +1,4 @@
-@layer ui-base {
+@layer acv-base {
   :root {
     --acv-dialog-color: var(--acv-color-brand-primary);
     --acv-dialog-z-index: var(--acv-z-index-dialog);

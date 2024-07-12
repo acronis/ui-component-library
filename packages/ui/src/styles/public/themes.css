@@ -6,4 +6,4 @@
 @import "../tokens/acv/custom" layer(theme);
 @import "../utilities/index.css" layer(utilities);
 
-@layer ui-base, components, utilities, theme, tokens;
+@layer acv-base, components, utilities, theme, tokens;
