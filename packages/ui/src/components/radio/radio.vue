@@ -22,7 +22,6 @@
   const checked = defineModel();
 
   const isChecked = computed(() => checked.value === attrs.value);
-  // const isChecked = computed(() => checked.value === String(attrs.value));
   const radioClasses = computed(() => {
     return {
       'acv-radio': true,

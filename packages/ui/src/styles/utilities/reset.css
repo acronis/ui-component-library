@@ -1,6 +1,6 @@
 *,
-:before,
-:after {
+*:before,
+*:after {
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
@@ -9,14 +9,30 @@
 
 html {
   line-height: 1.5;
-  text-size-adjust: 100%;
+  text-size-adjust: none;
   tab-size: 4;
   font-family: var(--acv-font-family-default);
 }
 
+/* Remove default margin in favour of better control in authored CSS */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
 body {
   margin: 0;
-  line-height: inherit;
+  min-height: 100vh;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
 }
@@ -35,15 +51,36 @@ h1,
 h2,
 h3,
 h4,
+button,
+input,
+label {
+  /* Set shorter line heights on headings and interactive elements */
+  line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+h4,
 h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
+
+  /* Balance text wrapping on headings */
+  text-wrap: balance;
 }
 
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+/* A elements that don't have a class get default styles */
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
 }
 
 b,
@@ -90,9 +127,8 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
+  font: inherit;
   font-size: var(--acv-font-size-body);
-  font-weight: inherit;
   line-height: inherit;
   color: inherit;
   margin: 0;
@@ -181,6 +217,13 @@ menu {
   padding: 0;
 }
 
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
 textarea {
   resize: vertical;
 }
@@ -191,6 +234,11 @@ textarea::placeholder {
   color: hsl(218deg 11% 65%);
 }
 
+textarea:not([rows]) {
+  /* Make sure textareas without a rows attribute are not tiny */
+  min-height: 10em;
+}
+
 button,
 [role="button"] {
   cursor: pointer;
@@ -198,6 +246,11 @@ button,
 
 :disabled {
   cursor: default;
+}
+
+:target {
+  /* Anything that has been anchored to should have extra scroll margin */
+  scroll-margin-block: 5ex;
 }
 
 img,
@@ -210,6 +263,14 @@ embed,
 object {
   display: block;
   align-self: center;
+}
+
+/* Make images easier to work with */
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
 img,

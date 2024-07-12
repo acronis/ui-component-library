@@ -1,32 +1,45 @@
+import type { ColorProp, ComponentSize } from '../../types/props.ts';
+
 export interface AcvSwitchProps {
   /**
-   * Title of the Switch
+   * Binding value of the Switch
    */
-  title?: string
+  modelValue?: boolean
 
   /**
-   * Description of the Switch
+   * Custom color of the Switch
+   * @defaultValue primary
    */
-  description?: string
+  color?: ColorProp
+
+  /**
+   * Switch description
+   */
+  label?: string
+
+  /**
+   * Switch size
+   */
+  size?: ComponentSize
+
+  /**
+   * Whether the Switch is disabled
+   */
+  disabled?: boolean
 }
 
 export interface AcvSwitchEvents {
   /**
-   * Triggered when the component is closed
+   * Triggered when the modelValue is updated
    * @arg {string} eventName - The name of the event
-   * @arg {string} visible - The visibility state of the component
+   * @arg {string} value - Checked state of the Switch
    */
-  (eventName: 'close', visible: boolean): void
+  (eventName: 'update:modelValue', value: boolean): void
 }
 
 export interface AcvSwitchSlots {
   /**
    * The default slot content
    */
-  default: void
-  /**
-   * The description slot content
-   * @binding {string} description - The description prop value
-   */
-  description: void
+  default?: (any) => any
 }
