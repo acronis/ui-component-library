@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 export function getConfig() {
   const envConfig = { ...getEnvConfig('.env'), ...getEnvConfig('.env.local') };
+  const iconsPathPrefix = envConfig.FIGMA_FETCHER_ICONS_PATH ?? 'icons';
 
   return {
     token: envConfig.FIGMA_FETCHER_FIGMA_TOKEN,
@@ -12,7 +13,8 @@ export function getConfig() {
     frameNames: envConfig.FIGMA_FETCHER_FRAME_NAMES,
     pageName: envConfig.FIGMA_FETCHER_PAGE_NAME,
     removeFromName: ['style=', 'type=', 'status='],
-    iconsPath: path.resolve(envConfig.FIGMA_ICONS_PATH ?? 'icons'),
+    iconsPath: path.resolve(iconsPathPrefix),
+    iconsPathPrefix,
   };
 }
 

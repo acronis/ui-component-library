@@ -30,25 +30,23 @@ async function run() {
   async function onDownloadedIcon({
     content,
     pathname,
+    iconsPathPrefix
   }: {
     content: string
     pathname: string
+    iconsPathPrefix: string
   }) {
-    const fileContentDTs = `declare const _default: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}>;
-export default _default;`;
     const fileContent = `<template>${content}</template>`;
     const prefix = 'Icon';
 
     const idx = pathname.indexOf('-');
-    const rootDirectory = path.join('vue', pathname.substring(0, idx));
+    const rootDirectory = path.join(iconsPathPrefix, pathname.substring(0, idx) || pathname);
     const fileName = `${prefix}${toPascalCase(pathname)}`;
     const file = path.resolve(rootDirectory, `${fileName}.vue`);
-    const fileDTs = path.resolve(rootDirectory, `${fileName}.vue.d.ts`);
     const imagePath = path.join(rootDirectory, `${fileName}.svg`);
 
     await promises.mkdir(path.dirname(file), { recursive: true });
     await Promise.all([
-      promises.writeFile(fileDTs, fileContentDTs),
       promises.writeFile(file, fileContent),
       promises.writeFile(imagePath, content, 'utf8'),
     ]);
@@ -66,7 +64,7 @@ export default _default;`;
       const fileName = path.basename(icon);
 
       const result = path.join(parentFolder, fileName);
-      fileContent = `${fileContent ? `${fileContent}\n` : ''}export { default as ${path.parse(icon).name} } from './${result}'`;
+      fileContent = `${fileContent ? `${fileContent}\n;` : ''}export { default as ${path.parse(icon).name} } from './${result}'`;
     }
     await Promise.all([
       promises.writeFile(barrel, fileContent),
