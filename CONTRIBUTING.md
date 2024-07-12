@@ -86,8 +86,8 @@ You can find more information about performance tests in the [Performance tests 
 
 ### Component documentation
 
-The documentation for each component located at [`documentation`](packages/documentation) folder using a Markdown format.
-The examples of implementation located at [`demos`](packages/documentation/demos) in Vue.js SFC files format.
+The documentation for each component located at [`documentation`](https://github.com/acronis/ui-component-library/tree/main/packages/documentation) folder using a Markdown format.
+The examples of implementation located at [`demos`](https://github.com/acronis/ui-component-library/tree/main/packages/documentation/demos) in Vue.js SFC files format.
 For internal documentation we use Vitepress, you can find more information about Vitepress in the [Vitepress documentation](https://vitepress.dev/).
 
 Each document consists of highlights of the API(props, slots, events) with examples and complete details of these components.
@@ -107,4 +107,4 @@ and after all can automatically generate changelog based on every pull request t
 
 ## License
 
-By contributing your code to the repository, you agree to license your contribution under the [MIT license](./LICENSE).
+By contributing your code to the repository, you agree to license your contribution under the [MIT license](https://github.com/acronis/ui-component-library/blob/main/LICENSE).
