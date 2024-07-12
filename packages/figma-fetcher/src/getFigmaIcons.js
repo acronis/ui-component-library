@@ -56,9 +56,21 @@ export async function getFigmaIcons(config) {
   const resultIcons = [];
   const iconsArray = [];
 
-  framesWithIcons.forEach(frame => frame.children.filter(child => child.type === 'COMPONENT').forEach((child) => {
-    iconsArray.push(child);
-  }));
+  function findComponents(element) {
+    if (element.children) {
+      element.children.forEach((child) => {
+        if (child.type === 'COMPONENT') {
+          iconsArray.push(child);
+        }
+        else {
+          // Recursively search for children in each child element
+          findComponents(child);
+        }
+      });
+    }
+  }
+
+  framesWithIcons.forEach(frame => findComponents(frame));
 
   iconsArray.forEach((icon) => {
     if (icon.name.startsWith('_')) {

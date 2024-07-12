@@ -33,13 +33,13 @@ export async function downloadImage(config, icon) {
         {
           name: 'addClassesToSVGElement',
           params: {
-            classNames: ['ui-icon'],
+            classNames: ['acv-icon'],
           },
         },
       ],
     }).data.replace(/#181818/g, 'currentColor');
 
-    await config.onDownloadedIcon({ content, pathname });
+    await config.onDownloadedIcon({ content, pathname, iconsPathPrefix: config.iconsPathPrefix });
   }
   catch (err) {
     throw new Error(`Failed to download Icon with name -> ${pathname}`, { cause: err });
