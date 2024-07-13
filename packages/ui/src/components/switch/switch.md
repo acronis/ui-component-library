@@ -47,7 +47,7 @@ You can switch between different sizes using the `size` prop.
 
 ## See also
 
-- [Checkbox](../checkbox)
-- [Radio](../radio)
+- [Checkbox](/components/checkbox/checkbox.doc)
+- [Radio](/components/radio/radio.doc)
 - [Open UI Switch](https://open-ui.org/components/switch/)
 - [WAI-ARIA Switch pattern](https://www.w3.org/WAI/ARIA/apg/patterns/switch/)
