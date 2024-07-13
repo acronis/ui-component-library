@@ -13,9 +13,7 @@
     "lint:code": "eslint .",
     "lint:code:fix": "pnpm run lint:code --fix",
     "lint:ts": "vue-tsc --noemit",
-    "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" lint:ts || exit 0",
-    "changelog": "npx auto-changelog -p  --tag-prefix @acronis-platform/ui-component-library-documentation@ --append-git-log .",
-    "release": "release-it"
+    "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" lint:ts || exit 0"
   },
   "peerDependencies": {
     "vue": "3.4.30",
@@ -38,15 +36,5 @@
     "vue-docgen-api": "4.78.0",
     "vue-docgen-cli": "4.79.0",
     "vue-tsc": "2.0.19"
-  },
-  "release-it": {
-    "git": false
-  },
-  "auto-changelog": {
-    "output": "CHANGELOG.md",
-    "template": "keepachangelog",
-    "unreleased": false,
-    "commitLimit": false,
-    "backfillLimit": false
   }
 }

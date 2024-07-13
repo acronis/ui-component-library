@@ -2,6 +2,13 @@
   "name": "@acronis-platform/ui-component-library",
   "type": "module",
   "version": "1.3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acronis/ui-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acronis/ui-component-library/issues"
+  },
   "sideEffects": [
     "**/*.css"
   ],
@@ -38,9 +45,7 @@
     "lint:code": "eslint . --quiet",
     "lint:code:fix": "pnpm run lint:code --fix",
     "lint:ts": "vue-tsc --noemit",
-    "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" || exit 0",
-    "changelog": "npx auto-changelog -p  --tag-prefix @acronis-platform/ui-component-library@ --append-git-log .",
-    "release": "release-it"
+    "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" || exit 0"
   },
   "peerDependencies": {
     "vue": "3.4.30",
@@ -105,15 +110,5 @@
   },
   "browserslist": [
     "extends @acronis-platform/browserslist-config"
-  ],
-  "release-it": {
-    "git": false
-  },
-  "auto-changelog": {
-    "output": "CHANGELOG.md",
-    "template": "keepachangelog",
-    "unreleased": false,
-    "commitLimit": false,
-    "backfillLimit": false
-  }
+  ]
 }

@@ -18,7 +18,7 @@
     "prepare": "husky",
     "build": "pnpm -r build",
     "test": "pnpm -r test -- --watch=false",
-    "release": "pnpm run release --workspaces && release-it"
+    "release": "pnpm run release --workspaces"
   },
   "engines": {
     "node": ">=20.9.0"
@@ -31,12 +31,9 @@
     "@commitlint/config-conventional": "18.6.2",
     "@acronis-platform/configs": "workspace:*",
     "@vue/language-server": "1.8.27",
-    "@release-it/bumper": "*",
-    "auto-changelog": "2.4.0",
     "config": "3.3.11",
     "husky": "9.0.11",
     "lint-staged": "13.2.3",
-    "release-it": "17.2.0",
     "vite": "5.2.6",
     "vite-plugin-dts": "3.8.3"
   },
@@ -46,14 +43,6 @@
   },
   "bugs": {
     "url": "https://github.com/acronis/ui-component-library/issues"
-  },
-  "release-it": {
-    "npm": {
-      "publish": false
-    },
-    "git": {
-      "requireCleanWorkingDir": false
-    }
   },
   "packageManager": "pnpm@8.15.3"
 }
