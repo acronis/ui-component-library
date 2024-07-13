@@ -41,7 +41,14 @@
       stroke-opacity=".1"
       rx="1.5"
     />
-    <rect width="20" height="20" x="3" y="9" fill="currentColor" rx="2" />
+    <rect
+      width="20"
+      height="20"
+      x="3"
+      y="9"
+      fill="currentColor"
+      rx="2"
+    />
     <rect
       width="19"
       height="19"

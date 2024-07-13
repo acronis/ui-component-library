@@ -5,8 +5,19 @@
     class="acv-icon"
     viewBox="0 0 32 32"
   >
-    <circle cx="16" cy="16" r="13" fill="#408BEA" />
-    <circle cx="16" cy="16" r="12.5" stroke="#243143" stroke-opacity=".1" />
+    <circle
+      cx="16"
+      cy="16"
+      r="13"
+      fill="#408BEA"
+    />
+    <circle
+      cx="16"
+      cy="16"
+      r="12.5"
+      stroke="#243143"
+      stroke-opacity=".1"
+    />
     <path
       fill="#fff"
       fill-rule="evenodd"

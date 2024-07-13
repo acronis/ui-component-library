@@ -1,0 +1,12 @@
+@layer acv-base {
+  :root {
+    /* Insert component css variables here */
+    --acv-list-item-color: var(--acv-color-brand-primary);
+    --acv-list-item-border-color: var(
+      --acv-color-primary-light,
+      rgb(38 104 197 / 0.3)
+    );
+    --acv-list-item-border: var(--acv-border-regular, 1px) solid
+      var(--acv-list-item-border-color);
+  }
+}

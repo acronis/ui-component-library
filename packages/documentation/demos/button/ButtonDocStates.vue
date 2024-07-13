@@ -1,16 +1,16 @@
 <script setup>
-import { BUTTON_TYPE } from '@/components/button/button.ts';
-import Button from '@/components/button/button.vue';
-import Grid from '@/components/grid/grid.vue';
-import Cell from '@/components/cell/cell.vue';
+  import { BUTTON_TYPE } from '@/components/button/button.ts';
+  import Button from '@/components/button/button.vue';
+  import Grid from '@/components/grid/grid.vue';
+  import Cell from '@/components/cell/cell.vue';
 
-const buttonTypes = [
-  'primary',
-  'secondary',
-  'ghost',
-  'danger',
-  'inverted',
-];
+  const buttonTypes = [
+    'primary',
+    'secondary',
+    'ghost',
+    'danger',
+    'inverted',
+  ];
 </script>
 
 <template>

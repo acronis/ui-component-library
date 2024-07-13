@@ -5,8 +5,16 @@
     class="acv-icon"
     viewBox="0 0 16 16"
   >
-    <circle cx="8" cy="8" r="8" fill="#fff" />
-    <path fill="#9BC225" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z" />
+    <circle
+      cx="8"
+      cy="8"
+      r="8"
+      fill="#fff"
+    />
+    <path
+      fill="#9BC225"
+      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"
+    />
     <path
       fill="#fff"
       d="m11.76 4.4-5 5-2.5-2.5L3.2 7.961l3.56 3.56 6.061-6.06-1.06-1.06Z"

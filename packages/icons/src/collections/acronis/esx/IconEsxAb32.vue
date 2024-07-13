@@ -9,7 +9,10 @@
       fill="currentColor"
       d="M10 8v8h2v-5a1 1 0 0 1 1-1h5V8h-8Zm12 4h-2v5a1 1 0 0 1-1 1h-5v2h8v-8Z"
     />
-    <path fill="currentColor" d="M18 16v-4h-4v4h4Z" />
+    <path
+      fill="currentColor"
+      d="M18 16v-4h-4v4h4Z"
+    />
     <path
       fill="currentColor"
       fill-rule="evenodd"

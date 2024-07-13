@@ -8,8 +8,17 @@ describe('test List component', () => {
     const wrapper = mount(List);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": undefined,
+        "animate": false,
+        "card": false,
+        "color": undefined,
+        "items": undefined,
+        "modelModifiers": undefined,
+        "modelValue": [],
+        "multiselect": false,
+        "selectable": false,
+        "sortable": false,
+        "states": undefined,
+        "variant": undefined,
       }
     `);
   });
@@ -23,8 +32,17 @@ describe('test List component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": "test",
+        "animate": false,
+        "card": false,
+        "color": undefined,
+        "items": undefined,
+        "modelModifiers": undefined,
+        "modelValue": [],
+        "multiselect": false,
+        "selectable": false,
+        "sortable": false,
+        "states": undefined,
+        "variant": undefined,
       }
     `);
   });

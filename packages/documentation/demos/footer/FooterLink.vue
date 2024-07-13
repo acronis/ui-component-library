@@ -1,7 +1,7 @@
 <script setup>
-import AcvButton from '@/components/button/button.vue';
-import AcvFooter from '@/components/footer/footer.vue';
-import AcvLink from '@/components/link/link.vue';
+  import AcvButton from '@/components/button/button.vue';
+  import AcvFooter from '@/components/footer/footer.vue';
+  import AcvLink from '@/components/link/link.vue';
 </script>
 
 <template>

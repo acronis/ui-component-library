@@ -5,7 +5,10 @@
     class="acv-icon"
     viewBox="0 0 24 24"
   >
-    <path fill="currentColor" d="M12 11a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z" />
+    <path
+      fill="currentColor"
+      d="M12 11a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z"
+    />
     <path
       fill="currentColor"
       fill-rule="evenodd"

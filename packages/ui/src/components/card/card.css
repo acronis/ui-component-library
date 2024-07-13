@@ -3,6 +3,6 @@
     --acv-card-color: var(--acv-color-text-primary);
     --acv-card-background-color: var(--acv-color-surface-inversed-primary);
     --acv-card-border-color: var(--acv-color-brand-primary);
-    --acv-card-padding: var(--acv-spacing-regular);
+    --acv-card-padding: var(--acv-spacing-zero);
   }
 }

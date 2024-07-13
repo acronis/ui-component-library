@@ -6,7 +6,12 @@
     viewBox="0 0 32 32"
   >
     <g clip-path="url(#a)">
-      <circle cx="16" cy="16" r="16" fill="#FFE8A3" />
+      <circle
+        cx="16"
+        cy="16"
+        r="16"
+        fill="#FFE8A3"
+      />
       <path
         fill="#8E5E2F"
         fill-rule="evenodd"
@@ -15,7 +20,10 @@
       />
     </g>
     <defs>
-      <clipPath id="a"><path fill="#fff" d="M0 0h32v32H0z" /></clipPath>
+      <clipPath id="a"><path
+        fill="#fff"
+        d="M0 0h32v32H0z"
+      /></clipPath>
     </defs>
   </svg>
 </template>

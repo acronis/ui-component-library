@@ -62,27 +62,11 @@ describe('test Icon component', () => {
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<i data-v-c834062e="" class="acv-icon size-16" role="presentation">
         <!--v-if-->
-        <!--    <slot v-else> -->
-        <!--      <component -->
-        <!--        :is="dynamicStateIcon" -->
-        <!--        v-if="dynamicStateIcon" -->
-        <!--        class="state" -->
-        <!--        :color="stateColor" -->
-        <!--        :width="size" -->
-        <!--        :height="size" -->
-        <!--      /> -->
-        <!--      <component -->
-        <!--        :is="dynamicIcon" -->
-        <!--        v-if="dynamicIcon" -->
-        <!--        class="cmp" -->
-        <!--        :width="size" -->
-        <!--        :height="size" -->
-        <!--      /> -->
-        <!--      <span -->
-        <!--        v-else -->
-        <!--        :class="\`i-\${collection}-icons:\${name}\`" -->
-        <!--      ></span> -->
-        <!--    </slot> -->
+        <!--v-if-->
+        <!--          <span -->
+        <!--            v-else -->
+        <!--            :class="\`i-\${collection}-icons:\${name}\`" -->
+        <!--          ></span> -->
       </i>"
     `);
   });

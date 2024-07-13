@@ -1,16 +1,23 @@
 <script setup>
-import * as icons from '@acronis-platform/icons/dist/public';
+  import * as icons from '@acronis-platform/icons/dist/public';
 </script>
 
 <template>
   Totally {{ Object.keys(icons).length }} icons available:
 
   <div class="acv-grid-row acv-grid--cols-3 my-16">
-    <div v-for="(icon, index) in icons" :key="`icon${index}`" class="item">
+    <div
+      v-for="(icon, index) in icons"
+      :key="`icon${index}`"
+      class="item"
+    >
       <h5 class="acv-text--ellipsis">
         {{ index }}
       </h5>
-      <component :is="icon" class="icon" />
+      <component
+        :is="icon"
+        class="icon"
+      />
     </div>
   </div>
 </template>

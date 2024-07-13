@@ -15,6 +15,9 @@
       d="m26 10-4-4-11 11 4 4 11-11Zm-11 8.172L13.828 17 22 8.828 23.172 10 15 18.172Z"
       clip-rule="evenodd"
     />
-    <path fill="currentColor" d="M10 22h4l-4-4v4Z" />
+    <path
+      fill="currentColor"
+      d="M10 22h4l-4-4v4Z"
+    />
   </svg>
 </template>

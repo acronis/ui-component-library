@@ -3,6 +3,7 @@ import { enTheme } from './theme';
 import { enGuides } from './guides';
 import { enExamples } from './examples';
 import { directives } from './directives';
+import { composables } from './composables';
 
 export const sidebar = {
   '/guide': [
@@ -13,6 +14,7 @@ export const sidebar = {
   ],
   '/components': enComponents,
   '/directives': directives,
+  '/composables': composables,
   '/examples': enExamples,
   '/theming': enTheme,
 };

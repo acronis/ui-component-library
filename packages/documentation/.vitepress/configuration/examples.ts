@@ -25,6 +25,28 @@ export const enExamples = [
     ],
   },
   {
+    text: 'Card',
+    collapsed: true,
+    link: '/examples/card'
+  },
+  {
+    text: 'Link',
+    collapsed: true,
+    link: '/examples/link'
+  },
+  {
+    text: 'List',
+    collapsed: true,
+    link: '/examples/list',
+    items: [
+      { text: 'Basic', link: '/examples/list/basic' },
+      { text: 'Card', link: '/examples/list/card' },
+      { text: 'Advanced', link: '/examples/list/advanced' },
+      { text: 'VModel', link: '/examples/list/vmodel' },
+      { text: 'Virtual', link: '/examples/list/virtual' },
+    ],
+  },
+  {
     text: 'MarkupTable',
     collapsed: true,
     link: '/examples/markup-table',
@@ -41,14 +63,4 @@ export const enExamples = [
       { text: 'Basic', link: '/examples/table/basic' },
     ]
   },
-  {
-    text: 'Link',
-    collapsed: true,
-    link: '/examples/link'
-  },
-  {
-    text: 'Card',
-    collapsed: true,
-    link: '/examples/card'
-  }
 ];

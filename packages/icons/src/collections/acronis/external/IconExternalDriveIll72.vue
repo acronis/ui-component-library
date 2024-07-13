@@ -9,7 +9,10 @@
       fill="#BDC3CB"
       d="M23.244 4.959C22.98 4.475 22.552 4 22 4h-7a4 4 0 0 0-4 4v56a4 4 0 0 0 4 4h42a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4h-7c-.552 0-.98.475-1.245.959A2 2 0 0 1 47 6H25a2 2 0 0 1-1.756-1.041Z"
     />
-    <path fill="#454E5C" d="M11 53h50v11a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V53Z" />
+    <path
+      fill="#454E5C"
+      d="M11 53h50v11a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V53Z"
+    />
     <path
       fill="#243143"
       fill-opacity=".4"
@@ -48,8 +51,16 @@
       fill="#243143"
       d="M30 66.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5Z"
     />
-    <path fill="#fff" d="M11 52h50v1H11v-1Z" opacity=".1" />
-    <path fill="#243143" d="M11 53h50v1H11v-1Z" opacity=".3" />
+    <path
+      fill="#fff"
+      d="M11 52h50v1H11v-1Z"
+      opacity=".1"
+    />
+    <path
+      fill="#243143"
+      d="M11 53h50v1H11v-1Z"
+      opacity=".3"
+    />
     <path
       fill="#fff"
       d="M23 60.5a1.5 1.5 0 0 1 1.5-1.5h23a1.5 1.5 0 0 1 0 3h-23a1.5 1.5 0 0 1-1.5-1.5Z"
@@ -60,7 +71,10 @@
       d="M23 59.5a1.5 1.5 0 0 1 1.5-1.5h23a1.5 1.5 0 0 1 0 3h-23a1.5 1.5 0 0 1-1.5-1.5Z"
       opacity=".7"
     />
-    <g filter="url(#e)" opacity=".4">
+    <g
+      filter="url(#e)"
+      opacity=".4"
+    >
       <path
         fill="#fff"
         d="M37.5 20.5h1.191a.5.5 0 0 0 .447-.724l-2.19-4.381a.5.5 0 0 0-.895 0l-2.191 4.381a.5.5 0 0 0 .447.724H35.5v15.92a.5.5 0 0 1-.658.474l-1.974-.658a2 2 0 0 1-1.368-1.897v-5.046a2.5 2.5 0 1 0-2 0v5.046a4 4 0 0 0 2.735 3.795l2.923.974a.5.5 0 0 1 .342.474v1.09a3.001 3.001 0 0 0 1 5.83 3 3 0 0 0 1-5.83v-5.244a.5.5 0 0 1 .276-.447l3.513-1.756a4 4 0 0 0 2.21-3.578V27.5H44.5a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1v2.146a2 2 0 0 1-1.106 1.789l-2.17 1.085a.5.5 0 0 1-.724-.447V20.5Z"
@@ -80,8 +94,14 @@
         y2="66"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff" stop-opacity="0" />
-        <stop offset="1" stop-color="#fff" />
+        <stop
+          stop-color="#fff"
+          stop-opacity="0"
+        />
+        <stop
+          offset="1"
+          stop-color="#fff"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -92,7 +112,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#DCDFE3" />
-        <stop offset="1" stop-color="#828C9C" />
+        <stop
+          offset="1"
+          stop-color="#828C9C"
+        />
       </linearGradient>
       <linearGradient
         id="c"
@@ -103,7 +126,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset=".969" stop-color="#fff" stop-opacity="0" />
+        <stop
+          offset=".969"
+          stop-color="#fff"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="d"
@@ -114,7 +141,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#243143" />
-        <stop offset=".969" stop-color="#243143" stop-opacity="0" />
+        <stop
+          offset=".969"
+          stop-color="#243143"
+          stop-opacity="0"
+        />
       </linearGradient>
       <filter
         id="e"
@@ -125,8 +156,15 @@
         color-interpolation-filters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feFlood
+          flood-opacity="0"
+          result="BackgroundImageFix"
+        />
+        <feBlend
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        />
         <feGaussianBlur
           result="effect1_foregroundBlur_1292_8261"
           stdDeviation=".1"

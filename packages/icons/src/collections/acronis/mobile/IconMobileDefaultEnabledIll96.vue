@@ -19,13 +19,24 @@
       fill="url(#a)"
       d="M32 21a6 6 0 0 1 6-6h20a6 6 0 0 1 6 6v54a6 6 0 0 1-6 6H38a6 6 0 0 1-6-6V21Z"
     />
-    <path fill="url(#b)" d="M38 15h20a6 6 0 0 1 6 6v43L38 15Z" opacity=".15" />
+    <path
+      fill="url(#b)"
+      d="M38 15h20a6 6 0 0 1 6 6v43L38 15Z"
+      opacity=".15"
+    />
     <path
       fill="url(#c)"
       d="M47.867 15H58a6 6 0 0 1 6 6v23L47.867 15Z"
       opacity=".25"
     />
-    <rect width="8" height="2" x="44" y="17" fill="#434C59" rx="1" />
+    <rect
+      width="8"
+      height="2"
+      x="44"
+      y="17"
+      fill="#434C59"
+      rx="1"
+    />
     <defs>
       <linearGradient
         id="a"
@@ -36,7 +47,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#40A9FF" />
-        <stop offset="1" stop-color="#A6D7FF" />
+        <stop
+          offset="1"
+          stop-color="#A6D7FF"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -47,7 +61,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#FAFCFF" />
-        <stop offset="1" stop-color="#FAFCFF" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#FAFCFF"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="c"
@@ -58,7 +76,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#FAFCFF" />
-        <stop offset="1" stop-color="#FAFCFF" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#FAFCFF"
+          stop-opacity="0"
+        />
       </linearGradient>
     </defs>
   </svg>

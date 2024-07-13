@@ -42,6 +42,9 @@ jobs:
       - name: Build utils
         run: pnpm --filter ./packages/utils run build
 
+      - name: Build icons
+        run: pnpm --filter ./packages/icons run build
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:

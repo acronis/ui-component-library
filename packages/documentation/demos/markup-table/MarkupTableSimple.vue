@@ -1,7 +1,7 @@
 <script setup>
   import { computed, ref } from 'vue';
-  import data from './__data__/MOCK_DATA_1000.json';
-  import columns from './__data__/columns.json';
+  import data from '../__data__/data.mock.table.1000.json';
+  import columns from '../__data__/data.mock.table.columns.json';
   import MarkupTable from '@/components/markup-table/markupTable.vue';
 
   const selectedRows = ref([]);

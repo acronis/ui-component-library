@@ -33,7 +33,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#011345" />
-        <stop offset="1" stop-color="#3B65BF" />
+        <stop
+          offset="1"
+          stop-color="#3B65BF"
+        />
       </linearGradient>
     </defs>
   </svg>

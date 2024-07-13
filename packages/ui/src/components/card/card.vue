@@ -84,7 +84,8 @@
     position: relative;
     width: 100%;
     display: grid;
-    grid-template-columns: [full-start] var(--acv-spacing-regular) [content-start] 1fr [content-end] var(--acv-spacing-regular) [full-end];
+    grid-template-columns: [full-start] var(--acv-card-padding) [content-start] 1fr [content-end] var(--acv-card-padding) [full-end];
+    padding-block: var(--acv-card-padding);
 
     & > *,
     .content {
@@ -106,7 +107,7 @@
     }
 
     &.padded {
-      padding-block: var(--acv-card-padding);
+      --acv-card-padding: var(--acv-spacing-regular);
     }
 
     & :deep(.acv-card-padding) {

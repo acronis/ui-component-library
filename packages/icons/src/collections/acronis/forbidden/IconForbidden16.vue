@@ -6,12 +6,33 @@
     viewBox="0 0 16 16"
   >
     <g clip-path="url(#a)">
-      <circle cx="8" cy="8" r="8" fill="#EA3939" />
-      <circle cx="8" cy="8" r="7.5" stroke="#243143" stroke-opacity=".1" />
-      <rect width="8" height="2" x="4" y="7" fill="#fff" rx="1" />
+      <circle
+        cx="8"
+        cy="8"
+        r="8"
+        fill="#EA3939"
+      />
+      <circle
+        cx="8"
+        cy="8"
+        r="7.5"
+        stroke="#243143"
+        stroke-opacity=".1"
+      />
+      <rect
+        width="8"
+        height="2"
+        x="4"
+        y="7"
+        fill="#fff"
+        rx="1"
+      />
     </g>
     <defs>
-      <clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z" /></clipPath>
+      <clipPath id="a"><path
+        fill="#fff"
+        d="M0 0h16v16H0z"
+      /></clipPath>
     </defs>
   </svg>
 </template>

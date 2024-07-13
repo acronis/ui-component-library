@@ -5,14 +5,30 @@
     class="acv-icon"
     viewBox="0 0 32 32"
   >
-    <path fill="#41A5EE" d="M9 4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v5.5H9V4Z" />
-    <path fill="#2B7CD3" d="M9 9.5h22V16H9V9.5Z" />
-    <path fill="#185ABD" d="M9 16h22v6.5H9V16Z" />
+    <path
+      fill="#41A5EE"
+      d="M9 4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v5.5H9V4Z"
+    />
+    <path
+      fill="#2B7CD3"
+      d="M9 9.5h22V16H9V9.5Z"
+    />
+    <path
+      fill="#185ABD"
+      d="M9 16h22v6.5H9V16Z"
+    />
     <path
       fill="#103F91"
       d="M9 22.5h22V28a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1v-5.5Z"
     />
-    <rect width="16" height="16" x="1" y="8" fill="#1C60C0" rx="2" />
+    <rect
+      width="16"
+      height="16"
+      x="1"
+      y="8"
+      fill="#1C60C0"
+      rx="2"
+    />
     <path
       stroke="#243143"
       stroke-opacity=".1"

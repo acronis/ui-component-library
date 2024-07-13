@@ -1,4 +1,5 @@
 import { directives } from './directives.ts';
+import { composables } from './composables.ts';
 
 // eslint-disable-next-line node/prefer-global/process
 const isProd = process.env.NODE_ENV === 'production';
@@ -23,6 +24,7 @@ const componentsList = [
   { text: 'Config Provider', link: '/components/config-provider/configProvider.doc.md' },
   { text: 'Confirm Dialog', link: '/components/confirm-dialog/confirmDialog.doc.md' },
   { text: 'Container', link: '/components/container/container.doc.md' },
+  { text: 'Counter', link: '/components/counter/counter.doc.md' },
   { text: 'Data Table', link: '/components/table/table.doc.md' },
   { text: 'Date Picker', link: '/components/date-picker/datePicker.doc.md' },
   { text: 'Dialog', link: '/components/dialog/dialog.doc.md' },
@@ -50,6 +52,7 @@ const componentsList = [
   { text: 'Input Number', link: '/components/input-number/inputNumber.doc.md' },
   { text: 'Link', link: '/components/link/link.doc.md', readyForProduction: true },
   { text: 'List', link: '/components/list/list.doc.md' },
+  { text: 'ListItem', link: '/components/listItem/listItem.doc' },
   { text: 'Loading', link: '/components/loading/loading.doc.md' },
   { text: 'Main', link: '/components/main/main.doc.md' },
   { text: 'Map', link: '/components/map/map.doc.md' },
@@ -101,6 +104,10 @@ const componentsList = [
     text: 'Directives',
     items: directives,
     readyForProduction: true
+  },
+  {
+    text: 'Composables',
+    items: composables
   }
 ];
 
