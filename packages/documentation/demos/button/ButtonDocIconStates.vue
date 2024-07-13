@@ -1,38 +1,38 @@
 <script setup>
-import IconPlaceholder16 from '@acronis-platform/icons/acronis/placeholder/IconPlaceholder16.vue';
-import { BUTTON_TYPE } from '@/components/button/button.ts';
+  import IconPlaceholder16 from '@acronis-platform/icons/acronis/placeholder/IconPlaceholder16.vue';
+  import { BUTTON_TYPE } from '@/components/button/button.ts';
 
-import Button from '@/components/button/button.vue';
+  import Button from '@/components/button/button.vue';
 
-const props = defineProps({
-  size: {
-    type: String
-  },
-});
+  const props = defineProps({
+    size: {
+      type: String
+    },
+  });
 
-const buttonTypes = [
-  'primary',
-  'secondary',
-  'ghost',
-  'danger',
-  'inverted',
-];
+  const buttonTypes = [
+    'primary',
+    'secondary',
+    'ghost',
+    'danger',
+    'inverted',
+  ];
 
-const buttonStates = [
-  '',
-  'hover',
-  'active',
-  'focus',
-  'disabled'
-];
+  const buttonStates = [
+    '',
+    'hover',
+    'active',
+    'focus',
+    'disabled'
+  ];
 
-const iconColor = {
-  primary: 'acv-text-color-white',
-  secondary: 'acv-text-color-nav-primary',
-  ghost: 'acv-text-color-nav-primary',
-  danger: 'acv-text-color-white',
-  inverted: 'acv-text-color-white',
-};
+  const iconColor = {
+    primary: 'acv-text-color-white',
+    secondary: 'acv-text-color-nav-primary',
+    ghost: 'acv-text-color-nav-primary',
+    danger: 'acv-text-color-white',
+    inverted: 'acv-text-color-white',
+  };
 </script>
 
 <template>
@@ -48,11 +48,20 @@ const iconColor = {
       }"
     >
       <div
-        v-for="state in buttonStates" :key="state" class="pa-16"
+        v-for="state in buttonStates"
+        :key="state"
+        class="pa-16"
       >
         <h4>{{ state ?? 'default' }} {{ type }}</h4>
-        <Button :type="type" :class="state" :size="props.size">
-          <IconPlaceholder16 :title="`${state} ${type}`" :class="iconColor[type]" />
+        <Button
+          :type="type"
+          :class="state"
+          :size="props.size"
+        >
+          <IconPlaceholder16
+            :title="`${state} ${type}`"
+            :class="iconColor[type]"
+          />
         </Button>
       </div>
     </div>

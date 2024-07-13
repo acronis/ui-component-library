@@ -9,6 +9,9 @@
       fill="currentColor"
       d="M11 1 3 9v22h18l3.19-3.19-5.727-5.725a7 7 0 1 1 2.23-2.012l5.618 5.616L29 23V1H11Z"
     />
-    <path fill="currentColor" d="M15 20a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+    <path
+      fill="currentColor"
+      d="M15 20a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+    />
   </svg>
 </template>

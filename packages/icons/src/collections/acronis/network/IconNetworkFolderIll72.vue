@@ -24,20 +24,55 @@
       d="M5 64.5a.5.5 0 0 1 .5-.5h61a.5.5 0 0 1 .5.5v.5H5v-.5Z"
       opacity=".05"
     />
-    <path fill="#243143" d="M24 64h24v4H24v-4Z" opacity=".05" />
-    <path fill="#243143" d="M25 64h22v4H25v-4Z" opacity=".05" />
-    <path fill="#243143" d="M26 64h20v4H26v-4Z" opacity=".1" />
-    <path fill="#BDC1C7" d="M34 55h4v8h-4v-8Z" />
-    <path fill="#243143" d="M36 55h2v8h-2v-8Z" opacity=".1" />
-    <path fill="#243143" d="M37 55h1v7.5a.5.5 0 0 1-.5.5H37v-8Z" opacity=".1" />
+    <path
+      fill="#243143"
+      d="M24 64h24v4H24v-4Z"
+      opacity=".05"
+    />
+    <path
+      fill="#243143"
+      d="M25 64h22v4H25v-4Z"
+      opacity=".05"
+    />
+    <path
+      fill="#243143"
+      d="M26 64h20v4H26v-4Z"
+      opacity=".1"
+    />
+    <path
+      fill="#BDC1C7"
+      d="M34 55h4v8h-4v-8Z"
+    />
+    <path
+      fill="#243143"
+      d="M36 55h2v8h-2v-8Z"
+      opacity=".1"
+    />
+    <path
+      fill="#243143"
+      d="M37 55h1v7.5a.5.5 0 0 1-.5.5H37v-8Z"
+      opacity=".1"
+    />
     <path
       fill="#243143"
       d="M34 55h1v8h-.5a.5.5 0 0 1-.5-.5V55Z"
       opacity=".05"
     />
-    <path fill="#243143" d="M34 55h4v3h-4v-3Z" opacity=".1" />
-    <path fill="#243143" d="M34 55h4v2h-4v-2Z" opacity=".1" />
-    <path fill="#243143" d="M34 55h4v1h-4v-1Z" opacity=".2" />
+    <path
+      fill="#243143"
+      d="M34 55h4v3h-4v-3Z"
+      opacity=".1"
+    />
+    <path
+      fill="#243143"
+      d="M34 55h4v2h-4v-2Z"
+      opacity=".1"
+    />
+    <path
+      fill="#243143"
+      d="M34 55h4v1h-4v-1Z"
+      opacity=".2"
+    />
     <path
       fill="#BDC1C7"
       d="M27 63a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H28a1 1 0 0 1-1-1v-6Z"
@@ -72,9 +107,21 @@
       d="M27 63a1 1 0 0 1 1-1v8a1 1 0 0 1-1-1v-6Zm17-1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1v-8Z"
       opacity=".15"
     />
-    <path fill="#243143" d="M29 62h14v1H29v-1Z" opacity=".05" />
-    <path fill="#243143" d="M30 62h12v1H30v-1Z" opacity=".05" />
-    <path fill="#243143" d="M31 62h10v1H31v-1Z" opacity=".05" />
+    <path
+      fill="#243143"
+      d="M29 62h14v1H29v-1Z"
+      opacity=".05"
+    />
+    <path
+      fill="#243143"
+      d="M30 62h12v1H30v-1Z"
+      opacity=".05"
+    />
+    <path
+      fill="#243143"
+      d="M31 62h10v1H31v-1Z"
+      opacity=".05"
+    />
     <path
       fill="#BDC1C7"
       d="M32 58.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-4Z"
@@ -155,7 +202,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop />
-        <stop offset="1" stop-opacity=".4" />
+        <stop
+          offset="1"
+          stop-opacity=".4"
+        />
       </linearGradient>
     </defs>
   </svg>

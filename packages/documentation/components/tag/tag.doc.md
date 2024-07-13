@@ -22,10 +22,11 @@ https://www.figma.com/file/
 
 ## Props
 
-| Prop name   | Description            | Type   | Values | Default |
-| ----------- | ---------------------- | ------ | ------ | ------- |
-| title       | Title of the Tag       | string | -      |         |
-| description | Description of the Tag | string | -      |         |
+| Prop name   | Description              | Type    | Values | Default |
+| ----------- | ------------------------ | ------- | ------ | ------- |
+| title       | Title of the Tag         | string  | -      |         |
+| description | Description of the Tag   | string  | -      |         |
+| small       | Whether the Tag is small | boolean | -      |         |
 
 ## Events
 

@@ -40,8 +40,19 @@
       d="M30 75v1a2 2 0 0 0 2 2h32a2 2 0 0 0 2-2v-1a2 2 0 0 1-2 2H32a2 2 0 0 1-2-2Z"
       opacity=".1"
     />
-    <circle cx="48" cy="55" r="7" fill="#303640" />
-    <circle cx="48" cy="56" r="7" fill="url(#a)" fill-opacity=".2" />
+    <circle
+      cx="48"
+      cy="55"
+      r="7"
+      fill="#303640"
+    />
+    <circle
+      cx="48"
+      cy="56"
+      r="7"
+      fill="url(#a)"
+      fill-opacity=".2"
+    />
     <path
       fill="#fff"
       d="M30 24.5a1.5 1.5 0 0 1 1.5-1.5h33a1.5 1.5 0 0 1 0 3h-33a1.5 1.5 0 0 1-1.5-1.5Zm0 7a1.5 1.5 0 0 1 1.5-1.5h33a1.5 1.5 0 0 1 0 3h-33a1.5 1.5 0 0 1-1.5-1.5Zm1.5 5.5a1.5 1.5 0 0 0 0 3h33a1.5 1.5 0 0 0 0-3h-33Z"
@@ -61,7 +72,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#204880" />
-        <stop offset="1" stop-color="#fff" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+        />
       </linearGradient>
     </defs>
   </svg>

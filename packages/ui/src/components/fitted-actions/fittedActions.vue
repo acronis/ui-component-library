@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { Ref } from 'vue';
   import { ref, toRefs } from 'vue';
-  import ListItem from '../list/listItem.vue';
+  import ListItem from '../list-item/listItem.vue';
   import AcvDropdown from '../dropdown/dropdown.vue';
   import AcvDropdownMenu from '../dropdown/dropdownMenu.vue';
   import AcvButton from '../button/button.vue';
@@ -104,7 +104,6 @@
       </AcvButton>
       <template #dropdown>
         <AcvDropdownMenu
-
           data-testid="dropdown"
         >
           <ListItem

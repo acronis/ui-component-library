@@ -52,8 +52,19 @@
       fill="url(#c)"
       d="M59 73a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-1Z"
     />
-    <circle cx="48" cy="55" r="7" fill="#303640" />
-    <circle cx="48" cy="56" r="7" fill="url(#d)" fill-opacity=".2" />
+    <circle
+      cx="48"
+      cy="55"
+      r="7"
+      fill="#303640"
+    />
+    <circle
+      cx="48"
+      cy="56"
+      r="7"
+      fill="url(#d)"
+      fill-opacity=".2"
+    />
     <path
       fill="#fff"
       d="M30 24.5a1.5 1.5 0 0 1 1.5-1.5h33a1.5 1.5 0 0 1 0 3h-33a1.5 1.5 0 0 1-1.5-1.5Zm0 7a1.5 1.5 0 0 1 1.5-1.5h33a1.5 1.5 0 0 1 0 3h-33a1.5 1.5 0 0 1-1.5-1.5Zm1.5 5.5a1.5 1.5 0 0 0 0 3h33a1.5 1.5 0 0 0 0-3h-33Z"
@@ -63,9 +74,18 @@
       fill="#303640"
       d="M30 23.5a1.5 1.5 0 0 1 1.5-1.5h33a1.5 1.5 0 0 1 0 3h-33a1.5 1.5 0 0 1-1.5-1.5Zm0 7a1.5 1.5 0 0 1 1.5-1.5h33a1.5 1.5 0 0 1 0 3h-33a1.5 1.5 0 0 1-1.5-1.5Zm1.5 5.5a1.5 1.5 0 0 0 0 3h33a1.5 1.5 0 0 0 0-3h-33Z"
     />
-    <path fill="url(#e)" d="M49 22h15.5a1.5 1.5 0 0 1 0 3H49v-3Z" />
-    <path fill="url(#f)" d="M43 29h21.5a1.5 1.5 0 0 1 0 3H43v-3Z" />
-    <path fill="url(#g)" d="M54 36h10.5a1.5 1.5 0 0 1 0 3H54v-3Z" />
+    <path
+      fill="url(#e)"
+      d="M49 22h15.5a1.5 1.5 0 0 1 0 3H49v-3Z"
+    />
+    <path
+      fill="url(#f)"
+      d="M43 29h21.5a1.5 1.5 0 0 1 0 3H43v-3Z"
+    />
+    <path
+      fill="url(#g)"
+      d="M54 36h10.5a1.5 1.5 0 0 1 0 3H54v-3Z"
+    />
     <defs>
       <linearGradient
         id="a"
@@ -76,7 +96,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#4AADFF" />
-        <stop offset="1" stop-color="#92CEFF" />
+        <stop
+          offset="1"
+          stop-color="#92CEFF"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -87,7 +110,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#4AADFF" />
-        <stop offset="1" stop-color="#92CEFF" />
+        <stop
+          offset="1"
+          stop-color="#92CEFF"
+        />
       </linearGradient>
       <linearGradient
         id="c"
@@ -98,7 +124,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#4AADFF" />
-        <stop offset="1" stop-color="#92CEFF" />
+        <stop
+          offset="1"
+          stop-color="#92CEFF"
+        />
       </linearGradient>
       <linearGradient
         id="d"
@@ -109,7 +138,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#204880" />
-        <stop offset="1" stop-color="#fff" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+        />
       </linearGradient>
       <linearGradient
         id="e"
@@ -120,7 +152,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#40A9FF" />
-        <stop offset="1" stop-color="#A6D7FF" />
+        <stop
+          offset="1"
+          stop-color="#A6D7FF"
+        />
       </linearGradient>
       <linearGradient
         id="f"
@@ -131,7 +166,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#40A9FF" />
-        <stop offset="1" stop-color="#A6D7FF" />
+        <stop
+          offset="1"
+          stop-color="#A6D7FF"
+        />
       </linearGradient>
       <linearGradient
         id="g"
@@ -142,7 +180,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#40A9FF" />
-        <stop offset="1" stop-color="#A6D7FF" />
+        <stop
+          offset="1"
+          stop-color="#A6D7FF"
+        />
       </linearGradient>
     </defs>
   </svg>

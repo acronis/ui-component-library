@@ -13,9 +13,18 @@
       fill="#B4B8BF"
       d="M4 74v1a2 2 0 0 0 2 2h84a2 2 0 0 0 2-2v-1a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"
     />
-    <path fill="url(#a)" d="M37 71h22a2 2 0 0 1-2 2H39a2 2 0 0 1-2-2Z" />
-    <path fill="url(#b)" d="M14 22h68v47H14V22Z" />
-    <g fill="#FAFCFF" clip-path="url(#c)">
+    <path
+      fill="url(#a)"
+      d="M37 71h22a2 2 0 0 1-2 2H39a2 2 0 0 1-2-2Z"
+    />
+    <path
+      fill="url(#b)"
+      d="M14 22h68v47H14V22Z"
+    />
+    <g
+      fill="#FAFCFF"
+      clip-path="url(#c)"
+    >
       <path
         d="M49.874 40.962c.538-.272 1.13-.571 1.998-.571 1.15 0 3.049 1.018 3.814 2.168-1.456.552-2.49 1.946-2.49 3.58 0 1.648 1.053 3.053 2.531 3.593a12.85 12.85 0 0 1-1.107 2.073c-.74 1.16-1.754 2.625-3.052 2.635-.532.004-.891-.158-1.277-.334-.45-.203-.935-.424-1.776-.418-.834.005-1.302.222-1.732.422-.376.174-.723.335-1.26.33-1.894 0-5.25-4.223-5.25-8.027 0-4.182 2.836-5.958 4.701-5.958.719 0 1.345.257 1.942.503.542.223 1.06.437 1.6.437.5 0 .91-.208 1.358-.434Zm1.203-2.029c-.976.965-2.25 1.39-3.335 1.218l-.001.002c-.173-1.072.257-2.332 1.233-3.296.976-.965 2.25-1.39 3.335-1.219h.001c.172 1.07-.257 2.33-1.233 3.295Z"
       />
@@ -25,7 +34,11 @@
       d="M31.515 22H82v42.913H56.242L31.515 22Z"
       opacity=".15"
     />
-    <path fill="url(#e)" d="M49.03 22H82v23.5H63.58L49.03 22Z" opacity=".25" />
+    <path
+      fill="url(#e)"
+      d="M49.03 22H82v23.5H63.58L49.03 22Z"
+      opacity=".25"
+    />
     <path
       fill="url(#f)"
       fill-rule="evenodd"
@@ -53,7 +66,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#A1A8B2" />
-        <stop offset="1" stop-color="#FAFCFF" />
+        <stop
+          offset="1"
+          stop-color="#FAFCFF"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -64,7 +80,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#40A9FF" />
-        <stop offset="1" stop-color="#A6D7FF" />
+        <stop
+          offset="1"
+          stop-color="#A6D7FF"
+        />
       </linearGradient>
       <linearGradient
         id="d"
@@ -75,7 +94,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#EBEBEB" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#EBEBEB"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="e"
@@ -86,7 +109,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="f"
@@ -97,10 +124,17 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#1D2026" />
-        <stop offset="1" stop-color="#1D2026" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#1D2026"
+          stop-opacity="0"
+        />
       </linearGradient>
       <clipPath id="c">
-        <path fill="#fff" d="M37.697 35.282h20.606v20.435H37.697z" />
+        <path
+          fill="#fff"
+          d="M37.697 35.282h20.606v20.435H37.697z"
+        />
       </clipPath>
     </defs>
   </svg>

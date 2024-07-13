@@ -5,7 +5,13 @@
     class="acv-icon"
     viewBox="0 0 32 32"
   >
-    <path fill="currentColor" d="M15 4h2v24h-2V4Z" />
-    <path fill="currentColor" d="M4 15h24v2H4v-2Z" />
+    <path
+      fill="currentColor"
+      d="M15 4h2v24h-2V4Z"
+    />
+    <path
+      fill="currentColor"
+      d="M4 15h24v2H4v-2Z"
+    />
   </svg>
 </template>

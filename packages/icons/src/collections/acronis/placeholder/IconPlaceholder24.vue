@@ -6,10 +6,18 @@
     viewBox="0 0 24 24"
   >
     <g clip-path="url(#a)">
-      <rect width="24" height="24" fill="currentColor" rx="2" />
+      <rect
+        width="24"
+        height="24"
+        fill="currentColor"
+        rx="2"
+      />
     </g>
     <defs>
-      <clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z" /></clipPath>
+      <clipPath id="a"><path
+        fill="#fff"
+        d="M0 0h24v24H0z"
+      /></clipPath>
     </defs>
   </svg>
 </template>

@@ -1,6 +1,10 @@
 @layer tokens {
   :root {
-    /* Insert component css variables here */
-    --acv-tag-color: var(--acv-color-brand-primary);
+    --acv-tag-font-size: var(--acv-font-size-caption);
+    --acv-tag-padding: var(--acv-spacing-small);
+    --acv-tag-height: 24px;
+    --acv-tag-color: var(--acv-color-success-text);
+    --acv-tag-border-color: var(--acv-color-success);
+    --acv-tag-background-color: var(--acv-color-success-background);
   }
 }

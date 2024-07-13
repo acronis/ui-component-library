@@ -9,7 +9,10 @@
       fill="#BDC3CB"
       d="M15 4a4 4 0 0 0-4 4v56a4 4 0 0 0 4 4h42a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H15Z"
     />
-    <path fill="#454E5C" d="M11 53h50v11a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V53Z" />
+    <path
+      fill="#454E5C"
+      d="M11 53h50v11a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V53Z"
+    />
     <path
       fill="#243143"
       fill-opacity=".4"
@@ -20,7 +23,10 @@
       d="M12 53h-1v9a4 4 0 0 0 4 4h42a4 4 0 0 0 4-4v-9h-1v8.5a3.5 3.5 0 0 1-3.5 3.5h-41a3.5 3.5 0 0 1-3.5-3.5V53Z"
       opacity=".15"
     />
-    <path fill="url(#b)" d="M15 4a4 4 0 0 0-4 4v45h50V8a4 4 0 0 0-4-4H15Z" />
+    <path
+      fill="url(#b)"
+      d="M15 4a4 4 0 0 0-4 4v45h50V8a4 4 0 0 0-4-4H15Z"
+    />
     <path
       fill="url(#c)"
       fill-opacity=".3"
@@ -33,8 +39,16 @@
       d="M15 5a3 3 0 0 0-3 3v1a3 3 0 0 1 3-3h42a3 3 0 0 1 3 3V8a3 3 0 0 0-3-3H15Z"
       opacity=".2"
     />
-    <path fill="#fff" d="M11 52h50v1H11v-1Z" opacity=".05" />
-    <path fill="#243143" d="M11 53h50v1H11v-1Z" opacity=".25" />
+    <path
+      fill="#fff"
+      d="M11 52h50v1H11v-1Z"
+      opacity=".05"
+    />
+    <path
+      fill="#243143"
+      d="M11 53h50v1H11v-1Z"
+      opacity=".25"
+    />
     <path
       fill="#fff"
       d="M24 42h3.692l1.776-4.377h13.1L44.308 42H48L37.917 18h-3.834L24 42Zm8.911-12.953.64-1.553c1.029-2.541 1.916-4.659 2.449-6.247.568 1.588 1.456 3.706 2.485 6.247l.64 1.553H32.91Zm-2.236 5.576 1.1-2.752h8.45l1.136 2.753H30.675Z"
@@ -44,7 +58,11 @@
       d="M18.99 10.25a3 3 0 0 1-5.98 0 3 3 0 1 0 5.98 0Z"
       opacity=".3"
     />
-    <path fill="#0B4781" d="M19 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" opacity=".3" />
+    <path
+      fill="#0B4781"
+      d="M19 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+      opacity=".3"
+    />
     <path
       fill="#243143"
       d="M18.99 10.25a3 3 0 1 0-5.98 0 3 3 0 0 1 5.98 0Z"
@@ -55,7 +73,10 @@
       d="M18 10.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
       opacity=".4"
     />
-    <path fill="#E0E4E8" d="M18 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+    <path
+      fill="#E0E4E8"
+      d="M18 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+    />
     <path
       fill="#243143"
       fill-opacity=".9"
@@ -67,7 +88,11 @@
       d="M58.99 10.25a3 3 0 0 1-5.98 0 3 3 0 1 0 5.98 0Z"
       opacity=".3"
     />
-    <path fill="#0B4781" d="M59 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" opacity=".3" />
+    <path
+      fill="#0B4781"
+      d="M59 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+      opacity=".3"
+    />
     <path
       fill="#243143"
       d="M58.99 10.25a3 3 0 1 0-5.98 0 3 3 0 0 1 5.98 0Z"
@@ -78,7 +103,10 @@
       d="M58 10.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
       opacity=".4"
     />
-    <path fill="#E0E4E8" d="M58 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+    <path
+      fill="#E0E4E8"
+      d="M58 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+    />
     <path
       fill="#243143"
       fill-opacity=".9"
@@ -90,7 +118,11 @@
       d="M18.99 61.25a3 3 0 0 1-5.98 0 3 3 0 1 0 5.98 0Z"
       opacity=".15"
     />
-    <path fill="#243143" d="M19 61a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" opacity=".4" />
+    <path
+      fill="#243143"
+      d="M19 61a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+      opacity=".4"
+    />
     <path
       fill="#243143"
       d="M18.99 61.25a3 3 0 1 0-5.98 0 3 3 0 0 1 5.98 0Z"
@@ -101,7 +133,10 @@
       d="M18 61.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
       opacity=".4"
     />
-    <path fill="#E0E4E8" d="M18 61a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+    <path
+      fill="#E0E4E8"
+      d="M18 61a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+    />
     <path
       fill="#243143"
       fill-opacity=".9"
@@ -113,7 +148,11 @@
       d="M58.99 61.25a3 3 0 0 1-5.98 0 3 3 0 1 0 5.98 0Z"
       opacity=".15"
     />
-    <path fill="#243143" d="M59 61a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" opacity=".4" />
+    <path
+      fill="#243143"
+      d="M59 61a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+      opacity=".4"
+    />
     <path
       fill="#243143"
       d="M58.99 61.25a3 3 0 1 0-5.98 0 3 3 0 0 1 5.98 0Z"
@@ -124,7 +163,10 @@
       d="M58 61.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
       opacity=".4"
     />
-    <path fill="#E0E4E8" d="M58 61a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+    <path
+      fill="#E0E4E8"
+      d="M58 61a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+    />
     <path
       fill="#243143"
       fill-opacity=".9"
@@ -165,8 +207,14 @@
         y2="66"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff" stop-opacity="0" />
-        <stop offset="1" stop-color="#fff" />
+        <stop
+          stop-color="#fff"
+          stop-opacity="0"
+        />
+        <stop
+          offset="1"
+          stop-color="#fff"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -177,7 +225,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#0B84D1" />
-        <stop offset="1" stop-color="#034E96" />
+        <stop
+          offset="1"
+          stop-color="#034E96"
+        />
       </linearGradient>
       <linearGradient
         id="c"
@@ -188,7 +239,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#0B4781" />
-        <stop offset=".969" stop-color="#034E96" stop-opacity="0" />
+        <stop
+          offset=".969"
+          stop-color="#034E96"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="d"
@@ -199,7 +254,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#151920" />
-        <stop offset="1" stop-color="#606978" />
+        <stop
+          offset="1"
+          stop-color="#606978"
+        />
       </linearGradient>
       <linearGradient
         id="e"
@@ -210,7 +268,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#9BC225" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#9BC225"
+          stop-opacity="0"
+        />
       </linearGradient>
     </defs>
   </svg>

@@ -5,7 +5,10 @@
     class="acv-icon"
     viewBox="0 0 32 32"
   >
-    <path fill="currentColor" d="M5 12V5h22v22H5v-7H3v9h26V3H3v9h2Z" />
+    <path
+      fill="currentColor"
+      d="M5 12V5h22v22H5v-7H3v9h26V3H3v9h2Z"
+    />
     <path
       fill="currentColor"
       d="M13 11.333 15.722 15H2v2h13.722L13 20.667 14.546 22 19 16l-4.454-6L13 11.333Z"

@@ -5,7 +5,10 @@
     class="acv-icon"
     viewBox="0 0 16 16"
   >
-    <g fill="currentColor" clip-path="url(#a)">
+    <g
+      fill="currentColor"
+      clip-path="url(#a)"
+    >
       <path
         d="M9 1a1 1 0 1 0-2 0v1H1a1 1 0 0 0 0 2v6.9A1.1 1.1 0 0 0 2.1 12h3.32l-.396 1.783a1 1 0 0 0 1.952.434L7.47 12h1.062l.148.665c.072-.136.164-.266.273-.386l1.297-1.617.032-.034A1.988 1.988 0 0 1 11.746 10H3V4h10v6h2V4a1 1 0 1 0 0-2H9V1Z"
       />
@@ -19,7 +22,10 @@
       />
     </g>
     <defs>
-      <clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z" /></clipPath>
+      <clipPath id="a"><path
+        fill="#fff"
+        d="M0 0h16v16H0z"
+      /></clipPath>
     </defs>
   </svg>
 </template>

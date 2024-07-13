@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { computed, useAttrs } from 'vue';
   import './icon.css';
+  import * as iconSets from '@acronis-platform/icons/dist/public';
+  import { camelCase, startCase } from 'lodash-es';
   import type { AcvIconProps } from './icon';
 
   const {
@@ -11,9 +13,9 @@
     flip,
     icon,
     inverse,
-    // name,
+    name,
     size,
-    // state,
+    state,
     stateColor,
     title,
   } = withDefaults(defineProps<AcvIconProps>(), {
@@ -41,6 +43,10 @@
     };
   });
 
+  const iconName = computed(() => {
+    return typeof icon === 'string' ? icon : name;
+  });
+
   const attrs = {
     ...useAttrs(),
     'role': (title ? 'img' : 'presentation'),
@@ -53,17 +59,19 @@
     return stateColor ? `var(--acv-color-${stateColor})` : 'currentColor';
   });
 
-  // const dynamicIcon = computed(() => {
-  //   const iconName = startCase(camelCase(name)).replace(/ /g, '');
-  //
-  //   return iconSets[iconName];
-  // });
-  //
-  // const dynamicStateIcon = computed(() => {
-  //   const iconName = startCase(camelCase(state)).replace(/ /g, '');
-  //
-  //   return iconSets[iconName];
-  // });
+  const dynamicIcon = computed(() => {
+    const iconFilename = `Icon${startCase(camelCase(iconName.value)).replace(/ /g, '')}`;
+
+    return iconSets[iconFilename];
+  });
+
+  const dynamicStateIcon = computed(() => {
+    if (!state)
+      return undefined;
+    const iconName = startCase(camelCase(state)).replace(/ /g, '');
+
+    return iconSets[iconName];
+  });
 </script>
 
 <template>
@@ -71,7 +79,7 @@
     :class="classes"
     v-bind="attrs"
   >
-    <g v-if="icon">
+    <g v-if="icon && !iconName">
       <slot>
         <component
           :is="icon"
@@ -81,33 +89,33 @@
         />
       </slot>
     </g>
-    <!--    <slot v-else> -->
-    <!--      <component -->
-    <!--        :is="dynamicStateIcon" -->
-    <!--        v-if="dynamicStateIcon" -->
-    <!--        class="state" -->
-    <!--        :color="stateColor" -->
-    <!--        :width="size" -->
-    <!--        :height="size" -->
-    <!--      /> -->
-    <!--      <component -->
-    <!--        :is="dynamicIcon" -->
-    <!--        v-if="dynamicIcon" -->
-    <!--        class="cmp" -->
-    <!--        :width="size" -->
-    <!--        :height="size" -->
-    <!--      /> -->
-    <!--      <span -->
-    <!--        v-else -->
-    <!--        :class="`i-${collection}-icons:${name}`" -->
-    <!--      ></span> -->
-    <!--    </slot> -->
+    <slot v-else>
+      <component
+        :is="dynamicStateIcon"
+        v-if="dynamicStateIcon"
+        class="state"
+        :color="stateColor"
+        :width="size"
+        :height="size"
+      />
+      <component
+        :is="dynamicIcon"
+        v-if="dynamicIcon"
+        class="cmp"
+        :width="size"
+        :height="size"
+      />
+      <!--          <span -->
+      <!--            v-else -->
+      <!--            :class="`i-${collection}-icons:${name}`" -->
+      <!--          ></span> -->
+    </slot>
   </i>
 </template>
 
 <style scoped>
   .acv-icon {
-    --acv-icon-size: var(--acv-icon-size-md);
+    --acv-icon-size: var(--acv-icon-size-xs);
     --acv-icon-size-height: var(--acv-icon-size);
     --acv-icon-size-width: var(--acv-icon-size);
     font-weight: var(--acv-font-weight-strong);
@@ -119,10 +127,12 @@
     position: relative;
     display: inline-flex;
     align-items: center;
+    align-self: center;
     justify-content: center;
 
     svg {
       fill: v-bind(fillColor);
+      color: v-bind(fillColor);
       height: var(--acv-icon-size-height, var(--acv-icon-size));
       width: var(--acv-icon-size-width, var(--acv-icon-size));
     }

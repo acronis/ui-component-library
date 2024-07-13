@@ -5,7 +5,14 @@
     class="acv-icon"
     viewBox="0 0 32 32"
   >
-    <rect width="26" height="26" x="3" y="3" fill="#3A76F1" rx="8" />
+    <rect
+      width="26"
+      height="26"
+      x="3"
+      y="3"
+      fill="#3A76F1"
+      rx="8"
+    />
     <rect
       width="25"
       height="25"

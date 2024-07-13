@@ -15,7 +15,10 @@
       d="M1 1h14a1 1 0 0 1 1 1v7a4.978 4.978 0 0 0-3-1 4.978 4.978 0 0 0-3 1H2v4h6c0 .711.148 1.387.416 2H1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Zm1 6h12V3H2v4Z"
       clip-rule="evenodd"
     />
-    <path fill="currentColor" d="M4 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+    <path
+      fill="currentColor"
+      d="M4 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+    />
     <path
       fill="currentColor"
       fill-rule="evenodd"

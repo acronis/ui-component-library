@@ -11,6 +11,9 @@
       d="M21 5v14a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V5a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Zm-2 0a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5Z"
       clip-rule="evenodd"
     />
-    <path fill="currentColor" d="M12 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z" />
+    <path
+      fill="currentColor"
+      d="M12 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"
+    />
   </svg>
 </template>

@@ -5,7 +5,18 @@
     class="acv-icon"
     viewBox="0 0 16 16"
   >
-    <circle cx="8" cy="8" r="4" fill="#EA3939" />
-    <circle cx="8" cy="8" r="3.5" stroke="#243143" stroke-opacity=".1" />
+    <circle
+      cx="8"
+      cy="8"
+      r="4"
+      fill="#EA3939"
+    />
+    <circle
+      cx="8"
+      cy="8"
+      r="3.5"
+      stroke="#243143"
+      stroke-opacity=".1"
+    />
   </svg>
 </template>

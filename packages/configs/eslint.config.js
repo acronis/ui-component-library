@@ -24,6 +24,15 @@ export default antfu(
     files: ['**/*.vue'],
     rules: {
       'style/indent': 'off',
+      'vue/html-indent': ['error', 2, {
+        alignAttributesVertically: false,
+      }],
+      'vue/operator-linebreak': ['error', 'before'],
+      'vue/script-indent': ['error', 2, { baseIndent: 1, switchCase: 1 }],
+      'vue/max-attributes-per-line': 'error',
+      'vue/component-definition-name-casing': ['error', 'PascalCase'],
+      'vue/html-closing-bracket-newline': 'error',
+      'vue/html-closing-bracket-spacing': 'error',
       'vue/attributes-order': ['error', {
         order: ['DEFINITION', 'LIST_RENDERING', 'CONDITIONALS', 'RENDER_MODIFIERS', 'GLOBAL', ['UNIQUE', 'SLOT'], 'TWO_WAY_BINDING', 'OTHER_DIRECTIVES', 'OTHER_ATTR', 'EVENTS', 'CONTENT'],
         alphabetical: false,

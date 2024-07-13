@@ -9,6 +9,7 @@ describe('test Tag component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "description": undefined,
+        "small": false,
         "title": undefined,
       }
     `);
@@ -24,6 +25,7 @@ describe('test Tag component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "description": undefined,
+        "small": false,
         "title": "test",
       }
     `);

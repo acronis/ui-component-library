@@ -5,7 +5,10 @@
     class="acv-icon"
     viewBox="0 0 32 32"
   >
-    <path fill="#EA3939" d="M32 26a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z" />
+    <path
+      fill="#EA3939"
+      d="M32 26a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
+    />
     <path
       stroke="#243143"
       stroke-opacity=".1"

@@ -57,10 +57,12 @@
     "@antfu/utils": "0.7.8",
     "@floating-ui/vue": "1.0.6",
     "@vueuse/core": "10.9.0",
+    "@vueuse/integrations": "10.11.0",
     "colord": "2.9.3",
     "highlight.js": "11.9.0",
     "lodash-es": "4.17.21",
     "md-editor-v3": "4.17.3",
+    "sortablejs": "^1",
     "vue": "3.4.30",
     "vue-router": "4.4.0"
   },

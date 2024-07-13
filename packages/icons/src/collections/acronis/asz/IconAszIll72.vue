@@ -64,7 +64,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#5EB6FE" />
-        <stop offset="1" stop-color="#73D1FD" />
+        <stop
+          offset="1"
+          stop-color="#73D1FD"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -75,7 +78,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#97DAFB" />
-        <stop offset="1" stop-color="#73D1FD" />
+        <stop
+          offset="1"
+          stop-color="#73D1FD"
+        />
       </linearGradient>
       <linearGradient
         id="c"
@@ -86,7 +92,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="d"
@@ -96,8 +106,14 @@
         y2="68"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff" stop-opacity="0" />
-        <stop offset="1" stop-color="#fff" />
+        <stop
+          stop-color="#fff"
+          stop-opacity="0"
+        />
+        <stop
+          offset="1"
+          stop-color="#fff"
+        />
       </linearGradient>
       <linearGradient
         id="e"
@@ -107,8 +123,14 @@
         y2="68"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#44B3FE" stop-opacity=".3" />
-        <stop offset="1" stop-color="#6CC8FE" />
+        <stop
+          stop-color="#44B3FE"
+          stop-opacity=".3"
+        />
+        <stop
+          offset="1"
+          stop-color="#6CC8FE"
+        />
       </linearGradient>
       <linearGradient
         id="f"
@@ -119,7 +141,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop />
-        <stop offset="1" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="g"
@@ -130,7 +155,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop />
-        <stop offset="1" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="h"
@@ -141,7 +169,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop />
-        <stop offset="1" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-opacity="0"
+        />
       </linearGradient>
     </defs>
   </svg>

@@ -8,6 +8,11 @@ export interface AcvTagProps {
    * Description of the Tag
    */
   description?: string
+
+  /**
+   * Whether the Tag is small
+   */
+  small?: boolean
 }
 
 export interface AcvTagEvents {

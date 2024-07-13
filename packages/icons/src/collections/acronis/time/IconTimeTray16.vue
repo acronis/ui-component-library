@@ -5,8 +5,16 @@
     class="acv-icon"
     viewBox="0 0 16 16"
   >
-    <circle cx="8" cy="8" r="8" fill="#fff" />
-    <path fill="#408BEA" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z" />
+    <circle
+      cx="8"
+      cy="8"
+      r="8"
+      fill="#fff"
+    />
+    <path
+      fill="#408BEA"
+      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"
+    />
     <path
       fill="#fff"
       fill-rule="evenodd"

@@ -6,25 +6,37 @@
     viewBox="0 0 16 16"
   >
     <g clip-path="url(#a)">
-      <path fill="#9BC225" d="M3.5 6.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      <path
+        fill="#9BC225"
+        d="M3.5 6.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+      />
       <path
         stroke="#243143"
         stroke-opacity=".1"
         d="M6 3.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
       />
-      <path fill="#FFC107" d="M12.5 6.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      <path
+        fill="#FFC107"
+        d="M12.5 6.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+      />
       <path
         stroke="#243143"
         stroke-opacity=".1"
         d="M15 3.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
       />
-      <path fill="#EA3939" d="M12.5 15.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      <path
+        fill="#EA3939"
+        d="M12.5 15.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+      />
       <path
         stroke="#243143"
         stroke-opacity=".1"
         d="M15 12.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
       />
-      <path fill="#408BEA" d="M3.5 15.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      <path
+        fill="#408BEA"
+        d="M3.5 15.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+      />
       <path
         stroke="#243143"
         stroke-opacity=".1"
@@ -32,7 +44,10 @@
       />
     </g>
     <defs>
-      <clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z" /></clipPath>
+      <clipPath id="a"><path
+        fill="#fff"
+        d="M0 0h16v16H0z"
+      /></clipPath>
     </defs>
   </svg>
 </template>

@@ -21,11 +21,29 @@
       fill="#EA3939"
       d="M84 73.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z"
     />
-    <path fill="url(#a)" d="M37 71h22a2 2 0 0 1-2 2H39a2 2 0 0 1-2-2Z" />
-    <path fill="url(#b)" d="M15 23h66v46H15V23Z" />
-    <path fill="url(#c)" fill-opacity=".15" d="M32 23h49v42H56L32 23Z" />
-    <path fill="url(#d)" fill-opacity=".25" d="M49 23h32v23H63.122L49 23Z" />
-    <path stroke="url(#e)" stroke-opacity=".2" d="M15.5 23.5h65v45h-65v-45Z" />
+    <path
+      fill="url(#a)"
+      d="M37 71h22a2 2 0 0 1-2 2H39a2 2 0 0 1-2-2Z"
+    />
+    <path
+      fill="url(#b)"
+      d="M15 23h66v46H15V23Z"
+    />
+    <path
+      fill="url(#c)"
+      fill-opacity=".15"
+      d="M32 23h49v42H56L32 23Z"
+    />
+    <path
+      fill="url(#d)"
+      fill-opacity=".25"
+      d="M49 23h32v23H63.122L49 23Z"
+    />
+    <path
+      stroke="url(#e)"
+      stroke-opacity=".2"
+      d="M15.5 23.5h65v45h-65v-45Z"
+    />
     <defs>
       <linearGradient
         id="a"
@@ -36,8 +54,14 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#A1A8B2" />
-        <stop offset="0" stop-color="#84817F" />
-        <stop offset="1" stop-color="#92918F" />
+        <stop
+          offset="0"
+          stop-color="#84817F"
+        />
+        <stop
+          offset="1"
+          stop-color="#92918F"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -48,7 +72,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#6C7480" />
-        <stop offset="1" stop-color="#E6EBF2" />
+        <stop
+          offset="1"
+          stop-color="#E6EBF2"
+        />
       </linearGradient>
       <linearGradient
         id="c"
@@ -59,7 +86,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#EBEBEB" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#EBEBEB"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="d"
@@ -70,7 +101,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="e"
@@ -81,7 +116,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#1D2026" />
-        <stop offset="1" stop-color="#1D2026" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#1D2026"
+          stop-opacity="0"
+        />
       </linearGradient>
     </defs>
   </svg>

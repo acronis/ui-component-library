@@ -47,9 +47,20 @@
         role="switch"
         class="visually-hidden"
       >
-      <span class="acv-switch__decor" data-switch-input-state="on" aria-hidden="true">On</span>
-      <span class="acv-switch__decor" data-switch-input-state="off" aria-hidden="true">Off</span>
-      <span class="acv-switch__thumb" aria-hidden="true" />
+      <span
+        class="acv-switch__decor"
+        data-switch-input-state="on"
+        aria-hidden="true"
+      >On</span>
+      <span
+        class="acv-switch__decor"
+        data-switch-input-state="off"
+        aria-hidden="true"
+      >Off</span>
+      <span
+        class="acv-switch__thumb"
+        aria-hidden="true"
+      />
     </span>
     <span
       v-if="slots.default || props.label"

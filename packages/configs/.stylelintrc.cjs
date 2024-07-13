@@ -78,6 +78,7 @@ module.exports = {
       'always-multi-line',
       {
         except: ['first-nested'],
+        ignore: ['after-comment']
       },
     ],
     'scale-unlimited/declaration-strict-value': [

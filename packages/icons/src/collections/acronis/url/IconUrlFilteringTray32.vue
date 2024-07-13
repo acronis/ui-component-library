@@ -5,7 +5,14 @@
     class="acv-icon"
     viewBox="0 0 32 32"
   >
-    <rect width="24" height="24" x="4" y="4" fill="#408BEA" rx="2" />
+    <rect
+      width="24"
+      height="24"
+      x="4"
+      y="4"
+      fill="#408BEA"
+      rx="2"
+    />
     <rect
       width="23"
       height="23"
@@ -15,7 +22,10 @@
       stroke-opacity=".1"
       rx="1.5"
     />
-    <path fill="currentColor" d="M4 6a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v4H4V6Z" />
+    <path
+      fill="currentColor"
+      d="M4 6a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v4H4V6Z"
+    />
     <path
       stroke="#243143"
       stroke-opacity=".1"

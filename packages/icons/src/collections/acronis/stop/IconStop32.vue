@@ -14,6 +14,13 @@
       stroke-opacity=".1"
       d="M28.5 16c0 6.904-5.596 12.5-12.5 12.5S3.5 22.904 3.5 16 9.096 3.5 16 3.5 28.5 9.096 28.5 16Z"
     />
-    <rect width="10" height="10" x="11" y="11" fill="#fff" rx="1" />
+    <rect
+      width="10"
+      height="10"
+      x="11"
+      y="11"
+      fill="#fff"
+      rx="1"
+    />
   </svg>
 </template>

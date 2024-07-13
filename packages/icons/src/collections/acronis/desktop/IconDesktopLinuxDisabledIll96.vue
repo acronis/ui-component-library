@@ -24,8 +24,16 @@
       fill="#6C7480"
       d="M33 74a1 1 0 0 0-1 1v1a1 1 0 0 1 1-1h30a1 1 0 0 1 1 1v-1a1 1 0 0 0-1-1H33Z"
     />
-    <path fill="url(#a)" fill-opacity=".2" d="M15 62h66v2H15v-2Z" />
-    <path fill="#fff" fill-opacity=".1" d="M15 62h66v1H15v-1Z" />
+    <path
+      fill="url(#a)"
+      fill-opacity=".2"
+      d="M15 62h66v2H15v-2Z"
+    />
+    <path
+      fill="#fff"
+      fill-opacity=".1"
+      d="M15 62h66v1H15v-1Z"
+    />
     <path
       fill="#EA3939"
       d="M77 67.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z"
@@ -34,14 +42,29 @@
       fill="#303640"
       d="M15.5 67a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm43.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm6.5-.5a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm6 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Z"
     />
-    <path fill="url(#b)" d="M15 21h66v42H15V21Z" />
-    <path stroke="url(#c)" stroke-opacity=".2" d="M15.5 21.5h65v41h-65v-41Z" />
+    <path
+      fill="url(#b)"
+      d="M15 21h66v42H15V21Z"
+    />
+    <path
+      stroke="url(#c)"
+      stroke-opacity=".2"
+      d="M15.5 21.5h65v41h-65v-41Z"
+    />
     <path
       fill="#FAFCFF"
       d="M32.413 47v-8.727h2.109v7.014h3.63V47h-5.74Zm6.832 0v-6.545h2.083V47h-2.084Zm1.044-7.308c-.293 0-.544-.096-.755-.29a.933.933 0 0 1-.315-.707c0-.273.105-.506.315-.699.21-.196.462-.294.755-.294.295 0 .546.098.754.294.21.193.315.426.315.699a.933.933 0 0 1-.315.707c-.208.194-.459.29-.755.29Zm4.45 3.575V47h-2.084v-6.545h1.981v1.202h.073c.144-.4.392-.715.741-.942.35-.23.766-.345 1.249-.345.46 0 .86.104 1.197.31.341.205.605.492.793.862.19.366.284.795.281 1.287V47h-2.084v-3.762c.003-.364-.09-.648-.277-.853-.184-.204-.442-.306-.771-.306a1.14 1.14 0 0 0-.58.145.96.96 0 0 0-.383.404c-.088.176-.134.39-.136.64Zm9.744.908v-3.72h2.08V47h-1.986v-1.218h-.068c-.145.4-.392.718-.742.954-.346.233-.765.35-1.257.35-.446 0-.838-.103-1.176-.307a2.09 2.09 0 0 1-.788-.857c-.188-.369-.283-.8-.286-1.295v-4.172h2.084v3.763c.003.355.096.635.281.84.185.204.436.306.754.306.208 0 .394-.045.559-.136.167-.094.3-.229.396-.405.1-.18.15-.395.15-.648Zm5.179-3.72 1.078 2.156 1.116-2.156h2.101l-1.828 3.273L64.025 47h-2.083l-1.202-2.173L59.568 47h-2.114l1.9-3.272-1.806-3.273h2.114Z"
     />
-    <path fill="url(#d)" d="M32 21h49v42H56L32 21Z" opacity=".15" />
-    <path fill="url(#e)" d="M49 21h32v23H63.122L49 21Z" opacity=".25" />
+    <path
+      fill="url(#d)"
+      d="M32 21h49v42H56L32 21Z"
+      opacity=".15"
+    />
+    <path
+      fill="url(#e)"
+      d="M49 21h32v23H63.122L49 21Z"
+      opacity=".25"
+    />
     <defs>
       <linearGradient
         id="a"
@@ -52,7 +75,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="b"
@@ -63,7 +90,10 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#6C7480" />
-        <stop offset="1" stop-color="#E6EBF2" />
+        <stop
+          offset="1"
+          stop-color="#E6EBF2"
+        />
       </linearGradient>
       <linearGradient
         id="c"
@@ -74,7 +104,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="d"
@@ -85,7 +119,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#EBEBEB" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#EBEBEB"
+          stop-opacity="0"
+        />
       </linearGradient>
       <linearGradient
         id="e"
@@ -96,7 +134,11 @@
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop
+          offset="1"
+          stop-color="#fff"
+          stop-opacity="0"
+        />
       </linearGradient>
     </defs>
   </svg>
