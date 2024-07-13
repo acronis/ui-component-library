@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/acronis/ui-component-library/compare/v1.2.0...v1.3.0) (2024-07-13)
+
+
+### Features
+
+* **markdown-editor:** add simple markdown-editor component ([8530767](https://github.com/acronis/ui-component-library/commit/8530767435beb19732aa05aa438cba44ee6391b8))
+
 ## [1.2.0](https://github.com/acronis/ui-component-library/compare/v1.1.0...v1.2.0) (2024-07-12)
 
 
