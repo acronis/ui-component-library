@@ -53,6 +53,7 @@ export * from './loader/public.ts';
 export * from './loading/public.ts';
 export * from './main/public.ts';
 export * from './map/public.ts';
+export * from './markdown-editor/public.ts';
 export * from './markup-table/public.ts';
 export * from './menu-group/public.ts';
 export * from './menu-item/public.ts';
