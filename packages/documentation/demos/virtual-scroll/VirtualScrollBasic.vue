@@ -1,7 +1,7 @@
 <script setup>
-  import { VirtualScroll } from '@acronis-platform/ui-component-library';
+  import { AcvVirtualScroll } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <VirtualScroll />
+  <AcvVirtualScroll />
 </template>

@@ -29,7 +29,6 @@ export function buildPlugin(): Plugin[] {
         sourceMap: false,
         paths: {
           '@/*': ['./*'],
-          'vue-router': ['node_modules/vue-router'],
           'csstype': ['node_modules/csstype']
         }
       },

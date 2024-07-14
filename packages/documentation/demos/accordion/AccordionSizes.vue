@@ -1,5 +1,7 @@
 <script setup>
-  import { Accordion, AccordionPanel, Divider } from '@acronis-platform/ui-component-library';
+  import Accordion from '@/components/accordion/accordion.vue';
+  import AccordionPanel from '@/components/accordion/accordionPanel.vue';
+  import Divider from '@/components/divider/divider.vue';
 
   const names = ['First item', 'Second item'];
   const activeName = '1';

@@ -1,9 +1,9 @@
 <script setup>
-  import { Icon, IconButton } from '@acronis-platform/ui-component-library';
+  import { AcvIcon, AcvIconButton } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <IconButton>
-    <Icon name="user--32" />
-  </IconButton>
+  <AcvIconButton>
+    <AcvIcon name="user--32" />
+  </AcvIconButton>
 </template>

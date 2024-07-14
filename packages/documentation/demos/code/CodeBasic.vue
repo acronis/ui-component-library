@@ -1,5 +1,5 @@
 <script setup>
-  import { Code } from '@acronis-platform/ui-component-library';
+  import { AcvCode } from '@acronis-platform/ui-component-library';
 
   const code = `from pymatgen.core import Lattice, Structure
 from rolos_sdk import Dataframe, DataStorageInterface, DataStorageType, RawObject, TableColumn
@@ -14,5 +14,5 @@ table_schema = [
 </script>
 
 <template>
-  <Code :code="code" />
+  <AcvCode :code="code" />
 </template>

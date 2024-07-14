@@ -1,7 +1,7 @@
 <script setup>
-  import { Toolbar } from '@acronis-platform/ui-component-library';
+  import { AcvToolbar } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Toolbar />
+  <AcvToolbar />
 </template>

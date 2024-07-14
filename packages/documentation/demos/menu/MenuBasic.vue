@@ -1,7 +1,7 @@
 <script setup>
-  import { Menu } from '@acronis-platform/ui-component-library';
+  import { AcvMenu } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Menu />
+  <AcvMenu />
 </template>

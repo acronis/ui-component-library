@@ -1,11 +1,11 @@
 <script>
-  import { FittedActions } from '@acronis-platform/ui-component-library';
+  import { AcvFittedActions } from '@acronis-platform/ui-component-library';
   import { testActions } from './fitted.actions.mocks';
 
   export default {
     name: 'FittedActionsReversed',
     components: {
-      FittedActions
+      AcvFittedActions
     },
     data() {
       return {
@@ -17,7 +17,7 @@
 
 <template>
   <div class="example">
-    <FittedActions
+    <AcvFittedActions
       class="example__component"
       :actions="testActions"
     />

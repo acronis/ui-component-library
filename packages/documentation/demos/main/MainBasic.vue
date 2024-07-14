@@ -1,7 +1,7 @@
 <script setup>
-  import { Main } from '@acronis-platform/ui-component-library';
+  import { AcvMain } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Main />
+  <AcvMain />
 </template>

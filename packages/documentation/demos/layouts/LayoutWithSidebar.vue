@@ -1,14 +1,14 @@
 <script setup>
-  import { Aside, Container, Footer, Header, Main } from '@acronis-platform/ui-component-library';
+  import { AcvAside, AcvContainer, AcvFooter, AcvHeader, AcvMain } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Container>
-    <Header>Header</Header>
-    <Aside>Sidebar</Aside>
-    <Main>
+  <AcvContainer>
+    <AcvHeader>Header</AcvHeader>
+    <AcvAside>Sidebar</AcvAside>
+    <AcvMain>
       Content
-    </Main>
-    <Footer>Footer</Footer>
-  </Container>
+    </AcvMain>
+    <AcvFooter>Footer</AcvFooter>
+  </AcvContainer>
 </template>
