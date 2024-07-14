@@ -5,12 +5,12 @@
   import { has } from 'lodash-es';
   import { GRID_KEY } from '../grid/grid.ts';
   import type { ClassType } from '../../utils/props.ts';
-  import type { CellProps } from './cell.ts';
+  import type { AcvCellProps } from './cell.ts';
   import { isPositionSet, parsePosition, queryBreakPointOptions } from './utils.ts';
 
   defineOptions({ name: 'Cell' });
 
-  const props = withDefaults(defineProps<CellProps>(), {
+  const props = withDefaults(defineProps<AcvCellProps>(), {
     tag: 'div',
     top: 'auto',
     left: 'auto',

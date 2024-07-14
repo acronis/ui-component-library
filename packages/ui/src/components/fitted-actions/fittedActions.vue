@@ -1,22 +1,22 @@
 <script setup lang="ts">
   import type { Ref } from 'vue';
   import { ref, toRefs } from 'vue';
-  import { ListItem } from '../../components/index.ts';
+  import ListItem from '../list/listItem.vue';
   import AcvDropdown from '../dropdown/dropdown.vue';
   import AcvDropdownMenu from '../dropdown/dropdownMenu.vue';
   import AcvButton from '../button/button.vue';
-  import type { FittedAction } from './fittedActions.ts';
-  import type { FittedActionsProps, FittedItem } from './fittedActions';
+  import type { AcvFittedAction } from './fittedActions.ts';
+  import type { AcvFittedActionsProps, AcvFittedItem } from './fittedActions';
   import useFittedActions from './useFittedActions.ts';
   import './fittedActions.css';
 
   const props = withDefaults(
-    defineProps<FittedActionsProps>(),
+    defineProps<AcvFittedActionsProps>(),
     {
       showDropdown: true
     }
   );
-  const { actions, item, showDropdown } = toRefs(props) as { actions: Ref<FittedAction[]>, item: Ref<FittedItem>, showDropdown: Ref<boolean> };
+  const { actions, item, showDropdown } = toRefs(props) as { actions: Ref<AcvFittedAction[]>, item: Ref<AcvFittedItem>, showDropdown: Ref<boolean> };
 
   const resizableContainer = ref(null);
   const elementRefs = ref([]);
@@ -32,7 +32,7 @@
     showDropdown
   });
 
-  function triggerAction({ item, action }: { item: FittedItem, action: (item: FittedItem) => void | undefined }) {
+  function triggerAction({ item, action }: { item: AcvFittedItem, action: (item: AcvFittedItem) => void | undefined }) {
     return typeof action === 'function' && action(item);
   }
 </script>

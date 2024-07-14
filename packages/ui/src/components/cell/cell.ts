@@ -1,9 +1,9 @@
-export interface CellFlex {
+export interface AcvCellFlex {
   justify: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly'
   align: 'top' | 'middle' | 'bottom' | 'stretch'
 }
 
-export interface CellOptions {
+export interface AcvCellOptions {
   top?: number | string
   left?: number | string
   width?: number
@@ -12,7 +12,7 @@ export interface CellOptions {
   bottom?: number | string
 }
 
-export interface CellProps {
+export interface AcvCellProps {
   /**
    * Tag of the cell container
    */
@@ -51,17 +51,17 @@ export interface CellProps {
   /**
    * Cell options for different screen sizes
    */
-  xs?: CellOptions | number | null
-  sm?: CellOptions | number | null
-  md?: CellOptions | number | null
-  lg?: CellOptions | number | null
-  xl?: CellOptions | number | null
-  xxl?: CellOptions | number | null
+  xs?: AcvCellOptions | number | null
+  sm?: AcvCellOptions | number | null
+  md?: AcvCellOptions | number | null
+  lg?: AcvCellOptions | number | null
+  xl?: AcvCellOptions | number | null
+  xxl?: AcvCellOptions | number | null
 
   /**
    * Whether to use flex layout for the cell
    */
-  useFlex?: boolean | Partial<CellFlex> | null
+  useFlex?: boolean | Partial<AcvCellFlex> | null
 
   inherit?: boolean
 }

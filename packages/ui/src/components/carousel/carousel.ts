@@ -1,4 +1,4 @@
-export interface CarouselProps {
+export interface AcvCarouselProps {
   /**
    * Title of the Carousel
    */
@@ -10,7 +10,7 @@ export interface CarouselProps {
   description?: string
 }
 
-export interface CarouselEvents {
+export interface AcvCarouselEvents {
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -19,7 +19,7 @@ export interface CarouselEvents {
   (eventName: 'close', visible: boolean): void
 }
 
-export interface CarouselSlots {
+export interface AcvCarouselSlots {
   /**
    * The default slot content
    */

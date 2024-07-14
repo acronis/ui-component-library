@@ -1,2 +1,2 @@
-export { default as VirtualScroll } from './virtualScroll.vue';
+export { default as AcvVirtualScroll } from './virtualScroll.vue';
 export * from './virtualScroll.ts';

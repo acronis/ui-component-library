@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import MarkupTable from './markupTable.vue';
-import type { MarkupTableProps } from './markupTable.ts';
+import type { AcvMarkupTableProps } from './markupTable.ts';
 
 describe('uiMarkupTable', () => {
   it('default props', () => {
@@ -22,7 +22,7 @@ describe('uiMarkupTable', () => {
       props: {
         close: true,
         variant: 'success',
-      } as MarkupTableProps,
+      } as AcvMarkupTableProps,
     });
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {

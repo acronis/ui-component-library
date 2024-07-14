@@ -1,6 +1,6 @@
 import type { Ref } from 'vue';
 import { computed, nextTick, ref, watch } from 'vue';
-import type { FittedAction, FittedItem } from './fittedActions.ts';
+import type { AcvFittedAction, AcvFittedItem } from './fittedActions.ts';
 
 export default function useFittedActions({
   actions,
@@ -9,13 +9,13 @@ export default function useFittedActions({
   showDropdown,
   elementRefs
 }: {
-  actions: Ref<FittedAction[]>
-  item?: Ref<FittedItem | undefined>
+  actions: Ref<AcvFittedAction[]>
+  item?: Ref<AcvFittedItem | undefined>
   resizableContainer: Ref<HTMLElement | null>
   showDropdown: Ref<boolean>
   elementRefs: Ref<(HTMLElement[] | null)>
 }) {
-  const elements = ref([] as FittedAction[]);
+  const elements = ref([] as AcvFittedAction[]);
 
   const displayedActions = computed(() => {
     return elements.value?.filter(it => isDisplayed(it)) || [];
@@ -29,7 +29,7 @@ export default function useFittedActions({
     return displayedActions.value.filter(el => !el?.isInDropdown);
   });
 
-  function isDisplayed(action: FittedAction) {
+  function isDisplayed(action: AcvFittedAction) {
     if (typeof action.display === 'function') {
       return action.display(item?.value);
     }
@@ -67,8 +67,8 @@ export default function useFittedActions({
     });
   }
 
-  watch(() => actions, async (newActions: Ref<FittedAction[]>) => {
-    elements.value = newActions.value?.map((action: FittedAction) => {
+  watch(() => actions, async (newActions: Ref<AcvFittedAction[]>) => {
+    elements.value = newActions.value?.map((action: AcvFittedAction) => {
       const name = action.name || action.title.split(' ').join('_').toLowerCase();
 
       return { id: '', title: '', ...item, name };

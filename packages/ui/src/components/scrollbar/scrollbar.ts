@@ -1,4 +1,4 @@
-export interface ScrollbarProps {
+export interface AcvScrollbarProps {
   /**
    * Title of the scrollbar
    */

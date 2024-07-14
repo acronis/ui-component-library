@@ -1,26 +1,26 @@
 import type { InjectionKey } from 'vue';
 
-export type RowGridJustify =
+export type AcvRowGridJustify =
   | 'start'
   | 'end'
   | 'center'
   | 'space-around'
   | 'space-between'
   | 'space-evenly';
-export type RowGridAlign = 'top' | 'middle' | 'bottom' | 'stretch';
+export type AcvRowGridAlign = 'top' | 'middle' | 'bottom' | 'stretch';
 
-export interface ColumnFlex {
-  justify: RowGridJustify
-  align: RowGridAlign
+export interface AcvColumnFlex {
+  justify: AcvRowGridJustify
+  align: AcvRowGridAlign
 }
 
-export interface RowInjection {
-  flex: boolean | Partial<ColumnFlex>
+export interface AcvRowInjection {
+  flex: boolean | Partial<AcvColumnFlex>
   gap: number | number[]
 }
-export const ROW_KEY: InjectionKey<RowInjection> = Symbol('ROW_KEY');
+export const ROW_KEY: InjectionKey<AcvRowInjection> = Symbol('ROW_KEY');
 
-export interface RowProps {
+export interface AcvRowProps {
   /**
    * Grid spacing
    */
@@ -31,14 +31,14 @@ export interface RowProps {
    * @values 'start', 'end', 'center', 'space-around', 'space-between'
    * @defaultValue 'start'
    */
-  justify?: RowGridJustify
+  justify?: AcvRowGridJustify
 
   /**
    * Vertical alignment of flex layout
    * @values 'top', 'middle', 'bottom'
    * @defaultValue 'top'
    */
-  align?: RowGridAlign
+  align?: AcvRowGridAlign
 
   /**
    * Custom tag
@@ -46,10 +46,10 @@ export interface RowProps {
    */
   tag?: string
 
-  columnFlex?: boolean | Partial<ColumnFlex>
+  columnFlex?: boolean | Partial<AcvColumnFlex>
 }
 
-export interface RowSlots {
+export interface AcvRowSlots {
   /**
    * The default slot content
    */

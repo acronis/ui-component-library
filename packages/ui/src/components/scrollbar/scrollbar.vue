@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './scrollbar.css';
-  import type { ScrollbarProps } from './scrollbar.ts';
+  import type { AcvScrollbarProps } from './scrollbar.ts';
 
-  const { title, description } = defineProps<ScrollbarProps>();
+  const { title, description } = defineProps<AcvScrollbarProps>();
 
   defineEmits<{
     /**

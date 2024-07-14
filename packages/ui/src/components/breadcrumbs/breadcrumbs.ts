@@ -1,6 +1,6 @@
 import type { RouteLocationRaw } from 'vue-router';
 
-export interface BreadcrumbsProps {
+export interface AcvBreadcrumbsProps {
   /**
    * Maximum number of items to display
    */
@@ -22,7 +22,7 @@ export interface BreadcrumbsProps {
   size?: 'md' | 'lg'
 }
 
-export interface BreadcrumbsEvents {
+export interface AcvBreadcrumbsEvents {
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -31,7 +31,7 @@ export interface BreadcrumbsEvents {
   (eventName: 'close', visible: boolean): void
 }
 
-export interface BreadcrumbsSlots {
+export interface AcvBreadcrumbsSlots {
   /**
    * Default slot
    */
@@ -43,21 +43,21 @@ export interface BreadcrumbsSlots {
   separator: void
 }
 
-export interface BreadcrumbLinkProps {
+export interface AcvBreadcrumbLinkProps {
   /**
    * Target of the link, same as `to` in Vue Router
    */
   to: RouteLocationRaw
 }
 
-export interface BreadcrumbLinkSlots {
+export interface AcvBreadcrumbLinkSlots {
   /**
    * Link content
    */
   default: void
 }
 
-export interface BreadcrumbLinkEvents {
+export interface AcvBreadcrumbLinkEvents {
   /**
    * Triggered when the breadcrumb link is clicked
    * @arg {string} eventName - The name of the event

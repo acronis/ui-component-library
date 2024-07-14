@@ -1,19 +1,19 @@
 <script setup lang="ts">
   import { highlightText } from './highlightjs.ts';
 
-  import type { CodeEvents, CodeProps } from './code';
+  import type { AcvCodeEvents, AcvCodeProps } from './code';
   import './code.css';
 
-  const { code } = defineProps<CodeProps>();
+  const { code } = defineProps<AcvCodeProps>();
 
-  defineEmits<CodeEvents>();
+  defineEmits<AcvCodeEvents>();
 </script>
 
 <template>
   <code
     class="acv-code"
     v-html="code && highlightText(code)"
-  ></code>
+  />
 </template>
 
 <style scoped>

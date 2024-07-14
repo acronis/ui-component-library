@@ -1,17 +1,17 @@
-interface TreeNode {
+interface AcvTreeNode {
   key: string
   title: string
   icon?: string
   iconColor?: string
   disabled?: boolean
-  children?: TreeNode[]
+  children?: AcvTreeNode[]
 }
 
-export interface TreeProps {
+export interface AcvTreeProps {
   /**
    * Tree data
    */
-  data?: TreeNode[]
+  data?: AcvTreeNode[]
 
   /**
    * Text displayed when the tree is empty
@@ -73,12 +73,12 @@ export interface TreeProps {
   /**
    * Load method
    */
-  load?: (node: TreeNode) => Promise<TreeNode[]>
+  load?: (node: AcvTreeNode) => Promise<AcvTreeNode[]>
 
   /**
    * Filter method
    */
-  filterNodeMethod?: (value: string, data: TreeNode) => boolean
+  filterNodeMethod?: (value: string, data: AcvTreeNode) => boolean
 
   /**
    * Accordion mode, only one node can be expanded

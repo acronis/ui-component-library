@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
-import { Cell, Grid } from '../..'
+import { AcvCell, AcvGrid } from '../..'
 
-describe('test Grid component', () => {
+describe('test AcvGrid component', () => {
   it('default props', () => {
-    const wrapper = mount(Grid)
+    const wrapper = mount(AcvGrid)
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "align": "stretch",
@@ -23,7 +23,7 @@ describe('test Grid component', () => {
   })
 
   it('pass props', () => {
-    const wrapper = mount(Grid, {
+    const wrapper = mount(AcvGrid, {
       props: {
         tag: 'dl',
       },
@@ -47,10 +47,10 @@ describe('test Grid component', () => {
 
   it('render', () => {
     const wrapper = mount(() => (
-      <Grid>
-        <Cell width={16}></Cell>
-        <Cell width={8}></Cell>
-      </Grid>
+      <AcvGrid>
+        <AcvCell width={16}></AcvCell>
+        <AcvCell width={8}></AcvCell>
+      </AcvGrid>
     ))
     const cells = wrapper.findAll('.acv-cell')
 
@@ -69,7 +69,7 @@ describe('test Grid component', () => {
   })
 
   it('gap', async () => {
-    const wrapper = mount(Grid, {
+    const wrapper = mount(AcvGrid, {
       props: { gap: 16 },
     })
 
@@ -80,10 +80,10 @@ describe('test Grid component', () => {
   })
 
   it('columns', async () => {
-    const wrapper = mount(Grid, {
+    const wrapper = mount(AcvGrid, {
       props: { columns: 10 },
       slots: {
-        default: () => <Cell></Cell>,
+        default: () => <AcvCell></AcvCell>,
       },
     })
 
@@ -102,7 +102,7 @@ describe('test Grid component', () => {
   it('justify', () => {
     (['start', 'end', 'center', 'space-around', 'space-between', 'space-evenly'] as const).forEach(
       (justify) => {
-        const wrapper = mount(() => <Grid justify={justify}></Grid>)
+        const wrapper = mount(() => <AcvGrid justify={justify}></AcvGrid>)
 
         expect(wrapper.find('.acv-grid').classes()).toContain(`acv-grid--${justify}`)
       },
@@ -111,7 +111,7 @@ describe('test Grid component', () => {
 
   it('align', () => {
     (['top', 'middle', 'bottom', 'stretch'] as const).forEach((align) => {
-      const wrapper = mount(() => <Grid align={align}></Grid>)
+      const wrapper = mount(() => <AcvGrid align={align}></AcvGrid>)
 
       if (align !== 'stretch')
         expect(wrapper.find('.acv-grid').classes()).toContain(`acv-grid--${align}`)
@@ -121,16 +121,16 @@ describe('test Grid component', () => {
   })
 
   it('dense', () => {
-    const wrapper = mount(() => <Grid dense></Grid>)
+    const wrapper = mount(() => <AcvGrid dense></AcvGrid>)
 
     expect(wrapper.find('.acv-grid').classes()).toContain('acv-grid--dense')
   })
 
   it('tag', () => {
     const wrapper = mount(() => (
-      <Grid tag="ul">
-        <Cell tag="li"></Cell>
-      </Grid>
+      <AcvGrid tag="ul">
+        <AcvCell tag="li"></AcvCell>
+      </AcvGrid>
     ))
 
     expect(wrapper.find('.acv-grid').element.tagName).toEqual('UL')
@@ -139,13 +139,13 @@ describe('test Grid component', () => {
 
   it('free layout', () => {
     const wrapper = mount(() => (
-      <Grid>
-        <Cell left={0} right={8}></Cell>
-        <Cell left={8} right={16}></Cell>
-        <Cell width={8} top={1} right={16}></Cell>
-        <Cell width={8} top={2}></Cell>
-        <Cell width={8} top={2} right={16}></Cell>
-      </Grid>
+      <AcvGrid>
+        <AcvCell left={0} right={8}></AcvCell>
+        <AcvCell left={8} right={16}></AcvCell>
+        <AcvCell width={8} top={1} right={16}></AcvCell>
+        <AcvCell width={8} top={2}></AcvCell>
+        <AcvCell width={8} top={2} right={16}></AcvCell>
+      </AcvGrid>
     ))
     const cells = wrapper.findAll('.acv-cell')
 
@@ -168,9 +168,9 @@ describe('test Grid component', () => {
 
   it('cell use flex', () => {
     const wrapper = mount(() => (
-      <Grid>
-        <Cell use-flex></Cell>
-      </Grid>
+      <AcvGrid>
+        <AcvCell use-flex></AcvCell>
+      </AcvGrid>
     ))
 
     expect(wrapper.find('.acv-cell').classes()).toContain('acv-cell--flex')
@@ -180,9 +180,9 @@ describe('test Grid component', () => {
 
   it('row cell flex', () => {
     const wrapper = mount(() => (
-      <Grid cell-flex>
-        <Cell></Cell>
-      </Grid>
+      <AcvGrid cell-flex>
+        <AcvCell></AcvCell>
+      </AcvGrid>
     ))
 
     expect(wrapper.find('.acv-cell').classes()).toContain('acv-cell--flex')

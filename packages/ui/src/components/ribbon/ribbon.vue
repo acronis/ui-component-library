@@ -1,17 +1,17 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import type { RibbonLink, RibbonProps } from '../index.ts';
+  import type { AcvRibbonLink, AcvRibbonProps } from '../index.ts';
   import Alert from '../alert/alert.vue';
   import Button from '../button/button.vue';
   import AcvDivider from '../divider/divider.vue';
   import AcvLink from '../link/link.vue';
-  import type { RibbonEvents, RibbonSlots } from './ribbon.ts';
+  import type { AcvRibbonEvents, AcvRibbonSlots } from './ribbon.ts';
   import './ribbon.css';
 
-  const { alerts, hideClose } = defineProps<RibbonProps>();
+  const { alerts, hideClose } = defineProps<AcvRibbonProps>();
 
-  const emit = defineEmits<RibbonEvents>();
-  defineSlots<RibbonSlots>();
+  const emit = defineEmits<AcvRibbonEvents>();
+  defineSlots<AcvRibbonSlots>();
 
   const currentIndex = ref(0);
   const isFirst = computed(() => !currentIndex.value);
@@ -20,7 +20,7 @@
   const onClose = () => emit('close', currentIndex.value);
   const onPrevious = () => currentIndex.value -= 1;
   const onNext = () => currentIndex.value += 1;
-  function onClickLink(event: MouseEvent, link: RibbonLink) {
+  function onClickLink(event: MouseEvent, link: AcvRibbonLink) {
     event.preventDefault();
     if (link.click) {
       link.click();

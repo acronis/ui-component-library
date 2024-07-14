@@ -1,15 +1,15 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import { isColor } from '../../utils/color.ts';
-  import type { FooterProps, FooterSlots } from './footer.ts';
+  import type { AcvFooterProps, AcvFooterSlots } from './footer.ts';
   import './footer.css';
 
-  const { height, color } = withDefaults(defineProps<FooterProps>(), {
+  const { height, color } = withDefaults(defineProps<AcvFooterProps>(), {
     height: '64px',
     color: 'white',
   });
 
-  defineSlots<FooterSlots>();
+  defineSlots<AcvFooterSlots>();
 
   // const { isColorModifier } = useColor(['nav-primary']);
 

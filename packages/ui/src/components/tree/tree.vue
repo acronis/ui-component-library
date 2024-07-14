@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './tree.css';
-  import type { TreeProps } from './tree.ts';
+  import type { AcvTreeProps } from './tree.ts';
 
-  const { data, emptyText } = defineProps<TreeProps>();
+  const { data, emptyText } = defineProps<AcvTreeProps>();
 
   defineEmits<{
     /**

@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, getCurrentInstance, onMounted, provide, ref, watch } from 'vue';
-  import type { AccordionEvents, AccordionProps, AccordionSlots } from './accordion.ts';
+  import type { AcvAccordionEvents, AcvAccordionProps, AcvAccordionSlots } from './accordion.ts';
   import { ACCORDION_KEY } from './accordion.ts';
   import './accordion.css';
 
@@ -9,11 +9,11 @@
     modelValue = [],
     multiple,
     size,
-  } = defineProps<AccordionProps>();
+  } = defineProps<AcvAccordionProps>();
 
-  const emit = defineEmits<AccordionEvents>();
+  const emit = defineEmits<AcvAccordionEvents>();
 
-  const slots = defineSlots<AccordionSlots>();
+  const slots = defineSlots<AcvAccordionSlots>();
 
   const model = defineModel();
 
@@ -74,7 +74,7 @@
     class="acv accordion"
     :class="classes"
   >
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

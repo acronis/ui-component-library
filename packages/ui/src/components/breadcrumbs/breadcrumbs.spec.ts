@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Breadcrumbs from './breadcrumbs.vue';
-import type { BreadcrumbsProps } from './breadcrumbs.ts';
+import type { AcvBreadcrumbsProps } from './breadcrumbs.ts';
 
 describe('test Breadcrumbs component', () => {
   it('default props', () => {
@@ -20,7 +20,7 @@ describe('test Breadcrumbs component', () => {
     const wrapper = mount(Breadcrumbs, {
       props: {
         title: 'test',
-      } as BreadcrumbsProps,
+      } as AcvBreadcrumbsProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './chart.css';
-  import type { ChartProps } from './chart.ts';
+  import type { AcvChartProps } from './chart.ts';
 
-  const { title, description } = defineProps<ChartProps>();
+  const { title, description } = defineProps<AcvChartProps>();
 
   defineEmits<{
     /**

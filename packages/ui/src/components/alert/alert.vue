@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { AcvAlertProps, AcvAlertSlots, AlertEvents } from './alert.ts';
+  import type { AcvAlertEvents, AcvAlertProps, AcvAlertSlots } from './alert.ts';
   import './alert.css';
 
   defineOptions({
@@ -17,7 +17,7 @@
     color: 'info',
   });
 
-  defineEmits<AlertEvents>();
+  defineEmits<AcvAlertEvents>();
   const slots = defineSlots<AcvAlertSlots>();
 </script>
 
@@ -61,7 +61,7 @@
         v-else-if="slots.default"
         class="description"
       >
-        <slot></slot>
+        <slot />
       </div>
       <div
         v-if="slots.actions"

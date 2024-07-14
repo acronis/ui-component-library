@@ -12,9 +12,9 @@ TODO: Replace with real-world example from /demos
 
 ```vue
 <script setup>
-  import { AcvIcon } from '@acronis-platform/vue';
+  import { AcvIcon } from '@acronis-platform/ui-component-library';
   // or
-  import Icon from '@acronis-platform/components/icon/Icon.vue';
+  import Icon from '@acronis-platform/ui-component-library/dist/components/icon/icon.vue';
 </script>
 
 <template>

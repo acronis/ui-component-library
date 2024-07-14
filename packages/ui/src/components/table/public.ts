@@ -1,2 +1,2 @@
-export { default as Table } from './table.vue';
+export { default as AcvTable } from './table.vue';
 export * from './table.ts';

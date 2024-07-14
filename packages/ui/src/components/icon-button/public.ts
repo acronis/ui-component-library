@@ -1,2 +1,2 @@
-export { default as IconButton } from './iconButton.vue';
+export { default as AcvIconButton } from './iconButton.vue';
 export * from './iconButton.ts';

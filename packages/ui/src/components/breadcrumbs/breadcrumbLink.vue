@@ -2,13 +2,13 @@
   import { ref } from 'vue';
   import { RouterLink } from 'vue-router';
   import { useFocusableTab } from '../../composables/useFocusableTab.ts';
-  import type { BreadcrumbLinkProps, BreadcrumbLinkSlots } from './breadcrumbs.ts';
+  import type { AcvBreadcrumbLinkProps, AcvBreadcrumbLinkSlots } from './breadcrumbs.ts';
 
   const {
     to
-  } = defineProps<BreadcrumbLinkProps>();
+  } = defineProps<AcvBreadcrumbLinkProps>();
 
-  defineSlots<BreadcrumbLinkSlots>();
+  defineSlots<AcvBreadcrumbLinkSlots>();
   const link = ref(null);
   const {
     active,

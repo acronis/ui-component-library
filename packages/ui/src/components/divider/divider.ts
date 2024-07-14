@@ -1,8 +1,8 @@
 import type { ColorBrand, ColorStatus } from '../../utils/color.ts';
 
-export type DividerTextPosition = 'center' | 'left' | 'right';
+export type AcvDividerTextPosition = 'center' | 'left' | 'right';
 
-export interface DividerProps {
+export interface AcvDividerProps {
   /**
    * Orientation of the Divider
    */
@@ -11,7 +11,7 @@ export interface DividerProps {
   /**
    * Position of the text in the Divider
    */
-  textPosition?: DividerTextPosition
+  textPosition?: AcvDividerTextPosition
 
   /**
    * Margin of the Divider

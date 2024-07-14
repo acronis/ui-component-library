@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Cell from './cell.vue';
-import type { CellProps } from './cell.ts';
+import type { AcvCellProps } from './cell.ts';
 
 describe('test Cell component', () => {
   it('default props', () => {
@@ -31,7 +31,7 @@ describe('test Cell component', () => {
     const wrapper = mount(Cell, {
       props: {
         tag: 'span',
-      } as CellProps,
+      } as AcvCellProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

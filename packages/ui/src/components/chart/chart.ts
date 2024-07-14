@@ -1,4 +1,4 @@
-export interface ChartProps {
+export interface AcvChartProps {
   /**
    * Title of the Chart
    */

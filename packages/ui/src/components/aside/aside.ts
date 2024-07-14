@@ -1,4 +1,4 @@
-export interface AsideProps {
+export interface AcvAsideProps {
   /**
    * Width of the Aside
    */

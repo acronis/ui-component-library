@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Row from './row.vue';
-import type { RowProps } from './row.ts';
+import type { AcvRowProps } from './row.ts';
 
 describe('test Row component', () => {
   it('default props', () => {
@@ -21,7 +21,7 @@ describe('test Row component', () => {
     const wrapper = mount(Row, {
       props: {
         title: 'test',
-      } as RowProps,
+      } as AcvRowProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

@@ -1,9 +1,9 @@
 import type { InjectionKey } from 'vue';
-import type { CellFlex } from '../cell/cell.ts';
+import type { AcvCellFlex } from '../cell/cell.ts';
 
-export type LayoutProp = number | string | (number | string)[];
+export type AcvLayoutProp = number | string | (number | string)[];
 
-export type GridJustify =
+export type AcvGridJustify =
   | 'start'
   | 'end'
   | 'center'
@@ -11,16 +11,16 @@ export type GridJustify =
   | 'space-between'
   | 'space-evenly';
 
-export type GridAlign = 'top' | 'middle' | 'bottom' | 'stretch';
+export type AcvGridAlign = 'top' | 'middle' | 'bottom' | 'stretch';
 
 export interface GridInjection {
-  cellFlex: CellFlex | false
-  columns: LayoutProp
+  cellFlex: AcvCellFlex | false
+  columns: AcvLayoutProp
 }
 
 export const GRID_KEY: InjectionKey<GridInjection> = Symbol('GRID_KEY');
 
-export interface GridProps {
+export interface AcvGridProps {
   /**
    * Tag of the grid container
    */
@@ -34,22 +34,22 @@ export interface GridProps {
   /**
    * Number of rows in the grid
    */
-  rows?: LayoutProp
+  rows?: AcvLayoutProp
 
   /**
    * Number of columns in the grid
    */
-  columns?: LayoutProp
+  columns?: AcvLayoutProp
 
   /**
    * Number of columns in the grid
    */
-  autoRows?: LayoutProp
+  autoRows?: AcvLayoutProp
 
   /**
    * Number of columns in the grid
    */
-  autoColumns?: LayoutProp
+  autoColumns?: AcvLayoutProp
 
   /**
    * Whether to use dense layout
@@ -59,15 +59,15 @@ export interface GridProps {
   /**
    * Justify content of the grid
    */
-  justify?: GridJustify
+  justify?: AcvGridJustify
 
   /**
    * Align content of the grid
    */
-  align?: GridAlign
+  align?: AcvGridAlign
 
   /**
    * Whether to use flex layout for the cell
    */
-  cellFlex?: boolean | Partial<CellFlex>
+  cellFlex?: boolean | Partial<AcvCellFlex>
 }

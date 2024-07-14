@@ -1,2 +1,2 @@
-export { default as Carousel } from './carousel.vue';
+export { default as AcvCarousel } from './carousel.vue';
 export * from './carousel.ts';

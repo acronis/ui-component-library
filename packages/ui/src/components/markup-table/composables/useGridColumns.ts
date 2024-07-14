@@ -2,9 +2,9 @@ import type { Ref } from 'vue';
 import { onMounted, ref } from 'vue';
 import { isNumber } from 'lodash-es';
 import { TABLE_MIN_WIDTH } from '../constants.ts';
-import type { MarkupTableColumn } from '../markupTable.ts';
+import type { AcvMarkupTableColumn } from '../markupTable.ts';
 
-export function useGridColumns(columns: Ref<MarkupTableColumn[] | undefined>) {
+export function useGridColumns(columns: Ref<AcvMarkupTableColumn[] | undefined>) {
   const gridColumns = ref('repeat(auto-fit, minmax(250px, 1fr))');
 
   onMounted(() => {

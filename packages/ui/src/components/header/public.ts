@@ -1,2 +1,2 @@
-export { default as Header } from './header.vue';
+export { default as AcvHeader } from './header.vue';
 export * from './header.ts';

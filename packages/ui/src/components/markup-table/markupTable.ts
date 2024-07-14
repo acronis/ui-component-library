@@ -1,4 +1,4 @@
-export interface MarkupTableColumn {
+export interface AcvMarkupTableColumn {
   /**
    * Column key
    */
@@ -30,11 +30,11 @@ export interface MarkupTableColumn {
   resizable?: boolean
 }
 
-export interface MarkupTableProps {
+export interface AcvMarkupTableProps {
   /**
    * Table columns
    */
-  columns?: MarkupTableColumn[]
+  columns?: AcvMarkupTableColumn[]
   /**
    * Table data
    */

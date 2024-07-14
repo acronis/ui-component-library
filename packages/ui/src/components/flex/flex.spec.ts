@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Flex from './flex.vue';
-import type { FlexProps } from './flex.ts';
+import type { AcvFlexProps } from './flex.ts';
 
 describe('test Flex component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test Flex component', () => {
     const wrapper = mount(Flex, {
       props: {
         title: 'test',
-      } as FlexProps,
+      } as AcvFlexProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

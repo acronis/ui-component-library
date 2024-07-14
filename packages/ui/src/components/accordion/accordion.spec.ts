@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Accordion from './accordion.vue';
-import type { AccordionProps } from './accordion.ts';
+import type { AcvAccordionProps } from './accordion.ts';
 
 describe('test Accordion component', () => {
   it('default props', () => {
@@ -21,7 +21,7 @@ describe('test Accordion component', () => {
     const wrapper = mount(Accordion, {
       props: {
         title: 'test',
-      } as AccordionProps,
+      } as AcvAccordionProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

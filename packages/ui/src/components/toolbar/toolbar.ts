@@ -1,4 +1,4 @@
-export interface ToolbarProps {
+export interface AcvToolbarProps {
   /**
    * Title of the toolbar
    */

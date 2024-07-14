@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Tree from './tree.vue';
-import type { TreeProps } from './tree.ts';
+import type { AcvTreeProps } from './tree.ts';
 
 describe('test Tree component', () => {
   it('default props', () => {
@@ -34,7 +34,7 @@ describe('test Tree component', () => {
     const wrapper = mount(Tree, {
       props: {
         title: 'test',
-      } as TreeProps,
+      } as AcvTreeProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

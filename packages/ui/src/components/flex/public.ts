@@ -1,2 +1,2 @@
-export { default as Flex } from './flex.vue';
+export { default as AcvFlex } from './flex.vue';
 export * from './flex.ts';

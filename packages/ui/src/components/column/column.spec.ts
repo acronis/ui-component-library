@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Col from './column.vue';
-import type { ColumnProps } from './column.ts';
+import type { AcvColumnProps } from './column.ts';
 
 describe('test Column component', () => {
   it('default props', () => {
@@ -30,7 +30,7 @@ describe('test Column component', () => {
     const wrapper = mount(Col, {
       props: {
         title: 'test',
-      } as ColumnProps,
+      } as AcvColumnProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

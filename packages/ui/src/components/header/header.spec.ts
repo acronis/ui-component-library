@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Header from './header.vue';
-import type { HeaderProps } from './header.ts';
+import type { AcvHeaderProps } from './header.ts';
 
 describe('test Header component', () => {
   it('default props', () => {
@@ -21,7 +21,7 @@ describe('test Header component', () => {
     const wrapper = mount(Header, {
       props: {
         title: 'test',
-      } as HeaderProps,
+      } as AcvHeaderProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -50,7 +50,7 @@ describe('test Header component', () => {
     const wrapper = mount(Header, {
       props: {
         bordered: true,
-      } as HeaderProps,
+      } as AcvHeaderProps,
     });
     expect(wrapper.classes()).toContain('acv-header--bordered');
   });
@@ -59,7 +59,7 @@ describe('test Header component', () => {
     const wrapper = mount(Header, {
       props: {
         height: '100px',
-      } as HeaderProps,
+      } as AcvHeaderProps,
     });
     expect(wrapper.attributes('style')).toMatchInlineSnapshot('undefined');
   });

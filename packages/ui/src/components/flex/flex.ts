@@ -1,4 +1,4 @@
-export interface FlexProps {
+export interface AcvFlexProps {
   /**
    * Title of the Flex
    */

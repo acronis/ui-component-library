@@ -1,2 +1,2 @@
-export { default as Chip } from './chip.vue';
+export { default as AcvChip } from './chip.vue';
 export * from './chip.ts';

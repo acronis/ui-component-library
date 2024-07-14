@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import toolbar from './toolbar.vue';
-import type { ToolbarProps } from './toolbar.ts';
+import type { AcvToolbarProps } from './toolbar.ts';
 
 describe('test toolbar component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test toolbar component', () => {
     const wrapper = mount(toolbar, {
       props: {
         title: 'test',
-      } as ToolbarProps,
+      } as AcvToolbarProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

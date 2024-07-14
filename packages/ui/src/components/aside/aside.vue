@@ -2,9 +2,9 @@
   import { computed } from 'vue';
   import './aside.css';
   import { isBaseColor } from '../../utils/color.ts';
-  import type { AsideProps } from './aside.ts';
+  import type { AcvAsideProps } from './aside.ts';
 
-  const { width, color } = defineProps<AsideProps>();
+  const { width, color } = defineProps<AcvAsideProps>();
 
   // const { isColorModifier } = useColor(['primary']);
 

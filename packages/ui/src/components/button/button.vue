@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { computed, inject } from 'vue';
-  import { BUTTON_GROUP_KEY, BUTTON_VARIANT, Icon } from '../index.ts';
+  import { BUTTON_GROUP_KEY, BUTTON_VARIANT } from '../index.ts';
+  import AcvIcon from '../icon/icon.vue';
   import { vAutofocus } from '../../directives/autofocus.ts';
   import Loader from '../loader/loader.vue';
   import { isBaseColor } from '../../utils/color.ts';
@@ -87,7 +88,7 @@
         v-if="$slots.icon || icon"
       >
         <slot name="icon">
-          <Icon
+          <AcvIcon
             v-if="icon"
             :icon="icon"
           />
@@ -102,7 +103,7 @@
         v-if="$slots.rightIcon || rightIcon"
       >
         <slot name="iconRight">
-          <Icon
+          <AcvIcon
             v-if="rightIcon"
             :icon="rightIcon"
           />
