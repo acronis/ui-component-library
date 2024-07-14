@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/acronis/ui-component-library/compare/v1.3.0...v1.3.1) (2024-07-14)
+
+
+### Bug Fixes
+
+* **docs:** fix doc aliases ([ba2ce0d](https://github.com/acronis/ui-component-library/commit/ba2ce0d2a6f85d0fc7bde072880f3b93ffcdffaf))
+
 ## [1.3.0](https://github.com/acronis/ui-component-library/compare/v1.2.0...v1.3.0) (2024-07-13)
 
 
