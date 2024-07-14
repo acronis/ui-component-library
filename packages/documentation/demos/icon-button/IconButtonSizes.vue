@@ -1,15 +1,15 @@
 <script setup>
-  import { Icon, IconButton } from '@acronis-platform/ui-component-library';
+  import { AcvIcon, AcvIconButton } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <IconButton size="small">
-    <Icon name="user--32" />
-  </IconButton>
-  <IconButton size="medium">
-    <Icon name="user--32" />
-  </IconButton>
-  <IconButton size="large">
-    <Icon name="user--32" />
-  </IconButton>
+  <AcvIconButton size="small">
+    <AcvIcon name="user--32" />
+  </AcvIconButton>
+  <AcvIconButton size="medium">
+    <AcvIcon name="user--32" />
+  </AcvIconButton>
+  <AcvIconButton size="large">
+    <AcvIcon name="user--32" />
+  </AcvIconButton>
 </template>

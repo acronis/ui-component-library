@@ -1,5 +1,6 @@
 <script setup>
-  import { Accordion, AccordionPanel } from '@acronis-platform/ui-component-library';
+  import Accordion from '@/components/accordion/accordion.vue';
+  import AccordionPanel from '@/components/accordion/accordionPanel.vue';
 
   const names = ['First item', 'Second item'];
 </script>

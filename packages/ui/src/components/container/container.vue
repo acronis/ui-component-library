@@ -54,8 +54,7 @@
     flex-basis: auto;
     box-sizing: border-box;
     min-width: 0;
-    max-width: 100%;
-
+    max-width: var(--acv-container-max-width);
     background-color: v-bind(backgroundColor);
     contain: layout;
     container-name: acv-container;
@@ -68,13 +67,9 @@
 
   @each $breakpoint, $container-width in $container-widths {
     @container style(--is-#{$breakpoint}-viewport: true) {
-      max-width: $container-width;
-    }
-  }
-
-  @each $breakpoint, $container-width in $container-widths {
-    .acv-container-#{$breakpoint} {
-      max-width: $container-width;
+      :root {
+        --acv-container-max-width: #{$container-width};
+      }
     }
   }
 

@@ -1,9 +1,9 @@
 <script setup>
-  import { Container } from '@acronis-platform/ui-component-library';
+  import { AcvContainer } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Container class="acv-bg-secondary">
+  <AcvContainer class="acv-bg-secondary">
     Content
-  </Container>
+  </AcvContainer>
 </template>

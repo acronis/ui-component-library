@@ -1,7 +1,7 @@
 <script setup>
-  import { Skeleton } from '@acronis-platform/ui-component-library';
+  import { AcvSkeleton } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Skeleton />
+  <AcvSkeleton />
 </template>

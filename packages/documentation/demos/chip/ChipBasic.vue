@@ -1,15 +1,15 @@
 <script setup>
-  import { Chip } from '@acronis-platform/ui-component-library';
+  import { AcvChip } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Chip>Text</Chip>
+  <AcvChip>Text</AcvChip>
 
-  <Chip icon="i-console-o--16">
+  <AcvChip icon="i-console-o--16">
     Text
-  </Chip>
+  </AcvChip>
 
-  <Chip show-close>
+  <AcvChip show-close>
     Text
-  </Chip>
+  </AcvChip>
 </template>

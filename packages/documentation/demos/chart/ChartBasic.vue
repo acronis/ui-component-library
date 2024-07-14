@@ -1,7 +1,7 @@
 <script setup>
-  import { Chart } from '@acronis-platform/ui-component-library';
+  import { AcvChart } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Chart />
+  <AcvChart />
 </template>

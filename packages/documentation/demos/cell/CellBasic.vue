@@ -1,7 +1,7 @@
 <script setup>
-  import { Cell } from '@acronis-platform/ui-component-library';
+  import { AcvCell } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Cell />
+  <AcvCell />
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-  import { FittedActions } from '@acronis-platform/ui-component-library';
+  import { AcvFittedActions } from '@acronis-platform/ui-component-library';
   import { testActions } from './fitted.actions.mocks';
 
   const actions = testActions;
@@ -7,7 +7,7 @@
 
 <template>
   <div class="example">
-    <FittedActions
+    <AcvFittedActions
       class="example__component"
       :actions="actions"
       :show-dropdown="false"

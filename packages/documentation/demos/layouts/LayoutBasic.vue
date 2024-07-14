@@ -1,93 +1,93 @@
 <script setup>
-  import { Aside, Container, Footer, Header, Main } from '@acronis-platform/ui-component-library';
+  import { AcvAside, AcvContainer, AcvFooter, AcvHeader, AcvMain } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Container>
-    <Header :bordered="false">
+  <AcvContainer>
+    <AcvHeader :bordered="false">
       <template #aside>
         <span class="centered">Header</span>
       </template>
-    </Header>
-    <Main>Main</Main>
-  </Container>
+    </AcvHeader>
+    <AcvMain>Main</AcvMain>
+  </AcvContainer>
 
-  <Container>
-    <Header :bordered="false">
+  <AcvContainer>
+    <AcvHeader :bordered="false">
       <template #aside>
         <span class="centered">Header</span>
       </template>
-    </Header>
-    <Main>Main</Main>
-    <Footer>Footer</Footer>
-  </Container>
+    </AcvHeader>
+    <AcvMain>Main</AcvMain>
+    <AcvFooter>Footer</AcvFooter>
+  </AcvContainer>
 
-  <Container>
-    <Aside width="200">
+  <AcvContainer>
+    <AcvAside width="200">
       Aside
-    </Aside>
-    <Main>Main</Main>
-  </Container>
+    </AcvAside>
+    <AcvMain>Main</AcvMain>
+  </AcvContainer>
 
-  <Container class="qa-layout-container-сommon">
-    <Header :bordered="false">
+  <AcvContainer class="qa-layout-container-сommon">
+    <AcvHeader :bordered="false">
       <template #aside>
         <span class="centered">Header</span>
       </template>
-    </Header>
-    <Container>
-      <Aside width="200">
+    </AcvHeader>
+    <AcvContainer>
+      <AcvAside width="200">
         Aside
-      </Aside>
+      </AcvAside>
       <Main>Main</Main>
-    </Container>
-  </Container>
+    </AcvContainer>
+  </AcvContainer>
 
-  <Container>
-    <Header :bordered="false">
+  <AcvContainer>
+    <AcvHeader :bordered="false">
       <template #aside>
         <span class="centered">Header</span>
       </template>
-    </Header>
-    <Container>
-      <Aside width="200">
+    </AcvHeader>
+    <AcvContainer>
+      <AcvAside width="200">
         Aside
-      </Aside>
-      <Container>
-        <Main>Main</Main>
-        <Footer>Footer</Footer>
-      </Container>
-    </Container>
-  </Container>
+      </AcvAside>
+      <AcvContainer>
+        <AcvMain>Main</AcvMain>
+        <AcvFooter>Footer</AcvFooter>
+      </AcvContainer>
+    </AcvContainer>
+  </AcvContainer>
 
-  <Container>
-    <Aside width="200">
+  <AcvContainer>
+    <AcvAside width="200">
       Aside
-    </Aside>
-    <Container>
-      <Header :bordered="false">
+    </AcvAside>
+    <AcvContainer>
+      <AcvHeader :bordered="false">
         <template #aside>
           <span class="centered">Header</span>
         </template>
-      </Header>
-      <Main>Main</Main>
-    </Container>
-  </Container>
+      </AcvHeader>
+      <AcvMain>Main</AcvMain>
+    </AcvContainer>
+  </AcvContainer>
 
-  <Container class="qa-layout-container-with-header-and-footer">
-    <Aside width="200">
+  <AcvContainer class="qa-layout-container-with-header-and-footer">
+    <AcvAside width="200">
       Aside
-    </Aside>
-    <Container>
-      <Header :bordered="false">
+    </AcvAside>
+    <AcvContainer>
+      <AcvHeader :bordered="false">
         <template #aside>
           <span class="centered">Header</span>
         </template>
-      </Header>
-      <Main>Main</Main>
-      <Footer>Footer</Footer>
-    </Container>
-  </Container>
+      </AcvHeader>
+      <AcvMain>Main</AcvMain>
+      <AcvFooter>Footer</AcvFooter>
+    </AcvContainer>
+  </AcvContainer>
 </template>
 
 <style>

@@ -1,7 +1,7 @@
 <script setup>
-  import { Flex } from '@acronis-platform/ui-component-library';
+  import { AcvFlex } from '@acronis-platform/ui-component-library';
 </script>
 
 <template>
-  <Flex />
+  <AcvFlex />
 </template>
