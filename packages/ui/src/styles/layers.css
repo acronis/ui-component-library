@@ -1,0 +1,9 @@
+/*
+    reset - reset default browser styling for HTML elements (lowest priority)
+    base - global styles of HTML elements
+    components - styles for components
+    tokens - css variables for tokens and semantic tokens
+    theme - theme styles
+    utilities - specific utility classes (highest priority)
+ */
+@layer reset, base, components, tokens, theme, utilities;

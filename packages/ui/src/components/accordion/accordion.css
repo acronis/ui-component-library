@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     /* Insert component css variables here */
     --acv-accordion-color: var(--acv-color-base-primary);

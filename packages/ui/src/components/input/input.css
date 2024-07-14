@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-input-font-size: var(--acv-font-size-body);
     --acv-input-text-color: rgb(0 0 0 / 0.87);

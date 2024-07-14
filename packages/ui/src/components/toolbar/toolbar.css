@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-toolbar-color: var(--acv-color-text-primary);
     --acv-toolbar-min-height: 50px;

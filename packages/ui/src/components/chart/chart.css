@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-chart-color: var(--acv-color-chart-blue);
     --acv-color-chart-blue: rgb(38 104 197 / 1);

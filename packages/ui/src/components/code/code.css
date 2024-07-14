@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-code-color: var(--acv-color-brand-primary);
     --acv-code-padding: 8px;

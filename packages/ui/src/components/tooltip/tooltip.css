@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-tooltip-color: hsl(0deg 0% 98%);
     --acv-tooltip-background: var(--acv-color-dimgray);

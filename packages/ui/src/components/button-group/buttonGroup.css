@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-button-group-color: var(--acv-color-brand-primary);
     --acv-button-border-width: var(--acv-color-brand-primary);

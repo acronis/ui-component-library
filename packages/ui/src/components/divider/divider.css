@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-divider-color: var(--acv-color-divider-primary);
     --acv-divider-v-margin: 24px;

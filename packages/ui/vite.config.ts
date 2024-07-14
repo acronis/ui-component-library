@@ -5,11 +5,9 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import type { UserConfigFn } from 'vite';
 import { defineConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { buildPlugin } from './scripts/buildPlugin.ts';
+import { buildPlugin } from './scripts/buildPlugin';
 
 export default defineConfig(() => {
-  const isUiBuild = !!env.UI_BUILD;
-
   return {
     resolve: {
       alias: {
@@ -24,7 +22,7 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       vueJsx(),
-      isUiBuild && buildPlugin(),
+      env.UI_BUILD && buildPlugin(),
       env.VITE_REPORT && visualizer({ filename: 'reports/stats.html', template: 'treemap' }) // sunburst, treemap, network, raw-data, list
     ]
   };

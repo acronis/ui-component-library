@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-breadcrumbs-color: var(--acv-color-brand-primary);
     --acv-breadcrumbs-density-default: 0;

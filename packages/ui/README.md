@@ -25,6 +25,35 @@ pnpm install
 Acronis UI Component Library is a toolset with components, directives and some utilities.
 You can use is as a whole or import only the components you need.
 
+Import the whole library:
+
+```javascript
+import { createApp } from 'vue';
+import AcronisUI from '@acronis-platform/ui-component-library';
+import App from './App.vue';
+
+const app = createApp(App);
+app.use(AcronisUI);
+app.mount('#app');
+```
+
+Import only the components you need, the best way, with usage of tree-shakable named imports:
+
+```javascript
+import { createApp } from 'vue';
+import { Button, Input } from '@acronis-platform/ui-component-library';
+import '@acronis-platform/ui-component-library/dist/styles/themes.css';
+// import '@acronis-platform/ui-component-library/dist/styles.css';
+// import '@acronis-platform/ui-component-library/dist/button/styles.css';
+// import '@acronis-platform/ui-component-library/dist/input/styles.css';
+import App from './App.vue';
+
+const app = createApp(App);
+app.component('Button', Button);
+app.component('Input', Input);
+app.mount('#app');
+```
+
 Please, refer to [the documentation](https://acronis.github.io/ui-component-library/guide/install.html#full-import) for detailed information on how to use the library.
 
 ## Contributing
