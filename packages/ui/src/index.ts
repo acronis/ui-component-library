@@ -1,5 +1,4 @@
 import type { App, MaybeRef } from 'vue';
-import { toPascalCase } from '@acronis-platform/utils';
 import * as components from './components/index.ts';
 import * as directives from './directives/index.ts';
 import type { PropsOptions } from './types/props.ts';
@@ -19,7 +18,6 @@ interface InstallOptions {
 function createUiKit() {
   const install = (app: App, options: InstallOptions = {}) => {
     const {
-      prefix = '',
       namespace = '',
       props = {}
     } = options;
@@ -27,14 +25,12 @@ function createUiKit() {
     configNamespace(namespace, app);
     configProps(props, app);
 
-    const normalizedPrefix = toPascalCase(prefix || '');
-
     for (const key in directives) {
       app.directive(key, (directives as Record<string, any>)[key]);
     }
 
     for (const componentName in components) {
-      app.component(normalizedPrefix + componentName, (components as Record<string, any>)[componentName]);
+      app.component(componentName, (components as Record<string, any>)[componentName]);
     }
   };
 

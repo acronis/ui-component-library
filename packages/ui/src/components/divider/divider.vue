@@ -1,8 +1,7 @@
 <script setup lang="ts">
   import { computed, toRefs } from 'vue';
-  import { isInteger } from '@acronis-platform/utils';
-  import './divider.css';
   import { isNumber } from 'lodash-es';
+  import './divider.css';
   import type { DividerProps } from './divider.ts';
 
   defineOptions({ name: 'Divider' });
@@ -14,11 +13,6 @@
   const { vertical, textPosition, color, margin } = toRefs(props);
 
   const hasText = computed(() => !!slots.default);
-
-  const height = computed(() => {
-    return isInteger(vertical.value) ? vertical.value : null;
-  });
-
   const dividerClasses = computed(() => {
     return {
       'acv-divider': true,
@@ -30,11 +24,12 @@
         textPosition.value && !vertical.value && hasText.value && textPosition.value !== 'center'
     };
   });
+  const height = computed(() => isNumber(vertical.value) ? `${vertical.value}px` : undefined);
   const textMargin = computed(() => isNumber(margin.value) ? `${margin.value}px` : margin.value);
 
   const dividerStyles = computed(() => {
     return {
-      height: `${height.value}px`,
+      height: height.value,
       ...(textMargin.value && vertical.value
         ? {
           marginRight: textMargin.value,

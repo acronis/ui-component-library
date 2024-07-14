@@ -53,7 +53,6 @@
   },
   "dependencies": {
     "@acronis-platform/icons": "workspace:*",
-    "@acronis-platform/utils": "workspace:*",
     "@antfu/utils": "0.7.8",
     "@floating-ui/vue": "1.0.6",
     "@vueuse/core": "10.9.0",
