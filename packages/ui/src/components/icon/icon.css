@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-icon-color: currentColor;
     --acv-icon-size: var(--acv-icon-size-xs);

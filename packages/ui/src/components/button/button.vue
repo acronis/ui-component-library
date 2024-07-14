@@ -96,7 +96,7 @@
       <template
         v-if="$slots.default"
       >
-        <span class="content"><slot></slot></span>
+        <span class="content"><slot /></span>
       </template>
       <template
         v-if="$slots.rightIcon || rightIcon"

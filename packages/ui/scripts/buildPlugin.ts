@@ -48,26 +48,17 @@ export function buildPlugin(): Plugin[] {
           build: {
             outDir: 'dist',
             sourcemap: true,
-            // TODO remove
-            minify: false,
             lib: {
               entry: {
                 index: 'src/index.ts',
+                // TODO add more entries
                 button: 'src/components/button/public.ts',
               },
               formats: ['es'],
               name: 'UiKit',
             },
             rollupOptions: {
-              // treeshake: {
-              //   // TODO Check if we can remove this
-              //   moduleSideEffects(id) {
-              //     // make .css imports as side effect to prevent rollup remove them from bundle
-              //     return id.endsWith('.css');
-              //   },
-              // },
               output: {
-                // globals: ['vue'],
                 manualChunks(id) {
                   const relativeId = path.relative('', id);
 
@@ -81,7 +72,7 @@ export function buildPlugin(): Plugin[] {
                   return relativeId.replace('src/', '').replace('.ts', '').replace('.vue', '');
                 },
                 chunkFileNames: 'chunks/[name].[hash].js',
-                assetFileNames: 'assets/[name][extname]',
+                assetFileNames: 'assets/[name][extname]'
               },
               external: ['vue']
             },

@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-dialog-color: var(--acv-color-brand-primary);
     --acv-dialog-z-index: var(--acv-z-index-dialog);

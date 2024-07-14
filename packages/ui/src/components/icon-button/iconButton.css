@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-icon-button-color: var(--acv-color-brand-primary);
     --acv-icon-button-size-small: var(--acv-font-size-2xs);

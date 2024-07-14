@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-table-background-color: var(--acv-color-divider-inversed-primary);
     --acv-table-border-color: var(--acv-color-brand-primary);

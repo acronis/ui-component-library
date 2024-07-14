@@ -17,7 +17,7 @@
 
   defineSlots<AcvMarkdownEditorSlots>();
 
-  const model = defineModel();
+  const model = defineModel<string>();
   const toolbars: ToolbarNames[] = ['bold', 'italic', 'underline', '-', 'title', '-', 'orderedList', 'unorderedList', '-', 'link', 'image', 'table', 'code'];
 </script>
 

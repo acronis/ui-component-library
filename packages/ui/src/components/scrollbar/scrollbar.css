@@ -1,4 +1,4 @@
-@layer acv-base {
+@layer tokens {
   :root {
     --acv-scrollbar-track-color: var(
       --acv-color-inverted-lightest,
