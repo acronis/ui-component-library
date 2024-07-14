@@ -1,4 +1,4 @@
-export interface MainProps {
+export interface AcvMainProps {
   /**
    * Background color of the Main
    * @values transparent, primary, secondary, success, warning, danger, info, light, dark
@@ -6,7 +6,7 @@ export interface MainProps {
   color?: string
 }
 
-export interface MainEvents {
+export interface AcvMainEvents {
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -15,7 +15,7 @@ export interface MainEvents {
   (eventName: 'close', visible: boolean): void
 }
 
-export interface MainSlots {
+export interface AcvMainSlots {
   /**
    * The default slot content
    */

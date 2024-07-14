@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Chart from './chart.vue';
-import type { ChartProps } from './chart.ts';
+import type { AcvChartProps } from './chart.ts';
 
 describe('test Chart component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test Chart component', () => {
     const wrapper = mount(Chart, {
       props: {
         title: 'test',
-      } as ChartProps,
+      } as AcvChartProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

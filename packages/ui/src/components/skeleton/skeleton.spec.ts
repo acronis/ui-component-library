@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Skeleton from './skeleton.vue';
-import type { SkeletonProps } from './skeleton.ts';
+import type { AcvSkeletonProps } from './skeleton.ts';
 
 describe('test skeleton component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test skeleton component', () => {
     const wrapper = mount(Skeleton, {
       props: {
         title: 'test',
-      } as SkeletonProps,
+      } as AcvSkeletonProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

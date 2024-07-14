@@ -1,2 +1,2 @@
-export { default as FittedActions } from './fittedActions.vue';
+export { default as AcvFittedActions } from './fittedActions.vue';
 export * from './fittedActions.ts';

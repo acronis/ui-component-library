@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './stepper.css';
-  import type { StepperProps } from './stepper.ts';
+  import type { AcvStepperProps } from './stepper.ts';
 
-  const { title, description } = defineProps<StepperProps>();
+  const { title, description } = defineProps<AcvStepperProps>();
 
   defineEmits<{
     /**

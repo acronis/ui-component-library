@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './toolbar.css';
-  import type { ToolbarProps } from './toolbar.ts';
+  import type { AcvToolbarProps } from './toolbar.ts';
 
-  const { title, description } = defineProps<ToolbarProps>();
+  const { title, description } = defineProps<AcvToolbarProps>();
 
   defineEmits<{
     /**

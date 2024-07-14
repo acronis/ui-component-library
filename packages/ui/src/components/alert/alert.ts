@@ -13,9 +13,9 @@ export const ALERT_VARIANT = {
   unknown: 'unknown',
 } as const;
 
-export type AlertVariant = typeof ALERT_VARIANT[keyof typeof ALERT_VARIANT];
+export type AcvAlertVariant = typeof ALERT_VARIANT[keyof typeof ALERT_VARIANT];
 
-export const AlertIconTypes = {
+export const AcvAlertIconTypes = {
   [ALERT_VARIANT.info]: 'clr-info--16',
   [ALERT_VARIANT.success]: 'clr-success--16',
   [ALERT_VARIANT.warning]: 'clr-warning--16',
@@ -46,13 +46,13 @@ export interface AcvAlertProps {
   subtitle?: string
 
   /** Alert variant */
-  color?: AlertVariant
+  color?: AcvAlertVariant
 }
 
 export const alertProps: Expand<UikitProps<{ inherit: { default: null, type: BooleanConstructor } } & {
   showClose: BooleanConstructor
   subtitle: StringConstructor
-  variant: PropType<AlertVariant>
+  variant: PropType<AcvAlertVariant>
   description: { type: StringConstructor, required: boolean }
   title: StringConstructor
   showBorder: BooleanConstructor
@@ -80,11 +80,11 @@ export const alertProps: Expand<UikitProps<{ inherit: { default: null, type: Boo
     subtitle: String,
 
     /** Alert variant */
-    variant: String as PropType<AlertVariant>
+    variant: String as PropType<AcvAlertVariant>
   }
 );
 
-export interface AlertEvents {
+export interface AcvAlertEvents {
   /**
    * Emitted when the close button is clicked.
    */

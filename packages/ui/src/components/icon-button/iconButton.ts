@@ -1,6 +1,6 @@
 import type { ColorProp, ComponentSize } from '../../types/props.ts';
 
-export interface IconButtonProps {
+export interface AcvIconButtonProps {
   /**
    * Size of the IconButton
    * @defaultValue 'medium'
@@ -17,7 +17,7 @@ export interface IconButtonProps {
   color?: ColorProp
 }
 
-export interface IconButtonEvents {
+export interface AcvIconButtonEvents {
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -26,7 +26,7 @@ export interface IconButtonEvents {
   (eventName: 'close', visible: boolean): void
 }
 
-export interface IconButtonSlots {
+export interface AcvIconButtonSlots {
   /**
    * Slot for the IconButton icon
    */

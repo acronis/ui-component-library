@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import Footer from './footer.vue';
-import type { FooterProps } from './footer.ts';
+import type { AcvFooterProps } from './footer.ts';
 
 describe('test Footer component', () => {
   it('default props', () => {
@@ -19,7 +19,7 @@ describe('test Footer component', () => {
     const wrapper = mount(Footer, {
       props: {
         title: 'test',
-      } as FooterProps,
+      } as AcvFooterProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -44,7 +44,7 @@ describe('test Footer component', () => {
     const wrapper = mount(Footer, {
       props: {
         height: '100',
-      } as FooterProps
+      } as AcvFooterProps
     });
 
     await nextTick();

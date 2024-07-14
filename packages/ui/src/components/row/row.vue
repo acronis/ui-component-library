@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, provide, reactive, toRef } from 'vue';
-  import type { RowInjection, RowProps, RowSlots } from './row.ts';
+  import type { AcvRowInjection, AcvRowProps, AcvRowSlots } from './row.ts';
   import { ROW_KEY } from './row.ts';
   import './row.css';
 
@@ -10,7 +10,7 @@
     align,
     columnFlex,
     gap
-  } = withDefaults(defineProps<RowProps>(), {
+  } = withDefaults(defineProps<AcvRowProps>(), {
     justify: 'start',
     gap: 0,
     align: 'top',
@@ -18,7 +18,7 @@
     columnFlex: false
   });
 
-  defineSlots<RowSlots>();
+  defineSlots<AcvRowSlots>();
   const rowClasses = computed(() => {
     return {
       'acv-row': true,
@@ -73,7 +73,7 @@
     reactive({
       flex,
       gap: toRef(gap)
-    }) as RowInjection
+    }) as AcvRowInjection
   );
 </script>
 

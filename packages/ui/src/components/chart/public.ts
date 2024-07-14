@@ -1,2 +1,2 @@
-export { default as Chart } from './chart.vue';
+export { default as AcvChart } from './chart.vue';
 export * from './chart.ts';

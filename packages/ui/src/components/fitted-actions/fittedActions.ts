@@ -1,10 +1,10 @@
-export interface FittedActionsProps {
+export interface AcvFittedActionsProps {
   /**
    * List of actions to display
    */
-  actions?: FittedAction[]
+  actions?: AcvFittedAction[]
 
-  item?: FittedItem
+  item?: AcvFittedItem
 
   /**
    * Show the dropdown
@@ -12,18 +12,18 @@ export interface FittedActionsProps {
   showDropdown?: boolean
 }
 
-export interface FittedItem {
+export interface AcvFittedItem {
   id: string
   actionName: string
   isDivided: boolean
 }
 
-export interface FittedAction {
+export interface AcvFittedAction {
   id: string
   title: string
   actionName?: string
   isDivided?: boolean
   isInDropdown?: boolean
-  display?: (item: FittedItem | undefined) => void | boolean
+  display?: (item: AcvFittedItem | undefined) => void | boolean
   name: string
 }

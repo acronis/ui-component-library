@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 
-import type { DividerProps } from '..'
-import { Divider } from '..'
+import type { AcvDividerProps } from '..'
+import { AcvDivider } from '..'
 
 const TEXT = 'Text'
 
 describe('test Divider component', () => {
   it('default props', () => {
-    const wrapper = mount(Divider)
+    const wrapper = mount(AcvDivider)
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "color": undefined,
@@ -20,10 +20,10 @@ describe('test Divider component', () => {
   })
 
   it('pass props', () => {
-    const wrapper = mount(Divider, {
+    const wrapper = mount(AcvDivider, {
       props: {
         color: 'brand',
-      } as DividerProps,
+      } as AcvDividerProps,
     })
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -37,7 +37,7 @@ describe('test Divider component', () => {
   })
 
   it('render', () => {
-    const wrapper = mount(Divider)
+    const wrapper = mount(AcvDivider)
 
     expect(wrapper.classes()).toContain('acv-divider--horizontal')
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -48,7 +48,7 @@ describe('test Divider component', () => {
   })
 
   it('vertical', () => {
-    const wrapper = mount(() => <Divider vertical></Divider>)
+    const wrapper = mount(() => <AcvDivider vertical></AcvDivider>)
 
     expect(wrapper.find('.acv-divider').classes()).toContain('acv-divider--vertical')
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -59,7 +59,7 @@ describe('test Divider component', () => {
   })
 
   it('with text', async () => {
-    const wrapper = mount(Divider, {
+    const wrapper = mount(AcvDivider, {
       slots: {
         default: () => TEXT,
       },
@@ -74,7 +74,7 @@ describe('test Divider component', () => {
 
   it('text position', () => {
     (['center', 'left', 'right'] as const).forEach((position) => {
-      const wrapper = mount(() => <Divider text-position={position}>{TEXT}</Divider>)
+      const wrapper = mount(() => <AcvDivider text-position={position}>{TEXT}</AcvDivider>)
 
       if (position === 'center') {
         expect(wrapper.find('.acv-divider').classes()).not.toContain(
@@ -90,7 +90,7 @@ describe('test Divider component', () => {
   })
 
   it('margin', async () => {
-    const wrapper = mount(Divider, {
+    const wrapper = mount(AcvDivider, {
       props: { margin: 10 },
     })
 

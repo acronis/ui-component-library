@@ -4,7 +4,6 @@ const windowPathValidation = (path: string) => /^[a-z]:\\.*$/i.test(path);
 const linuxPathValidation = (path: string) => /^\/|(?:\/[\w-]+)+$/.test(path);
 
 function textMiddleEllipsis(el: HTMLElement, binding: DirectiveBinding, path: string | undefined) {
-  console.log(path, binding.arg);
   if (path === undefined || (!windowPathValidation(path) && !linuxPathValidation(path))) {
     console.warn(`Invalid path for v-text-middle-ellipsis: "${path}"`);
     return;

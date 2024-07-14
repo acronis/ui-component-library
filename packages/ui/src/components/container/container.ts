@@ -1,7 +1,7 @@
 import type { ResponsibleProps } from '../../composables/useBreakpoints.ts';
 import type { ColorProps } from '../../types/props.ts';
 
-export interface ContainerProps extends ResponsibleProps, ColorProps {
+export interface AcvContainerProps extends ResponsibleProps, ColorProps {
   /**
    * Direction for child elements
    * @values horizontal, vertical
@@ -9,7 +9,7 @@ export interface ContainerProps extends ResponsibleProps, ColorProps {
   direction?: 'horizontal' | 'vertical'
 }
 
-export interface ContainerEvents {
+export interface AcvContainerEvents {
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -18,7 +18,7 @@ export interface ContainerEvents {
   (eventName: 'close', visible: boolean): void
 }
 
-export interface ContainerSlots {
+export interface AcvContainerSlots {
   /**
    * The default slot content
    */

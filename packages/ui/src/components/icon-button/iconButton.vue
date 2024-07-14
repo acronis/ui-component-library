@@ -1,13 +1,13 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import AcvButton from '../button/button.vue';
-  import type { IconButtonEvents, IconButtonProps, IconButtonSlots } from './iconButton.ts';
+  import type { AcvIconButtonEvents, AcvIconButtonProps, AcvIconButtonSlots } from './iconButton.ts';
   import './iconButton.css';
 
-  const { color, size } = defineProps<IconButtonProps>();
+  const { color, size } = defineProps<AcvIconButtonProps>();
 
-  defineEmits<IconButtonEvents>();
-  defineSlots<IconButtonSlots>();
+  defineEmits<AcvIconButtonEvents>();
+  defineSlots<AcvIconButtonSlots>();
 
   const classes = computed(() => {
     return {

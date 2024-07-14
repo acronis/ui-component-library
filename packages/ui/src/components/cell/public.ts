@@ -1,2 +1,2 @@
-export { default as Cell } from './cell.vue';
+export { default as AcvCell } from './cell.vue';
 export * from './cell.ts';

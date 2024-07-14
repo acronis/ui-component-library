@@ -2,14 +2,14 @@
   import { computed } from 'vue';
   import { useBreakpoints } from '../../composables/useBreakpoints.ts';
   import { isBaseColor, isColor, parseStringColor } from '../../utils/color.ts';
-  import type { ContainerProps, ContainerSlots } from './container.ts';
+  import type { AcvContainerProps, AcvContainerSlots } from './container.ts';
   import './container.css';
 
-  const props = withDefaults(defineProps<ContainerProps>(), {
+  const props = withDefaults(defineProps<AcvContainerProps>(), {
     direction: 'vertical',
     color: 'white',
   });
-  defineSlots<ContainerSlots>();
+  defineSlots<AcvContainerSlots>();
 
   const { responsiveClassNames } = useBreakpoints('acv-container', props);
 

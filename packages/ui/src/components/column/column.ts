@@ -1,4 +1,4 @@
-export interface ColumnProps {
+export interface AcvColumnProps {
   /**
    * Number of columns
    * @values 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
@@ -76,7 +76,7 @@ export interface ColumnProps {
   colSpan?: number
 }
 
-export interface ColumnEvents {
+export interface AcvColumnEvents {
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -85,7 +85,7 @@ export interface ColumnEvents {
   (eventName: 'close', visible: boolean): void
 }
 
-export interface ColumnSlots {
+export interface AcvColumnSlots {
   /**
    * The default slot content
    */

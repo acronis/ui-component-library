@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import Aside from './aside.vue';
-import type { AsideProps } from './aside.ts';
+import type { AcvAsideProps } from './aside.ts';
 
 describe('test Aside component', () => {
   it('default props', () => {
@@ -19,7 +19,7 @@ describe('test Aside component', () => {
     const wrapper = mount(Aside, {
       props: {
         title: 'test',
-      } as AsideProps,
+      } as AcvAsideProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -39,7 +39,7 @@ describe('test Aside component', () => {
     const wrapper = mount(Aside, {
       props: {
         color: 'primary',
-      } as AsideProps,
+      } as AcvAsideProps,
     });
     expect(wrapper.classes()).toContain('acv-aside--color-primary');
   });
@@ -48,7 +48,7 @@ describe('test Aside component', () => {
     const wrapper = mount(Aside, {
       props: {
         width: '100',
-      } as AsideProps
+      } as AcvAsideProps
     });
 
     await nextTick();

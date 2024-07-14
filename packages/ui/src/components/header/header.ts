@@ -1,4 +1,4 @@
-export interface HeaderProps {
+export interface AcvHeaderProps {
   /**
    * Bottom border of the Header
    * @defaultValue true
@@ -31,7 +31,7 @@ export interface HeaderProps {
   align?: string
 }
 
-export interface HeaderSlots {
+export interface AcvHeaderSlots {
   /**
    * The default slot content
    */

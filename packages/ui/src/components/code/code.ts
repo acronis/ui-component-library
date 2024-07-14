@@ -1,4 +1,4 @@
-export interface CodeProps {
+export interface AcvCodeProps {
   /**
    * Source code to display
    */
@@ -10,7 +10,7 @@ export interface CodeProps {
   extension?: string
 }
 
-export interface CodeEvents {
+export interface AcvCodeEvents {
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event

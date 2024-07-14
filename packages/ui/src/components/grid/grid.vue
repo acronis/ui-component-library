@@ -2,13 +2,13 @@
   import type { CSSProperties } from 'vue';
   import { computed, provide, reactive, toRef } from 'vue';
   import './grid.css';
-  import type { GridProps } from './grid.ts';
+  import type { AcvGridProps } from './grid.ts';
   import { GRID_KEY } from './grid.ts';
   import { parseAutoLayout, parseSizeLayout } from './utils.ts';
 
   defineOptions({ name: 'Grid' });
 
-  const props = withDefaults(defineProps<GridProps>(), {
+  const props = withDefaults(defineProps<AcvGridProps>(), {
     tag: 'div',
     gap: 0,
     rows: 'none',
@@ -87,7 +87,7 @@
     :class="gridClasses"
     :style="gridStyles"
   >
-    <slot></slot>
+    <slot />
   </component>
 </template>
 

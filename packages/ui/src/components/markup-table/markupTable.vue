@@ -3,11 +3,11 @@
   import './markupTable.css';
   import { useResizingColumns } from './composables/useResizingColumns.ts';
   import { useGridColumns } from './composables/useGridColumns.ts';
-  import type { MarkupTableColumn, MarkupTableProps } from './markupTable.ts';
+  import type { AcvMarkupTableColumn, AcvMarkupTableProps } from './markupTable.ts';
 
   defineOptions({ name: 'MarkupTable' });
 
-  const props = withDefaults(defineProps<MarkupTableProps>(), {
+  const props = withDefaults(defineProps<AcvMarkupTableProps>(), {
     bordered: true
   });
 
@@ -26,7 +26,7 @@
   // Feature: Resize columns
   const { isResizing, onResize } = useResizingColumns(columns, calcGridColumns);
 
-  function getColumnClasses(column: MarkupTableColumn) {
+  function getColumnClasses(column: AcvMarkupTableColumn) {
     return {
       'fixed-left': column.fixed,
     };
@@ -75,7 +75,7 @@
                 v-if="column.resizable"
                 class="resize-handle"
                 @mousedown="onResize($event, column.key)"
-              ></span>
+              />
             </th>
           </tr>
           <tr>

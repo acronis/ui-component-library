@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import { computed, useSlots } from 'vue';
   import type { AcvChipProps } from '../../components/index';
-  import { AcvButton, Icon } from '../../components/index';
+  import { AcvButton } from '../../components/index';
+  import AcvIcon from '../icon/icon.vue';
   import './chip.css';
 
   const {
@@ -32,7 +33,7 @@
 
 <template>
   <div class="acv-chip">
-    <Icon
+    <AcvIcon
       v-if="iconName"
       class="acv-chip__icon"
       :name="iconName"
@@ -42,7 +43,7 @@
       class="acv-chip__text"
       :title="title"
     >
-      <slot></slot>
+      <slot />
     </span>
     <!--    <div class="i-acronis-icons:user--32" /> -->
     <div class="i-vscode-icons:file-type-light-pnpm" />

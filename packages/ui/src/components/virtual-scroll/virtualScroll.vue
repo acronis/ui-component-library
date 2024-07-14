@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './virtualScroll.css';
-  import type { VirtualScrollProps } from './virtualScroll.ts';
+  import type { AcvVirtualScrollProps } from './virtualScroll.ts';
 
-  const { title, description } = defineProps<VirtualScrollProps>();
+  const { title, description } = defineProps<AcvVirtualScrollProps>();
 
   defineEmits<{
     /**

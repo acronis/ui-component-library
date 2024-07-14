@@ -1,4 +1,4 @@
-export interface FooterProps {
+export interface AcvFooterProps {
   /**
    * Height of the Footer
    * @defaultValue 64px
@@ -12,7 +12,7 @@ export interface FooterProps {
   color?: string
 }
 
-export interface FooterSlots {
+export interface AcvFooterSlots {
   /**
    * The default slot content
    */

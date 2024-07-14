@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Ribbon from './ribbon.vue';
-import type { RibbonProps } from './ribbon.ts';
+import type { AcvRibbonProps } from './ribbon.ts';
 
 describe('test Ribbon component', () => {
   it('default props', () => {
@@ -22,7 +22,7 @@ describe('test Ribbon component', () => {
     const wrapper = mount(Ribbon, {
       props: {
         title: 'test',
-      } as RibbonProps,
+      } as AcvRibbonProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

@@ -1,13 +1,13 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import { isColor } from '../../utils/color.ts';
-  import type { MainEvents, MainProps, MainSlots } from './main.ts';
+  import type { AcvMainEvents, AcvMainProps, AcvMainSlots } from './main.ts';
   import './main.css';
 
-  const { color } = defineProps<MainProps>();
-  defineEmits<MainEvents>();
+  const { color } = defineProps<AcvMainProps>();
+  defineEmits<AcvMainEvents>();
 
-  defineSlots<MainSlots>();
+  defineSlots<AcvMainSlots>();
 
   // const { isColorModifier } = useColor(['nav-primary']);
 
@@ -26,7 +26,7 @@
 
 <template>
   <main :class="mainClasses">
-    <slot></slot>
+    <slot />
   </main>
 </template>
 

@@ -251,7 +251,7 @@
 </script>
 
 <template>
-  <Row
+  <AcvRow
     tag="nav"
     class="theme-nav"
     align="middle"
@@ -260,7 +260,7 @@
       Theme Playground
     </h2>
     <ThemeSwitch />
-  </Row>
+  </AcvRow>
   <Split class="theme-view">
     <template #left>
       <NativeScroll
@@ -316,7 +316,7 @@
           v-for="state in states"
           :key="state"
         >
-          <Input
+          <AcvInput
             :state="state"
             style="margin-inline-end: 20px"
           />
@@ -324,7 +324,7 @@
           <br>
           <br>
         </template>
-        <Input
+        <AcvInput
           disabled
           style="margin-inline-end: 20px"
         />
@@ -453,7 +453,7 @@
           <br>
         </template>
         <br>
-        <Row
+        <AcvRow
           v-for="(meta, index) in tooltipMeta"
           :key="index"
           :justify="meta.justify"
@@ -476,7 +476,7 @@
               {{ `The ${placement.split('-').join(' ')} text` }}
             </AcvTooltip>
           </template>
-        </Row>
+        </AcvRow>
         <br>
         <!-- <template v-for="state in states" :key="state">
           <AcvSlider :state="state" :value="20 + Math.random() * 40"></AcvSlider>
@@ -673,7 +673,7 @@
             v-for="n in 2"
             :key="n"
           >
-            <Menu
+            <AcvMenu
               :theme="n === 1 ? 'light' : 'dark'"
               style="width: 240px; margin-inline-end: 20px"
             >
@@ -686,7 +686,7 @@
               >
                 {{ meta.label }}
               </AcvMenuItem>
-            </Menu>
+            </AcvMenu>
           </template>
         </div>
         <br>
@@ -755,7 +755,7 @@
         </template>
         <br>
         <br>
-        <Table
+        <AcvTable
           :data="tableData"
           use-y-bar
           :width="700"
@@ -777,20 +777,20 @@
             fixed
           >
             <template #default="{ row }">
-              <Grid style="padding: 20px 40px">
-                <Cell :width="12">
+              <AcvGrid style="padding: 20px 40px">
+                <AcvCell :width="12">
                   Full Name: {{ `${row.firstName} ${row.lastName}` }}
-                </Cell>
-                <Cell :width="12">
+                </AcvCell>
+                <AcvCell :width="12">
                   Age: {{ row.age }}
-                </Cell>
-                <Cell :width="12">
+                </AcvCell>
+                <AcvCell :width="12">
                   Job: {{ row.job }}
-                </Cell>
-                <Cell :width="12">
+                </AcvCell>
+                <AcvCell :width="12">
                   Email: {{ row.email }}
-                </Cell>
-              </Grid>
+                </AcvCell>
+              </AcvGrid>
             </template>
           </AcvTableColumn>
           <AcvTableColumn
@@ -824,7 +824,7 @@
           >
             Very long text Very long text Very long text Very long text Very long text
           </AcvTableColumn>
-        </Table>
+        </AcvTable>
         <div style="display: flex">
           <Timeline
             both-sides

@@ -1,18 +1,18 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { BreadcrumbsEvents, BreadcrumbsProps, BreadcrumbsSlots } from './breadcrumbs.ts';
+  import type { AcvBreadcrumbsEvents, AcvBreadcrumbsProps, AcvBreadcrumbsSlots } from './breadcrumbs.ts';
   import './breadcrumbs.css';
 
   const {
     // maxItems,
     multiline,
     // separatorIcon
-  } = withDefaults(defineProps<BreadcrumbsProps>(), {
+  } = withDefaults(defineProps<AcvBreadcrumbsProps>(), {
     size: 'md'
   });
 
-  defineEmits<BreadcrumbsEvents>();
-  defineSlots<BreadcrumbsSlots>();
+  defineEmits<AcvBreadcrumbsEvents>();
+  defineSlots<AcvBreadcrumbsSlots>();
 
   const classes = computed(() => {
     return {

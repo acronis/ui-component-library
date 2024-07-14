@@ -8,7 +8,7 @@ export interface AcvFormItemProps {
    */
   title?: string
 
-  control: IconProp
+  control?: IconProp
 
   /**
    * Placement of the title

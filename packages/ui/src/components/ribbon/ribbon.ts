@@ -1,4 +1,4 @@
-export interface RibbonAlert {
+export interface AcvRibbonAlert {
   /**
    * The alert title
    */
@@ -16,21 +16,21 @@ export interface RibbonAlert {
   /**
    * The alert link
    */
-  link: RibbonLink
+  link: AcvRibbonLink
 }
 
-export interface RibbonLink {
+export interface AcvRibbonLink {
   href: string
   target?: string
   title: string
   click?: () => void
 }
 
-export interface RibbonProps {
+export interface AcvRibbonProps {
   /**
    * List of alerts
    */
-  alerts?: RibbonAlert[]
+  alerts?: AcvRibbonAlert[]
 
   variant?: 'info' | 'success' | 'warning' | 'critical' | 'error'
 
@@ -55,7 +55,7 @@ export interface RibbonProps {
   closeable?: boolean
 }
 
-export interface RibbonEvents {
+export interface AcvRibbonEvents {
   /**
    * Triggered when the alert is closed
    * @arg {string} eventName - The name of the event
@@ -64,7 +64,7 @@ export interface RibbonEvents {
   (eventName: 'close', alertIndex: number): void
 }
 
-export interface RibbonSlots {
+export interface AcvRibbonSlots {
   /**
    * The default slot content
    */

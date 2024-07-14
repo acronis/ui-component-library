@@ -1,4 +1,4 @@
-import type { LayoutProp } from './grid.ts';
+import type { AcvLayoutProp } from './grid.ts';
 
 const numberRE = /^\d+$/;
 
@@ -6,7 +6,7 @@ export type BreakPoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export const breakPoints = Object.freeze<BreakPoint[]>(['xs', 'sm', 'md', 'lg', 'xl', 'xxl']);
 
-export function parseAutoLayout(value: LayoutProp) {
+export function parseAutoLayout(value: AcvLayoutProp) {
   if (typeof value === 'number') {
     return `${value}fr`;
   }
@@ -34,7 +34,7 @@ export function parseAutoLayout(value: LayoutProp) {
   return value;
 }
 
-export function parseSizeLayout(value: LayoutProp) {
+export function parseSizeLayout(value: AcvLayoutProp) {
   if (typeof value === 'number') {
     return `repeat(${value}, 1fr)`;
   }

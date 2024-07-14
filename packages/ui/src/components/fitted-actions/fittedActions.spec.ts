@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import FittedActions from './fittedActions.vue';
-import type { FittedActionsProps } from './fittedActions.ts';
+import type { AcvFittedActionsProps } from './fittedActions.ts';
 
 describe('test FittedActions component', () => {
   it('default props', () => {
@@ -20,7 +20,7 @@ describe('test FittedActions component', () => {
       props: {
         title: 'test',
         actions: []
-      } as FittedActionsProps,
+      } as AcvFittedActionsProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

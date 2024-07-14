@@ -1,4 +1,4 @@
-export interface SkeletonProps {
+export interface AcvSkeletonProps {
   /**
    * Title of the skeleton
    */

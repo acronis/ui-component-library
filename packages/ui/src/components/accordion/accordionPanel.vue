@@ -1,20 +1,20 @@
 <script setup lang="ts">
   import { computed, getCurrentInstance, inject, ref } from 'vue';
-  import type { AccordionInjection, AccordionPanelProps, AccordionPanelSlots } from './accordion.ts';
+  import type { AcvAccordionInjection, AcvAccordionPanelProps, AcvAccordionPanelSlots } from './accordion.ts';
   import { ACCORDION_KEY } from './accordion.ts';
 
   defineOptions({
-    name: 'AccordionPanel',
+    name: 'AcvAccordionPanel',
   });
-  const { id, title, background } = defineProps<AccordionPanelProps>();
-  defineSlots<AccordionPanelSlots>();
+  const { id, title, background } = defineProps<AcvAccordionPanelProps>();
+  defineSlots<AcvAccordionPanelSlots>();
 
   const {
     multiple,
     openedPanels,
     uuid,
     handlePanelClick
-  } = inject(ACCORDION_KEY) as AccordionInjection;
+  } = inject(ACCORDION_KEY) as AcvAccordionInjection;
   const panelId = ref(getCurrentInstance()?.uid.toString());
 
   const isOpened = computed(() =>

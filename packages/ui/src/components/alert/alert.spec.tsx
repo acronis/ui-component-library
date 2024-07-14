@@ -24,7 +24,7 @@ describe('alert', () => {
       const wrapper = mount(() => <Alert icon color={type}></Alert>)
 
       expect(wrapper.find('.acv-alert').classes()).toContain(`${type}`)
-      // expect(wrapper.findComponent(AlertIconTypes[type]).exists()).toBe(true)
+      // expect(wrapper.findComponent(AcvAlertIconTypes[type]).exists()).toBe(true)
     })
   })
 

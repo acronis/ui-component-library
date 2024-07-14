@@ -1,7 +1,7 @@
 import type { InjectionKey, Ref } from 'vue';
 import type { ComponentSize } from '../../types/props.ts';
 
-export interface AccordionProps {
+export interface AcvAccordionProps {
   /**
    * Active panel id
    */
@@ -24,14 +24,14 @@ export interface AccordionProps {
   expanded?: boolean
 }
 
-export interface AccordionSlots {
+export interface AcvAccordionSlots {
   /**
    * Default slot for accordion panels
    */
   default: () => any
 }
 
-export interface AccordionEvents {
+export interface AcvAccordionEvents {
   /**
    * Triggered when binding value changes
    * @arg {string} eventName - The name of the event
@@ -40,7 +40,7 @@ export interface AccordionEvents {
   (eventName: 'update:modelValue', value: any): void
 }
 
-export interface AccordionPanelProps {
+export interface AcvAccordionPanelProps {
   /**
    * ID of the accordion item
    */
@@ -89,7 +89,7 @@ export interface AccordionPanelProps {
   disabled?: boolean
 }
 
-export interface AccordionPanelSlots {
+export interface AcvAccordionPanelSlots {
   /**
    * Content of the accordion panel
    */
@@ -106,11 +106,11 @@ export interface AccordionPanelSlots {
   trigger: void
 }
 
-export interface AccordionInjection {
+export interface AcvAccordionInjection {
   multiple: boolean
   openedPanels: Ref<(string | string[] | undefined)[]>
   uuid: Ref<number | undefined>
   handlePanelClick: (id: string) => void
 }
 
-export const ACCORDION_KEY = Symbol('ACCORDION_KEY') as InjectionKey<AccordionInjection>;
+export const ACCORDION_KEY = Symbol('ACCORDION_KEY') as InjectionKey<AcvAccordionInjection>;

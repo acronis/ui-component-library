@@ -1,2 +1,2 @@
-export { default as Column } from './column.vue';
+export { default as AcvColumn } from './column.vue';
 export * from './column.ts';

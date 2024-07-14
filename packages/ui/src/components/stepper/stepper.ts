@@ -1,4 +1,4 @@
-export interface StepperProps {
+export interface AcvStepperProps {
   /**
    * Title of the stepper
    */

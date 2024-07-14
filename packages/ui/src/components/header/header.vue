@@ -1,17 +1,17 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
   import { isColor } from '../../utils/color';
-  import type { HeaderProps, HeaderSlots } from './header.ts';
+  import type { AcvHeaderProps, AcvHeaderSlots } from './header.ts';
   import './header.css';
 
-  const { bordered, height, color, title, align } = withDefaults(defineProps<HeaderProps>(), {
+  const { bordered, height, color, title, align } = withDefaults(defineProps<AcvHeaderProps>(), {
     bordered: true,
     height: '64px',
     color: 'white',
     title: '',
     align: 'center',
   });
-  defineSlots<HeaderSlots>();
+  defineSlots<AcvHeaderSlots>();
 
   // const { isColorModifier } = useColor(['fixed-white', 'nav-primary']);
 

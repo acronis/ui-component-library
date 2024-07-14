@@ -2,11 +2,11 @@
   import { computed, toRefs } from 'vue';
   import { isNumber } from 'lodash-es';
   import './divider.css';
-  import type { DividerProps } from './divider.ts';
+  import type { AcvDividerProps } from './divider.ts';
 
   defineOptions({ name: 'Divider' });
 
-  const props = defineProps<DividerProps>();
+  const props = defineProps<AcvDividerProps>();
 
   const slots = defineSlots<{ default: () => any }>();
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { ColumnEvents, ColumnProps, ColumnSlots } from './column.ts';
+  import type { AcvColumnEvents, AcvColumnProps, AcvColumnSlots } from './column.ts';
   import './column.css';
 
   const {
@@ -17,7 +17,7 @@
     md,
     lg,
     xl,
-  } = withDefaults(defineProps<ColumnProps>(), {
+  } = withDefaults(defineProps<AcvColumnProps>(), {
     span: 24,
     rowIndex: 1,
     rowSpan: 1,
@@ -25,8 +25,8 @@
     colSpan: 1,
     tag: 'div',
   });
-  defineEmits<ColumnEvents>();
-  defineSlots<ColumnSlots>();
+  defineEmits<AcvColumnEvents>();
+  defineSlots<AcvColumnSlots>();
 
   const colClasses = computed(() => {
     return {

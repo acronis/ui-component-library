@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Stepper from './stepper.vue';
-import type { StepperProps } from './stepper.ts';
+import type { AcvStepperProps } from './stepper.ts';
 
 describe('test stepper component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test stepper component', () => {
     const wrapper = mount(Stepper, {
       props: {
         title: 'test',
-      } as StepperProps,
+      } as AcvStepperProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

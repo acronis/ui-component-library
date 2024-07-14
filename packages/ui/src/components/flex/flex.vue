@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import './flex.css';
-  import type { FlexProps } from './flex.ts';
+  import type { AcvFlexProps } from './flex.ts';
 
-  const { title, description } = defineProps<FlexProps>();
+  const { title, description } = defineProps<AcvFlexProps>();
 
   defineEmits<{
     /**

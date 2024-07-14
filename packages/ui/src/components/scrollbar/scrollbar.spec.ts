@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Scrollbar from './scrollbar.vue';
-import type { ScrollbarProps } from './scrollbar.ts';
+import type { AcvScrollbarProps } from './scrollbar.ts';
 
 describe('test scrollbar component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test scrollbar component', () => {
     const wrapper = mount(Scrollbar, {
       props: {
         title: 'test',
-      } as ScrollbarProps,
+      } as AcvScrollbarProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

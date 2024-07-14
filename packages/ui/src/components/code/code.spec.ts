@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Code from './code.vue';
-import type { CodeProps } from './code.ts';
+import type { AcvCodeProps } from './code.ts';
 
 const code = `from pymatgen.core import Lattice, Structure
 from rolos_sdk import Dataframe, DataStorageInterface, DataStorageType, RawObject, TableColumn
@@ -29,7 +29,7 @@ describe('test Code component', () => {
     const wrapper = mount(Code, {
       props: {
         title: 'test',
-      } as CodeProps,
+      } as AcvCodeProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

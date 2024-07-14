@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import VirtualScroll from './virtualScroll.vue';
-import type { VirtualScrollProps } from './virtualScroll.ts';
+import type { AcvVirtualScrollProps } from './virtualScroll.ts';
 
 describe('test VirtualScroll component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test VirtualScroll component', () => {
     const wrapper = mount(VirtualScroll, {
       props: {
         title: 'test',
-      } as VirtualScrollProps,
+      } as AcvVirtualScrollProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

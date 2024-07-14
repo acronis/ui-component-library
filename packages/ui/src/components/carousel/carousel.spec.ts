@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Carousel from './carousel.vue';
-import type { CarouselProps } from './carousel';
+import type { AcvCarouselProps } from './carousel';
 
 describe('test Carousel component', () => {
   it('default props', () => {
@@ -18,7 +18,7 @@ describe('test Carousel component', () => {
     const wrapper = mount(Carousel, {
       props: {
         title: 'test',
-      } as CarouselProps,
+      } as AcvCarouselProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`

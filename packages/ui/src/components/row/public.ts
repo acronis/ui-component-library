@@ -1,2 +1,2 @@
-export { default as Row } from './row.vue';
+export { default as AcvRow } from './row.vue';
 export * from './row.ts';

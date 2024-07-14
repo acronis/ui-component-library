@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import type { CarouselEvents, CarouselProps, CarouselSlots } from './carousel.ts';
+  import type { AcvCarouselEvents, AcvCarouselProps, AcvCarouselSlots } from './carousel.ts';
   import './carousel.css';
 
-  const { title, description } = defineProps<CarouselProps>();
+  const { title, description } = defineProps<AcvCarouselProps>();
 
-  defineEmits<CarouselEvents>();
-  defineSlots<CarouselSlots>();
+  defineEmits<AcvCarouselEvents>();
+  defineSlots<AcvCarouselSlots>();
 </script>
 
 <template>
