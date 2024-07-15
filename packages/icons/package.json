@@ -14,9 +14,7 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs"
-    },
+    ".": "./dist/index.mjs",
     "./acronis/*": {
       "import": "./dist/acronis/*"
     },

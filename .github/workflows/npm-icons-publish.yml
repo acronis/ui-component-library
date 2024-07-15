@@ -1,13 +1,14 @@
-name: Publish Acronis Icons to NPM
+name: Publish Icons to NPM
 
 on:
   release:
-    types: [published]
+    types:
+      - published
 
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
