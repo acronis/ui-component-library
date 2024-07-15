@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/acronis/ui-component-library/compare/v1.4.3...v1.4.4) (2024-07-15)
+
+
+### Bug Fixes
+
+* **build:** remove publish from release workflows ([5eb7868](https://github.com/acronis/ui-component-library/commit/5eb7868c168c570de85c051f298ec66571788dd5))
+
 ## [1.4.3](https://github.com/acronis/ui-component-library/compare/v1.4.2...v1.4.3) (2024-07-15)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **icons:** enable download icons script ([70cf6fa](https://github.com/acronis/ui-component-library/commit/70cf6faa5f5bbdac8ee8a70f1b557907a647978c))
-
-## [1.3.1](https://github.com/acronis/ui-component-library/compare/v1.3.0...v1.3.1) (2024-07-14)
-
-
-### Bug Fixes
-
-* **docs:** fix doc aliases ([ba2ce0d](https://github.com/acronis/ui-component-library/commit/ba2ce0d2a6f85d0fc7bde072880f3b93ffcdffaf))
 
