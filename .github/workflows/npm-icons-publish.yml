@@ -30,7 +30,7 @@ jobs:
         run: pnpm --filter ./packages/icons lint
 
   publish-npm:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
