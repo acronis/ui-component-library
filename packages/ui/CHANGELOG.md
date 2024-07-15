@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/acronis/ui-component-library/compare/v1.4.1...v1.4.2) (2024-07-15)
+
+
+### Bug Fixes
+
+* **build:** enable publish npm on release ([ceb1060](https://github.com/acronis/ui-component-library/commit/ceb10605daa6568e9559f38e3e0e60be347e1d12))
+
 ## [1.4.1](https://github.com/acronis/ui-component-library/compare/v1.4.0...v1.4.1) (2024-07-15)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **markdown-editor:** add simple markdown-editor component ([8530767](https://github.com/acronis/ui-component-library/commit/8530767435beb19732aa05aa438cba44ee6391b8))
-
-## [1.2.0](https://github.com/acronis/ui-component-library/compare/v1.1.0...v1.2.0) (2024-07-12)
-
-
-### Features
-
-* **switch:** add simple switch ([2ba9546](https://github.com/acronis/ui-component-library/commit/2ba9546c0ed5ee777fc678c66175f86af48afc4d))
 
