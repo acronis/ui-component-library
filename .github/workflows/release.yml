@@ -23,6 +23,8 @@ jobs:
         with:
           preset: "conventionalcommits"
           github-token: ${{ secrets.GITHUB_TOKEN }}
+#          TODO add personal access token to trigger publish workflow
+#          github-token: ${{ secrets.PA_TOKEN }}
           version-file: './packages/ui/package.json'
           output-file: './packages/ui/CHANGELOG.md'
 
@@ -37,33 +39,3 @@ jobs:
           body: ${{steps.changelog.outputs.clean_changelog}}
           draft: false
           prerelease: false
-
-  publish-npm:
-    needs: changelog
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build UI Component Library
-        run: pnpm --filter ./packages/ui run build
-
-      - name: Publish package on NPM
-        run: pnpm publish packages/ui --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPMJS_PUBLISH_TOKEN}}
