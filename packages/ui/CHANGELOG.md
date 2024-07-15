@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/acronis/ui-component-library/compare/v1.4.2...v1.4.3) (2024-07-15)
+
+
+### Bug Fixes
+
+* **build:** fix publish workflows ([e40e89f](https://github.com/acronis/ui-component-library/commit/e40e89f0078d48e2ce1ef69f2e1d04a8a3ebbecf))
+
 ## [1.4.2](https://github.com/acronis/ui-component-library/compare/v1.4.1...v1.4.2) (2024-07-15)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **docs:** fix doc aliases ([ba2ce0d](https://github.com/acronis/ui-component-library/commit/ba2ce0d2a6f85d0fc7bde072880f3b93ffcdffaf))
-
-## [1.3.0](https://github.com/acronis/ui-component-library/compare/v1.2.0...v1.3.0) (2024-07-13)
-
-
-### Features
-
-* **markdown-editor:** add simple markdown-editor component ([8530767](https://github.com/acronis/ui-component-library/commit/8530767435beb19732aa05aa438cba44ee6391b8))
 
