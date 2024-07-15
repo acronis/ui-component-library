@@ -1,5 +1,5 @@
 <script setup>
-  import { IAcronisIconLarge } from '@acronis-platform/icons';
+  import { IconAcronisIcon32 } from '@acronis-platform/icons/acronis/acronis';
   import { BUTTON_COLOR } from '@/components/button/button.ts';
   import Button from '@/components/button/button.vue';
   import Grid from '@/components/grid/grid.vue';
@@ -27,7 +27,7 @@
     >
       <Button :color="color">
         <template #icon>
-          <IAcronisIconLarge
+          <IconAcronisIcon32
             style="width:16px; height:16px;vertical-align: text-bottom;"
           />
         </template>

@@ -1,5 +1,5 @@
 <script setup>
-  import InfoCircleOSmall from '@acronis-platform/icons/acronis/info/InfoCircleO16.vue';
+  import InfoCircleOSmall from '@acronis-platform/icons/acronis/attention/IconAttention16.vue';
   import PreviewGroup from '../../.vitepress/components/PreviewGroup.vue';
   import Preview from '../../.vitepress/components/Preview.vue';
   import AcvIcon from '@/components/icon/icon.vue';

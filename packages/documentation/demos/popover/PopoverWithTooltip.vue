@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from 'vue';
-  import InfoCircleOSmall from '@acronis-platform/icons/es/acronis/info/InfoCircleOSmall.vue';
+  import InfoCircleOSmall from '@acronis-platform/icons/acronis/attention/IconAttention16.vue';
   import PreviewGroup from '../../.vitepress/components/PreviewGroup.vue';
   import Preview from '../../.vitepress/components/Preview.vue';
   import AcvButton from '@/components/button/button.vue';

@@ -15,29 +15,20 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/es/public.mjs",
-      "require": "./dist/lib/index.js"
+      "import": "./dist/index.mjs"
     },
-    "./es": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/es/public.mjs"
+    "./acronis/*": {
+      "import": "./dist/acronis/*"
     },
-    "./lib": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/lib/public.js"
+    "./constructor/*": {
+      "import": "./dist/constructor/*"
     },
-    "./es/*.mjs": "./dist/es/*.mjs",
-    "./es/*": "./dist/es/*.mjs",
-    "./lib/*.js": "./dist/lib/*.js",
-    "./lib/*": "./dist/lib/*.js",
     "./iconify/*": "./dist/iconify/*",
     "./package.json": "./package.json",
     "./*": "./*"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "publishConfig": {
     "directory": "dist",
     "linkDirectory": false

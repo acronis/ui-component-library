@@ -1,5 +1,5 @@
 <script setup>
-  import { ITrashOSmall } from '@acronis-platform/icons';
+  import IconTrash from '@acronis-platform/icons/constructor/trash/IconTrash.vue';
   import Icon from '@/components/icon/icon.vue';
   import AcvDropdown from '@/components/dropdown/dropdown.vue';
 </script>
@@ -10,7 +10,7 @@
     persist
   >
     <Icon
-      :icon="ITrashOSmall"
+      :icon="IconTrash"
     />
     <template #dropdown>
       <ul>

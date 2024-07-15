@@ -1,6 +1,7 @@
 <script setup>
   import { reactive } from 'vue';
-  import { ICheckCircleLarge, ITimesCircleOLarge } from '@acronis-platform/icons';
+  import { IconClose16 } from '@acronis-platform/icons/acronis/close';
+  import { IconCheckCircle32 } from '@acronis-platform/icons/acronis/check';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
 
   const checked = reactive([false, false]);
@@ -12,8 +13,8 @@
       v-model="checked[0]"
     >
       <template #icon>
-        <ITimesCircleOLarge v-show="!checked[0]" />
-        <ICheckCircleLarge v-show="checked[0]" />
+        <IconClose16 v-show="!checked[0]" />
+        <IconCheckCircle32 v-show="checked[0]" />
       </template>
     </AcvCheckbox>
 

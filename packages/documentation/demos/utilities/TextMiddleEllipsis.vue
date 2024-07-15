@@ -1,5 +1,5 @@
 <script setup>
-  import PlusMedium from '@acronis-platform/icons/acronis/plus/Plus24.vue';
+  import PlusMedium from '@acronis-platform/icons/acronis/plus/IconPlus16.vue';
   import { vTextMiddleEllipsis } from '@/directives/textMiddleEllipsis.ts';
   import AcvIcon from '@/components/icon/icon.vue';
 </script>

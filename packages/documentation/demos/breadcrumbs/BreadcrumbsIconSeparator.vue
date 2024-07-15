@@ -1,11 +1,11 @@
 <script setup>
-  import { IChevronRight } from '@acronis-platform/icons';
+  import IconChevronRight16 from '@acronis-platform/icons/acronis/chevron/IconChevronRight16.vue';
   import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
   import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
 </script>
 
 <template>
-  <Breadcrumbs :separator="IChevronRight">
+  <Breadcrumbs :separator="IconChevronRight16">
     <BreadcrumbLink to="/">
       Home
     </BreadcrumbLink>
