@@ -1,0 +1,3 @@
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="acv-icon"><path stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75h7.25v14.5H12m0-14.5H4.75v14.5H12m0-14.5v2.5m0 12v-2.5m1.75-7 2.5 2.25m0 0-2.5 2.25m2.5-2.25h-8.5m2.5-2.25L7.75 12m0 0 2.5 2.25" /></svg>
+</template>

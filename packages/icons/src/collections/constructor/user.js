@@ -1,0 +1,10 @@
+export { default as IconUserCircleCross } from './user/IconUserCircleCross.vue';
+export { default as IconUserMinus } from './user/IconUserMinus.vue';
+export { default as IconUserCheck } from './user/IconUserCheck.vue';
+export { default as IconUser } from './user/IconUser.vue';
+export { default as IconUserCircleMinus } from './user/IconUserCircleMinus.vue';
+export { default as IconUserCross } from './user/IconUserCross.vue';
+export { default as IconUserCircleCheck } from './user/IconUserCircleCheck.vue';
+export { default as IconUserPlus } from './user/IconUserPlus.vue';
+export { default as IconUserCirclePlus } from './user/IconUserCirclePlus.vue';
+export { default as IconUserCircle } from './user/IconUserCircle.vue';

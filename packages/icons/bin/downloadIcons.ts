@@ -9,7 +9,7 @@ async function run() {
   await downloadIcons({ onBeforeDownloadIcon, onDownloadedIcon });
 
   function onBeforeDownloadIcon(name: string) {
-    const regex = /^\w\w/;
+    const regex = /^\w/;
 
     if (!regex.test(name)) {
       console.error('Wrong icon name! ->', name);
@@ -54,9 +54,12 @@ async function run() {
     icons.set(rootDirectory, [...(icons.get(rootDirectory) || []), file]);
   }
 
+  /*
+   * Create a barrel file for each directory with icons
+   */
   for (const directory of icons.keys()) {
-    const barrel = path.join(path.dirname(directory), `${path.basename(directory)}.js`);
-    const barrelDTs = path.join(path.dirname(directory), `${path.basename(directory)}.d.ts`);
+    const barrel = path.join(path.dirname(directory), `${path.basename(directory)}.ts`);
+    // const barrelDTs = path.join(path.dirname(directory), `${path.basename(directory)}.d.ts`);
     let fileContent = '';
     for (const icon of icons.get(directory)!) {
       const directoryName = path.dirname(icon);
@@ -64,11 +67,11 @@ async function run() {
       const fileName = path.basename(icon);
 
       const result = path.join(parentFolder, fileName);
-      fileContent = `${fileContent ? `${fileContent}\n;` : ''}export { default as ${path.parse(icon).name} } from './${result}'`;
+      fileContent = `${fileContent ? `${fileContent}` : ''}export { default as ${path.parse(icon).name} } from './${result}';\n`;
     }
     await Promise.all([
       promises.writeFile(barrel, fileContent),
-      promises.writeFile(barrelDTs, fileContent),
+      // promises.writeFile(barrelDTs, fileContent),
     ]);
   }
 }

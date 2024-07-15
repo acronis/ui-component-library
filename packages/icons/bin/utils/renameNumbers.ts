@@ -1,4 +1,15 @@
-const singleDigitNumbers = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+const singleDigitNumbers = [
+  'Zero',
+  'One',
+  'Two',
+  'Three',
+  'Four',
+  'Five',
+  'Six',
+  'Seven',
+  'Eight',
+  'Nine'
+];
 const sizesMatches = {
   1: 'Variant',
   8: 'ExtraSmall',

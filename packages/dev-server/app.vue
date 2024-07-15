@@ -1,8 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-
-  import { ICogSmall } from '@acronis-platform/icons';
+  import { IconSettings16 } from '@acronis-platform/icons/dist/acronis/settings';
   import TogglePadding from './toggle-padding.vue';
 
   // import DirectionSwitch from '../documentation/.vitepress/components/direction-switch.vue';
@@ -24,7 +23,7 @@
     tabindex="-1"
     @click="panelShow = !panelShow"
   >
-    <ICogSmall></ICogSmall>
+    <IconSettings16></IconSettings16>
   </button>
   <Transition name="acv-fade">
     <div

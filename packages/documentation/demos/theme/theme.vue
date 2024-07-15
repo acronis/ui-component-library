@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from 'vue';
-  import { IChevronUp } from '@acronis-platform/icons';
+  import { IconChevronUp16 } from '@acronis-platform/icons/dist/acronis/chevron';
   import { defineFilter } from '@/components/table/index.ts';
   import ThemeSwitch from '@/widgets/theme-switcher/themeSwitcher.vue';
 
@@ -77,8 +77,8 @@
   const linkerMeta = [
     { disabled: false, underline: false, icon: null },
     { disabled: true, underline: false, icon: null },
-    { disabled: false, underline: true, icon: IChevronUp },
-    { disabled: true, underline: false, icon: IChevronUp }
+    { disabled: false, underline: true, icon: IconChevronUp16 },
+    { disabled: true, underline: false, icon: IconChevronUp16 }
   ];
 
   const tooltipMeta = [
@@ -95,8 +95,8 @@
     { label: 'Tab 1', icon: null, disabled: false },
     { label: 'Tab 2', icon: null, disabled: false },
     { label: 'Tab 3', icon: null, disabled: true },
-    { label: 'Tab 4', icon: IChevronUp, disabled: false },
-    { label: 'Tab 5', icon: IChevronUp, disabled: true }
+    { label: 'Tab 4', icon: IconChevronUp16, disabled: false },
+    { label: 'Tab 5', icon: IconChevronUp16, disabled: true }
   ];
 
   const spinActive = ref(true);
@@ -286,7 +286,7 @@
                 :simple="meta.simple"
                 :ghost="meta.ghost"
                 :disabled="meta.disabled"
-                :icon="IChevronUp"
+                :icon="IconChevronUp16"
               >
                 {{ type.charAt(0).toLocaleLowerCase() + type.substring(1) }}
               </AcvButton>
@@ -681,7 +681,7 @@
                 v-for="meta in menuMeta"
                 :key="meta.label"
                 :label="meta.label"
-                :icon="IChevronUp"
+                :icon="IconChevronUp16"
                 :disabled="meta.disabled"
               >
                 {{ meta.label }}

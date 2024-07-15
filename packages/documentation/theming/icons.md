@@ -12,12 +12,12 @@ In components content areas you can use icons from your custom sets.
 
 ```vue
 <script setup>
-  import { IChevronDownSmall } from '@acronis-platform/icons';
+  import { IconChevronDown16 } from '@acronis-platform/icons/dist/acronis/chevron';
 </script>
 
 <template>
   <AcvButton>
-    <IChevronDownSmall />
+    <IconChevronDown16 />
     Close button
   </AcvButton>
 </template>
