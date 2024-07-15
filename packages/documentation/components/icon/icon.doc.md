@@ -84,11 +84,11 @@ The icons are tree-shakable, so only the icons that are used in the project will
 ```vue
 <script setup>
 // Tree-shaking import
-  import { CogSmall } from '@acronis-platform/icons/acronis';
+import { IconSettings16 } from '@acronis-platform/icons/dist/acronis/settings';
 </script>
 
 <template>
-  <CogSmall />
+  <IconSettings16 />
 </template>
 ```
 
@@ -97,7 +97,7 @@ If your tooling does not support tree-shaking, you can import the icons directly
 ```vue
 <script setup>
 // Tree-shaking deep import example
-  import CogSmall from '@acronis-platform/icons/acronis/cog/CogSmall.vue';
+import IconSettings16 from '@acronis-platform/icons/dist/acronis/settings/IconSettings16.vue';
 </script>
 
 <template>

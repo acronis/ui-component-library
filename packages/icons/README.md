@@ -45,7 +45,7 @@ You can import icons in your project by using the following code:
 
 ```vue
 <script setup>
-  import ChevronDown from '@acronis-platform/icons/acronis/chevron/ChevronDown.vue';
+  import ChevronDown from '@acronis-platform/icons/acronis/chevron/IconChevronDown16.vue';
 </script>
 
 <template>

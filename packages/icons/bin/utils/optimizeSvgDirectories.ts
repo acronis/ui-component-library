@@ -11,7 +11,7 @@ export async function optimizeSvgDirectories(dir: string) {
 
   const files = await glob(`${dir}/**/*.svg`);
 
-  files.forEach((file) => {
+  for (const file of files) {
     const data = fs.readFileSync(file, 'utf8');
     const result = optimize(data, config as Config).data
       // .replace(/<svg[^>]*?>/g, '<g fill="currentColor">')
@@ -19,5 +19,5 @@ export async function optimizeSvgDirectories(dir: string) {
       .replace(/#2668C5/g, 'currentColor');
 
     fs.writeFileSync(file, result);
-  });
+  }
 }

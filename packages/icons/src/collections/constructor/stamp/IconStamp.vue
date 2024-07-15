@@ -1,0 +1,3 @@
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="acv-icon"><g stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)"><path d="M5.75 14.75a3 3 0 0 1 3-3h6.5a3 3 0 0 1 3 3v1.5H5.75v-1.5ZM10 11.5 8.969 5.932a1 1 0 0 1 .983-1.182h4.096a1 1 0 0 1 .983 1.182L14 11.5M4.75 19.25h14.5" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z" /></clipPath></defs></svg>
+</template>

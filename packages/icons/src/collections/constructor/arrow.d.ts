@@ -1,0 +1,16 @@
+export { default as IconArrowLeft } from './arrow/IconArrowLeft.vue';
+export { default as IconArrowDownLeft } from './arrow/IconArrowDownLeft.vue';
+export { default as IconArrowDownRight } from './arrow/IconArrowDownRight.vue';
+export { default as IconArrowUp } from './arrow/IconArrowUp.vue';
+export { default as IconArrowLeftCircle } from './arrow/IconArrowLeftCircle.vue';
+export { default as IconArrowDownLeftCircle } from './arrow/IconArrowDownLeftCircle.vue';
+export { default as IconArrowDownCircle } from './arrow/IconArrowDownCircle.vue';
+export { default as IconArrowRightCircle } from './arrow/IconArrowRightCircle.vue';
+export { default as IconArrowDown } from './arrow/IconArrowDown.vue';
+export { default as IconArrowUpRightCircle } from './arrow/IconArrowUpRightCircle.vue';
+export { default as IconArrowDownRightCircle } from './arrow/IconArrowDownRightCircle.vue';
+export { default as IconArrowUpCircle } from './arrow/IconArrowUpCircle.vue';
+export { default as IconArrowUpLeftCircle } from './arrow/IconArrowUpLeftCircle.vue';
+export { default as IconArrowUpLeft } from './arrow/IconArrowUpLeft.vue';
+export { default as IconArrowUpRight } from './arrow/IconArrowUpRight.vue';
+export { default as IconArrowRight } from './arrow/IconArrowRight.vue';

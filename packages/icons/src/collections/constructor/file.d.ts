@@ -1,0 +1,17 @@
+export { default as IconFile2 } from './file/IconFile2.vue';
+export { default as IconFile } from './file/IconFile.vue';
+export { default as IconFileCode } from './file/IconFileCode.vue';
+export { default as IconFileText } from './file/IconFileText.vue';
+export { default as IconFilePlus2 } from './file/IconFilePlus2.vue';
+export { default as IconFileScan } from './file/IconFileScan.vue';
+export { default as IconFileShare } from './file/IconFileShare.vue';
+export { default as IconFileMinus2 } from './file/IconFileMinus2.vue';
+export { default as IconFilePlus } from './file/IconFilePlus.vue';
+export { default as IconFileText2 } from './file/IconFileText2.vue';
+export { default as IconFileSearch } from './file/IconFileSearch.vue';
+export { default as IconFileUser } from './file/IconFileUser.vue';
+export { default as IconFileDownload2 } from './file/IconFileDownload2.vue';
+export { default as IconFileCheckmark } from './file/IconFileCheckmark.vue';
+export { default as IconFileError } from './file/IconFileError.vue';
+export { default as IconFileImportant } from './file/IconFileImportant.vue';
+export { default as IconFileMinus } from './file/IconFileMinus.vue';

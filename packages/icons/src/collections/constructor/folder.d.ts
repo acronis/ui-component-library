@@ -1,0 +1,16 @@
+export { default as IconFolderCheck } from './folder/IconFolderCheck.vue';
+export { default as IconFolderOpenCheck } from './folder/IconFolderOpenCheck.vue';
+export { default as IconFolderOpen2 } from './folder/IconFolderOpen2.vue';
+export { default as IconFolderMinus } from './folder/IconFolderMinus.vue';
+export { default as IconFolderOpen } from './folder/IconFolderOpen.vue';
+export { default as IconFolderSearch } from './folder/IconFolderSearch.vue';
+export { default as IconFolderImportant } from './folder/IconFolderImportant.vue';
+export { default as IconFolderCross } from './folder/IconFolderCross.vue';
+export { default as IconFolderPlus } from './folder/IconFolderPlus.vue';
+export { default as IconFolderPerson } from './folder/IconFolderPerson.vue';
+export { default as IconFolder } from './folder/IconFolder.vue';
+export { default as IconFolderDown } from './folder/IconFolderDown.vue';
+export { default as IconFolderStar } from './folder/IconFolderStar.vue';
+export { default as IconFolderZip } from './folder/IconFolderZip.vue';
+export { default as IconFolderShare } from './folder/IconFolderShare.vue';
+export { default as IconFolderUp } from './folder/IconFolderUp.vue';

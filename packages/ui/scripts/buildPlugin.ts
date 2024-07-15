@@ -54,7 +54,7 @@ export function buildPlugin(): Plugin[] {
                 button: 'src/components/button/public.ts',
               },
               formats: ['es'],
-              name: 'UiKit',
+              name: 'Acronis Ui Component Library',
             },
             rollupOptions: {
               output: {
