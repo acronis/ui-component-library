@@ -1,11 +1,15 @@
 import { promises } from 'node:fs';
 import path from 'node:path';
 import { downloadIcons } from '@acronis-platform/figma-fetcher';
+import { format } from 'prettier';
+import type { Config } from 'svgo';
+import { loadConfig, optimize } from 'svgo';
 import { toPascalCase } from './utils/toPascalCase.ts';
 
 async function run() {
   const names = new Set<string>();
   const icons = new Map<string, string[]>();
+  const svgoConfig = await loadConfig();
   await downloadIcons({ onBeforeDownloadIcon, onDownloadedIcon });
 
   function onBeforeDownloadIcon(name: string) {
@@ -36,7 +40,12 @@ async function run() {
     pathname: string
     iconsPathPrefix: string
   }) {
-    const fileContent = `<template>${content}</template>`;
+    const svgContent = optimize(content, svgoConfig as Config).data
+      .replace(/#2668C5/g, 'currentColor');
+    const fileContent = await format(
+        `<template>${svgContent}</template>`,
+        { parser: 'vue', semi: true, singleQuote: true, vueIndentScriptAndStyle: true }
+    );
     const prefix = 'Icon';
 
     const idx = pathname.indexOf('-');
@@ -48,7 +57,7 @@ async function run() {
     await promises.mkdir(path.dirname(file), { recursive: true });
     await Promise.all([
       promises.writeFile(file, fileContent),
-      promises.writeFile(imagePath, content, 'utf8'),
+      promises.writeFile(imagePath, svgContent, 'utf8'),
     ]);
 
     icons.set(rootDirectory, [...(icons.get(rootDirectory) || []), file]);

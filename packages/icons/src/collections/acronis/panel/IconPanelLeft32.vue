@@ -1,3 +1,15 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" class="acv-icon"><path fill="#2668C5" fill-rule="evenodd" d="M28 6v20H4V6h24ZM12 24H6V8h6v16Zm2 0h12V8H14v16Z" clip-rule="evenodd" /></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    class="acv-icon"
+    viewBox="0 0 32 32"
+  >
+    <path
+      fill="currentColor"
+      fill-rule="evenodd"
+      d="M28 6v20H4V6h24ZM12 24H6V8h6v16Zm2 0h12V8H14v16Z"
+      clip-rule="evenodd"
+    />
+  </svg>
 </template>

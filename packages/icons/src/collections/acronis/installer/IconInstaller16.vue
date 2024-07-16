@@ -1,3 +1,13 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="acv-icon"><path fill="#2668C5" d="M8 7 1.5 3.5 8 0l6.5 3.5L8 7ZM1 12.5V5l6 3.5v7l-6-3ZM15 12.5V5L9 8.5v7l6-3Z" /></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    class="acv-icon"
+    viewBox="0 0 16 16"
+  >
+    <path
+      fill="currentColor"
+      d="M8 7 1.5 3.5 8 0l6.5 3.5L8 7Zm-7 5.5V5l6 3.5v7l-6-3Zm14 0V5L9 8.5v7l6-3Z"
+    />
+  </svg>
 </template>
