@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/acronis/ui-component-library/compare/v1.6.1...v1.6.2) (2024-07-16)
+
+
+### Bug Fixes
+
+* **tests:** fix failed snapshots ([588545e](https://github.com/acronis/ui-component-library/commit/588545e6e40bdf011f63b47c93f10a34c0f9f4c7))
+
 ## [1.6.1](https://github.com/acronis/ui-component-library/compare/v1.6.0...v1.6.1) (2024-07-16)
 
 
@@ -31,11 +38,4 @@
 * **footer:** lint fix ([2ae2aa0](https://github.com/acronis/ui-component-library/commit/2ae2aa080fd9063973ff4136973cd3eaafc0c272))
 * **footer:** review fixes ([61d4e7a](https://github.com/acronis/ui-component-library/commit/61d4e7a850e7689f7add0f772ffa138c74e1f492))
 * **footer:** review fixes ([3a04a02](https://github.com/acronis/ui-component-library/commit/3a04a028d81ed8750d12b96fd4e9fe773d7fdab5))
-
-## [1.4.4](https://github.com/acronis/ui-component-library/compare/v1.4.3...v1.4.4) (2024-07-15)
-
-
-### Bug Fixes
-
-* **build:** remove publish from release workflows ([5eb7868](https://github.com/acronis/ui-component-library/commit/5eb7868c168c570de85c051f298ec66571788dd5))
 
