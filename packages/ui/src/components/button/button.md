@@ -1,4 +1,4 @@
-Button is an input that allows for user-triggered actions when clicked or pressed.
+Button is used to highlight key actions and clearly inform user of what will happen after the interaction.
 
 Use buttons for actions in forms, dialogs, and much more.
 
@@ -12,58 +12,25 @@ It supports multiple variants, sizes, and states.
 <<< @/demos/button/ButtonBasic.vue
 :::
 
-## Variants
+## Types
 
-Button supports the several predefined types, for different semantic purposes.
-Use the `variant` prop to set the variant of the button.
-By default, the button is rendered as a solid primary button.
+<ButtonDocTypes />
 
-There are 4 variant types available: `solid`, `outline`, `ghost` and `light`.
+## States
 
-There are 5 variant color patterns available: `primary`, `secondary`, `success`, `danger`, `warning`, `info` and `inverted` for the dark surfaces.
-
-### Solid
-
-`solid` is a default variant for button.
-
-Button with a solid variant is a button with a solid background color.
-
-Use the `variant` prop to set the variant of the button.
-
-<ButtonVariantSolid />
-
-### Outline
-
-Button with an outline variant is a button with a border and transparent background.
-You can use `variant="outline"` to create outlined button.
-
-:::details Customize `border-style` of outlined buttons
-To create outlined button with different border style just add relevant class.
-
-e.g. To create outline button with dashed border, add `acv-border-style-dashed` class.
-:::
-
-<ButtonVariantOutline />
-
-### Ghost
-
-You can use `variant="ghost"` to create button with a transparent background and without a border.
-
-<ButtonVariantGhost />
-
-### Light
-
-You can use `variant="light"` Button with light semi-opaque background color.
-
-<ButtonVariantLight />
+<ButtonDocStates />
 
 ## Sizing
 
 Specify the size(small, large) of the button using the `size` prop.
 
-<ButtonSizes />
+<ButtonDocSizes />
 
-## Types
+## With icons
+
+<ButtonDocWithIcons />
+
+## Button types
 
 By default `<acv-button>` renders a `<button>` element.
 You can change the type of the button by setting the `type` prop.
@@ -77,10 +44,6 @@ It is ignored when either _href_ or _to_ props are set.
 
 <ButtonTypes />
 
-## With icons
-
-<ButtonWithIcons />
-
 ## With single icon
 
 <ButtonWithSingleIcon />
@@ -89,19 +52,6 @@ It is ignored when either _href_ or _to_ props are set.
 
 <ButtonWithLoading />
 
-## Colors
-
-Button supports the following color variants:
-`primary`, `secondary`, `success`, `danger`, `warning`, `info` and `inverted`.
-
-### Primary
-
-<ButtonColorPrimary />
-
-### Secondary
-
-<ButtonColorSecondary />
-
 ## Block buttons
 
 Create block buttons that use full width of the parent container.
@@ -109,21 +59,7 @@ Set up the `block` prop to make the button full width.
 
 <ButtonBlock />
 
-## Pill buttons
-
-Create pill buttons by setting the `pill` prop.
-
-TODO: replace with _roundness_ prop
-
-<ButtonPill />
-
-## Squared buttons
-
-Create squared buttons by setting the `squared` prop.
-
-<ButtonSquared />
-
-## Accessibility ♿️
+## Accessibility
 
 Provided `AcvButton` component must adapt to the list of
 [WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/button/).

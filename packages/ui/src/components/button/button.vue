@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, inject } from 'vue';
-  import { BUTTON_GROUP_KEY, BUTTON_VARIANT } from '../index.ts';
+  import { BUTTON_COLOR, BUTTON_GROUP_KEY, BUTTON_VARIANT } from '../index.ts';
   import AcvIcon from '../icon/icon.vue';
   import { vAutofocus } from '../../directives/autofocus.ts';
   import Loader from '../loader/loader.vue';
@@ -14,7 +14,6 @@
   const props = withDefaults(defineProps<AcvButtonProps>(), {
     tag: 'button',
     buttonType: 'button',
-    kind: 'solid',
     color: 'primary',
     size: 'medium'
   });
@@ -25,7 +24,20 @@
 
   const isDisabled = computed(() => props.disabled || props.loading);
   const variant = computed(() => {
+    if (props.type === 'primary')
+      return BUTTON_VARIANT.solid;
+    if (props.type === 'secondary')
+      return BUTTON_VARIANT.outline;
+    if (props.type === 'ghost')
+      return BUTTON_VARIANT.ghost;
     return props.variant ?? buttonGroupState?.variant ?? BUTTON_VARIANT.solid;
+  });
+  const color = computed(() => {
+    if (props.type === 'danger')
+      return BUTTON_COLOR.danger;
+    if (props.type === 'inverted')
+      return BUTTON_COLOR.inverted;
+    return props.color ?? buttonGroupState?.color ?? BUTTON_COLOR.primary;
   });
   const size = computed(() => {
     return buttonGroupState?.size ?? props.size;
@@ -35,7 +47,7 @@
       'acv-button': true,
       [variant.value]: variant.value,
       [size.value]: size.value,
-      [props.color]: props.color,
+      [color.value]: color.value,
       'disabled': isDisabled.value,
       'loading': props.loading,
       'block': props.block,
@@ -44,12 +56,15 @@
     })
   );
 
-  const isThemeColor = isBaseColor(props.color);
+  const isThemeColor = isBaseColor(color.value);
 
   const buttonStyles = computed(() => {
-    const rawColor = colord(props.color);
+    const rawColor = colord(color.value);
     return {
-      '--acv-button-color': isThemeColor ? `var(--acv-color-${props.color})` : `hsl(${rawColor.toHslValue()})`,
+      ...(!isThemeColor && { '--acv-button-color': isThemeColor
+        ? `var(--acv-color-${color.value})`
+        : `hsl(${rawColor.toHslValue()})`
+      }),
       ...(!isThemeColor && { '--acv-button-text-color': `${rawColor.contrasting().toHslString()}` })
     };
   });
