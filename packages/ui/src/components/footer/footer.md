@@ -21,7 +21,6 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-1433
 
 <FooterLink />
 
-
 ## Text usage
 
 <FooterText />
