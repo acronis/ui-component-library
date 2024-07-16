@@ -1,1 +1,6 @@
 * @leonid
+/packages/documentation/** @necobaka
+/packages/figma-fetcher/** @Jerd0
+/packages/icons/** @edikdeisling @Jerd0
+/packages/ui/** @edikdeisling @necobaka
+/packages/utils/** @edikdeisling
