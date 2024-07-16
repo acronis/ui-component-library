@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/acronis/ui-component-library/compare/v1.5.1...v1.6.0) (2024-07-16)
+
+
+### Features
+
+* **icons:** remove constructor icons ([6607646](https://github.com/acronis/ui-component-library/commit/660764609616152d82a649803a5de898eaa92b03))
+
 ## [1.5.1](https://github.com/acronis/ui-component-library/compare/v1.5.0...v1.5.1) (2024-07-16)
 
 
@@ -31,11 +38,4 @@
 ### Bug Fixes
 
 * **build:** fix publish workflows ([e40e89f](https://github.com/acronis/ui-component-library/commit/e40e89f0078d48e2ce1ef69f2e1d04a8a3ebbecf))
-
-## [1.4.2](https://github.com/acronis/ui-component-library/compare/v1.4.1...v1.4.2) (2024-07-15)
-
-
-### Bug Fixes
-
-* **build:** enable publish npm on release ([ceb1060](https://github.com/acronis/ui-component-library/commit/ceb10605daa6568e9559f38e3e0e60be347e1d12))
 
