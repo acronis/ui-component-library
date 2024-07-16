@@ -1,3 +1,3 @@
-# Basic button
+## Basic button
 
 <ButtonBasic />

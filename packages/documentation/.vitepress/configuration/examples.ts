@@ -21,6 +21,7 @@ export const enExamples = [
       { text: 'Button variants', link: '/examples/button/variants' },
       { text: 'Button pill', link: '/examples/button/pill' },
       { text: 'Button squared', link: '/examples/button/squared' },
+      { text: 'Button icon', link: '/examples/button/icon' },
     ],
   },
   {
