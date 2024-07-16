@@ -1,10 +1,10 @@
 ---
-title: Acv Divider component
+title: ACV Divider component
 lang: en-US
 editLink: true
 ---
 
-# Acv Divider
+# ACV Divider
 
 Used to group content in horizontal or vertical lists,
 and also serves as a visual separator between logical blocks within the interface.

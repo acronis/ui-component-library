@@ -1,10 +1,10 @@
 ---
-title: Acv Footer component
+title: ACV Footer component
 lang: en-US
 editLink: true
 ---
 
-# Acv Footer
+# ACV Footer
 
 The 'AcvFooter' component is a structured and customizable terminating section of an interface.
 It offers two sections —

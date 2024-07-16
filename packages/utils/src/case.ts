@@ -21,7 +21,7 @@ export function customAcvTitleCase(str: string) {
   let rest = str;
 
   if (match) {
-    prefix = 'Acv';
+    prefix = 'ACV';
     rest = str.slice(match[0].length);
   }
 

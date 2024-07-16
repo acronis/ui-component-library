@@ -10,21 +10,7 @@ https://www.figma.com/file/YDRlEkpDc1qcapabYuK5ID/Glyphs?node-id=0%3A1
 
 TODO: Replace with real-world example from /demos
 
-```vue
-<script setup>
-  import { AcvIcon } from '@acronis-platform/ui-component-library';
-  // or
-  import Icon from '@acronis-platform/ui-component-library/dist/components/icon/icon.vue';
-</script>
-
-<template>
-  <AcvIcon
-    name="i-info-circle-o--16"
-    color="brand-primary"
-  />
-  <Icon name="chevron-up" />
-</template>
-```
+<<< @/demos/icons/IconExample.vue
 
 ## Basic usage
 
