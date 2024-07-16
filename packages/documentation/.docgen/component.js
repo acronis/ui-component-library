@@ -1,4 +1,4 @@
-import { toTitleCase } from '@acronis-platform/utils';
+import { customAcvTitleCase } from '@acronis-platform/utils';
 
 export default (
   renderedUsage,
@@ -9,7 +9,7 @@ export default (
   { isSubComponent, hasSubComponents }
 ) => {
   const { name, displayName, description, docsBlocks, tags, functional } = doc;
-  const outputName = toTitleCase(name || displayName);
+  const outputName = customAcvTitleCase(name || displayName);
   const { deprecated, author, since, version, see, link } = tags || {};
   const frontMatter = [];
   if (!config.outFile && deprecated) {
@@ -42,7 +42,7 @@ ${frontMatter.join('\n')}
 
   ${deprecated ? `> **Deprecated** ${(deprecated[0]).description}\n` : ''}
   ${description ? `> ${description}` : ''}
-    
+
   ${functional ? renderedUsage.functionalTag : ''}
   ${author ? author.map(a => `Author: ${(a).description}\n`) : ''}
   ${since ? `Since: ${(since[0]).description}\n` : ''}
@@ -57,7 +57,7 @@ ${frontMatter.join('\n')}
   ${renderedUsage.events}
   ${renderedUsage.slots}
   ${renderedUsage.expose}
-  
+
   ${
      requiresMd.length
         ? `---\n${requiresMd.map(component => component.content).join('\n---\n')}`

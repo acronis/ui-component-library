@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { toPascalCase, toTitleCase } from '../src/case';
+import { customAcvTitleCase, toPascalCase, toTitleCase } from '../src';
 
 describe('case Conversion Utilities', () => {
   describe('toPascalCase', () => {
@@ -35,6 +35,28 @@ describe('case Conversion Utilities', () => {
 
     it('converts a sentence with mixed cases to Title Case', () => {
       expect(toTitleCase('this is a Mixed case Sentence')).toBe('This Is A Mixed Case Sentence');
+    });
+  });
+
+  describe('toActTitleCase', () => {
+    it('converts a single lowercase word to Title Case', () => {
+      expect(customAcvTitleCase('word')).toBe('Word');
+    });
+
+    it('converts a single uppercase word to Title Case', () => {
+      expect(customAcvTitleCase('WORD')).toBe('W O R D');
+    });
+
+    it('converts a camelCase word to Title Case', () => {
+      expect(customAcvTitleCase('camelCaseWord')).toBe('Camel Case Word');
+    });
+
+    it('converts a sentence with mixed cases to Title Case', () => {
+      expect(customAcvTitleCase('this is a Mixed case Sentence')).toBe('This Is A Mixed Case Sentence');
+    });
+
+    it('converts a sentence with acv to valid format', () => {
+      expect(customAcvTitleCase('AcvAccordionPanel')).toBe('ACV Accordion Panel');
     });
   });
 });

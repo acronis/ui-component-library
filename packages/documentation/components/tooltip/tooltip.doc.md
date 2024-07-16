@@ -1,10 +1,10 @@
 ---
-title: Acv Tooltip component
+title: ACV Tooltip component
 lang: en-US
 editLink: true
 ---
 
-# Acv Tooltip
+# ACV Tooltip
 
 Tooltip is a popup that displays additional information related to an element
 when you hover or focus on an element using the keyboard.

@@ -1,10 +1,10 @@
 ---
-title: Accordion Panel component
+title: ACV Accordion Panel component
 lang: en-US
 editLink: true
 ---
 
-# Accordion Panel
+# ACV Accordion Panel
 
 ## Props
 

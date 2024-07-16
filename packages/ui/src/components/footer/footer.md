@@ -1,7 +1,12 @@
-Short description for Footer component...
+The 'AcvFooter' component is a structured and customizable terminating section of an interface.
+It offers two sections —
+'side' and 'actions' — for tailored content and aims to enhance usability with flexbox layout,
+a clean divider, and encapsulated styles.
+It's an ideal option
+for placing additional information or call-to-action elements at the end of a page or a modal in a Vue application.
 
 :::info Figma component anatomy
-https://www.figma.com/file/
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-14332&m=dev
 :::
 
 ## Basic usage
@@ -12,15 +17,24 @@ https://www.figma.com/file/
 <<< @/demos/footer/FooterBasic.vue
 :::
 
-## Colors
+## Link usage
 
-<acv-footer color="brand-lightest">Lightest Footer</acv-footer>
-<acv-footer color="fixed-white">White Footer</acv-footer>
+<FooterLink />
 
-## Height
 
-<acv-footer color="brand-lightest" height="96px">Footer</acv-footer>
+## Text usage
+
+<FooterText />
+
+## Primary and Link
+
+<FooterPrimaryLink />
+
+## Primary and Text
+
+<FooterPrimaryText />
 
 ## Related components
 
 - [Button](/components/button/button.doc)
+- [Link](/components/link/link.doc)

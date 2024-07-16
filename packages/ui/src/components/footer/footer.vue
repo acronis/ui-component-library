@@ -1,62 +1,43 @@
-<script setup lang="ts">
-  import { computed } from 'vue';
-  import { isColor } from '../../utils/color.ts';
-  import type { AcvFooterProps, AcvFooterSlots } from './footer.ts';
-  import './footer.css';
+<script lang="ts" setup>
+import AcvDivider from '../divider/divider.vue';
+import type { AcvFooterSlots } from './footer.ts';
 
-  const { height, color } = withDefaults(defineProps<AcvFooterProps>(), {
-    height: '64px',
-    color: 'white',
-  });
-
-  defineSlots<AcvFooterSlots>();
-
-  // const { isColorModifier } = useColor(['nav-primary']);
-
-  const backgroundColor = computed(() => (
-    color && !isColor(color)
-      ? `var(--acv-color-${color})`
-      : null
-  ));
-  const footerClasses = computed(() => {
-    return {
-      'acv-footer': true,
-      [`acv-footer--color-${color}`]: isColor(color),
-    };
-  });
+defineOptions({ name: 'AcvFooter' });
+defineSlots<AcvFooterSlots>();
 </script>
 
 <template>
-  <footer :class="footerClasses">
-    <div class="acv-footer__content">
-      <slot />
+  <div class="acv-footer">
+    <AcvDivider />
+    <div class="acv-footer-content">
+      <slot name="side" />
+      <div class="actions">
+        <slot />
+      </div>
     </div>
-    <div>
-      <slot name="aside" />
-    </div>
-  </footer>
+  </div>
 </template>
 
 <style scoped>
-  .acv-footer {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    font-weight: var(--acv-font-weight-strong);
-    color: var(--acv-footer-color);
-    height: v-bind(height);
-    background-color: v-bind(backgroundColor);
+.acv-footer {
+  --acv-divider-v-margin: 0
+;
+  display: flex;
+  flex-direction: column;}
 
-    .acv-footer__content {
-      flex: 1;
-    }
+.acv-footer-content {
+  display: flex;
+  align-items: center;
+  gap: var(--acv-spacing-regular);
+  padding-block: var(--acv-spacing-regular);
+  padding-inline: var(--acv-spacing-large);
 
-    .acv-footer--color-primary-lightest {
-      background-color: var(--acv-color-primary-lightest);
-    }
+}
 
-    .acv-footer--color-fixed-white {
-      background-color: var(--acv-color-white);
-    }
-  }
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--acv-spacing-regular);
+}
 </style>

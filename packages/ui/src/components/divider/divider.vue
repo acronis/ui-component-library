@@ -4,7 +4,7 @@
   import './divider.css';
   import type { AcvDividerProps } from './divider.ts';
 
-  defineOptions({ name: 'Divider' });
+  defineOptions({ name: 'AcvDivider' });
 
   const props = defineProps<AcvDividerProps>();
 

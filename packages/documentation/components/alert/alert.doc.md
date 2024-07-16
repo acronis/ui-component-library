@@ -123,15 +123,15 @@ Usually alerts provide important and time-sensitive information without interfer
 
 ## Props
 
-| Prop name   | Description                                                | Type         | Values | Default |
-| ----------- | ---------------------------------------------------------- | ------------ | ------ | ------- |
-| description | Descriptive text. Can also be passed with the default slot | string       | -      |         |
-| showBorder  | Displays border                                            | boolean      | -      |         |
-| showClose   | Is close icon visible                                      | boolean      | -      | false   |
-| showIcon    | If a variant icon is displayed                             | boolean      | -      |         |
-| title       | Title, can also be passed with the slot                    | string       | -      |         |
-| subtitle    | Subtitle, can also be passed with the slot                 | string       | -      |         |
-| color       | Alert variant                                              | AlertVariant | -      | 'info'  |
+| Prop name   | Description                                                | Type            | Values | Default |
+| ----------- | ---------------------------------------------------------- | --------------- | ------ | ------- |
+| description | Descriptive text. Can also be passed with the default slot | string          | -      |         |
+| showBorder  | Displays border                                            | boolean         | -      |         |
+| showClose   | Is close icon visible                                      | boolean         | -      | false   |
+| showIcon    | If a variant icon is displayed                             | boolean         | -      |         |
+| title       | Title, can also be passed with the slot                    | string          | -      |         |
+| subtitle    | Subtitle, can also be passed with the slot                 | string          | -      |         |
+| color       | Alert variant                                              | AcvAlertVariant | -      | 'info'  |
 
 ## Events
 

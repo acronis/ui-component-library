@@ -1,6 +1,5 @@
 @layer tokens {
   :root {
-    /* Insert component css variables here */
-    --acv-footer-color: var(--acv-color-brand-primary);
+    --acv-footer-margin-block-start: 12px;
   }
 }

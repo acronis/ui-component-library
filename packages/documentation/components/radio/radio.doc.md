@@ -1,10 +1,10 @@
 ---
-title: Acv Radio component
+title: ACV Radio component
 lang: en-US
 editLink: true
 ---
 
-# Acv Radio
+# ACV Radio
 
 Radio button allows to select one option from a set.
 Used in cases where a list of two or more parameters is mutually exclusive,

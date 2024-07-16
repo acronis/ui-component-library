@@ -1,10 +1,10 @@
 ---
-title: Divider component
+title: ACV Divider component
 lang: en-US
 editLink: true
 ---
 
-# Divider
+# ACV Divider
 
 Used to group content in horizontal or vertical lists,
 and also serves as a visual separator between logical blocks within the interface.
@@ -53,7 +53,7 @@ Optionally, you can provide `aria-orientation` attribute to describe the separat
 | Prop name    | Description                         | Type                      | Values                                                                    | Default |
 | ------------ | ----------------------------------- | ------------------------- | ------------------------------------------------------------------------- | ------- |
 | vertical     | Orientation of the Divider          | boolean                   | -                                                                         |         |
-| textPosition | Position of the text in the Divider | DividerTextPosition       | -                                                                         |         |
+| textPosition | Position of the text in the Divider | AcvDividerTextPosition    | -                                                                         |         |
 | margin       | Margin of the Divider               | string \| number          | -                                                                         |         |
 | color        | Color of the Divider                | ColorBrand \| ColorStatus | 'primary', 'secondary', 'neutral', 'success', 'warning', 'danger', 'info' | 'brand' |
 
