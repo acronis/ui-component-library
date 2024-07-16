@@ -1,4 +1,14 @@
-import type { ColorProp, ComponentSize, IconProp } from '../../types/props.ts';
+import type { ComponentSize, IconProp } from '../../types/props.ts';
+import type { ColorBrand, ColorStatus } from '../../utils/color.ts';
+import { BRAND_COLORS, STATUS_COLORS } from '../../utils/color.ts';
+
+export const BUTTON_TYPE = {
+  primary: 'primary',
+  secondary: 'secondary',
+  ghost: 'ghost',
+  danger: 'danger',
+  inverted: 'inverted',
+} as const;
 
 export const BUTTON_VARIANT = {
   solid: 'solid',
@@ -8,24 +18,38 @@ export const BUTTON_VARIANT = {
 } as const;
 
 export const BUTTON_COLOR = {
-  primary: 'primary',
-  secondary: 'secondary',
-  inverted: 'inverted',
-  neutral: 'neutral',
-  info: 'info',
-  success: 'success',
-  warning: 'warning',
-  critical: 'critical',
-  danger: 'danger',
+  ...BRAND_COLORS,
+  ...STATUS_COLORS
 } as const;
 
-export type AcvButtonVariant = typeof BUTTON_VARIANT[keyof typeof BUTTON_VARIANT];
+export type AcvButtonType = 'primary' | 'secondary' | 'ghost' | 'danger' | 'inverted';
+export type ButtonColor = ColorBrand | ColorStatus;
 
-export type AcvButtonHeight = '32' | '48';
+export type AcvButtonVariant = typeof BUTTON_VARIANT[keyof typeof BUTTON_VARIANT];
 
 export type AcvButtonSize = ComponentSize;
 
 export interface AcvButtonProps {
+  /**
+   * Button type
+   * @values primary, secondary, ghost, danger, inverted
+   */
+  type?: AcvButtonType
+
+  /**
+   * Button variant
+   * @values solid, outline, ghost, light
+   * @defaultValue solid
+   */
+  variant?: AcvButtonVariant
+
+  /**
+   * Color of the button
+   * @values primary, secondary, inverted, neutral, info, warning, success, critical, danger, info
+   * @defaultValue primary
+   */
+  color?: ButtonColor
+
   /**
    * Button tag
    * @values a, span, button, label
@@ -40,29 +64,9 @@ export interface AcvButtonProps {
   buttonType?: 'button' | 'submit' | 'reset'
 
   /**
-   * Button variant
-   * @values primary, secondary, ghost, danger, inverted
-   * @defaultValue primary
-   * @since 0.0.3
-   */
-  variant?: AcvButtonVariant
-
-  /**
    * Button icon, accepts an icon name of Icon component
    */
   icon?: IconProp
-
-  /**
-   * Color of the button
-   * @values primary, secondary, success, danger, warning, info, inverted, light, dark
-   */
-  color?: ColorProp
-
-  /**
-   * Button height for fluid variant
-   * @values 32, 48
-   */
-  height?: AcvButtonHeight
 
   /**
    * Button size
@@ -83,40 +87,28 @@ export interface AcvButtonProps {
    */
   loading?: boolean
 
-  /** Whether button should fill all available width */
-  fluid?: boolean
-
-  /** Turn on multiline mode */
-  multiline?: boolean
-
   /**
    *  Button icon on the right side,
    *  accepts an icon name of Icon component
    */
   rightIcon?: IconProp
 
-  // /**
-  //  *  Whether the button is solid style or not
-  //  */
-  // solid?: boolean
-  //
-  // /**
-  //  *  Whether the button is outline style or not
-  //  */
-  // outline?: boolean
-  //
-  // /**
-  //  *  Whether the button is ghost style or not
-  //  */
-  // ghost?: boolean
-
   /**
-   *  Whether the button is block style or not
+   *  Whether the button is block styled or not
+   *  @defaultValue false
    */
   block?: boolean
 
+  /**
+   * Whether the button is rounded or not
+   * @defaultValue false
+   */
   pill?: boolean
 
+  /**
+   * Whether the button is squared or not
+   * @defaultValue false
+   */
   squared?: boolean
 
   /**

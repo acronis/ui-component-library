@@ -11,11 +11,3 @@
 ## Button sizes
 
 <ButtonSizes />
-
-## Button kinds
-
-<ButtonKindSolid />
-
-<ButtonKindGhost />
-
-<ButtonKindOutline />

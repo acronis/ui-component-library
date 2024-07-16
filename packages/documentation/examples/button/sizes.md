@@ -1,3 +1,3 @@
-# Button sizes
+## Button sizes
 
 <ButtonSizes />

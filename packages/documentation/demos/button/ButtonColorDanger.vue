@@ -20,21 +20,21 @@
         :class="state"
         color="danger"
       >
-        Button solid {{ state }}
+        Solid {{ state }}
       </AcvButton>
       <AcvButton
         :class="state"
         variant="outline"
         color="danger"
       >
-        Button outline  {{ state }}
+        Outline  {{ state }}
       </AcvButton>
       <AcvButton
         :class="state"
         variant="ghost"
         color="danger"
       >
-        Button ghost {{ state }}
+        Ghost {{ state }}
       </AcvButton>
     </div>
   </div>

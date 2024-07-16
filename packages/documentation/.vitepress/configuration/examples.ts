@@ -15,8 +15,12 @@ export const enExamples = [
     link: '/examples/button',
     items: [
       { text: 'Basic', link: '/examples/button/basic' },
+      { text: 'Button types', link: '/examples/button/types' },
       { text: 'Button sizes', link: '/examples/button/sizes' },
+      { text: 'Button colors', link: '/examples/button/colors' },
       { text: 'Button variants', link: '/examples/button/variants' },
+      { text: 'Button pill', link: '/examples/button/pill' },
+      { text: 'Button squared', link: '/examples/button/squared' },
     ],
   },
   {
