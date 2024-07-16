@@ -1,10 +1,10 @@
 ---
-title: ACV Checkbox component
+title: Acv Checkbox component
 lang: en-US
 editLink: true
 ---
 
-# ACV Checkbox
+# Acv Checkbox
 
 Checkbox is a control that allows to select `binary` state, either checked or unchecked.
 Also it can support `indeterminate` state, which is used to represent a checkbox with a state that is neither checked nor unchecked.

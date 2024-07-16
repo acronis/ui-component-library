@@ -1,10 +1,10 @@
 ---
-title: ACV Switch component
+title: Acv Switch component
 lang: en-US
 editLink: true
 ---
 
-# ACV Switch
+# Acv Switch
 
 Switch is a component used to toggle between two states, such as on and off.
 It is a visual representation of a checkbox that allows the user to switch between two states.

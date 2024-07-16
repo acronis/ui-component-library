@@ -1,10 +1,10 @@
 ---
-title: ACV Button component
+title: Acv Button component
 lang: en-US
 editLink: true
 ---
 
-# ACV Button
+# Acv Button
 
 Button is an input that allows for user-triggered actions when clicked or pressed.
 
