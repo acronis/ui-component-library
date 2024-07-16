@@ -1,3 +1,0 @@
-<template>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="acv-icon"><g stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)"><path d="M11.75 4.75v3.5M12.75 12.5v3M19.25 8.25H4.75M19.25 15.75H4.75M19.25 12.25H4.75M8.75 8.75V12M8.75 15.75V19M15.25 8.75V12M15.25 15.75V19M4.75 6.75a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v10.5a2 2 0 0 1-2 2H6.75a2 2 0 0 1-2-2V6.75Z" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z" /></clipPath></defs></svg>
-</template>

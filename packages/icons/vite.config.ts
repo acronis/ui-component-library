@@ -1,21 +1,21 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-// import dts from 'vite-plugin-dts';
+import dts from 'vite-plugin-dts';
 import glob from 'fast-glob';
 
 export default defineConfig({
   plugins: [
     vue(),
-    // dts({
-    //   // include: ['vue'],
-    //   // rollupTypes: true
-    // })
+    dts({
+      include: ['src'],
+      // rollupTypes: true
+    })
   ],
   build: {
     outDir: 'dist',
     sourcemap: false,
-    emptyOutDir: false,
+    emptyOutDir: true,
     lib: {
       name: 'Acronis Ui Icons',
       entry: glob.sync(resolve(__dirname, 'src/collections/**/*.ts')),

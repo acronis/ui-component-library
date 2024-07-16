@@ -1,3 +1,0 @@
-<template>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="acv-icon"><g stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)"><path d="M4.75 17v1.25a1 1 0 0 0 1 1h12.5a1 1 0 0 0 1-1V17M7.75 16.25h8.5M8.398 12.723l8.442.992M9.506 9.149l8.227 2.14M11.414 5.755l7.836 3.294" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z" /></clipPath></defs></svg>
-</template>

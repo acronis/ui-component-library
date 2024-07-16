@@ -1,9 +1,0 @@
-export { default as IconNoBugs } from './no/IconNoBugs.vue';
-export { default as IconNoLocation } from './no/IconNoLocation.vue';
-export { default as IconNoPin } from './no/IconNoPin.vue';
-export { default as IconNoSmoking } from './no/IconNoSmoking.vue';
-export { default as IconNoBluetooth } from './no/IconNoBluetooth.vue';
-export { default as IconNoAvatar } from './no/IconNoAvatar.vue';
-export { default as IconNoParking } from './no/IconNoParking.vue';
-export { default as IconNoAvatarSquare } from './no/IconNoAvatarSquare.vue';
-export { default as IconNoWeed } from './no/IconNoWeed.vue';

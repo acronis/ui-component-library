@@ -1,9 +1,0 @@
-export { default as IconPhoneCallIncoming } from './phone/IconPhoneCallIncoming.vue';
-export { default as IconPhoneCallHangUp } from './phone/IconPhoneCallHangUp.vue';
-export { default as IconPhoneCallForward } from './phone/IconPhoneCallForward.vue';
-export { default as IconPhone } from './phone/IconPhone.vue';
-export { default as IconPhoneCallCross } from './phone/IconPhoneCallCross.vue';
-export { default as IconPhoneCall } from './phone/IconPhoneCall.vue';
-export { default as IconPhoneCallOutgoing } from './phone/IconPhoneCallOutgoing.vue';
-export { default as IconPhoneSignal } from './phone/IconPhoneSignal.vue';
-export { default as IconPhoneCheck } from './phone/IconPhoneCheck.vue';

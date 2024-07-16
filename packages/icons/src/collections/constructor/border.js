@@ -1,9 +1,0 @@
-export { default as IconBorderRadiusBottomLeft } from './border/IconBorderRadiusBottomLeft.vue';
-export { default as IconBorderRadiusBottomRight } from './border/IconBorderRadiusBottomRight.vue';
-export { default as IconBorderRight } from './border/IconBorderRight.vue';
-export { default as IconBorderBottom } from './border/IconBorderBottom.vue';
-export { default as IconBorderRadiusTopRight } from './border/IconBorderRadiusTopRight.vue';
-export { default as IconBorderCentre } from './border/IconBorderCentre.vue';
-export { default as IconBorderTop } from './border/IconBorderTop.vue';
-export { default as IconBorderLeft } from './border/IconBorderLeft.vue';
-export { default as IconBorderRadiusTopLeft } from './border/IconBorderRadiusTopLeft.vue';
