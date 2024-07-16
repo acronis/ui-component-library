@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/acronis/ui-component-library/compare/v1.6.0...v1.6.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **button:** fix button styles ([96bed2c](https://github.com/acronis/ui-component-library/commit/96bed2c3618110b6e88901ed0ef370208fb7b0a7))
+
 ## [1.6.0](https://github.com/acronis/ui-component-library/compare/v1.5.1...v1.6.0) (2024-07-16)
 
 
@@ -31,11 +38,4 @@
 ### Bug Fixes
 
 * **build:** remove publish from release workflows ([5eb7868](https://github.com/acronis/ui-component-library/commit/5eb7868c168c570de85c051f298ec66571788dd5))
-
-## [1.4.3](https://github.com/acronis/ui-component-library/compare/v1.4.2...v1.4.3) (2024-07-15)
-
-
-### Bug Fixes
-
-* **build:** fix publish workflows ([e40e89f](https://github.com/acronis/ui-component-library/commit/e40e89f0078d48e2ce1ef69f2e1d04a8a3ebbecf))
 
