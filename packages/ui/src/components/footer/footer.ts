@@ -4,7 +4,7 @@ export interface AcvFooterSlots {
    */
   default: void
   /**
-   * Used to pass a custom size content (text or link by design)
+   * Used to pass a custom side content (text or link by design)
    */
   side: void
 }

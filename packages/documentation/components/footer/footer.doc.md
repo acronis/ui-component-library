@@ -50,5 +50,5 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-1433
 
 | Name    | Description                                                 | Bindings |
 | ------- | ----------------------------------------------------------- | -------- |
-| side    | Used to pass a custom size content (text or link by design) |          |
+| side    | Used to pass a custom side content (text or link by design) |          |
 | default | The default slot content (for buttons by design)            |          |
