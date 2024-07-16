@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/acronis/ui-component-library/compare/v1.5.0...v1.5.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **docs:** fix vitepress build ([d252287](https://github.com/acronis/ui-component-library/commit/d252287b13adee0095d60dd3fd021b4f5ba85432))
+
 ## [1.5.0](https://github.com/acronis/ui-component-library/compare/v1.4.4...v1.5.0) (2024-07-16)
 
 
@@ -31,11 +38,4 @@
 ### Bug Fixes
 
 * **build:** enable publish npm on release ([ceb1060](https://github.com/acronis/ui-component-library/commit/ceb10605daa6568e9559f38e3e0e60be347e1d12))
-
-## [1.4.1](https://github.com/acronis/ui-component-library/compare/v1.4.0...v1.4.1) (2024-07-15)
-
-
-### Bug Fixes
-
-* **docs:** fix icon paths in demos ([9f46367](https://github.com/acronis/ui-component-library/commit/9f46367d9276dbac60f5b4bb4acf5a4c3d948f9a))
 
