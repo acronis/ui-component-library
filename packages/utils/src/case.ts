@@ -15,13 +15,13 @@ export function toTitleCase(str: string) {
 }
 
 export function customAcvTitleCase(str: string) {
-  // Check if the string starts with 'ACV' (case-insensitive)
-  const match = str.match(/^(ACV)/i);
+  // Check if the string starts with 'Acv' (case-insensitive)
+  const match = str.match(/^(acv)/i);
   let prefix = '';
   let rest = str;
 
   if (match) {
-    prefix = 'ACV'; // Always use 'ACV' in uppercase
+    prefix = 'Acv';
     rest = str.slice(match[0].length);
   }
 

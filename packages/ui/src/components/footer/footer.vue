@@ -20,10 +20,10 @@ defineSlots<AcvFooterSlots>();
 
 <style scoped>
 .acv-footer {
-  --acv-divider-v-margin: 0
-;
+  --acv-divider-v-margin: 0;
   display: flex;
-  flex-direction: column;}
+  flex-direction: column;
+}
 
 .acv-footer-content {
   display: flex;
@@ -31,7 +31,6 @@ defineSlots<AcvFooterSlots>();
   gap: var(--acv-spacing-regular);
   padding-block: var(--acv-spacing-regular);
   padding-inline: var(--acv-spacing-large);
-
 }
 
 .actions {
