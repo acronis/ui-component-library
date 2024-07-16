@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/acronis/ui-component-library/compare/v1.6.4...v1.6.5) (2024-07-16)
+
+
+### Bug Fixes
+
+* **icons:** apply svgo rules on icons ([accc807](https://github.com/acronis/ui-component-library/commit/accc807f7429c71b2018401ec2c12346a6ace6ce))
+
 ## [1.6.4](https://github.com/acronis/ui-component-library/compare/v1.6.3...v1.6.4) (2024-07-16)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **button:** fix button styles ([96bed2c](https://github.com/acronis/ui-component-library/commit/96bed2c3618110b6e88901ed0ef370208fb7b0a7))
-
-## [1.6.0](https://github.com/acronis/ui-component-library/compare/v1.5.1...v1.6.0) (2024-07-16)
-
-
-### Features
-
-* **icons:** remove constructor icons ([6607646](https://github.com/acronis/ui-component-library/commit/660764609616152d82a649803a5de898eaa92b03))
 
