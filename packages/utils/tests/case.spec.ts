@@ -56,7 +56,7 @@ describe('case Conversion Utilities', () => {
     });
 
     it('converts a sentence with acv to valid format', () => {
-      expect(customAcvTitleCase('AcvAccordionPanel')).toBe('Acv Accordion Panel');
+      expect(customAcvTitleCase('AcvAccordionPanel')).toBe('ACV Accordion Panel');
     });
   });
 });
