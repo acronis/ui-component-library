@@ -35,7 +35,7 @@ const componentsList = [
   { text: 'File Upload', link: '/components/file-upload/fileUpload.doc.md' },
   { text: 'Filter', link: '/components/filter/filter.doc.md' },
   { text: 'Fitted Actions', link: '/components/fitted-actions/fittedActions.doc.md' },
-  { text: 'Footer', link: '/components/footer/footer.doc.md' },
+  { text: 'Footer', link: '/components/footer/footer.doc.md', readyForProduction: true },
   { text: 'Form', link: '/components/form/form.doc.md' },
   { text: 'Form Dialog', link: '/components/form-dialog/formDialog.doc.md' },
   { text: 'Form Error', link: '/components/form-error/formError.doc.md' },
