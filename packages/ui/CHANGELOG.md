@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/acronis/ui-component-library/compare/v1.6.3...v1.6.4) (2024-07-16)
+
+
+### Reverts
+
+* Revert "chore: update code owners" ([e93b441](https://github.com/acronis/ui-component-library/commit/e93b44122891627f400300338305df6fe9bc1dc3))
+
 ## [1.6.3](https://github.com/acronis/ui-component-library/compare/v1.6.2...v1.6.3) (2024-07-16)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **icons:** remove constructor icons ([6607646](https://github.com/acronis/ui-component-library/commit/660764609616152d82a649803a5de898eaa92b03))
-
-## [1.5.1](https://github.com/acronis/ui-component-library/compare/v1.5.0...v1.5.1) (2024-07-16)
-
-
-### Bug Fixes
-
-* **docs:** fix vitepress build ([d252287](https://github.com/acronis/ui-component-library/commit/d252287b13adee0095d60dd3fd021b4f5ba85432))
 
