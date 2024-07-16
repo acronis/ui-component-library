@@ -1,6 +1,6 @@
 <script setup>
   import { IconSync16 } from '@acronis-platform/icons/acronis/sync';
-  import IconTrash from '@acronis-platform/icons/constructor/trash/IconTrash.vue';
+  import IconAddressBook32 from '@acronis-platform/icons/acronis/address/IconAddressBook32.vue';
   import Button from '@/components/button/button.vue';
   import Icon from '@/components/icon/icon.vue';
   import Row from '@/components/row/row.vue';
@@ -18,7 +18,7 @@
     >
       <template #icon>
         <Icon
-          :icon="ITrashOSmall"
+          :icon="IconAddressBook32"
         />
       </template>
       Large
@@ -27,7 +27,7 @@
       size="large"
     >
       <Icon
-        :icon="IconTrash"
+        :icon="IconAddressBook32"
       />
       Large
     </Button>
@@ -36,7 +36,7 @@
     </Button>
     <Button size="small">
       <Icon
-        :icon="IconTrash"
+        :icon="IconAddressBook32"
       />
       Small
     </Button>
@@ -45,14 +45,14 @@
     >
       Right
       <Icon
-        :icon="IconTrash"
+        :icon="IconAddressBook32"
         size="32"
         color="white"
       />
     </Button>
     <Button
       size="large"
-      :right-icon="IconTrash"
+      :right-icon="IconAddressBook32"
     >
       Right with prop
     </Button>

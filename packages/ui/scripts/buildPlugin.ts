@@ -49,9 +49,10 @@ export function buildPlugin(): Plugin[] {
             sourcemap: true,
             lib: {
               entry: {
-                index: 'src/index.ts',
+                'index': 'src/index.ts',
                 // TODO add more entries
-                button: 'src/components/button/public.ts',
+                'button': 'src/components/button/public.ts',
+                'components/buttonGroup': 'src/components/button-group/public.ts',
               },
               formats: ['es'],
               name: 'Acronis Ui Component Library',

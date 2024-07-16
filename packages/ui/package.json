@@ -14,6 +14,7 @@
   ],
   "exports": {
     ".": "./dist/index.js",
+    "./components/*": "./dist/components/*",
     "./styles/*": "./dist/styles/*",
     "./directives/*": "./dist/directives/*"
   },
