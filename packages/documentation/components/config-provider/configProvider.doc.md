@@ -1,10 +1,10 @@
 ---
-title: Acv Config Provider component
+title: ACV Config Provider component
 lang: en-US
 editLink: true
 ---
 
-# Acv Config Provider
+# ACV Config Provider
 
 ConfigProvider is a component that allows you to set the default values for the components in the application.
 

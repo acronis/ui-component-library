@@ -1,10 +1,10 @@
 ---
-title: Acv Typography component
+title: ACV Typography component
 lang: en-US
 editLink: true
 ---
 
-# Acv Typography
+# ACV Typography
 
 ## Props
 

@@ -1,10 +1,10 @@
 ---
-title: Acv Drawer component
+title: ACV Drawer component
 lang: en-US
 editLink: true
 ---
 
-# Acv Drawer
+# ACV Drawer
 
 Drawer is a panel that slides in from the edge of the screen.
 It can be used to show additional content without taking up space on the main screen.
