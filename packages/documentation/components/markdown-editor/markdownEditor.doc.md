@@ -1,10 +1,10 @@
 ---
-title: ACV Markdown Editor component
+title: Acv Markdown Editor component
 lang: en-US
 editLink: true
 ---
 
-# ACV Markdown Editor
+# Acv Markdown Editor
 
 Markdown editor component allows you to edit and preview markdown content.
 We use `v-model` binding variable to bind the markdown content.
