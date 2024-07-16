@@ -40,11 +40,11 @@ describe('test ConfirmDialog component', () => {
             <div data-v-d2f715b5="" class="scrollable"></div>
           </main>
           <footer data-v-d2f715b5="">
-            <menu data-v-ecec16b9=""><button data-v-ecec16b9="" class="acv-button solid medium primary" style="--acv-button-color: var(--acv-color-primary);" type="button" value="cancel">
-                <!--v-if--><span class="content"> Cancel </span>
+            <menu data-v-ecec16b9=""><button data-v-7a9642c5="" data-v-ecec16b9="" class="acv-button solid medium primary" style="--acv-button-color: var(--acv-color-primary);" type="button" value="cancel">
+                <!--v-if--><span data-v-7a9642c5="" class="content"> Cancel </span>
                 <!--v-if-->
-              </button><button data-v-ecec16b9="" class="acv-button solid medium primary" style="--acv-button-color: var(--acv-color-primary);" type="button" value="confirm">
-                <!--v-if--><span class="content"> Confirm </span>
+              </button><button data-v-7a9642c5="" data-v-ecec16b9="" class="acv-button solid medium primary" style="--acv-button-color: var(--acv-color-primary);" type="button" value="confirm">
+                <!--v-if--><span data-v-7a9642c5="" class="content"> Confirm </span>
                 <!--v-if-->
               </button></menu>
           </footer>

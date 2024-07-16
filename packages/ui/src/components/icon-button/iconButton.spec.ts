@@ -32,8 +32,8 @@ describe('test IconButton component', () => {
   it('renders', () => {
     const wrapper = mount(IconButton);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<button data-v-5aaebf8f="" class="acv-button solid medium primary acv-icon-button" style="--acv-button-color: var(--acv-color-primary);" type="button">
-        <!--v-if--><span class="content"></span>
+      "<button data-v-7a9642c5="" data-v-5aaebf8f="" class="acv-button solid medium primary acv-icon-button" style="--acv-button-color: var(--acv-color-primary);" type="button">
+        <!--v-if--><span data-v-7a9642c5="" class="content"></span>
         <!--v-if-->
       </button>"
     `);
