@@ -33,9 +33,9 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A4
 
 ```vue
 <script setup>
-import { AcvButtonGroup } from "@acronis-platform/ui-component-library";
-// or
-import ButtonGroup from "@acronis-platform/components/buttonGroup/buttonGroup.vue";
+  import { AcvIcon } from '@acronis-platform/vue';
+  // or
+  import Icon from '@acronis-platform/components/icon/Icon.vue';
 </script>
 
 <template>

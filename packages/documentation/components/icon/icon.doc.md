@@ -20,13 +20,16 @@ TODO: Replace with real-world example from /demos
 
 ```vue
 <script setup>
-import { AcvIcon } from "@acronis-platform/ui-component-library";
+import { AcvIcon } from '@acronis-platform/ui-component-library';
 // or
-import Icon from "@acronis-platform/ui-component-library/dist/components/icon/icon.vue";
+import Icon from '@acronis-platform/ui-component-library/dist/components/icon/icon.vue';
 </script>
 
 <template>
-  <AcvIcon name="i-info-circle-o--16" color="brand-primary" />
+  <AcvIcon
+    name="i-info-circle-o--16"
+    color="brand-primary"
+  />
   <Icon name="chevron-up" />
 </template>
 ```
@@ -81,7 +84,7 @@ The icons are tree-shakable, so only the icons that are used in the project will
 ```vue
 <script setup>
 // Tree-shaking import
-import { IconSettings16 } from "@acronis-platform/icons/dist/acronis/settings";
+import { IconSettings16 } from '@acronis-platform/icons/dist/acronis/settings';
 </script>
 
 <template>
@@ -94,7 +97,7 @@ If your tooling does not support tree-shaking, you can import the icons directly
 ```vue
 <script setup>
 // Tree-shaking deep import example
-import IconSettings16 from "@acronis-platform/icons/dist/acronis/settings/IconSettings16.vue";
+import IconSettings16 from '@acronis-platform/icons/dist/acronis/settings/IconSettings16.vue';
 </script>
 
 <template>
