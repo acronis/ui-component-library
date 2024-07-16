@@ -1,24 +1,10 @@
-export interface AcvFooterProps {
-  /**
-   * Height of the Footer
-   * @defaultValue 64px
-   */
-  height?: string
-
-  /**
-   * Background color of the Footer
-   * @values transparent, primary, secondary, success, warning, danger, info, light, dark
-   */
-  color?: string
-}
-
 export interface AcvFooterSlots {
   /**
-   * The default slot content
+   * The default slot content (for buttons by design)
    */
   default: void
   /**
-   * Used to pass a custom aside content
+   * Used to pass a custom size content (text or link by design)
    */
-  aside: void
+  side: void
 }

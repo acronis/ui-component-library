@@ -1,10 +1,10 @@
 ---
-title: Acv Popover component
+title: ACV Popover component
 lang: en-US
 editLink: true
 ---
 
-# Acv Popover
+# ACV Popover
 
 A pop-up element that can contain text, links, form elements, and any other content.
 Do not confuse popover and tooltip components.

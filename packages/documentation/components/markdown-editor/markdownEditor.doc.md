@@ -1,10 +1,10 @@
 ---
-title: Acv Markdown Editor component
+title: ACV Markdown Editor component
 lang: en-US
 editLink: true
 ---
 
-# Acv Markdown Editor
+# ACV Markdown Editor
 
 Markdown editor component allows you to edit and preview markdown content.
 We use `v-model` binding variable to bind the markdown content.
@@ -21,9 +21,10 @@ Under the hood, it uses [md-editor-v3](https://github.com/imzbf/md-editor-v3) co
 
 ## Props
 
-| Prop name | Description                  | Type             | Values | Default |
-| --------- | ---------------------------- | ---------------- | ------ | ------- |
-| height    | Height of the MarkdownEditor | number \| string | -      |         |
+| Prop name  | Description                  | Type             | Values | Default |
+| ---------- | ---------------------------- | ---------------- | ------ | ------- |
+| modelValue |                              | string           | -      |         |
+| height     | Height of the MarkdownEditor | number \| string | -      |         |
 
 ## Events
 

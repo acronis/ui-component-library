@@ -1,10 +1,10 @@
 ---
-title: Acv Card component
+title: ACV Card component
 lang: en-US
 editLink: true
 ---
 
-# Acv Card
+# ACV Card
 
 Used to group information into logical blocks.
 Any content (text blocks, form elements, buttons, collapses, icons, and illustrations) can be located inside the card.

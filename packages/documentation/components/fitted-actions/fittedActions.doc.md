@@ -54,8 +54,8 @@ Layout for displaying sets of ghosts buttons(actions) there overflowed actions a
 
 ## Props
 
-| Prop name    | Description                | Type       | Values | Default |
-| ------------ | -------------------------- | ---------- | ------ | ------- |
-| actions      | List of actions to display | Array      | -      |         |
-| item         |                            | FittedItem | -      |         |
-| showDropdown | Show the dropdown          | boolean    | -      | true    |
+| Prop name    | Description                | Type          | Values | Default |
+| ------------ | -------------------------- | ------------- | ------ | ------- |
+| actions      | List of actions to display | Array         | -      |         |
+| item         |                            | AcvFittedItem | -      |         |
+| showDropdown | Show the dropdown          | boolean       | -      | true    |

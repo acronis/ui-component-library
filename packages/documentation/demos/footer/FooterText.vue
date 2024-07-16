@@ -1,6 +1,6 @@
 <script setup>
-  import AcvButton from '@/components/button/button.vue';
-  import AcvFooter from '@/components/footer/footer.vue';
+import AcvButton from '@/components/button/button.vue';
+import AcvFooter from '@/components/footer/footer.vue';
 </script>
 
 <template>
@@ -15,5 +15,12 @@
     >
       Button
     </AcvButton>
+    <template #side>
+      Text
+    </template>
   </AcvFooter>
 </template>
+
+<style scoped>
+
+</style>
