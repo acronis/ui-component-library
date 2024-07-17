@@ -48,6 +48,9 @@ jobs:
       - name: Build utils
         run: pnpm --filter ./packages/utils run build
 
+      - name: Build icons
+        run: pnpm --filter ./packages/icons run build
+
       - name: Run tests
         run: pnpm test
 
