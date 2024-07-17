@@ -1,3 +1,10 @@
+## [1.6.7](https://github.com/acronis/ui-component-library/compare/v1.6.6...v1.6.7) (2024-07-17)
+
+
+### Bug Fixes
+
+* **breadcrumbs:** fix unit tests ([48e4823](https://github.com/acronis/ui-component-library/commit/48e482322b7c9ae3830f4c7530c7916316d36e5a))
+
 ## [1.6.6](https://github.com/acronis/ui-component-library/compare/v1.6.5...v1.6.6) (2024-07-17)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **button:** fix button types ([f5dc2bc](https://github.com/acronis/ui-component-library/commit/f5dc2bcc1cab4b6be356df4aeb201cd12fcf6a57))
-
-## [1.6.2](https://github.com/acronis/ui-component-library/compare/v1.6.1...v1.6.2) (2024-07-16)
-
-
-### Bug Fixes
-
-* **tests:** fix failed snapshots ([588545e](https://github.com/acronis/ui-component-library/commit/588545e6e40bdf011f63b47c93f10a34c0f9f4c7))
 
