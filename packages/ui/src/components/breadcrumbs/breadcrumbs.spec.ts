@@ -12,6 +12,7 @@ describe('test Breadcrumbs component', () => {
         "multiline": false,
         "separatorIcon": undefined,
         "size": "md",
+        "to": undefined,
       }
     `);
   });
@@ -29,6 +30,7 @@ describe('test Breadcrumbs component', () => {
         "multiline": false,
         "separatorIcon": undefined,
         "size": "md",
+        "to": undefined,
       }
     `);
   });
