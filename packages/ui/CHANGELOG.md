@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/acronis/ui-component-library/compare/v1.6.7...v1.7.0) (2024-07-17)
+
+
+### Features
+
+* **list:** add simple list component ([d6139b2](https://github.com/acronis/ui-component-library/commit/d6139b2bccdcc674b6b0df7d9c4be2e36d802f9f))
+
 ## [1.6.7](https://github.com/acronis/ui-component-library/compare/v1.6.6...v1.6.7) (2024-07-17)
 
 
@@ -25,11 +32,4 @@
 ### Reverts
 
 * Revert "chore: update code owners" ([e93b441](https://github.com/acronis/ui-component-library/commit/e93b44122891627f400300338305df6fe9bc1dc3))
-
-## [1.6.3](https://github.com/acronis/ui-component-library/compare/v1.6.2...v1.6.3) (2024-07-16)
-
-
-### Bug Fixes
-
-* **button:** fix button types ([f5dc2bc](https://github.com/acronis/ui-component-library/commit/f5dc2bcc1cab4b6be356df4aeb201cd12fcf6a57))
 
