@@ -29,3 +29,7 @@ Internally components can use icons from Acronis and Constructor icon sets.
 We provide base set of icons. They can be redefined via components props, slots or config provider.
 
 <IconInternalBasic />
+
+## Acronis collection of icons
+
+<IconAcronis />
