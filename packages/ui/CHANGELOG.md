@@ -1,3 +1,10 @@
+## [1.6.6](https://github.com/acronis/ui-component-library/compare/v1.6.5...v1.6.6) (2024-07-17)
+
+
+### Bug Fixes
+
+* **breadcrumbs:** fix vitepress error ([592737c](https://github.com/acronis/ui-component-library/commit/592737c1561bfcb55d42e5f8ce0d98f5ba41ba26))
+
 ## [1.6.5](https://github.com/acronis/ui-component-library/compare/v1.6.4...v1.6.5) (2024-07-16)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **tests:** fix failed snapshots ([588545e](https://github.com/acronis/ui-component-library/commit/588545e6e40bdf011f63b47c93f10a34c0f9f4c7))
-
-## [1.6.1](https://github.com/acronis/ui-component-library/compare/v1.6.0...v1.6.1) (2024-07-16)
-
-
-### Bug Fixes
-
-* **button:** fix button styles ([96bed2c](https://github.com/acronis/ui-component-library/commit/96bed2c3618110b6e88901ed0ef370208fb7b0a7))
 
