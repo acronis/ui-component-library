@@ -14,7 +14,7 @@ import { camelCase, startCase } from 'lodash-es';
  * @param {boolean} withGroups - Whether to generate group files.
  * @returns {Promise<void>} - A Promise that resolves when the entry file has been written.
  */
-export async function generateEntryFile(inputDir: string, fileType = 'svg', prefix = 'I', withGroups = false) {
+export async function generateEntryFile(inputDir: string, fileType = 'svg', prefix = 'Icon', withGroups = false) {
   console.info(chalk.blue('Generating entry file...', inputDir));
 
   // Get all files of the specified type in the directory

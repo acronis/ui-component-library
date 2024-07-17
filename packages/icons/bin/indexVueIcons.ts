@@ -6,8 +6,8 @@ const collections = await getCollections();
 
 // Ensure that files are generated before generating the entry file
 for (const collection of collections) {
-  await generateEntryFile(`vue/${collection}`, 'vue', '', true);
+  await generateEntryFile(`src/collections/${collection}`, 'vue', '', true);
 }
 
 // Generate the big entry file for all vue icons
-await generateEntryFile(`vue`, 'vue');
+await generateEntryFile(`src/collections`, 'vue', '');

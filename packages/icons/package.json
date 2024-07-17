@@ -37,6 +37,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:icons": "pnpm run build:icons:fetch && build:icons:vue:index",
     "build:icons:fetch": "tsx bin/downloadIcons.ts",
     "build:icons:dts": "vue-tsc --declaration --emitDeclarationOnly",
     "build:icons:svg:optimize": "tsx bin/optimizeIcons.ts",
