@@ -45,7 +45,7 @@ Its default value is 'chevron-right'.
 Set `separator` to use icon as the separator，it will cover `separator`
 :::
 
-<BreadcrumbsCharacterSeparator />
+<BreadcrumbsSeparatorCharacter />
 
 ## Multiline
 

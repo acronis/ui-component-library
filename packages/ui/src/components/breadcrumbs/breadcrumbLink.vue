@@ -1,14 +1,11 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import { RouterLink } from 'vue-router';
+  import { computed, ref } from 'vue';
   import { useFocusableTab } from '../../composables/useFocusableTab.ts';
   import type { AcvBreadcrumbLinkProps, AcvBreadcrumbLinkSlots } from './breadcrumbs.ts';
 
-  const {
-    to
-  } = defineProps<AcvBreadcrumbLinkProps>();
-
+  const props = defineProps<AcvBreadcrumbLinkProps>();
   defineSlots<AcvBreadcrumbLinkSlots>();
+
   const link = ref(null);
   const {
     active,
@@ -24,11 +21,26 @@
   function handleEnterKeyDownTriggerClick() {
     onEnterKeyDown();
   }
+
+  const isExternalLink = computed(() => {
+    return typeof props.to === 'string' && props.to.startsWith('http');
+  });
 </script>
 
 <template>
-  <RouterLink
+  <a
+    v-if="isExternalLink"
+    v-bind="$attrs"
+    :href="props.to as string"
+    target="_blank"
+  >
+    <slot />
+  </a>
+  <router-link
+    v-else
     ref="link"
+    v-bind="$props"
+    custom
     class="acv-breadcrumbs-link"
     :class="{
       'is-active': active,
@@ -43,7 +55,7 @@
     @blur="onBlur"
   >
     <slot />
-  </RouterLink>
+  </router-link>
 </template>
 
 <style scoped>

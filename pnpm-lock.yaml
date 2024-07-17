@@ -126,8 +126,8 @@ importers:
         specifier: 4.17.21
         version: 4.17.21
       vue-router:
-        specifier: 4.3.2
-        version: 4.3.2(vue@3.4.30)
+        specifier: 4.4.0
+        version: 4.4.0(vue@3.4.30)
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: 5.0.4
@@ -172,8 +172,8 @@ importers:
         specifier: 3.4.30
         version: 3.4.30(typescript@5.5.3)
       vue-router:
-        specifier: 4.3.2
-        version: 4.3.2(vue@3.4.30)
+        specifier: 4.4.0
+        version: 4.4.0(vue@3.4.30)
     devDependencies:
       '@vue/repl':
         specifier: 4.1.1
@@ -347,8 +347,8 @@ importers:
         specifier: 3.4.30
         version: 3.4.30(typescript@5.5.3)
       vue-router:
-        specifier: 4.3.2
-        version: 4.3.2(vue@3.4.30)
+        specifier: 4.4.0
+        version: 4.4.0(vue@3.4.30)
     devDependencies:
       '@acronis-platform/browserslist-config':
         specifier: workspace:*
@@ -12685,8 +12685,8 @@ packages:
       vue: 3.4.30(typescript@5.5.3)
     dev: true
 
-  /vue-router@4.3.2(vue@3.4.30):
-    resolution: {integrity: sha512-hKQJ1vDAZ5LVkKEnHhmm1f9pMiWIBNGF5AwU67PdH7TyXCj/a4hTccuUuYCAMgJK6rO/NVYtQIEN3yL8CECa7Q==}
+  /vue-router@4.4.0(vue@3.4.30):
+    resolution: {integrity: sha512-HB+t2p611aIZraV2aPSRNXf0Z/oLZFrlygJm+sZbdJaW6lcFqEDQwnzUBXn+DApw+/QzDU/I9TeWx9izEjTmsA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

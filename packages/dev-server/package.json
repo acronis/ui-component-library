@@ -10,7 +10,7 @@
     "@acronis-platform/utils": "workspace:*",
     "@acronis-platform/ui-component-library": "workspace:*",
     "autoprefixer": "10.4.19",
-    "vue-router": "4.3.2",
+    "vue-router": "4.4.0",
     "lodash-es": "4.17.21"
   },
   "devDependencies": {

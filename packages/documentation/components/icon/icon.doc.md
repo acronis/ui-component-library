@@ -67,29 +67,11 @@ The naming convention
 
 The icons are tree-shakable, so only the icons that are used in the project will be included in the final bundle.
 
-```vue
-<script setup>
-// Tree-shaking import
-import { IconSettings16 } from '@acronis-platform/icons/dist/acronis/settings';
-</script>
-
-<template>
-  <IconSettings16 />
-</template>
-```
+<<< @/demos/icons/IconTreeShaking.vue
 
 If your tooling does not support tree-shaking, you can import the icons directly from the package:
 
-```vue
-<script setup>
-// Tree-shaking deep import example
-import IconSettings16 from '@acronis-platform/icons/dist/acronis/settings/IconSettings16.vue';
-</script>
-
-<template>
-  <IconSettings16 />
-</template>
-```
+<<< @/demos/icons/IconTreeShakingDeep.vue
 
 ## Props
 
