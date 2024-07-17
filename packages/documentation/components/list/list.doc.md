@@ -68,7 +68,7 @@ If you are using `AcvListItem` in default slot of `AcvList` you can use `handleL
 
 ## Selection
 
-For selection, `AcvList` uses [`useSelection`](/guide/composables/useSelection) composable.
+For selection, `AcvList` uses [`useSelection`](/composables/useSelection) composable.
 Hence, you can also use the `multi` prop to allow multiple selection.
 
 ## Variants
@@ -80,7 +80,7 @@ Hence, you can also use the `multi` prop to allow multiple selection.
 ## CSS variables
 
 `AcvList` comes with various CSS variables to customize the UI according to your need.
-You can check them in this [section](/guide/getting-started/customization.html#css-variables).
+You can check them in this here.
 
 ## Related components
 
