@@ -1,6 +1,6 @@
 # Acronis UI Component Library Monorepo
 
-![NPM Version](https://img.shields.io/npm/v/%40acronis-platform%2Fui-component-library)
+[![NPM Version](https://img.shields.io/npm/v/%40acronis-platform%2Fui-component-library)](https://www.npmjs.com/package/@acronis-platform/ui-component-library)
 
 Acronis UI Component Library is a monorepo that contains multiple packages. 
 The main package is `@acronis-platform/ui`.
