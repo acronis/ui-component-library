@@ -56,7 +56,7 @@ Width is calculated automatically. But, you can define the maximum size of the w
 ## Accessibility
 
 Provided `AcvTooltip` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/).
 
 ## Interaction
 

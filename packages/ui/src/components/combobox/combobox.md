@@ -39,10 +39,10 @@ https://www.figma.com/file/
 
 <ComboboxWithScrollbar />
 
-## Accessibility ♿️
+## Accessibility
 
 Provided `AcvCombobox` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
 
 ## Related components
 

@@ -1,9 +1,13 @@
 @layer tokens {
   :root {
-    --acv-link-color: var(--acv-color-brand-primary);
-    --acv-link-color-hover: var(--acv-color-primary-dark);
-    --acv-link-color-active: var(--acv-color-primary-hover);
-    --acv-link-color-visited: var(--acv-color-primary-light);
-    --acv-link-color-visited-hover: var(--acv-color-primary-darker);
+    --acv-link-color: var(--acv-color-link-primary);
+    --acv-link-color-hover: var(--acv-color-link-hover);
+    --acv-link-color-active: var(--acv-color-link-active);
+    --acv-link-color-visited: hsl(from var(--acv-link-color) h s calc(l - 20%));
+    --acv-link-color-visited-hover: hsl(
+      from var(--acv-link-color) h s calc(l - 5%)
+    );
+    --acv-link-color-inversed: var(--acv-color-link-inversed-primary);
+    --acv-link-color-inversed-hover: var(--acv-color-link-inversed-secondary);
   }
 }

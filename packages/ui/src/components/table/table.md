@@ -57,7 +57,7 @@ https://www.figma.com/file/
 
 ## Toggle columns
 
-## Accessibility ♿️
+## Accessibility
 
 Provided `AcvTable` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/table/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/table/).
