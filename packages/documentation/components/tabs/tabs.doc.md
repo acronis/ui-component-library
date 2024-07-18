@@ -23,10 +23,10 @@ https://www.figma.com/file/
 <<< @/demos/tabs/TabsBasic.vue
 :::
 
-## Accessibility ♿️
+## Accessibility
 
 Provided `AcvTabs` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/).
 
 ## Related components
 

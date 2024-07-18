@@ -83,6 +83,10 @@ html.dark {
 
 .vp-doc {
   :has([class^="acv"]) {
+    a {
+      text-decoration: none;
+    }
+
     ul {
       list-style: none;
     }

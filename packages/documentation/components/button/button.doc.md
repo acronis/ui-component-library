@@ -70,7 +70,7 @@ Set up the `block` prop to make the button full width.
 ## Accessibility
 
 Provided `AcvButton` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
 
 ### Overview
 

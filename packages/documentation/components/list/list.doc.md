@@ -88,17 +88,18 @@ You can check them in this here.
 
 ## Props
 
-| Prop name  | Description                      | Type                    | Values | Default |
-| ---------- | -------------------------------- | ----------------------- | ------ | ------- |
-| animate    | Whether the animation is enabled | boolean                 | -      |         |
-| card       | Whether to render items as cards | boolean                 | -      |         |
-| items      | List of items                    | Array \| Array \| Array | -      |         |
-| sortable   | Whether the list is sortable     | boolean                 | -      |         |
-| selectable | Whether the list is selectable   | boolean                 | -      |         |
-| modelValue |                                  | any                     | -      |         |
-| color      |                                  | ColorProp               | -      |         |
-| variant    |                                  | string                  | -      |         |
-| states     |                                  | Array                   | -      |         |
+| Prop name   | Description                      | Type                    | Values | Default |
+| ----------- | -------------------------------- | ----------------------- | ------ | ------- |
+| multiselect |                                  | boolean                 | -      |         |
+| animate     | Whether the animation is enabled | boolean                 | -      |         |
+| card        | Whether to render items as cards | boolean                 | -      |         |
+| items       | List of items                    | Array \| Array \| Array | -      |         |
+| sortable    | Whether the list is sortable     | boolean                 | -      |         |
+| selectable  | Whether the list is selectable   | boolean                 | -      |         |
+| modelValue  |                                  | any                     | -      |         |
+| color       |                                  | ColorProp               | -      |         |
+| variant     |                                  | string                  | -      |         |
+| states      |                                  | Array                   | -      |         |
 
 ## Events
 

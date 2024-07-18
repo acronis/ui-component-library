@@ -59,10 +59,10 @@ Set `separator` to use icon as the separator，it will cover `separator`
 
 <BreadcrumbsMultiline />
 
-## Accessibility ♿️
+## Accessibility
 
 Provided `AcvBreadcrumbs` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
 
 ### Overview
 

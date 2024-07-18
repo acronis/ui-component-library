@@ -43,7 +43,7 @@ Radio button can be used alone without the <FormLabel /> component.
 ## Accessibility
 
 Provided `AcvRadio` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/radio/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/radio/).
 
 ### Keyboard interaction
 

@@ -52,7 +52,7 @@ Otherwise, you can use `v-model` to control the individual Expand/Collapse state
 ## Accessibility
 
 Provided `AcvAccordion` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/).
 
 ### Overview
 

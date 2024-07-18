@@ -39,10 +39,10 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-3736
 
 <CarouselAutoPlay />
 
-## Accessibility ♿️
+## Accessibility
 
 Provided `AcvButton` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/).
 
 ### Overview
 

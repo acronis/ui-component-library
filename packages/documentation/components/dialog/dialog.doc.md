@@ -116,10 +116,10 @@ just put it anywhere.
 
 <DialogNested />
 
-## Accessibility ♿️
+## Accessibility
 
 Provided `AcvDialog` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
 ### Overview
 

@@ -34,7 +34,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4414
 ## Accessibility
 
 Provided `AcvCheckbox` component must adapt to the list of
-[WAI-ARIA button accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/).
+[WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/).
 
 It should:
 
