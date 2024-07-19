@@ -12,10 +12,6 @@ https://www.figma.com/file/
 <<< @/demos/spinner/SpinnerBasic.vue
 :::
 
-## Best practices
-
-A Spinner should ...
-
 ## Related components
 
 - [Button](/components/button/button.doc)
