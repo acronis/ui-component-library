@@ -7,7 +7,7 @@
     cleanData,
     getPercentageData,
     isValidData
-  } from '../../utils/widget.js';
+  } from '../../utils/widget.ts';
   import WidgetChart from './widget.chart';
 
   export default {
