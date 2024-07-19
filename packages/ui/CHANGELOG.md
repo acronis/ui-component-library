@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/acronis/ui-component-library/compare/v1.8.1...v1.8.2) (2024-07-19)
+
+
+### Bug Fixes
+
+* **test:** fix fitted actions test ([71249b5](https://github.com/acronis/ui-component-library/commit/71249b5c54fe1dfc92898cc4948a6f7b9e7f58af))
+
 ## [1.8.1](https://github.com/acronis/ui-component-library/compare/v1.8.0...v1.8.1) (2024-07-19)
 
 
@@ -37,11 +44,4 @@
 ### Bug Fixes
 
 * **breadcrumbs:** fix unit tests ([48e4823](https://github.com/acronis/ui-component-library/commit/48e482322b7c9ae3830f4c7530c7916316d36e5a))
-
-## [1.6.6](https://github.com/acronis/ui-component-library/compare/v1.6.5...v1.6.6) (2024-07-17)
-
-
-### Bug Fixes
-
-* **breadcrumbs:** fix vitepress error ([592737c](https://github.com/acronis/ui-component-library/commit/592737c1561bfcb55d42e5f8ce0d98f5ba41ba26))
 
