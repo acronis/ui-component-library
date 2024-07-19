@@ -1,5 +1,7 @@
 Layout for displaying sets of ghosts buttons(actions) there overflowed actions are rendered in dropdown
 
+Can be used to display actions for a table row, table details or a card
+
 ## Basic usage
 
 <FittedActionsBasic />

@@ -1,6 +1,16 @@
 ---
+title: Empty component
+lang: en-US
+editLink: true
+---
+
+# Empty
+
+---
+
 title: Empty screen
 lang: en-US
+
 ---
 
 # Empty screen
@@ -62,3 +72,14 @@ Standard screens to show while waiting for items to load
 ::: details Source code
 <<< @/demos/empty/EmptyLoadingComponentDescription.vue
 :::
+
+## Props
+
+| Prop name   | Description | Type    | Values | Default   |
+| ----------- | ----------- | ------- | ------ | --------- |
+| loading     |             | boolean | -      |           |
+| icon        |             | string  | -      | undefined |
+| title       |             | string  | -      | undefined |
+| description |             | string  | -      | undefined |
+| linkText    |             | string  | -      | undefined |
+| buttonText  |             | string  | -      | undefined |

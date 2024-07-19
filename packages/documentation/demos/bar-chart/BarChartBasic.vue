@@ -1,0 +1,3 @@
+<template>
+  Bar chart
+</template>

@@ -1,3 +1,11 @@
+---
+title: ACV Pie Chart component
+lang: en-US
+editLink: true
+---
+
+# ACV Pie Chart
+
 Displays values in a pie
 
 ## Basic usage
@@ -61,3 +69,28 @@ Displays values in a pie
 | Name    | Description                                                   |
 | ------- | ------------------------------------------------------------- |
 | summary | Content of summary (displayed in the center of the pie chart) |
+
+## Props
+
+| Prop name | Description | Type    | Values | Default       |
+| --------- | ----------- | ------- | ------ | ------------- |
+| colors    |             | array   | -      |               |
+| data      |             | object  | -      | () =&gt; null |
+| legend    |             | boolean | -      | true          |
+| precision |             | number  | -      | 0             |
+| summary   |             | boolean | -      | true          |
+
+## Events
+
+| Event name   | Properties                                     | Description |
+| ------------ | ---------------------------------------------- | ----------- |
+| legend-click |                                                |             |
+| slice-click  |                                                |             |
+| sliceClick   | **&lt;anonymous1&gt;** `undefined` - undefined |             |
+| legendClick  | **&lt;anonymous1&gt;** `undefined` - undefined |             |
+
+## Slots
+
+| Name    | Description | Bindings |
+| ------- | ----------- | -------- |
+| summary |             |          |

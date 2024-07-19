@@ -100,6 +100,20 @@ html.dark {
       padding-left: 0;
       margin: 0;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      :before,
+      :after {
+        animation-delay: 0ms !important;
+        animation-duration: 0.5s !important;
+        animation-iteration-count: infinite !important;
+        background-attachment: initial !important;
+        scroll-behavior: initial !important;
+        transition-duration: initial !important;
+        transition-delay: initial !important;
+      }
+    }
   }
 }
 

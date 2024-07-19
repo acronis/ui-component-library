@@ -1,4 +1,5 @@
 import { directives } from './directives.ts';
+import { widgets } from './widgets.ts';
 import { composables } from './composables.ts';
 
 // eslint-disable-next-line node/prefer-global/process
@@ -36,7 +37,6 @@ const componentsList = [
   { text: 'File Picker', link: '/components/file-picker/filePicker.doc.md' },
   { text: 'File Upload', link: '/components/file-upload/fileUpload.doc.md' },
   { text: 'Filter', link: '/components/filter/filter.doc.md' },
-  { text: 'Fitted Actions', link: '/components/fitted-actions/fittedActions.doc.md' },
   { text: 'Footer', link: '/components/footer/footer.doc.md', readyForProduction: true },
   { text: 'Form', link: '/components/form/form.doc.md' },
   { text: 'Form Dialog', link: '/components/form-dialog/formDialog.doc.md' },
@@ -104,6 +104,10 @@ const componentsList = [
     text: 'Directives',
     items: directives,
     readyForProduction: true
+  },
+  {
+    text: 'Widgets',
+    items: widgets
   },
   {
     text: 'Composables',

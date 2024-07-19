@@ -31,7 +31,6 @@ export * from './file-browser/public.ts';
 export * from './file-picker/public.ts';
 export * from './file-upload/public.ts';
 export * from './filter/public.ts';
-export * from './fitted-actions/public.ts';
 export * from './flex/public.ts';
 export * from './flow-chart/public.ts';
 export * from './footer/public.ts';

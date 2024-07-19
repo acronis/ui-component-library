@@ -1,4 +1,5 @@
 export * from './empty/public.ts';
+export * from './fitted-actions/public.ts';
 export * from './line-chart/public.ts';
 export * from './pie-chart/public.ts';
 export * from './stacked-area-chart/public.ts';

@@ -4,6 +4,7 @@ import { enGuides } from './guides';
 import { enExamples } from './examples';
 import { directives } from './directives';
 import { composables } from './composables';
+import { widgets } from './widgets';
 
 export const sidebar = {
   '/guide': [
@@ -14,6 +15,7 @@ export const sidebar = {
   ],
   '/components': enComponents,
   '/directives': directives,
+  '/widgets': widgets,
   '/composables': composables,
   '/examples': enExamples,
   '/theming': enTheme,

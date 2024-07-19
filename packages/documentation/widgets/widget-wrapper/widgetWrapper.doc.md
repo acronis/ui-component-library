@@ -1,3 +1,11 @@
+---
+title: ACV Widget Wrapper component
+lang: en-US
+editLink: true
+---
+
+# ACV Widget Wrapper
+
 Provides a consistent look for widgets
 
 ## Basic usage
@@ -40,3 +48,21 @@ Provides a consistent look for widgets
 | header-aside | Content to the right of header |
 | footer       | Content of footer              |
 | footer-aside | Content to the right of footer |
+
+## Props
+
+| Prop name | Description | Type    | Values | Default |
+| --------- | ----------- | ------- | ------ | ------- |
+| title     |             | string  | -      | ''      |
+| subtitle  |             | string  | -      | ''      |
+| minHeight |             | string  | -      | '264px' |
+| noPadding |             | boolean | -      | false   |
+
+## Slots
+
+| Name         | Description | Bindings |
+| ------------ | ----------- | -------- |
+| header-aside |             |          |
+| default      |             |          |
+| footer       |             |          |
+| footer-aside |             |          |

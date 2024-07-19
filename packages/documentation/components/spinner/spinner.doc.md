@@ -1,10 +1,10 @@
 ---
-title: Spinner component
+title: ACV Spinner component
 lang: en-US
 editLink: true
 ---
 
-# Spinner
+# ACV Spinner
 
 Short description for Spinner component...
 
@@ -20,30 +20,13 @@ https://www.figma.com/file/
 <<< @/demos/spinner/SpinnerBasic.vue
 :::
 
-## Best practices
-
-A Spinner should ...
-
 ## Related components
 
 - [Button](/components/button/button.doc)
 
 ## Props
 
-| Prop name   | Description                | Type   | Values | Default |
-| ----------- | -------------------------- | ------ | ------ | ------- |
-| title       | Title of the Spinner       | string | -      |         |
-| description | Description of the Spinner | string | -      |         |
-
-## Events
-
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |
+| Prop name | Description | Type   | Values | Default         |
+| --------- | ----------- | ------ | ------ | --------------- |
+| size      |             | string | -      | '16'            |
+| color     |             | string | -      | 'brand-primary' |

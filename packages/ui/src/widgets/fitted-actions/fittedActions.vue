@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import type { Ref } from 'vue';
   import { ref, toRefs } from 'vue';
-  import ListItem from '../list-item/listItem.vue';
-  import AcvDropdown from '../dropdown/dropdown.vue';
-  import AcvDropdownMenu from '../dropdown/dropdownMenu.vue';
-  import AcvButton from '../button/button.vue';
+  import ListItem from '../../components/list-item/listItem.vue';
+  import AcvDropdown from '../../components/dropdown/dropdown.vue';
+  import AcvDropdownMenu from '../../components/dropdown/dropdownMenu.vue';
+  import AcvButton from '../../components/button/button.vue';
   import type { AcvFittedAction } from './fittedActions.ts';
   import type { AcvFittedActionsProps, AcvFittedItem } from './fittedActions';
   import useFittedActions from './useFittedActions.ts';
