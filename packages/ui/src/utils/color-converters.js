@@ -153,5 +153,5 @@ export function parseRgb(color) {
 
 export function cssValue(property) {
   const color = `--acv-${property}`;
-  return getComputedStyle(document.documentElement).getPropertyValue(color);
+  return window.getComputedStyle(document.documentElement).getPropertyValue(color);
 }

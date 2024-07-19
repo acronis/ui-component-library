@@ -79,14 +79,16 @@ export function isValidColor(color) {
 
 // TODO move to chart types
 export function chartColors() {
-  return [
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-blue'),
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-green'),
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-light-blue'),
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-red'),
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-brown'),
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-yellow'),
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-purple'),
-    getComputedStyle(document.body).getPropertyValue('--acv-color-chart-grey')
-  ];
+  return typeof window !== 'undefined'
+    ? [
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-blue'),
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-green'),
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-light-blue'),
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-red'),
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-brown'),
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-yellow'),
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-purple'),
+        window.getComputedStyle(document.body).getPropertyValue('--acv-color-chart-grey')
+      ]
+    : [];
 }

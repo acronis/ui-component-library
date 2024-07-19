@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { computed, useSlots } from 'vue';
-  import type { AcvChipProps } from '../../components/index';
-  import { AcvButton } from '../../components/index';
+  import AcvButton from '../button/button.vue';
   import AcvIcon from '../icon/icon.vue';
+  import type { AcvChipProps } from './chip.ts';
   import './chip.css';
 
   const {
