@@ -1,5 +1,6 @@
 <script>
   import Chart from 'chart.js/auto';
+  import { isBrowser } from '@antfu/utils';
   import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
   import WidgetLoading from '../widget-wrapper/widgetLoading.vue';
   import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
@@ -60,9 +61,11 @@
           },
           elements: {
             arc: {
-              borderColor: getComputedStyle(document.body).getPropertyValue(
-                '--av-inversed-primary'
-              ),
+              borderColor: isBrowser
+                ? window.getComputedStyle(document.body).getPropertyValue(
+                  '--av-inversed-primary'
+                )
+                : undefined,
               borderWidth: 0,
               hoverBorderWidth: 0
             }
@@ -448,22 +451,67 @@
   position: relative;
   display: flex;
 
-  /* @import 'chart-legend'; */
-
-  /* @import 'chart-tooltip'; */
-
   .legend {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     table {
       border-spacing: 0;
     }
 
-    &__item:focus {
-      background-color: var(--acv-color-focus);
-      outline: none;
+    .legend__item {
+      margin-bottom: 4px;
+      transition: opacity 200ms ease-in-out;
     }
 
-    &__value {
+    .legend__item:hover {
+      cursor: pointer;
+    }
+
+    .legend__label {
+      > span {
+        display: inline-block;
+      }
+    }
+
+    .legend__value {
+      display: inline-block;
       line-height: 24px;
+    }
+
+    .legend__bullet {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      line-height: 16px;
+
+      > span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+    }
+
+    .legend__stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .legend__separator {
+      width: 1px;
+      height: 16px;
+      background-color: var(--acv-color-divider-primary);
+    }
+
+    .legend__item:focus {
+      background-color: var(--acv-color-button-focus);
+      outline: none;
     }
   }
 
@@ -488,6 +536,69 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: var(--acv-font-weight-strong);
+  }
+
+  .tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--acv-z-index-normal);
+    background: var(--acv-color-white);
+    border:  1px solid var(--acv-color-primary);
+    box-shadow: var(--acv-shadow-blur-regular);
+    border-radius: var(--acv-radius-small);
+    color: var(--acv-color-primary);
+    box-sizing: border-box;
+    pointer-events: none;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(7px);
+    transition: opacity 100ms ease-in;
+    margin: 0 !important;
+
+    .acv-popper__arrow {
+      bottom: -7px;
+      left: 50%;
+      transform: rotate(-225deg);
+    }
+
+    .tooltip-title {
+      padding: 12px;
+      border-bottom: 1px solid var(--acv-color-primary-lightest);
+    }
+
+    .tooltip-content {
+      padding: 12px 16px;
+    }
+
+    .tooltip-value {
+      display: inline-block;
+      font-weight: var(--acv-font-weight-strong);
+    }
+
+    .tooltip-label {
+      display: inline-block;
+    }
+
+    .bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 12px 0 4px;
+    }
+
+    .tooltip-reference {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      top: 0;
+      pointer-events: none;
+    }
   }
 
   .subtitle {

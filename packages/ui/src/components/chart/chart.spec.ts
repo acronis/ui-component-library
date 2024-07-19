@@ -5,11 +5,20 @@ import type { AcvChartProps } from './chart.ts';
 
 describe('test Chart component', () => {
   it('default props', () => {
-    const wrapper = mount(Chart);
+    const wrapper = mount(Chart, {
+      props: {
+        type: 'bar',
+        data: {}
+      } as AcvChartProps,
+    });
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": undefined,
+        "data": {},
+        "datasetIdKey": "id",
+        "options": undefined,
+        "plugins": undefined,
+        "type": "bar",
+        "updateMode": undefined,
       }
     `);
   });
@@ -17,20 +26,24 @@ describe('test Chart component', () => {
   it('pass props', () => {
     const wrapper = mount(Chart, {
       props: {
-        title: 'test',
+        type: 'bar',
       } as AcvChartProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": "test",
+        "data": undefined,
+        "datasetIdKey": "id",
+        "options": undefined,
+        "plugins": undefined,
+        "type": "bar",
+        "updateMode": undefined,
       }
     `);
   });
 
   it('renders', () => {
     const wrapper = mount(Chart);
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-d66479ff="" class="acv-chart"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<canvas data-v-d66479ff="" role="img" class="acv-chart"></canvas>"`);
   });
 });
