@@ -1,150 +1,181 @@
+<script setup>
+  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
+  import AcvStackedAreaChart from '@/widgets/stacked-area-chart/stackedAreaChart.vue';
+  import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
+  import AcvButton from '@/components/button/button.vue';
+  import AcvIcon from '@/components/icon/icon.vue';
+  import AcvLink from '@/components/link/link.vue';
+  import AcvTable from '@/components/table/table.vue';
+  import AcvTableColumn from '@/components/table-column/tableColumn.vue';
+
+  const dataThree = {
+    dataType: 'size',
+    name: 'Current usage',
+    sets: [
+      {
+        name: 'Storage One',
+        points: [10, 105.4543, 110, 110, 120, 180]
+      },
+      {
+        name: 'Storage Two',
+        points: [300, 300, 320, 130, 332, 0]
+      },
+      {
+        name: 'Storage Three',
+        points: [200, 220, 228, 228, 228, 0]
+      }
+    ],
+    labels: ['01 Oct', '02 Oct', '03 Oct', '04 Oct', '05 Oct', '06 Oct']
+  };
+</script>
+
 <template>
   <preview-group>
     <preview name="Default">
-      <acv-widget-wrapper
+      <AcvWidgetWrapper
         :title="title"
       >
         <template #header-aside>
-          <acv-button
+          <AcvButton
             type="ghost"
             icon="i-console-log-o--16"
           />
         </template>
-        <acv-stacked-area-chart
+        <AcvStackedAreaChart
           :data="dataThree"
           :legend="false"
           width="280px"
           height="200px"
         />
         <template #footer>
-          <acv-icon
+          <AcvIcon
             name="i-exclamation-triangle--16"
             color="fixed-warning"
           />
-          <acv-link class="acv-text acv-text--body-24 ml-8">
+          <AcvLink class="acv-text acv-text--body-24 ml-8">
             1 alert
-          </acv-link>
+          </AcvLink>
         </template>
         <template #footer-aside>
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
-      </acv-widget-wrapper>
+      </AcvWidgetWrapper>
     </preview>
     <preview name="Wide">
-      <acv-widget-wrapper
+      <AcvWidgetWrapper
         class="widget-three"
         :title="title"
       >
         <template #header-aside>
-          <acv-button
+          <AcvButton
             type="ghost"
             icon="i-console-log-o--16"
           />
         </template>
-        <acv-stacked-area-chart
+        <AcvStackedAreaChart
           :data="dataThree"
           :legend="false"
           width="280px"
           height="200px"
         />
-        <acv-pie-chart :data="data" />
+        <AcvPieChart :data="data" />
         <template #footer>
-          <acv-icon
+          <AcvIcon
             name="i-exclamation-triangle--16"
             color="fixed-warning"
           />
-          <acv-link class="acv-text acv-text--body-24 ml-8">
+          <AcvLink class="acv-text acv-text--body-24 ml-8">
             1 alert
-          </acv-link>
+          </AcvLink>
         </template>
         <template #footer-aside>
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
-      </acv-widget-wrapper>
+      </AcvWidgetWrapper>
     </preview>
     <preview name="With table widget">
-      <acv-widget-wrapper
+      <AcvWidgetWrapper
         class="widget-table"
         no-padding
         min-height="0px"
       >
-        <acv-table
+        <AcvTable
           row-key="id"
           :data="tableData"
           size="compact"
         >
-          <acv-table-column
+          <AcvTableColumn
             prop="date"
             label="Date"
             width="180"
           />
-          <acv-table-column
+          <AcvTableColumn
             prop="name"
             label="Name"
             show-overflow-tooltip
             width="180"
           />
-          <acv-table-column
+          <AcvTableColumn
             prop="address"
             label="Address"
             show-overflow-tooltip
           />
-        </acv-table>
+        </AcvTable>
         <template #footer>
-          <acv-icon
+          <AcvIcon
             name="i-exclamation-triangle--16"
             color="fixed-warning"
           />
-          <acv-link class="acv-text acv-text--body-24 ml-8">
+          <AcvLink class="acv-text acv-text--body-24 ml-8">
             1 alert
-          </acv-link>
+          </AcvLink>
         </template>
         <template #footer-aside>
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
-      </acv-widget-wrapper>
+      </AcvWidgetWrapper>
     </preview>
     <preview name="Header and footer with long text strings">
-      <acv-widget-wrapper
+      <AcvWidgetWrapper
         :title="longHeaderText"
       >
         <template #header-aside>
-          <acv-button
+          <AcvButton
             type="ghost"
             icon="i-console-log-o--16"
           />
         </template>
-        <acv-table
+        <AcvTable
           row-key="id"
           :data="tableData"
           size="compact"
         >
-          <acv-table-column
+          <AcvTableColumn
             prop="date"
             label="Date"
             width="180"
           />
-          <acv-table-column
+          <AcvTableColumn
             prop="name"
             label="Name"
             show-overflow-tooltip
             width="180"
           />
-          <acv-table-column
+          <AcvTableColumn
             prop="address"
             label="Address"
             show-overflow-tooltip
           />
-        </acv-table>
+        </AcvTable>
         <template #footer>
-          <acv-link class="acv-text acv-text--body-24 ml-8">
+          <AcvLink class="acv-text acv-text--body-24 ml-8">
             {{ longFooterText }}
-          </acv-link>
+          </AcvLink>
         </template>
         <template #footer-aside>
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
-      </acv-widget-wrapper>
+      </AcvWidgetWrapper>
     </preview>
     <preview name="Dynamic positioning">
       <div />

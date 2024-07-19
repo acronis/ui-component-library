@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import ElButton from '@/components/button/button.vue';
-  import ElIcon from '@/components/icon/icon.vue';
+  import AcvButton from '../../components/button/button.vue';
+  import AcvIcon from '../../components/icon/icon.vue';
   import vLoading from '@/directives/loading';
 
   withDefaults(defineProps<{
@@ -28,7 +28,7 @@
         color="brand-light"
         acv-loading-size="48"
       />
-      <ElIcon
+      <AcvIcon
         v-if="icon"
         class="my-16"
         :name="icon"
@@ -46,19 +46,19 @@
       >
         {{ description }}
       </div>
-      <ElButton
+      <AcvButton
         v-if="buttonText"
         class="my-16"
       >
         {{ buttonText }}
-      </ElButton>
-      <ElButton
+      </AcvButton>
+      <AcvButton
         v-if="linkText"
         type="ghost"
         class="acv-empty-screen__link my-16"
       >
         {{ linkText }}
-      </ElButton>
+      </AcvButton>
     </div>
   </div>
 </template>

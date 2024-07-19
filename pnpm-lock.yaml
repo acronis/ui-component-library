@@ -334,9 +334,24 @@ importers:
       '@vueuse/integrations':
         specifier: 10.11.0
         version: 10.11.0(sortablejs@1.15.2)(vue@3.4.30)
+      chart.js:
+        specifier: 4.4.3
+        version: 4.4.3
+      chartjs-adapter-date-fns:
+        specifier: 3.0.0
+        version: 3.0.0(chart.js@4.4.3)(date-fns@3.6.0)
+      chartjs-plugin-annotation:
+        specifier: 3.0.1
+        version: 3.0.1(chart.js@4.4.3)
       colord:
         specifier: 2.9.3
         version: 2.9.3
+      date-fns:
+        specifier: 3.6.0
+        version: 3.6.0
+      deepmerge:
+        specifier: 4.3.1
+        version: 4.3.1
       highlight.js:
         specifier: 11.9.0
         version: 11.9.0
@@ -3107,6 +3122,10 @@ packages:
       type-detect: 4.0.8
     dev: false
 
+  /@kurkle/color@0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
+    dev: false
+
   /@lezer/common@1.2.1:
     resolution: {integrity: sha512-yemX0ZD2xS/73llMZIK6KplkjIjf2EvAHcinDi/TfJ9hS25G0388+ClHt6/3but0oOxinTcQHJLDXh6w1crzFQ==}
     dev: false
@@ -5378,6 +5397,31 @@ packages:
     resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
     dev: false
 
+  /chart.js@4.4.3:
+    resolution: {integrity: sha512-qK1gkGSRYcJzqrrzdR6a+I0vQ4/R+SoODXyAjscQ/4mzuNzySaMCd+hyVxitSY1+L2fjPD1Gbn+ibNqRmwQeLw==}
+    engines: {pnpm: '>=8'}
+    dependencies:
+      '@kurkle/color': 0.3.2
+    dev: false
+
+  /chartjs-adapter-date-fns@3.0.0(chart.js@4.4.3)(date-fns@3.6.0):
+    resolution: {integrity: sha512-Rs3iEB3Q5pJ973J93OBTpnP7qoGwvq3nUnoMdtxO+9aoJof7UFcRbWcIDteXuYd1fgAvct/32T9qaLyLuZVwCg==}
+    peerDependencies:
+      chart.js: '>=2.8.0'
+      date-fns: '>=2.0.0'
+    dependencies:
+      chart.js: 4.4.3
+      date-fns: 3.6.0
+    dev: false
+
+  /chartjs-plugin-annotation@3.0.1(chart.js@4.4.3):
+    resolution: {integrity: sha512-hlIrXXKqSDgb+ZjVYHefmlZUXK8KbkCPiynSVrTb/HjTMkT62cOInaT1NTQCKtxKKOm9oHp958DY3RTAFKtkHg==}
+    peerDependencies:
+      chart.js: '>=4.0.0'
+    dependencies:
+      chart.js: 4.4.3
+    dev: false
+
   /check-error@1.0.3:
     resolution: {integrity: sha512-iKEoDYaRmd1mxM90a2OEfWhjsjPpYPuQ+lMYsoxB126+t8fw7ySEO48nmDg5COTjxDI65/Y2OWpeEHk3ZOe8zg==}
     dependencies:
@@ -6035,6 +6079,10 @@ packages:
       is-data-view: 1.0.1
     dev: true
 
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
+    dev: false
+
   /dayjs@1.11.10:
     resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
     dev: true
@@ -6103,6 +6151,11 @@ packages:
 
   /deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
+
+  /deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /default-browser-id@5.0.0:
     resolution: {integrity: sha512-A6p/pu/6fyBcA1TRz/GqWYPViplrftcW2gZC9q79ngNCKAeR/X3gcEdXQHl4KNXV+3wgIJ1CPkJQ3IHM6lcsyA==}

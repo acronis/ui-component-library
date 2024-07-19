@@ -53,8 +53,8 @@ export function getColors(n, colors) {
   return a;
 }
 
-export function getFadedColors(colors) {
-  const a = [];
+export function getFadedColors(colors): string[] {
+  const a: string[] = [];
   colors.forEach((color) => {
     a.push(rgba(color, 0.2));
   });
