@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/acronis/ui-component-library/compare/v1.8.0...v1.8.1) (2024-07-19)
+
+
+### Bug Fixes
+
+* **build:** fix ui build ([56c5ba5](https://github.com/acronis/ui-component-library/commit/56c5ba50d4ad668373a2440e2bf4f000cf35180b))
+
 ## [1.8.0](https://github.com/acronis/ui-component-library/compare/v1.7.0...v1.8.0) (2024-07-19)
 
 
@@ -37,11 +44,4 @@
 ### Bug Fixes
 
 * **breadcrumbs:** fix vitepress error ([592737c](https://github.com/acronis/ui-component-library/commit/592737c1561bfcb55d42e5f8ce0d98f5ba41ba26))
-
-## [1.6.5](https://github.com/acronis/ui-component-library/compare/v1.6.4...v1.6.5) (2024-07-16)
-
-
-### Bug Fixes
-
-* **icons:** apply svgo rules on icons ([accc807](https://github.com/acronis/ui-component-library/commit/accc807f7429c71b2018401ec2c12346a6ace6ce))
 
