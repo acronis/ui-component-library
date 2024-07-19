@@ -36,7 +36,7 @@ export function darken(hex, ratio) {
  * @param  {number} opacity
  * @return {string} rgba string
  */
-export function rgba(color, opacity) {
+export function rgba(color: string, opacity: number): string {
   const rgb = color[0] === '#'
     ? hex2rgb(color)
     : parseRgb(color);

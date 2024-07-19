@@ -1,1 +1,1 @@
-export { default as AcvWidgetWrapper } from 'src/widgets/widget-wrapper/widgetWrapper.vue';
+export { default as AcvWidgetWrapper } from './widgetWrapper.vue';
