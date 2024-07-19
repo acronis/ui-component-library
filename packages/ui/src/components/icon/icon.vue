@@ -115,14 +115,11 @@
 
 <style scoped>
   .acv-icon {
-    --acv-icon-size: var(--acv-icon-size-xs);
-    --acv-icon-size-height: var(--acv-icon-size);
-    --acv-icon-size-width: var(--acv-icon-size);
     font-weight: var(--acv-font-weight-strong);
     color: var(--acv-icon-color);
     flex-shrink: 0;
-    block-size: var(--acv-icon-size-height, var(--acv-icon-size));
-    inline-size: var(--acv-icon-size-width, var(--acv-icon-size));
+    block-size: var(--acv-icon-size);
+    inline-size: var(--acv-icon-size);
     font-size: var(--acv-icon-size);
     position: relative;
     display: inline-flex;
@@ -133,8 +130,8 @@
     svg {
       fill: v-bind(fillColor);
       color: v-bind(fillColor);
-      height: var(--acv-icon-size-height, var(--acv-icon-size));
-      width: var(--acv-icon-size-width, var(--acv-icon-size));
+      height: var(--acv-icon-size);
+      width: var(--acv-icon-size);
     }
 
     &.size-xs,

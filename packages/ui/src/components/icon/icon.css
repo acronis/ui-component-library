@@ -12,5 +12,7 @@
     --acv-icon-size-xxs: 12px;
     --acv-icon-size-xxxs: 8px;
     --acv-base-icon-size: var(--acv-icon-size-md);
+    --acv-icon-size-height: var(--acv-icon-size);
+    --acv-icon-size-width: var(--acv-icon-size);
   }
 }
