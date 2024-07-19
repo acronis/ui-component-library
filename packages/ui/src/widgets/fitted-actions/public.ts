@@ -1,2 +1,2 @@
-export { default as AcvFittedActions } from 'src/widgets/fitted-actions/fittedActions.vue';
-export * from 'src/widgets/fitted-actions/fittedActions.ts';
+export { default as AcvFittedActions } from './fittedActions.vue';
+export * from './fittedActions.ts';
