@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/acronis/ui-component-library/compare/v1.8.2...v1.8.3) (2024-07-20)
+
+
+### Bug Fixes
+
+* **charts:** add vue chartjs charts ([5feb711](https://github.com/acronis/ui-component-library/commit/5feb7119e4ade837013b58532484545946379875))
+
 ## [1.8.2](https://github.com/acronis/ui-component-library/compare/v1.8.1...v1.8.2) (2024-07-19)
 
 
@@ -37,11 +44,4 @@
 ### Features
 
 * **list:** add simple list component ([d6139b2](https://github.com/acronis/ui-component-library/commit/d6139b2bccdcc674b6b0df7d9c4be2e36d802f9f))
-
-## [1.6.7](https://github.com/acronis/ui-component-library/compare/v1.6.6...v1.6.7) (2024-07-17)
-
-
-### Bug Fixes
-
-* **breadcrumbs:** fix unit tests ([48e4823](https://github.com/acronis/ui-component-library/commit/48e482322b7c9ae3830f4c7530c7916316d36e5a))
 
