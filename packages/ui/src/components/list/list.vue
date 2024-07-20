@@ -89,16 +89,16 @@
     }
 
     .placeholder {
-      background-color: $av-brand-light;
+      background-color: var(--acv-color-primary-light);
 
       & > * {
         opacity: 0;
       }
 
       &.card {
-        background-color: $av-brand-light !important;
-        border: $av-border-sm $av-brand-accent;
-        border-radius: $av-border-radius-2;
+        background-color: var(--acv-color-primary-light) !important;
+        border: var(--acv-border-width-small) var(--acv-color-accent);
+        border-radius: var(--acv-border-radius-small);
 
        & > * {
           opacity: 0;
@@ -107,8 +107,8 @@
     }
 
     .dragged {
-      background-color: $av-app-base;
-      box-shadow: var(--el-shadow-regular);
+      background-color: var(--acv-color-base);
+      box-shadow: var(--acv-box-shadow);
       opacity: 1 !important;
     }
 

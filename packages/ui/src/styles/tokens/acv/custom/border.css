@@ -12,4 +12,17 @@
   --acv-border-secondary: var(--acv-border-small)
     var(--acv-color-brand-secondary);
   --acv-border-tertiary: var(--acv-border-small) var(--acv-color-brand-tertiary);
+
+  /* border width */
+  --acv-border-width-small: var(--acv-base-border-width-01);
+  --acv-border-width-medium: var(--acv-base-border-width-02);
+  --acv-border-width-large: var(--acv-base-border-width-03);
+
+  /* border radius */
+  --acv-border-radius-zero: var(--acv-base-radius-00);
+  --acv-border-radius-small: var(--acv-base-radius-02);
+  --acv-border-radius-regular: var(--acv-base-radius-04);
+  --acv-border-radius-medium: var(--acv-base-radius-06);
+  --acv-border-radius-large: var(--acv-base-radius-08);
+  --acv-border-radius-circle: var(--acv-base-radius-circle);
 }
