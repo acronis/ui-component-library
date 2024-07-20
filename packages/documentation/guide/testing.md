@@ -4,7 +4,32 @@ Here is the guide how to set up testing with Vitest and Vue Test Utils for the A
 
 ## Unit testing
 
-We use [Vue Test Utils](https://vue-test-utils.vuejs.org/) and [Vitest](https://vitest.dev) for unit testing.
+We use [Vue Test Utils for Vue.js 3](https://test-utils.vuejs.org/) and [Vitest](https://vitest.dev) for unit testing.
+When writing tests, we try to maintain at least 80% code coverage by tests.
+
+### Testing vue components
+
+We mostly use the composition API to write components.
+Therefore, the way components are tested must also be modern.
+
+What we test when creating and updating components:
+
+- Checking that the component is rendered correctly (snapshots and node contents):
+  - when props change
+  - when the state changes
+  - when interacting with the user
+  - when interacting with other components
+  - when interacting with the API
+  - when interacting with the repository
+  - when interacting with the router
+  - when interacting with external libraries
+- We check that the component behaves correctly (method calls, emits, provide, state changes)
+
+General approach when writing a unit test:
+
+- **Arrange phase**, _Create_ and _Mount_ a component;
+- **Act phase**, _Changing_ the state or _simulating_ user interaction;
+- **Assert phase**, _Check_ the result
 
 ## Visual regression testing with Cypress
 

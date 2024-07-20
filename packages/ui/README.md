@@ -1,6 +1,6 @@
 # Acronis UI Component Library
 
-The Acronis UI Component Library is meant to be used in Web applications and Web-based Desktop applications and is based on Vue.js v3
+The Acronis UI Component Library is meant to be used in Web applications and Web-based Desktop applications and is based on Vue.js 3
 
 ## Features
 

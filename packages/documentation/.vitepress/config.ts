@@ -5,7 +5,7 @@ import { nav, sidebar, vite } from './configuration';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Acronis UI Component Library',
-  description: 'Vue.JS 3 components library built on a System Design',
+  description: 'UI Components library for Vue.js 3',
   base: '/ui-component-library/',
   head: [['link', { rel: 'icon', href: '/ui-component-library/ui-kit.svg' }]],
   // hide dark mode switch
