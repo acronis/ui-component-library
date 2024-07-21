@@ -6,7 +6,7 @@
 
 <template>
   <AcvIcon
-    name="i-info-circle-o--16"
+    name="info-circle-o--16"
     color="brand-primary"
   />
   <Icon name="chevron-up" />

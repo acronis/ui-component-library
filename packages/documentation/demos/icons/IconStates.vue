@@ -42,12 +42,12 @@
       <div>
         <Icon
           v-if="!iconState2"
-          name="i-folder-d-o--16"
+          name="folder-d-o--16"
           color="primary"
         />
         <Icon
           v-else
-          name="i-folder-with-state-d-o--16"
+          name="folder-with-state-d-o--16"
           state="i-state-download-d--16"
           color="primary"
           state-color="success"
@@ -65,12 +65,12 @@
       <div>
         <Icon
           v-if="!iconState3"
-          name="i-folder-d-o--16"
+          name="folder-d-o--16"
           color="primary"
         />
         <Icon
           v-else
-          name="i-folder-with-state-d-o--16"
+          name="folder-with-state-d-o--16"
           state="i-state-upload-d--16"
           color="primary"
         />
@@ -87,12 +87,12 @@
       <div>
         <Icon
           v-if="!iconState4"
-          name="i-folder-d-o--16"
+          name="folder-d-o--16"
           color="brand-primary"
         />
         <Icon
           v-else
-          name="i-folder-with-state-d-o--16"
+          name="folder-with-state-d-o--16"
           state="i-state-pause-d--16"
           color="brand-primary"
         />

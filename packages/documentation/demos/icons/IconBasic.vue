@@ -54,7 +54,7 @@
       span="6"
     >
       <Icon
-        name="i-workstations-o--16"
+        name="workstations-o--16"
         color="brand-primary"
         legacy
       />

@@ -29,52 +29,52 @@
           :class="font.toLowerCase()"
         >
           <Icon
-            name="i-trash-o--16"
+            name="trash-o--16"
             class="with-background mx-8"
           />
           <Icon
-            name="i-plus--16"
+            name="plus--16"
             class="with-background mr-8"
           />
           <Icon
-            name="i-image-template-o--24"
+            name="image-template-o--24"
             class="with-background mr-8"
           />
           <Icon
-            name="i-plus--24"
+            name="plus--24"
             class="with-background mr-16"
           />
           <Icon
-            name="i-local-backup-o--32"
+            name="local-backup-o--32"
             class="with-background mr-16"
           />
           <Icon
-            name="i-times--32"
+            name="times--32"
             class="with-background mr-16"
           />
           <span>{{ font }}</span>
           <Icon
-            name="i-times--32"
+            name="times--32"
             class="with-background ml-16"
           />
           <Icon
-            name="i-local-backup-o--32"
+            name="local-backup-o--32"
             class="with-background ml-16"
           />
           <Icon
-            name="i-plus--24"
+            name="plus--24"
             class="with-background ml-16"
           />
           <Icon
-            name="i-image-template-o--24"
+            name="image-template-o--24"
             class="with-background ml-8"
           />
           <Icon
-            name="i-plus--16"
+            name="plus--16"
             class="with-background ml-8"
           />
           <Icon
-            name="i-trash-o--16"
+            name="trash-o--16"
             class="with-background mx-8"
           />
         </div>

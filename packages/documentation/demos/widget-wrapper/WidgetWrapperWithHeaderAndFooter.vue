@@ -49,7 +49,7 @@
         />
         <template #footer>
           <AcvIcon
-            name="i-exclamation-triangle--16"
+            name="exclamation-triangle--16"
             color="fixed-warning"
           />
           <AcvLink class="acv-text acv-text--body-24 ml-8">
@@ -81,7 +81,7 @@
         <AcvPieChart :data="data" />
         <template #footer>
           <AcvIcon
-            name="i-exclamation-triangle--16"
+            name="exclamation-triangle--16"
             color="fixed-warning"
           />
           <AcvLink class="acv-text acv-text--body-24 ml-8">
@@ -123,7 +123,7 @@
         </AcvTable>
         <template #footer>
           <AcvIcon
-            name="i-exclamation-triangle--16"
+            name="exclamation-triangle--16"
             color="fixed-warning"
           />
           <AcvLink class="acv-text acv-text--body-24 ml-8">

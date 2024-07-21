@@ -62,7 +62,7 @@
               size="small"
             >
               <AcvIcon
-                name="i-ellipsis-h--16"
+                name="ellipsis-h--16"
                 color="fixed-link"
               />
             </AcvButton>

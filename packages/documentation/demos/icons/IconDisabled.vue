@@ -10,7 +10,7 @@
       span="6"
     >
       <Icon
-        name="i-workstations-o--16"
+        name="workstations-o--16"
         color="brand-primary"
         disabled
       />
@@ -23,7 +23,7 @@
         type="ghost"
         disabled
       >
-        <Icon name="i-workstations-o--16" />
+        <Icon name="workstations-o--16" />
       </Button>
     </Preview>
     <Preview

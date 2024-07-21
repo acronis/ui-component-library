@@ -10,7 +10,7 @@
       span="6"
     >
       <Icon
-        name="i-workstations-o--16"
+        name="workstations-o--16"
         color="brand-primary"
       />
     </Preview>
@@ -19,7 +19,7 @@
       span="6"
     >
       <Button type="ghost">
-        <Icon name="i-workstations-o--16" />
+        <Icon name="workstations-o--16" />
       </Button>
     </Preview>
     <Preview
@@ -55,7 +55,7 @@
       span="6"
     >
       <Icon
-        name="i-workstations-o--16"
+        name="workstations-o--16"
         size="32"
         color="brand-primary"
         legacy

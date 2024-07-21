@@ -80,7 +80,7 @@
       <slot>
         <div class="acv-widget-wrapper__empty">
           <AcvIcon
-            name="i-dashboard-o--32"
+            name="dashboard-o--32"
             size="64"
             color="brand-light"
           />

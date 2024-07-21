@@ -24,7 +24,7 @@
         >
           <template #icon>
             <AcvIcon
-              name="i-folder-o--16"
+              name="folder-o--16"
             />
           </template>
           <template #title>

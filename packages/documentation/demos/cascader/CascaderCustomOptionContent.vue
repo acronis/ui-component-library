@@ -304,7 +304,7 @@
             class="mr-8"
           >
             <AcvIcon
-              name="i-exclamation-circle--16"
+              name="exclamation-circle--16"
               :color="active ? 'fixed-primary' : 'brand-primary'"
             />
           </span><span>{{ node.label }}</span>

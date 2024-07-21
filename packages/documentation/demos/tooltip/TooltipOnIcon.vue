@@ -11,7 +11,7 @@
   >
     <AcvIcon
       :icon="InfoCircleOSmall"
-      name="i-info-circle-o--16"
+      name="info-circle-o--16"
       color="brand-primary"
     />
   </AcvTooltip>

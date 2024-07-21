@@ -299,7 +299,7 @@
       </template>
       <template #footer-aside>
         <AcvIcon
-          name="i-exclamation-triangle--16"
+          name="exclamation-triangle--16"
           color="fixed-warning"
         />
         <span class="acv-text acv-text--body-24 ml-8">1 Alert</span>
