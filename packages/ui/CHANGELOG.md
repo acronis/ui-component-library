@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/acronis/ui-component-library/compare/v1.8.3...v1.8.4) (2024-07-23)
+
+
+### Bug Fixes
+
+* **select:** add select draft ([83f7238](https://github.com/acronis/ui-component-library/commit/83f7238fbad0d0806d2711365650db9b2cdd6b03))
+
 ## [1.8.3](https://github.com/acronis/ui-component-library/compare/v1.8.2...v1.8.3) (2024-07-20)
 
 
@@ -37,11 +44,4 @@
 * **icon:** update icon size ([791bbcb](https://github.com/acronis/ui-component-library/commit/791bbcb17cc1f8e27707028352c63f4a7b501d9a))
 * **loading:** add loading directive ([6130b46](https://github.com/acronis/ui-component-library/commit/6130b4642fbfbebd8c2f3b40fc179eb6742403d5))
 * **loading:** update spinner and loading demos ([0af42bf](https://github.com/acronis/ui-component-library/commit/0af42bfde5dfe1b53c6e3bbe0958087efee8500b))
-
-## [1.7.0](https://github.com/acronis/ui-component-library/compare/v1.6.7...v1.7.0) (2024-07-17)
-
-
-### Features
-
-* **list:** add simple list component ([d6139b2](https://github.com/acronis/ui-component-library/commit/d6139b2bccdcc674b6b0df7d9c4be2e36d802f9f))
 
