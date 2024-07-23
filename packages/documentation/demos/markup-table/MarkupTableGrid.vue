@@ -64,7 +64,7 @@ table.six-columns {
 }
 
 thead {
-  color: hsl(0deg 0% 100%);
+  color: var(--acv-color-white);
   background-color: hsl(0deg 0% 66%);
   position: sticky;
   top: 0;

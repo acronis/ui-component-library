@@ -1,3 +1,6 @@
+import type { InjectionKey, VNode } from 'vue';
+import type { AcvOptionProps } from '@/components/index.ts';
+
 export interface AcvTabsProps {
   /**
    * Title of the Tabs
@@ -25,10 +28,18 @@ export interface AcvTabsSlots {
   /**
    * The default slot content
    */
-  default: void
+  default: () => any
   /**
    * The description slot content
    * @binding {string} description - The description prop value
    */
   description: void
 }
+
+export interface AcvTabsInjection {
+  selectedIndex?: number
+  tabs?: VNode<AcvOptionProps>[]
+  count?: number
+}
+
+export const TABS_KEY = Symbol('TABS_KEY') as InjectionKey<AcvTabsInjection>;

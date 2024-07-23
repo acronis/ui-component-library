@@ -8,8 +8,11 @@ describe('test Option component', () => {
     const wrapper = mount(Option);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": undefined,
+        "active": false,
+        "disabled": false,
+        "label": undefined,
+        "selected": false,
+        "value": undefined,
       }
     `);
   });
@@ -23,8 +26,11 @@ describe('test Option component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": "test",
+        "active": false,
+        "disabled": false,
+        "label": undefined,
+        "selected": false,
+        "value": undefined,
       }
     `);
   });
@@ -32,6 +38,6 @@ describe('test Option component', () => {
   it('renders', () => {
     const wrapper = mount(Option);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-a4279e8d="" class="acv-option"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-a4279e8d="" class="acv-option" role="option" aria-selected="false" aria-disabled="false"></div>"`);
   });
 });

@@ -1,13 +1,22 @@
+import type { InjectionKey, VNode } from 'vue';
+import type { AcvOptionProps } from '../option/option.ts';
+import type { ComponentSize } from '../../types/props.ts';
+
 export interface AcvSelectProps {
-  /**
-   * Title of the Select
-   */
-  title?: string
+  modelValue?: string
 
   /**
-   * Description of the Select
+   * Placeholder text
    */
-  description?: string
+  placeholder?: string
+
+  disabled?: boolean
+
+  size?: ComponentSize
+
+  options?: AcvOptionProps[]
+
+  validationStatus?: 'success' | 'error'
 }
 
 export interface AcvSelectEvents {
@@ -16,17 +25,27 @@ export interface AcvSelectEvents {
    * @arg {string} eventName - The name of the event
    * @arg {string} visible - The visibility state of the component
    */
-  (eventName: 'close', visible: boolean): void
+  (eventName: 'update:modelValue', visible: boolean): void
+  (eventName: 'change', value: AcvSelectProps['modelValue']): void
+  (eventName: 'input', value: AcvSelectProps['modelValue']): void
 }
 
 export interface AcvSelectSlots {
   /**
    * The default slot content
    */
-  default: void
+  default: () => any
   /**
    * The description slot content
    * @binding {string} description - The description prop value
    */
   description: void
 }
+
+export interface AcvSelectInjection {
+  selectedIndex?: number
+  options?: VNode<AcvOptionProps>[]
+  count?: number
+}
+
+export const SELECT_KEY = Symbol('SELECT_KEY') as InjectionKey<AcvSelectInjection>;

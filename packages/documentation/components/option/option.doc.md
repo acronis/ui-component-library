@@ -1,10 +1,10 @@
 ---
-title: Option component
+title: ACV Option component
 lang: en-US
 editLink: true
 ---
 
-# Option
+# ACV Option
 
 Short description for Option component...
 
@@ -30,10 +30,13 @@ A Option should ...
 
 ## Props
 
-| Prop name   | Description               | Type   | Values | Default |
-| ----------- | ------------------------- | ------ | ------ | ------- |
-| title       | Title of the Option       | string | -      |         |
-| description | Description of the Option | string | -      |         |
+| Prop name | Description                    | Type             | Values | Default |
+| --------- | ------------------------------ | ---------------- | ------ | ------- |
+| label     | Title of the Option            | string           | -      |         |
+| value     | Value of the Option            | string \| number | -      |         |
+| selected  | Whether the option is selected | boolean          | -      |         |
+| active    | Whether the option is active   | boolean          | -      |         |
+| disabled  | Whether the option is disabled | boolean          | -      |         |
 
 ## Events
 

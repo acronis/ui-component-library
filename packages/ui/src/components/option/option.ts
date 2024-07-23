@@ -2,12 +2,27 @@ export interface AcvOptionProps {
   /**
    * Title of the Option
    */
-  title?: string
+  label?: string
 
   /**
-   * Description of the Option
+   * Value of the Option
    */
-  description?: string
+  value?: string | number
+
+  /**
+   * Whether the option is selected
+   */
+  selected?: boolean
+
+  /**
+   * Whether the option is active
+   */
+  active?: boolean
+
+  /**
+   * Whether the option is disabled
+   */
+  disabled?: boolean
 }
 
 export interface AcvOptionEvents {

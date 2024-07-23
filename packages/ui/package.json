@@ -56,6 +56,7 @@
     "@acronis-platform/icons": "workspace:*",
     "@antfu/utils": "0.7.8",
     "@floating-ui/vue": "1.0.6",
+    "@vueuse/components": "10.11.0",
     "@vueuse/core": "10.9.0",
     "@vueuse/integrations": "10.11.0",
     "chart.js": "4.4.3",

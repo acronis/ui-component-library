@@ -11,7 +11,7 @@
       style="
         height: 300px;
         background-color: hsl(0deg 0% 13%);
-        color: hsl(0deg 0% 100%);
+        color: var(--acv-color-white);
         width: 500px;
         overflow-y: scroll;
       "

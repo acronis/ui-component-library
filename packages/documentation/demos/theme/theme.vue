@@ -911,7 +911,7 @@
 }
 
 html {
-  --bg-color: hsl(0deg 0% 100%);
+  --bg-color: var(--acv-color-white);
   --body-bg-color: var(--acv-color-tertiary-background);
   --ghost-bg-color: hsl(210deg 33% 20%);
   --ghost-padding: 10px;

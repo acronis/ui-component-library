@@ -35,13 +35,15 @@ describe('test FormItem component', () => {
     const wrapper = mount(FormItem);
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<label data-v-414cb91d="" class="acv-form-item">
-        <!---->
-        <div data-v-d623bc49="" data-v-414cb91d="" class="acv-typography title" variant="body-large" component="span">
-          <!--v-if-->
-          <p data-v-d623bc49="" class="acv-text"></p>
-        </div>
-      </label>"
+      "<div data-v-414cb91d="" class="acv-form-item"><label data-v-b7a8a676="" data-v-414cb91d="" class="acv-form-label">
+          <div data-v-d623bc49="" data-v-414cb91d="" class="acv-typography title" variant="body-large" component="span">
+            <!--v-if-->
+            <p data-v-d623bc49="" class="acv-text"></p>
+          </div>
+        </label>
+        <!--v-if-->
+        <!--v-if-->
+      </div>"
     `);
   });
 });

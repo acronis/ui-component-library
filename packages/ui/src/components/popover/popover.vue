@@ -37,7 +37,7 @@
     @show="emit('show')"
     @hide="emit('hide')"
   >
-    <slot name="reference"></slot>
+    <slot name="reference" />
     <template #content>
       <div
         class="acv-popover"
@@ -50,16 +50,16 @@
             v-if="slots.actions"
             class="actions"
           >
-            <slot name="actions"></slot>
+            <slot name="actions" />
           </div>
         </AcvCard>
       </div>
     </template>
     <template #arrow>
       <i class="pulsar container">
-        <i class="circle first"></i>
-        <i class="circle second animation"></i>
-        <i class="circle third animation"></i>
+        <i class="circle first" />
+        <i class="circle second animation" />
+        <i class="circle third animation" />
       </i>
     </template>
   </AcvPopper>

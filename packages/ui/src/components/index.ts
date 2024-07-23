@@ -99,3 +99,4 @@ export * from './tooltip/public.ts';
 export * from './tree/public.ts';
 export * from './upload/public.ts';
 export * from './virtual-scroll/public.ts';
+export * from './form-label/public.ts';
