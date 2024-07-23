@@ -32,4 +32,6 @@ export interface AcvFormItemSlots {
    * The default slot content
    */
   default: void
+  validationMessage: void
+  helper: void
 }

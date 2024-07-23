@@ -10,9 +10,9 @@
     --acv-table-alpine-active: hsl(207deg 90% 54%);
     --acv-table-border-color: hsl(217deg 10% 75%);
     --acv-table-border-radius: var(--acv-radius-small, 3px);
-    --acv-table-borders-critical: hsl(0deg 0% 100%);
+    --acv-table-borders-critical: var(--acv-color-white);
     --acv-table-borders-input: var(--acv-border-secondary);
-    --acv-table-borders-secondary: hsl(0deg 0% 100%);
+    --acv-table-borders-secondary: var(--acv-color-white);
     --acv-table-card-radius: var(--acv-table-border-radius);
     --acv-table-cell-horizontal-padding: 18px;
     --acv-table-cell-widget-spacing: 12px;
@@ -42,7 +42,7 @@
     );
     --acv-table-header-column-resize-handle-display: 0px;
     --acv-table-header-column-resize-handle-height: 30px;
-    --acv-table-header-column-resize-handle-width: hsl(0deg 0% 100%);
+    --acv-table-header-column-resize-handle-width: var(--acv-color-white);
     --acv-table-header-column-separator-color: var(
       --acv-table-secondary-border-color
     );
@@ -93,7 +93,7 @@
     --acv-table-set-filter-indent-size: var(--acv-table-icon-size);
     --acv-table-side-bar-panel-width: 250px;
     --acv-table-side-button-selected-background-color: var(--acv-color-amber);
-    --acv-table-subheader-background-color: hsl(0deg 0% 100%);
+    --acv-table-subheader-background-color: var(--acv-color-white);
     --acv-table-subheader-toolbar-background-color: rgb(255 255 255 / 0);
     --acv-table-tab-min-width: 240px;
     --acv-table-toggle-button-border-width: 1px;

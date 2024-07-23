@@ -44,6 +44,8 @@ A FormItem should ...
 
 ## Slots
 
-| Name    | Description              | Bindings |
-| ------- | ------------------------ | -------- |
-| default | The default slot content |          |
+| Name              | Description              | Bindings |
+| ----------------- | ------------------------ | -------- |
+| default           | The default slot content |          |
+| validationMessage |                          |          |
+| helper            |                          |          |

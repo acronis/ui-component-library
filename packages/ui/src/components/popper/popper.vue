@@ -192,6 +192,7 @@
         v-show="isPopperVisibleDebounced"
         ref="popperRef"
         class="acv-popper"
+        :class="props.popperClass"
         :data-placement="placement"
         :style="floatingStyles"
         role="tooltip"

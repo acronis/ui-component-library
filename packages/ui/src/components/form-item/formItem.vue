@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import AcvTypography from '../typography/typography.vue';
+  import AcvFormLabel from '../form-label/formLabel.vue';
   import type {
     AcvFormItemEvents,
     AcvFormItemProps,
@@ -21,26 +22,48 @@
     'acv-form-item': true,
     [titlePlacement as string]: titlePlacement,
   }));
+
+  const validationClasses = computed(() => ({
+    'acv-validation-message': true,
+    'acv-validation-message--error': true,
+  }));
 </script>
 
 <template>
-  <label
+  <div
     :class="formItemClasses"
   >
-    <control
-      v-bind="$attrs"
-    />
-    <AcvTypography
-      class="title"
-      variant="body-large"
-      component="span"
-      :disabled="$attrs.disabled"
+    <AcvFormLabel>
+      <template #label>
+        <AcvTypography
+          class="title"
+          variant="body-large"
+          component="span"
+          :disabled="$attrs.disabled"
+        >
+          <slot>
+            {{ title }}
+          </slot>
+        </AcvTypography>
+      </template>
+      <control
+        v-bind="$attrs"
+      />
+    </AcvFormLabel>
+
+    <p
+      v-if="$slots.validationMessage"
+      :class="validationClasses"
     >
-      <slot>
-        {{ title }}
-      </slot>
-    </AcvTypography>
-  </label>
+      <slot name="validationMessage" />
+    </p>
+    <p
+      v-if="$slots.helper"
+      class="helper"
+    >
+      <slot name="helper" />
+    </p>
+  </div>
 </template>
 
 <style scoped>
@@ -72,6 +95,18 @@
       content: '*';
       color: var(--acv-color-danger);
       margin-left: 4px;
+    }
+
+    .helper {
+      margin-top: 16px;
+      font-size: var(--acv-font-size-note);
+      color: var(--acv-color-primary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .helper {
+        color: var(--acv-color-primary-dark);
+      }
     }
   }
 </style>

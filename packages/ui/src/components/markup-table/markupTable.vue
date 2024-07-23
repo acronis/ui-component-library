@@ -246,7 +246,7 @@
   /* user styles */
 
   table thead {
-    color: hsl(0deg 0% 100%);
+    color: var(--acv-color-white);
     background-color: hsl(120deg 100% 25%);
     border-radius: 5px 5px 0 0;
   }

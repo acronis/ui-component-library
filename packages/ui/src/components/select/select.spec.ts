@@ -8,8 +8,13 @@ describe('test Select component', () => {
     const wrapper = mount(Select);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": undefined,
+        "disabled": false,
+        "modelModifiers": undefined,
+        "modelValue": undefined,
+        "options": [],
+        "placeholder": "Select option...",
+        "size": "medium",
+        "validationStatus": undefined,
       }
     `);
   });
@@ -23,8 +28,13 @@ describe('test Select component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": "test",
+        "disabled": false,
+        "modelModifiers": undefined,
+        "modelValue": undefined,
+        "options": [],
+        "placeholder": "Select option...",
+        "size": "medium",
+        "validationStatus": undefined,
       }
     `);
   });
@@ -32,6 +42,13 @@ describe('test Select component', () => {
   it('renders', () => {
     const wrapper = mount(Select);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-33553d1a="" class="acv-select"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<div data-v-33553d1a="" class="acv-select">
+        <div data-v-5f77216c="" class="anchor">
+          <div data-v-33553d1a="" class="custom-trigger">Select option...</div>
+        </div>
+        <!--v-if-->
+      </div>"
+    `);
   });
 });

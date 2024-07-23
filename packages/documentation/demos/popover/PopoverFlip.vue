@@ -54,7 +54,7 @@
 
   .text-popover {
     background-color: hsl(292deg 100% 50%);
-    color: hsl(0deg 0% 100%);
+    color: var(--acv-color-white);
   }
 
   .test-container {

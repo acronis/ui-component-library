@@ -43,6 +43,7 @@ const componentsList = [
   { text: 'Form Dialog', link: '/components/form-dialog/formDialog.doc.md' },
   { text: 'Form Error', link: '/components/form-error/formError.doc.md' },
   { text: 'Form Item', link: '/components/form-item/formItem.doc.md' },
+  { text: 'Form Label', link: '/components/form-label/formLabel.doc.md' },
   { text: 'Grid', link: '/components/grid/grid.doc.md' },
   { text: 'Header', link: '/components/header/header.doc.md' },
   { text: 'Icon', link: '/components/icon/icon.doc.md' },

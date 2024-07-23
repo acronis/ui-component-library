@@ -32,6 +32,10 @@ describe('test Tabs component', () => {
   it('renders', () => {
     const wrapper = mount(Tabs);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-d73d51ff="" class="acv-tabs"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<div data-v-d73d51ff="" class="acv-tabs">
+        <div data-v-d73d51ff="" class="header"></div>
+      </div>"
+    `);
   });
 });

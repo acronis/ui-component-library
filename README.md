@@ -26,7 +26,7 @@ The main package is `@acronis-platform/ui`.
 │   │   ├── styles                   - _Styles, themes, tokens_
 │   │   ├── widgets                  - _Widgets_
 │   │   └── index.ts                 - _Entry point_
-│   ├── test                         - _Unit tests coverage report_
+│   └── test                         - _Unit tests coverage report_
 ├── packages/utils
 ├── package.json
 ├── pnpm-lock.yaml

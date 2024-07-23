@@ -1,10 +1,10 @@
 ---
-title: Tabs component
+title: ACV Tabs component
 lang: en-US
 editLink: true
 ---
 
-# Tabs
+# ACV Tabs
 
 Used as an alternative or additional content navigation element within the parent section.
 Switching the content occurs without reloading the page.
@@ -51,3 +51,9 @@ Provided `AcvTabs` component must adapt to the list of
 | ----------- | ---------------------------- | -------- |
 | default     | The default slot content     |          |
 | description | The description slot content |          |
+
+## Expose
+
+### selectTab
+
+>
