@@ -1,3 +1,10 @@
+## [1.8.7](https://github.com/acronis/ui-component-library/compare/v1.8.6...v1.8.7) (2024-07-24)
+
+
+### Bug Fixes
+
+* update cy snapshots ([118f69f](https://github.com/acronis/ui-component-library/commit/118f69fc2801211ddad78d04e3281e95fe5b52ab))
+
 ## [1.8.6](https://github.com/acronis/ui-component-library/compare/v1.8.5...v1.8.6) (2024-07-24)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **charts:** add vue chartjs charts ([5feb711](https://github.com/acronis/ui-component-library/commit/5feb7119e4ade837013b58532484545946379875))
-
-## [1.8.2](https://github.com/acronis/ui-component-library/compare/v1.8.1...v1.8.2) (2024-07-19)
-
-
-### Bug Fixes
-
-* **test:** fix fitted actions test ([71249b5](https://github.com/acronis/ui-component-library/commit/71249b5c54fe1dfc92898cc4948a6f7b9e7f58af))
 
