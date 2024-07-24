@@ -8,7 +8,7 @@ describe('test Spinner component', () => {
     const wrapper = mount(Spinner);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "color": "brand-primary",
+        "color": "primary",
         "size": "16",
       }
     `);
@@ -23,7 +23,7 @@ describe('test Spinner component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "color": "brand-primary",
+        "color": "primary",
         "size": "16",
       }
     `);
@@ -32,6 +32,6 @@ describe('test Spinner component', () => {
   it('renders', () => {
     const wrapper = mount(Spinner);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<span data-v-5ffbe806="" class="acv-spinner size-16 color-brand-primary"></span>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<span data-v-5ffbe806="" class="acv-spinner size-16 acv-border-primary"></span>"`);
   });
 });

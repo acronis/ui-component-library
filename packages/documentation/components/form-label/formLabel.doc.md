@@ -38,13 +38,16 @@ Floating label appears on top of the form control when focused.
 
 ## Props
 
-| Prop name | Description            | Type   | Values | Default |
-| --------- | ---------------------- | ------ | ------ | ------- |
-| label     | Title of the FormLabel | string | -      |         |
+| Prop name   | Description                  | Type           | Values                   | Default |
+| ----------- | ---------------------------- | -------------- | ------------------------ | ------- |
+| label       | Title of the FormLabel       | string         | -                        |         |
+| description | Description of the FormLabel | string         | -                        |         |
+| placement   | Placement of the label       | labelPlacement | left, right, top, bottom | right   |
 
 ## Slots
 
-| Name    | Description                                       | Bindings |
-| ------- | ------------------------------------------------- | -------- |
-| label   |                                                   |          |
-| default | The default slot content for form control element |          |
+| Name        | Description                                       | Bindings |
+| ----------- | ------------------------------------------------- | -------- |
+| label       |                                                   |          |
+| description |                                                   |          |
+| default     | The default slot content for form control element |          |

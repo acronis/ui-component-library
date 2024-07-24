@@ -8,7 +8,9 @@ describe('test FormLabel component', () => {
     const wrapper = mount(FormLabel);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
+        "description": undefined,
         "label": undefined,
+        "placement": "right",
       }
     `);
   });
@@ -22,7 +24,9 @@ describe('test FormLabel component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
+        "description": undefined,
         "label": undefined,
+        "placement": "right",
       }
     `);
   });
@@ -31,7 +35,8 @@ describe('test FormLabel component', () => {
     const wrapper = mount(FormLabel);
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<label data-v-b7a8a676="" class="acv-form-label">
+      "<label data-v-b7a8a676="" class="acv-form-label right">
+        <!--v-if-->
         <!--v-if-->
       </label>"
     `);
