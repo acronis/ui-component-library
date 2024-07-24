@@ -26,11 +26,12 @@
 
 <style scoped>
   .acv-link {
-    font-weight: var(--acv-font-weight-strong);
-    line-height: var(--acv-font-line-height-regular);
-    font-size: var(--acv-font-size-body);
     color: var(--acv-link-color);
     cursor: pointer;
+    font-family: var(--acv-font-family-default), sans-serif;
+    font-size: var(--acv-font-size-body);
+    font-weight: var(--acv-font-weight-strong);
+    line-height: var(--acv-font-line-height-regular);
 
     &.disabled {
       --acv-link-color: var(--acv-color-link-disabled);

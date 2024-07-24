@@ -93,7 +93,7 @@
     border-radius: var(--acv-alert-border-radius);
     column-gap: 24px;
     color: var(--acv-color-text-primary);
-    font-family: var(--acv-font-family-default);
+    font-family: var(--acv-font-family-default), sans-serif;
     font-size: var(--acv-font-size-body);
     line-height: var(--acv-font-line-height-medium);
 

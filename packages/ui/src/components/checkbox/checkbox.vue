@@ -94,6 +94,7 @@
 
 <style scoped>
   .acv-checkbox {
+    font-family: var(--acv-font-family-default), sans-serif;
     font-weight: var(--acv-font-weight-strong);
     color: var(--acv-checkbox-color);
     position: relative;

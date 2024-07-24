@@ -143,7 +143,7 @@
     cursor: pointer;
     display: inline-flex;
     flex-shrink: 0;
-    font-family: inherit;
+    font-family: var(--acv-font-family-default), sans-serif;
     font-size: var(--acv-button-font-size);
     font-weight: var(--acv-font-weight-strong);
     height: var(--acv-button-height);

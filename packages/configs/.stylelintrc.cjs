@@ -82,7 +82,7 @@ module.exports = {
       },
     ],
     'scale-unlimited/declaration-strict-value': [
-      ['/color/', 'z-index', 'font-size', 'font-family'],
+      ['/color/', 'z-index', 'font-size'],
       {
         disableFix: true,
         ignoreKeywords: {

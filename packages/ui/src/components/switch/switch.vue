@@ -74,8 +74,9 @@
 <style scoped>
   .acv-switch {
     --acv-switch-custom-color: v-bind(switchColor);
-    display: inline-flex;
     align-items:center;
+    display: inline-flex;
+    font-family: var(--acv-font-family-default), sans-serif;
     padding-block: 4px;
 
     .acv-switch__input {
