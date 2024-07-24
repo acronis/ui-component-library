@@ -1,0 +1,380 @@
+.fig-icon {
+  display: inline-block;
+  width: var(--size-medium);
+  height: var(--size-medium);
+  font-size: var(--font-size-xsmall);
+  font-family: var(--font-stack);
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: default;
+  user-select: none;
+
+  &.fig-icon--text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xsmall);
+    font-family: var(--font-stack);
+  }
+
+  &.fig-icon--adjust {
+    background-image: url('../icons/adjust.svg');
+  }
+
+  &.fig-icon--alert {
+    background-image: url('../icons/alert.svg');
+  }
+
+  &.fig-icon--angle {
+    background-image: url('../icons/angle.svg');
+  }
+
+  &.fig-icon--arrow-left-right {
+    background-image: url('../icons/arrow-left-right.svg');
+  }
+
+  &.fig-icon--arrow-up-down {
+    background-image: url('../icons/arrow-up-down.svg');
+  }
+
+  &.fig-icon--auto-layout-horizontal {
+    background-image: url('../icons/auto-layout-horizontal.svg');
+  }
+
+  &.fig-icon--auto-layout-vertical {
+    background-image: url('../icons/auto-layout-vertical.svg');
+  }
+
+  &.fig-icon--back {
+    background-image: url('../icons/back.svg');
+  }
+
+  &.fig-icon--blend-empty {
+    background-image: url('../icons/blend-empty.svg');
+  }
+
+  &.fig-icon--blend {
+    background-image: url('../icons/blend.svg');
+  }
+
+  &.fig-icon--break {
+    background-image: url('../icons/break.svg');
+  }
+
+  &.fig-icon--caret-left {
+    background-image: url('../icons/caret-left.svg');
+  }
+
+  &.fig-icon--caret-up {
+    background-image: url('../icons/caret-up.svg');
+  }
+
+  &.fig-icon--caret-right {
+    background-image: url('../icons/caret-right.svg');
+  }
+
+  &.fig-icon--caret-down {
+    background-image: url('../icons/caret-down.svg');
+  }
+
+  &.fig-icon--check {
+    background-image: url('../icons/check.svg');
+  }
+
+  &.fig-icon--close {
+    background-image: url('../icons/close.svg');
+  }
+
+  &.fig-icon--component {
+    background-image: url('../icons/component.svg');
+  }
+
+  &.fig-icon--corner-radius {
+    background-image: url('../icons/corner-radius.svg');
+  }
+
+  &.fig-icon--corners {
+    background-image: url('../icons/corners.svg');
+  }
+
+  &.fig-icon--distribute-horizontal-spacing {
+    background-image: url('../icons/distribute-horizontal-spacing.svg');
+  }
+
+  &.fig-icon--distribute-vertical-spacing {
+    background-image: url('../icons/distribute-vertical-spacing.svg');
+  }
+
+  &.fig-icon--draft {
+    background-image: url('../icons/draft.svg');
+  }
+
+  &.fig-icon--effects {
+    background-image: url('../icons/effects.svg');
+  }
+
+  &.fig-icon--ellipses {
+    background-image: url('../icons/ellipses.svg');
+  }
+
+  &.fig-icon--eyedropper {
+    background-image: url('../icons/eyedropper.svg');
+  }
+
+  &.fig-icon--forward {
+    background-image: url('../icons/forward.svg');
+  }
+
+  &.fig-icon--frame {
+    background-image: url('../icons/frame.svg');
+  }
+
+  &.fig-icon--group {
+    background-image: url('../icons/group.svg');
+  }
+
+  &.fig-icon--heart {
+    background-image: url('../icons/heart.svg');
+  }
+
+  &.fig-icon--heart-fill {
+    background-image: url('../icons/heart-fill.svg');
+  }
+
+  &.fig-icon--hidden {
+    background-image: url('../icons/hidden.svg');
+  }
+
+  &.fig-icon--horizontal-padding {
+    background-image: url('../icons/horizontal-padding.svg');
+  }
+
+  &.fig-icon--hyperlink {
+    background-image: url('../icons/hyperlink.svg');
+  }
+
+  &.fig-icon--image {
+    background-image: url('../icons/image.svg');
+  }
+
+  &.fig-icon--instance {
+    background-image: url('../icons/instance.svg');
+  }
+
+  &.fig-icon--key {
+    background-image: url('../icons/key.svg');
+  }
+
+  &.fig-icon--align-horizontal-centers {
+    background-image: url('../icons/layout-align-horizontal-centers.svg');
+  }
+
+  &.fig-icon--align-vertical-centers {
+    background-image: url('../icons/layout-align-vertical-centers.svg');
+  }
+
+  &.fig-icon--align-left {
+    background-image: url('../icons/layout-align-left.svg');
+  }
+
+  &.fig-icon--align-top {
+    background-image: url('../icons/layout-align-top.svg');
+  }
+
+  &.fig-icon--align-right {
+    background-image: url('../icons/layout-align-right.svg');
+  }
+
+  &.fig-icon--align-bottom {
+    background-image: url('../icons/layout-align-bottom.svg');
+  }
+
+  &.fig-icon--layout-grid-columns {
+    background-image: url('../icons/layout-grid-columns.svg');
+  }
+
+  &.fig-icon--layout-grid-rows {
+    background-image: url('../icons/layout-grid-rows.svg');
+  }
+
+  &.fig-icon--layout-grid-uniform {
+    background-image: url('../icons/layout-grid-uniform.svg');
+  }
+
+  &.fig-icon--library {
+    background-image: url('../icons/library.svg');
+  }
+
+  &.fig-icon--link-broken {
+    background-image: url('../icons/link-broken.svg');
+  }
+
+  &.fig-icon--link-connected {
+    background-image: url('../icons/link-connected.svg');
+  }
+
+  &.fig-icon--list-detailed {
+    background-image: url('../icons/list-detailed.svg');
+  }
+
+  &.fig-icon--list-tile {
+    background-image: url('../icons/list-tile.svg');
+  }
+
+  &.fig-icon--list {
+    background-image: url('../icons/list.svg');
+  }
+
+  &.fig-icon--lock-off {
+    background-image: url('../icons/lock-off.svg');
+  }
+
+  &.fig-icon--lock-on {
+    background-image: url('../icons/lock-on.svg');
+  }
+
+  &.fig-icon--minus {
+    background-image: url('../icons/minus.svg');
+  }
+
+  &.fig-icon--play {
+    background-image: url('../icons/play.svg');
+  }
+
+  &.fig-icon--plus {
+    background-image: url('../icons/plus.svg');
+  }
+
+  &.fig-icon--random {
+    background-image: url('../icons/random.svg');
+  }
+
+  &.fig-icon--recent {
+    background-image: url('../icons/recent.svg');
+  }
+
+  &.fig-icon--resize-to-fit {
+    background-image: url('../icons/resize-to-fit.svg');
+  }
+
+  &.fig-icon--resolve-filled {
+    background-image: url('../icons/resolve-filled.svg');
+  }
+
+  &.fig-icon--resolve {
+    background-image: url('../icons/resolve.svg');
+  }
+
+  &.fig-icon--reverse {
+    background-image: url('../icons/reverse.svg');
+  }
+
+  &.fig-icon--search-large {
+    background-image: url('../icons/search-large.svg');
+  }
+
+  &.fig-icon--search {
+    background-image: url('../icons/search.svg');
+  }
+
+  &.fig-icon--settings {
+    background-image: url('../icons/settings.svg');
+  }
+
+  &.fig-icon--share {
+    background-image: url('../icons/share.svg');
+  }
+
+  &.fig-icon--smiley {
+    background-image: url('../icons/smiley.svg');
+  }
+
+  &.fig-icon--sort-alpha-asc {
+    background-image: url('../icons/sort-alpha-asc.svg');
+  }
+
+  &.fig-icon--sort-alpha-dsc {
+    background-image: url('../icons/sort-alpha-dsc.svg');
+  }
+
+  &.fig-icon--sort-top-bottom {
+    background-image: url('../icons/sort-top-bottom.svg');
+  }
+
+  &.fig-icon--spacing {
+    background-image: url('../icons/spacing.svg');
+  }
+
+  &.fig-icon--spinner {
+    background-image: url('../icons/spinner.svg');
+  }
+
+  &.fig-icon--star-off {
+    background-image: url('../icons/star-off.svg');
+  }
+
+  &.fig-icon--star-on {
+    background-image: url('../icons/star-on.svg');
+  }
+
+  &.fig-icon--stroke-weight {
+    background-image: url('../icons/stroke-weight.svg');
+  }
+
+  &.fig-icon--styles {
+    background-image: url('../icons/styles.svg');
+  }
+
+  &.fig-icon--swap {
+    background-image: url('../icons/swap.svg');
+  }
+
+  &.fig-icon--theme {
+    background-image: url('../icons/theme.svg');
+  }
+
+  &.fig-icon--tidy-up-grid {
+    background-image: url('../icons/tidy-up-grid.svg');
+  }
+
+  &.fig-icon--tidy-up-list-horizontal {
+    background-image: url('../icons/tidy-up-list-horizontal.svg');
+  }
+
+  &.fig-icon--tidy-up-list-vertical {
+    background-image: url('../icons/tidy-up-list-vertical.svg');
+  }
+
+  &.fig-icon--timer {
+    background-image: url('../icons/timer.svg');
+  }
+
+  &.fig-icon--trash {
+    background-image: url('../icons/trash.svg');
+  }
+
+  &.fig-icon--tooltip {
+    background-image: url('../icons/tooltip.svg');
+  }
+
+  &.fig-icon--tooltip-inverse {
+    background-image: url('../icons/tooltip-inverse.svg');
+  }
+
+  &.fig-icon--vertical-padding {
+    background-image: url('../icons/vertical-padding.svg');
+  }
+
+  &.fig-icon--visible {
+    background-image: url('../icons/visible.svg');
+  }
+
+  &.fig-icon--warning-large {
+    background-image: url('../icons/warning-large.svg');
+  }
+
+  &.fig-icon--warning {
+    background-image: url('../icons/warning.svg');
+  }
+}
