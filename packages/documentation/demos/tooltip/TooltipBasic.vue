@@ -3,7 +3,7 @@
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
   import AcvButton from '@/components/button/button.vue';
 
-  const visible = ref(true);
+  const visible = ref(false);
 </script>
 
 <template>
