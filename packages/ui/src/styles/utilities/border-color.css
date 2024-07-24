@@ -1,9 +1,31 @@
-/* TODO use each */
-
 .acv-border-primary {
-  border-color: var(--acv-color-brand-primary);
+  border-color: var(--acv-color-primary);
 }
 
 .acv-border-secondary {
-  border-color: var(--acv-color-brand-secondary);
+  border-color: var(--acv-color-secondary);
+}
+
+.acv-border-tertiary {
+  border-color: var(--acv-color-tertiary);
+}
+
+.acv-border-success {
+  border-color: var(--acv-color-success);
+}
+
+.acv-border-warning {
+  border-color: var(--acv-color-warning);
+}
+
+.acv-border-danger {
+  border-color: var(--acv-color-danger);
+}
+
+.acv-border-info {
+  border-color: var(--acv-color-info);
+}
+
+.acv-border-disabled {
+  border-color: var(--acv-color-disabled);
 }

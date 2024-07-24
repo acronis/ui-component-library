@@ -8,7 +8,7 @@
       },
       color: {
         type: String,
-        default: 'brand-primary'
+        default: 'primary'
       }
     },
     data: () => ({
@@ -22,6 +22,9 @@
     computed: {
       computedSize() {
         return this.sizes[this.size] || this.size;
+      },
+      borderColor() {
+        return `var(--acv-color-${this.color})`;
       }
     }
   };
@@ -32,30 +35,19 @@
     class="acv-spinner"
     :class="{
       [`size-${computedSize}`]: size,
-      [`color-${color}`]: color,
+      [`acv-border-${color}`]: color,
     }"
   />
 </template>
 
 <style scoped>
 .acv-spinner {
+  --acv-spinner-ring-color: hsla(from v-bind(borderColor) h s l / 0.2);
   display: inline-block;
   vertical-align: middle;
   border-style: solid;
-  border-top-color: transparent !important;
   border-radius: var(--acv-radius-circle);
-
-  &.color-primary {
-    border-color: var(--acv-color-primary);
-  }
-
-  &.color-secondary {
-    border-color: var(--acv-color-secondary);
-  }
-
-  &.color-white {
-    border-color: var(--acv-color-white);
-  }
+  border-color: v-bind(borderColor) var(--acv-spinner-ring-color) var(--acv-spinner-ring-color);
 
   &.size-16 {
     width: 16px;

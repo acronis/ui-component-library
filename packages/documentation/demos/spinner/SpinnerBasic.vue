@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <Spinner />
+  <Spinner size="48" />
 </template>
