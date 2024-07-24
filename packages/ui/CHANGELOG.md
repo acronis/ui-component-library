@@ -1,3 +1,10 @@
+## [1.8.6](https://github.com/acronis/ui-component-library/compare/v1.8.5...v1.8.6) (2024-07-24)
+
+
+### Bug Fixes
+
+* fix tooltip demo visibility ([ba28174](https://github.com/acronis/ui-component-library/commit/ba28174605f0458cb75282d4e02215768d7e19e6))
+
 ## [1.8.5](https://github.com/acronis/ui-component-library/compare/v1.8.4...v1.8.5) (2024-07-24)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **test:** fix fitted actions test ([71249b5](https://github.com/acronis/ui-component-library/commit/71249b5c54fe1dfc92898cc4948a6f7b9e7f58af))
-
-## [1.8.1](https://github.com/acronis/ui-component-library/compare/v1.8.0...v1.8.1) (2024-07-19)
-
-
-### Bug Fixes
-
-* **build:** fix ui build ([56c5ba5](https://github.com/acronis/ui-component-library/commit/56c5ba50d4ad668373a2440e2bf4f000cf35180b))
 
