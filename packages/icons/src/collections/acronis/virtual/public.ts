@@ -1,9 +1,0 @@
-export { default as IconVirtualApp32 } from './IconVirtualApp32.vue';
-export { default as IconVirtualMachineAb32 } from './IconVirtualMachineAb32.vue';
-export { default as IconVirtualMachines16 } from './IconVirtualMachines16.vue';
-export { default as IconVirtualMachines24 } from './IconVirtualMachines24.vue';
-export { default as IconVirtualMachines32 } from './IconVirtualMachines32.vue';
-export { default as IconVirtualMachinesIncluded16 } from './IconVirtualMachinesIncluded16.vue';
-export { default as IconVirtualMachinesIncluded24 } from './IconVirtualMachinesIncluded24.vue';
-export { default as IconVirtualNetwork16 } from './IconVirtualNetwork16.vue';
-export { default as IconVirtualNetwork24 } from './IconVirtualNetwork24.vue';

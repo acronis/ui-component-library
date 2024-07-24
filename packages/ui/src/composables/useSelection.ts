@@ -1,7 +1,7 @@
 import type { MaybeRefOrGetter } from '@vueuse/core';
 import type { Ref, UnwrapRef } from 'vue';
 import { computed, ref, toRef, watch } from 'vue';
-import { isObject } from '../utils/helpers';
+import { isObject } from '../utils/helpers.ts';
 
 type Nullable<T> = T | null | undefined;
 

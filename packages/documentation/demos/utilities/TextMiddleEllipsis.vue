@@ -1,5 +1,5 @@
 <script setup>
-  import PlusMedium from '@acronis-platform/icons/acronis/plus/IconPlus16.vue';
+  import { IconPlus16 } from '@acronis-platform/icons/plus';
   import { vTextMiddleEllipsis } from '@/directives/textMiddleEllipsis.ts';
   import AcvIcon from '@/components/icon/icon.vue';
 </script>
@@ -68,7 +68,7 @@
         </span>
         <AcvIcon
           class="link__icon acv-bg--solid-brand-light"
-          :icon="PlusMedium"
+          :icon="IconPlus16"
         />
       </div>
     </div>

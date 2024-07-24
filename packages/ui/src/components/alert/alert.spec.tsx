@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Alert from './alert.vue'
-import type { AcvAlertProps } from './alert'
+import type { AcvAlertProps } from './alert.ts'
 
 describe('alert', () => {
   it('default props', () => {

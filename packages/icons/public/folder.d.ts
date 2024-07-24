@@ -1,0 +1,15 @@
+export { default as IconFolderIll72 } from '../vue/IconFolderIll72.vue';
+export { default as IconFolderCustomers16 } from '../vue/IconFolderCustomers16.vue';
+export { default as IconFolderSearch16 } from '../vue/IconFolderSearch16.vue';
+export { default as IconFolder16 } from '../vue/IconFolder16.vue';
+export { default as IconFolderAll16 } from '../vue/IconFolderAll16.vue';
+export { default as IconFolderAll24 } from '../vue/IconFolderAll24.vue';
+export { default as IconFolderCustomers24 } from '../vue/IconFolderCustomers24.vue';
+export { default as IconFolder24 } from '../vue/IconFolder24.vue';
+export { default as IconFolderSearch24 } from '../vue/IconFolderSearch24.vue';
+export { default as IconFolder32 } from '../vue/IconFolder32.vue';
+export { default as IconFolderSearch32 } from '../vue/IconFolderSearch32.vue';
+export { default as IconFolderAll32 } from '../vue/IconFolderAll32.vue';
+export { default as IconFolderCustomers32 } from '../vue/IconFolderCustomers32.vue';
+export { default as IconFolderMix32 } from '../vue/IconFolderMix32.vue';
+export { default as IconFolderSymlink32 } from '../vue/IconFolderSymlink32.vue';

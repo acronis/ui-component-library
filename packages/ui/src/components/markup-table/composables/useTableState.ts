@@ -1,6 +1,6 @@
 import { merge, pick } from 'lodash-es';
 import { SAVED_COLUMN_PROPS, TABLE_KEY } from '../constants.ts';
-import jsonParseSafe from '../utils/jsonParseSafe';
+import jsonParseSafe from '../utils/jsonParseSafe.js';
 
 export function useTableState(columns) {
   function saveLocalState(settings) {

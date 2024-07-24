@@ -1,9 +1,0 @@
-export { default as IconArrowDown32 } from './arrow/IconArrowDown32.vue';
-export { default as IconArrowUp32 } from './arrow/IconArrowUp32.vue';
-export { default as IconArrowLeft16 } from './arrow/IconArrowLeft16.vue';
-export { default as IconArrowDownCircledO32 } from './arrow/IconArrowDownCircledO32.vue';
-export { default as IconArrowSortDown16 } from './arrow/IconArrowSortDown16.vue';
-export { default as IconArrowRight16 } from './arrow/IconArrowRight16.vue';
-export { default as IconArrowUpperRightO24 } from './arrow/IconArrowUpperRightO24.vue';
-export { default as IconArrowLowerLeftO24 } from './arrow/IconArrowLowerLeftO24.vue';
-export { default as IconArrowSortUp16 } from './arrow/IconArrowSortUp16.vue';

@@ -67,5 +67,5 @@ export type {
   OLConfigurableProps,
   ULProps,
   ULConfigurableProps
-} from './props';
-export type { TypographyType, TitleLevel } from './symbol';
+} from './props.ts';
+export type { TypographyType, TitleLevel } from './symbol.ts';

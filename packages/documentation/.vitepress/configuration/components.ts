@@ -54,7 +54,7 @@ const componentsList = [
   { text: 'Input Number', link: '/components/input-number/inputNumber.doc.md' },
   { text: 'Link', link: '/components/link/link.doc.md', readyForReview: true },
   { text: 'List', link: '/components/list/list.doc.md' },
-  { text: 'ListItem', link: '/components/listItem/listItem.doc' },
+  { text: 'ListItem', link: '/components/list-item/listItem.doc.md' },
   { text: 'Loading', link: '/components/loading/loading.doc.md' },
   { text: 'Main', link: '/components/main/main.doc.md' },
   { text: 'Map', link: '/components/map/map.doc.md' },

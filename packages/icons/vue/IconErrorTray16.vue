@@ -1,0 +1,1 @@
+<template><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="acv-icon"><circle cx="8" cy="8" r="8" fill="#fff"/><path fill="#EA3939" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/><path fill="#fff" d="m10 4.94 1.061 1.061-2 2 2 2-1.06 1.06-2.001-2-2 2-1.06-1.06 2-2-2-2L6 4.941l2 2 2-2Z"/></svg></template>

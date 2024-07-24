@@ -39,7 +39,7 @@ export async function downloadIcons(userConfig) {
 
     // Clean the directory where the icons will be stored
     console.log('Deleting directory contents');
-    await cleanDirectory(config.iconsPath);
+    await Promise.all([cleanDirectory(config.publicFolder), cleanDirectory(config.vueFolder)]);
     // Download the icons in chunks
     await downloadChunks(config, icons);
 

@@ -1,9 +1,0 @@
-export { default as IconNetwork32 } from './IconNetwork32.vue';
-export { default as IconNetwork3Th24 } from './IconNetwork3Th24.vue';
-export { default as IconNetworkDs24 } from './IconNetworkDs24.vue';
-export { default as IconNetworkFolder16 } from './IconNetworkFolder16.vue';
-export { default as IconNetworkFolder32 } from './IconNetworkFolder32.vue';
-export { default as IconNetworkFolderIll72 } from './IconNetworkFolderIll72.vue';
-export { default as IconNetworkFolderMix32 } from './IconNetworkFolderMix32.vue';
-export { default as IconNetworkTapeAb24 } from './IconNetworkTapeAb24.vue';
-export { default as IconNetworkTapeAb32 } from './IconNetworkTapeAb32.vue';

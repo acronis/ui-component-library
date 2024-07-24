@@ -1,12 +1,9 @@
-import { createUiKit } from '@acronis-platform/ui-component-library';
 import type { App, Component } from 'vue';
 import Color from '../components/Color.vue';
 
 const examplesModules: Record<string, { default: Component }> = import.meta.glob('../../demos/**/*.vue', {
   eager: true
 });
-
-const uikit = createUiKit();
 
 export function useComponents(app: App) {
   Object.entries(examplesModules).forEach(([filePath, mod]) => {
@@ -17,7 +14,6 @@ export function useComponents(app: App) {
     }
     app.component(name, mod.default);
   });
-  app.use(uikit);
 
   app.component('Color', Color);
   app.component('Colors', () => import('../components/Colors.vue'));

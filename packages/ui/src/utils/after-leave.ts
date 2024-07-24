@@ -1,4 +1,4 @@
-import { once as onceFn } from './dom';
+import { once as onceFn } from './dom.ts';
 /**
  * Bind after-leave event for vue instance. Make sure after-leave is called in any browsers.
  *

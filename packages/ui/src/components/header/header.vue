@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import { isColor } from '../../utils/color';
+  import { isColor } from '../../utils/color.ts';
   import type { AcvHeaderProps, AcvHeaderSlots } from './header.ts';
   import './header.css';
 

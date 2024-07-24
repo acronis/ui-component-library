@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import AcvButton from '../../components/button/button.vue';
   import AcvIcon from '../../components/icon/icon.vue';
-  import vLoading from '../../directives/loading';
+  import vLoading from '../../directives/loading.ts';
 
   withDefaults(defineProps<{
     loading?: boolean

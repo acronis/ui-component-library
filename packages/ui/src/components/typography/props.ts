@@ -1,7 +1,7 @@
 import type { ExtractPropTypes, PropType } from 'vue';
 import type { ConfigurableProps } from '../../utils/props.ts';
 import { booleanProp, buildProps, omitProps } from '../../utils/props.ts';
-import type { TitleLevel, TypographyType } from './symbol';
+import type { TitleLevel, TypographyType } from './symbol.ts';
 
 export const textProps = buildProps({
   type: String as PropType<TypographyType>,

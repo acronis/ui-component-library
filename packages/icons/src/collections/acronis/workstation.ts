@@ -1,9 +1,0 @@
-export { default as IconWorkstationNavDark24 } from './workstation/IconWorkstationNavDark24.vue';
-export { default as IconWorkstationIll72 } from './workstation/IconWorkstationIll72.vue';
-export { default as IconWorkstationNav24 } from './workstation/IconWorkstationNav24.vue';
-export { default as IconWorkstationIncluded16 } from './workstation/IconWorkstationIncluded16.vue';
-export { default as IconWorkstation16 } from './workstation/IconWorkstation16.vue';
-export { default as IconWorkstationIncluded24 } from './workstation/IconWorkstationIncluded24.vue';
-export { default as IconWorkstation3Th24 } from './workstation/IconWorkstation3Th24.vue';
-export { default as IconWorkstationMix32 } from './workstation/IconWorkstationMix32.vue';
-export { default as IconWorkstation32 } from './workstation/IconWorkstation32.vue';

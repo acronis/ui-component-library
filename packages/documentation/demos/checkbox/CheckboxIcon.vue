@@ -1,7 +1,7 @@
 <script setup>
   import { reactive } from 'vue';
-  import { IconClose16 } from '@acronis-platform/icons/acronis/close';
-  import { IconCheckCircle32 } from '@acronis-platform/icons/acronis/check';
+  import { IconCheckCircle32 } from '@acronis-platform/icons/check';
+  import { IconClose16 } from '@acronis-platform/icons/close';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
 
   const checked = reactive([false, false]);

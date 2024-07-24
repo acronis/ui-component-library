@@ -1,5 +1,5 @@
 <script setup>
-  import InfoCircleOSmall from '@acronis-platform/icons/acronis/attention/IconAttention16.vue';
+  import { IconAttention16 } from '@acronis-platform/icons/attention';
   import PreviewGroup from '../../.vitepress/components/PreviewGroup.vue';
   import Preview from '../../.vitepress/components/Preview.vue';
   import AcvIcon from '@/components/icon/icon.vue';
@@ -19,7 +19,7 @@
         placement="top"
       >
         <AcvIcon
-          :icon="InfoCircleOSmall"
+          :icon="IconAttention16"
           color="brand-primary"
         />
       </AcvTooltip>
@@ -34,7 +34,7 @@
         :max-width="500"
       >
         <AcvIcon
-          :icon="InfoCircleOSmall"
+          :icon="IconAttention16"
           color="brand-primary"
         />
       </AcvTooltip>
@@ -49,7 +49,7 @@
         max-width="auto-width"
       >
         <AcvIcon
-          :icon="InfoCircleOSmall"
+          :icon="IconAttention16"
           color="brand-primary"
         />
       </AcvTooltip>

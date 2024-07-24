@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import type { AcvTypographyProps, AcvTypographySlots } from './typography';
+  import type { AcvTypographyProps, AcvTypographySlots } from './typography.ts';
 
   defineOptions({
     name: 'AcvTypography'

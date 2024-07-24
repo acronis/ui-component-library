@@ -1,6 +1,6 @@
 // https://github.com/Qix-/color/blob/master/index.js
 
-import { hex2hsl, hex2rgb, hsl2hex, parseRgb, rgb2hex, rgb2hsl } from './color-converters';
+import { hex2hsl, hex2rgb, hsl2hex, parseRgb, rgb2hex, rgb2hsl } from './color-converters.js';
 
 /**
  * @param  {string} color - Color in hex string or CSS-function `rgb`/`rgba`

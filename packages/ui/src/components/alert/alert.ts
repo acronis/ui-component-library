@@ -1,7 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue';
-import type { UikitProps } from '../../utils/props.ts';
+import type { ConfigurableProps, UikitProps } from '../../utils/props.ts';
 import { buildProps } from '../../utils/props.ts';
-import type { ConfigurableProps } from '../../utils/props';
 import type { Expand } from '../../types/generic.ts';
 
 export const ALERT_VARIANT = {

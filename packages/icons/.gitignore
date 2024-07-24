@@ -3,5 +3,4 @@ node_modules
 dist
 es
 lib
-vue
 .DS_Store

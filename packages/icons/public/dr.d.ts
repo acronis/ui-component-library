@@ -1,0 +1,9 @@
+export { default as IconDrStorage16 } from '../vue/IconDrStorage16.vue';
+export { default as IconDr16 } from '../vue/IconDr16.vue';
+export { default as IconDrInAzure16 } from '../vue/IconDrInAzure16.vue';
+export { default as IconDrBase16 } from '../vue/IconDrBase16.vue';
+export { default as IconDrStorage24 } from '../vue/IconDrStorage24.vue';
+export { default as IconDrInAzure24 } from '../vue/IconDrInAzure24.vue';
+export { default as IconDrBase24 } from '../vue/IconDrBase24.vue';
+export { default as IconDr24 } from '../vue/IconDr24.vue';
+export { default as IconDrAbO32 } from '../vue/IconDrAbO32.vue';

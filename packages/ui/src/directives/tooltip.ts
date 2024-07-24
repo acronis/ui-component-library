@@ -2,10 +2,10 @@
 import type { DirectiveBinding } from 'vue';
 
 // Composable
-import { useDirectiveComponent } from '../composables/useDirectiveComponent';
+import { useDirectiveComponent } from '../composables/useDirectiveComponent.ts';
 
 // Types
-import type { PopperPlacement } from '../components/popper/popper';
+import type { PopperPlacement } from '../components/popper/popper.ts';
 
 // Components
 import AcvTooltip from '../components/tooltip/tooltip.vue';

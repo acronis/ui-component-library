@@ -2,7 +2,7 @@ import { computed, defineComponent } from 'vue'
 
 import { useProps } from '../../utils/props.ts'
 import { useNameHelper } from '../../utils/namespace.ts'
-import { olProps } from './props'
+import { olProps } from './props.ts'
 
 export default defineComponent({
   name: 'OL',

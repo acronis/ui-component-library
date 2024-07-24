@@ -1,6 +1,6 @@
 <script setup>
-  import { IconSync16 } from '@acronis-platform/icons/acronis/sync';
-  import IconAddressBook32 from '@acronis-platform/icons/acronis/address/IconAddressBook32.vue';
+  import { IconSync16 } from '@acronis-platform/icons/sync';
+  import { IconAddressBook32 } from '@acronis-platform/icons/address';
   import Button from '@/components/button/button.vue';
   import Icon from '@/components/icon/icon.vue';
   import Row from '@/components/row/row.vue';

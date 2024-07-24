@@ -1,8 +1,8 @@
 import { defineComponent } from 'vue'
 
 import { useProps } from '../../utils/props.ts'
-import Text from './text'
-import { strongProps } from './props'
+import Text from './text.tsx'
+import { strongProps } from './props.ts'
 
 export default defineComponent({
   name: 'Strong',

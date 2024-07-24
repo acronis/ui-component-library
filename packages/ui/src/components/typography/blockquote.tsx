@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue'
 import { useProps } from '../../utils/props.ts'
 import { useNameHelper } from '../../utils/namespace.ts'
-import { blockquoteProps } from './props'
+import { blockquoteProps } from './props.ts'
 
 export default defineComponent({
   name: 'Blockquote',

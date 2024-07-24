@@ -1,0 +1,10 @@
+export { default as IconAgentQnap16 } from '../vue/IconAgentQnap16.vue';
+export { default as IconAgentVa32 } from '../vue/IconAgentVa32.vue';
+export { default as IconAgentOracle32 } from '../vue/IconAgentOracle32.vue';
+export { default as IconAgentRedhat32 } from '../vue/IconAgentRedhat32.vue';
+export { default as IconAgentKvm32 } from '../vue/IconAgentKvm32.vue';
+export { default as IconAgentHyperv32 } from '../vue/IconAgentHyperv32.vue';
+export { default as IconAgentXen32 } from '../vue/IconAgentXen32.vue';
+export { default as IconAgentNutanix32 } from '../vue/IconAgentNutanix32.vue';
+export { default as IconAgentHci32 } from '../vue/IconAgentHci32.vue';
+export { default as IconAgentQnap32 } from '../vue/IconAgentQnap32.vue';

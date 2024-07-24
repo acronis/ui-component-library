@@ -39,7 +39,7 @@ export async function downloadImage(config, icon) {
       ],
     }).data.replace(/#181818/g, 'currentColor');
 
-    await config.onDownloadedIcon({ content, pathname, iconsPathPrefix: config.iconsPathPrefix });
+    await config.onDownloadedIcon({ content, pathname, publicFolder: config.publicFolder, vueFolder: config.vueFolder });
   }
   catch (err) {
     throw new Error(`Failed to download Icon with name -> ${pathname}`, { cause: err });

@@ -1,0 +1,9 @@
+export { default as IconArrowUp32 } from '../vue/IconArrowUp32.vue';
+export { default as IconArrowDown32 } from '../vue/IconArrowDown32.vue';
+export { default as IconArrowLeft16 } from '../vue/IconArrowLeft16.vue';
+export { default as IconArrowSortDown16 } from '../vue/IconArrowSortDown16.vue';
+export { default as IconArrowSortUp16 } from '../vue/IconArrowSortUp16.vue';
+export { default as IconArrowDownCircledO32 } from '../vue/IconArrowDownCircledO32.vue';
+export { default as IconArrowRight16 } from '../vue/IconArrowRight16.vue';
+export { default as IconArrowLowerLeftO24 } from '../vue/IconArrowLowerLeftO24.vue';
+export { default as IconArrowUpperRightO24 } from '../vue/IconArrowUpperRightO24.vue';

@@ -1,4 +1,4 @@
-import type { Plugin } from 'colord';
+import type { Colord, Plugin } from 'colord';
 import { colord, extend } from 'colord';
 import a11yPlugin from 'colord/plugins/a11y';
 import harmonies from 'colord/plugins/harmonies';
@@ -6,7 +6,7 @@ import namesPlugin from 'colord/plugins/names';
 
 extend([a11yPlugin, namesPlugin, harmonies]);
 
-declare module 'colord/colord' {
+declare module 'colord' {
   interface Colord {
     contrasting: () => Colord
     toHslValue: () => string
@@ -14,7 +14,7 @@ declare module 'colord/colord' {
 }
 
 export const contrastingPlugin: Plugin = (ColordClass) => {
-  ColordClass.prototype.contrasting = function () {
+  (ColordClass.prototype as Colord).contrasting = function () {
     const isLight = this.isLight();
 
     // let color = this
@@ -24,7 +24,7 @@ export const contrastingPlugin: Plugin = (ColordClass) => {
     return isLight ? colord('#000') : colord('#fff');
   };
 
-  ColordClass.prototype.toHslValue = function () {
+  (ColordClass.prototype as Colord).toHslValue = function () {
     return this.toHslString().replace(/hsla?\(([\d\s]+,[\d\s]+%,[\d\s]+%).*/g, '$1');
   };
 };
