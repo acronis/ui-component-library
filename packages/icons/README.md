@@ -1,221 +1,32 @@
-# Icons
+# Acronis Icons
+
+This package provides a collection of SVG icons used in Acronis web applications. 
+It is designed for easy integration into Vue.js projects or any web-based application.
 
 ## Installation
 
-Install the package in your project directory with the following:
+To install the `acronis-icons` package, run the following command in your project directory:
 
-```shell
-npm install @acronis-platform/icons
+```bash
+pnpm install @acronis-platform/icons
 ```
 
-## Documentation
+## Fetching icons using Figma API
 
-This package contains a collection of icons that can be used in your project.
-The icons are available in SVG and Vue.js SFC format and can be used in your project by importing the modules.
+- Navigate to https://www.figma.com/developers/api#access-tokens and get your token
+- Create `.env.local` in the directory when you want to use this lib
+- Add variable `FIGMA_FETCHER_FIGMA_TOKEN='your token'` in `.env.local`
+- Run the command `fetch-icons`
+
+```bash
+pnpm run figma-icons
+```
 
 ## Usage
 
-You can import icons in your project by using the following code:
+This package provides a collection of icons grouped by categories.
+Each category is a separate module that exports a set of icon components.
 
-### Import icon as a Vue component
-
-```vue
-<script setup>
-  import { IconName } from '@acronis-platform/icons';
-</script>
-
-<template>
-  <IconName />
-</template>
+```javascript
+import { IconArrowUp32 } from '@acronis-platform/icons/arrows';
 ```
-
-### Import individual icon from collection
-
-```vue
-<script setup>
-  import { IconName } from '@acronis-platform/icons/acronis';
-</script>
-
-<template>
-  <IconName />
-</template>
-```
-
-### Import individual vue icon from directory
-
-```vue
-<script setup>
-  import ChevronDown from '@acronis-platform/icons/acronis/chevron/IconChevronDown16.vue';
-</script>
-
-<template>
-  <ChevronDown />
-</template>
-```
-
-### Import icons as an Iconify IconSet collection
-
-```vue
-<script setup>
-  import collection from '@acronis-platform/icons/acronis/icons.json';
-</script>
-
-<template>
-  {{ collection }}
-</template>
-```
-
-## What's included
-
-- Figma design system provide icons;
-- With @acronis-platform/figma-fetcher and save them in SVG format, as original source files in the `src` directory;
-- Icons can be fetched as different collections, they will be available in the `src/collections` directory;
-- Icons can be imported as individual icons and as a whole collection with barrel file;
-- All icons provide Vue.js component for each icon in the `vue` directory.
-
-## How to use svg icons in Vue.js components
-
-Best way to use svg icons in your project is to use them as Vue components.
-In order to do that, you can simply rename them from `.svg` to `.vue` extension and wrapping with template.
-
-You can use them in your project in the following ways:
-
-- As an SVG file, for instance, using [vite-svg-loader](https://www.npmjs.com/package/vite-svg-loader)
-- As a static Vue.js component:
-
-```vue
-<script setup>
-  import ChevronDownIcon from './components/ChevronDownIcon.vue';
-</script>
-
-<template>
-  <ChevronDownIcon />
-</template>
-```
-
-- As a dynamic Vue component:
-
-```vue
-<script>
-  import { defineAsyncComponent } from 'vue';
-
-  export default {
-    props: {
-      name: {
-        type: String,
-        required: true,
-      },
-    },
-
-    computed: {
-      dynamicComponent() {
-        const { name } = this;
-
-        return defineAsyncComponent(() => import(`./icons/${name}.vue`));
-      },
-    },
-  };
-</script>
-
-<template>
-  <component :is="dynamicComponent" />
-</template>
-```
-
-Usage:
-
-```vue
-<script setup>
-  import SvgIcon from './components/SvgIcon.vue';
-</script>
-
-<template>
-  <SvgIcon name="user" />
-</template>
-```
-
-- as a Vue component with dynamic svg import:
-
-```vue
-<script lang="ts" setup>
-  import { computed } from 'vue';
-
-  const props = defineProps({
-    icon: {
-      type: String,
-      required: true,
-    },
-    src: {
-      type: String,
-      default: '',
-    },
-  });
-  const path = props.src ? props.src : '';
-  const file = `${path}icon-${props.icon}`;
-  const modules = import.meta.glob('../../assets/icons/**/*.svg', {
-    as: 'raw',
-    eager: true,
-  });
-  const svg = computed(() => {
-    return modules[`../../assets/icons/${file}.svg`] ?? modules['../../assets/icons/icon-logo-cone.svg'];
-  });
-</script>
-
-<template>
-  <i v-html="svg" />
-</template>
-```
-
-Usage:
-
-```vue
-<UiIcon
-    class="w-4 text-gray-600"
-    icon="search"
-/>
-```
-
-- solution from [Vite docs](https://vitejs.dev/guide/features.html#glob-import):
-
-```vue
-<script setup>
-  import { computed, defineAsyncComponent } from 'vue';
-
-  defineProps({
-    name: {
-      type: String,
-      required: true
-    }
-  });
-  const icons = import.meta.glob(`./**/*.svg`);
-  const icon = computed(() => {
-    return defineAsyncComponent(() => icons[`./${this.name}.svg`]());
-  });
-  const className = computed(() => {
-    return `icon icon-${this.name}`;
-  });
-</script>
-
-<template>
-  <component
-    :is="icon"
-    :class="className"
-  />
-</template>
-```
-
-## Custom icons
-
-Icon library can be extended and customized with your own icon files.
-
-You can overwrite the existing icons or add new ones by placing them in the `src` directory.
-You need to add your own SVG icons and include them into icons library build process.
-
-### Avoid naming conflicts
-
-If you create an icon with the same name as an existing one, your icon will overwrite the existing one.
-If your icon uses a name That not been used before, it will be added as a new icon.
-
-To check which names are already in use, look in the `src` directory.
-When create a new icon, make sure that the name is unique.
-Otherwise, it will overwrite the existing icon.
