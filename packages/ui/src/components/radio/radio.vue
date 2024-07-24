@@ -12,7 +12,9 @@
     name: 'AcvRadio',
     inheritAttrs: false,
   });
-  const props = withDefaults(defineProps<AcvRadioProps>(), {});
+  const props = withDefaults(defineProps<AcvRadioProps>(), {
+    color: 'primary'
+  });
 
   defineEmits<AcvRadioEvents>();
   const slots = defineSlots<AcvRadioSlots>();
@@ -111,6 +113,7 @@
     align-items: center;
     cursor: pointer;
     position: relative;
+    font-family: var(--acv-font-family-default), sans-serif;
 
     &.checked {
       --acv-radio-icon-ring-stroke: var(--acv-radio-icon-stroke-color, var(--acv-color-form-active));

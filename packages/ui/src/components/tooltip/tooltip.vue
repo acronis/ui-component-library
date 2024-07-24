@@ -45,7 +45,7 @@
       <i
         class="triangle"
         :class="side"
-      ></i>
+      />
     </template>
   </AcvPopper>
 </template>

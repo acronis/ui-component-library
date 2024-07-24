@@ -1,8 +1,22 @@
+type labelPlacement = 'left' | 'right' | 'top' | 'bottom';
+
 export interface AcvFormLabelProps {
   /**
    * Title of the FormLabel
    */
   label?: string
+
+  /**
+   * Description of the FormLabel
+   */
+  description?: string
+
+  /**
+   * Placement of the label
+   * @values left, right, top, bottom
+   * @defaultValue right
+   */
+  placement?: labelPlacement
 }
 
 export interface AcvFormLabelSlots {
@@ -11,4 +25,5 @@ export interface AcvFormLabelSlots {
    */
   default: void
   label: void
+  description: void
 }

@@ -1,6 +1,7 @@
 <script setup>
   import { ref } from 'vue';
   import AcvRadio from '@/components/radio/radio.vue';
+  import AcvFormLabel from '@/components/form-label/formLabel.vue';
 
   const radioStates = [
     '',
@@ -37,16 +38,18 @@
       v-for="state in radioStates"
       :key="state"
     >
-      <AcvFormItem
-        v-model="picked"
-        :control="AcvRadio"
-        :title="`${state} ${value}`"
-        title-placement="bottom"
-        :value="getValue(value)"
+      <AcvFormLabel
+        :label="`${state} ${value}`"
+        placement="top"
         :class="state"
-        :invalid="state === 'invalid'"
-        :disabled="state === 'disabled'"
-      />
+      >
+        <AcvRadio
+          v-model="picked"
+          :value="getValue(value)"
+          :invalid="state === 'invalid'"
+          :disabled="state === 'disabled'"
+        />
+      </AcvFormLabel>
     </div>
   </div>
 </template>

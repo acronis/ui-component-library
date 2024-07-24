@@ -9,6 +9,7 @@
 <template>
   <FormLabel
     label="Test label"
+    description="Description"
     placement="top"
   >
     <AcvSelect

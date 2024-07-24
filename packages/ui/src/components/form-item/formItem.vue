@@ -74,6 +74,7 @@
     align-items: normal;
     cursor: pointer;
     gap: 8px;
+    font-family: var(--acv-font-family-default), sans-serif;
 
     &.top {
       flex-direction: column-reverse;
