@@ -1,0 +1,11 @@
+{
+  "api": "1.0.0",
+  "editorType": [
+    "figma",
+    "dev"
+  ],
+  "id": "figma-tokens",
+  "name": "Figma Tokens",
+  "main": "dist/main.js",
+  "ui": "dist/ui.html"
+}
