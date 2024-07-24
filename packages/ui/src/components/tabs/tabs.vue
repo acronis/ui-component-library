@@ -6,6 +6,9 @@
     AcvTabsProps,
     AcvTabsSlots
   } from './tabs.ts';
+  import {
+    TABS_KEY
+  } from './tabs.ts';
   import './tabs.css';
 
   defineOptions({ name: 'AcvTabs' });
@@ -16,11 +19,11 @@
 
   const state = reactive({
     selectedIndex: 0,
-    tabs: [] as VNode<AcvTabsProps>[],
+    tabs: [] as VNode[],
     count: 0
   });
 
-  provide('TabsProvider', state);
+  provide(TABS_KEY, state);
 
   function selectTab(i: number) {
     state.selectedIndex = i;
