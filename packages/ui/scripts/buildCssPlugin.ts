@@ -24,7 +24,7 @@ export function buildCssPlugin(): Plugin {
                   return chunkInfo.name;
                 }
 
-                return 'chunks/[name][extname]';
+                return '[name][extname]';
               },
             },
           },

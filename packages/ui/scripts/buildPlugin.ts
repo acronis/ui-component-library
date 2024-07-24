@@ -71,7 +71,7 @@ export function buildPlugin(): Plugin[] {
 
                   return relativeId.replace('src/', '').replace('.ts', '').replace('.vue', '');
                 },
-                chunkFileNames: 'chunks/[name].[hash].js',
+                chunkFileNames: '[name].[hash].js',
                 assetFileNames: 'assets/[name][extname]'
               },
               external: ['vue']

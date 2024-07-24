@@ -9,9 +9,7 @@
   "bugs": {
     "url": "https://github.com/acronis/ui-component-library/issues"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
+  "sideEffects": false,
   "exports": {
     ".": "./dist/index.js",
     "./components/*": "./dist/components/*",
@@ -49,11 +47,11 @@
     "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" || exit 0"
   },
   "peerDependencies": {
+    "@acronis-platform/icons": "workspace:*",
     "vue": "3.4.30",
     "vue-router": "4.4.0"
   },
   "dependencies": {
-    "@acronis-platform/icons": "workspace:*",
     "@antfu/utils": "0.7.8",
     "@floating-ui/vue": "1.0.6",
     "@vueuse/components": "10.11.0",
