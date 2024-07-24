@@ -60,7 +60,3 @@ The naming convention
 The icons are tree-shakable, so only the icons that are used in the project will be included in the final bundle.
 
 <<< @/demos/icons/IconTreeShaking.vue
-
-If your tooling does not support tree-shaking, you can import the icons directly from the package:
-
-<<< @/demos/icons/IconTreeShakingDeep.vue

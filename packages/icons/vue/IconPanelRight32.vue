@@ -1,0 +1,1 @@
+<template><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" class="acv-icon"><path fill="#2668C5" fill-rule="evenodd" d="M4 26V6h24v20H4ZM20 8h6v16h-6V8Zm-2 0H6v16h12V8Z" clip-rule="evenodd"/></svg></template>

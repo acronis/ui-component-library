@@ -11,7 +11,7 @@ import type {
   RGBAColor,
   RGBColor
 } from 'src/types/color.types.ts';
-import { isDefined } from './common';
+import { isDefined } from './common.ts';
 
 export const BRAND_COLORS = {
   primary: 'primary',

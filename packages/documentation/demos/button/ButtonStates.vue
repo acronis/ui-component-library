@@ -1,5 +1,5 @@
 <script setup>
-  import { IconAcronisIcon32 } from '@acronis-platform/icons/acronis/acronis';
+  import { IconAcronisIcon32 } from '@acronis-platform/icons/acronis';
   import { BUTTON_COLOR } from '@/components/button/button.ts';
   import Button from '@/components/button/button.vue';
   import Grid from '@/components/grid/grid.vue';

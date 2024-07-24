@@ -1,7 +1,7 @@
 import type { MaybeRefOrGetter } from '@vueuse/core';
 import { toValue } from '@vueuse/core';
 import { ref, watch } from 'vue';
-import { colord } from '../utils/colord';
+import { colord } from '../utils/colord.ts';
 import { isBaseColor } from '../utils/color.ts';
 import type { ColorProp } from '../types/props.ts';
 

@@ -12,7 +12,7 @@ In components content areas you can use icons from your custom sets.
 
 ```vue
 <script setup>
-  import { IconChevronDown16 } from '@acronis-platform/icons/dist/acronis/chevron';
+  import { IconChevronDown16 } from '@acronis-platform/icons/chevron';
 </script>
 
 <template>

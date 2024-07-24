@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 
-import type { AcvDividerProps } from '..'
-import { AcvDivider } from '..'
+import AcvDivider from './divider.vue'
+import type { AcvDividerProps } from './divider.ts'
 
 const TEXT = 'Text'
 

@@ -1,5 +1,5 @@
 import type { InjectionKey, VNode } from 'vue';
-import type { AcvOptionProps } from '@/components/index.ts';
+import type { AcvOptionProps } from '../option/option.ts';
 
 export interface AcvTabsProps {
   /**

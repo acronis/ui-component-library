@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import { IconSettings16 } from '@acronis-platform/icons/dist/acronis/settings';
+  import { IconSettings16 } from '@acronis-platform/icons/settings';
   import TogglePadding from './toggle-padding.vue';
 
   // import DirectionSwitch from '../documentation/.vitepress/components/direction-switch.vue';

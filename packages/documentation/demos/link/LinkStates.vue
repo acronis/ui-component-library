@@ -1,6 +1,6 @@
 <script setup>
+  import { IconArrowLeft16, IconArrowRight16 } from '@acronis-platform/icons/arrow';
   import AcvLink from '@/components/link/link.vue';
-  import AcvIcon from '@/components/icon/icon.vue';
 
   function handleClick() {
     console.log('Link is clicked');
@@ -42,7 +42,7 @@
       v-for="state in linkStates"
       :key="state"
     >
-      <AcvIcon name="arrow-left--16" />
+      <IconArrowLeft16 />
       <AcvLink
         :class="state"
         @click="handleClick"
@@ -62,7 +62,7 @@
       >
         Link
       </AcvLink>
-      <AcvIcon name="arrow-right--16" />
+      <IconArrowRight16 />
     </div>
 
     <h3>Icons on both sides</h3>
@@ -70,14 +70,14 @@
       v-for="state in linkStates"
       :key="state"
     >
-      <AcvIcon name="arrow-left--16" />
+      <IconArrowLeft16 />
       <AcvLink
         :class="state"
         @click="handleClick"
       >
         Link
       </AcvLink>
-      <AcvIcon name="arrow-right--16" />
+      <IconArrowRight16 />
     </div>
   </div>
 </template>

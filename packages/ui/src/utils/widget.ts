@@ -1,4 +1,4 @@
-import { rgba } from './color-utils';
+import { rgba } from './color-utils.ts';
 
 function isValidDate(d) {
   return d instanceof Date && !Number.isNaN(d);

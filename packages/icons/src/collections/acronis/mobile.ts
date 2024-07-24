@@ -1,9 +1,0 @@
-export { default as IconMobileDefaultEnabledIll96 } from './mobile/IconMobileDefaultEnabledIll96.vue';
-export { default as IconMobileDefaultDisabledIll96 } from './mobile/IconMobileDefaultDisabledIll96.vue';
-export { default as IconMobileTray16 } from './mobile/IconMobileTray16.vue';
-export { default as IconMobile16 } from './mobile/IconMobile16.vue';
-export { default as IconMobileDevice16 } from './mobile/IconMobileDevice16.vue';
-export { default as IconMobileDevicesO24 } from './mobile/IconMobileDevicesO24.vue';
-export { default as IconMobileDevice24 } from './mobile/IconMobileDevice24.vue';
-export { default as IconMobile32 } from './mobile/IconMobile32.vue';
-export { default as IconMobileDevice32 } from './mobile/IconMobileDevice32.vue';

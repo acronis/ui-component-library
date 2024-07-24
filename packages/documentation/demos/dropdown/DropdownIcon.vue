@@ -1,5 +1,5 @@
 <script setup>
-  import IconAddressBook32 from '@acronis-platform/icons/acronis/address/IconAddressBook32.vue';
+  import { IconAddressBook32 } from '@acronis-platform/icons/address';
   import Icon from '@/components/icon/icon.vue';
   import AcvDropdown from '@/components/dropdown/dropdown.vue';
 </script>

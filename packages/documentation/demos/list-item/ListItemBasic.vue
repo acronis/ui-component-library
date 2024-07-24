@@ -1,5 +1,5 @@
 <script setup>
-  import { IconPlaceholder16, IconPlaceholder24 } from '@acronis-platform/icons/dist/acronis/placeholder';
+  import { IconPlaceholder16, IconPlaceholder24 } from '@acronis-platform/icons/placeholder';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvTag from '@/components/tag/tag.vue';
   import AcvCounter from '@/components/counter/counter.vue';

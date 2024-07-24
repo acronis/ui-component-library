@@ -2,7 +2,7 @@ import { computed, defineComponent, renderSlot } from 'vue'
 
 import { useProps } from '../../utils/props.ts'
 import { useNameHelper } from '../../utils/namespace.ts'
-import { textProps } from './props'
+import { textProps } from './props.ts'
 
 export default defineComponent({
   name: 'Text',

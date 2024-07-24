@@ -1,0 +1,10 @@
+export { default as IconPartner16 } from '../vue/IconPartner16.vue';
+export { default as IconPartnerSolid16 } from '../vue/IconPartnerSolid16.vue';
+export { default as IconPartnerStorage16 } from '../vue/IconPartnerStorage16.vue';
+export { default as IconPartnerVcd16 } from '../vue/IconPartnerVcd16.vue';
+export { default as IconPartnerSolid24 } from '../vue/IconPartnerSolid24.vue';
+export { default as IconPartnerStorage24 } from '../vue/IconPartnerStorage24.vue';
+export { default as IconPartnerVcd24 } from '../vue/IconPartnerVcd24.vue';
+export { default as IconPartner24 } from '../vue/IconPartner24.vue';
+export { default as IconPartner32 } from '../vue/IconPartner32.vue';
+export { default as IconPartnerSolid32 } from '../vue/IconPartnerSolid32.vue';

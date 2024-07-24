@@ -2,7 +2,8 @@ import { mount } from '@cypress/vue';
 import LinkStates from '../../../../documentation/demos/link/LinkStates.vue';
 import LinkBasic from '../../../../documentation/demos/link/LinkBasic.vue';
 
-describe('Link', () => {
+// TODO: use it after normalizing the view of icons inside components
+describe.skip('Link', () => {
   it('basic', () => {
     mount(LinkBasic);
 

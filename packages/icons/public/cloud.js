@@ -1,0 +1,16 @@
+export { default as IconCloudFailTray16 } from '../vue/IconCloudFailTray16.vue';
+export { default as IconCloudTrayMix32 } from '../vue/IconCloudTrayMix32.vue';
+export { default as IconCloudTray16 } from '../vue/IconCloudTray16.vue';
+export { default as IconCloudHurryTray16 } from '../vue/IconCloudHurryTray16.vue';
+export { default as IconCloudTray32 } from '../vue/IconCloudTray32.vue';
+export { default as IconCloudServer16 } from '../vue/IconCloudServer16.vue';
+export { default as IconCloudStorage16 } from '../vue/IconCloudStorage16.vue';
+export { default as IconCloud16 } from '../vue/IconCloud16.vue';
+export { default as IconCloudO16 } from '../vue/IconCloudO16.vue';
+export { default as IconCloudStorage24 } from '../vue/IconCloudStorage24.vue';
+export { default as IconCloudToCloud24 } from '../vue/IconCloudToCloud24.vue';
+export { default as IconCloudServer24 } from '../vue/IconCloudServer24.vue';
+export { default as IconCloudApps24 } from '../vue/IconCloudApps24.vue';
+export { default as IconCloud32 } from '../vue/IconCloud32.vue';
+export { default as IconCloudMix32 } from '../vue/IconCloudMix32.vue';
+export { default as IconCloudAppBackupPlanAb32 } from '../vue/IconCloudAppBackupPlanAb32.vue';

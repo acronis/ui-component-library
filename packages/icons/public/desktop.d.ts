@@ -1,0 +1,10 @@
+export { default as IconDesktopWindowsEnabledIll96 } from '../vue/IconDesktopWindowsEnabledIll96.vue';
+export { default as IconDesktopWindowsDisabledIll96 } from '../vue/IconDesktopWindowsDisabledIll96.vue';
+export { default as IconDesktopVmDisabledIll96 } from '../vue/IconDesktopVmDisabledIll96.vue';
+export { default as IconDesktopLinuxDisabledIll96 } from '../vue/IconDesktopLinuxDisabledIll96.vue';
+export { default as IconDesktopVmEnabledIll96 } from '../vue/IconDesktopVmEnabledIll96.vue';
+export { default as IconDesktopLinuxEnabledIll96 } from '../vue/IconDesktopLinuxEnabledIll96.vue';
+export { default as IconDesktopDefaultDisabledIll96 } from '../vue/IconDesktopDefaultDisabledIll96.vue';
+export { default as IconDesktopImacEnabledIll96 } from '../vue/IconDesktopImacEnabledIll96.vue';
+export { default as IconDesktopDefaultEnabledIll96 } from '../vue/IconDesktopDefaultEnabledIll96.vue';
+export { default as IconDesktopImacDisabledIll96 } from '../vue/IconDesktopImacDisabledIll96.vue';

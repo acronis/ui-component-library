@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from 'vue';
-  import InfoCircleOSmall from '@acronis-platform/icons/acronis/attention/IconAttention16.vue';
+  import { IconAttention16 } from '@acronis-platform/icons/attention';
   import PreviewGroup from '../../.vitepress/components/PreviewGroup.vue';
   import Preview from '../../.vitepress/components/Preview.vue';
   import AcvButton from '@/components/button/button.vue';
@@ -91,7 +91,7 @@
           @click="disableIconTooltip"
         >
           <AcvIcon
-            :icon="InfoCircleOSmall"
+            :icon="IconAttention16"
             color="white"
           />
         </AcvButton>

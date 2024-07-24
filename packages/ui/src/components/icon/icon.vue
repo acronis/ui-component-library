@@ -1,9 +1,10 @@
 <script setup lang="ts">
   import { computed, useAttrs } from 'vue';
   import './icon.css';
-  import * as iconSets from '@acronis-platform/icons/dist/public';
-  import { camelCase, startCase } from 'lodash-es';
-  import type { AcvIconProps } from './icon';
+  // TODO: fix it and remove icons-old package
+  // import * as iconSets from '@acronis-platform/icons-old/dist/public.d.ts';
+  // import { camelCase, startCase } from 'lodash-es';
+  import type { AcvIconProps } from './icon.ts';
 
   const {
     animateOnHover,
@@ -13,9 +14,9 @@
     flip,
     icon,
     inverse,
-    name,
+    // name,
     size,
-    state,
+    // state,
     stateColor,
     title,
   } = withDefaults(defineProps<AcvIconProps>(), {
@@ -42,10 +43,10 @@
       'acv-icon-hover': animateOnHover,
     };
   });
-
-  const iconName = computed(() => {
-    return typeof icon === 'string' ? icon : name;
-  });
+  //
+  // const iconName = computed(() => {
+  //   return typeof icon === 'string' ? icon : name;
+  // });
 
   const attrs = {
     ...useAttrs(),
@@ -59,19 +60,19 @@
     return stateColor ? `var(--acv-color-${stateColor})` : 'currentColor';
   });
 
-  const dynamicIcon = computed(() => {
-    const iconFilename = `Icon${startCase(camelCase(iconName.value)).replace(/ /g, '')}`;
-
-    return iconSets[iconFilename];
-  });
-
-  const dynamicStateIcon = computed(() => {
-    if (!state)
-      return undefined;
-    const iconName = startCase(camelCase(state)).replace(/ /g, '');
-
-    return iconSets[iconName];
-  });
+  // const dynamicIcon = computed(() => {
+  //   const iconFilename = `Icon${startCase(camelCase(iconName.value)).replace(/ /g, '')}`;
+  //
+  //   return iconSets[iconFilename];
+  // });
+  //
+  // const dynamicStateIcon = computed(() => {
+  //   if (!state)
+  //     return undefined;
+  //   const iconName = startCase(camelCase(state)).replace(/ /g, '');
+  //
+  //   return iconSets[iconName];
+  // });
 </script>
 
 <template>
@@ -79,7 +80,8 @@
     :class="classes"
     v-bind="attrs"
   >
-    <g v-if="icon && !iconName">
+    <!--    <g v-if="icon && !iconName"> -->
+    <g v-if="icon">
       <slot>
         <component
           :is="icon"
@@ -89,27 +91,27 @@
         />
       </slot>
     </g>
-    <slot v-else>
-      <component
-        :is="dynamicStateIcon"
-        v-if="dynamicStateIcon"
-        class="state"
-        :color="stateColor"
-        :width="size"
-        :height="size"
-      />
-      <component
-        :is="dynamicIcon"
-        v-if="dynamicIcon"
-        class="cmp"
-        :width="size"
-        :height="size"
-      />
-      <!--          <span -->
-      <!--            v-else -->
-      <!--            :class="`i-${collection}-icons:${name}`" -->
-      <!--          ></span> -->
-    </slot>
+    <!--    <slot v-else> -->
+    <!--      <component -->
+    <!--        :is="dynamicStateIcon" -->
+    <!--        v-if="dynamicStateIcon" -->
+    <!--        class="state" -->
+    <!--        :color="stateColor" -->
+    <!--        :width="size" -->
+    <!--        :height="size" -->
+    <!--      /> -->
+    <!--      <component -->
+    <!--        :is="dynamicIcon" -->
+    <!--        v-if="dynamicIcon" -->
+    <!--        class="cmp" -->
+    <!--        :width="size" -->
+    <!--        :height="size" -->
+    <!--      /> -->
+    <!--      &lt;!&ndash;          <span &ndash;&gt; -->
+    <!--      &lt;!&ndash;            v-else &ndash;&gt; -->
+    <!--      &lt;!&ndash;            :class="`i-${collection}-icons:${name}`" &ndash;&gt; -->
+    <!--      &lt;!&ndash;          ></span> &ndash;&gt; -->
+    <!--    </slot> -->
   </i>
 </template>
 

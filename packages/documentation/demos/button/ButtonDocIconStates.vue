@@ -1,5 +1,5 @@
 <script setup>
-  import IconPlaceholder16 from '@acronis-platform/icons/acronis/placeholder/IconPlaceholder16.vue';
+  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
   import { BUTTON_TYPE } from '@/components/button/button.ts';
 
   import Button from '@/components/button/button.vue';

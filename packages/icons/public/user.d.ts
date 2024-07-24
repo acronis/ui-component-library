@@ -1,0 +1,13 @@
+export { default as IconUserTray32 } from '../vue/IconUserTray32.vue';
+export { default as IconUserWeb16 } from '../vue/IconUserWeb16.vue';
+export { default as IconUserCircleWeb16 } from '../vue/IconUserCircleWeb16.vue';
+export { default as IconUser16 } from '../vue/IconUser16.vue';
+export { default as IconUserCircle16 } from '../vue/IconUserCircle16.vue';
+export { default as IconUser24 } from '../vue/IconUser24.vue';
+export { default as IconUserCircle24 } from '../vue/IconUserCircle24.vue';
+export { default as IconUserSetting24 } from '../vue/IconUserSetting24.vue';
+export { default as IconUserAdmin24 } from '../vue/IconUserAdmin24.vue';
+export { default as IconUserCircle32 } from '../vue/IconUserCircle32.vue';
+export { default as IconUser32 } from '../vue/IconUser32.vue';
+export { default as IconUser32DuplicateName } from '../vue/IconUser32DuplicateName.vue';
+export { default as IconUserPlaceholder32 } from '../vue/IconUserPlaceholder32.vue';

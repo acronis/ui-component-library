@@ -1,5 +1,5 @@
 <script setup>
-  import InfoCircleOSmall from '@acronis-platform/icons/dist/acronis/info/IconInfo16.vue';
+  import { IconInfo16 } from '@acronis-platform/icons/info';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
 </script>
@@ -10,7 +10,7 @@
     placement="top"
   >
     <AcvIcon
-      :icon="InfoCircleOSmall"
+      :icon="IconInfo16"
       name="info-circle-o--16"
       color="brand-primary"
     />

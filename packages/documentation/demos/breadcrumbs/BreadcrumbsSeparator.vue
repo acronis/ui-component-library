@@ -1,5 +1,5 @@
 <script setup>
-  import IconChevronRight16 from '@acronis-platform/icons/acronis/chevron/IconChevronRight16.vue';
+  import { IconChevronRight16 } from '@acronis-platform/icons/chevron';
   import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
   import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
 </script>

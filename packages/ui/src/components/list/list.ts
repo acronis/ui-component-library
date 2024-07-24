@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue';
-import type { AcvListItemProps } from '../list-item/listItem';
+import type { AcvListItemProps } from '../list-item/listItem.ts';
 import type { SelectionProps } from '../../composables/useSelection.ts';
 import type { ColorProp } from '../../types/props.ts';
 

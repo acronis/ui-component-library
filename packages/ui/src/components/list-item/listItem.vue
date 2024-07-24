@@ -1,9 +1,7 @@
 <script setup lang="ts">
   import { computed, inject } from 'vue';
-  // @ts-expect-error - TODO: fix icons dts
-  import IconClose16 from '@acronis-platform/icons/acronis/close/IconClose16.vue';
-  // @ts-expect-error - TODO: fix icons dts
-  import IconGripDots16 from '@acronis-platform/icons/acronis/grip/IconGripDots16.vue';
+  import { IconGripDots16 } from '@acronis-platform/icons/grip';
+  import { IconClose16 } from '@acronis-platform/icons/close';
   import type { AcvListInjection } from '../list/list.ts';
   import { LIST_KEY } from '../list/list.ts';
   // import AcvTypography from '../typography/typography.vue';
@@ -20,10 +18,8 @@
     name: 'AcvListItem',
   });
   const props = defineProps<AcvListItemProps>();
-
   const emit = defineEmits<AcvListItemEvents>();
   const slots = defineSlots<AcvListItemSlots>();
-
   const {
     card,
     sortable

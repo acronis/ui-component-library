@@ -1,0 +1,13 @@
+export { default as IconTape16 } from '../vue/IconTape16.vue';
+export { default as IconTapeDevice24 } from '../vue/IconTapeDevice24.vue';
+export { default as IconTapeSlotEmpty32 } from '../vue/IconTapeSlotEmpty32.vue';
+export { default as IconTapePoolGroup32 } from '../vue/IconTapePoolGroup32.vue';
+export { default as IconTapeWorm32 } from '../vue/IconTapeWorm32.vue';
+export { default as IconTapeCleaning32 } from '../vue/IconTapeCleaning32.vue';
+export { default as IconTapeDeviceAb32 } from '../vue/IconTapeDeviceAb32.vue';
+export { default as IconTapeLibrary32 } from '../vue/IconTapeLibrary32.vue';
+export { default as IconTapeSetAb32 } from '../vue/IconTapeSetAb32.vue';
+export { default as IconTapeDrive32 } from '../vue/IconTapeDrive32.vue';
+export { default as IconTapeSlot32 } from '../vue/IconTapeSlot32.vue';
+export { default as IconTapeLibraryGroup32 } from '../vue/IconTapeLibraryGroup32.vue';
+export { default as IconTapePool32 } from '../vue/IconTapePool32.vue';
