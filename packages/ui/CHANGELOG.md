@@ -1,3 +1,17 @@
+## [1.10.0](https://github.com/acronis/ui-component-library/compare/v1.9.1...v1.10.0) (2024-07-25)
+
+
+### Features
+
+* **icon:** add sorting to make export static ([d151020](https://github.com/acronis/ui-component-library/commit/d1510205cfc911c8b314855df6512b1e8ba0d2e4))
+* **icon:** new icons package ([c7c3659](https://github.com/acronis/ui-component-library/commit/c7c36596a61dcb458a3af22a7c10d285478e6459))
+* **icon:** review fixes ([3cf1d88](https://github.com/acronis/ui-component-library/commit/3cf1d88944f4a47fda7dc21123f2700cafdeb347))
+
+
+### Bug Fixes
+
+* update icon configs ([ba5bf4b](https://github.com/acronis/ui-component-library/commit/ba5bf4bcf36e597056c755398308aa0cea9dcaa7))
+
 ## [1.9.1](https://github.com/acronis/ui-component-library/compare/v1.9.0...v1.9.1) (2024-07-24)
 
 
@@ -30,11 +44,4 @@
 ### Bug Fixes
 
 * fix tooltip demo visibility ([ba28174](https://github.com/acronis/ui-component-library/commit/ba28174605f0458cb75282d4e02215768d7e19e6))
-
-## [1.8.5](https://github.com/acronis/ui-component-library/compare/v1.8.4...v1.8.5) (2024-07-24)
-
-
-### Bug Fixes
-
-* fix tabs inject state ([5893243](https://github.com/acronis/ui-component-library/commit/5893243d2d145cca00873a750bf8fea3d8925d7b))
 
