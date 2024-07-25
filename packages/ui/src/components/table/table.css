@@ -3,7 +3,7 @@
     --acv-table-color: var(--acv-color-app-base);
 
     /* Markup */
-    --acv-table-background-color: var(--acv-color-red);
+    --acv-table-background-color: var(--acv-color-white);
 
     /* Rest styles */
     --acv-table-alpine-active-color: hsl(207deg 90% 54%);

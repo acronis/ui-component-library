@@ -1,5 +1,4 @@
 import type { InjectionKey, VNode } from 'vue';
-import type { AcvOptionProps } from '../option/option.ts';
 
 export interface AcvTabsProps {
   /**
@@ -38,7 +37,7 @@ export interface AcvTabsSlots {
 
 export interface AcvTabsInjection {
   selectedIndex?: number
-  tabs?: VNode<AcvOptionProps>[]
+  tabs?: VNode<AcvTabProps>[]
   count?: number
 }
 

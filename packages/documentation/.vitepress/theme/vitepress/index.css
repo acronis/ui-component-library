@@ -83,22 +83,31 @@ html.dark {
 
 .vp-doc {
   :has([class^="acv"]) {
-    a {
-      text-decoration: none;
-    }
+    [class^="acv"] {
+      /* all: unset; */
 
-    ul {
-      list-style: none;
-    }
+      tr,
+      tr:nth-child(2n) {
+        background-color: inherit;
+      }
 
-    li + li {
-      margin-top: 0;
-    }
+      a {
+        text-decoration: none;
+      }
 
-    ul,
-    ol {
-      padding-left: 0;
-      margin: 0;
+      ul {
+        list-style: none;
+      }
+
+      li + li {
+        margin-top: 0;
+      }
+
+      ul,
+      ol {
+        padding-left: 0;
+        margin: 0;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {

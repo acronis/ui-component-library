@@ -33,10 +33,7 @@ export default antfu(
       'vue/component-definition-name-casing': ['error', 'PascalCase'],
       'vue/html-closing-bracket-newline': 'error',
       'vue/html-closing-bracket-spacing': 'error',
-      'vue/attributes-order': ['error', {
-        order: ['DEFINITION', 'LIST_RENDERING', 'CONDITIONALS', 'RENDER_MODIFIERS', 'GLOBAL', ['UNIQUE', 'SLOT'], 'TWO_WAY_BINDING', 'OTHER_DIRECTIVES', 'OTHER_ATTR', 'EVENTS', 'CONTENT'],
-        alphabetical: false,
-      }],
+      'vue/attributes-order': 'error',
       'vue/mustache-interpolation-spacing': 'error',
     },
   },
