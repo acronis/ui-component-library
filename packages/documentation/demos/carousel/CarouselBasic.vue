@@ -1,42 +1,11 @@
 <script setup>
   import AcvCarousel from '@/components/carousel/carousel.vue';
-  import AcvCarouselItem from '@/components/carousel/carouselItem.vue';
-
-  const items = [{
-    name: 'one',
-    content: 'First slide'
-  }, {
-    name: 'two',
-    content: 'Second slide'
-  }, {
-    name: 'three',
-    content: 'Third slide'
-  }, {
-    name: 'four',
-    content: 'Fourth slide'
-  }, {
-    name: 'five',
-    content: 'Fifth slide'
-  }, {
-    name: 'six',
-    content: 'Sixth slide'
-  }];
 </script>
 
 <template>
   <AcvCarousel
-    :height="200"
-  >
-    <AcvCarouselItem
-      v-for="item in items"
-      :key="item.name"
-      :name="item.name"
-    >
-      <div class="custom-slide">
-        {{ item.content }}
-      </div>
-    </AcvCarouselItem>
-  </AcvCarousel>
+    :count="3"
+  />
 </template>
 
 <style scoped>
