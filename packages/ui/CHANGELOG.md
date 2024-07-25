@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/acronis/ui-component-library/compare/v1.10.1...v1.10.2) (2024-07-25)
+
+
+### Bug Fixes
+
+* forbid to import barrel in components ([13e88aa](https://github.com/acronis/ui-component-library/commit/13e88aaffbd00413ad3ae52337a5a41b2142c336))
+
 ## [1.10.1](https://github.com/acronis/ui-component-library/compare/v1.10.0...v1.10.1) (2024-07-25)
 
 
@@ -37,11 +44,4 @@
 ### Bug Fixes
 
 * update radio colors ([52a493a](https://github.com/acronis/ui-component-library/commit/52a493abbc850e4de0f77b7b1ef7f3433bf8b47a))
-
-## [1.8.7](https://github.com/acronis/ui-component-library/compare/v1.8.6...v1.8.7) (2024-07-24)
-
-
-### Bug Fixes
-
-* update cy snapshots ([118f69f](https://github.com/acronis/ui-component-library/commit/118f69fc2801211ddad78d04e3281e95fe5b52ab))
 
