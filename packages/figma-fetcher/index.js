@@ -76,7 +76,7 @@ export default _default;
     const barrel = path.join(path.dirname(directory), `${path.basename(directory)}.js`);
     const barrelDTs = path.join(path.dirname(directory), `${path.basename(directory)}.d.ts`);
     let fileContent = '';
-    for (const icon of icons.get(directory)) {
+    for (const icon of icons.get(directory).sort()) {
       const directoryName = path.dirname(icon);
       const parentFolder = path.basename(directoryName);
       const fileName = path.basename(icon);
