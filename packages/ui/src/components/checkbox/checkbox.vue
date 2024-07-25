@@ -1,12 +1,14 @@
 <script setup lang="ts">
   import { computed, toRef, useAttrs } from 'vue';
-  import type {
-    AcvCheckboxProps
-  } from '../index.ts';
   import { useCheckbox } from '../../composables/useCheckbox.ts';
-  import './checkbox.css';
   import CheckboxIcon from '../icon-internal/CheckboxIcon.vue';
-  import type { CheckboxEvents, CheckboxSlots } from './checkbox.ts';
+  import type {
+    AcvCheckboxEvents,
+    AcvCheckboxProps,
+    AcvCheckboxSlots
+  } from './checkbox.ts';
+
+  import './checkbox.css';
 
   defineOptions({
     name: 'AcvCheckbox',
@@ -19,8 +21,8 @@
     uncheckedValue: false,
     indeterminateValue: null
   });
-  const emit = defineEmits<CheckboxEvents>();
-  const slots = defineSlots<CheckboxSlots>();
+  const emit = defineEmits<AcvCheckboxEvents>();
+  const slots = defineSlots<AcvCheckboxSlots>();
   const attrs = useAttrs();
 
   // const checked = defineModel();

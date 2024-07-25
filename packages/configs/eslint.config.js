@@ -53,6 +53,18 @@ export default antfu(
       ],
       'style/comma-dangle': 'off',
       'import/no-cycle': ['error', { ignoreExternal: true }],
+      'import/no-restricted-paths': ['error', {
+        zones: [
+          // forbid import barrel file inside components
+          {
+            target: './src/components/**/*',
+            from: [
+              './src/components/index.ts',
+              '../index.ts'
+            ]
+          },
+        ],
+      }],
       'import/no-extraneous-dependencies': [
         'warn',
         {

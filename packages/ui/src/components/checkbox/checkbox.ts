@@ -64,7 +64,7 @@ export interface AcvCheckboxProps extends CheckboxProps {
   iconClass?: string
 }
 
-export interface CheckboxEvents {
+export interface AcvCheckboxEvents {
   /**
    * Triggered when binding value changes
    * @arg {string} eventName - The name of the event
@@ -79,7 +79,7 @@ export interface CheckboxEvents {
   (eventName: 'update:indeterminate', value: boolean): void
 }
 
-export interface CheckboxSlots {
+export interface AcvCheckboxSlots {
   /**
    * Default slot for rendering checkbox label
    */
