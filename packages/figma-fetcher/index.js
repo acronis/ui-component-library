@@ -42,13 +42,11 @@ export default _default;
     const prefix = 'Icon';
     const { descriptor } = parse(fileContent);
 
-    const idx = pathname.indexOf('-');
-    const publicDirectory = path.join(publicFolder, pathname.substring(0, idx) || pathname);
     const fileName = `${prefix}${toPascalCase(pathname)}`;
     const fileVue = path.resolve(vueFolder, `${fileName}.vue`);
     const fileVueDTs = path.resolve(vueFolder, `${fileName}.d.ts`);
     const fileJs = path.resolve(vueFolder, `${fileName}.js`);
-    const imagePath = path.join(publicDirectory, `${fileName}.svg`);
+    const imagePath = path.join(publicFolder, 'svg', `${fileName}.svg`);
 
     if (descriptor.template) {
       fileContentJs = compileTemplate({
@@ -66,6 +64,8 @@ export default _default;
       promises.writeFile(imagePath, content, 'utf8'),
     ]);
 
+    const idx = pathname.indexOf('-');
+    const publicDirectory = path.join(publicFolder, pathname.substring(0, idx) || pathname);
     icons.set(publicDirectory, [...(icons.get(publicDirectory) || []), fileVue]);
   }
 
