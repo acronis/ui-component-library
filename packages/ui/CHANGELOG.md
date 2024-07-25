@@ -1,3 +1,10 @@
+## [1.11.0](https://github.com/acronis/ui-component-library/compare/v1.10.2...v1.11.0) (2024-07-25)
+
+
+### Features
+
+* **carousel:** carousel component first iteration ([b97cf8e](https://github.com/acronis/ui-component-library/commit/b97cf8ee9e453788a1a4d75539c50cb665731f4a))
+
 ## [1.10.2](https://github.com/acronis/ui-component-library/compare/v1.10.1...v1.10.2) (2024-07-25)
 
 
@@ -32,16 +39,4 @@
 ### Bug Fixes
 
 * fix spinner tests ([625402c](https://github.com/acronis/ui-component-library/commit/625402cb5f86aa27c08d29d87076cc41ce9333c2))
-
-## [1.9.0](https://github.com/acronis/ui-component-library/compare/v1.8.7...v1.9.0) (2024-07-24)
-
-
-### Features
-
-* prepare spinner draft ([6af21fa](https://github.com/acronis/ui-component-library/commit/6af21fa50222883c2c032715d3340b9053e3a64b))
-
-
-### Bug Fixes
-
-* update radio colors ([52a493a](https://github.com/acronis/ui-component-library/commit/52a493abbc850e4de0f77b7b1ef7f3433bf8b47a))
 
