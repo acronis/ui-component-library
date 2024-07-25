@@ -1,11 +1,12 @@
 <script setup lang="ts">
   import { computed, inject } from 'vue';
-  import { BUTTON_COLOR, BUTTON_GROUP_KEY, BUTTON_VARIANT } from '../index.ts';
+  import { BUTTON_GROUP_KEY } from '../button-group/buttonGroup.ts';
   import AcvIcon from '../icon/icon.vue';
   import { vAutofocus } from '../../directives/autofocus.ts';
   import Loader from '../loader/loader.vue';
   import { isBaseColor } from '../../utils/color.ts';
   import { colord } from '../../utils/colord.ts';
+  import { BUTTON_COLOR, BUTTON_VARIANT } from './button.ts';
   import type { AcvButtonProps, AcvButtonSlots } from './button.ts';
   import './button.css';
 
