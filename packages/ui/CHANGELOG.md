@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/acronis/ui-component-library/compare/v1.10.0...v1.10.1) (2024-07-25)
+
+
+### Bug Fixes
+
+* prevent loading of all components when loading a button ([86b6327](https://github.com/acronis/ui-component-library/commit/86b63277569d5598bf87d03a2a13a43dc386f2b0))
+
 ## [1.10.0](https://github.com/acronis/ui-component-library/compare/v1.9.1...v1.10.0) (2024-07-25)
 
 
@@ -37,11 +44,4 @@
 ### Bug Fixes
 
 * update cy snapshots ([118f69f](https://github.com/acronis/ui-component-library/commit/118f69fc2801211ddad78d04e3281e95fe5b52ab))
-
-## [1.8.6](https://github.com/acronis/ui-component-library/compare/v1.8.5...v1.8.6) (2024-07-24)
-
-
-### Bug Fixes
-
-* fix tooltip demo visibility ([ba28174](https://github.com/acronis/ui-component-library/commit/ba28174605f0458cb75282d4e02215768d7e19e6))
 
