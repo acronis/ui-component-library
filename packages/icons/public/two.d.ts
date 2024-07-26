@@ -1,1 +1,1 @@
-export { default as IconTwoWaySyncfolder24 } from '../vue/IconTwoWaySyncfolder24.vue';
+export { default as IconTwoWaySyncfolder24 } from '../vue/IconTwoWaySyncfolder24.js';

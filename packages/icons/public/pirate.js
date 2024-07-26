@@ -1,1 +1,1 @@
-export { default as IconPirateTray16 } from '../vue/IconPirateTray16.vue';
+export { render as IconPirateTray16 } from '../vue/IconPirateTray16.js';

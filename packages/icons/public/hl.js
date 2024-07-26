@@ -1,1 +1,1 @@
-export { default as IconHlGroup32 } from '../vue/IconHlGroup32.vue';
+export { render as IconHlGroup32 } from '../vue/IconHlGroup32.js';

@@ -1,1 +1,1 @@
-export { default as IconTableView16 } from '../vue/IconTableView16.vue';
+export { default as IconTableView16 } from '../vue/IconTableView16.js';

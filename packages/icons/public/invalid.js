@@ -1,2 +1,2 @@
-export { default as IconInvalidLink16 } from '../vue/IconInvalidLink16.vue';
-export { default as IconInvalidLink24 } from '../vue/IconInvalidLink24.vue';
+export { render as IconInvalidLink16 } from '../vue/IconInvalidLink16.js';
+export { render as IconInvalidLink24 } from '../vue/IconInvalidLink24.js';

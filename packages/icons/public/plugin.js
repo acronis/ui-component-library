@@ -1,2 +1,2 @@
-export { default as IconPluginAb24 } from '../vue/IconPluginAb24.vue';
-export { default as IconPluginAb32 } from '../vue/IconPluginAb32.vue';
+export { render as IconPluginAb24 } from '../vue/IconPluginAb24.js';
+export { render as IconPluginAb32 } from '../vue/IconPluginAb32.js';

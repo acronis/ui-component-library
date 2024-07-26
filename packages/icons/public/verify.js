@@ -1,1 +1,1 @@
-export { default as IconVerify32 } from '../vue/IconVerify32.vue';
+export { render as IconVerify32 } from '../vue/IconVerify32.js';

@@ -1,1 +1,1 @@
-export { default as IconErrorTray16 } from '../vue/IconErrorTray16.vue';
+export { render as IconErrorTray16 } from '../vue/IconErrorTray16.js';

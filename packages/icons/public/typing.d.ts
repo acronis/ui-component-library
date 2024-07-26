@@ -1,1 +1,1 @@
-export { default as IconTyping16 } from '../vue/IconTyping16.vue';
+export { default as IconTyping16 } from '../vue/IconTyping16.js';

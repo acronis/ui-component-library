@@ -1,1 +1,1 @@
-export { default as IconConnected32 } from '../vue/IconConnected32.vue';
+export { default as IconConnected32 } from '../vue/IconConnected32.js';

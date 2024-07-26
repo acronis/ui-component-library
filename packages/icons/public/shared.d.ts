@@ -1,1 +1,1 @@
-export { default as IconSharedFolder24 } from '../vue/IconSharedFolder24.vue';
+export { default as IconSharedFolder24 } from '../vue/IconSharedFolder24.js';

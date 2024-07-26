@@ -1,1 +1,1 @@
-export { default as IconBootableMedia24 } from '../vue/IconBootableMedia24.vue';
+export { default as IconBootableMedia24 } from '../vue/IconBootableMedia24.js';

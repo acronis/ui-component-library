@@ -1,1 +1,1 @@
-export { default as IconUrlFilteringTray32 } from '../vue/IconUrlFilteringTray32.vue';
+export { render as IconUrlFilteringTray32 } from '../vue/IconUrlFilteringTray32.js';

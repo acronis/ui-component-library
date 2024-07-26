@@ -1,1 +1,1 @@
-export { default as IconUnshelveO16 } from '../vue/IconUnshelveO16.vue';
+export { render as IconUnshelveO16 } from '../vue/IconUnshelveO16.js';

@@ -1,1 +1,1 @@
-export { default as IconRPanel16 } from '../vue/IconRPanel16.vue';
+export { render as IconRPanel16 } from '../vue/IconRPanel16.js';

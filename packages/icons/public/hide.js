@@ -1,5 +1,5 @@
-export { default as IconHide16 } from '../vue/IconHide16.vue';
-export { default as IconHide32 } from '../vue/IconHide32.vue';
-export { default as IconHideCoordinate16 } from '../vue/IconHideCoordinate16.vue';
-export { default as IconHidePanel24 } from '../vue/IconHidePanel24.vue';
-export { default as IconHideWay16 } from '../vue/IconHideWay16.vue';
+export { render as IconHide16 } from '../vue/IconHide16.js';
+export { render as IconHide32 } from '../vue/IconHide32.js';
+export { render as IconHideCoordinate16 } from '../vue/IconHideCoordinate16.js';
+export { render as IconHidePanel24 } from '../vue/IconHidePanel24.js';
+export { render as IconHideWay16 } from '../vue/IconHideWay16.js';

@@ -1,1 +1,1 @@
-export { default as IconLocalBackupO24 } from '../vue/IconLocalBackupO24.vue';
+export { default as IconLocalBackupO24 } from '../vue/IconLocalBackupO24.js';

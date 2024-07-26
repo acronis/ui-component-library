@@ -1,1 +1,1 @@
-export { default as IconMandatory16 } from '../vue/IconMandatory16.vue';
+export { default as IconMandatory16 } from '../vue/IconMandatory16.js';

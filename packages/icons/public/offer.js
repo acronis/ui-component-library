@@ -1,1 +1,1 @@
-export { default as IconOfferTray16 } from '../vue/IconOfferTray16.vue';
+export { render as IconOfferTray16 } from '../vue/IconOfferTray16.js';

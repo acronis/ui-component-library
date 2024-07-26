@@ -1,1 +1,1 @@
-export { default as IconAnalysis16 } from '../vue/IconAnalysis16.vue';
+export { render as IconAnalysis16 } from '../vue/IconAnalysis16.js';

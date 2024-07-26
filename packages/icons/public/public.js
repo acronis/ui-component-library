@@ -1,1 +1,1 @@
-export { default as IconPublicBoxAb32 } from '../vue/IconPublicBoxAb32.vue';
+export { render as IconPublicBoxAb32 } from '../vue/IconPublicBoxAb32.js';

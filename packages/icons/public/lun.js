@@ -1,2 +1,2 @@
-export { default as IconLun24 } from '../vue/IconLun24.vue';
-export { default as IconLunStatus24 } from '../vue/IconLunStatus24.vue';
+export { render as IconLun24 } from '../vue/IconLun24.js';
+export { render as IconLunStatus24 } from '../vue/IconLunStatus24.js';

@@ -1,8 +1,32 @@
-# Figma icons
+# Figma Icons
 
-#### For using
+### Steps for Using
 
-- Navigate to https://www.figma.com/developers/api#access-tokens and get your token
-- Create `.env.local` in the directory when you want to use this lib
-- Add variable `FIGMA_FETCHER_FIGMA_TOKEN='your token'` in `.env.local`
-- Run the command `fetch-icons`
+1. **Navigate to Figma Access Tokens:**
+
+- Go to [Figma Developers API Access Tokens](https://www.figma.com/developers/api#access-tokens) and obtain your token.
+
+2. **Create Environment File:**
+
+- In the directory where you want to use this library, create a `.env.local` file.
+
+3**Download Icons:**
+
+- Run the command `fetch-icons` in the package where you want to store your icons.
+
+### Example of `.env.local`
+
+```plaintext
+FIGMA_FETCHER_FIGMA_TOKEN="PUT_YOUR_FIGMA_TOKEN"
+FIGMA_FETCHER_FILE_KEY="PUT_YOUR_FILE_KEY"
+FIGMA_FETCHER_PAGE_NAME="PUT_PAGE_NAME_WITH_ICONS"
+FIGMA_FETCHER_FRAME_NAMES="FRAME_NAMES_WITH_ICONS, SEPARATED_BY_COMMA"
+```
+
+### Command to Fetch Icons
+
+```bash
+fetch-icons
+```
+
+This will download your icons to the specified directory.

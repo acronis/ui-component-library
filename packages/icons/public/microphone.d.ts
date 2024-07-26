@@ -1,1 +1,1 @@
-export { default as IconMicrophone24 } from '../vue/IconMicrophone24.vue';
+export { default as IconMicrophone24 } from '../vue/IconMicrophone24.js';

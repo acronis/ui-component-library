@@ -1,1 +1,1 @@
-export { default as IconReply16 } from '../vue/IconReply16.vue';
+export { render as IconReply16 } from '../vue/IconReply16.js';

@@ -1,2 +1,2 @@
-export { default as IconFloatingIps16 } from '../vue/IconFloatingIps16.vue';
-export { default as IconFloatingIps24 } from '../vue/IconFloatingIps24.vue';
+export { render as IconFloatingIps16 } from '../vue/IconFloatingIps16.js';
+export { render as IconFloatingIps24 } from '../vue/IconFloatingIps24.js';

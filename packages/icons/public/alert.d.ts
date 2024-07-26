@@ -1,1 +1,1 @@
-export { default as IconAlertTray16 } from '../vue/IconAlertTray16.vue';
+export { default as IconAlertTray16 } from '../vue/IconAlertTray16.js';
