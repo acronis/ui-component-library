@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/acronis/ui-component-library/compare/v1.11.1...v1.11.2) (2024-07-26)
+
+
+### Bug Fixes
+
+* link decoration ([e5e23e6](https://github.com/acronis/ui-component-library/commit/e5e23e63579c6222b802c1adf401f84e305dfdc3))
+
 ## [1.11.1](https://github.com/acronis/ui-component-library/compare/v1.11.0...v1.11.1) (2024-07-26)
 
 
@@ -25,18 +32,4 @@
 ### Bug Fixes
 
 * prevent loading of all components when loading a button ([86b6327](https://github.com/acronis/ui-component-library/commit/86b63277569d5598bf87d03a2a13a43dc386f2b0))
-
-## [1.10.0](https://github.com/acronis/ui-component-library/compare/v1.9.1...v1.10.0) (2024-07-25)
-
-
-### Features
-
-* **icon:** add sorting to make export static ([d151020](https://github.com/acronis/ui-component-library/commit/d1510205cfc911c8b314855df6512b1e8ba0d2e4))
-* **icon:** new icons package ([c7c3659](https://github.com/acronis/ui-component-library/commit/c7c36596a61dcb458a3af22a7c10d285478e6459))
-* **icon:** review fixes ([3cf1d88](https://github.com/acronis/ui-component-library/commit/3cf1d88944f4a47fda7dc21123f2700cafdeb347))
-
-
-### Bug Fixes
-
-* update icon configs ([ba5bf4b](https://github.com/acronis/ui-component-library/commit/ba5bf4bcf36e597056c755398308aa0cea9dcaa7))
 
