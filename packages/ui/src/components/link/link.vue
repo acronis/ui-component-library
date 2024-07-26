@@ -32,6 +32,7 @@
     font-size: var(--acv-font-size-body);
     font-weight: var(--acv-font-weight-strong);
     line-height: var(--acv-font-line-height-regular);
+    text-decoration: none;
 
     &.disabled {
       --acv-link-color: var(--acv-color-link-disabled);
