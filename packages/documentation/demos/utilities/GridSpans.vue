@@ -1,6 +1,6 @@
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="acv-grid--row-span-2"
       span="12"
     >
@@ -18,8 +18,8 @@
           Column 4
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-grid--col-span-2"
       span="12"
     >
@@ -37,6 +37,6 @@
           Column 4
         </div>
       </div>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

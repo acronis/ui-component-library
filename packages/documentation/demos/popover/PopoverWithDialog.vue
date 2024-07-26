@@ -1,7 +1,5 @@
 <script setup>
   import { ref } from 'vue';
-  import PreviewGroup from '../../.vitepress/components/PreviewGroup.vue';
-  import Preview from '../../.vitepress/components/Preview.vue';
   import AcvButton from '@/components/button/button.vue';
   import AcvPopover from '@/components/popover/popover.vue';
   import AcvDialog from '@/components/dialog/dialog.vue';

@@ -82,13 +82,13 @@ Breadcrumbs are often placed horizontally before a page's main content.
 
 ## Props
 
-| Prop name     | Description                                           | Type                       | Values | Default |
-| ------------- | ----------------------------------------------------- | -------------------------- | ------ | ------- |
-| to            | Target of the breadcrumbs, same as `to` in Vue Router | string \| RouteLocationRaw | -      |         |
-| maxItems      | Maximum number of items to display                    | number                     | -      |         |
-| multiline     | Breadcrumb will be wrapped to multiple lines if true  | boolean                    | -      |         |
-| separatorIcon | Separator between breadcrumbs                         | string                     | -      |         |
-| size          | Size of the breadcrumbs                               | "md" \| "lg"               | -      | 'md'    |
+| Prop name     | Description                                           | Type         | Values | Default |
+| ------------- | ----------------------------------------------------- | ------------ | ------ | ------- |
+| to            | Target of the breadcrumbs, same as `to` in Vue Router | string       | -      |         |
+| maxItems      | Maximum number of items to display                    | number       | -      |         |
+| multiline     | Breadcrumb will be wrapped to multiple lines if true  | boolean      | -      |         |
+| separatorIcon | Separator between breadcrumbs                         | string       | -      |         |
+| size          | Size of the breadcrumbs                               | "md" \| "lg" | -      | 'md'    |
 
 ## Events
 

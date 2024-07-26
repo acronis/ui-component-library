@@ -23,11 +23,9 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A27
     - Pressing Enter or Space selects the current hovered option
     - Close the select dropdown when clicking outside of it
 
-## Import
+## Usage
 
-```javascript
-import { AcvSelect } from '@acronis-platform/ui-component-library';
-```
+<<< @/demos/select/SelectUsage.vue
 
 ## Basic usage
 

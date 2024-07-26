@@ -1,6 +1,6 @@
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       class="acv-grid--flow-col acv-grid--gap-16"
       span="12"
     >
@@ -33,8 +33,8 @@
           9
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-grid--flow-col-dense"
       span="12"
     >
@@ -67,8 +67,8 @@
           9
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-grid--flow-row"
       span="12"
     >
@@ -95,8 +95,8 @@
           7
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-grid--flow-row-dense"
       span="12"
     >
@@ -123,6 +123,6 @@
           7
         </div>
       </div>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

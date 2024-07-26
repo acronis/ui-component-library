@@ -8,9 +8,9 @@ editLink: true
 
 ## Props
 
-| Prop name | Description                                    | Type             | Values | Default |
-| --------- | ---------------------------------------------- | ---------------- | ------ | ------- |
-| to        | Target of the link, same as `to` in Vue Router | RouteLocationRaw | -      |         |
+| Prop name | Description                                    | Type   | Values | Default |
+| --------- | ---------------------------------------------- | ------ | ------ | ------- |
+| to        | Target of the link, same as `to` in Vue Router | string | -      |         |
 
 ## Slots
 

@@ -1,16 +1,16 @@
-Basic sizes, rules for building and using icons. Work with the terminal and Gulp tasks.
+Basic sizes, rules for building and using icons.
 Icons can be outlined or bold, it all depends on the specific case.
-But, in most cases, they use outline icons.
+But, in most cases, we use outline icons.
 
 :::info Figma mockups
-https://www.figma.com/file/YDRlEkpDc1qcapabYuK5ID/Glyphs?node-id=0%3A1
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=206-385&m=dev
 :::
 
 ## Usage
 
-TODO: Replace with real-world example from /demos
+<IconExample />
 
-<<< @/demos/icons/IconExample.vue
+<<< @/demos/icon/IconExample.vue
 
 ## Basic usage
 
@@ -23,12 +23,13 @@ The naming convention
 - `acv-icon--size` - the size of the icon
 - `acv-icon--color` - the color of the icon
 - `acv-icon--bold` - the bold icon
-  :::
+
+:::
 
 <IconBasic />
 
 ::: details Source code
-<<< @/demos/icons/IconBasic.vue
+<<< @/demos/icon/IconBasic.vue
 :::
 
 ## Monochrome icons
@@ -59,4 +60,4 @@ The naming convention
 
 The icons are tree-shakable, so only the icons that are used in the project will be included in the final bundle.
 
-<<< @/demos/icons/IconTreeShaking.vue
+<<< @/demos/icon/IconTreeShaking.vue

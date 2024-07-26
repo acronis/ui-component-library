@@ -41,8 +41,8 @@
 </script>
 
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="Data with only one point"
       span="24"
     >
@@ -53,8 +53,8 @@
           :data-point-on-hover="true"
         />
       </AcvWidgetWrapper>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Data with restricted number of ticks on the Y axis"
       span="24"
     >
@@ -65,8 +65,8 @@
           :data-point-on-hover="true"
         />
       </AcvWidgetWrapper>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Partial null data"
       span="24"
     >
@@ -76,8 +76,8 @@
           variable-threshold
         />
       </AcvWidgetWrapper>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Edge data"
       span="24"
     >
@@ -88,6 +88,6 @@
           variable-threshold
         />
       </AcvWidgetWrapper>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

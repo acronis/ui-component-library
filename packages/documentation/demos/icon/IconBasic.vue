@@ -6,24 +6,11 @@
 <template>
   <PreviewGroup class="qa-icon-basic">
     <Preview
-      name="Default"
-      span="6"
-    >
-      <Icon
-        name="workstations-o--16"
-        color="brand-primary"
-        disabled
-      />
-    </Preview>
-    <Preview
       name="Ghost button"
       span="6"
     >
-      <Button
-        type="ghost"
-        disabled
-      >
-        <Icon name="workstations-o--16" />
+      <Button variant="ghost">
+        <Icon name="Workstation16" />
       </Button>
     </Preview>
     <Preview
@@ -32,8 +19,7 @@
     >
       <Button
         type="secondary"
-        icon="i-workstations-o--16"
-        disabled
+        icon="Workstations32"
       >
         Button
       </Button>
@@ -42,12 +28,25 @@
       name="Primary button"
       span="6"
     >
-      <Button
-        icon="i-workstations-o--16"
-        disabled
-      >
+      <Button icon="Sync16">
         Button
       </Button>
+    </Preview>
+    <Preview
+      name="Multicolor icon"
+      span="6"
+    >
+      <Icon name="Sync16" />
+    </Preview>
+    <Preview
+      name="Legacy"
+      span="6"
+    >
+      <Icon
+        name="workstations--32"
+        color="brand-primary"
+        legacy
+      />
     </Preview>
   </PreviewGroup>
 </template>

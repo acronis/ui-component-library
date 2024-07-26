@@ -1,7 +1,7 @@
 {
   "extends": "@acronis-platform/configs/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "nodenext",
+    "moduleResolution": "bundler",
     "types": ["vite/client"],
     "paths": {
       "@/*": ["../ui/src/*"],

@@ -1,6 +1,6 @@
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="acv-text--align-left"
       span="6"
     >
@@ -9,8 +9,8 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-text--align-center"
       span="6"
     >
@@ -19,8 +19,8 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-text--align-right"
       span="6"
     >
@@ -29,8 +29,8 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-text--align-justify"
       span="6"
     >
@@ -39,6 +39,6 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </div>
       </div>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

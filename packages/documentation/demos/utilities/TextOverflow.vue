@@ -1,6 +1,6 @@
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="acv-overflow--auto"
       span="8"
     >
@@ -9,8 +9,8 @@
           this content will show a native scroll bar because it overflows parent
         </div>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-overflow--hidden"
       span="8"
     >
@@ -19,6 +19,6 @@
           the overflowed content will be hidden in this example
         </div>
       </div>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

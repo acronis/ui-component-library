@@ -1,5 +1,7 @@
 import type { App, Component } from 'vue';
 import Color from '../components/Color.vue';
+import Preview from '../components/Preview.vue';
+import PreviewGroup from '../components/PreviewGroup.vue';
 
 const examplesModules: Record<string, { default: Component }> = import.meta.glob('../../demos/**/*.vue', {
   eager: true
@@ -17,4 +19,6 @@ export function useComponents(app: App) {
 
   app.component('Color', Color);
   app.component('Colors', () => import('../components/Colors.vue'));
+  app.component('Preview', Preview);
+  app.component('PreviewGroup', PreviewGroup);
 }

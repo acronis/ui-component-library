@@ -1,5 +1,6 @@
 <script>
   import Chart from 'chart.js/auto';
+  import { isBrowser } from '@antfu/utils';
   import WidgetChart from '../pie-chart/widget.chart';
   import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
   import WidgetLoading from '../widget-wrapper/widgetLoading.vue';
@@ -150,9 +151,11 @@
         });
       },
       updateChartColors() {
-        this.definedOptions.scales.y.grid.color = getComputedStyle(document.body).getPropertyValue('--av-brand-accent');
-        this.definedOptions.scales.y.ticks.fontColor = getComputedStyle(document.body).getPropertyValue('--av-fixed-primary');
-        this.definedOptions.scales.x.ticks.fontColor = getComputedStyle(document.body).getPropertyValue('--av-fixed-primary');
+        if (!isBrowser)
+          return;
+        this.definedOptions.scales.y.grid.color = window.getComputedStyle(document.body).getPropertyValue('--av-brand-accent');
+        this.definedOptions.scales.y.ticks.fontColor = window.getComputedStyle(document.body).getPropertyValue('--av-fixed-primary');
+        this.definedOptions.scales.x.ticks.fontColor = window.getComputedStyle(document.body).getPropertyValue('--av-fixed-primary');
       },
       onCanvasClick(e, items) {
         if (items.length) {

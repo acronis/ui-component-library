@@ -15,18 +15,6 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-3736
 
 ## Variants
 
-<CarouselHeight />
-
-<CarouselHover />
-
-<CarouselIndicators />
-
-<CarouselNavigation />
-
-<CarouselSlide />
-
-<CarouselSlides />
-
 ## Auto play
 
 <CarouselAutoPlay />

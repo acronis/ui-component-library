@@ -104,6 +104,7 @@
   --acv-color-status-warning-tertiary: hsl(45deg 100% 82%);
   --acv-color-surface-fixed-primary: hsla(0deg 0% 8% / 0.9);
   --acv-color-surface-fixed-secondary: hsl(0deg 0% 18%);
+  --acv-color-surface-inversed-dark-primary: hsl(0deg 0% 100%);
   --acv-color-surface-inversed-primary: hsl(0deg 0% 100%);
   --acv-color-surface-inversed-secondary: hsla(0deg 0% 100% / 0.95);
   --acv-color-surface-primary: hsl(0deg 0% 100%);

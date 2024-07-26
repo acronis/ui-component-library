@@ -1,23 +1,22 @@
 <script setup>
-  import { createRouter, createWebHashHistory } from 'vue-router';
-  import { getCurrentInstance } from 'vue';
+  // import { createRouter, createWebHashHistory } from 'vue-router';
   import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
   import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
 
-  const router = createRouter({
-    history: createWebHashHistory(),
-    routes: [
-      {
-        path: '/',
-        component: {
-          template: '<div>Home</div>',
-        },
-      },
-    ],
-  });
+  // const router = createRouter({
+  //   history: createWebHashHistory(),
+  //   routes: [
+  //     {
+  //       path: '/',
+  //       component: {
+  //         template: '<div>Home</div>',
+  //       },
+  //     },
+  //   ],
+  // });
 
-  const { app } = getCurrentInstance().appContext;
-  app.use(router);
+  // const { app } = getCurrentInstance().appContext;
+  // app.use(router);
 
   function onClick() {
     console.log('clicked');

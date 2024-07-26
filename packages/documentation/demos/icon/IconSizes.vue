@@ -9,7 +9,7 @@
       span="6"
     >
       <Icon
-        name="WorkstationsPremiumOMedium"
+        name="WorkstationsPremium16"
         color="brand-primary"
         size="16"
       />
@@ -19,7 +19,7 @@
       span="6"
     >
       <Icon
-        name="WorkstationsPremiumOMedium"
+        name="WorkstationsPremium24"
         color="brand-primary"
         size="24"
       />
@@ -29,7 +29,7 @@
       span="6"
     >
       <Icon
-        name="NasAbLarge"
+        name="NasAb32"
         color="brand-primary"
         size="64"
       />
@@ -39,7 +39,7 @@
       span="6"
     >
       <Icon
-        name="NasAbLarge"
+        name="NasAb32"
         color="brand-primary"
         size="96"
       />

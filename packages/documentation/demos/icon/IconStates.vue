@@ -18,15 +18,16 @@
       <div>
         <Icon
           v-if="!iconState1"
-          name="NotificationsDOSmall"
-          color="brand-primary"
-          state-color="success"
+          name="Hdd32"
+          size="64"
+          color="primary"
         />
         <Icon
           v-else
-          name="NotificationsWithStateDOSmall"
-          state="StateAlertDSmall"
-          color="brand-primary"
+          name="HddMix32"
+          state="ForbiddenMix32"
+          size="64"
+          color="primary"
           state-color="success"
         />
       </div>
@@ -42,13 +43,15 @@
       <div>
         <Icon
           v-if="!iconState2"
-          name="folder-d-o--16"
+          name="Folder32"
+          size="64"
           color="primary"
         />
         <Icon
           v-else
-          name="folder-with-state-d-o--16"
-          state="i-state-download-d--16"
+          name="FolderMix32"
+          state="DownloadMix32"
+          size="64"
           color="primary"
           state-color="success"
         />
@@ -59,19 +62,21 @@
       </Checkbox>
     </Preview>
     <Preview
-      name="Uploading state"
+      name="Play state"
       span="6"
     >
       <div>
         <Icon
           v-if="!iconState3"
-          name="folder-d-o--16"
+          name="Folder32"
+          size="64"
           color="primary"
         />
         <Icon
           v-else
-          name="folder-with-state-d-o--16"
-          state="i-state-upload-d--16"
+          name="FolderMix32"
+          state="PlayMix32"
+          size="64"
           color="primary"
         />
       </div>
@@ -87,13 +92,15 @@
       <div>
         <Icon
           v-if="!iconState4"
-          name="folder-d-o--16"
+          name="Folder32"
+          size="64"
           color="brand-primary"
         />
         <Icon
           v-else
-          name="folder-with-state-d-o--16"
-          state="i-state-pause-d--16"
+          name="FolderMix32"
+          state="PauseMix32"
+          size="64"
           color="brand-primary"
         />
       </div>
