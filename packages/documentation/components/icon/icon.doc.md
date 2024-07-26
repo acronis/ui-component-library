@@ -74,7 +74,7 @@ The icons are tree-shakable, so only the icons that are used in the project will
 
 | Prop name      | Description                                          | Type                                                   | Values                                           | Default   |
 | -------------- | ---------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------ | --------- |
-| name           | Name of icon (e.g. `check` or `i-check--16`)         | string                                                 | -                                                |           |
+| name           | Name of icon (e.g. `check` or `check--16`)           | string                                                 | -                                                |           |
 | collection     | Name of collection (e.g. `acronis` or `constructor`) | string                                                 | -                                                | 'acronis' |
 | state          | Name of state icon (e.g. `i-state-upload-d--16`)     | string                                                 | -                                                |           |
 | title          | Title of the icon                                    | string                                                 | -                                                |           |

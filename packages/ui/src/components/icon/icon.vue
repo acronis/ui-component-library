@@ -1,7 +1,9 @@
 <script setup lang="ts">
   import { computed, defineAsyncComponent, markRaw, ref, useAttrs, watch } from 'vue';
   import { camelCase, startCase } from 'lodash-es';
+  import { isBrowser } from '@antfu/utils';
   import type { AcvIconProps } from './icon.ts';
+
   import './icon.css';
 
   const {
@@ -21,8 +23,6 @@
     collection: 'acronis',
     size: '16'
   });
-
-  const modules = import.meta.glob('../../../../icons/vue/*.vue');
 
   const classes = computed(() => {
     return {
@@ -53,23 +53,21 @@
   const dynamicStateIcon = ref<any>(null);
 
   watch(() => name, async () => {
-    if (!name) {
+    if (!name || !isBrowser) {
       return undefined;
     }
     const iconFilename = `Icon${startCase(camelCase(name)).replace(/ /g, '')}`;
-
-    const iconModule = modules[`../../../../icons/vue/${iconFilename}.vue`];
+    const iconModule = () => import(`../../../../icons/vue/${iconFilename}.vue`);
 
     dynamicIcon.value = iconModule ? markRaw(defineAsyncComponent(await iconModule)) : null;
   }, { immediate: true });
 
   watch(() => state, async () => {
-    if (!state) {
+    if (!state || !isBrowser) {
       return undefined;
     }
     const iconFilename = `Icon${startCase(camelCase(state)).replace(/ /g, '')}`;
-
-    const iconModule = modules[`../../../../icons/vue/${iconFilename}.vue`];
+    const iconModule = () => import(`../../../../icons/vue/${iconFilename}.vue`);
 
     dynamicStateIcon.value = iconModule ? markRaw(defineAsyncComponent(await iconModule)) : null;
   }, { immediate: true });

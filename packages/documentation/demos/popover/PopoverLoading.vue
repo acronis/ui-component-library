@@ -18,8 +18,8 @@
 </script>
 
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="Default"
       span="6"
     >
@@ -55,11 +55,10 @@
         </div>
       </AcvPopover>
       <AcvButton
-        v-popover:popover7
         :class="{ 'is-selected': loadingPopover }"
       >
         Button
       </AcvButton>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

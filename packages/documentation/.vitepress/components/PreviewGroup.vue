@@ -11,13 +11,13 @@
 <style scoped>
 .demo-preview-group {
   margin: 0;
-}
 
-.preview-group {
-  .preview-group__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -1px -1px;
+  .preview-group {
+    .preview-group__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -1px -1px;
+    }
   }
 }
 </style>

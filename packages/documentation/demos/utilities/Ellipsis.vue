@@ -3,16 +3,16 @@
 </script>
 
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="acv-text--ellipsis"
       span="12"
     >
       <div class="acv-text--ellipsis">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id venenatis a condimentum vitae sapien.
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="acv-text--ellipsis with span"
       span="12"
     >
@@ -21,6 +21,6 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id venenatis a condimentum vitae sapien.
         </span>
       </div>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

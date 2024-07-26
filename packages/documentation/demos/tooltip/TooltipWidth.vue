@@ -1,7 +1,5 @@
 <script setup>
   import { IconAttention16 } from '@acronis-platform/icons/attention';
-  import PreviewGroup from '../../.vitepress/components/PreviewGroup.vue';
-  import Preview from '../../.vitepress/components/Preview.vue';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
 

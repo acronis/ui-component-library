@@ -1,7 +1,5 @@
 <script setup>
   import { onMounted, ref } from 'vue';
-  import PreviewGroup from '../../.vitepress/components/PreviewGroup.vue';
-  import Preview from '../../.vitepress/components/Preview.vue';
   import AcvPopover from '@/components/popover/popover.vue';
   import AcvButton from '@/components/button/button.vue';
 

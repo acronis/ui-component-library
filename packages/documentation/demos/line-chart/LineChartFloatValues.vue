@@ -23,8 +23,8 @@
 </script>
 
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="Float values"
       span="24"
     >
@@ -32,8 +32,8 @@
         :data="floatValuesData"
         :precision="2"
       />
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Float values (percent)"
       span="24"
     >
@@ -42,8 +42,8 @@
         :precision="1"
         y-percent
       />
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Float values (size)"
       span="24"
     >
@@ -51,8 +51,8 @@
         :data="floatValuesDataTwo"
         :precision="3"
       />
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Float values (variable threshold)"
       span="24"
     >
@@ -61,6 +61,6 @@
         :precision="2"
         variable-threshold
       />
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

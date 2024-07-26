@@ -16,8 +16,8 @@
 </script>
 
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="with percent scale"
       span="24"
     >
@@ -33,6 +33,6 @@
       >
         Change data
       </AcvButton>
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

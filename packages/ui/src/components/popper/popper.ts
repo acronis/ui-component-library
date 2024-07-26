@@ -113,7 +113,7 @@ export interface AcvPopperProps {
   // Floating UI based Props
   /**
    * Placement of the Popper
-   * https://floating-ui.com/docs/computePosition#placement
+   * [Floating UI](https://floating-ui.com/docs/computePosition#placement)
    * @defaultValue 'bottom-start'
    */
   placement?: PopperPlacement
@@ -125,13 +125,13 @@ export interface AcvPopperProps {
 
   /**
    * Whether to use transform for positioning
-   * https://floating-ui.com/docs/tutorial#middleware
+   * [Floating UI](https://floating-ui.com/docs/tutorial#middleware)
    */
   middleware?: Middleware
 
   /**
    * Offset of the Popper
-   * https://floating-ui.com/docs/offset
+   * [Floating UI](https://floating-ui.com/docs/offset)
    */
   offset?: number
 
@@ -144,7 +144,7 @@ export interface AcvPopperProps {
 
   /**
    * Changes the placement of the floating element to keep it in view.
-   * https://floating-ui.com/docs/flip
+   * [Floating UI](https://floating-ui.com/docs/flip)
    * @defaultValue false
    */
   flip?: boolean

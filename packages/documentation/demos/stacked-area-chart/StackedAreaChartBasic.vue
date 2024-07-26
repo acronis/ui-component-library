@@ -102,8 +102,8 @@
 </script>
 
 <template>
-  <preview-group>
-    <preview
+  <PreviewGroup>
+    <Preview
       name="Default"
       span="24"
     >
@@ -112,8 +112,8 @@
         @point-click="onPointClick"
         @legend-click="onLegendClick"
       />
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Change data"
       span="24"
     >
@@ -127,8 +127,8 @@
           Change data
         </AcvButton>
       </div>
-    </preview>
-    <preview
+    </Preview>
+    <Preview
       name="Acronis branding colors"
       span="24"
     >
@@ -137,6 +137,6 @@
         @point-click="onPointClick"
         @legend-click="onLegendClick"
       />
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>

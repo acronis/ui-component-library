@@ -30,8 +30,8 @@
 </script>
 
 <template>
-  <preview-group>
-    <preview name="Default">
+  <PreviewGroup>
+    <Preview name="Default">
       <AcvWidgetWrapper
         :title="title"
       >
@@ -60,8 +60,8 @@
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
       </AcvWidgetWrapper>
-    </preview>
-    <preview name="Wide">
+    </Preview>
+    <Preview name="Wide">
       <AcvWidgetWrapper
         class="widget-three"
         :title="title"
@@ -92,8 +92,8 @@
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
       </AcvWidgetWrapper>
-    </preview>
-    <preview name="With table widget">
+    </Preview>
+    <Preview name="With table widget">
       <AcvWidgetWrapper
         class="widget-table"
         no-padding
@@ -134,8 +134,8 @@
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
       </AcvWidgetWrapper>
-    </preview>
-    <preview name="Header and footer with long text strings">
+    </Preview>
+    <Preview name="Header and footer with long text strings">
       <AcvWidgetWrapper
         :title="longHeaderText"
       >
@@ -176,9 +176,9 @@
           <span class="acv-text acv-text--caption">Last check: 2 minutes ago</span>
         </template>
       </AcvWidgetWrapper>
-    </preview>
-    <preview name="Dynamic positioning">
+    </Preview>
+    <Preview name="Dynamic positioning">
       <div />
-    </preview>
-  </preview-group>
+    </Preview>
+  </PreviewGroup>
 </template>
