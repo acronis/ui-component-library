@@ -10,18 +10,16 @@
       span="6"
     >
       <Icon
-        name="AcronisCloudLarge"
+        name="workstations--32"
         color="brand-primary"
-        size="32"
-        animation="spin"
       />
     </Preview>
     <Preview
       name="Ghost button"
       span="6"
     >
-      <Button variant="ghost">
-        <Icon name="WorkstationsOSmall" />
+      <Button type="ghost">
+        <Icon name="workstations--32" />
       </Button>
     </Preview>
     <Preview
@@ -29,8 +27,8 @@
       span="6"
     >
       <Button
-        variant="secondary"
-        icon="WorkstationsOSmall"
+        type="secondary"
+        icon="workstations--32"
       >
         Button
       </Button>
@@ -39,7 +37,7 @@
       name="Primary button"
       span="6"
     >
-      <Button icon="SyncedDSmall">
+      <Button icon="workstations--32">
         Button
       </Button>
     </Preview>
@@ -47,14 +45,17 @@
       name="Multicolor icon"
       span="6"
     >
-      <Icon name="SyncedDSmall" />
+      <Icon
+        name="PirateTray16"
+        size="32"
+      />
     </Preview>
     <Preview
       name="Legacy"
       span="6"
     >
       <Icon
-        name="workstations-o--16"
+        name="workstations--32"
         color="brand-primary"
         legacy
       />

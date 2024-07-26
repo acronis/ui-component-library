@@ -106,7 +106,7 @@
         <slot name="icon">
           <AcvIcon
             v-if="icon"
-            :icon="icon"
+            :name="icon"
           />
         </slot>
       </template>
@@ -121,7 +121,7 @@
         <slot name="iconRight">
           <AcvIcon
             v-if="rightIcon"
-            :icon="rightIcon"
+            :name="rightIcon"
           />
         </slot>
       </template>

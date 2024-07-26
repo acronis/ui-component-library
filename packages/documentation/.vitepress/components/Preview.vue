@@ -129,8 +129,8 @@
   justify-content: space-between;
   min-height: 176px;
   padding: 24px;
-  border-right: var(--acv-border-sm) var(--acv-color-accent);
-  border-bottom: var(--acv-border-sm) var(--acv-color-accent);
+  border-right: var(--acv-border-regular) var(--acv-color-status-info-primary);
+  border-bottom: var(--acv-border-regular) var(--acv-color-accent);
 
   .preview__content {
     display: flex;
@@ -142,9 +142,9 @@
   }
 
   .preview__caption {
-    font-size: var(--acv-body-font-size); /* 16px */
+    font-size: var(--acv-font-size-body); /* 16px */
     font-weight: var(--acv-font-weight-regular);
-    line-height: var(--acv-body-line-height);
+    line-height: var(--acv-font-line-height-regular);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -182,7 +182,7 @@
   .preview--color-nav-secondary,
   .preview--color-fixed-secondary {
     .preview__caption {
-      color: var(--acv-color-inverted-primary);
+      color: var(--acv-color-inverted);
 
       &.is-inverse {
         color: var(--acv-color-brand-primary)
