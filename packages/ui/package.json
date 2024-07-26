@@ -1,7 +1,7 @@
 {
   "name": "@acronis-platform/ui-component-library",
   "type": "module",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/acronis/ui-component-library.git"

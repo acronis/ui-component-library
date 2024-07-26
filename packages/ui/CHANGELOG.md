@@ -1,3 +1,10 @@
+## [1.11.5](https://github.com/acronis/ui-component-library/compare/v1.11.4...v1.11.5) (2024-07-26)
+
+
+### Bug Fixes
+
+* fix preview render error ([40d54ea](https://github.com/acronis/ui-component-library/commit/40d54ea095db95da21f991ee1b00a53fa7e3c223))
+
 ## [1.11.4](https://github.com/acronis/ui-component-library/compare/v1.11.3...v1.11.4) (2024-07-26)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * update tooltip tokens ([8565704](https://github.com/acronis/ui-component-library/commit/856570491eb85aa4671a9cfc3feab39c194d7034))
-
-## [1.11.0](https://github.com/acronis/ui-component-library/compare/v1.10.2...v1.11.0) (2024-07-25)
-
-
-### Features
-
-* **carousel:** carousel component first iteration ([b97cf8e](https://github.com/acronis/ui-component-library/commit/b97cf8ee9e453788a1a4d75539c50cb665731f4a))
 
