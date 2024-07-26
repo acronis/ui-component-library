@@ -1,1 +1,1 @@
-export { default as IconOverviewAb32 } from '../vue/IconOverviewAb32.vue';
+export { render as IconOverviewAb32 } from '../vue/IconOverviewAb32.js';

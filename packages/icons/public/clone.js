@@ -1,1 +1,1 @@
-export { default as IconCloneCopyAb32 } from '../vue/IconCloneCopyAb32.vue';
+export { render as IconCloneCopyAb32 } from '../vue/IconCloneCopyAb32.js';

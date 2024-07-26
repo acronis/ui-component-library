@@ -1,2 +1,2 @@
-export { default as IconUpsell16 } from '../vue/IconUpsell16.vue';
-export { default as IconUpsell32 } from '../vue/IconUpsell32.vue';
+export { render as IconUpsell16 } from '../vue/IconUpsell16.js';
+export { render as IconUpsell32 } from '../vue/IconUpsell32.js';

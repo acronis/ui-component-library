@@ -1,1 +1,1 @@
-export { default as IconSftpAb32 } from '../vue/IconSftpAb32.vue';
+export { default as IconSftpAb32 } from '../vue/IconSftpAb32.js';

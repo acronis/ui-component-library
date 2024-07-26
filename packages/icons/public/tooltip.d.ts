@@ -1,1 +1,1 @@
-export { default as IconTooltip16 } from '../vue/IconTooltip16.vue';
+export { default as IconTooltip16 } from '../vue/IconTooltip16.js';

@@ -1,1 +1,1 @@
-export { default as IconServers16 } from '../vue/IconServers16.vue';
+export { render as IconServers16 } from '../vue/IconServers16.js';

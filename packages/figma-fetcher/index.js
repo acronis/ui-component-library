@@ -1,8 +1,8 @@
 import { promises } from 'node:fs';
 import path from 'node:path';
 import { compileTemplate, parse } from '@vue/compiler-sfc';
-import { toPascalCase } from './utils/toPascalCase.js';
 import { downloadIcons } from './src/downloadIcons.js';
+import { toPascalCase } from './src/helpers.js';
 
 async function run() {
   const names = new Set();
@@ -51,14 +51,14 @@ export default _default;
     if (descriptor.template) {
       fileContentJs = compileTemplate({
         source: descriptor.template.content,
-        filename: fileVue // filename is important for source-map support
+        filename: fileVue, // filename is important for source-map support
+        id: fileVue,
       }).code;
     }
 
     await promises.mkdir(path.dirname(fileVue), { recursive: true });
     await promises.mkdir(path.dirname(imagePath), { recursive: true });
     await Promise.all([
-      promises.writeFile(fileVue, fileContent),
       promises.writeFile(fileVueDTs, fileContentDTs),
       promises.writeFile(fileJs, fileContentJs),
       promises.writeFile(imagePath, content, 'utf8'),
@@ -66,7 +66,7 @@ export default _default;
 
     const idx = pathname.indexOf('-');
     const publicDirectory = path.join(publicFolder, pathname.substring(0, idx) || pathname);
-    icons.set(publicDirectory, [...(icons.get(publicDirectory) || []), fileVue]);
+    icons.set(publicDirectory, [...(icons.get(publicDirectory) || []), fileJs]);
   }
 
   /*
@@ -76,17 +76,19 @@ export default _default;
     const barrel = path.join(path.dirname(directory), `${path.basename(directory)}.js`);
     const barrelDTs = path.join(path.dirname(directory), `${path.basename(directory)}.d.ts`);
     let fileContent = '';
+    let fileContentDTs = '';
     for (const icon of icons.get(directory).sort()) {
       const directoryName = path.dirname(icon);
       const parentFolder = path.basename(directoryName);
       const fileName = path.basename(icon);
 
       const result = path.join(parentFolder, fileName);
-      fileContent = `${fileContent ? `${fileContent}` : ''}export { default as ${path.parse(icon).name} } from '../${result}';\n`;
+      fileContent = `${fileContent ? `${fileContent}` : ''}export { render as ${path.parse(icon).name} } from '../${result}';\n`;
+      fileContentDTs = `${fileContentDTs ? `${fileContentDTs}` : ''}export { default as ${path.parse(icon).name} } from '../${result}';\n`;
     }
     await Promise.all([
       promises.writeFile(barrel, fileContent),
-      promises.writeFile(barrelDTs, fileContent),
+      promises.writeFile(barrelDTs, fileContentDTs),
     ]);
   }
 }

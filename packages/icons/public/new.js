@@ -1,1 +1,1 @@
-export { default as IconNewGroupAb32 } from '../vue/IconNewGroupAb32.vue';
+export { render as IconNewGroupAb32 } from '../vue/IconNewGroupAb32.js';

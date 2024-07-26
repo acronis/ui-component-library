@@ -1,1 +1,1 @@
-export { default as IconExecuteRunbook24 } from '../vue/IconExecuteRunbook24.vue';
+export { render as IconExecuteRunbook24 } from '../vue/IconExecuteRunbook24.js';

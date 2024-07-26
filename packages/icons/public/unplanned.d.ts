@@ -1,1 +1,1 @@
-export { default as IconUnplannedExpenses32 } from '../vue/IconUnplannedExpenses32.vue';
+export { default as IconUnplannedExpenses32 } from '../vue/IconUnplannedExpenses32.js';

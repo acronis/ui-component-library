@@ -1,1 +1,1 @@
-export { default as IconRestart16 } from '../vue/IconRestart16.vue';
+export { render as IconRestart16 } from '../vue/IconRestart16.js';

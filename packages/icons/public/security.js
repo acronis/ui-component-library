@@ -1,1 +1,1 @@
-export { default as IconSecurityEssentials24 } from '../vue/IconSecurityEssentials24.vue';
+export { render as IconSecurityEssentials24 } from '../vue/IconSecurityEssentials24.js';

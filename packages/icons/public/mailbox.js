@@ -1,1 +1,1 @@
-export { default as IconMailboxEncryptedAb32 } from '../vue/IconMailboxEncryptedAb32.vue';
+export { render as IconMailboxEncryptedAb32 } from '../vue/IconMailboxEncryptedAb32.js';

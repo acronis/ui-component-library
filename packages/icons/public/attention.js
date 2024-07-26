@@ -1,1 +1,1 @@
-export { default as IconAttention16 } from '../vue/IconAttention16.vue';
+export { render as IconAttention16 } from '../vue/IconAttention16.js';

@@ -1,1 +1,1 @@
-export { default as IconCyberfit16 } from '../vue/IconCyberfit16.vue';
+export { render as IconCyberfit16 } from '../vue/IconCyberfit16.js';

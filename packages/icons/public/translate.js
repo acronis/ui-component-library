@@ -1,1 +1,1 @@
-export { default as IconTranslateO16 } from '../vue/IconTranslateO16.vue';
+export { render as IconTranslateO16 } from '../vue/IconTranslateO16.js';

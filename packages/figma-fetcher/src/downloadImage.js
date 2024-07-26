@@ -37,6 +37,7 @@ export async function downloadImage(config, icon) {
           },
         },
       ],
+      // TODO: change #181818 to the system colour when we define it, or move it to a configuration variable
     }).data.replace(/#181818/g, 'currentColor');
 
     await config.onDownloadedIcon({ content, pathname, publicFolder: config.publicFolder, vueFolder: config.vueFolder });

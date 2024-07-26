@@ -1,1 +1,1 @@
-export { default as IconCleanupPlanAb32 } from '../vue/IconCleanupPlanAb32.vue';
+export { default as IconCleanupPlanAb32 } from '../vue/IconCleanupPlanAb32.js';

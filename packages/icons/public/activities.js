@@ -1,1 +1,1 @@
-export { default as IconActivitiesAb32 } from '../vue/IconActivitiesAb32.vue';
+export { render as IconActivitiesAb32 } from '../vue/IconActivitiesAb32.js';

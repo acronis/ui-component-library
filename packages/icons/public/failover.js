@@ -1,1 +1,1 @@
-export { default as IconFailoverServer24 } from '../vue/IconFailoverServer24.vue';
+export { render as IconFailoverServer24 } from '../vue/IconFailoverServer24.js';
