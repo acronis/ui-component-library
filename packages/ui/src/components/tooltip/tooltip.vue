@@ -56,9 +56,9 @@
     z-index: var(--acv-z-index-tooltip);
     font-size: var(--acv-font-size-caption);
     color: var(--acv-color-text-inversed-primary);
-    background-color: var(--acv-color-black);
-    padding-block: 16px;
-    padding-inline: 16px;
+    background-color: var(--acv-tooltip-background);
+    padding-block: var(--acv-tooltip-padding);
+    padding-inline: var(--acv-tooltip-padding);
     box-shadow: var(--acv-box-shadow) var(--acv-color-effect-shadow-primary);
     border-radius: var(--acv-radius-regular, 4px);
     width: v-bind(maxWidth);
