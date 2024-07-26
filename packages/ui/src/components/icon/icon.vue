@@ -57,7 +57,7 @@
       return undefined;
     }
     const iconFilename = `Icon${startCase(camelCase(name)).replace(/ /g, '')}`;
-    const iconModule = () => import(`../../../../icons/vue/${iconFilename}.vue`);
+    const iconModule = () => import(`./../../../../icons/vue/${iconFilename}.vue`);
 
     dynamicIcon.value = iconModule ? markRaw(defineAsyncComponent(await iconModule)) : null;
   }, { immediate: true });
