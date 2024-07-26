@@ -1,3 +1,10 @@
+## [1.11.4](https://github.com/acronis/ui-component-library/compare/v1.11.3...v1.11.4) (2024-07-26)
+
+
+### Bug Fixes
+
+* fix minor build issues ([e091521](https://github.com/acronis/ui-component-library/commit/e091521ca8029efd2a84f190073c6b821e729756))
+
 ## [1.11.3](https://github.com/acronis/ui-component-library/compare/v1.11.2...v1.11.3) (2024-07-26)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **carousel:** carousel component first iteration ([b97cf8e](https://github.com/acronis/ui-component-library/commit/b97cf8ee9e453788a1a4d75539c50cb665731f4a))
-
-## [1.10.2](https://github.com/acronis/ui-component-library/compare/v1.10.1...v1.10.2) (2024-07-25)
-
-
-### Bug Fixes
-
-* forbid to import barrel in components ([13e88aa](https://github.com/acronis/ui-component-library/commit/13e88aaffbd00413ad3ae52337a5a41b2142c336))
 
