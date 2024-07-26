@@ -57,7 +57,7 @@
       return undefined;
     }
     const iconFilename = `Icon${startCase(camelCase(name)).replace(/ /g, '')}`;
-    const iconModule = () => import(`./../../../../icons/vue/${iconFilename}.vue`);
+    const iconModule = () => import(`./../../../../icons/vue/${iconFilename}.js`);
 
     dynamicIcon.value = iconModule ? markRaw(defineAsyncComponent(await iconModule)) : null;
   }, { immediate: true });
@@ -67,7 +67,7 @@
       return undefined;
     }
     const iconFilename = `Icon${startCase(camelCase(state)).replace(/ /g, '')}`;
-    const iconModule = () => import(`../../../../icons/vue/${iconFilename}.vue`);
+    const iconModule = () => import(`../../../../icons/vue/${iconFilename}.js`);
 
     dynamicStateIcon.value = iconModule ? markRaw(defineAsyncComponent(await iconModule)) : null;
   }, { immediate: true });
