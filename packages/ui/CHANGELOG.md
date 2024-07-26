@@ -1,3 +1,11 @@
+## [1.11.8](https://github.com/acronis/ui-component-library/compare/v1.11.7...v1.11.8) (2024-07-26)
+
+
+### Bug Fixes
+
+* **icon:** fix typo ([4d7ec83](https://github.com/acronis/ui-component-library/commit/4d7ec831aa30fa6ec8e1d3c3c5e222f613c80a7c))
+* **icon:** move color and class-name to env config ([c9ba410](https://github.com/acronis/ui-component-library/commit/c9ba410243d9ee7339142fa43a753612b366c75c))
+
 ## [1.11.7](https://github.com/acronis/ui-component-library/compare/v1.11.6...v1.11.7) (2024-07-26)
 
 
@@ -26,11 +34,4 @@
 ### Bug Fixes
 
 * fix minor build issues ([e091521](https://github.com/acronis/ui-component-library/commit/e091521ca8029efd2a84f190073c6b821e729756))
-
-## [1.11.3](https://github.com/acronis/ui-component-library/compare/v1.11.2...v1.11.3) (2024-07-26)
-
-
-### Bug Fixes
-
-* cleanup icon component ([f41808c](https://github.com/acronis/ui-component-library/commit/f41808c63571e04965f847cd0b34b545294aecdb))
 
