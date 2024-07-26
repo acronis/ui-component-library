@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/acronis/ui-component-library/compare/v1.11.0...v1.11.1) (2024-07-26)
+
+
+### Bug Fixes
+
+* update tooltip tokens ([8565704](https://github.com/acronis/ui-component-library/commit/856570491eb85aa4671a9cfc3feab39c194d7034))
+
 ## [1.11.0](https://github.com/acronis/ui-component-library/compare/v1.10.2...v1.11.0) (2024-07-25)
 
 
@@ -32,11 +39,4 @@
 ### Bug Fixes
 
 * update icon configs ([ba5bf4b](https://github.com/acronis/ui-component-library/commit/ba5bf4bcf36e597056c755398308aa0cea9dcaa7))
-
-## [1.9.1](https://github.com/acronis/ui-component-library/compare/v1.9.0...v1.9.1) (2024-07-24)
-
-
-### Bug Fixes
-
-* fix spinner tests ([625402c](https://github.com/acronis/ui-component-library/commit/625402cb5f86aa27c08d29d87076cc41ce9333c2))
 
