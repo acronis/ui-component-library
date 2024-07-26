@@ -10,7 +10,7 @@
 
 - In the directory where you want to use this library, create a `.env.local` file.
 
-3**Download Icons:**
+3. **Download Icons:**
 
 - Run the command `fetch-icons` in the package where you want to store your icons.
 
