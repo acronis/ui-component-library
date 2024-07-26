@@ -1,4 +1,4 @@
-import type { ColorProp, ComponentSize } from '../../types/props.ts';
+import type { ColorProp, ComponentSize } from '@/types/props.ts';
 
 export interface AcvSwitchProps {
   /**

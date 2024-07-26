@@ -1,4 +1,4 @@
-import type { IconProp } from '../../types/props.ts';
+import type { IconProp } from '@/types/props.ts';
 
 type componentDirections = 'left' | 'right' | 'top' | 'bottom';
 

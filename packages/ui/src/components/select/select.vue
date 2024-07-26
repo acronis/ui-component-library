@@ -1,8 +1,6 @@
 <script setup lang="ts">
   import { computed, onBeforeMount, provide, reactive, ref } from 'vue';
   import { UseVirtualList } from '@vueuse/components';
-  import AcvPopper from '../popper/popper.vue';
-  import AcvOption from '../option/option.vue';
   import AcvSelectDropdown from './selectDropdown.vue';
   import type {
     AcvSelectEvents,
@@ -13,6 +11,8 @@
   import {
     SELECT_KEY
   } from './select.ts';
+  import AcvOption from '@/components/option/option.vue';
+  import AcvPopper from '@/components/popper/popper.vue';
   import './select.css';
 
   const { placeholder, options } = withDefaults(defineProps<AcvSelectProps>(), {

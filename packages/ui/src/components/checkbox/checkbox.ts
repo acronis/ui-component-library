@@ -1,5 +1,5 @@
-import type { ColorProp, ComponentSize } from '../../types/props.ts';
-import type { CheckboxProps } from '../../composables/useCheckbox.ts';
+import type { ColorProp, ComponentSize } from '@/types/props.ts';
+import type { CheckboxProps } from '@/composables/useCheckbox.ts';
 
 export interface AcvCheckboxProps extends CheckboxProps {
   /**

@@ -1,5 +1,5 @@
 import type { InjectionKey, Ref } from 'vue';
-import type { ComponentSize } from '../../types/props.ts';
+import type { ComponentSize } from '@/types/props.ts';
 
 export interface AcvAccordionProps {
   /**

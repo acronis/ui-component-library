@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { TABLE_MIN_RESIZE_WIDTH } from '../constants.ts';
+import { TABLE_MIN_RESIZE_WIDTH } from '@/components/markup-table/constants.ts';
 
 export function useResizingColumns(columns, callback) {
   const isResizing = ref(false);

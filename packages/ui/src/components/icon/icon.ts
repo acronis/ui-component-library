@@ -1,4 +1,4 @@
-import type { IconProp } from '../../types/props.ts';
+import type { IconProp } from '@/types/props.ts';
 
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;

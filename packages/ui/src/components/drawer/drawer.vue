@@ -3,16 +3,16 @@
   import type { Ref } from 'vue';
   import { useMounted } from '@vueuse/core';
   import './drawer.css';
-  import { useDOMScrollLock } from '../../composables/useDOMScrollLock.ts';
-  import { useTeleport } from '../../composables/useTeleport.ts';
-  import { onClickSameTarget } from '../../composables/onClickSameTarget.ts';
-  import AcvCard from '../card/card.vue';
-  import { filterUsedSlots } from '../../utils/vue.ts';
   import type {
     AcvDrawerEvents,
     AcvDrawerProps,
     AcvDrawerSlots
   } from './drawer.ts';
+  import { useDOMScrollLock } from '@/composables/useDOMScrollLock.ts';
+  import { useTeleport } from '@/composables/useTeleport.ts';
+  import { onClickSameTarget } from '@/composables/onClickSameTarget.ts';
+  import AcvCard from '@/components/card/card.vue';
+  import { filterUsedSlots } from '@/utils/vue.ts';
 
   defineOptions({
     name: 'AcvDrawer',

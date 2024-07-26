@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import AcvDivider from '../divider/divider.vue';
   import type { AcvFooterSlots } from './footer.ts';
+  import AcvDivider from '@/components/divider/divider.vue';
 
   defineOptions({ name: 'AcvFooter' });
   defineSlots<AcvFooterSlots>();

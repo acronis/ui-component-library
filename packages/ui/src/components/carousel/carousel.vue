@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import AcvButton from '../button/button.vue';
   import type { AcvCarouselProps, AcvCarouselSlots } from './carousel.ts';
+  import AcvButton from '@/components/button/button.vue';
   import './carousel.css';
 
   const { count, cycle } = withDefaults(defineProps<AcvCarouselProps>(), {

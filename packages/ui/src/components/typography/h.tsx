@@ -1,10 +1,10 @@
 import { defineComponent } from 'vue'
 
-import { useProps } from '../../utils/props.ts'
 import Title from './title.tsx'
 import { hProps } from './props.ts'
 
 import type { TitleLevel } from './symbol.ts'
+import { useProps } from '@/utils/props.ts'
 
 function createHComponent(level: TitleLevel) {
   return defineComponent({

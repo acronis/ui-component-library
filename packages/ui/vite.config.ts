@@ -7,6 +7,7 @@ import { defineConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { buildPlugin } from './scripts/buildPlugin';
 
+resolve(__dirname, 'src');
 export default defineConfig(() => {
   return {
     resolve: {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 
-import { Blockquote, OL, Text, Title, UL } from '../public.ts'
+import { Blockquote, OL, Text, Title, UL } from '@/components/typography/public.ts'
 
 const TEXT = 'Text'
 const TYPES = ['primary', 'info', 'success', 'warning', 'error'] as const

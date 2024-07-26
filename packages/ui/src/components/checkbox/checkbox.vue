@@ -1,12 +1,12 @@
 <script setup lang="ts">
   import { computed, toRef, useAttrs } from 'vue';
-  import { useCheckbox } from '../../composables/useCheckbox.ts';
-  import CheckboxIcon from '../icon-internal/CheckboxIcon.vue';
   import type {
     AcvCheckboxEvents,
     AcvCheckboxProps,
     AcvCheckboxSlots
   } from './checkbox.ts';
+  import { useCheckbox } from '@/composables/useCheckbox.ts';
+  import CheckboxIcon from '@/components/icon-internal/CheckboxIcon.vue';
 
   import './checkbox.css';
 

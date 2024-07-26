@@ -1,4 +1,4 @@
-import type { AcvFloatingProps } from '../popper/popper.ts';
+import type { AcvFloatingProps } from '@/components/popper/popper.ts';
 
 export type AcvTooltipSize = 'auto' | 'md' | 'sm';
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { isColor } from '../../utils/color.ts';
   import type { AcvMainEvents, AcvMainProps, AcvMainSlots } from './main.ts';
+  import { isColor } from '@/utils/color.ts';
   import './main.css';
 
   const { color } = defineProps<AcvMainProps>();

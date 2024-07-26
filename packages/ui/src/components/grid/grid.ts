@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue';
-import type { AcvCellFlex } from '../cell/cell.ts';
+import type { AcvCellFlex } from '@/components/cell/cell.ts';
 
 export type AcvLayoutProp = number | string | (number | string)[];
 

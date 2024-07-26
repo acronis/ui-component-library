@@ -2,16 +2,16 @@
   import { computed, inject } from 'vue';
   import { IconGripDots16 } from '@acronis-platform/icons/grip';
   import { IconClose16 } from '@acronis-platform/icons/close';
-  import type { AcvListInjection } from '../list/list.ts';
-  import { LIST_KEY } from '../list/list.ts';
-  // import AcvTypography from '../typography/typography.vue';
-  import AcvIcon from '../icon/icon.vue';
-  import AcvButton from '../button/button.vue';
   import type {
     AcvListItemEvents,
     AcvListItemProps,
     AcvListItemSlots
   } from './listItem.ts';
+  import type { AcvListInjection } from '@/components/list/list.ts';
+  import { LIST_KEY } from '@/components/list/list.ts';
+  // import AcvTypography from '../typography/typography.vue';
+  import AcvIcon from '@/components/icon/icon.vue';
+  import AcvButton from '@/components/button/button.vue';
   import './listItem.css';
 
   defineOptions({
