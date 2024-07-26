@@ -12,6 +12,8 @@ export function getConfig() {
     fileKey: envConfig.FIGMA_FETCHER_FILE_KEY,
     frameNames: envConfig.FIGMA_FETCHER_FRAME_NAMES,
     pageName: envConfig.FIGMA_FETCHER_PAGE_NAME,
+    className: envConfig.FIGMA_FETCHER_CLASS_NAME,
+    systemColor: envConfig.FIGMA_FETCHER_SYSTEM_COLOR,
     removeFromName: ['style=', 'type=', 'status='],
     publicFolder: 'public',
     vueFolder: 'vue',
@@ -74,4 +76,8 @@ export function chunk(arr, size) {
 
 export function toPascalCase(str) {
   return startCase(camelCase(str)).replace(/ /g, '');
+}
+
+export function escapeRegExp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
