@@ -1,3 +1,10 @@
+## [1.11.9](https://github.com/acronis/ui-component-library/compare/v1.11.8...v1.11.9) (2024-07-27)
+
+
+### Bug Fixes
+
+* fix icons package with temporary barrel file ([3c71af9](https://github.com/acronis/ui-component-library/commit/3c71af9e85b447760dc16961c3629ed0210235a2))
+
 ## [1.11.8](https://github.com/acronis/ui-component-library/compare/v1.11.7...v1.11.8) (2024-07-26)
 
 
@@ -27,11 +34,4 @@
 ### Bug Fixes
 
 * fix preview render error ([40d54ea](https://github.com/acronis/ui-component-library/commit/40d54ea095db95da21f991ee1b00a53fa7e3c223))
-
-## [1.11.4](https://github.com/acronis/ui-component-library/compare/v1.11.3...v1.11.4) (2024-07-26)
-
-
-### Bug Fixes
-
-* fix minor build issues ([e091521](https://github.com/acronis/ui-component-library/commit/e091521ca8029efd2a84f190073c6b821e729756))
 
