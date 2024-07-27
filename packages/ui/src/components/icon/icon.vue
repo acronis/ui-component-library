@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed, defineAsyncComponent, markRaw, ref, useAttrs, watch } from 'vue';
+  import { computed, markRaw, ref, useAttrs, watch } from 'vue';
   import { camelCase, startCase } from 'lodash-es';
   import { isBrowser } from '@antfu/utils';
   import type { AcvIconProps } from './icon.ts';
@@ -17,6 +17,7 @@
     name,
     size,
     state,
+    stateIcon,
     stateColor,
     title,
   } = withDefaults(defineProps<AcvIconProps>(), {
@@ -57,9 +58,9 @@
       return undefined;
     }
     const iconFilename = `Icon${startCase(camelCase(name)).replace(/ /g, '')}`;
-    const iconModule = () => import(`./../../../../icons/vue/${iconFilename}.js`);
+    const iconModule = await import(`./../../../../icons/vue/${iconFilename}.js`);
 
-    dynamicIcon.value = iconModule ? markRaw(defineAsyncComponent(await iconModule)) : null;
+    dynamicIcon.value = iconModule ? markRaw(iconModule) : null;
   }, { immediate: true });
 
   watch(() => state, async () => {
@@ -67,9 +68,9 @@
       return undefined;
     }
     const iconFilename = `Icon${startCase(camelCase(state)).replace(/ /g, '')}`;
-    const iconModule = () => import(`../../../../icons/vue/${iconFilename}.js`);
+    const iconModule = await import(`../../../../icons/vue/${iconFilename}.js`);
 
-    dynamicStateIcon.value = iconModule ? markRaw(defineAsyncComponent(await iconModule)) : null;
+    dynamicStateIcon.value = iconModule ? markRaw(await iconModule) : null;
   }, { immediate: true });
 </script>
 
@@ -82,7 +83,15 @@
       <slot>
         <component
           :is="icon"
-          v-if="icon"
+          :color="color"
+          preserveAspectRatio="xMidYMid meet"
+        />
+      </slot>
+    </g>
+    <g v-if="stateIcon">
+      <slot>
+        <component
+          :is="stateIcon"
           :color="stateColor"
           preserveAspectRatio="xMidYMid meet"
         />

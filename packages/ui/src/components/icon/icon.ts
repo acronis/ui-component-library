@@ -91,4 +91,6 @@ export interface AcvIconProps {
   inverse?: boolean
 
   icon?: IconProp
+
+  stateIcon?: IconProp
 }
