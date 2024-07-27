@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - 'packages/ui/**'
-      - 'packages/documentation/demos/**'
+      - 'packages/demos/**'
 
   workflow_dispatch:
 

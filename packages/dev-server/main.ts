@@ -1,6 +1,6 @@
 import '@/styles/public/themes.css';
 import { createApp } from 'vue';
-// import theme from '../documentation/demos/theme/theme.vue';
+// import theme from '../demos/src/theme/theme.vue';
 
 const isDark = localStorage.getItem('uikit-docs-theme-prefer-dark');
 const isRtl = localStorage.getItem('uikit-docs-direction-prefer-rtl');

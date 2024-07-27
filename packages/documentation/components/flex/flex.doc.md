@@ -1,11 +1,3 @@
----
-title: Flex component
-lang: en-US
-editLink: true
----
-
-# Flex
-
 Short description for Flex component...
 
 :::info Figma component anatomy
@@ -17,7 +9,7 @@ https://www.figma.com/file/
 <FlexBasic />
 
 ::: details Source code
-<<< @/demos/flex/FlexBasic.vue
+<<< ../../../demos/src/flex/FlexBasic.vue
 :::
 
 ## Variants
@@ -32,23 +24,3 @@ A Flex should ...
 
 - A related component.
 - Another related component.
-
-## Props
-
-| Prop name   | Description             | Type   | Values | Default |
-| ----------- | ----------------------- | ------ | ------ | ------- |
-| title       | Title of the Flex       | string | -      |         |
-| description | Description of the Flex | string | -      |         |
-
-## Events
-
-| Event name | Properties                                | Description                            |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| close      | **payload** `string` - The first argument | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description | Bindings |
-| ----------- | ----------- | -------- |
-| default     |             |          |
-| description |             |          |

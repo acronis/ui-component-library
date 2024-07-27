@@ -1,11 +1,3 @@
----
-title: ACV Footer component
-lang: en-US
-editLink: true
----
-
-# ACV Footer
-
 The 'AcvFooter' component is a structured and customizable terminating section of an interface.
 
 It offers two sections — 'side' and 'actions' — for tailored content and aims to enhance usability with flexbox layout,
@@ -23,7 +15,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-1433
 <FooterBasic />
 
 ::: details Source code
-<<< @/demos/footer/FooterBasic.vue
+<<< ../../../demos/src/footer/FooterBasic.vue
 :::
 
 ## Link usage

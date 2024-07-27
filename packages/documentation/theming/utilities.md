@@ -87,7 +87,7 @@ Text ellipsis styling does not work with `inline` elements. You can use `acv-dis
 <Ellipsis />
 
 ::: details Source code
-<<< @/demos/utilities/Ellipsis.vue
+<<< ../../demos/src/utilities/Ellipsis.vue
 :::
 
 ### Text-Middle-Ellipsis
@@ -99,7 +99,7 @@ The text has to be enclosed an `element` that specifies the width of the path.
 <TextMiddleEllipsis />
 
 ::: details Source code
-<<< @/demos/utilities/TextMiddleEllipsis.vue
+<<< ../../demos/src/utilities/TextMiddleEllipsis.vue
 :::
 
 ### Text align

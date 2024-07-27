@@ -108,6 +108,10 @@ describe('button', () => {
             />
             
           </g>
+          
+          <!--v-if-->
+          <!--v-if-->
+          
         </i>
         
         <span
@@ -141,6 +145,7 @@ describe('button', () => {
           data-v-c834062e=""
           role="presentation"
         >
+          <!--v-if-->
           
           <!--v-if-->
           <!--v-if-->

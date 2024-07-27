@@ -1,11 +1,3 @@
----
-title: ACV Tooltip component
-lang: en-US
-editLink: true
----
-
-# ACV Tooltip
-
 Tooltip is a popup that displays additional information related to an element
 when you hover or focus on an element using the keyboard.
 It typically appears after small delay and disappears when mouse out.
@@ -24,7 +16,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4409
 <TooltipBasic />
 
 ::: details Source code
-<<< @/demos/tooltip/TooltipBasic.vue
+<<< ../../../demos/src/tooltip/TooltipBasic.vue
 :::
 
 ## Placement
@@ -73,22 +65,3 @@ Provided `AcvTooltip` component must adapt to the list of
 
 - [Popper](/components/popper/popper.doc)
 - [Popover](/components/popover/popover.doc)
-
-## Props
-
-| Prop name | Description                                       | Type             | Values                                                                                                 | Default |
-| --------- | ------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------ | ------- |
-| maxWidth  | Defines the behavior for maximum width of tooltip | string \| number | 'auto', 'none', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl', '10xl' |         |
-| size      | Size of the tooltip                               | AcvTooltipSize   | tooltipSize                                                                                            |         |
-| content   | Content of the tooltip                            | string           | -                                                                                                      |         |
-| trigger   |                                                   | -                | -                                                                                                      | 'hover' |
-| placement |                                                   | -                | -                                                                                                      | 'top'   |
-| arrow     |                                                   | -                | -                                                                                                      | true    |
-| offset    |                                                   | -                | -                                                                                                      | 6       |
-
-## Slots
-
-| Name    | Description                     | Bindings |
-| ------- | ------------------------------- | -------- |
-| default | Default slot content for anchor |          |
-| content | Custom content of the tooltip   |          |

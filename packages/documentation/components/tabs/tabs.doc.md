@@ -1,11 +1,3 @@
----
-title: ACV Tabs component
-lang: en-US
-editLink: true
----
-
-# ACV Tabs
-
 Used as an alternative or additional content navigation element within the parent section.
 Switching the content occurs without reloading the page.
 Do not use tab as a button group.
@@ -20,7 +12,7 @@ https://www.figma.com/file/
 <TabsBasic />
 
 ::: details Source code
-<<< @/demos/tabs/TabsBasic.vue
+<<< ../../../demos/src/tabs/TabsBasic.vue
 :::
 
 ## Accessibility
@@ -31,29 +23,3 @@ Provided `AcvTabs` component must adapt to the list of
 ## Related components
 
 - [Button](/components/button/button.doc)
-
-## Props
-
-| Prop name   | Description             | Type   | Values | Default |
-| ----------- | ----------------------- | ------ | ------ | ------- |
-| title       | Title of the Tabs       | string | -      |         |
-| description | Description of the Tabs | string | -      |         |
-
-## Events
-
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |
-
-## Expose
-
-### selectTab
-
->

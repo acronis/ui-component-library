@@ -1,11 +1,3 @@
----
-title: Toolbar component
-lang: en-US
-editLink: true
----
-
-# Toolbar
-
 Short description for toolbar component...
 
 :::info Figma component anatomy
@@ -17,7 +9,7 @@ https://www.figma.com/file/
 <ToolbarBasic />
 
 ::: details Source code
-<<< @/demos/toolbar/ToolbarBasic.vue
+<<< ../../../demos/src/toolbar/ToolbarBasic.vue
 :::
 
 ## Variants
@@ -32,23 +24,3 @@ A toolbar should ...
 
 - A related component.
 - Another related component.
-
-## Props
-
-| Prop name   | Description                | Type   | Values | Default |
-| ----------- | -------------------------- | ------ | ------ | ------- |
-| title       | Title of the toolbar       | string | -      |         |
-| description | Description of the toolbar | string | -      |         |
-
-## Events
-
-| Event name | Properties                                | Description                            |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| close      | **payload** `string` - The first argument | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description | Bindings |
-| ----------- | ----------- | -------- |
-| default     |             |          |
-| description |             |          |
