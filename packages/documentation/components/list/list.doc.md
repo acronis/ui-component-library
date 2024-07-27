@@ -1,11 +1,3 @@
----
-title: ACV List component
-lang: en-US
-editLink: true
----
-
-# ACV List
-
 List is a component that displays a group of sequential items.
 List items can also be base for content, which can include images, text, and links.
 It can be used to display a list of items, such as a list of products, services, or other items.
@@ -20,7 +12,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=876-2097
 <ListBasic />
 
 ::: details Source code
-<<< @/demos/list/ListBasic.vue
+<<< ../../../demos/src/list/ListBasic.vue
 :::
 
 ## Inside a card
@@ -85,33 +77,3 @@ You can check them in this here.
 ## Related components
 
 - [List Item](/components/list-item/listItem.doc)
-
-## Props
-
-| Prop name   | Description                      | Type                    | Values | Default |
-| ----------- | -------------------------------- | ----------------------- | ------ | ------- |
-| multiselect |                                  | boolean                 | -      |         |
-| animate     | Whether the animation is enabled | boolean                 | -      |         |
-| card        | Whether to render items as cards | boolean                 | -      |         |
-| items       | List of items                    | Array \| Array \| Array | -      |         |
-| sortable    | Whether the list is sortable     | boolean                 | -      |         |
-| selectable  | Whether the list is selectable   | boolean                 | -      |         |
-| modelValue  |                                  | any                     | -      |         |
-| color       |                                  | ColorProp               | -      |         |
-| variant     |                                  | string                  | -      |         |
-| states      |                                  | Array                   | -      |         |
-
-## Events
-
-| Event name        | Properties                                                                                                      | Description                            |
-| ----------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| update:modelValue | **eventName** `string` - The name of the event<br/>**value** `string` - The visibility state of the component   | Whether modelValue is updated          |
-| itemClick         | **eventName** `string` - The name of the event<br/>**item** `string` - The visibility state of the component    | Whether item is clicked                |
-| close             | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the list item is closed |
-
-## Slots
-
-| Name    | Description              | Bindings |
-| ------- | ------------------------ | -------- |
-| default | Content of the list      |          |
-| item    | Content of the list item |          |

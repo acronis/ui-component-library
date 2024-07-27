@@ -1,11 +1,3 @@
----
-title: ACV Switch component
-lang: en-US
-editLink: true
----
-
-# ACV Switch
-
 Switch is a component used to toggle between two states, such as on and off.
 It is a visual representation of a checkbox that allows the user to switch between two states.
 
@@ -24,7 +16,7 @@ Bind `v-model` to a `Boolean` typed variable.
 <SwitchBasic />
 
 ::: details Source code
-<<< @/demos/switch/SwitchBasic.vue
+<<< ../../../demos/src/switch/SwitchBasic.vue
 :::
 
 ## Label
@@ -44,7 +36,7 @@ You can use an array to bind multiple switches to a single variable.
 <SwitchArray />
 
 ::: details Source code
-<<< @/demos/switch/SwitchArray.vue
+<<< ../../../demos/src/switch/SwitchArray.vue
 :::
 
 ## Sizes
@@ -59,25 +51,3 @@ You can switch between different sizes using the `size` prop.
 - [Radio](/components/radio/radio.doc)
 - [Open UI Switch](https://open-ui.org/components/switch/)
 - [WAI-ARIA Switch pattern](https://www.w3.org/WAI/ARIA/apg/patterns/switch/)
-
-## Props
-
-| Prop name  | Description                    | Type          | Values | Default |
-| ---------- | ------------------------------ | ------------- | ------ | ------- |
-| modelValue | Binding value of the Switch    | boolean       | -      |         |
-| color      | Custom color of the Switch     | ColorProp     | -      | primary |
-| label      | Switch description             | string        | -      |         |
-| size       | Switch size                    | ComponentSize | -      |         |
-| disabled   | Whether the Switch is disabled | boolean       | -      |         |
-
-## Events
-
-| Event name        | Properties                                                                                          | Description                              |
-| ----------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| update:modelValue | **eventName** `string` - The name of the event<br/>**value** `string` - Checked state of the Switch | Triggered when the modelValue is updated |
-
-## Slots
-
-| Name    | Description              | Bindings |
-| ------- | ------------------------ | -------- |
-| default | The default slot content |          |

@@ -1,12 +1,17 @@
 ---
-to: "packages/ui/src/components/<%= h.changeCase.kebab(name) %>/<%= h.changeCase.camel(name) %>.md"
+to: "packages/documentation/components/<%= h.changeCase.kebab(name) %>/<%= h.changeCase.camel(name) %>.doc.md"
 ---
 
-Short description for <%= h.changeCase.pascal(name) %> component...
+A short description of where the <%= h.changeCase.pascal(name) %> component can be used...
 
 :::info Figma component anatomy
 https://www.figma.com/file/
 :::
+
+## Features
+
+- Feature 1
+- Feature 2
 
 ## Basic usage
 
@@ -16,9 +21,9 @@ https://www.figma.com/file/
 <<< @/demos/<%= h.changeCase.kebab(name) %>/<%= h.changeCase.pascal(name) %>Basic.vue
 :::
 
-## Best practices
+## Accessibility
 
-A <%= h.changeCase.pascal(name) %> should ...
+Short description of the accessibility features of the <%= h.changeCase.pascal(name) %> component...
 
 ## Related components
 

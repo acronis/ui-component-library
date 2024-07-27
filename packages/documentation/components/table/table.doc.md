@@ -1,11 +1,3 @@
----
-title: Table component
-lang: en-US
-editLink: true
----
-
-# Table
-
 Used to display potentially large amounts of information in a structured manner.
 The table has several modes of operation.
 The overview mode, when the user is working with the entire table, searches and compares the data; and the actions mode when the user is working with one or more selected table items.
@@ -20,7 +12,7 @@ https://www.figma.com/file/
 <TableBasic />
 
 ::: details Source code
-<<< @/demos/table/TableBasic.vue
+<<< ../../../demos/src/table/TableBasic.vue
 :::
 
 ## Empty table
@@ -69,23 +61,3 @@ https://www.figma.com/file/
 
 Provided `AcvTable` component must adapt to the list of
 [WAI-ARIA accessibility patterns](https://www.w3.org/WAI/ARIA/apg/patterns/table/).
-
-## Props
-
-| Prop name   | Description              | Type   | Values | Default |
-| ----------- | ------------------------ | ------ | ------ | ------- |
-| title       | Title of the table       | string | -      |         |
-| description | Description of the table | string | -      |         |
-
-## Events
-
-| Event name | Properties                                | Description                            |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| close      | **payload** `string` - The first argument | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description | Bindings |
-| ----------- | ----------- | -------- |
-| default     |             |          |
-| description |             |          |

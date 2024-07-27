@@ -1,11 +1,3 @@
----
-title: ACV Dropdown component
-lang: en-US
-editLink: true
----
-
-# ACV Dropdown
-
 Sets general layout and positioning rules for button, split button, select, date picker and Icon. Maximum dropdown height is determined by the number of values, but not more than 8 visible. If the value is greater than 8, a vertical scroll appears in the dropdown. The minimum height is 128px, except when there are 1 or 2 values in the list. The minimum width is 128px, and the maximum width is determined by the content inside. All values in dropdown are links. Exception - use of dropdown for select, in select values are not links.
 
 :::info Figma component anatomy
@@ -22,7 +14,7 @@ to enable trigger element keep the selected state when cursor/focus moved away.
 <DropdownBasic />
 
 ::: details Source code
-<<< @/demos/dropdown/DropdownBasic.vue
+<<< ../../../demos/src/dropdown/DropdownBasic.vue
 :::
 
 ## Placement
@@ -47,28 +39,3 @@ Use flex supported styles in the slot.
 ## Related components
 
 - [Popover](/components/UiPopover/UiPopover.doc)
-
-## Props
-
-| Prop name    | Description                      | Type            | Values | Default |
-| ------------ | -------------------------------- | --------------- | ------ | ------- |
-| disabled     | Whether the dropdown is disabled | boolean         | -      |         |
-| search       |                                  | boolean         | -      |         |
-| placeholder  |                                  | PopperPlacement | -      |         |
-| hideOnClick  |                                  | boolean         | -      |         |
-| hideOnScroll |                                  | boolean         | -      |         |
-| value        |                                  | boolean         | -      |         |
-
-## Events
-
-| Event name | Properties                                                                                                      | Description                               |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed    |
-| command    | **eventName** `mixed` - undefined<br/>**command** `mixed` - undefined                                           | Triggered when a dropdown item is clicked |
-
-## Slots
-
-| Name     | Description                                                                                              | Bindings |
-| -------- | -------------------------------------------------------------------------------------------------------- | -------- |
-| default  | Default slot for rendering trigger or anchor element<br/>Usually you will use `AcvButton` component here |          |
-| dropdown | Slot for rendering dropdown content<br/>Usually you will use `AcvList` component here                    |          |

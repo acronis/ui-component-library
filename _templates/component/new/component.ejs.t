@@ -7,9 +7,22 @@ to: "packages/ui/src/components/<%= h.changeCase.kebab(name) %>/<%= h.changeCase
     <%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>Props,
     <%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>Slots
   } from './<%= h.changeCase.camel(name) %>.ts';
+
   import './<%= h.changeCase.camel(name) %>.css';
 
-  const { title, description } = defineProps<<%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>Props>();
+  /**
+   * Short description of the <%= h.changeCase.pascal(name) %> component for the generated documentation...
+   *
+   * @component <%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>
+   */
+  defineOptions({
+    name: '<%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>'
+  })
+
+  const {
+    title,
+    description
+  } = defineProps<<%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>Props>();
 
   defineEmits<<%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>Events>();
   defineSlots<<%= h.pascalPrefix() %><%= h.changeCase.pascal(name) %>Slots>();

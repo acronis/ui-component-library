@@ -1,11 +1,3 @@
----
-title: ACV Spinner component
-lang: en-US
-editLink: true
----
-
-# ACV Spinner
-
 Spinner is a loading indicator that can be used to show the user that the application is loading.
 
 It can be used in several ways:
@@ -22,7 +14,7 @@ It can be used in several ways:
 <SpinnerBasic />
 
 ::: details Source code
-<<< @/demos/spinner/SpinnerBasic.vue
+<<< ../../../demos/src/spinner/SpinnerBasic.vue
 :::
 
 ## Spinner sizes
@@ -40,10 +32,3 @@ The spinner can be displayed in different colors.
 ## Related components
 
 - [Loading](/components/loading/loading.doc)
-
-## Props
-
-| Prop name | Description | Type   | Values | Default   |
-| --------- | ----------- | ------ | ------ | --------- |
-| size      |             | string | -      | '16'      |
-| color     |             | string | -      | 'primary' |

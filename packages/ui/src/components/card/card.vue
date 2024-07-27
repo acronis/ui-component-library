@@ -1,10 +1,11 @@
 <script lang="ts" setup>
   import { computed, toRef } from 'vue';
-  import './card.css';
   import { useLayer } from '../../composables/useLayer.ts';
   import AcvLoader from '../loader/loader.vue';
   import { isBaseColor } from '../../utils/color.ts';
   import type { AcvCardProps, AcvCardSlots } from './card.ts';
+
+  import './card.css';
 
   defineOptions({
     name: 'AcvCard'

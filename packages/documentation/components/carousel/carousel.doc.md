@@ -1,11 +1,3 @@
----
-title: Carousel component
-lang: en-US
-editLink: true
----
-
-# Carousel
-
 A carousel presents a set of items, referred to as slides,
 by sequentially displaying a subset of one or more slides.
 
@@ -18,7 +10,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-3736
 <CarouselBasic />
 
 ::: details Source code
-<<< @/demos/carousel/CarouselBasic.vue
+<<< ../../../demos/src/carousel/CarouselBasic.vue
 :::
 
 ## Variants
@@ -79,17 +71,3 @@ Because each slide selector button adds an element to the page tab sequence, thi
 ## Related components
 
 - [Button](/components/button/button.doc)
-
-## Props
-
-| Prop name | Description              | Type    | Values | Default |
-| --------- | ------------------------ | ------- | ------ | ------- |
-| count     | Number of carousel items | number  | -      |         |
-| cycle     |                          | boolean | -      | false   |
-
-## Slots
-
-| Name | Description | Bindings |
-| ---- | ----------- | -------- |
-| prev |             | <br/>    |
-| next |             | <br/>    |

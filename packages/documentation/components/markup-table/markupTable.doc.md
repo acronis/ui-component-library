@@ -1,11 +1,3 @@
----
-title: Markup Table component
-lang: en-US
-editLink: true
----
-
-# Markup Table
-
 Markup table is a simple table without complex behaviour
 
 ## Features
@@ -55,22 +47,3 @@ Markup table is a simple table without complex behaviour
 - [Web Accessibility Checklist - Tables](https://dequeuniversity.com/checklists/web/tables)
 - [Princeton - Tables](https://digital.accessibility.princeton.edu/how/content/tables)
 - [USFCA - Tables](https://myusf.usfca.edu/digital-accessibility/tables)
-
-## Props
-
-| Prop name | Description               | Type    | Values      | Default |
-| --------- | ------------------------- | ------- | ----------- | ------- |
-| columns   | Table columns             | Array   | -           |         |
-| data      | Table data                | Array   | -           |         |
-| bordered  | Whether table is bordered | boolean | true, false | true    |
-| dense     | Whether table is compact  | boolean | -           |         |
-| height    |                           | number  | -           |         |
-
-## Slots
-
-| Name                   | Description | Bindings |
-| ---------------------- | ----------- | -------- |
-| default                |             |          |
-| caption                |             |          |
-| `header_${column.key}` |             |          |
-| `column_${column.key}` |             | <br/>    |

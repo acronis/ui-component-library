@@ -2,7 +2,18 @@
   import { computed, getCurrentInstance, onMounted, provide, ref, watch } from 'vue';
   import type { AcvAccordionEvents, AcvAccordionProps, AcvAccordionSlots } from './accordion.ts';
   import { ACCORDION_KEY } from './accordion.ts';
+
   import './accordion.css';
+
+  /**
+   * Vertical stacked interactive headers that reveal associated sections of content.
+   *
+   * @displayName Accordion component
+   * @no-requires ./accordionPanel.vue
+   */
+  defineOptions({
+    name: 'AcvAccordion',
+  });
 
   const {
     expanded,

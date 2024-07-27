@@ -1,11 +1,3 @@
----
-title: Link component
-lang: en-US
-editLink: true
----
-
-# Link
-
 Links are used to embedding actions or pathways to more information in a sentence or used in tables with the possibility to drill down to the deeper level.
 
 In other cases preferable to use ghost buttons.
@@ -19,7 +11,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-1536
 <LinkBasic/>
 
 ::: details Source code
-<<< @/demos/link/LinkBasic.vue
+<<< ../../../demos/src/link/LinkBasic.vue
 :::
 
 ## Adding click handlers
@@ -31,7 +23,7 @@ If there are both href and click handler, it would trigger both.
 <LinkHandlers/>
 
 ::: details Source code
-<<< @/demos/link/LinkHandlers.vue
+<<< ../../../demos/src/link/LinkHandlers.vue
 :::
 
 ## Link with path
@@ -45,7 +37,7 @@ The `link` has to specify the width of the path.
 <LinkWithPath />
 
 ::: details Source code
-<<< @/demos/link/LinkWithPath.vue
+<<< ../../../demos/src/link/LinkWithPath.vue
 :::
 
 ## Disabled link
@@ -53,7 +45,7 @@ The `link` has to specify the width of the path.
 <LinkDisabled />
 
 ::: details Source code
-<<< @/demos/link/LinkDisabled.vue
+<<< ../../../demos/src/link/LinkDisabled.vue
 :::
 
 ## Accessibility
@@ -74,21 +66,3 @@ Provided `AcvLink` component must adapt to the list of
 ## Roles and properties
 
 Link text should provide enough information about the target of the link.
-
-## Props
-
-| Prop name | Description                         | Type    | Values | Default |
-| --------- | ----------------------------------- | ------- | ------ | ------- |
-| disabled  | Whether the link should be disabled | boolean | -      |         |
-
-## Events
-
-| Event name | Properties | Description |
-| ---------- | ---------- | ----------- |
-| close      |            |             |
-
-## Slots
-
-| Name    | Description                       | Bindings |
-| ------- | --------------------------------- | -------- |
-| default | Default slot for the link content |          |

@@ -1,11 +1,3 @@
----
-title: Disclosure component
-lang: en-US
-editLink: true
----
-
-# Disclosure
-
 It is used when it is necessary to show the content in a dosed manner, hiding additional information under the parent block.
 The collapse has two basic vertical sizes: 48px and 64px.
 If the content does not fit into any of the basic sizes, the vertical collapse size becomes dependent on the amount of content.
@@ -22,7 +14,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A6
 <DisclosureBasic />
 
 ::: details Source code
-<<< @/demos/disclosure/DisclosureBasic.vue
+<<< ../../../demos/src/disclosure/DisclosureBasic.vue
 :::
 
 ## Best practices
@@ -43,23 +35,3 @@ When the disclosure control has focus:
 ## Related components
 
 - [Button](/components/button/button.doc)
-
-## Props
-
-| Prop name   | Description                   | Type   | Values | Default |
-| ----------- | ----------------------------- | ------ | ------ | ------- |
-| title       | Title of the Disclosure       | string | -      |         |
-| description | Description of the Disclosure | string | -      |         |
-
-## Events
-
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |

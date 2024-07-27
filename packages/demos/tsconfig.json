@@ -1,0 +1,12 @@
+{
+  "extends": "@acronis-platform/configs/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "node"
+    ],
+    "moduleResolution": "bundler"
+  },
+  "include": ["src", "src/**/*.{ts,vue}"],
+  "exclude": ["node_modules"]
+}

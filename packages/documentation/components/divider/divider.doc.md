@@ -1,11 +1,3 @@
----
-title: ACV Divider component
-lang: en-US
-editLink: true
----
-
-# ACV Divider
-
 Used to group content in horizontal or vertical lists,
 and also serves as a visual separator between logical blocks within the interface.
 
@@ -18,7 +10,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=123-8541
 <DividerBasic />
 
 ::: details Source code
-<<< @/demos/divider/DividerBasic.vue
+<<< ../../../demos/src/divider/DividerBasic.vue
 :::
 
 ## With text
@@ -47,18 +39,3 @@ It must provide `role=separator` that indicates the element is a divider that
 separates and distinguishes sections of content or groups of elements.
 
 Optionally, you can provide `aria-orientation` attribute to describe the separator direction.
-
-## Props
-
-| Prop name    | Description                         | Type                      | Values                                                                    | Default |
-| ------------ | ----------------------------------- | ------------------------- | ------------------------------------------------------------------------- | ------- |
-| vertical     | Orientation of the Divider          | boolean                   | -                                                                         |         |
-| textPosition | Position of the text in the Divider | AcvDividerTextPosition    | -                                                                         |         |
-| margin       | Margin of the Divider               | string \| number          | -                                                                         |         |
-| color        | Color of the Divider                | ColorBrand \| ColorStatus | 'primary', 'secondary', 'neutral', 'success', 'warning', 'danger', 'info' | 'brand' |
-
-## Slots
-
-| Name    | Description | Bindings |
-| ------- | ----------- | -------- |
-| default |             |          |

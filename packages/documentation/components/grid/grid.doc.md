@@ -1,11 +1,3 @@
----
-title: Grid component
-lang: en-US
-editLink: true
----
-
-# Grid
-
 Grids are used to layout content in a consistent way
 They are made up of columns and rows that can be used to create a variety of layouts.
 
@@ -22,7 +14,7 @@ With `row` and `col`, we can easily manipulate the layout using the `span` attri
 <GridBasic />
 
 ::: details Source code
-<<< @/demos/grid/GridBasic.vue
+<<< ../../../demos/src/grid/GridBasic.vue
 :::
 
 ## Column spacing
@@ -34,7 +26,7 @@ Row provides `gutter` attribute to specify spacings between columns, and its def
 <RowColumnSpacing />
 
 ::: details Source code
-<<< @/demos/row/RowColumnSpacing.vue
+<<< ../../../demos/src/row/RowColumnSpacing.vue
 :::
 
 ## Hybrid layout
@@ -80,24 +72,3 @@ Taking example by Bootstrap's responsive design, five breakpoints are preset: xs
 
 - [Row](/components/Row/Row.doc)
 - [Col](/components/Col/Col.doc)
-
-## Props
-
-| Prop name   | Description                             | Type               | Values | Default   |
-| ----------- | --------------------------------------- | ------------------ | ------ | --------- |
-| tag         | Tag of the grid container               | string             | -      | 'div'     |
-| gap         | Gap between the grid items              | number \| Array    | -      | 0         |
-| rows        | Number of rows in the grid              | AcvLayoutProp      | -      | 'none'    |
-| columns     | Number of columns in the grid           | AcvLayoutProp      | -      | 24        |
-| autoRows    | Number of columns in the grid           | AcvLayoutProp      | -      | 'auto'    |
-| autoColumns | Number of columns in the grid           | AcvLayoutProp      | -      | 'auto'    |
-| dense       | Whether to use dense layout             | boolean            | -      | false     |
-| justify     | Justify content of the grid             | AcvGridJustify     | -      | 'start'   |
-| align       | Align content of the grid               | AcvGridAlign       | -      | 'stretch' |
-| cellFlex    | Whether to use flex layout for the cell | boolean \| Partial | -      | false     |
-
-## Slots
-
-| Name    | Description | Bindings |
-| ------- | ----------- | -------- |
-| default |             |          |

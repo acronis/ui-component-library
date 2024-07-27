@@ -1,5 +1,5 @@
 import type { ComponentPublicInstance } from 'vue';
-import AlertBasic from '../../../../documentation/demos/alert/AlertBasic.vue';
+import AlertBasic from '../../../../demos/src/alert/AlertBasic.vue';
 import Alert from './alert.vue';
 
 describe('Alert', () => {
