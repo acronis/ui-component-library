@@ -335,9 +335,6 @@ importers:
       '@acronis-platform/configs':
         specifier: workspace:*
         version: link:../configs
-      '@acronis-platform/demos':
-        specifier: workspace:*
-        version: link:../demos
       '@cypress/vue':
         specifier: 6.0.1
         version: 6.0.1(cypress@13.12.0)(vue@3.4.30)

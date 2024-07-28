@@ -28,7 +28,8 @@ export function buildPlugin(): Plugin[] {
       compilerOptions: {
         sourceMap: false,
         paths: {
-          '@/*': ['./*'],
+          '@/*': ['./src/*'],
+          '@demos/*': ['../../demos/*'],
           'csstype': ['node_modules/csstype']
         }
       },
