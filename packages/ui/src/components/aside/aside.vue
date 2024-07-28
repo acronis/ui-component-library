@@ -9,11 +9,11 @@
 
   // const { isColorModifier } = useColor(['primary']);
 
-  const widthPx = computed(() => width ? `${width}px` : null);
+  const widthPx = computed(() => width ? `${width}px` : '');
   const backgroundColor = computed(() => (
     color && isBaseColor(color)
       ? `var(--acv-color-${color})`
-      : null
+      : ''
   ));
 </script>
 

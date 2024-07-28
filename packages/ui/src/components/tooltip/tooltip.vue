@@ -22,7 +22,7 @@
   defineSlots<AcvTooltipSlots>();
 
   const maxWidth = computed(() => {
-    return props.maxWidth ? `${props.maxWidth}px` : undefined;
+    return props.maxWidth ? `${props.maxWidth}px` : '';
   });
 </script>
 
