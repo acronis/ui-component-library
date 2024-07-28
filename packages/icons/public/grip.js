@@ -1,1 +1,1 @@
-export { default as IconGripDots16 } from '../vue/IconGripDots16.vue';
+export { render as IconGripDots16 } from '../vue/IconGripDots16.js';

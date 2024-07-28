@@ -1,1 +1,1 @@
-export { default as IconFallbackServer24 } from '../vue/IconFallbackServer24.vue';
+export { render as IconFallbackServer24 } from '../vue/IconFallbackServer24.js';

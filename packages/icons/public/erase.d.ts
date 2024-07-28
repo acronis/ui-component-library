@@ -1,1 +1,1 @@
-export { default as IconEraseAb32 } from '../vue/IconEraseAb32.vue';
+export { default as IconEraseAb32 } from '../vue/IconEraseAb32.js';

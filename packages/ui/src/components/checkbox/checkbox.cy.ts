@@ -1,6 +1,6 @@
 import { mount } from '@cypress/vue';
-import CheckboxStates from '../../../../documentation/demos/checkbox/CheckboxStates.vue';
-import CheckboxSizes from '../../../../documentation/demos/checkbox/CheckboxSizes.vue';
+import CheckboxStates from '../../../../demos/src/checkbox/CheckboxStates.vue';
+import CheckboxSizes from '../../../../demos/src/checkbox/CheckboxSizes.vue';
 
 describe('Checkbox', () => {
   it('states', () => {

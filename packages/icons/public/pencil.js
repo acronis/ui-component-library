@@ -1,1 +1,1 @@
-export { default as IconPencil32 } from '../vue/IconPencil32.vue';
+export { render as IconPencil32 } from '../vue/IconPencil32.js';

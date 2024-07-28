@@ -1,11 +1,3 @@
----
-title: Carousel component
-lang: en-US
-editLink: true
----
-
-# Carousel
-
 A carousel presents a set of items, referred to as slides,
 by sequentially displaying a subset of one or more slides.
 
@@ -18,22 +10,10 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-3736
 <CarouselBasic />
 
 ::: details Source code
-<<< @/demos/carousel/CarouselBasic.vue
+<<< ../../../demos/src/carousel/CarouselBasic.vue
 :::
 
 ## Variants
-
-<CarouselHeight />
-
-<CarouselHover />
-
-<CarouselIndicators />
-
-<CarouselNavigation />
-
-<CarouselSlide />
-
-<CarouselSlides />
 
 ## Auto play
 
@@ -91,23 +71,3 @@ Because each slide selector button adds an element to the page tab sequence, thi
 ## Related components
 
 - [Button](/components/button/button.doc)
-
-## Props
-
-| Prop name   | Description                 | Type   | Values | Default |
-| ----------- | --------------------------- | ------ | ------ | ------- |
-| title       | Title of the Carousel       | string | -      |         |
-| description | Description of the Carousel | string | -      |         |
-
-## Events
-
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |

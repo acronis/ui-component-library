@@ -1,1 +1,1 @@
-export { default as IconCardView16 } from '../vue/IconCardView16.vue';
+export { render as IconCardView16 } from '../vue/IconCardView16.js';

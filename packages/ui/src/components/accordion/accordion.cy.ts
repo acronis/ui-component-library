@@ -1,6 +1,6 @@
 import { mount } from '@cypress/vue';
-import AccordionBasic from '@documentation/demos/accordion/AccordionBasic.vue';
-import AccordionBackground from '@documentation/demos/accordion/AccordionBackground.vue';
+import AccordionBasic from '@demos/src/accordion/AccordionBasic.vue';
+import AccordionBackground from '@demos/src/AccordionBackground.vue';
 
 describe('Accordion', () => {
   it('basic', () => {

@@ -1,1 +1,1 @@
-export { default as IconNextRange16 } from '../vue/IconNextRange16.vue';
+export { render as IconNextRange16 } from '../vue/IconNextRange16.js';

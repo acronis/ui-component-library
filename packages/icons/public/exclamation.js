@@ -1,1 +1,1 @@
-export { default as IconExclamationTriangle24 } from '../vue/IconExclamationTriangle24.vue';
+export { render as IconExclamationTriangle24 } from '../vue/IconExclamationTriangle24.js';

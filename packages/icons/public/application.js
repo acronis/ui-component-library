@@ -1,1 +1,1 @@
-export { default as IconApplication24 } from '../vue/IconApplication24.vue';
+export { render as IconApplication24 } from '../vue/IconApplication24.js';

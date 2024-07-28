@@ -1,1 +1,1 @@
-export { default as IconVlan24 } from '../vue/IconVlan24.vue';
+export { default as IconVlan24 } from '../vue/IconVlan24.js';

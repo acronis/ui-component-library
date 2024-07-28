@@ -1,1 +1,1 @@
-export { default as IconPlacement24 } from '../vue/IconPlacement24.vue';
+export { default as IconPlacement24 } from '../vue/IconPlacement24.js';

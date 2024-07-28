@@ -1,11 +1,3 @@
----
-title: Chart component
-lang: en-US
-editLink: true
----
-
-# Chart
-
 Chart component is a visual to convey complex images to users.
 
 ## Basic usage
@@ -13,7 +5,7 @@ Chart component is a visual to convey complex images to users.
 <ChartBasic />
 
 ::: details Source code
-<<< @/demos/chart/ChartBasic.vue
+<<< ../../../demos/src/chart/ChartBasic.vue
 :::
 
 ## Bubble chart
@@ -89,26 +81,3 @@ Chart component is a visual to convey complex images to users.
 - [Line Chart](/widgets/line-chart/lineChart.doc.md)
 - [Stacked Area Chart](/widgets/stacked-area-chart/stackedAreaChart.doc.md)
 - [Widget wrapper](/widgets/widget-wrapper/widgetWrapper.doc.md)
-
-## Props
-
-| Prop name    | Description                                               | Type         | Values                                                         | Default |
-| ------------ | --------------------------------------------------------- | ------------ | -------------------------------------------------------------- | ------- |
-| type         | Type of the Chart.Js chart                                | ChartType    | -                                                              | 'bar'   |
-| data         | The data object that is passed into the Chart.js chart    | ChartData    | -                                                              |         |
-| options      | The options object that is passed into the Chart.js chart | ChartOptions | -                                                              | {}      |
-| plugins      | Plugins for the chart                                     | Array        | -                                                              | []      |
-| updateMode   | Update mode for the chart                                 | UpdateMode   | 'resize', 'reset', 'none', 'hide', 'show', 'default', 'active' |         |
-| datasetIdKey | Key name to identify dataset                              | string       | -                                                              | 'id'    |
-
-## Events
-
-| Event name | Properties                                | Description                            |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| close      | **payload** `string` - The first argument | Triggered when the component is closed |
-
-## Slots
-
-| Name    | Description | Bindings |
-| ------- | ----------- | -------- |
-| default |             |          |

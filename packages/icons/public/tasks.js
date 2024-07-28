@@ -1,1 +1,1 @@
-export { default as IconTasks32 } from '../vue/IconTasks32.vue';
+export { render as IconTasks32 } from '../vue/IconTasks32.js';

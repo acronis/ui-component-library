@@ -2,6 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import chalk from 'chalk';
 import dotenv from 'dotenv';
+import { camelCase, startCase } from 'lodash-es';
 
 export function getConfig() {
   const envConfig = { ...getEnvConfig('.env'), ...getEnvConfig('.env.local') };
@@ -11,6 +12,8 @@ export function getConfig() {
     fileKey: envConfig.FIGMA_FETCHER_FILE_KEY,
     frameNames: envConfig.FIGMA_FETCHER_FRAME_NAMES,
     pageName: envConfig.FIGMA_FETCHER_PAGE_NAME,
+    className: envConfig.FIGMA_FETCHER_CLASS_NAME,
+    systemColor: envConfig.FIGMA_FETCHER_SYSTEM_COLOR,
     removeFromName: ['style=', 'type=', 'status='],
     publicFolder: 'public',
     vueFolder: 'vue',
@@ -69,4 +72,12 @@ export function chunk(arr, size) {
 
     return chunks;
   }, []);
+}
+
+export function toPascalCase(str) {
+  return startCase(camelCase(str)).replace(/ /g, '');
+}
+
+export function escapeRegExp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }

@@ -1,1 +1,1 @@
-export { default as IconVmsTemplates32 } from '../vue/IconVmsTemplates32.vue';
+export { render as IconVmsTemplates32 } from '../vue/IconVmsTemplates32.js';

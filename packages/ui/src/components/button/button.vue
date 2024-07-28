@@ -106,7 +106,10 @@
         <slot name="icon">
           <AcvIcon
             v-if="icon"
-            :icon="icon"
+            v-bind="{
+              name: typeof icon === 'string' ? icon as string : undefined,
+              icon: typeof icon === 'object' ? icon as object : undefined,
+            }"
           />
         </slot>
       </template>
@@ -121,7 +124,7 @@
         <slot name="iconRight">
           <AcvIcon
             v-if="rightIcon"
-            :icon="rightIcon"
+            :name="rightIcon as string"
           />
         </slot>
       </template>

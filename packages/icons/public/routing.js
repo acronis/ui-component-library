@@ -1,1 +1,1 @@
-export { default as IconRouting24 } from '../vue/IconRouting24.vue';
+export { render as IconRouting24 } from '../vue/IconRouting24.js';

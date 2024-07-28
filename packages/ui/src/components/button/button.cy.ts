@@ -1,5 +1,5 @@
 import { mount } from '@cypress/vue';
-import ButtonBasic from '@documentation/demos/button/ButtonBasic.vue';
+import ButtonBasic from '@demos/src/button/ButtonBasic.vue';
 
 describe('Button', () => {
   it('basic', () => {

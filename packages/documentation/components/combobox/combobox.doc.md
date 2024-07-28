@@ -1,11 +1,3 @@
----
-title: Combobox component
-lang: en-US
-editLink: true
----
-
-# Combobox
-
 It allows not only to enter a value, but also to choose from a dropdown list of predefined values.
 The combo box consists of two parts, a field for entering a value and a button with a dropdown list.
 The input field inherits the behavior of the Input component, and a click on the button causes dropdown.
@@ -20,7 +12,7 @@ https://www.figma.com/file/
 <ComboboxBasic />
 
 ::: details Source code
-<<< @/demos/combobox/ComboboxBasic.vue
+<<< ../../../demos/src/combobox/ComboboxBasic.vue
 :::
 
 ## Disabled
@@ -55,23 +47,3 @@ Provided `AcvCombobox` component must adapt to the list of
 ## Related components
 
 - [Button](/components/button/button.doc)
-
-## Props
-
-| Prop name   | Description                 | Type   | Values | Default |
-| ----------- | --------------------------- | ------ | ------ | ------- |
-| title       | Title of the Combobox       | string | -      |         |
-| description | Description of the Combobox | string | -      |         |
-
-## Events
-
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |

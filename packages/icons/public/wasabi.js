@@ -1,1 +1,1 @@
-export { default as IconWasabi32 } from '../vue/IconWasabi32.vue';
+export { render as IconWasabi32 } from '../vue/IconWasabi32.js';

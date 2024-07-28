@@ -1,1 +1,1 @@
-export { default as IconEthernet24 } from '../vue/IconEthernet24.vue';
+export { render as IconEthernet24 } from '../vue/IconEthernet24.js';

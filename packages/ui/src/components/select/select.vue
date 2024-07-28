@@ -45,8 +45,8 @@
   });
 
   onBeforeMount(() => {
-    if (slots.default) {
-      state.options = slots.default()[0].children.filter(child => child.type.name === 'AcvOption');
+    if (slots.default?.()?.[0]) {
+      state.options = slots.default()[0].children?.filter?.(child => child.type.name === 'AcvOption');
     }
   });
 

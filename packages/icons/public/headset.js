@@ -1,1 +1,1 @@
-export { default as IconHeadset16 } from '../vue/IconHeadset16.vue';
+export { render as IconHeadset16 } from '../vue/IconHeadset16.js';

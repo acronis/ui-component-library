@@ -80,10 +80,90 @@ describe('button', () => {
     expect(handleClick).toBeCalledTimes(1)
   })
 
-  it('icon', async () => {
+  it('icon component', async () => {
     const wrapper = mount(() => <Button icon={UserIcon}>{TEXT}</Button>)
 
     expect(wrapper.findComponent(UserIcon).exists()).toBe(true)
+    expect(wrapper.element).toMatchInlineSnapshot(`
+      <button
+        class="acv-button solid medium primary"
+        data-v-7a9642c5=""
+        type="button"
+      >
+        
+        
+        <i
+          class="acv-icon size-16"
+          data-v-7a9642c5=""
+          data-v-c834062e=""
+          role="presentation"
+        >
+          <g
+            data-v-c834062e=""
+          >
+            
+            <svg
+              data-v-c834062e=""
+              preserveAspectRatio="xMidYMid meet"
+            />
+            
+          </g>
+          
+          <!--v-if-->
+          <!--v-if-->
+          
+        </i>
+        
+        <span
+          class="content"
+          data-v-7a9642c5=""
+        >
+          
+          Text
+          
+        </span>
+        <!--v-if-->
+        
+      </button>
+    `)
+  })
+
+  it('icon name', async () => {
+    const wrapper = mount(() => <Button icon="workstation-16">{TEXT}</Button>)
+
+    expect(wrapper.element).toMatchInlineSnapshot(`
+      <button
+        class="acv-button solid medium primary"
+        data-v-7a9642c5=""
+        type="button"
+      >
+        
+        
+        <i
+          class="acv-icon size-16"
+          data-v-7a9642c5=""
+          data-v-c834062e=""
+          role="presentation"
+        >
+          <!--v-if-->
+          
+          <!--v-if-->
+          <!--v-if-->
+          
+        </i>
+        
+        <span
+          class="content"
+          data-v-7a9642c5=""
+        >
+          
+          Text
+          
+        </span>
+        <!--v-if-->
+        
+      </button>
+    `)
   })
 
   it('icon only', async () => {

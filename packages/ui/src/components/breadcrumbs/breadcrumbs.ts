@@ -1,10 +1,8 @@
-import type { RouteLocationRaw } from 'vue-router';
-
 export interface AcvBreadcrumbsProps {
   /**
    * Target of the breadcrumbs, same as `to` in Vue Router
    */
-  to?: string | RouteLocationRaw
+  to?: string
 
   /**
    * Maximum number of items to display
@@ -52,7 +50,7 @@ export interface AcvBreadcrumbLinkProps {
   /**
    * Target of the link, same as `to` in Vue Router
    */
-  to: RouteLocationRaw
+  to: string
 }
 
 export interface AcvBreadcrumbLinkSlots {

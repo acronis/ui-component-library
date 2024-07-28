@@ -1,1 +1,1 @@
-export { default as IconCitrixTray32 } from '../vue/IconCitrixTray32.vue';
+export { render as IconCitrixTray32 } from '../vue/IconCitrixTray32.js';

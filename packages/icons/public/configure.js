@@ -1,1 +1,1 @@
-export { default as IconConfigureMachine32 } from '../vue/IconConfigureMachine32.vue';
+export { render as IconConfigureMachine32 } from '../vue/IconConfigureMachine32.js';

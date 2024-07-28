@@ -1,1 +1,1 @@
-export { default as IconPhotos32 } from '../vue/IconPhotos32.vue';
+export { default as IconPhotos32 } from '../vue/IconPhotos32.js';

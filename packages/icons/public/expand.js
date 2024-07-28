@@ -1,2 +1,2 @@
-export { default as IconExpand16 } from '../vue/IconExpand16.vue';
-export { default as IconExpandMenu16 } from '../vue/IconExpandMenu16.vue';
+export { render as IconExpand16 } from '../vue/IconExpand16.js';
+export { render as IconExpandMenu16 } from '../vue/IconExpandMenu16.js';

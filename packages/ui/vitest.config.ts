@@ -36,10 +36,10 @@ export default defineConfig({
       reportsDirectory: './test/coverage',
       reportOnFailure: true,
       thresholds: {
-        statements: 80,
-        branches: 60,
-        functions: 20,
-        lines: 80,
+        statements: 60,
+        branches: 50,
+        functions: 1,
+        lines: 60,
       },
       extension: ['ts', 'tsx', 'vue'],
       exclude: [

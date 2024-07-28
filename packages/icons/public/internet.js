@@ -1,1 +1,1 @@
-export { default as IconInternet32 } from '../vue/IconInternet32.vue';
+export { render as IconInternet32 } from '../vue/IconInternet32.js';

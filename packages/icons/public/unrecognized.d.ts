@@ -1,1 +1,1 @@
-export { default as IconUnrecognizedPool32 } from '../vue/IconUnrecognizedPool32.vue';
+export { default as IconUnrecognizedPool32 } from '../vue/IconUnrecognizedPool32.js';

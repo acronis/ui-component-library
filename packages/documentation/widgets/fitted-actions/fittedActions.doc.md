@@ -1,11 +1,3 @@
----
-title: Fitted Actions component
-lang: en-US
-editLink: true
----
-
-# Fitted Actions
-
 Layout for displaying sets of ghosts buttons(actions) there overflowed actions are rendered in dropdown
 
 Can be used to display actions for a table row, table details or a card
@@ -15,7 +7,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsBasic />
 
 ::: details Source code
-<<< @/demos/fitted-actions/FittedActionsBasic.vue
+<<< ../../../demos/src/fitted-actions/FittedActionsBasic.vue
 :::
 
 ## Single
@@ -23,7 +15,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsSingle />
 
 ::: details Source code
-<<< @/demos/fitted-actions/FittedActionsSingle.vue
+<<< ../../../demos/src/fitted-actions/FittedActionsSingle.vue
 :::
 
 ## Reversed
@@ -31,7 +23,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsReversed />
 
 ::: details Source code
-<<< @/demos/fitted-actions/FittedActionsReversed.vue
+<<< ../../../demos/src/fitted-actions/FittedActionsReversed.vue
 :::
 
 ## Minimum
@@ -39,7 +31,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsMinimum />
 
 ::: details Source code
-<<< @/demos/fitted-actions/FittedActionsMinimum.vue
+<<< ../../../demos/src/fitted-actions/FittedActionsMinimum.vue
 :::
 
 ## Maximum
@@ -47,17 +39,9 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsMaximum />
 
 ::: details Source code
-<<< @/demos/fitted-actions/FittedActionsMaximum.vue
+<<< ../../../demos/src/fitted-actions/FittedActionsMaximum.vue
 :::
 
 ## Without Dropdown
 
 <FittedActionsWithoutDropdown />
-
-## Props
-
-| Prop name    | Description                | Type          | Values | Default |
-| ------------ | -------------------------- | ------------- | ------ | ------- |
-| actions      | List of actions to display | Array         | -      |         |
-| item         |                            | AcvFittedItem | -      |         |
-| showDropdown | Show the dropdown          | boolean       | -      | true    |

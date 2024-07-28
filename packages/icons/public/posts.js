@@ -1,1 +1,1 @@
-export { default as IconPosts32 } from '../vue/IconPosts32.vue';
+export { render as IconPosts32 } from '../vue/IconPosts32.js';

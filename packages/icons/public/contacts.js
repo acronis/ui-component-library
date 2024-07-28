@@ -1,1 +1,1 @@
-export { default as IconContacts32 } from '../vue/IconContacts32.vue';
+export { render as IconContacts32 } from '../vue/IconContacts32.js';

@@ -1,11 +1,3 @@
----
-title: Breadcrumbs component
-lang: en-US
-editLink: true
----
-
-# Breadcrumbs
-
 Allows you to see the entire path from the parent section to the section
 in which the user is now located and go to one or more levels above.
 
@@ -22,7 +14,7 @@ Set `icon` to use icon
 <BreadcrumbsBasic />
 
 ::: details Source code
-<<< @/demos/breadcrumbs/BreadcrumbsBasic.vue
+<<< ../../../demos/src/breadcrumbs/BreadcrumbsBasic.vue
 :::
 
 ## Max items
@@ -34,7 +26,7 @@ Set `max-items` to set the max bread crumb items shown. The rest will be hidden 
 <BreadcrumbsMaxItems />
 
 ::: details Source code
-<<< @/demos/breadcrumbs/BreadcrumbsMaxItems.vue
+<<< ../../../demos/src/breadcrumbs/BreadcrumbsMaxItems.vue
 :::
 
 ## Icon separator
@@ -79,26 +71,3 @@ Breadcrumbs are often placed horizontally before a page's main content.
 
 - [BreadcrumbLink](/components/breadcrumbs/breadcrumbLink/breadcrumbLink.doc)
 - [Dropdown](/components/dropdown/dropdown.doc)
-
-## Props
-
-| Prop name     | Description                                           | Type                       | Values | Default |
-| ------------- | ----------------------------------------------------- | -------------------------- | ------ | ------- |
-| to            | Target of the breadcrumbs, same as `to` in Vue Router | string \| RouteLocationRaw | -      |         |
-| maxItems      | Maximum number of items to display                    | number                     | -      |         |
-| multiline     | Breadcrumb will be wrapped to multiple lines if true  | boolean                    | -      |         |
-| separatorIcon | Separator between breadcrumbs                         | string                     | -      |         |
-| size          | Size of the breadcrumbs                               | "md" \| "lg"               | -      | 'md'    |
-
-## Events
-
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
-
-## Slots
-
-| Name      | Description            | Bindings |
-| --------- | ---------------------- | -------- |
-| default   | Default slot           |          |
-| separator | Slot for the separator |          |

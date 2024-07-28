@@ -3,6 +3,11 @@
   import type { AcvAccordionInjection, AcvAccordionPanelProps, AcvAccordionPanelSlots } from './accordion.ts';
   import { ACCORDION_KEY } from './accordion.ts';
 
+  /**
+   * Composable component that represents a panel in the accordion.
+   *
+   * @displayName Accordion Panel component
+   */
   defineOptions({
     name: 'AcvAccordionPanel',
   });

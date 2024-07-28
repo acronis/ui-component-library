@@ -1,1 +1,1 @@
-export { default as IconEsxAb32 } from '../vue/IconEsxAb32.vue';
+export { render as IconEsxAb32 } from '../vue/IconEsxAb32.js';

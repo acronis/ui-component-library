@@ -1,11 +1,3 @@
----
-title: Alert component
-lang: en-US
-editLink: true
----
-
-# Alert
-
 Notifies the user about the status of the system,
 from information with the ability to hide alert,
 to global errors or limitations within the system or a separate section without the ability to clear the message.
@@ -25,7 +17,7 @@ https://www.figma.com/file/LTyCXsL7eUj5fHmMMGcEUj/Components-anatomy?type=design
 <AlertBasic />
 
 ::: details Source code
-<<< @/demos/alert/AlertBasic.vue
+<<< ../../../demos/src/alert/AlertBasic.vue
 :::
 
 ## States
@@ -120,32 +112,3 @@ Usually alerts provide important and time-sensitive information without interfer
 ### WAI-ARIA attributes
 
 - `role="alert"`: to indicate that the element contains an alert message.
-
-## Props
-
-| Prop name   | Description                                                | Type            | Values | Default |
-| ----------- | ---------------------------------------------------------- | --------------- | ------ | ------- |
-| description | Descriptive text. Can also be passed with the default slot | string          | -      |         |
-| showBorder  | Displays border                                            | boolean         | -      |         |
-| showClose   | Is close icon visible                                      | boolean         | -      | false   |
-| showIcon    | If a variant icon is displayed                             | boolean         | -      |         |
-| title       | Title, can also be passed with the slot                    | string          | -      |         |
-| subtitle    | Subtitle, can also be passed with the slot                 | string          | -      |         |
-| color       | Alert variant                                              | AcvAlertVariant | -      | 'info'  |
-
-## Events
-
-| Event name | Properties | Description                               |
-| ---------- | ---------- | ----------------------------------------- |
-| close      |            | Emitted when the close button is clicked. |
-
-## Slots
-
-| Name        | Description                   | Bindings |
-| ----------- | ----------------------------- | -------- |
-| icon        | Content for the AcvAlert icon |          |
-| title       | Title                         |          |
-| description | Subtitle                      |          |
-| default     | Custom content                |          |
-| actions     | Content for the actions       |          |
-| right       | Content for the right block   |          |

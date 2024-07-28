@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { optimize } from 'svgo';
-import { removeFromName } from './helpers.js';
+import { escapeRegExp, removeFromName } from './helpers.js';
 
 /**
  * Asynchronously downloads an image from a given URL and saves it to a specified directory.
@@ -33,11 +33,11 @@ export async function downloadImage(config, icon) {
         {
           name: 'addClassesToSVGElement',
           params: {
-            classNames: ['acv-icon'],
+            classNames: [config.className],
           },
         },
       ],
-    }).data.replace(/#181818/g, 'currentColor');
+    }).data.replace(new RegExp(escapeRegExp(config.systemColor)), 'currentColor');
 
     await config.onDownloadedIcon({ content, pathname, publicFolder: config.publicFolder, vueFolder: config.vueFolder });
   }

@@ -1,11 +1,3 @@
----
-title: Menu component
-lang: en-US
-editLink: true
----
-
-# Menu
-
 Used as navigation on the main sections of the interface.
 
 :::info Figma mockups
@@ -17,7 +9,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A19
 <MenuBasic />
 
 ::: details Source code
-<<< @/demos/menu/MenuBasic.vue
+<<< ../../../demos/src/menu/MenuBasic.vue
 :::
 
 ## Vertical usage
@@ -55,23 +47,3 @@ of horizontal scrolling
 We support `value` as the binding index of currently active menu. Use `:value` and `@select` bindings to intercept menu change.
 
 ## Custom height of Horizontal NavMenu
-
-## Props
-
-| Prop name   | Description             | Type   | Values | Default |
-| ----------- | ----------------------- | ------ | ------ | ------- |
-| title       | Title of the Menu       | string | -      |         |
-| description | Description of the Menu | string | -      |         |
-
-## Events
-
-| Event name | Properties                                | Description                            |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| close      | **payload** `string` - The first argument | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description | Bindings |
-| ----------- | ----------- | -------- |
-| default     |             |          |
-| description |             |          |

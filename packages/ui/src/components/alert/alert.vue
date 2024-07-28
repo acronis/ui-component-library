@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { AcvAlertEvents, AcvAlertProps, AcvAlertSlots } from './alert.ts';
+
   import './alert.css';
 
   defineOptions({

@@ -1,3 +1,3 @@
-export { default as IconVpn24 } from '../vue/IconVpn24.vue';
-export { default as IconVpnCon16 } from '../vue/IconVpnCon16.vue';
-export { default as IconVpnCon24 } from '../vue/IconVpnCon24.vue';
+export { render as IconVpn24 } from '../vue/IconVpn24.js';
+export { render as IconVpnCon16 } from '../vue/IconVpnCon16.js';
+export { render as IconVpnCon24 } from '../vue/IconVpnCon24.js';

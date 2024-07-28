@@ -1,1 +1,1 @@
-export { default as IconOpenai16 } from '../vue/IconOpenai16.vue';
+export { default as IconOpenai16 } from '../vue/IconOpenai16.js';

@@ -1,1 +1,1 @@
-export { default as IconBullet16 } from '../vue/IconBullet16.vue';
+export { render as IconBullet16 } from '../vue/IconBullet16.js';

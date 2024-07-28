@@ -29,7 +29,7 @@ export function buildPlugin(): Plugin[] {
         sourceMap: false,
         paths: {
           '@/*': ['./src/*'],
-          '@documentation/*': ['../../documentation'],
+          '@demos/*': ['../../demos/*'],
           'csstype': ['node_modules/csstype']
         }
       },

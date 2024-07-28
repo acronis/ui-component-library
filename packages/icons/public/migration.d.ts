@@ -1,1 +1,1 @@
-export { default as IconMigrationAb32 } from '../vue/IconMigrationAb32.vue';
+export { default as IconMigrationAb32 } from '../vue/IconMigrationAb32.js';

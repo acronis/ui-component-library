@@ -1,11 +1,3 @@
----
-title: Stepper component
-lang: en-US
-editLink: true
----
-
-# Stepper
-
 The component is used in various wizards and shows the entire path that the user needs to go through in order to complete the installation or configuration of certain modules within the interface.
 
 :::info Figma mockups
@@ -23,7 +15,7 @@ Set `v-model` attribute with `Number` type, which indicates the index of steps a
 <StepperBasic />
 
 ::: details Source code
-<<< @/demos/stepper/StepperBasic.vue
+<<< ../../../demos/src/stepper/StepperBasic.vue
 :::
 
 ## Types
@@ -42,23 +34,3 @@ Let you do any changes before we switch to the selected step
 
 - A related component.
 - Another related component.
-
-## Props
-
-| Prop name   | Description                | Type   | Values | Default |
-| ----------- | -------------------------- | ------ | ------ | ------- |
-| title       | Title of the stepper       | string | -      |         |
-| description | Description of the stepper | string | -      |         |
-
-## Events
-
-| Event name | Properties                                | Description                            |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| close      | **payload** `string` - The first argument | Triggered when the component is closed |
-
-## Slots
-
-| Name        | Description | Bindings |
-| ----------- | ----------- | -------- |
-| default     |             |          |
-| description |             |          |

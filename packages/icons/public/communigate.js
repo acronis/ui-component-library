@@ -1,1 +1,1 @@
-export { default as IconCommunigate32 } from '../vue/IconCommunigate32.vue';
+export { render as IconCommunigate32 } from '../vue/IconCommunigate32.js';

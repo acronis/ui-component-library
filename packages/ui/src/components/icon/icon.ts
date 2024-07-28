@@ -9,7 +9,7 @@ type Color = RGB | RGBA | HEX | ColorNames;
 
 export interface AcvIconProps {
   /**
-   * Name of icon (e.g. `check` or `i-check--16`)
+   * Name of icon (e.g. `check` or `check--16`)
    */
   name?: string
   /**
@@ -91,4 +91,6 @@ export interface AcvIconProps {
   inverse?: boolean
 
   icon?: IconProp
+
+  stateIcon?: IconProp
 }

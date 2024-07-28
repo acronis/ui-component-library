@@ -10,9 +10,9 @@ function renderType(pr) {
 
 function tmpl(props) {
   return props.map((pr = { tags: {} }) => {
-    const { values, defaultValue, ...restTags } = pr.tags || {};
+    const { values, default: defaults, defaultValue, ...restTags } = pr.tags || {};
     const valuesTag = values?.[0] ?? null;
-    const defaultTag = defaultValue?.[0] ?? null;
+    const defaultTag = defaults?.[0] ?? defaultValue?.[0] ?? null;
 
     const p = pr.name;
     const t = pr.description ?? `${restTags ? renderTags(restTags) : ''}`;

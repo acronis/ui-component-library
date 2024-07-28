@@ -4,6 +4,7 @@
     AcvAutocompleteProps,
     AcvAutocompleteSlots
   } from './autocomplete.ts';
+
   import './autocomplete.css';
 
   const { title, description } = defineProps<AcvAutocompleteProps>();
