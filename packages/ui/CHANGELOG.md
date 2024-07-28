@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/acronis/ui-component-library/compare/v1.12.0...v1.12.1) (2024-07-28)
+
+
+### Bug Fixes
+
+* fix tooltip background token ([4f6a5d0](https://github.com/acronis/ui-component-library/commit/4f6a5d05d00eb88c9dcc81f547d00228ee5c551b))
+
 ## [1.12.0](https://github.com/acronis/ui-component-library/compare/v1.11.9...v1.12.0) (2024-07-28)
 
 
@@ -27,11 +34,4 @@
 
 * **icon:** change icon.vue ([3d77059](https://github.com/acronis/ui-component-library/commit/3d770590cf3a24ca22cb5baabb000063cc8ad51a))
 * **icon:** cleaned package, updated readme ([dff46b4](https://github.com/acronis/ui-component-library/commit/dff46b4a8878bda31db94a43a494df64b93c0719))
-
-## [1.11.6](https://github.com/acronis/ui-component-library/compare/v1.11.5...v1.11.6) (2024-07-26)
-
-
-### Bug Fixes
-
-* fix icon unit tests ([ee41497](https://github.com/acronis/ui-component-library/commit/ee41497220b0e149f9cc65a4f4b3e06cacd54862))
 
