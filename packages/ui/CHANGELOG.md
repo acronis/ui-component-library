@@ -1,3 +1,10 @@
+## [1.12.0](https://github.com/acronis/ui-component-library/compare/v1.11.9...v1.12.0) (2024-07-28)
+
+
+### Features
+
+* create demos package ([9342361](https://github.com/acronis/ui-component-library/commit/93423617b133b7031cfc6477fd65bd7c9ce58c9d))
+
 ## [1.11.9](https://github.com/acronis/ui-component-library/compare/v1.11.8...v1.11.9) (2024-07-27)
 
 
@@ -27,11 +34,4 @@
 ### Bug Fixes
 
 * fix icon unit tests ([ee41497](https://github.com/acronis/ui-component-library/commit/ee41497220b0e149f9cc65a4f4b3e06cacd54862))
-
-## [1.11.5](https://github.com/acronis/ui-component-library/compare/v1.11.4...v1.11.5) (2024-07-26)
-
-
-### Bug Fixes
-
-* fix preview render error ([40d54ea](https://github.com/acronis/ui-component-library/commit/40d54ea095db95da21f991ee1b00a53fa7e3c223))
 
