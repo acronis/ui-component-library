@@ -1,57 +1,46 @@
-## Type of change (check all applicable, delete options that are not relevant)
+<!---️ PR title should follow conventional commits (https://conventionalcommits.org) -->
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+### Type of change
+
+<!-- What types of changes does your code introduce? Put an `x` in all the boxes that apply. -->
+
+- [ ] Documentation (updates to the documentation, readme or JSDoc annotations)
+- [ ] Bug fix (a non-breaking change that fixes an issue)
+- [ ] Enhancement (improving an existing functionality like performance)
+- [ ] New feature (a non-breaking change that adds functionality)
 - [ ] Refactoring (old API is revised and supported)
-- [ ] Documentation update
+- [ ] Chore (updates to the build process or auxiliary tools and libraries)
+- [ ] Breaking change (fix or feature that would cause existing functionality to change)
 
-## Describe your changes
+### Description
 
-Please include a summary of the change and which issue is fixed. 
-Please also include relevant motivation and context. 
-List any dependencies that are required for this change.
+<!-- Describe your changes in detail -->
+<!-- Why is this change required? What problem does it solve? -->
+<!-- If it resolves an open issue, please link to the issue here. For example "Resolves #1337" -->
 
 ## Related issue
+
+<!-- Please ensure there is an open issue and mention it's number as #123 -->
 
 - Fixes # (issue)
 - Closes # (issue)
 - Related # (issue)
 
-## Any tests added or updated?
+### 📸 Screenshots (if appropriate)
 
-Please describe the tests that you ran to verify your changes. 
-Provide instructions so we can reproduce. 
-Please also list any relevant details for your test configuration
-_We encourage you to keep the code coverage percentage at 80% and above._
+<!-- Add screenshots to help explain the change. -->
 
-- [ ] Yes
-- [ ] No, and this is why: _please replace this line with details on why tests
-  have not been included_
-- [ ] I need help with writing tests
+### Checklist
 
-## QA Instructions
+<!-- Put an `x` in all the boxes that apply. -->
+<!-- If your change requires a documentation PR, please link it appropriately -->
+<!-- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
+<!-- _We encourage you to keep the code coverage percentage at 80% and above._ -->
 
-Please replace this line with instructions on how to test your changes,
-a note on the devices and browsers this has been tested on, 
-as well as any relevant images for UI changes.
-
-### UI accessibility checklist
-
-_If your PR includes UI changes, please utilize this checklist:_
-
-- [ ] Semantic HTML implemented?
-- [ ] Keyboard operability supported?
-- [ ] Checked with [axe DevTools](https://www.deque.com/axe/) and addressed `Critical` and `Serious` issues?
-- [ ] Color contrast tested?
-
-## Checklist before requesting a review
-
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published in downstream modules
+- [ ] I have linked an issue or discussion;
+- [ ] I have updated the documentation accordingly;
+- [ ] I have added or updated tests to cover my changes;
+- [ ] I have performed a self-review of my code;
+- [ ] I have made corresponding changes to the documentation;
+- [ ] My code follows the style guidelines of this project;
+- [ ] My changes generate no new warnings.
