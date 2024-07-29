@@ -1,10 +1,17 @@
 <script setup lang="ts">
+  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
+  import { IconClose16 } from '@acronis-platform/icons/close';
+  import { computed } from 'vue';
   import type { AcvAlertEvents, AcvAlertProps, AcvAlertSlots } from './alert.ts';
+  import AcvButton from '@/components/button/button.vue';
 
   import './alert.css';
 
+  /**
+   * Alert displays a brief, important message without interrupting user's task.
+   */
   defineOptions({
-    name: 'Alert',
+    name: 'AcvAlert',
   });
 
   const {
@@ -12,7 +19,8 @@
     title,
     description,
     showClose,
-    showIcon
+    showIcon,
+    showBorder
   } = withDefaults(defineProps<AcvAlertProps>(), {
     showClose: false,
     color: 'info',
@@ -20,12 +28,19 @@
 
   defineEmits<AcvAlertEvents>();
   const slots = defineSlots<AcvAlertSlots>();
+
+  const alertClasses = computed(() => {
+    return {
+      'acv-alert': true,
+      [color]: true,
+      'border': showBorder
+    };
+  });
 </script>
 
 <template>
   <div
-    class="acv-alert"
-    :class="color"
+    :class="alertClasses"
     role="alert"
   >
     <div class="content">
@@ -34,12 +49,12 @@
         class="icon"
       >
         <slot name="icon">
-          <span v-if="color === 'info'">I</span>
-          <span v-else-if="color === 'warning'">I</span>
-          <span v-else-if="color === 'error'">I</span>
-          <span v-else-if="color === 'critical'">I</span>
-          <span v-else-if="color === 'unknown'">I</span>
-          <span v-else-if="color === 'success'">I</span>
+          <span v-if="color === 'info'"><IconPlaceholder16 /></span>
+          <span v-else-if="color === 'success'"><IconPlaceholder16 /></span>
+          <span v-else-if="color === 'warning'"><IconPlaceholder16 /></span>
+          <span v-else-if="color === 'critical'"><IconPlaceholder16 /></span>
+          <span v-else-if="color === 'danger'"><IconPlaceholder16 /></span>
+          <span v-else-if="color === 'neutral'"><IconPlaceholder16 /></span>
         </slot>
       </div>
       <div
@@ -80,9 +95,13 @@
     <div
       v-if="showClose"
       class="close"
-      @click="$emit('close')"
     >
-      X
+      <AcvButton
+        type="ghost"
+        @click="$emit('close')"
+      >
+        <IconClose16 />
+      </AcvButton>
     </div>
   </div>
 </template>
@@ -96,43 +115,54 @@
     color: var(--acv-color-text-primary);
     font-family: var(--acv-font-family-default), sans-serif;
     font-size: var(--acv-font-size-body);
-    line-height: var(--acv-font-line-height-medium);
+    line-height: var(--acv-font-line-height-regular);
+    width: 100%;
+    border: 1px solid var(--acv-border-color);
+    background: var(--acv-background-color);
 
     .content {
       display: grid;
       grid-template-columns: min-content 1fr;
       grid-auto-columns: auto;
-      grid-template-rows: auto auto auto;
+      grid-template-rows: 24px auto  auto;
       padding: 8px 0 8px 24px;
     }
 
     &.info {
-      background-color: var(--acv-color-status-info-primary);
+      --acv-background-color: var(--acv-background-color-info);
+      --acv-border-color: var(--acv-border-color-info);
     }
 
     &.success {
-      background-color: var(--acv-color-status-success-primary);
+      --acv-background-color: var(--acv-background-color-success);
+      --acv-border-color: var(--acv-border-color-success);
     }
 
     &.warning {
-      background-color: var(--acv-color-status-warning-primary);
+      --acv-background-color: var(--acv-background-color-warning);
+      --acv-border-color: var(--acv-border-color-warning);
     }
 
     &.critical {
-      background-color: var(--acv-color-status-critical-primary);
+      --acv-background-color: var(--acv-background-color-critical);
+      --acv-border-color: var(--acv-border-color-critical);
     }
 
-    &.error {
-      background-color: var(--acv-color-status-danger-primary);
+    &.danger {
+      --acv-background-color: var(--acv-background-color-danger);
+      --acv-border-color: var(--acv-border-color-danger);
     }
 
-    &.unknown {
-      background-color: var(--acv-color-status-neutral-primary);
+    &.neutral {
+      --acv-background-color: var(--acv-background-color-neutral);
+      --acv-border-color: var(--acv-border-color-neutral);
     }
   }
 
   .icon {
     display: flex;
+    align-items: center;
+    margin-inline-end: 16px;
   }
 
   .title {
@@ -141,8 +171,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    /* TODO use mixin */
     font-weight: var(--acv-font-weight-strong);
   }
 
@@ -156,7 +184,7 @@
     align-items: center;
     gap: 16px;
     grid-column: 2;
-    margin-top: 8px;
+    margin-top: 12px;
   }
 
   .right {
@@ -175,8 +203,7 @@
     cursor: pointer;
     margin-left: auto;
     grid-column: 2;
-    border-left: var(--acv-border-regular) var(--acv-color-status-info-primary);
-  }
+    border-left: var(--acv-border-regular, 1px) solid var(--acv-color-divider-primary, hsl(215deg 60% 92%));  }
 
   .right ~ .close {
     grid-column: 4;

@@ -1,6 +1,8 @@
-Notifies the user about the status of the system,
-from information with the ability to hide alert,
-to global errors or limitations within the system or a separate section without the ability to clear the message.
+## Features
+
+- Notifies the user about the status of the system;
+- Can be closable, not available to hide alert automatically;
+- Severity of alert message can be set with _color_ property;
 
 :::info Figma mockups
 https://www.figma.com/file/JVXL1xmeaGoj3glTMwoJnl/01-UI-Kits---Syntax-UI?type=design&node-id=212-489&mode=design&t=rStlC7KttZJJBUc1-4
@@ -28,59 +30,59 @@ https://www.figma.com/file/LTyCXsL7eUj5fHmMMGcEUj/Components-anatomy?type=design
 
 Setting the `icon` attribute allows you to configure the icon to be shown.
 
-<AlertIconsExample />
+<AlertIcons />
 
 ## Border variants
 
 Setting the `border` attribute accordingly as shown below can be used to selective display top and bottom borders.
 
-<AlertBorderVariantsExample />
+<AlertBorderVariants />
 
 ## Card variant
 
 Setting the `card` attribute renders the Alert within a card layout
 
-<AlertCardVariantExample />
+<AlertCardVariant />
 
 ## With title
 
 Besides the required `title` attribute, you can add a `description` attribute to help you describe the alert with more details. Description can only store text string, and it will word wrap automatically.
 
-<AlertWithTitleExample />
+<AlertWithTitle />
 
 ## With action
 
 Use `actions` slot to render actions
 
-<AlertWithActionExample />
+<AlertWithAction />
 
 ## With right slot
 
 Use `right` slot to render actions on the right side
 
-<AlertWithActionsRightExample />
+<AlertWithActionsRight />
 
 ## With Title, description, subtitle and content
 
 Use `content` and `subtitle` as property
 
-<AlertWithTitleDescriptionSubtitleContentExample />
+<AlertWithTitleDescriptionSubtitleContent />
 
 ## With description, subtitle, content and close button
 
 Use `content` and `subtitle` and `actions` as slots
 
-<AlertWithDescriptionSubtitleContentCloseExample />
+<AlertWithDescriptionSubtitleContentClose />
 
 ## With title, description, content and close button
 
 Use `content` and `subtitle` as property
 
-<AlertWithTitleDescriptionContentCloseExample />
+<AlertWithTitleDescriptionContentClose />
 
 ## Without close
 
-Set `hide-close` to hide the close button
+Set `show-close`=_false_ to hide the **close** button
 
 ## Transparent background
 

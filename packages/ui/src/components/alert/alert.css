@@ -1,8 +1,22 @@
 @layer tokens {
   :root {
-    --acv-alert-border-radius: var(--acv-radius-medium);
+    --acv-alert-border-radius: var(--acv-radius-regular);
     --acv-alert-title-color: var(--acv-color-text-primary);
-    --acv-lert-plain-transition: 0.2s opacity
+    --acv-alert-plain-transition: 0.2s opacity
       var(--acv-transition-timing-common);
+    --acv-border-color: var(--acv-border-color-info);
+    --acv-border-color-info: var(--acv-color-status-info-secondary);
+    --acv-border-color-success: var(--acv-color-status-success-secondary);
+    --acv-border-color-warning: var(--acv-color-status-warning-secondary);
+    --acv-border-color-critical: var(--acv-color-status-critical-secondary);
+    --acv-border-color-danger: var(--acv-color-status-danger-secondary);
+    --acv-border-color-neutral: var(--acv-color-status-neutral-secondary);
+    --acv-background-color: var(--acv-background-color-info);
+    --acv-background-color-info: var(--acv-color-status-info-primary);
+    --acv-background-color-success: var(--acv-color-status-success-primary);
+    --acv-background-color-warning: var(--acv-color-status-warning-primary);
+    --acv-background-color-critical: var(--acv-color-status-critical-primary);
+    --acv-background-color-danger: var(--acv-color-status-danger-primary);
+    --acv-background-color-neutral: var(--acv-color-status-neutral-primary);
   }
 }

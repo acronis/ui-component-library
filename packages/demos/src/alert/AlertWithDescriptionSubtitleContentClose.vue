@@ -5,7 +5,7 @@
 <template>
   <div class="qa-alert-action">
     <AcvAlert
-      content-block-type="info"
+      color="info"
       show-icon
       type="warning"
     >

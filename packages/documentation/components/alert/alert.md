@@ -1,11 +1,13 @@
 ---
-title: Alert component
+title: ACV Alert component
 lang: en-US
 editLink: true
 description: This file is generated automatically from the source code. Changes made here will be lost.
 ---
 
-# Alert
+# ACV Alert
+
+> Alert displays a brief, important message without interrupting user's task.
 
 <!--@include: ./alert.doc.md-->
 

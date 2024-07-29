@@ -7,7 +7,6 @@
     <AcvAlert
       type="info"
       description="This is a description."
-      hide-close
     />
   </div>
 </template>

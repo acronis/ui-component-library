@@ -3,13 +3,13 @@
 </script>
 
 <template>
-  <div class="qa-alert-actions-right">
+  <div class="acv-grid">
     <AcvAlert
       type="info"
       title="With title"
       description="This is a description."
     >
-      <template #actions-right>
+      <template #right>
         <AcvButton type="ghost">
           Actions right
         </AcvButton>
@@ -20,7 +20,7 @@
       title="With title"
       description="This is a description."
     >
-      <template #actions-right>
+      <template #right>
         <AcvButton type="primary">
           Actions right
         </AcvButton>

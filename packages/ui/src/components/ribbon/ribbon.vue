@@ -67,7 +67,7 @@
             </div>
           </template>
 
-          <template #actions-right>
+          <template #right>
             <template v-if="alerts && alerts.length > 1">
               <div class="acv-text acv-text--body-32 pr-16">
                 {{ stepLabel }}

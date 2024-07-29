@@ -8,8 +8,8 @@ export const ALERT_VARIANT = {
   success: 'success',
   warning: 'warning',
   critical: 'critical',
-  error: 'error',
-  unknown: 'unknown',
+  danger: 'danger',
+  neutral: 'neutral',
 } as const;
 
 export type AcvAlertVariant = typeof ALERT_VARIANT[keyof typeof ALERT_VARIANT];
@@ -19,8 +19,8 @@ export const AcvAlertIconTypes = {
   [ALERT_VARIANT.success]: 'clr-success--16',
   [ALERT_VARIANT.warning]: 'clr-warning--16',
   [ALERT_VARIANT.critical]: 'clr-critical--16',
-  [ALERT_VARIANT.error]: 'clr-danger--16',
-  [ALERT_VARIANT.unknown]: 'clr-unknown--16'
+  [ALERT_VARIANT.danger]: 'clr-danger--16',
+  [ALERT_VARIANT.neutral]: 'clr-unknown--16'
 };
 
 export interface AcvAlertProps {

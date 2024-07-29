@@ -54,7 +54,7 @@
     @close="onClose"
   />
   <Alert
-    color="unknown"
+    color="neutral"
     title="This is a title."
     description="This is a description."
     show-close
