@@ -1,8 +1,7 @@
 import { resolve } from 'node:path';
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import { configDefaults } from 'vitest/dist/config';
 
 const rootDir = __dirname;
 
