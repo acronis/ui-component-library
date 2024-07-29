@@ -1,3 +1,10 @@
+## [1.12.3](https://github.com/acronis/ui-component-library/compare/v1.12.2...v1.12.3) (2024-07-29)
+
+
+### Bug Fixes
+
+* fix alert unit tests ([457d0d8](https://github.com/acronis/ui-component-library/commit/457d0d8506f4fe45ffa81ae2c9d66b3fbf1d2b95))
+
 ## [1.12.2](https://github.com/acronis/ui-component-library/compare/v1.12.1...v1.12.2) (2024-07-29)
 
 
@@ -25,12 +32,4 @@
 ### Bug Fixes
 
 * fix icons package with temporary barrel file ([3c71af9](https://github.com/acronis/ui-component-library/commit/3c71af9e85b447760dc16961c3629ed0210235a2))
-
-## [1.11.8](https://github.com/acronis/ui-component-library/compare/v1.11.7...v1.11.8) (2024-07-26)
-
-
-### Bug Fixes
-
-* **icon:** fix typo ([4d7ec83](https://github.com/acronis/ui-component-library/commit/4d7ec831aa30fa6ec8e1d3c3c5e222f613c80a7c))
-* **icon:** move color and class-name to env config ([c9ba410](https://github.com/acronis/ui-component-library/commit/c9ba410243d9ee7339142fa43a753612b366c75c))
 
