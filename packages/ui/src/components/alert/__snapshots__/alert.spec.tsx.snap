@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`alert > renders close button 1`] = `
+<div
+  class="close"
+  data-v-437210c2=""
+>
+  <button
+    class="acv-button ghost medium primary"
+    data-v-437210c2=""
+    data-v-7a9642c5=""
+    type="button"
+  >
+    
+    <!--v-if-->
+    <span
+      class="content"
+      data-v-7a9642c5=""
+    >
+      
+      <svg
+        class="acv-icon"
+        data-v-437210c2=""
+        fill="none"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.295 12.278a1.008 1.008 0 1 0 1.427 1.427L8 9.426l4.278 4.279a1.008 1.008 0 1 0 1.427-1.427L9.426 8l4.279-4.278a1.008 1.008 0 1 0-1.427-1.427L8 6.574 3.722 2.295a1.008 1.008 0 1 0-1.427 1.427L6.574 8l-4.279 4.278Z"
+          fill="#2668C5"
+        />
+      </svg>
+      
+    </span>
+    <!--v-if-->
+    
+  </button>
+</div>
+`;

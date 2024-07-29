@@ -106,6 +106,6 @@ describe('alert', () => {
       } as AcvAlertProps,
     })
 
-    expect(wrapper.text()).toBe('X')
+    expect(wrapper.find('.close').element).toMatchSnapshot()
   })
 })
