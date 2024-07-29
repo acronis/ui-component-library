@@ -11,7 +11,13 @@
     ],
     "moduleResolution": "bundler"
   },
-  "include": ["src", "src/**/*.{ts,vue}", "./cypress.d.ts"],
+  "include": [
+    "env.d.ts",
+    "src",
+    "src/**/*.{ts,vue}",
+    "./cypress.d.ts",
+    "./vitest.config.ts"
+  ],
   "exclude": ["node_modules", "dist", "cypress.config.ts", "cypress"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

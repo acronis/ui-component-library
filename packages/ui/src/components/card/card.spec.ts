@@ -1,9 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { axe } from 'vitest-axe';
 import Card from './card.vue';
 import type { AcvCardProps } from './card.ts';
 
 describe('test Card component', () => {
+  it('pass accessibility tests', async () => {
+    const wrapper = mount(Card);
+
+    expect(await axe(wrapper.element)).toHaveNoViolations();
+  });
+
   it('default props', () => {
     const wrapper = mount(Card);
     expect(wrapper.props()).toMatchInlineSnapshot(`

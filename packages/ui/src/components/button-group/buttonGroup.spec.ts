@@ -1,9 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { axe } from 'vitest-axe';
 import ButtonGroup from './buttonGroup.vue';
 import type { ButtonGroupProps } from './buttonGroup.ts';
 
 describe('test ButtonGroup component', () => {
+  it('pass accessibility tests', async () => {
+    const wrapper = mount(ButtonGroup);
+
+    expect(await axe(wrapper.element)).toHaveNoViolations();
+  });
+
   it('default props', () => {
     const wrapper = mount(ButtonGroup);
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -67,6 +74,6 @@ describe('test ButtonGroup component', () => {
 
   it('renders correctly', () => {
     const wrapper = mount(ButtonGroup);
-    expect(wrapper.html()).toMatchInlineSnapshot('"<div data-v-4c93b7c2="" class="acv-button-group"></div>"');
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<nav data-v-4c93b7c2="" class="acv-button-group"></nav>"`);
   });
 });

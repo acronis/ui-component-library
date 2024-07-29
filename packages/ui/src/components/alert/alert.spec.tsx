@@ -1,9 +1,16 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { axe } from 'vitest-axe'
 import Alert from './alert.vue'
 import type { AcvAlertProps } from './alert.ts'
 
 describe('alert', () => {
+  it('pass accessibility tests', async () => {
+    const wrapper = mount(Alert)
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
+  })
+
   it('default props', () => {
     const wrapper = mount(Alert)
     expect(wrapper.props()).toMatchInlineSnapshot(`

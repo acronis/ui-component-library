@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
+import { axe } from 'vitest-axe'
 import { mount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
 import { AcvButtonGroup } from '../button-group/public.ts'
@@ -24,6 +25,12 @@ describe('button', () => {
       'primary',
     ])
     expect(wrapper.find('.acv-button').text()).toEqual(TEXT)
+  })
+
+  it('pass accessibility tests', async () => {
+    const wrapper = mount(() => <Button>{TEXT}</Button>)
+
+    expect(await axe(wrapper.element)).toHaveNoViolations()
   })
 
   it('size', () => {

@@ -18,9 +18,9 @@
 </script>
 
 <template>
-  <div :class="classes">
-    <slot></slot>
-  </div>
+  <nav :class="classes">
+    <slot />
+  </nav>
 </template>
 
 <style scoped>
@@ -30,9 +30,30 @@
     display: inline-flex;
     vertical-align: middle;
 
-    > .acv-button {
+    & > :deep(.acv-button) {
       position: relative;
       flex: 1 1 auto;
+
+      :deep(&:first-child) {
+        border-start-end-radius: 0;
+        border-start-start-radius: var(--acv-button-border-radius);
+        border-end-end-radius: 0;
+        border-end-start-radius: var(--acv-button-border-radius);
+      }
+
+      :deep(&:last-child) {
+        border-start-end-radius: var(--acv-button-border-radius);
+        border-start-start-radius: 0;
+        border-end-end-radius: var(--acv-button-border-radius);
+        border-end-start-radius: 0;
+      }
+
+      :deep(&:not(:last-child, :first-child)) {
+        border-start-end-radius: 0;
+        border-start-start-radius: 0;
+        border-end-end-radius: 0;
+        border-end-start-radius: 0;
+      }
     }
 
     > .acv-button-check:checked + .acv-button,

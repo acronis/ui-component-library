@@ -1,16 +1,25 @@
 <script setup>
-  import { AcvButton, AcvButtonGroup } from '@acronis-platform/ui-component-library';
-  // import Button from '@/components/button/button.vue';
-  // import ButtonGroup from '@/components/button-group/buttonGroup.vue';
+  import { ref } from 'vue';
+  import AcvButton from '@/components/button/button.vue';
+  import AcvButtonGroup from '@/components/button-group/buttonGroup.vue';
+
+  const selected = ref('Middle');
 </script>
 
 <template>
   <AcvButtonGroup
+    v-model="selected"
     role="group"
     aria-label="Basic example"
+    selected-type="primary"
+    default-type="secondary"
   >
-    <AcvButton>Left</AcvButton>
+    <AcvButton type="secondary">
+      Left
+    </AcvButton>
     <AcvButton>Middle</AcvButton>
-    <AcvButton>Right</AcvButton>
+    <AcvButton type="secondary">
+      Right
+    </AcvButton>
   </AcvButtonGroup>
 </template>

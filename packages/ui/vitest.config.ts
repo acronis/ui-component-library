@@ -29,7 +29,10 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     clearMocks: true,
-    setupFiles: [resolve(rootDir, 'scripts/testSetup.ts')],
+    setupFiles: [
+      resolve(rootDir, 'scripts/testSetup.ts'),
+      './vitest.setup.ts',
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'text-summary', 'html', 'json', 'lcov'],

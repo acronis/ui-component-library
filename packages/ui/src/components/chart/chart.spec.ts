@@ -44,6 +44,6 @@ describe('test Chart component', () => {
 
   it('renders', () => {
     const wrapper = mount(Chart);
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<canvas data-v-d66479ff="" role="img" class="acv-chart"></canvas>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<canvas data-v-d66479ff="" role="img" class="acv-chart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0"></canvas>"`);
   });
 });
