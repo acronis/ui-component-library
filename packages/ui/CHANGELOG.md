@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/acronis/ui-component-library/compare/v1.12.1...v1.12.2) (2024-07-29)
+
+
+### Bug Fixes
+
+* fix icon alignment ([3906de4](https://github.com/acronis/ui-component-library/commit/3906de4e5998a0ecf3e5e4f572fd3478f0e038f2))
+
 ## [1.12.1](https://github.com/acronis/ui-component-library/compare/v1.12.0...v1.12.1) (2024-07-28)
 
 
@@ -26,12 +33,4 @@
 
 * **icon:** fix typo ([4d7ec83](https://github.com/acronis/ui-component-library/commit/4d7ec831aa30fa6ec8e1d3c3c5e222f613c80a7c))
 * **icon:** move color and class-name to env config ([c9ba410](https://github.com/acronis/ui-component-library/commit/c9ba410243d9ee7339142fa43a753612b366c75c))
-
-## [1.11.7](https://github.com/acronis/ui-component-library/compare/v1.11.6...v1.11.7) (2024-07-26)
-
-
-### Bug Fixes
-
-* **icon:** change icon.vue ([3d77059](https://github.com/acronis/ui-component-library/commit/3d770590cf3a24ca22cb5baabb000063cc8ad51a))
-* **icon:** cleaned package, updated readme ([dff46b4](https://github.com/acronis/ui-component-library/commit/dff46b4a8878bda31db94a43a494df64b93c0719))
 
