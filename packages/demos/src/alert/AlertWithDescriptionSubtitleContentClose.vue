@@ -1,5 +1,6 @@
 <script setup>
-  import { AcvAlert, AcvButton } from '@acronis-platform/ui-component-library';
+  import AcvAlert from '@/components/alert/alert.vue';
+  import AcvButton from '@/components/button/button.vue';
 </script>
 
 <template>
@@ -10,10 +11,10 @@
       type="warning"
     >
       <template #content>
-        <div class="Acv-alert__title Acv-text Acv-text--strong">
+        <div class="acv-alert__title acv-text acv-text--strong">
           Advice
         </div>
-        <div class="Acv-text Acv-text--body-24">
+        <div class="acv-text acv-text--body-24">
           Alert has solid background color by default. Use transparent to change its background to transparent color and produce the <b>background color overlapping effect</b>
         </div>
       </template>

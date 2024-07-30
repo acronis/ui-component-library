@@ -1,5 +1,5 @@
 <script setup>
-  import { AcvAlert } from '@acronis-platform/ui-component-library';
+  import AcvAlert from '@/components/alert/alert.vue';
 </script>
 
 <template>
