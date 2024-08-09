@@ -46,7 +46,7 @@ export default _default;
     const fileVue = path.resolve(vueFolder, `${fileName}.vue`);
     const fileVueDTs = path.resolve(vueFolder, `${fileName}.d.ts`);
     const fileJs = path.resolve(vueFolder, `${fileName}.js`);
-    const imagePath = path.join(publicFolder, 'svg', `${fileName}.svg`);
+    const imagePath = path.join(publicFolder, `${fileName}.svg`);
 
     if (descriptor.template) {
       fileContentJs = compileTemplate({

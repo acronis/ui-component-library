@@ -14,18 +14,9 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "import": "./public/index.js"
-    },
-    "./*.js": {
-      "import": "./public/*.js"
-    },
-    "./*.svg": {
-      "import": "./public/svg/*.svg"
-    },
-    "./*": {
-      "import": "./public/*.js"
-    },
+    "./*.js":  "./public/*.js",
+    "./*.svg": "./public/*.svg",
+    "./*": "./public/*.js",
     "./package.json": "./package.json"
   },
   "files": [

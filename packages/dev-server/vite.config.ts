@@ -86,7 +86,7 @@ export default defineConfig(async () => {
       }
     },
     optimizeDeps: {
-      include: ['../ui/src/components', '@acronis-platform/icons']
+      include: ['../ui/src/components']
     },
     css: {
       postcss: {

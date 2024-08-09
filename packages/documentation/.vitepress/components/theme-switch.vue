@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { onMounted, ref } from 'vue';
-  import { IMoon, ISun } from '@acronis-platform/icons';
   import { isClient } from '@acronis-platform/utils';
 
   const rootCls = isClient ? document.documentElement.classList : undefined;
@@ -34,8 +33,8 @@
   <Switch
     :value="dark"
     class="theme-switch"
-    :open-icon="IMoon"
-    :close-icon="ISun"
+    open-icon=""
+    close-icon=""
     aria-label="theme"
     @change="toggleDark"
   />

@@ -14,9 +14,6 @@ export default defineConfig({
       '@vue/runtime-dom': '@vue/runtime-dom/dist/runtime-dom.esm-bundler.js',
     },
   },
-  optimizeDeps: {
-    include: ['@acronis-platform/icons']
-  },
   test: {
     include: [
       'src/components/**/*.spec.{ts,tsx}',
