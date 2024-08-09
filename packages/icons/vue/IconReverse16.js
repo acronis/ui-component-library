@@ -8,7 +8,7 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("g", { "clip-path": "url(#a)" }, [
   /*#__PURE__*/_createElementVNode("path", {
-    fill: "#2668C5",
+    fill: "currentColor",
     d: "m4.474 5 2.233-2.293a.999.999 0 1 0-1.414-1.414l-4 4a.999.999 0 0 0 0 1.414l4 4a.999.999 0 1 0 1.414-1.414L4.474 7H11a3 3 0 1 1 0 6H5a1 1 0 0 0 0 2h6a5 5 0 0 0 0-10H4.474Z"
   })
 ], -1 /* HOISTED */)

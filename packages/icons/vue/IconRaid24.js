@@ -7,21 +7,21 @@ const _hoisted_1 = {
   class: "acv-icon"
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#2668C5",
+  fill: "currentColor",
   d: "M7.996 5.994a1 1 0 1 0-2 0 1 1 0 0 0 2 0Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#2668C5",
+  fill: "currentColor",
   "fill-rule": "evenodd",
   d: "M10 1.997a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-18a1 1 0 0 1 1-1h6Zm-5 2h4v16H5v-16Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#2668C5",
+  fill: "currentColor",
   d: "M17.004 4.994a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#2668C5",
+  fill: "currentColor",
   "fill-rule": "evenodd",
   d: "M14 1.997a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-18a1 1 0 0 0-1-1h-6Zm5 2h-4v16h4v-16Z",
   "clip-rule": "evenodd"

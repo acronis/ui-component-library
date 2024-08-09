@@ -1,12 +1,12 @@
 export { default as IconUser16 } from '../vue/IconUser16.js';
 export { default as IconUser24 } from '../vue/IconUser24.js';
 export { default as IconUser32 } from '../vue/IconUser32.js';
-export { default as IconUser32DuplicateName } from '../vue/IconUser32DuplicateName.js';
 export { default as IconUserAdmin24 } from '../vue/IconUserAdmin24.js';
 export { default as IconUserCircle16 } from '../vue/IconUserCircle16.js';
 export { default as IconUserCircle24 } from '../vue/IconUserCircle24.js';
 export { default as IconUserCircle32 } from '../vue/IconUserCircle32.js';
 export { default as IconUserCircleWeb16 } from '../vue/IconUserCircleWeb16.js';
+export { default as IconUserO32 } from '../vue/IconUserO32.js';
 export { default as IconUserPlaceholder32 } from '../vue/IconUserPlaceholder32.js';
 export { default as IconUserSetting24 } from '../vue/IconUserSetting24.js';
 export { default as IconUserTray32 } from '../vue/IconUserTray32.js';

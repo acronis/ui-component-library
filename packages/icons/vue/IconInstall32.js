@@ -7,24 +7,15 @@ const _hoisted_1 = {
   class: "acv-icon"
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#408BEA",
-  d: "M16 29C8.82 29 3 23.18 3 16S8.82 3 16 3s13 5.82 13 13-5.82 13-13 13Z"
+  fill: "currentColor",
+  "fill-rule": "evenodd",
+  d: "M16 27c6.075 0 11-4.925 11-11S22.075 5 16 5 5 9.925 5 16s4.925 11 11 11Zm-2.293-9.707L15 18.586V11a1 1 0 1 1 2 0v7.586l1.293-1.293a1 1 0 0 1 1.414 1.414l-3 3a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414Z",
+  "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
-const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
-  stroke: "#243143",
-  "stroke-opacity": ".1",
-  d: "M16 28.5C9.096 28.5 3.5 22.904 3.5 16S9.096 3.5 16 3.5 28.5 9.096 28.5 16 22.904 28.5 16 28.5Z"
-}, null, -1 /* HOISTED */)
-const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#fff",
-  d: "m15 19.586-1.293-1.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0-1.414-1.414L17 19.586V10a1 1 0 1 0-2 0v9.586Z"
-}, null, -1 /* HOISTED */)
-const _hoisted_5 = [
-  _hoisted_2,
-  _hoisted_3,
-  _hoisted_4
+const _hoisted_3 = [
+  _hoisted_2
 ]
 
 export function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("svg", _hoisted_1, [..._hoisted_5]))
+  return (_openBlock(), _createElementBlock("svg", _hoisted_1, [..._hoisted_3]))
 }

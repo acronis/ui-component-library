@@ -17,6 +17,7 @@ export { render as IconFilePdf16 } from '../vue/IconFilePdf16.js';
 export { render as IconFilePdf32 } from '../vue/IconFilePdf32.js';
 export { render as IconFilePowerpoint16 } from '../vue/IconFilePowerpoint16.js';
 export { render as IconFilePowerpoint32 } from '../vue/IconFilePowerpoint32.js';
+export { render as IconFileProcess32 } from '../vue/IconFileProcess32.js';
 export { render as IconFileText16 } from '../vue/IconFileText16.js';
 export { render as IconFileText32 } from '../vue/IconFileText32.js';
 export { render as IconFileVideo16 } from '../vue/IconFileVideo16.js';

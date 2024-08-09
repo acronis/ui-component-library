@@ -6,7 +6,7 @@ const _hoisted_1 = {
   viewBox: "0 0 16 16",
   class: "acv-icon"
 }
-const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<g clip-path=\"url(#a)\"><circle cx=\"8\" cy=\"8\" r=\"8\" fill=\"#EA3939\"></circle><circle cx=\"8\" cy=\"8\" r=\"7.5\" stroke=\"#243143\" stroke-opacity=\".1\"></circle><path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M9.5 9.505c1.657 0 3-1.344 3-3.003a3.001 3.001 0 1 0-5.708 1.295l-2.5 2.501a1.001 1.001 0 0 0 1.415 1.416l.25-.25.69.69a.5.5 0 0 0 .707 0l.792-.794a.5.5 0 0 0 0-.708l-.689-.69.75-.75c.391.188.83.293 1.293.293Zm1.25-3.003a1.25 1.25 0 1 1-2.501.001 1.25 1.25 0 0 1 2.501 0Z\" clip-rule=\"evenodd\"></path></g><defs><clipPath id=\"a\"><path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path></clipPath></defs>", 2)
+const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<g fill=\"currentColor\" clip-path=\"url(#a)\"><path d=\"M9.5 7.753a1.25 1.25 0 1 0-.001-2.5 1.25 1.25 0 0 0 .001 2.5Z\"></path><path fill-rule=\"evenodd\" d=\"M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16Zm4.5-9.498a3.001 3.001 0 0 1-4.293 2.71l-.75.75.69.69a.5.5 0 0 1 0 .708l-.793.793a.5.5 0 0 1-.708 0l-.689-.69-.25.25a1 1 0 1 1-1.414-1.415l2.5-2.501A3.001 3.001 0 1 1 12.5 6.503Z\" clip-rule=\"evenodd\"></path></g><defs><clipPath id=\"a\"><path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path></clipPath></defs>", 2)
 const _hoisted_4 = [
   _hoisted_2
 ]
