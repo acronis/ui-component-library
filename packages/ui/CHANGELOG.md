@@ -1,3 +1,10 @@
+## [1.12.4](https://github.com/acronis/ui-component-library/compare/v1.12.3...v1.12.4) (2024-08-09)
+
+
+### Bug Fixes
+
+* fix imports in alert demos ([4b4b04c](https://github.com/acronis/ui-component-library/commit/4b4b04c0546bdbfeecb5955d008ab5f525eb6cd4))
+
 ## [1.12.3](https://github.com/acronis/ui-component-library/compare/v1.12.2...v1.12.3) (2024-07-29)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * create demos package ([9342361](https://github.com/acronis/ui-component-library/commit/93423617b133b7031cfc6477fd65bd7c9ce58c9d))
-
-## [1.11.9](https://github.com/acronis/ui-component-library/compare/v1.11.8...v1.11.9) (2024-07-27)
-
-
-### Bug Fixes
-
-* fix icons package with temporary barrel file ([3c71af9](https://github.com/acronis/ui-component-library/commit/3c71af9e85b447760dc16961c3629ed0210235a2))
 
