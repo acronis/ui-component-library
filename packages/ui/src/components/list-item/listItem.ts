@@ -1,4 +1,4 @@
-import type { ColorProp, IconProp } from '../../types/props.ts';
+import type { ColorProp, IconProp } from '@/types/props.ts';
 
 export interface AcvListItemProps {
   /**

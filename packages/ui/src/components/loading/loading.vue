@@ -1,5 +1,5 @@
 <script>
-  import AcvSpinner from '../spinner/spinner.vue';
+  import AcvSpinner from '@/components/spinner/spinner.vue';
 
   export default {
 

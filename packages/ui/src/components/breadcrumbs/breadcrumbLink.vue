@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import { useFocusableTab } from '../../composables/useFocusableTab.ts';
   import type { AcvBreadcrumbLinkProps, AcvBreadcrumbLinkSlots } from './breadcrumbs.ts';
+  import { useFocusableTab } from '@/composables/useFocusableTab.ts';
 
   const props = defineProps<AcvBreadcrumbLinkProps>();
   defineSlots<AcvBreadcrumbLinkSlots>();

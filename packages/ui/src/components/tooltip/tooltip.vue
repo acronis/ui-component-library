@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import AcvPopper from '../popper/popper.vue';
   import type { AcvTooltipProps, AcvTooltipSlots } from './tooltip.ts';
+  import AcvPopper from '@/components/popper/popper.vue';
 
   import './tooltip.css';
 

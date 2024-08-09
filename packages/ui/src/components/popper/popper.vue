@@ -3,8 +3,8 @@
   import { Teleport, computed, nextTick, ref, watch } from 'vue';
   import { arrow, autoPlacement, autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/vue';
   import { onClickOutside, refDebounced, useEventListener, useMounted, useVModel } from '@vueuse/core';
-  import { useTeleport } from '../../composables/useTeleport.ts';
   import type { AcvPopperEvents, AcvPopperProps, AcvPopperSlots } from './popper.ts';
+  import { useTeleport } from '@/composables/useTeleport.ts';
   import './popper.css';
 
   defineOptions({

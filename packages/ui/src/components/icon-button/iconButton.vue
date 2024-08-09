@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import AcvButton from '../button/button.vue';
   import type { AcvIconButtonEvents, AcvIconButtonProps, AcvIconButtonSlots } from './iconButton.ts';
+  import AcvButton from '@/components/button/button.vue';
   import './iconButton.css';
 
   const { color, size } = defineProps<AcvIconButtonProps>();

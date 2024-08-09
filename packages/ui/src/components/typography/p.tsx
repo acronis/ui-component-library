@@ -1,8 +1,8 @@
 import { defineComponent } from 'vue'
 
-import { useProps } from '../../utils/props.ts'
 import Text from './text.tsx'
 import { pProps } from './props.ts'
+import { useProps } from '@/utils/props.ts'
 
 export default defineComponent({
   name: 'P',

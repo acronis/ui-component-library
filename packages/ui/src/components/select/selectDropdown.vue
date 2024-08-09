@@ -1,5 +1,5 @@
 <script setup>
-  import AcvCard from '../card/card.vue';
+  import AcvCard from '@/components/card/card.vue';
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-import type { AcvCardProps } from '../card/card.ts';
+import type { AcvCardProps } from '@/components/card/card.ts';
 
 export type AcvDrawerAnchor = 'left' | 'right' | 'top' | 'bottom';
 

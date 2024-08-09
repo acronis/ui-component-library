@@ -1,4 +1,4 @@
-import type { AcvFloatingProps, PopperPlacement } from '../popper/popper.ts';
+import type { AcvFloatingProps, PopperPlacement } from '@/components/popper/popper.ts';
 
 export interface AcvDropdownProps extends AcvFloatingProps {
   /**

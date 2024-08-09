@@ -1,4 +1,4 @@
-import type { AcvLayerProps } from '../../composables/useLayer.ts';
+import type { AcvLayerProps } from '@/composables/useLayer.ts';
 
 export interface AcvCardProps extends AcvLayerProps {
   // Layer props

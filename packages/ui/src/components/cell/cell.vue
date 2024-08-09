@@ -3,10 +3,10 @@
   import { computed, inject, reactive, watch } from 'vue';
   import { isDefined, useBreakpoints } from '@vueuse/core';
   import { has } from 'lodash-es';
-  import { GRID_KEY } from '../grid/grid.ts';
-  import type { ClassType } from '../../utils/props.ts';
   import type { AcvCellProps } from './cell.ts';
   import { isPositionSet, parsePosition, queryBreakPointOptions } from './utils.ts';
+  import { GRID_KEY } from '@/components/grid/grid.ts';
+  import type { ClassType } from '@/utils/props.ts';
 
   defineOptions({ name: 'Cell' });
 

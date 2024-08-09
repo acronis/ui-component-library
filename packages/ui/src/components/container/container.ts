@@ -1,5 +1,5 @@
-import type { ResponsibleProps } from '../../composables/useBreakpoints.ts';
-import type { ColorProps } from '../../types/props.ts';
+import type { ResponsibleProps } from '@/composables/useBreakpoints.ts';
+import type { ColorProps } from '@/types/props.ts';
 
 export interface AcvContainerProps extends ResponsibleProps, ColorProps {
   /**

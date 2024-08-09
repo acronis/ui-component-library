@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import AcvDialog from '../dialog/dialog.vue';
   import type {
     AcvFormDialogEvents,
     AcvFormDialogProps,
     AcvFormDialogSlots
   } from './formDialog.ts';
+  import AcvDialog from '@/components/dialog/dialog.vue';
   import './formDialog.css';
 
   const { title, description } = defineProps<AcvFormDialogProps>();

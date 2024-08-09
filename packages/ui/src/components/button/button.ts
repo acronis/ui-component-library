@@ -1,6 +1,6 @@
-import type { ComponentSize, IconProp } from '../../types/props.ts';
-import type { ColorBrand, ColorStatus } from '../../utils/color.ts';
-import { BRAND_COLORS, STATUS_COLORS } from '../../utils/color.ts';
+import type { ComponentSize, IconProp } from '@/types/props.ts';
+import type { ColorBrand, ColorStatus } from '@/utils/color.ts';
+import { BRAND_COLORS, STATUS_COLORS } from '@/utils/color.ts';
 
 export const BUTTON_TYPE = {
   primary: 'primary',

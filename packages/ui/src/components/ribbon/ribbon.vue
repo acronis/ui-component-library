@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import Alert from '../alert/alert.vue';
-  import Button from '../button/button.vue';
-  import AcvDivider from '../divider/divider.vue';
-  import AcvLink from '../link/link.vue';
   import type { AcvRibbonEvents, AcvRibbonLink, AcvRibbonProps, AcvRibbonSlots } from './ribbon.ts';
+  import Alert from '@/components/alert/alert.vue';
+  import Button from '@/components/button/button.vue';
+  import AcvDivider from '@/components/divider/divider.vue';
+  import AcvLink from '@/components/link/link.vue';
   import './ribbon.css';
 
   const { alerts, hideClose } = defineProps<AcvRibbonProps>();

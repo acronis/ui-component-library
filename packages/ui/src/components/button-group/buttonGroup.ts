@@ -1,6 +1,6 @@
 import type { InjectionKey } from 'vue';
-import type { ColorProp, ComponentSize } from '../../types/props.ts';
-import type { AcvButtonVariant } from '../button/button.ts';
+import type { ColorProp, ComponentSize } from '@/types/props.ts';
+import type { AcvButtonVariant } from '@/components/button/button.ts';
 
 export interface ButtonGroupProps {
   /**

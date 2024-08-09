@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
-import AcvCard from '../card/card.vue';
 import Drawer from './drawer.vue';
 import type { AcvDrawerProps } from './drawer';
+import AcvCard from '@/components/card/card.vue';
 
 describe('test Drawer component', () => {
   it('default props', () => {

@@ -1,4 +1,4 @@
-import type { AcvPopperProps } from '../popper/popper.ts';
+import type { AcvPopperProps } from '@/components/popper/popper.ts';
 
 export interface AcvPopoverProps extends AcvPopperProps {
   block?: boolean
