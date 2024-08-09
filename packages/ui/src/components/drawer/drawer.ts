@@ -4,7 +4,7 @@ export type AcvDrawerAnchor = 'left' | 'right' | 'top' | 'bottom';
 
 export interface AcvDrawerProps extends AcvCardProps {
   /**
-   * Drawer visiblity state
+   * Drawer visibility state
    */
   modelValue?: boolean
 
