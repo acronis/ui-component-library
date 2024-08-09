@@ -10,7 +10,7 @@ const _hoisted_2 = /*#__PURE__*/_createElementVNode("g", { "clip-path": "url(#a)
   /*#__PURE__*/_createElementVNode("rect", {
     width: "16",
     height: "16",
-    fill: "#2668C5",
+    fill: "currentColor",
     rx: "2"
   })
 ], -1 /* HOISTED */)

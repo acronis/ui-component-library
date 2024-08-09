@@ -1,6 +1,9 @@
 export { render as IconMs36516 } from '../vue/IconMs36516.js';
 export { render as IconMs36524 } from '../vue/IconMs36524.js';
 export { render as IconMs36532 } from '../vue/IconMs36532.js';
+export { render as IconMs365DynamicsBackup16 } from '../vue/IconMs365DynamicsBackup16.js';
+export { render as IconMs365DynamicsBackup24 } from '../vue/IconMs365DynamicsBackup24.js';
+export { render as IconMs365DynamicsBackup32 } from '../vue/IconMs365DynamicsBackup32.js';
 export { render as IconMsExchange16 } from '../vue/IconMsExchange16.js';
 export { render as IconMsExchange24 } from '../vue/IconMsExchange24.js';
 export { render as IconMsExchange32 } from '../vue/IconMsExchange32.js';

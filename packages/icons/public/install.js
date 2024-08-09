@@ -1,3 +1,3 @@
-export { render as IconInstall16 } from '../vue/IconInstall16.js';
 export { render as IconInstall32 } from '../vue/IconInstall32.js';
-export { render as IconInstall32DuplicateName } from '../vue/IconInstall32DuplicateName.js';
+export { render as IconInstallBlue16 } from '../vue/IconInstallBlue16.js';
+export { render as IconInstallBlue32 } from '../vue/IconInstallBlue32.js';
