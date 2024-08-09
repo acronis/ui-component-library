@@ -10,7 +10,7 @@ const _hoisted_2 = /*#__PURE__*/_createElementVNode("circle", {
   cx: "4",
   cy: "8",
   r: "4",
-  fill: "#2668C5"
+  fill: "currentColor"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("circle", {
   cx: "4",

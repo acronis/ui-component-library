@@ -18,7 +18,7 @@ const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",
-  d: "m10 4.94 1.061 1.061-2 2 2 2-1.06 1.06-2.001-2-2 2-1.06-1.06 2-2-2-2L6 4.941l2 2 2-2Z"
+  d: "M10 4.94 11.062 6l-2 2 2 2-1.06 1.061-2.001-2-2 2-1.06-1.06L6.94 8l-2-2L6 4.94l2 2 2-2Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [
   _hoisted_2,

@@ -6,7 +6,7 @@ const _hoisted_1 = {
   viewBox: "0 0 16 16",
   class: "acv-icon"
 }
-const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<g fill=\"#2668C5\" clip-path=\"url(#a)\"><path d=\"M9 6v2.585l.293-.293a1 1 0 0 1 1.414 1.414l-2 2a1 1 0 0 1-1.414 0l-2-2a1 1 0 1 1 1.414-1.414L7 8.585V6a1 1 0 0 1 2 0Z\"></path><path fill-rule=\"evenodd\" d=\"M1 0h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1Zm1 3v11h12V3H2Z\" clip-rule=\"evenodd\"></path></g><defs><clipPath id=\"a\"><path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path></clipPath></defs>", 2)
+const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<g fill=\"currentColor\" clip-path=\"url(#a)\"><path d=\"M9 6v2.585l.293-.293a1 1 0 0 1 1.414 1.414l-2 2a1 1 0 0 1-1.414 0l-2-2a1 1 0 1 1 1.414-1.414L7 8.585V6a1 1 0 0 1 2 0Z\"></path><path fill-rule=\"evenodd\" d=\"M1 0h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1Zm1 3v11h12V3H2Z\" clip-rule=\"evenodd\"></path></g><defs><clipPath id=\"a\"><path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path></clipPath></defs>", 2)
 const _hoisted_4 = [
   _hoisted_2
 ]

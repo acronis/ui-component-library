@@ -11,12 +11,12 @@ const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   d: "M29 16c0 7.18-5.82 13-13 13S3 23.18 3 16 8.82 3 16 3s13 5.82 13 13Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
-  stroke: "#2668C5",
+  stroke: "currentColor",
   "stroke-opacity": ".3",
   d: "M28.5 16c0 6.904-5.596 12.5-12.5 12.5S3.5 22.904 3.5 16 9.096 3.5 16 3.5 28.5 9.096 28.5 16Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#2668C5",
+  fill: "currentColor",
   "fill-opacity": ".3",
   d: "m19.586 17-1.293 1.293a1 1 0 0 0 1.414 1.414l3-3a1 1 0 0 0 0-1.414l-3-3a1 1 0 0 0-1.414 1.414L19.586 15H10a1 1 0 1 0 0 2h9.586Z"
 }, null, -1 /* HOISTED */)

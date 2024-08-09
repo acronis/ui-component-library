@@ -7,7 +7,7 @@ const _hoisted_1 = {
   class: "acv-icon"
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "#2668C5",
+  fill: "currentColor",
   "fill-rule": "evenodd",
   d: "M12.625 11.78a1 1 0 0 0 .156-1.405L11.28 8l1.5-2.375a1 1 0 1 0-1.562-1.25l-2 3a1 1 0 0 0 0 1.25l2 3a1 1 0 0 0 1.406.156Zm-6 0a1 1 0 0 0 .156-1.405L5.28 8l1.5-2.375a1 1 0 1 0-1.562-1.25l-2 3a1 1 0 0 0 0 1.25l2 3a1 1 0 0 0 1.406.156Z",
   "clip-rule": "evenodd"
