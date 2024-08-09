@@ -112,7 +112,7 @@ importers:
     dependencies:
       '@acronis-platform/icons':
         specifier: workspace:*
-        version: link:../icons-constuctor
+        version: link:../icons
       '@acronis-platform/ui-component-library':
         specifier: workspace:*
         version: link:../ui
@@ -137,7 +137,7 @@ importers:
     dependencies:
       '@acronis-platform/icons':
         specifier: workspace:*
-        version: link:../icons-constuctor
+        version: link:../icons
       '@acronis-platform/ui-component-library':
         specifier: workspace:*
         version: link:../ui
@@ -182,8 +182,8 @@ importers:
         specifier: workspace:*
         version: link:../demos
       '@acronis-platform/icons':
-        specifier: workspace:*
-        version: link:../icons-constuctor
+        specifier: '>=0.0.1'
+        version: 0.0.1(vue@3.4.30(typescript@5.5.3))
       '@acronis-platform/ui-component-library':
         specifier: workspace:*
         version: link:../ui
