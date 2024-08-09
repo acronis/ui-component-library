@@ -17,6 +17,7 @@ export { default as IconFilePdf16 } from '../vue/IconFilePdf16.js';
 export { default as IconFilePdf32 } from '../vue/IconFilePdf32.js';
 export { default as IconFilePowerpoint16 } from '../vue/IconFilePowerpoint16.js';
 export { default as IconFilePowerpoint32 } from '../vue/IconFilePowerpoint32.js';
+export { default as IconFileProcess32 } from '../vue/IconFileProcess32.js';
 export { default as IconFileText16 } from '../vue/IconFileText16.js';
 export { default as IconFileText32 } from '../vue/IconFileText32.js';
 export { default as IconFileVideo16 } from '../vue/IconFileVideo16.js';
