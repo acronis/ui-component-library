@@ -1,3 +1,10 @@
+## [1.12.5](https://github.com/acronis/ui-component-library/compare/v1.12.4...v1.12.5) (2024-08-12)
+
+
+### Bug Fixes
+
+* use pages array in figma fetcher ([de1563a](https://github.com/acronis/ui-component-library/commit/de1563a46c902e98d6a59cc54ba539c8ba0effc8))
+
 ## [1.12.4](https://github.com/acronis/ui-component-library/compare/v1.12.3...v1.12.4) (2024-08-09)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix tooltip background token ([4f6a5d0](https://github.com/acronis/ui-component-library/commit/4f6a5d05d00eb88c9dcc81f547d00228ee5c551b))
-
-## [1.12.0](https://github.com/acronis/ui-component-library/compare/v1.11.9...v1.12.0) (2024-07-28)
-
-
-### Features
-
-* create demos package ([9342361](https://github.com/acronis/ui-component-library/commit/93423617b133b7031cfc6477fd65bd7c9ce58c9d))
 
