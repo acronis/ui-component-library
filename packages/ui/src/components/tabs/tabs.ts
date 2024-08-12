@@ -1,20 +1,45 @@
-import type { InjectionKey, VNode } from 'vue';
+import type { InjectionKey } from 'vue';
+import type { ComponentSize, TransitionProp } from '@/types/props';
+import type { AcvTabProps } from '@/components/tab/tab.ts';
 
 export interface AcvTabsProps {
   /**
-   * Title of the Tabs
+   * Active tab
    */
-  title?: string
+  modelValue?: number | string
 
   /**
-   * Description of the Tabs
+   * Array of Tabs to be rendered
+   * @default []
    */
-  description?: string
+  tabs?: (string | AcvTabProps)[]
+
+  /**
+   * Size of the tabs
+   */
+  size?: ComponentSize
+
+  spacing?: boolean
+
+  /**
+   * Tab transition
+   */
+  transition?: TransitionProp
 }
 
-export interface AcvTabProps {}
-
 export interface AcvTabsEvents {
+  /**
+   * Triggered when the component is closed
+   * @arg {string} eventName - The name of the event
+   * @arg {string} value - The name of the active tab
+   */
+  (eventName: 'update:modelValue', value: AcvTabsProps['modelValue']): void
+  /**
+   * Triggered when the tab is clicked
+   * @arg {string} eventName - The name of the event
+   * @arg {string} tabName - Clicked tab
+   */
+  (eventName: 'click', tabName: string): void
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -29,16 +54,10 @@ export interface AcvTabsSlots {
    */
   default: () => any
   /**
-   * The description slot content
-   * @binding {string} description - The description prop value
+   * Slot for tabs
    */
-  description: void
+  tabs: (_: any) => any
 }
 
-export interface AcvTabsInjection {
-  selectedIndex?: number
-  tabs?: VNode<AcvTabProps>[]
-  count?: number
-}
-
+export type AcvTabsInjection = string | AcvTabProps | undefined;
 export const TABS_KEY = Symbol('TABS_KEY') as InjectionKey<AcvTabsInjection>;
