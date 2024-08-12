@@ -1,3 +1,10 @@
+## [1.13.0](https://github.com/acronis/ui-component-library/compare/v1.12.5...v1.13.0) (2024-08-12)
+
+
+### Features
+
+* **icons:** update icons ([878bf1e](https://github.com/acronis/ui-component-library/commit/878bf1eea72801971ae904e6315c120f048f4dbf))
+
 ## [1.12.5](https://github.com/acronis/ui-component-library/compare/v1.12.4...v1.12.5) (2024-08-12)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix icon alignment ([3906de4](https://github.com/acronis/ui-component-library/commit/3906de4e5998a0ecf3e5e4f572fd3478f0e038f2))
-
-## [1.12.1](https://github.com/acronis/ui-component-library/compare/v1.12.0...v1.12.1) (2024-07-28)
-
-
-### Bug Fixes
-
-* fix tooltip background token ([4f6a5d0](https://github.com/acronis/ui-component-library/commit/4f6a5d05d00eb88c9dcc81f547d00228ee5c551b))
 
