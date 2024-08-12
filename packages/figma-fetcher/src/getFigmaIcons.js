@@ -36,13 +36,16 @@ export async function getFigmaIcons(config) {
   }
   const endTime = new Date().getTime();
   console.log(chalk.cyan.bold(`Finished fetching Figma in ${(endTime - startTime) / 1000}s\n`));
-  const page = response.data.document.children.find(c => c.name === config.pageName);
+  const pages = response.data.document.children.filter(c => config.pageNames.includes(c.name));
 
-  if (!page) {
-    throw new Error('Cannot find Icons Page, check your settings');
+  if (!pages.length) {
+    throw new Error('Cannot find pages with icons, check your settings');
   }
 
-  const framesWithIcons = page.children.filter(c => c.type === 'FRAME' && config.frameNames.includes(c.name));
+  const framesWithIcons = pages.flatMap(page =>
+    page.children.filter(c => c.type === 'FRAME' && config.frameNames.includes(c.name))
+  );
+
   if (!framesWithIcons) {
     console.log(
       chalk.red.bold(

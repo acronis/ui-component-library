@@ -26,7 +26,8 @@ export async function downloadImage(config, icon) {
     }
 
     const response = await fetch(url);
-    const content = optimize(await response.text(), {
+    const svgText = await response.text();
+    const optimizedSvg = optimize(svgText, {
       plugins: [
         'preset-default',
         'removeDimensions',
@@ -37,7 +38,9 @@ export async function downloadImage(config, icon) {
           },
         },
       ],
-    }).data.replace(new RegExp(escapeRegExp(config.systemColor)), 'currentColor');
+    });
+    const systemColorRegex = new RegExp(escapeRegExp(config.systemColor), 'g');
+    const content = optimizedSvg.data.replace(systemColorRegex, 'currentColor');
 
     await config.onDownloadedIcon({ content, pathname, publicFolder: config.publicFolder, vueFolder: config.vueFolder });
   }
