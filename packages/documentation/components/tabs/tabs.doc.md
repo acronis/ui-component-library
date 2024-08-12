@@ -3,17 +3,46 @@ Switching the content occurs without reloading the page.
 Do not use tab as a button group.
 Tab is a navigation element, not a form element.
 
-:::info Figma component anatomy
-https://www.figma.com/file/
-:::
-
 ## Basic usage
+
+Use `tabs` prop to define the list of tabs.
 
 <TabsBasic />
 
 ::: details Source code
 <<< ../../../demos/src/tabs/TabsBasic.vue
 :::
+
+## Icons
+
+Use `icon` property to render the icon with the tab title.
+
+## `v-model` Support
+
+Use `value` prop to bind the selected tab.
+
+## Tab panels
+
+Use dynamic slots to define the content of each tab panel.
+Template name should be equal to the tab value.
+
+Example: `<template #tabName>`
+
+## Anatomy
+
+The `AcvTabs` component consists of the following elements:
+
+- _Tabs_, set of tab elements, associated with tab panels
+- _Tab list_, a set of tab elements, contained in a tablist element
+- _Tab_, element in a tablist that represents a tab label and can be activated to display its associated tab panel
+- _Tab panel_, element that contains the content associated with a tab
+
+## Implementation
+
+- define the `tabs` prop as an array of strings or objects
+- define the `value` prop to bind the selected tab
+- define slotted content for each tab panel
+- define scoped slot for tab label
 
 ## Accessibility
 

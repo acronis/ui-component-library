@@ -129,3 +129,5 @@ export interface ColorProps {
    */
   textColor?: ColorProp
 }
+
+export type TransitionProp = 'fade' | 'scale' | 'slide-y' | 'slide-y-reverse' | 'scroll-y' | 'scroll-y-reverse' | 'slide-x' | 'slide-x-reverse' | 'scroll-x' | 'scroll-x-reverse';

@@ -26,7 +26,7 @@ description: This file is generated automatically from the source code. Changes 
 | color           | Background color                                                | ColorProp       | transparent, primary, secondary, success, warning, danger, info, inverted |         |
 | variant         | Layer variant                                                   | LayerVariant    | 'solid' \| 'outline' \| 'ghost' \| 'light'                                | 'solid' |
 | states          | Interaction states like hover & active                          | boolean         | -                                                                         | false   |
-| modelValue      | Drawer visiblity state                                          | boolean         | -                                                                         | false   |
+| modelValue      | Drawer visibility state                                         | boolean         | -                                                                         | false   |
 | persistent      | Persistence of drawer when clicked outside of reference element | boolean         | -                                                                         | false   |
 | anchor          | Drawer anchor/position                                          | AcvDrawerAnchor | -                                                                         | 'left'  |
 

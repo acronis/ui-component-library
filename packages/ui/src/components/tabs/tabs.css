@@ -2,5 +2,8 @@
   :root {
     /* Insert component css variables here */
     --acv-tabs-color: var(--acv-color-brand-primary);
+    --acv-tabs-border-radius: calc(
+      var(--acv-radius-small) + var(--acv-border-width-large)
+    );
   }
 }
