@@ -44,6 +44,21 @@ The `AcvTabs` component consists of the following elements:
 - define slotted content for each tab panel
 - define scoped slot for tab label
 
+## Features
+
+- `tabs` prop to define the list of tabs
+- `v-model` support to bind the selected tab
+- `icon` property to render the icon with the tab title
+- dynamic slots to define the content of each tab panel
+- dynamic slot for tab label
+- TODO: `closable` property to enable closing tabs
+- TODO: `divider` property to enable dividing tabs
+- TODO: `scrollable` property to enable scrolling tabs
+- TODO: `vertical` property to enable vertical tabs
+- TODO: `justify` property to enable justified tabs
+- TODO: tab focus management
+- TODO: tab keyboard navigation
+
 ## Accessibility
 
 Provided `AcvTabs` component must adapt to the list of

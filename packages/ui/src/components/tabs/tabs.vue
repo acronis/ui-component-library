@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import type { Ref } from 'vue';
   import { computed, provide, ref, toRef } from 'vue';
   import type { AcvTabsEvents, AcvTabsProps, AcvTabsSlots } from './tabs.ts';
   import { TABS_KEY } from './tabs.ts';
@@ -16,31 +17,30 @@
    */
   defineOptions({ name: 'AcvTabs' });
   const props = defineProps<AcvTabsProps>();
-  const emit = defineEmits<AcvTabsEvents>();
+  defineEmits<AcvTabsEvents>();
   defineSlots<AcvTabsSlots>();
-
+  const model = defineModel();
   const tabsRef = ref<AcvTabsProps[]>([]);
 
-  const modelOptions = computed(() => {
+  const tabValues = computed(() => {
     if (!props.tabs?.length)
       return [];
 
-    return props.tabs.map(tab => typeof tab === 'string' ? tab : (tab as AcvTabProps).value);
+    return props.tabs.map(tab => typeof tab === 'string' ? tab : (tab as AcvTabProps).value || (tab as AcvTabProps).label);
   });
   const { options, select: selectTab, value: activeTab } = useSelection({
-    items: modelOptions.value,
+    items: tabValues.value,
     initialValue: toRef(() => {
-      return props.modelValue || modelOptions.value[0];
+      return props.modelValue || tabValues.value[0];
     }),
   });
   function handleTabClick(tabIndex: number) {
     const value = options.value[tabIndex]?.value;
 
     selectTab(value);
-
-    emit('update:modelValue', value);
+    model.value = value;
   }
-  provide(TABS_KEY, activeTab);
+  provide(TABS_KEY, { selectedTab: activeTab as Ref<string | number | null> });
 
   const navClasses = computed(() => ({
     nav: true,
@@ -52,36 +52,37 @@
 <template>
   <div class="acv-tabs">
     <nav
-      class="nav"
       :class="navClasses"
+      role="tablist"
     >
-      <slot name="tabs">
+      <slot
+        name="tabs"
+        :handle-tab-click="handleTabClick"
+      >
         <AcvTab
-          v-for="(tab, i) in props.tabs"
-          :key="i"
+          v-for="(tab, index) in props.tabs"
+          :key="index"
           ref="tabsRef"
           v-bind="typeof tab === 'string' ? { label: tab } : tab"
-          :class="{
-            active: tab === activeTab,
-          }"
           :disabled="typeof tab === 'object' && tab.disabled"
-          @click="handleTabClick(i)"
-        />
+          @click="handleTabClick(index)"
+        >
+          <slot :name="`tab-${tabValues[index] as string}`" />
+        </AcvTab>
       </slot>
     </nav>
     <div
       v-for="(tab, i) in options"
+      v-show="tab.value === activeTab"
       :key="i"
       class="panel"
+      role="tabpanel"
     >
-      <div
-        v-show="i === activeTab"
-        class="tab"
+      <slot
+        :name="tab.value as string"
       >
-        <slot
-          :name="tab.value"
-        />
-      </div>
+        {{ props.tabs && props.tabs[i] && (props.tabs[i] as AcvTabProps).content }}
+      </slot>
     </div>
   </div>
 </template>
@@ -103,84 +104,13 @@
       line-height: calc(var(--acv-font-line-height-medium) - (2 * var(--acv-border-width-small)));
 
       &.large {
+        --acv-icon-size: var(--acv-icon-size-md);
         height: 48px;
         line-height: calc(var(--acv-font-line-height-x-large) - (2 * var(--acv-border-width-small)));
       }
 
       &.spaced {
         margin: 24px 24px 0;
-      }
-    }
-
-    .tab {
-      align-items: center;
-      background-color: transparent;
-      border-right: var(--acv-border-small) var(--acv-color-primary);
-      color: var(--acv-color-primary);
-      cursor: pointer;
-      display: flex;
-      flex: 1;
-      font-size: var(--acv-font-size-body);
-      font-weight: var(--acv-font-weight-strong);
-      height: 100%;
-      justify-content: center;
-      line-height: inherit;
-      min-width: 0;
-      outline: none;
-      padding: 0 16px;
-      position: relative;
-
-      &.active {
-        background-color: var(--acv-color-primary-lightest);
-        color: var(--acv-color-black);
-      }
-
-      &.disabled {
-        color: var(--acv-color-disabled,  rgb(36 49 67 / .7));
-        cursor: default;
-      }
-
-      &:-moz-focusring {
-        outline: none;
-      }
-
-      &:first-child {
-        border-radius: var(--acv-border-radius-small) 0 0 var(--acv-border-radius-small);
-      }
-
-      &.is-focus:focus:not(:active) {
-        outline: none;
-        overflow: visible;
-
-        &:before {
-          content: '';
-          border: var(--acv-border-width-large) solid var(--acv-color-status-focus);
-          border-width: 3px 0;
-          position: absolute;
-          inset: -4px 0;
-          box-sizing: content-box;
-        }
-
-        &:first-child:before {
-          border-width: var(--acv-border-width-large) 0 var(--acv-border-width-large) var(--acv-border-width-large);
-          left: -4px;
-          border-radius: var(--acv-tabs-border-radius) 0 0 var(--acv-tabs-border-radius);
-        }
-
-        &:last-child:before {
-          border-width: var(--acv-border-width-large) var(--acv-border-width-large) var(--acv-border-width-large) 0;
-          right: -4px;
-          border-radius: 0 var(--acv-tabs-border-radius) var(--acv-tabs-border-radius) 0;
-        }
-      }
-
-      &:hover {
-        background-color: var(--acv-color-primary-hover);
-        cursor: pointer;
-      }
-
-      &:active {
-        background-color: var(--acv-color-primary-active);
       }
     }
 

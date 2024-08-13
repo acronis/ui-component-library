@@ -52,3 +52,4 @@ jobs:
           working-directory: packages/ui
           start: pnpm --filter ./packages/ui run cypress:run
           component: true
+          browser: chrome

@@ -1,7 +1,6 @@
 .acv-icon {
-  width: 16px;
-  height: 16px;
+  width: var(--acv-icon-size);
+  height: var(--acv-icon-size);
   display: inline-block;
   vertical-align: middle;
-  transform: translateY(-0.1em);
 }

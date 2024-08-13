@@ -1,10 +1,13 @@
 <script setup>
+  import { IconUser16 } from '@acronis-platform/icons/user';
+  import { IconBell24 } from '@acronis-platform/icons/bell';
+  import { IconSettings16 } from '@acronis-platform/icons/settings';
   import AcvTabs from '@/components/tabs/tabs.vue';
 
   const tabs = [
-    { title: 'First', icon: 'i-bx-user' },
-    { title: 'Second', icon: 'i-bx-bell' },
-    { title: 'Third', icon: 'i-bx-cog' },
+    { label: 'Left', icon: IconUser16 },
+    { label: 'Middle', icon: IconBell24 },
+    { label: 'Right', icon: IconSettings16 },
   ];
 </script>
 

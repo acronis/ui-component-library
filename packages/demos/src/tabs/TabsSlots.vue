@@ -1,18 +1,22 @@
 <script setup>
   import AcvTabs from '@/components/tabs/tabs.vue';
-  import AcvTab from '@/components/tabs/tab.vue';
+
+  const tabs = [
+    { label: 'Left', value: 'left-slot' },
+    { label: 'Middle' },
+    { label: 'Right' },
+  ];
 </script>
 
 <template>
-  <AcvTabs>
-    <AcvTab title="Label">
-      <template #label>
-        Slotted Label
-      </template>
-      Test
-    </AcvTab>
-    <AcvTab title="Label 2">
-      Test 2
-    </AcvTab>
+  <AcvTabs
+    :tabs="tabs"
+  >
+    <template #tab-left-slot>
+      Slotted Label
+    </template>
+    <template #left-slot>
+      Slotted Content
+    </template>
   </AcvTabs>
 </template>
