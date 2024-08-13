@@ -1,0 +1,14 @@
+.basic {
+  font-family: var(--acv-font-family-default), sans-serif;
+  font-size: var(--acv-font-size-body);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--acv-font-line-height-regular);
+  color: var(--acv-color-text-primary);
+
+  &,
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+}

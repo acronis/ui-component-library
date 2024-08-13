@@ -1,0 +1,10 @@
+.acv-stack {
+  --acv-stack-gap: 32px;
+  margin-top: calc(0 - var(--acv-stack-gap));
+  margin-bottom: calc(0 - var(--acv-stack-gap));
+
+  & > * {
+    margin-top: var(--acv-stack-gap);
+    margin-bottom: var(--acv-stack-gap);
+  }
+}

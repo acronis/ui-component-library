@@ -108,7 +108,7 @@
 
 .acv-text--fineprint {
   font-size: var(--acv-font-size-fineprint); /* 12px */
-  line-height: var(--acv-font-line-height-x-small);
+  line-height: var(--acv-font-line-height-x-small); /* 1.1 */
 }
 
 .acv-text--body-xl {

@@ -1,4 +1,5 @@
 :root {
+  --acv-base-font-family-acronis-cyber: "Acronis Cyber", sans-serif;
   --acv-base-font-family-jet-brains: "JetBrains Mono", monospace;
   --acv-base-font-family-mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas",
     "Liberation Mono", "Courier New", monospace;

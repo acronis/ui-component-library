@@ -1,0 +1,15 @@
+.clearfix {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+
+  @supports (display: flow-root) {
+    display: flow-root;
+
+    &:after {
+      display: none;
+    }
+  }
+}
