@@ -28,3 +28,4 @@ dist-ssr
 test/coverage
 /cypress/snapshots/**/__diff_output__
 /cypress/screenshots/**/__diff_output__
+/cypress/downloads/downloads.html

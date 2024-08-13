@@ -5,9 +5,19 @@ export interface AcvTabProps {
   label?: string
 
   /**
+   * Tab content
+   */
+  content?: string
+
+  /**
    * Tab icon
    */
   icon?: string
+
+  /**
+   * Tab appendIcon
+   */
+  appendIcon?: string
   /**
    * Tab key
    * identifier corresponding to the activeName of Tabs, representing the alias of the tab-pane
@@ -29,10 +39,10 @@ export interface AcvTabSlots {
   /**
    * Prepend content to the title
    */
-  prepend: () => any
+  prepend?: () => any
 
   /**
    * Append content to the title
    */
-  append: () => any
+  append?: () => any
 }

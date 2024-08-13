@@ -1,28 +1,22 @@
 <script setup>
   import { ref } from 'vue';
+  import { IconSettings16 } from '@acronis-platform/icons/settings';
+  import { IconFromCloud24 } from '@acronis-platform/icons/from';
+  import { IconToCloud24 } from '@acronis-platform/icons/to';
   import AcvTabs from '@/components/tabs/tabs.vue';
-  import AcvTab from '@/components/tabs/tab.vue';
-  import AcvIcon from '@/components/icon/icon.vue';
 
+  const tabs = [
+    { label: 'Left', icon: IconFromCloud24 },
+    { label: 'Middle', icon: IconToCloud24, appendIcon: IconFromCloud24 },
+    { label: 'Right', icon: IconSettings16 },
+  ];
   const activeTab = ref();
 </script>
 
 <template>
   <AcvTabs
     v-model="activeTab"
+    :tabs="tabs"
     size="large"
-  >
-    <AcvTab title="Label">
-      <template #icon>
-        <AcvIcon name="from-cloud-o--24" />
-      </template>
-      Test
-    </AcvTab>
-    <AcvTab title="Label 2">
-      <template #icon>
-        <AcvIcon name="to-cloud-o--24" />
-      </template>
-      Test 2
-    </AcvTab>
-  </AcvTabs>
+  />
 </template>

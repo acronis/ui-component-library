@@ -1,4 +1,4 @@
-import type { InjectionKey } from 'vue';
+import type { InjectionKey, Ref } from 'vue';
 import type { ComponentSize, TransitionProp } from '@/types/props';
 import type { AcvTabProps } from '@/components/tab/tab.ts';
 
@@ -59,5 +59,7 @@ export interface AcvTabsSlots {
   tabs: (_: any) => any
 }
 
-export type AcvTabsInjection = string | AcvTabProps | undefined;
+export interface AcvTabsInjection {
+  selectedTab?: Ref<string | number | null> | null
+}
 export const TABS_KEY = Symbol('TABS_KEY') as InjectionKey<AcvTabsInjection>;

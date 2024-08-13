@@ -1,21 +1,32 @@
 <script setup>
   import { ref } from 'vue';
   import AcvTabs from '@/components/tabs/tabs.vue';
-  import AcvTab from '@/components/tabs/tab.vue';
 
-  const activeTab = ref();
+  const tabs = [
+    'Left',
+    'Middle',
+    'Right'
+  ];
+  const activeTab = ref('Middle');
 </script>
 
 <template>
   <AcvTabs
     v-model="activeTab"
+    :tabs="tabs"
     size="large"
   >
-    <AcvTab title="Label">
-      Test
-    </AcvTab>
-    <AcvTab title="Label 2">
-      Test 2
-    </AcvTab>
+    <template #tab-Left>
+      Label template
+    </template>
+    <template #Left>
+      Left content
+    </template>
+    <template #Middle>
+      Middle content
+    </template>
+    <template #Right>
+      Right content
+    </template>
   </AcvTabs>
 </template>

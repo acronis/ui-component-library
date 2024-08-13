@@ -4,10 +4,11 @@
 
   const tabs = ['First', 'Second', 'Third'];
 
-  const activeTab = ref(2);
+  const activeTab = ref('Second');
 </script>
 
 <template>
+  {{ activeTab }}
   <AcvTabs
     v-model="activeTab"
     :tabs="tabs"

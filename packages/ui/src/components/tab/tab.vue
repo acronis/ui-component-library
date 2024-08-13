@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { computed, inject, onBeforeMount, ref, watch } from 'vue';
+  import { computed, inject, ref } from 'vue';
   import type { AcvTabsInjection } from '../tabs/tabs.ts';
   import { TABS_KEY } from '../tabs/tabs.ts';
   import type { AcvTabProps, AcvTabSlots } from './tab.ts';
@@ -12,63 +12,43 @@
   defineOptions({ name: 'AcvTab' });
   const props = defineProps<AcvTabProps>();
   defineSlots<AcvTabSlots>();
-  const tabName = ref(props.label);
-  const isActive = ref(false);
+  const tabName = ref(props.value || props.label);
 
   const tabsState: AcvTabsInjection = inject(TABS_KEY, {});
-
-  watch(
-    () => tabsState.selectedTab,
-    () => {
-      isActive.value = tabName.value === tabsState.selectedTab;
-    }
-  );
-
-  onBeforeMount(() => {
-    if (tabsState.count != null && !tabName.value) {
-      tabName.value = tabsState.count;
-    }
-    if (tabsState.count) {
-      tabsState.count++;
-    }
-    else {
-      tabsState.count = 1;
-    }
-
-    tabsState.addTab(tabName.value);
-    isActive.value = props.name === tabsState.selectedTab;
-  });
-
+  const tabIsSelected = computed(() => tabsState.selectedTab?.value && (tabsState.selectedTab.value === tabName.value));
   const tabClasses = computed(() => ({
     tab: true,
-    active: isActive.value,
+    active: tabIsSelected.value,
     disabled: props.disabled
   }));
-
-  defineExpose({ tabName, isActive });
 </script>
 
 <template>
-  <div
+  <button
     :class="tabClasses"
+    role="tab"
+    :aria-selected="!!tabIsSelected"
+    :tabindex="tabIsSelected ? 0 : -1"
   >
     <slot name="prepend">
-      <i
+      <component
+        :is="props.icon"
         v-if="props.icon"
-        :class="props.icon"
       />
     </slot>
-    <span
-      v-if="props.label"
-      class="label"
-    >{{ props.label }}</span>
+    <slot>
+      <span
+        v-if="props.label"
+        class="label"
+      >{{ props.label }}</span>
+    </slot>
     <slot name="append">
-      <i
+      <component
+        :is="props.appendIcon"
         v-if="props.appendIcon"
-        :class="props.appendIcon"
       />
     </slot>
-  </div>
+  </button>
 </template>
 
 <style scoped>
@@ -90,6 +70,12 @@
   padding: 0 16px;
   position: relative;
 
+  &:hover {
+    background-color: var(--acv-color-nav-hover-secondary);
+    cursor: pointer;
+  }
+
+  &:active,
   &.active {
     background-color: var(--acv-color-primary-lightest);
     color: var(--acv-color-black);
@@ -100,6 +86,16 @@
     pointer-events: none;
     opacity: .5;
     cursor: default;
+  }
+
+  .label {
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+
+  .acv-icon + .label,
+  .label + .acv-icon {
+    margin-left: 8px;
   }
 
   &:-moz-focusring {
@@ -136,18 +132,5 @@
     }
   }
 
-  &:hover {
-    background-color: var(--acv-color-primary-hover);
-    cursor: pointer;
-  }
-
-  &:active {
-    background-color: var(--acv-color-primary-active);
-  }
-
-  .label {
-    white-space: nowrap;
-    text-transform: capitalize;
-  }
 }
 </style>

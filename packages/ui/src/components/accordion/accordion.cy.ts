@@ -9,9 +9,7 @@ describe('Accordion', () => {
     // To match whole document use
     // cy.matchImageSnapshot('accordion-basic');
 
-    cy.get('.acv-accordion').matchImageSnapshot('accordion-basic', {
-      capture: 'viewport'
-    });
+    cy.get('.acv-accordion').matchImageSnapshot('accordion-basic');
   });
 
   it('background', () => {
