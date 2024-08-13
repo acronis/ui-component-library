@@ -1,0 +1,14 @@
+.inherit {
+  font-family: inherit;
+  font-size: inherit;
+  font-variant-numeric: inherit;
+  line-height: inherit;
+  user-select: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  display: inline;
+  margin-inline: 0;
+  padding: 0;
+  text-align: inherit;
+}

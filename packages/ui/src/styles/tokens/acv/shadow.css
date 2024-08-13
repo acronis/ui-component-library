@@ -1,32 +1,56 @@
 :root {
+  /* Shadow: blur, x-offset, y-offset, color */
   --acv-box-shadow: 0 10px 20px 0;
   --acv-box-shadow-details: 0 15px 30px 0 hsl(218deg 11% 20% / 0.25);
   --acv-box-shadow-focus: var(--acv-box-shadow) hsl(218deg 11% 20% / 0.25);
   --acv-box-shadow-modal: var(--acv-box-shadow) hsl(218deg 11% 20% / 0.7);
+  --acv-shadow-blur-regular: var(--acv-base-shadow-blur-08);
+  --acv-shadow-blur-large: var(--acv-base-shadow-blur-20);
+  --acv-shadow-position-zero: var(--acv-base-shadow-position-y-00);
+  --acv-shadow-position-y-small: var(--acv-base-shadow-position-y-04);
+  --acv-shadow-position-y-regular: var(--acv-base-shadow-position-y-08);
 
   /* --acv-shadow-default: 0px 4px 20px 0px var(--acv-color-white-80); */
 
   /* --acv-shadow-danger: 0px 0px 0px 1px var(--acv-color-red) inset; */
 
-  /* --acv-shadow-danger-strong: 0px 0px 0px 1px var(--acv-color-red-shade-10) */
-
-  /*  inset; */
+  /* --acv-shadow-danger-strong: 0px 0px 0px 1px var(--acv-color-red-shade-10) inset; */
 
   /* --acv-shadow-disabled: 0px 0px 0px 1px var(--acv-color-gray-light-20) inset; */
 
   /* --acv-shadow-focus: 0px 0px 0px 4px var(--acv-color-gray-shade-10) inset; */
 
-  /* --acv-shadow-primary: 0px 0px 0px 1px var(--acv-color-blue-gray-light-20) */
+  /* --acv-shadow-primary: 0px 0px 0px 1px var(--acv-color-blue-gray-light-20) inset; */
 
-  /*  inset; */
-  --acv-shadow-large: 0 0 20px hsl(0deg 0% 0% / 0.25);
+  /* large */
+  --acv-shadow-large-x-offset: 0rem;
+  --acv-shadow-large-y-offset: 0.625rem;
+  --acv-shadow-large-blur: 1.25rem;
+  --acv-shadow-large-color: hsl(215deg 30% 20% / 0.9);
+  --acv-shadow-large: 0 0 20px var(--acv-shadow-large-color);
+
+  /* modal */
   --acv-shadow-modal-dark: var(--acv-shadow-small);
   --acv-shadow-modal: var(--acv-shadow-small);
   --acv-shadow-regular-dark: var(--acv-shadow-regular-dark);
   --acv-shadow-color: var(--acv-shadow-regular-dark);
+
+  /* regular */
+  --acv-shadow-regular-x-offset: 0rem;
+  --acv-shadow-regular-y-offset: 0.625rem;
+  --acv-shadow-regular-blur: 1.25rem;
+  --acv-shadow-regular-color: hsl(215deg 30% 20% / 0.2);
   --acv-shadow-regular: 0 16px 32px 0
     var(--acv-shadow-color, hsl(0deg 0% 0% / 0.1));
+
+  /* small */
+  --acv-shadow-small-x-offset: 0rem;
+  --acv-shadow-small-y-offset: 0.25rem;
+  --acv-shadow-small-blur: 0.5rem;
+  --acv-shadow-small-color: hsl(215deg 30% 20% / 0.1);
   --acv-shadow-small: 0 0 8px hsl(0deg 0% 0% / 0.15);
+
+  /* soft */
   --acv-shadow-soft: var(--acv-shadow-small);
   --acv-shadow-strong: var(--acv-shadow-small);
   --acv-shadow-vertical-dark: var(--acv-shadow-vertical-dark);

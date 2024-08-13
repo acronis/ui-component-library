@@ -7,7 +7,7 @@
     line-height: 1.5;
     text-size-adjust: none;
     tab-size: 4;
-    font-family: var(--acv-font-family-default);
+    font-family: var(--acv-font-family-default), sans-serif;
   }
 
   abbr:where([title]) {
@@ -40,7 +40,7 @@
   kbd,
   samp,
   pre {
-    font-family: var(--acv-font-family-mono, monospace);
+    font-family: var(--acv-font-family-mono), monospace;
     font-size: var(--acv-font-size-body);
   }
 
@@ -65,5 +65,15 @@
   textarea:not([rows]) {
     /* Make sure textareas without a rows attribute are not tiny */
     min-height: 10em;
+  }
+
+  img {
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 1rem;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
   }
 }

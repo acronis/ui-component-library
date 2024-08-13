@@ -14,6 +14,7 @@
   --acv-border-tertiary: var(--acv-border-small) var(--acv-color-brand-tertiary);
 
   /* border width */
+  --acv-border-width-zero: var(--acv-base-border-width-00);
   --acv-border-width-small: var(--acv-base-border-width-01);
   --acv-border-width-medium: var(--acv-base-border-width-02);
   --acv-border-width-large: var(--acv-base-border-width-03);

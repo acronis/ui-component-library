@@ -1,10 +1,10 @@
 @import "../layers.css";
-@import "../reset.css";
-@import "../base.css";
-@import "../tokens/acv/base.css" layer(tokens);
-@import "../tokens/acv/acronis.css" layer(theme);
-@import "../tokens/acv/dark.css" layer(theme);
-@import "../tokens/acv/custom" layer(theme);
+@import "../generic/reset.css";
+@import "../generic/normalize.css";
+@import "../tokens/base.css" layer(tokens);
+@import "../tokens/acronis.css" layer(theme);
+@import "../tokens/dark.css" layer(theme);
+@import "../tokens/acv" layer(theme);
 @import "../utilities/index.css" layer(utilities);
 
 /* :root,
