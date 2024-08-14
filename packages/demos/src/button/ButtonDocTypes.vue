@@ -15,7 +15,9 @@
   <AcvButton type="danger">
     Danger
   </AcvButton>
-  <div class="acv-bg-nav-primary px-8">
+  <div
+    class="dark"
+  >
     <AcvButton type="inverted">
       Inverted
     </AcvButton>
@@ -25,6 +27,12 @@
 <style scoped>
 .acv-button {
   margin-block: 8px;
-  width: 100%;
+  margin-inline: 8px;
+}
+
+.dark {
+  background-color: var(--acv-color-nav-primary);
+  padding-inline: 8px;
+  display: inline-flex
 }
 </style>

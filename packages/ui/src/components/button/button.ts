@@ -89,9 +89,9 @@ export interface AcvButtonProps {
 
   /**
    *  Button icon on the right side,
-   *  accepts an icon name of Icon component
+   *  accepts any Icon component
    */
-  rightIcon?: IconProp
+  appendIcon?: IconProp
 
   /**
    *  Whether the button is block styled or not
@@ -124,12 +124,12 @@ export interface AcvButtonSlots {
   default: void
 
   /**
-   * Icon slot content
+   * Left side slot content
    */
-  icon: void
+  prepend: void
 
   /**
-   * Icon on the right side slot content
+   * Right side slot content
    */
-  iconRight: void
+  append: void
 }

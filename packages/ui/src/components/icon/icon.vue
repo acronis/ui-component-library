@@ -4,8 +4,6 @@
   import { isBrowser } from '@antfu/utils';
   import type { AcvIconProps } from './icon.ts';
 
-  import './icon.css';
-
   const {
     animateOnHover,
     animation,

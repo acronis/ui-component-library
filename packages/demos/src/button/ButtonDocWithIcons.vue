@@ -1,62 +1,44 @@
 <script setup>
-  import { IconSync16 } from '@acronis-platform/icons/sync';
-  import { IconAddressBook32 } from '@acronis-platform/icons/address';
+  import { IconToCloud16 } from '@acronis-platform/icons/to';
+  import { IconFromCloud16 } from '@acronis-platform/icons/from';
   import Button from '@/components/button/button.vue';
-  import Icon from '@/components/icon/icon.vue';
-  import Row from '@/components/row/row.vue';
-</script>
+  </script>
 
 <template>
-  <Row
-    :gap="24"
-    cols="6"
-    justify="center"
-  >
+  <div class="acv-grid-row acv-grid--cols-3">
     <Button
-      :icon="IconSync16"
+      :icon="IconToCloud16"
       size="large"
     >
-      <template #icon>
-        <Icon
-          :icon="IconAddressBook32"
-        />
-      </template>
-      Large
+      Prepend icon
     </Button>
     <Button
       size="large"
+      :icon="IconToCloud16"
+      :append-icon="IconFromCloud16"
     >
-      <Icon
-        :icon="IconAddressBook32"
-      />
-      Large
-    </Button>
-    <Button :icon="IconSync16">
-      Default
-    </Button>
-    <Button size="small">
-      <Icon
-        :icon="IconAddressBook32"
-      />
-      Small
+      Two icons
     </Button>
     <Button
       size="large"
+      :append-icon="IconFromCloud16"
     >
-      Right
-      <Icon
-        :icon="IconAddressBook32"
-        size="32"
-        color="white"
-      />
+      Append icon
     </Button>
-    <Button
-      size="large"
-      :right-icon="IconAddressBook32"
-    >
-      Right with prop
+    <Button>
+      <IconToCloud16 />
+      Prepend inline icon
     </Button>
-  </Row>
+    <Button>
+      <IconToCloud16 />
+      Two inline icons
+      <IconFromCloud16 />
+    </Button>
+    <Button>
+      Append inline icon
+      <IconFromCloud16 />
+    </Button>
+  </div>
 </template>
 
 <style scoped>

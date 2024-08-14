@@ -1,4 +1,6 @@
 <script>
+  import './spinner.css';
+
   export default {
     name: 'AcvSpinner',
     props: {
@@ -13,10 +15,10 @@
     },
     data: () => ({
       sizes: {
-        sm: 16,
-        md: 24,
-        lg: 32,
-        xlg: 48
+        'small': 8,
+        'medium': 16,
+        'large': 24,
+        'x-large': 32
       }
     }),
     computed: {
@@ -48,31 +50,29 @@
   border-style: solid;
   border-radius: var(--acv-radius-circle);
   border-color: v-bind(borderColor) var(--acv-spinner-ring-color) var(--acv-spinner-ring-color);
+  width: var(--acv-spinner-size);
+  height: var(--acv-spinner-size);
 
   &.size-16 {
-    width: 16px;
-    height: 16px;
+    --acv-spinner-size: var(--acv-spinner-size-small);
     border-width: 2px;
     animation: rotate .4s linear infinite;
   }
 
   &.size-24 {
-    width: 24px;
-    height: 24px;
+    --acv-spinner-size: var(--acv-spinner-size-medium);
     border-width: 2px;
     animation: rotate .4s linear infinite;
   }
 
   &.size-32 {
-    width: 32px;
-    height: 32px;
+    --acv-spinner-size: var(--acv-spinner-size-large);
     border-width: 3px;
     animation: rotate .5s linear infinite;
   }
 
   &.size-48 {
-    width: 48px;
-    height: 48px;
+    --acv-spinner-size: var(--acv-spinner-size-x-large);
     border-width: 3px;
     animation: rotate .5s linear infinite;
   }
