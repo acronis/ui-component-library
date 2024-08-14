@@ -21,9 +21,9 @@ Basic variables are used to define the basic design tokens like colors, typograp
 Theme variables are used to define the theme-specific design tokens like colors, spacing, components, etc.
 
 ::: code-group
-<<< ../../ui/src/styles/tokens/acv/base.css [Base tokens]
-<<< ../../ui/src/styles/tokens/acv/acronis.css [Acronis theme]
-<<< ../../ui/src/styles/tokens/acv/constructor.css [Constructor theme]
-<<< ../../ui/src/styles/tokens/acv/virtuozzo.css [Virtuozzo theme]
-<<< ../../ui/src/styles/tokens/acv/dark.css [Dark theme]
+<<< ../../ui/src/styles/tokens/base.css [Base tokens]
+<<< ../../ui/src/styles/tokens/acronis.css [Acronis theme]
+<<< ../../ui/src/styles/tokens/constructor.css [Constructor theme]
+<<< ../../ui/src/styles/tokens/virtuozzo.css [Virtuozzo theme]
+<<< ../../ui/src/styles/tokens/dark.css [Dark theme]
 :::
