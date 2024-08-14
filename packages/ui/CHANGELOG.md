@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/acronis/ui-component-library/compare/v1.16.0...v1.16.1) (2024-08-14)
+
+
+### Bug Fixes
+
+* add figma fetcher release workflow ([ae41ad3](https://github.com/acronis/ui-component-library/commit/ae41ad3cdc67d51d22bda9a46c1d887185776afa))
+
 ## [1.16.0](https://github.com/acronis/ui-component-library/compare/v1.15.0...v1.16.0) (2024-08-14)
 
 
@@ -26,11 +33,4 @@
 ### Features
 
 * **icons:** update icons ([878bf1e](https://github.com/acronis/ui-component-library/commit/878bf1eea72801971ae904e6315c120f048f4dbf))
-
-## [1.12.5](https://github.com/acronis/ui-component-library/compare/v1.12.4...v1.12.5) (2024-08-12)
-
-
-### Bug Fixes
-
-* use pages array in figma fetcher ([de1563a](https://github.com/acronis/ui-component-library/commit/de1563a46c902e98d6a59cc54ba539c8ba0effc8))
 
