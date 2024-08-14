@@ -1,9 +1,16 @@
 name: Publish Icons to NPM
 
 on:
-  release:
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - 'packages/icons/**'
+
+  workflow_run:
+    workflows: [ "Release Icons" ]
     types:
-      - published
+      - completed
 
   workflow_dispatch:
 
