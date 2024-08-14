@@ -41,9 +41,11 @@ describe('test ConfirmDialog component', () => {
           </main>
           <footer data-v-d2f715b5="">
             <menu data-v-ecec16b9=""><button data-v-7a9642c5="" data-v-ecec16b9="" class="acv-button solid medium primary" type="button" value="cancel">
+                <!--v-if-->
                 <!--v-if--><span data-v-7a9642c5="" class="content"> Cancel </span>
                 <!--v-if-->
               </button><button data-v-7a9642c5="" data-v-ecec16b9="" class="acv-button solid medium primary" type="button" value="confirm">
+                <!--v-if-->
                 <!--v-if--><span data-v-7a9642c5="" class="content"> Confirm </span>
                 <!--v-if-->
               </button></menu>

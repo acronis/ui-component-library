@@ -60,5 +60,11 @@
     --acv-button-active-color: hsl(
       from var(--acv-button-color) calc(h - 1) calc(s - 11) calc(l + 33)
     );
+
+    /* Content gap */
+    --acv-button-content-gap: var(--acv-spacing-regular);
+    --acv-button-content-gap-small: var(--acv-spacing-x-small);
+    --acv-button-content-gap-medium: var(--acv-spacing-small);
+    --acv-button-content-gap-large: var(--acv-spacing-regular);
   }
 }

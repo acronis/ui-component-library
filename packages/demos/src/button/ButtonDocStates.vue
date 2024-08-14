@@ -18,7 +18,6 @@
     <Cell
       v-for="type in buttonTypes"
       :key="type"
-      align="center"
       :width="8"
       :class="{
         'acv-bg-nav-primary': type === BUTTON_TYPE.inverted,
@@ -63,6 +62,6 @@
 
 .acv-button {
   margin-block: 10px;
-  width: 100%;
+  display: block;
 }
 </style>

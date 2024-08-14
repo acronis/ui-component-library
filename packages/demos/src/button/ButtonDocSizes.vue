@@ -1,31 +1,23 @@
 <script setup>
-  import Row from '@/components/row/row.vue';
-</script>
+  import AcvButton from '@/components/button/button.vue';
+  </script>
 
 <template>
-  <Row
-    justify="center"
-    :gap="16"
-  >
+  <div class="acv-grid-row acv-grid--cols-2">
     <AcvButton>
-      Default AcvButton
+      Default button
     </AcvButton>
     <AcvButton size="large">
-      Large AcvButton
+      Large button
     </AcvButton>
-  </Row>
-  <Row
-    justify="center"
-    :gap="16"
-  >
     <AcvButton variant="outline">
-      Default AcvButton
+      Default button
     </AcvButton>
     <AcvButton
       variant="outline"
       size="large"
     >
-      Large AcvButton
+      Large button
     </AcvButton>
-  </Row>
+  </div>
 </template>

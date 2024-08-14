@@ -20,15 +20,19 @@ describe('test Carousel component', () => {
     const wrapper = mount(Carousel, { props: { count: 2 } as AcvCarouselProps });
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div data-v-e2d8e9a6="" class="acv-carousel"><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button solid medium primary disabled" type="button" disabled="" aria-disabled="true">
+          <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> Prev </span>
           <!--v-if-->
         </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button ghost medium primary disabled" type="button" disabled="" aria-disabled="true">
+          <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> * </span>
           <!--v-if-->
         </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button ghost medium primary" type="button">
+          <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> * </span>
           <!--v-if-->
         </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button solid medium primary" type="button">
+          <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> Next </span>
           <!--v-if-->
         </button></div>"

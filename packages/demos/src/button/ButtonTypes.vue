@@ -3,23 +3,23 @@
 </script>
 
 <template>
-  <AcvButton type="button">
+  <AcvButton button-type="button">
     Button
   </AcvButton>
-  <AcvButton type="submit">
+  <AcvButton button-type="submit">
     Submit
   </AcvButton>
-  <AcvButton type="reset">
+  <AcvButton button-type="reset">
     Reset
   </AcvButton>
   <AcvButton
-    type="link"
+    button-type="link"
     href="#"
   >
     Link
   </AcvButton>
   <AcvButton
-    type="route"
+    button-type="route"
     to="#"
   >
     Router link

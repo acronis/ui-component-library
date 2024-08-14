@@ -1,15 +1,19 @@
 <script setup lang="ts">
   import { computed, inject } from 'vue';
   import { BUTTON_GROUP_KEY } from '../button-group/buttonGroup.ts';
-  import AcvIcon from '../icon/icon.vue';
   import { vAutofocus } from '../../directives/autofocus.ts';
-  import Loader from '../loader/loader.vue';
   import { isBaseColor } from '../../utils/color.ts';
   import { colord } from '../../utils/colord.ts';
   import { BUTTON_COLOR, BUTTON_VARIANT } from './button.ts';
   import type { AcvButtonProps, AcvButtonSlots } from './button.ts';
   import './button.css';
+  import AcvSpinner from '@/components/spinner/spinner.vue';
 
+  /**
+   * Buttons are great
+   *
+   * @displayName Button component
+   */
   defineOptions({ name: 'AcvButton' });
 
   const props = withDefaults(defineProps<AcvButtonProps>(), {
@@ -93,41 +97,39 @@
     :aria-disabled="disabled || loading ? 'true' : undefined"
     @click.capture="handleClick"
   >
+    <template
+      v-if="$slots.prepend || icon"
+    >
+      <slot name="prepend">
+        <component
+          :is="icon"
+          v-if="icon"
+        />
+      </slot>
+    </template>
     <span
       v-if="loading"
       class="acv-button__loader"
     >
-      <Loader size="xs" />
+      <AcvSpinner :size="size" />
     </span>
-    <template v-else>
-      <template
-        v-if="$slots.icon || icon"
-      >
-        <slot name="icon">
-          <AcvIcon
-            v-if="icon"
-            v-bind="{
-              name: typeof icon === 'string' ? icon as string : undefined,
-              icon: typeof icon === 'object' ? icon as object : undefined,
-            }"
-          />
-        </slot>
-      </template>
-      <template
-        v-if="$slots.default"
-      >
-        <span class="content"><slot /></span>
-      </template>
-      <template
-        v-if="$slots.rightIcon || rightIcon"
-      >
-        <slot name="iconRight">
-          <AcvIcon
-            v-if="rightIcon"
-            :name="rightIcon as string"
-          />
-        </slot>
-      </template>
+    <template
+      v-if="$slots.default"
+    >
+      <span
+        class="content"
+        :class="{ hidden: loading }"
+      ><slot /></span>
+    </template>
+    <template
+      v-if="$slots.append || appendIcon"
+    >
+      <slot name="append">
+        <component
+          :is="appendIcon"
+          v-if="appendIcon"
+        />
+      </slot>
     </template>
   </component>
 </template>
@@ -163,6 +165,7 @@
     user-select: none;
     vertical-align: middle;
     white-space: nowrap;
+    gap: var(--acv-button-content-gap);
 
     .content {
       overflow: hidden;
@@ -170,6 +173,11 @@
       place-items: center;
       display: inline-grid;
       grid-auto-flow: column;
+      gap: var(--acv-button-content-gap);
+
+      &.hidden {
+        visibility: hidden;
+      }
     }
 
     /* Sizes */
@@ -179,20 +187,24 @@
       --acv-button-height: var(--acv-button-height-small);
       --acv-button-padding: var(--acv-button-padding-small);
       --acv-icon-size: var(--acv-icon-size-xxs);
+      --acv-button-content-gap: var(--acv-button-content-gap-small);
     }
 
     &.medium {
       --acv-button-font-size: var(--acv-button-font-size-medium);
       --acv-button-height: var(--acv-button-height-medium);
       --acv-button-padding: var(--acv-button-padding-medium);
-      --acv-icon-size: var(--acv-icon-size-md);
+      --acv-icon-size: var(--acv-icon-size-xs);
+      --acv-button-content-gap: var(--acv-button-content-gap-medium);
     }
 
     &.large {
       --acv-button-font-size: var(--acv-button-font-size-large);
       --acv-button-height: var(--acv-button-height-large);
       --acv-button-padding: var(--acv-button-padding-large);
-      --acv-icon-size: var(--acv-icon-size-lg);
+      --acv-icon-size: var(--acv-icon-size-md);
+      --acv-button-content-gap: var(--acv-button-content-gap-large);
+      --acv-spinner-size: var(--acv-spinner-size-large);
     }
 
     /* Button styles */
@@ -206,7 +218,6 @@
     }
 
     &.block {
-      display: block;
       width: 100%;
     }
 
@@ -396,14 +407,14 @@
       }
     }
 
-    &.loading {
-      cursor: default;
-    }
-
     &.white {
       &.solid {
         --acv-button-text-color: var(--acv-color-text-primary);
       }
+    }
+
+    &.loading {
+      cursor: default;
     }
 
     /* States */
@@ -443,11 +454,6 @@
       }
     }
 
-    &:deep(svg),
-    &:deep(path) {
-      fill: currentColor;
-    }
-
     /* Elements */
 
     .acv-button__loader {
@@ -458,12 +464,16 @@
       transform: translateX(-50%) translateY(-50%);
     }
 
-    .acv-icon:first-child:not(:last-child) {
-      margin-inline-end: var(--acv-button-padding);
-    }
+    /* .acv-icon:first-of-type:not(:last-of-type) { */
 
-    .acv-icon:last-child:not(:first-child) {
-      margin-inline-start: var(--acv-button-padding);
-    }
+    /*  margin-inline-end: var(--acv-button-padding); */
+
+    /* } */
+
+    /* .acv-icon:last-child:not(:first-child) { */
+
+    /*  margin-inline-start: var(--acv-button-padding); */
+
+    /* } */
   }
 </style>

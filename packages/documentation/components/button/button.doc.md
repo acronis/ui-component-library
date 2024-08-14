@@ -16,24 +16,48 @@ It supports multiple variants, sizes, and states.
 
 <ButtonDocTypes />
 
+::: details Source code
+<<< ../../../demos/src/button/ButtonDocTypes.vue
+:::
+
 ## States
+
+Buttons can have different states.
+They support `active`, `focus`, `hover`, and `disabled` states.
+
+Use `disabled=true` to disable button.
 
 <ButtonDocStates />
 
+::: details Source code
+<<< ../../../demos/src/button/ButtonDocStates.vue
+:::
+
 ## Sizing
 
-Specify the size(small, large) of the button using the `size` prop.
+Use `size=large` to specify bigger buttons.
 
 <ButtonDocSizes />
 
+::: details Source code
+<<< ../../../demos/src/button/ButtonDocSizes.vue
+:::
+
 ## With icons
 
+Use `icon` and `prepend-icon` props to add icons to buttons.
+Also, you can use inline icons in default slot.
+
 <ButtonDocWithIcons />
+
+::: details Source code
+<<< ../../../demos/src/button/ButtonDocWithIcons.vue
+:::
 
 ## Button types
 
 By default `<acv-button>` renders a `<button>` element.
-You can change the type of the button by setting the `type` prop.
+You can change the type of the button by setting the `buttonType` prop.
 Also, you can render a `<a>` element by setting the `href` prop.
 You may generate router-links by setting the `to` prop.
 
@@ -44,13 +68,29 @@ It is ignored when either _href_ or _to_ props are set.
 
 <ButtonTypes />
 
+::: details Source code
+<<< ../../../demos/src/button/ButtonTypes.vue
+:::
+
 ## With single icon
 
 <ButtonWithSingleIcon />
 
+::: details Source code
+<<< ../../../demos/src/button/ButtonWithSingleIcon.vue
+:::
+
 ## Loading
 
+Use the `loading` prop to show a loading spinner inside the button.
+
+Button content will be disabled and visually hidden while loading.
+
 <ButtonWithLoading />
+
+::: details Source code
+<<< ../../../demos/src/button/ButtonWithLoading.vue
+:::
 
 ## Block buttons
 
@@ -58,6 +98,10 @@ Create block buttons that use full width of the parent container.
 Set up the `block` prop to make the button full width.
 
 <ButtonBlock />
+
+::: details Source code
+<<< ../../../demos/src/button/ButtonBlock.vue
+:::
 
 ## Accessibility
 

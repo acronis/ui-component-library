@@ -1,44 +1,51 @@
 <script setup>
   import { IconAddressBook32 } from '@acronis-platform/icons/address';
-  import { IconSync16 } from '@acronis-platform/icons/sync';
   import Button from '@/components/button/button.vue';
-  import Icon from '@/components/icon/icon.vue';
-  import Row from '@/components/row/row.vue';
-</script>
+  </script>
 
 <template>
-  <Row
-    :gap="24"
-    cols="6"
-    justify="center"
-  >
+  <div class="acv-grid-row acv-grid--cols-3">
     <Button
       :icon="IconAddressBook32"
       size="large"
-    >
-      <template #icon>
-        <Icon
-          :icon="IconAddressBook32"
-        />
-      </template>
-    </Button>
-    <Button
-      size="large"
-    >
-      <Icon
-        :icon="IconAddressBook32"
-      />
-    </Button>
-    <Button :icon="IconSync16" />
+    />
+    <Button :icon="IconAddressBook32" />
     <Button size="small">
-      <template #icon>
-        <Icon
-          :icon="IconAddressBook32"
-          color="white"
-        />
-      </template>
+      <IconAddressBook32 />
     </Button>
-  </Row>
+
+    <Button
+      :icon="IconAddressBook32"
+      size="large"
+      variant="ghost"
+    />
+    <Button
+      :icon="IconAddressBook32"
+      variant="ghost"
+    />
+    <Button
+      size="small"
+      variant="ghost"
+    >
+      <IconAddressBook32 />
+    </Button>
+
+    <Button
+      :icon="IconAddressBook32"
+      size="large"
+      variant="outline"
+    />
+    <Button
+      :icon="IconAddressBook32"
+      variant="outline"
+    />
+    <Button
+      size="small"
+      variant="outline"
+    >
+      <IconAddressBook32 />
+    </Button>
+  </div>
 </template>
 
 <style scoped>

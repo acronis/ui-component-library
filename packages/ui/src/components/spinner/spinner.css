@@ -1,6 +1,9 @@
-@layer tokens {
-  :root {
-    /* Insert component css variables here */
-    --acv-spinner-color: var(--acv-color-brand-primary);
-  }
+:root {
+  /* Insert component css variables here */
+  --acv-spinner-color: var(--acv-color-brand-primary);
+  --acv-spinner-size: var(--acv-spinner-size-small);
+  --acv-spinner-size-small: 16px;
+  --acv-spinner-size-medium: 24px;
+  --acv-spinner-size-large: 32px;
+  --acv-spinner-size-x-large: 48px;
 }

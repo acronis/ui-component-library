@@ -98,29 +98,11 @@ describe('button', () => {
         type="button"
       >
         
-        
-        <i
-          class="acv-icon size-16"
+        <svg
           data-v-7a9642c5=""
-          data-v-c834062e=""
-          role="presentation"
-        >
-          <g
-            data-v-c834062e=""
-          >
-            
-            <svg
-              data-v-c834062e=""
-              preserveAspectRatio="xMidYMid meet"
-            />
-            
-          </g>
-          
-          <!--v-if-->
-          <!--v-if-->
-          
-        </i>
+        />
         
+        <!--v-if-->
         <span
           class="content"
           data-v-7a9642c5=""
@@ -130,7 +112,6 @@ describe('button', () => {
           
         </span>
         <!--v-if-->
-        
       </button>
     `)
   })
@@ -145,20 +126,11 @@ describe('button', () => {
         type="button"
       >
         
-        
-        <i
-          class="acv-icon size-16"
+        <workstation-16
           data-v-7a9642c5=""
-          data-v-c834062e=""
-          role="presentation"
-        >
-          <!--v-if-->
-          
-          <!--v-if-->
-          <!--v-if-->
-          
-        </i>
+        />
         
+        <!--v-if-->
         <span
           class="content"
           data-v-7a9642c5=""
@@ -168,7 +140,6 @@ describe('button', () => {
           
         </span>
         <!--v-if-->
-        
       </button>
     `)
   })
