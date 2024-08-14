@@ -1,3 +1,11 @@
+## [1.16.0](https://github.com/acronis/ui-component-library/compare/v1.15.0...v1.16.0) (2024-08-14)
+
+
+### Features
+
+* **tabs:** implement tabs ([d4f6cb7](https://github.com/acronis/ui-component-library/commit/d4f6cb783135b0037cd58bb517ebe0a3cb2f35a5))
+* **tabs:** migrate tabs to component library ([63347f7](https://github.com/acronis/ui-component-library/commit/63347f72291a67a47e297b6549fdbac80c8bc755))
+
 ## [1.15.0](https://github.com/acronis/ui-component-library/compare/v1.14.0...v1.15.0) (2024-08-14)
 
 
@@ -25,11 +33,4 @@
 ### Bug Fixes
 
 * use pages array in figma fetcher ([de1563a](https://github.com/acronis/ui-component-library/commit/de1563a46c902e98d6a59cc54ba539c8ba0effc8))
-
-## [1.12.4](https://github.com/acronis/ui-component-library/compare/v1.12.3...v1.12.4) (2024-08-09)
-
-
-### Bug Fixes
-
-* fix imports in alert demos ([4b4b04c](https://github.com/acronis/ui-component-library/commit/4b4b04c0546bdbfeecb5955d008ab5f525eb6cd4))
 
