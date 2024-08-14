@@ -82,4 +82,4 @@ jobs:
       - name: Publish package on NPM
         run: pnpm publish packages/ui --access public --no-git-checks
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPMJS_PUBLISH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}

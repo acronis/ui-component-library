@@ -22,8 +22,6 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v5.3.0
         with:
           preset: "conventionalcommits"
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          TODO add personal access token to trigger publish workflow
           github-token: ${{ secrets.ACV_TOKEN }}
           version-file: './packages/ui/package.json'
           output-file: './packages/ui/CHANGELOG.md'
@@ -32,10 +30,10 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: ${{steps.changelog.outputs.skipped == 'false'}}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACV_TOKEN }}
         with:
           tag_name: ${{ steps.changelog.outputs.tag }}
           name: ${{ steps.changelog.outputs.tag }}
-          body: ${{steps.changelog.outputs.clean_changelog}}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
           draft: false
           prerelease: false
