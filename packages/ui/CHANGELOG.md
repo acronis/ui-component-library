@@ -1,3 +1,10 @@
+## [1.16.2](https://github.com/acronis/ui-component-library/compare/v1.16.1...v1.16.2) (2024-08-14)
+
+
+### Bug Fixes
+
+* fix wrong paths in documentation ([5d6dd39](https://github.com/acronis/ui-component-library/commit/5d6dd393b07f32056dd9d6f0a188f99a349b109c))
+
 ## [1.16.1](https://github.com/acronis/ui-component-library/compare/v1.16.0...v1.16.1) (2024-08-14)
 
 
@@ -26,11 +33,4 @@
 ### Features
 
 * **styles:** update common styles ([2627db0](https://github.com/acronis/ui-component-library/commit/2627db07edea660ea4dd232b3cb42712f5d36fa9))
-
-## [1.13.0](https://github.com/acronis/ui-component-library/compare/v1.12.5...v1.13.0) (2024-08-12)
-
-
-### Features
-
-* **icons:** update icons ([878bf1e](https://github.com/acronis/ui-component-library/commit/878bf1eea72801971ae904e6315c120f048f4dbf))
 
