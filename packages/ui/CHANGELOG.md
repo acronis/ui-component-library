@@ -1,3 +1,10 @@
+## [1.14.0](https://github.com/acronis/ui-component-library/compare/v1.13.0...v1.14.0) (2024-08-14)
+
+
+### Features
+
+* **styles:** update common styles ([2627db0](https://github.com/acronis/ui-component-library/commit/2627db07edea660ea4dd232b3cb42712f5d36fa9))
+
 ## [1.13.0](https://github.com/acronis/ui-component-library/compare/v1.12.5...v1.13.0) (2024-08-12)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix alert unit tests ([457d0d8](https://github.com/acronis/ui-component-library/commit/457d0d8506f4fe45ffa81ae2c9d66b3fbf1d2b95))
-
-## [1.12.2](https://github.com/acronis/ui-component-library/compare/v1.12.1...v1.12.2) (2024-07-29)
-
-
-### Bug Fixes
-
-* fix icon alignment ([3906de4](https://github.com/acronis/ui-component-library/commit/3906de4e5998a0ecf3e5e4f572fd3478f0e038f2))
 
