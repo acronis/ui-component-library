@@ -1,3 +1,10 @@
+## [1.15.0](https://github.com/acronis/ui-component-library/compare/v1.14.0...v1.15.0) (2024-08-14)
+
+
+### Features
+
+* **release:** use personal access token in release and publish workflow ([23d1402](https://github.com/acronis/ui-component-library/commit/23d1402f9928468eb69d85d1ea622c54490c2cde))
+
 ## [1.14.0](https://github.com/acronis/ui-component-library/compare/v1.13.0...v1.14.0) (2024-08-14)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix imports in alert demos ([4b4b04c](https://github.com/acronis/ui-component-library/commit/4b4b04c0546bdbfeecb5955d008ab5f525eb6cd4))
-
-## [1.12.3](https://github.com/acronis/ui-component-library/compare/v1.12.2...v1.12.3) (2024-07-29)
-
-
-### Bug Fixes
-
-* fix alert unit tests ([457d0d8](https://github.com/acronis/ui-component-library/commit/457d0d8506f4fe45ffa81ae2c9d66b3fbf1d2b95))
 
