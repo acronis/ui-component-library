@@ -1,3 +1,10 @@
+## [1.17.0](https://github.com/acronis/ui-component-library/compare/v1.16.4...v1.17.0) (2024-08-15)
+
+
+### Features
+
+* implement chip component ([71eb11a](https://github.com/acronis/ui-component-library/commit/71eb11a0796505968d1e820e2348ed802de108bb))
+
 ## [1.16.4](https://github.com/acronis/ui-component-library/compare/v1.16.3...v1.16.4) (2024-08-15)
 
 
@@ -25,12 +32,4 @@
 ### Bug Fixes
 
 * add figma fetcher release workflow ([ae41ad3](https://github.com/acronis/ui-component-library/commit/ae41ad3cdc67d51d22bda9a46c1d887185776afa))
-
-## [1.16.0](https://github.com/acronis/ui-component-library/compare/v1.15.0...v1.16.0) (2024-08-14)
-
-
-### Features
-
-* **tabs:** implement tabs ([d4f6cb7](https://github.com/acronis/ui-component-library/commit/d4f6cb783135b0037cd58bb517ebe0a3cb2f35a5))
-* **tabs:** migrate tabs to component library ([63347f7](https://github.com/acronis/ui-component-library/commit/63347f72291a67a47e297b6549fdbac80c8bc755))
 
