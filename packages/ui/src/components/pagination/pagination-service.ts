@@ -39,7 +39,6 @@ export function useAcvPagination({ limit = 50 }: PaginationConfig) {
   }
 
   function setTotal(newTotal: number) {
-    console.log('setTotal');
     total.value = newTotal;
   }
 
