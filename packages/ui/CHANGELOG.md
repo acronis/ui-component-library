@@ -1,3 +1,10 @@
+## [1.16.3](https://github.com/acronis/ui-component-library/compare/v1.16.2...v1.16.3) (2024-08-15)
+
+
+### Bug Fixes
+
+* regenerate tabs documentation ([1c995cf](https://github.com/acronis/ui-component-library/commit/1c995cfcc15aed9856e424cb5de1db463b859df7))
+
 ## [1.16.2](https://github.com/acronis/ui-component-library/compare/v1.16.1...v1.16.2) (2024-08-14)
 
 
@@ -26,11 +33,4 @@
 ### Features
 
 * **release:** use personal access token in release and publish workflow ([23d1402](https://github.com/acronis/ui-component-library/commit/23d1402f9928468eb69d85d1ea622c54490c2cde))
-
-## [1.14.0](https://github.com/acronis/ui-component-library/compare/v1.13.0...v1.14.0) (2024-08-14)
-
-
-### Features
-
-* **styles:** update common styles ([2627db0](https://github.com/acronis/ui-component-library/commit/2627db07edea660ea4dd232b3cb42712f5d36fa9))
 
