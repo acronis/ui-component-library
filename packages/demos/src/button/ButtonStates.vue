@@ -1,11 +1,9 @@
 <script setup>
   import { IconAcronisIcon32 } from '@acronis-platform/icons/acronis';
-  import { BUTTON_COLOR } from '@/components/button/button.ts';
+  import { BUTTON_TYPE } from '@/components/button/button.ts';
   import Button from '@/components/button/button.vue';
-  import Grid from '@/components/grid/grid.vue';
-  import Cell from '@/components/cell/cell.vue';
 
-  const buttonColors = [
+  const buttonTypes = [
     'primary',
     'secondary',
     'ghost',
@@ -15,50 +13,46 @@
 </script>
 
 <template>
-  <Grid :gap="32">
-    <Cell
-      v-for="color in buttonColors"
-      :key="color"
+  <div class="acv-grid-row acv-grid--cols-3">
+    <div
+      v-for="type in buttonTypes"
+      :key="type"
       align="center"
       :width="8"
       :class="{
-        'acv-bg-nav-primary': color === BUTTON_COLOR.inverted,
+        'acv-bg-nav-primary': type === BUTTON_TYPE.inverted,
       }"
     >
-      <Button :color="color">
-        <template #icon>
-          <IconAcronisIcon32
-            style="width:16px; height:16px;vertical-align: text-bottom;"
-          />
-        </template>
-        Default {{ color }}
+      <Button :type="type">
+        <IconAcronisIcon32 />
+        Default {{ type }}
       </Button>
       <Button
-        :color="color"
+        :type="type"
         class="hover"
       >
-        Hover
+        Hover {{ type }}
       </Button>
       <Button
-        :color="color"
+        :type="type"
         class="active"
       >
-        Active
+        Active {{ type }}
       </Button>
       <Button
-        :color="color"
+        :type="type"
         class="focus"
       >
-        Focus
+        Focus {{ type }}
       </Button>
       <Button
-        :color="color"
+        :type="type"
         disabled
       >
-        Disabled
+        Disabled {{ type }}
       </Button>
-    </Cell>
-  </Grid>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -69,6 +63,6 @@
 
   .acv-button {
     margin-block: 10px;
-    width: 100%;
+    display: block;
   }
 </style>

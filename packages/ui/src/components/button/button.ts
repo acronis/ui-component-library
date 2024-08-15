@@ -1,6 +1,8 @@
-import type { ComponentSize, IconProp } from '../../types/props.ts';
-import type { ColorBrand, ColorStatus } from '../../utils/color.ts';
-import { BRAND_COLORS, STATUS_COLORS } from '../../utils/color.ts';
+import type { RouterLink } from 'vue-router';
+import type { ButtonHTMLAttributes } from 'vue';
+import type { ComponentSize, IconProp } from '@/types/props.ts';
+import type { ColorBrand, ColorStatus } from '@/utils/color.ts';
+import { BRAND_COLORS, STATUS_COLORS } from '@/utils/color.ts';
 
 export const BUTTON_TYPE = {
   primary: 'primary',
@@ -52,16 +54,17 @@ export interface AcvButtonProps {
 
   /**
    * Button tag
-   * @values a, span, button, label
+   * @values a, span, button, label, RouterLink
+   * @defaultValue button
    */
-  tag?: 'a' | 'span' | 'button' | 'label'
+  is?: 'a' | 'span' | 'button' | 'label' | typeof RouterLink
 
   /**
    * Button type
    * @values button, submit, reset
    * @defaultValue button
    */
-  buttonType?: 'button' | 'submit' | 'reset'
+  buttonType?: ButtonHTMLAttributes['type']
 
   /**
    * Button icon, accepts an icon name of Icon component
@@ -75,6 +78,9 @@ export interface AcvButtonProps {
    * @defaultValue medium
    */
   size?: AcvButtonSize
+
+  /** Whether button appearance as selected */
+  selected?: boolean
 
   /** Same as native button's autofocus */
   autofocus?: boolean
@@ -110,11 +116,6 @@ export interface AcvButtonProps {
    * @defaultValue false
    */
   squared?: boolean
-
-  /**
-   * Button router-link path
-   */
-  to?: string | object
 }
 
 export interface AcvButtonSlots {

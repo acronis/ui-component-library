@@ -66,5 +66,11 @@
     --acv-button-content-gap-small: var(--acv-spacing-x-small);
     --acv-button-content-gap-medium: var(--acv-spacing-small);
     --acv-button-content-gap-large: var(--acv-spacing-regular);
+
+    /* Min width */
+    --acv-button-min-width: var(--acv-button-min-width-small);
+    --acv-button-min-width-small: 24px;
+    --acv-button-min-width-medium: 32px;
+    --acv-button-min-width-large: 48px;
   }
 }

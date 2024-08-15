@@ -8,10 +8,13 @@
 </script>
 
 <template>
+  <AcvCheckbox
+    v-model="isLoading"
+    class="mb-16"
+  >
+    Toggle loading
+  </AcvCheckbox>
   <Row gutter="24">
-    <AcvCheckbox v-model="isLoading">
-      Toggle loading
-    </AcvCheckbox>
     <Button
       :loading="isLoading"
     >
@@ -25,3 +28,11 @@
     </Button>
   </Row>
 </template>
+
+<style scoped>
+.acv-button {
+  &+& {
+    margin-left: 16px;
+  }
+}
+</style>

@@ -78,7 +78,7 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  font-family: var(--acv-font-family-default);
+  font-family: var(--acv-font-family-default), sans-serif;
   font-size: var(--acv-font-size-body);
   font-variant-numeric: tabular-nums;
   line-height: var(--acv-font-line-height-regular);
@@ -139,8 +139,9 @@ body {
   background-color: var(--acv-color-secondary-lightest);
   border-radius: var(--acv-radius-regular);
 
-  &__container {
+  .dev-panel__container {
     display: flex;
+    background-color: var(--acv-color-secondary);
     flex-direction: column;
     width: 100%;
     max-height: calc(100vh - 128px);
@@ -181,8 +182,8 @@ body {
       color: var(--acv-color-link-primary);
     }
 
-    &-active,
-    &-active:hover {
+    .dev-links-active,
+    .dev-links-active:hover {
       background-color: var(--acv-color-link-inversed-secondary);
     }
   }

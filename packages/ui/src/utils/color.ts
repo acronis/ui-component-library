@@ -1015,7 +1015,7 @@ export function randomSoftColor(withAlpha = false, type: ColorType = 'hex') {
 }
 
 /**
- * Get the grayscale of a given color
+ * Get the grayscale color of a given color
  *
  * @param color color literal value
  *

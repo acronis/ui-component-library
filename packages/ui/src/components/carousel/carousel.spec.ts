@@ -19,19 +19,19 @@ describe('test Carousel component', () => {
   it('renders', () => {
     const wrapper = mount(Carousel, { props: { count: 2 } as AcvCarouselProps });
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-e2d8e9a6="" class="acv-carousel"><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button solid medium primary disabled" type="button" disabled="" aria-disabled="true">
+      "<div data-v-e2d8e9a6="" class="acv-carousel"><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" disabled="" aria-disabled="true" class="acv-button solid medium primary disabled">
           <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> Prev </span>
           <!--v-if-->
-        </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button ghost medium primary disabled" type="button" disabled="" aria-disabled="true">
+        </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" disabled="" aria-disabled="true" class="acv-button ghost medium primary disabled">
           <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> * </span>
           <!--v-if-->
-        </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button ghost medium primary" type="button">
+        </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button ghost medium primary">
           <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> * </span>
           <!--v-if-->
-        </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" class="acv-button solid medium primary" type="button">
+        </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button solid medium primary">
           <!--v-if-->
           <!--v-if--><span data-v-7a9642c5="" class="content"> Next </span>
           <!--v-if-->

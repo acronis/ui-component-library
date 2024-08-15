@@ -66,7 +66,7 @@ describe('button', () => {
     const wrapper = mount(() => <Button loading></Button>)
 
     expect(wrapper.find('.acv-button').classes()).toContain('loading')
-    expect(wrapper.find('.acv-button__loader').exists()).toBe(true)
+    expect(wrapper.find('.loader').exists()).toBe(true)
   })
 
   it.skip('click', async () => {
@@ -176,7 +176,7 @@ describe('button', () => {
   })
 
   it('tag', () => {
-    const wrapper = mount(() => <Button tag="a"></Button>)
+    const wrapper = mount(() => <Button is="a"></Button>)
 
     expect(wrapper.find('a.acv-button').exists()).toBe(true)
   })
