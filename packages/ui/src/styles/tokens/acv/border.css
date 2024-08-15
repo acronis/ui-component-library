@@ -8,6 +8,8 @@
   --acv-border-small: var(--acv-border-regular) var(--acv-border-style-solid);
   --acv-border-medium: var(--acv-border-large) var(--acv-border-style-solid);
   --acv-border-large: var(--acv-border-x-large) var(--acv-border-style-solid);
+
+  /* border with color */
   --acv-border-primary: var(--acv-border-small) var(--acv-color-brand-primary);
   --acv-border-secondary: var(--acv-border-small)
     var(--acv-color-brand-secondary);

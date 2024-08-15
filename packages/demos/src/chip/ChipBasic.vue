@@ -1,11 +1,12 @@
 <script setup>
-  import { AcvChip } from '@acronis-platform/ui-component-library';
+  import { IconConsole16 } from '@acronis-platform/icons/console';
+  import AcvChip from '@/components/chip/chip.vue';
 </script>
 
 <template>
   <AcvChip>Text</AcvChip>
 
-  <AcvChip icon="i-console-o--16">
+  <AcvChip :icon="IconConsole16">
     Text
   </AcvChip>
 

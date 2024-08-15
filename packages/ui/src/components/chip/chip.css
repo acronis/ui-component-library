@@ -1,7 +1,7 @@
 @layer tokens {
   :root {
-    /* Insert component css variables here */
-    --acv-chip-color: var(--acv-color-brand-primary);
+    --acv-chip-color: var(--acv-color-text-primary);
+    --acv-chip-icon-color: var(--acv-color-icon-primary);
     --acv-chip-height: 24px;
   }
 }

@@ -1,5 +1,5 @@
 <script setup>
-  import { AcvChip } from '@acronis-platform/ui-component-library';
+  import AcvChip from '@/components/chip/chip.vue';
 
   const text = 'Long text'.repeat(20) + 'Nobreak'.repeat(30);
 </script>
