@@ -5,25 +5,27 @@
 
   const props = defineProps<AcvPaginationProps>();
 
+  const maximumVisibleSlotsInPagination = 7;
   const page = computed(() => props.pagination.page.value);
   const lastPage = computed(() => props.pagination.lastPage.value);
 </script>
 
 <template>
   <div class="acv-pagination">
+    <!-- Previous page button -->
     <AcvPaginationItem
       :page="page - 1"
       :disabled="page <= 1"
     >
       &#8592;
     </AcvPaginationItem>
-
+    <!-- First page -->
     <AcvPaginationItem
       :page="1"
       :active="page === 1"
     />
-
-    <template v-if="lastPage <= 7">
+    <!-- Pages 2-5 or ellipsis -->
+    <template v-if="lastPage <= maximumVisibleSlotsInPagination">
       <template v-for="p of 5">
         <AcvPaginationItem
           v-if="p + 1 <= lastPage"
@@ -76,12 +78,13 @@
       </template>
     </template>
 
+    <!-- Last page -->
     <AcvPaginationItem
       v-if="lastPage !== 1"
       :page="lastPage"
       :active="page === lastPage"
     />
-
+    <!-- Next page button -->
     <AcvPaginationItem
       :page="page + 1"
       :disabled="page >= lastPage"
