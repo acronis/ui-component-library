@@ -1,23 +1,23 @@
 .acv-vertical-align--baseline {
-  vertical-align: baseline !important;
+  vertical-align: baseline;
 }
 
 .acv-vertical-align--top {
-  vertical-align: top !important;
+  vertical-align: top;
 }
 
 .acv-vertical-align--middle {
-  vertical-align: middle !important;
+  vertical-align: middle;
 }
 
 .acv-vertical-align--bottom {
-  vertical-align: bottom !important;
+  vertical-align: bottom;
 }
 
 .acv-vertical-align--text-bottom {
-  vertical-align: text-bottom !important;
+  vertical-align: text-bottom;
 }
 
 .acv-vertical-align--text-top {
-  vertical-align: text-top !important;
+  vertical-align: text-top;
 }

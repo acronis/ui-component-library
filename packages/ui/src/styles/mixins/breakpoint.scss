@@ -20,7 +20,7 @@ $breakpoints-down: (
  * Usage:
  * @include breakpoint-up('medium') {
  *   .acv-button {
- *     background-color: blue !important;
+ *     background-color: blue;
  *   }
  * }
  */

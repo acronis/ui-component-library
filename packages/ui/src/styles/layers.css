@@ -1,6 +1,6 @@
 /*
     reset - reset default browser styling for HTML elements (lowest priority)
-    base - global styles of HTML elements
+    base - global styles of HTML elements, like normalize.css
     generic - primitive css classes
     elements - basic styled html elements
     layout objects - styles for layout components with margins, widths, heights, etc.
