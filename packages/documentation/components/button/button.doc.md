@@ -1,5 +1,3 @@
-Button is used to highlight key actions and clearly inform user of what will happen after the interaction.
-
 Use buttons for actions in forms, dialogs, and much more.
 
 It supports multiple variants, sizes, and states.
@@ -27,11 +25,75 @@ They support `active`, `focus`, `hover`, and `disabled` states.
 
 Use `disabled=true` to disable button.
 
-<ButtonDocStates />
+<ButtonStates />
 
 ::: details Source code
 <<< ../../../demos/src/button/ButtonDocStates.vue
 :::
+
+### Default state
+
+Default state shows that button is clickable and user can perform a task on it
+
+<ButtonBasic />
+
+### Hovered state
+
+Once button is hovered by mouse cursor, it enters hover state, and it changes its color to a darker shade.
+This change indicates that user can interact with it.
+
+<ButtonStateHovered />
+
+### Focused state
+
+Focused state is when button is selected by keyboard navigation.
+It is indicated by a blue outline around the button.
+It is like a hover state, but it is triggered by keyboard navigation.
+
+<ButtonStateFocused />
+
+### Disabled state
+
+Disabled state is when button is not interactable with user.
+Nothing happens when user clicks on it.
+
+Disabled state is represented with a lighter shade of color.
+
+<ButtonStateDisabled />
+
+### Active, pressed state
+
+Active state is when button is clicked and user is holding the mouse button.
+It is represented by a darker shade of color and inner shadow.
+
+<ButtonStatePressed />
+
+### Selected state
+
+Selected state normally is used for toggle buttons or with set of buttons to indicate selected button within grouping.
+It is only applied when user has selected the button.
+
+<ButtonStateSelected />
+
+### Loading state
+
+Use the `loading` prop to show a loading spinner inside the button.
+
+Button content will be disabled and visually hidden while loading.
+
+<ButtonWithLoading />
+
+::: details Source code
+<<< ../../../demos/src/button/ButtonWithLoading.vue
+:::
+
+### Success state
+
+Using success state is a good way to indicate that the action was successful.
+
+Use the `success` prop to show a success state.
+
+<ButtonStateSuccess />
 
 ## Sizing
 
@@ -78,18 +140,6 @@ It is ignored when either _href_ or _to_ props are set.
 
 ::: details Source code
 <<< ../../../demos/src/button/ButtonWithSingleIcon.vue
-:::
-
-## Loading
-
-Use the `loading` prop to show a loading spinner inside the button.
-
-Button content will be disabled and visually hidden while loading.
-
-<ButtonWithLoading />
-
-::: details Source code
-<<< ../../../demos/src/button/ButtonWithLoading.vue
 :::
 
 ## Block buttons

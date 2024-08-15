@@ -1,5 +1,5 @@
 <script setup>
-  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
+  import { IconPlus16 } from '@acronis-platform/icons/plus';
   import { BUTTON_TYPE } from '@/components/button/button.ts';
 
   import Button from '@/components/button/button.vue';
@@ -58,7 +58,7 @@
           :class="state"
           :size="props.size"
         >
-          <IconPlaceholder16
+          <IconPlus16
             :title="`${state} ${type}`"
             :class="iconColor[type]"
           />

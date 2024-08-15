@@ -32,7 +32,7 @@ describe('test IconButton component', () => {
   it('renders', () => {
     const wrapper = mount(IconButton);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<button data-v-7a9642c5="" data-v-5aaebf8f="" class="acv-button solid medium primary acv-icon-button" type="button">
+      "<button data-v-7a9642c5="" data-v-5aaebf8f="" type="button" class="acv-button solid medium primary acv-icon-button">
         <!--v-if-->
         <!--v-if--><span data-v-7a9642c5="" class="content"></span>
         <!--v-if-->
