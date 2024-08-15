@@ -122,6 +122,9 @@ importers:
       vue:
         specifier: 3.4.30
         version: 3.4.30(typescript@5.5.3)
+      vue-router:
+        specifier: 4.4.0
+        version: 4.4.0(vue@3.4.30(typescript@5.5.3))
     devDependencies:
       '@acronis-platform/configs':
         specifier: workspace:*
