@@ -1,26 +1,34 @@
 <script setup lang="ts">
   import { computed, useSlots } from 'vue';
-  import AcvButton from '../button/button.vue';
-  import AcvIcon from '../icon/icon.vue';
-  import type { AcvChipProps } from './chip.ts';
+  import { IconClose16 } from '@acronis-platform/icons/close';
+  import type { AcvChipEvents, AcvChipProps } from './chip.ts';
+
   import './chip.css';
 
+  /**
+   * Chips or badges are small, interactive elements that represent a piece of information,
+   * such as a tag, a category, or a status.
+   *
+   * @displayName Chip component
+   */
+  defineOptions({
+    name: 'AcvChip',
+  });
+
   const {
-    iconName,
-    showClose = false
+    icon,
+    showClose = false,
+    showHoverHint = false,
   } = defineProps<AcvChipProps>();
 
-  defineEmits<{
-    /**
-     * Emitted when the close button is clicked.
-     * @arg {string} event - The event
-     */
-    close: []
-  }>();
+  const emit = defineEmits<AcvChipEvents>();
 
   const slots = useSlots();
 
   const title = computed(() => {
+    if (!showHoverHint)
+      return undefined;
+
     const defaultSlot = slots.default?.();
 
     if (defaultSlot?.[0]) {
@@ -33,55 +41,52 @@
 
 <template>
   <div class="acv-chip">
-    <AcvIcon
-      v-if="iconName"
-      class="acv-chip__icon"
-      :name="iconName"
-      color="primary"
+    <component
+      :is="icon"
+      v-if="icon"
+      class="icon"
     />
     <span
-      class="acv-chip__text"
+      class="text"
       :title="title"
     >
       <slot />
     </span>
-    <!--    <div class="i-acronis-icons:user--32" /> -->
-    <div class="i-vscode-icons:file-type-light-pnpm" />
 
-    <AcvButton
+    <IconClose16
       v-if="showClose"
-      icon="i-times--16"
-      type="ghost"
-      class="acv-chip__close-button m-8 bg-red:10"
-      @click="$emit('close')"
+      :icon="IconClose16"
+      class="close"
+      @click="emit('close')"
     />
   </div>
 </template>
 
 <style scoped>
   .acv-chip {
+    align-items: center;
+    background-color: var(--acv-color-surface-primary);
+    border-radius: calc(var(--acv-chip-height) * .5);
+    border: var(--acv-border-small) var(--acv-color-form-secondary);
+    box-sizing: border-box;
     color: var(--acv-chip-color);
-    height: var(--acv-chip-height);
     display: inline-flex;
     flex-direction: row;
-    align-items: center;
-    box-sizing: border-box;
-    vertical-align: middle;
-    padding: 0 0 0 12px;
-    text-align: center;
-    border-radius: calc(var(--acv-chip-height) * .5);
-    position: relative;
-    background-color: var(--acv-color-accent-light);
-    border: var(--acv-border-sm) var(--acv-color-primary-light);
-    font-size: var(--acv-font-size-body); /* 16px */
+    font-family: var(--acv-font-family-default), sans-serif;
+    font-size: var(--acv-font-size-body);
     font-weight: var(--acv-font-weight-regular);
+    height: var(--acv-chip-height);
     line-height: var(--acv-font-line-height-regular);
+    padding-inline: 12px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    gap: 8px;
 
-    .acv-chip__text {
+    .text {
       display: inline-block;
       max-width: 223px;
       vertical-align: top;
-      padding-right: 12px;
 
       /* ellipsis */
       overflow: hidden;
@@ -90,12 +95,16 @@
       min-width: 0;
     }
 
-    .acv-chip__icon {
-      margin-right: 8px;
+    .acv-icon {
+      color: var(--acv-chip-icon-color)
     }
 
-    .acv-chip__close-button {
-      margin-left: 8px;
+    .close {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--acv-color-form-secondary);
+      }
     }
 
     &+& {

@@ -1,16 +1,22 @@
-Chips or badges are small, interactive elements that represent a piece of information, such as a tag, a category, or a status.
-
 :::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-53554
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=876-2858
 :::
 
 ## Basic usage
 
 <ChipBasic />
 
-## Multiline
+::: details Source code
+<<< ../../../demos/src/chip/ChipBasic.vue
+:::
 
-<ChipMultiline />
+## Long text with ellipsis
+
+<ChipEllipsis />
+
+::: details Source code
+<<< ../../../demos/src/chip/ChipEllipsis.vue
+:::
 
 ## Related components
 
