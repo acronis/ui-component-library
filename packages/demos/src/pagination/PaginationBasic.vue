@@ -1,5 +1,5 @@
 <script setup>
-  import { AcvPagination, usePagination } from '@acronis-platform/ui-component-library';
+  import { AcvPagination, useAcvPagination } from '@acronis-platform/ui-component-library';
   import { getCurrentInstance } from 'vue';
   import { createRouter, createWebHashHistory } from 'vue-router';
 
@@ -18,7 +18,7 @@
   const { app } = getCurrentInstance().appContext;
   app.use(router);
 
-  const paginationService = usePagination({ limit: 1 });
+  const paginationService = useAcvPagination({ limit: 1 });
   const { setTotal, setPage } = paginationService;
 
   setTotal(20);
