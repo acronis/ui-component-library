@@ -13,27 +13,20 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name | Description                                                                                                                                                                               | Type             | Values | Default |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------ | ------- |
-| label     | Tab label                                                                                                                                                                                 | string           | -      |         |
-| icon      | Tab icon                                                                                                                                                                                  | string           | -      |         |
-| value     | Tab key<br/>identifier corresponding to the activeName of Tabs, representing the alias of the tab-pane<br/>ordinal number of the tab-pane in the sequence, e.g. the first tab-pane is '1' | number \| string | -      |         |
-| disabled  | Whether the tab is disabled                                                                                                                                                               | boolean          | -      | false   |
-| closable  | Whether the tab is closable                                                                                                                                                               | boolean          | -      |         |
+| Prop name  | Description                                                                                                                                                                               | Type             | Values | Default |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------ | ------- |
+| label      | Tab label                                                                                                                                                                                 | string           | -      |         |
+| content    | Tab content                                                                                                                                                                               | string           | -      |         |
+| icon       | Tab icon                                                                                                                                                                                  | string           | -      |         |
+| appendIcon | Tab appendIcon                                                                                                                                                                            | string           | -      |         |
+| value      | Tab key<br/>identifier corresponding to the activeName of Tabs, representing the alias of the tab-pane<br/>ordinal number of the tab-pane in the sequence, e.g. the first tab-pane is '1' | number \| string | -      |         |
+| disabled   | Whether the tab is disabled                                                                                                                                                               | boolean          | -      | false   |
+| closable   | Whether the tab is closable                                                                                                                                                               | boolean          | -      |         |
 
 ## Slots
 
 | Name    | Description                  | Bindings |
 | ------- | ---------------------------- | -------- |
 | prepend | Prepend content to the title |          |
+| default |                              |          |
 | append  | Append content to the title  |          |
-
-## Expose
-
-### tabName
-
->
-
-### isActive
-
->

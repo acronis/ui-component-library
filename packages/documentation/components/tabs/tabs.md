@@ -33,8 +33,9 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Slots
 
-| Name      | Description              | Bindings |
-| --------- | ------------------------ | -------- |
-| tabs      | Slot for tabs            |          |
-| tab.value |                          |          |
-| default   | The default slot content |          |
+| Name                                | Description              | Bindings |
+| ----------------------------------- | ------------------------ | -------- |
+| tabs                                | Slot for tabs            |          |
+| `tab-${tabValues[index] as string}` |                          |          |
+| tab.value as string                 |                          |          |
+| default                             | The default slot content |          |
