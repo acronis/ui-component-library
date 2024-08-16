@@ -48,16 +48,6 @@
         class="visually-hidden"
       >
       <span
-        class="acv-switch__decor"
-        data-switch-input-state="on"
-        aria-hidden="true"
-      >On</span>
-      <span
-        class="acv-switch__decor"
-        data-switch-input-state="off"
-        aria-hidden="true"
-      >Off</span>
-      <span
         class="acv-switch__thumb"
         aria-hidden="true"
       />
@@ -78,6 +68,7 @@
     display: inline-flex;
     font-family: var(--acv-font-family-default), sans-serif;
     padding-block: 4px;
+    cursor: pointer;
 
     .acv-switch__input {
       width: calc((var(--acv-switch-input-thumb-size) * 2) + (var(--acv-switch-input-gutter) * 3));
@@ -107,34 +98,6 @@
         inset-inline-start: calc(
             var(--acv-switch-input-thumb-size) + (var(--acv-switch-input-gutter) * 2)
         );
-      }
-
-      .acv-switch__decor {
-        position: absolute;
-        inset-block: 0;
-        inset-inline-start: 0;
-        padding: var(--acv-switch-input-decor-space);
-
-        /* Font size lives here because we wanna use container units */
-        font-size: var(--acv-switch-input-font-size);
-
-        /* Legacy */
-        display: flex;
-        width: 100%;
-        align-items: center;
-
-        /* Future */
-
-        /* align-content: center; */
-
-        /* display: block;
-        block-size: 100%; */
-        user-select: none;
-
-      }
-
-      .acv-switch__decor[data-switch-input-state='off'] {
-        justify-content: flex-end;
       }
 
       .acv-switch__thumb {
@@ -181,6 +144,7 @@
       --acv-switch-input-on-text: var(--acv-color-white);
       --acv-switch-label-color: var(--acv-color-text-disabled);
       pointer-events: none;
+      cursor: default;
     }
   }
 </style>
