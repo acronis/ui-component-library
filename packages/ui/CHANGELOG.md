@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/acronis/ui-component-library/compare/v1.17.1...v1.17.2) (2024-08-19)
+
+
+### Bug Fixes
+
+* remove dynamic icons ([d684372](https://github.com/acronis/ui-component-library/commit/d6843720530ff00a1a342fe3414f893239ea931d))
+
 ## [1.17.1](https://github.com/acronis/ui-component-library/compare/v1.17.0...v1.17.1) (2024-08-19)
 
 
@@ -28,11 +35,4 @@
 ### Bug Fixes
 
 * regenerate tabs documentation ([1c995cf](https://github.com/acronis/ui-component-library/commit/1c995cfcc15aed9856e424cb5de1db463b859df7))
-
-## [1.16.2](https://github.com/acronis/ui-component-library/compare/v1.16.1...v1.16.2) (2024-08-14)
-
-
-### Bug Fixes
-
-* fix wrong paths in documentation ([5d6dd39](https://github.com/acronis/ui-component-library/commit/5d6dd393b07f32056dd9d6f0a188f99a349b109c))
 
