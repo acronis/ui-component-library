@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  import { computed, markRaw, ref, useAttrs, watch } from 'vue';
-  import { camelCase, startCase } from 'lodash-es';
-  import { isBrowser } from '@antfu/utils';
+  import { computed, useAttrs } from 'vue';
   import type { AcvIconProps } from './icon.ts';
 
   const {
@@ -12,27 +10,24 @@
     flip,
     icon,
     inverse,
-    name,
     size,
-    state,
     stateIcon,
     stateColor,
     title,
   } = withDefaults(defineProps<AcvIconProps>(), {
-    collection: 'acronis',
     size: '16'
   });
 
   const classes = computed(() => {
     return {
-      'acv-icon': true,
+      'acv-custom-icon': true,
       'is-inverse': inverse,
       [`flip-${flip}`]: !!flip,
       [`color-${color}`]: !!color,
       [`animation-${animation}`]: !!animation,
       [`size-${size}`]: size,
       [`speed-${animationSpeed}`]: !!animationSpeed,
-      'acv-icon-hover': animateOnHover,
+      'hover': animateOnHover,
     };
   });
 
@@ -47,29 +42,6 @@
   const fillStateColor = computed(() => {
     return stateColor ? `var(--acv-color-${stateColor})` : 'currentColor';
   });
-
-  const dynamicIcon = ref<any>(null);
-  const dynamicStateIcon = ref<any>(null);
-
-  watch(() => name, async () => {
-    if (!name || !isBrowser) {
-      return undefined;
-    }
-    const iconFilename = `Icon${startCase(camelCase(name)).replace(/ /g, '')}`;
-    const iconModule = await import(`./../../../../icons/vue/${iconFilename}.js`);
-
-    dynamicIcon.value = iconModule ? markRaw(iconModule) : null;
-  }, { immediate: true });
-
-  watch(() => state, async () => {
-    if (!state || !isBrowser) {
-      return undefined;
-    }
-    const iconFilename = `Icon${startCase(camelCase(state)).replace(/ /g, '')}`;
-    const iconModule = await import(`../../../../icons/vue/${iconFilename}.js`);
-
-    dynamicStateIcon.value = iconModule ? markRaw(await iconModule) : null;
-  }, { immediate: true });
 </script>
 
 <template>
@@ -77,7 +49,7 @@
     :class="classes"
     v-bind="attrs"
   >
-    <g v-if="icon && !name">
+    <g v-if="icon">
       <slot>
         <component
           :is="icon"
@@ -95,30 +67,11 @@
         />
       </slot>
     </g>
-    <template v-else>
-      <suspense>
-        <component
-          :is="dynamicIcon"
-          v-if="dynamicIcon"
-          class="cmp"
-          :width="size"
-          :height="size"
-        />
-      </suspense>
-      <suspense>
-        <component
-          :is="dynamicStateIcon"
-          v-if="dynamicStateIcon"
-          class="state"
-          :width="size"
-          :height="size"
-        /></suspense>
-    </template>
   </i>
 </template>
 
 <style scoped>
-  .acv-icon {
+  .acv-custom-icon {
     font-weight: var(--acv-font-weight-strong);
     color: var(--acv-icon-color);
     flex-shrink: 0;
@@ -201,141 +154,141 @@
 
 /* ---------------- spin ---------------- */
 
-.animation-spin:not(.acv-icon-hover),
-.animation-spin.acv-icon-hover:hover,
-.animation-parent.acv-icon-hover:hover > .animation-spin {
+.animation-spin:not(.hover),
+.animation-spin.hover:hover,
+.animation-parent.hover:hover > .animation-spin {
     animation: animation-spin 1s linear infinite;
 }
 
-.animation-spin:not(.acv-icon-hover).acv-icon-fast,
-.animation-spin.acv-icon-hover.acv-icon-fast:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-spin.acv-icon-fast {
+.animation-spin:not(.hover).acv-icon-fast,
+.animation-spin.hover.acv-icon-fast:hover,
+.acv-icon-parent.hover:hover > .animation-spin.acv-icon-fast {
     animation: animation-spin 0.7s linear infinite;
 }
 
-.animation-spin:not(.acv-icon-hover).acv-icon-slow,
-.animation-spin.acv-icon-hover.acv-icon-slow:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-spin.acv-icon-slow {
+.animation-spin:not(.hover).acv-icon-slow,
+.animation-spin.hover.acv-icon-slow:hover,
+.acv-icon-parent.hover:hover > .animation-spin.acv-icon-slow {
     animation: animation-spin 2s linear infinite;
 }
 
 /* ---------------- spin-pulse ---------------- */
 
-.animation-spin-pulse:not(.acv-icon-hover),
-.animation-spin-pulse.acv-icon-hover:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-spin-pulse {
+.animation-spin-pulse:not(.hover),
+.animation-spin-pulse.hover:hover,
+.acv-icon-parent.hover:hover > .animation-spin-pulse {
     animation: animation-spin 1s infinite steps(8);
 }
 
-.animation-spin-pulse:not(.acv-icon-hover).acv-icon-fast,
-.animation-spin-pulse.acv-icon-hover.acv-icon-fast:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-spin-pulse.acv-icon-fast {
+.animation-spin-pulse:not(.hover).acv-icon-fast,
+.animation-spin-pulse.hover.acv-icon-fast:hover,
+.acv-icon-parent.hover:hover > .animation-spin-pulse.acv-icon-fast {
     animation: animation-spin 0.7s infinite steps(8);
 }
 
-.animation-spin-pulse:not(.acv-icon-hover).acv-icon-slow,
-.animation-spin-pulse.acv-icon-hover.acv-icon-slow:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-spin-pulse.acv-icon-slow {
+.animation-spin-pulse:not(.hover).acv-icon-slow,
+.animation-spin-pulse.hover.acv-icon-slow:hover,
+.acv-icon-parent.hover:hover > .animation-spin-pulse.acv-icon-slow {
     animation: animation-spin 2s infinite steps(8);
 }
 
 /* ---------------- wrench ---------------- */
 
-.animation-wrench:not(.acv-icon-hover),
-.animation-wrench.acv-icon-hover:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-wrench {
+.animation-wrench:not(.hover),
+.animation-wrench.hover:hover,
+.acv-icon-parent.hover:hover > .animation-wrench {
     animation: animation-wrench 2.5s ease infinite;
 }
 
-.animation-wrench:not(.acv-icon-hover).acv-icon-fast,
-.animation-wrench.acv-icon-hover.acv-icon-fast:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-wrench.acv-icon-fast {
+.animation-wrench:not(.hover).acv-icon-fast,
+.animation-wrench.hover.acv-icon-fast:hover,
+.acv-icon-parent.hover:hover > .animation-wrench.acv-icon-fast {
     animation: animation-wrench 1.2s ease infinite;
 }
 
-.animation-wrench:not(.acv-icon-hover).acv-icon-slow,
-.animation-wrench.acv-icon-hover.acv-icon-slow:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-wrench.acv-icon-slow {
+.animation-wrench:not(.hover).acv-icon-slow,
+.animation-wrench.hover.acv-icon-slow:hover,
+.acv-icon-parent.hover:hover > .animation-wrench.acv-icon-slow {
     animation: animation-wrench 3.7s ease infinite;
 }
 
 /* ---------------- ring ---------------- */
 
-.animation-ring:not(.acv-icon-hover),
-.animation-ring.acv-icon-hover:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-ring {
+.animation-ring:not(.hover),
+.animation-ring.hover:hover,
+.acv-icon-parent.hover:hover > .animation-ring {
     animation: animation-ring 2s ease infinite;
 }
 
-.animation-ring:not(.acv-icon-hover).acv-icon-fast,
-.animation-ring.acv-icon-hover.acv-icon-fast:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-ring.acv-icon-fast {
+.animation-ring:not(.hover).acv-icon-fast,
+.animation-ring.hover.acv-icon-fast:hover,
+.acv-icon-parent.hover:hover > .animation-ring.acv-icon-fast {
     animation: animation-ring 1s ease infinite;
 }
 
-.animation-ring:not(.acv-icon-hover).acv-icon-slow,
-.animation-ring.acv-icon-hover.acv-icon-slow:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-ring.acv-icon-slow {
+.animation-ring:not(.hover).acv-icon-slow,
+.animation-ring.hover.acv-icon-slow:hover,
+.acv-icon-parent.hover:hover > .animation-ring.acv-icon-slow {
     animation: animation-ring 3s ease infinite;
 }
 
 /* ---------------- pulse ---------------- */
 
-.animation-pulse:not(.acv-icon-hover),
-.animation-pulse.acv-icon-hover:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-pulse {
+.animation-pulse:not(.hover),
+.animation-pulse.hover:hover,
+.acv-icon-parent.hover:hover > .animation-pulse {
     animation: animation-pulse 2s linear infinite;
 }
 
-.animation-pulse:not(.acv-icon-hover).acv-icon-fast,
-.animation-pulse.acv-icon-hover.acv-icon-fast:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-pulse.acv-icon-fast {
+.animation-pulse:not(.hover).acv-icon-fast,
+.animation-pulse.hover.acv-icon-fast:hover,
+.acv-icon-parent.hover:hover > .animation-pulse.acv-icon-fast {
     animation: animation-pulse 1s linear infinite;
 }
 
-.animation-pulse:not(.acv-icon-hover).acv-icon-slow,
-.animation-pulse.acv-icon-hover.acv-icon-slow:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-pulse.acv-icon-slow {
+.animation-pulse:not(.hover).acv-icon-slow,
+.animation-pulse.hover.acv-icon-slow:hover,
+.acv-icon-parent.hover:hover > .animation-pulse.acv-icon-slow {
     animation: animation-pulse 3s linear infinite;
 }
 
 /* ---------------- flash ---------------- */
 
-.animation-flash:not(.acv-icon-hover),
-.animation-flash.acv-icon-hover:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-flash {
+.animation-flash:not(.hover),
+.animation-flash.hover:hover,
+.acv-icon-parent.hover:hover > .animation-flash {
     animation: animation-flash 2s ease infinite;
 }
 
-.animation-flash:not(.acv-icon-hover).acv-icon-fast,
-.animation-flash.acv-icon-hover.acv-icon-fast:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-flash.acv-icon-fast {
+.animation-flash:not(.hover).acv-icon-fast,
+.animation-flash.hover.acv-icon-fast:hover,
+.acv-icon-parent.hover:hover > .animation-flash.acv-icon-fast {
     animation: animation-flash 1s ease infinite;
 }
 
-.animation-flash:not(.acv-icon-hover).acv-icon-slow,
-.animation-flash.acv-icon-hover.acv-icon-slow:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-flash.acv-icon-slow {
+.animation-flash:not(.hover).acv-icon-slow,
+.animation-flash.hover.acv-icon-slow:hover,
+.acv-icon-parent.hover:hover > .animation-flash.acv-icon-slow {
     animation: animation-flash 3s ease infinite;
 }
 
 /* ---------------- float ---------------- */
 
-.animation-float:not(.acv-icon-hover),
-.animation-float.acv-icon-hover:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-float {
+.animation-float:not(.hover),
+.animation-float.hover:hover,
+.acv-icon-parent.hover:hover > .animation-float {
     animation: animation-float 2s linear infinite;
 }
 
-.animation-float:not(.acv-icon-hover).acv-icon-fast,
-.animation-float.acv-icon-hover.acv-icon-fast:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-float.acv-icon-fast {
+.animation-float:not(.hover).acv-icon-fast,
+.animation-float.hover.acv-icon-fast:hover,
+.acv-icon-parent.hover:hover > .animation-float.acv-icon-fast {
     animation: animation-float 1s linear infinite;
 }
 
-.animation-float:not(.acv-icon-hover).acv-icon-slow,
-.animation-float.acv-icon-hover.acv-icon-slow:hover,
-.acv-icon-parent.acv-icon-hover:hover > .animation-float.acv-icon-slow {
+.animation-float:not(.hover).acv-icon-slow,
+.animation-float.hover.acv-icon-slow:hover,
+.acv-icon-parent.hover:hover > .animation-float.acv-icon-slow {
     animation: animation-float 3s linear infinite;
 }
 

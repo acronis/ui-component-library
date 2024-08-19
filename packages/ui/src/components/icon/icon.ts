@@ -1,4 +1,4 @@
-import type { IconProp } from '../../types/props.ts';
+import type { IconProp } from '@/types/props.ts';
 
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
@@ -9,18 +9,14 @@ type Color = RGB | RGBA | HEX | ColorNames;
 
 export interface AcvIconProps {
   /**
-   * Name of icon (e.g. `check` or `check--16`)
+   * Icon component to display
    */
-  name?: string
-  /**
-   * Name of collection (e.g. `acronis` or `constructor`)
-   */
-  collection?: string
+  icon?: IconProp
 
   /**
-   * Name of state icon (e.g. `i-state-upload-d--16`)
+   * State icon component to display
    */
-  state?: string
+  stateIcon?: IconProp
 
   /**
    * Title of the icon
@@ -89,8 +85,4 @@ export interface AcvIconProps {
    * @defaultValue false
    */
   inverse?: boolean
-
-  icon?: IconProp
-
-  stateIcon?: IconProp
 }
