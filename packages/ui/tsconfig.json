@@ -15,7 +15,7 @@
   "include": [
     "env.d.ts",
     "src",
-    "src/**/*.{ts,vue}",
+    "src/**/*.{ts,tsx,vue}",
     "./cypress.d.ts",
     "./vitest.config.ts"
   ],
