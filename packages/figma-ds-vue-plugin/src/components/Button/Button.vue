@@ -1,6 +1,6 @@
 <script>
   export default {
-    // eslint-disable-next-line vue/no-reserved-component-names
+
     name: 'Button',
     /**
      * Button component with primary, secondary, tertiary and destructive states
@@ -43,7 +43,7 @@
   </button>
 </template>
 
-<style>
+<style scoped>
 .fig-btn {
   display: flex;
   flex-shrink: 0;

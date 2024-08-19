@@ -24,16 +24,16 @@ next: '/docs/components/textarea/'
 
 ```html
 <template>
-	<Txt>Lorem Ipsum</Txt>
+  <Txt>Lorem Ipsum</Txt>
 </template>
 
 <script>
-	import { Txt } from '@ui-kit/figma-ds-vue-plugin'
+  import { Txt } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-		components: {
-			Txt
-		}
-	}
+  export default {
+    components: {
+      Txt,
+    },
+  }
 </script>
 ```

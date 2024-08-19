@@ -1,6 +1,4 @@
 function createComponent(figma, componentTemplate) {
-  console.log('Creating component', componentTemplate);
-
   const component = figma.createComponent();
 
   Object.assign(component, componentTemplate);

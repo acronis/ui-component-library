@@ -47,7 +47,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .fig-text {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-xsmall);

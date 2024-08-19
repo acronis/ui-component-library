@@ -13,11 +13,11 @@ import Label from './Label';
 import NumInput from './NumInput';
 import Radio from './Radio';
 import Select from './Select';
-import Toggle from './Toggle';
 import Textarea from './Textarea';
-import Txt from './Txt';
 import Title from './Title';
+import Toggle from './Toggle';
 import Tooltip from './Tooltip';
+import Txt from './Txt';
 
 export {
   Button,
@@ -32,11 +32,11 @@ export {
   NumInput,
   Radio,
   Select,
-  Toggle,
   Textarea,
-  Txt,
   Title,
+  Toggle,
   Tooltip,
+  Txt,
 };
 
 export default {

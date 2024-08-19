@@ -2,7 +2,7 @@
   import uniqueId from '../../mixins/uniqueId';
 
   export default {
-    name: 'Input',
+    name: 'DSInput',
     /**
      * Input component with optional icon
      */
@@ -57,7 +57,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .fig-input {
   position: relative;
 

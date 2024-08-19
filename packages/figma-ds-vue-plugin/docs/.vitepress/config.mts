@@ -1,22 +1,22 @@
+import path from 'node:path'
 import { defineConfig } from 'vitepress'
-import path from "path";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Figma DS Vue.js docs",
+  title: 'Figma DS Vue.js docs',
   // description: "A VitePress Site",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Components', link: '/components/button' },
-      { text: 'Markdown examples', link: '/markdown-examples' }
+      { text: 'Markdown examples', link: '/markdown-examples' },
     ],
 
     sidebar: [
       {
         text: 'Getting Started',
-        link: '/library/install'
+        link: '/library/install',
 
       },
       {
@@ -38,27 +38,27 @@ export default defineConfig({
           { text: 'Title', link: '/components/title' },
           { text: 'Toggle', link: '/components/toggle' },
           { text: 'Tooltip', link: '/components/tooltip' },
-        ]
+        ],
       },
       {
         text: 'Utils',
         items: [
-          {text: 'Style utils', link: '/styles/style-utils'},
-          {text: 'Variables', link: '/styles/variables'},
-        ]
-      }
+          { text: 'Style utils', link: '/styles/style-utils' },
+          { text: 'Variables', link: '/styles/variables' },
+        ],
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+    ],
   },
-  vite : {
+  vite: {
     resolve: {
       alias: {
         'components': path.resolve(__dirname, './components'),
         '@': path.resolve(__dirname, '../../src'),
-      }
-    }
-  }
+      },
+    },
+  },
 })

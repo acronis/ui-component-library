@@ -13,30 +13,30 @@ next: '/docs/components/tooltip/'
 
 ### Props
 
-| Prop       | Type       | Default/Notes                                                    |
-| :--------- |:-----------| :--------------------------------------------------------------- |
-| `@input`   | `Func()`   | Handle event emitted from the component, ex: `@input={funcName}` |
-| `value`    | `Boolean`  | Default: `false`                                                 |
-| `checked`  | `Boolean`  | Default: `undefined`                                             |
-| `disabled` | `Boolean`  | Default: `false`                                                 |
+| Prop       | Type      | Default/Notes                                                    |
+| :--------- | :-------- | :--------------------------------------------------------------- |
+| `@input`   | `Func()`  | Handle event emitted from the component, ex: `@input={funcName}` |
+| `value`    | `Boolean` | Default: `false`                                                 |
+| `checked`  | `Boolean` | Default: `undefined`                                             |
+| `disabled` | `Boolean` | Default: `false`                                                 |
 
 ### Example usage
 
 ```html
 <template>
-	<Toggle v-model="toggleModel">Toggle me</Toggle>
+  <Toggle v-model="toggleModel">Toggle me</Toggle>
 </template>
 
 <script>
-	import { Toggle } from '@ui-kit/figma-ds-vue-plugin'
+  import { Toggle } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-	    data: () => ({
-		    toggleModel: // Boolean
-	    }),
-		components: {
-			Toggle
-		}
-	}
+  export default {
+    data: () => ({
+        toggleModel: // Boolean
+    }),
+    components: {
+        Toggle
+    }
+  }
 </script>
 ```

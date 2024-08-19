@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue';
-  import { IconButton } from '@ui-kit/figma-ds-vue-plugin';
-  import '@ui-kit/figma-ds-vue-plugin/dist/figma-ds-vue-plugin.css';
+  import { IconButton } from '@acronis-platform/figma-ds-vue-plugin';
+  import '@acronis-platform/figma-ds-vue-plugin/dist/figma-ds-vue-plugin.css';
   import Loading from './Loading.vue';
   import Variables from './Variables.vue';
   import Components from './Components.vue';
@@ -69,38 +69,38 @@
             @click="tab = 'variables'"
           ></IconButton>
         </li>
-        <li>
-          <IconButton
-            icon="component"
-            title="Components"
-            :selected="tab === 'components'"
-            @click="tab = 'components'"
-          ></IconButton>
-        </li>
-        <li>
-          <IconButton
-            icon="theme"
-            title="Text styles"
-            :selected="tab === 'text'"
-            @click="tab = 'text'"
-          ></IconButton>
-        </li>
-        <li>
-          <IconButton
-            icon="effects"
-            title="Effects"
-            :selected="tab === 'effects'"
-            @click="tab = 'effects'"
-          ></IconButton>
-        </li>
-        <li>
-          <IconButton
-            icon="list"
-            title="Grids"
-            :selected="tab === 'grids'"
-            @click="tab = 'grids'"
-          ></IconButton>
-        </li>
+<!--        <li>-->
+<!--          <IconButton-->
+<!--            icon="component"-->
+<!--            title="Components"-->
+<!--            :selected="tab === 'components'"-->
+<!--            @click="tab = 'components'"-->
+<!--          ></IconButton>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <IconButton-->
+<!--            icon="theme"-->
+<!--            title="Text styles"-->
+<!--            :selected="tab === 'text'"-->
+<!--            @click="tab = 'text'"-->
+<!--          ></IconButton>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <IconButton-->
+<!--            icon="effects"-->
+<!--            title="Effects"-->
+<!--            :selected="tab === 'effects'"-->
+<!--            @click="tab = 'effects'"-->
+<!--          ></IconButton>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <IconButton-->
+<!--            icon="list"-->
+<!--            title="Grids"-->
+<!--            :selected="tab === 'grids'"-->
+<!--            @click="tab = 'grids'"-->
+<!--          ></IconButton>-->
+<!--        </li>-->
         <li>
           <IconButton
             icon="resolve"

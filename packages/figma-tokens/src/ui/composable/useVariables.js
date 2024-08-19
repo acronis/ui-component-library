@@ -1,11 +1,13 @@
 import { ref } from 'vue';
 import { emit as emitFigma, on } from '@create-figma-plugin/utilities';
 import { RGBToHSL } from '../utils';
+import {setWith} from 'lodash-es';
 
 function useVariables() {
   const variables = ref([]);
   const variablesMap = ref({});
   const cssVariables = ref('');
+  const jsonVariables = ref('');
 
   function getDimension(variableName) {
     let dimension = '';
@@ -34,6 +36,9 @@ function useVariables() {
 
     if (value?.type === 'VARIABLE_ALIAS') {
       const alias = variablesMap.value[value.id];
+      if (!alias) {
+        console.error('Unable to find alias for ' + value);
+      }
       const dimension = getDimension(alias.name);
       value = `var(${alias.cssName.replace('--acv', '--acv-base')}, ${alias.cssValue}${dimension})`;
     }
@@ -43,6 +48,39 @@ function useVariables() {
     }
 
     return value;
+  }
+
+  function getStyleDictionaryValue(variable, modeId) {
+    const {name, cssValue} = variable;
+    const dimension = getDimension(name);
+    const taxonomy = name.split('/');
+    const type = taxonomy[0] || taxonomy[1] || 'getSDType';
+    let value = variable.valuesByMode[modeId] + dimension;
+
+    if (cssValue?.type === 'VARIABLE_ALIAS') {
+      const alias = variablesMap.value[cssValue.id];
+      if (!alias) {
+        console.error('Unable to find alias for ' + cssValue.id);
+      }
+
+      value = `{${['base'].concat(alias.name.split('/')).join('.')}}`;
+    }
+
+    if (type==='color') {
+      value = cssValue;
+    }
+
+    return {
+      value,
+      name,
+      dimension,
+      type,
+      isAlias: cssValue?.type === 'VARIABLE_ALIAS',
+      category: taxonomy[0],
+      ctype: taxonomy[1],
+      citem: taxonomy[2],
+      cssValue: variable.cssValue
+    };
   }
 
   function outputCssMode({ modeName, modeId, variables, singleMode }) {
@@ -79,6 +117,38 @@ function useVariables() {
     return vars;
   }
 
+  function outputJsonMode({ modeName, modeId, variables, singleMode }) {
+    const modeTitle = singleMode ? 'base' : modeName.toLowerCase()
+    const output = {};
+
+    variables.forEach((variable) => {
+      const segments = variable.name.split('/');
+      const value = getStyleDictionaryValue(variable, modeId);
+      // const dimension = singleMode ? getDimension(variable.name) : '';
+
+      setWith(output, [modeTitle, ...segments], value, Object);
+    })
+
+    return output;
+  }
+
+  function outputJsonVariables(json) {
+    let vars = {};
+
+    Object.values(json).forEach((collection) => {
+      collection.modes.forEach(({ name, modeId }) => {
+        Object.assign(vars, outputJsonMode({
+          modeName: name,
+          modeId,
+          variables: collection.variables,
+          singleMode: collection.modes.length === 1
+        }));
+      });
+    });
+
+    return vars;
+  }
+
   const fetchVariables = async () => {
     emitFigma('REQ_VARIABLES');
 
@@ -91,11 +161,13 @@ function useVariables() {
 
         return acc;
       }, {});
+
       cssVariables.value = outputCssVariables(json);
+      jsonVariables.value = JSON.stringify(outputJsonVariables(json), null, 2);
     });
   };
 
-  return { variables, fetchVariables, cssVariables };
+  return { variables, fetchVariables, cssVariables, jsonVariables };
 }
 
 export default useVariables;

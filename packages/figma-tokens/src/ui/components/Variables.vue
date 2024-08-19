@@ -1,12 +1,13 @@
 <script setup>
-  import { Button, Checkbox, Disclosure, DisclosureItem, Divider, Textarea } from '@ui-kit/figma-ds-vue-plugin';
+  import { Button, Checkbox, Disclosure, DisclosureItem, Divider, Textarea } from '@acronis-platform/figma-ds-vue-plugin';
 
   import { onMounted, ref } from 'vue';
   import useVariables from '../composable/useVariables';
   import { downloadFile } from '../utils';
 
-  const { variables, fetchVariables, cssVariables } = useVariables();
+  const { variables, fetchVariables, cssVariables, jsonVariables } = useVariables();
   const showCssVariables = ref(false);
+  const showJsonVariables = ref(false);
 
   onMounted(() => {
     fetchVariables();
@@ -16,12 +17,16 @@
     showCssVariables.value = !showCssVariables.value;
   }
 
+  function toggleJsonVariables() {
+    showJsonVariables.value = !showJsonVariables.value;
+  }
+
   function downloadCssVariables() {
     downloadFile(cssVariables.value, 'css-variables.css');
   }
 
   function downloadJsonVariables() {
-    downloadFile(JSON.stringify(variables.value, null, 2), 'json-variables.json');
+    downloadFile(jsonVariables.value, 'style-dictionary.json');
   }
 </script>
 
@@ -88,9 +93,25 @@
     {{ showCssVariables ? 'Hide' : 'Show' }} css variables
   </Button>
 
+  <Button
+    secondary
+    class="m-xsmall"
+    @click="toggleJsonVariables"
+  >
+    {{ showJsonVariables ? 'Hide' : 'Show' }} json variables
+  </Button>
+
   <Textarea
     v-if="showCssVariables"
     v-model="cssVariables"
+    class="m-xsmall"
+    rows="10"
+  >
+  </Textarea>
+
+  <Textarea
+    v-if="showJsonVariables"
+    v-model="jsonVariables"
     class="m-xsmall"
     rows="10"
   >

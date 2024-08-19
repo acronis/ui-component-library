@@ -20,4 +20,3 @@ hero:
 ---
 
 <Components />
-

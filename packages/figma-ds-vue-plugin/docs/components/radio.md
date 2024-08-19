@@ -9,39 +9,36 @@ next: '/docs/components/select-menu/'
 
 <ComponentWrapper>
 <Radio
-	:items="[{ label: 'Item A', value: 'A' },{ label: 'Item B', value: 'B' }]"
+    :items="[{ label: 'Item A', value: 'A' },{ label: 'Item B', value: 'B' }]"
 />
 </ComponentWrapper>
 
 ### Props
 
-| Prop       | Type            | Default/Notes                                                                                                                         |
-| :--------- |:----------------| :------------------------------------------------------------------------------------------------------------------------------------ |
-| `@input`   | `Func()`        | Handle event emitted from the component, ex: `@input={funcName}`                                                                      |
-| `items`    | `Array<Object>` | Format: `[{ label: String, value: String | Number}]` Pass an array of objects containing the option name and value that gets returned |
-| `value`    | `String/Number` | Default: `undefined`                                                                                                                  |
-| `disabled` | `Boolean`       | Default: `false`                                                                                                                      |
+| Prop       | Type            | Default/Notes                                                    |                                                                                            |
+| :--------- | :-------------- | :--------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `@input`   | `Func()`        | Handle event emitted from the component, ex: `@input={funcName}` |                                                                                            |
+| `items`    | `Array<Object>` | Format: `[{ label: String, value: String                         | Number}]` Pass an array of objects containing the option name and value that gets returned |
+| `value`    | `String/Number` | Default: `undefined`                                             |                                                                                            |
+| `disabled` | `Boolean`       | Default: `false`                                                 |                                                                                            |
 
 ### Example usage
 
 ```html
 <template>
-	<Radio
-		:items="[{ label: 'Item A', value: 'A' },{ label: 'Item B', value: 'B' }]"
-		v-model="radioModel"
-	/>
+  <Radio :items="[{ label: 'Item A', value: 'A' },{ label: 'Item B', value: 'B' }]" v-model="radioModel" />
 </template>
 
 <script>
-	import { Radio } from '@ui-kit/figma-ds-vue-plugin'
+  import { Radio } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-	       data: () => ({
-		    radioModel: // Value of selected radio key
-	    }),
-		components: {
-			Radio
-		}
-	}
+  export default {
+         data: () => ({
+        radioModel: // Value of selected radio key
+      }),
+    components: {
+            Radio
+    }
+  }
 </script>
 ```

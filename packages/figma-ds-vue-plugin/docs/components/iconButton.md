@@ -7,9 +7,9 @@ next: '/docs/components/input/'
 
 <script>
 export default {
-	data: () => ({
-		iconModel: false
-	}),
+    data: () => ({
+        iconModel: false
+    }),
 }
 </script>
 
@@ -22,35 +22,32 @@ export default {
 
 ### Props
 
-| Prop       | Type       | Default/Notes                                                    |
-| :--------- |:-----------|:-----------------------------------------------------------------|
-| `@click`   | `Func()`   | Handle event emitted from the component, ex: `@click={funcName}` |
-| `icon`     | `String`   | _See [Icon](/components/icon#props) component for usage_         |
-| `iconText` | `String`   | _See [Icon](/components/icon#props)  component for usage_        |
-| `selected` | `Boolean`  | Default: `false`                                                 |
-| `spinning` | `Boolean`  | _See [Icon](/components/icon#props)  component for usage_        |
-| `disabled` | `Boolean`  | Default: `false`                                                 |
+| Prop       | Type      | Default/Notes                                                    |
+| :--------- | :-------- | :--------------------------------------------------------------- |
+| `@click`   | `Func()`  | Handle event emitted from the component, ex: `@click={funcName}` |
+| `icon`     | `String`  | _See [Icon](/components/icon#props) component for usage_         |
+| `iconText` | `String`  | _See [Icon](/components/icon#props) component for usage_         |
+| `selected` | `Boolean` | Default: `false`                                                 |
+| `spinning` | `Boolean` | _See [Icon](/components/icon#props) component for usage_         |
+| `disabled` | `Boolean` | Default: `false`                                                 |
 
 ### Example usage
 
 ```html
 <template>
-	<IconButton
-		@click="iconState = !iconState"
-		:icon="iconState ? 'heart-fill' : 'heart'"
-	/>
+  <IconButton @click="iconState = !iconState" :icon="iconState ? 'heart-fill' : 'heart'" />
 </template>
 
 <script>
-	import { IconButton } from '@ui-kit/figma-ds-vue-plugin'
+  import { IconButton } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-	       data: () => ({
-		    iconState: // Boolean
-	    }),
-		components: {
-			IconButton
-		}
-	}
+  export default {
+         data: () => ({
+        iconState: // Boolean
+      }),
+    components: {
+            IconButton
+    }
+  }
 </script>
 ```

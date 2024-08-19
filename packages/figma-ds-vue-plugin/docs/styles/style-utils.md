@@ -9,31 +9,31 @@ next: '/docs/library/changelog/'
 
 ## Padding
 
-| Class         | Property  | Value                                      |
-|:--------------|:----------|:-------------------------------------------|
-| `.p-xxxsmall` | `padding` | [var(--size-xxxsmall)](variables#size)     |
-| `.p-xxsmall`  | `padding` | [var(--size-xxsmall)](variables#size)      |
-| `.p-xsmall`   | `padding` | [var(--size-xsmall)](variables#size)       |
-| `.p-small`    | `padding` | [var(--size-small)](variables#size)        |
-| `.p-medium`   | `padding` | [var(--size-medium)](variables#size)       |
-| `.p-large`    | `padding` | [var(--size-large)](variables#size)        |
-| `.p-xlarge`   | `padding` | [var(--size-xlarge)](variables#size)       |
-| `.p-xxlarge`  | `padding` | [var(--size-xxlarge`](variables#size)      |
-| `.p-xxxlarge` | `padding` | [var(--size-xxxlarge)](variables#size)     |
+| Class         | Property  | Value                                  |
+| :------------ | :-------- | :------------------------------------- |
+| `.p-xxxsmall` | `padding` | [var(--size-xxxsmall)](variables#size) |
+| `.p-xxsmall`  | `padding` | [var(--size-xxsmall)](variables#size)  |
+| `.p-xsmall`   | `padding` | [var(--size-xsmall)](variables#size)   |
+| `.p-small`    | `padding` | [var(--size-small)](variables#size)    |
+| `.p-medium`   | `padding` | [var(--size-medium)](variables#size)   |
+| `.p-large`    | `padding` | [var(--size-large)](variables#size)    |
+| `.p-xlarge`   | `padding` | [var(--size-xlarge)](variables#size)   |
+| `.p-xxlarge`  | `padding` | [var(--size-xxlarge`](variables#size)  |
+| `.p-xxxlarge` | `padding` | [var(--size-xxxlarge)](variables#size) |
 
 ## Margin
 
-| Class         | Property | Value                                   |
-| :------------ | :------- |:----------------------------------------|
-| `.m-xxxsmall` | `margin` | [var(--size-xxxsmall)](variables#size)  |
-| `.m-xxsmall`  | `margin` | [var(--size-xxsmall)](variables#size)   |
-| `.m-xsmall`   | `margin` | [var(--size-xsmall)](variables#size)    |
-| `.m-small`    | `margin` | [var(--size-small)](variables#size)     |
-| `.m-medium`   | `margin` | [var(--size-medium`](variables#size)    |
-| `.m-large`    | `margin` | [var(--size-large)](variables#size)     |
-| `.m-xlarge`   | `margin` | [var(--size-xlarge)](variables#size)    |
-| `.m-xxlarge`  | `margin` | [var(--size-xxlarge)](variables#size)   |
-| `.m-xxxlarge` | `margin` | [var(--size-xxxlarge)](variables#size)  |
+| Class         | Property | Value                                  |
+| :------------ | :------- | :------------------------------------- |
+| `.m-xxxsmall` | `margin` | [var(--size-xxxsmall)](variables#size) |
+| `.m-xxsmall`  | `margin` | [var(--size-xxsmall)](variables#size)  |
+| `.m-xsmall`   | `margin` | [var(--size-xsmall)](variables#size)   |
+| `.m-small`    | `margin` | [var(--size-small)](variables#size)    |
+| `.m-medium`   | `margin` | [var(--size-medium`](variables#size)   |
+| `.m-large`    | `margin` | [var(--size-large)](variables#size)    |
+| `.m-xlarge`   | `margin` | [var(--size-xlarge)](variables#size)   |
+| `.m-xxlarge`  | `margin` | [var(--size-xxlarge)](variables#size)  |
+| `.m-xxxlarge` | `margin` | [var(--size-xxxlarge)](variables#size) |
 
 ::: tip Top, right, bottom and left margin
 

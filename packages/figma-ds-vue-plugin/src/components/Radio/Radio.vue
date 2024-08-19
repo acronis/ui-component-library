@@ -66,7 +66,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .fig-radio {
   .fig-radio__wrapper {
     position: relative;

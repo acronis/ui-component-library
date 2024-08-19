@@ -30,7 +30,7 @@
   />
 </template>
 
-<style>
+<style scoped>
 /*
   Since the icon class is also used by other components, styles are
   moved to -> _icon.css

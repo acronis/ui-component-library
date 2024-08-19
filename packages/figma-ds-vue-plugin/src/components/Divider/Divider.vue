@@ -11,7 +11,7 @@
   <div class="fig-divider" />
 </template>
 
-<style>
+<style scoped>
 .fig-divider {
   display: block;
   width: 100%;

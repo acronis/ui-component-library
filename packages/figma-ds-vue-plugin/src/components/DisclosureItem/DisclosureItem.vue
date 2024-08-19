@@ -14,9 +14,6 @@
       index: null,
       isExpanded: false,
     }),
-    created() {
-      this.index = this.disclosure.numItems++;
-    },
     computed: {
       expanded() {
         if (!this.concede) {
@@ -24,6 +21,9 @@
         }
         return this.isExpanded;
       },
+    },
+    created() {
+      this.index = this.disclosure.numItems++;
     },
     methods: {
       toggle(e) {
@@ -64,7 +64,7 @@
   </li>
 </template>
 
-<style>
+<style scoped>
 .fig-disclosure-item {
   position: relative;
   display: flex;

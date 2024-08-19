@@ -7,9 +7,9 @@ next: '/docs/components/radio-menu/'
 
 <script>
 export default {
-	data: () => ({
-		numModel: 0
-	}),
+    data: () => ({
+        numModel: 0
+    }),
 }
 </script>
 
@@ -22,7 +22,7 @@ export default {
 ### Props
 
 | Prop       | Type            | Default/Notes                                                                                                                                                  |
-| :--------- |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :--------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `@input`   | `Func()`        | Handle event emitted from the component, ex: `@input={funcName}`                                                                                               |
 | `@change`  | `Func()`        | Handle event emitted from the component, ex: `@change={funcName}`                                                                                              |
 | `value`    | `Number`        | Default: `0`                                                                                                                                                   |
@@ -40,19 +40,19 @@ export default {
 
 ```html
 <template>
-	<NumInput icon="W" min="0" max="100" unit="px" />
+  <NumInput icon="W" min="0" max="100" unit="px" />
 </template>
 
 <script>
-	import { NumInput } from '@ui-kit/figma-ds-vue-plugin'
+  import { NumInput } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-	       data: () => ({
-		    numInputModel: // String || Number
-	    }),
-		components: {
-			NumInput
-		}
-	}
+  export default {
+         data: () => ({
+        numInputModel: // String || Number
+      }),
+    components: {
+            NumInput
+    }
+  }
 </script>
 ```

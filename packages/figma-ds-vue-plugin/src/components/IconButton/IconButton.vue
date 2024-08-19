@@ -49,7 +49,7 @@
   />
 </template>
 
-<style>
+<style scoped>
 /*
   Inherits the .icon class styles (_icon.css)
   but overrides some additional styles

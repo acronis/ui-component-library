@@ -15,16 +15,16 @@ next: '/docs/components/toggle/'
 
 ```html
 <template>
-	<Title>Box title</Title>
+  <title>Box title</title>
 </template>
 
 <script>
-	import { Title } from '@ui-kit/figma-ds-vue-plugin'
+  import { Title } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-		components: {
-			Title
-		}
-	}
+  export default {
+    components: {
+      Title,
+    },
+  }
 </script>
 ```

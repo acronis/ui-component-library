@@ -176,7 +176,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .fig-num-input {
   position: relative;
 

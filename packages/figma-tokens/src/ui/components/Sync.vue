@@ -1,5 +1,5 @@
 <script setup>
-  import { Button } from '@ui-kit/figma-ds-vue-plugin';
+  import { Button } from '@acronis-platform/figma-ds-vue-plugin';
   import { emit as emitFigma, on } from '@create-figma-plugin/utilities';
   import { downloadFile } from '../utils';
   import testJson from '../../../data/test.plugin.json';
@@ -44,9 +44,9 @@
     >
       Upload
     </Button>
-    <Button secondary>
-      Remap instances
-    </Button>
+<!--    <Button secondary>-->
+<!--      Remap instances-->
+<!--    </Button>-->
   </div>
 </template>
 

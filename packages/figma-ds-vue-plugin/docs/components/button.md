@@ -23,37 +23,37 @@ import '../../dist/figma-ds-vue-plugin.css'
 
 ### Props
 
-| Prop           | Type       | Default/Notes                                                    |
-|:---------------|:-----------|:-----------------------------------------------------------------|
-| `@click`       | `Func()`   | Handle event emitted from the component. Ex: `@click={funcName}` |
-| `secondary`    | `Boolean`  | Default: `false`                                                 |
-| `tertiary`     | `Boolean`  | Default: `false`                                                 |
-| `destructive`  | `Boolean`  | Default: `false`                                                 |
-| `disabled`     | `Boolean`  | Default: `false`                                                 |
+| Prop          | Type      | Default/Notes                                                    |
+| :------------ | :-------- | :--------------------------------------------------------------- |
+| `@click`      | `Func()`  | Handle event emitted from the component. Ex: `@click={funcName}` |
+| `secondary`   | `Boolean` | Default: `false`                                                 |
+| `tertiary`    | `Boolean` | Default: `false`                                                 |
+| `destructive` | `Boolean` | Default: `false`                                                 |
+| `disabled`    | `Boolean` | Default: `false`                                                 |
 
 ### Example usage
 
 ```html
 <template>
-	<Button @click="apply">Apply</Button>
-	<Button @click="cancel" secondary>Cancel</Button>
+  <button @click="apply">Apply</button>
+  <button @click="cancel" secondary>Cancel</button>
 </template>
 
 <script>
-	import { Button } from '@ui-kit/figma-ds-vue-plugin'
+  import { Button } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-		components: {
-			Button
-		},
-		methods: {
-			apply() {
-				// do something
-			},
-			cancel() {
-				// do something
-			}
-		}
-	}
+  export default {
+    components: {
+      Button,
+    },
+    methods: {
+      apply() {
+        // do something
+      },
+      cancel() {
+        // do something
+      },
+    },
+  }
 </script>
 ```

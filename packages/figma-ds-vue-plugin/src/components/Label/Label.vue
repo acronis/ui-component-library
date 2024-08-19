@@ -3,7 +3,7 @@
    * Label component, e.g. used in conjunction with a Icon component
    */
   export default {
-    // eslint-disable-next-line vue/no-reserved-component-names
+
     name: 'Label',
   };
 </script>
@@ -14,7 +14,7 @@
   </label>
 </template>
 
-<style>
+<style scoped>
 .fig-label {
   display: flex;
   align-items: center;

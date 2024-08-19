@@ -28,7 +28,7 @@
   </ul>
 </template>
 
-<style>
+<style scoped>
 .fig-disclosure {
   position: relative;
   width: 100%;

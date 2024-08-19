@@ -166,14 +166,14 @@
         <div class="flex mb-xxsmall">
           <NumInput
             v-model="x"
-            iconText="X"
+            icon-text="X"
             class="mr-xxsmall"
             style="width: 96px"
             :disabled="lock"
           />
           <NumInput
             v-model="y"
-            iconText="Y"
+            icon-text="Y"
             style="width: 96px"
             :disabled="lock"
           />
@@ -181,7 +181,7 @@
         <div class="flex mb-xxsmall">
           <NumInput
             v-model="width"
-            iconText="W"
+            icon-text="W"
             min="0"
             class="mr-xxsmall"
             style="width: 96px"
@@ -189,7 +189,7 @@
           />
           <NumInput
             v-model="height"
-            iconText="H"
+            icon-text="H"
             min="0"
             style="width: 96px"
             :disabled="lock"

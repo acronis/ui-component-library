@@ -15,16 +15,16 @@ next: '/docs/components/icon/'
 
 ```html
 <template>
-	<Divider />
+  <Divider />
 </template>
 
 <script>
-	import { Divider } from '@ui-kit/figma-ds-vue-plugin'
+  import { Divider } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-		components: {
-			Divider
-		}
-	}
+  export default {
+    components: {
+      Divider,
+    },
+  }
 </script>
 ```

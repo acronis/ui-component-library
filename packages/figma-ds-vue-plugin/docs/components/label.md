@@ -15,21 +15,21 @@ next: '/docs/components/text/'
 
 ```html
 <template>
-	<Label>Box title</Label>
-	<Input v-model="inputModel" placeholder="Text" />
+  <label>Box title</label>
+  <input v-model="inputModel" placeholder="Text" />
 </template>
 
 <script>
-	import { Label, Input } from '@ui-kit/figma-ds-vue-plugin'
+  import { Label, Input } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-	    data: () => ({
-		    inputModel: // String || Number
-	    }),
-		components: {
-			Label,
-	        Input
-		}
-	}
+  export default {
+      data: () => ({
+        inputModel: // String || Number
+      }),
+    components: {
+            Label,
+          Input
+    }
+  }
 </script>
 ```

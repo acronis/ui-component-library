@@ -24,17 +24,17 @@ next: '/docs/components/icon-button/'
 
 ```html
 <template>
-	<Icon icon="heart" />
+  <Icon icon="heart" />
 </template>
 
 <script>
-	import { Icon } from '@ui-kit/figma-ds-vue-plugin'
+  import { Icon } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-		components: {
-			Icon
-		}
-	}
+  export default {
+    components: {
+      Icon,
+    },
+  }
 </script>
 ```
 
@@ -141,15 +141,17 @@ To use a custom icon in your components, create a `.icon--[yourIconName]` CSS cl
 **Example**
 
 _Style_ (make sure to prepend `icon--` to your custom icon name)
+
 ```css
 .icon--yourIconName {
-	background-image: url('<your_relative_path>/custom-icon.svg');
+    background-image: url('<your_relative_path>/custom-icon.svg');
 }
 ```
+
 _Vue file_
 
 ```html
-<Icon icon="yourIconName">
+<Icon icon="yourIconName"> </Icon>
 ```
 
 ::: warning Heads up
@@ -160,17 +162,18 @@ When using Vue CLI or webpack for bundling, one strategy is to use [url-loader](
 
 ```js
 module.exports = {
-	chainWebpack: (config) => {
-		// Inline svg icons since Figma doesn't support assets
-		config.module.rule('svg').uses.clear()
-		config.module
-			.rule('svg')
-			.test(/\.(svg)$/)
-			.use('url-loader')
-			.loader('url-loader')
-	}
-}
+  chainWebpack: (config) => {
+    // Inline svg icons since Figma doesn't support assets
+    config.module.rule('svg').uses.clear();
+    config.module
+      .rule('svg')
+      .test(/\.(svg)$/)
+      .use('url-loader')
+      .loader('url-loader');
+  }
+};
 ```
+
 <br/>
 ✨ Icons that are included in figma-plugin-ds-vue are already inlined and do not need any further action.
 :::

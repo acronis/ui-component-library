@@ -356,7 +356,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #app {
   margin: 0;
   padding: 2em 0;

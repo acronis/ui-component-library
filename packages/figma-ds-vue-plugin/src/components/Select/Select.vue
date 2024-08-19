@@ -1,6 +1,6 @@
 <script>
   export default {
-    // eslint-disable-next-line vue/no-reserved-component-names
+
     name: 'Select',
     props: {
       items: {
@@ -54,7 +54,9 @@
           const item = this.items.find(
             x => 'key' in x && x.key === this.selectedKey,
           );
-          if (item && 'key' in item) { return item.label; }
+          if (item && 'key' in item) {
+            return item.label;
+          }
         }
         return this.placeholder;
       },
@@ -63,7 +65,9 @@
           const item = this.items.find(
             x => 'key' in x && x.key === this.selectedKey,
           );
-          if (item && 'key' in item) { return item.icon; }
+          if (item && 'key' in item) {
+            return item.icon;
+          }
         }
         return false;
       },

@@ -2,7 +2,7 @@
   import uniqueId from '../../mixins/uniqueId';
 
   export default {
-    // eslint-disable-next-line vue/no-reserved-component-names
+
     name: 'Textarea',
     mixins: [uniqueId],
     /**

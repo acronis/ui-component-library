@@ -3,7 +3,7 @@ title: Checkbox
 ---
 
 <script setup>
-import {ref} from "vue"; 
+import {ref} from "vue";
 
 const checkboxModel = defineModel()
 </script>
@@ -17,30 +17,30 @@ const checkboxModel = defineModel()
 
 ### Props
 
-| Prop       | Type       | Default/Notes                                                    |
-| :--------- |:-----------| :--------------------------------------------------------------- |
-| `@input`   | `Func()`   | Handle event emitted from the component, ex: `@input={funcName}` |
-| `value`    | `Boolean`  | Default: `false`                                                 |
-| `checked`  | `Boolean`  | Default: `undefined`                                             |
-| `disabled` | `Boolean`  | Default: `false`                                                 |
+| Prop       | Type      | Default/Notes                                                    |
+| :--------- | :-------- | :--------------------------------------------------------------- |
+| `@input`   | `Func()`  | Handle event emitted from the component, ex: `@input={funcName}` |
+| `value`    | `Boolean` | Default: `false`                                                 |
+| `checked`  | `Boolean` | Default: `undefined`                                             |
+| `disabled` | `Boolean` | Default: `false`                                                 |
 
 ### Example usage
 
 ```html
 <template>
-	<Checkbox v-model="checkboxModel">Close Figma on startup</Checkbox>
+  <Checkbox v-model="checkboxModel">Close Figma on startup</Checkbox>
 </template>
 
 <script>
-	import { Checkbox } from '@ui-kit/figma-ds-vue-plugin'
+  import { Checkbox } from '@acronis-platform/figma-ds-vue-plugin'
 
-	export default {
-	    data: () => ({
-		    checkboxModel: // Boolean
-	    }),
-		components: {
-			Checkbox
-		}
-	}
+  export default {
+      data: () => ({
+        checkboxModel: // Boolean
+      }),
+    components: {
+            Checkbox
+    }
+  }
 </script>
 ```

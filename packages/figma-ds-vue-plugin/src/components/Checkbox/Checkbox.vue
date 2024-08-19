@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .fig-checkbox {
   position: relative;
   display: flex;
