@@ -28,7 +28,7 @@ Use `disabled=true` to disable button.
 <ButtonStates />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonDocStates.vue
+<<< ../../../demos/src/button/ButtonStates.vue
 :::
 
 ### Default state
