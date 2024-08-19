@@ -1,3 +1,13 @@
+## [1.17.1](https://github.com/acronis/ui-component-library/compare/v1.17.0...v1.17.1) (2024-08-19)
+
+
+### Bug Fixes
+
+* fix button states ([06360d0](https://github.com/acronis/ui-component-library/commit/06360d062afeb34c4034f2f02d443c41622c7b0b))
+* fix switch tests ([ae53c65](https://github.com/acronis/ui-component-library/commit/ae53c65627a2cce64b783b83a2048c8114511a06))
+* remove switch decor ([f5b1561](https://github.com/acronis/ui-component-library/commit/f5b156157f90b50f2d6534a85185f74d5d19c39a))
+* replace outdated demo link ([0f70c1f](https://github.com/acronis/ui-component-library/commit/0f70c1fd76b63e3d03b0e2f5990d4e2fcf15d687))
+
 ## [1.17.0](https://github.com/acronis/ui-component-library/compare/v1.16.4...v1.17.0) (2024-08-15)
 
 
@@ -25,11 +35,4 @@
 ### Bug Fixes
 
 * fix wrong paths in documentation ([5d6dd39](https://github.com/acronis/ui-component-library/commit/5d6dd393b07f32056dd9d6f0a188f99a349b109c))
-
-## [1.16.1](https://github.com/acronis/ui-component-library/compare/v1.16.0...v1.16.1) (2024-08-14)
-
-
-### Bug Fixes
-
-* add figma fetcher release workflow ([ae41ad3](https://github.com/acronis/ui-component-library/commit/ae41ad3cdc67d51d22bda9a46c1d887185776afa))
 
