@@ -58,9 +58,6 @@
   --acv-color-icon-status-neutral: hsl(0deg 0% 4%);
   --acv-color-icon-status-success: hsl(88deg 85% 24%);
   --acv-color-icon-status-warning: hsl(30deg 50% 37%);
-  --acv-color-icon-text-disabled: hsla(215deg 30% 20% / 0.4);
-  --acv-color-icon-text-primary: hsl(215deg 30% 20%);
-  --acv-color-icon-text-secondary: hsla(215deg 30% 20% / 0.7);
   --acv-color-link-active: hsl(215deg 68% 46%);
   --acv-color-link-disabled: hsla(215deg 68% 46% / 0.3);
   --acv-color-link-disabled-inversed: hsla(0deg 0% 100% / 0.7);
@@ -140,6 +137,7 @@
   --acv-font-weight-accent: var(--acv-base-font-weight-500, 500);
   --acv-font-weight-regular: var(--acv-base-font-weight-400, 400);
   --acv-font-weight-strong: var(--acv-base-font-weight-600, 600);
+  --acv-font-weight-x-strong: var(--acv-base-font-weight-700, 700);
   --acv-height-large: var(--acv-base-height-40, 40px);
   --acv-height-regular: var(--acv-base-height-32, 32px);
   --acv-height-small: var(--acv-base-height-24, 24px);
