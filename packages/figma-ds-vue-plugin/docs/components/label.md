@@ -20,7 +20,7 @@ next: '/docs/components/text/'
 </template>
 
 <script>
-	import { Label, Input } from '@ui-kit/figma-ds-vue-plugin'
+	import { Label, Input } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 	    data: () => ({

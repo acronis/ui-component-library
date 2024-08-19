@@ -64,7 +64,7 @@ next: '/docs/components/label/'
 </template>
 
 <script>
-	import { Select } from '@ui-kit/figma-ds-vue-plugin'
+	import { Select } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 	    data: () => ({

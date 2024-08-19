@@ -1,5 +1,5 @@
 <script setup>
-  import { Button, Divider, Radio, Tooltip } from '@ui-kit/figma-ds-vue-plugin';
+  import { Button, Divider, Radio, Tooltip } from '@acronis-platform/figma-ds-vue-plugin';
 </script>
 
 <template>

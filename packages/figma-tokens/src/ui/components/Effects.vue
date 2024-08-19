@@ -1,5 +1,5 @@
 <script setup>
-  import { Disclosure, DisclosureItem } from '@ui-kit/figma-ds-vue-plugin';
+  import { Disclosure, DisclosureItem } from '@acronis-platform/figma-ds-vue-plugin';
 </script>
 
 <template>

@@ -33,7 +33,7 @@ next: '/docs/components/num-input/'
 </template>
 
 <script>
-	import { Input } from '@ui-kit/figma-ds-vue-plugin'
+	import { Input } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		data: () => ({

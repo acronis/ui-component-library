@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from 'vue';
-  import { Button, Disclosure, DisclosureItem } from '@ui-kit/figma-ds-vue-plugin';
+  import { Button, Disclosure, DisclosureItem } from '@acronis-platform/figma-ds-vue-plugin';
   import { on } from '@create-figma-plugin/utilities';
   import useComponents from '../composable/useComponents';
 

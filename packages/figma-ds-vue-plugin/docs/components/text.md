@@ -28,7 +28,7 @@ next: '/docs/components/textarea/'
 </template>
 
 <script>
-	import { Txt } from '@ui-kit/figma-ds-vue-plugin'
+	import { Txt } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		components: {

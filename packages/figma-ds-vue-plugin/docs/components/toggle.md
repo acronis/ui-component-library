@@ -28,7 +28,7 @@ next: '/docs/components/tooltip/'
 </template>
 
 <script>
-	import { Toggle } from '@ui-kit/figma-ds-vue-plugin'
+	import { Toggle } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 	    data: () => ({

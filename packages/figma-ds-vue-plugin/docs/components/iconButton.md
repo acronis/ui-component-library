@@ -42,7 +42,7 @@ export default {
 </template>
 
 <script>
-	import { IconButton } from '@ui-kit/figma-ds-vue-plugin'
+	import { IconButton } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 	       data: () => ({

@@ -42,7 +42,7 @@ Set the `position` prop of the tooltip to accommodate for that.
 </template>
 
 <script>
-	import { Tooltip } from '@ui-kit/figma-ds-vue-plugin'
+	import { Tooltip } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		components: {

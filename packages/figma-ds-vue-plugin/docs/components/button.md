@@ -40,7 +40,7 @@ import '../../dist/figma-ds-vue-plugin.css'
 </template>
 
 <script>
-	import { Button } from '@ui-kit/figma-ds-vue-plugin'
+	import { Button } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		components: {

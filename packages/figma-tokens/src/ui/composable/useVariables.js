@@ -34,6 +34,9 @@ function useVariables() {
 
     if (value?.type === 'VARIABLE_ALIAS') {
       const alias = variablesMap.value[value.id];
+      if (!alias) {
+        console.error('Unable to find alias for ' + value);
+      }
       const dimension = getDimension(alias.name);
       value = `var(${alias.cssName.replace('--acv', '--acv-base')}, ${alias.cssValue}${dimension})`;
     }

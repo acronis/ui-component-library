@@ -42,7 +42,7 @@ import { Disclosure, DisclosureItem } from '@/components'
 </template>
 
 <script>
-	import { Disclosure, DisclosureItem } from '@ui-kit/figma-ds-vue-plugin'
+	import { Disclosure, DisclosureItem } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		components: {

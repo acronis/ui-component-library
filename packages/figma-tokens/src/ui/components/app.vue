@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue';
-  import { IconButton } from '@ui-kit/figma-ds-vue-plugin';
-  import '@ui-kit/figma-ds-vue-plugin/dist/figma-ds-vue-plugin.css';
+  import { IconButton } from '@acronis-platform/figma-ds-vue-plugin';
+  import '@acronis-platform/figma-ds-vue-plugin/dist/figma-ds-vue-plugin.css';
   import Loading from './Loading.vue';
   import Variables from './Variables.vue';
   import Components from './Components.vue';

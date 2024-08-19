@@ -15,7 +15,7 @@ import 'figma-plugin-ds-vue/dist/figma-plugin-ds-vue.css'
 
 3. Import and register the Vue components you want to use and refer to the next chapters for detailed reference, ex:
 ```js
-import { Button } from '@ui-kit/figma-ds-vue-plugin'
+import { Button } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		components: {

@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/@ui-kit/figma-ds-vue-plugin.git"
+    "url": "git+https://github.com/@acronis-platform/figma-ds-vue-plugin.git"
   },
   "files": [
     "dist/*",
@@ -71,7 +71,7 @@
   "author": "Acronis",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/@ui-kit/figma-ds-vue-plugin/issues"
+    "url": "https://github.com/@acronis-platform/figma-ds-vue-plugin/issues"
   },
-  "homepage": "https://github.com/@ui-kit/figma-ds-vue-plugin#readme"
+  "homepage": "https://github.com/@acronis-platform/figma-ds-vue-plugin#readme"
 }

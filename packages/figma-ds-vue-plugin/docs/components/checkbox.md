@@ -32,7 +32,7 @@ const checkboxModel = defineModel()
 </template>
 
 <script>
-	import { Checkbox } from '@ui-kit/figma-ds-vue-plugin'
+	import { Checkbox } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 	    data: () => ({

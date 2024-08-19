@@ -19,7 +19,7 @@ next: '/docs/components/toggle/'
 </template>
 
 <script>
-	import { Title } from '@ui-kit/figma-ds-vue-plugin'
+	import { Title } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		components: {

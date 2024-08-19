@@ -30,7 +30,7 @@ next: '/docs/components/title/'
 </template>
 
 <script>
-	import { Textarea } from '@ui-kit/figma-ds-vue-plugin'
+	import { Textarea } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		data: () => ({

@@ -44,7 +44,7 @@ export default {
 </template>
 
 <script>
-	import { NumInput } from '@ui-kit/figma-ds-vue-plugin'
+	import { NumInput } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 	       data: () => ({

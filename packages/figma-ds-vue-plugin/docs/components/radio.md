@@ -33,7 +33,7 @@ next: '/docs/components/select-menu/'
 </template>
 
 <script>
-	import { Radio } from '@ui-kit/figma-ds-vue-plugin'
+	import { Radio } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 	       data: () => ({

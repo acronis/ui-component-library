@@ -7,11 +7,11 @@ It is based on [thomas-lowry/figma-plugin-ds](https://github.com/thomas-lowry/fi
 
 ## ✨ Installation
 
-1.  Install the package `npm i @ui-kit/figma-ds-vue-plugin`
+1.  Install the package `npm i @acronis-platform/figma-ds-vue-plugin`
 
 2.  Include the global stylesheet in your app (either on component-level or make it accessible globally by importing it to your app's entry file, ex: `main.js`)
 
-    `import '@ui-kit/figma-ds-vue-plugin/dist/figma-ds-vue-plugin.css'`
+    `import '@acronis-platform/figma-ds-vue-plugin/dist/figma-ds-vue-plugin.css'`
 
 3.  Import and register the Vue components you want to use, look for documentation for details and an overview of all available components
 

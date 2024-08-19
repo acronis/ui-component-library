@@ -1,5 +1,5 @@
 <script setup>
-  import { Button, Checkbox, Disclosure, DisclosureItem, Divider, Textarea } from '@ui-kit/figma-ds-vue-plugin';
+  import { Button, Checkbox, Disclosure, DisclosureItem, Divider, Textarea } from '@acronis-platform/figma-ds-vue-plugin';
 
   import { onMounted, ref } from 'vue';
   import useVariables from '../composable/useVariables';

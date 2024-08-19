@@ -28,7 +28,7 @@ next: '/docs/components/icon-button/'
 </template>
 
 <script>
-	import { Icon } from '@ui-kit/figma-ds-vue-plugin'
+	import { Icon } from '@acronis-platform/figma-ds-vue-plugin'
 
 	export default {
 		components: {
