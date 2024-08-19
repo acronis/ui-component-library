@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import Icon from './icon.vue';
 import type { AcvIconProps } from './icon.ts';
 
-describe.skip('test Icon component', () => {
+describe('test Icon component', () => {
   it('default props', () => {
     const wrapper = mount(Icon);
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -11,18 +11,16 @@ describe.skip('test Icon component', () => {
         "animateOnHover": false,
         "animation": undefined,
         "animationSpeed": undefined,
-        "collection": "acronis",
         "color": undefined,
         "disabled": false,
         "fill": undefined,
         "flip": undefined,
         "icon": undefined,
         "inverse": false,
-        "name": undefined,
         "scale": undefined,
         "size": "16",
-        "state": undefined,
         "stateColor": undefined,
+        "stateIcon": undefined,
         "title": undefined,
       }
     `);
@@ -40,18 +38,16 @@ describe.skip('test Icon component', () => {
         "animateOnHover": false,
         "animation": undefined,
         "animationSpeed": undefined,
-        "collection": "acronis",
         "color": undefined,
         "disabled": false,
         "fill": undefined,
         "flip": undefined,
         "icon": undefined,
         "inverse": false,
-        "name": undefined,
         "scale": undefined,
         "size": "16",
-        "state": undefined,
         "stateColor": undefined,
+        "stateIcon": undefined,
         "title": "test",
       }
     `);
@@ -60,13 +56,9 @@ describe.skip('test Icon component', () => {
   it('renders', () => {
     const wrapper = mount(Icon);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<i data-v-c834062e="" class="acv-icon size-16" role="presentation">
+      "<i data-v-c834062e="" class="acv-custom-icon size-16" role="presentation">
         <!--v-if-->
         <!--v-if-->
-        <!--          <span -->
-        <!--            v-else -->
-        <!--            :class="\`i-\${collection}-icons:\${name}\`" -->
-        <!--          ></span> -->
       </i>"
     `);
   });
@@ -83,7 +75,7 @@ describe.skip('test Icon component', () => {
     // expect(wrapper.vm.statePath.includes('#mo-state-alert-d--16')).toBe(true);
     expect(iconElm.classList).toMatchInlineSnapshot(`
       DOMTokenList {
-        "0": "acv-icon",
+        "0": "acv-custom-icon",
         "1": "size-16",
       }
     `);
