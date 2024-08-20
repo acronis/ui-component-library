@@ -13,4 +13,11 @@
   <AcvChip show-close>
     Text
   </AcvChip>
+
+  <AcvChip
+    :icon="IconConsole16"
+    show-close
+  >
+    Text
+  </AcvChip>
 </template>
