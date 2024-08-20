@@ -1,3 +1,10 @@
+## [1.17.4](https://github.com/acronis/ui-component-library/compare/v1.17.3...v1.17.4) (2024-08-20)
+
+
+### Bug Fixes
+
+* remove build step from publish ui workflow ([4924105](https://github.com/acronis/ui-component-library/commit/49241050b3fd9ae4e7a422f09096a91311fab4d1))
+
 ## [1.17.3](https://github.com/acronis/ui-component-library/compare/v1.17.2...v1.17.3) (2024-08-20)
 
 
@@ -28,11 +35,4 @@
 ### Features
 
 * implement chip component ([71eb11a](https://github.com/acronis/ui-component-library/commit/71eb11a0796505968d1e820e2348ed802de108bb))
-
-## [1.16.4](https://github.com/acronis/ui-component-library/compare/v1.16.3...v1.16.4) (2024-08-15)
-
-
-### Bug Fixes
-
-* fix button docs ([bfb6858](https://github.com/acronis/ui-component-library/commit/bfb685859e17a61e4918e641abc88c989fe6cd43))
 
