@@ -11,7 +11,9 @@
     name: 'AcvSwitch',
     inheritAttrs: false
   });
-  const props = defineProps<AcvSwitchProps>();
+  const props = withDefaults(defineProps<AcvSwitchProps>(), {
+    size: 'large',
+  });
 
   defineEmits<AcvSwitchEvents>();
   const slots = defineSlots<AcvSwitchSlots>();
@@ -76,10 +78,9 @@
       border-radius: calc(var(--acv-switch-input-thumb-size) + var(--acv-switch-input-gutter));
       padding: var(--acv-switch-input-gutter);
       background: var(--acv-switch-input-off-bg);
-      color: var(--acv-switch-input-off-text);
       text-align: left;
       text-transform: uppercase;
-      font-family: var(--acv-switch-input-font-family);
+      font-family: var(--acv-switch-input-font-family), sans-serif;
       font-weight: var(--acv-switch-input-font-weight);
       position: relative;
       cursor: pointer;
@@ -91,7 +92,6 @@
 
       &:has(:checked) {
         background: var(--acv-switch-custom-color, var(--acv-switch-input-on-bg));
-        color: var(--acv-switch-input-on-text);
       }
 
       &:has(:checked) .acv-switch__thumb {
@@ -131,17 +131,13 @@
     &.inverted {
       --acv-switch-input-thumb-bg: var(--acv-color-primary);
       --acv-switch-input-off-bg: var(--acv-color-form-secondary);
-      --acv-switch-input-off-text: var(--acv-color-text-primary);
       --acv-switch-input-on-bg: var(--acv-color-inverted);
-      --acv-switch-input-on-text: var(--acv-color-text-primary);
       --acv-switch-label-color: var(--acv-color-text-disabled);
     }
 
     &.disabled {
       --acv-switch-input-off-bg: var(--acv-color-form-disabled-secondary);
-      --acv-switch-input-off-text: var(--acv-color-white);
       --acv-switch-input-on-bg: var(--acv-color-form-disabled-success);
-      --acv-switch-input-on-text: var(--acv-color-white);
       --acv-switch-label-color: var(--acv-color-text-disabled);
       pointer-events: none;
       cursor: default;
