@@ -33,6 +33,8 @@
     font-weight: var(--acv-font-weight-strong);
     line-height: var(--acv-font-line-height-regular);
     text-decoration: none;
+    display: inline-flex;
+    gap: 8px;
 
     &.disabled {
       --acv-link-color: var(--acv-color-link-disabled);

@@ -48,6 +48,14 @@ The `link` has to specify the width of the path.
 <<< ../../../demos/src/link/LinkDisabled.vue
 :::
 
+## Link with icon
+
+<LinkWithIcon />
+
+::: details Source code
+<<< ../../../demos/src/link/LinkWithIcon.vue
+:::
+
 ## Accessibility
 
 Provided `AcvLink` component must adapt to the list of
