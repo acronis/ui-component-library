@@ -16,7 +16,7 @@ description: This file is generated automatically from the source code. Changes 
 | modelValue | Binding value of the Switch    | boolean       | -      |         |
 | color      | Custom color of the Switch     | ColorProp     | -      | primary |
 | label      | Switch description             | string        | -      |         |
-| size       | Switch size                    | ComponentSize | -      |         |
+| size       | Switch size                    | ComponentSize | -      | large   |
 | disabled   | Whether the Switch is disabled | boolean       | -      |         |
 
 ## Events

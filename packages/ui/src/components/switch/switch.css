@@ -1,12 +1,10 @@
 @layer components {
   :root {
     --acv-switch-input-thumb-size: 12px;
-    --acv-switch-input-thumb-bg: var(--acv-color-white);
+    --acv-switch-input-thumb-bg: var(--acv-color-form-primary);
     --acv-switch-input-thumb-stroke: var(--acv-color-white);
     --acv-switch-input-off-bg: var(--acv-color-form-secondary);
-    --acv-switch-input-off-text: var(--acv-color-white);
     --acv-switch-input-on-bg: var(--acv-color-form-success);
-    --acv-switch-input-on-text: var(--acv-color-white);
     --acv-switch-input-gutter: 3px;
     --acv-switch-input-decor-space: var(--acv-switch-input-gutter) 1.25ch;
     --acv-switch-input-focus-stroke: 2px solid var(--acv-color-form-focus);

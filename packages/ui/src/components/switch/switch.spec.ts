@@ -14,7 +14,7 @@ describe('test Switch component', () => {
         "label": undefined,
         "modelModifiers": undefined,
         "modelValue": undefined,
-        "size": undefined,
+        "size": "large",
       }
     `);
   });
@@ -33,7 +33,7 @@ describe('test Switch component', () => {
         "label": "test",
         "modelModifiers": undefined,
         "modelValue": undefined,
-        "size": undefined,
+        "size": "large",
       }
     `);
   });
@@ -42,7 +42,7 @@ describe('test Switch component', () => {
     const wrapper = mount(Switch);
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<label data-v-411e8d7f="" class="acv-switch checked"><span data-v-411e8d7f="" class="acv-switch__input"><input data-v-411e8d7f="" checked="" aria-disabled="false" type="checkbox" role="switch" class="visually-hidden"><span data-v-411e8d7f="" class="acv-switch__thumb" aria-hidden="true"></span></span>
+      "<label data-v-411e8d7f="" class="acv-switch checked large"><span data-v-411e8d7f="" class="acv-switch__input"><input data-v-411e8d7f="" checked="" aria-disabled="false" type="checkbox" role="switch" class="visually-hidden"><span data-v-411e8d7f="" class="acv-switch__thumb" aria-hidden="true"></span></span>
         <!--v-if-->
       </label>"
     `);

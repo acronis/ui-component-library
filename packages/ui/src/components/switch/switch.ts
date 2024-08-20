@@ -19,6 +19,7 @@ export interface AcvSwitchProps {
 
   /**
    * Switch size
+   * @defaultValue large
    */
   size?: ComponentSize
 
