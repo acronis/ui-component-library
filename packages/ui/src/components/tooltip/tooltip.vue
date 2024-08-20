@@ -55,6 +55,7 @@
     position: relative;
     z-index: var(--acv-z-index-tooltip);
     font-size: var(--acv-font-size-caption);
+    line-height: var(--acv-font-line-height-x-small);
     font-weight: var(--acv-font-weight-accent);
     color: var(--acv-color-text-inversed-primary);
     background-color: var(--acv-tooltip-background);
