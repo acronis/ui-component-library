@@ -25,7 +25,7 @@ describe('test Loading component', () => {
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div data-v-f4e822ab="" class="acv-loading is-fullscreen" style="display: none;">
         <div data-v-f4e822ab="" class="acv-loading__backdrop" style="opacity: 1;"></div>
-        <div data-v-f4e822ab="" class="acv-loading__content"><span data-v-5ffbe806="" data-v-f4e822ab="" class="acv-spinner size-sm acv-border-brand-secondary"></span>
+        <div data-v-f4e822ab="" class="acv-loading__content"><span data-v-5ffbe806="" data-v-f4e822ab="" class="acv-spinner small acv-border-brand-secondary"></span>
           <!--v-if-->
         </div>
       </div>"

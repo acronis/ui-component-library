@@ -1,6 +1,8 @@
-Spinner is a loading indicator that can be used to show the user that the application is loading.
+:::info Figma component anatomy
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=411-17998
+:::
 
-It can be used in several ways:
+Spinner can be used in several ways:
 
 - **Global**: When the application is loading, the spinner is shown on top of the application.
 - **Local**: When a specific component is loading, the spinner is shown inside that component.
@@ -23,11 +25,27 @@ The spinner can be displayed in different sizes.
 
 <SpinnerSizes />
 
+::: details Source code
+<<< ../../../demos/src/spinner/SpinnerSizes.vue
+:::
+
 ## Spinner colors
 
 The spinner can be displayed in different colors.
 
 <SpinnerColors />
+
+::: details Source code
+<<< ../../../demos/src/spinner/SpinnerColors.vue
+:::
+
+## Usage in a widget
+
+<SpinnerInWidget />
+
+::: details Source code
+<<< ../../../demos/src/spinner/SpinnerInWidget.vue
+:::
 
 ## Related components
 

@@ -5,16 +5,16 @@
 <template>
   <div class="acv-grid-row acv-grid--cols-4">
     <div class="acv-grid-col">
-      <Spinner size="16" />
+      <Spinner size="small" />
     </div>
     <div class="acv-grid-col">
-      <Spinner size="24" />
+      <Spinner size="medium" />
     </div>
     <div class="acv-grid-col">
-      <Spinner size="32" />
+      <Spinner size="large" />
     </div>
     <div class="acv-grid-col">
-      <Spinner size="48" />
+      <Spinner size="x-large" />
     </div>
   </div>
 </template>

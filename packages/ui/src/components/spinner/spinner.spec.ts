@@ -9,7 +9,7 @@ describe('test Spinner component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "color": "primary",
-        "size": "16",
+        "size": "small",
       }
     `);
   });
@@ -24,7 +24,7 @@ describe('test Spinner component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "color": "primary",
-        "size": "16",
+        "size": "small",
       }
     `);
   });
@@ -32,6 +32,41 @@ describe('test Spinner component', () => {
   it('renders', () => {
     const wrapper = mount(Spinner);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<span data-v-5ffbe806="" class="acv-spinner size-16 acv-border-primary"></span>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<span data-v-5ffbe806="" class="acv-spinner small acv-border-primary"></span>"`);
+  });
+
+  it('applies correct class for small size', () => {
+    const wrapper = mount(Spinner, {
+      props: { size: 'small' } as AcvSpinnerProps,
+    });
+    expect(wrapper.classes()).toContain('small');
+  });
+
+  it('applies correct class for medium size', () => {
+    const wrapper = mount(Spinner, {
+      props: { size: 'medium' } as AcvSpinnerProps,
+    });
+    expect(wrapper.classes()).toContain('medium');
+  });
+
+  it('applies correct class for large size', () => {
+    const wrapper = mount(Spinner, {
+      props: { size: 'large' } as AcvSpinnerProps,
+    });
+    expect(wrapper.classes()).toContain('large');
+  });
+
+  it('applies correct class for x-large size', () => {
+    const wrapper = mount(Spinner, {
+      props: { size: 'x-large' } as AcvSpinnerProps,
+    });
+    expect(wrapper.classes()).toContain('x-large');
+  });
+
+  it('applies correct border color based on color prop', () => {
+    const wrapper = mount(Spinner, {
+      props: { color: 'secondary' } as AcvSpinnerProps,
+    });
+    expect(wrapper.classes()).toContain('acv-border-secondary');
   });
 });
