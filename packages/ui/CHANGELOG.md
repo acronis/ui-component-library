@@ -1,3 +1,10 @@
+## [1.17.5](https://github.com/acronis/ui-component-library/compare/v1.17.4...v1.17.5) (2024-08-20)
+
+
+### Bug Fixes
+
+* **spinner:** refactor spinner component to composition api ([64f0170](https://github.com/acronis/ui-component-library/commit/64f01701285b78378ece89cbfc726540b73871a9))
+
 ## [1.17.4](https://github.com/acronis/ui-component-library/compare/v1.17.3...v1.17.4) (2024-08-20)
 
 
@@ -28,11 +35,4 @@
 * fix switch tests ([ae53c65](https://github.com/acronis/ui-component-library/commit/ae53c65627a2cce64b783b83a2048c8114511a06))
 * remove switch decor ([f5b1561](https://github.com/acronis/ui-component-library/commit/f5b156157f90b50f2d6534a85185f74d5d19c39a))
 * replace outdated demo link ([0f70c1f](https://github.com/acronis/ui-component-library/commit/0f70c1fd76b63e3d03b0e2f5990d4e2fcf15d687))
-
-## [1.17.0](https://github.com/acronis/ui-component-library/compare/v1.16.4...v1.17.0) (2024-08-15)
-
-
-### Features
-
-* implement chip component ([71eb11a](https://github.com/acronis/ui-component-library/commit/71eb11a0796505968d1e820e2348ed802de108bb))
 
