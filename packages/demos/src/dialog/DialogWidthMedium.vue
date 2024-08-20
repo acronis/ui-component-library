@@ -4,12 +4,12 @@
   import AcvButton from '@/components/button/button.vue';
   import AcvDialog from '@/components/dialog/dialog.vue';
 
-  const dialogIsVisible = ref(true);
+  const dialogIsVisible = ref(false);
 </script>
 
 <template>
   <AcvButton @click="dialogIsVisible = true">
-    Show dialog with <strong>Medium</strong> width
+    Show dialog with Medium width
   </AcvButton>
   <AcvDialog
     v-model="dialogIsVisible"

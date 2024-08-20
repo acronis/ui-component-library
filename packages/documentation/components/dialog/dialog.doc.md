@@ -1,7 +1,7 @@
 Informs users while preserving the current page state.
 
 :::info Figma component anatomy
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A9
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=515-8194
 :::
 
 ## Basic usage
@@ -81,7 +81,7 @@ Some example usages are: welcome screen, onboarding with pagination or stepper, 
 ## Layout options
 
 You can use any layout components in the main body of the Dialog.
-Split content into grid section, aplly custom scrolling areas and more.
+Split content into grid section, apply custom scrolling areas and more.
 
 :::tip
 Use `AcvAside` component for rendering a side panel.
@@ -89,7 +89,7 @@ Use `AcvAside` component for rendering a side panel.
 
 ## Before close
 
-Dialog will require a confirm before close
+Dialog will require a confirmation before close
 This example demonstrates how `before-close` is used.
 
 ## Nested Dialog
@@ -115,7 +115,7 @@ Provided `AcvDialog` component must adapt to the list of
 
 ### Overview
 
-Dialog is a overlaid window that appears over viewport, we use modal dialog pattern.
+Dialog is an overlaid window that appears over viewport, we use modal dialog pattern.
 
 ### Keyboard interaction
 

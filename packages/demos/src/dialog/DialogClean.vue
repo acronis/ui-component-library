@@ -4,7 +4,7 @@
   import AcvButton from '@/components/button/button.vue';
   import AcvDialog from '@/components/dialog/dialog.vue';
 
-  const dialogIsVisible = ref(true);
+  const dialogIsVisible = ref(false);
 </script>
 
 <template>

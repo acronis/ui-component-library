@@ -2,14 +2,15 @@
   :root {
     --acv-dialog-color: var(--acv-color-brand-primary);
     --acv-dialog-z-index: var(--acv-z-index-dialog);
-    --acv-dialog-bg-color: var(--acv-color-surface-fixed-secondary);
+    --acv-dialog-bg-color: var(--acv-color-surface-primary);
     --acv-dialog-radius: var(--acv-radius-small);
     --acv-dialog-shadow-color: var(--acv-color-surface-inversed-secondary);
     --acv-dialog-shadow: var(--acv-shadow-shape)
       var(--acv-color-surface-primary);
-    --acv-dialog-border-color: var(--acv-color-surface-primary);
-    --acv-dialog-title-font-size: var(--acv-font-size-body);
-    --acv-dialog-title-weight: 500;
+    --acv-dialog-border-color: var(--acv-color-divider-primary);
+    --acv-dialog-title-font-size: var(--acv-font-size-title);
+    --acv-dialog-title-line-height: var(--acv-font-line-height-medium);
+    --acv-dialog-title-weight: var(--acv-font-weight-accent);
     --acv-dialog-title-color: var(--acv-color-text-primary);
     --acv-dialog-header-v-padding: 8px;
     --acv-dialog-header-h-padding: 14px;
@@ -17,7 +18,7 @@
     --acv-dialog-body-h-padding: 14px;
     --acv-dialog-body-line-height: var(--acv-font-line-height-regular);
     --acv-dialog-footer-v-padding: 10px;
-    --acv-dialog-footer-h-padding: 16px;
+    --acv-dialog-footer-h-padding: 24px;
     --acv-dialog-close-color: var(--acv-color-text-status-info);
     --acv-dialog-close-color-hover: var(--acv-color-surface-primary);
     --acv-dialog-resizer-color: var(--acv-color-surface-primary);
