@@ -1,11 +1,13 @@
 ---
-title: Dialog component
+title: ACV Dialog component
 lang: en-US
 editLink: true
 description: This file is generated automatically from the source code. Changes made here will be lost.
 ---
 
-# Dialog
+# ACV Dialog
+
+> Dialog component informs users while preserving the current page state.
 
 <!--@include: ./dialog.doc.md-->
 
@@ -13,7 +15,7 @@ description: This file is generated automatically from the source code. Changes 
 
 | Prop name           | Description                                                       | Type                                              | Values | Default |
 | ------------------- | ----------------------------------------------------------------- | ------------------------------------------------- | ------ | ------- |
-| locale              | Locale object                                                     | object                                            | -      |         |
+| modelValue          | Dialog visibility state                                           | boolean                                           | -      |         |
 | width               | Width of Dialog default to wrap content width                     | "small" \| "medium" \| "large" \| "x-large"       | -      | 'small' |
 | height              | Height of Dialog default to wrap content height                   | "auto" \| "fit" \| "small" \| "medium" \| "large" | -      | 'small' |
 | title               | Title of the Dialog,<br/>can also be passed with the slot         | string                                            | -      |         |
@@ -22,6 +24,7 @@ description: This file is generated automatically from the source code. Changes 
 | type                | Type of the Dialog                                                | "default" \| "clean"                              | -      |         |
 | backdrop            | Whether modal mask is displayed                                   | boolean                                           | -      | true    |
 | lockScroll          | Whether scroll is locked                                          | boolean                                           | -      |         |
+| lockFocus           | Whether focus is locked                                           | boolean                                           | -      | true    |
 | closeOnEscape       | Whether to close the Dialog when escape key is pressed            | boolean                                           | -      | true    |
 | closeOnClickOutside | Whether to close the Dialog when the mask is clicked              | boolean                                           | -      | true    |
 
@@ -39,4 +42,4 @@ description: This file is generated automatically from the source code. Changes 
 | ------- | --------------------- | -------- |
 | title   | Title of the Dialog   |          |
 | default | Content of the Dialog |          |
-| footer  |                       |          |
+| footer  | Footer of the Dialog  |          |

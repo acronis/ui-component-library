@@ -1,17 +1,19 @@
 export interface AcvDialogProps {
   /**
-   * Locale object
+   * Dialog visibility state
    */
-  locale?: object
+  modelValue?: boolean
 
   /**
    * Width of Dialog default to wrap content width
+   *
    * @defaultValue 'small'
    */
   width?: 'small' | 'medium' | 'large' | 'x-large'
 
   /**
    * Height of Dialog default to wrap content height
+   *
    * @defaultValue 'small'
    */
   height?: 'auto' | 'fit' | 'small' | 'medium' | 'large'
@@ -25,11 +27,15 @@ export interface AcvDialogProps {
   /**
    * Whether the Dialog is closable,
    * shows close icon on top right
+   *
+   * @defaultValue true
    */
   closable?: boolean
 
   /**
    * Whether the Dialog is draggable
+   *
+   * @defaultValue false
    */
   draggable?: boolean
 
@@ -51,6 +57,8 @@ export interface AcvDialogProps {
 
   /**
    * Whether modal mask is displayed
+   *
+   * @defaultValue true
    */
   backdrop?: boolean
 
@@ -60,12 +68,21 @@ export interface AcvDialogProps {
   lockScroll?: boolean
 
   /**
+   * Whether focus is locked
+   */
+  lockFocus?: boolean
+
+  /**
    * Whether to close the Dialog when escape key is pressed
+   *
+   * @defaultValue true
    */
   closeOnEscape?: boolean
 
   /**
    * Whether to close the Dialog when the mask is clicked
+   *
+   * @defaultValue true
    */
   closeOnClickOutside?: boolean
 }
@@ -97,10 +114,15 @@ export interface AcvDialogSlots {
   /**
    * Content of the Dialog
    */
-  default: void
+  default?: void
+
   /**
    * Title of the Dialog
    */
   title?: () => NonNullable<unknown>
+
+  /**
+   * Footer of the Dialog
+   */
   footer?: () => NonNullable<unknown>
 }

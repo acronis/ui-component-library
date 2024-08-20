@@ -32,17 +32,15 @@
       <span class="acv-text acv-text--body-regular">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi deleniti dolorem dolorum eligendi</span>
     </template>
     <template #footer>
-      <div class="px-24 py-16">
-        <AcvButton
-          variant="outline"
-          @click="dialogIsVisible = false"
-        >
-          Cancel
-        </AcvButton>
-        <AcvButton @click="dialogIsVisible = false">
-          Ok
-        </AcvButton>
-      </div>
+      <AcvButton
+        variant="outline"
+        @click="dialogIsVisible = false"
+      >
+        Cancel
+      </AcvButton>
+      <AcvButton @click="dialogIsVisible = false">
+        Ok
+      </AcvButton>
     </template>
   </AcvDialog>
 </template>

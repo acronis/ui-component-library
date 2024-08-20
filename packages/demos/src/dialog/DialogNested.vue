@@ -12,9 +12,6 @@
   <AcvButton @click="dialogIsVisible = true">
     Show Root Dialog
   </AcvButton>
-  <AcvButton @click="nestedDialogIsVisible = true">
-    Show Nested Dialog
-  </AcvButton>
   <AcvDialog
     v-model="dialogIsVisible"
     width="large"
@@ -31,10 +28,9 @@
         height="small"
         title="Nested dialog"
       >
-        Nested content
-        <AcvButton @click="dialogIsVisible = true">
-          Open root dialog
-        </AcvButton>
+        <div class="pa-16">
+          Nested content
+        </div>
       </AcvDialog>
     </div>
   </AcvDialog>

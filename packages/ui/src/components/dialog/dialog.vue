@@ -1,24 +1,39 @@
 <script setup lang="ts">
   import { computed, nextTick, ref, watch } from 'vue';
   import { onClickOutside, onKeyDown, useDraggable } from '@vueuse/core';
+  import { IconClose16 } from '@acronis-platform/icons/close';
+  import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+  import AcvButton from '../button/button.vue';
   import type { AcvDialogEvents, AcvDialogProps, AcvDialogSlots } from './dialog.ts';
+
   import './dialog.css';
+
+  /**
+   * Dialog component informs users while preserving the current page state.
+   */
+  defineOptions({
+    name: 'AcvDialog'
+  });
 
   const {
     title,
     closeOnEscape,
     closable,
     closeOnClickOutside,
+    lockFocus,
     backdrop,
     draggable,
     height,
     width
   } = withDefaults(defineProps<AcvDialogProps>(), {
-    closeOnEscape: true,
+    backdrop: true,
     closable: true,
     closeOnClickOutside: true,
-    backdrop: true,
+    closeOnEscape: true,
+    lockFocus: true,
     draggable: false,
+    height: 'small',
+    width: 'small',
   });
 
   const emit = defineEmits<AcvDialogEvents>();
@@ -41,6 +56,8 @@
     }
   });
 
+  const { activate, deactivate } = useFocusTrap(body);
+
   const { x, y, isDragging } = useDraggable(header, {
     preventDefault: true,
     disabled: !draggable
@@ -51,6 +68,13 @@
     await nextTick();
     if (dialog.value && value) {
       dialog.value.showModal();
+    }
+
+    if (value && lockFocus) {
+      activate();
+    }
+    else {
+      deactivate();
     }
   }, { immediate: true });
 
@@ -96,14 +120,6 @@
     :aria-hidden="!model"
     :style="computedStyles"
   >
-    <button
-      v-if="closable"
-      ref="close"
-      class="dialog-close"
-      @click="onClose"
-    >
-      X
-    </button>
     <section
       ref="body"
       class="body"
@@ -112,11 +128,23 @@
         v-if="title || slots.title"
         ref="header"
       >
-        <h2 id="label-area">
+        <div
+          id="label-area"
+          class="title"
+        >
           <slot name="title">
             {{ title }}
           </slot>
-        </h2>
+        </div>
+        <AcvButton
+          v-if="closable"
+          ref="close"
+          type="ghost"
+          class="close"
+          @click="onClose"
+        >
+          <IconClose16 />
+        </AcvButton>
       </header>
       <main id="content-area">
         <div class="scrollable">
@@ -124,7 +152,7 @@
         </div>
       </main>
       <footer v-if="slots.footer">
-        <slot name="footer"></slot>
+        <slot name="footer" />
       </footer>
     </section>
   </dialog>
@@ -135,7 +163,7 @@
     z-index: var(--acv-dialog-z-index);
     border-radius: var(--acv-radius-regular, 4px);
     border: none;
-    box-shadow: 0 10px 20px 0 rgb(36 49 67 / 0.90);
+    box-shadow: 0 10px 20px 0 hsl(215deg 30% 20% / 0.9);
     width: var(--acv-dialog-width);
     height: var(--acv-dialog-height);
     min-height: 256px;
@@ -191,31 +219,34 @@
     &.draggable {
       header {
         cursor: move;
+        user-select: none;
       }
     }
 
-    &.is-dragging {
+    &.is-dragging,
+    &.is-resizing {
       user-select: none;
+    }
+
+    &.is-dragging {
+      will-change: top, left;
 
       header {
         cursor: grabbing;
       }
     }
 
-    .dialog-close {
-      position: absolute;
-      width: 32px;
-      height: 32px;
-      margin-inline: 24px;
-      margin-block: 16px;
-      right: 0;
-      top:0;
+    .close {
+      color: var(--acv-color-icon-primary);
       cursor: pointer;
     }
 
     .body {
-      display: grid;
-      grid-template-rows: auto minmax(0, 1fr) auto;
+      /* display: grid; */
+
+      /* grid-template-rows: 64px minmax(0, 1fr) auto; */
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       height: 100%;
       width: 100%;
@@ -226,14 +257,19 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
-      padding-inline: 32px 80px;
-      border-bottom: 1px solid var(--acv-dialog-border-color);
+      padding-inline: 16px;
+      gap: 16px;
+      border-bottom: var(--acv-border-small) var(--acv-dialog-border-color);
+      grid-template-columns: 1fr 32px;
+      flex-grow: 1;
+      max-height: 64px;
 
-      h2 {
+      .title {
         font-size: var(--acv-dialog-title-font-size);
-        font-weight: 600;
+        line-height: var(--acv-dialog-title-line-height);
+        font-weight: var(--acv-dialog-title-weight);
         color: var(--acv-dialog-title-color);
-        margin-block: 0 ;
+        margin-block: 0;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -243,6 +279,11 @@
     main {
       display: flex;
       background-color: var(--acv-dialog-bg-color);
+      flex-grow: 1;
+      overflow: auto;
+
+      /* for Firefox */
+      min-height: 0;
 
       & > * {
         flex-basis: 100%;
@@ -254,107 +295,20 @@
     }
 
     footer {
-      border-top: 1px solid var(--acv-dialog-border-color);
-
-      menu {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-        padding: 1rem;
-      }
-    }
-
-    .acv-dialog__wrapper {
-      position: absolute;
-      top: 100px;
-      display: flex;
-      flex-direction: column;
-      max-width: calc(100vw - 28px);
-      pointer-events: auto;
-      background-color: var(--acv-dialog-bg-color);
-      border: 0;
-      border-radius: var(--acv-dialog-radius);
-      box-shadow: var(--acv-dialog-shadow);
-      transform: translateZ(0);
-
-      .acv-dialog--dragging,
-      .acv-dialog--resizing {
-        user-select: none;
-      }
-
-      .acv-dialog--dragging {
-        will-change: top, left;
-      }
-    }
-
-    .acv-dialog--inner .acv-dialog__wrapper {
-      position: absolute;
-    }
-
-    .acv-dialog__header {
-      position: relative;
-      display: flex;
-      flex-shrink: 0;
-      align-items: center;
-      padding: var(--acv-dialog-header-v-padding) var(--acv-dialog-header-h-padding);
-      border-bottom: var(--acv-border-shape) var(--acv-dialog-d-color);
-    }
-
-    .acv-dialog--draggable .acv-dialog__header {
-      cursor: move;
-      user-select: none;
-    }
-
-    .acv-dialog--undivided .acv-dialog__header {
-      border-bottom: 0;
-    }
-
-    .acv-dialog__title {
-      flex: 1 0 0;
-      font-size: var(--acv-dialog-title-font-size);
-      font-weight: var(--acv-dialog-title-weight);
-      color: var(--acv-dialog-title-color);
-    }
-
-    .acv-dialog__content {
-      position: relative;
-      flex: auto;
-      min-width: 0;
-      min-height: 0;
-      padding: var(--acv-dialog-body-v-padding) var(--acv-dialog-body-h-padding);
-      line-height: var(--acv-dialog-body-line-height);
-    }
-
-    .acv-dialog__footer {
       position: relative;
       display: flex;
       flex-shrink: 0;
       align-items: center;
       justify-content: flex-end;
       padding: var(--acv-dialog-footer-v-padding) var(--acv-dialog-footer-h-padding);
-      border-top: var(--acv-border-style-solid) var(--acv-dialog-border-color);
-    }
+      border-top: var(--acv-border-small) var(--acv-dialog-border-color);
+      gap: 16px;
 
-    .acv-dialog--undivided .acv-dialog__footer {
-      border-top: 0;
-    }
-
-    .acv-dialog__close {
-      display: flex;
-      align-items: center;
-      height: 24px;
-      padding: 0;
-      margin-inline-start: 6px;
-      color: var(--acv-dialog-close-color);
-      cursor: pointer;
-      background-color: transparent;
-      border: 0;
-      outline: 0;
-      transition: var(--acv-transition-color);
-
-      &:hover,
-      &:focus {
-        color: var(--acv-dialog-close-color-hover);
+      menu {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        padding: 1rem;
       }
     }
 

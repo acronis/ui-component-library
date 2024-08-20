@@ -33,7 +33,7 @@ describe('test ConfirmDialog component', () => {
     const wrapper = mount(ConfirmDialog);
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<dialog data-v-d2f715b5="" data-v-ecec16b9="" class="acv-dialog backdrop acv-confirm-dialog" autofocus="" role="alertdialog" aria-labelledby="label-area" aria-describedby="content-area" aria-modal="true" aria-hidden="true"><button data-v-d2f715b5="" class="dialog-close"> X </button>
+      "<dialog data-v-d2f715b5="" data-v-ecec16b9="" class="acv-dialog backdrop height-small width-small acv-confirm-dialog" autofocus="" role="alertdialog" aria-labelledby="label-area" aria-describedby="content-area" aria-modal="true" aria-hidden="true">
         <section data-v-d2f715b5="" class="body">
           <!--v-if-->
           <main data-v-d2f715b5="" id="content-area">

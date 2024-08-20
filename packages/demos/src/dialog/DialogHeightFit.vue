@@ -4,12 +4,12 @@
   import AcvButton from '@/components/button/button.vue';
   import AcvDialog from '@/components/dialog/dialog.vue';
 
-  const dialogBasicVisible = ref(true);
+  const dialogBasicVisible = ref(false);
 </script>
 
 <template>
   <AcvButton @click="dialogBasicVisible = true">
-    Show Dialog
+    Show Dialog with fit height
   </AcvButton>
   <AcvDialog
     v-model="dialogBasicVisible"
