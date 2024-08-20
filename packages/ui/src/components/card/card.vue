@@ -99,6 +99,10 @@
       width:100%;
     }
 
+    &.bordered {
+      border: var(--acv-border-small) var(--acv-color-form-active);
+    }
+
     &.rounded {
       border-radius: var(--acv-radius-regular);
     }

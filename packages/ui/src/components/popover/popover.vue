@@ -43,7 +43,9 @@
         class="acv-popover"
       >
         <AcvCard
-          class="acv-popover__content"
+          class="content"
+          background-color="white"
+          border
         >
           <slot />
           <div
@@ -139,6 +141,5 @@
       opacity: .4;
       animation-delay: -.75s;
     }
-
   }
 </style>
