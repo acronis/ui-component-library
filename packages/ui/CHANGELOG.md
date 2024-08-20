@@ -1,3 +1,10 @@
+## [1.17.8](https://github.com/acronis/ui-component-library/compare/v1.17.7...v1.17.8) (2024-08-20)
+
+
+### Bug Fixes
+
+* **chip:** update chip demo ([bd2a778](https://github.com/acronis/ui-component-library/commit/bd2a77806c8f40a5d679175c64f3baa55ce0d640))
+
 ## [1.17.7](https://github.com/acronis/ui-component-library/compare/v1.17.6...v1.17.7) (2024-08-20)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * remove build step from publish ui workflow ([4924105](https://github.com/acronis/ui-component-library/commit/49241050b3fd9ae4e7a422f09096a91311fab4d1))
-
-## [1.17.3](https://github.com/acronis/ui-component-library/compare/v1.17.2...v1.17.3) (2024-08-20)
-
-
-### Bug Fixes
-
-* fix hygen style template filename ([2012ada](https://github.com/acronis/ui-component-library/commit/2012adaa7ca8170d788a4feb7af5edf00928b8c8))
 
