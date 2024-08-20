@@ -7,11 +7,13 @@ description: This file is generated automatically from the source code. Changes 
 
 # ACV Spinner
 
+> Spinner is a loading indicator that can be used to show the user that the application is loading.
+
 <!--@include: ./spinner.doc.md-->
 
 ## Props
 
-| Prop name | Description | Type   | Values | Default   |
-| --------- | ----------- | ------ | ------ | --------- |
-| size      |             | string | -      | '16'      |
-| color     |             | string | -      | 'primary' |
+| Prop name | Description          | Type                       | Values | Default   |
+| --------- | -------------------- | -------------------------- | ------ | --------- |
+| color     | Color of the Spinner | string                     | -      | 'primary' |
+| size      | Size of the Spinner  | ComponentSize \| "x-large" | -      | 'small'   |

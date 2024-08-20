@@ -44,7 +44,7 @@
       <div class="acv-loading__content">
         <AcvSpinner
           :color="color || 'brand-secondary'"
-          :size="size || 'sm'"
+          :size="size || 'small'"
         />
         <div
           v-if="text"

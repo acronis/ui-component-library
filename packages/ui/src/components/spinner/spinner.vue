@@ -1,44 +1,41 @@
-<script>
+<script setup lang="ts">
+  import { computed } from 'vue';
+  import type { AcvSpinnerProps } from './spinner.ts';
+
   import './spinner.css';
 
-  export default {
-    name: 'AcvSpinner',
-    props: {
-      size: {
-        type: String,
-        default: '16'
-      },
-      color: {
-        type: String,
-        default: 'primary'
-      }
-    },
-    data: () => ({
-      sizes: {
-        'small': 8,
-        'medium': 16,
-        'large': 24,
-        'x-large': 32
-      }
-    }),
-    computed: {
-      computedSize() {
-        return this.sizes[this.size] || this.size;
-      },
-      borderColor() {
-        return `var(--acv-color-${this.color})`;
-      }
-    }
-  };
+  /**
+   * Spinner is a loading indicator that can be used to show the user that the application is loading.
+   */
+  defineOptions({
+    name: 'AcvSpinner'
+  });
+
+  const props = withDefaults(defineProps<AcvSpinnerProps>(), {
+    size: 'small',
+    color: 'primary'
+  });
+
+  const computedSize = computed(() => {
+    return props.size;
+  });
+
+  const borderColor = computed(() => {
+    return `var(--acv-color-${props.color})`;
+  });
+
+  const spinnerClasses = computed(() => {
+    return {
+      [`${computedSize.value}`]: props.size,
+      [`acv-border-${props.color}`]: props.color,
+    };
+  });
 </script>
 
 <template>
   <span
     class="acv-spinner"
-    :class="{
-      [`size-${computedSize}`]: size,
-      [`acv-border-${color}`]: color,
-    }"
+    :class="spinnerClasses"
   />
 </template>
 
@@ -53,25 +50,25 @@
   width: var(--acv-spinner-size);
   height: var(--acv-spinner-size);
 
-  &.size-16 {
+  &.small {
     --acv-spinner-size: var(--acv-spinner-size-small);
     border-width: 2px;
     animation: rotate .4s linear infinite;
   }
 
-  &.size-24 {
+  &.medium {
     --acv-spinner-size: var(--acv-spinner-size-medium);
     border-width: 2px;
     animation: rotate .4s linear infinite;
   }
 
-  &.size-32 {
+  &.large {
     --acv-spinner-size: var(--acv-spinner-size-large);
     border-width: 3px;
     animation: rotate .5s linear infinite;
   }
 
-  &.size-48 {
+  &.x-large {
     --acv-spinner-size: var(--acv-spinner-size-x-large);
     border-width: 3px;
     animation: rotate .5s linear infinite;

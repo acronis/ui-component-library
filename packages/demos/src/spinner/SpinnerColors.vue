@@ -15,7 +15,7 @@
       }"
     >
       <Spinner
-        size="48"
+        size="large"
         :color="color"
       />
     </div>
