@@ -1,3 +1,10 @@
+## [1.17.10](https://github.com/acronis/ui-component-library/compare/v1.17.9...v1.17.10) (2024-08-20)
+
+
+### Bug Fixes
+
+* **divider:** fix divider props ([995a17c](https://github.com/acronis/ui-component-library/commit/995a17cc03c9483a6c59c649b25025717396141c))
+
 ## [1.17.9](https://github.com/acronis/ui-component-library/compare/v1.17.8...v1.17.9) (2024-08-20)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **switch:** set large size as default ([be263cc](https://github.com/acronis/ui-component-library/commit/be263cc6cf0ffa0aaf3029b09932ebaf5718ae3b))
-
-## [1.17.5](https://github.com/acronis/ui-component-library/compare/v1.17.4...v1.17.5) (2024-08-20)
-
-
-### Bug Fixes
-
-* **spinner:** refactor spinner component to composition api ([64f0170](https://github.com/acronis/ui-component-library/commit/64f01701285b78378ece89cbfc726540b73871a9))
 
