@@ -1,3 +1,10 @@
+## [1.17.3](https://github.com/acronis/ui-component-library/compare/v1.17.2...v1.17.3) (2024-08-20)
+
+
+### Bug Fixes
+
+* fix hygen style template filename ([2012ada](https://github.com/acronis/ui-component-library/commit/2012adaa7ca8170d788a4feb7af5edf00928b8c8))
+
 ## [1.17.2](https://github.com/acronis/ui-component-library/compare/v1.17.1...v1.17.2) (2024-08-19)
 
 
@@ -28,11 +35,4 @@
 ### Bug Fixes
 
 * fix button docs ([bfb6858](https://github.com/acronis/ui-component-library/commit/bfb685859e17a61e4918e641abc88c989fe6cd43))
-
-## [1.16.3](https://github.com/acronis/ui-component-library/compare/v1.16.2...v1.16.3) (2024-08-15)
-
-
-### Bug Fixes
-
-* regenerate tabs documentation ([1c995cf](https://github.com/acronis/ui-component-library/commit/1c995cfcc15aed9856e424cb5de1db463b859df7))
 
