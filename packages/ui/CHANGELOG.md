@@ -1,3 +1,10 @@
+## [1.17.9](https://github.com/acronis/ui-component-library/compare/v1.17.8...v1.17.9) (2024-08-20)
+
+
+### Bug Fixes
+
+* **link:** add link example ([3e47b96](https://github.com/acronis/ui-component-library/commit/3e47b96d510ea5ee21883a33b3555f8659cddf26))
+
 ## [1.17.8](https://github.com/acronis/ui-component-library/compare/v1.17.7...v1.17.8) (2024-08-20)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **spinner:** refactor spinner component to composition api ([64f0170](https://github.com/acronis/ui-component-library/commit/64f01701285b78378ece89cbfc726540b73871a9))
-
-## [1.17.4](https://github.com/acronis/ui-component-library/compare/v1.17.3...v1.17.4) (2024-08-20)
-
-
-### Bug Fixes
-
-* remove build step from publish ui workflow ([4924105](https://github.com/acronis/ui-component-library/commit/49241050b3fd9ae4e7a422f09096a91311fab4d1))
 
