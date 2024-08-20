@@ -2,12 +2,28 @@ export interface AcvConfirmDialogProps {
   /**
    * Title of the ConfirmDialog
    */
+  confirmType?: string
+
   title?: string
 
+  content?: string
+
   /**
-   * Description of the ConfirmDialog
+   * Text of the cancel button
+   * @defaultValue 'Cancel'
    */
-  description?: string
+  cancelText?: string
+
+  /**
+   * Text of the confirm button
+   * @defaultValue 'Confirm'
+   */
+  confirmText?: string
+
+  /**
+   * Action to be executed when the confirm button is clicked
+   */
+  action?: () => void
 }
 
 export interface AcvConfirmDialogEvents {

@@ -11,10 +11,14 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name   | Description                      | Type   | Values | Default |
-| ----------- | -------------------------------- | ------ | ------ | ------- |
-| title       | Title of the ConfirmDialog       | string | -      |         |
-| description | Description of the ConfirmDialog | string | -      |         |
+| Prop name   | Description                                              | Type           | Values | Default   |
+| ----------- | -------------------------------------------------------- | -------------- | ------ | --------- |
+| confirmType | Title of the ConfirmDialog                               | string         | -      |           |
+| title       |                                                          | string         | -      |           |
+| content     |                                                          | string         | -      |           |
+| cancelText  | Text of the cancel button                                | string         | -      | 'Cancel'  |
+| confirmText | Text of the confirm button                               | string         | -      | 'Confirm' |
+| action      | Action to be executed when the confirm button is clicked | TSFunctionType | -      |           |
 
 ## Events
 
