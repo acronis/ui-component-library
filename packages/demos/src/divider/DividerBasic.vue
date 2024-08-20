@@ -6,6 +6,6 @@
   <p>Some content to fill</p>
   <AcvDivider />
   <p>Some content to fill</p>
-  <AcvDivider>Insert text</AcvDivider>
+  <AcvDivider />
   <p>Some content to fill</p>
 </template>

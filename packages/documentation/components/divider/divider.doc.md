@@ -2,7 +2,7 @@ Used to group content in horizontal or vertical lists,
 and also serves as a visual separator between logical blocks within the interface.
 
 :::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=123-8541
+https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=123-8541&m=dev
 :::
 
 ## Basic usage
@@ -13,22 +13,19 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=123-8541
 <<< ../../../demos/src/divider/DividerBasic.vue
 :::
 
-## With text
-
-You can place text into default dividers slot and use `text-position` property
-to align it in a _center_, _left_ or _right_ position.
-
-<DividerVariants />
-
-## Colors
-
-You can use `color` property to highlight the divider with a specific color.
-
-<DividerColors />
+[//]: # '## Colors'
+[//]: #
+[//]: # 'You can use `color` property to highlight the divider with a specific color.'
+[//]: #
+[//]: # '<DividerColors />'
 
 ## On backgrounds
 
 <DividerBackground />
+
+::: details Source code
+<<< ../../../demos/src/divider/DividerBackground.vue
+:::
 
 ## Accessibility
 
