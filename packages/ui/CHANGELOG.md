@@ -1,3 +1,10 @@
+## [1.17.6](https://github.com/acronis/ui-component-library/compare/v1.17.5...v1.17.6) (2024-08-20)
+
+
+### Bug Fixes
+
+* **switch:** set large size as default ([be263cc](https://github.com/acronis/ui-component-library/commit/be263cc6cf0ffa0aaf3029b09932ebaf5718ae3b))
+
 ## [1.17.5](https://github.com/acronis/ui-component-library/compare/v1.17.4...v1.17.5) (2024-08-20)
 
 
@@ -25,14 +32,4 @@
 ### Bug Fixes
 
 * remove dynamic icons ([d684372](https://github.com/acronis/ui-component-library/commit/d6843720530ff00a1a342fe3414f893239ea931d))
-
-## [1.17.1](https://github.com/acronis/ui-component-library/compare/v1.17.0...v1.17.1) (2024-08-19)
-
-
-### Bug Fixes
-
-* fix button states ([06360d0](https://github.com/acronis/ui-component-library/commit/06360d062afeb34c4034f2f02d443c41622c7b0b))
-* fix switch tests ([ae53c65](https://github.com/acronis/ui-component-library/commit/ae53c65627a2cce64b783b83a2048c8114511a06))
-* remove switch decor ([f5b1561](https://github.com/acronis/ui-component-library/commit/f5b156157f90b50f2d6534a85185f74d5d19c39a))
-* replace outdated demo link ([0f70c1f](https://github.com/acronis/ui-component-library/commit/0f70c1fd76b63e3d03b0e2f5990d4e2fcf15d687))
 
