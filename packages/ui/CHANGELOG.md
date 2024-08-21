@@ -1,3 +1,10 @@
+## [1.17.12](https://github.com/acronis/ui-component-library/compare/v1.17.11...v1.17.12) (2024-08-21)
+
+
+### Bug Fixes
+
+* **dialog:** implement basic dialog ([b40f7a2](https://github.com/acronis/ui-component-library/commit/b40f7a2d9bd55d451d2ec355bae16534b1463073))
+
 ## [1.17.11](https://github.com/acronis/ui-component-library/compare/v1.17.10...v1.17.11) (2024-08-21)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **chip:** update chip demo ([bd2a778](https://github.com/acronis/ui-component-library/commit/bd2a77806c8f40a5d679175c64f3baa55ce0d640))
-
-## [1.17.7](https://github.com/acronis/ui-component-library/compare/v1.17.6...v1.17.7) (2024-08-20)
-
-
-### Bug Fixes
-
-* fix tooltip line height ([39f6611](https://github.com/acronis/ui-component-library/commit/39f66116a29a103f01ebb428eb45eea2934b0b70))
 
