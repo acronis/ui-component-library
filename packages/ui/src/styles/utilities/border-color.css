@@ -10,6 +10,10 @@
   border-color: var(--acv-color-tertiary);
 }
 
+.acv-border-inverted {
+  border-color: var(--acv-color-inverted);
+}
+
 .acv-border-success {
   border-color: var(--acv-color-success);
 }
@@ -20,6 +24,14 @@
 
 .acv-border-danger {
   border-color: var(--acv-color-danger);
+}
+
+.acv-border-critical {
+  border-color: var(--acv-color-critical);
+}
+
+.acv-border-neutral {
+  border-color: var(--acv-color-neutral);
 }
 
 .acv-border-info {

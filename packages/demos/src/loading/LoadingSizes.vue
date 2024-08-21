@@ -1,0 +1,52 @@
+<script setup>
+  import { ref } from 'vue';
+  import phaethon from '../__data__/data.phaethon.txt?raw';
+  import AcvLoading from '@/widgets/loading/loading.vue';
+
+  const loading = ref(true);
+</script>
+
+<template>
+  <div class="acv-grid acv-grid--cols-4">
+    <div class="item">
+      <AcvLoading
+        v-model="loading"
+        size="small"
+      />
+      {{ phaethon }}
+    </div>
+    <div class="item">
+      <AcvLoading
+        v-model="loading"
+        size="medium"
+      />
+      {{ phaethon }}
+    </div>
+    <div class="item">
+      <AcvLoading
+        v-model="loading"
+        size="large"
+      />
+      {{ phaethon }}
+    </div>
+    <div class="item">
+      <AcvLoading
+        v-model="loading"
+        size="x-large"
+      />
+      {{ phaethon }}
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  .acv-grid {
+    .item {
+      width: 128px;
+      height: 128px;
+      position: relative;
+      overflow: clip;
+      padding: 8px;
+    }
+  }
+</style>

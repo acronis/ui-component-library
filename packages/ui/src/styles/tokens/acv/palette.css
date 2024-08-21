@@ -1,15 +1,11 @@
 :root {
-  /* Base palette of named colors */
+  /* Named colors */
   --acv-color-white: var(
     --acv-color-text-inversed-primary,
     hsl(0deg 100% 100%)
   );
   --acv-color-black: var(--acv-color-text-primary, hsl(230deg 13% 9%));
   --acv-color-transparent: hsl(0deg 0% 100% / 0);
-  --acv-color-highlight: var(
-    --acv-color-text-highlight-result,
-    hsl(52deg 100% 50%)
-  );
   --acv-color-red: hsl(0deg 81% 57%);
   --acv-color-pink: hsl(340deg 82% 52%);
   --acv-color-purple: hsl(291deg 64% 42%);
@@ -268,7 +264,7 @@
   --acv-color-white-10: hsl(from var(--acv-color-white) h s calc(l - 90));
   --acv-color-white-0: var(--acv-color-black);
 
-  /* State aliases */
+  /* Status aliases */
   --acv-color-success: var(--acv-color-status-success-secondary);
   --acv-color-success-background: var(--acv-color-status-success-primary);
   --acv-color-success-border: var(--acv-color-status-success-secondary);
@@ -293,7 +289,17 @@
   --acv-color-info-background: var(--acv-color-status-info-primary);
   --acv-color-info-border: var(--acv-color-status-info-secondary);
   --acv-color-info-text: var(--acv-color-text-status-info);
+
+  /* State aliases */
   --acv-color-disabled: var(--acv-color-button-disabled);
   --acv-color-disabled-border: var(--acv-color-secondary-muted);
   --acv-color-disabled-text: var(--acv-color-text-disabled);
+  --acv-color-accent: var(--acv-color-button-active-secondary);
+  --acv-color-active: var(--acv-color-button-active-primary);
+  --acv-color-focus: var(--acv-color-button-focus);
+  --acv-color-highlight: var(
+    --acv-color-text-highlight-result,
+    hsl(52deg 100% 50%)
+  );
+  --acv-color-hover: var(--acv-color-button-hover-primary);
 }

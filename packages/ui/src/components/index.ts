@@ -46,7 +46,6 @@ export * from './input/public.ts';
 export * from './link/public.ts';
 export * from './list-item/public.ts';
 export * from './list/public.ts';
-export * from './loading/public.ts';
 export * from './main/public.ts';
 export * from './map/public.ts';
 export * from './markdown-editor/public.ts';
