@@ -31,12 +31,12 @@ export const STATUS_COLORS = {
 };
 
 export const STATE_COLORS = {
-  disabled: 'disabled',
   accent: 'accent',
-  hover: 'hover',
   active: 'active',
+  disabled: 'disabled',
   focus: 'focus',
   highlight: 'highlight',
+  hover: 'hover',
 };
 
 // const SURFACE_COLORS = {
@@ -55,7 +55,6 @@ export const NAMED_COLORS = Object.freeze({
   'white': 'white',
   'black': 'black',
   'transparent': 'transparent',
-  'highlight': 'highlight',
   'red': 'red',
   'pink': 'pink',
   'purple': 'purple',

@@ -49,4 +49,4 @@ The spinner can be displayed in different colors.
 
 ## Related components
 
-- [Loading](/components/loading/loading.doc)
+- [Loading](/widgets/loading/loading.doc)

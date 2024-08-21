@@ -52,7 +52,6 @@ const componentsList = [
   { text: 'Link', link: '/components/link/link.md', readyForReview: true },
   { text: 'List', link: '/components/list/list.md' },
   { text: 'ListItem', link: '/components/list-item/listItem.md' },
-  { text: 'Loading', link: '/components/loading/loading.md' },
   { text: 'Main', link: '/components/main/main.md' },
   { text: 'Map', link: '/components/map/map.md' },
   { text: 'Markdown Editor', link: '/components/markdown-editor/markdownEditor.md', readyForReview: true },
@@ -103,7 +102,8 @@ const componentsList = [
   },
   {
     text: 'Widgets',
-    items: widgets
+    items: widgets,
+    readyForReview: true
   },
   {
     text: 'Composables',

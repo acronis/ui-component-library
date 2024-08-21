@@ -1,6 +1,6 @@
 @layer tokens {
   :root {
-    /* Insert component css variables here */
+    --acv-loading-font: var(--acv-font-family-default, Inter);
     --acv-loading-color: var(--acv-color-brand-primary);
   }
 }

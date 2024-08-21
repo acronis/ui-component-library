@@ -1,5 +1,6 @@
 export const directives = [
   { text: 'Highlight', link: '/directives/highlight' },
-  { text: 'Tooltip', link: '/directives/tooltip' },
+  { text: 'Loading', link: '/directives/loading' },
   { text: 'TextMiddleEllipsis', link: '/directives/ellipsis' },
+  { text: 'Tooltip', link: '/directives/tooltip' },
 ];

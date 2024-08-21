@@ -12,6 +12,7 @@
   </AcvButton>
   <AcvLoading
     v-model="loading"
+    size="x-large"
     fullscreen
     @click="loading = false"
   />

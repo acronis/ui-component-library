@@ -165,7 +165,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 180px;
 
   .router-link {
     padding: 7px 10px 8px;
