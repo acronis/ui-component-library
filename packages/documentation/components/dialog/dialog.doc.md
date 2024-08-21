@@ -59,9 +59,21 @@ When the dialog is larger than the viewport, dialog will stop at viewport bounda
 ### Width
 
 Four fixed width size can be used for dialog through `width-size` prop:
-small (512px) / medium (672px) / large (832px) / x-large (1184px)
+
+**small** (512px): used for dialog with simple content
 
 <DialogWidthSmall />
+
+**medium** (672px): used for dialog with forms, lists, etc.
+<DialogWidthMedium />
+
+**large** (832px): used for dialog with aside panels
+
+<DialogWidthLarge />
+
+**x-large** (1184px): used for dialog with complex content, like tables, forms, etc.
+
+<DialogWidthXLarge />
 
 ## Dialog Content
 
