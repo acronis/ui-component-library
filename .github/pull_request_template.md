@@ -37,10 +37,9 @@
 <!-- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
 <!-- _We encourage you to keep the code coverage percentage at 80% and above._ -->
 
-- [ ] I have linked an issue or discussion;
-- [ ] I have updated the documentation accordingly;
-- [ ] I have added or updated tests to cover my changes;
-- [ ] I have performed a self-review of my code;
-- [ ] I have made corresponding changes to the documentation;
-- [ ] My code follows the style guidelines of this project;
-- [ ] My changes generate no new warnings.
+- [ ] I have linked an **issue** or **discussion**;
+- [ ] I have updated the **documentation** accordingly;
+- [ ] I have added or updated **tests** to cover my changes;
+- [ ] I have performed a **self-review** of my code;
+- [ ] My code follows the style **guidelines** of this project;
+- [ ] My changes generate no new **warnings**.
