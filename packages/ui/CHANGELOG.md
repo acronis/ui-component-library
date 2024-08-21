@@ -1,3 +1,10 @@
+## [1.17.11](https://github.com/acronis/ui-component-library/compare/v1.17.10...v1.17.11) (2024-08-21)
+
+
+### Bug Fixes
+
+* apply background in popover ([c30a355](https://github.com/acronis/ui-component-library/commit/c30a3553f1f077c2ceb16eda64404f3971890bc5))
+
 ## [1.17.10](https://github.com/acronis/ui-component-library/compare/v1.17.9...v1.17.10) (2024-08-20)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix tooltip line height ([39f6611](https://github.com/acronis/ui-component-library/commit/39f66116a29a103f01ebb428eb45eea2934b0b70))
-
-## [1.17.6](https://github.com/acronis/ui-component-library/compare/v1.17.5...v1.17.6) (2024-08-20)
-
-
-### Bug Fixes
-
-* **switch:** set large size as default ([be263cc](https://github.com/acronis/ui-component-library/commit/be263cc6cf0ffa0aaf3029b09932ebaf5718ae3b))
 
