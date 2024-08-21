@@ -51,7 +51,6 @@
               >
                 <acv-form-item prop="email">
                   <acv-input
-                    ref="input"
                     v-model="scope.row.email"
                     :value="scope.row.email"
                     size="small"
