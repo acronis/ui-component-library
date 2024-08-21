@@ -50,7 +50,7 @@
         popper-max-width="252px"
         label="Label"
       >
-        <el-tree
+        <acv-tree
           :data="[{
             label: 'Very long items in select with tree It is really very long items - Level 1',
             value: 'level 1',

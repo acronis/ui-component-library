@@ -85,7 +85,7 @@
           </AcvButton>
         </template>
         <template #footer>
-          <div class="el-text el-text--caption">
+          <div class="acv-text acv-text--caption">
             <div>Last scan:</div>
             <div><b>26 Jun 2020, 15:45:30</b></div>
           </div>

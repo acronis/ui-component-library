@@ -1,8 +1,8 @@
 <script>
-  import ElEmpty from '@/widgets/empty/empty.vue';
+  import AcvEmpty from '@/widgets/empty/empty.vue';
 
   export default {
-    components: { ElEmpty },
+    components: { AcvEmpty },
     data() {
       return {
         icon: 'folder-ill--72',
@@ -15,7 +15,7 @@
 
 <template>
   <div class="qa-empty-screen-icon-description-link">
-    <ElEmpty
+    <AcvEmpty
       :icon="icon"
       :description="description"
       :link-text="linkText"

@@ -37,16 +37,7 @@
   </section>
 </template>
 
-<style scoped lang="scss">
-  $container-widths: (
-      xs: 640px,
-      sm: 768px,
-      md: 1024px,
-      lg: 1280px,
-      xl: 1440px,
-      xxl: 1920px
-  ) !default;
-
+<style scoped>
   .acv-container {
     display: flex;
     flex-direction: row;
@@ -65,11 +56,39 @@
     }
   }
 
-  @each $breakpoint, $container-width in $container-widths {
-    @container style(--is-#{$breakpoint}-viewport: true) {
-      :root {
-        --acv-container-max-width: #{$container-width};
-      }
+  @container style(--is-xs-viewport: true) {
+    :root {
+      --acv-container-max-width: 640px;
+    }
+  }
+
+  @container style(--is-sm-viewport: true) {
+    :root {
+      --acv-container-max-width: 768px;
+    }
+  }
+
+  @container style(--is-md-viewport: true) {
+    :root {
+      --acv-container-max-width: 1024px;
+    }
+  }
+
+  @container style(--is-lg-viewport: true) {
+    :root {
+      --acv-container-max-width: 1280px;
+    }
+  }
+
+  @container style(--is-xl-viewport: true) {
+    :root {
+      --acv-container-max-width: 1440px;
+    }
+  }
+
+  @container style(--is-xxl-viewport: true) {
+    :root {
+      --acv-container-max-width: 1920px;
     }
   }
 

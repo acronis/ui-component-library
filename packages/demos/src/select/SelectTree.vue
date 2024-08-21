@@ -54,7 +54,7 @@
         v-model="tree.default.value"
         label="Label"
       >
-        <el-tree
+        <acv-tree
           :data="tree.default.data"
           node-key="value"
         />
@@ -70,7 +70,7 @@
       >
         <template #default>
           <AcvOption value="all" />
-          <el-tree
+          <acv-tree
             :data="tree.default.data"
             node-key="value"
           />
@@ -85,7 +85,7 @@
         v-model="tree.lazy.value"
         label="Label"
       >
-        <el-tree
+        <acv-tree
           :load="tree.lazy.load"
           node-key="value"
           lazy
@@ -103,7 +103,7 @@
         dynamic-width
         :custom-text="tree.lazy.customText"
       >
-        <el-tree
+        <acv-tree
           :emit-current-change-only-on-leaf="false"
           :expand-when-checked="false"
           :load="tree.lazy.load"
@@ -128,7 +128,7 @@
         :select-all="false"
         :multiple-show-items-limit="3"
       >
-        <el-tree
+        <acv-tree
           :load="tree.lazy.load"
           node-key="value"
           lazy
@@ -148,7 +148,7 @@
         v-model="tree.icons.value"
         label="Label"
       >
-        <el-tree
+        <acv-tree
           :data="tree.icons.data"
           node-key="value"
         />
@@ -164,7 +164,7 @@
         size="small"
         show-selected-icon
       >
-        <el-tree
+        <acv-tree
           :data="tree.icons.data"
           node-key="value"
         />
@@ -183,7 +183,7 @@
           show-selected-icon
           translucent
         >
-          <el-tree
+          <acv-tree
             :data="tree.icons.data"
             node-key="value"
           />

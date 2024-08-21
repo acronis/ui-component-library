@@ -81,7 +81,7 @@
         multiple
         label="Label"
       >
-        <el-tree
+        <acv-tree
           :data="customizedIcon.tree.data"
           node-key="value"
           show-checkbox

@@ -58,7 +58,7 @@
       </AcvButton>
     </template>
     <template #footer>
-      <div class="el-text el-text--caption">
+      <div class="acv-text acv-text--caption">
         <div>Last check:</div>
         <div><b>2 minutes ago</b></div>
       </div>
@@ -66,8 +66,8 @@
   </AcvWidgetWrapper>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .chart-wrapper {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: hsl(0deg 0% 100% / 0.05);
 }
 </style>

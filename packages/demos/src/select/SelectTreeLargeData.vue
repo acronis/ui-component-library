@@ -598,7 +598,7 @@
         multiple
         select-all
       >
-        <el-tree
+        <acv-tree
           :data="multiple.withTree.data"
           node-key="value"
           show-checkbox
@@ -612,7 +612,7 @@
         multiple
         filterable
       >
-        <el-tree
+        <acv-tree
           :data="vendorsProducts"
           show-checkbox
           node-key="value"

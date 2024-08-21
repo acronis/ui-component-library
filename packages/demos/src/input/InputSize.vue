@@ -6,7 +6,6 @@
   const input1 = ref('');
   const input2 = ref('');
   const input3 = ref('Value');
-  const input4 = ref('');
 </script>
 
 <template>
@@ -20,6 +19,7 @@
         <AcvInput
           v-model="input1"
           label="Label"
+          size="small"
         />
       </Preview>
       <Preview
@@ -31,6 +31,7 @@
           v-model="input2"
           label="Label"
           placeholder="Placeholder"
+          size="small"
         />
       </Preview>
       <Preview
@@ -42,29 +43,7 @@
           v-model="input3"
           label="Label"
           placeholder="Placeholder"
-        />
-      </Preview>
-      <Preview
-        name="Required"
-        span="8"
-        align-items="stretch"
-      >
-        <AcvInput
-          v-model="input4"
-          label="Label"
-          required
-        />
-      </Preview>
-      <Preview
-        name="Required indicator for disabled input"
-        span="8"
-        align-items="stretch"
-      >
-        <AcvInput
-          v-model="input4"
-          label="Label"
-          required
-          disabled
+          size="small"
         />
       </Preview>
     </PreviewGroup>

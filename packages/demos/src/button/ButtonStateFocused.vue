@@ -3,5 +3,7 @@
 </script>
 
 <template>
-  <AcvButton class="hovered">Button</AcvButton>
+  <AcvButton class="focus">
+    Button
+  </AcvButton>
 </template>

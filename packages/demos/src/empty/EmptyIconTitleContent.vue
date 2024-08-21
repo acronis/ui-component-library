@@ -1,8 +1,8 @@
 <script>
-  import ElEmpty from '@/widgets/empty/empty.vue';
+  import AcvEmpty from '@/widgets/empty/empty.vue';
 
   export default {
-    components: { ElEmpty },
+    components: { AcvEmpty },
     data() {
       return {
         icon: 'acronis-cloud-ill--72',
@@ -16,7 +16,7 @@
 
 <template>
   <div class="qa-empty-screen-basic">
-    <ElEmpty
+    <AcvEmpty
       :icon="icon"
       :title="title"
       :description="description"

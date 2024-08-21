@@ -154,7 +154,7 @@
         dynamic-width
         label="Label"
       >
-        <el-tree
+        <acv-tree
           :data="dynamic.tree.data"
           node-key="value"
         />

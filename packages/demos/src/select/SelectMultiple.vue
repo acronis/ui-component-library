@@ -55,7 +55,7 @@
         label="Label"
         multiple
       >
-        <el-tree
+        <acv-tree
           :data="multiple.withTree.data"
           node-key="value"
           show-checkbox

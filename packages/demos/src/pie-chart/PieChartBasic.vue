@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .custom-summary {
   padding: 10px;
   text-align: center;

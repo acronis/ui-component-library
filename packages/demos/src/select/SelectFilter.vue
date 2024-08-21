@@ -95,7 +95,7 @@
         label="Label"
         filterable
       >
-        <el-tree
+        <acv-tree
           :data="search.tree.data"
         />
       </AcvSelect>

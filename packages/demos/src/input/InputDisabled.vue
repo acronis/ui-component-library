@@ -7,10 +7,12 @@
   const input2 = ref('');
   const input3 = ref('Value');
   const input4 = ref('');
+  const input5 = ref('');
+  const input6 = ref('Value');
 </script>
 
 <template>
-  <div class="qa-input-basic">
+  <div class="qa-input-disabled">
     <PreviewGroup>
       <Preview
         name="Default"
@@ -20,6 +22,7 @@
         <AcvInput
           v-model="input1"
           label="Label"
+          disabled
         />
       </Preview>
       <Preview
@@ -31,6 +34,7 @@
           v-model="input2"
           label="Label"
           placeholder="Placeholder"
+          disabled
         />
       </Preview>
       <Preview
@@ -42,28 +46,44 @@
           v-model="input3"
           label="Label"
           placeholder="Placeholder"
+          disabled
         />
       </Preview>
       <Preview
-        name="Required"
+        name="Default"
         span="8"
         align-items="stretch"
       >
         <AcvInput
           v-model="input4"
           label="Label"
-          required
+          size="small"
+          disabled
         />
       </Preview>
       <Preview
-        name="Required indicator for disabled input"
+        name="With placeholder"
         span="8"
         align-items="stretch"
       >
         <AcvInput
-          v-model="input4"
+          v-model="input5"
           label="Label"
-          required
+          placeholder="Placeholder"
+          size="small"
+          disabled
+        />
+      </Preview>
+      <Preview
+        name="With predefined value"
+        span="8"
+        align-items="stretch"
+      >
+        <AcvInput
+          v-model="input6"
+          label="Label"
+          placeholder="Placeholder"
+          size="small"
           disabled
         />
       </Preview>

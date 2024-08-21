@@ -1,12 +1,12 @@
 <script setup>
-  import ElEmpty from '@/widgets/empty/empty.vue';
+  import AcvEmpty from '@/widgets/empty/empty.vue';
 
   const description = 'Data is loading...';
 </script>
 
 <template>
   <div class="qa-empty-screen-basic">
-    <ElEmpty
+    <AcvEmpty
       loading
       :description="description"
     />
