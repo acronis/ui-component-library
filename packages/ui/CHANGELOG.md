@@ -1,3 +1,10 @@
+## [1.17.13](https://github.com/acronis/ui-component-library/compare/v1.17.12...v1.17.13) (2024-08-21)
+
+
+### Bug Fixes
+
+* remove useless ref in demo ([66392ea](https://github.com/acronis/ui-component-library/commit/66392ea7e4d66f787a4ee1bfaeef677502022378))
+
 ## [1.17.12](https://github.com/acronis/ui-component-library/compare/v1.17.11...v1.17.12) (2024-08-21)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **link:** add link example ([3e47b96](https://github.com/acronis/ui-component-library/commit/3e47b96d510ea5ee21883a33b3555f8659cddf26))
-
-## [1.17.8](https://github.com/acronis/ui-component-library/compare/v1.17.7...v1.17.8) (2024-08-20)
-
-
-### Bug Fixes
-
-* **chip:** update chip demo ([bd2a778](https://github.com/acronis/ui-component-library/commit/bd2a77806c8f40a5d679175c64f3baa55ce0d640))
 
