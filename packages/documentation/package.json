@@ -16,7 +16,7 @@
     "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" lint:ts || exit 0"
   },
   "peerDependencies": {
-    "@acronis-platform/icons": ">=0.0.1",
+    "@acronis-platform/icons": ">=0.0.2",
     "vue": "3.4.30",
     "vue-router": "4.4.0"
   },

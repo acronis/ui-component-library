@@ -17,7 +17,8 @@
     "src",
     "src/**/*.{ts,tsx,vue}",
     "./cypress.d.ts",
-    "./vitest.config.ts"
+    "./vitest.config.ts",
+    ".storybook/**/*.ts"
   ],
   "exclude": ["node_modules", "dist", "cypress.config.ts", "cypress"]
 }
