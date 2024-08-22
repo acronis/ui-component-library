@@ -1,3 +1,10 @@
+## [1.18.0](https://github.com/acronis/ui-component-library/compare/v1.17.13...v1.18.0) (2024-08-22)
+
+
+### Features
+
+* **loading:** implement basic loading widget ([242c620](https://github.com/acronis/ui-component-library/commit/242c620fc9f3765e54d9b454efeebfd9f1c70a31))
+
 ## [1.17.13](https://github.com/acronis/ui-component-library/compare/v1.17.12...v1.17.13) (2024-08-21)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **divider:** fix divider props ([995a17c](https://github.com/acronis/ui-component-library/commit/995a17cc03c9483a6c59c649b25025717396141c))
-
-## [1.17.9](https://github.com/acronis/ui-component-library/compare/v1.17.8...v1.17.9) (2024-08-20)
-
-
-### Bug Fixes
-
-* **link:** add link example ([3e47b96](https://github.com/acronis/ui-component-library/commit/3e47b96d510ea5ee21883a33b3555f8659cddf26))
 
