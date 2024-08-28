@@ -27,6 +27,7 @@ jobs:
           github-token: ${{ secrets.ACV_TOKEN }}
           version-file: './packages/ui/package.json'
           output-file: './packages/ui/CHANGELOG.md'
+          git-path: './packages/ui'
 
       - name: Release
         uses: softprops/action-gh-release@v2

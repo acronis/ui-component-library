@@ -2,7 +2,8 @@ name: Release Icons
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - 'packages/icons/**'
 
@@ -28,3 +29,5 @@ jobs:
           github-token: ${{ secrets.ACV_TOKEN }}
           version-file: './packages/icons/package.json'
           output-file: './packages/icons/CHANGELOG.md'
+          tag-prefix: 'icons/'
+          git-path: './packages/icons'

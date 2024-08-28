@@ -6,9 +6,9 @@ function tmpl(expose, subComponent) {
 ${subComponent ? '#' : ''}### ${exp.name || ''}
 
   > ${exp.description || ''} ${mdclean(renderTags(exp.tags?.reduce((acc, tag) => {
-    acc[tag.title] = [tag];
-    return acc;
-  }, {}))) || ''}
+  acc[tag.title] = [tag];
+  return acc;
+}, {}))) || ''}
  `).join('');
 }
 
