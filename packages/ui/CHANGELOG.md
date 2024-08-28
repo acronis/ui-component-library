@@ -1,3 +1,10 @@
+## [1.18.3](https://github.com/acronis/ui-component-library/compare/v1.18.2...v1.18.3) (2024-08-28)
+
+
+### Bug Fixes
+
+* add tag prefix for figma-fetcher ([53d57e6](https://github.com/acronis/ui-component-library/commit/53d57e685fa506a9a2adf59894e97f8cad804d4a))
+
 ## [1.18.2](https://github.com/acronis/ui-component-library/compare/v1.18.1...v1.18.2) (2024-08-28)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * remove useless ref in demo ([66392ea](https://github.com/acronis/ui-component-library/commit/66392ea7e4d66f787a4ee1bfaeef677502022378))
-
-## [1.17.12](https://github.com/acronis/ui-component-library/compare/v1.17.11...v1.17.12) (2024-08-21)
-
-
-### Bug Fixes
-
-* **dialog:** implement basic dialog ([b40f7a2](https://github.com/acronis/ui-component-library/commit/b40f7a2d9bd55d451d2ec355bae16534b1463073))
 
