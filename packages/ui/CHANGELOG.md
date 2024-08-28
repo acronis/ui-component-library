@@ -1,3 +1,10 @@
+## [1.18.5](https://github.com/acronis/ui-component-library/compare/v1.18.4...v1.18.5) (2024-08-28)
+
+
+### Bug Fixes
+
+* fix eslint errors ([5f3a387](https://github.com/acronis/ui-component-library/commit/5f3a3879e2aebf3a8211448243618669abc61095))
+
 ## [1.18.4](https://github.com/acronis/ui-component-library/compare/v1.18.3...v1.18.4) (2024-08-28)
 
 
@@ -26,11 +33,4 @@
 ### Bug Fixes
 
 * fix eslint error in figma-fetcher ([58f83ee](https://github.com/acronis/ui-component-library/commit/58f83eee7b43babd14fe9a1da9573320d4c3155b))
-
-## [1.18.0](https://github.com/acronis/ui-component-library/compare/v1.17.13...v1.18.0) (2024-08-22)
-
-
-### Features
-
-* **loading:** implement basic loading widget ([242c620](https://github.com/acronis/ui-component-library/commit/242c620fc9f3765e54d9b454efeebfd9f1c70a31))
 
