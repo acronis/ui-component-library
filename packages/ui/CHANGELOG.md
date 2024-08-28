@@ -1,3 +1,11 @@
+## [1.18.4](https://github.com/acronis/ui-component-library/compare/v1.18.3...v1.18.4) (2024-08-28)
+
+
+### Bug Fixes
+
+* update changelog in figma-fetcher ([6f81269](https://github.com/acronis/ui-component-library/commit/6f8126969fe128eadddd2eccbe9196bc9353179c))
+* update git-path for changelog workflow in figma-fetcher ([ca4c2b7](https://github.com/acronis/ui-component-library/commit/ca4c2b7904d532457e07eede555b98dbe781f02a))
+
 ## [1.18.3](https://github.com/acronis/ui-component-library/compare/v1.18.2...v1.18.3) (2024-08-28)
 
 
@@ -25,11 +33,4 @@
 ### Features
 
 * **loading:** implement basic loading widget ([242c620](https://github.com/acronis/ui-component-library/commit/242c620fc9f3765e54d9b454efeebfd9f1c70a31))
-
-## [1.17.13](https://github.com/acronis/ui-component-library/compare/v1.17.12...v1.17.13) (2024-08-21)
-
-
-### Bug Fixes
-
-* remove useless ref in demo ([66392ea](https://github.com/acronis/ui-component-library/commit/66392ea7e4d66f787a4ee1bfaeef677502022378))
 
