@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/acronis/ui-component-library/compare/v1.18.0...v1.18.1) (2024-08-28)
+
+
+### Bug Fixes
+
+* fix eslint error in figma-fetcher ([58f83ee](https://github.com/acronis/ui-component-library/commit/58f83eee7b43babd14fe9a1da9573320d4c3155b))
+
 ## [1.18.0](https://github.com/acronis/ui-component-library/compare/v1.17.13...v1.18.0) (2024-08-22)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * apply background in popover ([c30a355](https://github.com/acronis/ui-component-library/commit/c30a3553f1f077c2ceb16eda64404f3971890bc5))
-
-## [1.17.10](https://github.com/acronis/ui-component-library/compare/v1.17.9...v1.17.10) (2024-08-20)
-
-
-### Bug Fixes
-
-* **divider:** fix divider props ([995a17c](https://github.com/acronis/ui-component-library/commit/995a17cc03c9483a6c59c649b25025717396141c))
 
