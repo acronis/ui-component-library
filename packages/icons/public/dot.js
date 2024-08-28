@@ -1,3 +1,4 @@
+export { render as IconDot16 } from '../vue/IconDot16.js';
 export { render as IconDotChartBlue16 } from '../vue/IconDotChartBlue16.js';
 export { render as IconDotChartBrown16 } from '../vue/IconDotChartBrown16.js';
 export { render as IconDotChartCritical16 } from '../vue/IconDotChartCritical16.js';
