@@ -28,3 +28,4 @@ jobs:
           version-file: './packages/figma-fetcher/package.json'
           output-file: './packages/figma-fetcher/CHANGELOG.md'
           tag-prefix: 'figma-fetcher/'
+          git-path: './packages/figma-fetcher'
