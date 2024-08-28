@@ -1,4 +1,4 @@
-name: Publish to Github Packages
+name: UI - Publish to Github Packages
 
 # trigger when a release is created
 on:

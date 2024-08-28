@@ -1,4 +1,4 @@
-name: Add PR size and stability labels
+name: PR - Add size and stability labels
 
 on: [pull_request]
 

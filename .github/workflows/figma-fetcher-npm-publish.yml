@@ -1,8 +1,8 @@
-name: Publish Figma Fetcher to NPM
+name: Figma Fetcher - Publish to NPM
 
 on:
   workflow_run:
-    workflows: [ "Release Figma Fetcher" ]
+    workflows: [ "Figma Fetcher - Release" ]
     types:
       - completed
 

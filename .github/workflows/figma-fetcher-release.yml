@@ -1,4 +1,4 @@
-name: Release Figma Fetcher
+name: Figma Fetcher - Release
 
 on:
   push:

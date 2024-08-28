@@ -17,7 +17,7 @@
 #  For more information on creating a Personal Access Token,
 #  see the [docs](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)._
 
-name: Publish UI Component Library to NPM
+name: UI - Publish to NPM
 
 on:
   release:

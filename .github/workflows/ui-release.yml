@@ -1,4 +1,4 @@
-name: Release UI
+name: UI - Release
 
 on:
   push:

@@ -1,8 +1,8 @@
-name: Publish Icons to NPM
+name: Icons - Publish to NPM
 
 on:
   workflow_run:
-    workflows: [ "Release Icons" ]
+    workflows: [ "Icons - Release" ]
     types:
       - completed
 
