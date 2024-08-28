@@ -67,7 +67,7 @@ describe('test Dialog component', () => {
   it('renders', () => {
     const wrapper = mount(Dialog);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<dialog data-v-d2f715b5="" class="acv-dialog backdrop height-small width-small" autofocus="" role="alertdialog" aria-labelledby="label-area" aria-describedby="content-area" aria-modal="true" aria-hidden="true">
+      "<dialog data-v-d2f715b5="" class="acv-dialog backdrop height-small width-small" role="alertdialog" aria-labelledby="label-area" aria-describedby="content-area" aria-modal="true" aria-hidden="true">
         <section data-v-d2f715b5="" class="body">
           <!--v-if-->
           <main data-v-d2f715b5="" id="content-area">
