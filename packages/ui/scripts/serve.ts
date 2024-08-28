@@ -64,14 +64,14 @@ async function serveComponent() {
       history: createWebHashHistory('/'),
       routes: [
         ${demos
-        .map((demo, index) => {
-          return `{
+    .map((demo, index) => {
+      return `{
             path: '${index ? `/${demo}` : '/'}',
             name: '${demo}',
             component: () => import('../../demos/src/${target}/${demo}')
           }`;
-        })
-        .join(',\n')},
+    })
+    .join(',\n')},
         {
           path: '/${demos.includes('play') ? '_' : ''}play',
           name: 'playground',
@@ -101,14 +101,14 @@ async function serveComponent() {
     writeFileSync(
       playPath,
       await format(
-                `<script setup lang="ts">
+        `<script setup lang="ts">
         // write something or copy from playground
         </script>
         
         <template>
           <div></div>
         </template>`,
-                { ...prettierConfig, parser: 'vue' }
+        { ...prettierConfig, parser: 'vue' }
       ),
       'utf-8'
     );
