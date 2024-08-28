@@ -8,6 +8,7 @@ Proposed steps to migrate components to the ui-component library:
 - Remove any unnecessary code (props, methods, etc.)
 - Refactor the component to use the `vue` composition API
 - Check styleguide for the component and make sure it is implemented correctly
+- Check accessibility requirements
 
 3. Create demos, stories according to the mockups
 4. Create unit tests for the component
@@ -23,6 +24,7 @@ Proposed steps to create a new component:
 3. Decouple the component into smaller components
 4. Implement features with composition API
 5. Check feature requirements and implement them as component API(props, events, slots)
-6. Create unit tests for the component
-7. Update documentation(jsdoc, vitepress) for the component
-8. Create pull requests for the component
+6. Check accessibility requirements
+7. Create unit tests for the component
+8. Update documentation(jsdoc, vitepress) for the component
+9. Create pull requests for the component

@@ -7,6 +7,9 @@ on:
     paths:
       - 'packages/figma-fetcher/**'
 
+permissions:
+  contents: write
+
 jobs:
   changelog:
     if: github.repository == 'acronis/ui-component-library'

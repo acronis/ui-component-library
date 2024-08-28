@@ -75,7 +75,6 @@
   "devDependencies": {
     "@acronis-platform/browserslist-config": "workspace:*",
     "@acronis-platform/configs": "workspace:*",
-    "@acronis-platform/demos": "workspace:*",
     "@cypress/vue": "6.0.1",
     "@simonsmith/cypress-image-snapshot": "9.0.3",
     "@storybook/addon-designs": "8.0.3",
@@ -101,6 +100,7 @@
     "eslint": "9.3.0",
     "eslint-plugin-cypress": "3.2.0",
     "eslint-plugin-format": "0.1.2",
+    "eslint-plugin-vuejs-accessibility": "2.4.1",
     "execa": "9.1.0",
     "jsdom": "24.0.0",
     "kolorist": "1.8.0",
