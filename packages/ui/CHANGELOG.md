@@ -1,3 +1,10 @@
+## [1.18.2](https://github.com/acronis/ui-component-library/compare/v1.18.1...v1.18.2) (2024-08-28)
+
+
+### Bug Fixes
+
+* add CHANGELOG.md in figma-fetcher ([4dd152a](https://github.com/acronis/ui-component-library/commit/4dd152a1856a0ba9b6ae3b2b9d8499a00edacf05))
+
 ## [1.18.1](https://github.com/acronis/ui-component-library/compare/v1.18.0...v1.18.1) (2024-08-28)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **dialog:** implement basic dialog ([b40f7a2](https://github.com/acronis/ui-component-library/commit/b40f7a2d9bd55d451d2ec355bae16534b1463073))
-
-## [1.17.11](https://github.com/acronis/ui-component-library/compare/v1.17.10...v1.17.11) (2024-08-21)
-
-
-### Bug Fixes
-
-* apply background in popover ([c30a355](https://github.com/acronis/ui-component-library/commit/c30a3553f1f077c2ceb16eda64404f3971890bc5))
 
