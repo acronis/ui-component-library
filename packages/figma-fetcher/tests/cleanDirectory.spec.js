@@ -15,6 +15,4 @@ describe.skip('cleanDirectory', () => {
     expect(fsPromises.readdir).toHaveBeenCalledWith(directory);
     expect(fsPromises.rm).toHaveBeenCalledTimes(2); // Two files in the directory
   });
-
-  // Add more tests for different scenarios...
 });
