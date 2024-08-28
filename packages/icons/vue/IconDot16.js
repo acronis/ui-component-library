@@ -6,9 +6,11 @@ const _hoisted_1 = {
   viewBox: "0 0 16 16",
   class: "acv-icon"
 }
-const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
-  fill: "currentColor",
-  d: "M8 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+const _hoisted_2 = /*#__PURE__*/_createElementVNode("circle", {
+  cx: "8",
+  cy: "8",
+  r: "4",
+  fill: "currentColor"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = [
   _hoisted_2

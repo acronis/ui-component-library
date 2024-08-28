@@ -1,3 +1,4 @@
+export { default as IconDot16 } from '../vue/IconDot16.js';
 export { default as IconDotChartBlue16 } from '../vue/IconDotChartBlue16.js';
 export { default as IconDotChartBrown16 } from '../vue/IconDotChartBrown16.js';
 export { default as IconDotChartCritical16 } from '../vue/IconDotChartCritical16.js';
