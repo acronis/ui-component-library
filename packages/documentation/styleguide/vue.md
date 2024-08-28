@@ -1,3 +1,35 @@
+# Vue Components Style Guide
+
+## Basics
+
+You should make your Vue components better.
+Try not to write code faster, but write simpler and better code.
+This will help you and your team maintain and update components in the future.
+
+## Decouple components
+
+Before you start writing a new component,
+get familiar with feature description and mockups,
+and think about how you can decouple it into smaller components.
+
+As a rule of thumb, every Vue component can be separated into 3 main parts:
+
+- view(**design**): template, where you design the user interface,
+- logic(**data**): script where you process data and manage user actions,
+- reactive data(**interaction**): features that make interaction with the component dynamic.
+
+You can use this approach to develop components in iterations from design to interactions.
+In **first** iteration you can implement only the view part of the component.
+In the **next** iteration you can implement the logic part of the component.
+In the **last** iteration you can implement the reactive data and interaction part of the component.
+
+## Use composition API
+
+Use the composition API to manage component logic.
+Use pure functions to manage reactive data and side effects.
+They will simplify test, debug and obviousness.
+With pure functions you can decouple composable with Vue-specific code and functions with business logic.
+
 ## Migrating components to ui-component library
 
 Proposed steps to migrate components to the ui-component library:
