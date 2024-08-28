@@ -58,11 +58,11 @@
       :value="attrs.value"
       :checked="isChecked"
       :disabled="props.disabled"
+      :aria-checked="isChecked"
       :aria-disabled="props.disabled"
       :aria-invalid="props.invalid"
       class="hidden"
       type="radio"
-      role="radio"
     >
     <span class="acv-radio-icon">
       <svg

@@ -112,7 +112,6 @@
   <dialog
     ref="dialog"
     :class="classes"
-    autofocus
     role="alertdialog"
     aria-labelledby="label-area"
     aria-describedby="content-area"
