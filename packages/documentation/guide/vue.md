@@ -75,7 +75,7 @@ Within parent component you can define dependent children in several ways:
 
 ### Slot props
 
-- share state and fucntions in template;
+- share state and functions in template;
 - use it in renderless components, overriding some content via slots
 
 ### Provide/Inject
@@ -90,6 +90,7 @@ You can provide parent state to the child and/or provide a method to register th
 - use it in a component that needs to be aware of its sibling components.
 - always use Symbols and inject keys and typed injected state
 - don't use it for single child components
+- it case of nested component with same inject key, the closest parent will be injected
 
 ```vue
 <script setup>
