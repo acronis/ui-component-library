@@ -5,6 +5,7 @@ import { enExamples } from './examples';
 import { directives } from './directives';
 import { composables } from './composables';
 import { widgets } from './widgets';
+import { styleguide } from './styleguide.ts';
 
 export const sidebar = {
   '/guide': [
@@ -17,6 +18,7 @@ export const sidebar = {
   '/directives': directives,
   '/widgets': widgets,
   '/composables': composables,
+  '/styleguide': styleguide,
   '/examples': enExamples,
   '/theming': enTheme,
 };

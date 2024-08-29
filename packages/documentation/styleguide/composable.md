@@ -1,9 +1,9 @@
-# Vue 3 Composables Style Guide
+# Vue 3 Composable Style Guide
 
 This guide is a comprehensive guide to writing Vue 3 composables.
 It covers the best practices, naming conventions, and patterns to follow when writing Vue 3 composables.
 
-Vue 3 composables are a new feature in Vue 3 that allows you to encapsulate and share logic across components.
+Vue 3 composable is a new feature in Vue 3 that allows you to encapsulate and share logic across components.
 Composable is easy to write, maintain test, and reuse.
 
 ## File names
