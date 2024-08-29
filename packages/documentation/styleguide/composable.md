@@ -1,10 +1,10 @@
 # Vue 3 Composable Style Guide
 
-This guide is a comprehensive guide to writing Vue 3 composables.
-It covers the best practices, naming conventions, and patterns to follow when writing Vue 3 composables.
+This guide is a comprehensive guide to writing Vue 3 composable.
+It covers the best practices, naming conventions, and patterns to follow when writing Vue 3 composable.
 
 Vue 3 composable is a new feature in Vue 3 that allows you to encapsulate and share logic across components.
-Composable is easy to write, maintain test, and reuse.
+That composable is easy to write, maintain test, and reuse.
 
 ## File names
 
@@ -47,15 +47,19 @@ useFetch('https://api.com', 'GET');
 ## Error handling
 
 - expose error state and error message.
+- always try to throw error in the composable.
 
 ```typescript
 const error = ref(null);
+
 try {
   // Do something
 }
 catch (err) {
   error.value = err;
+  throw err;
 }
+
 return { error };
 ```
 
@@ -71,13 +75,14 @@ export function useUserData(userId) {
   const user = ref(null);
   const error = ref(null);
 
-  const fetchUser = async () => {
+  async function fetchUser() {
     try {
       const response = await axios.get(`/api/users/${userId}`);
       user.value = response.data;
     }
     catch (e) {
       error.value = e;
+      throw e;
     }
   };
 
@@ -101,21 +106,21 @@ function setup() {
 ## Anatomy
 
 - use well-defined sections in the composable
-  - primary state, main logic that composable is responsible for
-  - supportive state, secondary state that composable uses, like hold values, etc.
-  - methods, functions that composable uses for updating states
+- primary state, main logic that composable is responsible for
+- supportive state, secondary state that composable uses, like hold values, etc.
+- methods, functions that composable uses for updating states
 
 ```typescript
 export function useUserData(userId) {
   // Primary State
   const user = ref(null);
+  const error = ref(null);
 
   // Supportive State
   const status = ref('idle');
-  const error = ref(null);
 
   // Methods
-  const fetchUser = async () => {
+  async function fetchUser() {
     status.value = 'loading';
     try {
       const response = await axios.get(`/api/users/${userId}`);
@@ -125,10 +130,11 @@ export function useUserData(userId) {
     catch (e) {
       status.value = 'error';
       error.value = e;
+      throw e;
     }
   };
 
-  return { user, status, error, fetchUser };
+  return { user, error, fetchUser };
 }
 ```
 
@@ -158,11 +164,11 @@ export default function useCounter() {
   const isEven = computed(() => count.value % 2 === 0);
 
   // Methods
-  const increment = () => {
+  function increment() {
     count.value++;
   };
 
-  const decrement = () => {
+  function decrement() {
     count.value--;
   };
 
@@ -211,11 +217,11 @@ export function useCalculator() {
 export function useCounter() {
   const count = ref(0);
 
-  const increment = () => {
+  function increment() {
     count.value++;
   };
 
-  const decrement = () => {
+  function decrement() {
     count.value--;
   };
 

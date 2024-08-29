@@ -43,15 +43,18 @@ This will help you and your team maintain and update components in the future.
 ## Props
 
 - use `defineProps` for props;
-- define types for props in separate file;
+- define and export prop types in separate file with Acv-prefix,
+  ie file: `AcvButton.ts`, props type: `export interface AcvButtonProps`;
 
 ```typescript
-interface AcvButtonProps {
+// AcvButton.ts
+export interface AcvButtonProps {
   status: string
 }
 
-const props = defineProps<AcvButtonProps>({
-  status: String
+// AcvButton.vue
+const props = withDefaults(defineProps<AcvButtonProps>(), {
+  status: 'default'
 });
 ```
 
@@ -81,6 +84,8 @@ Within parent component you can define dependent children in several ways:
 
 ### Slot props
 
+In some cases, you may need to pass dynamic data to child via scoped slot.
+
 - share state and functions in template;
 - use it in renderless components, overriding some content via slots
 
@@ -99,18 +104,23 @@ You can provide parent state to the child and/or provide a method to register th
 - it case of nested component with same inject key, the closest parent will be injected
 
 ```vue
-<script setup>
+<script setup lang="ts">
   import { inject, reactive } from 'vue';
+
   defineOptions({ name: 'AcvFormItem' });
-  const props = defineProps({
-    name: String,
-  });
+
+  const props = defineProps<{
+    name: string
+  }>();
+
   const form = inject('form');
+
   const field = reactive({
     value: '',
     touched: false,
     name: props.name,
   });
+
   form.register(field);
 </script>
 
@@ -146,6 +156,7 @@ if you are using the composition API.
 ```vue
 <script setup>
   import { onMounted, ref } from 'vue';
+
   const inputEl = ref(null);
 
   function focus() {
@@ -163,30 +174,11 @@ if you are using the composition API.
 </script>
 
 <template>
-  <input ref="inputEl">
+  <input
+    ref="inputEl"
+    class="acv-input"
+  >
 </template>
-```
-
-## Style
-
-- use simple methodology for CSS class naming, ie. prefixed class name with component name,
-  one-letter class names for states and modifiers;
-- use scoped styles;
-
-```vue
-<style scoped>
-  .acv-button {
-    background-color: #000;
-
-    &.large {
-      font-size: 20px;
-    }
-
-    &.primary {
-      background-color: #f00;
-    }
-  }
-</style>
 ```
 
 ## Decouple components
@@ -219,12 +211,10 @@ Proposed steps to migrate components to the ui-component library:
 
 1. Insert the component `as-is` into `packages/ui-components/src/components` folder
 2. Refactor it:
-
-- Remove any unnecessary code (props, methods, etc.)
-- Refactor the component to use the `vue` composition API
-- Check styleguide for the component and make sure it is implemented correctly
-- Check accessibility requirements
-
+   - Remove any unnecessary code (props, methods, etc.)
+   - Refactor the component to use the `vue` composition API
+   - Check styleguide for the component and make sure it is implemented correctly
+   - Check accessibility requirements
 3. Create demos, stories according to the mockups
 4. Create unit tests for the component
 5. Update documentation(jsdoc, vitepress) for the component
