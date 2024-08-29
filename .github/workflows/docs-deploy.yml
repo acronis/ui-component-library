@@ -65,6 +65,9 @@ jobs:
       - name: Test with coverage
         run: pnpm --filter ./packages/ui run test:coverage --coverage.reportsDirectory ../documentation/.vitepress/dist/coverage
 
+      - name: Build storybook
+        run: pnpm --filter ./packages/ui run storybook:build -o ../documentation/.vitepress/dist/storybook
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
