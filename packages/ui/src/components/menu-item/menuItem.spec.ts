@@ -8,7 +8,14 @@ describe('test MenuItem component', () => {
     const wrapper = mount(MenuItem);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
+        "clamp": false,
+        "disabled": false,
+        "exact": false,
+        "icon": undefined,
+        "iconSize": "md",
+        "index": undefined,
+        "route": undefined,
+        "showHoverHint": false,
         "title": undefined,
       }
     `);
@@ -23,7 +30,14 @@ describe('test MenuItem component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
+        "clamp": false,
+        "disabled": false,
+        "exact": false,
+        "icon": undefined,
+        "iconSize": "md",
+        "index": undefined,
+        "route": undefined,
+        "showHoverHint": false,
         "title": "test",
       }
     `);
@@ -32,6 +46,13 @@ describe('test MenuItem component', () => {
   it('renders', () => {
     const wrapper = mount(MenuItem);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-1716f12c="" class="acv-menu-item"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<li data-v-1716f12c="" class="acv-menu-item" role="menuitem" tabindex="0">
+        <!--v-if-->
+        <!--v-if-->
+        <div data-v-1716f12c="" class="acv-text acv-text--body-24 acv-text--ellipsis"></div>
+        <!--v-if-->
+      </li>"
+    `);
   });
 });

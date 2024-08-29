@@ -3,11 +3,6 @@ export interface AcvMenuGroupProps {
    * Title of the MenuGroup
    */
   title?: string
-
-  /**
-   * Description of the MenuGroup
-   */
-  description?: string
 }
 
 export interface AcvMenuGroupEvents {
@@ -25,8 +20,8 @@ export interface AcvMenuGroupSlots {
    */
   default: void
   /**
-   * The description slot content
+   * The title slot content
    * @binding {string} description - The description prop value
    */
-  description: void
+  title: string | (() => NonNullable<unknown>)
 }

@@ -1,22 +1,74 @@
+import type { IconProp } from '@/types/props.ts';
+
 export interface AcvMenuItemProps {
   /**
-   * Title of the MenuItem
+   * Unique identifier
+   */
+  index?: string
+
+  /**
+   * Title of the item
    */
   title?: string
 
   /**
-   * Description of the MenuItem
+   * Icon component to display
    */
-  description?: string
+  icon?: IconProp
+
+  /**
+   * Icon size
+   * @values 'sm', 'md', 'lg', 'xl'
+   * @default 'md'
+   */
+  iconSize?: string
+
+  /**
+   * Whether the item is multiline
+   * @values true, false, 2, 3
+   * @default false
+   */
+  clamp?: boolean | number
+
+  /**
+   * Whether route is active
+   */
+  route?: string | object
+
+  /**
+   * Whether the item is disabled
+   */
+  disabled?: boolean
+
+  /**
+   * Whether route is exact
+   */
+  exact?: boolean
+
+  /**
+   * Whether to show hover hint
+   */
+  showHoverHint?: boolean
 }
 
 export interface AcvMenuItemEvents {
   /**
-   * Triggered when the component is closed
+   * Triggered when the component is clicked
    * @arg {string} eventName - The name of the event
-   * @arg {string} visible - The visibility state of the component
    */
-  (eventName: 'close', visible: boolean): void
+  (eventName: 'click'): void
+
+  /**
+   * Triggered when the component is hovered
+   * @arg {string} eventName - The name of the event
+   */
+  (eventName: 'mousedown'): void
+
+  /**
+   * Triggered when the component is blurred
+   * @arg {string} eventName - The name of the event
+   */
+  (eventName: 'mouseup'): void
 }
 
 export interface AcvMenuItemSlots {
@@ -24,9 +76,21 @@ export interface AcvMenuItemSlots {
    * The default slot content
    */
   default: void
+
   /**
-   * The description slot content
-   * @binding {string} description - The description prop value
+   * Icon slot
    */
-  description: void
+  icon?: (() => NonNullable<unknown>)
+
+  /**
+   * Title
+   * @binding {string} title - content of the title
+   */
+  title?: string | (() => NonNullable<unknown>)
+
+  /**
+   * The subtitle slot content
+   * @binding {string} subtitle - The subtitle prop value
+   */
+  subtitle?: () => NonNullable<unknown>
 }
