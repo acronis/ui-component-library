@@ -1,7 +1,8 @@
 <script setup>
-  import { AcvPagination, getAcvPaginationQuery } from '@acronis-platform/ui-component-library';
   import { computed, getCurrentInstance } from 'vue';
   import { createRouter, createWebHashHistory, useRoute, useRouter } from 'vue-router';
+  import AcvPagination from '@/components/pagination/AcvPagination.vue';
+  import { getAcvPaginationQuery } from '@/components/pagination/acvPaginationRouter.ts';
 
   const routers = createRouter({
     history: createWebHashHistory(),
