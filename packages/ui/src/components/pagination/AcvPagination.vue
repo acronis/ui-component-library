@@ -3,7 +3,7 @@
   import AcvPaginationItem from './AcvPaginationItem.vue';
   import type { AcvPaginationEvents, AcvPaginationProps } from '@/components';
 
-  const props = defineProps<AcvPaginationProps & { modelValue: number }>();
+  const props = defineProps<AcvPaginationProps>();
   defineEmits<AcvPaginationEvents>();
 
   const maximumVisibleSlotsInPagination = 7;
