@@ -1,5 +1,5 @@
 <script setup>
-  import { AcvPagination, getPaginationQuery } from '@acronis-platform/ui-component-library';
+  import { AcvPagination, getAcvPaginationQuery } from '@acronis-platform/ui-component-library';
   import { computed, getCurrentInstance } from 'vue';
   import { createRouter, createWebHashHistory, useRoute, useRouter } from 'vue-router';
 
@@ -23,7 +23,7 @@
   const currentPage = computed(() => (route.query.page ? +route.query.page : 1));
 
   async function setActivePage(newPage) {
-    await router.push({ query: getPaginationQuery(route.query, newPage) });
+    await router.push({ query: getAcvPaginationQuery(route.query, newPage) });
   }
 </script>
 
