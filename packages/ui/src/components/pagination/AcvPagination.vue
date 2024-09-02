@@ -1,28 +1,30 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
-  import AcvPaginationItem from './acvPaginationItem.vue';
-  import type { AcvPaginationProps } from '@/components';
+  import AcvPaginationItem from './AcvPaginationItem.vue';
+  import type { AcvPaginationEvents, AcvPaginationProps } from '@/components';
 
-  const props = defineProps<AcvPaginationProps>();
+  const props = defineProps<AcvPaginationProps & { modelValue: number }>();
+  defineEmits<AcvPaginationEvents>();
 
   const maximumVisibleSlotsInPagination = 7;
-  const page = computed(() => props.pagination.page.value);
-  const lastPage = computed(() => props.pagination.lastPage.value);
+  const lastPage = computed(() => Math.ceil(props.total / props.limit));
 </script>
 
 <template>
   <div class="acv-pagination">
     <!-- Previous page button -->
     <AcvPaginationItem
-      :page="page - 1"
-      :disabled="page <= 1"
+      :page="props.modelValue - 1"
+      :disabled="props.modelValue <= 1"
+      @select="$emit('update:modelValue', $event)"
     >
       &#8592;
     </AcvPaginationItem>
     <!-- First page -->
     <AcvPaginationItem
       :page="1"
-      :active="page === 1"
+      :active="props.modelValue === 1"
+      @select="$emit('update:modelValue', $event)"
     />
     <!-- Pages 2-5 or ellipsis -->
     <template v-if="lastPage <= maximumVisibleSlotsInPagination">
@@ -31,27 +33,30 @@
           v-if="p + 1 <= lastPage"
           :key="p"
           :page="p + 1"
-          :active="page === p + 1"
+          :active="props.modelValue === p + 1"
+          @select="$emit('update:modelValue', $event)"
         />
       </template>
     </template>
     <template v-else>
-      <template v-if="page <= 4">
+      <template v-if="props.modelValue <= 4">
         <AcvPaginationItem
           v-for="p of 3"
           :key="p"
           :page="p + 1"
-          :active="page === p + 1"
+          :active="props.modelValue === p + 1"
+          @select="$emit('update:modelValue', $event)"
         />
         <AcvPaginationItem
           :page="5"
-          :active="page === 5"
+          :active="props.modelValue === 5"
+          @select="$emit('update:modelValue', $event)"
         />
         <div class="page-group">
           ...
         </div>
       </template>
-      <template v-else-if="page > lastPage - 4">
+      <template v-else-if="props.modelValue > lastPage - 4">
         <div class="page-group">
           ...
         </div>
@@ -59,19 +64,27 @@
           v-for="p of 4"
           :key="p"
           :page="lastPage - 5 + p"
-          :active="page === lastPage - 5 + p"
+          :active="props.modelValue === lastPage - 5 + p"
+          @select="$emit('update:modelValue', $event)"
         />
       </template>
       <template v-else>
         <div class="page-group">
           ...
         </div>
-        <AcvPaginationItem :page="page - 1" />
         <AcvPaginationItem
-          :page="page"
-          active
+          :page="props.modelValue - 1"
+          @select="$emit('update:modelValue', $event)"
         />
-        <AcvPaginationItem :page="page + 1" />
+        <AcvPaginationItem
+          :page="props.modelValue"
+          active
+          @select="$emit('update:modelValue', $event)"
+        />
+        <AcvPaginationItem
+          :page="props.modelValue + 1"
+          @select="$emit('update:modelValue', $event)"
+        />
         <div class="page-group">
           ...
         </div>
@@ -82,12 +95,14 @@
     <AcvPaginationItem
       v-if="lastPage !== 1"
       :page="lastPage"
-      :active="page === lastPage"
+      :active="props.modelValue === lastPage"
+      @select="$emit('update:modelValue', $event)"
     />
     <!-- Next page button -->
     <AcvPaginationItem
-      :page="page + 1"
-      :disabled="page >= lastPage"
+      :page="props.modelValue + 1"
+      :disabled="props.modelValue >= lastPage"
+      @select="$emit('update:modelValue', $event)"
     >
       &#8594;
     </AcvPaginationItem>
@@ -110,5 +125,7 @@
   font-size: var(--acv-font-size-body);
   font-weight: var(--acv-font-weight-strong);
   line-height: var(--acv-font-line-height-regular);
+  min-inline-size: var(--acv-button-min-width);
+  padding-inline: var(--acv-button-padding);
 }
 </style>

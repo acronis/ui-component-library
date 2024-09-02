@@ -1,3 +1,3 @@
-export { default as AcvPagination } from './acvPagination.vue';
-export * from './pagination.ts';
-export * from './pagination-service.ts';
+export { default as AcvPagination } from './AcvPagination.vue';
+export * from './acvPagination.ts';
+export * from './paginatioRouter.ts';
