@@ -1,30 +1,14 @@
 <script setup>
-  import { AcvPagination, useAcvPagination } from '@acronis-platform/ui-component-library';
-  import { getCurrentInstance } from 'vue';
-  import { createRouter, createWebHashHistory } from 'vue-router';
+  import { AcvPagination } from '@acronis-platform/ui-component-library';
+  import { ref } from 'vue';
 
-  const router = createRouter({
-    history: createWebHashHistory(),
-    routes: [
-      {
-        path: '/',
-        component: {
-          template: '<div>Test</div>',
-        },
-      },
-    ],
-  });
-
-  const { app } = getCurrentInstance().appContext;
-  app.use(router);
-
-  const paginationService = useAcvPagination({ limit: 1 });
-  const { setTotal, setPage } = paginationService;
-
-  setTotal(20);
-  setPage(1);
+  const currentPage = ref(1);
 </script>
 
 <template>
-  <AcvPagination :pagination="paginationService" />
+  <AcvPagination
+    v-model="currentPage"
+    :total="7"
+    :limit="1"
+  />
 </template>

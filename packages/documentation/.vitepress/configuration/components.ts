@@ -63,7 +63,7 @@ const componentsList = [
   { text: 'Num Picker', link: '/components/num-picker/numPicker.md' },
   { text: 'Option Group', link: '/components/option-group/optionGroup.md' },
   { text: 'Option', link: '/components/option/option.md' },
-  { text: 'Pagination', link: '/components/pagination/pagination.md' },
+  { text: 'Pagination', link: '/components/pagination/pagination.md', readyForReview: true },
   { text: 'Password', link: '/components/password/password.md' },
   { text: 'Popover', link: '/components/popover/popover.md' },
   { text: 'Popper', link: '/components/popper/popper.md' },
