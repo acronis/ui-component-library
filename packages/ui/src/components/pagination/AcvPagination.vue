@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
   import AcvPaginationItem from './AcvPaginationItem.vue';
-  import type { AcvPaginationEvents, AcvPaginationProps } from '@/components';
+  import type { AcvPaginationEvents, AcvPaginationProps } from './acvPagination.ts';
 
   const props = defineProps<AcvPaginationProps>();
   defineEmits<AcvPaginationEvents>();
@@ -14,8 +14,8 @@
   <div class="acv-pagination">
     <!-- Previous page button -->
     <AcvPaginationItem
-      :page="props.modelValue - 1"
-      :disabled="props.modelValue <= 1"
+      :page="modelValue - 1"
+      :disabled="modelValue <= 1"
       @select="$emit('update:modelValue', $event)"
     >
       &#8592;
@@ -23,7 +23,7 @@
     <!-- First page -->
     <AcvPaginationItem
       :page="1"
-      :active="props.modelValue === 1"
+      :active="modelValue === 1"
       @select="$emit('update:modelValue', $event)"
     />
     <!-- Pages 2-5 or ellipsis -->
@@ -33,30 +33,30 @@
           v-if="p + 1 <= lastPage"
           :key="p"
           :page="p + 1"
-          :active="props.modelValue === p + 1"
+          :active="modelValue === p + 1"
           @select="$emit('update:modelValue', $event)"
         />
       </template>
     </template>
     <template v-else>
-      <template v-if="props.modelValue <= 4">
+      <template v-if="modelValue <= 4">
         <AcvPaginationItem
           v-for="p of 3"
           :key="p"
           :page="p + 1"
-          :active="props.modelValue === p + 1"
+          :active="modelValue === p + 1"
           @select="$emit('update:modelValue', $event)"
         />
         <AcvPaginationItem
           :page="5"
-          :active="props.modelValue === 5"
+          :active="modelValue === 5"
           @select="$emit('update:modelValue', $event)"
         />
         <div class="page-group">
           ...
         </div>
       </template>
-      <template v-else-if="props.modelValue > lastPage - 4">
+      <template v-else-if="modelValue > lastPage - 4">
         <div class="page-group">
           ...
         </div>
@@ -64,7 +64,7 @@
           v-for="p of 4"
           :key="p"
           :page="lastPage - 5 + p"
-          :active="props.modelValue === lastPage - 5 + p"
+          :active="modelValue === lastPage - 5 + p"
           @select="$emit('update:modelValue', $event)"
         />
       </template>
@@ -73,16 +73,16 @@
           ...
         </div>
         <AcvPaginationItem
-          :page="props.modelValue - 1"
+          :page="modelValue - 1"
           @select="$emit('update:modelValue', $event)"
         />
         <AcvPaginationItem
-          :page="props.modelValue"
+          :page="modelValue"
           active
           @select="$emit('update:modelValue', $event)"
         />
         <AcvPaginationItem
-          :page="props.modelValue + 1"
+          :page="modelValue + 1"
           @select="$emit('update:modelValue', $event)"
         />
         <div class="page-group">
@@ -95,13 +95,13 @@
     <AcvPaginationItem
       v-if="lastPage !== 1"
       :page="lastPage"
-      :active="props.modelValue === lastPage"
+      :active="modelValue === lastPage"
       @select="$emit('update:modelValue', $event)"
     />
     <!-- Next page button -->
     <AcvPaginationItem
-      :page="props.modelValue + 1"
-      :disabled="props.modelValue >= lastPage"
+      :page="modelValue + 1"
+      :disabled="modelValue >= lastPage"
       @select="$emit('update:modelValue', $event)"
     >
       &#8594;

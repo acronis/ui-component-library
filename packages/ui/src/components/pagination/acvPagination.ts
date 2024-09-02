@@ -1,8 +1,11 @@
 export interface AcvPaginationProps {
+  /** Total number of data items */
   total: number
+  /** Number of data items per page */
   limit: number
+  /** Current page number */
   modelValue: number
-}
+};
 
 export interface AcvPaginationEvents {
   /**
@@ -14,8 +17,11 @@ export interface AcvPaginationEvents {
 }
 
 export interface AcvPaginationItemProps {
+  /** Page number */
   page: number
+  /** Whether the page is active */
   active?: boolean
+  /** Whether the page is disabled */
   disabled?: boolean
 }
 
