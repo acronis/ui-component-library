@@ -1,4 +1,11 @@
-## 0.1.0 (2024-08-28)
+## [0.2.0](https://github.com/acronis/ui-component-library/compare/icons/0.1.0...icons/0.2.0) (2024-09-04)
+
+
+### Features
+
+* **icons:** create new document icons ([9e8ec19](https://github.com/acronis/ui-component-library/commit/9e8ec198a395eb0b34a090f43ee126b7ddbb68e0))
+
+## [0.1.0](https://github.com/acronis/ui-component-library/compare/63bc5c18e74623f6c30b6459091c55ec680b5391...icons/0.1.0) (2024-08-28)
 
 
 ### Features
