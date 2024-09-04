@@ -4,5 +4,7 @@ export { default as IconAddAction16 } from '../vue/IconAddAction16.js';
 export { default as IconAddAdmin32 } from '../vue/IconAddAdmin32.js';
 export { default as IconAddCreateAb32 } from '../vue/IconAddCreateAb32.js';
 export { default as IconAddDisk32 } from '../vue/IconAddDisk32.js';
+export { default as IconAddDocument32 } from '../vue/IconAddDocument32.js';
+export { default as IconAddDocumentCloud32 } from '../vue/IconAddDocumentCloud32.js';
 export { default as IconAddToGroupAb32 } from '../vue/IconAddToGroupAb32.js';
 export { default as IconAddUnitAb32 } from '../vue/IconAddUnitAb32.js';
