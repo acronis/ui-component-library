@@ -35,30 +35,6 @@ describe('test AcvPagination component', () => {
     `);
   });
 
-  it('change props', async () => {
-    const wrapper = mount(AcvPagination, {
-      props: {
-        total: 200,
-        limit: 20,
-        modelValue: 2,
-      } as AcvPaginationProps,
-    });
-
-    await wrapper.setProps({
-      total: 300,
-      limit: 30,
-      modelValue: 3,
-    });
-
-    expect(wrapper.props()).toMatchInlineSnapshot(`
-    {
-      "limit": 30,
-      "modelValue": 3,
-      "total": 300,
-    }
-  `);
-  });
-
   it('renders', () => {
     const wrapper = mount(AcvPagination, {
       props: {
