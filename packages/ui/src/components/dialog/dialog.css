@@ -27,7 +27,8 @@
     --acv-dialog-width-small: 512px;
     --acv-dialog-width-medium: 672px;
     --acv-dialog-width-large: 832px;
-    --acv-dialog-width-x-large: 1184px;
+    --acv-dialog-width-x-large: 992px;
+    --acv-dialog-width-xx-large: 1136px;
     --acv-dialog-height: var(--acv-dialog-height-small);
     --acv-dialog-height-auto: auto;
     --acv-dialog-height-fit: min-content;
