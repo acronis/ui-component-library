@@ -1,6 +1,7 @@
 @layer tokens {
   :root {
-    /* Insert component css variables here */
-    --acv-carousel-color: var(--acv-color-brand-primary);
+    --acv-carousel-nav-content-gap: var(--acv-spacing-regular);
+    --acv-carousel-nav-button-icon-color-available: var(--acv-color-disabled);
+    --acv-carousel-nav-button-icon-color-active: var(--acv-color-active);
   }
 }

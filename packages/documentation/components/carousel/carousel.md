@@ -11,14 +11,16 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name | Description              | Type    | Values | Default |
-| --------- | ------------------------ | ------- | ------ | ------- |
-| count     | Number of carousel items | number  | -      |         |
-| cycle     |                          | boolean | -      | false   |
+| Prop name | Description                                    | Type    | Values | Default |
+| --------- | ---------------------------------------------- | ------- | ------ | ------- |
+| cycle     | Indicates whether the cycle option is enabled. | boolean | -      | false   |
+| autoplay  | Whether Carousel plays automatically           | boolean | -      | false   |
+| interval  | Interval when autoplay is true in milliseconds | number  | -      | 3_000   |
 
 ## Slots
 
-| Name | Description | Bindings |
-| ---- | ----------- | -------- |
-| prev |             | <br/>    |
-| next |             | <br/>    |
+| Name    | Description | Bindings |
+| ------- | ----------- | -------- |
+| default |             |          |
+| prev    |             | <br/>    |
+| next    |             | <br/>    |

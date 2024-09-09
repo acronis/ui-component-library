@@ -14,6 +14,7 @@ const componentsList = [
   { text: 'Button', link: '/components/button/button.md', readyForReview: true },
   { text: 'Card', link: '/components/card/card.md' },
   { text: 'Carousel', link: '/components/carousel/carousel.md' },
+  { text: 'CarouselItem', link: '/components/carousel-item/carouselItem.md' },
   { text: 'Cascader', link: '/components/cascader/cascader.md' },
   { text: 'Chart', link: '/components/chart/chart.md' },
   { text: 'Checkbox', link: '/components/checkbox/checkbox.md', readyForReview: true },
