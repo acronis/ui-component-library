@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/acronis/ui-component-library/compare/v1.19.0...v1.19.1) (2024-09-10)
+
+
+### Bug Fixes
+
+* **pagination:** replace the import path with a relative path ([#94](https://github.com/acronis/ui-component-library/issues/94)) ([09aea1b](https://github.com/acronis/ui-component-library/commit/09aea1b9015c6a6af44448efa632f95e4d6ce944))
+
 ## [1.19.0](https://github.com/acronis/ui-component-library/compare/v1.18.7...v1.19.0) (2024-09-09)
 
 
@@ -33,6 +40,4 @@
 ### Bug Fixes
 
 * fix eslint errors ([5f3a387](https://github.com/acronis/ui-component-library/commit/5f3a3879e2aebf3a8211448243618669abc61095))
-
-## [1.18.4](https://github.com/acronis/ui-component-library/compare/v1.18.3...v1.18.4) (2024-08-28)
 
