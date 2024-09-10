@@ -1,6 +1,6 @@
 <script lang="ts" setup>
+  import type { AcvPaginationItemEvents, AcvPaginationItemProps } from './acvPagination.ts';
   import AcvButton from '@/components/button/button.vue';
-  import type { AcvPaginationItemEvents, AcvPaginationItemProps } from '@/components';
 
   defineProps<AcvPaginationItemProps>();
   defineEmits<AcvPaginationItemEvents>();
