@@ -1,75 +1,175 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
+  import { computed, onMounted, provide, ref, toRefs, watch } from 'vue';
+  import { IconDot16 } from '@acronis-platform/icons/dot';
+  import { IconArrowLeft16, IconArrowRight16 } from '@acronis-platform/icons/arrow';
   import AcvButton from '../button/button.vue';
   import type { AcvCarouselProps, AcvCarouselSlots } from './carousel.ts';
+  import { CAROUSEL_INJECTION_KEY } from './carousel.ts';
+  import { isDefined } from '@/utils/common.ts';
   import './carousel.css';
 
-  const { count, cycle } = withDefaults(defineProps<AcvCarouselProps>(), {
-    cycle: false
+  const props = withDefaults(defineProps<AcvCarouselProps>(), {
+    cycle: false,
+    autoplay: false,
+    interval: 3_000,
   });
 
   defineSlots<AcvCarouselSlots>();
-  const model = defineModel<number>({ default: 0 });
 
-  const isFirst = computed(() => model.value === 0);
-  const isLast = computed(() => model.value === (count - 1));
-  const isFirstDisabled = computed(() => !cycle && isFirst.value);
-  const isLastDisabled = computed(() => !cycle && isLast.value);
+  const { cycle, autoplay, interval } = toRefs(props);
 
-  function setActive(index: number) {
-    model.value = index;
+  let timeoutIndex: NodeJS.Timeout;
+
+  const model = defineModel<string | number>();
+
+  const values = ref<Array<string | number>>([]);
+
+  const activeIndex = computed(() => model.value ? values.value.indexOf(model.value) : undefined);
+  const isFirst = computed(() => activeIndex.value === 0);
+  const isLast = computed(() => activeIndex.value === (values.value.length - 1));
+  const isFirstDisabled = computed(() => !cycle.value && isFirst.value);
+  const isLastDisabled = computed(() => !cycle.value && isLast.value);
+
+  function register(name: string | number): void {
+    values.value.push(name);
+  }
+
+  function unregister(name: string | number): void {
+    const isActiveRemoved = model.value === name;
+    values.value.splice(values.value.indexOf(name), 1);
+    if (isActiveRemoved) {
+      next();
+    }
+  }
+
+  function setActive(name: string | number) {
+    const index = values.value.indexOf(name);
+    if (index === -1) {
+      throw new Error(`Cannot set active name "${name}"`);
+    }
+    model.value = name;
   }
 
   function prev() {
-    setActive((model.value + count - 1) % count);
+    const count = values.value.length;
+    if (isDefined(activeIndex.value) && (!isFirst.value || cycle.value)) {
+      setActive(values.value[(activeIndex.value + count - 1) % count]);
+    }
   }
 
   function next() {
-    setActive((model.value + 1) % count);
+    const count = values.value.length;
+    if (isDefined(activeIndex.value) && (!isLast.value || cycle.value)) {
+      setActive(values.value[(activeIndex.value + 1) % count]);
+    }
   }
+
+  function startAutoplay() {
+    clearTimeout(timeoutIndex);
+
+    timeoutIndex = setTimeout(() => {
+      next();
+      startAutoplay();
+    }, interval.value);
+  }
+
+  function stopAutoplay() {
+    clearTimeout(timeoutIndex);
+  }
+
+  onMounted(() => {
+    if (!isDefined(model.value) && values.value.length > 0) {
+      setActive(values.value[0]);
+    }
+  });
+
+  watch([autoplay, interval], () => {
+    if (autoplay.value) {
+      startAutoplay();
+    }
+    else {
+      stopAutoplay();
+    }
+  }, { immediate: true });
+
+  provide(CAROUSEL_INJECTION_KEY, {
+    model,
+    register,
+    unregister
+  });
 </script>
 
 <template>
   <div class="acv-carousel">
-    <slot
-      name="prev"
-      :prev="prev"
-      :disabled="isFirstDisabled"
-    >
-      <AcvButton
+    <div class="acv-carousel-content">
+      <slot />
+    </div>
+
+    <div class="acv-carousel-nav">
+      <slot
+        name="prev"
+        :prev="prev"
         :disabled="isFirstDisabled"
-        @click="prev"
       >
-        Prev
-      </AcvButton>
-    </slot>
-    <AcvButton
-      v-for="(_, $index) in count"
-      :key="$index"
-      :disabled="$index === model"
-      variant="ghost"
-      @click="setActive($index)"
-    >
-      *
-    </AcvButton>
-    <slot
-      name="next"
-      :next="next"
-      :disabled="isLastDisabled"
-    >
-      <AcvButton
+        <AcvButton
+          class="prev-button"
+          :disabled="isFirstDisabled"
+          :icon="IconArrowLeft16"
+          variant="ghost"
+          @click="prev"
+        >
+          Prev
+        </AcvButton>
+      </slot>
+      <div class="inner">
+        <AcvButton
+          v-for="name in values"
+          :key="name"
+          :class="{
+            'button-active': name === model,
+            'button-available': name !== model,
+          }"
+          :selected="name === model"
+          variant="ghost"
+          :icon="IconDot16"
+          @click="setActive(name)"
+        />
+      </div>
+      <slot
+        name="next"
+        :next="next"
         :disabled="isLastDisabled"
-        @click="next"
       >
-        Next
-      </AcvButton>
-    </slot>
+        <AcvButton
+          class="next-button"
+          :append-icon="IconArrowRight16"
+          :disabled="isLastDisabled"
+          variant="ghost"
+          @click="next"
+        >
+          Next
+        </AcvButton>
+      </slot>
+    </div>
   </div>
 </template>
 
 <style scoped>
-  .acv-carousel {
-    font-weight: var(--acv-font-weight-strong);
-    color: var(--acv-carousel-color);
+  .acv-carousel-nav {
+    display: flex;
+    justify-content: space-between;
+
+    .inner {
+      margin-left: var(--acv-carousel-nav-content-gap);
+      margin-right: var(--acv-carousel-nav-content-gap);
+
+      .button-active {
+        --acv-button-color: var(--acv-carousel-nav-button-icon-color-active);
+      }
+
+      .button-available {
+        --acv-button-color: var(--acv-carousel-nav-button-icon-color-available);
+      }
+    }
   }
 </style>

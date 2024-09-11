@@ -1,11 +1,20 @@
 <script setup>
   import AcvCarousel from '@/components/carousel/carousel.vue';
+  import AcvCarouselItem from '@/components/carousel-item/carouselItem.vue';
 </script>
 
 <template>
-  <AcvCarousel
-    :count="3"
-  />
+  <AcvCarousel>
+    <AcvCarouselItem name="1">
+      First
+    </AcvCarouselItem>
+    <AcvCarouselItem name="2">
+      Second
+    </AcvCarouselItem>
+    <AcvCarouselItem name="3">
+      Third
+    </AcvCarouselItem>
+  </AcvCarousel>
 </template>
 
 <style scoped>
