@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/acronis/ui-component-library/compare/v1.20.0...v1.20.1) (2024-09-11)
+
+
+### Bug Fixes
+
+* disable auto play to fix vitepress build ([9a5b1c0](https://github.com/acronis/ui-component-library/commit/9a5b1c0cfafe3a874c7d6558f4e8fadfec030bbf))
+
 ## [1.20.0](https://github.com/acronis/ui-component-library/compare/v1.19.1...v1.20.0) (2024-09-11)
 
 
@@ -33,11 +40,4 @@
 ### Bug Fixes
 
 * **dialog:** add xx-large dialog width ([03dec73](https://github.com/acronis/ui-component-library/commit/03dec739d89f72a0d5456dc0a32ba18b9dc44303))
-
-## [1.18.6](https://github.com/acronis/ui-component-library/compare/v1.18.5...v1.18.6) (2024-08-28)
-
-
-### Bug Fixes
-
-* fix ts error ([762a635](https://github.com/acronis/ui-component-library/commit/762a63598311223bb08f843ae778fffab0905bf6))
 
