@@ -1,3 +1,10 @@
+## [1.20.0](https://github.com/acronis/ui-component-library/compare/v1.19.1...v1.20.0) (2024-09-11)
+
+
+### Features
+
+* **carousel:**  implement basic carousel component ([#93](https://github.com/acronis/ui-component-library/issues/93)) ([36ac2bc](https://github.com/acronis/ui-component-library/commit/36ac2bc72c8aa2790de01248bf57a888caf6d907))
+
 ## [1.19.1](https://github.com/acronis/ui-component-library/compare/v1.19.0...v1.19.1) (2024-09-10)
 
 
@@ -33,11 +40,4 @@
 ### Bug Fixes
 
 * fix ts error ([762a635](https://github.com/acronis/ui-component-library/commit/762a63598311223bb08f843ae778fffab0905bf6))
-
-## [1.18.5](https://github.com/acronis/ui-component-library/compare/v1.18.4...v1.18.5) (2024-08-28)
-
-
-### Bug Fixes
-
-* fix eslint errors ([5f3a387](https://github.com/acronis/ui-component-library/commit/5f3a3879e2aebf3a8211448243618669abc61095))
 
