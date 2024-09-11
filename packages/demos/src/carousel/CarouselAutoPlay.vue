@@ -5,7 +5,7 @@
   import AcvCarouselItem from '@/components/carousel-item/carouselItem.vue';
 
   const value = ref();
-  const autoplay = ref(true);
+  const autoplay = ref(false);
   const cycle = ref(true);
 </script>
 

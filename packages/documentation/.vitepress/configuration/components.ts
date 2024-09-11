@@ -13,7 +13,7 @@ const componentsList = [
   { text: 'Button Group', link: '/components/button-group/buttonGroup.md' },
   { text: 'Button', link: '/components/button/button.md', readyForReview: true },
   { text: 'Card', link: '/components/card/card.md' },
-  { text: 'Carousel', link: '/components/carousel/carousel.md' },
+  { text: 'Carousel', link: '/components/carousel/carousel.md', readyForReview: true },
   { text: 'CarouselItem', link: '/components/carousel-item/carouselItem.md' },
   { text: 'Cascader', link: '/components/cascader/cascader.md' },
   { text: 'Chart', link: '/components/chart/chart.md' },
