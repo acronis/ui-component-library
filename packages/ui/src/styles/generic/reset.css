@@ -12,6 +12,17 @@
     border-color: hsl(220deg 13% 91%);
   }
 
+  * {
+    padding: 0;
+    margin: 0;
+    font: inherit;
+  }
+
+  html {
+    color-scheme: var(--acv-color-scheme-light-dark);
+    hanging-punctuation: first last;
+  }
+
   body,
   h1,
   h2,
@@ -56,6 +67,20 @@
   a {
     color: inherit;
     text-decoration: inherit;
+  }
+
+  p,
+  li,
+  figcaption {
+    max-width: 65ch;
+    text-wrap: pretty;
+  }
+
+  body > :is(header, footer),
+  main,
+  section,
+  article {
+    container-type: inline-size;
   }
 
   sub,
@@ -218,5 +243,17 @@
 
   [hidden] {
     display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Animate elements that are being hovered */
+    *:hover {
+      animation: shake-x 0.5s;
+    }
+
+    :has(:target) {
+      scroll-behavior: smooth;
+      scroll-padding-top: 2rem;
+    }
   }
 }

@@ -1,0 +1,13 @@
+:root {
+  --acv-color-white: hsl(0deg 100% 100%);
+  --acv-color-black: hsl(230deg 13% 9%);
+  --acv-color-transparent: hsl(0deg 0% 100% / 0);
+  --acv-color-indigo: hsl(231deg 48% 48%);
+  --acv-color-lime: hsl(66deg 70% 54%);
+  --acv-color-orange: hsl(29deg 100% 53%);
+  --acv-color-deep-orange: hsl(14deg 100% 57%);
+  --acv-color-brown: hsl(16deg 25% 38%);
+  --acv-color-blue-gray: hsl(200deg 18% 46%);
+  --acv-color-inverted: var(--acv-color-button-label-inversed-primary);
+  --acv-color-inverted-primary: hsl(216deg 36% 32% / 1);
+}

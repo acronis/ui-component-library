@@ -1,0 +1,9 @@
+:where(html) {
+  --acv-color-pink-darkest: hsl(356deg 100% 21%);
+  --acv-color-pink-darker: hsl(344deg 100% 29%);
+  --acv-color-pink-dark: hsl(339deg 100% 37%);
+  --acv-color-pink: hsl(340deg 82% 52%);
+  --acv-color-pink-light: hsl(343deg 100% 66%);
+  --acv-color-pink-lighter: hsl(340deg 100% 74%);
+  --acv-color-pink-lightest: hsl(334deg 100% 82%);
+}

@@ -1,0 +1,32 @@
+@layer components {
+  *::-webkit-scrollbar {
+    width: var(--acv-scrollbar-size); /* width of the entire scrollbar */
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(
+      --acv-scrollbar-track-color
+    ); /* color of the tracking area */
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(
+      --acv-scrollbar-thumb-color
+    ); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid var(--acv-color-red); /* creates padding around scroll thumb */
+  }
+
+  .acv-scrollbar {
+    --scrollbar-color-track: hsl(240deg 100% 50%);
+    --scrollbar-color-thumb: hsl(330deg 100% 71%);
+  }
+
+  @supports (scrollbar-width: auto) {
+    * {
+      scrollbar-width: var(--acv-scrollbar-width);
+      scrollbar-color: var(--acv-scrollbar-thumb-color)
+        var(--acv-scrollbar-track-color);
+    }
+  }
+}

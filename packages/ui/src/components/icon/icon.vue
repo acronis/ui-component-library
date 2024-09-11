@@ -94,37 +94,37 @@
     &.size-xs,
     &.size-16
     {
-      --acv-icon-size: var(--acv-icon-size-xs);
+      --acv-icon-size: var(--acv-icon-size-x-small);
     }
 
     &.size-sm,
     &.size-20 {
-      --acv-icon-size: var(--acv-icon-size-sm);
+      --acv-icon-size: var(--acv-icon-size-small);
     }
 
     &.size-md,
     &.size-24 {
-      --acv-icon-size: var(--acv-icon-size-md);
+      --acv-icon-size: var(--acv-icon-size-medium);
     }
 
     &.size-lg,
     &.size-32 {
-      --acv-icon-size: var(--acv-icon-size-lg);
+      --acv-icon-size: var(--acv-icon-size-large);
     }
 
     &.size-xl,
     &.size-48 {
-      --acv-icon-size: var(--acv-icon-size-xl);
+      --acv-icon-size: var(--acv-icon-size-x-large);
     }
 
     &.size-xxl,
     &.size-64 {
-      --acv-icon-size: var(--acv-icon-size-2xl);
+      --acv-icon-size: var(--acv-icon-size-xx-large);
     }
 
     &.size-xxxl,
     &.size-96 {
-      --acv-icon-size: var(--acv-icon-size-3xl);
+      --acv-icon-size: var(--acv-icon-size-xxx-large);
     }
 
     &.flip-horizontal {

@@ -36,6 +36,7 @@
     padding-inline: var(--acv-tag-padding);
     font-size: var(--acv-tag-font-size);
     line-height: var(--acv-tag-height);
+    display: inline-block;
 
     &.small {
       --acv-tag-font-size: var(--acv-font-size-note);

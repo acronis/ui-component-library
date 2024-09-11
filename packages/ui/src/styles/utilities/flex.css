@@ -1,3 +1,5 @@
-.flex-grow {
-  flex-grow: 1;
+@layer utilities {
+  .flex-grow {
+    flex-grow: 1;
+  }
 }

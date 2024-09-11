@@ -1,12 +1,14 @@
 /*
-    reset - reset default browser styling for HTML elements (lowest priority)
-    base - global styles of HTML elements, like normalize.css
-    generic - primitive css classes
-    elements - basic styled html elements
-    layout objects - styles for layout components with margins, widths, heights, etc.
-    components - styles for components, with visual styles and layout(fonts, colors, etc.)
-    tokens - css variables for tokens and semantic tokens, zero of css code
-    theme - theme styles
-    utilities - utility and helper classes (highest priority)
+    Setup layers for css code:
+    
+    - reset - reset default browser styling for HTML elements (lowest priority)
+    - base - global styles of HTML elements, like normalize.css
+    - generic - primitive css classes
+    - elements - basic styled html elements
+    - layout objects - styles for layout components with margins, widths, heights, etc.
+    - components - styles for components, with visual styles and layout(fonts, colors, etc.)
+    - tokens - css variables for tokens and semantic tokens, zero of css code
+    - theme - theme styles
+    - utilities - utility and helper classes (highest priority)
  */
 @layer reset, base, components, tokens, theme, utilities;

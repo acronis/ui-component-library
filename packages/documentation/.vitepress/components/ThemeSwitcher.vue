@@ -72,7 +72,7 @@
   padding: 8px;
   top: 100%;
   background-color: var(--acv-color-white);
-  border: 1px solid var(--acv-color-gray-light-20);
+  border: 1px solid var(--acv-color-gray-lighter);
 
   li {
     padding: 8px;

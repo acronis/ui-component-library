@@ -1,15 +1,17 @@
-.acv-position--static {
-  position: static;
-}
+@layer utilities {
+  .acv-position--static {
+    position: static;
+  }
 
-.acv-position--relative {
-  position: relative;
-}
+  .acv-position--relative {
+    position: relative;
+  }
 
-.acv-position--absolute {
-  position: absolute;
-}
+  .acv-position--absolute {
+    position: absolute;
+  }
 
-.acv-position--fixed {
-  position: fixed;
+  .acv-position--fixed {
+    position: fixed;
+  }
 }

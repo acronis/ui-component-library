@@ -9,8 +9,8 @@ module.exports = {
     'csstools/value-no-unknown-custom-properties': [null, {
       importFrom: [
         resolve(__dirname, 'src/styles/variables/fonts.css'),
-        resolve(__dirname, 'src/styles/variables/palette.css'),
-        resolve(__dirname, 'src/styles/variables/dimension.css'),
+        resolve(__dirname, 'src/styles/variables/color.named.css'),
+        resolve(__dirname, 'src/styles/variables/dimensions.css'),
         resolve(__dirname, 'src/styles/variables/borders.css'),
         resolve(__dirname, 'src/styles/variables/spacing.css'),
         resolve(__dirname, 'src/styles/variables/schemes.css'),

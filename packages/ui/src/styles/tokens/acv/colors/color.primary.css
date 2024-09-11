@@ -1,0 +1,19 @@
+:where(html) {
+  --acv-color-primary-darkest: hsl(213deg 100% 31%);
+  --acv-color-primary-darker: hsl(214deg 83% 37%);
+  --acv-color-primary-dark: hsl(215deg 74% 42%);
+  --acv-color-primary: var(--acv-color-brand-primary, hsl(215deg 68% 46%));
+  --acv-color-primary-light: hsl(224deg 54% 67%);
+  --acv-color-primary-lighter: hsl(228deg 53% 82%);
+  --acv-color-primary-lightest: hsl(220deg 60% 97%);
+  --acv-color-primary-hover: var(
+    --acv-color-button-hover-primary,
+    var(--acv-color-primary-dark)
+  );
+  --acv-color-primary-active: var(
+    --acv-color-button-active-primary,
+    var(--acv-color-primary-dark)
+  );
+  --acv-color-primary-muted: var(--acv-color-primary-darkest);
+  --acv-color-primary-text: var(--acv-color-button-label-inversed-primary);
+}

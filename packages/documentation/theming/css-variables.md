@@ -14,7 +14,7 @@ and other design tokens according used theme.
 [List of CSS variables](#list-of-basic-variables) is available at the bottom of this page.
 :::
 
-## List of css variables
+## List of UI-syntax 3.0 css variables
 
 Basic variables are used to define the basic design tokens like colors, typography, spacing, etc.
 
@@ -27,3 +27,15 @@ Theme variables are used to define the theme-specific design tokens like colors,
 <<< ../../ui/src/styles/tokens/virtuozzo.css [Virtuozzo theme]
 <<< ../../ui/src/styles/tokens/dark.css [Dark theme]
 :::
+
+## List of basic tokens
+
+::: code-group
+<<< ../../ui/src/styles/tokens/acv/animation.css [Animation tokens]
+<<< ../../ui/src/styles/tokens/acv/aspects.css [Aspects tokens]
+<<< ../../ui/src/styles/tokens/acv/shadows.css [Shadows tokens]
+:::
+
+## Shadows
+
+<ShadowTokens />

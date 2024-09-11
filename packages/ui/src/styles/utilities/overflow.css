@@ -1,7 +1,9 @@
-.acv-overflow--auto {
-  overflow: auto;
-}
+@layer utilities {
+  .acv-overflow--auto {
+    overflow: auto;
+  }
 
-.acv-overflow--hidden {
-  overflow: hidden;
+  .acv-overflow--hidden {
+    overflow: hidden;
+  }
 }

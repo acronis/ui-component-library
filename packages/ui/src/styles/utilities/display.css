@@ -1,35 +1,37 @@
-.acv-display--block {
-  display: block;
-}
+@layer utilities {
+  .acv-display--block {
+    display: block;
+  }
 
-.acv-display--inline-block {
-  display: inline-block;
-}
+  .acv-display--inline-block {
+    display: inline-block;
+  }
 
-.acv-display--flex {
-  display: flex;
-}
+  .acv-display--flex {
+    display: flex;
+  }
 
-.acv-display--inline-flex {
-  display: inline-flex;
-}
+  .acv-display--inline-flex {
+    display: inline-flex;
+  }
 
-.acv-display--inline {
-  display: inline;
-}
+  .acv-display--inline {
+    display: inline;
+  }
 
-.acv-display--none {
-  display: none;
-}
+  .acv-display--none {
+    display: none;
+  }
 
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: auto;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
+  .visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
 }

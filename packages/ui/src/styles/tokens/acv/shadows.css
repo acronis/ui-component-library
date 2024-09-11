@@ -1,5 +1,10 @@
 :root {
-  /* Shadow: blur, x-offset, y-offset, color */
+  /* Shadow: blur, x-offset, y-offset, hsl(color / strength) */
+  --acv-shadow-color-hsl: 215deg 30% 20%;
+  --acv-shadow-color: hsl(var(--acv-shadow-color-hsl));
+  --acv-shadow-strength: 1%;
+  --acv-inner-shadow-highlight: inset 0 -0.5px 0 0 hsl(0deg 0% 100%),
+    inset 0 0.5px 0 0 hsl(0deg 0% 0% / 0.067);
   --acv-box-shadow: 0 10px 20px 0;
   --acv-box-shadow-details: 0 15px 30px 0 hsl(218deg 11% 20% / 0.25);
   --acv-box-shadow-focus: var(--acv-box-shadow) hsl(218deg 11% 20% / 0.25);
@@ -22,42 +27,61 @@
 
   /* --acv-shadow-primary: 0px 0px 0px 1px var(--acv-color-blue-gray-light-20) inset; */
 
-  /* large */
-  --acv-shadow-large-x-offset: 0rem;
-  --acv-shadow-large-y-offset: 0.625rem;
-  --acv-shadow-large-blur: 1.25rem;
-  --acv-shadow-large-color: hsl(215deg 30% 20% / 0.9);
-  --acv-shadow-large: 0 0 20px var(--acv-shadow-large-color);
-
   /* small */
   --acv-shadow-small-x-offset: 0rem;
   --acv-shadow-small-y-offset: 0.25rem;
   --acv-shadow-small-blur: 0.5rem;
-  --acv-shadow-small-color: hsl(215deg 30% 20% / 0.1);
+  --acv-shadow-small-color: hsl(var(--acv-shadow-color-hsl) / 0.1);
   --acv-shadow-small: 0px 4px 8px 0px var(--acv-shadow-small-color);
 
   /* regular */
   --acv-shadow-regular-x-offset: 0rem;
   --acv-shadow-regular-y-offset: 0.625rem;
   --acv-shadow-regular-blur: 1.25rem;
-  --acv-shadow-regular-color: hsl(215deg 30% 20% / 0.2);
+  --acv-shadow-regular-color: hsl(var(--acv-shadow-color-hsl) / 0.2);
   --acv-shadow-regular-dark-color: hsl(0deg 0% 0% / 0.3);
   --acv-shadow-regular: 0 10px 20px 0 var(--acv-shadow-regular-color);
 
+  /* large */
+  --acv-shadow-large-x-offset: 0rem;
+  --acv-shadow-large-y-offset: 0.625rem;
+  --acv-shadow-large-blur: 1.25rem;
+  --acv-shadow-large-color: hsl(var(--acv-shadow-color-hsl) / 0.9);
+  --acv-shadow-large: 0 0 20px var(--acv-shadow-large-color);
+
   /* modal */
-  --acv-shadow-modal-color: hsl(215deg 30% 20% / 0.9);
+  --acv-shadow-modal-color: hsl(var(--acv-shadow-color-hsl) / 0.9);
   --acv-shadow-modal: 0px 10px 20px 0px var(--acv-shadow-modal-color);
   --acv-shadow-modal-dark: 0px 10px 20px 0px
     var(--acv-shadow-regular-dark-color);
-  --acv-shadow-color: hsl(215deg 30% 20%);
 
   /* vertical */
   --acv-shadow-vertical: -2px 0px 20px 0px hsl(0deg 0% 0% / 0.25);
-  --acv-shadow-vertical-right: 5px 0px 20px 0px hsl(215deg 30% 20% / 0.2);
+  --acv-shadow-vertical-right: 5px 0px 20px 0px
+    hsl(var(--acv-shadow-color-hsl) / 0.2);
   --acv-shadow-vertical-dark: -2px 0px 20px 0px hsl(0deg 0% 0% / 0.25);
 
   /* soft */
   --acv-shadow-soft: var(--acv-shadow-small);
   --acv-shadow-strong: var(--acv-shadow-small);
   --acv-shadow-shape: 0 0 20px 0 hsl(218deg 11% 20% / 0.25);
+
+  /* inner shadows */
+  --acv-inner-shadow: inset 0 0 20px 0 hsl(218deg 11% 20% / 0.25);
+}
+
+@container style(--acv-os-dark: true) {
+  :root {
+    --acv-shadow-regular-color: hsl(var(--acv-shadow-color-hsl) / 0.2);
+    --acv-shadow-regular-dark-color: hsl(0deg 0% 0% / 0.3);
+    --acv-shadow-modal-color: hsl(var(--acv-shadow-color-hsl) / 0.9);
+    --acv-shadow-vertical: -2px 0px 20px 0px hsl(0deg 0% 0% / 0.25);
+    --acv-shadow-vertical-right: 5px 0px 20px 0px
+      hsl(var(--acv-shadow-color-hsl) / 0.2);
+    --acv-shadow-vertical-dark: -2px 0px 20px 0px hsl(0deg 0% 0% / 0.25);
+    --acv-shadow-color-hsl: 220 40% 2%;
+    --acv-shadow-strength: 25%;
+    --inner-shadow-highlight: inset 0 -0.5px 0 0 hsl(0deg 0% 100% / 0.06),
+      inset 0 0.5px 0 0 hsl(0deg 0% 0% / 0.5);
+  }
 }

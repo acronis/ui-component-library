@@ -1,0 +1,9 @@
+:where(html) {
+  --acv-color-light-blue-darkest: hsl(202deg 100% 24%);
+  --acv-color-light-blue-darker: hsl(197deg 100% 32%);
+  --acv-color-light-blue-dark: hsl(195deg 100% 41%);
+  --acv-color-light-blue: hsl(195deg 98% 58%);
+  --acv-color-light-blue-light: hsl(199deg 98% 74%);
+  --acv-color-light-blue-lighter: hsl(201deg 98% 84%);
+  --acv-color-light-blue-lightest: hsl(202deg 100% 93%);
+}
