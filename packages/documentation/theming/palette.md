@@ -27,15 +27,6 @@
 <color name="--acv-color-gray"></color>
 <color name="--acv-color-blue-gray"></color>
 
-## Shades of gray
-
-<color name="--acv-color-whitesmoke"></color>
-<color name="--acv-color-gainsboro"></color>
-<color name="--acv-color-lightgray"></color>
-<color name="--acv-color-darkgray"></color>
-<color name="--acv-color-gray"></color>
-<color name="--acv-color-dimgray"></color>
-
 ## Shades of primary color
 
 <color name="--acv-color-primary-lightest"></color>
@@ -67,31 +58,3 @@
 ## Shades of tertiary color
 
 <color name="--acv-color-tertiary"></color>
-
-## Shades of red color
-
-<color name="--acv-color-red-lightest"></color>
-<color name="--acv-color-red-lighter"></color>
-<color name="--acv-color-red-light"></color>
-<color name="--acv-color-red"></color>
-<color name="--acv-color-red-dark"></color>
-<color name="--acv-color-red-darker"></color>
-<color name="--acv-color-red-darkest"></color>
-<color name="--acv-color-red-hover"></color>
-<color name="--acv-color-red-active"></color>
-<color name="--acv-color-red-muted"></color>
-<color name="--acv-color-red-text"></color>
-
-## Shades of white color
-
-<color name="--acv-color-white-100"></color>
-<color name="--acv-color-white-90"></color>
-<color name="--acv-color-white-80"></color>
-<color name="--acv-color-white-70"></color>
-<color name="--acv-color-white-60"></color>
-<color name="--acv-color-white-50"></color>
-<color name="--acv-color-white-40"></color>
-<color name="--acv-color-white-30"></color>
-<color name="--acv-color-white-20"></color>
-<color name="--acv-color-white-10"></color>
-<color name="--acv-color-white-0"></color>

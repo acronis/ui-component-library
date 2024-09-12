@@ -1,0 +1,17 @@
+:where(html) {
+  --acv-color-red-darkest: hsl(0deg 100% 21%);
+  --acv-color-red-darker: hsl(0deg 100% 29%);
+  --acv-color-red-dark: hsl(352deg 100% 37%);
+  --acv-color-red: hsl(0deg 81% 57%);
+  --acv-color-red-light: hsl(4deg 100% 67%);
+  --acv-color-red-lighter: hsl(7deg 100% 74%);
+  --acv-color-red-lightest: hsl(12deg 100% 81%);
+  --acv-color-red-hover: hsl(
+    from var(--acv-color-red) calc(h - 4) s calc(l - 2)
+  );
+  --acv-color-red-active: hsl(
+    from var(--acv-color-red) calc(h - 3) calc(s - 1) calc(l - 8)
+  );
+  --acv-color-red-muted: var(--acv-color-red-darkest);
+  --acv-color-red-text: var(--acv-color-white);
+}

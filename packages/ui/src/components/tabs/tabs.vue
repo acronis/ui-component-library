@@ -104,7 +104,7 @@
       line-height: calc(var(--acv-font-line-height-medium) - (2 * var(--acv-border-width-small)));
 
       &.large {
-        --acv-icon-size: var(--acv-icon-size-md);
+        --acv-icon-size: var(--acv-icon-size-medium);
         height: 48px;
         line-height: calc(var(--acv-font-line-height-x-large) - (2 * var(--acv-border-width-small)));
       }

@@ -1,0 +1,13 @@
+:root {
+  --acv-color-disabled: var(--acv-color-button-disabled);
+  --acv-color-disabled-border: var(--acv-color-secondary-muted);
+  --acv-color-disabled-text: var(--acv-color-text-disabled);
+  --acv-color-accent: var(--acv-color-button-active-secondary);
+  --acv-color-active: var(--acv-color-button-active-primary);
+  --acv-color-focus: var(--acv-color-button-focus);
+  --acv-color-highlight: var(
+    --acv-color-text-highlight-result,
+    hsl(52deg 100% 50%)
+  );
+  --acv-color-hover: var(--acv-color-button-hover-primary);
+}

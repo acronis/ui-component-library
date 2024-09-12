@@ -1,13 +1,15 @@
-.link {
-  text-decoration: none;
-  color: var(--acv-link-color);
+@layer components {
+  .link {
+    text-decoration: none;
+    color: var(--acv-link-color);
 
-  &:hover {
-    color: var(--acv-link-color-hover);
-    cursor: pointer;
-  }
+    &:hover {
+      color: var(--acv-link-color-hover);
+      cursor: pointer;
+    }
 
-  &:active {
-    color: var(--acv-link-color-active);
+    &:active {
+      color: var(--acv-link-color-active);
+    }
   }
 }

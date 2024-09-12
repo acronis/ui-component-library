@@ -1,7 +1,14 @@
 :root {
-  --acv-base-font-family-acronis-cyber: "Acronis Cyber", sans-serif;
-  --acv-base-font-family-jet-brains: "JetBrains Mono", monospace;
-  --acv-base-font-family-mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas",
-    "Liberation Mono", "Courier New", monospace;
-  --acv-font-family-mono: var(--acv-base-font-family-jet-brains);
+  --acv-font-acronis-cyber: Acronis Cyber, sans-serif;
+  --acv-font-jet-brains: JetBrains Mono, monospace;
+  --acv-font-monospace: Inconsolata, Fira Mono, ui-monospace, SF Mono, Menlo,
+    Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  --acv-font-system-ui: system-ui, sans-serif;
+  --acv-font-family-mono: var(--acv-font-monospace);
+  --acv-font-family-sans: var(--acv-font-system-ui);
+  --acv-font-family-serif: Georgia, Cambria, Times New Roman, Times, serif;
+  --acv-font-size-fluid-0: clamp(0.75rem, 2vw, 1rem);
+  --acv-font-size-fluid-1: clamp(1rem, 4vw, 1.5rem);
+  --acv-font-size-fluid-2: clamp(1.5rem, 6vw, 2.5rem);
+  --acv-font-size-fluid-3: clamp(2rem, 9vw, 3.5rem);
 }

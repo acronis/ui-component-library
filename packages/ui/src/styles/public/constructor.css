@@ -1,4 +1,4 @@
-@import "../tokens/base.css" layer(tokens);
+@import "../index.css";
 @import "../tokens/constructor.css" layer(theme);
 @import "../tokens/dark.css" layer(theme);
 @import "../tokens/acv" layer(theme);

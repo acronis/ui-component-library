@@ -131,7 +131,7 @@
       --acv-button-font-size: var(--acv-button-font-size-small);
       --acv-button-height: var(--acv-button-height-small);
       --acv-button-padding: var(--acv-button-padding-small);
-      --acv-icon-size: var(--acv-icon-size-xxs);
+      --acv-icon-size: var(--acv-icon-size-xx-small);
       --acv-button-content-gap: var(--acv-button-content-gap-small);
       --acv-button-min-width: var(--acv-button-min-width-small);
     }
@@ -140,7 +140,7 @@
       --acv-button-font-size: var(--acv-button-font-size-medium);
       --acv-button-height: var(--acv-button-height-medium);
       --acv-button-padding: var(--acv-button-padding-medium);
-      --acv-icon-size: var(--acv-icon-size-xs);
+      --acv-icon-size: var(--acv-icon-size-x-small);
       --acv-button-content-gap: var(--acv-button-content-gap-medium);
       --acv-button-min-width: var(--acv-button-min-width-medium);
     }
@@ -149,7 +149,7 @@
       --acv-button-font-size: var(--acv-button-font-size-large);
       --acv-button-height: var(--acv-button-height-large);
       --acv-button-padding: var(--acv-button-padding-large);
-      --acv-icon-size: var(--acv-icon-size-md);
+      --acv-icon-size: var(--acv-icon-size-medium);
       --acv-button-content-gap: var(--acv-button-content-gap-large);
       --acv-spinner-size: var(--acv-spinner-size-large);
       --acv-button-min-width: var(--acv-button-min-width-large);

@@ -1,13 +1,15 @@
-/* TODO add media queries */
-.para {
-  margin-bottom: var(--acv-paragraph-spacing);
-  margin-top: 0;
+@layer utilities {
+  /* TODO add media queries */
+  .para {
+    margin-bottom: var(--acv-paragraph-spacing);
+    margin-top: 0;
 
-  * + & {
-    margin-top: var(--acv-paragraph-spacing);
-  }
+    * + & {
+      margin-top: var(--acv-paragraph-spacing);
+    }
 
-  &:last-child {
-    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

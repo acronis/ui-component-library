@@ -1,122 +1,126 @@
-.acv-layer {
-  --acv-layer-color: var(--acv-color-primary);
-  --acv-layer-background-color: var(--acv-color-transparent);
-  --acv-layer-hover-background-color: hsl(
-    from var(--acv-layer-background-color) h s calc(l + 23)
-  );
-  --acv-layer-active-background-color: hsl(
-    from var(--acv-layer-background-color) h s calc(l + 13)
-  );
-  --acv-layer-disabled-background-color: var(--acv-layer-background-color);
-  --acv-layer-border-width: 0;
-  --acv-layer-border-color: var(--acv-color-transparent);
-  --acv-layer-text-color: var(--acv-color-text-primary);
-  --acv-layer-hover-text-color: var(--acv-layer-text-color);
-  --acv-layer-hover-border-color: var(--acv-layer-border-color);
-  --acv-layer-active-border-color: var(--acv-layer-border-color);
-  --acv-layer-active-text-color: hsl(
-    from var(--acv-layer-text-color) h s calc(l - 13)
-  );
-  --acv-layer-disabled-text-color: var(--acv-layer-text-color);
-  --acv-layer-disabled-border-color: hsl(
-    from var(--acv-layer-border-color) h s calc(l + 15)
-  );
-  border: var(--acv-layer-border-width) var(--acv-layer-border-style)
-    var(--acv-layer-border-color);
-  background-color: var(--acv-layer-background-color);
-  color: var(--acv-layer-text-color);
-
-  &.focus,
-  &:focus {
-    outline: var(--acv-border-x-large) var(--acv-border-style-solid)
-      var(--acv-color-button-focus);
-  }
-
-  &.hover,
-  &:hover {
-    background-color: var(--acv-layer-hover-background-color);
-    border-color: var(--acv-layer-hover-border-color);
-    color: var(--acv-layer-hover-text-color);
-  }
-
-  &.active,
-  &:active {
-    background-color: var(--acv-layer-active-background-color);
-    border-color: var(--acv-layer-active-border-color);
-    color: var(--acv-layer-active-text-color);
-  }
-
-  &.disabled,
-  &:disabled {
-    background-color: var(--acv-layer-disabled-background-color);
-    border-color: var(--acv-layer-disabled-border-color);
-    color: var(--acv-layer-disabled-text-color);
-    opacity: 0.65;
-  }
-
-  &.solid {
-    --acv-layer-background-color: var(--acv-layer-color);
-    --acv-layer-text-color: var(--acv-color-surface-inversed-primary);
-  }
-
-  &.ghost {
+@layer utilities {
+  .acv-layer {
+    --acv-layer-color: var(--acv-color-primary);
+    --acv-layer-background-color: var(--acv-color-transparent);
     --acv-layer-hover-background-color: hsl(
-      from var(--acv-layer-color) h s calc(l + 47)
+      from var(--acv-layer-background-color) h s calc(l + 23)
     );
     --acv-layer-active-background-color: hsl(
-      from var(--acv-layer-color) h s calc(l + 37)
+      from var(--acv-layer-background-color) h s calc(l + 13)
     );
-    --acv-layer-text-color: var(--acv-layer-color);
-  }
-
-  &.outline {
-    --acv-layer-border-width: var(--acv-border-regular);
-    --acv-layer-border-style: var(--acv-border-style-solid);
-    --acv-layer-border-color: var(--acv-layer-color);
-    --acv-layer-text-color: var(--acv-layer-color);
-    --acv-layer-hover-background-color: hsl(
-      from var(--acv-layer-color) h s calc(l + 47)
+    --acv-layer-disabled-background-color: var(--acv-layer-background-color);
+    --acv-layer-border-width: 0;
+    --acv-layer-border-color: var(--acv-color-transparent);
+    --acv-layer-text-color: var(--acv-color-text-primary);
+    --acv-layer-hover-text-color: var(--acv-layer-text-color);
+    --acv-layer-hover-border-color: var(--acv-layer-border-color);
+    --acv-layer-active-border-color: var(--acv-layer-border-color);
+    --acv-layer-active-text-color: hsl(
+      from var(--acv-layer-text-color) h s calc(l - 13)
     );
-    --acv-layer-active-background-color: hsl(
-      from var(--acv-layer-color) h s calc(l + 37)
-    );
+    --acv-layer-disabled-text-color: var(--acv-layer-text-color);
     --acv-layer-disabled-border-color: hsl(
       from var(--acv-layer-border-color) h s calc(l + 15)
     );
-    --acv-layer-disabled-text-color: hsl(
-      from var(--acv-layer-text-color) h s calc(l + 15)
-    );
-  }
+    border: var(--acv-layer-border-width) var(--acv-layer-border-style)
+      var(--acv-layer-border-color);
+    background-color: var(--acv-layer-background-color);
+    color: var(--acv-layer-text-color);
 
-  &.light {
-    --acv-layer-background-color: hsl(
-      from var(--acv-layer-color) h s l / 0.125
-    );
-    --acv-layer-disabled-background-color: var(--acv-layer-background-color);
-    --acv-layer-text-color: var(--acv-layer-color);
-  }
+    &.focus,
+    &:focus {
+      outline: var(--acv-border-x-large) var(--acv-border-style-solid)
+        var(--acv-color-button-focus);
+    }
 
-  /* Color variations */
+    &.hover,
+    &:hover {
+      background-color: var(--acv-layer-hover-background-color);
+      border-color: var(--acv-layer-hover-border-color);
+      color: var(--acv-layer-hover-text-color);
+    }
 
-  &.primary {
-    --acv-layer-color: var(--acv-color-primary);
-  }
+    &.active,
+    &:active {
+      background-color: var(--acv-layer-active-background-color);
+      border-color: var(--acv-layer-active-border-color);
+      color: var(--acv-layer-active-text-color);
+    }
 
-  &.secondary {
-    --acv-layer-color: var(--acv-color-secondary);
-  }
+    &.disabled,
+    &:disabled {
+      background-color: var(--acv-layer-disabled-background-color);
+      border-color: var(--acv-layer-disabled-border-color);
+      color: var(--acv-layer-disabled-text-color);
+      opacity: 0.65;
+    }
 
-  &.inverted {
-    --acv-layer-color: var(--acv-color-button-label-inversed-primary);
-    --acv-layer-background-color: var(--acv-color-button-inversed);
-    --acv-layer-hover-background-color: var(--acv-color-button-hover-inversed);
-    --acv-layer-active-background-color: var(
-      --acv-color-button-active-inversed
-    );
-  }
+    &.solid {
+      --acv-layer-background-color: var(--acv-layer-color);
+      --acv-layer-text-color: var(--acv-color-surface-inversed-primary);
+    }
 
-  &.white,
-  &.transparent {
-    --acv-layer-color: var(--acv-color-text-primary);
+    &.ghost {
+      --acv-layer-hover-background-color: hsl(
+        from var(--acv-layer-color) h s calc(l + 47)
+      );
+      --acv-layer-active-background-color: hsl(
+        from var(--acv-layer-color) h s calc(l + 37)
+      );
+      --acv-layer-text-color: var(--acv-layer-color);
+    }
+
+    &.outline {
+      --acv-layer-border-width: var(--acv-border-regular);
+      --acv-layer-border-style: var(--acv-border-style-solid);
+      --acv-layer-border-color: var(--acv-layer-color);
+      --acv-layer-text-color: var(--acv-layer-color);
+      --acv-layer-hover-background-color: hsl(
+        from var(--acv-layer-color) h s calc(l + 47)
+      );
+      --acv-layer-active-background-color: hsl(
+        from var(--acv-layer-color) h s calc(l + 37)
+      );
+      --acv-layer-disabled-border-color: hsl(
+        from var(--acv-layer-border-color) h s calc(l + 15)
+      );
+      --acv-layer-disabled-text-color: hsl(
+        from var(--acv-layer-text-color) h s calc(l + 15)
+      );
+    }
+
+    &.light {
+      --acv-layer-background-color: hsl(
+        from var(--acv-layer-color) h s l / 0.125
+      );
+      --acv-layer-disabled-background-color: var(--acv-layer-background-color);
+      --acv-layer-text-color: var(--acv-layer-color);
+    }
+
+    /* Color variations */
+
+    &.primary {
+      --acv-layer-color: var(--acv-color-primary);
+    }
+
+    &.secondary {
+      --acv-layer-color: var(--acv-color-secondary);
+    }
+
+    &.inverted {
+      --acv-layer-color: var(--acv-color-button-label-inversed-primary);
+      --acv-layer-background-color: var(--acv-color-button-inversed);
+      --acv-layer-hover-background-color: var(
+        --acv-color-button-hover-inversed
+      );
+      --acv-layer-active-background-color: var(
+        --acv-color-button-active-inversed
+      );
+    }
+
+    &.white,
+    &.transparent {
+      --acv-layer-color: var(--acv-color-text-primary);
+    }
   }
 }

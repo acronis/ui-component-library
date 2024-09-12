@@ -169,6 +169,7 @@
     padding: 0;
     max-width: calc(100% - 2em - var(--acv-dialog-margin));
     max-height: calc(100% - 2em - var(--acv-dialog-margin));
+    margin: auto;
 
     &.backdrop::backdrop {
       background-color: var(--acv-dialog-backdrop-color);

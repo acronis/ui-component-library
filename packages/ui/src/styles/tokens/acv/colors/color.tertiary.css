@@ -1,0 +1,9 @@
+:where(html) {
+  --acv-color-tertiary-darkest: hsl(213deg 100% 31%);
+  --acv-color-tertiary-darker: hsl(214deg 83% 37%);
+  --acv-color-tertiary-dark: hsl(215deg 74% 42%);
+  --acv-color-tertiary: var(--acv-color-brand-tertiary, hsl(215deg 68% 46%));
+  --acv-color-tertiary-light: hsl(224deg 54% 67%);
+  --acv-color-tertiary-lighter: hsl(228deg 53% 82%);
+  --acv-color-tertiary-lightest: hsl(220deg 60% 97%);
+}

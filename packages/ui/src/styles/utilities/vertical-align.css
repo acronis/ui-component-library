@@ -1,23 +1,25 @@
-.acv-vertical-align--baseline {
-  vertical-align: baseline;
-}
+@layer utilities {
+  .acv-vertical-align--baseline {
+    vertical-align: baseline;
+  }
 
-.acv-vertical-align--top {
-  vertical-align: top;
-}
+  .acv-vertical-align--top {
+    vertical-align: top;
+  }
 
-.acv-vertical-align--middle {
-  vertical-align: middle;
-}
+  .acv-vertical-align--middle {
+    vertical-align: middle;
+  }
 
-.acv-vertical-align--bottom {
-  vertical-align: bottom;
-}
+  .acv-vertical-align--bottom {
+    vertical-align: bottom;
+  }
 
-.acv-vertical-align--text-bottom {
-  vertical-align: text-bottom;
-}
+  .acv-vertical-align--text-bottom {
+    vertical-align: text-bottom;
+  }
 
-.acv-vertical-align--text-top {
-  vertical-align: text-top;
+  .acv-vertical-align--text-top {
+    vertical-align: text-top;
+  }
 }

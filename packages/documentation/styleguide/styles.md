@@ -8,11 +8,13 @@
 - top-level styles should be in the component file;
 - top-level class name must be prefixed with `acv-`;
 - top-level class name must be unique-enough to avoid conflicts and side effects;
+- classes below top-level can be non-unique;
 - use css and native css nesting;
 
 ```vue
 <template>
-  <button class="acv-button large primary">
+  <button class="acv-button acv-button--large acv-button--primary">
+    <svg class="icon" />
     <slot />
   </button>
 </template>

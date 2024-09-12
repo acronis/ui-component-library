@@ -1,4 +1,4 @@
-# Color Palette
+# Colors
 
 Colors are the crucial part theming of the Acronis UI Component Library.
 Each theme provides a set of colors that are used to style the components.
@@ -8,6 +8,19 @@ These colors are divided into basic colors, background colors, text colors and u
 Each theme may provide light and dark color schemes.
 
 If dark color scheme is not provided, the default dark color scheme is used.
+
+```css
+/* Example for light and dark color scheme */
+html {
+  --acv-text-1: var(--acv-color-gray-darkest);
+  --text-2: var(--acv-color-gray-dark);
+
+  @container style(--acv-os-dark: true) {
+    --text-1: var(--acv-color-gray-lightest);
+    --text-2: var(--acv-color-gray-light);
+  }
+}
+```
 
 ## Accents
 
@@ -146,20 +159,104 @@ Component colors are used to define the colors of specific components.
 <color name="--acv-color-form-disabled-primary"></color>
 <color name="--acv-color-form-disabled-secondary"></color>
 <color name="--acv-color-form-disabled-tertiary"></color>
+<color name="--acv-color-form-disabled-success"></color>
 <color name="--acv-color-form-error"></color>
 <color name="--acv-color-form-focus"></color>
 <color name="--acv-color-form-hover"></color>
 <color name="--acv-color-form-primary"></color>
 <color name="--acv-color-form-secondary"></color>
+<color name="--acv-color-form-success"></color>
 
-### Input colors
+### Icon colors
 
-<color name="--acv-color-input-active"></color>
+<color name="--acv-color-icon-active"></color>
+<color name="--acv-color-icon-active-disabled"></color>
+<color name="--acv-color-icon-disabled"></color>
+<color name="--acv-color-icon-disabled-inversed"></color>
+<color name="--acv-color-icon-inversed-primary"></color>
+<color name="--acv-color-icon-inversed-secondary"></color>
+<color name="--acv-color-icon-primary"></color>
+<color name="--acv-color-icon-status-critical"></color>
+<color name="--acv-color-icon-status-danger"></color>
+<color name="--acv-color-icon-status-info"></color>
+<color name="--acv-color-icon-status-neutral"></color>
+<color name="--acv-color-icon-status-success"></color>
+<color name="--acv-color-icon-status-warning"></color>
+
+### Link colors
+
+<color name="--acv-color-link-active"></color>
+<color name="--acv-color-link-disabled"></color>
+<color name="--acv-color-link-disabled-inversed"></color>
+<color name="--acv-color-link-hover"></color>
+<color name="--acv-color-link-inversed-primary"></color>
+<color name="--acv-color-link-inversed-secondary"></color>
+<color name="--acv-color-link-primary"></color>
+<color name="--acv-color-link-secondary"></color>
 
 ### Divider colors
 
 <color name="--acv-color-divider-primary"></color>
 <color name="--acv-color-divider-secondary"></color>
-
 <color name="--acv-color-divider-inversed-primary"></color>
 <color name="--acv-color-divider-inversed-secondary"></color>
+
+### Nav colors
+
+<color name="--acv-color-nav-active-primary"></color>
+<color name="--acv-color-nav-active-secondary"></color>
+<color name="--acv-color-nav-focus-primary"></color>
+<color name="--acv-color-nav-focus-secondary"></color>
+<color name="--acv-color-nav-hover-primary"></color>
+<color name="--acv-color-nav-hover-secondary"></color>
+<color name="--acv-color-nav-label-primary"></color>
+<color name="--acv-color-nav-label-secondary"></color>
+<color name="--acv-color-nav-primary"></color>
+<color name="--acv-color-nav-secondary"></color>
+<color name="--acv-color-scroll-thumb"></color>
+<color name="--acv-color-scroll-thumb-inversed"></color>
+<color name="--acv-color-status-active"></color>
+<color name="--acv-color-status-critical-primary"></color>
+<color name="--acv-color-status-critical-secondary"></color>
+<color name="--acv-color-status-critical-tertiary"></color>
+<color name="--acv-color-status-danger-primary"></color>
+<color name="--acv-color-status-danger-secondary"></color>
+<color name="--acv-color-status-danger-tertiary"></color>
+<color name="--acv-color-status-focus"></color>
+<color name="--acv-color-status-hover"></color>
+<color name="--acv-color-status-info-primary"></color>
+<color name="--acv-color-status-info-secondary"></color>
+<color name="--acv-color-status-info-tertiary"></color>
+<color name="--acv-color-status-neutral-primary"></color>
+<color name="--acv-color-status-neutral-secondary"></color>
+<color name="--acv-color-status-neutral-tertiary"></color>
+<color name="--acv-color-status-success-primary"></color>
+<color name="--acv-color-status-success-secondary"></color>
+<color name="--acv-color-status-success-tertiary"></color>
+<color name="--acv-color-status-warning-primary"></color>
+<color name="--acv-color-status-warning-secondary"></color>
+<color name="--acv-color-status-warning-tertiary"></color>
+<color name="--acv-color-surface-fixed-primary"></color>
+<color name="--acv-color-surface-fixed-secondary"></color>
+<color name="--acv-color-surface-inversed-dark-primary"></color>
+<color name="--acv-color-surface-inversed-primary"></color>
+<color name="--acv-color-surface-inversed-secondary"></color>
+<color name="--acv-color-surface-primary"></color>
+<color name="--acv-color-surface-secondary"></color>
+<color name="--acv-color-text-disabled"></color>
+<color name="--acv-color-text-error"></color>
+<color name="--acv-color-text-highlight-result"></color>
+<color name="--acv-color-text-inversed-primary"></color>
+<color name="--acv-color-text-inversed-secondary"></color>
+<color name="--acv-color-text-primary"></color>
+<color name="--acv-color-text-secondary"></color>
+<color name="--acv-color-text-status-critical"></color>
+<color name="--acv-color-text-status-danger"></color>
+<color name="--acv-color-text-status-info"></color>
+<color name="--acv-color-text-status-neutral"></color>
+<color name="--acv-color-text-status-success"></color>
+<color name="--acv-color-text-status-warning"></color>
+
+## Color palette
+
+<ColorPalette />

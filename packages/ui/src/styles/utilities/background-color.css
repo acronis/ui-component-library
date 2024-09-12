@@ -1,75 +1,77 @@
-.acv-bg-primary {
-  background-color: var(--acv-color-primary);
-  color: var(--acv-color-primary-text);
-}
+@layer utilities {
+  .acv-bg-primary {
+    background-color: var(--acv-color-primary);
+    color: var(--acv-color-primary-text);
+  }
 
-.acv-bg-secondary {
-  background-color: var(--acv-color-brand-secondary);
-  color: var(--acv-color-secondary-text);
-}
+  .acv-bg-secondary {
+    background-color: var(--acv-color-brand-secondary);
+    color: var(--acv-color-secondary-text);
+  }
 
-.acv-bg-secondary-lightest {
-  background-color: var(--acv-color-secondary-lightest);
-}
+  .acv-bg-secondary-lightest {
+    background-color: var(--acv-color-secondary-lightest);
+  }
 
-.acv-bg-tertiary {
-  background-color: var(--acv-color-brand-tertiary);
-}
+  .acv-bg-tertiary {
+    background-color: var(--acv-color-brand-tertiary);
+  }
 
-.acv-bg-surface-fixed-primary {
-  background-color: var(--acv-color-surface-fixed-primary);
-}
+  .acv-bg-surface-fixed-primary {
+    background-color: var(--acv-color-surface-fixed-primary);
+  }
 
-.acv-bg-surface-primary {
-  background-color: var(--acv-color-surface-primary);
-}
+  .acv-bg-surface-primary {
+    background-color: var(--acv-color-surface-primary);
+  }
 
-.acv-bg-surface-secondary {
-  background-color: var(--acv-color-surface-secondary);
-}
+  .acv-bg-surface-secondary {
+    background-color: var(--acv-color-surface-secondary);
+  }
 
-.acv-bg-inversed-primary,
-.acv-bg-inversed,
-.acv-bg-white {
-  background-color: var(--acv-color-surface-inversed-primary);
-}
+  .acv-bg-inversed-primary,
+  .acv-bg-inversed,
+  .acv-bg-white {
+    background-color: var(--acv-color-surface-inversed-primary);
+  }
 
-.acv-bg-inversed-secondary {
-  background-color: var(--acv-color-surface-inversed-secondary);
-}
+  .acv-bg-inversed-secondary {
+    background-color: var(--acv-color-surface-inversed-secondary);
+  }
 
-.acv-bg-critical {
-  background-color: var(--acv-color-status-critical-primary);
-}
+  .acv-bg-critical {
+    background-color: var(--acv-color-status-critical-primary);
+  }
 
-.acv-bg-danger {
-  background-color: var(--acv-color-status-danger-primary);
-}
+  .acv-bg-danger {
+    background-color: var(--acv-color-status-danger-primary);
+  }
 
-.acv-bg-warning {
-  background-color: var(--acv-color-status-warning-primary);
-}
+  .acv-bg-warning {
+    background-color: var(--acv-color-status-warning-primary);
+  }
 
-.acv-bg-success {
-  background-color: var(--acv-color-status-success-primary);
-}
+  .acv-bg-success {
+    background-color: var(--acv-color-status-success-primary);
+  }
 
-.acv-bg-info {
-  background-color: var(--acv-color-status-info-primary);
-}
+  .acv-bg-info {
+    background-color: var(--acv-color-status-info-primary);
+  }
 
-.acv-bg-neutral {
-  background-color: var(--acv-color-status-neutral-primary);
-}
+  .acv-bg-neutral {
+    background-color: var(--acv-color-status-neutral-primary);
+  }
 
-.acv-bg-nav-primary {
-  background-color: var(--acv-color-nav-primary);
-}
+  .acv-bg-nav-primary {
+    background-color: var(--acv-color-nav-primary);
+  }
 
-.acv-bg-nav-secondary {
-  background-color: var(--acv-color-nav-secondary);
-}
+  .acv-bg-nav-secondary {
+    background-color: var(--acv-color-nav-secondary);
+  }
 
-.acv-bg-highlight {
-  background-color: var(--acv-color-highlight);
+  .acv-bg-highlight {
+    background-color: var(--acv-color-highlight);
+  }
 }
