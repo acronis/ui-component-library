@@ -1,8 +1,10 @@
 @layer tokens {
   :root {
-    --acv-scrollbar-track-color: hsl(0deg 0% 100% / 0.8);
+    --acv-scrollbar-track-color: transparent;
     --acv-scrollbar-track-color-hover: hsl(219deg 27% 85%);
-    --acv-scrollbar-track-color-inverse: hsl(219deg 27% 70%);
+    --acv-scrollbar-track-color-inverse: hsl(
+      from var(--acv-color-scroll-thumb-inversed) h s l / 0.1
+    );
     --acv-scrollbar-thumb-color: var(--acv-color-scroll-thumb);
     --acv-scrollbar-thumb-color-inverse: var(--acv-color-scroll-thumb-inversed);
     --acv-scrollbar-width: thin;
