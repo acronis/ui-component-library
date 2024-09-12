@@ -68,6 +68,7 @@
     "highlight.js": "11.9.0",
     "lodash-es": "4.17.21",
     "md-editor-v3": "4.17.3",
+    "perfect-scrollbar": "1.5.5",
     "sortablejs": "^1",
     "vue": "3.4.30",
     "vue-router": "4.4.0"

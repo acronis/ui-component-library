@@ -8,6 +8,10 @@
     text-size-adjust: none;
     tab-size: 4;
     font-family: var(--acv-font-family-default), sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   abbr:where([title]) {
@@ -28,7 +32,12 @@
   a:not([class]) {
     /* A elements that don't have a class get default styles */
     text-decoration-skip-ink: auto;
-    color: currentColor;
+    font-weight: var(--acv-font-weight-accent);
+    color: var(--acv-color-primary);
+
+    &:hover {
+      color: var(--acv-color-primary-dark);
+    }
   }
 
   b,

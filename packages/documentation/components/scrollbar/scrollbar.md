@@ -1,30 +1,26 @@
 ---
-title: Scrollbar component
+title: ACV Scrollbar component
 lang: en-US
 editLink: true
 description: This file is generated automatically from the source code. Changes made here will be lost.
 ---
 
-# Scrollbar
+# ACV Scrollbar
+
+> A scrollbar is a UI component that allows users to scroll through content
+> that overflows its container, providing a visual indication of the current scroll position.
 
 <!--@include: ./scrollbar.doc.md-->
 
 ## Props
 
-| Prop name   | Description                  | Type   | Values | Default |
-| ----------- | ---------------------------- | ------ | ------ | ------- |
-| title       | Title of the scrollbar       | string | -      |         |
-| description | Description of the scrollbar | string | -      |         |
-
-## Events
-
-| Event name | Properties                                | Description                            |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| close      | **payload** `string` - The first argument | Triggered when the component is closed |
+| Prop name | Description                                                                           | Type            | Values | Default       |
+| --------- | ------------------------------------------------------------------------------------- | --------------- | ------ | ------------- |
+| tag       | Tag of the scrollbar                                                                  | string          | -      | div           |
+| options   | Options of the scrollbar<br/>see [Options](https://perfectscrollbar.com/options.html) | TSTypeReference | -      | () =&gt; ({}) |
 
 ## Slots
 
-| Name        | Description | Bindings |
-| ----------- | ----------- | -------- |
-| default     |             |          |
-| description |             |          |
+| Name    | Description | Bindings |
+| ------- | ----------- | -------- |
+| default |             |          |
