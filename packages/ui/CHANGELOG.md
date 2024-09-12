@@ -1,3 +1,10 @@
+## [1.21.0](https://github.com/acronis/ui-component-library/compare/v1.20.1...v1.21.0) (2024-09-12)
+
+
+### Features
+
+* **menu:** implement menus ([#89](https://github.com/acronis/ui-component-library/issues/89)) ([a560e02](https://github.com/acronis/ui-component-library/commit/a560e02357f8f63de966d9b479b88a5cae6cfe8d))
+
 ## [1.20.1](https://github.com/acronis/ui-component-library/compare/v1.20.0...v1.20.1) (2024-09-11)
 
 
@@ -33,11 +40,4 @@
 * **pagination:** review fixes ([ccd3a66](https://github.com/acronis/ui-component-library/commit/ccd3a668c4683c621ecf3d0caef7ee5e6cc1c015))
 * **pagination:** update pagination ([c4e98c9](https://github.com/acronis/ui-component-library/commit/c4e98c934768792be2d66e3af9efeb9e87daae27))
 * **pagination:** update pagination ([90e5968](https://github.com/acronis/ui-component-library/commit/90e59684fc83598e376b3180806a8683e256ebbd))
-
-## [1.18.7](https://github.com/acronis/ui-component-library/compare/v1.18.6...v1.18.7) (2024-09-05)
-
-
-### Bug Fixes
-
-* **dialog:** add xx-large dialog width ([03dec73](https://github.com/acronis/ui-component-library/commit/03dec739d89f72a0d5456dc0a32ba18b9dc44303))
 
