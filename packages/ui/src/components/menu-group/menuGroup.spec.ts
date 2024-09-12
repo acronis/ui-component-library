@@ -8,7 +8,6 @@ describe('test MenuGroup component', () => {
     const wrapper = mount(MenuGroup);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
         "title": undefined,
       }
     `);
@@ -23,7 +22,6 @@ describe('test MenuGroup component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
         "title": "test",
       }
     `);
@@ -32,6 +30,10 @@ describe('test MenuGroup component', () => {
   it('renders', () => {
     const wrapper = mount(MenuGroup);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-1696bcc4="" class="acv-menu-group"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<menu data-v-1696bcc4="" class="acv-menu-group">
+        <!--v-if-->
+      </menu>"
+    `);
   });
 });

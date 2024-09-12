@@ -6,5 +6,7 @@
     --acv-menu-color-text-active: var(--acv-color-white);
     --acv-menu-color-text-light: var(--acv-color-white-70);
     --acv-menu-color-text: var(--acv-color-white);
+    --acv-menu-bg-color: var(--acv-color-nav-primary);
+    --acv-menu-gap: var(--acv-spacing-regular);
   }
 }

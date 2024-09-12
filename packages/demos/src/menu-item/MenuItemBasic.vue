@@ -1,7 +1,41 @@
 <script setup>
-  import MenuItem from '@/components/menu-item/menuItem.vue';
+  import { IconPlaceholder24 } from '@acronis-platform/icons/placeholder';
+  import AcvMenuItem from '@/components/menu-item/menuItem.vue';
+  import AcvMenu from '@/components/menu/menu.vue';
+  import AcvTag from '@/components/tag/tag.vue';
 </script>
 
 <template>
-  <MenuItem />
+  <AcvMenu>
+    <AcvMenuItem :icon="IconPlaceholder24">
+      Item
+    </AcvMenuItem>
+    <AcvMenuItem :icon="IconPlaceholder24">
+      Item with second line of text
+    </AcvMenuItem>
+    <AcvMenuItem :icon="IconPlaceholder24">
+      Item
+      <template #append>
+        <AcvTag>7</AcvTag>
+      </template>
+    </AcvMenuItem>
+    <AcvMenuItem :icon="IconPlaceholder24">
+      Item
+      <template #append>
+        <AcvTag type="success">
+          New
+        </AcvTag>
+      </template>
+    </AcvMenuItem>
+    <AcvMenu>
+      <AcvMenuItem>
+        Sub item
+      </AcvMenuItem>
+    </AcvMenu>
+    <AcvMenu title="Title">
+      <AcvMenuItem>
+        Sub item
+      </AcvMenuItem>
+    </AcvMenu>
+  </AcvMenu>
 </template>

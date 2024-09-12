@@ -8,8 +8,18 @@ describe('test Menu component', () => {
     const wrapper = mount(Menu);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": undefined,
+        "background": undefined,
+        "collapse": false,
+        "defaultActive": undefined,
+        "defaultOpened": undefined,
+        "height": undefined,
+        "hideBorders": false,
+        "hideBottomBorder": false,
+        "modelValue": undefined,
+        "router": false,
+        "scrollIntoExpand": false,
+        "type": "primary",
+        "uniqueOpened": false,
       }
     `);
   });
@@ -23,14 +33,30 @@ describe('test Menu component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "description": undefined,
-        "title": "test",
+        "background": undefined,
+        "collapse": false,
+        "defaultActive": undefined,
+        "defaultOpened": undefined,
+        "height": undefined,
+        "hideBorders": false,
+        "hideBottomBorder": false,
+        "modelValue": undefined,
+        "router": false,
+        "scrollIntoExpand": false,
+        "type": "primary",
+        "uniqueOpened": false,
       }
     `);
   });
 
   it('renders', () => {
     const wrapper = mount(Menu);
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<div data-v-5dcaf39a="" class="acv-menu"></div>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<nav data-v-5dcaf39a="" class="acv-menu primary">
+        <menu data-v-5dcaf39a="" class="menubar acv-scrollbar" role="menubar"></menu>
+        <!--v-if-->
+        <!--v-if-->
+      </nav>"
+    `);
   });
 });

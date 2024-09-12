@@ -5,11 +5,9 @@
   import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
   import AcvMenu from '@/components/menu/menu.vue';
   import AcvMenuItem from '@/components/menu-item/menuItem.vue';
-  import AcvMenuGroup from '@/components/menu-group/menuGroup.vue';
   import AcvTag from '@/components/tag/tag.vue';
 
   const menuIsCollapsed = ref(false);
-  const selectedMenu = ref(null);
   function toggleCollapse() {
     menuIsCollapsed.value = !menuIsCollapsed.value;
   }
@@ -17,54 +15,50 @@
 
 <template>
   <AcvMenu
-    id="menu-0"
-    v-model="selectedMenu"
+    index="menu-0"
     :collapse="menuIsCollapsed"
   >
     <template #prepend>
       <AcvMenuItem :icon="IconALogo32">
-        Logotype
+        Test logo
       </AcvMenuItem>
     </template>
     <AcvMenuItem
-      id="item-0-0"
+      index="item-0-0"
       :icon="IconPlaceholder16"
     >
       ITEM
     </AcvMenuItem>
     <AcvMenuItem
-      id="item-0-0"
+      index="item-0-0"
       :icon="IconPlaceholder16"
       :clamp="2"
     >
       ITEM WITH SECOND LINE, ITEM WITH SECOND LINE, ITEM WITH SECOND LINE
     </AcvMenuItem>
-    <AcvMenuGroup
-      id="menu-0-1"
-      title="Group title"
-    >
+    <AcvMenuGroup index="menu-0-1">
       <AcvMenuItem
-        id="item-1.0"
+        index="item-1.0"
         :icon="IconPlaceholder16"
         disabled
       >
         Disabled subitem
       </AcvMenuItem>
       <AcvMenuItem
-        id="item-1.1"
+        index="item-1.1"
         :icon="IconInfo16"
       >
         Subitem with ellipsis with ellipsis with ellipsis
       </AcvMenuItem>
       <AcvMenuItem
-        id="item-1.2"
+        index="item-1.2"
         clamp
       >
         Subitem with second line of text
       </AcvMenuItem>
 
-      <AcvMenuGroup id="menu-1-0">
-        <AcvMenuItem id="item-2.0">
+      <AcvMenuGroup index="menu-1-0">
+        <AcvMenuItem index="item-2.0">
           Subitem with tag
           <template #append>
             <AcvTag>
@@ -72,7 +66,7 @@
             </AcvTag>
           </template>
         </AcvMenuItem>
-        <AcvMenuItem id="item-2.1">
+        <AcvMenuItem index="item-2.1">
           Subitem with small tag
           <template #append>
             <AcvTag small>
@@ -80,7 +74,7 @@
             </AcvTag>
           </template>
         </AcvMenuItem>
-        <AcvMenuItem id="item-2.2">
+        <AcvMenuItem index="item-2.2">
           Item 2.3
         </AcvMenuItem>
       </AcvMenuGroup>
@@ -88,19 +82,19 @@
 
     <template #append>
       <AcvMenuItem
-        id="profile"
+        index="profile"
         :icon="IconPlaceholder16"
       >
         Profile
       </AcvMenuItem>
       <AcvMenuItem
-        id="help"
+        index="help"
         :icon="IconPlaceholder16"
       >
         Help
       </AcvMenuItem>
       <AcvMenuItem
-        id="collapse"
+        index="collapse"
         :icon="IconPlaceholder16"
         @click="toggleCollapse"
       >
