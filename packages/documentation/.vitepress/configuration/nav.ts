@@ -5,11 +5,14 @@ import { enTheme } from './theme';
 import { enGuides } from './guides';
 import { styleguide } from './styleguide.ts';
 
+// eslint-disable-next-line node/prefer-global/process
+const isProd = process.env.NODE_ENV === 'production';
+
 export const nav = [
   { text: 'Guide', items: [...enGuides, ...styleguide] },
   { text: 'Components', items: enComponents },
   { text: 'Theme', items: enTheme },
-  { text: 'Examples', items: enExamples },
+  { text: 'Examples', items: enExamples, devOnly: true },
   {
     text: `v${version}`,
     items: [
@@ -27,4 +30,4 @@ export const nav = [
       },
     ]
   }
-];
+].filter(c => (isProd && !c.devOnly) || !isProd);

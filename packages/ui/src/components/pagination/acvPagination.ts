@@ -5,7 +5,7 @@ export interface AcvPaginationProps {
   limit: number
   /** Current page number */
   modelValue: number
-};
+}
 
 export interface AcvPaginationEvents {
   /**
