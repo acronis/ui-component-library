@@ -72,7 +72,7 @@ describe('test Popover component', () => {
   it('renders', () => {
     const wrapper = mount(Popover);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-5f77216c="" class="anchor"></div>
+      "<div data-v-5f77216c="" class="anchor" style="--9a7bc72e-popoverWidth: 150px;"></div>
       <!--v-if-->"
     `);
   });

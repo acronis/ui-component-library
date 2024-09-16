@@ -32,7 +32,7 @@ describe('test Spinner component', () => {
   it('renders', () => {
     const wrapper = mount(Spinner);
 
-    expect(wrapper.html()).toMatchInlineSnapshot(`"<span data-v-5ffbe806="" class="acv-spinner small acv-border-primary"></span>"`);
+    expect(wrapper.html()).toMatchInlineSnapshot(`"<span data-v-5ffbe806="" class="acv-spinner small acv-border-primary" style="--5ffbe806-borderColor: var(--acv-color-primary);"></span>"`);
   });
 
   it('applies correct class for small size', () => {

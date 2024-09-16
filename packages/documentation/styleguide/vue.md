@@ -54,9 +54,7 @@ export interface AcvButtonProps {
 }
 
 // AcvButton.vue
-const props = withDefaults(defineProps<AcvButtonProps>(), {
-  status: 'default'
-});
+const { status = 'default' } = defineProps<AcvButtonProps>();
 ```
 
 ## Exposing parent-child Vue components API
@@ -80,7 +78,7 @@ Complex behaviour:
 Within parent component you can define dependent children in several ways:
 
 - pass child components data using props and define child components directly in the parent component;
-- use scoped slots to define child components or it partials in the parent component;
+- use scoped slots to place child components or it partials in the parent component;
 - use provide/inject to pass data from parent to child components;
 
 ### Slot props
@@ -115,7 +113,6 @@ You can provide parent state to the child and/or provide a method to register th
   }>();
 
   const form = inject('form');
-
   const field = reactive({
     value: '',
     touched: false,
@@ -205,21 +202,6 @@ Use the composition API to manage component logic.
 Use pure functions to manage reactive data and side effects.
 They will simplify test, debug and obviousness.
 With pure functions you can decouple composable with Vue-specific code and functions with business logic.
-
-## Migrating components to ui-component library
-
-Proposed steps to migrate components to the ui-component library:
-
-1. Insert the component `as-is` into `packages/ui-components/src/components` folder
-2. Refactor it:
-   - Remove any unnecessary code (props, methods, etc.)
-   - Refactor the component to use the `vue` composition API
-   - Check styleguide for the component and make sure it is implemented correctly
-   - Check accessibility requirements
-3. Create demos, stories according to the mockups
-4. Create unit tests for the component
-5. Update documentation(jsdoc, vitepress) for the component
-6. Create pull requests for the component
 
 ## Creating vue components from scratch
 

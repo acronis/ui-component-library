@@ -111,6 +111,8 @@ export interface AcvAccordionInjection {
   openedPanels: Ref<(string | string[] | undefined)[]>
   uuid: Ref<number | undefined>
   handlePanelClick: (id: string) => void
+  registerPanel: (id: string) => void
+  unregisterPanel: (id: string) => void
 }
 
 export const ACCORDION_KEY = Symbol('ACCORDION_KEY') as InjectionKey<AcvAccordionInjection>;

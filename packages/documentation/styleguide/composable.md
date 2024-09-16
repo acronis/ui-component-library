@@ -26,13 +26,18 @@ export function usePagination() {}
 
 ## Directory structure
 
-- place all composables in the `composables` directory.
+- place global composables in the `composables` directory;
+- place component composables in the same directory as the component.
 
 ```bash
 src/
 └── composables/
     ├── usePagination.ts
     └── useUserData.ts
+└── components/
+    └── AcvUser/
+        ├── AcvUser.vue
+        └── useUserData.ts
 ```
 
 ## Arguments
@@ -124,6 +129,7 @@ export function useUserData(userId) {
     status.value = 'loading';
     try {
       const response = await axios.get(`/api/users/${userId}`);
+
       user.value = response.data;
       status.value = 'success';
     }
@@ -192,13 +198,15 @@ export default function useCounter() {
 - use imperative shell for Vue-specific or side effects operations.
 
 ```typescript
-const calculate = (a, b) => a + b;
+function calculate(a, b) {
+  return a + b;
+}
 
 // Imperative Shell
 export function useCalculator() {
   const result = ref(0);
 
-  const add = (a, b) => {
+  function add(a, b) {
     result.value = calculate(a, b); // Using the functional core
   };
 

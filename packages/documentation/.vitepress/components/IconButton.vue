@@ -34,7 +34,7 @@
   </button>
 </template>
 
-<style>
+<style scoped>
 .icon-button {
   display: inline-flex;
   flex-direction: column;
