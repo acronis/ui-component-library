@@ -3,11 +3,7 @@
   import type { AcvBreadcrumbsEvents, AcvBreadcrumbsProps, AcvBreadcrumbsSlots } from './breadcrumbs.ts';
   import './breadcrumbs.css';
 
-  const {
-    // maxItems,
-    multiline,
-    // separatorIcon
-  } = withDefaults(defineProps<AcvBreadcrumbsProps>(), {
+  const props = withDefaults(defineProps<AcvBreadcrumbsProps>(), {
     size: 'md'
   });
 
@@ -16,7 +12,7 @@
 
   const classes = computed(() => {
     return {
-      'is-multi-line': multiline,
+      'is-multi-line': props.multiline,
     };
   });
 </script>

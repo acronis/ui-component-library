@@ -10,13 +10,11 @@
     flip,
     icon,
     inverse,
-    size,
+    size = '16',
     stateIcon,
     stateColor,
-    title,
-  } = withDefaults(defineProps<AcvIconProps>(), {
-    size: '16'
-  });
+    title
+  } = defineProps<AcvIconProps>();
 
   const classes = computed(() => {
     return {

@@ -4,13 +4,13 @@
   import type { AcvHeaderProps, AcvHeaderSlots } from './header.ts';
   import './header.css';
 
-  const { bordered, height, color, title, align } = withDefaults(defineProps<AcvHeaderProps>(), {
-    bordered: true,
-    height: '64px',
-    color: 'white',
-    title: '',
-    align: 'center',
-  });
+  const {
+    bordered = false,
+    height = '64px',
+    color = 'white',
+    title = '',
+    align = 'center'
+  } = defineProps<AcvHeaderProps>();
   defineSlots<AcvHeaderSlots>();
 
   // const { isColorModifier } = useColor(['fixed-white', 'nav-primary']);

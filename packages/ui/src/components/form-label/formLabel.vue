@@ -6,9 +6,7 @@
   } from './formLabel.ts';
   import './formLabel.css';
 
-  const { label, placement, description } = withDefaults(defineProps<AcvFormLabelProps>(), {
-    placement: 'right'
-  });
+  const { label, placement = 'right', description } = defineProps<AcvFormLabelProps>();
 
   defineSlots<AcvFormLabelSlots>();
 

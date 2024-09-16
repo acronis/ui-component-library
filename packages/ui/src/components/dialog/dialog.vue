@@ -16,25 +16,16 @@
   });
 
   const {
+    backdrop = true,
+    closable = true,
+    closeOnClickOutside = true,
+    closeOnEscape = true,
+    draggable = false,
+    height = 'small',
+    lockFocus = true,
     title,
-    closeOnEscape,
-    closable,
-    closeOnClickOutside,
-    lockFocus,
-    backdrop,
-    draggable,
-    height,
-    width
-  } = withDefaults(defineProps<AcvDialogProps>(), {
-    backdrop: true,
-    closable: true,
-    closeOnClickOutside: true,
-    closeOnEscape: true,
-    lockFocus: true,
-    draggable: false,
-    height: 'small',
-    width: 'small',
-  });
+    width = 'small'
+  } = defineProps<AcvDialogProps>();
 
   const emit = defineEmits<AcvDialogEvents>();
   const slots = defineSlots<AcvDialogSlots>();

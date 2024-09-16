@@ -15,7 +15,7 @@
   } from './select.ts';
   import './select.css';
 
-  const { placeholder, options } = withDefaults(defineProps<AcvSelectProps>(), {
+  const props = withDefaults(defineProps<AcvSelectProps>(), {
     modelValue: '',
     placeholder: 'Select option...',
     options: () => [],
@@ -34,14 +34,14 @@
   const isOpened = ref(false);
   const state = reactive({
     selectedIndex: 0,
-    options,
+    oprions: props.options,
     count: 0
   } as AcvSelectInjection);
   const optionRefs = ref([]);
   const search = ref('');
 
   const filteredOptions = computed(() => {
-    return options.filter(i => i.label?.startsWith(search.value.toLowerCase()));
+    return props.options.filter(i => i.label?.startsWith(search.value.toLowerCase()));
   });
 
   onBeforeMount(() => {
@@ -52,10 +52,10 @@
 
   provide(SELECT_KEY, state);
 
-  const optionsCount = computed(() => options.length);
-  const selectedIndex = computed(() => options.findIndex(option => option.value === model.value));
+  const optionsCount = computed(() => props.options.length);
+  const selectedIndex = computed(() => props.options.findIndex(option => option.value === model.value));
   const selectedLabel = computed(() => {
-    const optionFromProps = (options?.length && options?.find(option => option.value === model.value));
+    const optionFromProps = (props.options?.length && props.options?.find(option => option.value === model.value));
     const optionFromSlot = state.options?.length && state.options?.find(option => option.props?.value === model.value);
 
     if (!optionFromProps && !optionFromSlot) {
@@ -67,7 +67,7 @@
 
     return null;
   });
-  const placeholderText = computed(() => selectedLabel.value ?? placeholder);
+  const placeholderText = computed(() => selectedLabel.value ?? props.placeholder);
 
   function setValue(value) {
     model.value = value;
@@ -122,7 +122,7 @@
     if (e.keyCode === 13 || e.keyCode === 32) {
       e.preventDefault();
 
-      const value = options.find((_option, index) => index === activeIndex.value)?.value;
+      const value = props.options.find((_option, index) => index === activeIndex.value)?.value;
 
       if (value) {
         model.value = value;

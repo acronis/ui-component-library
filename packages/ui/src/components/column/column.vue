@@ -4,11 +4,11 @@
   import './column.css';
 
   const {
-    colSpan,
-    rowSpan,
-    rowIndex,
-    colIndex,
-    span,
+    colSpan = 1,
+    rowSpan = 1,
+    rowIndex = 1,
+    colIndex = 1,
+    span = 24,
     offset,
     pull,
     push,
@@ -17,14 +17,8 @@
     md,
     lg,
     xl,
-  } = withDefaults(defineProps<AcvColumnProps>(), {
-    span: 24,
-    rowIndex: 1,
-    rowSpan: 1,
-    colIndex: 1,
-    colSpan: 1,
-    tag: 'div',
-  });
+    tag = 'div'
+  } = defineProps<AcvColumnProps>();
   defineEmits<AcvColumnEvents>();
   defineSlots<AcvColumnSlots>();
 
@@ -51,9 +45,12 @@
 </script>
 
 <template>
-  <div :class="colClasses">
+  <component
+    :is="tag"
+    :class="colClasses"
+  >
     <slot />
-  </div>
+  </component>
 </template>
 
 <style scoped>
