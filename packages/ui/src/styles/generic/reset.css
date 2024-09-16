@@ -246,11 +246,6 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    /* Animate elements that are being hovered */
-    *:hover {
-      animation: shake-x 0.5s;
-    }
-
     :has(:target) {
       scroll-behavior: smooth;
       scroll-padding-top: 2rem;
