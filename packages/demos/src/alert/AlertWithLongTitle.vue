@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .qa-alert-title {
     width: 50%;
   }

@@ -39,6 +39,7 @@ This will help you and your team maintain and update components in the future.
 - use css and `lang="css"` in the style section;
 - always try to use setup script for the component;
 - use `defineProps` and `defineEmits` for props and events;
+- use scoped in `<style>` section;
 
 ## Props
 

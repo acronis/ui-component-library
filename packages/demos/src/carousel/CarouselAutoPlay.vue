@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .acv-carousel {
   margin: 200px auto;
   width: 500px;

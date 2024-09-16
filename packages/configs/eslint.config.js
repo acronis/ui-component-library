@@ -1,4 +1,5 @@
 import antfu from '@antfu/eslint-config';
+import eslintPluginVueScopedCSS from 'eslint-plugin-vue-scoped-css';
 
 const codeExtensions = ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.cjs'];
 
@@ -117,6 +118,13 @@ export default antfu(
     files: ['**/*.md'],
     rules: {
       'unused-imports/no-unused-imports': 0,
+    }
+  }
+).append(
+  eslintPluginVueScopedCSS.configs['flat/recommended'],
+  {
+    rules: {
+      'vue-scoped-css/enforce-style-type': 'error'
     }
   }
 );
