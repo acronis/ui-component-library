@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/acronis/ui-component-library/compare/v1.22.0...v1.22.1) (2024-09-16)
+
+
+### Bug Fixes
+
+* remove global animation on hover ([c3b073c](https://github.com/acronis/ui-component-library/commit/c3b073cde37d9cb470188b89e48ec8bf29c8628a))
+
 ## [1.22.0](https://github.com/acronis/ui-component-library/compare/v1.21.0...v1.22.0) (2024-09-12)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **carousel:**  implement basic carousel component ([#93](https://github.com/acronis/ui-component-library/issues/93)) ([36ac2bc](https://github.com/acronis/ui-component-library/commit/36ac2bc72c8aa2790de01248bf57a888caf6d907))
-
-## [1.19.1](https://github.com/acronis/ui-component-library/compare/v1.19.0...v1.19.1) (2024-09-10)
-
-
-### Bug Fixes
-
-* **pagination:** replace the import path with a relative path ([#94](https://github.com/acronis/ui-component-library/issues/94)) ([09aea1b](https://github.com/acronis/ui-component-library/commit/09aea1b9015c6a6af44448efa632f95e4d6ce944))
 
