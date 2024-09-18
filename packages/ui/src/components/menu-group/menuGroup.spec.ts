@@ -31,7 +31,7 @@ describe('test MenuGroup component', () => {
     const wrapper = mount(MenuGroup);
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<menu data-v-1696bcc4="" class="acv-menu-group">
+      "<menu data-v-1696bcc4="" class="acv-menu-group" style="--1696bcc4-indent: -24px;">
         <!--v-if-->
       </menu>"
     `);

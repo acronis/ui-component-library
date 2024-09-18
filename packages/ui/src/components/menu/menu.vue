@@ -55,7 +55,6 @@
 
   const menuClasses = computed(() => {
     return {
-      [`${props.mode}`]: props.mode,
       [`${props.type}`]: props.type,
       [`is-${props.background}`]: props.background,
       [`is-borderBottom`]: props.hideBottomBorder || props.hideBorders,

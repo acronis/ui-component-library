@@ -2,7 +2,7 @@
   import { useVisibilityObserver } from '@acronis-platform/ui-component-library';
   import { shallowRef, watch } from 'vue';
   import IconButton from './IconButton.vue';
-  import { useIcons } from './useIcons.ts';
+  import { useIcons } from './useIcons';
 
   const props = defineProps<{
     icons: object[]
@@ -83,25 +83,41 @@
 </template>
 
 <style scoped>
- .icons__group {
-   display: grid;
-   justify-content: space-between;
-   grid-template-columns: repeat(auto-fit, calc(20% - 30px));
-   gap: 8px;
- }
+ /* .icons__group { */
 
- .icons__item {
-   background-color: var(--acv-color-secondary-lightest);
-    display: flex;
-   justify-content: center;
-    align-items: center;
-   padding: 8px;
-   aspect-ratio: 1;
-   overflow: hidden;
- }
+ /*  display: grid; */
 
- .icons__icon,
- .icons__name {
-   overflow: hidden;
- }
+ /*  justify-content: space-between; */
+
+ /*  grid-template-columns: repeat(auto-fit, calc(20% - 30px)); */
+
+ /*  gap: 8px; */
+
+ /* } */
+
+ /* .icons__item { */
+
+ /*  background-color: var(--acv-color-secondary-lightest); */
+
+ /*   display: flex; */
+
+ /*  justify-content: center; */
+
+ /*   align-items: center; */
+
+ /*  padding: 8px; */
+
+ /*  aspect-ratio: 1; */
+
+ /*  overflow: hidden; */
+
+ /* } */
+
+ /* .icons__icon, */
+
+ /* .icons__name { */
+
+ /*  overflow: hidden; */
+
+ /* } */
 </style>

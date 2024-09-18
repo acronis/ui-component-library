@@ -56,7 +56,7 @@ describe('test Icon component', () => {
   it('renders', () => {
     const wrapper = mount(Icon);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<i data-v-c834062e="" class="acv-custom-icon size-16" role="presentation">
+      "<i data-v-c834062e="" class="acv-custom-icon size-16" role="presentation" style="--c834062e-fillColor: currentColor; --c834062e-fillStateColor: currentColor;">
         <!--v-if-->
         <!--v-if-->
       </i>"

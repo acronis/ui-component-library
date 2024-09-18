@@ -9,14 +9,10 @@
     title,
     subtitle,
     text,
-    titleTag,
-    subtitleTag,
-    textTag
-  } = withDefaults(defineProps<AcvTypographyProps>(), {
-    titleTag: 'p',
-    subtitleTag: 'p',
-    textTag: 'p'
-  });
+    titleTag = 'p',
+    subtitleTag = 'p',
+    textTag = 'p'
+  } = defineProps<AcvTypographyProps>();
 
   defineSlots<AcvTypographySlots>();
 </script>

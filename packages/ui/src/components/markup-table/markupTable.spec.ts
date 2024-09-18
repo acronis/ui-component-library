@@ -42,6 +42,7 @@ describe('uiMarkupTable', () => {
       <div
         class="wrapper"
         data-v-fb7cfc51=""
+        style="--fb7cfc51-tableHeight: 100%; --fb7cfc51-gridColumns: repeat(auto-fit, minmax(250px, 1fr));"
       >
         <table
           class="acv-table acv-markup-table bordered"

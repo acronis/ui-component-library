@@ -40,7 +40,7 @@
   />
 </template>
 
-<style lang="css">
+<style scoped lang="css">
 .theme-switch {
   border: 1px solid var(--acv-color-brand-primary);
 

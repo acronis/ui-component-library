@@ -47,9 +47,9 @@ describe('test Loading component', () => {
     const wrapper = mount(Loading);
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-5fb9b424="" class="acv-loading" style="display: none;">
+      "<div data-v-5fb9b424="" class="acv-loading" style="display: none; --5fb9b424-backgroundColor: var(--acv-color-primary);">
         <div data-v-5fb9b424="" class="backdrop color-primary" style="opacity: 0.5;"></div>
-        <div data-v-5fb9b424="" class="content"><span data-v-5ffbe806="" data-v-5fb9b424="" class="acv-spinner medium acv-border-primary"></span>
+        <div data-v-5fb9b424="" class="content"><span data-v-5ffbe806="" data-v-5fb9b424="" class="acv-spinner medium acv-border-primary" style="--5ffbe806-borderColor: var(--acv-color-primary);"></span>
           <!--v-if-->
           <!--v-if-->
         </div>

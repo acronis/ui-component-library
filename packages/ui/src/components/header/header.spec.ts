@@ -9,7 +9,7 @@ describe('test Header component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "align": "center",
-        "bordered": true,
+        "bordered": false,
         "color": "white",
         "height": "64px",
         "title": "",
@@ -27,7 +27,7 @@ describe('test Header component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "align": "center",
-        "bordered": true,
+        "bordered": false,
         "color": "white",
         "height": "64px",
         "title": "test",
@@ -38,7 +38,7 @@ describe('test Header component', () => {
   it('renders', () => {
     const wrapper = mount(Header);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<header data-v-a605b683="" class="acv-header acv-header--bordered acv-header--color-white">
+      "<header data-v-a605b683="" class="acv-header acv-header--color-white" style="--a605b683-height: 64px;">
         <!--v-if-->
         <!--v-if-->
         <div data-v-a605b683="" class="acv-header__aside"></div>
@@ -61,6 +61,6 @@ describe('test Header component', () => {
         height: '100px',
       } as AcvHeaderProps,
     });
-    expect(wrapper.attributes('style')).toMatchInlineSnapshot('undefined');
+    expect(wrapper.attributes('style')).toMatchInlineSnapshot(`"--a605b683-height: 100px;"`);
   });
 });

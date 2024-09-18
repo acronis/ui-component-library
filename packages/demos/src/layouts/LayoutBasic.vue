@@ -90,7 +90,7 @@
   </AcvContainer>
 </template>
 
-<style>
+<style scoped>
 .ui-header, .ui-footer {
   background-color: var(--acv-color-accent);
   color: var(--acv-color-text-primary);

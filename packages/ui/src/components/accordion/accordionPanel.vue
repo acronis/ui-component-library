@@ -1,5 +1,6 @@
 <script setup lang="ts">
-  import { computed, getCurrentInstance, inject, ref } from 'vue';
+  import { computed, getCurrentInstance, inject, onMounted, onUnmounted } from 'vue';
+  import { isDefined } from '@vueuse/core';
   import type { AcvAccordionInjection, AcvAccordionPanelProps, AcvAccordionPanelSlots } from './accordion.ts';
   import { ACCORDION_KEY } from './accordion.ts';
 
@@ -18,18 +19,32 @@
     multiple,
     openedPanels,
     uuid,
-    handlePanelClick
+    handlePanelClick,
+    registerPanel,
+    unregisterPanel
   } = inject(ACCORDION_KEY) as AcvAccordionInjection;
-  const panelId = ref(getCurrentInstance()?.uid.toString());
+  const panelId = id || getCurrentInstance()?.uid.toString();
 
   const isOpened = computed(() =>
-    openedPanels.value.includes(id)
+    openedPanels?.value?.includes(id)
   );
 
   const panelClasses = computed(() => ({
     'acv-accordion-panel': true,
     [`acv-accordion-panel--background-${background}`]: background
   }));
+
+  onMounted(() => {
+    if (isDefined(panelId)) {
+      registerPanel(panelId);
+    }
+  });
+
+  onUnmounted(() => {
+    if (isDefined(panelId)) {
+      unregisterPanel(panelId);
+    }
+  });
 </script>
 
 <template>
@@ -43,7 +58,7 @@
       :type="multiple ? 'checkbox' : 'radio'"
       :name="`accordion-${uuid}`"
       :checked="isOpened"
-      @click="handlePanelClick(id)"
+      @click="panelId && handlePanelClick(panelId)"
     >
     <label
       :for="panelId"
@@ -106,10 +121,6 @@
   padding: 1rem;
 }
 
-.acv-accordion-panel input:not(:checked) + .acv-accordion-panel__label:hover:after {
-  animation: bounce .5s infinite;
-}
-
 /* Size modifiers */
 
 .acv-accordion--size-small .acv-accordion-panel__label {
@@ -129,22 +140,11 @@
 /* Panel background */
 
 .acv-accordion-panel--background-primary .acv-accordion-panel__content {
-  background-color: var(--acv-color-bg-primary);
+  background-color: var(--acv-color-primary);
   color: var(--acv-color-text-inversed-primary);
 }
 
 .acv-accordion-panel--background-secondary .acv-accordion-panel__content {
-  background-color: var(--acv-color-bg-secondary);
-}
-
-/* Arrow animation */
-@keyframes bounce {
-  25% {
-    transform: rotate(90deg) translate(.25rem);
-  }
-
-  75% {
-    transform: rotate(90deg) translate(-.25rem);
-  }
+  background-color: var(--acv-color-secondary);
 }
 </style>

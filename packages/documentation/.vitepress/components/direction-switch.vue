@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<style lang="css">
+<style scoped lang="css">
 .direction-switch {
   display: inline-flex;
   cursor: pointer;

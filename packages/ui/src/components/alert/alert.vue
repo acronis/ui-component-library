@@ -15,16 +15,13 @@
   });
 
   const {
-    color,
+    color = 'info',
     title,
     description,
-    showClose,
+    showClose = false,
     showIcon,
     showBorder
-  } = withDefaults(defineProps<AcvAlertProps>(), {
-    showClose: false,
-    color: 'info',
-  });
+  } = defineProps<AcvAlertProps>();
 
   defineEmits<AcvAlertEvents>();
   const slots = defineSlots<AcvAlertSlots>();

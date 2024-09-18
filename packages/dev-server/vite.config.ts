@@ -17,10 +17,8 @@ if (!process.env.TARGET && process.env.THEME !== 'true') {
 const target = process.env.TARGET;
 const demos = process.env.DEMOS;
 const port = Number.parseInt(process.env.PORT || '') || 8008;
-
 const componentsDir = resolve(__dirname, '../ui/src/components');
 const directivesDir = resolve(__dirname, '../ui/src/directives');
-
 const typography = [
   'Title',
   'Text',

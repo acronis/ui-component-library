@@ -5,18 +5,12 @@
   import './row.css';
 
   const {
-    tag,
-    justify,
-    align,
-    columnFlex,
-    gap
-  } = withDefaults(defineProps<AcvRowProps>(), {
-    justify: 'start',
-    gap: 0,
-    align: 'top',
-    tag: 'div',
-    columnFlex: false
-  });
+    tag = 'div',
+    justify = 'start',
+    align = 'top',
+    columnFlex = false,
+    gap = 0
+  } = defineProps<AcvRowProps>();
 
   defineSlots<AcvRowSlots>();
   const rowClasses = computed(() => {
@@ -72,7 +66,7 @@
     ROW_KEY,
     reactive({
       flex,
-      gap: toRef(gap)
+      gap: toRef(() => gap)
     }) as AcvRowInjection
   );
 </script>
