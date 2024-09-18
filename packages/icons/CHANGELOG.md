@@ -1,3 +1,10 @@
+## [0.3.0](https://github.com/acronis/ui-component-library/compare/icons/0.2.0...icons/0.3.0) (2024-09-18)
+
+
+### Features
+
+* **icons:** update figma icons ([0395448](https://github.com/acronis/ui-component-library/commit/03954489e9ad42b6e91e073e5bacb978a423ed13))
+
 ## [0.2.0](https://github.com/acronis/ui-component-library/compare/icons/0.1.0...icons/0.2.0) (2024-09-04)
 
 
