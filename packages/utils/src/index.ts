@@ -5,3 +5,4 @@ export * from './isClient.ts';
 export * from './isInteger.ts';
 export * from './object.ts';
 export * from './promise.ts';
+export * from './labelId.ts';

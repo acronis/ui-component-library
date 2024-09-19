@@ -50,12 +50,14 @@
   },
   "peerDependencies": {
     "@acronis-platform/icons": ">=0.2.0",
+    "vee-validate": ">=4.9",
     "vue": "3.5.6",
     "vue-router": "4.4.4"
   },
   "dependencies": {
     "@antfu/utils": "0.7.8",
     "@floating-ui/vue": "1.0.6",
+    "@vee-validate/rules": "4.9.6",
     "@vueuse/components": "10.11.0",
     "@vueuse/core": "10.9.0",
     "@vueuse/integrations": "10.11.0",
@@ -76,6 +78,7 @@
   "devDependencies": {
     "@acronis-platform/browserslist-config": "workspace:*",
     "@acronis-platform/configs": "workspace:*",
+    "@acronis-platform/utils": "workspace:*",
     "@cypress/vue": "6.0.1",
     "@simonsmith/cypress-image-snapshot": "9.0.3",
     "@storybook/addon-designs": "8.0.3",
