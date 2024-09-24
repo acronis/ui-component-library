@@ -2,9 +2,9 @@ name: Test - CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
   workflow_dispatch:
 
@@ -50,11 +50,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build UI Component Library
-        run: pnpm --filter ./packages/ui run build
-
       - name: Build utils
         run: pnpm --filter ./packages/utils run build
+
+      - name: Build UI Component Library
+        run: pnpm --filter ./packages/ui run build
 
       - name: Build icons
         run: pnpm --filter ./packages/icons run build
