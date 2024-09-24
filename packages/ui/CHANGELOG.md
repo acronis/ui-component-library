@@ -1,3 +1,10 @@
+## [1.23.0](https://github.com/acronis/ui-component-library/compare/v1.22.1...v1.23.0) (2024-09-24)
+
+
+### Features
+
+* **form:** moved components from constructor to acv ([#126](https://github.com/acronis/ui-component-library/issues/126)) ([98dbc53](https://github.com/acronis/ui-component-library/commit/98dbc535ee47f293cf38fab230c9fb0f6af0aaa0))
+
 ## [1.22.1](https://github.com/acronis/ui-component-library/compare/v1.22.0...v1.22.1) (2024-09-16)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * disable auto play to fix vitepress build ([9a5b1c0](https://github.com/acronis/ui-component-library/commit/9a5b1c0cfafe3a874c7d6558f4e8fadfec030bbf))
-
-## [1.20.0](https://github.com/acronis/ui-component-library/compare/v1.19.1...v1.20.0) (2024-09-11)
-
-
-### Features
-
-* **carousel:**  implement basic carousel component ([#93](https://github.com/acronis/ui-component-library/issues/93)) ([36ac2bc](https://github.com/acronis/ui-component-library/commit/36ac2bc72c8aa2790de01248bf57a888caf6d907))
 
