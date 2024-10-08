@@ -76,6 +76,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build utils
+        run: pnpm --filter ./packages/utils run build
+
 #      - name: Build UI Component Library
 #        run: pnpm --filter ./packages/ui run build
 
