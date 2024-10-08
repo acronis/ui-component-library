@@ -13,7 +13,7 @@
 
 ```vue
 <template>
-  <button class="acv-button acv-button--large acv-button--primary">
+  <button class="acv-button large primary">
     <svg class="icon" />
     <slot />
   </button>

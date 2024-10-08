@@ -7,14 +7,52 @@ To develop the project, you need to have the following tools installed:
 - nodejs >= 20.9
 - pnpm >= 8
 
+## Developing components
+
+### With Vitepress
+
+You can develop components with Vitepress:
+
+- create or update components;
+- provide demos for components in **demos** package;
+- provide documentation for components;
+- use Vitepress to show documentation and demos.
+
 To start develop new components, you need to run the following command:
 
 ```bash
-/* Start the development server with hot-reload dist on file changes */
+/* Start the Vitepress development server with hot-reload dist on file changes */
 pnpm run dev
 
 /* Run vitepress instance as a playground */
 pnpm run @acronis-platform/ui-component-library-documentation:dev
+```
+
+### With Storybook
+
+You can develop components with stories in Storybook:
+
+- Provide stories for components;
+- and start the Storybook development server with hot-reload dist on file changes
+
+You need to run the following command:
+
+```bash
+pnpm run storybook
+```
+
+### With Dev server
+
+We use Vite for component development.
+
+- create or update components;
+- provide demos for components in **demos** package;
+- dev server will serve component directory with hot-reload dist on file changes.
+
+To start the development server with hot-reload dist on file changes, you need to run the following command:
+
+```bash
+pnpm run dev:component [component]
 ```
 
 ## Create new component
@@ -58,13 +96,4 @@ To start the Vitepress documentation server, you need to run the following comma
 
 ```bash
 pnpm run documentation:dev
-```
-
-## Component development
-
-We use Vite for component development.
-You can start the development server with hot-reload dist on file changes by running the following command:
-
-```bash
-pnpm run dev:component [component]
 ```
