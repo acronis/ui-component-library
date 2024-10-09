@@ -1,3 +1,10 @@
+## [1.23.1](https://github.com/acronis/ui-component-library/compare/v1.23.0...v1.23.1) (2024-10-09)
+
+
+### Bug Fixes
+
+* **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
+
 ## [1.23.0](https://github.com/acronis/ui-component-library/compare/v1.22.1...v1.23.0) (2024-09-24)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **menu:** implement menus ([#89](https://github.com/acronis/ui-component-library/issues/89)) ([a560e02](https://github.com/acronis/ui-component-library/commit/a560e02357f8f63de966d9b479b88a5cae6cfe8d))
-
-## [1.20.1](https://github.com/acronis/ui-component-library/compare/v1.20.0...v1.20.1) (2024-09-11)
-
-
-### Bug Fixes
-
-* disable auto play to fix vitepress build ([9a5b1c0](https://github.com/acronis/ui-component-library/commit/9a5b1c0cfafe3a874c7d6558f4e8fadfec030bbf))
 
