@@ -29,7 +29,7 @@
     "figma-icons": "node node_modules/@acronis-platform/figma-fetcher"
   },
   "peerDependencies": {
-    "vue": "3.5.6"
+    "vue": "^3.5.6"
   },
   "devDependencies": {
     "@acronis-platform/figma-fetcher": "workspace:*"

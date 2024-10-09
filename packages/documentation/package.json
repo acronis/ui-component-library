@@ -16,9 +16,9 @@
     "lint:fix": "npm-run-all -c \"lint:code:fix\" \"lint:stylelint:fix\" lint:ts || exit 0"
   },
   "peerDependencies": {
-    "@acronis-platform/icons": ">=0.2.0",
-    "vue": "3.5.6",
-    "vue-router": "4.4.4"
+    "@acronis-platform/icons": "workspace:*",
+    "vue": "^3.5.6",
+    "vue-router": "^4.4.4"
   },
   "dependencies": {
     "@acronis-platform/configs": "workspace:*",

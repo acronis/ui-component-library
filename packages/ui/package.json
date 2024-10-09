@@ -49,10 +49,15 @@
     "storybook:dev": "storybook dev -p 6006"
   },
   "peerDependencies": {
-    "@acronis-platform/icons": ">=0.2.0",
-    "vee-validate": ">=4.9",
-    "vue": "3.5.6",
-    "vue-router": "4.4.4"
+    "@acronis-platform/icons": "workspace:*",
+    "vee-validate": "^4.9",
+    "vue": "^3.5.6",
+    "vue-router": "^4.4.4"
+  },
+  "peerDependenciesMeta": {
+    "vue-router": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@antfu/utils": "0.7.8",
@@ -71,9 +76,7 @@
     "lodash-es": "4.17.21",
     "md-editor-v3": "4.17.3",
     "perfect-scrollbar": "1.5.5",
-    "sortablejs": "^1",
-    "vue": "3.5.6",
-    "vue-router": "4.4.4"
+    "sortablejs": "1.15.2"
   },
   "devDependencies": {
     "@acronis-platform/browserslist-config": "workspace:*",
@@ -131,6 +134,8 @@
     "vitest": "1.6.0",
     "vitest-axe": "0.1.0",
     "vitest-canvas-mock": "0.3.3",
+    "vue": "3.5.6",
+    "vue-router": "4.4.4",
     "vue-tsc": "2.0.29"
   },
   "browserslist": [
