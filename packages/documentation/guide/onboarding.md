@@ -33,22 +33,19 @@ If you do not have access, please contact the UI component library team.
 - [ ] Check access to the UI component library repository
 - [ ] Fork the UI component library repository
 
-## Review the contribution guidelines
-
-Before contributing to the UI component library, please review the contribution guidelines.
-The guidelines provide information on how to contribute to the UI component library.
-
 ## Git account
 
 To contribute to the UI component library, you need a GitHub account.
+
 To contribute with pull requests, you just need to fork the UI component library repository.
+
 If you need special access, as access to GitHub project,
 or you want to maintain some features please contact the UI component library team.
 
 ## Review the contribution process
 
-Before contributing to the UI component library, please review the contribution process.
-The process provides information on how to contribute to the UI component library.
+Before contributing to the UI component library, please review the [contribution guidelines](https://acronis.github.io/ui-component-library/guide/contribution.html).
+The guidelines provide information on how to contribute to the UI component library.
 
 ## Get comfortable with the UI component library
 
@@ -144,8 +141,8 @@ Please provide unit tests for components you develop.
 ## Useful links
 
 - [UI component library repository](https://github.com/acronis/ui-component-library)
-- [Documentation](https://acronis.github.io/ui-component-library)
-- [Storybook](https://acronis.github.io/ui-component-library/storybook)
+- [UI component library Documentation](https://acronis.github.io/ui-component-library)
+- [UI component library Storybook](https://acronis.github.io/ui-component-library/storybook)
 - [Vitest coverage report](https://acronis.github.io/ui-component-library/coverage/)
 - [Figma - Syntax UI 3.0](https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?m=auto&t=UdCyS53msjFrcILL-6)
-- [Acronis Icons](https://www.figma.com/design/SeWLzXxzzYfvfjzzbTYUl1/05-Icons---Glyphs?node-id=784-2)
+- [Figma - Acronis Icons](https://www.figma.com/design/SeWLzXxzzYfvfjzzbTYUl1/05-Icons---Glyphs?node-id=784-2)
