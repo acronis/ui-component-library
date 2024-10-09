@@ -1,7 +1,7 @@
 <script setup>
+  import Column from '@/components/column/column.vue';
   import Divider from '@/components/divider/divider.vue';
   import Row from '@/components/row/row.vue';
-  import Column from '@/components/column/column.vue';
 </script>
 
 <template>

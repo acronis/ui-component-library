@@ -1,2 +1,2 @@
-export { default as AcvMain } from './main.vue';
 export * from './main.ts';
+export { default as AcvMain } from './main.vue';

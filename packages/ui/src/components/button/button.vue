@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import type { AcvButtonProps, AcvButtonSlots } from './button.ts';
-  import { vAutofocus } from '@/directives/autofocus.ts';
-  import AcvSpinner from '@/components/spinner/spinner.vue';
   import { useButton } from '@/components/button/useButton.ts';
+  import AcvSpinner from '@/components/spinner/spinner.vue';
+  import { vAutofocus } from '@/directives/autofocus.ts';
 
   import './button.css';
 

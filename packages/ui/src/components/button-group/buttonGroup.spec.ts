@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import type { ButtonGroupProps } from './buttonGroup.ts';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { axe } from 'vitest-axe';
 import ButtonGroup from './buttonGroup.vue';
-import type { ButtonGroupProps } from './buttonGroup.ts';
 
 describe('test ButtonGroup component', () => {
   it('pass accessibility tests', async () => {

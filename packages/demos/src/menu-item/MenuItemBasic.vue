@@ -1,8 +1,8 @@
 <script setup>
-  import { IconPlaceholder24 } from '@acronis-platform/icons/placeholder';
-  import AcvMenuItem from '@/components/menu-item/menuItem.vue';
   import AcvMenu from '@/components/menu/menu.vue';
+  import AcvMenuItem from '@/components/menu-item/menuItem.vue';
   import AcvTag from '@/components/tag/tag.vue';
+  import { IconPlaceholder24 } from '@acronis-platform/icons/placeholder';
 </script>
 
 <template>

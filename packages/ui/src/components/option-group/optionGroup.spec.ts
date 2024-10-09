@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import OptionGroup from './optionGroup.vue';
 import type { AcvOptionGroupProps } from './optionGroup';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import OptionGroup from './optionGroup.vue';
 
 describe('test OptionGroup component', () => {
   it('default props', () => {

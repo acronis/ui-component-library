@@ -1,6 +1,6 @@
 <script setup>
-  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
   import AcvLink from '@/components/link/link.vue';
+  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
 </script>
 
 <template>

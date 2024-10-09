@@ -1,7 +1,7 @@
 <script setup lang="ts">
+  import type { AcvAsideProps } from './aside.ts';
   import { computed } from 'vue';
   import { isBaseColor } from '../../utils/color.ts';
-  import type { AcvAsideProps } from './aside.ts';
 
   import './aside.css';
 

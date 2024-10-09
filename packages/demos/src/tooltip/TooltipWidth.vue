@@ -1,7 +1,7 @@
 <script setup>
-  import { IconAttention16 } from '@acronis-platform/icons/attention';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
+  import { IconAttention16 } from '@acronis-platform/icons/attention';
 
   const longContent = 'Lorem ipsum dolor sit amet, consectet adipisicing elit. '.repeat(10);
 </script>

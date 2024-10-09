@@ -1,6 +1,6 @@
 <script setup>
-  import { IconArrowLeft16, IconArrowRight16 } from '@acronis-platform/icons/arrow';
   import AcvLink from '@/components/link/link.vue';
+  import { IconArrowLeft16, IconArrowRight16 } from '@acronis-platform/icons/arrow';
 
   function handleClick() {
     console.log('Link is clicked');

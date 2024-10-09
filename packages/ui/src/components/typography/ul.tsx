@@ -1,6 +1,6 @@
 import { computed, defineComponent } from 'vue'
-import { useProps } from '../../utils/props.ts'
 import { useNameHelper } from '../../utils/namespace.ts'
+import { useProps } from '../../utils/props.ts'
 import { ulProps } from './props.ts'
 
 export default defineComponent({

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Tree from './tree.vue';
 import type { AcvTreeProps } from './tree.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Tree from './tree.vue';
 
 describe('test Tree component', () => {
   it('default props', () => {

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import './list.css';
-  import { computed, provide, ref, toRef } from 'vue';
-  import { useSortable } from '@vueuse/integrations/useSortable';
-  import AcvListItem from '../list-item/listItem.vue';
-  import { calculateSelectionItems, extractItemValueFromItemOption, useSelection } from '../../composables/useSelection.ts';
   import type { AcvListEvents, AcvListProps, AcvListSlots } from './list.ts';
+  import { useSortable } from '@vueuse/integrations/useSortable';
+  import { computed, provide, ref, toRef } from 'vue';
+  import { calculateSelectionItems, extractItemValueFromItemOption, useSelection } from '../../composables/useSelection.ts';
+  import AcvListItem from '../list-item/listItem.vue';
   import { LIST_KEY } from './list.ts';
+  import './list.css';
 
   defineOptions({
     name: 'AcvList'

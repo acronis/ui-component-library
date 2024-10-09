@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Map from './map.vue';
 import type { AcvMapProps } from './map';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Map from './map.vue';
 
 describe('test Map component', () => {
   it('default props', () => {

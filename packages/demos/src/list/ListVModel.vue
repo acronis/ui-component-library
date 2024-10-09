@@ -1,8 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvCard from '@/components/card/card.vue';
   import AcvList from '@/components/list/list.vue';
   import AcvListItem from '@/components/list-item/listItem.vue';
+  import { ref } from 'vue';
 
   const items = [
     { title: 'Donut jujubes' },

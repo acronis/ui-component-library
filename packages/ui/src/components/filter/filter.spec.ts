@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Filter from './filter.vue';
 import type { AcvFilterProps } from './filter';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Filter from './filter.vue';
 
 describe('test Filter component', () => {
   it('default props', () => {

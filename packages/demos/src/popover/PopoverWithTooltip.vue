@@ -1,10 +1,10 @@
 <script setup>
-  import { ref } from 'vue';
-  import { IconAttention16 } from '@acronis-platform/icons/attention';
   import AcvButton from '@/components/button/button.vue';
+  import AcvIcon from '@/components/icon/icon.vue';
   import AcvPopover from '@/components/popover/popover.vue';
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
-  import AcvIcon from '@/components/icon/icon.vue';
+  import { IconAttention16 } from '@acronis-platform/icons/attention';
+  import { ref } from 'vue';
 
   const firstPopoverReference = ref(null);
   const secondPopoverReference = ref(null);

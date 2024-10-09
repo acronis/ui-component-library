@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
 import type { AcvInputBaseProps } from './inputBase.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import InputBase from './inputBase.vue';
 
 describe('test InputBase component', () => {

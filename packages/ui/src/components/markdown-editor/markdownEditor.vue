@@ -1,11 +1,11 @@
 <script setup lang="ts">
   import type { ToolbarNames } from 'md-editor-v3';
-  import { MdEditor } from 'md-editor-v3';
   import type {
     AcvMarkdownEditorEvents,
     AcvMarkdownEditorProps,
     AcvMarkdownEditorSlots
   } from './markdownEditor.ts';
+  import { MdEditor } from 'md-editor-v3';
   import './markdownEditor.css';
   import 'md-editor-v3/lib/style.css';
 

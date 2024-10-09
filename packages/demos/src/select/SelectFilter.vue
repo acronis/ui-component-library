@@ -1,11 +1,11 @@
 <script>
+  import { AcvOption, AcvSelect } from '@/components';
   import {
     getOptionsCities,
     gg,
     optionsGen,
     treeDataGen
   } from '../__data__/data.select.generateOptions.js';
-  import { AcvOption, AcvSelect } from '@/components';
 
   export default {
     components: {

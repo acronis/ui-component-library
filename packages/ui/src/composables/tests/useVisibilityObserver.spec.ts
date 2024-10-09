@@ -1,12 +1,11 @@
 import { shallowMount } from '@vue/test-utils';
-import { nextTick } from 'vue';
-import type { Mock } from 'vitest';
 import { describe, expect, it, vi } from 'vitest';
+import { nextTick } from 'vue';
 import { useVisibilityObserver } from '../useVisibilityObserver.ts';
 
 describe('useVisibilityObserver', () => {
   let observerCallback: IntersectionObserverCallback;
-  let IntersectionObserver: Mock<[callback: IntersectionObserverCallback], { observe: Mock<[Element], void>, unobserve: Mock<[Element], void> }>;
+  let IntersectionObserver;
 
   beforeEach(() => {
     IntersectionObserver = vi.fn((callback) => {
@@ -18,7 +17,6 @@ describe('useVisibilityObserver', () => {
     });
 
     // vi.spyOn(global, 'IntersectionObserver').mockImplementation(() => IntersectionObserver as any);
-    // @ts-expect-error because of the issue with global types
     global.IntersectionObserver = IntersectionObserver;
   });
 

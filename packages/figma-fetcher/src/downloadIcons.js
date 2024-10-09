@@ -1,9 +1,9 @@
 import process from 'node:process';
 import chalk from 'chalk';
-import { downloadChunks } from './downloadChunks.js';
-import { getFigmaImages } from './getFigmaImages.js';
 import { cleanDirectory } from './cleanDirectory.js';
+import { downloadChunks } from './downloadChunks.js';
 import { getFigmaIcons } from './getFigmaIcons.js';
+import { getFigmaImages } from './getFigmaImages.js';
 import { getConfig } from './helpers.js';
 
 /**

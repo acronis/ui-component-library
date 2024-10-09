@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Checkbox from './checkbox.vue';
 import type { AcvCheckboxProps } from './checkbox.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Checkbox from './checkbox.vue';
 
 describe('checkbox component', () => {
   it('default props', () => {

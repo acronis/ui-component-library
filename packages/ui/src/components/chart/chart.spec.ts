@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Chart from './chart.vue';
 import type { AcvChartProps } from './chart.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Chart from './chart.vue';
 
 describe('test Chart component', () => {
   it('default props', () => {

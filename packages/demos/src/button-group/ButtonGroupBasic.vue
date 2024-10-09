@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvButton from '@/components/button/button.vue';
   import AcvButtonGroup from '@/components/button-group/buttonGroup.vue';
+  import { ref } from 'vue';
 
   const selected = ref('Middle');
 </script>

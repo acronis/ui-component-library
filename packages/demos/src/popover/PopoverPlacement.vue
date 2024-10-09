@@ -1,7 +1,7 @@
 <script setup>
-  import { onMounted, ref } from 'vue';
-  import AcvPopover from '@/components/popover/popover.vue';
   import AcvButton from '@/components/button/button.vue';
+  import AcvPopover from '@/components/popover/popover.vue';
+  import { onMounted, ref } from 'vue';
 
   const popover1 = ref(null);
   const popover2 = ref(null);

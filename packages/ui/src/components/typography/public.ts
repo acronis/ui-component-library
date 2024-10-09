@@ -1,29 +1,29 @@
 import type { ComponentPublicInstance } from 'vue';
-import Title from './title.tsx';
-import Text from './text.tsx';
 import Blockquote from './blockquote.tsx';
-import OL from './ol.tsx';
-import UL from './ul.tsx';
 import { H1, H2, H3, H4, H5, H6 } from './h.tsx';
+import OL from './ol.tsx';
 import P from './p.tsx';
 import Strong from './strong.tsx';
+import Text from './text.tsx';
+import Title from './title.tsx';
+import UL from './ul.tsx';
 
-export { Title, Text, Blockquote, OL, UL, H1, H2, H3, H4, H5, H6, P, Strong };
+export { Blockquote, H1, H2, H3, H4, H5, H6, OL, P, Strong, Text, Title, UL };
 
 export {
-  titleProps,
-  textProps,
   blockquoteProps,
-  olProps,
-  ulProps,
   h1Props,
   h2Props,
   h3Props,
   h4Props,
   h5Props,
   h6Props,
+  olProps,
   pProps,
-  strongProps
+  strongProps,
+  textProps,
+  titleProps,
+  ulProps
 } from './props.ts';
 
 export type TitleExposed = ComponentPublicInstance & InstanceType<typeof Title>;
@@ -41,31 +41,31 @@ export type PExposed = ComponentPublicInstance & InstanceType<typeof P>;
 export type StrongExposed = ComponentPublicInstance & InstanceType<typeof Strong>;
 
 export type {
-  TextProps,
-  TextConfigurableProps,
-  PProps,
-  PConfigurableProps,
-  StrongProps,
-  StrongConfigurableProps,
-  TitleProps,
-  TitleConfigurableProps,
-  H1Props,
-  H2Props,
-  H3Props,
-  H4Props,
-  H5Props,
-  H6Props,
-  H1ConfigurableProps,
-  H2ConfigurableProps,
-  H3ConfigurableProps,
-  H4ConfigurableProps,
-  H5ConfigurableProps,
-  H6ConfigurableProps,
-  BlockquoteProps,
   BlockquoteConfigurableProps,
-  OLProps,
+  BlockquoteProps,
+  H1ConfigurableProps,
+  H1Props,
+  H2ConfigurableProps,
+  H2Props,
+  H3ConfigurableProps,
+  H3Props,
+  H4ConfigurableProps,
+  H4Props,
+  H5ConfigurableProps,
+  H5Props,
+  H6ConfigurableProps,
+  H6Props,
   OLConfigurableProps,
-  ULProps,
-  ULConfigurableProps
+  OLProps,
+  PConfigurableProps,
+  PProps,
+  StrongConfigurableProps,
+  StrongProps,
+  TextConfigurableProps,
+  TextProps,
+  TitleConfigurableProps,
+  TitleProps,
+  ULConfigurableProps,
+  ULProps
 } from './props.ts';
-export type { TypographyType, TitleLevel } from './symbol.ts';
+export type { TitleLevel, TypographyType } from './symbol.ts';

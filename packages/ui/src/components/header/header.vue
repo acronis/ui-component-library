@@ -1,7 +1,7 @@
 <script setup lang="ts">
+  import type { AcvHeaderProps, AcvHeaderSlots } from './header.ts';
   import { computed, ref } from 'vue';
   import { isColor } from '../../utils/color.ts';
-  import type { AcvHeaderProps, AcvHeaderSlots } from './header.ts';
   import './header.css';
 
   const {

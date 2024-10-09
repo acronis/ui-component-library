@@ -1,7 +1,7 @@
 <script setup>
-  import cardMock from '../__data__/data.mock.card.js';
   import AcvCard from '@/components/card/card.vue';
   import AcvTypography from '@/components/typography/typography.vue';
+  import cardMock from '../__data__/data.mock.card.js';
 </script>
 
 <template>

@@ -1,13 +1,13 @@
+import { existsSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import process from 'node:process';
-import { existsSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import minimist from 'minimist';
 import { format } from 'prettier';
 import { prettierConfig, rootDir } from './utils/constant';
-import { specifyComponent } from './utils/specifyComponent';
 import { logger } from './utils/logger';
-import { run } from './utils/run';
 import { queryIdlePort } from './utils/queryIdlePort';
+import { run } from './utils/run';
+import { specifyComponent } from './utils/specifyComponent';
 
 const args = minimist<{
   s?: boolean
@@ -64,14 +64,14 @@ async function serveComponent() {
       history: createWebHashHistory('/'),
       routes: [
         ${demos
-    .map((demo, index) => {
-      return `{
+          .map((demo, index) => {
+            return `{
             path: '${index ? `/${demo}` : '/'}',
             name: '${demo}',
             component: () => import('../../demos/src/${target}/${demo}')
           }`;
-    })
-    .join(',\n')},
+          })
+          .join(',\n')},
         {
           path: '/${demos.includes('play') ? '_' : ''}play',
           name: 'playground',

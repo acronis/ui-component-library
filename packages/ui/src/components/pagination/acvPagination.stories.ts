@@ -1,5 +1,5 @@
-import { IconPlus16 } from '@acronis-platform/icons/plus';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { IconPlus16 } from '@acronis-platform/icons/plus';
 import { ref } from 'vue';
 import AcvPagination from './AcvPagination.vue';
 

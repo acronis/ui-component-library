@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
   import type { RadioOption } from '@/components/GoRadio/radio.ts';
-  import { useRadioGroup } from '@/components/GoRadio/radio.ts';
   import GoRadio from '@/components/GoRadio/GoRadio.vue';
+  import { useRadioGroup } from '@/components/GoRadio/radio.ts';
+  import { computed } from 'vue';
 
   const props = defineProps<{
     value?: RadioOption

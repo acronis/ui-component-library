@@ -1,2 +1,2 @@
-export { default as AcvTiles } from './tiles.vue';
 export * from './tiles.ts';
+export { default as AcvTiles } from './tiles.vue';

@@ -1,10 +1,10 @@
-import { env } from 'node:process';
+import type { UserConfigFn } from 'vite';
 import { resolve } from 'node:path';
+import { env } from 'node:process';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import type { UserConfigFn } from 'vite';
-import { defineConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
+import { defineConfig } from 'vite';
 import { buildPlugin } from './scripts/buildPlugin';
 
 export default defineConfig(() => {

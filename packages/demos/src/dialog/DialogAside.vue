@@ -1,10 +1,10 @@
 <script setup>
-  import { ref } from 'vue';
-
   import AcvButton from '@/components/button/button.vue';
+
   import AcvDialog from '@/components/dialog/dialog.vue';
   import AcvStepper from '@/components/stepper/stepper.vue';
   import AcvStepperItem from '@/components/stepper-item/stepperItem.vue';
+  import { ref } from 'vue';
 
   const dialogVisible = ref(false);
   const stepper = ref(0);

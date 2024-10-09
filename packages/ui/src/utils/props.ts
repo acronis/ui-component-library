@@ -1,16 +1,16 @@
-import { computed, inject, provide, reactive, unref, watch } from 'vue';
-import { has, isFunction, isNull, isObject, merge } from 'lodash-es';
-
 import type {
   App,
-  CSSProperties,
   ComponentObjectPropsOptions,
   ComputedRef,
+  CSSProperties,
   MaybeRef,
   PropType
 } from 'vue';
-import type { LocaleConfig, LocaleNames } from '../types/locale.ts';
 import type { AnyFunction, EnsureValue, Expand, MaybeFunction, VoidFunction } from '../types/generic.ts';
+
+import type { LocaleConfig, LocaleNames } from '../types/locale.ts';
+import { has, isFunction, isNull, isObject, merge } from 'lodash-es';
+import { computed, inject, provide, reactive, unref, watch } from 'vue';
 
 export type PropsOptions = Record<string, Record<string, unknown>>;
 

@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
-  import AcvPopover from '@/components/popover/popover.vue';
   import AcvButton from '@/components/button/button.vue';
+  import AcvPopover from '@/components/popover/popover.vue';
+  import { ref } from 'vue';
 
   const popoverReference = ref(null);
   const popoverReferenceVisible = ref(false);

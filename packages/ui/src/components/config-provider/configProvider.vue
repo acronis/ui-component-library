@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { inject, provide } from 'vue';
-  import { merge } from 'lodash-es';
   import type {
     AcvConfigProviderProps,
     AcvConfigProviderSlots
   } from './configProvider.ts';
+  import { merge } from 'lodash-es';
+  import { inject, provide } from 'vue';
   import {
     ACV_CONFIG_OPTIONS
   } from './configProvider.ts';

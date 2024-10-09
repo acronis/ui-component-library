@@ -1,6 +1,6 @@
 import config from '@acronis-platform/configs/eslint.config.js';
-import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 import pluginCypress from 'eslint-plugin-cypress/flat';
+import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 
 export default config.append(
   pluginVueA11y.configs['flat/recommended'],

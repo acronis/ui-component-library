@@ -1,6 +1,6 @@
 <script setup>
-  import { IconAddressBook32 } from '@acronis-platform/icons/address';
   import Button from '@/components/button/button.vue';
+  import { IconAddressBook32 } from '@acronis-platform/icons/address';
   </script>
 
 <template>

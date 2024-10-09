@@ -1,5 +1,5 @@
-import { isObjectLike } from './isObjectLike.ts';
 import { isArray } from './isArray.ts';
+import { isObjectLike } from './isObjectLike.ts';
 
 export const isEqual = function (a: string | any[], b: any[]) {
   if (a === b) {

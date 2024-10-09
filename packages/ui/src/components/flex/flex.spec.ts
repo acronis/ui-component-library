@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Flex from './flex.vue';
 import type { AcvFlexProps } from './flex.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Flex from './flex.vue';
 
 describe('test Flex component', () => {
   it('default props', () => {

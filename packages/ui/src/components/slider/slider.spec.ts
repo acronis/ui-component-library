@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Slider from './slider.vue';
 import type { AcvSliderProps } from './slider';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Slider from './slider.vue';
 
 describe('test Slider component', () => {
   it('default props', () => {

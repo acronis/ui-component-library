@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { onMounted, ref, watch } from 'vue';
   import { isClient } from '@acronis-platform/utils';
+  import { onMounted, ref, watch } from 'vue';
 
   const emit = defineEmits(['change']);
 

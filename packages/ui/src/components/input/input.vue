@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import './input.css';
   import type { AcvInputProps } from './input.ts';
+  import './input.css';
 
   const { trueValue, falseValue } = defineProps<AcvInputProps>();
   defineEmits<{
@@ -21,7 +21,7 @@
     :false-value="falseValue"
     class="acv-input"
     :type="$props.type"
-  />
+  >
 </template>
 
 <style scoped>

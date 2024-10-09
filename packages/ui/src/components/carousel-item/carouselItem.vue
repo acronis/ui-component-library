@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { computed, getCurrentInstance, inject, onMounted, onUnmounted } from 'vue';
-  import { isDefined } from '@vueuse/core';
   import type {
     AcvCarouselItemProps,
     AcvCarouselItemSlots
@@ -8,6 +6,8 @@
   import {
     CAROUSEL_INJECTION_KEY
   } from '@/components/carousel/carousel.ts';
+  import { isDefined } from '@vueuse/core';
+  import { computed, getCurrentInstance, inject, onMounted, onUnmounted } from 'vue';
   import './carouselItem.css';
 
   const props = defineProps<AcvCarouselItemProps>();

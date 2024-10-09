@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
 import type { AcvScrollbarProps } from './scrollbar.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import AcvScrollbar from './scrollbar.vue';
 
 describe('acvScrollbar component', () => {

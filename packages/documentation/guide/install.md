@@ -27,10 +27,10 @@ By fully importing Acronis UI Component Library components, the package size wil
 `main.ts`
 
 ```ts
-import { createApp } from 'vue';
 import UIKit from '@acronis-platform/ui-component-library';
-import '@acronis-platform/ui-component-library/styles/acronis.css';
+import { createApp } from 'vue';
 import App from './App.vue';
+import '@acronis-platform/ui-component-library/styles/acronis.css';
 
 const app = createApp(App);
 

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Spinner from './spinner.vue';
 import type { AcvSpinnerProps } from './spinner';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Spinner from './spinner.vue';
 
 describe('test Spinner component', () => {
   it('default props', () => {

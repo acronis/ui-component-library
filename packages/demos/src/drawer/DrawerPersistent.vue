@@ -1,9 +1,9 @@
 <script setup>
+  import AcvButton from '@/components/button/button.vue';
+  import AcvDrawer from '@/components/drawer/drawer.vue';
+  import AcvTypography from '@/components/typography/typography.vue';
   import { ref } from 'vue';
   import cardMock from '../__data__/data.mock.card.js';
-  import AcvDrawer from '@/components/drawer/drawer.vue';
-  import AcvButton from '@/components/button/button.vue';
-  import AcvTypography from '@/components/typography/typography.vue';
 
   const isDrawerShown = ref(false);
 </script>

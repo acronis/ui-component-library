@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { computed, nextTick, ref, watch } from 'vue';
-  import { onClickOutside, onKeyDown, useDraggable } from '@vueuse/core';
-  import { IconClose16 } from '@acronis-platform/icons/close';
-  import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
-  import AcvButton from '../button/button.vue';
   import type { AcvDialogEvents, AcvDialogProps, AcvDialogSlots } from './dialog.ts';
+  import { IconClose16 } from '@acronis-platform/icons/close';
+  import { onClickOutside, onKeyDown, useDraggable } from '@vueuse/core';
+  import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+  import { computed, nextTick, ref, watch } from 'vue';
+  import AcvButton from '../button/button.vue';
 
   import './dialog.css';
 

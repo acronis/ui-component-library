@@ -1,5 +1,3 @@
-// Utilities
-import { h, mergeProps, render, resolveComponent } from 'vue';
 import type {
   Component,
   ComponentInstance,
@@ -9,6 +7,8 @@ import type {
   VNode,
   VNodeProps
 } from 'vue';
+// Utilities
+import { h, mergeProps, render, resolveComponent } from 'vue';
 
 // Types
 import { isObject } from 'lodash-es';

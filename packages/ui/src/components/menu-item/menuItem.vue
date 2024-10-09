@@ -1,15 +1,15 @@
 <script setup lang="ts">
-  import { computed, getCurrentInstance, inject, ref, toValue } from 'vue';
   import type { AcvMenuInjection } from '../menu/menu.ts';
-  import { MENU_KEY } from '../menu/menu.ts';
   import type {
     AcvMenuItemEvents,
     AcvMenuItemProps,
     AcvMenuItemSlots
   } from './menuItem.ts';
-  import { useNested } from '@/components/menu-item/useNested.ts';
   import { useLevel } from '@/components/menu-item/useLevel.ts';
+  import { useNested } from '@/components/menu-item/useNested.ts';
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
+  import { computed, getCurrentInstance, inject, ref, toValue } from 'vue';
+  import { MENU_KEY } from '../menu/menu.ts';
 
   import './menuItem.css';
 

@@ -1,5 +1,5 @@
-import { useCssVar } from '@vueuse/core';
 import type { Ref } from 'vue';
+import { useCssVar } from '@vueuse/core';
 import { ref, watch } from 'vue';
 
 // Thanks: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/

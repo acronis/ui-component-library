@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import AcvTypography from '../typography/typography.vue';
-  import AcvFormLabel from '../form-label/formLabel.vue';
   import type {
     AcvFormItemEvents,
     AcvFormItemProps,
     AcvFormItemSlots
   } from './formItem.ts';
+  import { computed } from 'vue';
+  import AcvFormLabel from '../form-label/formLabel.vue';
+  import AcvTypography from '../typography/typography.vue';
   import './formItem.css';
 
   defineOptions({

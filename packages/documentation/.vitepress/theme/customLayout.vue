@@ -1,6 +1,6 @@
 <script setup>
-  import DefaultTheme from 'vitepress/theme';
   import ThemeSwitcher from '@/widgets/theme-switcher/themeSwitcher.vue';
+  import DefaultTheme from 'vitepress/theme';
 
   const isProd = process.env.NODE_ENV === 'production';
 

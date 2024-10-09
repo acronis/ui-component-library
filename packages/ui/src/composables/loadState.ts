@@ -1,4 +1,8 @@
+import type { OnCleanup } from '@/types/oncleanup.ts';
+import type { PromiseFunction } from '@acronis-platform/utils';
 import type { Ref } from 'vue';
+import { trackPromiseFunction } from '@/composables/trackPromiseFunction.ts';
+import { AbortError } from '@acronis-platform/utils';
 import {
   computed,
   effectScope,
@@ -8,10 +12,6 @@ import {
   shallowReactive,
   watch,
 } from 'vue';
-import type { PromiseFunction } from '@acronis-platform/utils';
-import { AbortError } from '@acronis-platform/utils';
-import { trackPromiseFunction } from '@/composables/trackPromiseFunction.ts';
-import type { OnCleanup } from '@/types/oncleanup.ts';
 
 export type LoadState =
   | 'blank' // this is state before first load
@@ -82,12 +82,10 @@ export function useLoadState() {
       }
 
       function onSuccess() {
-        // eslint-disable-next-line ts/no-unused-expressions
         count === wrapLoadCount && setLoaded();
       }
 
       function onError() {
-        // eslint-disable-next-line ts/no-unused-expressions
         count === wrapLoadCount && setError();
       }
     };

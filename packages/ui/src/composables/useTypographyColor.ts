@@ -1,9 +1,9 @@
 import type { MaybeRefOrGetter } from '@vueuse/core';
+import type { ColorProp } from '../types/props.ts';
 import { toValue } from '@vueuse/core';
 import { ref, watch } from 'vue';
-import { colord } from '../utils/colord.ts';
 import { isBaseColor } from '../utils/color.ts';
-import type { ColorProp } from '../types/props.ts';
+import { colord } from '../utils/colord.ts';
 
 function calculateColor(_isThemeColor: boolean, _color: ColorProp | null, _variant: string) {
   const classes: string[] = [];

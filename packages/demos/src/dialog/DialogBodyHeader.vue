@@ -1,9 +1,9 @@
 <script setup>
-  import { ref } from 'vue';
-
   import AcvButton from '@/components/button/button.vue';
+
   import AcvDialog from '@/components/dialog/dialog.vue';
   import AcvTabs from '@/components/tabs/tabs.vue';
+  import { ref } from 'vue';
 
   const dialogVisible = ref(false);
 

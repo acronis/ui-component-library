@@ -1,8 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvButton from '@/components/button/button.vue';
   import AcvCarousel from '@/components/carousel/carousel.vue';
   import AcvCarouselItem from '@/components/carousel-item/carouselItem.vue';
+  import { ref } from 'vue';
 
   const value = ref();
   const autoplay = ref(false);

@@ -1,6 +1,6 @@
 <script setup>
-  import AcvPopover from '@/components/popover/popover.vue';
   import AcvButton from '@/components/button/button.vue';
+  import AcvPopover from '@/components/popover/popover.vue';
 </script>
 
 <template>

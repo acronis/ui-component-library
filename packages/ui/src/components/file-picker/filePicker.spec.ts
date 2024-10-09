@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import FilePicker from './filePicker.vue';
 import type { AcvFilePickerProps } from './filePicker';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import FilePicker from './filePicker.vue';
 
 describe('test FilePicker component', () => {
   it('default props', () => {

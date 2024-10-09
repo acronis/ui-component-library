@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Main from './main.vue';
 import type { AcvMainProps } from './main.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Main from './main.vue';
 
 describe('test Main component', () => {
   it('default props', () => {

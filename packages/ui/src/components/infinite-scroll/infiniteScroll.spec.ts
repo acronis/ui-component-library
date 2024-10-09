@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import InfiniteScroll from './infiniteScroll.vue';
 import type { AcvInfiniteScrollProps } from './infiniteScroll';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import InfiniteScroll from './infiniteScroll.vue';
 
 describe('test InfiniteScroll component', () => {
   it('default props', () => {

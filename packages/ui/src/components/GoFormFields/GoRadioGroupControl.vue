@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-  import type { RuleExpression } from '@/composables';
-  import { useGoField } from '@/composables';
   import type { RadioOption } from '@/components/GoRadio/radio.ts';
+  import type { RuleExpression } from '@/composables';
   import GoFormControl from '@/components/GoForm/GoFormControl.vue';
   import GoRadioGroup from '@/components/GoRadio/GoRadioGroup.vue';
+  import { useGoField } from '@/composables';
 
   const props = withDefaults(
     defineProps<{

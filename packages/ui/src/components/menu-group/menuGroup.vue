@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { inject } from 'vue';
   import type {
     AcvMenuGroupEvents,
     AcvMenuGroupProps,
     AcvMenuGroupSlots
   } from './menuGroup.ts';
-  import { useLevel } from '@/components/menu-item/useLevel.ts';
   import { type AcvMenuInjection, MENU_KEY } from '@/components/index.ts';
+  import { useLevel } from '@/components/menu-item/useLevel.ts';
+  import { inject } from 'vue';
 
   import './menuGroup.css';
 

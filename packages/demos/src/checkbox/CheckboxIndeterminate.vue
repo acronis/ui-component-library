@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
+  import { ref } from 'vue';
 
   const value = ref(null);
 </script>

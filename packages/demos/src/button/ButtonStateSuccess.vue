@@ -1,6 +1,6 @@
 <script setup>
-  import { IconCheck16 } from '@acronis-platform/icons/check';
   import AcvButton from '@/components/button/button.vue';
+  import { IconCheck16 } from '@acronis-platform/icons/check';
 </script>
 
 <template>

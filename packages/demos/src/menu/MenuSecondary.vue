@@ -1,10 +1,10 @@
 <script setup>
-  import { IconPartition16 } from '@acronis-platform/icons/partition';
-  import { IconCase16 } from '@acronis-platform/icons/case';
-  import { ref } from 'vue';
   import AcvMenu from '@/components/menu/menu.vue';
   import AcvMenuItem from '@/components/menu-item/menuItem.vue';
   import AcvTag from '@/components/tag/tag.vue';
+  import { IconCase16 } from '@acronis-platform/icons/case';
+  import { IconPartition16 } from '@acronis-platform/icons/partition';
+  import { ref } from 'vue';
 
   const selectedMenu = ref('second');
 </script>

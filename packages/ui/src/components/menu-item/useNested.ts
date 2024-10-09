@@ -1,4 +1,4 @@
-import { type InjectionKey, type Ref, inject, provide, ref } from 'vue';
+import { inject, type InjectionKey, provide, type Ref, ref } from 'vue';
 
 type AcvNestedInjection = Ref<any[]>;
 

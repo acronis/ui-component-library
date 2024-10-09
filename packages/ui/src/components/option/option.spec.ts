@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Option from './option.vue';
 import type { AcvOptionProps } from './option';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Option from './option.vue';
 
 describe('test Option component', () => {
   it('default props', () => {

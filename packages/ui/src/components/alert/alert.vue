@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
-  import { IconClose16 } from '@acronis-platform/icons/close';
-  import { computed } from 'vue';
   import type { AcvAlertEvents, AcvAlertProps, AcvAlertSlots } from './alert.ts';
   import AcvButton from '@/components/button/button.vue';
+  import { IconClose16 } from '@acronis-platform/icons/close';
+  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
+  import { computed } from 'vue';
 
   import './alert.css';
 

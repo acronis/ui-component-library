@@ -1,7 +1,7 @@
-import { computed, inject } from 'vue';
 import { BUTTON_COLOR, BUTTON_GROUP_KEY, BUTTON_TYPE, BUTTON_VARIANT } from '@/components/index.ts';
 import { isBaseColor } from '@/utils/color.ts';
 import { colord } from '@/utils/colord.ts';
+import { computed, inject } from 'vue';
 
 export function useButton(props) {
   const buttonGroupState = inject(BUTTON_GROUP_KEY, null);

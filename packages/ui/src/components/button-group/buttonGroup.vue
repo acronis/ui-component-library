@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type { ButtonGroupEvents, ButtonGroupProps, ButtonGroupSlots } from './buttonGroup.ts';
+  import { computed } from 'vue';
   import './buttonGroup.css';
 
   const { size, vertical } = defineProps<ButtonGroupProps>();

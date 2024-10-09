@@ -1,6 +1,6 @@
-import { type Ref, onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import PerfectScrollbar from 'perfect-scrollbar';
 import type { AcvScrollbarProps, PerfectScrollbarEmitsKeys } from './scrollbar.ts';
+import PerfectScrollbar from 'perfect-scrollbar';
+import { onBeforeUnmount, onMounted, type Ref, ref, watch } from 'vue';
 
 type AcvScrollbarEmits = ((evt: 'scroll', value: Event) => void)
   & ((evt: 'ps-scroll-y', value: Event) => void)

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import { getUniqueIndex } from '@acronis-platform/utils';
   import type { RadioOption } from './radio';
+  import { getUniqueIndex } from '@acronis-platform/utils';
   import { provideRadioGroup } from './radio';
 
   const props = withDefaults(

@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
   import Checkbox from '@/components/checkbox/checkbox.vue';
   import Icon from '@/components/icon/icon.vue';
+  import { ref } from 'vue';
 
   const iconState1 = ref(true);
   const iconState2 = ref(true);

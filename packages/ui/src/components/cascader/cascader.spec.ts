@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Cascader from './cascader.vue';
 import type { AcvCascaderProps } from './cascader';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Cascader from './cascader.vue';
 
 describe('test Cascader component', () => {
   it('default props', () => {

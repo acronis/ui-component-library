@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
-import { mount, shallowMount } from '@vue/test-utils';
-import { h } from 'vue';
-import Carousel from './carousel.vue';
 import type { AcvCarouselProps } from './carousel';
 import AcvCarouselItem from '@/components/carousel-item/carouselItem.vue';
+import { mount, shallowMount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import { h } from 'vue';
+import Carousel from './carousel.vue';
 
 describe('test Carousel component', () => {
   const slots = {

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Radio from './radio.vue';
 import type { AcvRadioProps } from './radio';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Radio from './radio.vue';
 
 describe('radio component', () => {
   it('default props', () => {

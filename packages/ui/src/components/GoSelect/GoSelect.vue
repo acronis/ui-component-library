@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
-  import { provideSelect } from './select';
   import type { SelectModel, SelectOptionValue, SelectProps } from './select';
   import { useProxyVisible } from '@/composables/useProxyVisible.ts';
+  import { computed } from 'vue';
+  import { provideSelect } from './select';
 
   const props = withDefaults(defineProps<SelectProps>(), {
     visible: undefined,

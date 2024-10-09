@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import type { CSSProperties } from 'vue';
-  import { computed, provide, reactive, toRef } from 'vue';
-  import './grid.css';
   import type { AcvGridProps } from './grid.ts';
+  import { computed, provide, reactive, toRef } from 'vue';
   import { GRID_KEY } from './grid.ts';
   import { parseAutoLayout, parseSizeLayout } from './utils.ts';
+  import './grid.css';
 
   defineOptions({ name: 'Grid' });
 

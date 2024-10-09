@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Code from './code.vue';
 import type { AcvCodeProps } from './code.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Code from './code.vue';
 
 const code = `from pymatgen.core import Lattice, Structure
 from rolos_sdk import Dataframe, DataStorageInterface, DataStorageType, RawObject, TableColumn

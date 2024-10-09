@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import { IconClose16 } from '@acronis-platform/icons/close';
-import Chip from './chip.vue';
 import type { AcvChipProps } from './chip.ts';
+import { IconClose16 } from '@acronis-platform/icons/close';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Chip from './chip.vue';
 
 describe('test chip component', () => {
   it('default props', () => {

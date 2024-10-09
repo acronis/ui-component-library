@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import type { AcvDialogProps } from './dialog';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { nextTick } from 'vue';
 import Dialog from './dialog.vue';
-import type { AcvDialogProps } from './dialog';
 
 describe('test Dialog component', () => {
   beforeAll(() => {

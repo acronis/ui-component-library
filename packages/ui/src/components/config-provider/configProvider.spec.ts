@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import ConfigProvider from './configProvider.vue';
 import type { AcvConfigProviderProps } from './configProvider';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import ConfigProvider from './configProvider.vue';
 
 describe('test ConfigProvider component', () => {
   it('default props', () => {

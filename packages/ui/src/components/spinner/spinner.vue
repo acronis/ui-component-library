@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type { AcvSpinnerProps } from './spinner.ts';
+  import { computed } from 'vue';
 
   import './spinner.css';
 

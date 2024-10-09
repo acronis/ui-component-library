@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
-import { defineComponent, provide, toRef } from 'vue';
-import { mount } from '@vue/test-utils';
 import { useButton } from '@/components/button/useButton.ts';
 import { BUTTON_COLOR, BUTTON_GROUP_KEY, BUTTON_VARIANT } from '@/components/index.ts';
 import { colord } from '@/utils/colord.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import { defineComponent, provide, toRef } from 'vue';
 
 const TestComponent = defineComponent({
   props: {

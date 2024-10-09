@@ -1,6 +1,6 @@
 <script>
-  import { gg } from '../__data__/data.select.generateOptions.js';
   import { AcvNumPicker, AcvOption, AcvSelect } from '@/components';
+  import { gg } from '../__data__/data.select.generateOptions.js';
 
   const _statuses = [
     {

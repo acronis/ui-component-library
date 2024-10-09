@@ -1,6 +1,6 @@
 <script>
-  import { generateLongOptions } from '../__data__/data.select.generateOptions.js';
   import { AcvOption, AcvSelect } from '@/components';
+  import { generateLongOptions } from '../__data__/data.select.generateOptions.js';
 
   export default {
     components: {

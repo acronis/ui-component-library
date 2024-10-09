@@ -1,8 +1,8 @@
 <script setup lang="ts">
+  import type { AcvContainerProps, AcvContainerSlots } from './container.ts';
   import { computed } from 'vue';
   import { useBreakpoints } from '../../composables/useBreakpoints.ts';
   import { isBaseColor, isColor, parseStringColor } from '../../utils/color.ts';
-  import type { AcvContainerProps, AcvContainerSlots } from './container.ts';
   import './container.css';
 
   const props = withDefaults(defineProps<AcvContainerProps>(), {

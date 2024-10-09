@@ -1,8 +1,8 @@
 <script setup>
   import AcvButton from '@/components/button/button.vue';
   import AcvDropdown from '@/components/dropdown/dropdown.vue';
-  import AcvDropdownMenu from '@/components/dropdown/dropdownMenu.vue';
   import AcvDropdownItem from '@/components/dropdown/dropdownItem.vue';
+  import AcvDropdownMenu from '@/components/dropdown/dropdownMenu.vue';
 </script>
 
 <template>

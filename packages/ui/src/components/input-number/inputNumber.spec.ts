@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import InputNumber from './inputNumber.vue';
 import type { AcvInputNumberProps } from './inputNumber';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import InputNumber from './inputNumber.vue';
 
 describe('test InputNumber component', () => {
   it('default props', () => {

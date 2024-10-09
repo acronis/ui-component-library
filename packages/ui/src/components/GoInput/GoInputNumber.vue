@@ -1,11 +1,11 @@
 <script lang="ts" setup>
+  import type { GoInputNumberProps, InputExpose } from './input';
+  import type { InputParserResult } from './inputParsers';
+  import GoInput from '@/components/GoInput/GoInput.vue';
   // import MinusSvg from '@constructor/icons/svg/action/minus.svg';
   // import PlusSvg from '@constructor/icons/svg/action/plus.svg';
   import { computed, nextTick, ref, watch } from 'vue';
-  import type { GoInputNumberProps, InputExpose } from './input';
-  import type { InputParserResult } from './inputParsers';
   import { getParseResult } from './inputParsers';
-  import GoInput from '@/components/GoInput/GoInput.vue';
 
   const props = withDefaults(defineProps<GoInputNumberProps>(), { step: 1 });
   const emit = defineEmits<{

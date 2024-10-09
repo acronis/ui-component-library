@@ -1,11 +1,11 @@
 <script setup lang="ts">
+  import type { AcvChartProps } from './chart.ts';
+  import { toValue } from '@vueuse/core';
   import Chart from 'chart.js/auto';
   import { nextTick, onMounted, onUnmounted, ref, shallowRef, toRaw, watch } from 'vue';
-  import { toValue } from '@vueuse/core';
-  import type { AcvChartProps } from './chart.ts';
   import { DESTROY_DELAY } from './chart.ts';
-  import './chart.css';
   import { cloneData, cloneProxy, setDatasets, setLabels, setOptions } from './utils.ts';
+  import './chart.css';
 
   const props = withDefaults(defineProps<AcvChartProps>(), {
     type: 'bar',

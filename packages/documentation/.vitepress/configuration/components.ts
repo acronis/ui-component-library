@@ -1,6 +1,6 @@
+import { composables } from './composables.ts';
 import { directives } from './directives.ts';
 import { widgets } from './widgets.ts';
-import { composables } from './composables.ts';
 
 // eslint-disable-next-line node/prefer-global/process
 const isProd = process.env.NODE_ENV === 'production';

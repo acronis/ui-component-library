@@ -1,5 +1,5 @@
-import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 
 const endsWithPkgRE = /[\\/]package\.json$/;
 

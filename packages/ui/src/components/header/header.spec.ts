@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Header from './header.vue';
 import type { AcvHeaderProps } from './header.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Header from './header.vue';
 
 describe('test Header component', () => {
   it('default props', () => {

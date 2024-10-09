@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Icon from './icon.vue';
 import type { AcvIconProps } from './icon.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Icon from './icon.vue';
 
 describe('test Icon component', () => {
   it('default props', () => {

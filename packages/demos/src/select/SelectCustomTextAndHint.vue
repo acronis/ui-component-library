@@ -1,6 +1,6 @@
 <script>
-  import { gg } from '../__data__/data.select.generateOptions.js';
   import { AcvOption, AcvSelect } from '@/components';
+  import { gg } from '../__data__/data.select.generateOptions.js';
 
   export default {
     components: {

@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest'
+import type { AcvAlertProps } from './alert.ts'
 import { mount } from '@vue/test-utils'
+import { describe, expect, it } from 'vitest'
 import { axe } from 'vitest-axe'
 import Alert from './alert.vue'
-import type { AcvAlertProps } from './alert.ts'
 
 describe('alert', () => {
   it('pass accessibility tests', async () => {

@@ -1,9 +1,9 @@
-import { chartColors, isValidColor } from '../../utils/color-utils';
+import { t } from '../../locale';
 import { cssValue } from '../../utils/color-converters';
+import { chartColors, isValidColor } from '../../utils/color-utils';
+import { getLocale } from '../../utils/local-storage';
 import prettySize from '../../utils/prettySize.ts';
 import { getFadedColors } from '../../utils/widget.ts';
-import { getLocale } from '../../utils/local-storage';
-import { t } from '../../locale';
 // import { addResizeListener, removeResizeListener } from '../../utils/resize-event';
 
 const IS_LOADING = 'LOADING';

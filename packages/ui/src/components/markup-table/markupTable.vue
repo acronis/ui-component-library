@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { computed, toRefs } from 'vue';
-  import './markupTable.css';
-  import { useResizingColumns } from './composables/useResizingColumns.ts';
-  import { useGridColumns } from './composables/useGridColumns.ts';
   import type { AcvMarkupTableColumn, AcvMarkupTableProps } from './markupTable.ts';
+  import { computed, toRefs } from 'vue';
+  import { useGridColumns } from './composables/useGridColumns.ts';
+  import { useResizingColumns } from './composables/useResizingColumns.ts';
+  import './markupTable.css';
 
   defineOptions({ name: 'MarkupTable' });
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-  import './link.css';
-  import { computed } from 'vue';
   import type { AcvLinkProps, AcvLinkSlots } from './link.ts';
+  import { computed } from 'vue';
+  import './link.css';
 
   const { disabled } = defineProps<AcvLinkProps>();
   defineEmits<{

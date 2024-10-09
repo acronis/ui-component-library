@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Cell from './cell.vue';
 import type { AcvCellProps } from './cell.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Cell from './cell.vue';
 
 describe('test Cell component', () => {
   it('default props', () => {

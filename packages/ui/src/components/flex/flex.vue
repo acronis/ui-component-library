@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import './flex.css';
   import type { AcvFlexProps } from './flex.ts';
+  import './flex.css';
 
   const { title, description } = defineProps<AcvFlexProps>();
 

@@ -1,6 +1,6 @@
 <script setup>
-  import Row from '@/components/row/row.vue';
   import Column from '@/components/column/column.vue';
+  import Row from '@/components/row/row.vue';
 </script>
 
 <template>

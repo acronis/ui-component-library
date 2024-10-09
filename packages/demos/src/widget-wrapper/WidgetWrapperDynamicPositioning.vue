@@ -1,11 +1,11 @@
 <script>
   import AcvIcon from '@/components/icon/icon.vue';
+  import AcvOption from '@/components/option/option.vue';
+  import AcvSelect from '@/components/select/select.vue';
+  import AcvTag from '@/components/tag/tag.vue';
   import AcvLineChart from '@/widgets/line-chart/lineChart.vue';
   import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
   import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
-  import AcvTag from '@/components/tag/tag.vue';
-  import AcvSelect from '@/components/select/select.vue';
-  import AcvOption from '@/components/option/option.vue';
 
   export default {
     components: {

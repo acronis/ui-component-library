@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import FittedActions from './fittedActions.vue';
 import type { AcvFittedActionsProps } from './fittedActions.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import FittedActions from './fittedActions.vue';
 
 describe('test FittedActions component', () => {
   it('default props', () => {

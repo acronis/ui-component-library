@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Autocomplete from './autocomplete.vue';
 import type { AcvAutocompleteProps } from './autocomplete';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Autocomplete from './autocomplete.vue';
 
 describe('test Autocomplete component', () => {
   it('default props', () => {

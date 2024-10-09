@@ -1,6 +1,6 @@
+import { useLayer } from '@/composables/useLayer';
 import { describe, expect, it } from 'vitest';
 import { toRef } from 'vue';
-import { useLayer } from '@/composables/useLayer';
 
 describe('useLayer', () => {
   it('applies default styles and classes for text variant without states', () => {

@@ -1,4 +1,6 @@
 import type { ChartComponent, ChartType, Plugin } from 'chart.js';
+import type { PropType } from 'vue';
+import type { AcvChartProps } from './chart.ts';
 import {
   BarController,
   BubbleController,
@@ -10,9 +12,7 @@ import {
   RadarController,
   ScatterController
 } from 'chart.js';
-import type { PropType } from 'vue';
 import { defineComponent, h, shallowRef } from 'vue';
-import type { AcvChartProps } from './chart.ts';
 import AcvChart from './chart.vue';
 
 export function createTypedChart(

@@ -24,8 +24,8 @@
     "svgo": "3.0.2"
   },
   "devDependencies": {
-    "eslint": "9.3.0",
+    "eslint": "9.12.0",
     "node-fetch": "3.3.2",
-    "vitest": "1.6.0"
+    "vitest": "2.1.2"
   }
 }

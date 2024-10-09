@@ -1,14 +1,14 @@
-import { mdclean } from './utils';
 import { renderTags } from './tags';
+import { mdclean } from './utils';
 
 function tmpl(expose, subComponent) {
   return expose.map(exp => `
 ${subComponent ? '#' : ''}### ${exp.name || ''}
 
   > ${exp.description || ''} ${mdclean(renderTags(exp.tags?.reduce((acc, tag) => {
-  acc[tag.title] = [tag];
-  return acc;
-}, {}))) || ''}
+    acc[tag.title] = [tag];
+    return acc;
+  }, {}))) || ''}
  `).join('');
 }
 

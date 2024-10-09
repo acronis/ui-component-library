@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvSwitch from '@/components/switch/switch.vue';
+  import { ref } from 'vue';
 
   const value = ref([true, false, true]);
   const colors = ['default', 'primary', 'secondary', 'inverted', 'neutral', 'info', 'success', 'warning', 'critical', 'danger',];

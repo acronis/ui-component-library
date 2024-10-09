@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import ListItem from './listItem.vue';
 import type { AcvListItemProps } from './listItem';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import ListItem from './listItem.vue';
 
 describe('test ListItem component', () => {
   it('default props', () => {

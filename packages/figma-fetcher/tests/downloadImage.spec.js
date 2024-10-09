@@ -1,6 +1,6 @@
 import { promises as fsPromises } from 'node:fs';
-import { describe, expect, it, vi } from 'vitest';
 import fetch from 'node-fetch';
+import { describe, expect, it, vi } from 'vitest';
 import { downloadImage } from '../src/downloadImage.js';
 
 describe.skip('downloadImage', () => {

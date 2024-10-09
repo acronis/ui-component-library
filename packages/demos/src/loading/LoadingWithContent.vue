@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvLoading from '@/widgets/loading/loading.vue';
+  import { ref } from 'vue';
 
   const loading = ref(true);
 </script>

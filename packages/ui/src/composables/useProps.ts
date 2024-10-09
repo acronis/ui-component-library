@@ -1,7 +1,7 @@
 import type { PropType } from 'vue';
+import type { ColorProp } from '../types/props.ts';
 import { inject } from 'vue';
 import { PROPS_PLUGIN_INJECTION_KEY } from '../plugins/propsPlugin.ts';
-import type { ColorProp } from '../types/props.ts';
 
 /*
  * This function is used to define props for a component.

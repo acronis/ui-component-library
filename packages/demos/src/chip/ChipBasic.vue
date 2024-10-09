@@ -1,6 +1,6 @@
 <script setup>
-  import { IconConsole16 } from '@acronis-platform/icons/console';
   import AcvChip from '@/components/chip/chip.vue';
+  import { IconConsole16 } from '@acronis-platform/icons/console';
 </script>
 
 <template>

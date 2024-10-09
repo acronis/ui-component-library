@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { AVAILABLE_COLOR_SCHEMES, useColorScheme } from '../../composables/useColorScheme.ts';
   import AcvButton from '../../components/button/button.vue';
   import AcvDropdown from '../../components/dropdown/dropdown.vue';
+  import { AVAILABLE_COLOR_SCHEMES, useColorScheme } from '../../composables/useColorScheme.ts';
 
   const { setColorScheme, colorScheme: currentColorScheme } = useColorScheme();
 </script>

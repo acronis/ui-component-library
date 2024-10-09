@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvRadio from '@/components/radio/radio.vue';
+  import { ref } from 'vue';
 
   const value = ref(1);
 </script>

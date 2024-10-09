@@ -1,11 +1,11 @@
 <script>
-  import anomaliesData from '../__data__/data.mock.anomalies.json';
   import AcvButton from '@/components/button/button.vue';
   import AcvDropdown from '@/components/dropdown/dropdown.vue';
   import AcvDropdownItem from '@/components/dropdown/dropdownItem.vue';
   import AcvDropdownMenu from '@/components/dropdown/dropdownMenu.vue';
   import AcvLineChart from '@/widgets/line-chart/lineChart.vue';
   import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
+  import anomaliesData from '../__data__/data.mock.anomalies.json';
 
   export default {
     components: {

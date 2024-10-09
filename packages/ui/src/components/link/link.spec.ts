@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Link from './link.vue';
 import type { AcvLinkProps } from './link.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Link from './link.vue';
 
 describe('link component', () => {
   it('default props', () => {

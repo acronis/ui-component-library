@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
-  import AcvLoading from '@/widgets/loading/loading.vue';
   import AcvButton from '@/components/button/button.vue';
+  import AcvLoading from '@/widgets/loading/loading.vue';
+  import { ref } from 'vue';
 
   const spinnerColors = ['primary', 'secondary', 'white', 'black', 'purple'];
   const loading = ref(false);

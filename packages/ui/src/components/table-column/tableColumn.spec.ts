@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import TableColumn from './tableColumn.vue';
 import type { AcvTableColumnProps } from './tableColumn';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import TableColumn from './tableColumn.vue';
 
 describe('test TableColumn component', () => {
   it('default props', () => {

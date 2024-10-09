@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import MenuItem from './menuItem.vue';
 import type { AcvMenuItemProps } from './menuItem';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import MenuItem from './menuItem.vue';
 
 describe('test MenuItem component', () => {
   it('default props', () => {

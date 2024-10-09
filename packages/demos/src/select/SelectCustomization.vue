@@ -1,6 +1,6 @@
 <script>
-  import { ggWithIcon } from '../__data__/data.select.generateOptions.js';
   import { AcvOption, AcvSelect } from '@/components';
+  import { ggWithIcon } from '../__data__/data.select.generateOptions.js';
 
   const statuses = [
     {

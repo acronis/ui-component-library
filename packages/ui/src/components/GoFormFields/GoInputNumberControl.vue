@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-  import { computed, mergeProps, ref } from 'vue';
-  import { getUniqueIndex, omit } from '@acronis-platform/utils';
-  import type { GoInputNumberProps, InputExpose } from '../GoInput/input';
-  import { getInputExpose } from '../GoInput/input';
   import type { RuleExpression } from '@/composables';
-  import { useGoField } from '@/composables';
+  import type { GoInputNumberProps, InputExpose } from '../GoInput/input';
   import GoFormControl from '@/components/GoForm/GoFormControl.vue';
   import GoInputNumber from '@/components/GoInput/GoInputNumber.vue';
+  import { useGoField } from '@/composables';
+  import { getUniqueIndex, omit } from '@acronis-platform/utils';
+  import { computed, mergeProps, ref } from 'vue';
+  import { getInputExpose } from '../GoInput/input';
 
   type GoInputNumberControlProps = GoInputNumberProps & {
     name: string

@@ -1,4 +1,4 @@
-import { LOCALE_PLUGIN_INJECTION_KEY, injectStrict } from '../plugins/locale/localePlugin.ts';
+import { injectStrict, LOCALE_PLUGIN_INJECTION_KEY } from '../plugins/locale/localePlugin.ts';
 
 interface InjectedLocale {
   availableLocales: string[]

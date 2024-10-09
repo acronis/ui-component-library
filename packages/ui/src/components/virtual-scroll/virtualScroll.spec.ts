@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import VirtualScroll from './virtualScroll.vue';
 import type { AcvVirtualScrollProps } from './virtualScroll.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import VirtualScroll from './virtualScroll.vue';
 
 describe('test VirtualScroll component', () => {
   it('default props', () => {

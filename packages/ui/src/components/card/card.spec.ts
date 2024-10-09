@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import type { AcvCardProps } from './card.ts';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { axe } from 'vitest-axe';
 import Card from './card.vue';
-import type { AcvCardProps } from './card.ts';
 
 describe('test Card component', () => {
   it('pass accessibility tests', async () => {

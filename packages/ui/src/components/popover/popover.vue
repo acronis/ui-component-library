@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import AcvPopper from '../popper/popper.vue';
-  import AcvCard from '../card/card.vue';
   import type {
     AcvPopoverEvents,
     AcvPopoverProps,
     AcvPopoverSlots
   } from './popover.ts';
+  import { computed } from 'vue';
+  import AcvCard from '../card/card.vue';
+  import AcvPopper from '../popper/popper.vue';
   import './popover.css';
 
   defineOptions({

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Ribbon from './ribbon.vue';
 import type { AcvRibbonProps } from './ribbon.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Ribbon from './ribbon.vue';
 
 describe('test Ribbon component', () => {
   it('default props', () => {

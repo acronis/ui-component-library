@@ -13,10 +13,10 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
+
 // Import commands.js using ES2015 syntax:
 import './commands.ts';
-
-import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
 
 addMatchImageSnapshotCommand();
 

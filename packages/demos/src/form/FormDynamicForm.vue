@@ -1,7 +1,7 @@
 <script setup>
-  import { computed, nextTick, reactive, ref } from 'vue';
-
   import AcvButton from '@/components/button/button.vue';
+
+  import { computed, nextTick, reactive, ref } from 'vue';
 
   function toObj(arr, key) {
     return arr.reduce((acc, cur, i) => {

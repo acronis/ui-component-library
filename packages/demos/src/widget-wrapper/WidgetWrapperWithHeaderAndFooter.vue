@@ -1,12 +1,12 @@
 <script setup>
-  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
-  import AcvStackedAreaChart from '@/widgets/stacked-area-chart/stackedAreaChart.vue';
-  import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
   import AcvButton from '@/components/button/button.vue';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvLink from '@/components/link/link.vue';
   import AcvTable from '@/components/table/table.vue';
   import AcvTableColumn from '@/components/table-column/tableColumn.vue';
+  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
+  import AcvStackedAreaChart from '@/widgets/stacked-area-chart/stackedAreaChart.vue';
+  import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
 
   const dataThree = {
     dataType: 'size',

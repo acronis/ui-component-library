@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import ConfirmDialog from './confirmDialog.vue';
 import type { AcvConfirmDialogProps } from './confirmDialog';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import ConfirmDialog from './confirmDialog.vue';
 
 describe('test ConfirmDialog component', () => {
   it('default props', () => {

@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import type { AcvAsideProps } from './aside.ts';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { nextTick } from 'vue';
 import Aside from './aside.vue';
-import type { AcvAsideProps } from './aside.ts';
 
 describe('test Aside component', () => {
   it('default props', () => {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import './skeleton.css';
   import type { AcvSkeletonProps } from './skeleton.ts';
+  import './skeleton.css';
 
   const { title, description } = defineProps<AcvSkeletonProps>();
 

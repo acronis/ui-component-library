@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type {
     AcvInputBaseEvents,
     AcvInputBaseProps
   } from './inputBase.ts';
+  import { computed } from 'vue';
   import './inputBase.css';
 
   const { type, hidden } = defineProps<AcvInputBaseProps>();

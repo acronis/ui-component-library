@@ -2,7 +2,7 @@
   import { useSelection } from '@/composables/useSelection.ts';
 
   const { options, select, value } = useSelection({
-    items: [...Array(3).keys()],
+    items: [...Array.from({ length: 3 }).keys()],
   });
 </script>
 

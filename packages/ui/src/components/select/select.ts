@@ -1,6 +1,6 @@
 import type { InjectionKey, VNode } from 'vue';
-import type { AcvOptionProps } from '../option/option.ts';
 import type { ComponentSize } from '../../types/props.ts';
+import type { AcvOptionProps } from '../option/option.ts';
 
 export interface AcvSelectProps {
   modelValue?: string

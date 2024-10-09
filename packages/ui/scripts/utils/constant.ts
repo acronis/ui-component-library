@@ -1,8 +1,8 @@
-import { resolve } from 'node:path';
-import { existsSync, readdirSync, statSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-
 import type { Config } from 'prettier';
+import { existsSync, readdirSync, statSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+import { fileURLToPath } from 'node:url';
 
 // TODO fix rootdir lookup
 export const rootDir = resolve(fileURLToPath(import.meta.url), '../../../..');

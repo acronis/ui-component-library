@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Breadcrumbs from './breadcrumbs.vue';
 import type { AcvBreadcrumbsProps } from './breadcrumbs.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Breadcrumbs from './breadcrumbs.vue';
 
 describe('test Breadcrumbs component', () => {
   it('default props', () => {

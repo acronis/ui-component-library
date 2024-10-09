@@ -1,4 +1,4 @@
-import { type Raw, computed, markRaw, ref, watch } from 'vue';
+import { computed, markRaw, type Raw, ref, watch } from 'vue';
 // import * as acronisCollection from '@acronis-platform/icons/src/acronis';
 const acronisCollection = {
   test: 'test'
