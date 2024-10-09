@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Disclosure from './disclosure.vue';
 import type { AcvDisclosureProps } from './disclosure';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Disclosure from './disclosure.vue';
 
 describe('test Disclosure component', () => {
   it('default props', () => {

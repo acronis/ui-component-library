@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import ScriptEditor from './scriptEditor.vue';
 import type { AcvScriptEditorProps } from './scriptEditor';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import ScriptEditor from './scriptEditor.vue';
 
 describe('test ScriptEditor component', () => {
   it('default props', () => {

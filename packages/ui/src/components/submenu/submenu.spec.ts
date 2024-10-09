@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Submenu from './submenu.vue';
 import type { AcvSubmenuProps } from './submenu';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Submenu from './submenu.vue';
 
 describe('test Submenu component', () => {
   it('default props', () => {

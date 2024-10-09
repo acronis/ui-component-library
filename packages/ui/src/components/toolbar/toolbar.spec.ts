@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import toolbar from './toolbar.vue';
 import type { AcvToolbarProps } from './toolbar.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import toolbar from './toolbar.vue';
 
 describe('test toolbar component', () => {
   it('default props', () => {

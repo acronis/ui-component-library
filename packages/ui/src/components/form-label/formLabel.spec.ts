@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import FormLabel from './formLabel.vue';
 import type { AcvFormLabelProps } from './formLabel';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import FormLabel from './formLabel.vue';
 
 describe('test FormLabel component', () => {
   it('default props', () => {

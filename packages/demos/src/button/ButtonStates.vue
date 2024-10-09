@@ -1,7 +1,7 @@
 <script setup>
-  import { IconAcronisIcon32 } from '@acronis-platform/icons/acronis';
   import { BUTTON_TYPE } from '@/components/button/button.ts';
   import Button from '@/components/button/button.vue';
+  import { IconAcronisIcon32 } from '@acronis-platform/icons/acronis';
 
   const buttonTypes = [
     'primary',

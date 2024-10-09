@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { computed, useSlots } from 'vue';
-  import { IconClose16 } from '@acronis-platform/icons/close';
   import type { AcvChipEvents, AcvChipProps } from './chip.ts';
+  import { IconClose16 } from '@acronis-platform/icons/close';
+  import { computed, useSlots } from 'vue';
 
   import './chip.css';
 

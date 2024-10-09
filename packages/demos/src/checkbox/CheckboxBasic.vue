@@ -1,6 +1,6 @@
 <script setup>
-  import { reactive, ref } from 'vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
+  import { reactive, ref } from 'vue';
 
   const isAgreed = ref(false);
   const checked = reactive([true, false, true, false]);

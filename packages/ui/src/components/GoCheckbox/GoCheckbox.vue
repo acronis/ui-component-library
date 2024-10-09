@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  // import CheckmarkForCheckboxSvg from '@constructor/icons/svg/ui-details/checkmark-for-checkbox.svg';
-  import { computed } from 'vue';
   import type { CheckboxModel, CheckboxOption } from './checkbox';
   import GoPick from '@/components/GoPick/GoPick.vue';
+  // import CheckmarkForCheckboxSvg from '@constructor/icons/svg/ui-details/checkmark-for-checkbox.svg';
+  import { computed } from 'vue';
 
   const props = withDefaults(
     defineProps<{

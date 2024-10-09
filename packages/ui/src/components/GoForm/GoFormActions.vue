@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
-  import { omit } from '@acronis-platform/utils';
   import type { AcvButtonProps } from '@/components';
   import GoFormFooter from '@/components/GoForm/GoFormFooter.vue';
   import GoFormSubmitButton from '@/components/GoForm/GoFormSubmitButton.vue';
+  import { omit } from '@acronis-platform/utils';
+  import { computed } from 'vue';
 
   const props = withDefaults(
     defineProps<

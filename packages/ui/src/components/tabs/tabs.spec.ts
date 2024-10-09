@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import type { AcvTabsProps } from './tabs';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { axe } from 'vitest-axe';
 import Tabs from './tabs.vue';
-import type { AcvTabsProps } from './tabs';
 
 describe('test Tabs component', () => {
   it('pass accessibility tests', async () => {

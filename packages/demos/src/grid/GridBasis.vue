@@ -1,6 +1,6 @@
  <script setup>
-  import Grid from '@/components/grid/grid.vue';
   import Cell from '@/components/cell/cell.vue';
+  import Grid from '@/components/grid/grid.vue';
 </script>
 
 <template>

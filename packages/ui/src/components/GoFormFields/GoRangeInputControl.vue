@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
-  import { getUniqueIndex } from '@acronis-platform/utils';
   import type { GoRangeInputControlProps } from '../GoInput/rangeInput';
   import GoFormControl from '@/components/GoForm/GoFormControl.vue';
   import GoRangeInput from '@/components/GoInput/GoRangeInput.vue';
   import { useGoField } from '@/composables';
+  import { getUniqueIndex } from '@acronis-platform/utils';
+  import { computed } from 'vue';
 
   const props = withDefaults(defineProps<GoRangeInputControlProps>(), {
     rules: '',

@@ -1,7 +1,7 @@
 <script setup>
-  import { IconInfo16 } from '@acronis-platform/icons/info';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
+  import { IconInfo16 } from '@acronis-platform/icons/info';
 </script>
 
 <template>

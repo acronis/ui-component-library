@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
-
   import AcvInput from '@/components/input/input.vue';
+
+  import { ref } from 'vue';
 
   const input1 = ref('');
   const input2 = ref('');

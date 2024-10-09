@@ -1,8 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
-  import MarkupTableSimple from '../markup-table/MarkupTableSimple.vue';
   import AcvButton from '@/components/button/button.vue';
   import AcvDialog from '@/components/dialog/dialog.vue';
+  import { ref } from 'vue';
+  import MarkupTableSimple from '../markup-table/MarkupTableSimple.vue';
 
   const dialogIsVisible = ref(false);
 </script>

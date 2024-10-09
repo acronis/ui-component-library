@@ -1,8 +1,8 @@
 <script setup lang="ts">
+  import type { SelectModel } from './select';
   // import CrossInCircleSolidSvg from '@constructor/icons/svg/action/cross-in-circle-solid.svg';
   // import ChevronUpDownSvg from '@constructor/icons/svg/ui-details/chevron-updown.svg';
   import { computed, ref } from 'vue';
-  import type { SelectModel } from './select';
   import { injectSelect } from './select';
 
   const props = defineProps<{

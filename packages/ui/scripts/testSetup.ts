@@ -1,5 +1,5 @@
-import { beforeEach, vi } from 'vitest';
 import { config } from '@vue/test-utils';
+import { beforeEach, vi } from 'vitest';
 
 // import { ResizeObserver } from '@juggle/resize-observer';
 

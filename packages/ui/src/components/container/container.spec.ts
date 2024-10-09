@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
 import type { ContainerProps } from 'postcss';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import Container from './container.vue';
 
 describe('test Container component', () => {

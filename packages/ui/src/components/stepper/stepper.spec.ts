@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Stepper from './stepper.vue';
 import type { AcvStepperProps } from './stepper.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Stepper from './stepper.vue';
 
 describe('test stepper component', () => {
   it('default props', () => {

@@ -24,7 +24,7 @@ export default function t(key, lang = 'en-US', count) {
   return langs[language][key];
 }
 
+export { getFirstDayOfWeek } from './getFirstDayOfWeek';
 export { getLocale } from './getLocale';
 export { getLocales } from './getLocales';
-export { getFirstDayOfWeek } from './getFirstDayOfWeek';
-export { i18n, t, setLocaleMessages } from './I18n';
+export { i18n, setLocaleMessages, t } from './I18n';

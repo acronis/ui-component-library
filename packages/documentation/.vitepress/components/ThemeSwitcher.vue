@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import { onBeforeMount, ref } from 'vue';
   import acronisStyles from '@acronis-platform/ui-component-library/styles/acronis.css?raw';
   import constructorStyles from '@acronis-platform/ui-component-library/styles/constructor.css?raw';
   import { CSSStyleSheet } from 'cssom';
+  import { onBeforeMount, ref } from 'vue';
 
   type Theme = 'acronis' | 'constructor';
 

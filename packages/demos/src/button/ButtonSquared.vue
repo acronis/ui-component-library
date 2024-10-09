@@ -1,6 +1,6 @@
 <script setup>
-  import Row from '@/components/row/row.vue';
   import AcvButton from '@/components/button/button.vue';
+  import Row from '@/components/row/row.vue';
 </script>
 
 <template>

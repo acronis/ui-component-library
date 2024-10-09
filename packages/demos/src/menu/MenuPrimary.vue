@@ -1,14 +1,14 @@
 <script setup>
-  import { IconPartition16 } from '@acronis-platform/icons/partition';
-  import { IconApps16 } from '@acronis-platform/icons/apps';
-  import { IconSettings16 } from '@acronis-platform/icons/settings';
-  import { IconCase16 } from '@acronis-platform/icons/case';
-  import { IconProtect16 } from '@acronis-platform/icons/protect';
-  import { ref } from 'vue';
-  import Logo from './assets/CyberProtectCloudLogo.vue';
+  import AcvAside from '@/components/aside/aside.vue';
   import AcvMenu from '@/components/menu/menu.vue';
   import AcvMenuItem from '@/components/menu-item/menuItem.vue';
-  import AcvAside from '@/components/aside/aside.vue';
+  import { IconApps16 } from '@acronis-platform/icons/apps';
+  import { IconCase16 } from '@acronis-platform/icons/case';
+  import { IconPartition16 } from '@acronis-platform/icons/partition';
+  import { IconProtect16 } from '@acronis-platform/icons/protect';
+  import { IconSettings16 } from '@acronis-platform/icons/settings';
+  import { ref } from 'vue';
+  import Logo from './assets/CyberProtectCloudLogo.vue';
 
   const selectedMenu = ref('case');
 </script>

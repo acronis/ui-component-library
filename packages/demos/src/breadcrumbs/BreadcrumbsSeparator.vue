@@ -1,7 +1,7 @@
 <script setup>
-  import { IconChevronRight16 } from '@acronis-platform/icons/chevron';
-  import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
   import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
+  import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
+  import { IconChevronRight16 } from '@acronis-platform/icons/chevron';
 </script>
 
 <template>

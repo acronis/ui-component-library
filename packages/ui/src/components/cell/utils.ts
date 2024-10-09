@@ -1,5 +1,5 @@
-import { isDefined } from '@vueuse/core';
 import type { MaybeRef } from 'vue';
+import { isDefined } from '@vueuse/core';
 
 export type BreakPoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 

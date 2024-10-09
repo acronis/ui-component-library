@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Progress from './progress.vue';
 import type { AcvProgressProps } from './progress';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Progress from './progress.vue';
 
 describe('test Progress component', () => {
   it('default props', () => {

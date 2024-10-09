@@ -1,7 +1,7 @@
 <script setup>
+  import AcvTable from '@/components/table/table.vue';
   import tableData from '../__data__/data.mock.5.json';
   import columns from '../__data__/data.mock.table.columns.json';
-  import AcvTable from '@/components/table/table.vue';
 </script>
 
 <template>

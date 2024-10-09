@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import './toolbar.css';
   import type { AcvToolbarProps } from './toolbar.ts';
+  import './toolbar.css';
 
   const { title, description } = defineProps<AcvToolbarProps>();
 

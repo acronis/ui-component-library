@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
 import type { Directive } from 'vue';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { vTooltip } from '../tooltip';
 
 describe('vTooltip directive', () => {

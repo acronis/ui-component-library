@@ -1,7 +1,7 @@
 <script setup>
-  import { IconToCloud16 } from '@acronis-platform/icons/to';
-  import { IconFromCloud16 } from '@acronis-platform/icons/from';
   import Button from '@/components/button/button.vue';
+  import { IconFromCloud16 } from '@acronis-platform/icons/from';
+  import { IconToCloud16 } from '@acronis-platform/icons/to';
   </script>
 
 <template>

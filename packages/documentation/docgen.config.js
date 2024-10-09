@@ -1,9 +1,9 @@
 import path from 'node:path';
-import props from './.docgen/props.js';
-import slots from './.docgen/slots.js';
 import component from './.docgen/component.js';
 import events from './.docgen/events.js';
 import header from './.docgen/header.js';
+import props from './.docgen/props.js';
+import slots from './.docgen/slots.js';
 
 export default {
   componentsRoot: '../ui/src', // the folder where CLI will start searching for components.

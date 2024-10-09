@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Popover from './popover.vue';
 import type { AcvPopoverProps } from './popover.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Popover from './popover.vue';
 
 describe('test Popover component', () => {
   it('default props', () => {

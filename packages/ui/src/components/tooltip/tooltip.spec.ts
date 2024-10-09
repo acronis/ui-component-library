@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import tooltip from './tooltip.vue';
 import type { AcvTooltipProps } from './tooltip.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import tooltip from './tooltip.vue';
 
 describe('test tooltip component', () => {
   it('default props', () => {

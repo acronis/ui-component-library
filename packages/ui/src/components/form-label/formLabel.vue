@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type {
     AcvFormLabelProps,
     AcvFormLabelSlots
   } from './formLabel.ts';
+  import { computed } from 'vue';
   import './formLabel.css';
 
   const { label, placement = 'right', description } = defineProps<AcvFormLabelProps>();

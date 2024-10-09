@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Textarea from './textarea.vue';
 import type { AcvTextareaProps } from './textarea';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Textarea from './textarea.vue';
 
 describe('test Textarea component', () => {
   it('default props', () => {

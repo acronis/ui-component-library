@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvTabs from '@/components/tabs/tabs.vue';
+  import { ref } from 'vue';
 
   const tabs = ['First', 'Second', 'Third'];
 

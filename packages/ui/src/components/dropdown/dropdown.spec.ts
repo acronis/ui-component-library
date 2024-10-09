@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Dropdown from './dropdown.vue';
 import type { AcvDropdownProps } from './dropdown.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Dropdown from './dropdown.vue';
 
 describe('test Dropdown component', () => {
   it('default props', () => {

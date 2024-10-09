@@ -1,7 +1,7 @@
 <script setup>
-  import { generateTenOptions } from '../__data__/data.select.generateOptions.js';
   import FormLabel from '@/components/form-label/formLabel.vue';
   import AcvSelect from '@/components/select/select.vue';
+  import { generateTenOptions } from '../__data__/data.select.generateOptions.js';
 
   const { options, value } = generateTenOptions()();
 </script>

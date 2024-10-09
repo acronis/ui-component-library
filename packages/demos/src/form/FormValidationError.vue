@@ -1,10 +1,10 @@
 <script setup>
-  import { reactive, ref } from 'vue';
+  import AcvDivider from '@/components/divider/divider.vue';
 
   import AcvFormItem from '@/components/form-item/formItem.vue';
   import AcvInput from '@/components/input/input.vue';
 
-  import AcvDivider from '@/components/divider/divider.vue';
+  import { reactive, ref } from 'vue';
 
   const inlineErrorFormRef = ref(null);
   const inlineErrorForm = reactive({

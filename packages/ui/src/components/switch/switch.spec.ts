@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import type { AcvSwitchProps } from './switch';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { nextTick } from 'vue';
 import Switch from './switch.vue';
-import type { AcvSwitchProps } from './switch';
 
 describe('test Switch component', () => {
   it('default props', () => {

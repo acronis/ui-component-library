@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import DatePicker from './datePicker.vue';
 import type { AcvDatePickerProps } from './datePicker';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import DatePicker from './datePicker.vue';
 
 describe('test DatePicker component', () => {
   it('default props', () => {

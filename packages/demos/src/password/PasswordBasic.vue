@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvPassword from '@/components/password/password.vue';
+  import { ref } from 'vue';
 
   const password = ref('passwd');
 </script>

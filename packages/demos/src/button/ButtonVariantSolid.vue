@@ -1,6 +1,6 @@
 <script setup>
-  import AcvButton from '@/components/button/button.vue';
   import { BUTTON_COLOR } from '@/components/button/button.ts';
+  import AcvButton from '@/components/button/button.vue';
 
   const buttonStates = [
     '',

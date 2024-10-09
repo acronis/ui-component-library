@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import { computed, inject, ref } from 'vue';
   import type { AcvTabsInjection } from '../tabs/tabs.ts';
-  import { TABS_KEY } from '../tabs/tabs.ts';
   import type { AcvTabProps, AcvTabSlots } from './tab.ts';
+  import { computed, inject, ref } from 'vue';
+  import { TABS_KEY } from '../tabs/tabs.ts';
 
   /**
    * Tab will be used to create a tab element.

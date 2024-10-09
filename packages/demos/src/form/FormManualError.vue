@@ -1,8 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
-
   import AcvFormItem from '@/components/form-item/formItem.vue';
+
   import AcvInput from '@/components/input/input.vue';
+  import { ref } from 'vue';
 
   const manualValidationForm = ref(null);
   const model = ref({

@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
-  import AcvRadio from '@/components/radio/radio.vue';
   import AcvFormLabel from '@/components/form-label/formLabel.vue';
+  import AcvRadio from '@/components/radio/radio.vue';
+  import { ref } from 'vue';
 
   const radioStates = [
     '',

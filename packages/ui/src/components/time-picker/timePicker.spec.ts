@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import TimePicker from './timePicker.vue';
 import type { AcvTimePickerProps } from './timePicker';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import TimePicker from './timePicker.vue';
 
 describe('test TimePicker component', () => {
   it('default props', () => {

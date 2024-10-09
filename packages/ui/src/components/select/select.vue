@@ -1,18 +1,18 @@
 <script setup lang="ts">
-  import { computed, onBeforeMount, provide, reactive, ref } from 'vue';
-  import { UseVirtualList } from '@vueuse/components';
-  import AcvPopper from '../popper/popper.vue';
-  import AcvOption from '../option/option.vue';
-  import AcvSelectDropdown from './selectDropdown.vue';
   import type {
     AcvSelectEvents,
     AcvSelectInjection,
     AcvSelectProps,
     AcvSelectSlots
   } from './select.ts';
+  import { UseVirtualList } from '@vueuse/components';
+  import { computed, onBeforeMount, provide, reactive, ref } from 'vue';
+  import AcvOption from '../option/option.vue';
+  import AcvPopper from '../popper/popper.vue';
   import {
     SELECT_KEY
   } from './select.ts';
+  import AcvSelectDropdown from './selectDropdown.vue';
   import './select.css';
 
   const props = withDefaults(defineProps<AcvSelectProps>(), {

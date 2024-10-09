@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { computed, getCurrentInstance, onMounted, provide, ref, watch } from 'vue';
   import type { AcvAccordionEvents, AcvAccordionProps, AcvAccordionSlots } from './accordion.ts';
+  import { computed, getCurrentInstance, onMounted, provide, ref, watch } from 'vue';
   import { ACCORDION_KEY } from './accordion.ts';
 
   import './accordion.css';

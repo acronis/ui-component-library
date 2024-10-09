@@ -1,7 +1,7 @@
-import 'highlight.js/styles/stackoverflow-light.css';
 import type { LanguageFn } from 'highlight.js';
 import hljsCore from 'highlight.js/lib/core';
 import python from 'highlight.js/lib/languages/python';
+import 'highlight.js/styles/stackoverflow-light.css';
 
 export const hljs = hljsCore;
 

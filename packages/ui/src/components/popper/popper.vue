@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import type { CSSProperties, Ref, UnwrapRef } from 'vue';
-  import { Teleport, computed, nextTick, ref, watch } from 'vue';
+  import type { AcvPopperEvents, AcvPopperProps, AcvPopperSlots } from './popper.ts';
   import { arrow, autoPlacement, autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/vue';
   import { onClickOutside, refDebounced, useEventListener, useMounted, useVModel } from '@vueuse/core';
+  import { computed, nextTick, ref, Teleport, watch } from 'vue';
   import { useTeleport } from '../../composables/useTeleport.ts';
-  import type { AcvPopperEvents, AcvPopperProps, AcvPopperSlots } from './popper.ts';
   import './popper.css';
 
   defineOptions({
@@ -110,7 +110,7 @@
     _delay.value = isShown ? props.hideDelay : props.delay;
 
     // Trigger events on visibility change
-    // eslint-disable-next-line ts/no-unused-expressions
+
     isShown
       ? emit('show')
       : emit('hide');

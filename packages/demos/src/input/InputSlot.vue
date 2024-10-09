@@ -1,9 +1,9 @@
 <script setup>
-  import { ref } from 'vue';
-
-  import AcvSelect from '@/components/select/select.vue';
   import AcvInput from '@/components/input/input.vue';
+
   import AcvOption from '@/components/option/option.vue';
+  import AcvSelect from '@/components/select/select.vue';
+  import { ref } from 'vue';
 
   const prefix = ref('');
   const suffix = ref('');

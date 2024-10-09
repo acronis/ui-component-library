@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
   import Combobox from '@/components/combobox/combobox.vue';
   import Option from '@/components/combobox/option.vue';
+  import { ref } from 'vue';
 
   const options = ['Acronis', 'Parallels', 'Virtuozzo', 'Google', 'Apple', 'Microsoft'];
   const passwordOptions = {

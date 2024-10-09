@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvNumPicker from '@/components/num-picker/numPicker.vue';
+  import { ref } from 'vue';
 
   defineProps({
     isBasic: {

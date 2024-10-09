@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import { ref } from 'vue';
 import AcvTab from '@/components/tab/tab.vue';
 import { TABS_KEY } from '@/components/tabs/tabs.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import { ref } from 'vue';
 
 describe('acvTab', () => {
   it('renders tab with label', () => {

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Search from './search.vue';
 import type { AcvSearchProps } from './search';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Search from './search.vue';
 
 describe('test Search component', () => {
   it('default props', () => {

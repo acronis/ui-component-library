@@ -1,14 +1,14 @@
 <script setup>
-  import { reactive, ref } from 'vue';
+  import AcvCard from '@/components/card/card.vue';
 
   import AcvForm from '@/components/form/form.vue';
 
-  import AcvCard from '@/components/card/card.vue';
-  import AcvSelect from '@/components/select/select.vue';
+  import AcvFormItem from '@/components/form-item/formItem.vue';
   import AcvInput from '@/components/input/input.vue';
   import AcvOption from '@/components/option/option.vue';
+  import AcvSelect from '@/components/select/select.vue';
 
-  import AcvFormItem from '@/components/form-item/formItem.vue';
+  import { reactive, ref } from 'vue';
 
   const defaultForm = reactive({
     model: {

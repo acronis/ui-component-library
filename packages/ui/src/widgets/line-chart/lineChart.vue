@@ -1,14 +1,14 @@
 <script>
   import Chart from 'chart.js/auto';
-  import 'chartjs-adapter-date-fns';
   import annotationPlugin from 'chartjs-plugin-annotation';
   import { format, parse } from 'date-fns';
   import AcvPopover from '../../components/popover/popover.vue';
+  import { cleanData, getDataMaxY, isValidData } from '../../utils/widget.ts';
   import WidgetChart from '../pie-chart/widget.chart';
+  import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
   import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
   import WidgetLoading from '../widget-wrapper/widgetLoading.vue';
-  import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
-  import { cleanData, getDataMaxY, isValidData } from '../../utils/widget.ts';
+  import 'chartjs-adapter-date-fns';
 
   Chart.register(annotationPlugin);
 

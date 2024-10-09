@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvMarkdownEditor from '@/components/markdown-editor/markdownEditor.vue';
+  import { ref } from 'vue';
 
   const value = ref('test');
 </script>

@@ -1,14 +1,14 @@
 <script>
-  import Chart from 'chart.js/auto';
   import { isBrowser } from '@antfu/utils';
-  import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
-  import WidgetLoading from '../widget-wrapper/widgetLoading.vue';
-  import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
+  import Chart from 'chart.js/auto';
   import {
     cleanData,
     getPercentageData,
     isValidData
   } from '../../utils/widget.ts';
+  import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
+  import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
+  import WidgetLoading from '../widget-wrapper/widgetLoading.vue';
   import WidgetChart from './widget.chart';
 
   export default {
@@ -271,7 +271,9 @@
         this.parsedData.datasets[0].hoverBackgroundColor = colors;
 
         this.definedOptions.cutout = this.parsedData
-          .datasets[0].data.length > 1
+          .datasets[0]
+          .data
+          .length > 1
           ? 48
           : 52;
 
@@ -302,7 +304,8 @@
 
                       const bullet = document.createElement('span');
                       bullet.style.backgroundColor = chart.data
-                        .datasets[0].backgroundColor[index];
+                        .datasets[0]
+                        .backgroundColor[index];
                       bullet.className = 'el-line-chart__legend__bullet';
 
                       bulletContainer.appendChild(bullet);

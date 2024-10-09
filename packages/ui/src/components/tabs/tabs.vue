@@ -1,12 +1,12 @@
 <script setup lang="ts">
+  import type { AcvTabProps } from '@/components/tab/tab.ts';
   import type { Ref } from 'vue';
-  import { computed, provide, ref, toRef } from 'vue';
   import type { AcvTabsEvents, AcvTabsProps, AcvTabsSlots } from './tabs.ts';
+  import AcvTab from '@/components/tab/tab.vue';
+  import { useSelection } from '@/composables/useSelection.ts';
+  import { computed, provide, ref, toRef } from 'vue';
   import { TABS_KEY } from './tabs.ts';
   import './tabs.css';
-  import AcvTab from '@/components/tab/tab.vue';
-  import type { AcvTabProps } from '@/components/tab/tab.ts';
-  import { useSelection } from '@/composables/useSelection.ts';
 
   /**
    * Tabs are the set of content sections(tab panels), that display one panel at the time.

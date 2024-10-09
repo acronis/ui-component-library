@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import type { PromiseFunction } from '@acronis-platform/utils';
   import type { GoFormValues } from '@/composables';
+  import type { PromiseFunction } from '@acronis-platform/utils';
   import { injectGoFormSafe, provideGoForm } from '@/composables';
 
   const props = defineProps<{
@@ -13,7 +13,6 @@
   const { resetForm, submitForm, handleSubmit, resetGoForm, loadState, values, meta }
     = useGoForm();
 
-  // eslint-disable-next-line ts/no-unused-expressions
   props.submit && handleSubmit(props.submit);
 
   function onReset() {

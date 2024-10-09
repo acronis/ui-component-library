@@ -1,6 +1,6 @@
 <script>
-  import AcvStackedAreaChart from '@/widgets/stacked-area-chart/stackedAreaChart.vue';
   import AcvButton from '@/components/button/button.vue';
+  import AcvStackedAreaChart from '@/widgets/stacked-area-chart/stackedAreaChart.vue';
 
   export default {
     components: {

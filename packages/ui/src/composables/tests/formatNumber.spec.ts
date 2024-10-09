@@ -1,5 +1,5 @@
-import { describe, expect } from 'vitest';
 import { getTruncatedString } from '@/composables/formatNumber.ts';
+import { describe, expect } from 'vitest';
 
 describe('formatNumber', () => {
   describe('getTruncatedString', () => {

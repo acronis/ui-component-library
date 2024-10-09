@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvTextarea from '@/components/textarea/textarea.vue';
+  import { ref } from 'vue';
 
   const textarea1 = ref('');
   const textarea2 = ref('');

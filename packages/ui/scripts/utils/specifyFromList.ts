@@ -1,5 +1,5 @@
-import process from 'node:process';
 import type { ParsedArgs } from 'minimist';
+import process from 'node:process';
 import prompts from 'prompts';
 import { fuzzyMatch } from './fuzzyMatch.ts';
 import { logger } from './logger.ts';

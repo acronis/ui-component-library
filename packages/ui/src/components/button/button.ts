@@ -1,7 +1,7 @@
-import type { RouterLink } from 'vue-router';
-import type { ButtonHTMLAttributes } from 'vue';
 import type { ComponentSize, IconProp } from '@/types/props.ts';
 import type { ColorBrand, ColorStatus } from '@/utils/color.ts';
+import type { ButtonHTMLAttributes } from 'vue';
+import type { RouterLink } from 'vue-router';
 import { BRAND_COLORS, STATUS_COLORS } from '@/utils/color.ts';
 
 export const BUTTON_TYPE = {

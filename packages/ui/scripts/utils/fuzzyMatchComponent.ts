@@ -1,6 +1,6 @@
 import process from 'node:process';
-import { fuzzyMatch } from './fuzzyMatch.ts';
 import { components } from './constant.ts';
+import { fuzzyMatch } from './fuzzyMatch.ts';
 import { logger } from './logger.ts';
 
 export function fuzzyMatchComponent(

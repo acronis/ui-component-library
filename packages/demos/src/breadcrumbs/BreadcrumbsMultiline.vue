@@ -1,8 +1,8 @@
 <script setup>
+  import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
   // import { createRouter, createWebHashHistory } from 'vue-router';
   // import { getCurrentInstance } from 'vue';
   import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
-  import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
 
   // const router = createRouter({
   //   history: createWebHashHistory(),

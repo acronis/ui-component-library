@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import type { AcvPaginationProps } from './acvPagination.ts';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { axe } from 'vitest-axe';
 import AcvPagination from './AcvPagination.vue';
-import type { AcvPaginationProps } from './acvPagination.ts';
 
 describe('test AcvPagination component', () => {
   it('pass accessibility tests', async () => {

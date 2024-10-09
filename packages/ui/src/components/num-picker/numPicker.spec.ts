@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import NumPicker from './numPicker.vue';
 import type { AcvNumPickerProps } from './numPicker';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import NumPicker from './numPicker.vue';
 
 describe('test NumPicker component', () => {
   it('default props', () => {

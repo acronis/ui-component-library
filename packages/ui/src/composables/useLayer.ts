@@ -1,8 +1,8 @@
+import type { ColorProp, ColorProps } from '../types/props.ts';
 import { ref, unref, watch } from 'vue';
+import { isBaseColor } from '../utils/color.ts';
 // import { useTypographyColor } from '@/composables/useTypographyColor';
 import { colord } from '../utils/colord.ts';
-import { isBaseColor } from '../utils/color.ts';
-import type { ColorProp, ColorProps } from '../types/props.ts';
 
 export const LAYER_VARIANT = {
   solid: 'solid',

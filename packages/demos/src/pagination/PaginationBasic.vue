@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import { AcvPagination } from '@acronis-platform/ui-component-library';
+  import { ref } from 'vue';
 
   const currentPage = ref(1);
 </script>

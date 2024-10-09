@@ -1,8 +1,8 @@
 <script setup>
-  import { IconUser16 } from '@acronis-platform/icons/user';
+  import AcvTabs from '@/components/tabs/tabs.vue';
   import { IconBell24 } from '@acronis-platform/icons/bell';
   import { IconSettings16 } from '@acronis-platform/icons/settings';
-  import AcvTabs from '@/components/tabs/tabs.vue';
+  import { IconUser16 } from '@acronis-platform/icons/user';
 
   const tabs = [
     { label: 'Left', icon: IconUser16 },

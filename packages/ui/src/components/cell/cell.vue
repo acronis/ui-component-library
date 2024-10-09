@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import type { CSSProperties, ComputedRef } from 'vue';
-  import { computed, inject, reactive, watch } from 'vue';
-  import { isDefined, useBreakpoints } from '@vueuse/core';
-  import { has } from 'lodash-es';
-  import { GRID_KEY } from '../grid/grid.ts';
+  import type { ComputedRef, CSSProperties } from 'vue';
   import type { ClassType } from '../../utils/props.ts';
   import type { AcvCellProps } from './cell.ts';
+  import { isDefined, useBreakpoints } from '@vueuse/core';
+  import { has } from 'lodash-es';
+  import { computed, inject, reactive, watch } from 'vue';
+  import { GRID_KEY } from '../grid/grid.ts';
   import { isPositionSet, parsePosition, queryBreakPointOptions } from './utils.ts';
 
   defineOptions({ name: 'Cell' });

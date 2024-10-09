@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Notification from './notification.vue';
 import type { AcvNotificationProps } from './notification';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Notification from './notification.vue';
 
 describe('test Notification component', () => {
   it('default props', () => {

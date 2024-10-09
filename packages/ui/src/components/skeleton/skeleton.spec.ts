@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Skeleton from './skeleton.vue';
 import type { AcvSkeletonProps } from './skeleton.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Skeleton from './skeleton.vue';
 
 describe('test skeleton component', () => {
   it('default props', () => {

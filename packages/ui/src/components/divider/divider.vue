@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import { computed, toRefs } from 'vue';
-  import { isNumber } from 'lodash-es';
-  import './divider.css';
   import type { AcvDividerProps } from './divider.ts';
+  import { isNumber } from 'lodash-es';
+  import { computed, toRefs } from 'vue';
+  import './divider.css';
 
   defineOptions({ name: 'AcvDivider' });
 

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
+  import type { GoInputProps, InputExpose } from './input';
   // import EyeCrossed from '@constructor/icons/svg/action/eye-crossed.svg';
   // import EyeSvg from '@constructor/icons/svg/action/eye.svg';
   // import CloseSvg from '@constructor/icons/svg/navigation/close.svg';
   import { computed, onMounted, ref, toRef, watch } from 'vue';
   // import GoBarButton from '../GoBarButton/GoBarButton.vue';
   import { getUniqueIndex } from '@acronis-platform/utils';
-  import type { GoInputProps, InputExpose } from './input';
   import { getAutosize } from './input';
   import { cleanValueByMask, getMaskParser } from './inputMasks';
   import { parse } from './inputParsers';

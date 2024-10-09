@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Loading from './loading.vue';
 import type { AcvLoadingProps } from './loading.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Loading from './loading.vue';
 
 describe('test Loading component', () => {
   it('render with default props', () => {

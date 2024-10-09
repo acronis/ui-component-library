@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type { AcvBreadcrumbsEvents, AcvBreadcrumbsProps, AcvBreadcrumbsSlots } from './breadcrumbs.ts';
+  import { computed } from 'vue';
   import './breadcrumbs.css';
 
   const props = withDefaults(defineProps<AcvBreadcrumbsProps>(), {

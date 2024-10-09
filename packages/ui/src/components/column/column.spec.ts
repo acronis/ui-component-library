@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Col from './column.vue';
 import type { AcvColumnProps } from './column.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Col from './column.vue';
 
 describe('test Column component', () => {
   it('default props', () => {

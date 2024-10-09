@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type { AcvLoadingEvents, AcvLoadingProps, AcvLoadingSlots } from './loading.ts';
   import AcvSpinner from '@/components/spinner/spinner.vue';
+  import { computed } from 'vue';
 
   /**
    * Loading is a widget that indicates a loading state.

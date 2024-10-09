@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Form from './form.vue';
 import type { AcvFormProps } from './form';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Form from './form.vue';
 
 describe('test Form component', () => {
   it('default props', () => {

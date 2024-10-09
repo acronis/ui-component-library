@@ -1,6 +1,6 @@
 <script setup>
-  import ConfigProvider from '@/components/config-provider/configProvider.vue';
   import AcvButton from '@/components/button/button.vue';
+  import ConfigProvider from '@/components/config-provider/configProvider.vue';
 
   const defaultProps = {
     button: {

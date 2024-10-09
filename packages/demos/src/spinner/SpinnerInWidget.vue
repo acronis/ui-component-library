@@ -1,6 +1,6 @@
 <script setup>
-  import AcvSpinner from '@/components/spinner/spinner.vue';
   import AcvButton from '@/components/button/button.vue';
+  import AcvSpinner from '@/components/spinner/spinner.vue';
 </script>
 
 <template>

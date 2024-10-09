@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Tag from './tag.vue';
 import type { AcvTagProps } from './tag';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Tag from './tag.vue';
 
 describe('test Tag component', () => {
   it('default props', () => {

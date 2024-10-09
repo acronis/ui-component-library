@@ -1,12 +1,12 @@
 <script setup>
-  import { reactive, ref } from 'vue';
-
-  import AcvFormItem from '@/components/form-item/formItem.vue';
-
-  import AcvInput from '@/components/input/input.vue';
   import AcvCard from '@/components/card/card.vue';
 
   import AcvForm from '@/components/form/form.vue';
+
+  import AcvFormItem from '@/components/form-item/formItem.vue';
+  import AcvInput from '@/components/input/input.vue';
+
+  import { reactive, ref } from 'vue';
 
   function validatePassword1(_, value, callback) {
     if (!value) {

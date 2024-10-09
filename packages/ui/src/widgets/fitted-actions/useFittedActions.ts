@@ -1,6 +1,6 @@
+import type { AcvFittedAction, AcvFittedItem } from 'src/widgets/fitted-actions/fittedActions.ts';
 import type { Ref } from 'vue';
 import { computed, nextTick, ref, watch } from 'vue';
-import type { AcvFittedAction, AcvFittedItem } from 'src/widgets/fitted-actions/fittedActions.ts';
 
 export default function useFittedActions({
   actions,

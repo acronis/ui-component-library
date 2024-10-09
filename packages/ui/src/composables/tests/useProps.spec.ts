@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { h } from 'vue';
 import { describe, expect, it } from 'vitest';
+import { h } from 'vue';
 import propsPlugin from '../../plugins/propsPlugin.ts';
 import { useProps } from '../useProps.ts';
 

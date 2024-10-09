@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
-  import ThemeProvider from '@/components/theme-provider/themeProvider.vue';
   import AcvButton from '@/components/button/button.vue';
+  import ThemeProvider from '@/components/theme-provider/themeProvider.vue';
+  import { ref } from 'vue';
 
   const theme = ref('acronis');
 

@@ -1,6 +1,6 @@
-import type { InjectionKey, Ref } from 'vue';
-import type { ComponentSize, TransitionProp } from '@/types/props';
 import type { AcvTabProps } from '@/components/tab/tab.ts';
+import type { ComponentSize, TransitionProp } from '@/types/props';
+import type { InjectionKey, Ref } from 'vue';
 
 export interface AcvTabsProps {
   /**

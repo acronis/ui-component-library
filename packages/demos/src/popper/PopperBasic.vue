@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
-  import Popper from '@/components/popper/popper.vue';
   import AcvButton from '@/components/button/button.vue';
+  import Popper from '@/components/popper/popper.vue';
+  import { ref } from 'vue';
 
   const popperVisible = ref(false);
 </script>

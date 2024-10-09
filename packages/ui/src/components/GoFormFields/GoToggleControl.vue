@@ -1,8 +1,8 @@
 <script lang="ts" setup>
+  import type { CheckboxModel } from '@/components/GoCheckbox/checkbox.ts';
   import GoFormControl from '@/components/GoForm/GoFormControl.vue';
   import GoToggle from '@/components/GoToggle/GoToggle.vue';
   import { useGoField } from '@/composables';
-  import type { CheckboxModel } from '@/components/GoCheckbox/checkbox.ts';
 
   const props = defineProps<{
     name: string

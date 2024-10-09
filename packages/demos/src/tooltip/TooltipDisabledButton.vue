@@ -1,8 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
+  import AcvButton from '@/components/button/button.vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
   import AcvTooltip from '@/components/tooltip/tooltip.vue';
-  import AcvButton from '@/components/button/button.vue';
+  import { ref } from 'vue';
 
   const isButtonDisabled = ref(false);
 </script>

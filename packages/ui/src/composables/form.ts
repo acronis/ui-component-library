@@ -1,12 +1,12 @@
-import { useField, useFieldValue } from 'vee-validate';
 import type { InjectionKey } from 'vue';
-import { inject, provide } from 'vue';
-import { omit } from '@acronis-platform/utils';
 import type { GoFormContextService } from './formContext';
-import { getGoFormContext } from './formContext';
 import type { GoFormValues, GoVeeContext, VeeOptions } from './formVee';
-import { provideGoFormVee } from './formVee';
 import type { RuleExpression } from './validation';
+import { omit } from '@acronis-platform/utils';
+import { useField, useFieldValue } from 'vee-validate';
+import { inject, provide } from 'vue';
+import { getGoFormContext } from './formContext';
+import { provideGoFormVee } from './formVee';
 
 export type GoFormService<Values extends GoFormValues> = Omit<
   GoVeeContext<Values>,

@@ -1,6 +1,6 @@
 <script setup>
-  import { BRAND_COLORS, STATUS_COLORS } from '@/utils/color.ts';
   import Card from '@/components/card/card.vue';
+  import { BRAND_COLORS, STATUS_COLORS } from '@/utils/color.ts';
 </script>
 
 <template>

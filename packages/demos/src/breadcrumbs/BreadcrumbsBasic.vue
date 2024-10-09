@@ -1,6 +1,6 @@
 <script setup>
-  import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
   import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
+  import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
 </script>
 
 <template>

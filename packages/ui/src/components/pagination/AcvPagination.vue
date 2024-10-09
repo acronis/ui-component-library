@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+  import type { AcvPaginationEvents, AcvPaginationProps } from './acvPagination.ts';
   import { computed } from 'vue';
   import AcvPaginationItem from './AcvPaginationItem.vue';
-  import type { AcvPaginationEvents, AcvPaginationProps } from './acvPagination.ts';
 
   const props = defineProps<AcvPaginationProps>();
   defineEmits<AcvPaginationEvents>();

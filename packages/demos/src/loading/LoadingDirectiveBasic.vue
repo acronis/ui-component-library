@@ -1,7 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvButton from '@/components/button/button.vue';
   import { vLoading } from '@/directives/loading.ts';
+  import { ref } from 'vue';
 
   const loading = ref(false);
 </script>

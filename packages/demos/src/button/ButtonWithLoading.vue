@@ -1,8 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
   import Button from '@/components/button/button.vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
   import Row from '@/components/row/row.vue';
+  import { ref } from 'vue';
 
   const isLoading = ref(true);
 </script>

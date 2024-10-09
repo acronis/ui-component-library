@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Tiles from './tiles.vue';
 import type { AcvTilesProps } from './tiles';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Tiles from './tiles.vue';
 
 describe('test Tiles component', () => {
   it('default props', () => {

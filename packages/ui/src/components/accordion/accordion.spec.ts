@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Accordion from './accordion.vue';
 import type { AcvAccordionProps } from './accordion.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Accordion from './accordion.vue';
 
 describe('test Accordion component', () => {
   it('default props', () => {

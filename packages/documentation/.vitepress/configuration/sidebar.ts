@@ -1,11 +1,11 @@
 import { enComponents } from './components';
-import { enTheme } from './theme';
-import { enGuides } from './guides';
-import { enExamples } from './examples';
-import { directives } from './directives';
 import { composables } from './composables';
-import { widgets } from './widgets';
+import { directives } from './directives';
+import { enExamples } from './examples';
+import { enGuides } from './guides';
 import { styleguide } from './styleguide.ts';
+import { enTheme } from './theme';
+import { widgets } from './widgets';
 
 export const sidebar = {
   '/guide': [

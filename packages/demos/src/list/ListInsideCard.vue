@@ -1,8 +1,8 @@
 <script setup>
-  import items from '../__data__/data.mock.list.json';
   import AcvCard from '@/components/card/card.vue';
   import AcvList from '@/components/list/list.vue';
   import AcvListItem from '@/components/list-item/listItem.vue';
+  import items from '../__data__/data.mock.list.json';
 </script>
 
 <template>

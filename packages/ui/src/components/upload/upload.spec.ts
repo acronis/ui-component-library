@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Upload from './upload.vue';
 import type { AcvUploadProps } from './upload';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Upload from './upload.vue';
 
 describe('test Upload component', () => {
   it('default props', () => {

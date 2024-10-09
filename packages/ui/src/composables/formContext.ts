@@ -1,9 +1,9 @@
-import type { SubmissionHandler } from 'vee-validate';
-import { ref } from 'vue';
 import type { PromiseFunction } from '@acronis-platform/utils';
+import type { SubmissionHandler } from 'vee-validate';
 import type { GoFormValues, GoVeeContext } from './formVee';
-import { trackPromiseFunction } from '@/composables/trackPromiseFunction.ts';
 import { useLoadState } from '@/composables/loadState.ts';
+import { trackPromiseFunction } from '@/composables/trackPromiseFunction.ts';
+import { ref } from 'vue';
 
 export type GoFormContextService<Values extends GoFormValues> = ReturnType<
   typeof getGoFormContext<Values>

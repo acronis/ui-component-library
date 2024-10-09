@@ -1,2 +1,2 @@
-export { default as AcvCombobox } from './combobox.vue';
 export * from './combobox.ts';
+export { default as AcvCombobox } from './combobox.vue';

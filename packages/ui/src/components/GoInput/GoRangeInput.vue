@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { computed, ref, toRef, watch } from 'vue';
-  import { getUniqueIndex } from '@acronis-platform/utils';
   import type { GoRangeInputProps } from '@/components/GoInput/rangeInput.ts';
-  import { getNumberFormatter } from '@/composables/formatNumber.ts';
-  import GoRange from '@/components/GoRange/GoRange.vue';
   import GoInputNumber from '@/components/GoInput/GoInputNumber.vue';
+  import GoRange from '@/components/GoRange/GoRange.vue';
+  import { getNumberFormatter } from '@/composables/formatNumber.ts';
+  import { getUniqueIndex } from '@acronis-platform/utils';
+  import { computed, ref, toRef, watch } from 'vue';
 
   const props = withDefaults(defineProps<GoRangeInputProps>(), {
     min: 0,

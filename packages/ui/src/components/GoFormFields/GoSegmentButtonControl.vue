@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import type { RuleExpression } from '@/composables';
   import type { RadioOption } from '@/components/GoRadio/radio.ts';
+  import type { RuleExpression } from '@/composables';
   import GoRadioGroupControl from '@/components/GoFormFields/GoRadioGroupControl.vue';
 
   withDefaults(

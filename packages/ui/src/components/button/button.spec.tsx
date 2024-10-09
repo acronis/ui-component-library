@@ -1,10 +1,10 @@
+import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { axe } from 'vitest-axe'
-import { mount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
 import { AcvButtonGroup } from '../button-group/public.ts'
-import Button from './button.vue'
 import { BUTTON_VARIANT } from './button.ts'
+import Button from './button.vue'
 
 const UserIcon = defineComponent({
   render() {

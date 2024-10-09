@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { computed, useAttrs } from 'vue';
-  import './radio.css';
-
   import type {
     AcvRadioEvents,
     AcvRadioProps,
     AcvRadioSlots
   } from './radio.ts';
+  import { computed, useAttrs } from 'vue';
+
+  import './radio.css';
 
   defineOptions({
     name: 'AcvRadio',

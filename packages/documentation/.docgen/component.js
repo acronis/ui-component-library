@@ -37,9 +37,9 @@ export default (
   ${renderedUsage.expose}
 
   ${
-  requiresMd.length
-    ? `---\n${requiresMd.map(component => component.content).join('\n---\n')}`
-    : ''
-}
+    requiresMd.length
+      ? `---\n${requiresMd.map(component => component.content).join('\n---\n')}`
+      : ''
+  }
   `;
 };

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Counter from './counter.vue';
 import type { AcvCounterProps } from './counter';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Counter from './counter.vue';
 
 describe('test Counter component', () => {
   it('default props', () => {

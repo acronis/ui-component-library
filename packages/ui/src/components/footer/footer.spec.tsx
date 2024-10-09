@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import AcvFooter from '../footer/footer.vue'
 import AcvDivider from '../divider/divider.vue'
+import AcvFooter from '../footer/footer.vue'
 
 describe('acvFooter', () => {
   it('should render slots', () => {

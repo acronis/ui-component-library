@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import './tree.css';
   import type { AcvTreeProps } from './tree.ts';
+  import './tree.css';
 
   const { data, emptyText } = defineProps<AcvTreeProps>();
 

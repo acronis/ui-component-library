@@ -1,8 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
-  import { IconChevronUp16 } from '@acronis-platform/icons/chevron';
   import { defineFilter } from '@/components/table/index.ts';
   import ThemeSwitch from '@/widgets/theme-switcher/themeSwitcher.vue';
+  import { IconChevronUp16 } from '@acronis-platform/icons/chevron';
+  import { ref } from 'vue';
 
   document.title = 'theme dev | Acronis UI Component Library';
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { highlightText } from './highlightjs.ts';
-
   import type { AcvCodeEvents, AcvCodeProps } from './code.ts';
+
+  import { highlightText } from './highlightjs.ts';
   import './code.css';
 
   const { code } = defineProps<AcvCodeProps>();

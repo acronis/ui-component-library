@@ -1,6 +1,6 @@
 <script setup>
-  import { reactive, ref } from 'vue';
   import Ribbon from '@/components/ribbon/ribbon.vue';
+  import { reactive, ref } from 'vue';
 
   const currentDate = new Intl
     .DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short' })

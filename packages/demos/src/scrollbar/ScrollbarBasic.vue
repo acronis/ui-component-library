@@ -1,6 +1,6 @@
 <script setup>
-  import LoremIpsum from '../__data__/data.mock.lorem.js';
   import AcvScrollbar from '@/components/scrollbar/scrollbar.vue';
+  import LoremIpsum from '../__data__/data.mock.lorem.js';
 
   function handleScroll() {
     console.log('scroll');

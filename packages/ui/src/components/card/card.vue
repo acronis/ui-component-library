@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-  import { computed, toRef } from 'vue';
-  import AcvSpinner from '../spinner/spinner.vue';
   import type { AcvCardProps, AcvCardSlots } from './card.ts';
   import { useLayer } from '@/composables/useLayer.ts';
   import { isBaseColor } from '@/utils/color.ts';
+  import { computed, toRef } from 'vue';
+  import AcvSpinner from '../spinner/spinner.vue';
 
   import './card.css';
 

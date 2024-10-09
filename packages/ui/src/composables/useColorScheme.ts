@@ -1,5 +1,5 @@
-import { computed, ref } from 'vue';
 import { useColorMode } from '@vueuse/core';
+import { computed, ref } from 'vue';
 
 export const AVAILABLE_COLOR_SCHEMES = {
   light: 'light',

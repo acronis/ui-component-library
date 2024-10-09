@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import MenuGroup from './menuGroup.vue';
 import type { AcvMenuGroupProps } from './menuGroup';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import MenuGroup from './menuGroup.vue';
 
 describe('test MenuGroup component', () => {
   it('default props', () => {

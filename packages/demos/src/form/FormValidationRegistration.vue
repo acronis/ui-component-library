@@ -1,12 +1,12 @@
 <script setup>
-  import { computed, reactive, ref } from 'vue';
-
-  import AcvFormError from '@/components/form-error/formError.vue';
   import AcvDialog from '@/components/dialog/dialog.vue';
-  import AcvForm from '@/components/form/form.vue';
-  import AcvInput from '@/components/input/input.vue';
+
   import AcvDivider from '@/components/divider/divider.vue';
+  import AcvForm from '@/components/form/form.vue';
+  import AcvFormError from '@/components/form-error/formError.vue';
   import AcvFormItem from '@/components/form-item/formItem.vue';
+  import AcvInput from '@/components/input/input.vue';
+  import { computed, reactive, ref } from 'vue';
 
   const registrationDialogVisible = ref(false);
   const registrationFormItem = ref(null);

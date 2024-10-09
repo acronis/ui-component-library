@@ -1,8 +1,8 @@
 <script>
   import AcvButton from '@/components/button/button.vue';
+  import AcvDropdown from '@/components/dropdown/dropdown.vue';
   import AcvDropdownItem from '@/components/dropdown/dropdownItem.vue';
   import AcvDropdownMenu from '@/components/dropdown/dropdownMenu.vue';
-  import AcvDropdown from '@/components/dropdown/dropdown.vue';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
   import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';

@@ -1,5 +1,5 @@
 export function dataGen(length) {
-  return Array.from(Array(length))
+  return Array.from({ length })
     .map((x, i) => ({
       id: i,
       name: `VM-${i}-${Math.random() >= 0.5 ? 'a' : 'b'}`,

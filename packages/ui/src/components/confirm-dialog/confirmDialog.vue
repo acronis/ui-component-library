@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import AcvDialog from '../dialog/dialog.vue';
-  import AcvButton from '../button/button.vue';
   import type {
     AcvConfirmDialogEvents,
     AcvConfirmDialogProps,
     AcvConfirmDialogSlots
   } from './confirmDialog.ts';
+  import { ref } from 'vue';
+  import AcvButton from '../button/button.vue';
+  import AcvDialog from '../dialog/dialog.vue';
   import './confirmDialog.css';
 
   const { title, description } = defineProps<AcvConfirmDialogProps>();

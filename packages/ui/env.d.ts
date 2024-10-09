@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
-import 'vitest';
 import type { AxeMatchers } from 'vitest-axe/matchers';
+import 'vitest';
 
 declare module 'vitest' {
   export interface Assertion extends AxeMatchers {}

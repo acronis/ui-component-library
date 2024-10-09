@@ -1,9 +1,9 @@
 import { version } from '../../../ui/package.json';
 import { enComponents } from './components';
 import { enExamples } from './examples';
-import { enTheme } from './theme';
 import { enGuides } from './guides';
 import { styleguide } from './styleguide.ts';
+import { enTheme } from './theme';
 
 // eslint-disable-next-line node/prefer-global/process
 const isProd = process.env.NODE_ENV === 'production';

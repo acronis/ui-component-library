@@ -1,7 +1,7 @@
 <script setup>
-  import { IconAddressBook32 } from '@acronis-platform/icons/address';
-  import Icon from '@/components/icon/icon.vue';
   import AcvDropdown from '@/components/dropdown/dropdown.vue';
+  import Icon from '@/components/icon/icon.vue';
+  import { IconAddressBook32 } from '@acronis-platform/icons/address';
 </script>
 
 <template>

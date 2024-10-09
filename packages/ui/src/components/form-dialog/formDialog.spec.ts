@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import FormDialog from './formDialog.vue';
 import type { AcvFormDialogProps } from './formDialog';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import FormDialog from './formDialog.vue';
 
 describe('test FormDialog component', () => {
   it('default props', () => {

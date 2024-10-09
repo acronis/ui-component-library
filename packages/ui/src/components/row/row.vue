@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { computed, provide, reactive, toRef } from 'vue';
   import type { AcvRowInjection, AcvRowProps, AcvRowSlots } from './row.ts';
+  import { computed, provide, reactive, toRef } from 'vue';
   import { ROW_KEY } from './row.ts';
   import './row.css';
 

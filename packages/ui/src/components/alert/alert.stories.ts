@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { ALERT_VARIANT } from '@/components/index.ts';
 import AcvButton from '../button/button.vue';
 import AcvAlert from './alert.vue';
-import { ALERT_VARIANT } from '@/components/index.ts';
 
 type Story = StoryObj<typeof AcvAlert>;
 type Args = NonNullable<Story['args']>;

@@ -1,8 +1,8 @@
+import type { Plugin } from 'vite';
 import path from 'node:path';
 import nodeExternals from 'rollup-plugin-node-externals';
-import type { Plugin } from 'vite';
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import { buildCssPlugin } from './buildCssPlugin';
 
 export function buildPlugin(): Plugin[] {

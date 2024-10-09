@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type {
     AcvOptionEvents,
     AcvOptionProps,
     AcvOptionSlots
   } from './option.ts';
+  import { computed } from 'vue';
   import './option.css';
 
   defineOptions({ name: 'AcvOption' });

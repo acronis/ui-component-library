@@ -1,10 +1,10 @@
 <script setup>
-  import { IconInfo16 } from '@acronis-platform/icons/info';
-  import { IconALogo32 } from '@acronis-platform/icons/a';
-  import { ref } from 'vue';
-  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
   import AcvMenu from '@/components/menu/menu.vue';
   import AcvMenuItem from '@/components/menu-item/menuItem.vue';
+  import { IconALogo32 } from '@acronis-platform/icons/a';
+  import { IconInfo16 } from '@acronis-platform/icons/info';
+  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
+  import { ref } from 'vue';
 
   const activeMenuItem = ref('item-0-0');
 </script>

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import FileBrowser from './fileBrowser.vue';
 import type { AcvFileBrowserProps } from './fileBrowser';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import FileBrowser from './fileBrowser.vue';
 
 describe('test FileBrowser component', () => {
   it('default props', () => {

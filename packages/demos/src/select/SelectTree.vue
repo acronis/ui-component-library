@@ -1,6 +1,6 @@
 <script>
-  import { treeDataGen } from '../__data__/data.select.generateOptions.js';
   import { AcvOption, AcvSelect } from '@/components';
+  import { treeDataGen } from '../__data__/data.select.generateOptions.js';
 
   export default {
     components: {

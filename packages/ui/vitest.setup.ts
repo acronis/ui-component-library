@@ -1,6 +1,6 @@
 import { beforeAll, expect, vi } from 'vitest';
-import * as matchers from 'vitest-axe/matchers';
 import { configureAxe } from 'vitest-axe';
+import * as matchers from 'vitest-axe/matchers';
 import 'vitest-canvas-mock';
 
 expect.extend(matchers);

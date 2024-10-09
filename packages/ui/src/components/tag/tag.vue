@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type {
     AcvTagEvents,
     AcvTagProps,
     AcvTagSlots
   } from './tag.ts';
+  import { computed } from 'vue';
   import './tag.css';
 
   const props = defineProps<AcvTagProps>();

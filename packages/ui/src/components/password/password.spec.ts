@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Password from './password.vue';
 import type { AcvPasswordProps } from './password';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Password from './password.vue';
 
 describe('test Password component', () => {
   it('default props', () => {

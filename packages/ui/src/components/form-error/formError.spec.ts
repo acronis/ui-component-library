@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import FormError from './formError.vue';
 import type { AcvFormErrorProps } from './formError';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import FormError from './formError.vue';
 
 describe('test FormError component', () => {
   it('default props', () => {

@@ -1,6 +1,6 @@
 <script setup>
-  import { BASE_COLORS, HTML_COLORS } from '@/utils/color.ts';
   import Card from '@/components/card/card.vue';
+  import { BASE_COLORS, HTML_COLORS } from '@/utils/color.ts';
 </script>
 
 <template>

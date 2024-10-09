@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type { AcvColumnEvents, AcvColumnProps, AcvColumnSlots } from './column.ts';
+  import { computed } from 'vue';
   import './column.css';
 
   const {

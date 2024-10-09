@@ -1,8 +1,8 @@
 <script setup>
-  import { IconPlus16 } from '@acronis-platform/icons/plus';
   import { BUTTON_TYPE } from '@/components/button/button.ts';
-
   import Button from '@/components/button/button.vue';
+
+  import { IconPlus16 } from '@acronis-platform/icons/plus';
 
   const props = defineProps({
     size: {

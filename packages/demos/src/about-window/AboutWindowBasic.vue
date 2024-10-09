@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvButton from '@/components/button/button.vue';
+  import { ref } from 'vue';
   // import AcvAboutWindow from '@/components/about-window/about-window.vue';
 
   const visible = ref(false);

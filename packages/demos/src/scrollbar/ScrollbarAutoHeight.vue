@@ -1,8 +1,8 @@
 <script setup>
-  import AcvScrollbar from '@/components/scrollbar/scrollbar.vue';
-  import AcvMenuItem from '@/components/menu-item/menuItem.vue';
   import AcvIcon from '@/components/icon/icon.vue';
   import AcvMenu from '@/components/menu/menu.vue';
+  import AcvMenuItem from '@/components/menu-item/menuItem.vue';
+  import AcvScrollbar from '@/components/scrollbar/scrollbar.vue';
 </script>
 
 <template>

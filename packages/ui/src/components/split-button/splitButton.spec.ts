@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import SplitButton from './splitButton.vue';
 import type { AcvSplitButtonProps } from './splitButton';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import SplitButton from './splitButton.vue';
 
 describe('test SplitButton component', () => {
   it('default props', () => {

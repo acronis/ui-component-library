@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import ThemeProvider from './themeProvider.vue';
 import type { AcvThemeProviderProps } from './themeProvider';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import ThemeProvider from './themeProvider.vue';
 
 describe('test ThemeProvider component', () => {
   it('default props', () => {

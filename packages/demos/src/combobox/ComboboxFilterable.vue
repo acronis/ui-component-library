@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import Combobox from '@/components/combobox/combobox.vue';
+  import { ref } from 'vue';
 
   const value = ref('Acronis');
   const options = ['Acronis', 'Parallels', 'Virtuozzo', 'Google', 'Apple', 'Microsoft'];

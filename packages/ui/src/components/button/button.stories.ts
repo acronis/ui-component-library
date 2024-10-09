@@ -1,5 +1,5 @@
-import { IconPlus16 } from '@acronis-platform/icons/plus';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { IconPlus16 } from '@acronis-platform/icons/plus';
 import AcvButton from './button.vue';
 
 type Story = StoryObj<typeof AcvButton>;

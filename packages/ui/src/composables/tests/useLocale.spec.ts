@@ -1,6 +1,6 @@
-import { h } from 'vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
+import { h } from 'vue';
 import localePlugin from '../../plugins/locale/localePlugin.ts';
 import { useLocale } from '../useLocale.ts';
 

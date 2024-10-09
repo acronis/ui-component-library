@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Combobox from './combobox.vue';
 import type { AcvComboboxProps } from './combobox';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Combobox from './combobox.vue';
 
 describe('test Combobox component', () => {
   it('default props', () => {

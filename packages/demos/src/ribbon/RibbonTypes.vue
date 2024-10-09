@@ -1,6 +1,6 @@
 <script setup>
-  import Ribbon from '@/components/ribbon/ribbon.vue';
   import Link from '@/components/link/link.vue';
+  import Ribbon from '@/components/ribbon/ribbon.vue';
 
   let ribbons = [
     {

@@ -1,6 +1,6 @@
 import type { App } from 'vue';
-import { inject } from 'vue';
 import { merge } from 'lodash-es';
+import { inject } from 'vue';
 
 export const LOCALE_PLUGIN_INJECTION_KEY = Symbol('ACV_LOCALE_INJECTION_KEY');
 

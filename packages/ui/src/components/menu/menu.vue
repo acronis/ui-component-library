@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { IconChevronLeft16, IconChevronRight16 } from '@acronis-platform/icons/chevron';
   import type { Ref } from 'vue';
-  import { computed, provide, ref, toRefs } from 'vue';
   import type { AcvMenuEvents, AcvMenuProps, AcvMenuSlots } from './menu.ts';
-  import { MENU_KEY } from './menu.ts';
   import AcvButton from '@/components/button/button.vue';
   import { useLevel } from '@/components/menu-item/useLevel.ts';
   import { useNested } from '@/components/menu-item/useNested.ts';
+  import { IconChevronLeft16, IconChevronRight16 } from '@acronis-platform/icons/chevron';
+  import { computed, provide, ref, toRefs } from 'vue';
+  import { MENU_KEY } from './menu.ts';
 
   import './menu.css';
 

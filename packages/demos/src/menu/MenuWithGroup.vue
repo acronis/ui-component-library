@@ -1,11 +1,11 @@
 <script setup>
-  import { IconInfo16 } from '@acronis-platform/icons/info';
-  import { IconALogo32 } from '@acronis-platform/icons/a';
-  import { ref } from 'vue';
-  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
   import AcvMenu from '@/components/menu/menu.vue';
   import AcvMenuItem from '@/components/menu-item/menuItem.vue';
   import AcvTag from '@/components/tag/tag.vue';
+  import { IconALogo32 } from '@acronis-platform/icons/a';
+  import { IconInfo16 } from '@acronis-platform/icons/info';
+  import { IconPlaceholder16 } from '@acronis-platform/icons/placeholder';
+  import { ref } from 'vue';
 
   const menuIsCollapsed = ref(false);
   function toggleCollapse() {

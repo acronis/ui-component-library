@@ -1,14 +1,14 @@
 <script setup>
-  import { reactive, ref } from 'vue';
-
   import AcvButton from '@/components/button/button.vue';
+
+  import AcvCard from '@/components/card/card.vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
+  import AcvDialog from '@/components/dialog/dialog.vue';
   import AcvDivider from '@/components/divider/divider.vue';
   import AcvForm from '@/components/form/form.vue';
   import AcvFormItem from '@/components/form-item/formItem.vue';
   import AcvInput from '@/components/input/input.vue';
-  import AcvDialog from '@/components/dialog/dialog.vue';
-  import AcvCard from '@/components/card/card.vue';
+  import { reactive, ref } from 'vue';
 
   const activationDialogVisible = ref(false);
 

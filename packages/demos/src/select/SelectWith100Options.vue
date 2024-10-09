@@ -1,6 +1,6 @@
 <script>
-  import { generateMediumOptions, treeDataGen } from '../__data__/data.select.generateOptions.js';
   import AcvSelect from '@/components/select/select.vue';
+  import { generateMediumOptions, treeDataGen } from '../__data__/data.select.generateOptions.js';
 
   export default {
     components: {

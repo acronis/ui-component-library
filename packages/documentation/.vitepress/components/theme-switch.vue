@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { onMounted, ref } from 'vue';
   import { isClient } from '@acronis-platform/utils';
+  import { onMounted, ref } from 'vue';
 
   const rootCls = isClient ? document.documentElement.classList : undefined;
   const dark = ref(false);

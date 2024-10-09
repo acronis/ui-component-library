@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import './scrollbar.css';
-  import { ref } from 'vue';
   import type { AcvScrollbarEmits, AcvScrollbarProps } from './scrollbar.ts';
+  import { ref } from 'vue';
   import { usePerfectScrollbar } from './usePerfectScrollbar.ts';
+  import './scrollbar.css';
 
   /**
    * A scrollbar is a UI component that allows users to scroll through content

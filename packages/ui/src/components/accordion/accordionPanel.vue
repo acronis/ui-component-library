@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { computed, getCurrentInstance, inject, onMounted, onUnmounted } from 'vue';
-  import { isDefined } from '@vueuse/core';
   import type { AcvAccordionInjection, AcvAccordionPanelProps, AcvAccordionPanelSlots } from './accordion.ts';
+  import { isDefined } from '@vueuse/core';
+  import { computed, getCurrentInstance, inject, onMounted, onUnmounted } from 'vue';
   import { ACCORDION_KEY } from './accordion.ts';
 
   /**

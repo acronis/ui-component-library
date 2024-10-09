@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import MarkupTable from './markupTable.vue';
 import type { AcvMarkupTableProps } from './markupTable.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import MarkupTable from './markupTable.vue';
 
 describe('uiMarkupTable', () => {
   it('default props', () => {

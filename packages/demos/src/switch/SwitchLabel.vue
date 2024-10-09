@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import AcvSwitch from '@/components/switch/switch.vue';
+  import { ref } from 'vue';
 
   const emailNotifications = ref(false);
   const pushNotifications = ref(false);

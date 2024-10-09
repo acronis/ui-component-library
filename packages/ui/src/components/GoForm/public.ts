@@ -1,6 +1,5 @@
 export { default as GoForm } from './GoForm.vue';
 export { default as GoFormActions } from './GoFormActions.vue';
-export { default as GoFormSubmitButton } from './GoFormSubmitButton.vue';
 export { default as GoFormControl } from './GoFormControl.vue';
 export { default as GoFormControlsGroup } from './GoFormControlsGroup.vue';
 export { default as GoFormDivider } from './GoFormDivider.vue';
@@ -8,3 +7,4 @@ export { default as GoFormFooter } from './GoFormFooter.vue';
 export { default as GoFormRow } from './GoFormRow.vue';
 export { default as GoFormStatic } from './GoFormStatic.vue';
 export { default as GoFormStaticControl } from './GoFormStaticControl.vue';
+export { default as GoFormSubmitButton } from './GoFormSubmitButton.vue';

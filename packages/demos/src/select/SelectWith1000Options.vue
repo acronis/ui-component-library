@@ -1,9 +1,9 @@
 <script>
-  import { generateLargeOptions, treeDataGen } from '../__data__/data.select.generateOptions.js';
-
-  import AcvSelect from '@/components/select/select.vue';
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
+
   import AcvFormLabel from '@/components/form-label/formLabel.vue';
+  import AcvSelect from '@/components/select/select.vue';
+  import { generateLargeOptions, treeDataGen } from '../__data__/data.select.generateOptions.js';
 
   export default {
     components: {

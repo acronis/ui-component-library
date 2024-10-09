@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import { computed, onMounted, provide, ref, toRefs, watch } from 'vue';
-  import { IconDot16 } from '@acronis-platform/icons/dot';
-  import { IconArrowLeft16, IconArrowRight16 } from '@acronis-platform/icons/arrow';
-  import AcvButton from '../button/button.vue';
   import type { AcvCarouselProps, AcvCarouselSlots } from './carousel.ts';
-  import { CAROUSEL_INJECTION_KEY } from './carousel.ts';
   import { isDefined } from '@/utils/common.ts';
+  import { IconArrowLeft16, IconArrowRight16 } from '@acronis-platform/icons/arrow';
+  import { IconDot16 } from '@acronis-platform/icons/dot';
+  import { computed, onMounted, provide, ref, toRefs, watch } from 'vue';
+  import AcvButton from '../button/button.vue';
+  import { CAROUSEL_INJECTION_KEY } from './carousel.ts';
   import './carousel.css';
 
   const props = withDefaults(defineProps<AcvCarouselProps>(), {

@@ -1,7 +1,7 @@
 <script setup>
-  import { IconPlus16 } from '@acronis-platform/icons/plus';
-  import { vTextMiddleEllipsis } from '@/directives/textMiddleEllipsis.ts';
   import AcvIcon from '@/components/icon/icon.vue';
+  import { vTextMiddleEllipsis } from '@/directives/textMiddleEllipsis.ts';
+  import { IconPlus16 } from '@acronis-platform/icons/plus';
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import GoFormControl from '@/components/GoForm/GoFormControl.vue';
-  import GoSelect from '@/components/GoSelect/GoSelect.vue';
   import type { SelectModel } from '@/components/GoSelect/select.ts';
   import type { RuleExpression } from '@/composables';
+  import GoFormControl from '@/components/GoForm/GoFormControl.vue';
+  import GoSelect from '@/components/GoSelect/GoSelect.vue';
   import { useGoField } from '@/composables';
 
   const props = defineProps<{

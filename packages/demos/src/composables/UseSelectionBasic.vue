@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
   import { useSelection } from '@/composables/useSelection.ts';
+  import { ref } from 'vue';
 
   const isMultiEnabled = ref(false);
   const { options, select, value } = useSelection({

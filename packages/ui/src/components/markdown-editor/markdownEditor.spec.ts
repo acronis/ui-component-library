@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import MarkdownEditor from './markdownEditor.vue';
 import type { AcvMarkdownEditorProps } from './markdownEditor';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import MarkdownEditor from './markdownEditor.vue';
 
 describe.skip('markdownEditor component', () => {
   it('default props', () => {

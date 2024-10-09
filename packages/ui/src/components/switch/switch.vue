@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { computed, useAttrs } from 'vue';
   import type {
     AcvSwitchEvents,
     AcvSwitchProps,
     AcvSwitchSlots
   } from './switch.ts';
+  import { computed, useAttrs } from 'vue';
   import './switch.css';
 
   defineOptions({

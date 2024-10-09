@@ -1,7 +1,7 @@
 <script>
-  import { ggWithIcon } from '../__data__/data.select.generateOptions.js';
-  import AcvSelect from '@/components/select/select.vue';
   import AcvOption from '@/components/option/option.vue';
+  import AcvSelect from '@/components/select/select.vue';
+  import { ggWithIcon } from '../__data__/data.select.generateOptions.js';
 
   const statuses = [
     {

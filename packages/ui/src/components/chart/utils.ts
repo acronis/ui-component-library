@@ -1,5 +1,5 @@
-import { isProxy } from 'vue';
 import type { Chart, ChartData, ChartDataset, ChartOptions, ChartType, DefaultDataPoint } from 'chart.js';
+import { isProxy } from 'vue';
 
 export function cloneProxy<T extends object>(obj: T, src = obj) {
   return isProxy(src) ? new Proxy(obj, {}) : obj;

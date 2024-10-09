@@ -1,6 +1,6 @@
 <script setup>
-  import AcvListItem from '@/components/list-item/listItem.vue';
   import AcvCounter from '@/components/counter/counter.vue';
+  import AcvListItem from '@/components/list-item/listItem.vue';
 </script>
 
 <template>

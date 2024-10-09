@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
-import Row from './row.vue';
 import type { AcvRowProps } from './row.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import Row from './row.vue';
 
 describe('test Row component', () => {
   it('default props', () => {
