@@ -17,8 +17,8 @@
     "build-and-publish": "pnpm publish-to-registry"
   },
   "peerDependencies": {
-    "@types/node": "*",
-    "eslint": ">= 9",
+    "@types/node": ">=20",
+    "eslint": ">=9",
     "prettier": ">=3",
     "stylelint": ">=16"
   },
