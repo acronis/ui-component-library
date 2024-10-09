@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.1...figma-fetcher/0.1.2) (2024-10-09)
+
+
+### Bug Fixes
+
+* **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
+
 ## [0.1.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.0...figma-fetcher/0.1.1) (2024-08-28)
 
 
