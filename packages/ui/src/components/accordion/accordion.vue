@@ -3,8 +3,6 @@
   import { computed, getCurrentInstance, onMounted, provide, ref, watch } from 'vue';
   import { ACCORDION_KEY } from './accordion.ts';
 
-  import './accordion.css';
-
   /**
    * Vertical stacked interactive headers that reveal associated sections of content.
    *
@@ -90,7 +88,6 @@
 
   const classes = computed(() => {
     return {
-      'acv-accordion': true,
       [`acv-accordion--size-${size}`]: size,
     };
   });
@@ -98,7 +95,7 @@
 
 <template>
   <div
-    class="acv accordion"
+    class="acv-accordion"
     :class="classes"
   >
     <slot />
@@ -106,13 +103,10 @@
 </template>
 
 <style scoped>
-.acv {
-  &.accordion {
+  .acv-accordion {
     font-weight: var(--acv-font-weight-strong);
-    color: var(--acv-accordion-color);
+    color: var(--acv-accordion-color, var(--acv-color-base-primary));
     border: 2px solid;
     border-radius: 0.5rem;
-    overflow: hidden;
   }
-}
 </style>

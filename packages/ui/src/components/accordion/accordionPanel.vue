@@ -30,7 +30,6 @@
   );
 
   const panelClasses = computed(() => ({
-    'acv-accordion-panel': true,
     [`acv-accordion-panel--background-${background}`]: background
   }));
 
@@ -49,6 +48,7 @@
 
 <template>
   <div
+    class="acv-accordion-panel"
     :class="panelClasses"
     :aria-expanded="isOpened"
     role="tab"
@@ -75,6 +75,16 @@
 </template>
 
 <style scoped>
+.acv-accordion-panel:first-child {
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
+}
+
+.acv-accordion-panel:last-child {
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
 .acv-accordion-panel input {
   position: absolute;
   opacity: 0;
@@ -91,14 +101,22 @@
   max-height: 10rem;
 }
 
+.acv-accordion-panel:first-child .acv-accordion-panel__label {
+  border-radius: inherit;
+}
+
+.acv-accordion-panel:last-child input:not(:checked) ~ .acv-accordion-panel__label {
+  border-radius: inherit;
+}
+
 .acv-accordion-panel__label {
   display: flex;
-  color: var(--acv-accordion-label-color);
-  background: var(--acv-accordion-label-bg-color);
+  color: var(--acv-accordion-label-color, var(--acv-color-brand-primary));
+  background: var(--acv-accordion-label-bg-color, var(--acv-color-primary-lightest));
   cursor: pointer;
   justify-content: space-between;
   padding: 1rem;
-  font-size: var(--acv-accordion-label-font-size-medium);
+  font-size: var(--acv-accordion-label-font-size-medium, var(--acv-font-size-medium));
 }
 
 .acv-accordion-panel__label:after {
@@ -125,16 +143,16 @@
 
 .acv-accordion--size-small .acv-accordion-panel__label {
   padding: .2rem;
-  font-size: var(--acv-accordion-label-font-size-small);
+  font-size: var(--acv-accordion-label-font-size-small, var(--acv-font-size-small));
 }
 
 .acv-accordion--size-small .acv-accordion-panel__content p {
-  font-size: var(--acv-accordion-label-font-size-small);
+  font-size: var(--acv-accordion-label-font-size-small, var(--acv-font-size-small));
 }
 
 .acv-accordion--size-large .acv-accordion-panel__label {
   padding: 2rem;
-  font-size: var(--acv-accordion-label-font-size-large);
+  font-size: var(--acv-accordion-label-font-size-large, var(--acv-font-size-large));
 }
 
 /* Panel background */
