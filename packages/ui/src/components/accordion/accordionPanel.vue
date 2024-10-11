@@ -102,11 +102,14 @@
 }
 
 .acv-accordion-panel:first-child .acv-accordion-panel__label {
-  border-radius: inherit;
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
 }
 
-.acv-accordion-panel:last-child input:not(:checked) ~ .acv-accordion-panel__label {
-  border-radius: inherit;
+.acv-accordion-panel:last-child input:not(:checked) ~ .acv-accordion-panel__label,
+.acv-accordion-panel:last-child input:checked ~ .acv-accordion-panel__content {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 .acv-accordion-panel__label {
