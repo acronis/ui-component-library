@@ -1,4 +1,6 @@
-# Styles Guide
+# Css Style Guide
+
+This document outlines the CSS style guide used in this project.
 
 ## Styles in Vue.js components
 
@@ -33,3 +35,7 @@
   }
 </style>
 ```
+
+## Stylelint
+
+We use stylelint with @antfu/stylelint-config to lint our CSS.
