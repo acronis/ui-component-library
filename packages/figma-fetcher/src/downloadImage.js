@@ -39,7 +39,7 @@ export async function downloadImage(config, icon) {
         },
       ],
     });
-    const systemColorRegex = new RegExp(escapeRegExp(config.systemColor), 'g');
+    const systemColorRegex = new RegExp(escapeRegExp(config.systemColor), 'gi');
     const content = optimizedSvg.data.replace(systemColorRegex, 'currentColor');
 
     await config.onDownloadedIcon({ content, pathname, publicFolder: config.publicFolder, vueFolder: config.vueFolder });
