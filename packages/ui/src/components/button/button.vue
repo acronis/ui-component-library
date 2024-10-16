@@ -15,7 +15,7 @@
 
   const props = withDefaults(defineProps<AcvButtonProps>(), {
     is: 'button',
-    buttonType: 'button',
+    type: 'button',
     color: 'primary',
     size: 'medium'
   });
