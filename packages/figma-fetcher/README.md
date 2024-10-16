@@ -31,4 +31,4 @@ FIGMA_FETCHER_SYSTEM_COLOR="#181818"
 fetch-icons
 ```
 
-This will download your icons to the specified directory.
+You will download your icons to the specified directory.
