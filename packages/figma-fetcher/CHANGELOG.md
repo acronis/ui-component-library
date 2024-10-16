@@ -1,3 +1,10 @@
+## [0.1.3](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.2...figma-fetcher/0.1.3) (2024-10-16)
+
+
+### Bug Fixes
+
+* fix readme in figma fetcher ([a189b90](https://github.com/acronis/ui-component-library/commit/a189b90b5fa8a3b01e0b09e873e855e3808d9536))
+
 ## [0.1.2](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.1...figma-fetcher/0.1.2) (2024-10-09)
 
 
