@@ -28,12 +28,12 @@ You can use is as a whole or import only the components you need.
 Import the whole library:
 
 ```javascript
-import AcronisUI from '@acronis-platform/ui-component-library';
+import UIKit from '@acronis-platform/ui-component-library';
 import { createApp } from 'vue';
 import App from './App.vue';
 
 const app = createApp(App);
-app.use(AcronisUI);
+app.use(UIKit);
 app.mount('#app');
 ```
 
