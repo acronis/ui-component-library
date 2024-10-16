@@ -29,11 +29,11 @@
     "test:dev": "vitest dev"
   },
   "dependencies": {
-    "@acronis-platform/configs": "workspace:*",
     "lodash-es": "4.17.21",
     "semver": "7.6.2"
   },
   "devDependencies": {
+    "@acronis-platform/configs": "workspace:*",
     "@pnpm/types": "9.4.2",
     "@types/lodash-es": "4.17.12",
     "@vitest/coverage-v8": "2.1.2",
