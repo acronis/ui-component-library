@@ -1,6 +1,6 @@
 # Figma Icons
 
-### Steps for Using
+## Steps for Using
 
 1. **Navigate to Figma Access Tokens:**
 
@@ -14,7 +14,7 @@
 
 - Run the command `fetch-icons` in the package where you want to store your icons.
 
-### Example of `.env.local`
+## Example of `.env.local`
 
 ```plaintext
 FIGMA_FETCHER_FIGMA_TOKEN="PUT_YOUR_FIGMA_TOKEN"
@@ -25,7 +25,7 @@ FIGMA_FETCHER_CLASS_NAME="acv-icon"
 FIGMA_FETCHER_SYSTEM_COLOR="#181818"
 ```
 
-### Command to Fetch Icons
+## Command to Fetch Icons
 
 ```bash
 fetch-icons
