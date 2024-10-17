@@ -15,5 +15,13 @@
     hsl(from var(--acv-color-secondary) calc(h - 3) calc(s - 1) calc(l - 8))
   );
   --acv-color-secondary-muted: var(--acv-color-primary-lightest);
-  --acv-color-secondary-text: var(--acv-color-text-primary);
+
+  /* Text colors */
+  --acv-color-secondary-darkest-text: var(--acv-color-secondary-light);
+  --acv-color-secondary-darker-text: var(--acv-color-secondary-lighter);
+  --acv-color-secondary-dark-text: var(--acv-color-secondary-lightest);
+  --acv-color-secondary-text: var(--acv-color-secondary-lightest);
+  --acv-color-secondary-lightest-text: var(--acv-color-secondary-dark);
+  --acv-color-secondary-lighter-text: var(--acv-color-secondary-darker);
+  --acv-color-secondary-light-text: var(--acv-color-secondary-darkest);
 }

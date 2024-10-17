@@ -15,5 +15,13 @@
     var(--acv-color-primary-dark)
   );
   --acv-color-primary-muted: var(--acv-color-primary-darkest);
-  --acv-color-primary-text: var(--acv-color-button-label-inversed-primary);
+
+  /* Text colors */
+  --acv-color-primary-darkest-text: var(--acv-color-primary-light);
+  --acv-color-primary-darker-text: var(--acv-color-primary-lighter);
+  --acv-color-primary-dark-text: var(--acv-color-primary-lightest);
+  --acv-color-primary-text: var(--acv-color-primary-lightest);
+  --acv-color-primary-lightest-text: var(--acv-color-primary-dark);
+  --acv-color-primary-lighter-text: var(--acv-color-primary-darker);
+  --acv-color-primary-light-text: var(--acv-color-primary-darkest);
 }

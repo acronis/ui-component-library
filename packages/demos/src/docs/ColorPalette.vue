@@ -4,7 +4,7 @@
     'pink',
     'purple',
     'deep-purple',
-    // 'indigo',
+    'indigo',
     'blue',
     'dodge-blue',
     'light-blue',
@@ -15,11 +15,14 @@
     // 'lime',
     'yellow',
     'amber',
-    // 'orange',
+    'orange',
     // 'deep-orange',
-    // 'brown',
+    'brown',
     'gray',
     // 'blue-gray',
+    'primary',
+    'secondary',
+    'tertiary'
   ];
 
   const colorShades = [
@@ -45,7 +48,10 @@
           v-for="shade in colorShades"
           :key="shade"
           class="p-2"
-          :style="{ backgroundColor: `var(--acv-color-${color}${shade ? `-${shade}` : ''})` }"
+          :style="{
+            backgroundColor: `var(--acv-color-${color}${shade ? `-${shade}` : ''})`,
+            color: `var(--acv-color-${color}${shade ? `-${shade}` : ''}-text)`,
+          }"
         >
           --acv-color-{{ color }}{{ shade ? `-${shade}` : '' }}
         </div>
