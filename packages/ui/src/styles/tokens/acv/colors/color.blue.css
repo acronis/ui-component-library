@@ -1,9 +1,9 @@
 :where(html) {
-  --acv-color-blue-darkest: hsl(229deg 100% 18%);
-  --acv-color-blue-darker: hsl(219deg 100% 24%);
-  --acv-color-blue-dark: hsl(213deg 100% 31%);
-  --acv-color-blue: hsl(215deg 68% 46%);
-  --acv-color-blue-light: hsl(220deg 79% 63%);
-  --acv-color-blue-lighter: hsl(219deg 100% 75%);
-  --acv-color-blue-lightest: hsl(212deg 100% 83%);
+  --acv-color-blue-darkest: hsl(216deg 63% 21%); /* -5% */
+  --acv-color-blue-darker: hsl(216deg 65% 26%); /* -8% */
+  --acv-color-blue-dark: hsl(216deg 67% 34%); /* -12% */
+  --acv-color-blue: hsl(215deg 69% 46%);
+  --acv-color-blue-light: hsl(214deg 71% 64%); /* +18% */
+  --acv-color-blue-lighter: hsl(213deg 73% 82%); /* +18% */
+  --acv-color-blue-lightest: hsl(212deg 74% 95%); /* +13% */
 }

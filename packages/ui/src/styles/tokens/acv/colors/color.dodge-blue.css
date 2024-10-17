@@ -1,9 +1,9 @@
 :where(html) {
-  --acv-color-dodge-blue-darkest: hsl(219deg 100% 24%);
-  --acv-color-dodge-blue-darker: hsl(213deg 100% 31%);
-  --acv-color-dodge-blue-dark: hsl(208deg 100% 38%);
+  --acv-color-dodge-blue-darkest: hsl(215deg 74% 33%);
+  --acv-color-dodge-blue-darker: hsl(215deg 76% 38%);
+  --acv-color-dodge-blue-dark: hsl(215deg 78% 46%);
   --acv-color-dodge-blue: hsl(214deg 80% 58%);
-  --acv-color-dodge-blue-light: hsl(215deg 100% 71%);
-  --acv-color-dodge-blue-lighter: hsl(207deg 100% 80%);
-  --acv-color-dodge-blue-lightest: hsl(189deg 100% 88%);
+  --acv-color-dodge-blue-light: hsl(213deg 82% 70%);
+  --acv-color-dodge-blue-lighter: hsl(212deg 84% 88%);
+  --acv-color-dodge-blue-lightest: hsl(211deg 85% 97%);
 }

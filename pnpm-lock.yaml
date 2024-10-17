@@ -119,6 +119,9 @@ importers:
       '@acronis-platform/ui-component-library':
         specifier: workspace:*
         version: link:../ui
+      chartjs-plugin-dragdata:
+        specifier: 2.3.1
+        version: 2.3.1(chart.js@4.4.3)
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -3788,6 +3791,11 @@ packages:
     peerDependencies:
       chart.js: '>=4.0.0'
 
+  chartjs-plugin-dragdata@2.3.1:
+    resolution: {integrity: sha512-CFD1e2d+gyH9EXb92qWu4Zb2zVoY4OtrbJYLMoGWOInE7ftoOD//4B0/k9IvKzQbdVU3JsPqUQI9KHcMpqQVfg==}
+    peerDependencies:
+      chart.js: ^3.9.1 || ^4.0.1
+
   check-error@2.1.1:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
     engines: {node: '>= 16'}
@@ -4107,6 +4115,18 @@ packages:
     resolution: {integrity: sha512-udzS2JilmI9ApO/UuqurEwOvThclin5ntz7K0BtnHBs+tg2Bl9QShLISXpSEMDv/u8b6mqdoAdyKeZiSqKWL8g==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
+
+  d3-dispatch@3.0.1:
+    resolution: {integrity: sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg==}
+    engines: {node: '>=12'}
+
+  d3-drag@3.0.0:
+    resolution: {integrity: sha512-pWbUJLdETVA8lQNJecMxoXfH6x+mO2UQo8rSmZ+QqxcbyA3hfeprFgIT//HW2nlHChWeIIMwS2Fq+gEARkhTkg==}
+    engines: {node: '>=12'}
+
+  d3-selection@3.0.0:
+    resolution: {integrity: sha512-fmTRWbNMmsmWq6xJV8D19U/gw/bwrHfNXxrIN+HfZgnzqTHp9jOmKMhsTUjXOJnZOdZY9Q28y4yebKzqDKlxlQ==}
+    engines: {node: '>=12'}
 
   dargs@7.0.0:
     resolution: {integrity: sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==}
@@ -12437,6 +12457,12 @@ snapshots:
     dependencies:
       chart.js: 4.4.3
 
+  chartjs-plugin-dragdata@2.3.1(chart.js@4.4.3):
+    dependencies:
+      chart.js: 4.4.3
+      d3-drag: 3.0.0
+      d3-selection: 3.0.0
+
   check-error@2.1.1: {}
 
   check-more-types@2.24.0: {}
@@ -12789,6 +12815,15 @@ snapshots:
       tmp: 0.2.3
       untildify: 4.0.0
       yauzl: 2.10.0
+
+  d3-dispatch@3.0.1: {}
+
+  d3-drag@3.0.0:
+    dependencies:
+      d3-dispatch: 3.0.1
+      d3-selection: 3.0.0
+
+  d3-selection@3.0.0: {}
 
   dargs@7.0.0: {}
 

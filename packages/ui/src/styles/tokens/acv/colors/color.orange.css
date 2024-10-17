@@ -1,0 +1,9 @@
+:where(html) {
+  --acv-color-orange-darkest: hsl(30deg 94% 21%);
+  --acv-color-orange-darker: hsl(30deg 96% 26%);
+  --acv-color-orange-dark: hsl(30deg 98% 34%);
+  --acv-color-orange: hsl(29deg 100% 53%);
+  --acv-color-orange-light: hsl(28deg 102% 64%);
+  --acv-color-orange-lighter: hsl(27deg 104% 82%);
+  --acv-color-orange-lightest: hsl(26deg 106% 95%);
+}

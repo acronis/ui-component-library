@@ -1,9 +1,9 @@
 :where(html) {
-  --acv-color-green-darkest: hsl(120deg 100% 8%);
-  --acv-color-green-darker: hsl(120deg 100% 14%);
-  --acv-color-green-dark: hsl(125deg 100% 20%);
+  --acv-color-green-darkest: hsl(125deg 45% 20%);
+  --acv-color-green-darker: hsl(120deg 50% 22%);
+  --acv-color-green-dark: hsl(125deg 56% 27%);
   --acv-color-green: hsl(127deg 62% 33%);
-  --acv-color-green-light: hsl(122deg 39% 49%);
-  --acv-color-green-lighter: hsl(119deg 54% 64%);
-  --acv-color-green-lightest: hsl(118deg 91% 78%);
+  --acv-color-green-light: hsl(122deg 67% 45%);
+  --acv-color-green-lighter: hsl(119deg 72% 64%);
+  --acv-color-green-lightest: hsl(118deg 75% 78%);
 }

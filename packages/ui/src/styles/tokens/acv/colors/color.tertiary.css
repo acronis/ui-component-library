@@ -1,9 +1,21 @@
 :where(html) {
-  --acv-color-tertiary-darkest: hsl(213deg 100% 31%);
-  --acv-color-tertiary-darker: hsl(214deg 83% 37%);
-  --acv-color-tertiary-dark: hsl(215deg 74% 42%);
-  --acv-color-tertiary: var(--acv-color-brand-tertiary, hsl(215deg 68% 46%));
-  --acv-color-tertiary-light: hsl(224deg 54% 67%);
-  --acv-color-tertiary-lighter: hsl(228deg 53% 82%);
-  --acv-color-tertiary-lightest: hsl(220deg 60% 97%);
+  --acv-color-tertiary-darkest: hsl(
+    from var(--acv-color-brand-tertiary) calc(h + 1) calc(s - 6) calc(l - 25)
+  );
+  --acv-color-tertiary-darker: hsl(
+    from var(--acv-color-brand-tertiary) calc(h + 1) calc(s - 4) calc(l - 20)
+  );
+  --acv-color-tertiary-dark: hsl(
+    from var(--acv-color-brand-tertiary) calc(h + 1) calc(s - 2) calc(l - 12)
+  );
+  --acv-color-tertiary: var(--acv-color-brand-tertiary, hsl(218deg 57% 97%));
+  --acv-color-tertiary-light: hsl(
+    from var(--acv-color-tertiary) calc(h - 1) calc(s + 2) calc(l + 18)
+  );
+  --acv-color-tertiary-lighter: hsl(
+    from var(--acv-color-tertiary) calc(h - 2) calc(s + 4) calc(l + 36)
+  );
+  --acv-color-tertiary-lightest: hsl(
+    from var(--acv-color-tertiary) calc(h - 3) calc(s + 5) calc(l + 49)
+  );
 }

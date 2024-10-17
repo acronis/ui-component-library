@@ -1,11 +1,11 @@
 :where(html) {
-  --acv-color-red-darkest: hsl(0deg 100% 21%);
-  --acv-color-red-darker: hsl(0deg 100% 29%);
-  --acv-color-red-dark: hsl(352deg 100% 37%);
+  --acv-color-red-lightest: hsl(0deg 100% 98%);
+  --acv-color-red-lighter: hsl(0deg 96% 85%);
+  --acv-color-red-light: hsl(0deg 89% 71%);
   --acv-color-red: hsl(0deg 81% 57%);
-  --acv-color-red-light: hsl(4deg 100% 67%);
-  --acv-color-red-lighter: hsl(7deg 100% 74%);
-  --acv-color-red-lightest: hsl(12deg 100% 81%);
+  --acv-color-red-dark: hsl(0deg 73% 45%);
+  --acv-color-red-darker: hsl(0deg 64% 35%);
+  --acv-color-red-darkest: hsl(0deg 55% 30%);
   --acv-color-red-hover: hsl(
     from var(--acv-color-red) calc(h - 4) s calc(l - 2)
   );
