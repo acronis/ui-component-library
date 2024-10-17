@@ -1,0 +1,34 @@
+.acv-surface-primary {
+  background-color: var(--acv-color-surface-primary);
+  color: var(--acv-color-text-primary);
+}
+
+.acv-surface-secondary {
+  background-color: var(--acv-color-surface-secondary);
+  color: var(--acv-color-text-secondary);
+}
+
+.acv-surface-inversed-primary {
+  background-color: var(--acv-color-surface-inversed-primary);
+  color: var(--acv-color-text-inversed-primary);
+}
+
+.acv-surface-inversed-dark-primary {
+  background-color: var(--acv-color-surface-inversed-dark-primary);
+  color: var(--acv-color-text-inversed-primary);
+}
+
+.acv-surface-inversed-secondary {
+  background-color: var(--acv-color-surface-inversed-secondary);
+  color: var(--acv-color-text-inversed-secondary);
+}
+
+.acv-surface-fixed-primary {
+  background-color: var(--acv-color-surface-fixed-primary);
+  color: var(--acv-color-text-inversed-primary);
+}
+
+.acv-surface-fixed-secondary {
+  background-color: var(--acv-color-surface-fixed-secondary);
+  color: var(--acv-color-text-primary);
+}

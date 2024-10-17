@@ -40,7 +40,6 @@
     <div
       v-for="type in buttonTypes"
       :key="type"
-      align="center"
       :width="8"
       :class="{
         'acv-bg-nav-primary': type === BUTTON_TYPE.inverted,
@@ -52,7 +51,7 @@
         :key="state"
         class="pa-16"
       >
-        <h4>{{ state ?? 'default' }} {{ type }}</h4>
+        <p><strong>{{ state ?? 'default' }} {{ type }}</strong></p>
         <Button
           :type="type"
           :class="state"

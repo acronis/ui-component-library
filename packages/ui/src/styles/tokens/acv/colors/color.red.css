@@ -13,5 +13,13 @@
     from var(--acv-color-red) calc(h - 3) calc(s - 1) calc(l - 8)
   );
   --acv-color-red-muted: var(--acv-color-red-darkest);
-  --acv-color-red-text: var(--acv-color-white);
+
+  /* Text colors */
+  --acv-color-red-darkest-text: var(--acv-color-red-light);
+  --acv-color-red-darker-text: var(--acv-color-red-lighter);
+  --acv-color-red-dark-text: var(--acv-color-red-lightest);
+  --acv-color-red-text: var(--acv-color-red-lightest);
+  --acv-color-red-lightest-text: var(--acv-color-red-dark);
+  --acv-color-red-lighter-text: var(--acv-color-red-darker);
+  --acv-color-red-light-text: var(--acv-color-red-darkest);
 }

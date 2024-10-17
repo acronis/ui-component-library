@@ -6,4 +6,13 @@
   --acv-color-light-blue-light: hsl(194deg 100% 76%);
   --acv-color-light-blue-lighter: hsl(193deg 102% 88%);
   --acv-color-light-blue-lightest: hsl(192deg 103% 97%);
+
+  /* Text colors */
+  --acv-color-light-blue-darkest-text: var(--acv-color-light-blue-light);
+  --acv-color-light-blue-darker-text: var(--acv-color-light-blue-lighter);
+  --acv-color-light-blue-dark-text: var(--acv-color-light-blue-lightest);
+  --acv-color-light-blue-text: var(--acv-color-light-blue-lightest);
+  --acv-color-light-blue-lightest-text: var(--acv-color-light-blue-dark);
+  --acv-color-light-blue-lighter-text: var(--acv-color-light-blue-darker);
+  --acv-color-light-blue-light-text: var(--acv-color-light-blue-darkest);
 }

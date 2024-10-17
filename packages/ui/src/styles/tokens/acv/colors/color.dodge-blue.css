@@ -6,4 +6,13 @@
   --acv-color-dodge-blue-light: hsl(213deg 82% 70%);
   --acv-color-dodge-blue-lighter: hsl(212deg 84% 88%);
   --acv-color-dodge-blue-lightest: hsl(211deg 85% 97%);
+
+  /* Text colors */
+  --acv-color-dodge-blue-darkest-text: var(--acv-color-dodge-blue-light);
+  --acv-color-dodge-blue-darker-text: var(--acv-color-dodge-blue-lighter);
+  --acv-color-dodge-blue-dark-text: var(--acv-color-dodge-blue-lightest);
+  --acv-color-dodge-blue-text: var(--acv-color-dodge-blue-lightest);
+  --acv-color-dodge-blue-lightest-text: var(--acv-color-dodge-blue-dark);
+  --acv-color-dodge-blue-lighter-text: var(--acv-color-dodge-blue-darker);
+  --acv-color-dodge-blue-light-text: var(--acv-color-dodge-blue-darkest);
 }

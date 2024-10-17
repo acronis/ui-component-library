@@ -1,19 +1,22 @@
 :root {
-  /* Shadow: blur, x-offset, y-offset, hsl(color / strength) */
+  /* Shadow bones: blur, x-offset, y-offset, hsl(color / strength) */
   --acv-shadow-color-hsl: 215deg 30% 20%;
   --acv-shadow-color: hsl(var(--acv-shadow-color-hsl));
+  --acv-shadow-color-primary: var(--acv-color-effect-shadow-primary);
   --acv-shadow-strength: 1%;
   --acv-inner-shadow-highlight: inset 0 -0.5px 0 0 hsl(0deg 0% 100%),
     inset 0 0.5px 0 0 hsl(0deg 0% 0% / 0.067);
-  --acv-box-shadow: 0 10px 20px 0;
-  --acv-box-shadow-details: 0 15px 30px 0 hsl(218deg 11% 20% / 0.25);
-  --acv-box-shadow-focus: var(--acv-box-shadow) hsl(218deg 11% 20% / 0.25);
-  --acv-box-shadow-modal: var(--acv-box-shadow) hsl(218deg 11% 20% / 0.7);
   --acv-shadow-blur-regular: var(--acv-base-shadow-blur-08);
   --acv-shadow-blur-large: var(--acv-base-shadow-blur-20);
   --acv-shadow-position-zero: var(--acv-base-shadow-position-y-00);
   --acv-shadow-position-y-small: var(--acv-base-shadow-position-y-04);
   --acv-shadow-position-y-regular: var(--acv-base-shadow-position-y-08);
+
+  /* box shadow */
+  --acv-box-shadow: 0 10px 20px 0;
+  --acv-box-shadow-details: 0 15px 30px 0 hsl(218deg 11% 20% / 0.25);
+  --acv-box-shadow-focus: var(--acv-box-shadow) hsl(218deg 11% 20% / 0.25);
+  --acv-box-shadow-modal: var(--acv-box-shadow) hsl(218deg 11% 20% / 0.7);
 
   /* --acv-shadow-default: 0px 4px 20px 0px var(--acv-color-white-80); */
 
@@ -66,8 +69,78 @@
   --acv-shadow-strong: var(--acv-shadow-small);
   --acv-shadow-shape: 0 0 20px 0 hsl(218deg 11% 20% / 0.25);
 
+  /* basic shadows */
+  --acv-shadow-base-x-small: 0 1px 2px -1px hsl(var(--acv-shadow-color-hsl) /
+        calc(var(--acv-shadow-strength) + 9%));
+  --acv-shadow-base-small: 0 3px 5px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 3%)),
+    0 7px 14px -5px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 5%));
+  --acv-shadow-base-medium: 0 -1px 3px 0 hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 2%)),
+    0 1px 2px -5px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 2%)),
+    0 2px 5px -5px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 4%)),
+    0 4px 12px -5px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 5%)),
+    0 12px 15px -5px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 7%));
+  --acv-shadow-base-large: 0 -2px 5px 0 hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 2%)),
+    0 1px 1px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 3%)),
+    0 2px 2px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 3%)),
+    0 5px 5px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 4%)),
+    0 9px 9px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 5%)),
+    0 16px 16px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 6%));
+  --acv-shadow-base-x-large: 0 -1px 2px 0 hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 2%)),
+    0 2px 1px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 3%)),
+    0 5px 5px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 3%)),
+    0 10px 10px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 4%)),
+    0 20px 20px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 5%)),
+    0 40px 40px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 7%));
+  --acv-shadow-base-xx-large: 0 -1px 2px 0 hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 2%)),
+    0 3px 2px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 3%)),
+    0 7px 5px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 3%)),
+    0 12px 10px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 4%)),
+    0 22px 18px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 5%)),
+    0 41px 33px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 6%)),
+    0 100px 80px -2px hsl(var(--acv-shadow-color-hsl) /
+          calc(var(--acv-shadow-strength) + 7%));
+
   /* inner shadows */
   --acv-inner-shadow: inset 0 0 20px 0 hsl(218deg 11% 20% / 0.25);
+  --acv-inner-shadow-x-small: inset 0 0 0 1px
+    hsl(var(--acv-shadow-color-hsl) / calc(var(--acv-shadow-strength) + 9%));
+  --acv-inner-shadow-small: inset 0 1px 2px 0
+      hsl(var(--acv-shadow-color-hsl) / calc(var(--acv-shadow-strength) + 9%)),
+    var(--acv-inner-shadow-highlight);
+  --acv-inner-shadow-medium: inset 0 1px 4px 0
+      hsl(var(--acv-shadow-color-hsl) / calc(var(--acv-shadow-strength) + 9%)),
+    var(--acv-inner-shadow-highlight);
+  --acv-inner-shadow-large: inset 0 2px 8px 0
+      hsl(var(--acv-shadow-color-hsl) / calc(var(--acv-shadow-strength) + 9%)),
+    var(--acv-inner-shadow-highlight);
+  --acv-inner-shadow-x-large: inset 0 2px 14px 0
+      hsl(var(--acv-shadow-color-hsl) / calc(var(--acv-shadow-strength) + 9%)),
+    var(--acv-inner-shadow-highlight);
 }
 
 @container style(--acv-os-dark: true) {
@@ -81,7 +154,7 @@
     --acv-shadow-vertical-dark: -2px 0px 20px 0px hsl(0deg 0% 0% / 0.25);
     --acv-shadow-color-hsl: 220 40% 2%;
     --acv-shadow-strength: 25%;
-    --inner-shadow-highlight: inset 0 -0.5px 0 0 hsl(0deg 0% 100% / 0.06),
+    --acv-inner-shadow-highlight: inset 0 -0.5px 0 0 hsl(0deg 0% 100% / 0.06),
       inset 0 0.5px 0 0 hsl(0deg 0% 0% / 0.5);
   }
 }
