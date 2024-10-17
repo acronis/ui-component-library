@@ -1,5 +1,16 @@
 FROM cypress/included:13.12.0
 
+RUN apt-get update \
+    # https://github.com/phusion/baseimage-docker/issues/319
+    && apt-get install --yes apt-utils 2>&1 | grep -v "debconf: delaying package configuration, since apt-utils is not installed" \
+    && apt-get install --no-install-recommends --yes \
+    dumb-init \
+    fontconfig \
+    libglfw3-dev \
+    libgles2-mesa-dev \
+    chromium \
+    && rm -rf /var/lib/apt/lists/* \
+
 WORKDIR /workspace
 
 COPY pnpm-lock.yaml /workspace/
