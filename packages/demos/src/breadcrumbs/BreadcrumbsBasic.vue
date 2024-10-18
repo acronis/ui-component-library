@@ -1,24 +1,56 @@
 <script setup>
-  import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
+  import BreadcrumbItem from '@/components/breadcrumbs/breadcrumbItem.vue';
   import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
 </script>
 
 <template>
   <Breadcrumbs>
-    <BreadcrumbLink to="/">
+    <BreadcrumbItem
+      to="/"
+    >
       Home
-    </BreadcrumbLink>
-    <BreadcrumbLink
-      icon="i-folder-o--16"
-      to="/products"
-    >
+    </BreadcrumbItem>
+    <BreadcrumbItem to="/products">
       Products
-    </BreadcrumbLink>
-    <BreadcrumbLink
-      icon="i-customer-o--16"
-      to="/customers"
-    >
+    </BreadcrumbItem>
+    <BreadcrumbItem to="/customers">
       Customers
-    </BreadcrumbLink>
+    </BreadcrumbItem>
   </Breadcrumbs>
+<!--  <Breadcrumbs :max-items="maxItems"> -->
+<!--    <BreadcrumbItem -->
+<!--      to="/" -->
+<!--    > -->
+<!--      <template #icon> -->
+<!--        <IconDot16 /> -->
+<!--      </template> -->
+<!--      Home -->
+<!--    </BreadcrumbItem> -->
+<!--    <BreadcrumbItem -->
+<!--      to="/test" -->
+<!--    > -->
+<!--      Test -->
+<!--    </BreadcrumbItem> -->
+<!--    <BreadcrumbItem -->
+<!--      to="/wow" -->
+<!--    > -->
+<!--      Wow -->
+<!--    </BreadcrumbItem> -->
+<!--    <BreadcrumbItem -->
+<!--      to="/products" -->
+<!--    > -->
+<!--      <template #icon> -->
+<!--        <IconDot16 /> -->
+<!--      </template> -->
+<!--      Products -->
+<!--    </BreadcrumbItem> -->
+<!--    <BreadcrumbItem -->
+<!--      to="/customer" -->
+<!--    > -->
+<!--      <template #icon> -->
+<!--        <IconDot16 /> -->
+<!--      </template> -->
+<!--      Customers -->
+<!--    </BreadcrumbItem> -->
+<!--  </Breadcrumbs> -->
 </template>
