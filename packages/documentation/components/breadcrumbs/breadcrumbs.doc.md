@@ -8,7 +8,18 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-5313
 ## Basic usage
 
 :::tip
-Set `icon` to use icon
+Set `icon` inside template to use icon for the breadcrumb item.
+::: details Example
+
+```vue
+<BreadcrumbItem to="/">
+  <template #icon>
+    <IconDot16 />
+  </template>
+  Home
+</BreadcrumbItem>
+```
+
 :::
 
 <BreadcrumbsBasic />
@@ -32,24 +43,44 @@ Set `max-items` to set the max bread crumb items shown. The rest will be hidden 
 ## Icon separator
 
 :::info
-In `acv-breadcrumb`, each `acv-breadcrumb-link` is a tag that stands for every level starting from Products.
-This component has a `String` attribute `separator`, and it determines the separator.
-Its default value is 'chevron-right'.
+In the `acv-breadcrumbs` component, each `acv-breadcrumb-item` wraps an `acv-breadcrumb-link`
+and allows you to use an icon as the separator between breadcrumb items.
+The separator icon is defined using the `separator-icon` attribute, which accepts an icon component.
+By default, this is set to the `IconChevronRight16` icon, but you can customize it
+with any icon of your choice.
 :::
 
 <BreadcrumbsIconSeparator />
 
+::: details Source code
+<<< ../../../demos/src/breadcrumbs/BreadcrumbsIconSeparator.vue
+:::
+
 ## Character separator
 
 :::info
-Set `separator` to use icon as the separator，it will cover `separator`
+Set the `separator` attribute to a character (e.g., `/`) to use it as the separator between
+breadcrumb items.
 :::
 
-<BreadcrumbsSeparatorCharacter />
+<BreadcrumbsCharacterSeparator />
+
+::: details Source code
+<<< ../../../demos/src/breadcrumbs/BreadcrumbsCharacterSeparator.vue
+:::
 
 ## Multiline
 
+:::info
+Use the `multiline` attribute to enable wrapping of breadcrumb items,
+preventing overflow when there are too many items to fit in a single line.
+:::
+
 <BreadcrumbsMultiline />
+
+::: details Source code
+<<< ../../../demos/src/breadcrumbs/BreadcrumbsMultiline.vue
+:::
 
 ## Accessibility
 
@@ -69,5 +100,6 @@ Breadcrumbs are often placed horizontally before a page's main content.
 
 ## Related components
 
+- [BreadcrumbItem](/components/breadcrumbs/breadcrumbItem/breadcrumbItem.doc)
 - [BreadcrumbLink](/components/breadcrumbs/breadcrumbLink/breadcrumbLink.doc)
 - [Dropdown](/components/dropdown/dropdown.doc)

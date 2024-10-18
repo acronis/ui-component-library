@@ -1,9 +1,6 @@
-export interface AcvBreadcrumbsProps {
-  /**
-   * Target of the breadcrumbs, same as `to` in Vue Router
-   */
-  to?: string
+import type { Component } from 'vue';
 
+export interface AcvBreadcrumbsProps {
   /**
    * Maximum number of items to display
    */
@@ -15,10 +12,10 @@ export interface AcvBreadcrumbsProps {
   multiline?: boolean
 
   /**
-   * Separator between breadcrumbs
+   * Separator icon/character between breadcrumbs
    */
-  separatorIcon?: string
-
+  separatorIcon?: Component
+  separator?: string
   /**
    * Size of the breadcrumbs
    */
@@ -27,35 +24,68 @@ export interface AcvBreadcrumbsProps {
 
 export interface AcvBreadcrumbsEvents {
   /**
-   * Triggered when the component is closed
-   * @arg {string} eventName - The name of the event
-   * @arg {string} visible - The visibility state of the component
+   * Triggered when a breadcrumb item is clicked
+   * @param eventName
+   * @arg {string} path - The path of the clicked item
    */
-  (eventName: 'close', visible: boolean): void
+  (eventName: 'click', path: string): void
 }
 
 export interface AcvBreadcrumbsSlots {
   /**
-   * Default slot
+   * Default slot for breadcrumb items
+   */
+  default: void
+}
+
+export interface AcvBreadcrumbItemProps {
+  /**
+   * Target of the link, same as *`to`* in Vue Router
+   */
+  to: string
+
+  /**
+   * Whether the item is active (current page)
+   */
+  active?: boolean
+}
+
+export interface AcvBreadcrumbItemSlots {
+  /**
+   * Default slot for item content
    */
   default: void
 
   /**
-   * Slot for the separator
+   * Slot for custom icon
    */
-  separator: void
+  icon?: void
+}
+
+export interface AcvBreadcrumbItemEvents {
+  /**
+   * Triggered when the breadcrumb item is clicked
+   * @arg {string} eventName - The name of the event
+   * @arg {string} path - The path of the clicked item
+   */
+  (eventName: 'click', path: string): void
 }
 
 export interface AcvBreadcrumbLinkProps {
   /**
-   * Target of the link, same as `to` in Vue Router
+   * Target of the link, same as *`to`* in Vue Router
    */
-  to: string
+  to: string | Record<string, unknown>
+
+  /**
+   * Whether the link is active (current page)
+   */
+  active?: boolean
 }
 
 export interface AcvBreadcrumbLinkSlots {
   /**
-   * Link content
+   * Default slot for link content
    */
   default: void
 }
@@ -64,6 +94,7 @@ export interface AcvBreadcrumbLinkEvents {
   /**
    * Triggered when the breadcrumb link is clicked
    * @arg {string} eventName - The name of the event
+   * @arg {string | Record<string, unknown>} to - The target of the link
    */
-  (eventName: 'click'): void
+  (eventName: 'click', to: string | Record<string, unknown>): void
 }
