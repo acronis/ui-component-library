@@ -11,23 +11,23 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name     | Description                                           | Type         | Values | Default |
-| ------------- | ----------------------------------------------------- | ------------ | ------ | ------- |
-| to            | Target of the breadcrumbs, same as `to` in Vue Router | string       | -      |         |
-| maxItems      | Maximum number of items to display                    | number       | -      |         |
-| multiline     | Breadcrumb will be wrapped to multiple lines if true  | boolean      | -      |         |
-| separatorIcon | Separator between breadcrumbs                         | string       | -      |         |
-| size          | Size of the breadcrumbs                               | "md" \| "lg" | -      | 'md'    |
+| Prop name     | Description                                           | Type         | Values | Default            |
+| ------------- | ----------------------------------------------------- | ------------ | ------ | ------------------ |
+| to            | Target of the breadcrumbs, same as `to` in Vue Router | string       | -      |                    |
+| maxItems      | Maximum number of items to display                    | number       | -      | Infinity           |
+| multiline     | Breadcrumb will be wrapped to multiple lines if true  | boolean      | -      |                    |
+| separatorIcon | Separator icon between breadcrumbs                    | component    | -      | IconChevronRight16 |
+| separator     | Separator character between breadcrumbs               | string       | -      |                    |
+| size          | Size of the breadcrumbs                               | "md" \| "lg" | -      | 'md'               |
 
 ## Events
 
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
+| Event name | Properties                                                                                          | Description                                 |
+| ---------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| click      | **eventName** `string` - The name of the event<br/>**path** `string` - The path of the clicked item | Triggered when a breadcrumb item is clicked |
 
 ## Slots
 
-| Name      | Description            | Bindings |
-| --------- | ---------------------- | -------- |
-| default   | Default slot           |          |
-| separator | Slot for the separator |          |
+| Name    | Description  | Bindings |
+| ------- | ------------ | -------- |
+| default | Default slot |          |
