@@ -1,7 +1,8 @@
+/* TODO: remove this file and move to .vue */
 @layer tokens {
   :root {
     /* Button base color */
-    --acv-button-color: var(--acv-color-primary);
+    /*--acv-button-color: var(--acv-color-primary);*/
 
     /* Text colors */
     --acv-button-text-color: var(--acv-color-primary-text);

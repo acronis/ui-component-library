@@ -163,6 +163,7 @@
       margin-left: var(--acv-carousel-nav-content-gap);
       margin-right: var(--acv-carousel-nav-content-gap);
 
+      /* TODO: fix button colors */
       .button-active {
         --acv-button-color: var(--acv-carousel-nav-button-icon-color-active);
       }
