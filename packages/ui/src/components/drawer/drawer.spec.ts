@@ -10,21 +10,11 @@ describe('test Drawer component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "anchor": "left",
-        "backgroundColor": undefined,
-        "border": false,
-        "borderColor": undefined,
-        "color": undefined,
-        "img": undefined,
-        "imgAlt": undefined,
-        "loading": false,
+        "border": undefined,
         "modelValue": false,
-        "padding": false,
         "persistent": false,
-        "round": false,
-        "shadow": false,
-        "states": false,
-        "textColor": undefined,
-        "variant": undefined,
+        "shadow": undefined,
+        "withPadding": false,
       }
     `);
   });
@@ -32,28 +22,20 @@ describe('test Drawer component', () => {
   it('pass props', () => {
     const wrapper = mount(Drawer, {
       props: {
-        title: 'test',
+        border: 'secondary',
+        shadow: 'regular',
+        withPadding: true,
       } as AcvDrawerProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "anchor": "left",
-        "backgroundColor": undefined,
-        "border": false,
-        "borderColor": undefined,
-        "color": undefined,
-        "img": undefined,
-        "imgAlt": undefined,
-        "loading": false,
+        "border": "secondary",
         "modelValue": false,
-        "padding": false,
         "persistent": false,
-        "round": false,
-        "shadow": false,
-        "states": false,
-        "textColor": undefined,
-        "variant": undefined,
+        "shadow": "regular",
+        "withPadding": true,
       }
     `);
   });
@@ -72,9 +54,7 @@ describe('test Drawer component', () => {
     const drawer = wrapper.getComponent(AcvCard);
 
     expect(drawer.html()).toMatchInlineSnapshot(`
-      "<div data-v-e3acac2e="" data-v-dd14fadb="" class="acv-layer acv-card acv-drawer acv-drawer-left" modelvalue="true" persistent="false" anchor="left">
-        <!--v-if-->
-        <!--v-if-->
+      "<div data-v-e3acac2e="" data-v-dd14fadb="" class="acv-card acv-drawer acv-drawer-left" modelvalue="true" persistent="false" anchor="left">
         <div data-v-e3acac2e="" class="content"></div>
       </div>"
     `);

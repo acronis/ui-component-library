@@ -15,19 +15,9 @@ describe('test Card component', () => {
     const wrapper = mount(Card);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "backgroundColor": undefined,
-        "border": true,
-        "borderColor": undefined,
-        "color": undefined,
-        "img": undefined,
-        "imgAlt": undefined,
-        "loading": false,
-        "padding": true,
-        "round": true,
-        "shadow": true,
-        "states": false,
-        "textColor": undefined,
-        "variant": undefined,
+        "border": undefined,
+        "shadow": undefined,
+        "withPadding": false,
       }
     `);
   });
@@ -35,35 +25,32 @@ describe('test Card component', () => {
   it('pass props', () => {
     const wrapper = mount(Card, {
       props: {
-        title: 'test',
+        border: 'secondary',
+        shadow: 'regular',
+        withPadding: true,
       } as AcvCardProps,
     });
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "backgroundColor": undefined,
-        "border": true,
-        "borderColor": undefined,
-        "color": undefined,
-        "img": undefined,
-        "imgAlt": undefined,
-        "loading": false,
-        "padding": true,
-        "round": true,
-        "shadow": true,
-        "states": false,
-        "textColor": undefined,
-        "variant": undefined,
+        "border": "secondary",
+        "shadow": "regular",
+        "withPadding": true,
       }
     `);
   });
 
   it('renders', () => {
-    const wrapper = mount(Card);
+    const wrapper = mount(Card, {
+      props: {
+        border: 'secondary',
+        shadow: 'regular',
+        withPadding: true,
+      } as AcvCardProps,
+    });
+
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-e3acac2e="" class="acv-layer acv-card shadowed rounded bordered padded">
-        <!--v-if-->
-        <!--v-if-->
+      "<div data-v-e3acac2e="" class="acv-card padded shadow shadow_regular border border_secondary">
         <div data-v-e3acac2e="" class="content"></div>
       </div>"
     `);
