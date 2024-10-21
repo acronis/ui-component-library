@@ -43,9 +43,7 @@
         class="acv-popover"
       >
         <AcvCard
-          class="content"
-          background-color="white"
-          border
+          border="secondary"
         >
           <slot />
           <div
