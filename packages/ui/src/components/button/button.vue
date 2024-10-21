@@ -1,8 +1,10 @@
 <script setup lang="ts">
-  import type { AcvButtonProps, AcvButtonSlots } from './button.ts';
-  import { useButton } from '@/components/button/useButton.ts';
+  import type { AcvButtonProps } from './button.ts';
+  import { BUTTON_GROUP_KEY } from '@/components/index.ts';
   import AcvSpinner from '@/components/spinner/spinner.vue';
   import { vAutofocus } from '@/directives/autofocus.ts';
+  import { computed, inject } from 'vue';
+  import { BUTTON_VARIANT } from './button.ts';
 
   import './button.css';
 
@@ -15,14 +17,16 @@
 
   const props = withDefaults(defineProps<AcvButtonProps>(), {
     is: 'button',
-    buttonType: 'button',
-    color: 'primary',
-    size: 'medium'
+    type: 'button',
+    size: 'medium',
+    variant: BUTTON_VARIANT.primary
   });
 
-  defineSlots<AcvButtonSlots>();
-
-  const { isDisabled, classes, styles, attrs } = useButton(props);
+  // TODO: BUTTON_GROUP_KEY not working for now
+  const buttonGroupState = inject(BUTTON_GROUP_KEY, null);
+  const isDisabled = computed(() => Boolean(props.disabled || props.loading));
+  const variant = computed(() => buttonGroupState?.variant ?? props.variant);
+  const size = computed(() => buttonGroupState?.size ?? props.size);
 
   /**
    * Disable click if component is link. Use "capture" to prevent RouterLink click
@@ -39,20 +43,26 @@
   <component
     :is="is"
     v-autofocus="autofocus"
-    v-bind="attrs"
-    :class="classes"
-    :style="styles"
+    :role="is !== 'button' ? 'button' : undefined"
+    :type="is === 'button' ? type : undefined"
+    :disabled="is === 'button' ? isDisabled : undefined"
+    :aria-disabled="isDisabled ? 'true' : undefined"
+    class="acv-button"
+    :class="{
+      [`acv-button_variant_${variant}`]: !!variant,
+      [`acv-button_size_${size}`]: !!size,
+      'acv-button_disabled': isDisabled,
+      'acv-button_selected': selected,
+      'acv-button_loading': loading,
+      'acv-button_block': block,
+      'acv-button_pill': pill,
+      'acv-button_squared': squared,
+    }"
     @click.capture="handleClick"
   >
-    <template
-      v-if="$slots.prepend || icon"
-    >
-      <slot name="prepend">
-        <component
-          :is="icon"
-          v-if="icon"
-        />
-      </slot>
+    <template v-if="$slots.prepend">
+      <!-- @slot Left side slot content. Usually for icon -->
+      <slot name="prepend" />
     </template>
     <span
       v-if="loading"
@@ -60,23 +70,15 @@
     >
       <AcvSpinner :size="size" />
     </span>
-    <template
-      v-if="$slots.default"
-    >
+    <template v-if="$slots.default">
       <span
         class="content"
         :class="{ hidden: loading }"
-      ><slot /></span>
+      ><!-- @slot Default slot content. Usually for text --><slot /></span>
     </template>
-    <template
-      v-if="$slots.append || appendIcon"
-    >
-      <slot name="append">
-        <component
-          :is="appendIcon"
-          v-if="appendIcon"
-        />
-      </slot>
+    <template v-if="$slots.append">
+      <!-- @slot Right side slot content. Usually for icon -->
+      <slot name="append" />
     </template>
   </component>
 </template>
@@ -127,7 +129,7 @@
 
     /* Sizes */
 
-    &.small {
+    &.acv-button_size_small {
       --acv-button-font-size: var(--acv-button-font-size-small);
       --acv-button-height: var(--acv-button-height-small);
       --acv-button-padding: var(--acv-button-padding-small);
@@ -136,7 +138,7 @@
       --acv-button-min-width: var(--acv-button-min-width-small);
     }
 
-    &.medium {
+    &.acv-button_size_medium {
       --acv-button-font-size: var(--acv-button-font-size-medium);
       --acv-button-height: var(--acv-button-height-medium);
       --acv-button-padding: var(--acv-button-padding-medium);
@@ -145,7 +147,7 @@
       --acv-button-min-width: var(--acv-button-min-width-medium);
     }
 
-    &.large {
+    &.acv-button_size_large {
       --acv-button-font-size: var(--acv-button-font-size-large);
       --acv-button-height: var(--acv-button-height-large);
       --acv-button-padding: var(--acv-button-padding-large);
@@ -157,39 +159,54 @@
 
     /* Button styles */
 
-    &.pill {
+    &.acv-button_pill {
       border-radius: var(--acv-radius-large);
     }
 
-    &.squared {
+    &.acv-button_squared {
       border-radius: var(--acv-radius-zero);
     }
 
-    &.block {
+    &.acv-button_block {
       width: 100%;
     }
 
     /* Button variants */
+    &.acv-button_variant_primary {
+      --acv-button-background-color: var(
+        --acv-button-primary-background-color,
+        var(--acv-color-primary)
+      );
 
-    &.solid {
-      --acv-button-background-color-active: hsl(
-          from var(--acv-button-color) h s calc(l - 25)
+      /* TODO: change hsl to colors from design system */
+      --acv-button-background-color-active: var(
+        --acv-button-primary-background-color-active,
+        hsl(from var(--acv-color-primary) h s calc(l - 25))
       );
       --acv-button-background-color-disabled: var(
-          --acv-button-background-color
+        --acv-button-primary-background-color-disabled,
+        var(--acv-color-primary)
       );
-      --acv-button-background-color-hover: hsl(
-          from var(--acv-button-color) h s calc(l - 15)
+      --acv-button-background-color-hover: var(
+        --acv-button-primary-background-color-hover,
+        hsl(from var(--acv-color-primary) h s calc(l - 15))
       );
-      --acv-button-background-color: var(--acv-button-color);
-      --acv-button-border-width: var(--acv-border-none);
-      --acv-button-text-color-disabled: hsl(
-          from var(--acv-button-text-color) h s calc(l + 10)
+      --acv-button-text-color: var(
+        --acv-button-primary-text-color,
+        var(--acv-color-text-inversed-primary)
       );
-      --acv-button-text-color: var(--acv-color-text-inversed-primary);
+      --acv-button-text-color-disabled: var(
+        --acv-button-primary-text-color-disabled,
+        hsl(from var(--acv-button-text-color) h s calc(l + 10))
+      );
+      --acv-button-border-width: var(
+        --acv-button-primary-border-width,
+        var(--acv-border-none)
+      );
     }
 
-    &.outline {
+    &.acv-button_variant_secondary {
+      --acv-button-color: var(--acv-color-button-secondary);
       --acv-button-background-color-active: hsl(from var(--acv-button-color) h s calc(l + 30));
       --acv-button-background-color-disabled: var(--acv-button-background-color);
       --acv-button-background-color-hover: hsl(from var(--acv-button-color) h s calc(l + 30));
@@ -205,130 +222,48 @@
       --acv-button-border-width: var(--acv-border-regular);
     }
 
-    &.ghost {
+    &.acv-button_variant_ghost {
+      --acv-button-color: var(--acv-color-primary);
       --acv-button-background-color-active: hsl(from var(--acv-button-color) h calc(s - 12) calc(l + 23));
       --acv-button-background-color-disabled: hsl(from var(--acv-button-background-color) h s calc(l + 10));
       --acv-button-background-color-hover: hsl(from var(--acv-button-color) calc(h - 1) calc(s - 11) calc(l + 33));
       --acv-button-background-color: var(--acv-color-transparent);
-      --acv-button-border-width: var(--acv-base-border-width-00);
       --acv-button-text-color: var(--acv-button-color);
       --acv-button-text-color-active: hsl(from var(--acv-button-color) h s calc(l - 20));
       --acv-button-text-color-disabled: hsl(from var(--acv-button-color) h s calc(l - 10));
       --acv-button-text-color-hover: hsl(from var(--acv-button-color) h s calc(l - 10));
+      --acv-button-border-width: var(--acv-base-border-width-00);
     }
 
-    &.light {
-      --acv-button-background-color-active: hsl(
-          from var(--acv-button-background-color) calc(h - 5) calc(s + 5)
-          calc(l - 20)
-      );
-      --acv-button-background-color-disabled: hsl(
-          from var(--acv-button-background-color) h s calc(l + 10)
-      );
-      --acv-button-background-color-hover: hsl(
-          from var(--acv-button-background-color) h s calc(l - 10)
-      );
-      --acv-button-background-color: hsl(
-          from var(--acv-button-color) h s l / 0.4
-      );
-      --acv-button-text-color-active: hsl(
-          from var(--acv-color-text-secondary) h s calc(l - 30)
-      );
-      --acv-button-text-color-hover: hsl(
-          from var(--acv-color-text-secondary) h s calc(l - 20)
-      );
-      --acv-button-text-color: var(--acv-color-text-secondary);
-    }
-
-    /* Button colors */
-
-    &.primary {
-      --acv-button-color: var(--acv-color-primary);
-
-      &.solid {
-        --acv-button-background-color-active: var(--acv-color-button-active-primary);
-        --acv-button-background-color-disabled: var(--acv-color-button-disabled);
-        --acv-button-background-color-hover: var(--acv-color-button-hover-primary);
-        --acv-button-text-color: var(--acv-color-text-inversed-primary);
-      }
-    }
-
-    &.secondary {
-      --acv-button-color: var(--acv-color-button-secondary);
-    }
-
-    &.inverted {
+    &.acv-button_inverted {
       --acv-button-color: var(--acv-color-button-inversed);
       --acv-button-background-color-active: var(--acv-color-button-active-inversed);
       --acv-button-background-color-disabled: var(--acv-color-button-disabled-inversed);
       --acv-button-background-color-hover: var(--acv-color-button-hover-inversed);
       --acv-button-background-color: var(--acv-color-button-inversed);
-      --acv-button-text-color-disabled: var(--acv-color-link-disabled-inversed);
       --acv-button-text-color: var(--acv-color-link-inversed-primary);
+      --acv-button-text-color-disabled: var(--acv-color-link-disabled-inversed);
     }
 
-    &.neutral {
-      --acv-button-color: var(--acv-color-neutral);
-    }
-
-    &.info {
-      --acv-button-color: var(--acv-color-info);
-
-      &.outline {
-        --acv-button-border-color: var(--acv-color-info-border);
-        --acv-button-text-color: var(--acv-color-info-text);
-        --acv-button-text-color-hover: var(--acv-color-info-text);
-      }
-    }
-
-    &.success {
-      --acv-button-color: var(--acv-color-success);
-
-      &.outline {
-        --acv-button-border-color: var(--acv-color-success-border);
-        --acv-button-text-color: var(--acv-color-success-text);
-        --acv-button-text-color-hover: var(--acv-color-success-text);
-      }
-    }
-
-    &.warning {
-      --acv-button-color: var(--acv-color-warning);
-
-      &.outline {
-        --acv-button-border-color: var(--acv-color-warning);
-        --acv-button-text-color: var(--acv-color-warning-text);
-        --acv-button-text-color-hover: var(--acv-color-warning-text);
-      }
-    }
-
-    &.critical {
+    &.acv-button_variant_status {
       --acv-button-color: var(--acv-color-critical);
+      --acv-button-background-color-active: var(--acv-color-button-danger);
+      --acv-button-background-color-disabled: var(--acv-color-button-danger);
+      --acv-button-background-color-hover: var(--acv-color-button-danger);
+      --acv-button-background-color: var(--acv-color-critical-background);
+      --acv-button-text-color: var(--acv-color-button-danger);
+      --acv-button-text-color-hover: var(--acv-color-button-danger);
+      --acv-button-border-color: var(--acv-color-button-danger);
     }
 
-    &.danger {
-      --acv-button-color: var(--acv-color-button-danger);
-
-      &.outline {
-        --acv-button-border-color: var(--acv-color-button-danger);
-        --acv-button-text-color: var(--acv-color-button-danger);
-        --acv-button-text-color-hover: var(--acv-color-button-danger);
-      }
-    }
-
-    &.white {
-      &.solid {
-        --acv-button-text-color: var(--acv-color-text-primary);
-      }
-    }
-
-    &.loading {
+    &.acv-button_loading {
       cursor: default;
     }
 
     /* States */
 
-    &:hover:not(.disabled, .loading),
-    &.hover:not(.disabled, .loading) {
+    &:hover:not(.acv-button_disabled, .acv-button_loading),
+    &.acv-button_hover:not(.acv-button_disabled, .acv-button_loading) {
       --acv-button-border-color: var(--acv-button-border-color-hover);
       --acv-button-background-color: var(--acv-button-background-color-hover);
       --acv-button-text-color: var(--acv-button-text-color-hover);
@@ -336,26 +271,26 @@
     }
 
     &:active,
-    &.active {
+    &.acv-button_active {
      transform: translateY(1px);
     }
 
     &:active,
-    &.active,
-    &.selected {
+    &.acv-button_active,
+    &.acv-button_selected {
       --acv-button-background-color: var(--acv-button-background-color-active);
       --acv-button-border-color: var(--acv-button-border-color-active);
       --acv-button-text-color: var(--acv-button-text-color-active, currentColor);
     }
 
     &:focus-visible,
-    &.focus {
+    &.acv-button_focus {
       outline: var(--acv-button-focus-outline);
     }
 
     &:disabled,
     &[disabled],
-    &.disabled {
+    &.acv-button_disabled {
       background-color: var(--acv-button-background-color-disabled);
       color: var(--acv-button-text-color-disabled);
       cursor: not-allowed;
@@ -363,7 +298,7 @@
       opacity: 0.5;
       box-shadow: none;
 
-      &:not(.inverted) {
+      &:not(.acv-button_inverted) {
         --acv-button-border-color: var(--acv-button-border-color-disabled);
       }
     }
