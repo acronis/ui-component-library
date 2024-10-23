@@ -171,49 +171,49 @@
     /* Button variants */
     &.acv-button_variant_primary {
       /* TODO: change hsl to colors from design system */
-      --acv-button-color: var(
+      --_acv-button-color: var(
         --acv-button-primary-color,
         var(--acv-color-button-primary)
       );
-      --acv-button-background-color-hover: var(
+      --_acv-button-background-color-hover: var(
         --acv-button-primary-background-color-hover,
         hsl(from var(--acv-color-primary) h s calc(l - 15))
       );
-      --acv-button-background-color-active: var(
+      --_acv-button-background-color-active: var(
         --acv-button-primary-background-color-active,
         hsl(from var(--acv-color-primary) h s calc(l - 25))
       );
-      --acv-button-background-color-disabled: var(
+      --_acv-button-background-color-disabled: var(
         --acv-button-primary-background-color-disabled,
         var(--acv-color-primary)
       );
-      --acv-button-text-color-hover: var(
+      --_acv-button-text-color-hover: var(
         --acv-button-primary-text-color-hover,
         hsl(0deg 0% 100%)
       );
-      --acv-button-text-color-active: var(
+      --_acv-button-text-color-active: var(
         --acv-button-primary-text-color-active,
         currentColor
       );
-      --acv-button-text-color-disabled: var(
+      --_acv-button-text-color-disabled: var(
         --acv-button-primary-text-color-disabled,
         hsl(from var(--acv-color-primary-text) h s calc(l + 10))
       );
-      --acv-button-border-color-hover: var(
+      --_acv-button-border-color-hover: var(
         --acv-button-primary-border-color-hover,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-active: var(
+      --_acv-button-border-color-active: var(
         --acv-button-primary-border-color-active,
-        hsl(from var(--acv-button-color) h s calc(l - 30))
+        hsl(from var(--_acv-button-color) h s calc(l - 30))
       );
-      --acv-button-border-color-disabled: var(
+      --_acv-button-border-color-disabled: var(
         --acv-button-primary-border-color-disabled,
         var(var(--acv-color-text-disabled))
       );
       border-color: var(
         --acv-button-primary-border-color,
-        var(--acv-button-color)
+        var(--_acv-button-color)
       );
       background-color: var(
         --acv-button-primary-background-color,
@@ -226,45 +226,45 @@
     }
 
     &.acv-button_variant_secondary {
-      --acv-button-color: var(
+      --_acv-button-color: var(
         --acv-button-secondary-color,
         var(--acv-color-button-secondary)
       );
-      --acv-button-background-color-hover: var(
+      --_acv-button-background-color-hover: var(
         --acv-button-secondary-background-color-hover,
-        hsl(from var(--acv-button-color) h s calc(l + 30))
+        hsl(from var(--_acv-button-color) h s calc(l + 30))
       );
-      --acv-button-background-color-active: var(
+      --_acv-button-background-color-active: var(
         --acv-button-secondary-background-color-active,
-        hsl(from var(--acv-button-color) h s calc(l + 30))
+        hsl(from var(--_acv-button-color) h s calc(l + 30))
       );
-      --acv-button-background-color-disabled: var(
+      --_acv-button-background-color-disabled: var(
         --acv-button-secondary-background-color-disabled,
-        var(--acv-button-color)
+        var(--_acv-button-color)
       );
-      --acv-button-text-color-hover: var(
+      --_acv-button-text-color-hover: var(
         --acv-button-secondary-text-color-hover,
         hsl(from var(--acv-color-primary-text) h s calc(l - 10))
       );
-      --acv-button-text-color-active: var(
+      --_acv-button-text-color-active: var(
         --acv-button-secondary-text-color-active,
         hsl(from var(--acv-color-primary-text) h s calc(l - 20))
       );
-      --acv-button-text-color-disabled: var(
+      --_acv-button-text-color-disabled: var(
         --acv-button-secondary-text-color-disabled,
         hsl(from var(--acv-color-primary-text) h s calc(l + 10))
       );
-      --acv-button-border-color-hover: var(
+      --_acv-button-border-color-hover: var(
         --acv-button-secondary-border-color-hover,
-        hsl(from var(--acv-button-color) h s calc(l - 10))
+        hsl(from var(--_acv-button-color) h s calc(l - 10))
       );
-      --acv-button-border-color-active: var(
+      --_acv-button-border-color-active: var(
         --acv-button-secondary-border-color-active,
-        hsl(from var(--acv-button-color) h s calc(l - 30))
+        hsl(from var(--_acv-button-color) h s calc(l - 30))
       );
-      --acv-button-border-color-disabled: var(
+      --_acv-button-border-color-disabled: var(
         --acv-button-secondary-border-color-disabled,
-        hsl(from var(--acv-button-color) h s calc(l + 10))
+        hsl(from var(--_acv-button-color) h s calc(l + 10))
       );
       background-color: var(
         --acv-button-secondary-background-color,
@@ -272,52 +272,52 @@
       );
       color: var(
         --acv-button-secondary-text-color,
-        var(--acv-button-color)
+        var(--_acv-button-color)
       );
       border-color: var(
         --acv-button-secondary-border-color,
-        var(--acv-button-color)
+        var(--_acv-button-color)
       );
     }
 
     &.acv-button_variant_ghost {
-      --acv-button-color: var(
+      --_acv-button-color: var(
         --acv-button-ghost-color,
         var(--acv-color-primary)
       );
-      --acv-button-background-color-hover: var(
+      --_acv-button-background-color-hover: var(
         --acv-button-ghost-background-color-hover,
-        hsl(from var(--acv-button-color) calc(h - 1) calc(s - 11) calc(l + 33))
+        hsl(from var(--_acv-button-color) calc(h - 1) calc(s - 11) calc(l + 33))
       );
-      --acv-button-background-color-active: var(
+      --_acv-button-background-color-active: var(
         --acv-button-ghost-background-color-active,
-        hsl(from var(--acv-button-color) h calc(s - 12) calc(l + 23))
+        hsl(from var(--_acv-button-color) h calc(s - 12) calc(l + 23))
       );
-      --acv-button-background-color-disabled: var(
+      --_acv-button-background-color-disabled: var(
         --acv-button-ghost-background-color-disabled,
-        hsl(from var(--acv-button-color) h s calc(l + 10))
+        hsl(from var(--_acv-button-color) h s calc(l + 10))
       );
-      --acv-button-text-color-hover: var(
+      --_acv-button-text-color-hover: var(
         --acv-button-ghost-text-color-hover,
-        hsl(from var(--acv-button-color) h s calc(l - 10))
+        hsl(from var(--_acv-button-color) h s calc(l - 10))
       );
-      --acv-button-text-color-active: var(
+      --_acv-button-text-color-active: var(
         --acv-button-ghost-text-color-active,
-        hsl(from var(--acv-button-color) h s calc(l - 20))
+        hsl(from var(--_acv-button-color) h s calc(l - 20))
       );
-      --acv-button-text-color-disabled: var(
+      --_acv-button-text-color-disabled: var(
         --acv-button-ghost-text-color-disabled,
-        hsl(from var(--acv-button-color) h s calc(l - 10))
+        hsl(from var(--_acv-button-color) h s calc(l - 10))
       );
-      --acv-button-border-color-hover: var(
+      --_acv-button-border-color-hover: var(
         --acv-button-ghost-border-color-hover,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-active: var(
+      --_acv-button-border-color-active: var(
         --acv-button-ghost-border-color-active,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-disabled: var(
+      --_acv-button-border-color-disabled: var(
         --acv-button-ghost-border-color-disabled,
         var(var(--acv-color-text-disabled))
       );
@@ -327,48 +327,48 @@
       );
       color: var(
         --acv-button-ghost-text-color,
-        var(--acv-button-color)
+        var(--_acv-button-color)
       );
     }
 
     &.acv-button_inverted {
-      --acv-button-color: var(
+      --_acv-button-color: var(
         --acv-button-inverted-color,
         var(--acv-color-button-inversed)
       );
-      --acv-button-background-color-hover: var(
+      --_acv-button-background-color-hover: var(
         --acv-button-inverted-background-color-hover,
         var(--acv-color-button-hover-inversed)
       );
-      --acv-button-background-color-active: var(
+      --_acv-button-background-color-active: var(
         --acv-button-inverted-background-color-active,
         var(--acv-color-button-active-inversed)
       );
-      --acv-button-background-color-disabled: var(
+      --_acv-button-background-color-disabled: var(
         --acv-button-inverted-background-color-disabled,
         var(--acv-color-button-disabled-inversed)
       );
-      --acv-button-text-color-hover: var(
+      --_acv-button-text-color-hover: var(
         --acv-button-inverted-text-color-hover,
         hsl(0deg 0% 100%)
       );
-      --acv-button-text-color-active: var(
+      --_acv-button-text-color-active: var(
         --acv-button-inverted-text-color-active,
         currentColor
       );
-      --acv-button-text-color-disabled: var(
+      --_acv-button-text-color-disabled: var(
         --acv-button-inverted-text-color-disabled,
         var(--acv-color-link-disabled-inversed)
       );
-      --acv-button-border-color-hover: var(
+      --_acv-button-border-color-hover: var(
         --acv-button-inverted-border-color-hover,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-active: var(
+      --_acv-button-border-color-active: var(
         --acv-button-inverted-border-color-active,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-disabled: var(
+      --_acv-button-border-color-disabled: var(
         --acv-button-inverted-border-color-disabled,
         var(var(--acv-color-text-disabled))
       );
@@ -383,43 +383,43 @@
     }
 
     &.acv-button_variant_status {
-      --acv-button-color: var(
+      --_acv-button-color: var(
         --acv-button-status-color,
         var(--acv-color-critical)
       );
-      --acv-button-background-color-hover: var(
+      --_acv-button-background-color-hover: var(
         --acv-button-status-background-color-hover,
         var(--acv-color-button-danger)
       );
-      --acv-button-background-color-active: var(
+      --_acv-button-background-color-active: var(
         --acv-button-status-background-color-active,
         var(--acv-color-button-danger)
       );
-      --acv-button-background-color-disabled: var(
+      --_acv-button-background-color-disabled: var(
         --acv-button-status-background-color-disabled,
         var(--acv-color-button-danger)
       );
-      --acv-button-text-color-hover: var(
+      --_acv-button-text-color-hover: var(
         --acv-button-status-text-color-hover,
         var(--acv-color-button-danger)
       );
-      --acv-button-text-color-active: var(
+      --_acv-button-text-color-active: var(
         --acv-button-status-text-color-active,
         currentColor
       );
-      --acv-button-text-color-disabled: var(
+      --_acv-button-text-color-disabled: var(
         --acv-button-status-text-color-disabled,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-hover: var(
+      --_acv-button-border-color-hover: var(
         --acv-button-status-border-color-hover,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-active: var(
+      --_acv-button-border-color-active: var(
         --acv-button-status-border-color-active,
         var(--acv-color-text-disabled)
       );
-      --acv-button-border-color-disabled: var(
+      --_acv-button-border-color-disabled: var(
         --acv-button-status-border-color-disabled,
         var(var(--acv-color-text-disabled))
       );
@@ -445,9 +445,9 @@
 
     &:hover:not(.acv-button_disabled, .acv-button_loading),
     &.acv-button_hover:not(.acv-button_disabled, .acv-button_loading) {
-      background-color: var(--acv-button-background-color-hover);
-      color: var(--acv-button-text-color-hover);
-      border-color: var(--acv-button-border-color-hover);
+      background-color: var(--_acv-button-background-color-hover);
+      color: var(--_acv-button-text-color-hover);
+      border-color: var(--_acv-button-border-color-hover);
       cursor: pointer;
     }
 
@@ -459,9 +459,9 @@
     &:active,
     &.acv-button_active,
     &.acv-button_selected {
-      background-color: var(--acv-button-background-color-active);
-      color: var(--acv-button-text-color-active);
-      border-color: var(--acv-button-border-color-active);
+      background-color: var(--_acv-button-background-color-active);
+      color: var(--_acv-button-text-color-active);
+      border-color: var(--_acv-button-border-color-active);
     }
 
     &:focus-visible,
@@ -474,13 +474,13 @@
     &:disabled,
     &[disabled],
     &.acv-button_disabled {
-      background-color: var(--acv-button-background-color-disabled);
-      color: var(--acv-button-text-color-disabled);
+      background-color: var(--_acv-button-background-color-disabled);
+      color: var(--_acv-button-text-color-disabled);
       cursor: not-allowed;
       pointer-events: none;
       opacity: 0.5;
       box-shadow: none;
-      border-color: var(--acv-button-border-color-disabled);
+      border-color: var(--_acv-button-border-color-disabled);
     }
 
     /* Elements */
