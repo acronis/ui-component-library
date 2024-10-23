@@ -1,29 +1,14 @@
-import type { AcvLayerProps } from '../../composables/useLayer.ts';
+type ShadowVariant = 'regular' | 'modal';
+type BorderVariant = 'secondary' | 'active';
 
-export interface AcvCardProps extends AcvLayerProps {
+export interface AcvCardProps {
   // Layer props
   /**
    * Whether the card should have a shadow
    */
-  shadow?: boolean
-  round?: boolean
-  border?: boolean
-  padding?: boolean
-
-  /**
-   * Render image at the top of the card (_above header_)
-   */
-  img?: string
-
-  /**
-   * `alt` attribute for image rendered via `img` prop
-   */
-  imgAlt?: string
-
-  /**
-   * Set loading state
-   */
-  loading?: boolean
+  shadow?: ShadowVariant
+  border?: BorderVariant
+  withPadding?: boolean
 }
 
 export interface AcvCardSlots {
@@ -31,6 +16,4 @@ export interface AcvCardSlots {
    * The default slot content
    */
   default: () => null
-
-  loading: () => null
 }
