@@ -1,3 +1,10 @@
+## [1.24.0](https://github.com/acronis/ui-component-library/compare/v1.23.2...v1.24.0) (2024-10-23)
+
+
+### Features
+
+* update Card component ([#145](https://github.com/acronis/ui-component-library/issues/145)) ([46588c1](https://github.com/acronis/ui-component-library/commit/46588c10e8c820a85b3a58c8aded96f22d3fdae1))
+
 ## [1.23.2](https://github.com/acronis/ui-component-library/compare/v1.23.1...v1.23.2) (2024-10-16)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * remove global animation on hover ([c3b073c](https://github.com/acronis/ui-component-library/commit/c3b073cde37d9cb470188b89e48ec8bf29c8628a))
-
-## [1.22.0](https://github.com/acronis/ui-component-library/compare/v1.21.0...v1.22.0) (2024-09-12)
-
-
-### Features
-
-* **scrollbar:** implement scrollbar ([#124](https://github.com/acronis/ui-component-library/issues/124)) ([90f3f57](https://github.com/acronis/ui-component-library/commit/90f3f5703cacaea8f5886fb316cce5270e93c005))
 
