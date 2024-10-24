@@ -78,14 +78,18 @@ export const isInteger = function (value) {
   return typeof value === 'number' && Number.isFinite(value) && Math.floor(value) === value;
 };
 
-export const isArray = function (value) {
-  return typeof Array.isArray === 'function'
-    ? Array.isArray(value)
-    : Array.isArray(value);
+export const isArray = typeof Array.isArray === 'function'
+  ? Array.isArray
+  : function isArray(value: any): value is Array<any> {
+    return Object.prototype.toString.call(value).toLowerCase() === '[object array]';
+  };
+
+export const isObject = function (value: any): value is object {
+  return value !== null && Object.prototype.toString.call(value).toLowerCase() === '[object object]';
 };
 
-export const isObjectLike = function (value) {
-  return Object.prototype.toString.call(value).toLowerCase() === '[object object]' || isArray(value);
+export const isObjectLike = function (value: any): value is object | Array<any> {
+  return isObject(value) || isArray(value);
 };
 
 export const isFunction = function (value) {

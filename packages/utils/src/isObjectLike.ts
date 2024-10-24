@@ -1,5 +1,9 @@
 import { isArray } from './isArray.ts';
 
-export const isObjectLike = function (value: any) {
-  return Object.prototype.toString.call(value).toLowerCase() === '[object object]' || isArray(value);
+const isObject = function (value: any): value is object {
+  return value !== null && Object.prototype.toString.call(value).toLowerCase() === '[object object]';
+};
+
+export const isObjectLike = function (value: any): value is object | Array<any> {
+  return isObject(value) || isArray(value);
 };
