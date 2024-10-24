@@ -1,3 +1,10 @@
+## [1.25.0](https://github.com/acronis/ui-component-library/compare/v1.24.0...v1.25.0) (2024-10-24)
+
+
+### Features
+
+* add functional breadcrumbs component ([#144](https://github.com/acronis/ui-component-library/issues/144)) ([68de75b](https://github.com/acronis/ui-component-library/commit/68de75baea12de7a04b474d89b529335e656f0c0))
+
 ## [1.24.0](https://github.com/acronis/ui-component-library/compare/v1.23.2...v1.24.0) (2024-10-23)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **form:** moved components from constructor to acv ([#126](https://github.com/acronis/ui-component-library/issues/126)) ([98dbc53](https://github.com/acronis/ui-component-library/commit/98dbc535ee47f293cf38fab230c9fb0f6af0aaa0))
-
-## [1.22.1](https://github.com/acronis/ui-component-library/compare/v1.22.0...v1.22.1) (2024-09-16)
-
-
-### Bug Fixes
-
-* remove global animation on hover ([c3b073c](https://github.com/acronis/ui-component-library/commit/c3b073cde37d9cb470188b89e48ec8bf29c8628a))
 
