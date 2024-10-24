@@ -1,30 +1,18 @@
 <script setup lang="ts">
-  import type { AcvBreadcrumbLinkProps, AcvBreadcrumbLinkSlots } from './breadcrumbs.ts';
-  import { computed, ref } from 'vue';
-  import { useFocusableTab } from '../../composables/useFocusableTab.ts';
+  import type { AcvBreadcrumbLinkEvents, AcvBreadcrumbLinkProps, AcvBreadcrumbLinkSlots } from './breadcrumbs.ts';
+  import { computed } from 'vue';
 
   const props = defineProps<AcvBreadcrumbLinkProps>();
+  const emit = defineEmits<AcvBreadcrumbLinkEvents>();
   defineSlots<AcvBreadcrumbLinkSlots>();
-
-  const link = ref(null);
-  const {
-    active,
-    focused,
-    onFocus,
-    onBlur,
-    onEnterKeyDown,
-    onEnterKeyUp,
-    onMouseDown,
-    onMouseUp,
-  } = useFocusableTab(link);
-
-  function handleEnterKeyDownTriggerClick() {
-    onEnterKeyDown();
-  }
 
   const isExternalLink = computed(() => {
     return typeof props.to === 'string' && props.to.startsWith('http');
   });
+
+  function handleClick() {
+    emit('click', props.to);
+  }
 </script>
 
 <template>
@@ -33,26 +21,20 @@
     v-bind="$attrs"
     :href="props.to as string"
     target="_blank"
+    class="acv-breadcrumbs-link"
   >
     <slot />
   </a>
   <router-link
     v-else
-    ref="link"
     v-bind="$props"
     custom
     class="acv-breadcrumbs-link"
     :class="{
-      'is-active': active,
-      'is-focus': focused,
+      'is-active': props.active,
     }"
-    :to="to"
-    @keydown.enter="handleEnterKeyDownTriggerClick"
-    @keyup.enter="onEnterKeyUp"
-    @mousedown="onMouseDown"
-    @mouseup="onMouseUp"
-    @focus="onFocus"
-    @blur="onBlur"
+    :to="props.to"
+    @click="handleClick"
   >
     <slot />
   </router-link>
@@ -60,6 +42,9 @@
 
 <style scoped>
 .acv-breadcrumbs-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   max-inline-size: 212px;
   padding-block: 4px;
   padding-inline: 8px;
@@ -86,12 +71,12 @@
   &:hover {
     color: var(--acv-link-color-hover);
     cursor: pointer;
-    background-color: var(--acv-color-button-hover-primary);
+    background-color: var(--acv-color-button-hover-secondary);
   }
 
   &:active {
     color: var(--acv-link-color-active);
-    background-color: var(--acv-color-button-active-primary);
+    background-color: var(--acv-color-button-active-secondary);
   }
 
   &:focus {
@@ -100,11 +85,11 @@
 
   &:not(:disabled):active,
   &:not(:disabled).is-active {
-    background: var(--acv-color-button-active-primary);
+    background: var(--acv-color-button-active-secondary);
   }
 
   &:not(:disabled).is-selected {
-    background-color: var(--acv-color-button-active-primary);
+    background-color: var(--acv-color-button-active-secondary);
   }
 
   &:disabled {

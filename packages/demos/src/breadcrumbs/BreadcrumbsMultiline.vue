@@ -1,5 +1,5 @@
 <script setup>
-  import BreadcrumbLink from '@/components/breadcrumbs/breadcrumbLink.vue';
+  import BreadcrumbItem from '@/components/breadcrumbs/breadcrumbItem.vue';
   // import { createRouter, createWebHashHistory } from 'vue-router';
   // import { getCurrentInstance } from 'vue';
   import Breadcrumbs from '@/components/breadcrumbs/breadcrumbs.vue';
@@ -26,47 +26,43 @@
 
 <template>
   <Breadcrumbs multiline>
-    <BreadcrumbLink to="/">
+    <BreadcrumbItem to="/">
       Home
-    </BreadcrumbLink>
-    <BreadcrumbLink
-      icon="i-root-o--16"
-      :to="{ path: '/' }"
-    >
+    </BreadcrumbItem>
+    <BreadcrumbItem to="/first">
       First item (link)
-    </BreadcrumbLink>
-    <BreadcrumbLink
-      icon="i-folder-o--16"
-      :to="{ path: '/' }"
-    >
+    </BreadcrumbItem>
+    <BreadcrumbItem to="/second">
       Second item (link)
-    </BreadcrumbLink>
-    <BreadcrumbLink
-      icon="i-folder-o--16"
+    </BreadcrumbItem>
+    <BreadcrumbItem
       @click="onClick"
     >
       Third item (click)
-    </BreadcrumbLink>
-    <!--    <BreadcrumbLink -->
-    <!--      icon="i-folder-o&#45;&#45;16" -->
-    <!--      @click="onClick" -->
-    <!--    > -->
-    <!--      Fourth item (click) -->
-    <!--    </BreadcrumbLink> -->
-    <!--    <BreadcrumbLink -->
-    <!--      icon="i-folder-o&#45;&#45;16" -->
-    <!--      @click="onClick" -->
-    <!--    > -->
-    <!--      Fifth item (click) -->
-    <!--    </BreadcrumbLink> -->
-    <!--    <BreadcrumbLink -->
-    <!--      icon="i-folder-o&#45;&#45;16" -->
-    <!--      @click="onClick" -->
-    <!--    > -->
-    <!--      a (click) -->
-    <!--    </BreadcrumbLink> -->
-    <!--    <BreadcrumbLink icon="i-customer-o&#45;&#45;16"> -->
-    <!--      Active item -->
-    <!--    </BreadcrumbLink> -->
+    </BreadcrumbItem>
+    <BreadcrumbItem to="/fourth">
+      Fourth item (click)
+    </BreadcrumbItem>
   </Breadcrumbs>
+  <!--    <BreadcrumbLink -->
+  <!--      icon="i-folder-o&#45;&#45;16" -->
+  <!--      @click="onClick" -->
+  <!--    > -->
+  <!--      Fourth item (click) -->
+  <!--    </BreadcrumbLink> -->
+  <!--    <BreadcrumbLink -->
+  <!--      icon="i-folder-o&#45;&#45;16" -->
+  <!--      @click="onClick" -->
+  <!--    > -->
+  <!--      Fifth item (click) -->
+  <!--    </BreadcrumbLink> -->
+  <!--    <BreadcrumbLink -->
+  <!--      icon="i-folder-o&#45;&#45;16" -->
+  <!--      @click="onClick" -->
+  <!--    > -->
+  <!--      a (click) -->
+  <!--    </BreadcrumbLink> -->
+  <!--    <BreadcrumbLink icon="i-customer-o&#45;&#45;16"> -->
+  <!--      Active item -->
+  <!--    </BreadcrumbLink> -->
 </template>
