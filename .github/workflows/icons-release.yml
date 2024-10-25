@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 jobs:
-  changelog:
+  changelog-icons:
     if: github.repository == 'acronis/ui-component-library'
     runs-on: ubuntu-latest
 

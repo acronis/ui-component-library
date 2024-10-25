@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   # Build job
-  build:
+  build-for-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -78,7 +78,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+    needs: build-for-docs
     runs-on: ubuntu-latest
     name: Deploy
     steps:

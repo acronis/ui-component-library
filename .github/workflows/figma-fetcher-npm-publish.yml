@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  test-fetcher:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,8 +30,8 @@ jobs:
       - name: Run figma-fetcher tests
         run: pnpm --filter ./packages/figma-fetcher lint
 
-  publish-npm:
-    needs: test
+  publish-npm-fetcher:
+    needs: test-fetcher
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
