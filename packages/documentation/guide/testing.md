@@ -64,6 +64,7 @@ or locally with [act](https://nektosact.com/) from the root directory.
 
 ```bash
 act -j visual-regression
+act -j visual-regression --container-architecture linux/amd64 --var updateSnapshots=true  --container-daemon-socket -
 ```
 
 ## Performance tests
