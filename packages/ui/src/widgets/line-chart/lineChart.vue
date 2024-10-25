@@ -833,6 +833,7 @@
             </template>
           </div>
         </AcvPopover>
+        <!--        FIXME v-popover is removed -->
         <div
           v-if="tooltip"
           ref="tooltipReference"
