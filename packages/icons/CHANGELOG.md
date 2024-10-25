@@ -1,3 +1,10 @@
+## [0.4.0](https://github.com/acronis/ui-component-library/compare/icons/0.3.1...icons/0.4.0) (2024-10-25)
+
+
+### Features
+
+* **icons:** update icons ([015eca9](https://github.com/acronis/ui-component-library/commit/015eca99eb5c2cd30431483b83d16d823d4ab6f5))
+
 ## [0.3.1](https://github.com/acronis/ui-component-library/compare/icons/0.3.0...icons/0.3.1) (2024-10-09)
 
 
