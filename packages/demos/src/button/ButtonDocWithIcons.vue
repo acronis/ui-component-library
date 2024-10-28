@@ -7,36 +7,52 @@
 <template>
   <div class="acv-grid-row acv-grid--cols-3">
     <Button
-      :icon="IconToCloud16"
       size="large"
     >
+      <template #prepend>
+        <IconToCloud16 />
+      </template>
       Prepend icon
     </Button>
     <Button
       size="large"
-      :icon="IconToCloud16"
-      :append-icon="IconFromCloud16"
     >
+      <template #prepend>
+        <IconToCloud16 />
+      </template>
       Two icons
+      <template #append>
+        <IconFromCloud16 />
+      </template>
     </Button>
     <Button
       size="large"
-      :append-icon="IconFromCloud16"
     >
       Append icon
+      <template #append>
+        <IconFromCloud16 />
+      </template>
     </Button>
     <Button>
-      <IconToCloud16 />
+      <template #prepend>
+        <IconToCloud16 />
+      </template>
       Prepend inline icon
     </Button>
     <Button>
-      <IconToCloud16 />
+      <template #prepend>
+        <IconToCloud16 />
+      </template>
       Two inline icons
-      <IconFromCloud16 />
+      <template #append>
+        <IconFromCloud16 />
+      </template>
     </Button>
     <Button>
       Append inline icon
-      <IconFromCloud16 />
+      <template #append>
+        <IconFromCloud16 />
+      </template>
     </Button>
   </div>
 </template>

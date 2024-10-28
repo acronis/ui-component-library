@@ -6,44 +6,69 @@
 <template>
   <div class="acv-grid-row acv-grid--cols-3">
     <Button
-      :icon="IconAddressBook32"
       size="large"
-    />
-    <Button :icon="IconAddressBook32" />
+    >
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
+    </Button>
+    <Button>
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
+    </Button>
     <Button size="small">
-      <IconAddressBook32 />
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
     </Button>
 
     <Button
-      :icon="IconAddressBook32"
       size="large"
       variant="ghost"
-    />
+    >
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
+    </Button>
     <Button
-      :icon="IconAddressBook32"
       variant="ghost"
-    />
+    >
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
+    </Button>
     <Button
       size="small"
       variant="ghost"
     >
-      <IconAddressBook32 />
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
     </Button>
 
     <Button
-      :icon="IconAddressBook32"
       size="large"
-      variant="outline"
-    />
+      variant="secondary"
+    >
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
+    </Button>
     <Button
-      :icon="IconAddressBook32"
-      variant="outline"
-    />
+      variant="secondary"
+    >
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
+    </Button>
     <Button
       size="small"
-      variant="outline"
+      variant="secondary"
     >
-      <IconAddressBook32 />
+      <template #prepend>
+        <IconAddressBook32 />
+      </template>
     </Button>
   </div>
 </template>

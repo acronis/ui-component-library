@@ -10,11 +10,11 @@
     <AcvButton size="large">
       Large button
     </AcvButton>
-    <AcvButton variant="outline">
+    <AcvButton variant="secondary">
       Default button
     </AcvButton>
     <AcvButton
-      variant="outline"
+      variant="secondary"
       size="large"
     >
       Large button

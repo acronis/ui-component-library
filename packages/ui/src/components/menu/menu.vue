@@ -83,14 +83,14 @@
       class="controls"
     >
       <AcvButton
-        type="ghost"
+        variant="ghost"
         @click="selectPrevMenuItem"
       >
         <IconChevronLeft16 />
       </AcvButton>
       <div class="controls-divider" />
       <AcvButton
-        type="ghost"
+        variant="ghost"
         @click="selectNextMenuItem"
       >
         <IconChevronRight16 />

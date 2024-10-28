@@ -1,4 +1,4 @@
-import type { ComponentSize, IconProp } from '@/types/props.ts';
+import type { ComponentSize } from '@/types/props.ts';
 import type { ButtonHTMLAttributes } from 'vue';
 import type { RouterLink } from 'vue-router';
 
@@ -35,11 +35,6 @@ export interface AcvButtonProps {
    * @defaultValue button
    */
   type?: ButtonHTMLAttributes['type']
-
-  /**
-   * Button icon, accepts an icon name of Icon component
-   */
-  icon?: IconProp
 
   /**
    * Button size

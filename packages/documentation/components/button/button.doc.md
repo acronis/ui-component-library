@@ -87,14 +87,6 @@ Button content will be disabled and visually hidden while loading.
 <<< ../../../demos/src/button/ButtonWithLoading.vue
 :::
 
-### Success state
-
-Using success state is a good way to indicate that the action was successful.
-
-Use the `success` prop to show a success state.
-
-<ButtonStateSuccess />
-
 ## Sizing
 
 Use `size=large` to specify bigger buttons.
@@ -107,7 +99,7 @@ Use `size=large` to specify bigger buttons.
 
 ## With icons
 
-Use `icon` and `prepend-icon` props to add icons to buttons.
+Use `prepend` and `append` slots to add icons to buttons.
 Also, you can use inline icons in default slot.
 
 <ButtonDocWithIcons />
@@ -119,12 +111,12 @@ Also, you can use inline icons in default slot.
 ## Button types
 
 By default `<acv-button>` renders a `<button>` element.
-You can change the type of the button by setting the `buttonType` prop.
+You can change the variant of the button by setting the `variant` prop.
 Also, you can render a `<a>` element by setting the `href` prop.
 You may generate router-links by setting the `to` prop.
 
 :::tip
-Type prop is only available when the button is rendered as a `<button>` element.
+Variant prop is only available when the button is rendered as a `<button>` element.
 It is ignored when either _href_ or _to_ props are set.
 :::
 

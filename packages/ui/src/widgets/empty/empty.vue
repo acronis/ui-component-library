@@ -54,7 +54,7 @@
       </AcvButton>
       <AcvButton
         v-if="linkText"
-        type="ghost"
+        variant="ghost"
         class="acv-empty-screen__link my-16"
       >
         {{ linkText }}

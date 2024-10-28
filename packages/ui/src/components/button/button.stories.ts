@@ -32,6 +32,19 @@ export default {
     loading: false,
     autofocus: false,
   },
+  /**
+   * Using explicit source code parameters because looks like Storybook's docs addon can't properly
+   * serialize Vue 3 render functions (h()) with imported components like icons.
+   * Without this, icons can't be displayed in docs (but work fine in stories).
+   */
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `<AcvButton><IconPlus16 /></AcvButton>`
+      }
+    }
+  }
 } as Meta;
 
 export const Default: Story = {};
@@ -123,15 +136,22 @@ export const GhostWithSingleIcon: Story = {
 };
 
 function render(args: Args) {
+  const parentStyle = args.variant === BUTTON_VARIANT.inverted
+    ? { backgroundColor: '#243143e6', padding: '10px' }
+    : {};
+
   return {
     components: { AcvButton, IconPlus16 },
-    setup: () => ({ args }),
+    setup: () => ({ args, parentStyle }),
     template: `
+      <div :style="parentStyle">
       <AcvButton v-bind="args">
         <template v-if="args.prepend" #prepend><Component :is="args.prepend" /></template>
         <template v-if="args.append" #append><Component :is="args.append" /></template>
         <Component v-if="typeof args.default === 'object'" :is="args.default" />
         <template v-else>{{ args.default }}</template>
-      </AcvButton>`,
+      </AcvButton>
+      </div>
+    `,
   };
 }
