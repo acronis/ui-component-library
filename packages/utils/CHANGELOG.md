@@ -1,4 +1,11 @@
-## 0.1.0 (2024-10-23)
+## [0.1.1](https://github.com/acronis/ui-component-library/compare/utils/0.1.0...utils/0.1.1) (2024-10-28)
+
+
+### Bug Fixes
+
+* **ui:** allowed to add the library to Vue 3 application as the plugin ([#147](https://github.com/acronis/ui-component-library/issues/147)) ([03f4297](https://github.com/acronis/ui-component-library/commit/03f4297ad8c5410b2c57c8ffc9515c32ef8b0871))
+
+## [0.1.0](https://github.com/acronis/ui-component-library/compare/63bc5c18e74623f6c30b6459091c55ec680b5391...utils/0.1.0) (2024-10-23)
 
 
 ### Features
