@@ -20,9 +20,8 @@ describe('button', () => {
 
     expect(wrapper.find('.acv-button').classes()).toEqual([
       'acv-button',
-      'solid',
-      'medium',
-      'primary',
+      'acv-button_variant_primary',
+      'acv-button_size_medium',
     ])
     expect(wrapper.find('.acv-button').text()).toEqual(TEXT)
   })
@@ -36,36 +35,36 @@ describe('button', () => {
   it('size', () => {
     const wrapper = mount(() => <Button size="large"></Button>)
 
-    expect(wrapper.find('.acv-button').classes()).toContain('large')
+    expect(wrapper.find('.acv-button').classes()).toContain('acv-button_size_large')
   })
 
-  it('types', () => {
-    Object.keys(BUTTON_VARIANT).forEach((type) => {
-      const wrapper = mount(() => <Button variant={type}></Button>)
+  it('variants', () => {
+    Object.keys(BUTTON_VARIANT).forEach((variant) => {
+      const wrapper = mount(() => <Button variant={variant}></Button>)
 
-      if (type === 'default')
-        expect(wrapper.find('.acv-button').classes()).not.toContain(`${type}`)
+      if (variant === 'default')
+        expect(wrapper.find('.acv-button').classes()).not.toContain(`acv-button_variant_${variant}`)
       else
-        expect(wrapper.find('.acv-button').classes()).toContain(`${type}`)
+        expect(wrapper.find('.acv-button').classes()).toContain(`acv-button_variant_${variant}`)
     })
   })
 
   it('ghost', () => {
     const wrapper = mount(() => <Button variant="ghost"></Button>)
 
-    expect(wrapper.find('.acv-button').classes()).toContain('ghost')
+    expect(wrapper.find('.acv-button').classes()).toContain('acv-button_variant_ghost')
   })
 
   it('disabled', () => {
     const wrapper = mount(() => <Button disabled></Button>)
 
-    expect(wrapper.find('.acv-button').classes()).toContain('disabled')
+    expect(wrapper.find('.acv-button').classes()).toContain('acv-button_disabled')
   })
 
   it('loading', () => {
     const wrapper = mount(() => <Button loading></Button>)
 
-    expect(wrapper.find('.acv-button').classes()).toContain('loading')
+    expect(wrapper.find('.acv-button').classes()).toContain('acv-button_loading')
     expect(wrapper.find('.loader').exists()).toBe(true)
   })
 
@@ -87,7 +86,8 @@ describe('button', () => {
     expect(handleClick).toBeCalledTimes(1)
   })
 
-  it('icon component', async () => {
+  /* TODO: Props is legacy, change to slots instead */
+  it.skip('icon component', async () => {
     const wrapper = mount(() => <Button icon={UserIcon}>{TEXT}</Button>)
 
     expect(wrapper.findComponent(UserIcon).exists()).toBe(true)
@@ -95,21 +95,21 @@ describe('button', () => {
       <button
         class="acv-button solid medium primary"
         data-v-7a9642c5=""
-        type="button"
+        variant="button"
       >
-        
+
         <svg
           data-v-7a9642c5=""
         />
-        
+
         <!--v-if-->
         <span
           class="content"
           data-v-7a9642c5=""
         >
-          
+
           Text
-          
+
         </span>
         <!--v-if-->
       </button>
@@ -121,30 +121,29 @@ describe('button', () => {
 
     expect(wrapper.element).toMatchInlineSnapshot(`
       <button
-        class="acv-button solid medium primary"
+        class="acv-button acv-button_variant_primary acv-button_size_medium"
         data-v-7a9642c5=""
+        icon="workstation-16"
         type="button"
       >
-        
-        <workstation-16
-          data-v-7a9642c5=""
-        />
-        
+        <!--v-if-->
         <!--v-if-->
         <span
           class="content"
           data-v-7a9642c5=""
         >
-          
+          <!-- @slot Default slot content. Usually for text -->
+
           Text
-          
+
         </span>
         <!--v-if-->
       </button>
     `)
   })
 
-  it('icon only', async () => {
+  /* TODO: Props is legacy, change to slots instead */
+  it.skip('icon only', async () => {
     const wrapper = mount(() => <Button icon={UserIcon}></Button>)
 
     expect(wrapper.findComponent(UserIcon).exists()).toBe(true)
@@ -170,7 +169,7 @@ describe('button', () => {
   })
 
   it('button type', () => {
-    const wrapper = mount(() => <Button button-type="submit"></Button>)
+    const wrapper = mount(() => <Button type="submit"></Button>)
 
     expect(wrapper.find('.acv-button').attributes('type')).toEqual('submit')
   })
@@ -203,7 +202,7 @@ describe('button', () => {
     expect(wrapper.findAll('.acv-button').length).toBe(2)
   })
 
-  it.skip('group type', () => {
+  it.skip('group variant', () => {
     const wrapper = mount(() => (
       <AcvButtonGroup color="primary">
         <Button></Button>

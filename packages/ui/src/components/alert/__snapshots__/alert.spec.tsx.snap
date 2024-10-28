@@ -6,7 +6,7 @@ exports[`alert > renders close button 1`] = `
   data-v-437210c2=""
 >
   <button
-    class="acv-button ghost medium primary"
+    class="acv-button acv-button_variant_ghost acv-button_size_medium"
     data-v-437210c2=""
     data-v-7a9642c5=""
     type="button"
@@ -17,7 +17,8 @@ exports[`alert > renders close button 1`] = `
       class="content"
       data-v-7a9642c5=""
     >
-      
+      <!-- @slot Default slot content. Usually for text -->
+
       <svg
         class="acv-icon"
         data-v-437210c2=""
@@ -30,7 +31,7 @@ exports[`alert > renders close button 1`] = `
           fill="currentColor"
         />
       </svg>
-      
+
     </span>
     <!--v-if-->
   </button>

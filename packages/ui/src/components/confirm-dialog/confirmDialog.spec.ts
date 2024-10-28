@@ -40,13 +40,13 @@ describe('test ConfirmDialog component', () => {
             <div data-v-d2f715b5="" class="scrollable"></div>
           </main>
           <footer data-v-d2f715b5="">
-            <menu data-v-ecec16b9=""><button data-v-7a9642c5="" data-v-ecec16b9="" type="button" class="acv-button solid medium primary" value="cancel">
+            <menu data-v-ecec16b9=""><button data-v-7a9642c5="" data-v-ecec16b9="" type="button" class="acv-button acv-button_variant_primary acv-button_size_medium" value="cancel">
                 <!--v-if-->
-                <!--v-if--><span data-v-7a9642c5="" class="content"> Cancel </span>
+                <!--v-if--><span data-v-7a9642c5="" class="content"><!-- @slot Default slot content. Usually for text --> Cancel </span>
                 <!--v-if-->
-              </button><button data-v-7a9642c5="" data-v-ecec16b9="" type="button" class="acv-button solid medium primary" value="confirm">
+              </button><button data-v-7a9642c5="" data-v-ecec16b9="" type="button" class="acv-button acv-button_variant_primary acv-button_size_medium" value="confirm">
                 <!--v-if-->
-                <!--v-if--><span data-v-7a9642c5="" class="content"> Confirm </span>
+                <!--v-if--><span data-v-7a9642c5="" class="content"><!-- @slot Default slot content. Usually for text --> Confirm </span>
                 <!--v-if-->
               </button></menu>
           </footer>
