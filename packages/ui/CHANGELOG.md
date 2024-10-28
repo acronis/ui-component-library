@@ -1,3 +1,10 @@
+## [1.25.1](https://github.com/acronis/ui-component-library/compare/v1.25.0...v1.25.1) (2024-10-28)
+
+
+### Bug Fixes
+
+* **ui:** allowed to add the library to Vue 3 application as the plugin ([#147](https://github.com/acronis/ui-component-library/issues/147)) ([03f4297](https://github.com/acronis/ui-component-library/commit/03f4297ad8c5410b2c57c8ffc9515c32ef8b0871))
+
 ## [1.25.0](https://github.com/acronis/ui-component-library/compare/v1.24.0...v1.25.0) (2024-10-24)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
-
-## [1.23.0](https://github.com/acronis/ui-component-library/compare/v1.22.1...v1.23.0) (2024-09-24)
-
-
-### Features
-
-* **form:** moved components from constructor to acv ([#126](https://github.com/acronis/ui-component-library/issues/126)) ([98dbc53](https://github.com/acronis/ui-component-library/commit/98dbc535ee47f293cf38fab230c9fb0f6af0aaa0))
 
