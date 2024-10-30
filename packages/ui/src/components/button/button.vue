@@ -52,9 +52,6 @@
       'acv-button_disabled': isDisabled,
       'acv-button_selected': selected,
       'acv-button_loading': loading,
-      'acv-button_block': block,
-      'acv-button_pill': pill,
-      'acv-button_squared': squared,
     }"
     @click.capture="handleClick"
   >
@@ -152,20 +149,6 @@
       padding-inline: var(--acv-spacing-regular);
       font-size: var(--acv-font-size-lead);
       block-size: var(--acv-height-x-large);
-    }
-
-    /* Button styles */
-
-    &.acv-button_pill {
-      border-radius: var(--acv-radius-large);
-    }
-
-    &.acv-button_squared {
-      border-radius: var(--acv-radius-zero);
-    }
-
-    &.acv-button_block {
-      inline-size: 100%;
     }
 
     /* Button variants */

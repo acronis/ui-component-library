@@ -57,22 +57,4 @@ export interface AcvButtonProps {
    * Determine whether it's loading
    */
   loading?: boolean
-
-  /**
-   *  Whether the button is block styled or not
-   *  @defaultValue false
-   */
-  block?: boolean
-
-  /**
-   * Whether the button is rounded or not
-   * @defaultValue false
-   */
-  pill?: boolean
-
-  /**
-   * Whether the button is squared or not
-   * @defaultValue false
-   */
-  squared?: boolean
 }
