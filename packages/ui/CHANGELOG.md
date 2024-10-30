@@ -1,3 +1,10 @@
+## [1.26.0](https://github.com/acronis/ui-component-library/compare/v1.25.1...v1.26.0) (2024-10-30)
+
+
+### Features
+
+* button styles ([#148](https://github.com/acronis/ui-component-library/issues/148)) ([97e4cd6](https://github.com/acronis/ui-component-library/commit/97e4cd67b77ffaf28f1e2c5a9cb7c9a0395e9473)), closes [#99](https://github.com/acronis/ui-component-library/issues/99) [#99](https://github.com/acronis/ui-component-library/issues/99) [#99](https://github.com/acronis/ui-component-library/issues/99)
+
 ## [1.25.1](https://github.com/acronis/ui-component-library/compare/v1.25.0...v1.25.1) (2024-10-28)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix readme in figma fetcher ([4d81018](https://github.com/acronis/ui-component-library/commit/4d810184c6fd62403e6a87db92b9e484d15900f2))
-
-## [1.23.1](https://github.com/acronis/ui-component-library/compare/v1.23.0...v1.23.1) (2024-10-09)
-
-
-### Bug Fixes
-
-* **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
 
