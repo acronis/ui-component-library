@@ -47,8 +47,8 @@
     :aria-disabled="isDisabled ? 'true' : undefined"
     class="acv-button"
     :class="{
-      [`acv-button_variant_${variant}`]: !!variant,
-      [`acv-button_size_${size}`]: !!size,
+      [`acv-button_variant_${variant}`]: true,
+      [`acv-button_size_${size}`]: true,
       'acv-button_disabled': isDisabled,
       'acv-button_selected': selected,
       'acv-button_loading': loading,
