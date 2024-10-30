@@ -186,7 +186,6 @@
     }
 
     &.acv-button_variant_secondary {
-      --_acv-button-color: var(--acv-color-button-secondary);
       --_acv-button-background-color-hover: var(--acv-color-button-hover-secondary);
       --_acv-button-background-color-active: var(--acv-color-button-active-secondary);
       --_acv-button-background-color-disabled: var(--acv-color-button-disabled-inversed);
@@ -202,7 +201,6 @@
     }
 
     &.acv-button_variant_ghost {
-      --_acv-button-color: var(--acv-color-button-secondary);
       --_acv-button-background-color-hover: var(--acv-color-button-hover-secondary);
       --_acv-button-background-color-active: var(--acv-color-button-active-secondary);
       --_acv-button-background-color-disabled: var(--acv-color-button-disabled-inversed);
@@ -218,7 +216,6 @@
     }
 
     &.acv-button_variant_inverted {
-      --_acv-button-color: var(--acv-color-button-inversed);
       --_acv-button-background-color-hover: var(--acv-color-button-hover-inversed);
       --_acv-button-background-color-active: var(--acv-color-button-active-inversed);
       --_acv-button-background-color-disabled: var(--acv-color-button-disabled-inversed);
