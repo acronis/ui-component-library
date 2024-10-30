@@ -3,22 +3,22 @@
 </script>
 
 <template>
-  <AcvButton type="primary">
+  <AcvButton variant="primary">
     Primary
   </AcvButton>
-  <AcvButton type="secondary">
+  <AcvButton variant="secondary">
     Secondary
   </AcvButton>
-  <AcvButton type="ghost">
+  <AcvButton variant="ghost">
     Ghost
   </AcvButton>
-  <AcvButton type="danger">
+  <AcvButton variant="status">
     Danger
   </AcvButton>
   <div
     class="dark"
   >
-    <AcvButton type="inverted">
+    <AcvButton variant="inverted">
       Inverted
     </AcvButton>
   </div>

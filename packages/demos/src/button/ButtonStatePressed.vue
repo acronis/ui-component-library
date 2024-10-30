@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <AcvButton class="active">
+  <AcvButton class="acv-button_active">
     Button
   </AcvButton>
 </template>

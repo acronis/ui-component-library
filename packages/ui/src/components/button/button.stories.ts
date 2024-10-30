@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { BUTTON_VARIANT } from '@/components/index.ts';
 import { IconPlus16 } from '@acronis-platform/icons/plus';
+import { h } from 'vue';
 import AcvButton from './button.vue';
 
 type Story = StoryObj<typeof AcvButton>;
@@ -11,11 +13,11 @@ export default {
   tags: ['autodocs'],
   render,
   argTypes: {
-    type: {
+    variant: {
       control: {
         type: 'select',
       },
-      options: ['primary', 'secondary', 'ghost', 'inverted', 'danger'] satisfies Args['type'][],
+      options: BUTTON_VARIANT as unknown as Args['variant'],
     },
     size: {
       control: {
@@ -29,57 +31,58 @@ export default {
     disabled: false,
     loading: false,
     autofocus: false,
-    icon: false,
   },
+  /**
+   * Using explicit source code parameters because looks like Storybook's docs addon can't properly
+   * serialize Vue 3 render functions (h()) with imported components like icons.
+   * Without this, icons can't be displayed in docs (but work fine in stories).
+   */
+  parameters: {
+    docs: {
+      source: {
+        language: 'html',
+        code: `<AcvButton><IconPlus16 /></AcvButton>`
+      }
+    }
+  }
 } as Meta;
 
 export const Default: Story = {};
 
-export const WithIcon: Story = {
-  args: {
-    icon: IconPlus16
-  },
-};
-export const Danger: Story = {
-  args: {
-    color: 'danger'
-  },
-};
-
-export const Info: Story = {
-  args: {
-    color: 'info'
-  },
-};
-
 export const Inverted: Story = {
   args: {
-    color: 'info'
+    variant: BUTTON_VARIANT.inverted
   },
 };
 
 export const Primary: Story = {
   args: {
-    color: 'primary'
+    variant: BUTTON_VARIANT.primary
   },
 };
 
 export const Secondary: Story = {
   args: {
-    type: 'secondary'
+    variant: BUTTON_VARIANT.secondary
+  },
+};
+
+export const Status: Story = {
+  args: {
+    variant: BUTTON_VARIANT.status
   },
 };
 
 export const Ghost: Story = {
   args: {
-    type: 'ghost'
+    variant: BUTTON_VARIANT.ghost
   },
 };
 
 export const WithPrependAndAppend: Story = {
   args: {
-    prepend: '<IconPlus16 />',
-    append: '<IconPlus16 />'
+    prepend: h(IconPlus16),
+    append: h(IconPlus16)
   },
 };
 
@@ -121,26 +124,34 @@ export const Pressed: Story = {
 
 export const WithSingleIcon: Story = {
   args: {
-    default: '<IconPlus16 />'
+    default: h(IconPlus16)
   },
 };
 
 export const GhostWithSingleIcon: Story = {
   args: {
-    type: 'ghost',
-    default: '<IconPlus16 />'
+    variant: BUTTON_VARIANT.ghost,
+    default: h(IconPlus16)
   },
 };
 
 function render(args: Args) {
+  const parentStyle = args.variant === BUTTON_VARIANT.inverted
+    ? { backgroundColor: '#243143e6', padding: '10px' }
+    : {};
+
   return {
     components: { AcvButton, IconPlus16 },
-    setup: () => ({ args }),
+    setup: () => ({ args, parentStyle }),
     template: `
+      <div :style="parentStyle">
       <AcvButton v-bind="args">
-        <template v-if="args.prepend" #prepend>${args.prepend}</template>
-        <template v-if="args.append" #append>${args.append}</template>
-        ${args.default}
-      </AcvButton>`,
+        <template v-if="args.prepend" #prepend><Component :is="args.prepend" /></template>
+        <template v-if="args.append" #append><Component :is="args.append" /></template>
+        <Component v-if="typeof args.default === 'object'" :is="args.default" />
+        <template v-else>{{ args.default }}</template>
+      </AcvButton>
+      </div>
+    `,
   };
 }

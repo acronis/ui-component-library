@@ -10,7 +10,7 @@
   <AcvButton
     :selected="active"
     :disabled="disabled"
-    type="ghost"
+    variant="ghost"
     size="medium"
     @click="$emit('select', page)"
   >

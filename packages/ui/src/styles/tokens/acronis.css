@@ -119,7 +119,7 @@
   --acv-color-text-status-neutral: hsl(215deg 30% 20%);
   --acv-color-text-status-success: hsl(88deg 85% 24%);
   --acv-color-text-status-warning: hsl(30deg 50% 37%);
-  --acv-font-family-default: var(--acv-base-font-family-inter, Inter);
+  --acv-font-family-default: var(--acv-base-font-family-inter, Inter sans-serif);
   --acv-font-line-height-large: var(--acv-base-font-line-height-40, 40px);
   --acv-font-line-height-medium: var(--acv-base-font-line-height-32, 32px);
   --acv-font-line-height-regular: var(--acv-base-font-line-height-24, 24px);

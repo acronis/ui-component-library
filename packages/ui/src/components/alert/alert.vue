@@ -94,7 +94,7 @@
       class="close"
     >
       <AcvButton
-        type="ghost"
+        variant="ghost"
         @click="$emit('close')"
       >
         <IconClose16 />

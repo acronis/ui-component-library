@@ -11,7 +11,7 @@
     hide-on-click
   >
     <AcvButton
-      type="ghost"
+      variant="ghost"
       :icon="IconMore16"
       color="secondary"
     />

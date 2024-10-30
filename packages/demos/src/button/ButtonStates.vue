@@ -1,55 +1,56 @@
 <script setup>
-  import { BUTTON_TYPE } from '@/components/button/button.ts';
+  import { BUTTON_VARIANT } from '@/components/button/button.ts';
   import Button from '@/components/button/button.vue';
   import { IconAcronisIcon32 } from '@acronis-platform/icons/acronis';
 
-  const buttonTypes = [
+  const buttonVariants = [
     'primary',
     'secondary',
     'ghost',
     'inverted',
-    'danger'
+    'status'
   ];
 </script>
 
 <template>
   <div class="acv-grid-row acv-grid--cols-3">
     <div
-      v-for="type in buttonTypes"
-      :key="type"
+      v-for="variant in buttonVariants"
+      :key="variant"
       align="center"
-      :width="8"
       :class="{
-        'acv-bg-nav-primary': type === BUTTON_TYPE.inverted,
+        'acv-bg-nav-primary': variant === BUTTON_VARIANT.inverted,
       }"
     >
-      <Button :type="type">
-        <IconAcronisIcon32 />
-        Default {{ type }}
+      <Button :variant="variant">
+        <template #prepend>
+          <IconAcronisIcon32 />
+        </template>
+        Default {{ variant }}
       </Button>
       <Button
-        :type="type"
-        class="hover"
+        :variant="variant"
+        class="acv-button_hover"
       >
-        Hover {{ type }}
+        Hover {{ variant }}
       </Button>
       <Button
-        :type="type"
-        class="active"
+        :variant="variant"
+        class="acv-button_active"
       >
-        Active {{ type }}
+        Active {{ variant }}
       </Button>
       <Button
-        :type="type"
-        class="focus"
+        :variant="variant"
+        class="acv-button_focus"
       >
-        Focus {{ type }}
+        Focus {{ variant }}
       </Button>
       <Button
-        :type="type"
+        :variant="variant"
         disabled
       >
-        Disabled {{ type }}
+        Disabled {{ variant }}
       </Button>
     </div>
   </div>
@@ -63,6 +64,6 @@
 
   .acv-button {
     margin-block: 10px;
-    display: block;
+    display: flex;
   }
 </style>

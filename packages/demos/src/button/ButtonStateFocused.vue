@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <AcvButton class="focus">
+  <AcvButton class="acv-button_focus">
     Button
   </AcvButton>
 </template>

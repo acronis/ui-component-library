@@ -129,7 +129,7 @@
         <AcvButton
           v-if="closable"
           ref="close"
-          type="ghost"
+          variant="ghost"
           class="close"
           @click="onClose"
         >

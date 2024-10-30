@@ -1,5 +1,5 @@
 <script setup>
-  import { BUTTON_TYPE } from '@/components/button/button.ts';
+  import { BUTTON_VARIANT } from '@/components/button/button.ts';
   import Button from '@/components/button/button.vue';
 
   import { IconPlus16 } from '@acronis-platform/icons/plus';
@@ -42,8 +42,8 @@
       :key="type"
       :width="8"
       :class="{
-        'acv-bg-nav-primary': type === BUTTON_TYPE.inverted,
-        'acv-text-color-white': type === BUTTON_TYPE.inverted,
+        'acv-bg-nav-primary': type === BUTTON_VARIANT.inverted,
+        'acv-text-color-white': type === BUTTON_VARIANT.inverted,
       }"
     >
       <div
