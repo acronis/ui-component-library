@@ -162,8 +162,8 @@
       --_acv-button-border-color-hover: var(--acv-color-button-hover-primary);
       --_acv-button-border-color-active: var(--acv-color-button-active-primary);
       --_acv-button-border-color-disabled: var(--acv-color-button-disabled);
-      border-color: var(--acv-color-button-primary);
       background-color: var(--acv-color-button-primary);
+      border-color: var(--acv-color-button-primary);
       color: var(--acv-color-button-label-inversed-primary);
     }
 
@@ -178,8 +178,8 @@
       --_acv-button-border-color-active: var(--acv-color-button-hover-primary);
       --_acv-button-border-color-disabled: var(--acv-color-button-disabled);
       background-color: var(--acv-color-transparent);
-      color: var(--acv-color-button-secondary);
       border-color: var(--acv-color-button-secondary);
+      color: var(--acv-color-button-secondary);
     }
 
     &.acv-button_variant_ghost {
@@ -193,8 +193,8 @@
       --_acv-button-border-color-active: var(--acv-color-button-active-secondary);
       --_acv-button-border-color-disabled: var(--acv-color-transparent);
       background-color: var(--acv-color-transparent);
-      color: var(--acv-color-button-secondary);
       border-color: var(--acv-color-transparent);
+      color: var(--acv-color-button-secondary);
     }
 
     &.acv-button_variant_inverted {
@@ -208,8 +208,8 @@
       --_acv-button-border-color-active: var(--acv-color-button-active-inversed);
       --_acv-button-border-color-disabled: var(--acv-color-button-disabled-inversed);
       background-color: var(--acv-color-button-inversed);
-      color: var(--acv-color-button-label-inversed-primary);
       border-color: var(--acv-color-button-inversed);
+      color: var(--acv-color-button-label-inversed-primary);
     }
 
     /* Need to use some hardcoded colors as danger var colors are inconsistent */
@@ -224,8 +224,8 @@
       --_acv-button-border-color-active: var(--acv-color-button-active-danger);
       --_acv-button-border-color-disabled: var(--acv-color-button-disabled-danger);
       background-color: var(--acv-color-button-danger);
-      color: var(--acv-color-button-label-inversed-primary);
       border-color: var(--acv-color-button-danger);
+      color: var(--acv-color-button-label-inversed-primary);
     }
 
     &.acv-button_loading {
