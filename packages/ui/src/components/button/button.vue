@@ -170,7 +170,6 @@
 
     /* Button variants */
     &.acv-button_variant_primary {
-      --_acv-button-color: var(--acv-color-button-primary);
       --_acv-button-background-color-hover: var(--acv-color-button-hover-primary);
       --_acv-button-background-color-active: var(--acv-color-button-active-primary);
       --_acv-button-background-color-disabled: var(--acv-color-button-disabled);
