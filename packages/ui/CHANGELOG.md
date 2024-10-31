@@ -1,3 +1,10 @@
+## [1.27.0](https://github.com/acronis/ui-component-library/compare/v1.26.0...v1.27.0) (2024-10-31)
+
+
+### Features
+
+* button theme styles [#99](https://github.com/acronis/ui-component-library/issues/99) ([#149](https://github.com/acronis/ui-component-library/issues/149)) ([666b763](https://github.com/acronis/ui-component-library/commit/666b7631427a6b94ec4e525b20c0a3c972b5ae6d))
+
 ## [1.26.0](https://github.com/acronis/ui-component-library/compare/v1.25.1...v1.26.0) (2024-10-30)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * update Card component ([#145](https://github.com/acronis/ui-component-library/issues/145)) ([46588c1](https://github.com/acronis/ui-component-library/commit/46588c10e8c820a85b3a58c8aded96f22d3fdae1))
-
-## [1.23.2](https://github.com/acronis/ui-component-library/compare/v1.23.1...v1.23.2) (2024-10-16)
-
-
-### Bug Fixes
-
-* fix readme in figma fetcher ([4d81018](https://github.com/acronis/ui-component-library/commit/4d810184c6fd62403e6a87db92b9e484d15900f2))
 
