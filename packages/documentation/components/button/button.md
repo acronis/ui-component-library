@@ -13,19 +13,16 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name | Description                               | Type                                                | Values                              | Default |
-| --------- | ----------------------------------------- | --------------------------------------------------- | ----------------------------------- | ------- |
-| variant   | Button variant                            | AcvButtonVariant                                    | primary, secondary, ghost, inverted | primary |
-| is        | Button tag                                | "a" \| "span" \| "button" \| "label" \| TSTypeQuery | a, span, button, label, RouterLink  | button  |
-| type      | Button type                               | TSIndexedAccessType                                 | button, submit, reset               | button  |
-| size      | Button size                               | AcvButtonSize                                       | small, medium, large                | medium  |
-| selected  | Whether button appearance as selected     | boolean                                             | -                                   |         |
-| autofocus | Same as native button's autofocus         | boolean                                             | -                                   |         |
-| disabled  | Disable the button                        | boolean                                             | -                                   |         |
-| loading   | Determine whether it's loading            | boolean                                             | -                                   |         |
-| block     | Whether the button is block styled or not | boolean                                             | -                                   | false   |
-| pill      | Whether the button is rounded or not      | boolean                                             | -                                   | false   |
-| squared   | Whether the button is squared or not      | boolean                                             | -                                   | false   |
+| Prop name | Description                           | Type                                                | Values                              | Default |
+| --------- | ------------------------------------- | --------------------------------------------------- | ----------------------------------- | ------- |
+| variant   | Button variant                        | AcvButtonVariant                                    | primary, secondary, ghost, inverted | primary |
+| is        | Button tag                            | "a" \| "span" \| "button" \| "label" \| TSTypeQuery | a, span, button, label, RouterLink  | button  |
+| type      | Button type                           | TSIndexedAccessType                                 | button, submit, reset               | button  |
+| size      | Button size                           | AcvButtonSize                                       | small, medium, large                | medium  |
+| selected  | Whether button appearance as selected | boolean                                             | -                                   |         |
+| autofocus | Same as native button's autofocus     | boolean                                             | -                                   |         |
+| disabled  | Disable the button                    | boolean                                             | -                                   |         |
+| loading   | Determine whether it's loading        | boolean                                             | -                                   |         |
 
 ## Slots
 
