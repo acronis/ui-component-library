@@ -1,0 +1,9 @@
+/*
+    - acv-reset - reset default browser styling for HTML elements (lowest priority)
+    - acv-theme - css for specific theme
+ */
+@layer acv-reset, acv-theme;
+
+@import "./reset/variables.css";
+@import 'sanitize.css' layer(acv-reset);
+@import "./reset/normalize.css";

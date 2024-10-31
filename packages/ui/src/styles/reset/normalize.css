@@ -1,0 +1,42 @@
+@layer acv-reset {
+  :where(:root) {
+    block-size: 100%;
+    color-scheme: var(--acv-color-scheme);
+  }
+
+  :where(body) {
+    background-color: var(--acv-color-surface-primary);
+    min-block-size: 100%;
+    color: var(--acv-color-text-primary);
+    font-family: var(--acv-font-family-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+  }
+
+  :where(h1),
+  :where(h2),
+  :where(h3),
+  :where(h4) {
+    margin: 0;
+  }
+
+  :where(button) {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+  }
+
+  :where(a) {
+    color: currentcolor;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  :where(:focus-visible) {
+    outline: var(--acv-outline-width) solid var(--acv-color-outline);
+  }
+}
