@@ -98,18 +98,6 @@ export const LargeSize: Story = {
   },
 };
 
-export const Pill: Story = {
-  args: {
-    pill: true
-  },
-};
-
-export const Squared: Story = {
-  args: {
-    squared: true
-  },
-};
-
 export const Disabled: Story = {
   args: {
     disabled: true
