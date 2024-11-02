@@ -1,0 +1,42 @@
+name: Icons - Pull from Figma
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    if: github.repository == 'acronis/ui-component-library'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Pull icons from Figma
+        run: pnpm --filter ./packages/icons run figma-icons
+        env:
+          FIGMA_FETCHER_FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FETCHER_FILE_KEY: ${{ secrets.FIGMA_FILE_KEY }}
+          FIGMA_FETCHER_FRAME_NAMES: ${{ secrets.FIGMA_FETCHER_FRAME_NAMES }}
+          FIGMA_FETCHER_PAGE_NAMES: ${{ secrets.FIGMA_PAGE_NAMES }}
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          message: 'chore: update icons'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
