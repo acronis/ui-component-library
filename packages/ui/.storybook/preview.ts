@@ -1,7 +1,7 @@
 import type { Decorator, Preview } from '@storybook/vue3';
 import { useEffect, useGlobals } from '@storybook/preview-api';
 import '../src/styles/reset.css';
-import '../src/styles/themes/acronis/acronis.css';
+import '@/styles/themes/acronis/acronis.pcss';
 
 export function withToggleDarkMode(StoryFn) {
   const [globals] = useGlobals();
