@@ -1,26 +1,28 @@
 @import "./acronis-light.pcss";
 @import "./acronis-dark.pcss";
 
-@media (prefers-color-scheme: light) {
-  /* light theme without color scheme override */
-  :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):where(:not(.acv-color-scheme-dark)) {
-    @mixin acv-theme-acronis-light;
+@layer acv-theme {
+  @media (prefers-color-scheme: light) {
+    /* light theme without color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):not(.acv-color-scheme-dark) {
+      @mixin acv-theme-acronis-light;
+    }
+
+    /* dark theme with color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis).acv-color-scheme-dark {
+      @mixin acv-theme-acronis-dark;
+    }
   }
 
-  /* dark theme with color scheme override */
-  :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):where(.acv-color-scheme-dark) {
-    @mixin acv-theme-acronis-dark;
-  }
-}
+  @media (prefers-color-scheme: dark) {
+    /* light theme without color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis).acv-color-scheme-light {
+      @mixin acv-theme-acronis-light;
+    }
 
-@media (prefers-color-scheme: dark) {
-  /* light theme without color scheme override */
-  :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):where(.acv-color-scheme-light) {
-    @mixin acv-theme-acronis-light;
-  }
-
-  /* dark theme without color scheme override */
-  :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):where(:not(.acv-color-scheme-light)) {
-    @mixin acv-theme-acronis-dark;
+    /* dark theme without color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):not(.acv-color-scheme-light) {
+      @mixin acv-theme-acronis-dark;
+    }
   }
 }
