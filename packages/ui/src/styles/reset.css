@@ -5,5 +5,4 @@
 @layer acv-reset, acv-theme;
 
 @import "./reset/variables.css";
-@import 'sanitize.css' layer(acv-reset);
 @import "./reset/normalize.css";
