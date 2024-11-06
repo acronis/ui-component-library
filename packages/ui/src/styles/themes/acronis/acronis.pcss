@@ -1,7 +1,12 @@
+@import "./acronis-common.pcss";
 @import "./acronis-light.pcss";
 @import "./acronis-dark.pcss";
 
 @layer acv-theme {
+  :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis) {
+    @mixin acv-theme-acronis-common;
+  }
+
   @media (prefers-color-scheme: light) {
     /* light theme without color scheme override */
     :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):not(.acv-color-scheme-dark) {
