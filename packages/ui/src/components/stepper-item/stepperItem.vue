@@ -86,7 +86,6 @@
       background-color: var(--acv-color-button-disabled-inversed);
       color: var(--acv-color-text-secondary);
       cursor: not-allowed;
-      pointer-events: none;
 
       /* TODO: use css variable */
       border-color: hsl(215deg 68% 46% / 0.1);
