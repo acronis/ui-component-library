@@ -14,26 +14,20 @@ and other design tokens according used theme.
 [List of CSS variables](#list-of-basic-variables) is available at the bottom of this page.
 :::
 
-## List of UI-syntax 3.0 css variables
+## List of UI-syntax 3.0 global styles
 
 Basic variables are used to define the basic design tokens like colors, typography, spacing, etc.
 
 Theme variables are used to define the theme-specific design tokens like colors, spacing, components, etc.
 
 ::: code-group
-<<< ../../ui/src/styles/tokens/base.css [Base tokens]
-<<< ../../ui/src/styles/tokens/acronis.css [Acronis theme]
-<<< ../../ui/src/styles/tokens/constructor.css [Constructor theme]
-<<< ../../ui/src/styles/tokens/virtuozzo.css [Virtuozzo theme]
-<<< ../../ui/src/styles/tokens/dark.css [Dark theme]
+<<< ../../ui/src/styles/reset.css
 :::
 
-## List of basic tokens
+## List of UI-syntax 3.0 theme styles
 
 ::: code-group
-<<< ../../ui/src/styles/tokens/acv/animation.css [Animation tokens]
-<<< ../../ui/src/styles/tokens/acv/aspects.css [Aspects tokens]
-<<< ../../ui/src/styles/tokens/acv/shadows.css [Shadows tokens]
+<<< ../../ui/src/styles/themes/acronis/acronis.pcss [Acronis theme]
 :::
 
 ## Shadows
