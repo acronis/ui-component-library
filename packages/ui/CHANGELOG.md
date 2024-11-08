@@ -1,3 +1,10 @@
+## [1.28.0](https://github.com/acronis/ui-component-library/compare/v1.27.0...v1.28.0) (2024-11-08)
+
+
+### Features
+
+* global css structure ([#151](https://github.com/acronis/ui-component-library/issues/151)) ([e7de92d](https://github.com/acronis/ui-component-library/commit/e7de92d484cd2839e4c2cab70c65f719c61b490a))
+
 ## [1.27.0](https://github.com/acronis/ui-component-library/compare/v1.26.0...v1.27.0) (2024-10-31)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * add functional breadcrumbs component ([#144](https://github.com/acronis/ui-component-library/issues/144)) ([68de75b](https://github.com/acronis/ui-component-library/commit/68de75baea12de7a04b474d89b529335e656f0c0))
-
-## [1.24.0](https://github.com/acronis/ui-component-library/compare/v1.23.2...v1.24.0) (2024-10-23)
-
-
-### Features
-
-* update Card component ([#145](https://github.com/acronis/ui-component-library/issues/145)) ([46588c1](https://github.com/acronis/ui-component-library/commit/46588c10e8c820a85b3a58c8aded96f22d3fdae1))
 
