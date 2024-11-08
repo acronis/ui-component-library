@@ -1,3 +1,10 @@
+## [1.29.0](https://github.com/acronis/ui-component-library/compare/v1.28.0...v1.29.0) (2024-11-08)
+
+
+### Features
+
+* stepper component ([#153](https://github.com/acronis/ui-component-library/issues/153)) ([9e8a030](https://github.com/acronis/ui-component-library/commit/9e8a03093f045e0804de492efc971b215d165749))
+
 ## [1.28.0](https://github.com/acronis/ui-component-library/compare/v1.27.0...v1.28.0) (2024-11-08)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **ui:** allowed to add the library to Vue 3 application as the plugin ([#147](https://github.com/acronis/ui-component-library/issues/147)) ([03f4297](https://github.com/acronis/ui-component-library/commit/03f4297ad8c5410b2c57c8ffc9515c32ef8b0871))
-
-## [1.25.0](https://github.com/acronis/ui-component-library/compare/v1.24.0...v1.25.0) (2024-10-24)
-
-
-### Features
-
-* add functional breadcrumbs component ([#144](https://github.com/acronis/ui-component-library/issues/144)) ([68de75b](https://github.com/acronis/ui-component-library/commit/68de75baea12de7a04b474d89b529335e656f0c0))
 
