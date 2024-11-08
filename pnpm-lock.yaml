@@ -8267,8 +8267,8 @@ packages:
   vue-component-type-helpers@2.0.29:
     resolution: {integrity: sha512-58i+ZhUAUpwQ+9h5Hck0D+jr1qbYl4voRt5KffBx8qzELViQ4XdT/Tuo+mzq8u63teAG8K0lLaOiL5ofqW38rg==}
 
-  vue-component-type-helpers@2.1.6:
-    resolution: {integrity: sha512-ng11B8B/ZADUMMOsRbqv0arc442q7lifSubD0v8oDXIFoMg/mXwAPUunrroIDkY+mcD0dHKccdaznSVp8EoX3w==}
+  vue-component-type-helpers@2.1.10:
+    resolution: {integrity: sha512-lfgdSLQKrUmADiSV6PbBvYgQ33KF3Ztv6gP85MfGaGaSGMTXORVaHT1EHfsqCgzRNBstPKYDmvAV9Do5CmJ07A==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -11241,7 +11241,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.6(typescript@5.5.3)
-      vue-component-type-helpers: 2.1.6
+      vue-component-type-helpers: 2.1.10
 
   '@stylistic/eslint-plugin@2.9.0(eslint@9.3.0)(typescript@5.5.3)':
     dependencies:
@@ -11628,6 +11628,14 @@ snapshots:
       '@vitest/utils': 2.1.2
       chai: 5.1.1
       tinyrainbow: 1.2.0
+
+  '@vitest/mocker@2.1.2(@vitest/spy@2.1.2)(vite@5.4.6(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.38)))':
+    dependencies:
+      '@vitest/spy': 2.1.2
+      estree-walker: 3.0.3
+      magic-string: 0.30.11
+    optionalDependencies:
+      vite: 5.4.6(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.38))
 
   '@vitest/mocker@2.1.2(@vitest/spy@2.1.2)(vite@5.4.6(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.47)))':
     dependencies:
@@ -17563,7 +17571,7 @@ snapshots:
   vitest@2.1.2(@types/node@20.11.30)(@vitest/ui@2.1.2)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.38)):
     dependencies:
       '@vitest/expect': 2.1.2
-      '@vitest/mocker': 2.1.2(@vitest/spy@2.1.2)(vite@5.4.6(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.47)))
+      '@vitest/mocker': 2.1.2(@vitest/spy@2.1.2)(vite@5.4.6(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.38)))
       '@vitest/pretty-format': 2.1.2
       '@vitest/runner': 2.1.2
       '@vitest/snapshot': 2.1.2
@@ -17762,7 +17770,7 @@ snapshots:
 
   vue-component-type-helpers@2.0.29: {}
 
-  vue-component-type-helpers@2.1.6: {}
+  vue-component-type-helpers@2.1.10: {}
 
   vue-demi@0.14.10(vue@3.5.6(typescript@5.5.3)):
     dependencies:

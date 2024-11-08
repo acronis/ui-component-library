@@ -1,0 +1,18 @@
+@layer acv-reset {
+  :root {
+    --acv-icon-color: currentColor;
+    --acv-icon-size: var(--acv-icon-size-x-small);
+    --acv-icon-size-xxx-small: 8px;
+    --acv-icon-size-xx-small: 12px;
+    --acv-icon-size-x-small: 16px;
+    --acv-icon-size-small: 20px;
+    --acv-icon-size-medium: 24px;
+    --acv-icon-size-large: 32px;
+    --acv-icon-size-x-large: 48px;
+    --acv-icon-size-xx-large: 72px;
+    --acv-icon-size-xxx-large: 96px;
+    --acv-base-icon-size: var(--acv-icon-size-medium);
+    --acv-icon-size-height: var(--acv-icon-size);
+    --acv-icon-size-width: var(--acv-icon-size);
+  }
+}

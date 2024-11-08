@@ -1,0 +1,28 @@
+@import "./acronis-light.pcss";
+@import "./acronis-dark.pcss";
+
+@layer acv-theme {
+  @media (prefers-color-scheme: light) {
+    /* light theme without color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):not(.acv-color-scheme-dark) {
+      @mixin acv-theme-acronis-light;
+    }
+
+    /* dark theme with color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis).acv-color-scheme-dark {
+      @mixin acv-theme-acronis-dark;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    /* light theme without color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis).acv-color-scheme-light {
+      @mixin acv-theme-acronis-light;
+    }
+
+    /* dark theme without color scheme override */
+    :where(:root:not([class^="acv-theme-"]), .acv-theme-acronis):not(.acv-color-scheme-light) {
+      @mixin acv-theme-acronis-dark;
+    }
+  }
+}

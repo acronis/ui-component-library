@@ -1,6 +1,7 @@
 import type { Decorator, Preview } from '@storybook/vue3';
 import { useEffect, useGlobals } from '@storybook/preview-api';
-import '../src/styles/public/themes.css';
+import '../src/styles/reset.css';
+import '../src/styles/themes/acronis/acronis.pcss';
 
 export function withToggleDarkMode(StoryFn) {
   const [globals] = useGlobals();
@@ -8,14 +9,12 @@ export function withToggleDarkMode(StoryFn) {
 
   useEffect(() => {
     if (darkMode) {
-      global.document.documentElement.dataset.theme = 'dark';
-      global.document.documentElement.classList.add('color-scheme-dark');
-      global.document.documentElement.classList.remove('color-scheme-light');
+      global.document.documentElement.classList.add('acv-color-scheme-dark');
+      global.document.documentElement.classList.remove('acv-color-scheme-light');
     }
     else {
-      global.document.documentElement.dataset.theme = 'light';
-      global.document.documentElement.classList.remove('color-scheme-dark');
-      global.document.documentElement.classList.add('color-scheme-light');
+      global.document.documentElement.classList.remove('acv-color-scheme-dark');
+      global.document.documentElement.classList.add('acv-color-scheme-light');
     }
   }, [darkMode]);
 

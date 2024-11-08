@@ -1,0 +1,234 @@
+/*
+    - acv-reset - reset default browser styling for HTML elements (lowest priority)
+    - acv-theme - css for specific theme
+ */
+@layer acv-reset, acv-theme, acv-utilities;
+@import "./tokens/sizes.css";
+@import "./tokens/icon.css";
+@import "./utilities/icon.css";
+
+@layer acv-reset {
+  *,
+  :before,
+  :after {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+  }
+
+  :before,
+  :after {
+    text-decoration: inherit;
+    vertical-align: inherit;
+  }
+
+  :root {
+    block-size: 100%;
+    cursor: default;
+    line-height: var(--acv-font-line-height-regular);
+    overflow-wrap: break-word;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+    hanging-punctuation: first last;
+  }
+
+  body {
+    background-color: var(--acv-color-surface-primary);
+    margin: 0;
+    min-block-size: 100%;
+    color: var(--acv-color-text-primary);
+    font-family: var(--acv-font-family-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+  }
+
+  hr {
+    block-size: 0;
+    color: inherit;
+    border-block-start-width: 1px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  pre,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  b, strong {
+    font-weight: var(--acv-font-weight-strong);
+  }
+
+  pre {
+    font-family: monospace;
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+    font-size: 1em;
+    overflow: auto;
+  }
+
+  small {
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+    font-size: 80%;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    /* stylelint-disable-next-line plugin/declaration-block-no-ignored-properties */
+    vertical-align: middle;
+    align-self: center;
+  }
+
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  :target {
+    /* Anything that has been anchored to should have extra scroll margin */
+    scroll-margin-block: 5ex;
+  }
+
+  iframe {
+    border-style: none;
+  }
+
+  :where(svg:not([fill])) {
+    fill: currentColor;
+  }
+
+  code, kbd, samp {
+    font-family: monospace;
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+    font-size: 1em;
+  }
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  abbr[title] {
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font: inherit;
+    font-size: var(--acv-font-size-body);
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  ::-webkit-search-decoration {
+    appearance: none;
+  }
+
+  ::-webkit-file-upload-button {
+    appearance: button;
+    font: inherit;
+  }
+
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+  ::input-placeholder {
+    color: inherit;
+    opacity: 0.54;
+  }
+
+  [type="search"] {
+    appearance: textfield;
+    outline-offset: -2px;
+  }
+
+  [aria-controls] {
+    cursor: pointer;
+  }
+
+  [hidden] {
+    display: none;
+  }
+
+  [aria-disabled="true"],
+  [disabled] {
+    cursor: not-allowed;
+  }
+
+  summary {
+    display: list-item;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  progress {
+    vertical-align: baseline;
+  }
+
+  button {
+    appearance: button;
+    border: 0;
+    background: none;
+    text-align: inherit;
+  }
+
+  a {
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+    color: currentcolor;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: var(--acv-outline-width) solid var(--acv-color-outline);
+  }
+}
+

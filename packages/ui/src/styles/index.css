@@ -1,7 +1,0 @@
-@import "./layers.css";
-@import "./generic/reset.css";
-@import "./generic/normalize.css";
-@import "./tokens/base.css" layer(theme);
-@import "./tokens/acv" layer(tokens);
-@import "./elements";
-@import "./utilities";

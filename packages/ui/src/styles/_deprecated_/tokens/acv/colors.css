@@ -1,0 +1,29 @@
+@import "colors/color.amber.css";
+@import "colors/color.blue.css";
+@import "colors/color.brown.css";
+@import "colors/color.charts.css";
+@import "colors/color.cyan.css";
+@import "colors/color.deep-purple.css";
+@import "colors/color.dodge-blue.css";
+@import "colors/color.gray.css";
+@import "colors/color.green.css";
+@import "colors/color.indigo.css";
+@import "colors/color.light-blue.css";
+@import "colors/color.light-green.css";
+@import "colors/color.named.css";
+@import "colors/color.orange.css";
+@import "colors/color.pink.css";
+@import "colors/color.primary.css";
+@import "colors/color.purple.css";
+@import "colors/color.red.css";
+@import "colors/color.secondary.css";
+@import "colors/color.state.css";
+@import "colors/color.status.css";
+@import "colors/color.teal.css";
+@import "colors/color.tertiary.css";
+@import "colors/color.yellow.css";
+
+:root {
+  --acv-color-text-on-primary: var(--acv-color-white);
+  --acv-color-surface-card: var(--acv-color-white);
+}
