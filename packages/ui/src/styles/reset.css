@@ -9,14 +9,14 @@
 
 @layer acv-reset {
   *,
-  ::before,
-  ::after {
+  :before,
+  :after {
     box-sizing: border-box;
     background-repeat: no-repeat;
   }
 
-  ::before,
-  ::after {
+  :before,
+  :after {
     text-decoration: inherit;
     vertical-align: inherit;
   }
@@ -28,7 +28,7 @@
     overflow-wrap: break-word;
     tab-size: 4;
     -webkit-tap-highlight-color: transparent;
-    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     hanging-punctuation: first last;
   }
 
@@ -67,12 +67,14 @@
   }
 
   pre {
-    font-family: monospace, monospace;
+    font-family: monospace;
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
     font-size: 1em;
     overflow: auto;
   }
 
   small {
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
     font-size: 80%;
   }
 
@@ -85,6 +87,7 @@
   embed,
   object {
     display: block;
+    /* stylelint-disable-next-line plugin/declaration-block-no-ignored-properties */
     vertical-align: middle;
     align-self: center;
   }
@@ -109,7 +112,8 @@
   }
 
   code, kbd, samp {
-    font-family: monospace, monospace;
+    font-family: monospace;
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
     font-size: 1em;
   }
 
@@ -172,7 +176,8 @@
     font: inherit;
   }
 
-  ::-webkit-input-placeholder {
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+  ::input-placeholder {
     color: inherit;
     opacity: 0.54;
   }
@@ -209,13 +214,14 @@
   }
 
   button {
-    -webkit-appearance: button;
+    appearance: button;
     border: 0;
     background: none;
     text-align: inherit;
   }
 
   a {
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
     color: currentcolor;
     cursor: pointer;
     text-decoration: none;
