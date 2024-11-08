@@ -1,22 +1,33 @@
+import type { RouteLocationRaw, RouterLink } from 'vue-router';
+
 export interface AcvStepperItemProps {
   /**
-   * Title of the StepperItem
+   * Target of the link
    */
-  title?: string
+  to?: RouteLocationRaw
+
+  /** Whether button appearance as selected */
+  selected?: boolean
 
   /**
-   * Description of the StepperItem
+   * Disable the StepperItem
    */
-  description?: string
+  disabled?: boolean
+
+  /**
+   * StepperItem tag
+   * @values a, span, button, label, RouterLink
+   * @defaultValue button
+   */
+  is?: 'a' | 'span' | 'button' | 'label' | typeof RouterLink
 }
 
 export interface AcvStepperItemEvents {
   /**
-   * Triggered when the component is closed
+   * Triggered when the component is being selected
    * @arg {string} eventName - The name of the event
-   * @arg {string} visible - The visibility state of the component
    */
-  (eventName: 'close', visible: boolean): void
+  (eventName: 'select'): void
 }
 
 export interface AcvStepperItemSlots {
@@ -24,9 +35,4 @@ export interface AcvStepperItemSlots {
    * The default slot content
    */
   default: void
-  /**
-   * The description slot content
-   * @binding {string} description - The description prop value
-   */
-  description: void
 }
