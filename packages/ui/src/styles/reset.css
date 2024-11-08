@@ -2,7 +2,10 @@
     - acv-reset - reset default browser styling for HTML elements (lowest priority)
     - acv-theme - css for specific theme
  */
-@layer acv-reset, acv-theme;
+@layer acv-reset, acv-theme, acv-utilities;
+@import "./tokens/sizes.css";
+@import "./tokens/icon.css";
+@import "./utilities/icon.css";
 
 @layer acv-reset {
   *,

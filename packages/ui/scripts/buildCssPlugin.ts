@@ -3,11 +3,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export function buildCssPlugin(): Plugin {
-  const stylesPath = path.join('src', 'styles', 'public');
-  const styles = fs.readdirSync(stylesPath);
-  const entry = Object.fromEntries(styles.map((style) => {
-    return [`styles/${style.replace('.css', '')}`, path.join(stylesPath, style)];
-  }));
+  const stylesPath = path.join('src', 'styles', 'themes');
+  const themes = fs.readdirSync(stylesPath).map((theme) => {
+    return [`styles/themes/${theme}`, path.join(stylesPath, theme, `${theme}.pcss`)];
+  });
+  const entry = {
+    'styles/reset': path.join('src', 'styles', 'reset.css'),
+    ...Object.fromEntries(themes)
+  };
 
   return {
     name: 'build-css-plugin',

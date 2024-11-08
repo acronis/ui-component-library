@@ -1,7 +1,7 @@
 import type { Decorator, Preview } from '@storybook/vue3';
 import { useEffect, useGlobals } from '@storybook/preview-api';
 import '../src/styles/reset.css';
-import '@/styles/themes/acronis/acronis.pcss';
+import '../src/styles/themes/acronis/acronis.pcss';
 
 export function withToggleDarkMode(StoryFn) {
   const [globals] = useGlobals();
@@ -9,12 +9,12 @@ export function withToggleDarkMode(StoryFn) {
 
   useEffect(() => {
     if (darkMode) {
-      global.document.documentElement.classList.add('acv-theme-dark-acronis');
-      global.document.documentElement.classList.remove('acv-theme-light-acronis');
+      global.document.documentElement.classList.add('acv-color-scheme-dark');
+      global.document.documentElement.classList.remove('acv-color-scheme-light');
     }
     else {
-      global.document.documentElement.classList.remove('acv-theme-dark-acronis');
-      global.document.documentElement.classList.add('acv-theme-light-acronis');
+      global.document.documentElement.classList.remove('acv-color-scheme-dark');
+      global.document.documentElement.classList.add('acv-color-scheme-light');
     }
   }, [darkMode]);
 

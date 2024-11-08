@@ -1,0 +1,9 @@
+@layer acv-utilities {
+  .acv-icon {
+    width: var(--acv-icon-size);
+    height: var(--acv-icon-size);
+    accent-color: var(--acv-icon-color);
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
