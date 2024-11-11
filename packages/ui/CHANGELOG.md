@@ -1,3 +1,10 @@
+## [1.30.1](https://github.com/acronis/ui-component-library/compare/v1.30.0...v1.30.1) (2024-11-11)
+
+
+### Bug Fixes
+
+* **ui:** fixed typings of Vue plugin installer function ([#158](https://github.com/acronis/ui-component-library/issues/158)) ([4b5b782](https://github.com/acronis/ui-component-library/commit/4b5b782aabe00aad5c09c72b87ad9b776a0828f7))
+
 ## [1.30.0](https://github.com/acronis/ui-component-library/compare/v1.29.0...v1.30.0) (2024-11-11)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * button theme styles [#99](https://github.com/acronis/ui-component-library/issues/99) ([#149](https://github.com/acronis/ui-component-library/issues/149)) ([666b763](https://github.com/acronis/ui-component-library/commit/666b7631427a6b94ec4e525b20c0a3c972b5ae6d))
-
-## [1.26.0](https://github.com/acronis/ui-component-library/compare/v1.25.1...v1.26.0) (2024-10-30)
-
-
-### Features
-
-* button styles ([#148](https://github.com/acronis/ui-component-library/issues/148)) ([97e4cd6](https://github.com/acronis/ui-component-library/commit/97e4cd67b77ffaf28f1e2c5a9cb7c9a0395e9473)), closes [#99](https://github.com/acronis/ui-component-library/issues/99) [#99](https://github.com/acronis/ui-component-library/issues/99) [#99](https://github.com/acronis/ui-component-library/issues/99)
 
