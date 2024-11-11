@@ -1,3 +1,10 @@
+## [1.30.2](https://github.com/acronis/ui-component-library/compare/v1.30.1...v1.30.2) (2024-11-11)
+
+
+### Bug Fixes
+
+* **build:** remove jsx ([#159](https://github.com/acronis/ui-component-library/issues/159)) ([ce20f14](https://github.com/acronis/ui-component-library/commit/ce20f1402d56c7ec535e04be6ce807c38b30d6a4))
+
 ## [1.30.1](https://github.com/acronis/ui-component-library/compare/v1.30.0...v1.30.1) (2024-11-11)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * global css structure ([#151](https://github.com/acronis/ui-component-library/issues/151)) ([e7de92d](https://github.com/acronis/ui-component-library/commit/e7de92d484cd2839e4c2cab70c65f719c61b490a))
-
-## [1.27.0](https://github.com/acronis/ui-component-library/compare/v1.26.0...v1.27.0) (2024-10-31)
-
-
-### Features
-
-* button theme styles [#99](https://github.com/acronis/ui-component-library/issues/99) ([#149](https://github.com/acronis/ui-component-library/issues/149)) ([666b763](https://github.com/acronis/ui-component-library/commit/666b7631427a6b94ec4e525b20c0a3c972b5ae6d))
 
