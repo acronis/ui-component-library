@@ -4,13 +4,19 @@ It supports multiple variants, sizes, and states.
 
 ## Overview
 
+<ButtonDoc />
+
+## Basic button
+
 <ButtonBasic />
 
 ::: details Source code
 <<< ../../../demos/src/button/ButtonBasic.vue
 :::
 
-## Types
+## Variants
+
+The `AcvButton` comes with five variants: primary (default), secondary, ghost, status and inverted.
 
 <ButtonDocTypes />
 
@@ -20,15 +26,15 @@ It supports multiple variants, sizes, and states.
 
 ## States
 
-Buttons can have different states.
-They support `active`, `focus`, `hover`, and `disabled` states.
+`AcvButton` can have different states.
+Supported states are `active`, `focus`, `hover`, and `disabled`
 
 Use `disabled=true` to disable button.
 
-<ButtonStates />
+<ButtonDoc />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonStates.vue
+<<< ../../../demos/src/button/ButtonDoc.vue
 :::
 
 ### Default state
