@@ -1,8 +1,8 @@
-import { computed, defineComponent } from 'vue'
-import { isColor } from '../../utils/color.ts'
-import { useNameHelper } from '../../utils/namespace.ts'
-import { useProps } from '../../utils/props.ts'
-import { titleProps } from './props.ts'
+import { isColor } from '@/utils/color.ts';
+import { useNameHelper } from '@/utils/namespace.ts';
+import { useProps } from '@/utils/props.ts';
+import { computed, defineComponent, h } from 'vue';
+import { titleProps } from './props.ts';
 
 export default defineComponent({
   name: 'Title',
@@ -17,13 +17,13 @@ export default defineComponent({
       aligned: false,
       thin: false,
       markerType: null,
-    })
+    });
 
-    const nameHelper = useNameHelper('title')
+    const nameHelper = useNameHelper('title');
     // const { isColorModifier } = useColor(['primary'])
 
-    const coloredMarker = computed(() => isColor(props.markerType))
-    const markerType = computed(() => props.markerType || props.type)
+    const coloredMarker = computed(() => isColor(props.markerType));
+    const markerType = computed(() => props.markerType || props.type);
     const className = computed(() => {
       return {
         [nameHelper]: true,
@@ -36,25 +36,25 @@ export default defineComponent({
         [`${nameHelper}--thin`]: props.thin,
         [`${nameHelper}--marker-${markerType.value}`]:
             markerType.value && !coloredMarker.value && markerType.value !== 'default',
-      }
-    })
-    const level = computed(() => props.level)
+      };
+    });
+    const level = computed(() => props.level);
     const style = computed(() => {
       return coloredMarker.value
         ? {
             [`${nameHelper}-marker-color`]: props.markerType,
           }
-        : null
-    })
+        : null;
+    });
 
     return () => {
-      const CustomTag = `h${level.value}` as any
+      const CustomTag = `h${level.value}` as any;
 
-      return (
-        <CustomTag class={className.value} style={style.value}>
-          {slots.default?.()}
-        </CustomTag>
-      )
-    }
+      return h(
+        CustomTag,
+        { class: className.value, style: style.value },
+        slots.default?.(),
+      );
+    };
   },
-})
+});

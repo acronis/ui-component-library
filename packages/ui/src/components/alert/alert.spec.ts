@@ -1,18 +1,18 @@
-import type { AcvAlertProps } from './alert.ts'
-import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
-import { axe } from 'vitest-axe'
-import Alert from './alert.vue'
+import type { AcvAlertProps } from './alert.ts';
+import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
+import { axe } from 'vitest-axe';
+import Alert from './alert.vue';
 
 describe('alert', () => {
   it('pass accessibility tests', async () => {
-    const wrapper = mount(Alert)
+    const wrapper = mount(Alert);
 
-    expect(await axe(wrapper.element)).toHaveNoViolations()
-  })
+    expect(await axe(wrapper.element)).toHaveNoViolations();
+  });
 
   it('default props', () => {
-    const wrapper = mount(Alert)
+    const wrapper = mount(Alert);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "color": "info",
@@ -23,17 +23,22 @@ describe('alert', () => {
         "subtitle": undefined,
         "title": undefined,
       }
-    `)
-  })
+    `);
+  });
 
   it('types', () => {
     ;(['info', 'success', 'warning', 'critical', 'error', 'unknown'] as const).forEach(async (type) => {
-      const wrapper = mount(() => <Alert icon color={type}></Alert>)
+      const wrapper = mount(Alert, {
+        props: {
+          icon: true,
+          color: type,
+        } as AcvAlertProps,
+      });
 
-      expect(wrapper.find('.acv-alert').classes()).toContain(`${type}`)
+      expect(wrapper.find('.acv-alert').classes()).toContain(`${type}`);
       // expect(wrapper.findComponent(AcvAlertIconTypes[type]).exists()).toBe(true)
-    })
-  })
+    });
+  });
 
   it('pass props', () => {
     const wrapper = mount(Alert, {
@@ -41,7 +46,7 @@ describe('alert', () => {
         showClose: true,
         variant: 'success',
       } as AcvAlertProps,
-    })
+    });
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "color": "info",
@@ -52,11 +57,11 @@ describe('alert', () => {
         "subtitle": undefined,
         "title": undefined,
       }
-    `)
-  })
+    `);
+  });
 
   it('renders by default', () => {
-    const wrapper = mount(Alert)
+    const wrapper = mount(Alert);
 
     expect(wrapper.element).toMatchInlineSnapshot(`
       <div
@@ -76,28 +81,28 @@ describe('alert', () => {
         </div>
         <!--v-if-->
       </div>
-    `)
-  })
+    `);
+  });
 
   it('renders title slot', () => {
     const wrapper = mount(Alert, {
       slots: {
         title: 'Title',
       },
-    })
+    });
 
-    expect(wrapper.get('.title').text()).toBe('Title')
-  })
+    expect(wrapper.get('.title').text()).toBe('Title');
+  });
 
   it('renders description slot', () => {
     const wrapper = mount(Alert, {
       slots: {
         description: 'Description',
       },
-    })
+    });
 
-    expect(wrapper.text()).toBe('Description')
-  })
+    expect(wrapper.text()).toBe('Description');
+  });
 
   /* TODO: Temporarily commented out, due to issues with updating snapshots */
   it.skip('renders close button', () => {
@@ -105,8 +110,8 @@ describe('alert', () => {
       props: {
         showClose: true,
       } as AcvAlertProps,
-    })
+    });
 
-    expect(wrapper.find('.close').element).toMatchSnapshot()
-  })
-})
+    expect(wrapper.find('.close').element).toMatchSnapshot();
+  });
+});

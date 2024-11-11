@@ -1,8 +1,7 @@
-import { defineComponent } from 'vue'
-
-import { useProps } from '../../utils/props.ts'
-import { pProps } from './props.ts'
-import Text from './text.tsx'
+import { useProps } from '@/utils/props.ts';
+import { defineComponent, h } from 'vue';
+import { pProps } from './props.ts';
+import Text from './text.ts';
 
 export default defineComponent({
   name: 'P',
@@ -20,12 +19,12 @@ export default defineComponent({
       keyboard: false,
       thin: false,
       reversed: false,
-    })
+    });
 
-    return () => (
-      <Text {...props} tag="p">
-        {slots.default?.()}
-      </Text>
-    )
+    return () => h(
+      Text,
+      { ...props, tag: 'p' },
+      slots.default ? slots.default() : undefined,
+    );
   },
-})
+});
