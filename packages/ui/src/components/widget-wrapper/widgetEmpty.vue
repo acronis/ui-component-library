@@ -1,5 +1,5 @@
 <script>
-  import AcvIcon from '../../components/icon/icon.vue';
+  import AcvIcon from '@/components/icon/icon.vue';
 
   const DEF_EMPTY_TEXT = 'No data to show';
 

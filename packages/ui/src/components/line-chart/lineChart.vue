@@ -2,9 +2,9 @@
   import Chart from 'chart.js/auto';
   import annotationPlugin from 'chartjs-plugin-annotation';
   import { format, parse } from 'date-fns';
-  import AcvPopover from '../../components/popover/popover.vue';
   import { cleanData, getDataMaxY, isValidData } from '../../utils/widget.ts';
-  import WidgetChart from '../pie-chart/widget.chart';
+  import WidgetChart from '../pie-chart/widget.chart.js';
+  import AcvPopover from '../popover/popover.vue';
   import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
   import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
   import WidgetLoading from '../widget-wrapper/widgetLoading.vue';

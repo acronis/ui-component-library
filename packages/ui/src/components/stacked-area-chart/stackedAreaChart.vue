@@ -2,7 +2,7 @@
   import { isBrowser } from '@antfu/utils';
   import Chart from 'chart.js/auto';
   import { cleanData, isValidData } from '../../utils/widget.ts';
-  import WidgetChart from '../pie-chart/widget.chart';
+  import WidgetChart from '../pie-chart/widget.chart.js';
   import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
   import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
   import WidgetLoading from '../widget-wrapper/widgetLoading.vue';

@@ -1,5 +1,5 @@
 <script>
-  import AcvIcon from '../../components/icon/icon.vue';
+  import AcvIcon from '../icon/icon.vue';
 
   const DEF_INVALID_TEXT = 'An error occurred while loading content';
 

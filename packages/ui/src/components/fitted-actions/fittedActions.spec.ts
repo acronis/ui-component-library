@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import FittedActions from './fittedActions.vue';
 
-describe('test FittedActions component', () => {
+describe('test fitted-actions component', () => {
   it('default props', () => {
     const wrapper = mount(FittedActions);
     expect(wrapper.props()).toMatchInlineSnapshot(`
@@ -35,9 +35,9 @@ describe('test FittedActions component', () => {
   it('renders', () => {
     const wrapper = mount(FittedActions);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div data-v-a22f15ae="" class="acv-fitted-actions">
-        <div data-v-a22f15ae="" class="tracing-layer"></div>
-        <div data-v-a22f15ae="" class="elements" style="display: none;"></div>
+      "<div data-v-4911cd3b="" class="acv-fitted-actions">
+        <div data-v-4911cd3b="" class="tracing-layer"></div>
+        <div data-v-4911cd3b="" class="elements" style="display: none;"></div>
         <!--v-if-->
       </div>"
     `);

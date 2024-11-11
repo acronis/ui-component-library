@@ -6,7 +6,7 @@
 
   // import DirectionSwitch from '../documentation/.vitepress/components/direction-switch.vue';
 
-  import ThemeSwitcher from '@/widgets/theme-switcher/themeSwitcher.vue';
+  import ThemeSwitcher from '@/components/theme-switcher/themeSwitcher.vue';
 
   const router = useRouter();
   const panelShow = ref(false);
