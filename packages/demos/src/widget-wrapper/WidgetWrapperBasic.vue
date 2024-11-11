@@ -1,6 +1,6 @@
 <script>
-  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
-  import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
+  import AcvPieChart from '@/components/pie-chart/pieChart.vue';
+  import AcvWidgetWrapper from '@/components/widget-wrapper/widgetWrapper.vue';
 
   export default {
     components: { AcvPieChart, AcvWidgetWrapper },

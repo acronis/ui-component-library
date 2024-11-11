@@ -4,8 +4,8 @@
   import AcvDropdownItem from '@/components/dropdown/dropdownItem.vue';
   import AcvDropdownMenu from '@/components/dropdown/dropdownMenu.vue';
   import AcvIcon from '@/components/icon/icon.vue';
-  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
-  import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
+  import AcvPieChart from '@/components/pie-chart/pieChart.vue';
+  import AcvWidgetWrapper from '@/components/widget-wrapper/widgetWrapper.vue';
 
   const dataGPUTemperature = {
     dataType: 'temperature',

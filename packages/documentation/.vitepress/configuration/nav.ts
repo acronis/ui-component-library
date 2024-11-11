@@ -1,5 +1,5 @@
 import { version } from '../../../ui/package.json';
-import { enComponents } from './components';
+import { components } from './components';
 import { enExamples } from './examples';
 import { enGuides } from './guides';
 import { styleguide } from './styleguide.ts';
@@ -10,7 +10,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 export const nav = [
   { text: 'Guide', items: [...enGuides, ...styleguide] },
-  { text: 'Components', items: enComponents },
+  { text: 'Components', items: components },
   { text: 'Theme', items: enTheme },
   { text: 'Examples', items: enExamples, devOnly: true },
   {

@@ -1,5 +1,5 @@
 <script>
-  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
+  import AcvPieChart from '@/components/pie-chart/pieChart.vue';
 
   export default {
     components: { AcvPieChart },

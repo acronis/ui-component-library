@@ -1,5 +1,5 @@
 <script setup>
-  import AcvLoading from '@/widgets/loading/loading.vue';
+  import AcvLoading from '@/components/loading/loading.vue';
   import { ref } from 'vue';
   import phaethon from '../__data__/data.phaethon.txt?raw';
 

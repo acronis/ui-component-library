@@ -1,6 +1,6 @@
 <script setup>
   import { defineFilter } from '@/components/table/index.ts';
-  import ThemeSwitch from '@/widgets/theme-switcher/themeSwitcher.vue';
+  import ThemeSwitch from '@/components/theme-switcher/themeSwitcher.vue';
   import { IconChevronUp16 } from '@acronis-platform/icons/chevron';
   import { ref } from 'vue';
 

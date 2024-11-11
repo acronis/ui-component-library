@@ -1,8 +1,8 @@
 <script setup>
 // import { computed } from 'vue';
-  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
-  import AcvStackedAreaChart from '@/widgets/stacked-area-chart/stackedAreaChart.vue';
-  import AcvWidgetWrapper from '@/widgets/widget-wrapper/widgetWrapper.vue';
+  import AcvPieChart from '@/components/pie-chart/pieChart.vue';
+  import AcvStackedAreaChart from '@/components/stacked-area-chart/stackedAreaChart.vue';
+  import AcvWidgetWrapper from '@/components/widget-wrapper/widgetWrapper.vue';
 
   const title = 'Storage';
   const data = {
