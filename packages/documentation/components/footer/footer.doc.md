@@ -15,7 +15,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-1433
 <FooterBasic />
 
 ::: details Source code
-<<< ../../../demos/src/footer/FooterBasic.vue
+<<< ../../../examples/demos/footer/FooterBasic.vue
 :::
 
 ## Link usage

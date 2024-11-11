@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <ConfirmDialogBasic />
 
 ::: details Source code
-<<< ../../../demos/src/confirm-dialog/ConfirmDialogBasic.vue
+<<< ../../../examples/demos/confirm-dialog/ConfirmDialogBasic.vue
 :::
 
 ## Best practices

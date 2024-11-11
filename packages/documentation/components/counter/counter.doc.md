@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <CounterBasic />
 
 ::: details Source code
-<<< ../../../demos/src/counter/CounterBasic.vue
+<<< ../../../examples/demos/counter/CounterBasic.vue
 :::
 
 ## Best practices

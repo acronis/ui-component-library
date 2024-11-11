@@ -1,6 +1,6 @@
+import { useColorScheme } from '@/composables/useColorScheme';
 import { describe, expect, it } from 'vitest';
 import { nextTick } from 'vue';
-import { useColorScheme } from '../composables/useColorScheme';
 
 describe('useColorScheme', () => {
   it('returns default color scheme', () => {

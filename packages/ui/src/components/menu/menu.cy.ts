@@ -1,8 +1,8 @@
 import { mount } from '@cypress/vue';
-import MenuBasic from '../../../../demos/src/menu/MenuBasic.vue';
-import MenuPrimary from '../../../../demos/src/menu/MenuPrimary.vue';
-import MenuSecondary from '../../../../demos/src/menu/MenuSecondary.vue';
-import MenuTertiary from '../../../../demos/src/menu/MenuTertiary.vue';
+import MenuBasic from '../../../../examples/demos/menu/MenuBasic.vue';
+import MenuPrimary from '../../../../examples/demos/menu/MenuPrimary.vue';
+import MenuSecondary from '../../../../examples/demos/menu/MenuSecondary.vue';
+import MenuTertiary from '../../../../examples/demos/menu/MenuTertiary.vue';
 
 const testComponents = [
   ['basic', MenuBasic],

@@ -1,3 +1,0 @@
-# Basic Alert
-
-<AlertBasic />

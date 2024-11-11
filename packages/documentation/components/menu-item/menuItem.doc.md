@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <MenuItemBasic />
 
 ::: details Source code
-<<< ../../../demos/src/menu-item/MenuItemBasic.vue
+<<< ../../../examples/demos/menu-item/MenuItemBasic.vue
 :::
 
 ## Best practices

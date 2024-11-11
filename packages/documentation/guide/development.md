@@ -65,7 +65,7 @@ To create a new **[component]** component, you need to create sources with:
 - documentation page (**@acronis-platform/ui-component-library/src/components/[component]/[component].md**)
 - component styles, style section in (**@acronis-platform/ui-component-library/src/components/[component]/[component].vue**)
 - component tokens (**@acronis-platform/ui-component-library/src/components/[component]/[component].css**) that include all points of can be configured
-- demos (**@acronis-platform/demos/src/[component]/[component]Basic.vue**)
+- demos (**@acronis-platform/examples/demos/[component]/[component]Basic.vue**)
 - add export to public.ts (**@acronis-platform/ui-component-library/src/components/index.ts**)
 
 You can create them manually or use [Hygen](https://www.hygen.io) generator.
@@ -81,7 +81,7 @@ You can create as many examples for that particular component as you want.
 They can be shown in component and examples section of documentation package.
 Such examples are useful for developers to understand how to use the component.
 
-To create an example, you need to create a new file in the **packages/demos/src/[component]/[component][Example].vue** folder.
+To create an example, you need to create a new file in the **packages/examples/demos/[component]/[component][Example].vue** folder.
 
 ## Generate documentation
 

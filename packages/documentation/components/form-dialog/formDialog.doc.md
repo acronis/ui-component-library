@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <FormDialogBasic />
 
 ::: details Source code
-<<< ../../../demos/src/form-dialog/FormDialogBasic.vue
+<<< ../../../examples/demos/form-dialog/FormDialogBasic.vue
 :::
 
 ## Best practices

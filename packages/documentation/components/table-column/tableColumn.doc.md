@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <TableColumnBasic />
 
 ::: details Source code
-<<< ../../../demos/src/table-column/TableColumnBasic.vue
+<<< ../../../examples/demos/table-column/TableColumnBasic.vue
 :::
 
 ## Best practices

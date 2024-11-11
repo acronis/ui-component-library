@@ -19,7 +19,7 @@ https://www.figma.com/file/LTyCXsL7eUj5fHmMMGcEUj/Components-anatomy?type=design
 <AlertBasic />
 
 ::: details Source code
-<<< ../../../demos/src/alert/AlertBasic.vue
+<<< ../../../examples/demos/alert/AlertBasic.vue
 :::
 
 ## States

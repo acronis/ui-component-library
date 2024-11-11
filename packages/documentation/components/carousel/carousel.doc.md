@@ -10,7 +10,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-3736
 <CarouselBasic />
 
 ::: details Source code
-<<< ../../../demos/src/carousel/CarouselBasic.vue
+<<< ../../../examples/demos/carousel/CarouselBasic.vue
 :::
 
 ## Variants

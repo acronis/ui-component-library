@@ -13,7 +13,7 @@ These examples demonstrate 4 types of forms with modal `dialog`.
 <FormBasic />
 
 ::: details Source code
-<<< ../../../demos/src/form/FormBasic.vue
+<<< ../../../examples/demos/form/FormBasic.vue
 :::
 
 ## Form with validation

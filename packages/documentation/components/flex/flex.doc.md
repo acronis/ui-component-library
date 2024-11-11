@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <FlexBasic />
 
 ::: details Source code
-<<< ../../../demos/src/flex/FlexBasic.vue
+<<< ../../../examples/demos/flex/FlexBasic.vue
 :::
 
 ## Variants

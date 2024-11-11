@@ -10,7 +10,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A34
 <TimePickerBasic />
 
 ::: details Source code
-<<< ../../../demos/src/time-picker/TimePickerBasic.vue
+<<< ../../../examples/demos/time-picker/TimePickerBasic.vue
 :::
 
 ## Best practices

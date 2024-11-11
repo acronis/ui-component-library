@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <InfiniteScrollBasic />
 
 ::: details Source code
-<<< ../../../demos/src/infinite-scroll/InfiniteScrollBasic.vue
+<<< ../../../examples/demos/infinite-scroll/InfiniteScrollBasic.vue
 :::
 
 ## Best practices

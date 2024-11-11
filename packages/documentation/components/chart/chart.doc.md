@@ -5,7 +5,7 @@ Chart component is a visual to convey complex images to users.
 <ChartBasic />
 
 ::: details Source code
-<<< ../../../demos/src/chart/ChartBasic.vue
+<<< ../../../examples/demos/chart/ChartBasic.vue
 :::
 
 ## Bubble chart

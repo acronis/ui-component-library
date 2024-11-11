@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <TextareaBasic />
 
 ::: details Source code
-<<< ../../../demos/src/textarea/TextareaBasic.vue
+<<< ../../../examples/demos/textarea/TextareaBasic.vue
 :::
 
 ## Disabled

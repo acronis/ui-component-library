@@ -14,7 +14,7 @@ With `row` and `col`, we can easily manipulate the layout using the `span` attri
 <GridBasic />
 
 ::: details Source code
-<<< ../../../demos/src/grid/GridBasic.vue
+<<< ../../../examples/demos/grid/GridBasic.vue
 :::
 
 ## Column spacing
@@ -26,7 +26,7 @@ Row provides `gutter` attribute to specify spacings between columns, and its def
 <RowColumnSpacing />
 
 ::: details Source code
-<<< ../../../demos/src/row/RowColumnSpacing.vue
+<<< ../../../examples/demos/row/RowColumnSpacing.vue
 :::
 
 ## Hybrid layout

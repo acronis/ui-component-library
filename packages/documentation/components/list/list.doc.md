@@ -12,7 +12,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=876-2097
 <ListBasic />
 
 ::: details Source code
-<<< ../../../demos/src/list/ListBasic.vue
+<<< ../../../examples/demos/list/ListBasic.vue
 :::
 
 ## Inside a card

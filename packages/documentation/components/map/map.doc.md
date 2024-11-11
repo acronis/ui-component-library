@@ -9,7 +9,7 @@ https://www.figma.com/file/7JglRd1XDBriTX8E8a6SQw/Cyber-Desktop?node-id=229%3A23
 <MapBasic />
 
 ::: details Source code
-<<< ../../../demos/src/map/MapBasic.vue
+<<< ../../../examples/demos/map/MapBasic.vue
 :::
 
 ## Best practices

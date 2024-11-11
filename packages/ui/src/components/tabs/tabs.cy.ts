@@ -1,7 +1,7 @@
 import { mount } from '@cypress/vue';
-import TabsBasic from '../../../../demos/src/tabs/TabsBasic.vue';
-import TabsLarge from '../../../../demos/src/tabs/TabsLarge.vue';
-import TabsLargeWithIcons from '../../../../demos/src/tabs/TabsLargeWithIcons.vue';
+import TabsBasic from '../../../../examples/demos/tabs/TabsBasic.vue';
+import TabsLarge from '../../../../examples/demos/tabs/TabsLarge.vue';
+import TabsLargeWithIcons from '../../../../examples/demos/tabs/TabsLargeWithIcons.vue';
 
 describe('Tabs', () => {
   it('basic', () => {

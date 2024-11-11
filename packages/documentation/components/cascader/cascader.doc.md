@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <CascaderBasic />
 
 ::: details Source code
-<<< ../../../demos/src/cascader/CascaderBasic.vue
+<<< ../../../examples/demos/cascader/CascaderBasic.vue
 :::
 
 ## Related components

@@ -7,7 +7,7 @@ You can use the `v-tooltip` directive to add a tooltip to an element.
 <TooltipDirectiveBasic />
 
 ::: details Source code
-<<< ../../demos/src/tooltip/TooltipDirectiveBasic.vue
+<<< ../../examples/demos/tooltip/TooltipDirectiveBasic.vue
 :::
 
 ## Placement modifiers
@@ -24,7 +24,7 @@ In this object, you can put any component props plus the additional options belo
 
 <TooltipDirectiveObjectNotation />
 
-<<< ../../demos/src/tooltip/TooltipDirectiveObjectNotation.vue
+<<< ../../examples/demos/tooltip/TooltipDirectiveObjectNotation.vue
 
 ## Async content
 

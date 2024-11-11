@@ -7,5 +7,5 @@ You can use the `v-loading` directive to add a loading to an element.
 <LoadingDirectiveBasic />
 
 ::: details Source code
-<<< ../../demos/src/loading/LoadingDirectiveBasic.vue
+<<< ../../examples/demos/loading/LoadingDirectiveBasic.vue
 :::

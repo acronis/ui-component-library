@@ -15,7 +15,7 @@ Radio button value binds with `v-model` and `value` as the selected value.
 <RadioBasic />
 
 ::: details Source code
-<<< ../../../demos/src/radio/RadioBasic.vue
+<<< ../../../examples/demos/radio/RadioBasic.vue
 :::
 
 ## Without labels

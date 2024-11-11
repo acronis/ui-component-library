@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <HeaderBasic />
 
 ::: details Source code
-<<< ../../../demos/src/header/HeaderBasic.vue
+<<< ../../../examples/demos/header/HeaderBasic.vue
 :::
 
 ## Best practices

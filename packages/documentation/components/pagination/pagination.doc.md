@@ -11,7 +11,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=592-16
 <PaginationBasic />
 
 ::: details Source code
-<<< ../../../demos/src/pagination/PaginationBasic.vue
+<<< ../../../examples/demos/pagination/PaginationBasic.vue
 :::
 
 ## Examples
@@ -20,7 +20,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=592-16
 
 <PaginationWithRouter />
 ::: details Source code
-<<< ../../../demos/src/pagination/PaginationWithRouter.vue
+<<< ../../../examples/demos/pagination/PaginationWithRouter.vue
 :::
 
 ## Related components

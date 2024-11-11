@@ -35,7 +35,7 @@ General approach when writing a unit test:
 
 Visual regression testing is a technique to verify that the changes in the codebase
 do not affect the visual appearance of the application.
-For that purpose we mount **test components**(packages/demos/src)
+For that purpose we mount **test components**(packages/examples/demos)
 and take **screenshots**(packages/ui/cypress/snapshots) of them.
 Then we compare the screenshots with the baseline screenshots.
 To run visual regression tests with Cypress, you need to run the following command:

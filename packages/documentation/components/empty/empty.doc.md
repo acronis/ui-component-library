@@ -7,7 +7,7 @@ Standard screens to show while waiting for items to load
 <EmptyWithIconTitleContentButton />
 
 ::: details Source code
-<<< ../../../demos/src/empty/EmptyWithIconTitleContentButton.vue
+<<< ../../../examples/demos/empty/EmptyWithIconTitleContentButton.vue
 :::
 
 ## Icon, title, content, button, link
@@ -15,7 +15,7 @@ Standard screens to show while waiting for items to load
 <EmptyIconTitleContentButtonLink />
 
 ::: details Source code
-<<< ../../../demos/src/empty/EmptyIconTitleContentButtonLink.vue
+<<< ../../../examples/demos/empty/EmptyIconTitleContentButtonLink.vue
 :::
 
 ## Icon, title, content, link
@@ -23,7 +23,7 @@ Standard screens to show while waiting for items to load
 <EmptyIconTitleContentLink />
 
 ::: details Source code
-<<< ../../../demos/src/empty/EmptyIconTitleContentLink.vue
+<<< ../../../examples/demos/empty/EmptyIconTitleContentLink.vue
 :::
 
 ## Icon, title, content
@@ -31,7 +31,7 @@ Standard screens to show while waiting for items to load
 <EmptyIconTitleContent />
 
 ::: details Source code
-<<< ../../../demos/src/empty/EmptyIconTitleContent.vue
+<<< ../../../examples/demos/empty/EmptyIconTitleContent.vue
 :::
 
 ## Icon, description
@@ -39,7 +39,7 @@ Standard screens to show while waiting for items to load
 <EmptyIconDescription />
 
 ::: details Source code
-<<< ../../../demos/src/empty/EmptyIconDescription.vue
+<<< ../../../examples/demos/empty/EmptyIconDescription.vue
 :::
 
 ## Icon, description, link
@@ -47,7 +47,7 @@ Standard screens to show while waiting for items to load
 <EmptyIconDescriptionLink />
 
 ::: details Source code
-<<< ../../../demos/src/empty/EmptyIconDescriptionLink.vue
+<<< ../../../examples/demos/empty/EmptyIconDescriptionLink.vue
 :::
 
 ## Loading component, description
@@ -55,5 +55,5 @@ Standard screens to show while waiting for items to load
 <EmptyLoadingComponentDescription />
 
 ::: details Source code
-<<< ../../../demos/src/empty/EmptyLoadingComponentDescription.vue
+<<< ../../../examples/demos/empty/EmptyLoadingComponentDescription.vue
 :::

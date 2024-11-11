@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <TilesBasic />
 
 ::: details Source code
-<<< ../../../demos/src/tiles/TilesBasic.vue
+<<< ../../../examples/demos/tiles/TilesBasic.vue
 :::
 
 ## Best practices

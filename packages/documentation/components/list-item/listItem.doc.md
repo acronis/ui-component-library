@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <ListItemBasic />
 
 ::: details Source code
-<<< ../../../demos/src/list-item/ListItemBasic.vue
+<<< ../../../examples/demos/list-item/ListItemBasic.vue
 :::
 
 ## Best practices

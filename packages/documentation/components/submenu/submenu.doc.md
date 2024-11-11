@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <SubmenuBasic />
 
 ::: details Source code
-<<< ../../../demos/src/submenu/SubmenuBasic.vue
+<<< ../../../examples/demos/submenu/SubmenuBasic.vue
 :::
 
 ## Best practices

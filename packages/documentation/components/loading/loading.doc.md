@@ -17,7 +17,7 @@ You can use the `acv-loading` component to add a loading to an element.
 <LoadingBasic />
 
 ::: details Source code
-<<< ../../../demos/src/loading/LoadingBasic.vue
+<<< ../../../examples/demos/loading/LoadingBasic.vue
 :::
 
 ## Sizes
@@ -27,7 +27,7 @@ You can specify the size of the loading spinner with `size` prop.
 <LoadingSizes />
 
 ::: details Source code
-<<< ../../../demos/src/loading/LoadingSizes.vue
+<<< ../../../examples/demos/loading/LoadingSizes.vue
 :::
 
 ## Spinner color
@@ -38,7 +38,7 @@ Use brand colors(primary, secondary, inverted etc.) for the spinner.
 <LoadingColors />
 
 ::: details Source code
-<<< ../../../demos/src/loading/LoadingColors.vue
+<<< ../../../examples/demos/loading/LoadingColors.vue
 :::
 
 ## Background color
@@ -49,7 +49,7 @@ with `backgroundColor` and `opacity` props.
 <LoadingBackgroundColors />
 
 ::: details Source code
-<<< ../../../demos/src/loading/LoadingBackgroundColors.vue
+<<< ../../../examples/demos/loading/LoadingBackgroundColors.vue
 :::
 
 ## Fullscreen loading
@@ -59,7 +59,7 @@ You can use the `fullscreen` prop to add a fullscreen loading.
 <LoadingFullscreen />
 
 ::: details Source code
-<<< ../../../demos/src/loading/LoadingFullscreen.vue
+<<< ../../../examples/demos/loading/LoadingFullscreen.vue
 :::
 
 ## Custom title and description

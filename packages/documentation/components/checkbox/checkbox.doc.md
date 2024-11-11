@@ -12,7 +12,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4414
 <CheckboxBasic />
 
 ::: details Source code
-<<< ../../../demos/src/checkbox/CheckboxBasic.vue
+<<< ../../../examples/demos/checkbox/CheckboxBasic.vue
 :::
 
 ## Disabled

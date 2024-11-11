@@ -14,7 +14,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A6
 <DisclosureBasic />
 
 ::: details Source code
-<<< ../../../demos/src/disclosure/DisclosureBasic.vue
+<<< ../../../examples/demos/disclosure/DisclosureBasic.vue
 :::
 
 ## Best practices

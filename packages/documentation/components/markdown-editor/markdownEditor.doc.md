@@ -8,5 +8,5 @@ Under the hood, it uses [md-editor-v3](https://github.com/imzbf/md-editor-v3) co
 <MarkdownEditorBasic />
 
 ::: details Source code
-<<< ../../../demos/src/markdown-editor/MarkdownEditorBasic.vue
+<<< ../../../examples/demos/markdown-editor/MarkdownEditorBasic.vue
 :::

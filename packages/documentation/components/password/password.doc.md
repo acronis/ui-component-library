@@ -11,7 +11,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A23
 <PasswordBasic />
 
 ::: details Source code
-<<< ../../../demos/src/password/PasswordBasic.vue
+<<< ../../../examples/demos/password/PasswordBasic.vue
 :::
 
 ## With score

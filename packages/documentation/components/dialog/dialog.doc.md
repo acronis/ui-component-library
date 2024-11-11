@@ -15,7 +15,7 @@ Based on design recommendation, the dialog should have minimal sizes: width 512p
 <DialogBasic />
 
 ::: details Source code
-<<< ../../../demos/src/dialog/DialogBasic.vue
+<<< ../../../examples/demos/dialog/DialogBasic.vue
 :::
 
 ## Dialog Size

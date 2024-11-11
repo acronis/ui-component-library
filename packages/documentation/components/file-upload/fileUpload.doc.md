@@ -9,7 +9,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A12
 <FileUploadBasic />
 
 ::: details Source code
-<<< ../../../demos/src/file-upload/FileUploadBasic.vue
+<<< ../../../examples/demos/file-upload/FileUploadBasic.vue
 :::
 
 ## Best practices

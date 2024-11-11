@@ -16,7 +16,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4409
 <TooltipBasic />
 
 ::: details Source code
-<<< ../../../demos/src/tooltip/TooltipBasic.vue
+<<< ../../../examples/demos/tooltip/TooltipBasic.vue
 :::
 
 ## Placement

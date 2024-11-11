@@ -12,7 +12,7 @@ https://www.figma.com/file/
 <ComboboxBasic />
 
 ::: details Source code
-<<< ../../../demos/src/combobox/ComboboxBasic.vue
+<<< ../../../examples/demos/combobox/ComboboxBasic.vue
 :::
 
 ## Disabled

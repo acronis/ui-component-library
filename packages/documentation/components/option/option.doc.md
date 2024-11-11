@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <OptionBasic />
 
 ::: details Source code
-<<< ../../../demos/src/option/OptionBasic.vue
+<<< ../../../examples/demos/option/OptionBasic.vue
 :::
 
 ## Best practices

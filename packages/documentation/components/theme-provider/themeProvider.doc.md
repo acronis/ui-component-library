@@ -5,5 +5,5 @@ ThemeProvider component allows to style a section of your application in a diffe
 <ThemeProviderBasic />
 
 ::: details Source code
-<<< ../../../demos/src/theme-provider/ThemeProviderBasic.vue
+<<< ../../../examples/demos/theme-provider/ThemeProviderBasic.vue
 :::

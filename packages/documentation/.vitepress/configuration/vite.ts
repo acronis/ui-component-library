@@ -4,8 +4,9 @@ export const vite = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../../../ui/src'),
-      'components': path.resolve(__dirname, '../../components'),
-      'demos': path.resolve(__dirname, '../../../demos/src')
+      'components': path.join(__dirname, '../../components'),
+      '@demos': path.join(__dirname, '../../../examples/demos'),
+      '@examples': path.join(__dirname, '../../../examples'),
     }
   }
 };

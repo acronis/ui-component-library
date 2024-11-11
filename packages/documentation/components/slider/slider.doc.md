@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <SliderBasic />
 
 ::: details Source code
-<<< ../../../demos/src/slider/SliderBasic.vue
+<<< ../../../examples/demos/slider/SliderBasic.vue
 :::
 
 ## Best practices

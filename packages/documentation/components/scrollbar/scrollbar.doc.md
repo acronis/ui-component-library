@@ -3,5 +3,5 @@
 <ScrollbarBasic />
 
 ::: details Source code
-<<< ../../../demos/src/scrollbar/ScrollbarBasic.vue
+<<< ../../../examples/demos/scrollbar/ScrollbarBasic.vue
 :::

@@ -6,7 +6,7 @@ They only render the minimum number of DOM nodes necessary to show the items wit
 <VirtualScrollBasic />
 
 ::: details Source code
-<<< ../../../demos/src/virtual-scroll/VirtualScrollBasic.vue
+<<< ../../../examples/demos/virtual-scroll/VirtualScrollBasic.vue
 :::
 
 ## Usage with table

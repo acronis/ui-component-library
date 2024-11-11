@@ -14,7 +14,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A6
 <AccordionBasic />
 
 ::: details Source code
-<<< ../../../demos/src/accordion/AccordionBasic.vue
+<<< ../../../examples/demos/accordion/AccordionBasic.vue
 :::
 
 ## Sizes

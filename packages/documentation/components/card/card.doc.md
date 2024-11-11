@@ -10,7 +10,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=587-5679
 <CardBasic />
 
 ::: details Source code
-<<< ../../../demos/src/card/CardBasic.vue
+<<< ../../../examples/demos/card/CardBasic.vue
 :::
 
 ## Variants
@@ -22,7 +22,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=587-5679
 <CardBorders />
 
 ::: details
-<<< ../../../demos/src/card/CardBorders.vue
+<<< ../../../examples/demos/card/CardBorders.vue
 :::
 
 ### Background Colors
@@ -30,5 +30,5 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=587-5679
 <CardBackground />
 
 ::: details
-<<< ../../../demos/src/card/CardBackground.vue
+<<< ../../../examples/demos/card/CardBackground.vue
 :::

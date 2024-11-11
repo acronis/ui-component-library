@@ -15,7 +15,7 @@ Now supported DatePicker, Input, Select (single/multi).
 <FilterBasic />
 
 ::: details Source code
-<<< ../../../demos/src/filter/FilterBasic.vue
+<<< ../../../examples/demos/filter/FilterBasic.vue
 :::
 
 ## Best practices

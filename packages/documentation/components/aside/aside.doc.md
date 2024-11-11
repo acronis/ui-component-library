@@ -10,5 +10,5 @@ https://www.figma.com/file/
 <AsideBasic />
 
 ::: details Source code
-<<< ../../../demos/src/aside/AsideBasic.vue
+<<< ../../../examples/demos/aside/AsideBasic.vue
 :::

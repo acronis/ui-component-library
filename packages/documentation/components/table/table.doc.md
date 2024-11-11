@@ -12,7 +12,7 @@ https://www.figma.com/file/
 <TableBasic />
 
 ::: details Source code
-<<< ../../../demos/src/table/TableBasic.vue
+<<< ../../../examples/demos/table/TableBasic.vue
 :::
 
 ## Empty table

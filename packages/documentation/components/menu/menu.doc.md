@@ -11,7 +11,7 @@ https://www.figma.com/design/LTyCXsL7eUj5fHmMMGcEUj/Components-anatomy?node-id=6
 <MenuBasic />
 
 ::: details Source code
-<<< ../../../demos/src/menu/MenuBasic.vue
+<<< ../../../examples/demos/menu/MenuBasic.vue
 :::
 
 ## Menu types

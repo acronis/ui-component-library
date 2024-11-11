@@ -10,7 +10,7 @@ Use `tabs` prop to define the list of tabs.
 <TabsBasic />
 
 ::: details Source code
-<<< ../../../demos/src/tabs/TabsBasic.vue
+<<< ../../../examples/demos/tabs/TabsBasic.vue
 :::
 
 ## Icons

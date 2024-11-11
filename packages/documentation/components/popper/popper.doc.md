@@ -9,5 +9,5 @@ https://www.floating-ui.com/docs
 <PopperBasic />
 
 ::: details Source code
-<<< ../../../demos/src/popper/PopperBasic.vue
+<<< ../../../examples/demos/popper/PopperBasic.vue
 :::
