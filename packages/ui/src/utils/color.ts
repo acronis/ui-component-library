@@ -10,7 +10,7 @@ import type {
   RGB,
   RGBAColor,
   RGBColor
-} from 'src/types/color.types.ts';
+} from '@/types/color.types.ts';
 import { isDefined } from './common.ts';
 
 export const BRAND_COLORS = {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+  import AcvDropdown from '@/components/__dev__/dropdown/dropdown.vue';
   import AcvButton from '@/components/button/button.vue';
-  import AcvDropdown from '@/components/dropdown/dropdown.vue';
   import { IconMore16 } from '@acronis-platform/icons/more';
   </script>
 

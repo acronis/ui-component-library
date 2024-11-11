@@ -1,8 +1,8 @@
+import { AcvButtonGroup } from '@/components/__dev__/button-group/public.ts';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
 import { defineComponent, h } from 'vue';
-import { AcvButtonGroup } from '../button-group/public.ts';
 import { BUTTON_VARIANT } from './button.ts';
 import Button from './button.vue';
 

@@ -12,7 +12,7 @@ import type {
   TextConfigurableProps,
   TitleConfigurableProps,
   ULConfigurableProps
-} from '../components/typography/public.ts';
+} from '@/components/__dev__/typography/public.ts';
 import type { AlertConfigurableProps } from '../index.ts';
 import type { ColorBrand, ColorName, ColorState, ColorStatus } from '../utils/color.ts';
 
