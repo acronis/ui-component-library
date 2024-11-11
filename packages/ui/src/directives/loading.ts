@@ -1,7 +1,7 @@
 import type { PopperPlacement } from '@/components/index.ts';
 import type { DirectiveBinding } from 'vue';
+import AcvLoading from '@/components/loading/loading.vue';
 import { useDirectiveComponent } from '@/composables/useDirectiveComponent.ts';
-import AcvLoading from '@/widgets/loading/loading.vue';
 
 export interface LoadingDirectiveBinding extends Omit<DirectiveBinding<string>, 'arg' | 'value'> {
   arg?: { [T in PopperPlacement]: T extends `${infer A} ${infer B}` ? `${A}-${B}` : T }[PopperPlacement]

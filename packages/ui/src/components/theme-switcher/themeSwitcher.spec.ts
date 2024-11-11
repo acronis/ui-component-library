@@ -1,6 +1,6 @@
 import AcvButton from '@/components/button/button.vue';
 import AcvDropdown from '@/components/dropdown/dropdown.vue';
-import ThemeSwitcher from '@/widgets/theme-switcher/themeSwitcher.vue';
+import ThemeSwitcher from '@/components/theme-switcher/themeSwitcher.vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 

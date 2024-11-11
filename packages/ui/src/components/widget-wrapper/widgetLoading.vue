@@ -20,8 +20,7 @@
   <div class="acv-widget-wrapper__view">
     <div class="acv-widget-wrapper__empty">
       <div
-        v-loading="true"
-        acv-loading-size="32"
+        v-loading="{ size: 'large', modelValue: true }"
       />
       <div class="acv-text acv-text--body-24 acv-text--color-fixed-primary mt-24">
         {{ loadingText }}

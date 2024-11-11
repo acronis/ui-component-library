@@ -9,7 +9,7 @@
   import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
   import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
   import WidgetLoading from '../widget-wrapper/widgetLoading.vue';
-  import WidgetChart from './widget.chart';
+  import WidgetChart from './widget.chart.js';
 
   export default {
     name: 'AcvPieChart',

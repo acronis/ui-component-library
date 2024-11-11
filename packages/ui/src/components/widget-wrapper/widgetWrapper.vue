@@ -1,7 +1,7 @@
 <script>
-  import { t } from '@/locale';
-  import AcvDivider from '../../components/divider/divider.vue';
-  import AcvIcon from '../../components/icon/icon.vue';
+  import { t } from '@/locale/index.js';
+  import AcvDivider from '../divider/divider.vue';
+  import AcvIcon from '../icon/icon.vue';
 
   export default {
     name: 'AcvWidgetWrapper',
