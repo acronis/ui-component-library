@@ -10,7 +10,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A25
 <ProgressBasic />
 
 ::: details Source code
-<<< ../../../demos/src/progress/ProgressBasic.vue
+<<< ../../../examples/demos/progress/ProgressBasic.vue
 :::
 
 ## Types

@@ -11,7 +11,7 @@ It supports multiple variants, sizes, and states.
 <ButtonBasic />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonBasic.vue
+<<< ../../../examples/demos/button/ButtonBasic.vue
 :::
 
 ## Variants
@@ -21,7 +21,7 @@ The `AcvButton` comes with five variants: primary (default), secondary, ghost, s
 <ButtonDocTypes />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonDocTypes.vue
+<<< ../../../examples/demos/button/ButtonDocTypes.vue
 :::
 
 ### Default state
@@ -77,7 +77,7 @@ Button content will be disabled and visually hidden while loading.
 <ButtonWithLoading />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonWithLoading.vue
+<<< ../../../examples/demos/button/ButtonWithLoading.vue
 :::
 
 ## Sizing
@@ -87,7 +87,7 @@ Use `size=large` to specify bigger buttons.
 <ButtonDocSizes />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonDocSizes.vue
+<<< ../../../examples/demos/button/ButtonDocSizes.vue
 :::
 
 ## With icons
@@ -98,7 +98,7 @@ Also, you can use inline icons in default slot.
 <ButtonDocWithIcons />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonDocWithIcons.vue
+<<< ../../../examples/demos/button/ButtonDocWithIcons.vue
 :::
 
 ## Button types
@@ -116,7 +116,7 @@ It is ignored when either _href_ or _to_ props are set.
 <ButtonTypes />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonTypes.vue
+<<< ../../../examples/demos/button/ButtonTypes.vue
 :::
 
 ## With single icon
@@ -124,7 +124,7 @@ It is ignored when either _href_ or _to_ props are set.
 <ButtonWithSingleIcon />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonWithSingleIcon.vue
+<<< ../../../examples/demos/button/ButtonWithSingleIcon.vue
 :::
 
 ## Block buttons
@@ -135,7 +135,7 @@ Set up the `block` prop to make the button full width.
 <ButtonBlock />
 
 ::: details Source code
-<<< ../../../demos/src/button/ButtonBlock.vue
+<<< ../../../examples/demos/button/ButtonBlock.vue
 :::
 
 ## Accessibility

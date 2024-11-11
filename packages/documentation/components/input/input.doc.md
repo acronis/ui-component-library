@@ -11,7 +11,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A16
 <InputBasic />
 
 ::: details Source code
-<<< ../../../demos/src/input/InputBasic.vue
+<<< ../../../examples/demos/input/InputBasic.vue
 :::
 
 ## Disabled

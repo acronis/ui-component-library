@@ -1,3 +1,0 @@
-# Dense Markup Table
-
-<MarkupTableDense />

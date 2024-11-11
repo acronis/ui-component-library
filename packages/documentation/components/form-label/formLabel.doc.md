@@ -17,7 +17,7 @@ Form
 <FormLabelBasic />
 
 ::: details Source code
-<<< ../../../demos/src/form-label/FormLabelBasic.vue
+<<< ../../../examples/demos/form-label/FormLabelBasic.vue
 :::
 
 ## Float Label

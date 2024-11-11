@@ -1,6 +1,6 @@
 /* TODO: Temporarily commented out, due to issues with updating snapshots */
 // import { mount } from '@cypress/vue';
-// import * as DialogDemos from '../../../../demos/src/dialog';
+// import * as DialogDemos from '../../../../examples/demos/dialog';
 //
 // describe('Dialog', () => {
 //   Object.values(DialogDemos).forEach((component, testIndex) => {

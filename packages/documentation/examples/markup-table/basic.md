@@ -1,3 +1,0 @@
-# Basic Markup Table
-
-<MarkupTableBasic />

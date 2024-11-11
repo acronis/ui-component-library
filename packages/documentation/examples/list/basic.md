@@ -1,3 +1,0 @@
-## Basic list
-
-<ListBasic />

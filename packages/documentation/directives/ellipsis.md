@@ -7,5 +7,5 @@ The text has to be enclosed an `element` that specifies the width of the path.
 <TextMiddleEllipsis />
 
 ::: details Source code
-<<< ../../demos/src/utilities/TextMiddleEllipsis.vue
+<<< ../../examples/demos/utilities/TextMiddleEllipsis.vue
 :::

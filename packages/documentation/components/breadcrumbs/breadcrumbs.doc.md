@@ -25,7 +25,7 @@ Set `icon` inside template to use icon for the breadcrumb item.
 <BreadcrumbsBasic />
 
 ::: details Source code
-<<< ../../../demos/src/breadcrumbs/BreadcrumbsBasic.vue
+<<< ../../../examples/demos/breadcrumbs/BreadcrumbsBasic.vue
 :::
 
 ## Max items
@@ -37,7 +37,7 @@ Set `max-items` to set the max bread crumb items shown. The rest will be hidden 
 <BreadcrumbsMaxItems />
 
 ::: details Source code
-<<< ../../../demos/src/breadcrumbs/BreadcrumbsMaxItems.vue
+<<< ../../../examples/demos/breadcrumbs/BreadcrumbsMaxItems.vue
 :::
 
 ## Icon separator
@@ -53,7 +53,7 @@ with any icon of your choice.
 <BreadcrumbsIconSeparator />
 
 ::: details Source code
-<<< ../../../demos/src/breadcrumbs/BreadcrumbsIconSeparator.vue
+<<< ../../../examples/demos/breadcrumbs/BreadcrumbsIconSeparator.vue
 :::
 
 ## Character separator
@@ -66,7 +66,7 @@ breadcrumb items.
 <BreadcrumbsCharacterSeparator />
 
 ::: details Source code
-<<< ../../../demos/src/breadcrumbs/BreadcrumbsCharacterSeparator.vue
+<<< ../../../examples/demos/breadcrumbs/BreadcrumbsCharacterSeparator.vue
 :::
 
 ## Multiline
@@ -79,7 +79,7 @@ preventing overflow when there are too many items to fit in a single line.
 <BreadcrumbsMultiline />
 
 ::: details Source code
-<<< ../../../demos/src/breadcrumbs/BreadcrumbsMultiline.vue
+<<< ../../../examples/demos/breadcrumbs/BreadcrumbsMultiline.vue
 :::
 
 ## Accessibility

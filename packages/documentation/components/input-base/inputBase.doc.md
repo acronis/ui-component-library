@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <InputBaseBasic />
 
 ::: details Source code
-<<< ../../../demos/src/input-base/InputBaseBasic.vue
+<<< ../../../examples/demos/input-base/InputBaseBasic.vue
 :::
 
 ## Best practices

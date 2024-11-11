@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <FormErrorBasic />
 
 ::: details Source code
-<<< ../../../demos/src/form-error/FormErrorBasic.vue
+<<< ../../../examples/demos/form-error/FormErrorBasic.vue
 :::
 
 ## Best practices

@@ -14,7 +14,7 @@ to enable trigger element keep the selected state when cursor/focus moved away.
 <DropdownBasic />
 
 ::: details Source code
-<<< ../../../demos/src/dropdown/DropdownBasic.vue
+<<< ../../../examples/demos/dropdown/DropdownBasic.vue
 :::
 
 ## Placement

@@ -1,6 +1,6 @@
 import { mount } from '@cypress/vue';
-import ChipBasic from '../../../../demos/src/chip/ChipBasic.vue';
-import ChipEllipsis from '../../../../demos/src/chip/ChipEllipsis.vue';
+import ChipBasic from '../../../../examples/demos/chip/ChipBasic.vue';
+import ChipEllipsis from '../../../../examples/demos/chip/ChipEllipsis.vue';
 
 const testComponents = [
   ['basic', ChipBasic],

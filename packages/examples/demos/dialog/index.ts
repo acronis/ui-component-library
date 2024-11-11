@@ -1,0 +1,10 @@
+export { default as DialogBasic } from 'packages/examples/demos/dialog/DialogBasic.vue';
+export { default as DialogHeightAuto } from 'packages/examples/demos/dialog/DialogHeightAuto.vue';
+export { default as DialogHeightFit } from 'packages/examples/demos/dialog/DialogHeightFit.vue';
+export { default as DialogHeightLarge } from 'packages/examples/demos/dialog/DialogHeightLarge.vue';
+export { default as DialogHeightMedium } from 'packages/examples/demos/dialog/DialogHeightMedium.vue';
+export { default as DialogHeightSmall } from 'packages/examples/demos/dialog/DialogHeightSmall.vue';
+export { default as DialogWidthLarge } from 'packages/examples/demos/dialog/DialogWidthLarge.vue';
+export { default as DialogWidthMedium } from 'packages/examples/demos/dialog/DialogWidthMedium.vue';
+export { default as DialogWidthSmall } from 'packages/examples/demos/dialog/DialogWidthSmall.vue';
+export { default as DialogWidthXLarge } from 'packages/examples/demos/dialog/DialogWidthXLarge.vue';

@@ -15,7 +15,7 @@ Set `v-model` attribute with `Number` type, which indicates the index of steps a
 <StepperBasic />
 
 ::: details Source code
-<<< ../../../demos/src/stepper/StepperBasic.vue
+<<< ../../../examples/demos/stepper/StepperBasic.vue
 :::
 
 ## Types

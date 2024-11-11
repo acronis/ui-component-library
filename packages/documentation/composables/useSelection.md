@@ -9,7 +9,7 @@
 You can use `multi` property to enable selecting multiple values from options.
 
 :::code DemoUseSelectionBasic
-<<< ../../../demos/src/composables/UseSelectionBasic.vue{6-9}
+<<< ../../../examples/demos/composables/UseSelectionBasic.vue{6-9}
 :::
 
 ::::
@@ -21,7 +21,7 @@ You can use `multi` property to enable selecting multiple values from options.
 You can also create options without predefined value. Pass any positive number to `options` property and it will create index based options.
 
 :::code DemoUseSelectionIndexed
-<<< ../../../demos/src/composables/UseSelectionIndexed.vue{4}
+<<< ../../../examples/demos/composables/UseSelectionIndexed.vue{4}
 :::
 
 ::::
@@ -33,7 +33,7 @@ You can also create options without predefined value. Pass any positive number t
 description
 
 :::code DemoUseSelectionObject
-<<< ../../../demos/src/composables/UseSelectionObject.vue{4-11}
+<<< ../../../examples/demos/composables/UseSelectionObject.vue{4-11}
 :::
 
 ::::
@@ -45,7 +45,7 @@ description
 You can set initial value for selection by passing it to `initialValue` property.
 
 ::::code DemoUseSelectionInitialValue
-<<< ../../../demos/src/composables/UseSelectionInitialValue.vue
+<<< ../../../examples/demos/composables/UseSelectionInitialValue.vue
 ::::
 
 :::info

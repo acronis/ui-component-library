@@ -17,7 +17,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A27
 
 ## Usage
 
-<<< ../../../demos/src/select/SelectUsage.vue
+<<< ../../../examples/demos/select/SelectUsage.vue
 
 ## Basic usage
 
@@ -28,7 +28,7 @@ You can also pass a simple array as an option collection.
 <SelectBasic />
 
 ::: details Source code
-<<< ../../../demos/src/select/SelectBasic.vue
+<<< ../../../examples/demos/select/SelectBasic.vue
 :::
 
 ## Select With Icon
@@ -38,7 +38,7 @@ s with left side icon in the variants of the Select component.
 <SelectWithIcon />
 
 ::: details
-<<< ../../../demos/src/select/SelectWithIcon.vue
+<<< ../../../examples/demos/select/SelectWithIcon.vue
 :::
 
 ## Disabled
@@ -48,7 +48,7 @@ When disabled, the select component cannot be focused or changed.
 <SelectDisabled />
 
 ::: details
-<<< ../../../demos/src/select/SelectDisabled.vue
+<<< ../../../examples/demos/select/SelectDisabled.vue
 :::
 
 ## Max width
@@ -59,7 +59,7 @@ Please note that select's dropdown popper will always has a minimum width equal 
 <SelectMaxWidth />
 
 ::: details
-<<< ../../../demos/src/select/SelectMaxWidth.vue
+<<< ../../../examples/demos/select/SelectMaxWidth.vue
 :::
 
 ## Placement
@@ -67,7 +67,7 @@ Please note that select's dropdown popper will always has a minimum width equal 
 <SelectPlacement />
 
 ::: details
-<<< ../../../demos/src/select/SelectPlacement.vue
+<<< ../../../examples/demos/select/SelectPlacement.vue
 :::
 
 ## Multiple
@@ -79,7 +79,7 @@ When using v-model with Tree in Multiple Select, `node-key` is needed for correc
 <SelectMultiple />
 
 ::: details
-<<< ../../../demos/src/select/SelectMultiple.vue
+<<< ../../../examples/demos/select/SelectMultiple.vue
 :::
 
 ## Dynamic Options
@@ -89,7 +89,7 @@ The options can be added or removed for the select.
 <SelectDynamicOptions />
 
 ::: details
-<<< ../../../demos/src/select/SelectDynamicOptions.vue
+<<< ../../../examples/demos/select/SelectDynamicOptions.vue
 :::
 
 ## Tree
@@ -97,7 +97,7 @@ The options can be added or removed for the select.
 <SelectTree />
 
 ::: details
-<<< ../../../demos/src/select/SelectTree.vue
+<<< ../../../examples/demos/select/SelectTree.vue
 :::
 
 ## Filter
@@ -108,7 +108,7 @@ Set the value of `clearable` with true to show _clear_ icon to reset select valu
 <SelectFilter />
 
 ::: details
-<<< ../../../demos/src/select/SelectFilter.vue
+<<< ../../../examples/demos/select/SelectFilter.vue
 :::
 
 ## Loading state
@@ -147,7 +147,7 @@ If `acv-option` is rendered with the v-for directive, you should add the key att
 <SelectServerSearch />
 
 ::: details
-<<< ../../../demos/src/select/SelectServerSearch.vue
+<<< ../../../examples/demos/select/SelectServerSearch.vue
 :::
 
 ## Customization
@@ -157,7 +157,7 @@ If `acv-option` is rendered with the v-for directive, you should add the key att
 <SelectCustomIcon />
 
 ::: details
-<<< ../../../demos/src/select/SelectCustomIcon.vue
+<<< ../../../examples/demos/select/SelectCustomIcon.vue
 :::
 
 ### Select customization using slots
@@ -165,7 +165,7 @@ If `acv-option` is rendered with the v-for directive, you should add the key att
 <SelectCustomSlots />
 
 ::: details
-<<< ../../../demos/src/select/SelectCustomSlots.vue
+<<< ../../../examples/demos/select/SelectCustomSlots.vue
 :::
 
 ### Option customization using slot
@@ -173,7 +173,7 @@ If `acv-option` is rendered with the v-for directive, you should add the key att
 <SelectCustomOptionSlot />
 
 ::: details
-<<< ../../../demos/src/select/SelectCustomOptionSlot.vue
+<<< ../../../examples/demos/select/SelectCustomOptionSlot.vue
 :::
 
 ### Option Group customization using slot
@@ -184,7 +184,7 @@ Also them you have to define _optionGroupLabel_ and _optionGroupChildren_.
 <SelectCustomOptionGroupSlot />
 
 ::: details
-<<< ../../../demos/src/select/SelectCustomOptionGroupSlot.vue
+<<< ../../../examples/demos/select/SelectCustomOptionGroupSlot.vue
 :::
 
 ### Select and Option customization using slots
@@ -194,7 +194,7 @@ Options can be customized using slots. Now we support **placeholder**, **option*
 <SelectCustomSelectAndOptionsSlots />
 
 ::: details
-<<< ../../../demos/src/select/SelectCustomSelectAndOptionsSlots.vue
+<<< ../../../examples/demos/select/SelectCustomSelectAndOptionsSlots.vue
 :::
 
 ### Custom text and hint
@@ -202,7 +202,7 @@ Options can be customized using slots. Now we support **placeholder**, **option*
 <SelectCustomTextAndHint />
 
 ::: details
-<<< ../../../demos/src/select/SelectCustomTextAndHint.vue
+<<< ../../../examples/demos/select/SelectCustomTextAndHint.vue
 :::
 
 ## Object or Array as a value
@@ -212,7 +212,7 @@ It is also possible to use objects or arrays as item values. Here is used deep o
 <SelectObjectArray />
 
 ::: details
-<<< ../../../demos/src/select/SelectObjectArray.vue
+<<< ../../../examples/demos/select/SelectObjectArray.vue
 :::
 
 ## Select with 100 options
@@ -220,7 +220,7 @@ It is also possible to use objects or arrays as item values. Here is used deep o
 <SelectWith100Options />
 
 ::: details
-<<< ../../../demos/src/select/SelectWith100Options.vue
+<<< ../../../examples/demos/select/SelectWith100Options.vue
 :::
 
 ## Select with 1000 options
@@ -228,7 +228,7 @@ It is also possible to use objects or arrays as item values. Here is used deep o
 <SelectWith1000Options />
 
 ::: details
-<<< ../../../demos/src/select/SelectWith1000Options.vue
+<<< ../../../examples/demos/select/SelectWith1000Options.vue
 :::
 
 ## Multi line
@@ -236,7 +236,7 @@ It is also possible to use objects or arrays as item values. Here is used deep o
 <SelectMultiline />
 
 ::: details
-<<< ../../../demos/src/select/SelectMultiline.vue
+<<< ../../../examples/demos/select/SelectMultiline.vue
 :::
 
 ## Accessibility

@@ -2,7 +2,7 @@
 import type { DirectiveBinding } from 'vue';
 
 // Composable
-import { useDirectiveComponent } from '../composables/useDirectiveComponent.ts';
+import { useDirectiveComponent } from '@/composables/useDirectiveComponent.ts';
 
 // Types
 import type { PopperPlacement } from '../components/popper/popper.ts';

@@ -7,7 +7,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=876-28
 <ChipBasic />
 
 ::: details Source code
-<<< ../../../demos/src/chip/ChipBasic.vue
+<<< ../../../examples/demos/chip/ChipBasic.vue
 :::
 
 ## Long text with ellipsis
@@ -15,7 +15,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=876-28
 <ChipEllipsis />
 
 ::: details Source code
-<<< ../../../demos/src/chip/ChipEllipsis.vue
+<<< ../../../examples/demos/chip/ChipEllipsis.vue
 :::
 
 ## Related components

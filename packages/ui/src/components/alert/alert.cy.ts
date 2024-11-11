@@ -1,5 +1,5 @@
 // import type { ComponentPublicInstance } from 'vue';
-// import AlertBasic from '../../../../demos/src/alert/AlertBasic.vue';
+// import AlertBasic from '../../../../examples/demos/alert/AlertBasic.vue';
 /* TODO: Temporarily commented out, due to issues with updating snapshots */
 // import Alert from './alert.vue';
 //

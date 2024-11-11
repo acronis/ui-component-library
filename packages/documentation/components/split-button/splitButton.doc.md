@@ -12,7 +12,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A28
 <SplitButtonBasic />
 
 ::: details Source code
-<<< ../../../demos/src/split-button/SplitButtonBasic.vue
+<<< ../../../examples/demos/split-button/SplitButtonBasic.vue
 :::
 
 ## Best practices

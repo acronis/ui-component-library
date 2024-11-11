@@ -9,7 +9,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A11
 <FilePickerBasic />
 
 ::: details Source code
-<<< ../../../demos/src/file-picker/FilePickerBasic.vue
+<<< ../../../examples/demos/file-picker/FilePickerBasic.vue
 :::
 
 ## Best practices

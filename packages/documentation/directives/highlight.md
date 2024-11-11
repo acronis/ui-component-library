@@ -16,7 +16,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A26
 <HighlightBasic />
 
 ::: details Source code
-<<< ../../demos/src/directives/HighlightBasic.vue
+<<< ../../examples/demos/directives/HighlightBasic.vue
 :::
 
 :::tip

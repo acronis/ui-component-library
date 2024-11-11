@@ -3,7 +3,7 @@ import Color from '../components/Color.vue';
 import Preview from '../components/Preview.vue';
 import PreviewGroup from '../components/PreviewGroup.vue';
 
-const examplesModules: Record<string, { default: Component }> = import.meta.glob('../../../demos/**/*.vue', {
+const examplesModules: Record<string, { default: Component }> = import.meta.glob('../../../examples/demos/**/*.vue', {
   eager: true
 });
 

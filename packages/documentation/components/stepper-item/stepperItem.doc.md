@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <StepperItemBasic />
 
 ::: details Source code
-<<< ../../../demos/src/stepper-item/StepperItemBasic.vue
+<<< ../../../examples/demos/stepper-item/StepperItemBasic.vue
 :::
 
 ## Best practices

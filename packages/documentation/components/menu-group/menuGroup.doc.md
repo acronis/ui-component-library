@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <MenuGroupBasic />
 
 ::: details Source code
-<<< ../../../demos/src/menu-group/MenuGroupBasic.vue
+<<< ../../../examples/demos/menu-group/MenuGroupBasic.vue
 :::
 
 ## Best practices

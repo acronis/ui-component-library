@@ -1,6 +1,6 @@
 import { mount } from '@cypress/vue';
-import SwitchBasic from '../../../../demos/src/switch/SwitchBasic.vue';
-import SwitchSizes from '../../../../demos/src/switch/SwitchSizes.vue';
+import SwitchBasic from '../../../../examples/demos/switch/SwitchBasic.vue';
+import SwitchSizes from '../../../../examples/demos/switch/SwitchSizes.vue';
 
 describe('Switch', () => {
   it('basic', () => {

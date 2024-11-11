@@ -18,7 +18,7 @@ Please confirm with designer for the style requirement.
 :::
 
 ::: details Source code
-<<< ../../../demos/src/popover/PopoverBasic.vue
+<<< ../../../examples/demos/popover/PopoverBasic.vue
 :::
 
 ## Placement

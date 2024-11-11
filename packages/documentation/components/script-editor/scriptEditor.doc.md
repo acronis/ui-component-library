@@ -7,5 +7,5 @@ These all provide a first class editing experience on the desktop – one that w
 <ScriptEditorBasic />
 
 ::: details Source code
-<<< ../../../demos/src/script-editor/ScriptEditorBasic.vue
+<<< ../../../examples/demos/script-editor/ScriptEditorBasic.vue
 :::

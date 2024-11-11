@@ -1,10 +1,10 @@
 import { components } from './components';
 import { composables } from './composables';
 import { directives } from './directives';
-import { enExamples } from './examples';
+import { examples } from './examples';
 import { enGuides } from './guides';
 import { styleguide } from './styleguide.ts';
-import { enTheme } from './theme';
+import { theme } from './theme';
 
 export const sidebar = {
   '/guide': [
@@ -17,6 +17,6 @@ export const sidebar = {
   '/directives': directives,
   '/composables': composables,
   '/styleguide': styleguide,
-  '/examples': enExamples,
-  '/theming': enTheme,
+  '/examples': examples,
+  '/theming': theme,
 };

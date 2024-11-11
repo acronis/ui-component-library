@@ -1,3 +1,0 @@
-## With Virtual List
-
-<ListVirtual />

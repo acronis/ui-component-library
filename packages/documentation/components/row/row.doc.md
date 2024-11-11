@@ -3,7 +3,7 @@
 <RowBasic />
 
 ::: details Source code
-<<< ../../../demos/src/row/RowBasic.vue
+<<< ../../../examples/demos/row/RowBasic.vue
 :::
 
 ## Variants

@@ -7,7 +7,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsBasic />
 
 ::: details Source code
-<<< ../../../demos/src/fitted-actions/FittedActionsBasic.vue
+<<< ../../../examples/demos/fitted-actions/FittedActionsBasic.vue
 :::
 
 ## Single
@@ -15,7 +15,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsSingle />
 
 ::: details Source code
-<<< ../../../demos/src/fitted-actions/FittedActionsSingle.vue
+<<< ../../../examples/demos/fitted-actions/FittedActionsSingle.vue
 :::
 
 ## Reversed
@@ -23,7 +23,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsReversed />
 
 ::: details Source code
-<<< ../../../demos/src/fitted-actions/FittedActionsReversed.vue
+<<< ../../../examples/demos/fitted-actions/FittedActionsReversed.vue
 :::
 
 ## Minimum
@@ -31,7 +31,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsMinimum />
 
 ::: details Source code
-<<< ../../../demos/src/fitted-actions/FittedActionsMinimum.vue
+<<< ../../../examples/demos/fitted-actions/FittedActionsMinimum.vue
 :::
 
 ## Maximum
@@ -39,7 +39,7 @@ Can be used to display actions for a table row, table details or a card
 <FittedActionsMaximum />
 
 ::: details Source code
-<<< ../../../demos/src/fitted-actions/FittedActionsMaximum.vue
+<<< ../../../examples/demos/fitted-actions/FittedActionsMaximum.vue
 :::
 
 ## Without Dropdown

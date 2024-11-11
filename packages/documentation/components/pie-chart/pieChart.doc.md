@@ -7,7 +7,7 @@
 <PieChartBasic />
 
 ::: details Source code
-<<< ../../../demos/src/pie-chart/PieChartBasic.vue
+<<< ../../../examples/demos/pie-chart/PieChartBasic.vue
 :::
 
 ## Dynamic Loading
@@ -15,7 +15,7 @@
 <PieChartDynamicLoading />
 
 ::: details Source code
-<<< ../../../demos/src/pie-chart/PieChartDynamicLoading.vue
+<<< ../../../examples/demos/pie-chart/PieChartDynamicLoading.vue
 :::
 
 ## Example (1)
@@ -23,7 +23,7 @@
 <PieChartExampleOne />
 
 ::: details Source code
-<<< ../../../demos/src/pie-chart/PieChartExampleOne.vue
+<<< ../../../examples/demos/pie-chart/PieChartExampleOne.vue
 :::
 
 ## Example (2)
@@ -31,7 +31,7 @@
 <PieChartExampleTwo />
 
 ::: details Source code
-<<< ../../../demos/src/pie-chart/PieChartExampleTwo.vue
+<<< ../../../examples/demos/pie-chart/PieChartExampleTwo.vue
 :::
 
 ## Example (3)
@@ -39,5 +39,5 @@
 <PieChartExampleThree />
 
 ::: details Source code
-<<< ../../../demos/src/pie-chart/PieChartExampleThree.vue
+<<< ../../../examples/demos/pie-chart/PieChartExampleThree.vue
 :::

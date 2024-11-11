@@ -10,7 +10,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=123-85
 <DividerBasic />
 
 ::: details Source code
-<<< ../../../demos/src/divider/DividerBasic.vue
+<<< ../../../examples/demos/divider/DividerBasic.vue
 :::
 
 [//]: # '## Colors'
@@ -24,7 +24,7 @@ https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=123-85
 <DividerBackground />
 
 ::: details Source code
-<<< ../../../demos/src/divider/DividerBackground.vue
+<<< ../../../examples/demos/divider/DividerBackground.vue
 :::
 
 ## Accessibility

@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <OptionGroupBasic />
 
 ::: details Source code
-<<< ../../../demos/src/option-group/OptionGroupBasic.vue
+<<< ../../../examples/demos/option-group/OptionGroupBasic.vue
 :::
 
 ## Best practices

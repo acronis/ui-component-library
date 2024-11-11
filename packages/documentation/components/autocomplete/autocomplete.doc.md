@@ -11,7 +11,7 @@ In this example, `querySearch(queryString, cb)` returns suggestions to Autocompl
 <AutocompleteBasic />
 
 ::: details Source code
-<<< ../../../demos/src/autocomplete/AutocompleteBasic.vue
+<<< ../../../examples/demos/autocomplete/AutocompleteBasic.vue
 :::
 
 ## Related components

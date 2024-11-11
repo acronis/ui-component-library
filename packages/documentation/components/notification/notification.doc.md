@@ -10,7 +10,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A20
 <NotificationBasic />
 
 ::: details Source code
-<<< ../../../demos/src/notification/NotificationBasic.vue
+<<< ../../../examples/demos/notification/NotificationBasic.vue
 :::
 
 ## Types

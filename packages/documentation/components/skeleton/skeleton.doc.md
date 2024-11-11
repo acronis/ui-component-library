@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <skeletonBasic />
 
 ::: details Source code
-<<< ../../../demos/src/skeleton/SkeletonBasic.vue
+<<< ../../../examples/demos/skeleton/SkeletonBasic.vue
 :::
 
 ## Variants

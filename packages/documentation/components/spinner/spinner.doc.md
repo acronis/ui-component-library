@@ -16,7 +16,7 @@ Spinner can be used in several ways:
 <SpinnerBasic />
 
 ::: details Source code
-<<< ../../../demos/src/spinner/SpinnerBasic.vue
+<<< ../../../examples/demos/spinner/SpinnerBasic.vue
 :::
 
 ## Spinner sizes
@@ -26,7 +26,7 @@ The spinner can be displayed in different sizes.
 <SpinnerSizes />
 
 ::: details Source code
-<<< ../../../demos/src/spinner/SpinnerSizes.vue
+<<< ../../../examples/demos/spinner/SpinnerSizes.vue
 :::
 
 ## Spinner colors
@@ -36,7 +36,7 @@ The spinner can be displayed in different colors.
 <SpinnerColors />
 
 ::: details Source code
-<<< ../../../demos/src/spinner/SpinnerColors.vue
+<<< ../../../examples/demos/spinner/SpinnerColors.vue
 :::
 
 ## Usage in a widget
@@ -44,7 +44,7 @@ The spinner can be displayed in different colors.
 <SpinnerInWidget />
 
 ::: details Source code
-<<< ../../../demos/src/spinner/SpinnerInWidget.vue
+<<< ../../../examples/demos/spinner/SpinnerInWidget.vue
 :::
 
 ## Related components

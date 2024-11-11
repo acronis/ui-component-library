@@ -5,7 +5,7 @@ Displays values in a line
 <LineChartBasic />
 
 ::: details Source code
-<<< ../../../demos/src/line-chart/LineChartBasic.vue
+<<< ../../../examples/demos/line-chart/LineChartBasic.vue
 :::
 
 ## Anomalies
@@ -13,7 +13,7 @@ Displays values in a line
 <LineChartAnomalies />
 
 ::: details Source code
-<<< ../../../demos/src/line-chart/LineChartAnomalies.vue
+<<< ../../../examples/demos/line-chart/LineChartAnomalies.vue
 :::
 
 ## Corner Cases

@@ -1,7 +1,7 @@
 import { mount } from '@cypress/vue';
-import SpinnerBasic from '../../../../demos/src/spinner/SpinnerBasic.vue';
-import SpinnerColors from '../../../../demos/src/spinner/SpinnerColors.vue';
-import SpinnerSizes from '../../../../demos/src/spinner/SpinnerSizes.vue';
+import SpinnerBasic from '../../../../examples/demos/spinner/SpinnerBasic.vue';
+import SpinnerColors from '../../../../examples/demos/spinner/SpinnerColors.vue';
+import SpinnerSizes from '../../../../examples/demos/spinner/SpinnerSizes.vue';
 
 describe('Spinner', () => {
   it('basic', () => {

@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <FormItemBasic />
 
 ::: details Source code
-<<< ../../../demos/src/form-item/FormItemBasic.vue
+<<< ../../../examples/demos/form-item/FormItemBasic.vue
 :::
 
 ## Best practices

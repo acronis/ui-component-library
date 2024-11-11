@@ -16,7 +16,7 @@ Bind `v-model` to a `Boolean` typed variable.
 <SwitchBasic />
 
 ::: details Source code
-<<< ../../../demos/src/switch/SwitchBasic.vue
+<<< ../../../examples/demos/switch/SwitchBasic.vue
 :::
 
 ## Label
@@ -36,7 +36,7 @@ You can use an array to bind multiple switches to a single variable.
 <SwitchArray />
 
 ::: details Source code
-<<< ../../../demos/src/switch/SwitchArray.vue
+<<< ../../../examples/demos/switch/SwitchArray.vue
 :::
 
 ## Sizes

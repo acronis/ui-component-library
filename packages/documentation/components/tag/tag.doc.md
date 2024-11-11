@@ -9,5 +9,5 @@ https://www.figma.com/file/
 <TagBasic />
 
 ::: details Source code
-<<< ../../../demos/src/tag/TagBasic.vue
+<<< ../../../examples/demos/tag/TagBasic.vue
 :::

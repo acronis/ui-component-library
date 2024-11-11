@@ -1,5 +1,5 @@
 <script>
-  import Loading from '../../directives/loading';
+  import Loading from '@/directives/loading';
 
   const DEF_LOADING_TEXT = 'Data is loading...';
 

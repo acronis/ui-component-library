@@ -5,5 +5,5 @@ ConfigProvider is a component that allows you to set the default values for the 
 <ConfigProviderBasic />
 
 ::: details Source code
-<<< ../../../demos/src/config-provider/ConfigProviderBasic.vue
+<<< ../../../examples/demos/config-provider/ConfigProviderBasic.vue
 :::

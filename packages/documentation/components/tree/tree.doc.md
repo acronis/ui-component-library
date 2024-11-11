@@ -15,7 +15,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A36
 <TreeBasic />
 
 ::: details Source code
-<<< ../../../demos/src/tree/TreeBasic.vue
+<<< ../../../examples/demos/tree/TreeBasic.vue
 :::
 
 ## Disabled node

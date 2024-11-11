@@ -14,7 +14,7 @@ Bind a variable to `v-model` in `<acv-num-picker>` element and you are set.
 <NumPickerBasic />
 
 ::: details Source code
-<<< ../../../demos/src/num-picker/NumPickerBasic.vue
+<<< ../../../examples/demos/num-picker/NumPickerBasic.vue
 :::
 
 ## Integer only

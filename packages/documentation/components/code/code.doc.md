@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <CodeBasic />
 
 ::: details Source code
-<<< ../../../demos/src/code/CodeBasic.vue
+<<< ../../../examples/demos/code/CodeBasic.vue
 :::
 
 ## Related components

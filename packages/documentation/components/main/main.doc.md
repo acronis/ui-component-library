@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <MainBasic />
 
 ::: details Source code
-<<< ../../../demos/src/main/MainBasic.vue
+<<< ../../../examples/demos/main/MainBasic.vue
 :::
 
 ## Best practices

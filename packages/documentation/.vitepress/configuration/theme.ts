@@ -1,4 +1,4 @@
-export const enTheme = [
+export const theme = [
   {
     text: 'Tokens',
     link: '/theming/tokens',

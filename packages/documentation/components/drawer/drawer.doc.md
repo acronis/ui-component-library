@@ -11,7 +11,7 @@ All props & slots available in `AcvCard` is available in `AcvDrawer`.
 <DrawerBasic />
 
 ::: details DrawerBasic
-<<< ../../../demos/src/drawer/DrawerBasic.vue
+<<< ../../../examples/demos/drawer/DrawerBasic.vue
 :::
 
 ## Anchor
@@ -21,7 +21,7 @@ You can change the position of the drawer by providing the values `left`,`right`
 <DrawerAnchor />
 
 ::: details DrawerAnchor
-<<< ../../../demos/src/drawer/DrawerAnchor.vue{37,45}
+<<< ../../../examples/demos/drawer/DrawerAnchor.vue{37,45}
 :::
 
 ## Width
@@ -31,7 +31,7 @@ Use width utility classes to provide custom width to drawer.
 <DrawerWidth />
 
 ::: details DrawerWidth
-<<< ../../../demos/src/drawer/DrawerWidth.vue{13}
+<<< ../../../examples/demos/drawer/DrawerWidth.vue{13}
 :::
 
 ## Persistent
@@ -41,7 +41,7 @@ You can disable closing drawer on outside click via `persistent` prop.
 <DrawerPersistent />
 
 ::: details DrawerPersistent
-<<< ../../../demos/src/drawer/DrawerPersistent.vue{14}
+<<< ../../../examples/demos/drawer/DrawerPersistent.vue{14}
 :::
 
 ## Accessibility

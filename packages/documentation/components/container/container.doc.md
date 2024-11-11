@@ -6,7 +6,7 @@ They align the content within given viewport.
 <ContainerBasic />
 
 ::: details Source code
-<<< ../../../demos/src/container/ContainerBasic.vue
+<<< ../../../examples/demos/container/ContainerBasic.vue
 :::
 
 ## Responsive

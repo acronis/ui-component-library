@@ -10,7 +10,7 @@ https://www.figma.com/file/
 <RibbonBasic />
 
 ::: details Source code
-<<< ../../../demos/src/ribbon/RibbonBasic.vue
+<<< ../../../examples/demos/ribbon/RibbonBasic.vue
 :::
 
 ## Ribbon types

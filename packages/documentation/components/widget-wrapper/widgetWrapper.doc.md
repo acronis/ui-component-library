@@ -5,7 +5,7 @@ Provides a consistent look for widgets
 <WidgetWrapperBasic />
 
 ::: details Source code
-<<< ../../../demos/src/widget-wrapper/WidgetWrapperBasic.vue
+<<< ../../../examples/demos/widget-wrapper/WidgetWrapperBasic.vue
 :::
 
 ## Dynamic Positioning
@@ -13,7 +13,7 @@ Provides a consistent look for widgets
 <WidgetWrapperDynamicPositioning />
 
 ::: details Source code
-<<< ../../../demos/src/widget-wrapper/WidgetWrapperDynamicPositioning.vue
+<<< ../../../examples/demos/widget-wrapper/WidgetWrapperDynamicPositioning.vue
 :::
 
 ## Basic usage

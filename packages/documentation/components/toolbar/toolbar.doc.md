@@ -9,7 +9,7 @@ https://www.figma.com/file/
 <ToolbarBasic />
 
 ::: details Source code
-<<< ../../../demos/src/toolbar/ToolbarBasic.vue
+<<< ../../../examples/demos/toolbar/ToolbarBasic.vue
 :::
 
 ## Variants

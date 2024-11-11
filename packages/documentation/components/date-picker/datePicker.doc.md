@@ -9,7 +9,7 @@ https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A8
 <DatePickerBasic />
 
 ::: details Source code
-<<< ../../../demos/src/date-picker/DatePickerBasic.vue
+<<< ../../../examples/demos/date-picker/DatePickerBasic.vue
 :::
 
 ## Best practices
