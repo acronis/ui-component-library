@@ -1,8 +1,7 @@
-import { defineComponent } from 'vue'
-
-import { useProps } from '../../utils/props.ts'
-import { strongProps } from './props.ts'
-import Text from './text.tsx'
+import { useProps } from '@/utils/props.ts';
+import { defineComponent, h } from 'vue';
+import { strongProps } from './props.ts';
+import Text from './text.ts';
 
 export default defineComponent({
   name: 'Strong',
@@ -19,12 +18,10 @@ export default defineComponent({
       keyboard: false,
       thin: false,
       reversed: false,
-    })
+    });
 
     return () => (
-      <Text {...props} tag="strong" strong>
-        {slots.default?.()}
-      </Text>
-    )
+      h(Text, { ...props, tag: 'strong', strong: true }, slots.default?.())
+    );
   },
-})
+});

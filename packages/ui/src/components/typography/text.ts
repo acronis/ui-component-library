@@ -1,8 +1,7 @@
-import { computed, defineComponent, renderSlot } from 'vue'
-
-import { useNameHelper } from '../../utils/namespace.ts'
-import { useProps } from '../../utils/props.ts'
-import { textProps } from './props.ts'
+import { useNameHelper } from '@/utils/namespace.ts';
+import { useProps } from '@/utils/props.ts';
+import { computed, defineComponent, h, renderSlot } from 'vue';
+import { textProps } from './props.ts';
 
 export default defineComponent({
   name: 'Text',
@@ -22,9 +21,9 @@ export default defineComponent({
       keyboard: false,
       thin: false,
       reversed: false,
-    })
+    });
 
-    const nh = useNameHelper('text')
+    const nh = useNameHelper('text');
 
     const className = computed(() => {
       return {
@@ -42,28 +41,20 @@ export default defineComponent({
         [`${nh}--keyboard`]: props.keyboard,
         [`${nh}--thin`]: props.thin,
         [`${nh}--reversed`]: props.reversed,
-      }
-    })
+      };
+    });
 
     return () => {
-      const CustomTag = props.tag || ('span' as any)
-      const children = renderSlot(slots, 'default')
+      const CustomTag = props.tag || ('span' as any);
+      const children = renderSlot(slots, 'default');
 
       return props.code
-        ? (
-            <code class={className.value}>{props.delete ? <del>{children}</del> : children}</code>
-          )
+        ? h('code', { class: className.value }, props.delete ? h('del', null, children) : children)
         : props.keyboard
-          ? (
-              <kbd class={className.value}>{props.delete ? <del>{children}</del> : children}</kbd>
-            )
+          ? h('kbd', { class: className.value }, props.delete ? h('del', null, children) : children)
           : props.delete
-            ? (
-                <del class={className.value}>{children}</del>
-              )
-            : (
-                <CustomTag class={className.value}>{children}</CustomTag>
-              )
-    }
+            ? h('del', { class: className.value }, children)
+            : h(CustomTag, { class: className.value }, children);
+    };
   },
-})
+});

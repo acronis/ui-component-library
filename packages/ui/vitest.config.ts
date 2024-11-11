@@ -1,6 +1,5 @@
 import { resolve } from 'node:path';
 import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
 import { configDefaults, defineConfig } from 'vitest/config';
 
 const rootDir = __dirname;
@@ -48,5 +47,5 @@ export default defineConfig({
     },
     testTimeout: 10000
   },
-  plugins: [vue(), vueJsx()],
+  plugins: [vue()],
 });

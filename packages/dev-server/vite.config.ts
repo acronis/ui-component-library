@@ -4,7 +4,6 @@ import { readdir, stat } from 'node:fs/promises';
 import process from 'node:process';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
 import comp from 'unplugin-vue-components/vite';
 import Inspect from 'vite-plugin-inspect';
 import autoprefixer from 'autoprefixer';
@@ -93,7 +92,6 @@ export default defineConfig(async () => {
     },
     plugins: [
       vue(),
-      vueJsx(),
       Inspect(),
       comp({
         dts: false,

@@ -1,12 +1,12 @@
 import type { ComponentPublicInstance } from 'vue';
-import Blockquote from './blockquote.tsx';
-import { H1, H2, H3, H4, H5, H6 } from './h.tsx';
-import OL from './ol.tsx';
-import P from './p.tsx';
-import Strong from './strong.tsx';
-import Text from './text.tsx';
-import Title from './title.tsx';
-import UL from './ul.tsx';
+import Blockquote from './blockquote.ts';
+import { H1, H2, H3, H4, H5, H6 } from './h.ts';
+import OL from './ol.ts';
+import P from './p.ts';
+import Strong from './strong.ts';
+import Text from './text.ts';
+import Title from './title.ts';
+import UL from './ul.ts';
 
 export { Blockquote, H1, H2, H3, H4, H5, H6, OL, P, Strong, Text, Title, UL };
 
