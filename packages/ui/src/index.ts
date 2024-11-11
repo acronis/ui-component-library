@@ -12,7 +12,7 @@ export * from './composables/index.ts';
 export * from './directives/index.ts';
 
 export default {
-  install(app: App, _options: never): void {
+  install(app: App): void {
     for (const [name, directive] of Object.entries(directives as Record<string, Directive>)) {
       app.directive(name, directive);
     }
