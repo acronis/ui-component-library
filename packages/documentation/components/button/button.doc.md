@@ -24,19 +24,6 @@ The `AcvButton` comes with five variants: primary (default), secondary, ghost, s
 <<< ../../../demos/src/button/ButtonDocTypes.vue
 :::
 
-## States
-
-`AcvButton` can have different states.
-Supported states are `active`, `focus`, `hover`, and `disabled`
-
-Use `disabled=true` to disable button.
-
-<ButtonDoc />
-
-::: details Source code
-<<< ../../../demos/src/button/ButtonDoc.vue
-:::
-
 ### Default state
 
 Default state shows that button is clickable and user can perform a task on it
