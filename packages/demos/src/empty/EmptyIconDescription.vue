@@ -1,5 +1,5 @@
 <script>
-  import AcvEmpty from '@/widgets/empty/empty.vue';
+  import AcvEmpty from '@/components/empty/empty.vue';
 
   export default {
     components: { AcvEmpty },

@@ -1,5 +1,5 @@
 <script setup>
-  import AcvEmpty from '@/widgets/empty/empty.vue';
+  import AcvEmpty from '@/components/empty/empty.vue';
 
   const description = 'Data is loading...';
 </script>

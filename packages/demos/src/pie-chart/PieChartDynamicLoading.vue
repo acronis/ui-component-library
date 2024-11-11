@@ -1,6 +1,6 @@
 <script>
   import AcvButton from '@/components/button/button.vue';
-  import AcvPieChart from '@/widgets/pie-chart/pieChart.vue';
+  import AcvPieChart from '@/components/pie-chart/pieChart.vue';
 
   export default {
     components: { AcvButton, AcvPieChart },

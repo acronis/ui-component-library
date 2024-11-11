@@ -1,5 +1,5 @@
 <script>
-  import AcvLineChart from '@/widgets/line-chart/lineChart.vue';
+  import AcvLineChart from '@/components/line-chart/lineChart.vue';
   import networkOneData from '../__data__/data.mock.network.one.json';
 
   export default {

@@ -1,5 +1,5 @@
 <script setup>
-  import AcvLineChart from '@/widgets/line-chart/lineChart.vue';
+  import AcvLineChart from '@/components/line-chart/lineChart.vue';
 
   const floatValuesData = {
     series: [

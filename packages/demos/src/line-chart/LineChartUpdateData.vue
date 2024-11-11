@@ -1,6 +1,6 @@
 <script setup>
   import AcvButton from '@/components/button/button.vue';
-  import AcvLineChart from '@/widgets/line-chart/lineChart.vue';
+  import AcvLineChart from '@/components/line-chart/lineChart.vue';
   import { ref } from 'vue';
   import networkOneData from '../__data__/data.mock.network.one.json';
   import networkTwoData from '../__data__/data.mock.network.two.json';

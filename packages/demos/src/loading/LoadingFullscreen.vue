@@ -1,6 +1,6 @@
 <script setup>
   import AcvButton from '@/components/button/button.vue';
-  import AcvLoading from '@/widgets/loading/loading.vue';
+  import AcvLoading from '@/components/loading/loading.vue';
   import { ref } from 'vue';
 
   const loading = ref(false);
