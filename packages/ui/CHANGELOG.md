@@ -1,3 +1,10 @@
+## [1.30.0](https://github.com/acronis/ui-component-library/compare/v1.29.0...v1.30.0) (2024-11-11)
+
+
+### Features
+
+* **widgets:** move widgets to components ([#157](https://github.com/acronis/ui-component-library/issues/157)) ([13465be](https://github.com/acronis/ui-component-library/commit/13465beec4d4e121c4320564df3b8e45e28f9539))
+
 ## [1.29.0](https://github.com/acronis/ui-component-library/compare/v1.28.0...v1.29.0) (2024-11-08)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * button styles ([#148](https://github.com/acronis/ui-component-library/issues/148)) ([97e4cd6](https://github.com/acronis/ui-component-library/commit/97e4cd67b77ffaf28f1e2c5a9cb7c9a0395e9473)), closes [#99](https://github.com/acronis/ui-component-library/issues/99) [#99](https://github.com/acronis/ui-component-library/issues/99) [#99](https://github.com/acronis/ui-component-library/issues/99)
-
-## [1.25.1](https://github.com/acronis/ui-component-library/compare/v1.25.0...v1.25.1) (2024-10-28)
-
-
-### Bug Fixes
-
-* **ui:** allowed to add the library to Vue 3 application as the plugin ([#147](https://github.com/acronis/ui-component-library/issues/147)) ([03f4297](https://github.com/acronis/ui-component-library/commit/03f4297ad8c5410b2c57c8ffc9515c32ef8b0871))
 
