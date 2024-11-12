@@ -1,4 +1,4 @@
-import tableData from 'examples/__data__/data.mock.5.json';
+import tableData from './data.mock.5.json';
 
 class TestModel {
   constructor(attributes = {}) {

@@ -4,7 +4,7 @@
   import { IconChevronUp16 } from '@acronis-platform/icons/chevron';
   import { ref } from 'vue';
 
-  document.title = 'theme dev | Acronis UI Component Library';
+  // document.title = 'theme dev | Acronis UI Component Library';
 
   const AcvButtonTypes = [
     'default',

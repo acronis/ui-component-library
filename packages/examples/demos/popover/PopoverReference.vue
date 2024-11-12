@@ -7,7 +7,7 @@
   const popoverReferenceVisible = ref(false);
 
   function handleTogglePopoverVisible() {
-    popoverReference.value = document.getElementById('popoverReference');
+    // popoverReference.value = document.getElementById('popoverReference');
     popoverReferenceVisible.value = !popoverReferenceVisible.value;
   }
 

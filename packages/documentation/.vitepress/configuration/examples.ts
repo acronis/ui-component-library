@@ -1,20 +1,19 @@
-import fs from 'node:fs';
 import path from 'node:path';
-import { globSync } from 'glob';
+import { getExampleDemos, getExampleDomains } from '../utils.ts';
 
-const pages = fs
-  .readdirSync(path.join(__dirname, '../../../examples/demos'));
+const pages = getExampleDomains();
 
-function getDemos(page) {
-  return globSync(`../examples/demos/${page}/**/*.vue`);
-}
+// eslint-disable-next-line node/prefer-global/process
+const isDev = process.env.NODE_ENV === 'development';
 
-export const examples = pages.map(page => ({
-  text: page.toUpperCase(),
-  link: `/examples/${page}`,
-  collapsed: true,
-  items: getDemos(page).map(demo => ({
-    text: path.parse(demo).name,
-    link: `/examples/${page}-${demo}`
+export const examples = isDev
+  ? pages.map((page: string) => ({
+    text: page.toUpperCase(),
+    link: `/examples/${page}`,
+    collapsed: true,
+    items: getExampleDemos(page).map(demo => ({
+      text: path.parse(demo).name,
+      link: `/examples/${page}-${demo}`
+    }))
   }))
-}));
+  : [];
