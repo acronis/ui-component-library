@@ -1,29 +1,30 @@
 <script setup>
-  import { AcvPagination, getAcvPaginationQuery } from '@acronis-platform/ui-component-library';
-  import { computed, getCurrentInstance } from 'vue';
-  import { createRouter, createWebHashHistory, useRoute, useRouter } from 'vue-router';
+  import { AcvPagination } from '@acronis-platform/ui-component-library';
+  // TODO: fix example with vue-router
+  // import { computed, getCurrentInstance } from 'vue';
+  // import { createRouter, createWebHistory, useRoute } from 'vue-router';
 
-  const routers = createRouter({
-    history: createWebHashHistory(),
-    routes: [
-      {
-        path: '/',
-        component: {
-          template: '<div>Test</div>',
-        },
-      },
-    ],
-  });
+  // const router = createRouter({
+  //   history: createWebHistory(),
+  //   routes: [
+  //     {
+  //       path: '/',
+  //       component: {
+  //         template: '<div>Test</div>',
+  //       },
+  //     },
+  //   ],
+  // });
 
-  const { app } = getCurrentInstance().appContext;
-  app.use(routers);
+  // const { app } = getCurrentInstance().appContext;
+  // app.use(router);
+  //
+  // const route = useRoute();
+  // // const router = useRouter();
+  // const currentPage = computed(() => (route.query.page ? +route.query.page : 1));
 
-  const route = useRoute();
-  const router = useRouter();
-  const currentPage = computed(() => (route.query.page ? +route.query.page : 1));
-
-  async function setActivePage(newPage) {
-    await router.push({ query: getAcvPaginationQuery(route.query, newPage) });
+  async function setActivePage() {
+    // await router.push({ query: getAcvPaginationQuery(route.query, newPage) });
   }
 </script>
 

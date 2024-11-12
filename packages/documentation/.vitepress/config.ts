@@ -10,16 +10,15 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/ui-component-library/ui-kit.svg' }]],
   // hide dark mode switch
   appearance: false,
+  // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-
     nav,
 
     sidebar,
 
-    editLink: {
-      pattern: 'https://github.com/acronis/ui-component-library/edit/main/packages/documentation/:path'
-    },
+    // editLink: {
+    //   pattern: 'https://github.com/acronis/ui-component-library/edit/main/packages/documentation/:path'
+    // },
 
     search: {
       provider: 'local'

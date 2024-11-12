@@ -1,4 +1,6 @@
 <script>
+  import tableData from '../../__mocks__/data.mock.5.json';
+
   export default {
     data() {
       return {

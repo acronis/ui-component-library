@@ -2,13 +2,16 @@
   import AcvChart from '@/components/chart/chart.vue';
   import chartjsPluginDragdata from 'chartjs-plugin-dragdata';
 
-  const toHSLArray = hslStr => hslStr.match(/\d+/g).map(Number);
+  const toHSLArray = hslStr => hslStr.match(/\d+/g)?.map(Number);
 
   function parseColor(colorName) {
-    const color = getComputedStyle(document.documentElement)
-      .getPropertyValue(`--acv-color-${colorName}`);
+    if (typeof window !== 'undefined') {
+      const color = window.getComputedStyle(document.documentElement)
+        .getPropertyValue(`--acv-color-${colorName}`);
+      return toHSLArray(color);
+    }
 
-    return toHSLArray(color);
+    return 'dummy';
   }
   const colorNames = [
     'amber',
@@ -70,10 +73,10 @@
       datasets: [
         {
           label: `${colorName} colors attractiveness curve`,
-          data: colorValues[colorName].map(color => ({ x: color[1], y: color[2] })),
+          data: colorValues[colorName].map(color => color && ({ x: color[1], y: color[2] })),
           pointRadius: 15,
           backgroundColor: colorValues[colorName].map(
-            color => (`hsl(${color[0]}deg ${color[1]}% ${color[2]}%)`)
+            color => color && (`hsl(${color[0]}deg ${color[1]}% ${color[2]}%)`)
           ),
           borderWidth: 2.5,
           fill: false,

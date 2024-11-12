@@ -3,10 +3,11 @@
 
   import AcvCheckbox from '@/components/checkbox/checkbox.vue';
   import AcvCol from '@/components/column/column.vue';
-  import { onBeforeMount, reactive, ref } from 'vue';
+  import { reactive, ref } from 'vue';
   // import AcvCheckboxGroup from 'packages/checkbox';
   // import AcvRadioGroup from 'packages/radio';
   import AcvCombobox from '@/components/combobox/combobox.vue';
+  import AcvDatePicker from '@/components/date-picker/datePicker.vue';
   import AcvFilePicker from '@/components/file-picker/filePicker.vue';
   import AcvForm from '@/components/form/form.vue';
   import AcvFormItem from '@/components/form-item/formItem.vue';
@@ -16,13 +17,13 @@
   import AcvRow from '@/components/row/row.vue';
   import AcvSelect from '@/components/select/select.vue';
 
-  let AcvDatePicker;
-
-  onBeforeMount(() => {
-    import('@/components/date-picker/datePicker.vue').then((module) => {
-      AcvDatePicker = module.default;
-    });
-  });
+  // let AcvDatePicker;
+  //
+  // onBeforeMount(() => {
+  //   import('@/components/date-picker/datePicker.vue').then((module) => {
+  //     AcvDatePicker = module.default;
+  //   });
+  // });
 
   const formWithStatuses = ref(null);
   const model = reactive({

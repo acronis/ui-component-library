@@ -187,6 +187,9 @@ importers:
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
+      postcss-mixins:
+        specifier: 10.0.0
+        version: 10.0.0(postcss@8.4.48)
       stylelint:
         specifier: 16.2.1
         version: 16.2.1(typescript@5.5.3)
@@ -15480,6 +15483,11 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.38
 
+  postcss-js@4.0.1(postcss@8.4.48):
+    dependencies:
+      camelcase-css: 2.0.1
+      postcss: 8.4.48
+
   postcss-lab-function@6.0.12(postcss@8.4.38):
     dependencies:
       '@csstools/css-color-parser': 1.6.2(@csstools/css-parser-algorithms@2.6.1(@csstools/css-tokenizer@2.2.4))(@csstools/css-tokenizer@2.2.4)
@@ -15509,6 +15517,14 @@ snapshots:
       postcss-js: 4.0.1(postcss@8.4.38)
       postcss-simple-vars: 7.0.1(postcss@8.4.38)
       sugarss: 4.0.1(postcss@8.4.38)
+
+  postcss-mixins@10.0.0(postcss@8.4.48):
+    dependencies:
+      fast-glob: 3.3.2
+      postcss: 8.4.48
+      postcss-js: 4.0.1(postcss@8.4.48)
+      postcss-simple-vars: 7.0.1(postcss@8.4.48)
+      sugarss: 4.0.1(postcss@8.4.48)
 
   postcss-nesting@12.1.0(postcss@8.4.38):
     dependencies:
@@ -15641,6 +15657,10 @@ snapshots:
     dependencies:
       postcss: 8.4.38
 
+  postcss-simple-vars@7.0.1(postcss@8.4.48):
+    dependencies:
+      postcss: 8.4.48
+
   postcss-sorting@8.0.2(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
@@ -15680,7 +15700,6 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.1.1
       source-map-js: 1.2.1
-    optional: true
 
   preact@10.20.1: {}
 
@@ -16564,7 +16583,6 @@ snapshots:
   sugarss@4.0.1(postcss@8.4.48):
     dependencies:
       postcss: 8.4.48
-    optional: true
 
   superjson@2.2.1:
     dependencies:

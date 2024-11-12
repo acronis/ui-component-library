@@ -7,6 +7,7 @@
   import AcvTable from '@/components/table/table.vue';
   import AcvTableColumn from '@/components/table-column/tableColumn.vue';
   import AcvWidgetWrapper from '@/components/widget-wrapper/widgetWrapper.vue';
+  import tableData from '../../__mocks__/data.mock.5.json';
 
   const dataThree = {
     dataType: 'size',

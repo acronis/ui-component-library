@@ -1,9 +1,15 @@
 import path from 'node:path';
-import { globSync } from 'glob';
-import { getExampleDomains } from '../.vitepress/utils.js';
+import { getExampleDemos, getExampleDomains } from '../.vitepress/utils.js';
+
+// eslint-disable-next-line node/prefer-global/process
+const isProd = process.env.NODE_ENV === 'production';
 
 export default {
   async paths() {
+    if (isProd) {
+      return [];
+    }
+
     const pages = getExampleDomains();
 
     const paths = pages.reduce((res, page) => {
@@ -11,7 +17,7 @@ export default {
         return res;
 
       const demos = (page !== '.DS_Store')
-        ? globSync(`../examples/demos/${page}/**/*.vue`)
+        ? getExampleDemos(page)
         : [];
 
       const demoPages = demos.map(demo => ({
