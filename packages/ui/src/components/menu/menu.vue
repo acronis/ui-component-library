@@ -57,7 +57,7 @@
     class="acv-menu"
     :class="{
       [`acv-menu_type_${props.type}`]: true,
-      [`acv-menu_background_${props.background}`]: background,
+      [`acv-menu_background_${props.background}`]: props.background,
       'acv-menu_border-bottom': props.hideBottomBorder || props.hideBorders,
       'acv-menu_hide-borders': props.hideBorders,
       'acv-menu_collapsed': props.collapse,

@@ -8,8 +8,10 @@
   <div class="acv-footer">
     <AcvDivider />
     <div class="acv-footer_content">
+      <!-- @slot Used to pass a custom side content (text or link by design) -->
       <slot name="side" />
       <div class="actions">
+        <!-- @slot The default slot content (for buttons by design) -->
         <slot />
       </div>
     </div>
