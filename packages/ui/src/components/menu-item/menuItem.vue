@@ -11,8 +11,6 @@
   import { computed, getCurrentInstance, inject, ref, toValue } from 'vue';
   import { MENU_KEY } from '../menu/menu.ts';
 
-  import './menuItem.css';
-
   const props = withDefaults(defineProps<AcvMenuItemProps>(), {
     iconSize: 'md'
   });
@@ -143,39 +141,40 @@
   .acv-menu-item {
     --acv-menu-item-indent: v-bind(indent);
     --acv-menu-item-clamp: v-bind(clampSize);
+    --acv-menu-item-height: 64px;
     align-items: center;
-    color: var(--acv-menu-item-color);
+    color: var(--_acv-menu-item-color);
     cursor: pointer;
     display: flex;
     font-size: var(--acv-font-size-caption);
     font-weight: var(--acv-font-weight-strong);
-    gap: var(--acv-menu-item-gap);
+    gap: var(--_acv-menu-item-gap);
     grid-template-columns: auto 1fr;
     letter-spacing: .3px;
     line-height: 24px;
     min-height: var(--acv-menu-item-height);
-    padding-block:var(--acv-spacing-small, 8px) ;
-    padding-inline: var(--acv-menu-item-padding-inline-start) var(--acv-menu-item-padding-inline-end, 16px);
+    padding-block:var(--acv-spacing-small) ;
+    padding-inline: var(--_acv-menu-item-padding-start) var(--_acv-menu-item-padding-end);
     position: relative;
     transition: transform .5s ease;
     overflow: visible;
-    justify-content: var(--acv-menu-item-justify-content, start);
+    justify-content: var(--acv-menu-item-justify-content);
 
     &.selected,
     &:hover.selected,
     &:active {
-      background-color: var(--acv-menu-item-selected-bg);
-      color: var(--acv-menu-item-selected-color);
+      background-color: var(--_acv-menu-item-selected-bg);
+      color: var(--_acv-menu-item-selected-color);
     }
 
     &.disabled {
       pointer-events: none;
-      color: hsl(from var(--acv-menu-item-color) h s calc(l - 30));
+      color: hsl(from var(--_acv-menu-item-color) h s calc(l - 30));
     }
 
     &:hover {
-      color: var(--acv-menu-item-hover-color);
-      background-color: var(--acv-menu-item-hover-bg);
+      color: var(--_acv-menu-item-hover-color);
+      background-color: var(--_acv-menu-item-hover-bg);
     }
 
     .clamp {
@@ -193,8 +192,10 @@
       margin-left: auto;
     }
 
-    &:deep(.acv-icon) {
+    .acv-icon {
+      --acv-icon-size: var(--acv-icon-size-medium);
       min-width: 16px;
+
     }
   }
 </style>

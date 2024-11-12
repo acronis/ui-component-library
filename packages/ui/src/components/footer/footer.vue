@@ -1,15 +1,13 @@
 <script lang="ts" setup>
-  import type { AcvFooterSlots } from './footer.ts';
   import AcvDivider from '../divider/divider.vue';
 
   defineOptions({ name: 'AcvFooter' });
-  defineSlots<AcvFooterSlots>();
 </script>
 
 <template>
   <div class="acv-footer">
     <AcvDivider />
-    <div class="acv-footer-content">
+    <div class="acv-footer_content">
       <slot name="side" />
       <div class="actions">
         <slot />
@@ -20,12 +18,12 @@
 
 <style scoped>
 .acv-footer {
-  --acv-divider-v-margin: 0;
+  --_acv-divider-v-margin: 0;
   display: flex;
   flex-direction: column;
 }
 
-.acv-footer-content {
+.acv-footer_content {
   display: flex;
   align-items: center;
   gap: var(--acv-spacing-regular);

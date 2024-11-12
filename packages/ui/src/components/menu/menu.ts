@@ -92,10 +92,4 @@ export interface AcvMenuInjection {
 
 const MENU_KEY = Symbol('MENU_KEY') as InjectionKey<AcvMenuInjection>;
 
-export interface AcvMenuSlots {
-  prepend?: () => any
-  append?: () => any
-  default: () => any
-}
-
 export { MENU_KEY };
