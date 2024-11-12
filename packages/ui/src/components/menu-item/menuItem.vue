@@ -169,7 +169,7 @@
 
     &.disabled {
       pointer-events: none;
-      color: hsl(from var(--_acv-menu-item-color) h s calc(l - 30));
+      color: var(--acv-color-status-neutral-secondary);
     }
 
     &:hover {
@@ -192,10 +192,8 @@
       margin-left: auto;
     }
 
-    .acv-icon {
-      --acv-icon-size: var(--acv-icon-size-medium);
+    .icon {
       min-width: 16px;
-
     }
   }
 </style>

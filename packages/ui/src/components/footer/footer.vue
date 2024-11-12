@@ -7,7 +7,7 @@
 <template>
   <div class="acv-footer">
     <AcvDivider />
-    <div class="acv-footer_content">
+    <div class="content">
       <!-- @slot Used to pass a custom side content (text or link by design) -->
       <slot name="side" />
       <div class="actions">
@@ -25,7 +25,7 @@
   flex-direction: column;
 }
 
-.acv-footer_content {
+.content {
   display: flex;
   align-items: center;
   gap: var(--acv-spacing-regular);

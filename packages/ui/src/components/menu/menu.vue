@@ -143,10 +143,11 @@
     --_acv-menu-item-hover-color: var(--acv-color-nav-label-secondary);
     --_acv-menu-item-selected-bg: var(--acv-color-nav-active-primary);
     --_acv-menu-item-selected-color: var(--acv-color-nav-label-primary);
+    --acv-icon-size: var(--acv-icon-size-medium);
     grid-template-columns: 256px;
     grid-template-rows: auto;
     color: var(--acv-color-nav-label-secondary);
-    background-color: var(--acv-menu-bg-color);
+    background-color: var(--_acv-menu-bg-color);
 
     &.acv-menu_collapsed {
       --acv-menu-item-justify-content: center;
