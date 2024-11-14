@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
   import { AcvPagination } from '@acronis-platform/ui-component-library';
   // TODO: fix example with vue-router
   // import { computed, getCurrentInstance } from 'vue';
@@ -22,6 +22,16 @@
   // const route = useRoute();
   // // const router = useRouter();
   // const currentPage = computed(() => (route.query.page ? +route.query.page : 1));
+
+  import type { LocationQueryRaw } from 'vue-router';
+
+  /**
+   * Merge existing query with pagination params
+   */
+  function getAcvPaginationQuery(query: LocationQueryRaw, page: number): LocationQueryRaw {
+    // don't show first page in url
+    return { ...query, page: page > 1 ? page : undefined };
+  }
 
   async function setActivePage() {
     // await router.push({ query: getAcvPaginationQuery(route.query, newPage) });

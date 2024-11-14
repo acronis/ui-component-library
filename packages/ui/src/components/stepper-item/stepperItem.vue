@@ -5,7 +5,6 @@
     AcvStepperItemSlots
   } from './stepperItem.ts';
   import { computed } from 'vue';
-  import { RouterLink } from 'vue-router';
 
   const props = withDefaults(defineProps<AcvStepperItemProps>(), {
     is: 'button',
@@ -35,7 +34,7 @@
 
 <template>
   <Component
-    :is="to ? RouterLink : is"
+    :is="is"
     :to="to"
     class="acv-stepper-item"
     :type="is === 'button' ? 'button' : undefined"
