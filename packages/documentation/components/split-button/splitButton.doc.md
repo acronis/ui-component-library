@@ -3,10 +3,6 @@ The split button consists of two sections.
 Section with a default action and a section with a drop-down list of actions.
 Split button can be either primary or secondary.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A28
-:::
-
 ## Basic usage
 
 <SplitButtonBasic />

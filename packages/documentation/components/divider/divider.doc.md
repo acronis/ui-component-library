@@ -1,10 +1,6 @@
 Used to group content in horizontal or vertical lists,
 and also serves as a visual separator between logical blocks within the interface.
 
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=123-8541&m=dev
-:::
-
 ## Basic usage
 
 <DividerBasic />

@@ -1,9 +1,5 @@
 Allows you to set a date or a range of dates, switch years, months or weeks, select days without a calendar reference.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A8
-:::
-
 ## Basic usage
 
 <DatePickerBasic />

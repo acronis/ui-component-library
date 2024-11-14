@@ -1,10 +1,6 @@
 Note that the width of the fields in the form depends on the grid layout and obeys strict logic.
 Using magic numbers when choosing the width of the fields, is not recommended without the urgent need.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=23%3A744
-:::
-
 ## Basic usage
 
 It includes all kinds of input items, such as `input`, `select`, `radio` and `checkbox`.

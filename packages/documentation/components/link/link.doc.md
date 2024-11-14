@@ -2,10 +2,6 @@ Links are used to embedding actions or pathways to more information in a sentenc
 
 In other cases preferable to use ghost buttons.
 
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-15360
-:::
-
 ## Basic usage
 
 <LinkBasic/>

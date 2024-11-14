@@ -1,9 +1,5 @@
 The search results are displayed in the pop-up list and appear after the first character is entered. A pop-up list inherits the behavior and positioning of the Dropdown component
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A13r
-:::
-
 ## Basic usage
 
 ::: tip

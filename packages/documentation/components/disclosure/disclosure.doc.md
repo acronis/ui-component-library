@@ -5,10 +5,6 @@ Hidden content is displayed by clicking on the arrow or throughout the entire bl
 A disclosure widget is a widget containing a short summary or heading,
 plus a UI control to expand that heading to show more detail.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A6
-:::
-
 ## Basic usage
 
 <DisclosureBasic />

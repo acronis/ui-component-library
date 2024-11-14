@@ -1,10 +1,6 @@
 Allows you to see the entire path from the parent section to the section
 in which the user is now located and go to one or more levels above.
 
-:::info Figma component anatomy
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-5313
-:::
-
 ## Basic usage
 
 :::tip

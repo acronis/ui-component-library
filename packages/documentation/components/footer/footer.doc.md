@@ -6,10 +6,6 @@ a clean divider, and encapsulated styles.
 It's an ideal option for placing additional information or call-to-action elements
 at the end of a page or a modal in a Vue application.
 
-:::info Figma component anatomy
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=486-14332&m=dev
-:::
-
 ## Basic usage
 
 <FooterBasic />

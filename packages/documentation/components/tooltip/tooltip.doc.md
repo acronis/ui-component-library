@@ -7,10 +7,6 @@ Do not confuse tooltip and popover components.
 Tooltips do not receive focus, and they are not keyboard accessible.
 Tooltip is called by hover state, and popover is called by clicking.
 
-:::info Figma component mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=56-4409
-:::
-
 ## Basic usage
 
 <TooltipBasic />

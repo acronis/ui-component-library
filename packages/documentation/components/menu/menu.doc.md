@@ -2,10 +2,6 @@ Used as navigation on the main sections of the interface.
 It is typically organized in a hierarchical structure and can be presented in various formats such as horizontal bars, vertical lists, or dropdown menus.
 The primary purpose of a navigation menu is to help users find and access content quickly and efficiently.
 
-:::info Figma mockups
-https://www.figma.com/design/LTyCXsL7eUj5fHmMMGcEUj/Components-anatomy?node-id=648-141796&m=dev
-:::
-
 ## Basic usage
 
 <MenuBasic />

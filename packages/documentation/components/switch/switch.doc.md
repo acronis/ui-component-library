@@ -5,10 +5,6 @@ It is a visual representation of a checkbox that allows the user to switch betwe
 - Switch has two basic states - On / Off.
 - Like checkboxes, a switch also has several states: focused, disabled, hover and active.
 
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=592-168382
-:::
-
 ## Basic usage
 
 Bind `v-model` to a `Boolean` typed variable.

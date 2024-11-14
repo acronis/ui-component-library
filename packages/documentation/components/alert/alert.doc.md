@@ -4,14 +4,6 @@
 - Can be closable, not available to hide alert automatically;
 - Severity of alert message can be set with _color_ property;
 
-:::info Figma mockups
-https://www.figma.com/file/JVXL1xmeaGoj3glTMwoJnl/01-UI-Kits---Syntax-UI?type=design&node-id=212-489&mode=design&t=rStlC7KttZJJBUc1-4
-:::
-
-:::info Figma component anatomy
-https://www.figma.com/file/LTyCXsL7eUj5fHmMMGcEUj/Components-anatomy?type=design&node-id=2-193&mode=design&t=rStlC7KttZJJBUc1-4
-:::
-
 ## Basic usage
 
 `Alert` provides four severity levels and sets unique icons and colors.

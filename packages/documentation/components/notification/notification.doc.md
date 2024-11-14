@@ -1,9 +1,6 @@
 Used as feedback to the user's actions inside the interface.
-Notification can contain general information, inform the user of the successful completion of the operation, display warnings, report errors or display the progress of an operation performed earlier.
-
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A20
-:::
+Notification can contain general information, inform the user of the successful completion of the operation,
+display warnings, report errors or display the progress of an operation performed earlier.
 
 ## Basic usage
 

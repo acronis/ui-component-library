@@ -1,9 +1,5 @@
 The component is used in various wizards and shows the entire path that the user needs to go through in order to complete the installation or configuration of certain modules within the interface.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A29
-:::
-
 ## Basic usage
 
 Default usage allows user to switch between steps only by external efforts. Flag `interactive` let the user switch to any fulfilled step

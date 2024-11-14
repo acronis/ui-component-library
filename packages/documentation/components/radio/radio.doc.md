@@ -3,10 +3,6 @@ Used in cases where a list of two or more parameters is mutually exclusive,
 that is, the user can select only one parameter.
 Radio buttons should have one selected option by default.
 
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=0-1
-:::
-
 ## Basic usage
 
 Use <AcvRadio /> component with <FormLabel /> component to display the label.

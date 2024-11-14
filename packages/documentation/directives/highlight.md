@@ -7,10 +7,6 @@ lang: en-US
 
 Used to safe highlighting keyword inside passed text.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A26
-:::
-
 ## Basic usage
 
 <HighlightBasic />

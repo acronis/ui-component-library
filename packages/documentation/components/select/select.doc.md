@@ -1,10 +1,6 @@
 Select component is used to select one or more values from a collection of options.
 For select, as well as for Input, two modifications are available: default and small.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A27
-:::
-
 ## Features
 
     - Input element with a dropdown list of options.

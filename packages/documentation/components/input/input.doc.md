@@ -2,10 +2,6 @@ Used to enter values by the user.
 The label in the Input default should clearly and briefly describe the information that you need to enter.
 In the case of the text area Input default can be multi-line and the height of the input field may depend on the number of text entered.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A16
-:::
-
 ## Basic usage
 
 <InputBasic />

@@ -3,10 +3,6 @@ List items can also be base for content, which can include images, text, and lin
 It can be used to display a list of items, such as a list of products, services, or other items.
 List can support basic selection, draggability, sorting and other features.
 
-:::info Figma component anatomy
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=876-2097
-:::
-
 ## Basic usage
 
 <ListBasic />

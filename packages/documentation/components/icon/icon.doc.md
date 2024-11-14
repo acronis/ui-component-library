@@ -2,10 +2,6 @@ Basic sizes, rules for building and using icons.
 Icons can be outlined or bold, it all depends on the specific case.
 But, in most cases, we use outline icons.
 
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=206-385&m=dev
-:::
-
 ## Usage
 
 <IconExample />

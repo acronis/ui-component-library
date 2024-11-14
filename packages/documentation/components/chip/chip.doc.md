@@ -1,7 +1,3 @@
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=876-2858
-:::
-
 ## Basic usage
 
 <ChipBasic />

@@ -6,10 +6,6 @@ Loading informs the user about the current status of the operation, but does not
 
 In all other cases, circle progress is used.
 
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=411-17998
-:::
-
 ## Basic usage
 
 You can use the `acv-loading` component to add a loading to an element.

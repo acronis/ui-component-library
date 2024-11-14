@@ -1,10 +1,6 @@
 A carousel presents a set of items, referred to as slides,
 by sequentially displaying a subset of one or more slides.
 
-:::info Figma component anatomy
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=515-3736
-:::
-
 ## Basic usage
 
 <CarouselBasic />

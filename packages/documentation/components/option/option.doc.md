@@ -1,9 +1,5 @@
 Short description for Option component...
 
-:::info Figma component anatomy
-https://www.figma.com/file/
-:::
-
 ## Basic usage
 
 <OptionBasic />

@@ -3,10 +3,6 @@ Do not confuse popover and tooltip components.
 Popover is called by clicking, and it can contain any content, and tooltip is called by hover or focus state and contains only text.
 You can close the popover by clicking on the primary or secondary button, using the Esc key or clicking outside the component.
 
-:::info Figma mockups
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Tokens-test?node-id=612-341&m=dev
-:::
-
 ## Basic usage
 
 <PopoverBasic />

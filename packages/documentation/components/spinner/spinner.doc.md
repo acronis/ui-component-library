@@ -1,7 +1,3 @@
-:::info Figma component anatomy
-https://www.figma.com/design/6nFlVmwDwvGloglQHxyElh/Syntax-UI-3.0?node-id=411-17998
-:::
-
 Spinner can be used in several ways:
 
 - **Global**: When the application is loading, the spinner is shown on top of the application.

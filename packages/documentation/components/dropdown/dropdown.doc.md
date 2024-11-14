@@ -1,9 +1,5 @@
 Sets general layout and positioning rules for button, split button, select, date picker and Icon. Maximum dropdown height is determined by the number of values, but not more than 8 visible. If the value is greater than 8, a vertical scroll appears in the dropdown. The minimum height is 128px, except when there are 1 or 2 values in the list. The minimum width is 128px, and the maximum width is determined by the content inside. All values in dropdown are links. Exception - use of dropdown for select, in select values are not links.
 
-:::info Figma component anatomy
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A10
-:::
-
 ## Basic usage
 
 :::tip

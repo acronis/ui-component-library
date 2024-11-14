@@ -6,10 +6,6 @@ You can only select an element that is not a parent and does not contain other c
 If the parent is in the disabled state, you cannot expand it.
 Multiple selection of items is only available when using the Tree with checkbox.
 
-:::info Figma mockups
-https://www.figma.com/file/AOtI028uCFzAmnADVCz872/Documentation?node-id=2%3A36
-:::
-
 ## Basic usage
 
 <TreeBasic />

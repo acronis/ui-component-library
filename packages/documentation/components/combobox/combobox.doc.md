@@ -3,10 +3,6 @@ The combo box consists of two parts, a field for entering a value and a button w
 The input field inherits the behavior of the Input component, and a click on the button causes dropdown.
 The dropdown list inherits the dropdown behavior logic for the select component.
 
-:::info Figma component anatomy
-https://www.figma.com/file/
-:::
-
 ## Basic usage
 
 <ComboboxBasic />
