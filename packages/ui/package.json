@@ -69,6 +69,7 @@
     "colord": "2.9.3",
     "date-fns": "3.6.0",
     "deepmerge": "4.3.1",
+    "focus-trap": "7.6.1",
     "highlight.js": "11.9.0",
     "lodash-es": "4.17.21",
     "md-editor-v3": "4.17.3",
