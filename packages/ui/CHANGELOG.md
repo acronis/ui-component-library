@@ -1,3 +1,11 @@
+## [1.30.3](https://github.com/acronis/ui-component-library/compare/v1.30.2...v1.30.3) (2024-11-14)
+
+
+### Bug Fixes
+
+* **build:** add focus-trap ([8ad5f6d](https://github.com/acronis/ui-component-library/commit/8ad5f6da1322e2b964efad01b8f30b936b1ecd7d))
+* **docs:** fix examples route ([#161](https://github.com/acronis/ui-component-library/issues/161)) ([52bb1b0](https://github.com/acronis/ui-component-library/commit/52bb1b078ef6b8a6a62b14a89c97733fa01c72bd))
+
 ## [1.30.2](https://github.com/acronis/ui-component-library/compare/v1.30.1...v1.30.2) (2024-11-11)
 
 
@@ -25,11 +33,4 @@
 ### Features
 
 * stepper component ([#153](https://github.com/acronis/ui-component-library/issues/153)) ([9e8a030](https://github.com/acronis/ui-component-library/commit/9e8a03093f045e0804de492efc971b215d165749))
-
-## [1.28.0](https://github.com/acronis/ui-component-library/compare/v1.27.0...v1.28.0) (2024-11-08)
-
-
-### Features
-
-* global css structure ([#151](https://github.com/acronis/ui-component-library/issues/151)) ([e7de92d](https://github.com/acronis/ui-component-library/commit/e7de92d484cd2839e4c2cab70c65f719c61b490a))
 
