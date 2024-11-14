@@ -1,3 +1,10 @@
+## [1.30.4](https://github.com/acronis/ui-component-library/compare/v1.30.3...v1.30.4) (2024-11-14)
+
+
+### Bug Fixes
+
+* remove router-link import ([1d173a3](https://github.com/acronis/ui-component-library/commit/1d173a34bf0a089e08b470ee2fa5721012b82045))
+
 ## [1.30.3](https://github.com/acronis/ui-component-library/compare/v1.30.2...v1.30.3) (2024-11-14)
 
 
@@ -26,11 +33,4 @@
 ### Features
 
 * **widgets:** move widgets to components ([#157](https://github.com/acronis/ui-component-library/issues/157)) ([13465be](https://github.com/acronis/ui-component-library/commit/13465beec4d4e121c4320564df3b8e45e28f9539))
-
-## [1.29.0](https://github.com/acronis/ui-component-library/compare/v1.28.0...v1.29.0) (2024-11-08)
-
-
-### Features
-
-* stepper component ([#153](https://github.com/acronis/ui-component-library/issues/153)) ([9e8a030](https://github.com/acronis/ui-component-library/commit/9e8a03093f045e0804de492efc971b215d165749))
 
