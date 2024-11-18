@@ -1,0 +1,3 @@
+<template>
+  AcvDropdownMenu<slot />
+</template>
