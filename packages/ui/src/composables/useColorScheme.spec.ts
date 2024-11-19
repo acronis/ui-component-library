@@ -24,6 +24,7 @@ describe('useColorScheme', () => {
 
   it('does not set invalid color scheme', () => {
     const { setColorScheme, colorScheme } = useColorScheme();
+    // @ts-expect-error check runtime
     setColorScheme('invalid');
     expect(colorScheme.value).not.toEqual('invalid');
     expect(localStorage.getItem('acv-theme')).not.toEqual('invalid');
