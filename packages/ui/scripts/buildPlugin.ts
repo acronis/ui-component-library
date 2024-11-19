@@ -29,13 +29,10 @@ export function buildPlugin(): Plugin[] {
         sourceMap: false,
         paths: {
           '@/*': ['./src/*'],
-          '@demos/*': ['../../demos/*'],
-          'csstype': ['node_modules/csstype']
         }
       },
       copyDtsFiles: true,
-      pathsToAliases: false,
-      aliasesExclude: [/^@ui-kit\/(services|hooks|config)/]
+      pathsToAliases: false
     }),
   ];
 
@@ -50,10 +47,7 @@ export function buildPlugin(): Plugin[] {
             sourcemap: true,
             lib: {
               entry: {
-                'index': 'src/index.ts',
-                // TODO add more entries
-                'button': 'src/components/button/public.ts',
-                'components/buttonGroup': 'src/components/button-group/public.ts',
+                index: 'src/index.ts',
               },
               formats: ['es'],
               name: 'Acronis Ui Component Library',
@@ -74,8 +68,7 @@ export function buildPlugin(): Plugin[] {
                 },
                 chunkFileNames: '[name].[hash].js',
                 assetFileNames: 'assets/[name][extname]'
-              },
-              external: ['vue']
+              }
             },
             chunkSizeWarningLimit: 10000
           }
