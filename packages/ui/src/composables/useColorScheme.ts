@@ -2,7 +2,7 @@ import { useColorMode } from '@vueuse/core';
 import { computed } from 'vue';
 
 export type ColorScheme = 'light' | 'dark';
-const ACV_THEME_LC_KEY = 'acv-color-scheme';
+export const ACV_THEME_LC_KEY = 'acv-color-scheme';
 
 export function useColorScheme() {
   const mode = useColorMode({
