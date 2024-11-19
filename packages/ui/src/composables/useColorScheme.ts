@@ -17,9 +17,7 @@ export function useColorScheme() {
   const isDark = computed(() => colorScheme.value === 'dark');
 
   function setColorScheme(colorSchemeId: ColorScheme) {
-    if (colorSchemeId === 'dark' || colorSchemeId === 'light') {
-      mode.value = colorSchemeId;
-    }
+    mode.value = colorSchemeId;
   }
 
   return {
