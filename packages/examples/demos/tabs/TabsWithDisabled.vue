@@ -15,6 +15,7 @@
       <AcvTabPane
         label="Middle"
         name="middle"
+        disabled
       >
         <span class="el-text el-text--body-32 mx-24">Middle</span>
       </AcvTabPane>

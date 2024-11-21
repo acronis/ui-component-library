@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { axe } from 'vitest-axe';
 import Tabs from './tabs.vue';
 
-describe('test Tabs component', () => {
+describe('tabs component', () => {
   it('pass accessibility tests', async () => {
     const wrapper = mount(Tabs, {
       props: {
@@ -28,11 +28,11 @@ describe('test Tabs component', () => {
     const wrapper = mount(Tabs);
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "modelModifiers": undefined,
+        "large": false,
         "modelValue": undefined,
+        "showDivider": true,
         "size": undefined,
-        "spacing": false,
-        "tabs": undefined,
+        "spacing": true,
         "transition": undefined,
       }
     `);
@@ -47,11 +47,11 @@ describe('test Tabs component', () => {
 
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
-        "modelModifiers": undefined,
+        "large": false,
         "modelValue": undefined,
+        "showDivider": true,
         "size": undefined,
-        "spacing": false,
-        "tabs": undefined,
+        "spacing": true,
         "transition": undefined,
       }
     `);
@@ -62,7 +62,12 @@ describe('test Tabs component', () => {
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div data-v-d73d51ff="" class="acv-tabs">
-        <nav data-v-d73d51ff="" class="nav" role="tablist"></nav>
+        <div data-v-74e186fc="" data-v-d73d51ff="" class="acv-tabs__nav acv-tabs__nav--spaced" role="tablist"></div>
+        <div data-v-d73d51ff="" class="acv-tabs__content">
+          <div data-v-db039be1="" data-v-d73d51ff="" class="acv-divider acv-divider--horizontal mt-24" role="separator" aria-hidden="true" aria-orientation="horizontal">
+            <!--v-if-->
+          </div>
+        </div>
       </div>"
     `);
   });

@@ -4,7 +4,7 @@ import { getExampleDemos, getExampleDomains } from '../utils.ts';
 const pages = getExampleDomains();
 
 // eslint-disable-next-line node/prefer-global/process
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV !== 'production';
 
 export const examples = isDev
   ? pages.map((page: string) => ({

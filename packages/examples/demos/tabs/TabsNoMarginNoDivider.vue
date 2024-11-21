@@ -1,34 +1,30 @@
 <script setup>
   import AcvTabPane from '@/components/tab-pane/tab-pane.vue';
   import AcvTabs from '@/components/tabs/tabs.vue';
-
-  import { ref } from 'vue';
-
-  const large = ref('left');
 </script>
 
 <template>
   <AcvTabs
-    v-model="large"
-    large
+    no-divider
+    no-margin
   >
     <AcvTabPane
       label="Left"
       name="left"
     >
-      <span class="el-text el-text--body-32 mx-24">Left</span>
+      <span class="el-text el-text--body-32">Left</span>
     </AcvTabPane>
     <AcvTabPane
       label="Middle"
       name="middle"
     >
-      <span class="el-text el-text--body-32 mx-24">Middle</span>
+      <span class="el-text el-text--body-32">Middle</span>
     </AcvTabPane>
     <AcvTabPane
       label="Right"
       name="right"
     >
-      <span class="el-text el-text--body-32 mx-24">Right</span>
+      <span class="el-text el-text--body-32">Right</span>
     </AcvTabPane>
   </AcvTabs>
 </template>

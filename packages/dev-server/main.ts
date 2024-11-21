@@ -1,4 +1,5 @@
-import '@/styles/public/themes.css';
+import "@/styles/reset.css";
+import "@/styles/themes/acronis/acronis.pcss";
 import { createApp } from 'vue';
 // import theme from '../examples/demos/theme/theme.vue';
 

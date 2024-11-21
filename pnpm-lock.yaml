@@ -138,6 +138,9 @@ importers:
       postcss:
         specifier: 8.4.38
         version: 8.4.38
+      postcss-mixins:
+        specifier: 10.0.0
+        version: 10.0.0(postcss@8.4.38)
       unplugin-vue-components:
         specifier: 0.27.0
         version: 0.27.0(@babel/parser@7.25.7)(rollup@4.21.2)(vue@3.5.6(typescript@5.5.3))

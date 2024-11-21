@@ -10,6 +10,9 @@
         label="Left"
         name="left"
       >
+        <template #label>
+          Left label slot
+        </template>
         <span class="el-text el-text--body-32 mx-24">Left</span>
       </AcvTabPane>
       <AcvTabPane
