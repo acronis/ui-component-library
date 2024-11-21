@@ -1,20 +1,20 @@
 ---
-title: Breadcrumb Link component
+title: Breadcrumb Item component
 lang: en-US
 editLink: true
 description: This file is generated automatically from the source code. Changes made here will be lost.
 ---
 
-# Breadcrumb Link
+# Breadcrumb Item
 
-<!--@include: ./breadcrumbLink.doc.md-->
+<!--@include: ./breadcrumbItem.doc.md-->
 
 ## Props
 
-| Prop name | Description                                      | Type             | Values | Default |
-| --------- | ------------------------------------------------ | ---------------- | ------ | ------- |
-| to        | Target of the link, same as _`to`_ in Vue Router | string \| Record | -      |         |
-| active    | Whether the link is active (current page)        | boolean          | -      |         |
+| Prop name | Description                                      | Type    | Values | Default |
+| --------- | ------------------------------------------------ | ------- | ------ | ------- |
+| to        | Target of the link, same as _`to`_ in Vue Router | string  | -      |         |
+| active    | Whether the item is active (current page)        | boolean | -      |         |
 
 ## Events
 
@@ -26,4 +26,5 @@ description: This file is generated automatically from the source code. Changes 
 
 | Name    | Description                   | Bindings |
 | ------- | ----------------------------- | -------- |
-| default | Default slot for link content |          |
+| icon    | Slot for custom icon          |          |
+| default | Default slot for item content |          |

@@ -11,20 +11,21 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name   | Description                    | Type   | Values | Default |
-| ----------- | ------------------------------ | ------ | ------ | ------- |
-| title       | Title of the StepperItem       | string | -      |         |
-| description | Description of the StepperItem | string | -      |         |
+| Prop name | Description                           | Type                                                | Values                             | Default |
+| --------- | ------------------------------------- | --------------------------------------------------- | ---------------------------------- | ------- |
+| to        | Target of the link                    | RouteLocationRaw                                    | -                                  |         |
+| selected  | Whether button appearance as selected | boolean                                             | -                                  |         |
+| disabled  | Disable the StepperItem               | boolean                                             | -                                  |         |
+| is        | StepperItem tag                       | "a" \| "span" \| "button" \| "label" \| TSTypeQuery | a, span, button, label, RouterLink | button  |
 
 ## Events
 
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
+| Event name | Properties                                     | Description                                    |
+| ---------- | ---------------------------------------------- | ---------------------------------------------- |
+| select     | **eventName** `string` - The name of the event | Triggered when the component is being selected |
 
 ## Slots
 
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |
+| Name    | Description              | Bindings |
+| ------- | ------------------------ | -------- |
+| default | The default slot content |          |

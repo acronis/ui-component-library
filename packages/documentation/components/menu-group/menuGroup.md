@@ -11,10 +11,9 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name   | Description                  | Type   | Values | Default |
-| ----------- | ---------------------------- | ------ | ------ | ------- |
-| title       | Title of the MenuGroup       | string | -      |         |
-| description | Description of the MenuGroup | string | -      |         |
+| Prop name | Description            | Type   | Values | Default |
+| --------- | ---------------------- | ------ | ------ | ------- |
+| title     | Title of the MenuGroup | string | -      |         |
 
 ## Events
 
@@ -24,7 +23,7 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Slots
 
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |
+| Name    | Description              | Bindings |
+| ------- | ------------------------ | -------- |
+| title   | The title slot content   |          |
+| default | The default slot content |          |

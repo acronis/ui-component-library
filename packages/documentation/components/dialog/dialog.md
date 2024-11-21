@@ -24,7 +24,7 @@ description: This file is generated automatically from the source code. Changes 
 | type                | Type of the Dialog                                                | "default" \| "clean"                              | -      |         |
 | backdrop            | Whether modal mask is displayed                                   | boolean                                           | -      | true    |
 | lockScroll          | Whether scroll is locked                                          | boolean                                           | -      |         |
-| lockFocus           | Whether focus is locked                                           | boolean                                           | -      | true    |
+| lockFocus           | Whether focus is locked                                           | boolean                                           | -      |         |
 | closeOnEscape       | Whether to close the Dialog when escape key is pressed            | boolean                                           | -      | true    |
 | closeOnClickOutside | Whether to close the Dialog when the mask is clicked              | boolean                                           | -      | true    |
 
