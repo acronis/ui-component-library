@@ -1,3 +1,10 @@
+## [1.31.0](https://github.com/acronis/ui-component-library/compare/v1.30.4...v1.31.0) (2024-11-21)
+
+
+### Features
+
+* build improve ([#167](https://github.com/acronis/ui-component-library/issues/167)) ([6e5a203](https://github.com/acronis/ui-component-library/commit/6e5a2035ac47666a25369f5d2007596dce77bb5a)), closes [#166](https://github.com/acronis/ui-component-library/issues/166)
+
 ## [1.30.4](https://github.com/acronis/ui-component-library/compare/v1.30.3...v1.30.4) (2024-11-14)
 
 
@@ -26,11 +33,4 @@
 ### Bug Fixes
 
 * **ui:** fixed typings of Vue plugin installer function ([#158](https://github.com/acronis/ui-component-library/issues/158)) ([4b5b782](https://github.com/acronis/ui-component-library/commit/4b5b782aabe00aad5c09c72b87ad9b776a0828f7))
-
-## [1.30.0](https://github.com/acronis/ui-component-library/compare/v1.29.0...v1.30.0) (2024-11-11)
-
-
-### Features
-
-* **widgets:** move widgets to components ([#157](https://github.com/acronis/ui-component-library/issues/157)) ([13465be](https://github.com/acronis/ui-component-library/commit/13465beec4d4e121c4320564df3b8e45e28f9539))
 
