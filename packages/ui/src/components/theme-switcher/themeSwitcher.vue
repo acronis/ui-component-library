@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import AcvButton from '@/components/button/button.vue';
   import AcvDropdown from '@/components/dropdown/dropdown.vue';
-  import { AVAILABLE_COLOR_SCHEMES, useColorScheme } from '@/composables/useColorScheme.ts';
+  import { useColorScheme } from '@/composables/useColorScheme.ts';
 
   const { setColorScheme, colorScheme: currentColorScheme } = useColorScheme();
 </script>
@@ -18,9 +18,9 @@
     <template #dropdown>
       <ul>
         <li
-          v-for="(colorScheme, key) in AVAILABLE_COLOR_SCHEMES"
-          :key="key"
-          :data-test="`color-scheme-item-${key}`"
+          v-for="(colorScheme) in ['light', 'dark'] as const"
+          :key="colorScheme"
+          :data-test="`color-scheme-item-${colorScheme}`"
           class="color"
           :class="{
             selected: colorScheme === currentColorScheme }"

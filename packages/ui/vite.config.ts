@@ -11,12 +11,7 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
-        '@documentation': resolve(__dirname, '../../documentation'),
       },
-    },
-    optimizeDeps: {
-      exclude: ['vitest/utils'],
-      include: ['@vitest/utils'],
     },
     plugins: [
       vue(),

@@ -1,4 +1,4 @@
-import { useColorScheme } from '@/composables/useColorScheme';
+import { ACV_THEME_LC_KEY, useColorScheme } from '@/composables/useColorScheme';
 import { describe, expect, it } from 'vitest';
 import { nextTick } from 'vue';
 
@@ -9,7 +9,7 @@ describe('useColorScheme', () => {
   });
 
   it('returns dark mode status correctly', () => {
-    localStorage.setItem('acv-theme', 'dark');
+    localStorage.setItem(ACV_THEME_LC_KEY, 'dark');
     const { isDark } = useColorScheme();
     expect(isDark.value).toEqual(true);
   });
@@ -19,14 +19,7 @@ describe('useColorScheme', () => {
     setColorScheme('light');
     expect(colorScheme.value).toEqual('light');
     await nextTick();
-    expect(localStorage.getItem('acv-theme')).toEqual('light');
-  });
-
-  it('does not set invalid color scheme', () => {
-    const { setColorScheme, colorScheme } = useColorScheme();
-    setColorScheme('invalid');
-    expect(colorScheme.value).not.toEqual('invalid');
-    expect(localStorage.getItem('acv-theme')).not.toEqual('invalid');
+    expect(localStorage.getItem(ACV_THEME_LC_KEY)).toEqual('light');
   });
 
   it('does not change color scheme if the same is set', () => {

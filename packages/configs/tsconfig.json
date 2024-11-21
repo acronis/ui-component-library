@@ -27,9 +27,7 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@demos/*": ["../demos/*"],
-      "react": [""]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src", "src/**/*.{ts,vue}"],

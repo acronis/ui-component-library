@@ -1,31 +1,23 @@
 import { useColorMode } from '@vueuse/core';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 
-export const AVAILABLE_COLOR_SCHEMES = {
-  light: 'light',
-  dark: 'dark',
-  acronis: 'acronis',
-  constructor: 'constructor',
-  virtuozzo: 'virtuozzo',
-};
-const ACV_THEME_LC_KEY = 'acv-theme';
+export type ColorScheme = 'light' | 'dark';
+export const ACV_THEME_LC_KEY = 'acv-color-scheme';
 
 export function useColorScheme() {
-  const colorScheme = ref(localStorage.getItem(ACV_THEME_LC_KEY) || 'light');
-
+  const mode = useColorMode({
+    attribute: 'class',
+    storageKey: ACV_THEME_LC_KEY,
+    modes: {
+      light: 'acv-color-scheme-light',
+      dark: 'acv-color-scheme-dark',
+    },
+  });
+  const colorScheme = computed(() => mode.value);
   const isDark = computed(() => colorScheme.value === 'dark');
 
-  const mode: any = useColorMode({
-    attribute: 'data-theme',
-    storageKey: ACV_THEME_LC_KEY,
-    modes: AVAILABLE_COLOR_SCHEMES,
-  });
-
-  function setColorScheme(colorSchemeId: string) {
-    if (AVAILABLE_COLOR_SCHEMES[colorSchemeId]) {
-      mode.value = colorSchemeId;
-      colorScheme.value = colorSchemeId;
-    }
+  function setColorScheme(colorSchemeId: ColorScheme) {
+    mode.value = colorSchemeId;
   }
 
   return {
