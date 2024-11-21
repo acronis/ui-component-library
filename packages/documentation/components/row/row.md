@@ -13,11 +13,11 @@ description: This file is generated automatically from the source code. Changes 
 
 | Prop name  | Description                         | Type               | Values                                                    | Default |
 | ---------- | ----------------------------------- | ------------------ | --------------------------------------------------------- | ------- |
-| gap        | Grid spacing                        | number \| Array    | -                                                         | 0       |
+| gap        | Grid spacing                        | number \| Array    | -                                                         |         |
 | justify    | Horizontal alignment of flex layout | AcvRowGridJustify  | 'start', 'end', 'center', 'space-around', 'space-between' | 'start' |
 | align      | Vertical alignment of flex layout   | AcvRowGridAlign    | 'top', 'middle', 'bottom'                                 | 'top'   |
 | tag        | Custom tag                          | string             | -                                                         | 'div'   |
-| columnFlex |                                     | boolean \| Partial | -                                                         | false   |
+| columnFlex |                                     | boolean \| Partial | -                                                         |         |
 
 ## Slots
 

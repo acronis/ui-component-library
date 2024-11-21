@@ -17,11 +17,11 @@ description: This file is generated automatically from the source code. Changes 
 | ----------- | ---------------------------------------------------------- | --------------- | ------ | ------- |
 | description | Descriptive text. Can also be passed with the default slot | string          | -      |         |
 | showBorder  | Displays border                                            | boolean         | -      |         |
-| showClose   | Is close icon visible                                      | boolean         | -      | false   |
+| showClose   | Is close icon visible                                      | boolean         | -      |         |
 | showIcon    | If a variant icon is displayed                             | boolean         | -      |         |
 | title       | Title, can also be passed with the slot                    | string          | -      |         |
 | subtitle    | Subtitle, can also be passed with the slot                 | string          | -      |         |
-| color       | Alert variant                                              | AcvAlertVariant | -      | 'info'  |
+| color       | Alert variant                                              | AcvAlertVariant | -      |         |
 
 ## Events
 

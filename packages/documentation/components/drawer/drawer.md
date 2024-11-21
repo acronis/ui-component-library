@@ -11,24 +11,14 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name       | Description                                                     | Type            | Values                                                                    | Default |
-| --------------- | --------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------- | ------- |
-| loading         | Set loading state                                               | boolean         | -                                                                         |         |
-| imgAlt          | `alt` attribute for image rendered via `img` prop               | string          | -                                                                         |         |
-| img             | Render image at the top of the card (_above header_)            | string          | -                                                                         |         |
-| padding         |                                                                 | boolean         | -                                                                         |         |
-| border          |                                                                 | boolean         | -                                                                         |         |
-| round           |                                                                 | boolean         | -                                                                         |         |
-| shadow          | Whether the card should have a shadow                           | boolean         | -                                                                         |         |
-| textColor       | Layer text color                                                | ColorProp       | -                                                                         |         |
-| borderColor     | Layer border color                                              | ColorProp       | -                                                                         |         |
-| backgroundColor | Layer background color                                          | ColorProp       | -                                                                         |         |
-| color           | Background color                                                | ColorProp       | transparent, primary, secondary, success, warning, danger, info, inverted |         |
-| variant         | Layer variant                                                   | LayerVariant    | 'solid' \| 'outline' \| 'ghost' \| 'light'                                | 'solid' |
-| states          | Interaction states like hover & active                          | boolean         | -                                                                         | false   |
-| modelValue      | Drawer visibility state                                         | boolean         | -                                                                         | false   |
-| persistent      | Persistence of drawer when clicked outside of reference element | boolean         | -                                                                         | false   |
-| anchor          | Drawer anchor/position                                          | AcvDrawerAnchor | -                                                                         | 'left'  |
+| Prop name   | Description                                                     | Type            | Values | Default |
+| ----------- | --------------------------------------------------------------- | --------------- | ------ | ------- |
+| withPadding |                                                                 | boolean         | -      |         |
+| border      |                                                                 | BorderVariant   | -      |         |
+| shadow      | Whether the card should have a shadow                           | ShadowVariant   | -      |         |
+| modelValue  | Drawer visibility state                                         | boolean         | -      | false   |
+| persistent  | Persistence of drawer when clicked outside of reference element | boolean         | -      | false   |
+| anchor      | Drawer anchor/position                                          | AcvDrawerAnchor | -      | 'left'  |
 
 ## Events
 

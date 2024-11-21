@@ -23,10 +23,10 @@ description: This file is generated automatically from the source code. Changes 
 | lg        | Number of columns on large screens       | number | -                                     |         |
 | xl        | Number of columns on extra-large screens | number | -                                     |         |
 | tag       | Custom tag                               | string | -                                     | 'div'   |
-| rowIndex  | Row index                                | number | -                                     | 1       |
-| rowSpan   | Row span in grid layout                  | number | -                                     | 1       |
-| colIndex  | Column index                             | number | -                                     | 1       |
-| colSpan   | Column span in grid layout               | number | -                                     | 1       |
+| rowIndex  | Row index                                | number | -                                     |         |
+| rowSpan   | Row span in grid layout                  | number | -                                     |         |
+| colIndex  | Column index                             | number | -                                     |         |
+| colSpan   | Column span in grid layout               | number | -                                     |         |
 
 ## Events
 
