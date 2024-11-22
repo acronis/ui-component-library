@@ -115,13 +115,13 @@
         </span>
         <span
           v-if="$slots.subtitle"
-          class="subtitle acv-text--caption ellipsis acv-text--color-fixed-light"
+          class="subtitle text-caption ellipsis"
         >
           <slot name="subtitle" />
         </span>
       </span>
       <div
-        class="acv-text ellipsis"
+        class="text ellipsis"
         :class="{ clamp }"
       >
         <slot />
@@ -192,6 +192,26 @@
       max-width: 100%;
       vertical-align: middle;
       display: inline-block;
+    }
+
+    .subtitle {
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .text-caption {
+      font-size: var(--acv-font-size-caption);
+      font-weight: var(--acv-font-weight-regular);
+      line-height: var(--acv-font-line-height-x-small);
+    }
+
+    .text {
+      margin: 0;
+      font-size: var(--acv-font-size-accent);
+      line-height: var(--acv-font-line-height-regular);
+      font-weight: var(--acv-font-weight-regular);
     }
 
     .clamp {
