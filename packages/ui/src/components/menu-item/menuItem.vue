@@ -72,7 +72,7 @@
         </div>
         <div
           v-else
-          class="acv-text--ellipsis"
+          class="ellipsis"
         >
           <slot />
         </div>
@@ -105,23 +105,23 @@
       </template>
       <span
         v-if="slots.title || slots.subtitle"
-        class="acv-text--ellipsis"
+        class="ellipsis"
       >
         <span
           v-if="slots.title"
-          class="acv-menu-item__title acv-text acv-text--body-24 acv-text--ellipsis"
+          class="title ellipsis"
         >
           <slot name="title" />
         </span>
         <span
           v-if="$slots.subtitle"
-          class="acv-menu-item__subtitle acv-text--caption acv-text--ellipsis acv-text--color-fixed-light"
+          class="text-caption ellipsis"
         >
           <slot name="subtitle" />
         </span>
       </span>
       <div
-        class="acv-text acv-text--body-24 acv-text--ellipsis"
+        class="text ellipsis"
         :class="{ clamp }"
       >
         <slot />
@@ -175,6 +175,36 @@
     &:hover {
       color: var(--_acv-menu-item-hover-color);
       background-color: var(--_acv-menu-item-hover-bg);
+    }
+
+    .title {
+      margin: 0;
+      font-size: var(--acv-font-size-accent);
+      line-height: var(--acv-font-line-height-regular);
+      font-weight: var(--acv-font-weight-regular);
+    }
+
+    .ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+      max-width: 100%;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .text-caption {
+      font-size: var(--acv-font-size-caption);
+      font-weight: var(--acv-font-weight-regular);
+      line-height: var(--acv-font-line-height-x-small);
+    }
+
+    .text {
+      margin: 0;
+      font-size: var(--acv-font-size-accent);
+      line-height: var(--acv-font-line-height-regular);
+      font-weight: var(--acv-font-weight-regular);
     }
 
     .clamp {

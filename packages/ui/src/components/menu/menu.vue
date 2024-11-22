@@ -63,17 +63,19 @@
       'acv-menu_collapsed': props.collapse,
     }"
   >
+    <!-- @slot Left side slot content. Usually for icon -->
     <slot name="prepend" />
     <menu
       ref="menuBarRef"
-      class="acv-menu_menubar acv-scrollbar"
+      class="menubar acv-scrollbar"
       role="menubar"
     >
+      <!-- @slot Default slot content. Usually for text -->
       <slot />
     </menu>
     <div
       v-if="type === 'secondary' && isOverflow"
-      class="acv-menu_controls"
+      class="controls"
     >
       <AcvButton
         variant="ghost"
@@ -81,7 +83,7 @@
       >
         <IconChevronLeft16 />
       </AcvButton>
-      <div class="acv-menu_controls-divider" />
+      <div class="controls-divider" />
       <AcvButton
         variant="ghost"
         @click="selectNextMenuItem"
@@ -91,8 +93,9 @@
     </div>
     <menu
       v-if="$slots.append"
-      class="acv-menu_append"
+      class="append"
     >
+      <!-- @slot Right side slot content. Usually for icon -->
       <slot name="append" />
     </menu>
   </nav>
@@ -114,7 +117,7 @@
   color: var(--_acv-menu-color);
   justify-content: start;
 
-  .acv-menu_menubar {
+  .menubar {
     width: 100%;
     position: relative;
     margin: 0;
@@ -131,7 +134,7 @@
     height: auto;
   }
 
-  .acv-menu_append {
+  .append {
     margin-top: auto;
   }
 
@@ -149,11 +152,12 @@
     color: var(--acv-color-nav-label-secondary);
     background-color: var(--_acv-menu-bg-color);
 
-    &.acv-menu_collapsed {
+    &.collapsed {
+      --acv-menu-item-gap: 0;
       --acv-menu-item-justify-content: center;
       gap: var(--_acv-menu-item-gap);
 
-      &, .acv-menu_menubar {
+      &, .menubar {
         width: 64px;
         align-items: flex-start;
         overflow: visible;
@@ -182,7 +186,7 @@
     background-color: transparent;
     padding-inline: 8px;
 
-    .acv-menu_menubar {
+    .menubar {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -192,23 +196,25 @@
     }
 
     &:deep(.acv-menu-item:hover:before) {
+      --acv-menu-item-selected-bg: var(--acv-color-primary-lightest, hsl(215deg 68% 46% / 0.05));
       z-index: var(--acv-z-index-negative);
       content: '';
       width: calc(100% + 16px);
       left:-8px;
       height: 32px;
-      background-color: var(--acv-color-nav-hover-secondary);
+      background-color: var(--acv-menu-item-selected-bg);
       border-radius: 4px;
       position: absolute;
     }
 
     &:deep(.acv-menu-item:active:before) {
+      --acv-menu-item-selected-bg: var(--acv-menu-item-active-color);
       z-index: var(--acv-z-index-negative);
       content: '';
       width: calc(100% + 16px);
       left:-8px;
       height: 32px;
-      background-color: var(--acv-color-nav-active-secondary);
+      background-color: var(--acv-menu-item-selected-bg);
       border-radius: 4px;
       position: absolute;
     }
