@@ -39,30 +39,38 @@ describe('test Carousel component', () => {
           <!--v-if-->
           <!--v-if-->
         </div>
-        <div data-v-e2d8e9a6="" class="acv-carousel-nav"><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium acv-button_disabled prev-button" icon="function render(_ctx, _cache) {
-        return (__vite_ssr_import_0__.openBlock(), __vite_ssr_import_0__.createElementBlock(&quot;svg&quot;, _hoisted_1, [..._hoisted_3]))
-      }" disabled="" aria-disabled="true">
-            <!--v-if-->
+        <div data-v-e2d8e9a6="" class="acv-carousel-nav"><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium acv-button_disabled prev-button" disabled="" aria-disabled="true">
+            <!--v-if--><i data-v-c834062e="" data-v-7a9642c5="" class="acv-custom-icon size-medium" role="presentation" style="--c834062e-iconSizeValue: 24px; --c834062e-fillColor: currentColor;">
+              <!--v-if-->
+              <!--v-if--><svg data-v-c834062e="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="acv-icon is-svg">
+                <path fill="currentColor" d="m5.414 7 3.293-3.293a1 1 0 0 0-1.414-1.414l-5 5a1 1 0 0 0 0 1.414l5 5a1 1 0 0 0 1.414-1.414L5.414 9H13a1 1 0 1 0 0-2H5.414Z"></path>
+              </svg>
+              <!--v-if-->
+              <!--v-if--><span data-v-c834062e="" class="visually-hidden"></span>
+            </i>
             <!--v-if--><span data-v-7a9642c5="" class="content"><!-- @slot Default slot content. Usually for text --> Prev </span>
             <!--v-if-->
           </button>
-          <div data-v-e2d8e9a6="" class="inner"><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium acv-button_selected button-active" icon="function render(_ctx, _cache) {
+          <div data-v-e2d8e9a6="" class="inner"><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium acv-button_selected button-active" source="function render(_ctx, _cache) {
         return (__vite_ssr_import_0__.openBlock(), __vite_ssr_import_0__.createElementBlock(&quot;svg&quot;, _hoisted_1, [..._hoisted_3]))
       }">
               <!--v-if-->
               <!--v-if-->
               <!--v-if-->
               <!--v-if-->
-            </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium button-available" icon="function render(_ctx, _cache) {
+              <!--v-if-->
+            </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium button-available" source="function render(_ctx, _cache) {
         return (__vite_ssr_import_0__.openBlock(), __vite_ssr_import_0__.createElementBlock(&quot;svg&quot;, _hoisted_1, [..._hoisted_3]))
       }">
               <!--v-if-->
               <!--v-if-->
               <!--v-if-->
               <!--v-if-->
-            </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium button-available" icon="function render(_ctx, _cache) {
+              <!--v-if-->
+            </button><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium button-available" source="function render(_ctx, _cache) {
         return (__vite_ssr_import_0__.openBlock(), __vite_ssr_import_0__.createElementBlock(&quot;svg&quot;, _hoisted_1, [..._hoisted_3]))
       }">
+              <!--v-if-->
               <!--v-if-->
               <!--v-if-->
               <!--v-if-->
@@ -70,6 +78,7 @@ describe('test Carousel component', () => {
             </button></div><button data-v-7a9642c5="" data-v-e2d8e9a6="" type="button" class="acv-button acv-button_variant_ghost acv-button_size_medium next-button" append-icon="function render(_ctx, _cache) {
         return (__vite_ssr_import_0__.openBlock(), __vite_ssr_import_0__.createElementBlock(&quot;svg&quot;, _hoisted_1, [..._hoisted_3]))
       }">
+            <!--v-if-->
             <!--v-if-->
             <!--v-if--><span data-v-7a9642c5="" class="content"><!-- @slot Default slot content. Usually for text --> Next </span>
             <!--v-if-->

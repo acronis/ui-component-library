@@ -1,52 +1,88 @@
 <script setup>
-  import Button from '@/components/button/button.vue';
-  import Icon from '@/components/icon/icon.vue';
+  import ElButton from '@/components/button/button.vue';
+  import ElIcon from '@/components/icon/icon.vue';
+</script>
+
+<script>
+  export default {
+    data() {
+      return {
+        iconState1: true,
+        iconState2: true,
+        iconState3: true,
+        iconState4: true,
+        fonts: [
+          'el-text--display-large',
+          'el-text--display-medium',
+          'el-text--display-regular',
+          'EL-TEXT--HEADING',
+          'el-text--strong',
+          'el-text--subheading',
+          'el-text--body-24',
+          'el-text--caption',
+          'EL-TEXT--ACCENT'
+        ]
+      };
+    }
+  };
 </script>
 
 <template>
-  <PreviewGroup class="qa-icon-basic">
-    <Preview
+  <preview-group class="qa-icon-basic">
+    <preview
+      name="Default"
+      span="6"
+    >
+      <ElIcon
+        name="IconWorkstations32"
+        color="brand-primary"
+      />
+    </preview>
+    <preview
       name="Ghost button"
       span="6"
     >
-      <Button variant="ghost">
-        <Icon name="Workstation16" />
-      </Button>
-    </Preview>
-    <Preview
+      <ElButton variant="ghost">
+        <ElIcon name="IconWorkstation16" />
+      </ElButton>
+    </preview>
+    <preview
       name="Secondary button"
       span="6"
     >
-      <Button
-        type="secondary"
-        icon="Workstations32"
+      <ElButton
+        variant="secondary"
+        icon="IconWorkstationMix32"
       >
         Button
-      </Button>
-    </Preview>
-    <Preview
+      </ElButton>
+    </preview>
+    <preview
       name="Primary button"
       span="6"
     >
-      <Button icon="Sync16">
+      <ElButton icon="IconWorkstation16">
         Button
-      </Button>
-    </Preview>
-    <Preview
+      </ElButton>
+    </preview>
+    <preview
       name="Multicolor icon"
       span="6"
     >
-      <Icon name="Sync16" />
-    </Preview>
-    <Preview
-      name="Legacy"
+      <ElIcon
+        name="IconSync32"
+        size="medium"
+      />
+    </preview>
+    <preview
+      name="Colored"
       span="6"
     >
-      <Icon
-        name="workstations--32"
+      <ElIcon
+        name="IconWorkstation16"
         color="brand-primary"
-        legacy
+        size="medium"
       />
-    </Preview>
-  </PreviewGroup>
+    </preview>
+  </preview-group>
 </template>

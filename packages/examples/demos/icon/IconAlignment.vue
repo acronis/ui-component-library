@@ -1,90 +1,91 @@
 <script setup>
-  import Icon from '@/components/icon/icon.vue';
+  import ElIcon from '@/components/icon/icon.vue';
+</script>
 
-  const fonts = [
-    'acv-text--display-large',
-    'acv-text--display-medium',
-    'acv-text--display-regular',
-    'acv-text--HEADING',
-    'acv-text--strong',
-    'acv-text--subheading',
-    'acv-text--body-24',
-    'acv-text--caption',
-    'acv-text--ACCENT'
-  ];
+<script>
+  export default {
+    data() {
+      return {
+        fonts: [
+          'el-text--display-large',
+          'el-text--display-medium',
+          'el-text--display-regular',
+          'EL-TEXT--HEADING',
+          'el-text--subheading',
+          'el-text--body-24',
+          'el-text--caption',
+          'EL-TEXT--ACCENT',
+        ],
+      };
+    },
+  };
 </script>
 
 <template>
-  <div
-    title="Flex"
-  >
-    <div
-      v-for="(font, i) in fonts"
-      :key="i"
+  <preview-group class="qa-icon-alignment">
+    <preview
+      span="24"
+      name="Flex"
     >
       <div
-        class="icon-text-layout-container flex align-center acv-text"
-        :class="font.toLowerCase()"
+        v-for="(font, i) in fonts"
+        :key="i"
       >
-        <Icon
-          name="disk-ab--32"
-          size="32"
-          class="with-background mx-8"
-        />
-        <Icon
-          name="plus--16"
-          class="with-background mr-8"
-        />
-        <Icon
-          name="image--24"
-          size="24"
-          class="with-background mr-8"
-        />
-        <Icon
-          name="power-ab--32"
-          size="32"
-          class="with-background mr-16"
-        />
-        <Icon
-          name="backup-plan-ab--32"
-          class="with-background mr-16"
-        />
-        <Icon
-          name="close--24"
-          size="32"
-          class="with-background mr-16"
-        />
-        <span>{{ font }}</span>
-        <Icon
-          name="close--24"
-          size="24"
-          class="with-background ml-16"
-        />
-        <Icon
-          name="backup-plan-ab--32"
-          size="32"
-          class="with-background ml-16"
-        />
-        <Icon
-          name="plus-rounded--16"
-          size="24"
-          class="with-background ml-16"
-        />
-        <Icon
-          name="image---24"
-          size="24"
-          class="with-background ml-8"
-        />
-        <Icon
-          name="plus--16"
-          class="with-background ml-8"
-        />
-        <Icon
-          name="remove-from-list--32"
-          size="32"
-          class="with-background mx-8"
-        />
+        <div
+          class="icon-text-layout-container flex align-center el-text"
+          :class="font.toLowerCase()"
+        >
+          <ElIcon
+            name="IconBucket16"
+            class="with-background mx-8"
+          />
+          <ElIcon
+            name="IconPlus16"
+            class="with-background mr-8"
+          />
+          <ElIcon
+            name="IconDocumentTemplates16"
+            class="with-background mr-8"
+          />
+          <ElIcon
+            name="IconPlus24"
+            class="with-background mr-16"
+          />
+          <ElIcon
+            name="IconLocalBackup24"
+            class="with-background mr-16"
+          />
+          <ElIcon
+            name="i-times--32"
+            class="with-background mr-16"
+          />
+          <span>{{ font }}</span>
+          <ElIcon
+            name="i-times--32"
+            class="with-background ml-16"
+          />
+          <ElIcon
+            name="i-local-backup-o--32"
+            class="with-background ml-16"
+          />
+          <ElIcon
+            name="IconPlus24"
+            class="with-background ml-16"
+          />
+          <ElIcon
+            name="i-image-template-o--24"
+            class="with-background ml-8"
+          />
+          <ElIcon
+            name="IconPlus16"
+            class="with-background ml-8"
+          />
+          <ElIcon
+            name="IconBucket16"
+            class="with-background mx-8"
+          />
+        </div>
       </div>
-    </div>
-  </div>
+    </preview>
+  </preview-group>
 </template>

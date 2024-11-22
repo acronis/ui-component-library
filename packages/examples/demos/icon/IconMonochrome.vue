@@ -10,7 +10,7 @@
       span="6"
     >
       <Icon
-        name="workstation--16"
+        name="IconWorkstations32"
         color="brand-primary"
       />
     </Preview>
@@ -18,8 +18,8 @@
       name="Ghost button"
       span="6"
     >
-      <AcvButton type="ghost">
-        <Icon name="workstations--32" />
+      <AcvButton variant="ghost">
+        <Icon name="IconWorkstation32" />
       </AcvButton>
     </Preview>
     <Preview
@@ -27,14 +27,8 @@
       span="6"
     >
       <AcvButton
-        type="secondary"
-        icon="workstations-32"
-      >
-        Button
-      </AcvButton>
-      <AcvButton
-        type="secondary"
-        icon="workstation-16"
+        variant="secondary"
+        icon="IconWorkstations32"
       >
         Button
       </AcvButton>
@@ -43,10 +37,7 @@
       name="Primary button"
       span="6"
     >
-      <AcvButton icon="workstation--16">
-        Button
-      </AcvButton>
-      <AcvButton icon="workstations--32">
+      <AcvButton icon="IconWorkstation32">
         Button
       </AcvButton>
     </Preview>

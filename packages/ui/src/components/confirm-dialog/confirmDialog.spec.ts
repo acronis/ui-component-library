@@ -42,9 +42,11 @@ describe('test ConfirmDialog component', () => {
           <footer data-v-d2f715b5="">
             <menu data-v-ecec16b9=""><button data-v-7a9642c5="" data-v-ecec16b9="" type="button" class="acv-button acv-button_variant_primary acv-button_size_medium" value="cancel">
                 <!--v-if-->
+                <!--v-if-->
                 <!--v-if--><span data-v-7a9642c5="" class="content"><!-- @slot Default slot content. Usually for text --> Cancel </span>
                 <!--v-if-->
               </button><button data-v-7a9642c5="" data-v-ecec16b9="" type="button" class="acv-button acv-button_variant_primary acv-button_size_medium" value="confirm">
+                <!--v-if-->
                 <!--v-if-->
                 <!--v-if--><span data-v-7a9642c5="" class="content"><!-- @slot Default slot content. Usually for text --> Confirm </span>
                 <!--v-if-->

@@ -17,8 +17,13 @@ describe('test Icon component', () => {
         "flip": undefined,
         "icon": undefined,
         "inverse": false,
+        "left": false,
+        "name": undefined,
+        "right": false,
         "scale": undefined,
-        "size": "16",
+        "size": "small",
+        "source": undefined,
+        "state": undefined,
         "stateColor": undefined,
         "stateIcon": undefined,
         "title": undefined,
@@ -44,8 +49,13 @@ describe('test Icon component', () => {
         "flip": undefined,
         "icon": undefined,
         "inverse": false,
+        "left": false,
+        "name": undefined,
+        "right": false,
         "scale": undefined,
-        "size": "16",
+        "size": "small",
+        "source": undefined,
+        "state": undefined,
         "stateColor": undefined,
         "stateIcon": undefined,
         "title": "test",
@@ -56,9 +66,11 @@ describe('test Icon component', () => {
   it('renders', () => {
     const wrapper = mount(Icon);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<i data-v-c834062e="" class="acv-custom-icon size-16" role="presentation" style="--c834062e-fillColor: currentColor; --c834062e-fillStateColor: currentColor;">
+      "<i data-v-c834062e="" class="acv-custom-icon size-small" role="presentation" style="--c834062e-iconSizeValue: 16px; --c834062e-fillColor: currentColor;">
         <!--v-if-->
         <!--v-if-->
+        <!--v-if-->
+        <!--v-if--><img data-v-c834062e="" alt="" class="is-img" src="data:image/svg+xml;utf8,undefined" aria-hidden="true"><span data-v-c834062e="" class="visually-hidden"></span>
       </i>"
     `);
   });
@@ -76,7 +88,7 @@ describe('test Icon component', () => {
     expect(iconElm.classList).toMatchInlineSnapshot(`
       DOMTokenList {
         "0": "acv-custom-icon",
-        "1": "size-16",
+        "1": "size-small",
       }
     `);
   });

@@ -1,48 +1,102 @@
 <script setup>
-  import Icon from '@/components/icon/icon.vue';
+  import ElIcon from '@/components/icon/icon.vue';
 </script>
 
 <template>
-  <PreviewGroup class="qa-icon-sizes">
-    <Preview
-      name="small / 16"
+  <preview-group class="qa-icon-sizes">
+    <preview
+      name="xxx-small"
       span="6"
     >
-      <Icon
-        name="WorkstationsPremium16"
+      <ElIcon
+        name="IconWorkstation16"
         color="brand-primary"
-        size="16"
+        size="xxx-small"
       />
-    </Preview>
-    <Preview
-      name="medium / 24"
+    </preview>
+    <preview
+      name="xx-small"
       span="6"
     >
-      <Icon
-        name="WorkstationsPremium24"
+      <ElIcon
+        name="IconWorkstation32"
         color="brand-primary"
-        size="24"
+        size="xx-small"
       />
-    </Preview>
-    <Preview
-      name="xl / 48"
+    </preview>
+    <preview
+      name="x-small"
       span="6"
     >
-      <Icon
-        name="NasAb32"
+      <ElIcon
+        name="IconWorkstation32"
         color="brand-primary"
-        size="64"
+        size="x-small"
       />
-    </Preview>
-    <Preview
-      name="xxxl / 96"
+    </preview>
+  </preview-group>
+  <preview-group class="qa-icon-sizes">
+    <preview
+      name="small"
       span="6"
     >
-      <Icon
-        name="NasAb32"
+      <ElIcon
+        name="IconWorkstation16"
         color="brand-primary"
-        size="96"
+        size="small"
       />
-    </Preview>
-  </PreviewGroup>
+    </preview>
+    <preview
+      name="medium"
+      span="6"
+    >
+      <ElIcon
+        name="IconWorkstation32"
+        color="brand-primary"
+        size="medium"
+      />
+    </preview>
+    <preview
+      name="large"
+      span="6"
+    >
+      <ElIcon
+        name="IconWorkstation32"
+        color="brand-primary"
+        size="large"
+      />
+    </preview>
+  </preview-group>
+  <preview-group class="qa-icon-sizes">
+    <preview
+      name="x-large"
+      span="6"
+    >
+      <ElIcon
+        name="IconWorkstation16"
+        color="brand-primary"
+        size="x-large"
+      />
+    </preview>
+    <preview
+      name="xx-large"
+      span="6"
+    >
+      <ElIcon
+        name="IconWorkstation32"
+        color="brand-primary"
+        size="xx-large"
+      />
+    </preview>
+    <preview
+      name="xxx-large"
+      span="6"
+    >
+      <ElIcon
+        name="IconWorkstation32"
+        color="brand-primary"
+        size="xxx-large"
+      />
+    </preview>
+  </preview-group>
 </template>
