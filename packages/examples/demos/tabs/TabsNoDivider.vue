@@ -1,17 +1,10 @@
 <script setup>
   import AcvTabPane from '@/components/tab-pane/tab-pane.vue';
   import AcvTabs from '@/components/tabs/tabs.vue';
-
-  import { ref } from 'vue';
-
-  const large = ref('left');
 </script>
 
 <template>
-  <AcvTabs
-    v-model="large"
-    large
-  >
+  <AcvTabs no-divider>
     <AcvTabPane
       label="Left"
       name="left"

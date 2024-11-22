@@ -4,13 +4,26 @@
 
   import { ref } from 'vue';
 
-  const large = ref('left');
+  const interceptionValue = ref('middle');
+
+  function handleInput(value) {
+    if (value === 'left') {
+      // eslint-disable-next-line no-alert
+      const confirmed = confirm('Switch to tab left?');
+      if (!confirmed) {
+        console.log(`intercepted: ${value}`);
+        return;
+      }
+    }
+    console.log(value);
+    interceptionValue.value = value;
+  }
 </script>
 
 <template>
   <AcvTabs
-    v-model="large"
-    large
+    v-model="interceptionValue"
+    @update:model-value="handleInput"
   >
     <AcvTabPane
       label="Left"

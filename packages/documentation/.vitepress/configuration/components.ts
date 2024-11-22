@@ -2,7 +2,7 @@ import { composables } from './composables.ts';
 import { directives } from './directives.ts';
 
 // eslint-disable-next-line node/prefer-global/process
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV !== 'production';
 
 const COMPONENT_STATUS = {
   DONE: 'done',

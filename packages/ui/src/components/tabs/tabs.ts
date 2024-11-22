@@ -1,4 +1,4 @@
-import type { AcvTabProps } from '@/components/tab/tab.ts';
+import type { AcvTabPaneProps } from '@/components/tab-pane/tab-pane.ts';
 import type { ComponentSize, TransitionProp } from '@/types/props';
 import type { InjectionKey, Ref } from 'vue';
 
@@ -9,17 +9,22 @@ export interface AcvTabsProps {
   modelValue?: number | string
 
   /**
-   * Array of Tabs to be rendered
-   * @default []
+   * Whether tab is large
    */
-  tabs?: (string | AcvTabProps)[]
+  large?: boolean
+
+  /**
+   * Show divider under navigation
+   */
+  showDivider?: boolean
+
+  /** Disable margins navigation panel */
+  spacing?: boolean
 
   /**
    * Size of the tabs
    */
   size?: ComponentSize
-
-  spacing?: boolean
 
   /**
    * Tab transition
@@ -40,6 +45,14 @@ export interface AcvTabsEvents {
    * @arg {string} tabName - Clicked tab
    */
   (eventName: 'click', tabName: string): void
+
+  /**
+   * Triggered when the tab is clicked
+   * @arg {string} eventName - The name of the event
+   * @arg {string} tabName - Clicked tab
+   */
+  (eventName: 'tabClick', tabName: string): void
+
   /**
    * Triggered when the component is closed
    * @arg {string} eventName - The name of the event
@@ -60,6 +73,9 @@ export interface AcvTabsSlots {
 }
 
 export interface AcvTabsInjection {
+  count?: number
+  selectedIndex?: number
   selectedTab?: Ref<string | number | null> | null
+  panes?: Ref<AcvTabPaneProps[]> | null
 }
 export const TABS_KEY = Symbol('TABS_KEY') as InjectionKey<AcvTabsInjection>;
