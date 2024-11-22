@@ -6,8 +6,8 @@
 
 <template>
   <AcvIcon
-    name="info--16"
+    name="IconInfo16"
     color="brand-primary"
   />
-  <Icon name="chevron-up--16" />
+  <Icon name="IconChevronUp16" />
 </template>

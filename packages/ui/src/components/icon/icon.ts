@@ -1,3 +1,4 @@
+import type { IconSource } from '@/types/icon.ts';
 import type { IconProp } from '@/types/props.ts';
 
 type RGB = `rgb(${number}, ${number}, ${number})`;
@@ -7,7 +8,36 @@ type ColorNames = 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'i
 
 type Color = RGB | RGBA | HEX | ColorNames;
 
+export const ICON_SIZES = {
+  'xxx-small': '8',
+  'xx-small': '10',
+  'x-small': '12',
+  'small': '16',
+  'medium': '24',
+  'large': '32',
+  'x-large': '48',
+  'xx-large': '72',
+  'xxx-large': '96'
+};
+export type AcvIconSize = typeof ICON_SIZES[keyof typeof ICON_SIZES];
+export type AcvIconSource = 'function' | 'placeholder' | 'external' | 'dynamic';
+
 export interface AcvIconProps {
+  /**
+   * Icon name
+   */
+  name?: string
+
+  /**
+   * Icon source
+   */
+  source?: IconSource
+
+  /**
+   * State Icon source
+   */
+  state?: IconSource
+
   /**
    * Icon component to display
    */
@@ -17,6 +47,13 @@ export interface AcvIconProps {
    * State icon component to display
    */
   stateIcon?: IconProp
+
+  /**
+   * Size of the icon
+   * @defaultValue 'medium'
+   * @values 'xxx-small', 'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', 'xxx-large'
+   */
+  size?: AcvIconSize
 
   /**
    * Title of the icon
@@ -53,13 +90,6 @@ export interface AcvIconProps {
   animationSpeed?: 'fast' | 'slow' | 'slower' | 'fastest' | 'slowest'
 
   /**
-   * Size of the icon
-   * @defaultValue 16
-   * @values 16, 24, 32, 48, 64, 72, 96
-   */
-  size?: string | number
-
-  /**
    * Flip of the icon
    */
   flip?: 'horizontal' | 'vertical' | 'both'
@@ -79,6 +109,12 @@ export interface AcvIconProps {
    * @defaultValue false
    */
   disabled?: boolean
+
+  /** Determine whether it's right of text */
+  right?: boolean
+
+  /** Determine whether it's left of text */
+  left?: boolean
 
   /**
    * Icon is inverted

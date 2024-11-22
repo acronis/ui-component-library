@@ -1,25 +1,115 @@
 <script setup lang="ts">
-  import type { AcvIconProps } from './icon.ts';
-  import { computed, useAttrs } from 'vue';
+  import type { Component } from 'vue';
+  import type { AcvIconProps, AcvIconSource } from './icon.ts';
+  import { computed, markRaw, onBeforeMount, ref, useAttrs } from 'vue';
+  import { ICON_SIZES } from './icon.ts';
+  import iconPaths from './iconPaths';
+
+  defineOptions({
+    name: 'AcvIcon',
+  });
 
   const {
     animateOnHover,
     animation,
     animationSpeed,
     color,
+    disabled,
     flip,
-    icon,
     inverse,
-    size = '16',
-    stateIcon,
+    left,
+    name,
+    right,
+    size = 'small',
+    source,
+    state,
     stateColor,
-    title
+    title,
   } = defineProps<AcvIconProps>();
+  const svgComponent = ref<Component | null>(null);
+
+  const svgStateComponent = ref<Component | null>(null);
+
+  const dynamicFilePath = computed(() => {
+    if (!source && name) {
+      return name.replace('i-', '');
+    }
+
+    return name;
+  });
+
+  const dynamicStateFilePath = computed(() => {
+    if (!state)
+      return;
+
+    if (!source && state && typeof state === 'string') {
+      return state.replace('i-', '');
+    }
+
+    return state;
+  });
+
+  const sourceType = computed<AcvIconSource>(() => {
+    // Because of svgLoader so we need to check if the source is a function AND an object
+    const functionTypes = ['function', 'object'];
+
+    if (functionTypes.includes(typeof source)) {
+      return 'function';
+    }
+
+    if (dynamicFilePath.value) {
+      return 'dynamic';
+    }
+
+    return source === 'placeholder' ? 'placeholder' : 'external';
+  });
+
+  onBeforeMount(() => {
+    getIconSrc();
+  });
+
+  async function getIconSrc() {
+    if (!dynamicFilePath.value)
+      return;
+
+    const normalizedIcons = Object.keys(iconPaths).reduce((acc, value) => {
+      const match = value?.match(/([^/]+)\.svg$/);
+
+      if (match) {
+        const name = match[1];
+        acc[name] = iconPaths[value];
+      }
+
+      return acc;
+    }, {});
+
+    const iconPath = normalizedIcons?.[dynamicFilePath.value];
+    const iconStatePath = typeof dynamicStateFilePath.value === 'string' && normalizedIcons?.[dynamicStateFilePath.value];
+
+    if (typeof iconPath === 'function') {
+      svgComponent.value = markRaw((await iconPath()).default);
+    }
+    if (typeof iconStatePath === 'function') {
+      svgStateComponent.value = markRaw((await iconStatePath()).default);
+    }
+  }
+
+  const iconSizeValue = computed(() => {
+    const isNumber = Number(size);
+    if (!ICON_SIZES[size] && isNumber) {
+      return `${isNumber}px`;
+    }
+
+    return `${size ? ICON_SIZES[size] : ICON_SIZES.small}px`;
+  });
 
   const classes = computed(() => {
     return {
       'acv-custom-icon': true,
       'is-inverse': inverse,
+      'is-disabled': disabled,
+      'is-right': right,
+      'is-left': left,
       [`flip-${flip}`]: !!flip,
       [`color-${color}`]: !!color,
       [`animation-${animation}`]: !!animation,
@@ -38,7 +128,7 @@
     return color ? `var(--acv-color-${color})` : 'currentColor';
   });
   const fillStateColor = computed(() => {
-    return stateColor ? `var(--acv-color-${stateColor})` : 'currentColor';
+    return stateColor ? `var(--acv-color-${stateColor})` : undefined;
   });
 </script>
 
@@ -47,29 +137,40 @@
     :class="classes"
     v-bind="attrs"
   >
-    <g v-if="icon">
-      <slot>
-        <component
-          :is="icon"
-          :color="color"
-          preserveAspectRatio="xMidYMid meet"
-        />
-      </slot>
-    </g>
-    <g v-if="stateIcon">
-      <slot>
-        <component
-          :is="stateIcon"
-          :color="stateColor"
-          preserveAspectRatio="xMidYMid meet"
-        />
-      </slot>
-    </g>
+    <component
+      :is="svgStateComponent"
+      v-if="sourceType === 'dynamic'"
+      class="state"
+    />
+    <component
+      :is="svgComponent"
+      v-if="sourceType === 'dynamic'"
+    />
+    <component
+      :is="source"
+      v-if="sourceType === 'function'"
+      class="is-svg"
+      focusable="false"
+      aria-hidden="true"
+    />
+    <span
+      v-if="sourceType === 'placeholder'"
+      class="is-placeholder"
+    />
+    <img
+      v-if="sourceType === 'external'"
+      alt=""
+      class="is-img"
+      :src="`data:image/svg+xml;utf8,${source}`"
+      :aria-hidden="true"
+    >
+    <span class="visually-hidden">{{ name }}</span>
   </i>
 </template>
 
 <style scoped>
   .acv-custom-icon {
+    --acv-icon-size: v-bind(iconSizeValue);
     font-weight: var(--acv-font-weight-strong);
     color: var(--acv-icon-color);
     flex-shrink: 0;
@@ -80,9 +181,11 @@
     display: inline-flex;
     align-items: center;
     align-self: center;
+    max-height: 100%;
+    max-width: 100%;
     justify-content: center;
 
-    svg {
+    svg:not(.state) {
       fill: v-bind(fillColor);
       color: v-bind(fillColor);
       height: var(--acv-icon-size);
@@ -125,6 +228,28 @@
       --acv-icon-size: var(--acv-icon-size-xxx-large);
     }
 
+    &.is-disabled {
+      color: var(--acv-color-button-disabled);
+    }
+
+    .is-svg,
+    .is-img {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .is-placeholder {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: var(--acv-color-brand-primary);
+      border-radius: var(--acv-base-radius-04);
+    }
+
     &.flip-horizontal {
          transform: scale(-1, 1);
        }
@@ -141,12 +266,13 @@
       color: var(--acv-color-inverted);
     }
 
-    &.state {
+    .state {
       position: absolute;
       top: 0;
       left: 0;
-      color: v-bind(fillStateColor);
-      fill: v-bind(fillStateColor);
+       color: v-bind(fillStateColor);
+
+       /* fill: v-bind(fillStateColor); */
     }
   }
 

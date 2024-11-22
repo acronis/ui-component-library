@@ -1,113 +1,117 @@
 <script setup>
-  import Checkbox from '@/components/checkbox/checkbox.vue';
-  import Icon from '@/components/icon/icon.vue';
-  import { ref } from 'vue';
+  import ElCheckbox from '@/components/checkbox/checkbox.vue';
+  import ElIcon from '@/components/icon/icon.vue';
+</script>
 
-  const iconState1 = ref(true);
-  const iconState2 = ref(true);
-  const iconState3 = ref(true);
-  const iconState4 = ref(true);
+<script>
+  export default {
+    data: () => ({
+      iconState1: true,
+      iconState2: true,
+      iconState3: true,
+      iconState4: true,
+    }),
+  };
 </script>
 
 <template>
-  <PreviewGroup class="qa-status-icons">
-    <Preview
+  <preview-group class="qa-status-icons">
+    <preview
       name="Notification state"
-      span="6"
+      span="12"
     >
       <div>
-        <Icon
+        <ElIcon
           v-if="!iconState1"
-          name="Hdd32"
-          size="64"
-          color="primary"
+          name="IconRecoveryServer24"
+          color="brand-primary"
+          size="large"
         />
-        <Icon
+        <ElIcon
           v-else
-          name="HddMix32"
-          state="ForbiddenMix32"
-          size="64"
-          color="primary"
-          state-color="success"
+          name="IconRecoveryServerState24"
+          state="IconSuccessMix32"
+          color="brand-primary"
+          size="large"
         />
       </div>
       <div class="my-8" />
-      <Checkbox v-model="iconState1">
+      <ElCheckbox v-model="iconState1">
         Toggle
-      </Checkbox>
-    </Preview>
-    <Preview
+      </ElCheckbox>
+    </preview>
+    <preview
       name="Downloading state"
-      span="6"
+      span="12"
     >
       <div>
-        <Icon
+        <ElIcon
           v-if="!iconState2"
-          name="Folder32"
-          size="64"
-          color="primary"
+          name="IconRecoveryServer24"
+          color="brand-primary"
+          size="large"
         />
-        <Icon
+        <ElIcon
           v-else
-          name="FolderMix32"
-          state="DownloadMix32"
-          size="64"
-          color="primary"
-          state-color="success"
+          name="IconRecoveryServerState24"
+          state="IconDownloadMix32"
+          color="brand-primary"
+          size="large"
         />
       </div>
       <div class="my-8" />
-      <Checkbox v-model="iconState2">
+      <ElCheckbox v-model="iconState2">
         Toggle
-      </Checkbox>
-    </Preview>
-    <Preview
-      name="Play state"
-      span="6"
+      </ElCheckbox>
+    </preview>
+    <preview
+      name="Uploading state"
+      span="12"
     >
       <div>
-        <Icon
+        <ElIcon
           v-if="!iconState3"
-          name="Folder32"
-          size="64"
-          color="primary"
+          name="IconRaid24"
+          color="brand-primary"
+          size="large"
         />
-        <Icon
+        <ElIcon
           v-else
-          name="FolderMix32"
-          state="PlayMix32"
-          size="64"
-          color="primary"
+          name="IconRaidStatus24"
+          state="IconPauseMix32"
+          color="brand-primary"
+          state-color="status-danger-secondary"
+          size="large"
         />
       </div>
       <div class="my-8" />
-      <Checkbox v-model="iconState3">
+      <ElCheckbox v-model="iconState3">
         Toggle
-      </Checkbox>
-    </Preview>
-    <Preview
+      </ElCheckbox>
+    </preview>
+    <preview
       name="Paused state"
-      span="6"
+      span="12"
     >
       <div>
-        <Icon
+        <ElIcon
           v-if="!iconState4"
-          name="Folder32"
-          size="64"
+          name="IconFolder32"
           color="brand-primary"
+          size="large"
         />
-        <Icon
+        <ElIcon
           v-else
-          name="FolderMix32"
-          state="PauseMix32"
-          size="64"
+          name="IconFolderMix32"
+          state="IconDangerMix32"
           color="brand-primary"
+          size="large"
         />
       </div>
       <div class="my-8" />
-      <Checkbox v-model="iconState4">
+      <ElCheckbox v-model="iconState4">
         Toggle
-      </Checkbox>
-    </Preview>
-  </PreviewGroup>
+      </ElCheckbox>
+    </preview>
+  </preview-group>
 </template>

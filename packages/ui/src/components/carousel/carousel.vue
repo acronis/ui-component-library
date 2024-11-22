@@ -131,7 +131,7 @@
           }"
           :selected="name === model"
           variant="ghost"
-          :icon="IconDot16"
+          :source="IconDot16"
           @click="setActive(name)"
         />
       </div>

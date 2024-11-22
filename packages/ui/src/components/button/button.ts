@@ -1,3 +1,4 @@
+import type { IconSource } from '@/types/icon.ts';
 import type { ComponentSize } from '@/types/props.ts';
 import type { ButtonHTMLAttributes } from 'vue';
 import type { RouterLink } from 'vue-router';
@@ -52,6 +53,9 @@ export interface AcvButtonProps {
 
   /** Disable the button */
   disabled?: boolean
+
+  /** Button icon */
+  icon?: IconSource
 
   /**
    * Determine whether it's loading

@@ -10,7 +10,7 @@
       span="6"
     >
       <Icon
-        name="workstations--32"
+        name="IconPlay32"
         color="brand-primary"
       />
     </Preview>
@@ -18,8 +18,8 @@
       name="Ghost button"
       span="6"
     >
-      <Button type="ghost">
-        <Icon name="workstations--32" />
+      <Button variant="ghost">
+        <Icon name="IconProtectionStatusWarning32" />
       </Button>
     </Preview>
     <Preview
@@ -27,8 +27,8 @@
       span="6"
     >
       <Button
-        type="secondary"
-        icon="workstations--32"
+        variant="secondary"
+        icon="IconWorkstations32"
       >
         Button
       </Button>
@@ -37,7 +37,7 @@
       name="Primary button"
       span="6"
     >
-      <Button icon="workstations--32">
+      <Button icon="IconWorkstations32">
         Button
       </Button>
     </Preview>
@@ -46,7 +46,7 @@
       span="6"
     >
       <Icon
-        name="PirateTray16"
+        name="IconPirateTray16"
         size="32"
       />
     </Preview>
@@ -55,7 +55,7 @@
       span="6"
     >
       <Icon
-        name="workstations--32"
+        name="IconWorkstations32"
         color="brand-primary"
         legacy
       />

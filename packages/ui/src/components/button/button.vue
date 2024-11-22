@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { AcvButtonProps } from './button.ts';
+  import AcvIcon from '@/components/icon/icon.vue';
   import { BUTTON_GROUP_KEY } from '@/components/index.ts';
   import AcvSpinner from '@/components/spinner/spinner.vue';
   import { vAutofocus } from '@/directives/autofocus.ts';
@@ -58,6 +59,13 @@
     <template v-if="$slots.prepend">
       <!-- @slot Left side slot content. Usually for icon -->
       <slot name="prepend" />
+    </template>
+    <template v-if="props.icon">
+      <AcvIcon
+        :source="typeof props.icon === 'function' ? props.icon : undefined"
+        :name="typeof props.icon === 'string' ? props.icon : undefined"
+        :size="size"
+      />
     </template>
     <span
       v-if="loading"
