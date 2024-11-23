@@ -1,3 +1,11 @@
+## [1.32.0](https://github.com/acronis/ui-component-library/compare/v1.31.0...v1.32.0) (2024-11-23)
+
+
+### Features
+
+* **icon:** move dynamic icons ([#170](https://github.com/acronis/ui-component-library/issues/170)) ([fd7b28b](https://github.com/acronis/ui-component-library/commit/fd7b28befc61f9260cb34343de029427fd81563c))
+* **tabs:** move tabs ([#168](https://github.com/acronis/ui-component-library/issues/168)) ([9dfe3c5](https://github.com/acronis/ui-component-library/commit/9dfe3c54a15d4eae5b937c97f065726dd0b1e712))
+
 ## [1.31.0](https://github.com/acronis/ui-component-library/compare/v1.30.4...v1.31.0) (2024-11-21)
 
 
@@ -26,11 +34,4 @@
 ### Bug Fixes
 
 * **build:** remove jsx ([#159](https://github.com/acronis/ui-component-library/issues/159)) ([ce20f14](https://github.com/acronis/ui-component-library/commit/ce20f1402d56c7ec535e04be6ce807c38b30d6a4))
-
-## [1.30.1](https://github.com/acronis/ui-component-library/compare/v1.30.0...v1.30.1) (2024-11-11)
-
-
-### Bug Fixes
-
-* **ui:** fixed typings of Vue plugin installer function ([#158](https://github.com/acronis/ui-component-library/issues/158)) ([4b5b782](https://github.com/acronis/ui-component-library/commit/4b5b782aabe00aad5c09c72b87ad9b776a0828f7))
 
