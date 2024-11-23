@@ -1,0 +1,34 @@
+{
+  "font": {
+    "letter-spacing": {
+      "tighter": {
+        "value": "-5%",
+        "type": "letterSpacing"
+      },
+      "tight": {
+        "value": "-2.5%",
+        "type": "letterSpacing"
+      },
+      "normal": {
+        "value": "0",
+        "type": "letterSpacing"
+      },
+      "x-small": {
+        "value": "0.3px",
+        "type": "letterSpacing"
+      },
+      "small": {
+        "value": "1.2px",
+        "type": "letterSpacing"
+      },
+      "medium": {
+        "value": "2.4px",
+        "type": "letterSpacing"
+      },
+      "large": {
+        "value": "3.2px",
+        "type": "letterSpacing"
+      }
+    }
+  }
+}

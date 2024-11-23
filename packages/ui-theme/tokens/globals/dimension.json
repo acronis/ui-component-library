@@ -1,0 +1,133 @@
+{
+  "dimension": {
+    "zero": {
+      "type": "dimension",
+      "value": "0px"
+    },
+    "static": {
+      "static-size-8": {
+        "$value": "8px"
+      },
+      "static-size-16": {
+        "$value": "16px"
+      },
+      "static-size-100": {
+        "$value": "100px"
+      },
+      "static-size-200": {
+        "$value": "200px"
+      },
+      "static-size-300": {
+        "$value": "300px"
+      }
+    },
+    "xxxx-small": {
+      "type": "dimension",
+      "value": "0.125"
+    },
+    "xxx-small": {
+      "type": "dimension",
+      "value": "0.25"
+    },
+    "xx-small": {
+      "type": "dimension",
+      "value": "0.5"
+    },
+    "x-small": {
+      "type": "dimension",
+      "value": "0.75"
+    },
+    "small": {
+      "type": "dimension",
+      "value": "1"
+    },
+    "medium": {
+      "type": "dimension",
+      "value": "1.5"
+    },
+    "large": {
+      "type": "dimension",
+      "value": "2"
+    },
+    "x-large": {
+      "type": "dimension",
+      "value": "3"
+    },
+    "xx-large": {
+      "type": "dimension",
+      "value": "4.5"
+    },
+    "xxx-large": {
+      "type": "dimension",
+      "value": "6"
+    },
+    "xxxx-large": {
+      "type": "dimension",
+      "value": "15"
+    },
+    "height": {
+      "xxxx-small": {
+        "type": "dimension",
+        "value": "8px"
+      },
+      "xxx-small": {
+        "type": "dimension",
+        "value": "16px"
+      },
+      "xx-small": {
+        "type": "dimension",
+        "value": "24px"
+      },
+      "x-small": {
+        "type": "dimension",
+        "value": "32px"
+      },
+      "small": {
+        "type": "dimension",
+        "value": "48px"
+      },
+      "medium": {
+        "type": "dimension",
+        "value": "64px"
+      },
+      "large": {
+        "type": "dimension",
+        "value": "72px"
+      },
+      "x-large": {
+        "type": "dimension",
+        "value": "96px"
+      }
+    },
+    "width": {
+      "xxx-small": {
+        "type": "dimension",
+        "value": "320px"
+      },
+      "xx-small": {
+        "type": "dimension",
+        "value": "480px"
+      },
+      "x-small": {
+        "type": "dimension",
+        "value": "512px"
+      },
+      "small": {
+        "type": "dimension",
+        "value": "768px"
+      },
+      "medium": {
+        "type": "dimension",
+        "value": "1024px"
+      },
+      "large": {
+        "type": "dimension",
+        "value": "1280px"
+      },
+      "x-large": {
+        "type": "dimension",
+        "value": "1440px"
+      }
+    }
+  }
+}

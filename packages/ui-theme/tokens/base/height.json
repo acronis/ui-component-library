@@ -1,0 +1,30 @@
+{
+  "base": {
+    "height": {
+      "16": {
+        "value": "16px",
+        "type": "height"
+      },
+      "20": {
+        "value": "20px",
+        "type": "height"
+      },
+      "24": {
+        "value": "24px",
+        "type": "height"
+      },
+      "32": {
+        "value": "32px",
+        "type": "height"
+      },
+      "40": {
+        "value": "40px",
+        "type": "height"
+      },
+      "48": {
+        "value": "48px",
+        "type": "height"
+      }
+    }
+  }
+}

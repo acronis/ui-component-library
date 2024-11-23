@@ -1,0 +1,18 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "value": "hsl(0deg 0% 8%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "tertiary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      }
+    }
+  }
+}

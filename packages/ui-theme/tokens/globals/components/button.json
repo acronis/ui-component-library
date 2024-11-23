@@ -1,0 +1,27 @@
+{
+  "button": {
+    "color": {
+      "success": {
+        "base": {
+          "$value": "hsl(75deg 68% 45%)"
+        },
+        "active": {
+          "$value": "hsl(75deg 68% 35%)"
+        },
+        "disabled": {
+          "$value": "hsl(75deg 68% 45% / 0.3)"
+        },
+        "hover": {
+          "$value": "hsl(75deg 38% 40%)"
+        },
+        "ghost-hover": {
+          "$value": "hsl(75deg 68% 45% / 0.1)"
+        },
+        "outline-border": {
+          "$value": "hsl(75deg 68% 45%)"
+        }
+      }
+    }
+  }
+}
+

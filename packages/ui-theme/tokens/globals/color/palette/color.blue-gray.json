@@ -1,0 +1,78 @@
+{
+  "color": {
+    "blue_gray": {
+      "50": {
+        "value": "#ECEFF1",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "100": {
+        "value": "#CFD8DC",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "200": {
+        "value": "#B0BEC5",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "300": {
+        "value": "#90A4AE",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "400": {
+        "value": "#78909C",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "500": {
+        "value": "#607D8B",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "600": {
+        "value": "#546E7A",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "700": {
+        "value": "#455A64",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "800": {
+        "value": "#37474F",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "900": {
+        "value": "#263238",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      }
+    }
+  }
+}
+
+

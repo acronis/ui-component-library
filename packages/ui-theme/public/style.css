@@ -1,0 +1,230 @@
+
+
+
+
+
+
+
+
+
+@import "../styles/generic/reset.css";
+
+html {
+  box-sizing: border-box;
+  font-size: var(--acv-size-font-base);
+  font-family: var(--acv-base-font-family-inter);
+  color: var(--acv-color-gray-dark);
+}
+
+code {
+  font-family: "Courier New", "Courier", monospace;
+  font-size: var(--acv-size-font-small);
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav main";
+  grid-template-columns: 12rem 1fr;
+}
+
+.page__header {
+  grid-area: header;
+  background-color: var(--acv-color-primary-light);
+  padding: var(--acv-size-spacing-3) var(--acv-size-spacing-4);
+}
+
+.page__title {
+  color: var(--acv-color-base-white);
+  font-weight: var(--acv-font-weight-accent);
+  margin: 0;
+}
+
+.page__nav {
+  grid-area: nav;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  list-style: none;
+  margin: 0;
+  padding: var(--acv-size-spacing-4);
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding-left: var(--acv-size-spacing-3);
+}
+
+.nav__link {
+  display: block;
+  color: var(--color-grey-700);
+  text-decoration: none;
+  padding: var(--acv-size-spacing-1) var(--acv-size-spacing-2);
+  margin-left: calc(-1 * var(--acv-size-spacing-2));
+  margin-right: calc(-1 * var(--acv-size-spacing-2));
+}
+
+.nav__link:hover,
+.nav__link:focus {
+  background-color: var(--acv-color-gray-light);
+  border-radius: var(--acv-size-radius-base);
+}
+
+.page__main {
+  grid-area: main;
+  padding: var(--acv-size-spacing-4);
+  width: 100%;
+  max-width: 60rem;
+}
+
+.introduction {
+  font-size: var(--acv-size-font-1);
+  font-weight: var(--font-weight-lighter);
+  margin-top: 0;
+}
+
+.section__title {
+  font-size: var(--acv-size-spacing-4);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--acv-size-spacing-5);
+  margin-bottom: var(--acv-size-spacing-2);
+}
+
+.section__description {
+  margin-top: var(--acv-size-spacing-2);
+  margin-bottom: var(--acv-size-spacing-2);
+}
+
+.group__title {
+  font-weight: var(--acv-font-weight-bold);
+  margin-top: var(--acv-size-spacing-4);
+  margin-bottom: var(--acv-size-spacing-2);
+}
+
+.group__description {
+  margin-top: var(--acv-size-spacing-2);
+  margin-bottom: var(--acv-size-spacing-2);
+}
+
+/* Display tokens in a table */
+
+.group__table {
+  border-collapse: collapse;
+  min-width: 100%;
+}
+
+.group__table th {
+  font-size: var(--acv-size-font-sm);
+}
+
+.group__table th,
+.group__table td {
+  border-bottom: var(--acv-size-border-1) solid var(--acv-color-gray-light);
+  text-align: left;
+  padding-top: var(--acv-size-spacing-2);
+  padding-bottom: var(--acv-size-spacing-2);
+}
+
+.group__table th:nth-child(1) {
+  width: 40%;
+}
+
+.group__table th:nth-child(2) {
+  width: 20%;
+}
+
+.group__table th:nth-child(2),
+.group__table td:nth-child(2) {
+  padding-left: var(--acv-size-spacing-3);
+  padding-right: var(--acv-size-spacing-3);
+}
+
+/* Display tokens in a grid, where each item is bordered */
+
+.group__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--acv-size-spacing-3) var(--acv-size-spacing-3);
+}
+
+.group__grid--1 { grid-template-columns: repeat(1, 1fr); }
+.group__grid--2 { grid-template-columns: repeat(2, 1fr); }
+.group__grid--3 { grid-template-columns: repeat(3, 1fr); }
+.group__grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.group__grid-item {
+  display: grid;
+  border: var(--acv-size-border-1) solid var(--acv-color-gray-light);
+  border-radius: var(--acv-size-radius-base);
+  padding: var(--acv-size-spacing-2);
+
+  /* max-width: 222px; */
+
+  /* place-items: center center; */
+}
+
+/* not using row-gap to allow overriding spacing at the name/sample/value level */
+.group__grid-item > div:nth-child(2) {
+  margin-top: var(--acv-size-spacing-3);
+  margin-bottom: var(--acv-size-spacing-3);
+}
+
+/* hide empty item rows so that they don't affect grid */
+.group__grid-item > div:empty { display: none; }
+
+/* Token name row */
+
+.comment {
+  font-size: var(--acv-size-font-sm);
+  font-style: italic;
+}
+
+/* Token value row */
+
+.value {
+  display: block;
+}
+
+.value__icon {
+  display: block;
+  text-align: center;
+}
+
+/* Token sample row */
+
+/* boxed */
+.sample__swatch,
+.sample__border,
+.sample__border-radius,
+.sample__shadow {
+  height: 40px;
+  width: 100%;
+  border-radius: var(--acv-size-radius-base);
+}
+
+/* bordered! */
+.sample__border,
+.sample__border-radius {
+  border-width: var(--acv-size-border-1);
+  border-style: solid;
+  border-color: var(--acv-base-color-primary);
+}
+
+.sample__square {
+  background-color: currentColor;
+  border-radius: var(--acv-size-radius-base);
+}
+
+.sample__font-family {
+  font-size: var(--acv-size-font-large);
+}
+
+.sample__icon {
+  display: block;
+  margin: calc(-1 * var(--acv-size-spacing-3)) auto calc(-1 * var(--acv-size-spacing-3)) auto;
+  width: 72px;
+}

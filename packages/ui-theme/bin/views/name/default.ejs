@@ -1,0 +1,5 @@
+<%# Display token name #%>
+<code><%= token ? token.name : 'no name' %></code>
+<% if (token && token.comment) { %>
+<div class="comment"><%= token.comment %></div>
+<% } %>

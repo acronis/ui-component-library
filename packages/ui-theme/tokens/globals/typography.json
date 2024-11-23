@@ -1,0 +1,77 @@
+{
+  "heading": {
+    "h1": {
+      "type": "typography",
+      "value": {
+        "fontFamily": "{base.font.family.inter.value}",
+        "fontWeight": "{base.font.weight.semi-bold.value}",
+        "fontSize": "{font.size.heading}",
+        "lineHeight": "{font.line-height.small.value}",
+        "spacing": "{font.letter-spacing.normal.value}"
+      }
+    },
+    "h2": {
+      "type": "typography",
+      "value": {
+        "fontFamily": "{base.font.family.inter.value}",
+        "fontWeight": "{base.font.weight.semi-bold.value}",
+        "fontSize": "{font.size.display}",
+        "lineHeight": "{font.line-height.small.value}",
+        "letterSpacing": "{font.letter-spacing.normal.value}"
+      }
+    },
+    "h3": {
+      "type": "typography",
+      "value": {
+        "fontFamily": "{base.font.family.inter.value}",
+        "fontWeight": "{base.font.weight.accent.value}",
+        "fontSize": "{font.size.title}",
+        "lineHeight": "{font.line-height.small.value}",
+        "letterSpacing": "{font.letter-spacing.normal.value}"
+      }
+    },
+    "h4": {
+      "type": "typography",
+      "value": {
+        "fontFamily": "{base.font.family.inter.value}",
+        "fontWeight": "{base.font.weight.accent.value}",
+        "fontSize": "{font.size.accent}",
+        "lineHeight": "{font.line-height.large.value}",
+        "letterSpacing": "{font.letter-spacing.normal.value}"
+      }
+    },
+    "h5": {
+      "type": "typography",
+      "value": {
+        "fontFamily": "{base.font.family.inter.value}",
+        "fontWeight": "{base.font.weight.accent.value}",
+        "fontSize": "{font.size.body}",
+        "lineHeight": "{font.line-height.medium.value}",
+        "letterSpacing": "{font.letter-spacing.normal.value}"
+      }
+    }
+  },
+  "body": {
+    "type": "typography",
+    "value": {
+      "fontFamily": "{base.font.family.inter.value}",
+      "fontSize": "{font.size.body.value}",
+      "lineHeight": "{font.line-height.small.value}"
+    }
+  },
+  "fineprint": {
+    "type": "typography",
+    "value": {
+      "fontSize": "{font.size.fineprint.value}",
+      "lineHeight": "{font.line-height.x-small.value}"
+    }
+  },
+  "paragraph": {
+    "indent": {
+      "value": "{dimension.zero.value}"
+    },
+    "spacing": {
+      "value": "{spacing.y-base.value}"
+    }
+  }
+}

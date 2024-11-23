@@ -1,0 +1,88 @@
+{
+  "color": {
+    "font": {
+      "base": {
+        "value": "{color.gray.darkest.value}",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "{color.gray.darker.value}",
+        "type": "color"
+      },
+      "tertiary": {
+        "value": "{color.gray.dark.value}",
+        "type": "color"
+      },
+      "quaternary": {
+        "value": "{color.gray.light.value}",
+        "type": "color"
+      },
+      "link": {
+        "value": "{color.primary.base.value}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.secondary.base.value}",
+        "type": "color"
+      },
+      "error": {
+        "value": "{color.red.dark.value}",
+        "type": "color"
+      },
+      "warning": {
+        "value": "{color.orange.darkest.value}",
+        "type": "color"
+      },
+      "success": {
+        "value": "{color.green.dark.value}",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "{color.font.secondary.value}",
+        "type": "color"
+      },
+      "inverse": {
+        "base": {
+          "value": "{color.white.value}",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "{color.gray.lightest.value}",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "{color.gray.lighter.value}",
+          "type": "color"
+        },
+        "quaternary": {
+          "value": "{color.gray.light.value}",
+          "type": "color"
+        },
+        "link": {
+          "value": "{color.primary.light.value}",
+          "type": "color"
+        },
+        "active": {
+          "value": "{color.secondary.light.value}",
+          "type": "color"
+        },
+        "error": {
+          "value": "{color.red.light.value}",
+          "type": "color"
+        },
+        "warning": {
+          "value": "{color.orange.light.value}",
+          "type": "color"
+        },
+        "success": {
+          "value": "{color.green.light.value}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{color.font.inverse.secondary.value}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

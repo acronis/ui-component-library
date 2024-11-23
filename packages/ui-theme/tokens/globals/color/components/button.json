@@ -1,0 +1,16 @@
+{
+  "color": {
+    "button": {
+      "text": {
+        "primary": {
+          "value": "{color.font.inverse.base.value}",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "{color.link.primary.value}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

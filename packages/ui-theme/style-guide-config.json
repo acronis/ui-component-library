@@ -1,0 +1,151 @@
+{
+  "title": "Acronis UI Syntax Design Tokens",
+  "introduction": "Design variables and assets representing the Acronis UI Syntax design system.",
+  "sections": [
+    {
+      "title": "Border",
+      "groups": [
+        {
+          "title": "Width",
+          "tokensPath": "size.border",
+          "layout": "grid",
+          "sampleFormat": "border"
+        },
+        {
+          "title": "Radius",
+          "tokensPath": "size.radius",
+          "layout": "grid",
+          "sampleFormat": "radius"
+        }
+      ]
+    },
+    {
+      "title": "Color",
+      "description": "These are the colors we use at UI Syntax.",
+      "groups": [
+        {
+          "title": "Primary",
+          "description": "Generic colors used for elements that must reflect UI Syntax's brand.",
+          "tokensPath": "color.primary",
+          "layout": "table",
+          "sampleFormat": "swatch"
+        },
+        {
+          "title": "Grey",
+          "description": "Grey colors are used for text, backgrounds, lines and borders.",
+          "tokensPath": "color.gray",
+          "layout": "table",
+          "sampleFormat": "swatch"
+        },
+        {
+          "title": "Static",
+          "tokensPath": "color.red",
+          "layout": "table",
+          "sampleFormat": "swatch"
+        },
+        {
+          "title": "Pink",
+          "tokensPath": "color.pink",
+          "layout": "table",
+          "sampleFormat": "swatch"
+        },
+        {
+          "title": "blue_gray",
+          "tokensPath": "color.blue_gray",
+          "layout": "table",
+          "sampleFormat": "swatch"
+        }
+      ]
+    },
+    {
+      "title": "Font",
+      "groups": [
+        {
+          "title": "Family",
+          "tokensPath": "base.font.family",
+          "layout": "grid-1",
+          "sampleFormat": "font-family"
+        },
+        {
+          "title": "Base Size",
+          "tokensPath": "base.font.size",
+          "layout": "table",
+          "sampleFormat": "font-size"
+        },
+        {
+          "title": "Size",
+          "tokensPath": "size.font",
+          "order": [
+            "tiny",
+            "small",
+            "medium",
+            "large",
+            "xl",
+            "xxl",
+            "xxxl",
+            "base"
+          ],
+          "layout": "table",
+          "sampleFormat": "font-size"
+        },
+        {
+          "title": "Weight",
+          "tokensPath": "base.font.weight",
+          "layout": "table",
+          "sampleFormat": "font-weight"
+        },
+        {
+          "title": "Line Height",
+          "tokensPath": "base.font.lineHeight",
+          "layout": "table",
+          "sampleFormat": "font-line-height"
+        },
+        {
+          "title": "Letter Spacing",
+          "tokensPath": "font.letter-spacing",
+          "layout": "table",
+          "sampleFormat": "font-letter-spacing"
+        }
+      ]
+    },
+    {
+      "title": "Icon",
+      "hidden": true,
+      "groups": [
+        {
+          "tokensPath": "asset.icon",
+          "layout": "grid",
+          "nameFormat": "empty",
+          "sampleFormat": "icon",
+          "valueFormat": "icon"
+        }
+      ]
+    },
+    {
+      "title": "Shadow",
+      "groups": [
+        {
+          "tokensPath": "size.shadow",
+          "order": [
+            "sm",
+            "base",
+            "lg"
+          ],
+          "sampleFormat": "shadow",
+          "layout": "grid-2",
+          "valueFormat": "only-value"
+        }
+      ]
+    },
+    {
+      "title": "Spacing",
+      "description": "Use the following for padding, margins, and icons.",
+      "groups": [
+        {
+          "tokensPath": "size.spacing",
+          "sampleFormat": "square"
+        }
+      ]
+    }
+  ]
+}

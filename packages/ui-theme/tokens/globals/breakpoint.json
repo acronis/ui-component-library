@@ -1,0 +1,80 @@
+{
+  "breakpoint": {
+    "width": {
+      "x-small": {
+        "value": "640px"
+      },
+      "small": {
+        "value": "768px"
+      },
+      "medium": {
+        "value": "1024px"
+      },
+      "large": {
+        "value": "1280px"
+      },
+      "x-large": {
+        "value": "1440px"
+      },
+      "xx-large": {
+        "value": "1920px"
+      }
+    },
+    "viewport": {
+      "xs-only": {
+        "value": "max-width: calc(768px - 1)"
+      },
+      "small-and-up": {
+        "value": "min-width: 768px"
+      },
+      "small-only": {
+        "value": "min-width: 768px and max-width: calc(1024px - 1)"
+      },
+      "small-down": {
+        "value": "max-width: 1024px"
+      },
+      "md": {
+        "value": "1024px"
+      },
+      "large": {
+        "value": "1280px"
+      },
+      "x-large": {
+        "value": "1440px"
+      },
+      "xx-large": {
+        "value": "1920px"
+      }
+    },
+    "mobile": {
+      "value": "{breakpoint.width.x-small}"
+    },
+    "tablet": {
+      "value": "{breakpoint.width.medium}"
+    },
+    "laptop": {
+      "value": "{breakpoint.width.large}"
+    },
+    "desktop": {
+      "value": "{breakpoint.width.x-large}"
+    },
+    "is-x-small-viewport": {
+      "value": "false"
+    },
+    "is-small-viewport": {
+      "value": "false"
+    },
+    "is-medium-viewport": {
+      "value": "false"
+    },
+    "is-large-viewport": {
+      "value": "false"
+    },
+    "is-x-large-viewport": {
+      "value": "false"
+    },
+    "is-xx-large-viewport": {
+      "value": "false"
+    }
+  }
+}

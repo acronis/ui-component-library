@@ -1,0 +1,115 @@
+{
+  "color": {
+    "status": {
+      "success": {
+        "base": {
+          "value": "{color.status.success.secondary}",
+          "type": "color"
+        },
+        "background": {
+          "value": "{color.status.success.primary}",
+          "type": "color"
+        },
+        "border": {
+          "value": "{color.status.success.secondary}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{color.text.status.success}",
+          "type": "color"
+        }
+      },
+      "danger": {
+        "base": {
+          "value": "{color.status.danger.secondary}",
+          "type": "color"
+        },
+        "background": {
+          "value": "{color.status.danger.primary}",
+          "type": "color"
+        },
+        "border": {
+          "value": "{color.status.danger.secondary}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{color.text.status.danger}",
+          "type": "color"
+        }
+      },
+      "critical": {
+        "base": {
+          "value": "{color.status.critical.secondary}",
+          "type": "color"
+        },
+        "background": {
+          "value": "{color.status.critical.primary}",
+          "type": "color"
+        },
+        "border": {
+          "value": "{color.status.critical.secondary}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{color.text.status.critical}",
+          "type": "color"
+        }
+      },
+      "warning": {
+        "base": {
+          "value": "{color.status.warning.secondary}",
+          "type": "color"
+        },
+        "background": {
+          "value": "{color.status.warning.primary}",
+          "type": "color"
+        },
+        "border": {
+          "value": "{color.status.warning.secondary}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{color.text.status.warning}",
+          "type": "color"
+        }
+      },
+      "neutral": {
+        "base": {
+          "value": "{color.status.neutral.secondary}",
+          "type": "color"
+        },
+        "background": {
+          "value": "{color.status.neutral.primary}",
+          "type": "color"
+        },
+        "border": {
+          "value": "{color.status.neutral.secondary}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{color.text.status.neutral}",
+          "type": "color"
+        }
+      },
+      "info": {
+        "base": {
+          "value": "{color.status.info.secondary}",
+          "type": "color"
+        },
+        "background": {
+          "value": "{color.status.info.primary}",
+          "type": "color"
+        },
+        "border": {
+          "value": "{color.status.info.secondary}",
+          "type": "color"
+        },
+        "text": {
+          "value": "{color.text.status.info}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}
+

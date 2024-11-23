@@ -1,0 +1,43 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "value": "hsl(230deg 13% 9%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(218deg 57% 97%)",
+        "type": "color"
+      }
+    },
+    "base": {
+      "red": {
+        "100": {
+          "value": "#AAA",
+          "type": "color"
+        },
+        "200": {
+          "value": "#BBB",
+          "type": "color"
+        },
+        "300": {
+          "value": "#CCC",
+          "type": "color"
+        },
+        "400": {
+          "value": "#DDD",
+          "type": "color"
+        },
+        "500": {
+          "value": "#EEE",
+          "type": "color"
+        },
+        "600": {
+          "value": "#FFF",
+          "type": "color"
+        }
+      }
+    }
+  }
+}
+

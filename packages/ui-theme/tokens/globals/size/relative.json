@@ -1,0 +1,63 @@
+{
+  "size": {
+    "relative": {
+      "minus-05": {
+        "value": "-0.5rem"
+      },
+      "minus-025": {
+        "value": "-0.25rem"
+      },
+      "0": {
+        "value": "0"
+      },
+      "025": {
+        "value": "0.25rem"
+      },
+      "05": {
+        "value": "0.5rem"
+      },
+      "0625": {
+        "value": "0.625rem"
+      },
+      "1": {
+        "value": "1rem"
+      },
+      "1-25": {
+        "value": "1.25rem"
+      },
+      "1-5": {
+        "value": "1.5rem"
+      },
+      "1-75": {
+        "value": "1.75rem"
+      },
+      "2": {
+        "value": "2rem"
+      },
+      "3": {
+        "value": "3rem"
+      },
+      "4": {
+        "value": "4rem"
+      },
+      "5": {
+        "value": "5rem"
+      },
+      "7-5": {
+        "value": "7.5rem"
+      },
+      "10": {
+        "value": "10rem"
+      },
+      "15": {
+        "value": "15rem"
+      },
+      "20": {
+        "value": "20rem"
+      },
+      "30": {
+        "value": "30rem"
+      }
+    }
+  }
+}

@@ -1,0 +1,732 @@
+{
+  "border": {
+    "large": {
+      "value": "{base.border.width.02}",
+      "type": "dimension"
+    },
+    "regular": {
+      "value": "{base.border.width.01}",
+      "type": "dimension"
+    },
+    "x-large": {
+      "value": "{base.border.width.03}",
+      "type": "dimension"
+    }
+  },
+  "color": {
+    "brand": {
+      "primary": {
+        "value": "hsl(215deg 68% 46%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(218deg 57% 97%)",
+        "type": "color"
+      },
+      "tertiary": {
+        "value": "hsl(218deg 57% 97%)",
+        "type": "color"
+      }
+    },
+    "button": {
+      "active": {
+        "danger": {
+          "value": "hsl(0deg 81% 45%)",
+          "type": "color"
+        },
+        "inversed": {
+          "value": "hsla(0deg 0% 100% / 0.05)",
+          "type": "color"
+        },
+        "primary": {
+          "value": "hsl(215deg 68% 38%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(215deg 56% 89%)",
+          "type": "color"
+        }
+      },
+      "danger": {
+        "value": "hsl(0deg 81% 57%)",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "hsla(215deg 68% 46% / 0.3)",
+        "type": "color"
+      },
+      "disabled-danger": {
+        "value": "hsla(0deg 81% 57% / 0.3)",
+        "type": "color"
+      },
+      "disabled-inversed": {
+        "value": "hsla(0deg 0% 100% / 0.1)",
+        "type": "color"
+      },
+      "focus": {
+        "value": "hsl(214deg 81% 84%)",
+        "type": "color"
+      },
+      "hover": {
+        "danger": {
+          "value": "hsl(0deg 65% 51%)",
+          "type": "color"
+        },
+        "inversed": {
+          "value": "hsla(0deg 0% 100% / 0.1)",
+          "type": "color"
+        },
+        "primary": {
+          "value": "hsl(215deg 68% 38%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(214deg 57% 95%)",
+          "type": "color"
+        }
+      },
+      "inversed": {
+        "value": "hsl(0deg 0% 100% / 0.2)",
+        "type": "color"
+      },
+      "label": {
+        "disabled": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        },
+        "disabled-inversed": {
+          "value": "hsla(0deg 0% 100% / 0.7)",
+          "type": "color"
+        },
+        "inversed-primary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        },
+        "inversed-secondary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        },
+        "primary": {
+          "value": "hsl(215deg 68% 46%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "primary": {
+        "value": "hsl(0deg 88% 3%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(215deg 68% 46%)",
+        "type": "color"
+      }
+    },
+    "divider": {
+      "inversed-primary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "inversed-secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "primary": {
+        "value": "hsl(215deg 60% 92%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(215deg 60% 92%)",
+        "type": "color"
+      }
+    },
+    "effect": {
+      "shadow": {
+        "primary": {
+          "value": "hsla(215deg 30% 20% / 0.2)",
+          "type": "color"
+        }
+      }
+    },
+    "form": {
+      "active": {
+        "value": "hsla(0deg 0% 100% / 0)",
+        "type": "color"
+      },
+      "disabled": {
+        "primary": {
+          "value": "hsla(215deg 68% 46% / 0.1)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsla(215deg 68% 46% / 0.1)",
+          "type": "color"
+        },
+        "success": {
+          "value": "hsl(75deg 57% 95%)",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "hsl(215deg 59% 84%)",
+          "type": "color"
+        }
+      },
+      "error": {
+        "value": "hsl(0deg 81% 57%)",
+        "type": "color"
+      },
+      "focus": {
+        "value": "hsl(214deg 81% 84%)",
+        "type": "color"
+      },
+      "hover": {
+        "value": "hsl(215deg 68% 38%)",
+        "type": "color"
+      },
+      "primary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(215deg 59% 84%)",
+        "type": "color"
+      },
+      "success": {
+        "value": "hsl(75deg 68% 45%)",
+        "type": "color"
+      }
+    },
+    "icon": {
+      "active": {
+        "value": "hsl(0deg 0% 4%)",
+        "type": "color"
+      },
+      "active-disabled": {
+        "value": "hsl(0deg 0% 4%)",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "hsla(215deg 68% 46% / 0.3)",
+        "type": "color"
+      },
+      "disabled-inversed": {
+        "value": "hsla(0deg 0% 100% / 0.7)",
+        "type": "color"
+      },
+      "inversed-primary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "inversed-secondary": {
+        "value": "hsla(0deg 0% 100% / 0.7)",
+        "type": "color"
+      },
+      "primary": {
+        "value": "hsl(215deg 68% 46%)",
+        "type": "color"
+      },
+      "status-critical": {
+        "value": "hsl(11deg 73% 41%)",
+        "type": "color"
+      },
+      "status-danger": {
+        "value": "hsl(0deg 72% 45%)",
+        "type": "color"
+      },
+      "status-info": {
+        "value": "hsl(215deg 68% 38%)",
+        "type": "color"
+      },
+      "status-neutral": {
+        "value": "hsl(0deg 0% 4%)",
+        "type": "color"
+      },
+      "status-success": {
+        "value": "hsl(88deg 85% 24%)",
+        "type": "color"
+      },
+      "status-warning": {
+        "value": "hsl(30deg 50% 37%)",
+        "type": "color"
+      }
+    },
+    "link": {
+      "active": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "disabled-inversed": {
+        "value": "hsla(0deg 0% 100% / 0.7)",
+        "type": "color"
+      },
+      "hover": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "inversed-primary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "inversed-secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "primary": {
+        "value": "hsl(215deg 68% 46%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      }
+    },
+    "nav": {
+      "active": {
+        "primary": {
+          "value": "hsl(213deg 100% 45%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(215deg 56% 89%)",
+          "type": "color"
+        }
+      },
+      "focus": {
+        "primary": {
+          "value": "hsla(0deg 0% 100% / 0.2)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(215deg 56% 89%)",
+          "type": "color"
+        }
+      },
+      "hover": {
+        "primary": {
+          "value": "hsla(0deg 0% 100% / 0.2)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(214deg 57% 95%)",
+          "type": "color"
+        }
+      },
+      "label": {
+        "primary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "primary": {
+        "value": "hsl(215deg 100% 15%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      }
+    },
+    "scroll": {
+      "thumb": {
+        "value": "hsla(0deg 0% 100% / 0.4)",
+        "type": "color"
+      },
+      "thumb-inversed": {
+        "value": "hsla(0deg 0% 100% / 0.4)",
+        "type": "color"
+      }
+    },
+    "status": {
+      "active": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "critical": {
+        "primary": {
+          "value": "hsl(32deg 95% 92%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(29deg 100% 53%)",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "danger": {
+        "primary": {
+          "value": "hsl(0deg 100% 96%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(0deg 81% 57%)",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "focus": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "hover": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "info": {
+        "primary": {
+          "value": "hsl(215deg 81% 96%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(214deg 80% 58%)",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "neutral": {
+        "primary": {
+          "value": "hsl(220deg 7% 92%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(216deg 8% 61%)",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "success": {
+        "primary": {
+          "value": "hsl(75deg 57% 95%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(75deg 68% 45%)",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "warning": {
+        "primary": {
+          "value": "hsl(46deg 100% 95%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(45deg 100% 51%)",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      }
+    },
+    "surface": {
+      "fixed": {
+        "primary": {
+          "value": "hsl(215deg 30% 20% / 0.9)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        }
+      },
+      "inversed": {
+        "dark": {
+          "primary": {
+            "value": "hsl(0deg 0% 100%)",
+            "type": "color"
+          },
+          "secondary": {
+            "value": "hsla(0deg 0% 100% / 0.95)",
+            "type": "color"
+          }
+        },
+        "primary": {
+          "value": "hsl(0deg 0% 100%)",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "hsl(215deg 30% 20% / 0.7)",
+          "type": "color"
+        }
+      },
+      "primary": {
+        "value": "hsl(218deg 57% 97%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsl(214deg 57% 95%)",
+        "type": "color"
+      }
+    },
+    "text": {
+      "disabled": {
+        "value": "hsla(215deg 30% 20% / 0.4)",
+        "type": "color"
+      },
+      "error": {
+        "value": "hsl(0deg 81% 57%)",
+        "type": "color"
+      },
+      "highlight-result": {
+        "value": "hsl(52deg 100% 50%)",
+        "type": "color"
+      },
+      "inversed-primary": {
+        "value": "hsl(0deg 0% 100%)",
+        "type": "color"
+      },
+      "inversed-secondary": {
+        "value": "hsla(0deg 0% 100% / 0.7)",
+        "type": "color"
+      },
+      "primary": {
+        "value": "hsl(215deg 30% 20%)",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "hsla(215deg 30% 20% / 0.7)",
+        "type": "color"
+      },
+      "status-critical": {
+        "value": "hsl(11deg 73% 41%)",
+        "type": "color"
+      },
+      "status-danger": {
+        "value": "hsl(0deg 72% 45%)",
+        "type": "color"
+      },
+      "status-info": {
+        "value": "hsl(215deg 68% 38%)",
+        "type": "color"
+      },
+      "status-neutral": {
+        "value": "hsl(215deg 30% 20%)",
+        "type": "color"
+      },
+      "status-success": {
+        "value": "hsl(88deg 85% 24%)",
+        "type": "color"
+      },
+      "status-warning": {
+        "value": "hsl(30deg 50% 37%)",
+        "type": "color"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "default": {
+        "value": "{base.font.family.inter}",
+        "type": "fontFamily"
+      }
+    },
+    "line-height": {
+      "large": {
+        "value": "{base.font.lineHeight.40}",
+        "type": "dimension"
+      },
+      "medium": {
+        "value": "{base.font.lineHeight.32}",
+        "type": "dimension"
+      },
+      "regular": {
+        "value": "{base.font.lineHeight.24}",
+        "type": "dimension"
+      },
+      "small": {
+        "value": "{base.font.lineHeight.20}",
+        "type": "dimension"
+      },
+      "x-large": {
+        "value": "{base.font.lineHeight.48}",
+        "type": "dimension"
+      },
+      "x-small": {
+        "value": "{base.font.lineHeight.16}",
+        "type": "dimension"
+      }
+    },
+    "size": {
+      "accent": {
+        "value": "{base.font.size.16}",
+        "type": "dimension"
+      },
+      "body": {
+        "value": "{base.font.size.14}",
+        "type": "dimension"
+      },
+      "caption": {
+        "value": "{base.font.size.12}",
+        "type": "dimension"
+      },
+      "display": {
+        "value": "{base.font.size.32}",
+        "type": "dimension"
+      },
+      "fineprint": {
+        "value": "{base.font.size.10}",
+        "type": "dimension"
+      },
+      "lead": {
+        "value": "{base.font.size.18}",
+        "type": "dimension"
+      },
+      "note": {
+        "value": "{base.font.size.11}",
+        "type": "dimension"
+      },
+      "title": {
+        "value": "{base.font.size.24}",
+        "type": "dimension"
+      }
+    },
+    "weight": {
+      "accent": {
+        "value": "{base.font.weight.medium}",
+        "type": "fontWeight"
+      },
+      "regular": {
+        "value": "{base.font.weight.regular}",
+        "type": "fontWeight"
+      },
+      "strong": {
+        "value": "{base.font.weight.semi-bold}",
+        "type": "fontWeight"
+      },
+      "x-strong": {
+        "value": "{base.font.weight.bold}",
+        "type": "fontWeight"
+      }
+    }
+  },
+  "height": {
+    "large": {
+      "value": "{base.height.40}",
+      "type": "dimension"
+    },
+    "regular": {
+      "value": "{base.height.32}",
+      "type": "dimension"
+    },
+    "small": {
+      "value": "{base.height.24}",
+      "type": "dimension"
+    },
+    "x-large": {
+      "value": "{base.height.48}",
+      "type": "dimension"
+    },
+    "x-small": {
+      "value": "{base.height.16}",
+      "type": "dimension"
+    }
+  },
+  "radius": {
+    "circle": {
+      "value": "{base.radius.circle}",
+      "type": "dimension"
+    },
+    "large": {
+      "value": "{base.radius.08}",
+      "type": "dimension"
+    },
+    "medium": {
+      "value": "{base.radius.06}",
+      "type": "dimension"
+    },
+    "regular": {
+      "value": "{base.radius.04}",
+      "type": "dimension"
+    },
+    "small": {
+      "value": "{base.radius.02}",
+      "type": "dimension"
+    },
+    "zero": {
+      "value": "{base.radius.00}",
+      "type": "dimension"
+    }
+  },
+  "shadow": {
+    "blur": {
+      "regular": {
+        "value": "0",
+        "type": "dimension"
+      },
+      "small": {
+        "value": "0",
+        "type": "dimension"
+      }
+    },
+    "position-y": {
+      "regular": {
+        "value": "0",
+        "type": "dimension"
+      },
+      "small": {
+        "value": "0",
+        "type": "dimension"
+      }
+    }
+  },
+  "spacing": {
+    "large": {
+      "value": "{base.spacing.24}",
+      "type": "dimension"
+    },
+    "regular": {
+      "value": "{base.spacing.16}",
+      "type": "dimension"
+    },
+    "small": {
+      "value": "{base.spacing.08}",
+      "type": "dimension"
+    },
+    "x-large": {
+      "value": "{base.spacing.32}",
+      "type": "dimension"
+    },
+    "x-regular": {
+      "value": "{base.spacing.12}",
+      "type": "dimension"
+    },
+    "x-small": {
+      "value": "0",
+      "type": "dimension"
+    },
+    "xx-small": {
+      "value": "{base.spacing.02}",
+      "type": "dimension"
+    },
+    "zero": {
+      "value": "{base.spacing.00}",
+      "type": "dimension"
+    }
+  }
+}

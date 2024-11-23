@@ -1,0 +1,27 @@
+{
+  "font": {
+    "line-height": {
+      "xx-small": {
+        "value": "0.95"
+      },
+      "x-small": {
+        "value": "1.1"
+      },
+      "small": {
+        "value": "1.2"
+      },
+      "medium": {
+        "value": "1.4"
+      },
+      "large": {
+        "value": "1.5"
+      },
+      "x-large": {
+        "value": "1.72"
+      },
+      "xx-large": {
+        "value": "2"
+      }
+    }
+  }
+}

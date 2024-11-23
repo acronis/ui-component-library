@@ -1,0 +1,34 @@
+{
+    "text": {
+        "transform": {
+            "$type": "textTransform",
+            "none": {
+                "value": "none"
+            },
+            "uppercase": {
+                "value": "uppercase"
+            },
+            "lowercase": {
+                "value": "lowercase"
+            },
+            "capitalize": {
+                "value": "capitalize"
+            }
+        },
+        "decoration": {
+            "$type": "textDecoration",
+            "none": {
+                "value": "none"
+            },
+            "underline": {
+                "value": "underline"
+            },
+            "overline": {
+                "value": "overline"
+            },
+            "line-through": {
+                "value": "line-through"
+            }
+        }
+    }
+}

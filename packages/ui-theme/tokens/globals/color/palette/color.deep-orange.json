@@ -1,0 +1,105 @@
+{
+  "color": {
+    "deep_orange": {
+      "50": {
+        "value": "#FBE9E7",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "100": {
+        "value": "#FFCCBC",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "200": {
+        "value": "#FFAB91",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "300": {
+        "value": "#FF8A65",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "400": {
+        "value": "#FF7043",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "500": {
+        "value": "#FF5722",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "600": {
+        "value": "#F4511E",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "700": {
+        "value": "#E64A19",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "800": {
+        "value": "#D84315",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "900": {
+        "value": "#BF360C",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "A100": {
+        "value": "#FF9E80",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "A200": {
+        "value": "#FF6E40",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "A400": {
+        "value": "#FF3D00",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "A700": {
+        "value": "#DD2C00",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      }
+    }
+  }
+}
+
