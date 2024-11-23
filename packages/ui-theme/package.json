@@ -6,7 +6,8 @@
   "type": "module",
   "files": [
     "dist",
-    "properties"
+    "styles",
+    "public"
   ],
   "scripts": {
     "build": "pnpm run build:tokens && pnpm run build:fonts",

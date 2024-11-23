@@ -3,7 +3,7 @@
     "$type": "color",
     "tertiary": {
       "base": {
-        "$value": "{color.brand.tertiary.base}"
+        "$value": "{color.brand.tertiary.value}"
       },
       "darker": {
         "$value": "hsl(from var(--acv-color-brand-tertiary) calc(h + 1) calc(s - 6) calc(l - 25))"

@@ -1,6 +1,6 @@
 {
   "color": {
-    "$type": "color",
+    "type": "color",
     "chart": {
       "blue": {
         "value": "hsl(215deg 68% 46%)"

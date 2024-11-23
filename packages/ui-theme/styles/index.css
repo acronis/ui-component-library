@@ -1,8 +1,8 @@
 @import "./layers.css";
 @import "generic/reset.css";
 @import "generic/normalize.css";
+@import "../dist/css/fonts.css" layer(theme);
 @import "../dist/css/globals.css" layer(theme);
 
-/* @import "../tokens/acv" layer(tokens); */
 @import "elements";
 @import "utilities";

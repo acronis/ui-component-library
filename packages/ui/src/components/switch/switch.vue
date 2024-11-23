@@ -129,7 +129,7 @@
     }
 
     &.inverted {
-      --acv-switch-input-thumb-bg: var(--acv-color-primary);
+      --acv-switch-input-thumb-bg: var(--acv-color-brand-primary);
       --acv-switch-input-off-bg: var(--acv-color-form-secondary);
       --acv-switch-input-on-bg: var(--acv-color-inverted);
       --acv-switch-label-color: var(--acv-color-text-disabled);

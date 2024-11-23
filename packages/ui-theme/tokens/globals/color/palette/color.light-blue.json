@@ -3,47 +3,47 @@
     "$type": "color",
     "light-blue": {
       "darkest": {
-        "$value": "hsl(196deg 92% 33%)"
+        "value": "hsl(196deg 92% 33%)"
       },
       "darker": {
-        "$value": "hsl(196deg 94% 38%)"
+        "value": "hsl(196deg 94% 38%)"
       },
       "dark": {
-        "$value": "hsl(196deg 96% 46%)"
+        "value": "hsl(196deg 96% 46%)"
       },
       "base": {
-        "$value": "hsl(195deg 98% 58%)"
+        "value": "hsl(195deg 98% 58%)"
       },
       "light": {
-        "$value": "hsl(194deg 100% 76%)"
+        "value": "hsl(194deg 100% 76%)"
       },
       "lighter": {
-        "$value": "hsl(193deg 102% 88%)"
+        "value": "hsl(193deg 102% 88%)"
       },
       "lightest": {
-        "$value": "hsl(192deg 103% 97%)"
+        "value": "hsl(192deg 103% 97%)"
       },
       "text": {
         "darkest": {
-          "$value": "{color.light-blue.light}"
+          "value": "{color.light-blue.light.value}"
         },
         "darker": {
-          "$value": "{color.light-blue.lighter}"
+          "value": "{color.light-blue.lighter.value}"
         },
         "dark": {
-          "$value": "{color.light-blue.lightest}"
+          "value": "{color.light-blue.lightest.value}"
         },
         "base": {
-          "$value": "{color.light-blue.lightest}"
+          "value": "{color.light-blue.lightest.value}"
         },
         "lightest": {
-          "$value": "{color.light-blue.dark}"
+          "value": "{color.light-blue.dark.value}"
         },
         "lighter": {
-          "$value": "{color.light-blue.darker}"
+          "value": "{color.light-blue.darker.value}"
         },
         "light": {
-          "$value": "{color.light-blue.darkest}"
+          "value": "{color.light-blue.darkest.value}"
         }
       }
     }

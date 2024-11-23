@@ -44,21 +44,21 @@
         }
       },
       "warning": {
-        "value": "{color.orange.800.value}",
+        "value": "{color.orange.dark.value}",
         "type": "color",
         "attributes": {
           "font": "inverse"
         }
       },
       "info": {
-        "value": "{color.light_blue.dark.value}",
+        "value": "{color.light-blue.dark.value}",
         "type": "color",
         "attributes": {
           "font": "inverse"
         }
       },
       "link": {
-        "value": "{color.light_blue.dark.value}",
+        "value": "{color.light-blue.dark.value}",
         "type": "color",
         "attributes": {
           "font": "inverse"

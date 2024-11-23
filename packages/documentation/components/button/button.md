@@ -22,6 +22,7 @@ description: This file is generated automatically from the source code. Changes 
 | selected  | Whether button appearance as selected | boolean                                             | -                                   |         |
 | autofocus | Same as native button's autofocus     | boolean                                             | -                                   |         |
 | disabled  | Disable the button                    | boolean                                             | -                                   |         |
+| icon      | Button icon                           | IconSource                                          | -                                   |         |
 | loading   | Determine whether it's loading        | boolean                                             | -                                   |         |
 
 ## Slots

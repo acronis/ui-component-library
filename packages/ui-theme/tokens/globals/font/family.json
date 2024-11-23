@@ -1,0 +1,10 @@
+{
+  "font": {
+    "family": {
+      "default": {
+        "value": "{base.font.family.inter.value}",
+        "type": "fontFamily"
+      }
+    }
+  }
+}

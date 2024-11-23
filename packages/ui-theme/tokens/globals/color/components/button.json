@@ -8,7 +8,21 @@
         },
         "secondary": {
           "value": "{color.link.primary.value}",
-          "type": "color"
+          "type": "color",
+          "border": {
+            "base": {
+              "value": "{color.border.base.value}",
+              "type": "color"
+            },
+            "active": {
+              "value": "{color.secondary.dark.value}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{color.border.light.value}",
+              "type": "color"
+            }
+          }
         }
       }
     }

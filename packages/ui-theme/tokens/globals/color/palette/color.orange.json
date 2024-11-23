@@ -1,6 +1,5 @@
 {
   "color": {
-    "$type": "color",
     "orange": {
       "darkest": {
         "value": "hsl(30deg 94% 21%)",

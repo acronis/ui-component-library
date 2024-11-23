@@ -1,0 +1,67 @@
+.acv-notify {
+  position: fixed;
+  display: flex;
+  inset: 0;
+  padding: 2em;
+  overflow: hidden;
+  z-index: var(--acv-z-index-notifications);
+  pointer-events: none;
+
+  .acv-notify__item {
+    display: inline-flex;
+    align-items: center;
+    animation-duration: 150ms;
+    margin: 0.5em 0;
+    box-shadow:
+      0 1px 4px rgb(0 0 0 / 0.12),
+      0 0 6px rgb(0 0 0 / 0.04);
+    border-radius: 0.25em;
+    pointer-events: auto;
+    opacity: 0.92;
+    color: hsl(0deg 0% 100%);
+    min-height: 3em;
+    cursor: pointer;
+
+    &.acv-notify__item--top,
+    &.acv-notify__item--bottom {
+      align-self: center;
+    }
+
+    &.acv-notify__item--top-right,
+    &.acv-notify__item--bottom-right {
+      align-self: flex-end;
+    }
+
+    &.acv-notify__item--top-left,
+    &.acv-notify__item--bottom-left {
+      align-self: flex-start;
+    }
+  }
+
+  .acv-notify__text {
+    margin: 0;
+    padding: 0.5em 1em;
+    word-break: break-word;
+  }
+
+  .acv-notify__icon {
+    display: none;
+  }
+
+  &.acv-notify--top {
+    flex-direction: column;
+  }
+
+  &.acv-notify--bottom {
+    flex-direction: column-reverse;
+  }
+
+  &.acv-notify--custom-parent {
+    position: absolute;
+  }
+
+  @media screen and (width <= 768px) {
+    padding: 0;
+    position: fixed !important;
+  }
+}

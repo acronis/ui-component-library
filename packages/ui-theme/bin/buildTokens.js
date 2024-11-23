@@ -30,13 +30,12 @@ function getStyleDictionaryConfig(brand, scheme) {
             `tokens/base/**/*.json`,
             `tokens/brands/${brand}/**/!(*.${COLOR_SCHEMES.join(`|*.`)}).json`,
             `tokens/brands/${brand}/**/*.${scheme}.json`,
-            'tokens/globals/color/color.green.json',
-            // 'tokens/globals/**/*.json'
+            'tokens/globals/**/*.json'
         ],
         platforms: {
             css: {
                 transformGroup: `css`,
-                transforms: ["attribute/cti", "time/seconds", "size/rem", "cubicBezier/css", "color/hsl-4"],
+                transforms: ["attribute/cti", "cubicBezier/css", "color/hsl-4"],
                 buildPath: `dist/css/${brand}/`,
                 prefix: 'acv',
                 files: [{
@@ -59,6 +58,7 @@ function getStyleDictionaryConfig(brand, scheme) {
                     {
                         destination: `${brand}-${scheme}.scss`,
                         format: 'scss/variables',
+                        filter: 'only-colors',
                     },
                 ],
             },
@@ -68,7 +68,8 @@ function getStyleDictionaryConfig(brand, scheme) {
                 buildPath: `dist/js/${brand}/`,
                 files: [{
                     destination: `tokens.json`,
-                    format: `json/flat`
+                    format: `json/flat`,
+                    filter: 'only-colors',
                 }]
             },
         },
@@ -92,14 +93,14 @@ function buildGlobalTokens() {
         hooks: {
             filters: {
                 'no-icons': (token, options) => {
-                    return token.type !== 'asset';
+                    return token.type !== 'asset' && token.type !== 'color';
                 },
             },
         },
         source: [
             `tokens/assets/icons.json`,
             `tokens/base/**/*.json`,
-            `tokens/brands/**/*.json`,
+            `tokens/brands/acronis/color.json`, // For basic color aliases
             `tokens/globals/**/*.json`
         ],
         platforms: {
@@ -130,9 +131,9 @@ function buildGlobalTokens() {
             styleGuide: {
                 source: [
                     `tokens/base/**/*.json`,
-                    `tokens/globals/test/**/*.json`
+                    `tokens/globals/**/*.json`
                 ],
-                transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'color/css'],
+                transforms: ['attribute/cti', 'name/kebab', 'time/seconds', "color/hsl-4", 'shadow/css/shorthand'],
                 buildPath: 'public/',
                 files: [
                     {

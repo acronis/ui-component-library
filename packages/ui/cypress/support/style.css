@@ -1,0 +1,12 @@
+@import "@acronis-platform/ui-theme/styles/index.css";
+@import "@acronis-platform/ui-theme/dist/css/acronis/acronis-light.css" screen
+  and (prefers-color-scheme: light);
+@import "@acronis-platform/ui-theme/dist/css/acronis/acronis-dark.css" screen
+  and (prefers-color-scheme: dark);
+
+html {
+  box-sizing: border-box;
+  font-size: var(--acv-size-font-base);
+  font-family: var(--acv-base-font-family-inter), sans-serif;
+  color: var(--acv-color-gray-dark);
+}

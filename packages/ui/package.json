@@ -57,6 +57,7 @@
     }
   },
   "dependencies": {
+    "@acronis-platform/ui-theme": "workspace:*",
     "@antfu/utils": "0.7.8",
     "@floating-ui/vue": "1.0.6",
     "@vee-validate/rules": "4.9.6",
@@ -75,6 +76,7 @@
     "md-editor-v3": "4.17.3",
     "perfect-scrollbar": "1.5.5",
     "sortablejs": "1.15.2",
+    "tiny-emitter": "2.1.0",
     "vue-i18n": "10.0.4"
   },
   "devDependencies": {
