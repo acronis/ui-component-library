@@ -1,15 +1,15 @@
 <script>
-  import { isBrowser } from '@antfu/utils';
-  import Chart from 'chart.js/auto';
+  import WidgetChart from '@/composables/widget.chart';
   import {
     cleanData,
     getPercentageData,
     isValidData
-  } from '../../utils/widget.ts';
+  } from '@/utils/widget';
+  import { isBrowser } from '@antfu/utils';
+  import Chart from 'chart.js/auto';
   import WidgetEmpty from '../widget-wrapper/widgetEmpty.vue';
   import WidgetInvalid from '../widget-wrapper/widgetInvalid.vue';
   import WidgetLoading from '../widget-wrapper/widgetLoading.vue';
-  import WidgetChart from './widget.chart.js';
 
   export default {
     name: 'AcvPieChart',

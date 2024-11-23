@@ -1,5 +1,5 @@
 import type { DirectiveBinding, VNode } from 'vue';
-import { xssSafeHighlighter } from '../utils/highlighter.js';
+import { xssSafeHighlighter } from '@/utils/highlighter';
 
 const highlight = function (el: HTMLElement, text: string, value: string) {
   const arr = xssSafeHighlighter.highlight(text, value);

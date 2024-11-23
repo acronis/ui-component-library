@@ -1,7 +1,7 @@
 import { t } from '@/locale/index.js';
-import { cssValue } from '@/utils/color-converters.js';
+import { cssValue } from '@/utils/color-converters';
 import { chartColors, isValidColor } from '@/utils/color-utils.ts';
-import { getLocale } from '@/utils/local-storage.js';
+import { getLocale } from '@/utils/local-storage';
 import prettySize from '@/utils/prettySize.ts';
 import { getFadedColors } from '@/utils/widget.ts';
 // import { addResizeListener, removeResizeListener } from '../../utils/resize-event';
