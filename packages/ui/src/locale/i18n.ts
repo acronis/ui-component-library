@@ -32,7 +32,7 @@ export function useLocale(lang: string) {
   };
 }
 
-export function t(message) {
+export function t(message, ..._args) {
   return message;
 }
 

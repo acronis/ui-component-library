@@ -1,8 +1,10 @@
 class Highlighter {
+  tags: string[] | string;
+
   /**
    * @param {string[]|string} tags if string, pass class name
    */
-  constructor(tags) {
+  constructor(tags: string[] | string) {
     this.tags = tags;
   }
 
@@ -24,24 +26,20 @@ class Highlighter {
       return index >= 0 ? text.replace(subString, `${this.tags[0]}${subString}${this.tags[1]}`) : text;
     }
 
-    if (typeof this.tags === 'string') {
-      let startIndex = 0;
-      const highlightXssSafeArr = [];
-
-      while (index > -1) {
-        if (index > startIndex) {
-          highlightXssSafeArr.push({ value: text.substring(startIndex, index) });
-        }
-        startIndex = index + value.length;
-        highlightXssSafeArr.push({ value: text.substring(index, startIndex), className: this.tags });
-        index = lowerText.indexOf(lowerValue, startIndex);
+    let startIndex = 0;
+    const highlightXssSafeArr: any[] = [];
+    while (index > -1) {
+      if (index > startIndex) {
+        highlightXssSafeArr.push({ value: text.substring(startIndex, index) });
       }
-      if (text.length > startIndex) {
-        highlightXssSafeArr.push({ value: text.substring(startIndex, text.length) });
-      }
-
-      return highlightXssSafeArr;
+      startIndex = index + value.length;
+      highlightXssSafeArr.push({ value: text.substring(index, startIndex), className: this.tags });
+      index = lowerText.indexOf(lowerValue, startIndex);
     }
+    if (text.length > startIndex) {
+      highlightXssSafeArr.push({ value: text.substring(startIndex, text.length) });
+    }
+    return highlightXssSafeArr;
 
     return text;
   }

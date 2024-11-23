@@ -1,3 +1,5 @@
+// eslint-disable-next-line ts/ban-ts-comment
+// @ts-nocheck refactor mixin
 import { t } from '@/locale';
 import { cssValue } from '@/utils/color-converters';
 import { chartColors, isValidColor } from '@/utils/color-utils.ts';
