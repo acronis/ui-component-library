@@ -542,7 +542,7 @@
           valueContainer.className = 'acv-line-chart__legend__value';
           let value;
           if (dataValue === null || Number.isNaN(dataValue)) {
-            value = document.createTextNode(this.t('el.lineChart.latestDataNA'));
+            value = document.createTextNode(this.t('acv.lineChart.latestDataNA'));
           }
           else {
             value = document.createTextNode(

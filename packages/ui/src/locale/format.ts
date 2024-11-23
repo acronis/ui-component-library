@@ -1,6 +1,6 @@
-import { hasOwn } from '../utils/util';
+import { hasOwn } from '@/utils/util.ts';
 
-const RE_NARGS = /(%|)\{(\w+)\}/g;
+const RE_NARGS = /(%?)\{(\w+)\}/g;
 /**
  *  String format template
  *  - Inspired:
@@ -19,19 +19,17 @@ export default function () {
       args = args[0];
     }
 
-    /* istanbul ignore if */
     if (!args || !args.hasOwnProperty) {
-      args = {};
+      args = [];
     }
 
-    return string.replace(RE_NARGS, (match, prefix, i, index) => {
-      /* istanbul ignore if */
+    return string.replace(RE_NARGS, (match, _prefix, i, index) => {
       if (string[index - 1] === '{'
         && string[index + match.length] === '}') {
         return i;
       }
       const result = hasOwn(args, i) ? args[i] : null;
-      /* istanbul ignore if */
+
       if (result === null || result === undefined) {
         return '';
       }

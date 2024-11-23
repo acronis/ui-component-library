@@ -1,4 +1,4 @@
-import t from '../locale/index.js';
+import { t } from '@/locale';
 
 // TODO: Eventually use Intl
 function toLocaleFixed(value, digits, lang) {

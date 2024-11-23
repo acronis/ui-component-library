@@ -1,5 +1,5 @@
 <script>
-  import { t } from '@/locale/index.js';
+  import { t } from '@/locale';
   import AcvDivider from '../divider/divider.vue';
   import AcvIcon from '../icon/icon.vue';
 
@@ -29,7 +29,7 @@
     },
     data() {
       return {
-        emptyText: t('el.widgetwrapper.noDataMessage')
+        emptyText: t('acv.widgetwrapper.noDataMessage')
       };
     },
     computed: {

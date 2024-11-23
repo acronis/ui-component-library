@@ -1,6 +1,7 @@
-import locales from './locales';
+import type { Locale } from '@/locale/types.ts';
+import locales from './locales.json';
 
-export function getLocales(hasTestLocale = false) {
+export function getLocales(hasTestLocale = false): Locale[] {
   const predicate = hasTestLocale ? () => true : code => code !== 'locale-test';
 
   return Object.keys(locales)

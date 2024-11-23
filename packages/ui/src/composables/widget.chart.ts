@@ -1,4 +1,4 @@
-import { t } from '@/locale/index.js';
+import { t } from '@/locale';
 import { cssValue } from '@/utils/color-converters';
 import { chartColors, isValidColor } from '@/utils/color-utils.ts';
 import { getLocale } from '@/utils/local-storage';

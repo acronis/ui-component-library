@@ -10,7 +10,7 @@ const firstDayMap = {
 
 export function getFirstDayOfWeek(region) {
   const days = Object.keys(firstDayMap);
-  let firstDay = null;
+  let firstDay: number | null = null;
   days.some((day) => {
     if (firstDayMap[day].includes(region)) {
       firstDay = +day;
