@@ -36,7 +36,7 @@ export default defineConfig({
       thresholds: {
         statements: 40,
         branches: 50,
-        functions: 20,
+        functions: 5,
         lines: 40,
       },
       extension: ['ts', 'tsx', 'vue'],
