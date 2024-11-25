@@ -74,7 +74,15 @@
 </template>
 
 <style scoped>
-.acv-button {
-  margin-block: 10px;
+.acv-grid-row{
+  display: grid;
+  width: 100%;
+  place-items: start;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+}
+
+.acv-grid--cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 </style>

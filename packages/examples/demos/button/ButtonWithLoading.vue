@@ -35,4 +35,8 @@
     margin-left: 16px;
   }
 }
+
+.mb-16 {
+  margin-bottom: 16px;
+}
 </style>

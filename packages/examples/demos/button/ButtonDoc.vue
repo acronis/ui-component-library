@@ -31,7 +31,7 @@
       <div
         v-for="state in buttonStates"
         :key="state"
-        class="pa-12"
+        class="pa-8"
       >
         <Button
           :variant="variant"
@@ -48,7 +48,7 @@
       <div
         v-for="state in buttonStates"
         :key="state"
-        class="pa-12"
+        class="pa-8"
       >
         <Button
           :variant="variant"
@@ -70,5 +70,17 @@
 .acv-button-doc {
   display: grid;
   grid-template-columns: repeat(5, 100px);
+}
+
+.acv-bg-surface-fixed-primary {
+  background-color: var(--acv-color-surface-fixed-primary);
+}
+
+.acv-text-color-white {
+  color: var(--acv-color-white);
+}
+
+.pa-8 {
+  padding: 8px;
 }
 </style>
