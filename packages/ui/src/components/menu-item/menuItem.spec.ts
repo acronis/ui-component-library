@@ -50,7 +50,7 @@ describe('test MenuItem component', () => {
       "<li data-v-1716f12c="" class="acv-menu-item" role="menuitem" tabindex="0" style="--1716f12c-indent: -24px; --1716f12c-clampSize: 0;">
         <!--v-if-->
         <!--v-if-->
-        <div data-v-1716f12c="" class="acv-text acv-text--body-24 acv-text--ellipsis"></div>
+        <div data-v-1716f12c="" class="text ellipsis"></div>
         <!--v-if-->
       </li>"
     `);

@@ -52,8 +52,11 @@ describe('test Menu component', () => {
   it('renders', () => {
     const wrapper = mount(Menu);
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<nav data-v-5dcaf39a="" class="acv-menu primary">
-        <menu data-v-5dcaf39a="" class="menubar acv-scrollbar" role="menubar"></menu>
+      "<nav data-v-5dcaf39a="" class="acv-menu acv-menu_type_primary">
+        <!-- @slot Left side slot content. Usually for icon -->
+        <menu data-v-5dcaf39a="" class="menubar acv-scrollbar" role="menubar">
+          <!-- @slot Default slot content. Usually for text -->
+        </menu>
         <!--v-if-->
         <!--v-if-->
       </nav>"
