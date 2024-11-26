@@ -21,3 +21,17 @@
     </AcvButton>
   </div>
 </template>
+
+<style scoped>
+  .acv-grid-row{
+    display: grid;
+    width: 100%;
+    place-items: start;
+    grid-gap: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .acv-grid--cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+</style>
