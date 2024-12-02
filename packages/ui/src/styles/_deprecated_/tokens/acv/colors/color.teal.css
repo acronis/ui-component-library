@@ -1,9 +1,0 @@
-:where(html) {
-  --acv-color-teal-darkest: hsl(175deg 94% 4%);
-  --acv-color-teal-darker: hsl(175deg 96% 9%);
-  --acv-color-teal-dark: hsl(175deg 98% 17%);
-  --acv-color-teal: hsl(174deg 100% 29%);
-  --acv-color-teal-light: hsl(173deg 102% 47%);
-  --acv-color-teal-lighter: hsl(172deg 104% 65%);
-  --acv-color-teal-lightest: hsl(171deg 105% 78%);
-}

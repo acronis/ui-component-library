@@ -1,0 +1,85 @@
+{
+  "font": {
+    "size": {
+      "fineprint": {
+        "value": "10px"
+      },
+      "note": {
+        "value": "11px"
+      },
+      "caption": {
+        "value": "12px"
+      },
+      "body": {
+        "value": "14px"
+      },
+      "accent": {
+        "value": "16px"
+      },
+      "lead": {
+        "value": "18px"
+      },
+      "title": {
+        "value": "24px"
+      },
+      "display": {
+        "value": "32px"
+      },
+      "heading": {
+        "value": "{base.font.size.48.value}"
+      },
+      "fluid-0": {
+        "value": "clamp(0.75rem, 2vw, 1rem)"
+      },
+      "fluid-1": {
+        "value": "clamp(1rem, 4vw, 1.5rem)"
+      },
+      "fluid-2": {
+        "value": "clamp(1.5rem, 6vw, 2.5rem)"
+      },
+      "fluid-3": {
+        "value": "clamp(2rem, 9vw, 3.5rem)"
+      },
+      "relative-05": {
+        "value": "0.5",
+        "unit": "rem"
+      },
+      "relative-075": {
+        "value": "0.75",
+        "unit": "rem"
+      },
+      "relative-1": {
+        "value": "1",
+        "unit": "rem"
+      },
+      "relative-1-1": {
+        "value": "1.1",
+        "unit": "rem"
+      },
+      "relative-1-25": {
+        "value": "1.25",
+        "unit": "rem"
+      },
+      "relative-1-5": {
+        "value": "1.5",
+        "unit": "rem"
+      },
+      "relative-2": {
+        "value": "2",
+        "unit": "rem"
+      },
+      "relative-2-5": {
+        "value": "2.5",
+        "unit": "rem"
+      },
+      "relative-3": {
+        "value": "3",
+        "unit": "rem"
+      },
+      "relative-3-5": {
+        "value": "3.5",
+        "unit": "rem"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "color": {
+    "$type": "color",
+    "light-blue": {
+      "darkest": {
+        "$value": "hsl(196deg 92% 33%)"
+      },
+      "darker": {
+        "$value": "hsl(196deg 94% 38%)"
+      },
+      "dark": {
+        "$value": "hsl(196deg 96% 46%)"
+      },
+      "base": {
+        "$value": "hsl(195deg 98% 58%)"
+      },
+      "light": {
+        "$value": "hsl(194deg 100% 76%)"
+      },
+      "lighter": {
+        "$value": "hsl(193deg 102% 88%)"
+      },
+      "lightest": {
+        "$value": "hsl(192deg 103% 97%)"
+      },
+      "text": {
+        "darkest": {
+          "$value": "{color.light-blue.light}"
+        },
+        "darker": {
+          "$value": "{color.light-blue.lighter}"
+        },
+        "dark": {
+          "$value": "{color.light-blue.lightest}"
+        },
+        "base": {
+          "$value": "{color.light-blue.lightest}"
+        },
+        "lightest": {
+          "$value": "{color.light-blue.dark}"
+        },
+        "lighter": {
+          "$value": "{color.light-blue.darker}"
+        },
+        "light": {
+          "$value": "{color.light-blue.darkest}"
+        }
+      }
+    }
+  }
+}
+

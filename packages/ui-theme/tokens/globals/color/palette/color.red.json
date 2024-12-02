@@ -1,0 +1,78 @@
+{
+  "color": {
+    "$type": "color",
+    "red": {
+      "lightest": {
+        "value": "hsl(0deg 100% 98%)",
+        "type": "color"
+      },
+      "lighter": {
+        "value": "hsl(0deg 96% 85%)",
+        "type": "color"
+      },
+      "light": {
+        "value": "hsl(0deg 89% 71%)",
+        "type": "color"
+      },
+      "base": {
+        "value": "hsl(0deg 81% 57%)",
+        "type": "color"
+      },
+      "dark": {
+        "value": "hsl(0deg 73% 45%)",
+        "type": "color"
+      },
+      "darker": {
+        "value": "hsl(0deg 64% 35%)",
+        "type": "color"
+      },
+      "darkest": {
+        "value": "hsl(0deg 55% 30%)",
+        "type": "color"
+      },
+      "hover": {
+        "value": "hsl(from var(--acv-color-red) calc(h - 4) s calc(l - 2))",
+        "type": "color"
+      },
+      "active": {
+        "value": "hsl(from var(--acv-color-red) calc(h - 3) calc(s - 1) calc(l - 8))",
+        "type": "color"
+      },
+      "muted": {
+        "value": "var(--acv-color-red-darkest)",
+        "type": "color"
+      },
+      "text": {
+        "lightest": {
+          "value": "var(--acv-color-red-dark)",
+          "type": "color"
+        },
+        "lighter": {
+          "value": "var(--acv-color-red-darker)",
+          "type": "color"
+        },
+        "light": {
+          "value": "var(--acv-color-red-darkest)",
+          "type": "color"
+        },
+        "base": {
+          "value": "var(--acv-color-red-lightest)",
+          "type": "color"
+        },
+        "dark": {
+          "value": "var(--acv-color-red-lightest)",
+          "type": "color"
+        },
+        "darker": {
+          "value": "var(--acv-color-red-lighter)",
+          "type": "color"
+        },
+        "darkest": {
+          "value": "var(--acv-color-red-light)",
+          "type": "color"
+        }
+      }
+    }
+  }
+}
+

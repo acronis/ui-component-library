@@ -1,0 +1,29 @@
+{
+  "color": {
+    "$type": "color",
+    "brown": {
+      "darkest": {
+        "$value": "hsl(17deg 19% 13%)"
+      },
+      "darker": {
+        "$value": "hsl(17deg 21% 18%)"
+      },
+      "dark": {
+        "$value": "hsl(17deg 23% 26%)"
+      },
+      "base": {
+        "$value": "hsl(16deg 25% 38%)"
+      },
+      "light": {
+        "$value": "hsl(15deg 27% 56%)"
+      },
+      "lighter": {
+        "$value": "hsl(14deg 29% 74%)"
+      },
+      "lightest": {
+        "$value": "hsl(13deg 30% 89%)"
+      }
+    }
+  }
+}
+

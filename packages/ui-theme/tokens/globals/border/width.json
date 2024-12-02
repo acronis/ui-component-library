@@ -1,0 +1,18 @@
+{
+  "border": {
+    "width": {
+      "zero": {
+        "value": "{base.border.width.00.value}"
+      },
+      "small": {
+        "value": "{base.border.width.01.value}"
+      },
+      "medium": {
+        "value": "{base.border.width.02.value}"
+      },
+      "large": {
+        "value": "{base.border.width.03.value}"
+      }
+    }
+  }
+}

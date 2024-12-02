@@ -1,0 +1,40 @@
+{
+  "color": {
+    "surface": {
+      "primary": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "{color.blue_gray.50.value}",
+        "type": "color"
+      },
+      "inversed": {
+        "primary": {
+          "value": "{color.blue_gray.900.value}",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "{color.blue_gray.800.value}",
+          "type": "color"
+        },
+        "dark": {
+          "primary": {
+            "value": "{color.blue_gray.800.value}",
+            "type": "color"
+          }
+        }
+      },
+      "fixed": {
+        "primary": {
+          "value": "{color.blue_gray.50.value}",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "{color.blue_gray.200.value}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "border": {
+    "radius": {
+      "zero": {
+        "value": "{base.radius.00.value}"
+      },
+      "small": {
+        "value": "{base.radius.02.value}"
+      },
+      "regular": {
+        "value": "{base.radius.04.value}"
+      },
+      "medium": {
+        "value": "{base.radius.06.value}"
+      },
+      "large": {
+        "value": "{base.radius.08.value}"
+      },
+      "x-large": {
+        "value": "{base.radius.16.value}"
+      },
+      "circle": {
+        "value": "{base.radius.circle.value}"
+      },
+      "2px": {
+        "value": "{base.radius.02.value}"
+      },
+      "4px": {
+        "value": "{base.radius.04.value}"
+      },
+      "6px": {
+        "value": "{base.radius.06.value}"
+      },
+      "8px": {
+        "value": "{base.radius.08.value}"
+      },
+      "16px": {
+        "value": "{base.radius.16.value}"
+      },
+      "relative-1": {
+        "value": "1rem"
+      },
+      "relative-2": {
+        "value": "2rem"
+      },
+      "relative-4": {
+        "value": "4rem"
+      },
+      "relative-8": {
+        "value": "8rem"
+      },
+      "fluid-1": {
+        "value": "clamp(0px, calc(100vw - 100%) * 1e5, var(--acv-border-radius-small))"
+      },
+      "fluid-2": {
+        "value": "clamp(0px, calc(100vw - 100%) * 1e5, var(--acv-border-radius-regular))"
+      },
+      "fluid-3": {
+        "value": "clamp(0px, calc(100vw - 100%) * 1e5, var(--acv-border-radius-relative-1))"
+      },
+      "fluid-4": {
+        "value": "clamp(0px, calc(100vw - 100%) * 1e5, var(--acv-border-radius-relative-2))"
+      },
+      "fluid-5": {
+        "value": "clamp(0px, calc(100vw - 100%) * 1e5, var(--acv-border-radius-relative-4))"
+      },
+      "fluid-6": {
+        "value": "clamp(0px, calc(100vw - 100%) * 1e5, var(--acv-border-radius-relative-8))"
+      }
+    }
+  }
+}

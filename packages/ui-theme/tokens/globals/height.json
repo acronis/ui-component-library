@@ -1,0 +1,24 @@
+{
+  "height": {
+    "extra-small": {
+      "value": "{base.height.16}",
+      "type": "height"
+    },
+    "small": {
+      "value": "{base.height.24}",
+      "type": "height"
+    },
+    "regular": {
+      "value": "{base.height.32}",
+      "type": "height"
+    },
+    "large": {
+      "value": "{base.height.40}",
+      "type": "height"
+    },
+    "extra-large": {
+      "value": "{base.height.48}",
+      "type": "height"
+    }
+  }
+}

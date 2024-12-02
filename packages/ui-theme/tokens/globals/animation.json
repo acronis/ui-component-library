@@ -1,0 +1,90 @@
+{
+  "animation": {
+    "duration": {
+      "20": {
+        "value": "20s",
+        "type": "time"
+      },
+      "100": {
+        "value": "100s",
+        "type": "time"
+      }
+    },
+    "delay": {
+      "value": "300s",
+      "type": "time"
+    },
+    "repeat": {
+      "value": "1"
+    },
+    "fade-in": {
+      "value": "fade-in 0.5s var(--acv-transition-easing-3)"
+    },
+    "fade-in-bloom": {
+      "value": "fade-in-bloom 2s var(--acv-transition-easing-3)"
+    },
+    "fade-out": {
+      "value": "fade-out 0.5s var(--acv-transition-easing-3)"
+    },
+    "fade-out-bloom": {
+      "value": "fade-out-bloom 2s var(--acv-transition-easing-3)"
+    },
+    "scale-up": {
+      "value": "scale-up 0.5s var(--acv-transition-easing-3)"
+    },
+    "scale-down": {
+      "value": "scale-down 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-out-up": {
+      "value": "slide-out-up 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-out-down": {
+      "value": "slide-out-down 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-out-right": {
+      "value": "slide-out-right 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-out-left": {
+      "value": "slide-out-left 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-in-up": {
+      "value": "slide-in-up 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-in-down": {
+      "value": "slide-in-down 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-in-right": {
+      "value": "slide-in-right 0.5s var(--acv-transition-easing-3)"
+    },
+    "slide-in-left": {
+      "value": "slide-in-left 0.5s var(--acv-transition-easing-3)"
+    },
+    "shake-x": {
+      "value": "shake-x 0.75s var(--acv-transition-easing-out-5)"
+    },
+    "shake-y": {
+      "value": "shake-y 0.75s var(--acv-transition-easing-out-5)"
+    },
+    "shake-z": {
+      "value": "shake-z 1s var(--acv-transition-easing-in-out-3)"
+    },
+    "spin": {
+      "value": "spin 2s linear infinite"
+    },
+    "ping": {
+      "value": "ping 5s var(--acv-transition-easing-out-3) infinite"
+    },
+    "blink": {
+      "value": "blink 1s var(--acv-transition-easing-out-3) infinite"
+    },
+    "float": {
+      "value": "float 3s var(--acv-transition-easing-in-out-3) infinite"
+    },
+    "bounce": {
+      "value": "bounce 2s var(--acv-transition-easing-squish-2) infinite"
+    },
+    "pulse": {
+      "value": "pulse 2s var(--acv-transition-easing-out-3) infinite"
+    }
+  }
+}

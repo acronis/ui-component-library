@@ -1,0 +1,12 @@
+{
+  "card": {
+    "surface": {
+      "value": "{color.white}",
+      "type": "color"
+    },
+    "box-shadow": {
+      "$description": "This token is an alias for the composite token {shadow.medium}",
+      "$value": "{shadow.medium}"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "color": {
+    "$type": "color",
+    "dodge-blue": {
+      "darkest": {
+        "$value": "hsl(215deg 74% 33%)"
+      },
+      "darker": {
+        "$value": "hsl(215deg 76% 38%)"
+      },
+      "dark": {
+        "$value": "hsl(215deg 78% 46%)"
+      },
+      "base": {
+        "$value": "hsl(214deg 80% 58%)"
+      },
+      "light": {
+        "$value": "hsl(213deg 82% 70%)"
+      },
+      "lighter": {
+        "$value": "hsl(212deg 84% 88%)"
+      },
+      "lightest": {
+        "$value": "hsl(211deg 85% 97%)"
+      },
+      "text": {
+        "darkest": {
+          "$value": "{color.dodge-blue.light}"
+        },
+        "darker": {
+          "$value": "{color.dodge-blue.lighter}"
+        },
+        "dark": {
+          "$value": "{color.dodge-blue.lightest}"
+        },
+        "base": {
+          "$value": "{color.dodge-blue.lightest}"
+        },
+        "lightest": {
+          "$value": "{color.dodge-blue.dark}"
+        },
+        "lighter": {
+          "$value": "{color.dodge-blue.darker}"
+        },
+        "light": {
+          "$value": "{color.dodge-blue.darkest}"
+        }
+      }
+    }
+  }
+}

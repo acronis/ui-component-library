@@ -1,9 +1,0 @@
-:where(html) {
-  --acv-color-cyan-darkest: hsl(188deg 94% 17%);
-  --acv-color-cyan-darker: hsl(188deg 96% 22%);
-  --acv-color-cyan-dark: hsl(188deg 98% 30%);
-  --acv-color-cyan: hsl(187deg 100% 42%);
-  --acv-color-cyan-light: hsl(186deg 102% 60%);
-  --acv-color-cyan-lighter: hsl(185deg 103% 74%);
-  --acv-color-cyan-lightest: hsl(184deg 105% 90%);
-}

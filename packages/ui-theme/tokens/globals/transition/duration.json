@@ -1,0 +1,42 @@
+{
+  "transition": {
+    "duration": {
+      "$description": "The duration of the transition effect, https://next.material-ui.com/customization/transitions/#durations",
+      "type": "duration",
+      "instant": {
+        "$value": "0ms"
+      },
+      "shortest": {
+        "value": "150ms"
+      },
+      "shorter": {
+        "value": "200ms"
+      },
+      "short": {
+        "value": "250ms"
+      },
+      "medium": {
+        "$description": "Default duration for most animations",
+        "value": "300ms"
+      },
+      "complex": {
+        "$description": "to be used in complex animations",
+        "value": "375ms"
+      },
+      "entering-screen": {
+        "$description": "recommended when something is entering screen",
+        "value": "225ms"
+      },
+      "leaving-screen": {
+        "$description": "recommended when something is leaving screen",
+        "value": "195ms"
+      },
+      "long": {
+        "value": "600ms"
+      },
+      "longest": {
+        "value": "1000ms"
+      }
+    }
+  }
+}

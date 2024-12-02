@@ -1,8 +1,0 @@
-:root {
-  --acv-color-scheme: light;
-  --acv-color-scheme-light: light;
-  --acv-color-scheme-dark: dark;
-  --acv-color-scheme-light-dark: light dark;
-  --acv-color-scheme-dark-light: dark light;
-  color-scheme: var(--acv-color-scheme);
-}

@@ -1,0 +1,45 @@
+{
+  "icon": {
+    "color": {
+      "value": "currentColor"
+    },
+    "size": {
+      "xxx-small": {
+        "value": "8px"
+      },
+      "xx-small": {
+        "value": "12px"
+      },
+      "x-small": {
+        "value": "16px"
+      },
+      "small": {
+        "value": "20px"
+      },
+      "medium": {
+        "value": "24px"
+      },
+      "large": {
+        "value": "32px"
+      },
+      "x-large": {
+        "value": "48px"
+      },
+      "xx-large": {
+        "value": "72px"
+      },
+      "xxx-large": {
+        "value": "96px"
+      },
+      "base": {
+        "value": "{icon.size.medium.value}"
+      }
+    },
+    "height": {
+      "value": "{icon.size.base}"
+    },
+    "width": {
+      "value": "{icon.size.base}"
+    }
+  }
+}

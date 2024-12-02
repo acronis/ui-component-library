@@ -1,8 +1,0 @@
-:where(html) {
-  --acv-ratio-square: 1;
-  --acv-ratio-landscape: 4/3;
-  --acv-ratio-portrait: 3/4;
-  --acv-ratio-widescreen: 16/9;
-  --acv-ratio-ultrawide: 18/5;
-  --acv-ratio-golden: 1.618/1;
-}

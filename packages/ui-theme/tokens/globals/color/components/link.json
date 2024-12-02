@@ -1,0 +1,30 @@
+{
+  "color": {
+    "link": {
+      "active": {
+        "value": "hsl(215deg 68% 46%)"
+      },
+      "disabled": {
+        "value": "hsla(215deg 68% 46% / 0.3)"
+      },
+      "disabled-inversed": {
+        "value": "hsla(0deg 0% 100% / 0.7)"
+      },
+      "hover": {
+        "value": "hsl(215deg 68% 38%)"
+      },
+      "inversed-primary": {
+        "value": "hsl(0deg 0% 100%)"
+      },
+      "inversed-secondary": {
+        "value": "hsl(0deg 0% 100%)"
+      },
+      "primary": {
+        "value": "hsl(215deg 68% 46%)"
+      },
+      "secondary": {
+        "value": "hsl(0deg 0% 100%)"
+      }
+    }
+  }
+}

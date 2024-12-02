@@ -1,0 +1,114 @@
+{
+  "asset": {
+    "font": {
+      "Inter": {
+        "125 950": {
+          "normal": {
+            "value": "Inter/Inter-VariableFont_opsz,wght",
+            "formats": [
+              "ttf"
+            ]
+          },
+          "italic": {
+            "value": "Inter/Inter-Italic-VariableFont_opsz,wght",
+            "formats": [
+              "ttf"
+            ]
+          }
+        },
+        "400": {
+          "normal": {
+            "value": "Inter/static/Inter-Regular",
+            "formats": [
+              "woff2"
+            ]
+          },
+          "italic": {
+            "value": "Inter/static/Inter-Italic",
+            "formats": [
+              "woff2"
+            ]
+          }
+        }
+      },
+      "Open Sans": {
+        "125 950": {
+          "normal": {
+            "value": "Open-Sans/OpenSans-VariableFont_wdth,wght",
+            "formats": [
+              "ttf"
+            ]
+          },
+          "italic": {
+            "value": "Open-Sans/OpenSans-Italic-VariableFont_wdth,wght",
+            "formats": [
+              "ttf"
+            ]
+          }
+        },
+        "400": {
+          "normal": {
+            "value": "Open-Sans/static/OpenSans-Regular",
+            "formats": [
+              "ttf"
+            ]
+          },
+          "italic": {
+            "value": "Open-Sans/static/OpenSans-Italic",
+            "formats": [
+              "ttf"
+            ]
+          }
+        }
+      },
+      "Roboto": {
+        "400": {
+          "normal": {
+            "value": "Roboto/Roboto-Regular",
+            "formats": [
+              "ttf"
+            ]
+          },
+          "italic": {
+            "value": "Roboto/Roboto-Italic",
+            "formats": [
+              "ttf"
+            ]
+          }
+        },
+        "700": {
+          "normal": {
+            "value": "Roboto/Roboto-Bold",
+            "formats": [
+              "ttf"
+            ]
+          },
+          "italic": {
+            "value": "Roboto/Roboto-BoldItalic",
+            "formats": [
+              "ttf"
+            ]
+          }
+        }
+      },
+      "Noto Sans Japanese": {
+        "400": {
+          "normal": {
+            "value": "Noto-Sans/NotoSansJP-Regular",
+            "formats": [
+              "otf"
+            ]
+          }
+        },
+        "700": {
+          "normal": {
+            "value": "Noto-Sans/NotoSansJP-Bold",
+            "formats": [
+              "otf"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

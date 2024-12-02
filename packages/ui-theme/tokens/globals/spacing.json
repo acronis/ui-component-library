@@ -1,0 +1,31 @@
+{
+  "spacing": {
+    "base": {
+      "value": "{base.spacing.16.value}"
+    },
+    "x-base": {
+      "value": "{spacing.base.value}"
+    },
+    "y-base": {
+      "value": "{spacing.base.value}"
+    },
+    "zero": {
+      "value": "{base.spacing.00.value}"
+    },
+    "xx-small": {
+      "value": "{base.spacing.02.value}"
+    },
+    "x-small": {
+      "value": "{base.spacing.04.value}"
+    },
+    "small": {
+      "value": "{base.spacing.08.value}"
+    },
+    "regular": {
+      "value": "{base.spacing.16.value}"
+    },
+    "large": {
+      "value": "{base.spacing.24.value}"
+    }
+  }
+}

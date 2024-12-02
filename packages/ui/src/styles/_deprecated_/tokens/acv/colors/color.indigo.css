@@ -1,9 +1,0 @@
-:where(html) {
-  --acv-color-indigo-darkest: hsl(232deg 42% 23%);
-  --acv-color-indigo-darker: hsl(232deg 44% 28%);
-  --acv-color-indigo-dark: hsl(232deg 46% 36%);
-  --acv-color-indigo: hsl(231deg 48% 48%);
-  --acv-color-indigo-light: hsl(230deg 50% 66%);
-  --acv-color-indigo-lighter: hsl(229deg 52% 84%);
-  --acv-color-indigo-lightest: hsl(228deg 53% 97%);
-}

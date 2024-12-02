@@ -1,0 +1,40 @@
+{
+  "base": {
+    "shadow": {
+      "blur": {
+        "08": {
+          "value": "8px",
+          "type": "dimension"
+        },
+        "16": {
+          "value": "16px",
+          "type": "dimension"
+        },
+        "20": {
+          "value": "20px",
+          "type": "dimension"
+        },
+        "24": {
+          "value": "24px",
+          "type": "dimension"
+        }
+      },
+      "position": {
+        "y": {
+          "00": {
+            "value": "0px",
+            "type": "dimension"
+          },
+          "04": {
+            "value": "4px",
+            "type": "dimension"
+          },
+          "08": {
+            "value": "8px",
+            "type": "dimension"
+          }
+        }
+      }
+    }
+  }
+}

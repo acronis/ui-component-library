@@ -1,0 +1,82 @@
+{
+  "color": {
+    "$type": "color",
+    "text": {
+      "brown": {
+        "darkest": {
+          "$value": "{color.brown.light.value}"
+        },
+        "darker": {
+          "$value": "{color.brown.lighter.value}"
+        },
+        "dark": {
+          "$value": "{color.brown.lightest.value}"
+        },
+        "base": {
+          "$value": "{color.brown.lightest.value}"
+        },
+        "lightest": {
+          "$value": "{color.brown.dark.value}"
+        },
+        "lighter": {
+          "$value": "{color.brown.darker.value}"
+        },
+        "light": {
+          "$value": "{color.brown.darkest.value}"
+        }
+      },
+      "primary": {
+        "darkest": {
+          "value": "{color.primary.light}",
+          "type": "color"
+        },
+        "darker": {
+          "value": "{color.primary.lighter}",
+          "type": "color"
+        },
+        "dark": {
+          "value": "{color.primary.lightest}",
+          "type": "color"
+        },
+        "base": {
+          "value": "{color.primary.lightest}",
+          "type": "color"
+        },
+        "lightest": {
+          "value": "{color.primary.dark}",
+          "type": "color"
+        },
+        "lighter": {
+          "value": "{color.primary.darker}"
+        },
+        "light": {
+          "value": "{color.primary.darkest}",
+          "type": "color"
+        }
+      },
+      "secondary": {
+        "darkest": {
+          "value": "{color.secondary.light}"
+        },
+        "darker": {
+          "value": "{color.secondary.lighter}"
+        },
+        "dark": {
+          "value": "{color.secondary.lightest}"
+        },
+        "base": {
+          "value": "{color.secondary.lightest}"
+        },
+        "lightest": {
+          "value": "{color.secondary.dark}"
+        },
+        "lighter": {
+          "value": "{color.secondary.darker}"
+        },
+        "light": {
+          "value": "{color.secondary.darkest}"
+        }
+      }
+    }
+  }
+}

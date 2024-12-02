@@ -1,0 +1,66 @@
+{
+  "$description": "z-index: https://medium.com/science-journal/z-index-organization-in-css-5913fd4c25c9",
+  "z-index": {
+    "negative": {
+      "value": "-1"
+    },
+    "normal": {
+      "value": "1"
+    },
+    "label": {
+      "value": "2"
+    },
+    "scrollbar": {
+      "value": "100"
+    },
+    "toolbar": {
+      "$description": "0000–1999: Elements and Components",
+      "value": "1000"
+    },
+    "dropdown": {
+      "$description": "2000–2999: Element and Component Drop Downs",
+      "value": "2000"
+    },
+    "popover": {
+      "value": "2500"
+    },
+    "tooltip": {
+      "value": "2600"
+    },
+    "fixed": {
+      "$description": "3000–3999: Secondary Navigation",
+      "value": "3000"
+    },
+    "header": {
+      "$description": "4000–4999: Header / Footer",
+      "value": "4000"
+    },
+    "navigation": {
+      "$description": "5000–5999: Primary Navigation",
+      "value": "5000"
+    },
+    "overlay": {
+      "$description": "6000–6999: Full Screen Features",
+      "value": "6000"
+    },
+    "loading": {
+      "$description": "6500: Loading Spinner Special Cases",
+      "value": "7000"
+    },
+    "dialog": {
+      "$description": "8000–8999: Modals / Dialog Windows",
+      "value": "8000"
+    },
+    "close": {
+      "value": "8500"
+    },
+    "notifications": {
+      "$description": "9000–9999: Notifications",
+      "value": "9000"
+    },
+    "draggable": {
+      "$description": "10000: drag&drop in viewer",
+      "value": "10000"
+    }
+  }
+}

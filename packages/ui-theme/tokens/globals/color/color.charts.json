@@ -1,0 +1,61 @@
+{
+  "color": {
+    "$type": "color",
+    "chart": {
+      "blue": {
+        "value": "hsl(215deg 68% 46%)"
+      },
+      "brown": {
+        "value": "hsl(30deg 51% 45%)"
+      },
+      "critical": {
+        "value": "hsl(29deg 100% 53%)"
+      },
+      "danger": {
+        "value": "hsl(0deg 81% 57%)"
+      },
+      "green": {
+        "value": "hsl(177deg 91% 34%)"
+      },
+      "gray": {
+        "value": "hsl(216deg 8% 61%)"
+      },
+      "info": {
+        "value": "hsl(214deg 80% 58%)"
+      },
+      "light-blue": {
+        "value": "hsl(205deg 86% 75%)"
+      },
+      "neutral": {
+        "value": "hsl(216deg 8% 88%)"
+      },
+      "purple": {
+        "value": "hsl(282deg 84% 71%)"
+      },
+      "red": {
+        "value": "hsl(0deg 84% 65%)"
+      },
+      "success": {
+        "value": "hsl(75deg 68% 45%)"
+      },
+      "transparent": {
+        "value": "hsl(205deg 86% 75% / 0.5)"
+      },
+      "turquoise": {
+        "value": "hsl(196deg 77% 51%)"
+      },
+      "violet": {
+        "value": "hsl(261deg 24% 47%)"
+      },
+      "warning": {
+        "value": "hsl(45deg 100% 51%)"
+      },
+      "yellow": {
+        "value": "hsl(48deg 77% 61%)"
+      },
+      "dark": {
+        "value": "hsl(215deg 30% 20% / 0.9)"
+      }
+    }
+  }
+}

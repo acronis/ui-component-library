@@ -1,0 +1,29 @@
+{
+  "color": {
+    "$type": "color",
+    "indigo": {
+      "darkest": {
+        "value": "hsl(232deg 42% 23%)"
+      },
+      "darker": {
+        "value": "hsl(232deg 44% 28%)"
+      },
+      "dark": {
+        "value": "hsl(232deg 46% 36%)"
+      },
+      "base": {
+        "value": "hsl(231deg 48% 48%)"
+      },
+      "light": {
+        "value": "hsl(230deg 50% 66%)"
+      },
+      "lighter": {
+        "value": "hsl(229deg 52% 84%)"
+      },
+      "lightest": {
+        "value": "hsl(228deg 53% 97%)"
+      }
+    }
+  }
+}
+

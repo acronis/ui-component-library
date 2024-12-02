@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acronis UI Syntax Design Tokens</title>
+    <link rel="stylesheet" href="../dist/css/globals.css">
+    <link rel="stylesheet" href="../dist/css/fonts.css">
+    <link rel="stylesheet" href="../dist/css/acronis/acronis-light.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="page__header">
+        <h1 class="page__title">Acronis UI Syntax Design Tokens</h1>
+    </header>
+    <nav class="page__nav">
+        <ul class="nav">
+            <li class="nav__item"> <a class="nav__link" href="#Border"> Border </a>
+                <ul>
+                    <li> <a class="nav__link" href="#Width">Width</a> </li>
+                    <li> <a class="nav__link" href="#Radius">Radius</a> </li>
+                </ul>
+            </li>
+            <li class="nav__item"> <a class="nav__link" href="#Color"> Color </a>
+                <ul>
+                    <li> <a class="nav__link" href="#Primary">Primary</a> </li>
+                    <li> <a class="nav__link" href="#Grey">Grey</a> </li>
+                    <li> <a class="nav__link" href="#Static">Static</a> </li>
+                    <li> <a class="nav__link" href="#Pink">Pink</a> </li>
+                    <li> <a class="nav__link" href="#blue_gray">blue_gray</a> </li>
+                </ul>
+            </li>
+            <li class="nav__item"> <a class="nav__link" href="#Font"> Font </a>
+                <ul>
+                    <li> <a class="nav__link" href="#Family">Family</a> </li>
+                    <li> <a class="nav__link" href="#Base%20Size">Base Size</a> </li>
+                    <li> <a class="nav__link" href="#Size">Size</a> </li>
+                    <li> <a class="nav__link" href="#Weight">Weight</a> </li>
+                    <li> <a class="nav__link" href="#Line%20Height">Line Height</a> </li>
+                    <li> <a class="nav__link" href="#Letter%20Spacing">Letter Spacing</a> </li>
+                </ul>
+            </li>
+            <li class="nav__item"> <a class="nav__link" href="#Shadow"> Shadow </a> </li>
+            <li class="nav__item"> <a class="nav__link" href="#Spacing"> Spacing </a> </li>
+        </ul>
+    </nav>
+    <main class="page__main">
+        <p class="introduction">Design variables and assets representing the Acronis UI Syntax design system.</p>
+        <section id="Border" class="section">
+            <h2 class="section__title">Border</h2>
+            <div id="Width">
+                <h3 class="group__title">Width</h3>
+                <div class="group__grid ">
+                    <div class="group__grid-item">
+                        <div> <code>size-border-1</code> </div>
+                        <div>
+                            <div class="sample__border" style="border-width:1px;"></div>
+                        </div>
+                        <div> <code class="value"> 1px </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-border-2</code> </div>
+                        <div>
+                            <div class="sample__border" style="border-width:2px;"></div>
+                        </div>
+                        <div> <code class="value"> 2px </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-border-3</code> </div>
+                        <div>
+                            <div class="sample__border" style="border-width:3px;"></div>
+                        </div>
+                        <div> <code class="value"> 3px </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-border-4</code> </div>
+                        <div>
+                            <div class="sample__border" style="border-width:4px;"></div>
+                        </div>
+                        <div> <code class="value"> 4px </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-border-5</code> </div>
+                        <div>
+                            <div class="sample__border" style="border-width:5px;"></div>
+                        </div>
+                        <div> <code class="value"> 5px </code> </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Radius">
+                <h3 class="group__title">Radius</h3>
+                <div class="group__grid ">
+                    <div class="group__grid-item">
+                        <div> <code>size-radius-base</code> </div>
+                        <div>
+                            <div class="sample__border-radius" style="border-radius:0.25rem;"></div>
+                        </div>
+                        <div> <code class="value"> 0.25rem </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-radius-sm</code> </div>
+                        <div>
+                            <div class="sample__border-radius" style="border-radius:0.2rem;"></div>
+                        </div>
+                        <div> <code class="value"> 0.2rem </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-radius-lg</code> </div>
+                        <div>
+                            <div class="sample__border-radius" style="border-radius:0.3rem;"></div>
+                        </div>
+                        <div> <code class="value"> 0.3rem </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-radius-pill</code> </div>
+                        <div>
+                            <div class="sample__border-radius" style="border-radius:50rem;"></div>
+                        </div>
+                        <div> <code class="value"> 50rem </code> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Color" class="section">
+            <h2 class="section__title">Color</h2>
+            <p class="section__description">These are the colors we use at UI Syntax.</p>
+            <div id="Primary">
+                <h3 class="group__title">Primary</h3>
+                <p class="group__description">Generic colors used for elements that must reflect UI Syntax&#39;s brand.</p>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>color-primary-darkest</code> </td>
+                            <td> <code class="value"> hsl(213deg 100% 31%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(213deg 100% 31%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-darker</code> </td>
+                            <td> <code class="value"> hsl(214deg 83% 37%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(214deg 83% 37%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-dark</code> </td>
+                            <td> <code class="value"> hsl(215deg 74% 42%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(215deg 74% 42%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-base</code> </td>
+                            <td> <code class="value"> var(--acv-color-brand-primary, hsl(215deg 68% 46%)) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:var(--acv-color-brand-primary, hsl(215deg 68% 46%));"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-light</code> </td>
+                            <td> <code class="value"> hsl(224deg 54% 67%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(224deg 54% 67%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-lighter</code> </td>
+                            <td> <code class="value"> hsl(228deg 53% 82%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(228deg 53% 82%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-lightest</code> </td>
+                            <td> <code class="value"> hsl(220deg 60% 97%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(220deg 60% 97%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-hover</code> </td>
+                            <td> <code class="value"> var(--acv-color-button-hover-primary, var(--acv-color-primary-dark)) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:var(--acv-color-button-hover-primary, var(--acv-color-primary-dark));"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-active</code> </td>
+                            <td> <code class="value"> var(--acv-color-button-active-primary, var(--acv-color-primary-dark)) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:var(--acv-color-button-active-primary, var(--acv-color-primary-dark));"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-primary-muted</code> </td>
+                            <td> <code class="value"> hsl(213deg 100% 31%) </code> <code class="value value--original"> {color.primary.darkest} </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(213deg 100% 31%);"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Grey">
+                <h3 class="group__title">Grey</h3>
+                <p class="group__description">Grey colors are used for text, backgrounds, lines and borders.</p>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>color-gray-darkest</code> </td>
+                            <td> <code class="value"> hsl(230deg 13% 9%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(230deg 13% 9%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-gray-darker</code> </td>
+                            <td> <code class="value"> hsl(230deg 5% 22%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(230deg 5% 22%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-gray-dark</code> </td>
+                            <td> <code class="value"> hsl(228deg 3% 32%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(228deg 3% 32%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-gray-base</code> </td>
+                            <td> <code class="value"> hsl(240deg 2% 51%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(240deg 2% 51%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-gray-light</code> </td>
+                            <td> <code class="value"> hsl(240deg 1% 66%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(240deg 1% 66%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-gray-lighter</code> </td>
+                            <td> <code class="value"> hsl(240deg 1% 83%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(240deg 1% 83%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-gray-lightest</code> </td>
+                            <td> <code class="value"> hsl(0deg 0% 100%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 0% 100%);"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Static">
+                <h3 class="group__title">Static</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>color-red-lightest</code> </td>
+                            <td> <code class="value"> hsl(0deg 100% 98%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 100% 98%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-lighter</code> </td>
+                            <td> <code class="value"> hsl(0deg 96% 85%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 96% 85%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-light</code> </td>
+                            <td> <code class="value"> hsl(0deg 89% 71%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 89% 71%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-base</code> </td>
+                            <td> <code class="value"> hsl(0deg 81% 57%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 81% 57%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-dark</code> </td>
+                            <td> <code class="value"> hsl(0deg 73% 45%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 73% 45%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-darker</code> </td>
+                            <td> <code class="value"> hsl(0deg 64% 35%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 64% 35%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-darkest</code> </td>
+                            <td> <code class="value"> hsl(0deg 55% 30%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(0deg 55% 30%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-hover</code> </td>
+                            <td> <code class="value"> hsl(from var(--acv-color-red) calc(h - 4) s calc(l - 2)) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(from var(--acv-color-red) calc(h - 4) s calc(l - 2));"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-active</code> </td>
+                            <td> <code class="value"> hsl(from var(--acv-color-red) calc(h - 3) calc(s - 1) calc(l - 8)) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(from var(--acv-color-red) calc(h - 3) calc(s - 1) calc(l - 8));"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-red-muted</code> </td>
+                            <td> <code class="value"> var(--acv-color-red-darkest) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:var(--acv-color-red-darkest);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code></code> </td>
+                            <td> <code class="value"> </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:;"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Pink">
+                <h3 class="group__title">Pink</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>color-pink-darkest</code> </td>
+                            <td> <code class="value"> hsl(341deg 76% 27%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(341deg 76% 27%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-pink-darker</code> </td>
+                            <td> <code class="value"> hsl(341deg 78% 32%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(341deg 78% 32%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-pink-dark</code> </td>
+                            <td> <code class="value"> hsl(341deg 80% 40%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(341deg 80% 40%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-pink-base</code> </td>
+                            <td> <code class="value"> hsl(340deg 82% 52%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(340deg 82% 52%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-pink-light</code> </td>
+                            <td> <code class="value"> hsl(339deg 84% 70%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(339deg 84% 70%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-pink-lighter</code> </td>
+                            <td> <code class="value"> hsl(338deg 86% 88%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(338deg 86% 88%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-pink-lightest</code> </td>
+                            <td> <code class="value"> hsl(337deg 87% 97%) </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:hsl(337deg 87% 97%);"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="blue_gray">
+                <h3 class="group__title">blue_gray</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>color-blue-gray-50</code> </td>
+                            <td> <code class="value"> #eceff1 </code> <code class="value value--original"> #ECEFF1 </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#eceff1;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-100</code> </td>
+                            <td> <code class="value"> #cfd8dc </code> <code class="value value--original"> #CFD8DC </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#cfd8dc;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-200</code> </td>
+                            <td> <code class="value"> #b0bec5 </code> <code class="value value--original"> #B0BEC5 </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#b0bec5;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-300</code> </td>
+                            <td> <code class="value"> #90a4ae </code> <code class="value value--original"> #90A4AE </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#90a4ae;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-400</code> </td>
+                            <td> <code class="value"> #78909c </code> <code class="value value--original"> #78909C </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#78909c;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-500</code> </td>
+                            <td> <code class="value"> #607d8b </code> <code class="value value--original"> #607D8B </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#607d8b;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-600</code> </td>
+                            <td> <code class="value"> #546e7a </code> <code class="value value--original"> #546E7A </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#546e7a;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-700</code> </td>
+                            <td> <code class="value"> #455a64 </code> <code class="value value--original"> #455A64 </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#455a64;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-800</code> </td>
+                            <td> <code class="value"> #37474f </code> <code class="value value--original"> #37474F </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#37474f;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>color-blue-gray-900</code> </td>
+                            <td> <code class="value"> #263238 </code> </td>
+                            <td>
+                                <div class="sample__swatch" style="background-color:#263238;"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="Font" class="section">
+            <h2 class="section__title">Font</h2>
+            <div id="Family">
+                <h3 class="group__title">Family</h3>
+                <div class="group__grid group__grid--1">
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-acronis-cyber</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:Acronis Cyber, sans-serif;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> Acronis Cyber, sans-serif </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-inter</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:Inter, sans-serif;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> Inter, sans-serif </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-opensans</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:Open Sans, sans-serif;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> Open Sans, sans-serif </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-notosans</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:Noto Sans Japanese, sans-serif;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> Noto Sans Japanese, sans-serif </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-roboto</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:Roboto, -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, noto, arial, sans-serif;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> Roboto, -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, noto, arial, sans-serif </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-system-ui</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:system-ui, sans-serif;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> system-ui, sans-serif </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-serif</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:Georgia, Cambria, Times New Roman, Times, serif;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> Georgia, Cambria, Times New Roman, Times, serif </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>base-font-family-mono</code> </div>
+                        <div>
+                            <div class="sample__font-family" style="font-family:Inconsolata, Fira Mono, ui-monospace, SF Mono, Menlo,
+    Monaco, Consolas, Liberation Mono, Courier New, monospace;">
+                                <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                                <div>abcdefghijklmnopqrstuvwxyz</div>
+                                <div>変尚各判芸伸部子政支件登軍仕確親止。</div>
+                                <div>グーリンダイのポンポコピーのポンポコナーの。海砂利水魚の</div>
+                                <div> بفرض الحرة لان أي, أن مارد لهيمنة يبق.</div>
+                                <div>0123456789</div>
+                            </div>
+                        </div>
+                        <div> <code class="value"> Inconsolata, Fira Mono, ui-monospace, SF Mono, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace </code> </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Base%20Size">
+                <h3 class="group__title">Base Size</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>base-font-size-10</code> </td>
+                            <td> <code class="value"> 10px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-10);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-11</code> </td>
+                            <td> <code class="value"> 11px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-11);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-12</code> </td>
+                            <td> <code class="value"> 12px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-12);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-14</code> </td>
+                            <td> <code class="value"> 14px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-14);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-16</code> </td>
+                            <td> <code class="value"> 16px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-16);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-18</code> </td>
+                            <td> <code class="value"> 18px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-18);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-20</code> </td>
+                            <td> <code class="value"> 20px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-20);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-24</code> </td>
+                            <td> <code class="value"> 24px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-24);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-32</code> </td>
+                            <td> <code class="value"> 32px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-32);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-40</code> </td>
+                            <td> <code class="value"> 40px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-40);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-48</code> </td>
+                            <td> <code class="value"> 48px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-48);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-56</code> </td>
+                            <td> <code class="value"> 56px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-56);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-64</code> </td>
+                            <td> <code class="value"> 64px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-64);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-72</code> </td>
+                            <td> <code class="value"> 72px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-72);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-80</code> </td>
+                            <td> <code class="value"> 80px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-80);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-size-96</code> </td>
+                            <td> <code class="value"> 96px </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--base-font-size-96);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Size">
+                <h3 class="group__title">Size</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>size-font-tiny</code> </td>
+                            <td> <code class="value"> 0.75 </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-tiny);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-font-small</code> </td>
+                            <td> <code class="value"> 0.875 </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-small);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-font-medium</code> </td>
+                            <td> <code class="value"> 1 </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-medium);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-font-large</code> </td>
+                            <td> <code class="value"> 1.25 </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-large);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-font-xl</code> </td>
+                            <td> <code class="value"> 1.5 </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-xl);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-font-xxl</code> </td>
+                            <td> <code class="value"> 2 </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-xxl);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-font-xxxl</code> </td>
+                            <td> <code class="value"> 3 </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-xxxl);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-font-base</code> </td>
+                            <td> <code class="value"> 1 </code> <code class="value value--original"> {size.font.medium.value} </code> </td>
+                            <td>
+                                <div class="sample__font-size" style="font-size: var(--size-font-base);"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Weight">
+                <h3 class="group__title">Weight</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>base-font-weight-thin</code> </td>
+                            <td> <code class="value"> 100 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:100;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-light</code> </td>
+                            <td> <code class="value"> 300 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:300;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-regular</code> </td>
+                            <td> <code class="value"> 400 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:400;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-accent</code> </td>
+                            <td> <code class="value"> 500 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:500;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-medium</code> </td>
+                            <td> <code class="value"> 500 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:500;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-semi-bold</code> </td>
+                            <td> <code class="value"> 600 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:600;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-bold</code> </td>
+                            <td> <code class="value"> 700 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:700;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-black</code> </td>
+                            <td> <code class="value"> 900 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:900;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-weight-extra-black</code> </td>
+                            <td> <code class="value"> 950 </code> </td>
+                            <td>
+                                <div class="sample__font-weight" style="font-weight:950;"> Aa - The quick floofy fluffy kitty </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Line%20Height">
+                <h3 class="group__title">Line Height</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>base-font-line-height-16</code> </td>
+                            <td> <code class="value"> 16px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:16px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-line-height-20</code> </td>
+                            <td> <code class="value"> 20px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:20px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-line-height-24</code> </td>
+                            <td> <code class="value"> 24px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:24px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-line-height-32</code> </td>
+                            <td> <code class="value"> 32px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:32px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-line-height-40</code> </td>
+                            <td> <code class="value"> 40px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:40px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-line-height-48</code> </td>
+                            <td> <code class="value"> 48px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:48px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-line-height-56</code> </td>
+                            <td> <code class="value"> 56px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:56px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>base-font-line-height-64</code> </td>
+                            <td> <code class="value"> 64px </code> </td>
+                            <td>
+                                <div class="sample__font-line-height" style="line-height:64px;"> The quick floofy fluffy kitty jumps over the snoring sleeping doggo. </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Letter%20Spacing">
+                <h3 class="group__title">Letter Spacing</h3>
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>font-letter-spacing-tighter</code> </td>
+                            <td> <code class="value"> -5% </code> </td>
+                            <td>
+                                <div class="sample__font-letter-spacing" style="letter-spacing:-5%;"> The fluffy kitty is sleeping </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>font-letter-spacing-tight</code> </td>
+                            <td> <code class="value"> -2.5% </code> </td>
+                            <td>
+                                <div class="sample__font-letter-spacing" style="letter-spacing:-2.5%;"> The fluffy kitty is sleeping </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>font-letter-spacing-normal</code> </td>
+                            <td> <code class="value"> 0 </code> </td>
+                            <td>
+                                <div class="sample__font-letter-spacing" style="letter-spacing:0;"> The fluffy kitty is sleeping </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>font-letter-spacing-x-small</code> </td>
+                            <td> <code class="value"> 0.3px </code> </td>
+                            <td>
+                                <div class="sample__font-letter-spacing" style="letter-spacing:0.3px;"> The fluffy kitty is sleeping </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>font-letter-spacing-small</code> </td>
+                            <td> <code class="value"> 1.2px </code> </td>
+                            <td>
+                                <div class="sample__font-letter-spacing" style="letter-spacing:1.2px;"> The fluffy kitty is sleeping </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>font-letter-spacing-medium</code> </td>
+                            <td> <code class="value"> 2.4px </code> </td>
+                            <td>
+                                <div class="sample__font-letter-spacing" style="letter-spacing:2.4px;"> The fluffy kitty is sleeping </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>font-letter-spacing-large</code> </td>
+                            <td> <code class="value"> 3.2px </code> </td>
+                            <td>
+                                <div class="sample__font-letter-spacing" style="letter-spacing:3.2px;"> The fluffy kitty is sleeping </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section> false <section id="Shadow" class="section">
+            <h2 class="section__title">Shadow</h2>
+            <div id="">
+                <div class="group__grid group__grid--2">
+                    <div class="group__grid-item">
+                        <div> <code>size-shadow-sm</code> </div>
+                        <div>
+                            <div class="sample__shadow" style="box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);"></div>
+                        </div>
+                        <div> <code class="value"> 0 .125rem .25rem rgba(0, 0, 0, .075) </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-shadow-base</code> </div>
+                        <div>
+                            <div class="sample__shadow" style="box-shadow:0 .5rem 1rem rgba(0, 0, 0, .15);"></div>
+                        </div>
+                        <div> <code class="value"> 0 .5rem 1rem rgba(0, 0, 0, .15) </code> </div>
+                    </div>
+                    <div class="group__grid-item">
+                        <div> <code>size-shadow-lg</code> </div>
+                        <div>
+                            <div class="sample__shadow" style="box-shadow:0 1rem 3rem rgba(0, 0, 0, .175);"></div>
+                        </div>
+                        <div> <code class="value"> 0 1rem 3rem rgba(0, 0, 0, .175) </code> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Spacing" class="section">
+            <h2 class="section__title">Spacing</h2>
+            <p class="section__description">Use the following for padding, margins, and icons.</p>
+            <div id="">
+                <table class="group__table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <code>size-spacing-1</code> </td>
+                            <td> <code class="value"> 0.25rem </code> </td>
+                            <td>
+                                <div class="sample__square" style="width:0.25rem; height:0.25rem;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-spacing-2</code> </td>
+                            <td> <code class="value"> 0.5rem </code> </td>
+                            <td>
+                                <div class="sample__square" style="width:0.5rem; height:0.5rem;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-spacing-3</code> </td>
+                            <td> <code class="value"> 1rem </code> </td>
+                            <td>
+                                <div class="sample__square" style="width:1rem; height:1rem;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-spacing-4</code> </td>
+                            <td> <code class="value"> 1.5rem </code> </td>
+                            <td>
+                                <div class="sample__square" style="width:1.5rem; height:1.5rem;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <code>size-spacing-5</code> </td>
+                            <td> <code class="value"> 3rem </code> </td>
+                            <td>
+                                <div class="sample__square" style="width:3rem; height:3rem;"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+  "color": {
+    "$type": "color",
+    "cyan": {
+      "darkest": {
+        "value": "hsl(188deg 94% 17%)"
+      },
+      "darker": {
+        "value": "hsl(188deg 96% 22%)"
+      },
+      "dark": {
+        "value": "hsl(188deg 98% 30%)"
+      },
+      "base": {
+        "value": "hsl(187deg 100% 42%)"
+      },
+      "light": {
+        "value": "hsl(186deg 102% 60%)"
+      },
+      "lighter": {
+        "value": "hsl(185deg 103% 74%)"
+      },
+      "lightest": {
+        "value": "hsl(184deg 105% 90%)"
+      }
+    }
+  }
+}
+

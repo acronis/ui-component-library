@@ -1,0 +1,35 @@
+{
+  "color": {
+    "yellow": {
+      "darkest": {
+        "value": "hsl(50deg 105% 30%)",
+        "type": "color"
+      },
+      "darker": {
+        "value": "hsl(50deg 104% 33%)",
+        "type": "color"
+      },
+      "dark": {
+        "value": "hsl(50deg 102% 40%)",
+        "type": "color"
+      },
+      "base": {
+        "value": "hsl(51deg 100% 50%)",
+        "type": "color"
+      },
+      "light": {
+        "value": "hsl(52deg 98% 60%)",
+        "type": "color"
+      },
+      "lighter": {
+        "value": "hsl(52deg 96% 75%)",
+        "type": "color"
+      },
+      "lightest": {
+        "value": "hsl(52deg 94% 90%)",
+        "type": "color"
+      }
+    }
+  }
+}
+

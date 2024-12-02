@@ -1,0 +1,48 @@
+{
+  "color": {
+    "$type": "color",
+    "secondary": {
+      "darkest": {
+        "value": "hsl(220deg 5% 25%)",
+        "type": "color"
+      },
+      "darker": {
+        "value": "hsl(223deg 4% 36%)",
+        "type": "color"
+      },
+      "dark": {
+        "value": "hsl(223deg 3% 47%)",
+        "type": "color"
+      },
+      "base": {
+        "value": "hsl(223deg 3% 59%)",
+        "type": "color"
+      },
+      "light": {
+        "value": "hsl(225deg 5% 71%)",
+        "type": "color"
+      },
+      "lighter": {
+        "value": "hsl(217deg 10% 84%)",
+        "type": "color"
+      },
+      "lightest": {
+        "value": "hsl(220deg 60% 97%)",
+        "type": "color"
+      },
+      "hover": {
+        "value": "var(--acv-color-button-hover-secondary, hsl(from var(--acv-color-secondary) calc(h - 4) s calc(l - 2)))",
+        "type": "color"
+      },
+      "active": {
+        "value": "var(--acv-color-button-active-secondary, hsl(from var(--acv-color-secondary) calc(h - 3) calc(s - 1) calc(l - 8)))",
+        "type": "color"
+      },
+      "muted": {
+        "value": "var(--acv-color-primary-lightest)",
+        "type": "color"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,9 @@
+:where(html) {
+    --acv-is-ltr: 1;
+    --acv-is-rtl: -1;
+
+    &:dir(rtl) {
+        --acv-is-ltr: -1;
+        --acv-is-rtl: 1;
+    }
+}

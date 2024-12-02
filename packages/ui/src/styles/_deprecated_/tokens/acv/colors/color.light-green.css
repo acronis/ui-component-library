@@ -1,9 +1,0 @@
-:where(html) {
-  --acv-color-light-green-darkest: hsl(82deg 94% 6%);
-  --acv-color-light-green-darker: hsl(82deg 96% 11%);
-  --acv-color-light-green-dark: hsl(82deg 98% 12%);
-  --acv-color-light-green: hsl(81deg 100% 24%);
-  --acv-color-light-green-light: hsl(80deg 102% 42%);
-  --acv-color-light-green-lighter: hsl(79deg 104% 60%);
-  --acv-color-light-green-lightest: hsl(78deg 105% 73%);
-}

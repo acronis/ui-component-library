@@ -1,0 +1,105 @@
+{
+  "color": {
+    "lime": {
+      "50": {
+        "value": "#F9FBE7",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "100": {
+        "value": "#F0F4C3",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "200": {
+        "value": "#E6EE9C",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "300": {
+        "value": "#DCE775",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "400": {
+        "value": "#D4E157",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "500": {
+        "value": "#CDDC39",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "600": {
+        "value": "#C0CA33",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "700": {
+        "value": "#AFB42B",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "800": {
+        "value": "#9E9D24",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "900": {
+        "value": "#827717",
+        "attributes": {
+          "font": "inverse"
+        },
+        "type": "color"
+      },
+      "A100": {
+        "value": "#F4FF81",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "A200": {
+        "value": "#EEFF41",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "A400": {
+        "value": "#C6FF00",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      },
+      "A700": {
+        "value": "#AEEA00",
+        "attributes": {
+          "font": "base"
+        },
+        "type": "color"
+      }
+    }
+  }
+}
+

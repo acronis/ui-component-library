@@ -1,0 +1,73 @@
+{
+  "transition": {
+    "$type": "transition",
+    "emphasis": {
+      "$value": {
+        "duration": "{transition.duration.medium}",
+        "delay": "{transition.duration.instant}",
+        "timingFunction": "{transition.easing.in-1}"
+      }
+    },
+    "all": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.medium}",
+        "delay": "all",
+        "timingFunction": "{transition.easing.basic}"
+      }
+    },
+    "color": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.shorter}",
+        "delay": "color",
+        "timingFunction": "{transition.easing.basic}"
+      }
+    },
+    "border": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.shorter}",
+        "delay": "border-color",
+        "timingFunction": "{transition.easing.basic}"
+      }
+    },
+    "fade": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.medium}",
+        "delay": "opacity",
+        "timingFunction": "{transition.easing.out-1}"
+      }
+    },
+    "background": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.longest}",
+        "delay": "background",
+        "timingFunction": "linear"
+      }
+    },
+    "standard": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.medium}",
+        "timingFunction": "{transition.easing.common}"
+      }
+    },
+    "short": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.short}",
+        "timingFunction": "{transition.easing.common}"
+      }
+    },
+    "shortest": {
+      "type": "transition",
+      "value": {
+        "duration": "{transition.duration.shortest}",
+        "timingFunction": "{transition.easing.common}"
+      }
+    }
+  }
+}
