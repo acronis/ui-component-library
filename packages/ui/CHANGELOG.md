@@ -1,3 +1,10 @@
+## [1.33.0](https://github.com/acronis/ui-component-library/compare/v1.32.0...v1.33.0) (2024-12-02)
+
+
+### Features
+
+* create ui-theme package ([#173](https://github.com/acronis/ui-component-library/issues/173)) ([027081f](https://github.com/acronis/ui-component-library/commit/027081f814272518aa3b4608311d1b4c0f730379))
+
 ## [1.32.0](https://github.com/acronis/ui-component-library/compare/v1.31.0...v1.32.0) (2024-11-23)
 
 
@@ -27,11 +34,4 @@
 
 * **build:** add focus-trap ([8ad5f6d](https://github.com/acronis/ui-component-library/commit/8ad5f6da1322e2b964efad01b8f30b936b1ecd7d))
 * **docs:** fix examples route ([#161](https://github.com/acronis/ui-component-library/issues/161)) ([52bb1b0](https://github.com/acronis/ui-component-library/commit/52bb1b078ef6b8a6a62b14a89c97733fa01c72bd))
-
-## [1.30.2](https://github.com/acronis/ui-component-library/compare/v1.30.1...v1.30.2) (2024-11-11)
-
-
-### Bug Fixes
-
-* **build:** remove jsx ([#159](https://github.com/acronis/ui-component-library/issues/159)) ([ce20f14](https://github.com/acronis/ui-component-library/commit/ce20f1402d56c7ec535e04be6ce807c38b30d6a4))
 
