@@ -1,3 +1,10 @@
+## [1.34.0](https://github.com/acronis/ui-component-library/compare/v1.33.0...v1.34.0) (2024-12-03)
+
+
+### Features
+
+* **notification:** move notification ([#171](https://github.com/acronis/ui-component-library/issues/171)) ([e38bf3e](https://github.com/acronis/ui-component-library/commit/e38bf3e8e22ce3bef8d32bcce4f78c5a08ad82a4))
+
 ## [1.33.0](https://github.com/acronis/ui-component-library/compare/v1.32.0...v1.33.0) (2024-12-02)
 
 
@@ -26,12 +33,4 @@
 ### Bug Fixes
 
 * remove router-link import ([1d173a3](https://github.com/acronis/ui-component-library/commit/1d173a34bf0a089e08b470ee2fa5721012b82045))
-
-## [1.30.3](https://github.com/acronis/ui-component-library/compare/v1.30.2...v1.30.3) (2024-11-14)
-
-
-### Bug Fixes
-
-* **build:** add focus-trap ([8ad5f6d](https://github.com/acronis/ui-component-library/commit/8ad5f6da1322e2b964efad01b8f30b936b1ecd7d))
-* **docs:** fix examples route ([#161](https://github.com/acronis/ui-component-library/issues/161)) ([52bb1b0](https://github.com/acronis/ui-component-library/commit/52bb1b078ef6b8a6a62b14a89c97733fa01c72bd))
 
