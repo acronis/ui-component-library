@@ -1,39 +1,49 @@
 {
   "color": {
-    "$type": "color",
     "amber": {
       "darkest": {
-        "$value": "hsl(46deg 94% 26%)"
+        "type": "color",
+        "value": "hsl(46deg 94% 26%)"
       },
       "darker": {
-        "$value": "hsl(46deg 96% 31%)"
+        "type": "color",
+        "value": "hsl(46deg 96% 31%)"
       },
       "dark": {
-        "$value": "hsl(46deg 98% 39%)"
+        "type": "color",
+        "value": "hsl(46deg 98% 39%)"
       },
       "base": {
-        "$value": "hsl(45deg 100% 51%)"
+        "type": "color",
+        "value": "hsl(45deg 100% 51%)"
       },
       "light": {
-        "$value": "hsl(44deg 102% 69%)"
+        "type": "color",
+        "value": "hsl(44deg 102% 69%)"
       },
       "lighter": {
-        "$value": "hsl(43deg 104% 87%)"
+        "type": "color",
+        "value": "hsl(43deg 104% 87%)"
       },
       "lightest": {
-        "$value": "hsl(42deg 105% 97%)"
+        "type": "color",
+        "value": "hsl(42deg 105% 97%)"
       },
       "hover": {
-        "$value": "hsl(from var(--acv-color-amber) calc(h - 4) s calc(l - 2))"
+        "type": "color",
+        "value": "hsl(from var(--acv-color-amber) calc(h - 4) s calc(l - 2))"
       },
       "active": {
-        "$value": "hsl(from var(--acv-color-amber) calc(h - 3) calc(s - 1) calc(l - 8))"
+        "type": "color",
+        "value": "hsl(from var(--acv-color-amber) calc(h - 3) calc(s - 1) calc(l - 8))"
       },
       "muted": {
-        "$value": "{color.amber.darkest.value}"
+        "type": "color",
+        "value": "{color.amber.darkest.value}"
       },
       "text": {
-        "$value": "{color.white.value}"
+        "type": "color",
+        "value": "{color.white.value}"
       }
     }
   }

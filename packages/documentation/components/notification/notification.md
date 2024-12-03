@@ -1,30 +1,39 @@
 ---
-title: Notification component
+title: ACV Notification component
 lang: en-US
 editLink: true
 description: This file is generated automatically from the source code. Changes made here will be lost.
 ---
 
-# Notification
+# ACV Notification
 
 <!--@include: ./notification.doc.md-->
 
 ## Props
 
-| Prop name   | Description                     | Type   | Values | Default |
-| ----------- | ------------------------------- | ------ | ------ | ------- |
-| title       | Title of the Notification       | string | -      |         |
-| description | Description of the Notification | string | -      |         |
+| Prop name     | Description | Type                 | Values | Default     |
+| ------------- | ----------- | -------------------- | ------ | ----------- |
+| visible       |             | boolean              | -      |             |
+| message       |             | string\|object\|func | -      |             |
+| title         |             | string               | -      |             |
+| type          |             | string               | -      | 'info'      |
+| iconClass     |             | string               | -      |             |
+| customClass   |             | string               | -      |             |
+| showClose     |             | boolean              | -      | true        |
+| onClose       |             | func                 | -      | () =&gt; {} |
+| duration      |             | number               | -      | 4500        |
+| showHoverHint |             | boolean              | -      | false       |
 
 ## Events
 
-| Event name | Properties                                                                                                      | Description                            |
-| ---------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**visible** `string` - The visibility state of the component | Triggered when the component is closed |
+| Event name     | Properties | Description |
+| -------------- | ---------- | ----------- |
+| update:visible |            |             |
+| close          |            |             |
 
 ## Slots
 
-| Name        | Description                  | Bindings |
-| ----------- | ---------------------------- | -------- |
-| default     | The default slot content     |          |
-| description | The description slot content |          |
+| Name    | Description | Bindings |
+| ------- | ----------- | -------- |
+| content |             |          |
+| default |             |          |

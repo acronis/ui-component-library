@@ -73,7 +73,7 @@ const componentsList = [
   { text: 'Menu Group', link: '/components/menu-group/menuGroup.md' },
   { text: 'Menu Item', link: '/components/menu-item/menuItem.md' },
   { text: 'Menu', link: '/components/menu/menu.md', status: COMPONENT_STATUS.DONE },
-  { text: 'Notification', link: '/components/notification.md', status: COMPONENT_STATUS.PLANNED },
+  { text: 'Notification', link: '/components/notification/notification.md', status: COMPONENT_STATUS.IN_DEVELOPMENT },
   { text: 'Num Picker', link: '/components/num-picker/numPicker.md', status: COMPONENT_STATUS.PLANNED },
   { text: 'Option Group', link: '/components/option-group/optionGroup.md', status: COMPONENT_STATUS.PLANNED },
   { text: 'Option', link: '/components/option/option.md', status: COMPONENT_STATUS.IN_DEVELOPMENT },

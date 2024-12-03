@@ -2,12 +2,1319 @@
   "color": {
     "brand": {
       "primary": {
-        "value": "#3B5998",
-        "type": "color"
+        "value": "hsl(215deg 68% 46%)",
+        "name": "color/brand/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "brand",
+        "citem": "primary",
+        "cssValue": "hsl(215deg 68% 46%)"
       },
       "secondary": {
-        "value": "#4267B2",
-        "type": "color"
+        "value": "hsl(218deg 57% 97%)",
+        "name": "color/brand/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "brand",
+        "citem": "secondary",
+        "cssValue": "hsl(218deg 57% 97%)"
+      },
+      "tertiary": {
+        "value": "hsl(218deg 57% 97%)",
+        "name": "color/brand/tertiary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "brand",
+        "citem": "tertiary",
+        "cssValue": "hsl(218deg 57% 97%)"
+      }
+    },
+    "button": {
+      "danger": {
+        "value": "hsl(0deg 81% 57%)",
+        "name": "color/button/danger",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "button",
+        "citem": "danger",
+        "cssValue": "hsl(0deg 81% 57%)",
+        "active": {
+          "value": "hsl(0deg 81% 45%)",
+          "name": "color/button/danger/active",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "danger",
+          "cssValue": "hsl(0deg 81% 45%)"
+        },
+        "disabled": {
+          "value": "hsla(0deg 4% 35% / 0.3)",
+          "name": "color/button/danger/disabled",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "danger",
+          "cssValue": "hsla(0deg 4% 35% / 0.3)"
+        },
+        "hover": {
+          "value": "hsl(0deg 65% 51%)",
+          "name": "color/button/danger/hover",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "danger",
+          "cssValue": "hsl(0deg 65% 51%)"
+        }
+      },
+      "disabled": {
+        "value": "hsla(215deg 68% 46% / 0.3)",
+        "name": "color/button/disabled",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "button",
+        "citem": "disabled",
+        "cssValue": "hsla(215deg 68% 46% / 0.3)",
+        "inversed": {
+          "label": {
+            "value": "hsla(0deg 0% 100% / 0.7)",
+            "name": "color/button/disabled/inversed/label",
+            "dimension": "",
+            "type": "color",
+            "isAlias": false,
+            "category": "color",
+            "ctype": "button",
+            "citem": "disabled",
+            "cssValue": "hsla(0deg 0% 100% / 0.7)"
+          }
+        },
+        "label": {
+          "value": "hsla(215deg 68% 46% / 0.3)",
+          "name": "color/button/disabled/label",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "disabled",
+          "cssValue": "hsla(215deg 68% 46% / 0.3)"
+        }
+      },
+      "focus": {
+        "value": "hsl(214deg 81% 84%)",
+        "name": "color/button/focus",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "button",
+        "citem": "focus",
+        "cssValue": "hsl(214deg 81% 84%)"
+      },
+      "inversed": {
+        "value": "hsla(0deg 0% 100% / 0.2)",
+        "name": "color/button/inversed",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "button",
+        "citem": "inversed",
+        "cssValue": "hsla(0deg 0% 100% / 0.2)",
+        "active": {
+          "value": "hsla(0deg 0% 100% / 0.05)",
+          "name": "color/button/inversed/active",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "inversed",
+          "cssValue": "hsla(0deg 0% 100% / 0.05)"
+        },
+        "disabled": {
+          "value": "hsla(0deg 0% 100% / 0.1)",
+          "name": "color/button/inversed/disabled",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "inversed",
+          "cssValue": "hsla(0deg 0% 100% / 0.1)"
+        },
+        "hover": {
+          "value": "hsla(0deg 0% 100% / 0.1)",
+          "name": "color/button/inversed/hover",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "inversed",
+          "cssValue": "hsla(0deg 0% 100% / 0.1)"
+        }
+      },
+      "primary": {
+        "value": "hsl(215deg 68% 46%)",
+        "name": "color/button/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "button",
+        "citem": "primary",
+        "cssValue": "hsl(215deg 68% 46%)",
+        "active": {
+          "value": "hsl(215deg 68% 38%)",
+          "name": "color/button/primary/active",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "primary",
+          "cssValue": "hsl(215deg 68% 38%)"
+        },
+        "hover": {
+          "value": "hsl(215deg 68% 38%)",
+          "name": "color/button/primary/hover",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "primary",
+          "cssValue": "hsl(215deg 68% 38%)"
+        },
+        "inversed": {
+          "label": {
+            "value": "hsl(0deg 0% 100%)",
+            "name": "color/button/primary/inversed/label",
+            "dimension": "",
+            "type": "color",
+            "isAlias": false,
+            "category": "color",
+            "ctype": "button",
+            "citem": "primary",
+            "cssValue": "hsl(0deg 0% 100%)"
+          }
+        },
+        "label": {
+          "value": "hsl(215deg 68% 46%)",
+          "name": "color/button/primary/label",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "primary",
+          "cssValue": "hsl(215deg 68% 46%)"
+        }
+      },
+      "secondary": {
+        "value": "hsl(215deg 68% 46%)",
+        "name": "color/button/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "button",
+        "citem": "secondary",
+        "cssValue": "hsl(215deg 68% 46%)",
+        "active": {
+          "value": "hsl(215deg 56% 89%)",
+          "name": "color/button/secondary/active",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "secondary",
+          "cssValue": "hsl(215deg 56% 89%)"
+        },
+        "hover": {
+          "value": "hsl(214deg 57% 95%)",
+          "name": "color/button/secondary/hover",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "secondary",
+          "cssValue": "hsl(214deg 57% 95%)"
+        },
+        "inversed": {
+          "label": {
+            "value": "hsl(0deg 0% 100%)",
+            "name": "color/button/secondary/inversed/label",
+            "dimension": "",
+            "type": "color",
+            "isAlias": false,
+            "category": "color",
+            "ctype": "button",
+            "citem": "secondary",
+            "cssValue": "hsl(0deg 0% 100%)"
+          }
+        },
+        "label": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/button/secondary/label",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "button",
+          "citem": "secondary",
+          "cssValue": "hsl(0deg 0% 100%)"
+        }
+      }
+    },
+    "divider": {
+      "inversed-primary": {
+        "value": "hsl(0deg 0% 100%)",
+        "name": "color/divider/inversed-primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "divider",
+        "citem": "inversed-primary",
+        "cssValue": "hsl(0deg 0% 100%)"
+      },
+      "inversed-secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "name": "color/divider/inversed-secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "divider",
+        "citem": "inversed-secondary",
+        "cssValue": "hsl(0deg 0% 100%)"
+      },
+      "primary": {
+        "value": "hsl(215deg 60% 92%)",
+        "name": "color/divider/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "divider",
+        "citem": "primary",
+        "cssValue": "hsl(215deg 60% 92%)"
+      },
+      "secondary": {
+        "value": "hsl(215deg 60% 92%)",
+        "name": "color/divider/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "divider",
+        "citem": "secondary",
+        "cssValue": "hsl(215deg 60% 92%)"
+      }
+    },
+    "effect": {
+      "shadow-primary": {
+        "value": "hsla(215deg 30% 20% / 0.2)",
+        "name": "color/effect/shadow-primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "effect",
+        "citem": "shadow-primary",
+        "cssValue": "hsla(215deg 30% 20% / 0.2)"
+      }
+    },
+    "form": {
+      "active": {
+        "value": "hsl(215deg 68% 46%)",
+        "name": "color/form/active",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "active",
+        "cssValue": "hsl(215deg 68% 46%)"
+      },
+      "disabled-primary": {
+        "value": "hsla(215deg 68% 46% / 0.1)",
+        "name": "color/form/disabled-primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "disabled-primary",
+        "cssValue": "hsla(215deg 68% 46% / 0.1)"
+      },
+      "disabled-secondary": {
+        "value": "hsla(215deg 68% 46% / 0.1)",
+        "name": "color/form/disabled-secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "disabled-secondary",
+        "cssValue": "hsla(215deg 68% 46% / 0.1)"
+      },
+      "disabled-success": {
+        "value": "hsl(75deg 57% 95%)",
+        "name": "color/form/disabled-success",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "disabled-success",
+        "cssValue": "hsl(75deg 57% 95%)"
+      },
+      "disabled-tertiary": {
+        "value": "hsl(215deg 59% 84%)",
+        "name": "color/form/disabled-tertiary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "disabled-tertiary",
+        "cssValue": "hsl(215deg 59% 84%)"
+      },
+      "error": {
+        "value": "hsl(0deg 81% 57%)",
+        "name": "color/form/error",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "error",
+        "cssValue": "hsl(0deg 81% 57%)"
+      },
+      "focus": {
+        "value": "hsl(214deg 81% 84%)",
+        "name": "color/form/focus",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "focus",
+        "cssValue": "hsl(214deg 81% 84%)"
+      },
+      "hover": {
+        "value": "hsl(215deg 68% 38%)",
+        "name": "color/form/hover",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "hover",
+        "cssValue": "hsl(215deg 68% 38%)"
+      },
+      "primary": {
+        "value": "hsl(0deg 0% 100%)",
+        "name": "color/form/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "primary",
+        "cssValue": "hsl(0deg 0% 100%)"
+      },
+      "secondary": {
+        "value": "hsl(215deg 59% 84%)",
+        "name": "color/form/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "secondary",
+        "cssValue": "hsl(215deg 59% 84%)"
+      },
+      "success": {
+        "value": "hsl(75deg 68% 45%)",
+        "name": "color/form/success",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "form",
+        "citem": "success",
+        "cssValue": "hsl(75deg 68% 45%)"
+      }
+    },
+    "icon": {
+      "active": {
+        "value": "hsl(215deg 30% 20%)",
+        "name": "color/icon/active",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "icon",
+        "citem": "active",
+        "cssValue": "hsl(215deg 30% 20%)",
+        "disabled": {
+          "value": "hsl(215deg 30% 20%)",
+          "name": "color/icon/active/disabled",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "active",
+          "cssValue": "hsl(215deg 30% 20%)"
+        }
+      },
+      "disabled": {
+        "value": "hsla(215deg 68% 46% / 0.3)",
+        "name": "color/icon/disabled",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "icon",
+        "citem": "disabled",
+        "cssValue": "hsla(215deg 68% 46% / 0.3)"
+      },
+      "inversed": {
+        "disabled": {
+          "value": "hsla(0deg 0% 100% / 0.7)",
+          "name": "color/icon/inversed/disabled",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "inversed",
+          "cssValue": "hsla(0deg 0% 100% / 0.7)"
+        },
+        "primary": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/icon/inversed/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "inversed",
+          "cssValue": "hsl(0deg 0% 100%)"
+        },
+        "secondary": {
+          "value": "hsla(0deg 0% 100% / 0.7)",
+          "name": "color/icon/inversed/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "inversed",
+          "cssValue": "hsla(0deg 0% 100% / 0.7)"
+        }
+      },
+      "primary": {
+        "value": "hsl(215deg 68% 46%)",
+        "name": "color/icon/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "icon",
+        "citem": "primary",
+        "cssValue": "hsl(215deg 68% 46%)"
+      },
+      "status": {
+        "critical": {
+          "value": "hsl(11deg 73% 41%)",
+          "name": "color/icon/status/critical",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "status",
+          "cssValue": "hsl(11deg 73% 41%)"
+        },
+        "danger": {
+          "value": "hsl(0deg 72% 45%)",
+          "name": "color/icon/status/danger",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "status",
+          "cssValue": "hsl(0deg 72% 45%)"
+        },
+        "info": {
+          "value": "hsl(215deg 68% 38%)",
+          "name": "color/icon/status/info",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "status",
+          "cssValue": "hsl(215deg 68% 38%)"
+        },
+        "neutral": {
+          "value": "hsl(0deg 0% 4%)",
+          "name": "color/icon/status/neutral",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "status",
+          "cssValue": "hsl(0deg 0% 4%)"
+        },
+        "success": {
+          "value": "hsl(88deg 85% 24%)",
+          "name": "color/icon/status/success",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "status",
+          "cssValue": "hsl(88deg 85% 24%)"
+        },
+        "warning": {
+          "value": "hsl(30deg 50% 37%)",
+          "name": "color/icon/status/warning",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "icon",
+          "citem": "status",
+          "cssValue": "hsl(30deg 50% 37%)"
+        }
+      }
+    },
+    "link": {
+      "active": {
+        "value": "hsl(215deg 68% 46%)",
+        "name": "color/link/active",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "link",
+        "citem": "active",
+        "cssValue": "hsl(215deg 68% 46%)"
+      },
+      "disabled": {
+        "value": "hsla(215deg 68% 46% / 0.3)",
+        "name": "color/link/disabled",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "link",
+        "citem": "disabled",
+        "cssValue": "hsla(215deg 68% 46% / 0.3)"
+      },
+      "hover": {
+        "value": "hsl(215deg 68% 38%)",
+        "name": "color/link/hover",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "link",
+        "citem": "hover",
+        "cssValue": "hsl(215deg 68% 38%)"
+      },
+      "inversed": {
+        "disabled": {
+          "value": "hsla(0deg 0% 100% / 0.7)",
+          "name": "color/link/inversed/disabled",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "link",
+          "citem": "inversed",
+          "cssValue": "hsla(0deg 0% 100% / 0.7)"
+        },
+        "primary": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/link/inversed/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "link",
+          "citem": "inversed",
+          "cssValue": "hsl(0deg 0% 100%)"
+        },
+        "secondary": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/link/inversed/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "link",
+          "citem": "inversed",
+          "cssValue": "hsl(0deg 0% 100%)"
+        }
+      },
+      "primary": {
+        "value": "hsl(215deg 68% 46%)",
+        "name": "color/link/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "link",
+        "citem": "primary",
+        "cssValue": "hsl(215deg 68% 46%)"
+      },
+      "secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "name": "color/link/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "link",
+        "citem": "secondary",
+        "cssValue": "hsl(0deg 0% 100%)"
+      }
+    },
+    "nav": {
+      "primary": {
+        "value": "hsl(215deg 100% 15%)",
+        "name": "color/nav/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "nav",
+        "citem": "primary",
+        "cssValue": "hsl(215deg 100% 15%)",
+        "active": {
+          "value": "hsl(213deg 100% 45%)",
+          "name": "color/nav/primary/active",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "primary",
+          "cssValue": "hsl(213deg 100% 45%)"
+        },
+        "focus": {
+          "value": "hsla(0deg 0% 100% / 0.2)",
+          "name": "color/nav/primary/focus",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "primary",
+          "cssValue": "hsla(0deg 0% 100% / 0.2)"
+        },
+        "hover": {
+          "value": "hsla(0deg 0% 100% / 0.2)",
+          "name": "color/nav/primary/hover",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "primary",
+          "cssValue": "hsla(0deg 0% 100% / 0.2)"
+        },
+        "label": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/nav/primary/label",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "primary",
+          "cssValue": "hsl(0deg 0% 100%)"
+        }
+      },
+      "secondary": {
+        "value": "hsl(0deg 0% 100%)",
+        "name": "color/nav/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "nav",
+        "citem": "secondary",
+        "cssValue": "hsl(0deg 0% 100%)",
+        "active": {
+          "value": "hsl(214deg 57% 95%)",
+          "name": "color/nav/secondary/active",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "secondary",
+          "cssValue": "hsl(214deg 57% 95%)"
+        },
+        "focus": {
+          "value": "hsl(215deg 56% 89%)",
+          "name": "color/nav/secondary/focus",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "secondary",
+          "cssValue": "hsl(215deg 56% 89%)"
+        },
+        "hover": {
+          "value": "hsl(214deg 57% 95%)",
+          "name": "color/nav/secondary/hover",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "secondary",
+          "cssValue": "hsl(214deg 57% 95%)"
+        },
+        "label": {
+          "value": "hsla(0deg 0% 100% / 0.7)",
+          "name": "color/nav/secondary/label",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "nav",
+          "citem": "secondary",
+          "cssValue": "hsla(0deg 0% 100% / 0.7)"
+        }
+      }
+    },
+    "scroll": {
+      "thumb": {
+        "value": "hsla(215deg 30% 20% / 0.4)",
+        "name": "color/scroll/thumb",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "scroll",
+        "citem": "thumb",
+        "cssValue": "hsla(215deg 30% 20% / 0.4)"
+      },
+      "thumb-inversed": {
+        "value": "hsla(0deg 0% 100% / 0.4)",
+        "name": "color/scroll/thumb-inversed",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "scroll",
+        "citem": "thumb-inversed",
+        "cssValue": "hsla(0deg 0% 100% / 0.4)"
+      }
+    },
+    "status": {
+      "active": {
+        "value": "hsla(215deg 30% 20% / 0.1)",
+        "name": "color/status/active",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "status",
+        "citem": "active",
+        "cssValue": "hsla(215deg 30% 20% / 0.1)"
+      },
+      "critical": {
+        "primary": {
+          "value": "hsl(32deg 95% 92%)",
+          "name": "color/status/critical/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "critical",
+          "cssValue": "hsl(32deg 95% 92%)"
+        },
+        "secondary": {
+          "value": "hsl(29deg 100% 53%)",
+          "name": "color/status/critical/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "critical",
+          "cssValue": "hsl(29deg 100% 53%)"
+        },
+        "tertiary": {
+          "value": "hsl(21deg 100% 83%)",
+          "name": "color/status/critical/tertiary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "critical",
+          "cssValue": "hsl(21deg 100% 83%)"
+        }
+      },
+      "danger": {
+        "primary": {
+          "value": "hsl(0deg 100% 96%)",
+          "name": "color/status/danger/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "danger",
+          "cssValue": "hsl(0deg 100% 96%)"
+        },
+        "secondary": {
+          "value": "hsl(0deg 81% 57%)",
+          "name": "color/status/danger/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "danger",
+          "cssValue": "hsl(0deg 81% 57%)"
+        },
+        "tertiary": {
+          "value": "hsl(0deg 100% 89%)",
+          "name": "color/status/danger/tertiary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "danger",
+          "cssValue": "hsl(0deg 100% 89%)"
+        }
+      },
+      "focus": {
+        "value": "hsl(214deg 81% 84%)",
+        "name": "color/status/focus",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "status",
+        "citem": "focus",
+        "cssValue": "hsl(214deg 81% 84%)"
+      },
+      "hover": {
+        "value": "hsla(215deg 30% 20% / 0.05)",
+        "name": "color/status/hover",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "status",
+        "citem": "hover",
+        "cssValue": "hsla(215deg 30% 20% / 0.05)"
+      },
+      "info": {
+        "primary": {
+          "value": "hsl(215deg 81% 96%)",
+          "name": "color/status/info/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "info",
+          "cssValue": "hsl(215deg 81% 96%)"
+        },
+        "secondary": {
+          "value": "hsl(214deg 80% 58%)",
+          "name": "color/status/info/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "info",
+          "cssValue": "hsl(214deg 80% 58%)"
+        },
+        "tertiary": {
+          "value": "hsl(214deg 80% 88%)",
+          "name": "color/status/info/tertiary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "info",
+          "cssValue": "hsl(214deg 80% 88%)"
+        }
+      },
+      "neutral": {
+        "primary": {
+          "value": "hsl(220deg 7% 92%)",
+          "name": "color/status/neutral/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "neutral",
+          "cssValue": "hsl(220deg 7% 92%)"
+        },
+        "secondary": {
+          "value": "hsl(216deg 8% 61%)",
+          "name": "color/status/neutral/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "neutral",
+          "cssValue": "hsl(216deg 8% 61%)"
+        },
+        "tertiary": {
+          "value": "hsl(216deg 8% 88%)",
+          "name": "color/status/neutral/tertiary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "neutral",
+          "cssValue": "hsl(216deg 8% 88%)"
+        }
+      },
+      "success": {
+        "primary": {
+          "value": "hsl(75deg 57% 95%)",
+          "name": "color/status/success/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "success",
+          "cssValue": "hsl(75deg 57% 95%)"
+        },
+        "secondary": {
+          "value": "hsl(75deg 68% 45%)",
+          "name": "color/status/success/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "success",
+          "cssValue": "hsl(75deg 68% 45%)"
+        },
+        "tertiary": {
+          "value": "hsl(75deg 57% 80%)",
+          "name": "color/status/success/tertiary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "success",
+          "cssValue": "hsl(75deg 57% 80%)"
+        }
+      },
+      "warning": {
+        "primary": {
+          "value": "hsl(46deg 100% 95%)",
+          "name": "color/status/warning/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "warning",
+          "cssValue": "hsl(46deg 100% 95%)"
+        },
+        "secondary": {
+          "value": "hsl(45deg 100% 51%)",
+          "name": "color/status/warning/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "warning",
+          "cssValue": "hsl(45deg 100% 51%)"
+        },
+        "tertiary": {
+          "value": "hsl(45deg 100% 82%)",
+          "name": "color/status/warning/tertiary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "status",
+          "citem": "warning",
+          "cssValue": "hsl(45deg 100% 82%)"
+        }
+      }
+    },
+    "surface": {
+      "primary": {
+        "value": "hsl(218deg 57% 97%)",
+        "name": "color/surface/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "surface",
+        "citem": "primary",
+        "cssValue": "hsl(218deg 57% 97%)",
+        "fixed": {
+          "value": "hsla(215deg 30% 20% / 0.9)",
+          "name": "color/surface/primary/fixed",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "surface",
+          "citem": "primary",
+          "cssValue": "hsla(215deg 30% 20% / 0.9)"
+        },
+        "inversed": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/surface/primary/inversed",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "surface",
+          "citem": "primary",
+          "cssValue": "hsl(0deg 0% 100%)",
+          "dark": {
+            "value": "hsl(215deg 30% 20%)",
+            "name": "color/surface/primary/inversed/dark",
+            "dimension": "",
+            "type": "color",
+            "isAlias": false,
+            "category": "color",
+            "ctype": "surface",
+            "citem": "primary",
+            "cssValue": "hsl(215deg 30% 20%)"
+          }
+        }
+      },
+      "secondary": {
+        "value": "hsl(214deg 57% 95%)",
+        "name": "color/surface/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "surface",
+        "citem": "secondary",
+        "cssValue": "hsl(214deg 57% 95%)",
+        "fixed": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/surface/secondary/fixed",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "surface",
+          "citem": "secondary",
+          "cssValue": "hsl(0deg 0% 100%)"
+        },
+        "inversed": {
+          "value": "hsla(0deg 0% 100% / 0.95)",
+          "name": "color/surface/secondary/inversed",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "surface",
+          "citem": "secondary",
+          "cssValue": "hsla(0deg 0% 100% / 0.95)"
+        }
+      }
+    },
+    "text": {
+      "disabled": {
+        "value": "hsla(215deg 30% 20% / 0.4)",
+        "name": "color/text/disabled",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "text",
+        "citem": "disabled",
+        "cssValue": "hsla(215deg 30% 20% / 0.4)"
+      },
+      "error": {
+        "value": "hsl(0deg 81% 57%)",
+        "name": "color/text/error",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "text",
+        "citem": "error",
+        "cssValue": "hsl(0deg 81% 57%)"
+      },
+      "highlight": {
+        "value": "hsl(52deg 100% 50%)",
+        "name": "color/text/highlight",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "text",
+        "citem": "highlight",
+        "cssValue": "hsl(52deg 100% 50%)"
+      },
+      "inversed": {
+        "primary": {
+          "value": "hsl(0deg 0% 100%)",
+          "name": "color/text/inversed/primary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "inversed",
+          "cssValue": "hsl(0deg 0% 100%)"
+        },
+        "secondary": {
+          "value": "hsla(0deg 0% 100% / 0.7)",
+          "name": "color/text/inversed/secondary",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "inversed",
+          "cssValue": "hsla(0deg 0% 100% / 0.7)"
+        }
+      },
+      "primary": {
+        "value": "hsl(215deg 30% 20%)",
+        "name": "color/text/primary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "text",
+        "citem": "primary",
+        "cssValue": "hsl(215deg 30% 20%)"
+      },
+      "secondary": {
+        "value": "hsla(215deg 30% 20% / 0.7)",
+        "name": "color/text/secondary",
+        "dimension": "",
+        "type": "color",
+        "isAlias": false,
+        "category": "color",
+        "ctype": "text",
+        "citem": "secondary",
+        "cssValue": "hsla(215deg 30% 20% / 0.7)"
+      },
+      "status": {
+        "critical": {
+          "value": "hsl(11deg 73% 41%)",
+          "name": "color/text/status/critical",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "status",
+          "cssValue": "hsl(11deg 73% 41%)"
+        },
+        "danger": {
+          "value": "hsl(0deg 72% 45%)",
+          "name": "color/text/status/danger",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "status",
+          "cssValue": "hsl(0deg 72% 45%)"
+        },
+        "info": {
+          "value": "hsl(215deg 68% 38%)",
+          "name": "color/text/status/info",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "status",
+          "cssValue": "hsl(215deg 68% 38%)"
+        },
+        "neutral": {
+          "value": "hsl(215deg 30% 20%)",
+          "name": "color/text/status/neutral",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "status",
+          "cssValue": "hsl(215deg 30% 20%)"
+        },
+        "success": {
+          "value": "hsl(88deg 85% 24%)",
+          "name": "color/text/status/success",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "status",
+          "cssValue": "hsl(88deg 85% 24%)"
+        },
+        "warning": {
+          "value": "hsl(30deg 50% 37%)",
+          "name": "color/text/status/warning",
+          "dimension": "",
+          "type": "color",
+          "isAlias": false,
+          "category": "color",
+          "ctype": "text",
+          "citem": "status",
+          "cssValue": "hsl(30deg 50% 37%)"
+        }
       }
     },
     "base": {

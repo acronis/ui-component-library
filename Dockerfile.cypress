@@ -11,6 +11,7 @@ RUN npm install -g pnpm
 
 # Install app dependencies using PNPM
 RUN pnpm install -r --frozen-lockfile
+RUN pnpm --filter ./packages/ui-theme run build
 
 # Point to the ui package
 WORKDIR /workspace/packages/ui

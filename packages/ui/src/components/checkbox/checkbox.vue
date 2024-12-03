@@ -8,8 +8,6 @@
   import { computed, toRef, useAttrs } from 'vue';
   import CheckboxIcon from '../icon-internal/CheckboxIcon.vue';
 
-  import './checkbox.css';
-
   defineOptions({
     name: 'AcvCheckbox',
     inheritAttrs: false,
@@ -96,9 +94,11 @@
 
 <style scoped>
   .acv-checkbox {
+    --_acv-checkbox-color: var(--acv-color-brand-primary);
+    --_acv-checkbox-icon-color: var(--acv-color-brand-primary);
     font-family: var(--acv-font-family-default), sans-serif;
-    font-weight: var(--acv-font-weight-strong);
-    color: var(--acv-checkbox-color);
+    font-weight: var(--acv-base-font-weight-semi-bold);
+    color: var(--_acv-checkbox-color);
     position: relative;
     display: inline-flex;
     align-items: center;

@@ -1,6 +1,0 @@
-@layer tokens {
-  :root {
-    /* Insert component css variables here */
-    --acv-notification-color: var(--acv-color-brand-primary);
-  }
-}

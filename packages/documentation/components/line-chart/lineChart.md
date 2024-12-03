@@ -13,7 +13,6 @@ description: This file is generated automatically from the source code. Changes 
 
 | Prop name            | Description | Type    | Values                                             | Default                |
 | -------------------- | ----------- | ------- | -------------------------------------------------- | ---------------------- |
-| colors               |             | array   | -                                                  |                        |
 | data                 |             | object  | -                                                  | null                   |
 | dataPointOnHover     |             | boolean | -                                                  | false                  |
 | height               |             | string  | -                                                  | '200px'                |

@@ -1,6 +1,0 @@
-@layer tokens {
-  :root {
-    --acv-checkbox-color: var(--acv-color-primary);
-    --acv-checkbox-icon-color: var(--acv-color-primary);
-  }
-}

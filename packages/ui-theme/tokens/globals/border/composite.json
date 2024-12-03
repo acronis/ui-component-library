@@ -1,68 +1,78 @@
 {
   "border": {
-    "$type": "border",
+    "type": "border",
     "heavy": {
-      "$value": {
+      "type": "border",
+      "value": {
         "color": "{color.black}",
-        "width": "{dimensions.1}",
+        "width": "{border.width.small}",
         "style": "{border.style.solid}"
       }
     },
     "wireframe": {
-      "$value": {
-        "color": "{color.orange.600}",
-        "width": "{dimensions.2}",
+      "type": "border",
+      "value": {
+        "color": "{color.orange.dark}",
+        "width": "{border.width.medium}",
         "style": "{border.style.dashed}"
       }
     },
     "none": {
-      "$value": {
+      "type": "border",
+      "value": {
         "width": "{dimension.zero}"
       }
     },
     "small": {
-      "$value": {
+      "type": "border",
+      "value": {
         "width": "{base.border.width.01}",
         "style": "{border.style.solid}"
       }
     },
     "medium": {
-      "$value": {
+      "type": "border",
+      "value": {
         "width": "{base.border.width.02}",
         "style": "{border.style.solid}"
       }
     },
     "large": {
-      "$value": {
+      "type": "border",
+      "value": {
         "width": "{base.border.width.03}",
         "style": "{border.style.solid}"
       }
     },
     "primary": {
-      "$value": {
+      "type": "border",
+      "value": {
         "color": "{color.brand.primary.value}",
         "width": "{base.border.width.01}"
       }
     },
     "secondary": {
-      "$value": {
+      "type": "border",
+      "value": {
         "color": "{color.brand.secondary.value}",
         "width": "{base.border.width.01}"
       }
     },
     "tertiary": {
-      "$value": {
+      "type": "border",
+      "value": {
         "color": "{color.brand.tertiary.value}",
         "width": "{base.border.width.01}"
       }
     },
     "style": {
-      "$type": "strokeStyle",
       "solid": {
-        "$value": "solid"
+        "type": "strokeStyle",
+        "value": "solid"
       },
       "dashed": {
-        "$value": {
+        "type": "strokeStyle",
+        "value": {
           "dashArray": [
             "0.5rem",
             "0.25rem"
