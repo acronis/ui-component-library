@@ -1,0 +1,885 @@
+{
+  "version": "1.0.4",
+  "metadata": {},
+  "collections": [
+    {
+      "name": "Collection 1",
+      "modes": [
+        {
+          "name": "Acronis",
+          "variables": [
+            {
+              "name": "Spacing-Inner/spacing-inner-00",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-01",
+              "type": "number",
+              "isAlias": false,
+              "value": 4
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-02",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-03",
+              "type": "number",
+              "isAlias": false,
+              "value": 12
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-04",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-05",
+              "type": "number",
+              "isAlias": false,
+              "value": 20
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-06",
+              "type": "number",
+              "isAlias": false,
+              "value": 24
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-00",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-01",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-02",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-03",
+              "type": "number",
+              "isAlias": false,
+              "value": 24
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-04",
+              "type": "number",
+              "isAlias": false,
+              "value": 32
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-05",
+              "type": "number",
+              "isAlias": false,
+              "value": 40
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-06",
+              "type": "number",
+              "isAlias": false,
+              "value": 48
+            },
+            {
+              "name": "Radius/radius-zero",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Border/border-zero",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Border/border-small",
+              "type": "number",
+              "isAlias": false,
+              "value": 1
+            },
+            {
+              "name": "Border/border-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 2
+            },
+            {
+              "name": "Radius/radius-small",
+              "type": "number",
+              "isAlias": false,
+              "value": 2
+            },
+            {
+              "name": "Radius/radius-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 4
+            },
+            {
+              "name": "Radius/radius-medium",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Radius/radius-large",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Shadow-Position/shadow-zero",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Shadow-Position/shadow-y-small",
+              "type": "number",
+              "isAlias": false,
+              "value": 4
+            },
+            {
+              "name": "Shadow-Position/shadow-y-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Shadow-Blur/shadow-blur-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Font-Family/font-family-brand",
+              "type": "string",
+              "isAlias": false,
+              "value": "acronis-cyber"
+            },
+            {
+              "name": "Font-Family/font-family-default",
+              "type": "string",
+              "isAlias": false,
+              "value": "inter"
+            },
+            {
+              "name": "Font-Family/font-family-code",
+              "type": "string",
+              "isAlias": false,
+              "value": "jetbrains-mono"
+            },
+            {
+              "name": "Font-Style/font-style-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 400
+            },
+            {
+              "name": "Font-Style/font-style-accent",
+              "type": "number",
+              "isAlias": false,
+              "value": 500
+            },
+            {
+              "name": "Font-Style/font-style-strong",
+              "type": "number",
+              "isAlias": false,
+              "value": 600
+            },
+            {
+              "name": "Font-Size/font-size-fineprint",
+              "type": "number",
+              "isAlias": false,
+              "value": 10
+            },
+            {
+              "name": "Font-Size/font-size-note",
+              "type": "number",
+              "isAlias": false,
+              "value": 11
+            },
+            {
+              "name": "Font-Size/font-size-caption",
+              "type": "number",
+              "isAlias": false,
+              "value": 12
+            },
+            {
+              "name": "Font-Size/font-size-body",
+              "type": "number",
+              "isAlias": false,
+              "value": 14
+            },
+            {
+              "name": "Font-Size/font-size-accent",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Font-Size/font-size-lead",
+              "type": "number",
+              "isAlias": false,
+              "value": 18
+            },
+            {
+              "name": "Font-Size/font-size-title",
+              "type": "number",
+              "isAlias": false,
+              "value": 24
+            },
+            {
+              "name": "Font-Size/font-size-display",
+              "type": "number",
+              "isAlias": false,
+              "value": 32
+            },
+            {
+              "name": "Font-Height/font-height-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Font-Height/font-height-medium",
+              "type": "number",
+              "isAlias": false,
+              "value": 20
+            },
+            {
+              "name": "Font-Height/font-height-large",
+              "type": "number",
+              "isAlias": false,
+              "value": 24
+            },
+            {
+              "name": "Font-Height/font-height-xlarge",
+              "type": "number",
+              "isAlias": false,
+              "value": 32
+            },
+            {
+              "name": "Font-Height/font-height-xxlarge",
+              "type": "number",
+              "isAlias": false,
+              "value": 40
+            },
+            {
+              "name": "Font-Height/font-height-xxxlarge",
+              "type": "number",
+              "isAlias": false,
+              "value": 48
+            },
+            {
+              "name": "Colors-Bg/color-bg-brand",
+              "type": "color",
+              "isAlias": false,
+              "value": "#2668C5"
+            },
+            {
+              "name": "Shadow-Blur/shadow-blur-large",
+              "type": "number",
+              "isAlias": false,
+              "value": 20
+            },
+            {
+              "name": "Colors-Bg/color-bg-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFF"
+            },
+            {
+              "name": "Colors-Bg/color-bg-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#F4F7FC"
+            },
+            {
+              "name": "Colors-Bg/color-bg-tertiary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#E9F0F9"
+            },
+            {
+              "name": "Colors-Bg/color-bg-inversed",
+              "type": "color",
+              "isAlias": false,
+              "value": "#243143"
+            },
+            {
+              "name": "Colors-Bg/color-bg-danger",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFECEC"
+            },
+            {
+              "name": "Colors-Bg/color-bg-warning",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFF9E6"
+            },
+            {
+              "name": "Colors-Bg/color-bg-success",
+              "type": "color",
+              "isAlias": false,
+              "value": "#F5F9E9"
+            },
+            {
+              "name": "Colors-Bg/color-bg-info",
+              "type": "color",
+              "isAlias": false,
+              "value": "#ECF3FD"
+            },
+            {
+              "name": "Colors-Border/color-border-brand",
+              "type": "color",
+              "isAlias": false,
+              "value": "#2668C5"
+            },
+            {
+              "name": "Colors-Border/color-border-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#DFE9F7"
+            },
+            {
+              "name": "Colors-Border/color-border-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#D6E2F4"
+            },
+            {
+              "name": "Colors-Border/color-border-danger",
+              "type": "color",
+              "isAlias": false,
+              "value": "#EA3939"
+            },
+            {
+              "name": "Colors-Border/color-border-warning",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFC107"
+            },
+            {
+              "name": "Colors-Border/color-border-success",
+              "type": "color",
+              "isAlias": false,
+              "value": "#9BC225"
+            },
+            {
+              "name": "Colors-Border/color-border-info",
+              "type": "color",
+              "isAlias": false,
+              "value": "#408BEA"
+            },
+            {
+              "name": "Colors-Text/color-text-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#243143"
+            },
+            {
+              "name": "Colors-Text/color-text-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#243143B3"
+            },
+            {
+              "name": "Colors-Text/color-text-tertiary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#24314366"
+            },
+            {
+              "name": "Colors-Text/color-text-disabled",
+              "type": "color",
+              "isAlias": false,
+              "value": "#24314333"
+            },
+            {
+              "name": "Colors-Text/color-text-inversed-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFF"
+            },
+            {
+              "name": "Colors-Text/color-text-inversed-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFFB3"
+            },
+            {
+              "name": "Colors-Text/color-text-fixed-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFF"
+            },
+            {
+              "name": "Colors-Text/color-text-fixed-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFFB3"
+            },
+            {
+              "name": "Colors-Text/color-text-link",
+              "type": "color",
+              "isAlias": false,
+              "value": "#2668C5"
+            }
+          ]
+        },
+        {
+          "name": "Constructor",
+          "variables": [
+            {
+              "name": "Spacing-Inner/spacing-inner-00",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-01",
+              "type": "number",
+              "isAlias": false,
+              "value": 4
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-02",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-03",
+              "type": "number",
+              "isAlias": false,
+              "value": 12
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-04",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-05",
+              "type": "number",
+              "isAlias": false,
+              "value": 20
+            },
+            {
+              "name": "Spacing-Inner/spacing-inner-06",
+              "type": "number",
+              "isAlias": false,
+              "value": 128
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-00",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-01",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-02",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-03",
+              "type": "number",
+              "isAlias": false,
+              "value": 24
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-04",
+              "type": "number",
+              "isAlias": false,
+              "value": 32
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-05",
+              "type": "number",
+              "isAlias": false,
+              "value": 40
+            },
+            {
+              "name": "Spacing-Outer/spacing-outer-06",
+              "type": "number",
+              "isAlias": false,
+              "value": 48
+            },
+            {
+              "name": "Radius/radius-zero",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Border/border-zero",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Border/border-small",
+              "type": "number",
+              "isAlias": false,
+              "value": 1
+            },
+            {
+              "name": "Border/border-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 2
+            },
+            {
+              "name": "Radius/radius-small",
+              "type": "number",
+              "isAlias": false,
+              "value": 2
+            },
+            {
+              "name": "Radius/radius-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 4
+            },
+            {
+              "name": "Radius/radius-medium",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Radius/radius-large",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Shadow-Position/shadow-zero",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Shadow-Position/shadow-y-small",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Shadow-Position/shadow-y-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 0
+            },
+            {
+              "name": "Shadow-Blur/shadow-blur-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 8
+            },
+            {
+              "name": "Font-Family/font-family-brand",
+              "type": "string",
+              "isAlias": false,
+              "value": "helvetica"
+            },
+            {
+              "name": "Font-Family/font-family-default",
+              "type": "string",
+              "isAlias": false,
+              "value": "inter"
+            },
+            {
+              "name": "Font-Family/font-family-code",
+              "type": "string",
+              "isAlias": false,
+              "value": "jetbrains-mono"
+            },
+            {
+              "name": "Font-Style/font-style-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 400
+            },
+            {
+              "name": "Font-Style/font-style-accent",
+              "type": "number",
+              "isAlias": false,
+              "value": 500
+            },
+            {
+              "name": "Font-Style/font-style-strong",
+              "type": "number",
+              "isAlias": false,
+              "value": 600
+            },
+            {
+              "name": "Font-Size/font-size-fineprint",
+              "type": "number",
+              "isAlias": false,
+              "value": 10
+            },
+            {
+              "name": "Font-Size/font-size-note",
+              "type": "number",
+              "isAlias": false,
+              "value": 11
+            },
+            {
+              "name": "Font-Size/font-size-caption",
+              "type": "number",
+              "isAlias": false,
+              "value": 12
+            },
+            {
+              "name": "Font-Size/font-size-body",
+              "type": "number",
+              "isAlias": false,
+              "value": 14
+            },
+            {
+              "name": "Font-Size/font-size-accent",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Font-Size/font-size-lead",
+              "type": "number",
+              "isAlias": false,
+              "value": 18
+            },
+            {
+              "name": "Font-Size/font-size-title",
+              "type": "number",
+              "isAlias": false,
+              "value": 24
+            },
+            {
+              "name": "Font-Size/font-size-display",
+              "type": "number",
+              "isAlias": false,
+              "value": 32
+            },
+            {
+              "name": "Font-Height/font-height-regular",
+              "type": "number",
+              "isAlias": false,
+              "value": 16
+            },
+            {
+              "name": "Font-Height/font-height-medium",
+              "type": "number",
+              "isAlias": false,
+              "value": 20
+            },
+            {
+              "name": "Font-Height/font-height-large",
+              "type": "number",
+              "isAlias": false,
+              "value": 24
+            },
+            {
+              "name": "Font-Height/font-height-xlarge",
+              "type": "number",
+              "isAlias": false,
+              "value": 32
+            },
+            {
+              "name": "Font-Height/font-height-xxlarge",
+              "type": "number",
+              "isAlias": false,
+              "value": 40
+            },
+            {
+              "name": "Font-Height/font-height-xxxlarge",
+              "type": "number",
+              "isAlias": false,
+              "value": 48
+            },
+            {
+              "name": "Colors-Bg/color-bg-brand",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FF0000"
+            },
+            {
+              "name": "Shadow-Blur/shadow-blur-large",
+              "type": "number",
+              "isAlias": false,
+              "value": 20
+            },
+            {
+              "name": "Colors-Bg/color-bg-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFF"
+            },
+            {
+              "name": "Colors-Bg/color-bg-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#F9F9F9"
+            },
+            {
+              "name": "Colors-Bg/color-bg-tertiary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#F1F1F1"
+            },
+            {
+              "name": "Colors-Bg/color-bg-inversed",
+              "type": "color",
+              "isAlias": false,
+              "value": "#050505"
+            },
+            {
+              "name": "Colors-Bg/color-bg-danger",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFEDE8"
+            },
+            {
+              "name": "Colors-Bg/color-bg-warning",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FDF0CA"
+            },
+            {
+              "name": "Colors-Bg/color-bg-success",
+              "type": "color",
+              "isAlias": false,
+              "value": "#E5F5E2"
+            },
+            {
+              "name": "Colors-Bg/color-bg-info",
+              "type": "color",
+              "isAlias": false,
+              "value": "#E5F3FC"
+            },
+            {
+              "name": "Colors-Border/color-border-brand",
+              "type": "color",
+              "isAlias": false,
+              "value": "#B5D1F7"
+            },
+            {
+              "name": "Colors-Border/color-border-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#CFCFCF"
+            },
+            {
+              "name": "Colors-Border/color-border-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#E7E7E7"
+            },
+            {
+              "name": "Colors-Border/color-border-danger",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFC0B1"
+            },
+            {
+              "name": "Colors-Border/color-border-warning",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FACD52"
+            },
+            {
+              "name": "Colors-Border/color-border-success",
+              "type": "color",
+              "isAlias": false,
+              "value": "#A2DDA4"
+            },
+            {
+              "name": "Colors-Border/color-border-info",
+              "type": "color",
+              "isAlias": false,
+              "value": "#99D7FA"
+            },
+            {
+              "name": "Colors-Text/color-text-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#0A0A0AF0"
+            },
+            {
+              "name": "Colors-Text/color-text-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#0A0A0AA8"
+            },
+            {
+              "name": "Colors-Text/color-text-tertiary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#0A0A0A6E"
+            },
+            {
+              "name": "Colors-Text/color-text-disabled",
+              "type": "color",
+              "isAlias": false,
+              "value": "#0A0A0A5C"
+            },
+            {
+              "name": "Colors-Text/color-text-inversed-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFFFA"
+            },
+            {
+              "name": "Colors-Text/color-text-inversed-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFFB3"
+            },
+            {
+              "name": "Colors-Text/color-text-fixed-primary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFFFA"
+            },
+            {
+              "name": "Colors-Text/color-text-fixed-secondary",
+              "type": "color",
+              "isAlias": false,
+              "value": "#FFFFFFB3"
+            },
+            {
+              "name": "Colors-Text/color-text-link",
+              "type": "color",
+              "isAlias": false,
+              "value": "#0A0A0A"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
