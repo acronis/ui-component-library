@@ -1,8 +1,9 @@
 import StyleDictionary from 'style-dictionary';
 import * as fsExtra from "fs-extra";
-import styleGuideFormat from "./styleGuide.js";
+import styleGuideFormat from "./formatters/styleGuide.js";
 import copyDist from "./copyDist.js";
 import {format, transform} from "./fontFace.js";
+import {colorSchemeTransform} from "./transformers/colorScheme.js";
 
 fsExtra.emptyDirSync('dist');
 
@@ -10,6 +11,7 @@ StyleDictionary.registerFormat(styleGuideFormat);
 StyleDictionary.registerAction(copyDist);
 StyleDictionary.registerTransform(transform);
 StyleDictionary.registerFormat(format);
+StyleDictionary.registerTransform(colorSchemeTransform);
 
 const COLOR_SCHEMES = [`light`, `dark`];
 const BRANDS = [`acronis`, `constructor`, 'virtuozzo'];
@@ -35,7 +37,7 @@ function getStyleDictionaryConfig(brand, scheme) {
         platforms: {
             css: {
                 transformGroup: `css`,
-                transforms: ["attribute/cti", "cubicBezier/css", "color/hsl-4"],
+                transforms: ["attribute/cti", "cubicBezier/css", "color/hsl-4", "color-theme"],
                 buildPath: `dist/css/${brand}/`,
                 prefix: 'acv',
                 files: [{
@@ -106,7 +108,7 @@ function buildGlobalTokens() {
         platforms: {
             css: {
                 transformGroup: `css`,
-                transforms: ["attribute/cti", "time/seconds", "size/rem", "color/hsl-4"],
+                transforms: ["attribute/cti", "time/seconds", "size/rem", "color/hsl-4", "color-theme"],
                 buildPath: `dist/css/`,
                 prefix: 'acv',
                 files: [{

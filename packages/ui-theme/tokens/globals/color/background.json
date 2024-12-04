@@ -1,6 +1,13 @@
 {
   "color": {
     "background": {
+      "global-background": {
+        "type": "color-theme",
+        "value": {
+            "light": "#fff",
+            "dark": "#000"
+        }
+      },
       "base": {
         "value": "{color.white.value}",
         "type": "color",
