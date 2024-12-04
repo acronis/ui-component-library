@@ -1,0 +1,79 @@
+{
+  "example": {
+    "animation": {
+      "$description": "Animate the example component"
+    },
+    "backgroundColor": {
+      "$description": "color"
+    },
+    "backgroundImage": {
+      "$description": "asset"
+    },
+    "backgroundPosition": {
+      "$description": "dimension"
+    },
+    "backgroundSize": {
+      "$description": "bg"
+    },
+    "borderColor": {
+      "$description": "border"
+    },
+    "borderRadius": {
+      "$description": "dimension"
+    },
+    "borderWidth": {
+      "$description": "border"
+    },
+    "boxShadow": {
+      "$description": "shadow"
+    },
+    "cursor": {
+      "$description": "cursor"
+    },
+    "divideColor": {
+      "$description": "color"
+    },
+    "fill": {
+      "$description": "bg"
+    },
+    "flex": {
+      "$description": "flex"
+    },
+    "fontSize": {
+      "$description": "fontStyle"
+    },
+    "gradientColorStops": {
+      "$description": "color"
+    },
+    "inset": {
+      "$description": "shadow"
+    },
+    "margin": {
+      "$description": "dimension"
+    },
+    "outline": {
+      "$description": "outline"
+    },
+    "padding": {
+      "$description": "dimension"
+    },
+    "placeholderColor": {
+      "$description": "placeholder"
+    },
+    "ringColor": {
+      "$description": "ring"
+    },
+    "ringWidth": {
+      "$description": "ring"
+    },
+    "stroke": {
+      "$description": "stroke"
+    },
+    "color": {
+      "$description": "color"
+    },
+    "transitionProperty": {
+      "$description": "transition"
+    }
+  }
+}
