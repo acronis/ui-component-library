@@ -1,0 +1,8 @@
+{
+  "select": {
+    "padding": {
+        "value": "1rem",
+        "type": "dimension"
+    }
+  }
+}

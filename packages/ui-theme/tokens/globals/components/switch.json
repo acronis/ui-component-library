@@ -1,0 +1,23 @@
+{
+  "switch": {
+    "track": {
+      "borderRadius": {
+        "value": "{base.radius.circle}"
+      },
+      "height": {
+        "value": "{spacing.x-small}"
+      },
+      "width": {
+        "value": "{spacing.x-small}"
+      }
+    },
+    "thumb": {
+        "borderRadius": {
+            "value": "{base.radius.circle}"
+        },
+        "size": {
+          "value": "{spacing.regular}"
+        }
+    }
+  }
+}

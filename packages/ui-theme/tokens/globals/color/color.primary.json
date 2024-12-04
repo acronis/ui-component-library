@@ -14,7 +14,7 @@
         "type": "color"
       },
       "base": {
-        "value": "var(--acv-color-brand-primary, hsl(215deg 68% 46%))",
+        "value": "{color.brand.primary}",
         "type": "color"
       },
       "light": {

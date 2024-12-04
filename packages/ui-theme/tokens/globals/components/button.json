@@ -21,6 +21,52 @@
           "$value": "hsl(75deg 68% 45%)"
         }
       }
+    },
+    "padding": {
+      "value": "1rem",
+      "type": "dimension"
+    },
+    "primary": {
+      "default": {
+        "background": {
+          "type": "color",
+          "value": "{color.primary.base.value}"
+        },
+        "text": {
+            "type": "color",
+            "value": "{color.white}"
+        },
+        "border": {
+          "type": "border",
+          "value": {
+            "color": "{color.black}",
+            "width": "{border.width.small}",
+            "style": "{border.style.solid}"
+          }
+        }
+      },
+      "hover": {
+        "background": {
+          "type": "color",
+          "value": "{color.primary.hover.value}"
+        },
+        "text": {
+          "type": "color",
+          "value": "{color.white}"
+        }
+      }
+    },
+    "secondary": {
+      "default": {
+        "background": {
+          "type": "color",
+          "value": "{color.white}"
+        },
+        "text": {
+            "type": "color",
+            "value": "{color.primary.base.value}"
+        }
+      }
     }
   }
 }
