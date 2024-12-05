@@ -30,6 +30,8 @@ jobs:
           version-file: './packages/ui/package.json'
           output-file: './packages/ui/CHANGELOG.md'
           git-path: './packages/ui'
+          git-user-name: 'Team-RND-Tools-Github'
+          git-user-email: 'team-rnd-tools-github@acronis.com'
 
       - name: Release
         uses: softprops/action-gh-release@v2
