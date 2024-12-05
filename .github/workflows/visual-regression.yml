@@ -40,7 +40,7 @@ jobs:
         run: pnpm --filter ./packages/utils run build
 
       - name: Build UI Syntax
-        run: pnpm --filter ./packages/ui-theme run build
+        run: pnpm --filter ./packages/ui-syntax run build
 
       - name: Build UI Component Library
         run: pnpm --filter ./packages/ui run build

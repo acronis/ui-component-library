@@ -19,7 +19,7 @@ The package includes the following:
 To use the UI theme in your project, you need to install the package first:
 
 ```bash
-npm install @acronis-platform/ui-theme
+npm install @acronis-platform/ui-syntax
 ```
 
 Then, you can import the theme in your project:
@@ -27,13 +27,13 @@ Then, you can import the theme in your project:
 ```js
 
 // Import the all tokens, utilities and theme styles
-import '@acronis-platform/ui-theme/css/index.css';
+import '@acronis-platform/ui-syntax/css/index.css';
 // Import all css utilities
-import '@acronis-platform/ui-theme/styles/utilities.css';
+import '@acronis-platform/ui-syntax/styles/utilities.css';
 // Import all theme styles for the light and dark themes
-import '@acronis-platform/ui-theme/css/acronis/acronis.css';
+import '@acronis-platform/ui-syntax/css/acronis/acronis.css';
 // Figma base tokens
-import '@acronis-platform/ui-theme/css/globals.css';
+import '@acronis-platform/ui-syntax/css/globals.css';
 ```
 
 ## Development

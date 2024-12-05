@@ -23,7 +23,7 @@
   "dependencies": {
     "@acronis-platform/examples": "workspace:*",
     "@acronis-platform/ui-component-library": "workspace:*",
-    "@acronis-platform/ui-theme": "workspace:*",
+    "@acronis-platform/ui-syntax": "workspace:*",
     "@acronis-platform/utils": "workspace:*",
     "@vueuse/core": "10.9.0",
     "cssom": "0.5.0"

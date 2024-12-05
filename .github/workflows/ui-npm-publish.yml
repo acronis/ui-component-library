@@ -52,7 +52,7 @@ jobs:
         run: pnpm --filter ./packages/icons run build
 
       - name: Build UI Syntax
-        run: pnpm --filter ./packages/ui-theme run build
+        run: pnpm --filter ./packages/ui-syntax run build
 
       - name: Run tests
         run: pnpm test
