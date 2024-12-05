@@ -36,10 +36,11 @@ The main package is `@acronis-platform/ui`.
 
 ## Installation
 
-Install dependencies for all packages:
+Install dependencies and build packages:
 
 ``` bash
 pnpm install
+pnpm run build
 ```
 
 ## Run documentation with dev server
