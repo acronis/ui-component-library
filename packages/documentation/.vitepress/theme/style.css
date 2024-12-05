@@ -1,8 +1,8 @@
 @import "./vitepress/index.css";
 @import "@/styles/reset.css";
 @import "@/styles/themes/acronis/acronis.pcss";
-@import "@acronis-platform/ui-theme/dist/css/globals.css";
-@import "@acronis-platform/ui-theme/dist/css/acronis/acronis-light.css" screen
+@import "@acronis-platform/ui-syntax/dist/css/globals.css";
+@import "@acronis-platform/ui-syntax/dist/css/acronis/acronis-light.css" screen
   and (prefers-color-scheme: light);
-@import "@acronis-platform/ui-theme/dist/css/acronis/acronis-dark.css" screen
+@import "@acronis-platform/ui-syntax/dist/css/acronis/acronis-dark.css" screen
   and (prefers-color-scheme: dark);
