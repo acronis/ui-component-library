@@ -1,10 +1,12 @@
 <script setup lang="ts">
   import type { AcvRibbonEvents, AcvRibbonLink, AcvRibbonProps, AcvRibbonSlots } from './ribbon.ts';
+  import AcvAlert from '@/components/alert/alert.vue';
+  import AcvButton from '@/components/button/button.vue';
+  import AcvDivider from '@/components/divider/divider.vue';
+  import AcvLink from '@/components/link/link.vue';
+  import { IconClose16 } from '@acronis-platform/icons/close';
+  import { IconPlus16 } from '@acronis-platform/icons/plus';
   import { computed, ref } from 'vue';
-  import Alert from '../alert/alert.vue';
-  import Button from '../button/button.vue';
-  import AcvDivider from '../divider/divider.vue';
-  import AcvLink from '../link/link.vue';
   import './ribbon.css';
 
   const { alerts, hideClose } = defineProps<AcvRibbonProps>();
@@ -16,11 +18,22 @@
   const isFirst = computed(() => !currentIndex.value);
   const isLast = computed(() => alerts?.length ? (currentIndex.value === (alerts.length - 1)) : false);
   const stepLabel = computed(() => alerts?.length && `${currentIndex.value + 1} of ${alerts.length}`);
-  const onClose = () => emit('close', currentIndex.value);
+  function onClose() {
+    emit('close', currentIndex.value);
+    if (!alerts) {
+      return;
+    }
+    if (currentIndex.value >= alerts.length) {
+      currentIndex.value -= 1;
+    }
+  }
   const onPrevious = () => currentIndex.value -= 1;
   const onNext = () => currentIndex.value += 1;
-  function onClickLink(event: MouseEvent, link: AcvRibbonLink) {
+  function onClickLink(event: MouseEvent, link?: AcvRibbonLink) {
     event.preventDefault();
+    if (!link) {
+      return;
+    }
     if (link.click) {
       link.click();
       return;
@@ -38,33 +51,24 @@
       <template
         v-for="(alert, index) in alerts"
       >
-        <Alert
+        <AcvAlert
           v-if="index === currentIndex"
           :key="index"
-          :type="alert.type"
+          :color="alert.type"
         >
-          <template
-            v-if="alert.title"
-            #title
-          >
-            {{ alert.title }}
-          </template>
           <template
             v-if="alert.description"
             #description
           >
-            <div class="acv-ribbon__description">
-              {{ alert.description }}
-              <template v-if="alert.link">
-                <AcvLink
-                  :href="alert.link.href"
-                  :target="alert.link.target || '_blank'"
-                  @click="(event: MouseEvent) => onClickLink(event, alert.link)"
-                >
-                  {{ alert.link.title }}
-                </AcvLink>
-              </template>
-            </div>
+            {{ alert.description }}
+            <AcvLink
+              v-if="alert.link"
+              :href="alert.link.href"
+              :target="alert.link?.target || '_blank'"
+              @click="(event: MouseEvent) => onClickLink(event, alert.link)"
+            >
+              {{ alert.link.title }}
+            </AcvLink>
           </template>
 
           <template #right>
@@ -73,32 +77,44 @@
                 {{ stepLabel }}
               </div>
               <AcvDivider vertical />
-              <Button
+              <AcvButton
                 variant="ghost"
-                icon="i-long-arrow-left--16"
+                size="small"
                 :disabled="isFirst"
-                class="mx-8 acv-button--previous"
                 @click="onPrevious"
-              />
+              >
+                <template #prepend>
+                  <IconPlus16 />
+                </template>
+              </AcvButton>
               <AcvDivider vertical />
-              <Button
+              <AcvButton
                 variant="ghost"
-                icon="i-long-arrow-right--16"
+                size="small"
                 :disabled="isLast"
-                class="mx-8 acv-button--next"
                 @click="onNext"
-              />
+              >
+                <template #prepend>
+                  <IconPlus16 />
+                </template>
+              </AcvButton>
             </template>
-            <AcvDivider vertical />
-            <Button
+            <AcvDivider
+              v-if="!hideClose"
+              vertical
+            />
+            <AcvButton
               v-if="!hideClose"
               variant="ghost"
-              icon="i-times--16"
-              class="mx-8 acv-button--close"
+              size="small"
               @click="onClose"
-            />
+            >
+              <template #prepend>
+                <IconClose16 />
+              </template>
+            </AcvButton>
           </template>
-        </Alert>
+        </AcvAlert>
       </template>
     </slot>
   </div>
@@ -106,7 +122,14 @@
 
 <style scoped>
   .acv-ribbon {
-    font-weight: var(--acv-font-weight-strong);
     color: var(--acv-ribbon-color);
+  }
+
+  :deep(.acv-alert) .content {
+    padding: 8px 8px 8px 24px;
+  }
+
+  :deep(.acv-alert) .content .description {
+    grid-row: 1 / -1;
   }
 </style>

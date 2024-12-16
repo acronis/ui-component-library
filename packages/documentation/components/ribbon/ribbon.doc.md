@@ -11,7 +11,7 @@ It can be used to highlight a new feature, a promotion, a warning, or a call to 
 
 ## Ribbon types
 
-There are 4 types of ribbons: `info`, `warning`, `critical`, and `error`.
+There are 6 types of ribbons: `info`, `success`, `warning`, `critical`, `danger` and `neutral`
 
 <RibbonTypes />
 
@@ -20,6 +20,10 @@ There are 4 types of ribbons: `info`, `warning`, `critical`, and `error`.
 Set `hide-close` to hide the close button
 
 <RibbonWithoutClose />
+
+::: details Source code
+<<< ../../../examples/demos/ribbon/RibbonWithoutClose.vue
+:::
 
 ## Related components
 

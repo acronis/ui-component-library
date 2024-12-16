@@ -1,9 +1,15 @@
-export interface AcvRibbonAlert {
-  /**
-   * The alert title
-   */
-  title: string
+export const TYPE = {
+  info: 'info',
+  success: 'success',
+  warning: 'warning',
+  critical: 'critical',
+  danger: 'danger',
+  neutral: 'neutral',
+} as const;
 
+export type AcvRibbonType = keyof typeof TYPE;
+
+export interface AcvRibbonAlert {
   /**
    * The alert message
    */
@@ -11,12 +17,12 @@ export interface AcvRibbonAlert {
   /**
    * The alert type
    */
-  type: 'info' | 'success' | 'warning' | 'critical' | 'error'
+  type: AcvRibbonType
 
   /**
    * The alert link
    */
-  link: AcvRibbonLink
+  link?: AcvRibbonLink
 }
 
 export interface AcvRibbonLink {
@@ -29,36 +35,22 @@ export interface AcvRibbonLink {
 export interface AcvRibbonProps {
   /**
    * List of alerts
+   * @values [{ description: string, type: string, link?: { href: string, target?: string, title: string, click: () => void } }]
+   * @defaultValue []
    */
   alerts?: AcvRibbonAlert[]
 
-  variant?: 'info' | 'success' | 'warning' | 'critical' | 'error'
-
-  /**
-   * The alert title
-   */
-  title?: string
-
-  /**
-   * The alert message
-   */
-  description?: string
-
   /**
    * Hide the close button
+   * @values true, false
+   * @defaultValue false
    */
   hideClose?: boolean
-
-  /**
-   * Show the close button
-   */
-  closeable?: boolean
 }
 
 export interface AcvRibbonEvents {
   /**
    * Triggered when the alert is closed
-   * @arg {string} eventName - The name of the event
    * @arg {number} alertIndex - The alert index
    */
   (eventName: 'close', alertIndex: number): void

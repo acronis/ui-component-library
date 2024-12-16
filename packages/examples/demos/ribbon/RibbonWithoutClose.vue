@@ -1,12 +1,13 @@
 <script setup>
-  import Ribbon from '@/components/ribbon/ribbon.vue';
-  import { reactive, ref } from 'vue';
+  import AcvDialog from '@/components/dialog/dialog.vue';
+  import AcvRibbon from '@/components/ribbon/ribbon.vue';
+  import { ref } from 'vue';
 
   const currentDate = new Intl
     .DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short' })
     .format(new Date().setHours(new Date().getHours() + 6));
 
-  let ribbons = reactive([
+  const ribbons = [
     {
       description: 'Please note that the examples below just represent the html markup.',
       type: 'success',
@@ -25,35 +26,41 @@
       }
     },
     {
-      description: 'Description 1',
+      description: 'A critical message.',
       type: 'critical'
     },
     {
-      description: 'Description 2',
+      description: 'A warning message.',
       type: 'warning'
     },
     {
-      description: 'Description 3',
+      description: 'A success message.',
       type: 'success'
     }
-  ]);
+  ];
 
   const showDialog = ref(false);
 
   function onShowDialog() {
     showDialog.value = !showDialog.value;
   }
-
-  function onClose(index) {
-    ribbons = ribbons.filter((_, i) => i !== index);
-  }
 </script>
 
 <template>
-  <Ribbon
-    :alerts="ribbons"
-    hide-close
-    class="pb-16"
-    @close="onClose"
-  />
+  <div>
+    <AcvRibbon
+      :alerts="ribbons"
+      hide-close
+      class="pb-16"
+      @close="onClose"
+    />
+    <AcvDialog
+      v-model="showDialog"
+      title="Dialog title"
+    >
+      <div class="px-24 py-16">
+        {{ "Dialog body" }}
+      </div>
+    </AcvDialog>
+  </div>
 </template>

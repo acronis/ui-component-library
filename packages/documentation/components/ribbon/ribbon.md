@@ -11,20 +11,16 @@ description: This file is generated automatically from the source code. Changes 
 
 ## Props
 
-| Prop name   | Description           | Type                                                      | Values | Default |
-| ----------- | --------------------- | --------------------------------------------------------- | ------ | ------- |
-| alerts      | List of alerts        | Array                                                     | -      |         |
-| variant     |                       | "info" \| "success" \| "warning" \| "critical" \| "error" | -      |         |
-| title       | The alert title       | string                                                    | -      |         |
-| description | The alert message     | string                                                    | -      |         |
-| hideClose   | Hide the close button | boolean                                                   | -      |         |
-| closeable   | Show the close button | boolean                                                   | -      |         |
+| Prop name | Description           | Type    | Values                                                                                                                 | Default |
+| --------- | --------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- | ------- |
+| alerts    | List of alerts        | Array   | [{ description: string, type: string, link?: { href: string, target?: string, title: string, click: () =&gt; void } }] | []      |
+| hideClose | Hide the close button | boolean | true, false                                                                                                            | false   |
 
 ## Events
 
-| Event name | Properties                                                                                   | Description                        |
-| ---------- | -------------------------------------------------------------------------------------------- | ---------------------------------- |
-| close      | **eventName** `string` - The name of the event<br/>**alertIndex** `number` - The alert index | Triggered when the alert is closed |
+| Event name | Properties                                | Description                        |
+| ---------- | ----------------------------------------- | ---------------------------------- |
+| close      | **alertIndex** `number` - The alert index | Triggered when the alert is closed |
 
 ## Slots
 
