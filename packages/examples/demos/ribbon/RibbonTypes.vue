@@ -1,58 +1,42 @@
 <script setup>
-  import Link from '@/components/link/link.vue';
-  import Ribbon from '@/components/ribbon/ribbon.vue';
+  import AcvRibbon from '@/components/ribbon/ribbon.vue';
+  import { reactive } from 'vue';
 
-  let ribbons = [
+  const ribbons = reactive([
     {
-      title: 'This is a title.',
-      description: 'This is a description.',
-      variant: 'info'
+      description: 'Informational message.',
+      type: 'info'
     },
     {
-      title: 'This is a title.',
-      description: 'This is a description.',
-      variant: 'success'
+      description: 'Success message.',
+      type: 'success'
     },
     {
-      title: 'This is a title.',
-      description: 'This is a description.',
-      variant: 'warning'
+      description: 'Warning message.',
+      type: 'warning'
     },
     {
-      title: 'This is a title.',
-      description: 'This is a description.',
-      variant: 'critical'
+      description: 'Critical message.',
+      type: 'critical'
     },
     {
-      title: 'This is a title.',
-      description: 'This is a description.',
-      variant: 'error'
+      description: 'Danger message.',
+      type: 'danger'
     },
     {
-      title: 'This is a title.',
-      description: 'This is a description.',
-      variant: 'unknown'
+      description: 'Neutral message.',
+      type: 'neutral'
     }
-  ];
+  ]);
 
   function onClose(index) {
-    ribbons = ribbons.filter((_, i) => i !== index);
+    ribbons.splice(index, 1);
   }
 </script>
 
 <template>
-  <Ribbon
-    v-for="(ribbon, index) in ribbons"
-    :key="index"
-    :variant="ribbon.variant"
-    :title="ribbon.title"
-    :description="ribbon.description"
-    show-close
+  <AcvRibbon
+    :alerts="ribbons"
     @close="onClose"
-  >
-    <template #actions>
-      <span><Link>First action</Link></span>
-      <Link>Second action</Link>
-    </template>
-  </Ribbon>
+  />
 </template>

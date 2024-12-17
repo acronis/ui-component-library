@@ -9,11 +9,7 @@ describe('test Ribbon component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "alerts": undefined,
-        "closeable": false,
-        "description": undefined,
         "hideClose": false,
-        "title": undefined,
-        "variant": undefined,
       }
     `);
   });
@@ -28,11 +24,7 @@ describe('test Ribbon component', () => {
     expect(wrapper.props()).toMatchInlineSnapshot(`
       {
         "alerts": undefined,
-        "closeable": false,
-        "description": undefined,
         "hideClose": false,
-        "title": "test",
-        "variant": undefined,
       }
     `);
   });

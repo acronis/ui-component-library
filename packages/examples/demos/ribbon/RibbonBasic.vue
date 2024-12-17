@@ -1,7 +1,8 @@
 <script setup>
-  import Ribbon from '@/components/ribbon/ribbon.vue';
+  import AcvRibbon from '@/components/ribbon/ribbon.vue';
+  import { reactive } from 'vue';
 
-  const alerts = [
+  const alerts = reactive([
     {
       description: `Data center maintenance is scheduled for ${new Date()}. For more details, refer to the`,
       type: 'info',
@@ -12,7 +13,7 @@
       }
     },
     {
-      description: `Data center maintenance is scheduled for ${new Date()}. For more details, refer to the`,
+      description: `Data center`,
       type: 'critical',
       link: {
         href: 'https://www.acronis.com/en-sg/',
@@ -20,9 +21,16 @@
         title: 'About Page'
       }
     }
-  ];
+  ]);
+
+  function onClose(index) {
+    alerts.splice(index, 1);
+  }
 </script>
 
 <template>
-  <Ribbon :alerts="alerts" />
+  <AcvRibbon
+    :alerts="alerts"
+    @close="onClose"
+  />
 </template>
