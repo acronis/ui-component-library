@@ -1,3 +1,10 @@
+## [1.35.0](https://github.com/acronis/ui-component-library/compare/v1.34.0...v1.35.0) (2024-12-17)
+
+
+### Features
+
+* ribbon component ([#176](https://github.com/acronis/ui-component-library/issues/176)) ([6be17b7](https://github.com/acronis/ui-component-library/commit/6be17b7dd871c015694fbfb075ccaa114c50551c))
+
 ## [1.34.0](https://github.com/acronis/ui-component-library/compare/v1.33.0...v1.34.0) (2024-12-03)
 
 
@@ -26,11 +33,4 @@
 ### Features
 
 * build improve ([#167](https://github.com/acronis/ui-component-library/issues/167)) ([6e5a203](https://github.com/acronis/ui-component-library/commit/6e5a2035ac47666a25369f5d2007596dce77bb5a)), closes [#166](https://github.com/acronis/ui-component-library/issues/166)
-
-## [1.30.4](https://github.com/acronis/ui-component-library/compare/v1.30.3...v1.30.4) (2024-11-14)
-
-
-### Bug Fixes
-
-* remove router-link import ([1d173a3](https://github.com/acronis/ui-component-library/commit/1d173a34bf0a089e08b470ee2fa5721012b82045))
 
