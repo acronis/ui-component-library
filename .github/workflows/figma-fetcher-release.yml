@@ -29,3 +29,5 @@ jobs:
           output-file: './packages/figma-fetcher/CHANGELOG.md'
           tag-prefix: 'figma-fetcher/'
           git-path: './packages/figma-fetcher'
+          git-user-name: 'Team-RND-Tools-Github'
+          git-user-email: 'team-rnd-tools-github@acronis.com'

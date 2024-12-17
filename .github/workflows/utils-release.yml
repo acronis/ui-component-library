@@ -31,3 +31,5 @@ jobs:
           output-file: './packages/utils/CHANGELOG.md'
           tag-prefix: 'utils/'
           git-path: './packages/utils'
+          git-user-name: 'Team-RND-Tools-Github'
+          git-user-email: 'team-rnd-tools-github@acronis.com'

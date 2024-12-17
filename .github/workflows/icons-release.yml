@@ -31,3 +31,5 @@ jobs:
           output-file: './packages/icons/CHANGELOG.md'
           tag-prefix: 'icons/'
           git-path: './packages/icons'
+          git-user-name: 'Team-RND-Tools-Github'
+          git-user-email: 'team-rnd-tools-github@acronis.com'
