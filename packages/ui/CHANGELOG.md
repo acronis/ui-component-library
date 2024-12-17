@@ -1,3 +1,10 @@
+## [1.35.1](https://github.com/acronis/ui-component-library/compare/v1.35.0...v1.35.1) (2024-12-17)
+
+
+### Bug Fixes
+
+* fix Regular expression injection ([ebea29a](https://github.com/acronis/ui-component-library/commit/ebea29ad2fa5cffb77e10b742a0c8afb53cc9ca5))
+
 ## [1.35.0](https://github.com/acronis/ui-component-library/compare/v1.34.0...v1.35.0) (2024-12-17)
 
 
@@ -26,11 +33,4 @@
 
 * **icon:** move dynamic icons ([#170](https://github.com/acronis/ui-component-library/issues/170)) ([fd7b28b](https://github.com/acronis/ui-component-library/commit/fd7b28befc61f9260cb34343de029427fd81563c))
 * **tabs:** move tabs ([#168](https://github.com/acronis/ui-component-library/issues/168)) ([9dfe3c5](https://github.com/acronis/ui-component-library/commit/9dfe3c54a15d4eae5b937c97f065726dd0b1e712))
-
-## [1.31.0](https://github.com/acronis/ui-component-library/compare/v1.30.4...v1.31.0) (2024-11-21)
-
-
-### Features
-
-* build improve ([#167](https://github.com/acronis/ui-component-library/issues/167)) ([6e5a203](https://github.com/acronis/ui-component-library/commit/6e5a2035ac47666a25369f5d2007596dce77bb5a)), closes [#166](https://github.com/acronis/ui-component-library/issues/166)
 
