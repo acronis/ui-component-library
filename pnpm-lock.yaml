@@ -375,6 +375,9 @@ importers:
         specifier: 3.4.15
         version: 3.4.15(typescript@5.3.2)
     devDependencies:
+      '@acronis-platform/configs':
+        specifier: workspace:*
+        version: link:../configs
       '@create-figma-plugin/build':
         specifier: 3.1.0
         version: 3.1.0(@figma/plugin-typings@1.88.0)(typescript@5.3.2)
@@ -18351,8 +18354,8 @@ snapshots:
     dependencies:
       htmlparser2: 8.0.2
       js-tokens: 8.0.3
-      postcss: 8.4.38
-      postcss-safe-parser: 6.0.0(postcss@8.4.38)
+      postcss: 8.4.49
+      postcss-safe-parser: 6.0.0(postcss@8.4.49)
 
   postcss-image-set-function@6.0.3(postcss@8.4.38):
     dependencies:
@@ -18671,6 +18674,10 @@ snapshots:
   postcss-safe-parser@6.0.0(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
+
+  postcss-safe-parser@6.0.0(postcss@8.4.49):
+    dependencies:
+      postcss: 8.4.49
 
   postcss-safe-parser@7.0.0(postcss@8.4.38):
     dependencies:

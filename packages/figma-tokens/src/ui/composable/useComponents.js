@@ -1,5 +1,5 @@
-import { ref } from 'vue';
 import { emit as emitFigma } from '@create-figma-plugin/utilities';
+import { ref } from 'vue';
 
 function useComponents() {
   const components = ref([]);

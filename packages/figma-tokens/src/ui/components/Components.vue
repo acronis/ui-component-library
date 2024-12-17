@@ -1,22 +1,22 @@
 <script setup>
-  import { ref } from 'vue';
   import { Button, Disclosure, DisclosureItem } from '@acronis-platform/figma-ds-vue-plugin';
   import { on } from '@create-figma-plugin/utilities';
+  import { ref } from 'vue';
   import useComponents from '../composable/useComponents';
 
   const {
-    components,
-    getComponents,
+    // components,
+    // getComponents,
     createComponent
   } = useComponents();
 
-  on('SET_COMPONENT', (res) => {
+  on('SET_COMPONENT', (_res) => {
     // stats.value = res;
     //
     // isLoading.value = false;
   });
 
-  const components2 = ref([
+  const _components2 = ref([
     {
       name: 'Button',
       description: 'A button',

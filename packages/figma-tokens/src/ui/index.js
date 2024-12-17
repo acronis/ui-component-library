@@ -3,7 +3,7 @@ import { createApp } from 'vue';
 // import FigmaDS from '@acronis-platform/figma-ds-vue-plugin';
 import App from './components/app.vue';
 
-window.addEventListener('message', function onMessage(event) {
+window.addEventListener('message', (_event) => {
   /* ... */
 });
 

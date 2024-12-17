@@ -1,8 +1,8 @@
 import { emit, on } from '@create-figma-plugin/utilities';
-import { nodeToObject } from './ui/utils';
-import { getMappedVariableCollections } from './api/variablesApi';
-import { getStats } from './api/statsApi';
 import { createComponent } from './api/components.api';
+import { getStats } from './api/statsApi';
+import { getMappedVariableCollections } from './api/variablesApi';
+import { nodeToObject } from './ui/utils';
 
 figma.showUI(__html__, {
   width: 350,
@@ -60,7 +60,7 @@ figma.ui.onmessage = async (message) => {
   }
 };
 
-on('REQ_DOCUMENT_TITLE', async function () {
+on('REQ_DOCUMENT_TITLE', async () => {
   const title = figma.root.name;
   console.log('Plugin Document Title:', title);
   emit('RES_DOCUMENT_TITLE', title);

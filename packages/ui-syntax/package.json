@@ -19,7 +19,7 @@
     "start": "npm run build && chokidar 'public/style.css' 'demo/src/**/*' 'tokens/**/*.json' 'bin/views/**/*' config.json sd.config.js -c 'npm run build'",
     "prepublishOnly": "npm run build"
   },
-  "author": "",
+  "author": "Acronis",
   "license": "MIT",
   "devDependencies": {
     "@acronis-platform/configs": "workspace:*",

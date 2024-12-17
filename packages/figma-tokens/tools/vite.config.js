@@ -1,6 +1,6 @@
 import path from 'node:path';
-import { viteSingleFile } from 'vite-plugin-singlefile';
 import vue from '@vitejs/plugin-vue';
+import { viteSingleFile } from 'vite-plugin-singlefile';
 
 /**
  * Resolves a path into an absolute path relative to the current directory

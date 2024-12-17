@@ -22,7 +22,7 @@ function nodeToObject(node, withoutRelations) {
           obj[name] = prop.get.call(node);
         }
       }
-      catch (err) {
+      catch {
         obj[name] = undefined;
       }
     }
@@ -39,22 +39,22 @@ function nodeToObject(node, withoutRelations) {
   return obj;
 }
 
-function ColorToHex(rgb) {
-  let hex = Number(rgb).toString(16);
-  if (hex.length < 2) {
-    hex = `0${hex}`;
-  }
+// function ColorToHex(rgb) {
+//   let hex = Number(rgb).toString(16);
+//   if (hex.length < 2) {
+//     hex = `0${hex}`;
+//   }
+//
+//   return hex.toUpperCase();
+// }
 
-  return hex.toUpperCase();
-}
-
-function RGBToHex(r, g, b) {
-  const red = ColorToHex(r);
-  const green = ColorToHex(g);
-  const blue = ColorToHex(b);
-
-  return `#${red}${green}${blue}`;
-}
+// function RGBToHex(r, g, b) {
+//   const red = ColorToHex(r);
+//   const green = ColorToHex(g);
+//   const blue = ColorToHex(b);
+//
+//   return `#${red}${green}${blue}`;
+// }
 
 function RGBToHSL(red, green, blue, alpha) {
   // Make red, green, and blue fractions of 1

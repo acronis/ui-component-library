@@ -1,7 +1,7 @@
-import { ref } from 'vue';
 import { emit as emitFigma, on } from '@create-figma-plugin/utilities';
+import { setWith } from 'lodash-es';
+import { ref } from 'vue';
 import { RGBToHSL } from '../utils';
-import {setWith} from 'lodash-es';
 
 function useVariables() {
   const variables = ref([]);
@@ -37,7 +37,7 @@ function useVariables() {
     if (value?.type === 'VARIABLE_ALIAS') {
       const alias = variablesMap.value[value.id];
       if (!alias) {
-        console.error('Unable to find alias for ' + value);
+        console.error(`Unable to find alias for ${value}`);
       }
       const dimension = getDimension(alias.name);
       value = `var(${alias.cssName.replace('--acv', '--acv-base')}, ${alias.cssValue}${dimension})`;
@@ -51,7 +51,7 @@ function useVariables() {
   }
 
   function getStyleDictionaryValue(variable, modeId) {
-    const {name, cssValue} = variable;
+    const { name, cssValue } = variable;
     const dimension = getDimension(name);
     const taxonomy = name.split('/');
     const type = taxonomy[0] || taxonomy[1] || 'getSDType';
@@ -60,13 +60,13 @@ function useVariables() {
     if (cssValue?.type === 'VARIABLE_ALIAS') {
       const alias = variablesMap.value[cssValue.id];
       if (!alias) {
-        console.error('Unable to find alias for ' + cssValue.id);
+        console.error(`Unable to find alias for ${cssValue.id}`);
       }
 
       value = `{${['base'].concat(alias.name.split('/')).join('.')}}`;
     }
 
-    if (type==='color') {
+    if (type === 'color') {
       value = cssValue;
     }
 
@@ -90,8 +90,8 @@ function useVariables() {
       .sort((a, b) => a.cssName.localeCompare(b.cssName))
       .map((variable) => {
         const name = singleMode
-            ? variable.cssName.replace('--acv', '--acv-base')
-            : variable.cssName;
+          ? variable.cssName.replace('--acv', '--acv-base')
+          : variable.cssName;
         const value = getValue(variable, modeId);
         const dimension = singleMode ? getDimension(variable.name) : '';
 
@@ -118,7 +118,7 @@ function useVariables() {
   }
 
   function outputJsonMode({ modeName, modeId, variables, singleMode }) {
-    const modeTitle = singleMode ? 'base' : modeName.toLowerCase()
+    const modeTitle = singleMode ? 'base' : modeName.toLowerCase();
     const output = {};
 
     variables.forEach((variable) => {
@@ -127,13 +127,13 @@ function useVariables() {
       // const dimension = singleMode ? getDimension(variable.name) : '';
 
       setWith(output, [modeTitle, ...segments], value, Object);
-    })
+    });
 
     return output;
   }
 
   function outputJsonVariables(json) {
-    let vars = {};
+    const vars = {};
 
     Object.values(json).forEach((collection) => {
       collection.modes.forEach(({ name, modeId }) => {
