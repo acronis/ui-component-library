@@ -11,8 +11,6 @@
   import { computed, getCurrentInstance, inject, ref, toValue } from 'vue';
   import { MENU_KEY } from '../menu/menu.ts';
 
-  import './menuItem.css';
-
   const props = withDefaults(defineProps<AcvMenuItemProps>(), {
     iconSize: 'md'
   });
@@ -74,7 +72,7 @@
         </div>
         <div
           v-else
-          class="acv-text--ellipsis"
+          class="ellipsis"
         >
           <slot />
         </div>
@@ -107,23 +105,23 @@
       </template>
       <span
         v-if="slots.title || slots.subtitle"
-        class="acv-text--ellipsis"
+        class="ellipsis"
       >
         <span
           v-if="slots.title"
-          class="acv-menu-item__title acv-text acv-text--body-24 acv-text--ellipsis"
+          class="title ellipsis"
         >
           <slot name="title" />
         </span>
         <span
           v-if="$slots.subtitle"
-          class="acv-menu-item__subtitle acv-text--caption acv-text--ellipsis acv-text--color-fixed-light"
+          class="subtitle text-caption ellipsis"
         >
           <slot name="subtitle" />
         </span>
       </span>
       <div
-        class="acv-text acv-text--body-24 acv-text--ellipsis"
+        class="text ellipsis"
         :class="{ clamp }"
       >
         <slot />
@@ -143,39 +141,77 @@
   .acv-menu-item {
     --acv-menu-item-indent: v-bind(indent);
     --acv-menu-item-clamp: v-bind(clampSize);
+    --acv-menu-item-height: 64px;
     align-items: center;
-    color: var(--acv-menu-item-color);
+    color: var(--_acv-menu-item-color);
     cursor: pointer;
     display: flex;
     font-size: var(--acv-font-size-caption);
     font-weight: var(--acv-font-weight-strong);
-    gap: var(--acv-menu-item-gap);
+    gap: var(--_acv-menu-item-gap);
     grid-template-columns: auto 1fr;
     letter-spacing: .3px;
     line-height: 24px;
     min-height: var(--acv-menu-item-height);
-    padding-block:var(--acv-spacing-small, 8px) ;
-    padding-inline: var(--acv-menu-item-padding-inline-start) var(--acv-menu-item-padding-inline-end, 16px);
+    padding-block:var(--acv-spacing-small) ;
+    padding-inline: var(--_acv-menu-item-padding-start) var(--_acv-menu-item-padding-end);
     position: relative;
     transition: transform .5s ease;
     overflow: visible;
-    justify-content: var(--acv-menu-item-justify-content, start);
+    justify-content: var(--acv-menu-item-justify-content);
 
     &.selected,
     &:hover.selected,
     &:active {
-      background-color: var(--acv-menu-item-selected-bg);
-      color: var(--acv-menu-item-selected-color);
+      background-color: var(--_acv-menu-item-selected-bg);
+      color: var(--_acv-menu-item-selected-color);
     }
 
     &.disabled {
       pointer-events: none;
-      color: hsl(from var(--acv-menu-item-color) h s calc(l - 30));
+      color: var(--acv-color-status-neutral-secondary);
     }
 
     &:hover {
-      color: var(--acv-menu-item-hover-color);
-      background-color: var(--acv-menu-item-hover-bg);
+      color: var(--_acv-menu-item-hover-color);
+      background-color: var(--_acv-menu-item-hover-bg);
+    }
+
+    .title {
+      margin: 0;
+      font-size: var(--acv-font-size-accent);
+      line-height: var(--acv-font-line-height-regular);
+      font-weight: var(--acv-font-weight-regular);
+    }
+
+    .ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+      max-width: 100%;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .subtitle {
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .text-caption {
+      font-size: var(--acv-font-size-caption);
+      font-weight: var(--acv-font-weight-regular);
+      line-height: var(--acv-font-line-height-x-small);
+    }
+
+    .text {
+      margin: 0;
+      font-size: var(--acv-font-size-accent);
+      line-height: var(--acv-font-line-height-regular);
+      font-weight: var(--acv-font-weight-regular);
     }
 
     .clamp {
@@ -193,7 +229,7 @@
       margin-left: auto;
     }
 
-    &:deep(.acv-icon) {
+    .icon {
       min-width: 16px;
     }
   }
