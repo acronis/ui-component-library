@@ -1,3 +1,10 @@
+## [0.7.0](https://github.com/acronis/ui-component-library/compare/icons/0.6.0...icons/0.7.0) (2025-02-18)
+
+
+### Features
+
+* update icons from figma ([86f3ab4](https://github.com/acronis/ui-component-library/commit/86f3ab4289625553f1d4740bcc0b663ab5ff01ee))
+
 ## [0.6.0](https://github.com/acronis/ui-component-library/compare/icons/0.5.0...icons/0.6.0) (2025-01-14)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
-
-## [0.3.0](https://github.com/acronis/ui-component-library/compare/icons/0.2.0...icons/0.3.0) (2024-09-18)
-
-
-### Features
-
-* **icons:** update figma icons ([0395448](https://github.com/acronis/ui-component-library/commit/03954489e9ad42b6e91e073e5bacb978a423ed13))
 
