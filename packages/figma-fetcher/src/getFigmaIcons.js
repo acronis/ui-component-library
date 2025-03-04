@@ -46,7 +46,7 @@ export async function getFigmaIcons(config) {
     page.children.filter(c => c.type === 'FRAME' && config.frameNames.includes(c.name))
   );
 
-  if (!framesWithIcons) {
+  if (!framesWithIcons.length) {
     console.log(
       chalk.red.bold(
         'Cannot find',
