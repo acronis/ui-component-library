@@ -1,3 +1,10 @@
+## [0.8.0](https://github.com/acronis/ui-component-library/compare/icons/0.7.0...icons/0.8.0) (2025-03-04)
+
+
+### Features
+
+* add IconCheckDouble16 and IconPinOutlineSmall32 components ([b985745](https://github.com/acronis/ui-component-library/commit/b985745d3e0324c3c29ac34a4fa1feb349f9ed37))
+
 ## [0.7.0](https://github.com/acronis/ui-component-library/compare/icons/0.6.0...icons/0.7.0) (2025-02-18)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **icons:** update icons ([015eca9](https://github.com/acronis/ui-component-library/commit/015eca99eb5c2cd30431483b83d16d823d4ab6f5))
-
-## [0.3.1](https://github.com/acronis/ui-component-library/compare/icons/0.3.0...icons/0.3.1) (2024-10-09)
-
-
-### Bug Fixes
-
-* **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
 
