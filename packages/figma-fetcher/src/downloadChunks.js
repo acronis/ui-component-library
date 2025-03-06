@@ -18,15 +18,20 @@ export async function downloadChunks(config, icons) {
   let downloadPromises = [];
 
   // A counter to keep track of the current chunk being processed.
-  let currentChunk = 0;
+  let from = 0;
+  let chunk = 0;
 
   // Loop over the icons array, processing chunks of icons until all icons have been processed.
-  while (currentChunk < icons.length) {
-    // Push the promise for the download of the current chunk of icons to the downloadPromises array.
-    downloadPromises.push(downloadChunk(config, icons, currentChunk));
+  while (from < icons.length) {
+    const to = Math.min(from + chunkSize, icons.length);
+    const iconsChunk = icons.slice(from, to);
 
-    // Increment the currentChunk counter by the size of each chunk.
-    currentChunk += chunkSize;
+    chunk += 1;
+    console.log(`Downloading, chunk: ${chunk}, chunkSize: ${iconsChunk.length}, from ${from + 1} to ${to}`);
+    // Push the promise for the download of the current chunk of icons to the downloadPromises array.
+    downloadPromises.push(Promise.all(iconsChunk.map(icon => downloadImage(config, icon))));
+
+    from = to;
 
     // If the number of download promises has reached the maximum number of chunks that can be processed concurrently,
     // wait for the fastest promise to resolve and then filter out the resolved promises from the downloadPromises array.
@@ -38,15 +43,4 @@ export async function downloadChunks(config, icons) {
 
   // Wait for all remaining download promises to resolve before the function returns.
   await Promise.all(downloadPromises);
-}
-
-export async function downloadChunk(config, icons, chunk) {
-  const from = chunk;
-  const to = Math.min(chunk + chunkSize, icons.length);
-  const iconsChunk = icons.slice(from, to);
-
-  console.log(`Downloading, chunk: ${chunk}, chunkSize: ${iconsChunk.length}, from ${from} to ${to}`);
-  await Promise.all(iconsChunk.map(icon => downloadImage(config, icon)));
-
-  return chunk;
 }
