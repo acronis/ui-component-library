@@ -1,3 +1,10 @@
+## [0.2.0](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.3...figma-fetcher/0.2.0) (2025-03-06)
+
+
+### Features
+
+* improve icons logs ([#177](https://github.com/acronis/ui-component-library/issues/177)) ([c16399c](https://github.com/acronis/ui-component-library/commit/c16399cd5dbdb422c1adac6754ee11786169976c))
+
 ## [0.1.3](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.2...figma-fetcher/0.1.3) (2024-10-16)
 
 
