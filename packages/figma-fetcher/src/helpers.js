@@ -1,11 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 import chalk from 'chalk';
 import dotenv from 'dotenv';
 import { camelCase, startCase } from 'lodash-es';
 
 export function getConfig() {
-  const envConfig = { ...getEnvConfig('.env'), ...getEnvConfig('.env.local') };
+  const envConfig = { ...getEnvConfig('.env'), ...getEnvConfig('.env.local'), ...process.env };
 
   return {
     token: envConfig.FIGMA_FETCHER_FIGMA_TOKEN,
