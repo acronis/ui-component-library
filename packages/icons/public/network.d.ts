@@ -5,5 +5,8 @@ export { default as IconNetworkFolder16 } from '../vue/IconNetworkFolder16.js';
 export { default as IconNetworkFolder32 } from '../vue/IconNetworkFolder32.js';
 export { default as IconNetworkFolderIll72 } from '../vue/IconNetworkFolderIll72.js';
 export { default as IconNetworkFolderMix32 } from '../vue/IconNetworkFolderMix32.js';
+export { default as IconNetworkMonitoring16 } from '../vue/IconNetworkMonitoring16.js';
+export { default as IconNetworkMonitoring24 } from '../vue/IconNetworkMonitoring24.js';
+export { default as IconNetworkMonitoring32 } from '../vue/IconNetworkMonitoring32.js';
 export { default as IconNetworkTapeAb24 } from '../vue/IconNetworkTapeAb24.js';
 export { default as IconNetworkTapeAb32 } from '../vue/IconNetworkTapeAb32.js';

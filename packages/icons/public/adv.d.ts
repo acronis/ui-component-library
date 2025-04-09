@@ -20,6 +20,8 @@ export { default as IconAdvManagementPack16 } from '../vue/IconAdvManagementPack
 export { default as IconAdvManagementPack16DuplicateName } from '../vue/IconAdvManagementPack16DuplicateName.js';
 export { default as IconAdvManagementPack24 } from '../vue/IconAdvManagementPack24.js';
 export { default as IconAdvManagementPack24DuplicateName } from '../vue/IconAdvManagementPack24DuplicateName.js';
+export { default as IconAdvNetworkMonitoring16 } from '../vue/IconAdvNetworkMonitoring16.js';
+export { default as IconAdvNetworkMonitoring24 } from '../vue/IconAdvNetworkMonitoring24.js';
 export { default as IconAdvSecurityPack16 } from '../vue/IconAdvSecurityPack16.js';
 export { default as IconAdvSecurityPack24 } from '../vue/IconAdvSecurityPack24.js';
 export { default as IconAdvSecurityPackEdr16 } from '../vue/IconAdvSecurityPackEdr16.js';

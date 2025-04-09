@@ -20,6 +20,8 @@ export { render as IconAdvManagementPack16 } from '../vue/IconAdvManagementPack1
 export { render as IconAdvManagementPack16DuplicateName } from '../vue/IconAdvManagementPack16DuplicateName.js';
 export { render as IconAdvManagementPack24 } from '../vue/IconAdvManagementPack24.js';
 export { render as IconAdvManagementPack24DuplicateName } from '../vue/IconAdvManagementPack24DuplicateName.js';
+export { render as IconAdvNetworkMonitoring16 } from '../vue/IconAdvNetworkMonitoring16.js';
+export { render as IconAdvNetworkMonitoring24 } from '../vue/IconAdvNetworkMonitoring24.js';
 export { render as IconAdvSecurityPack16 } from '../vue/IconAdvSecurityPack16.js';
 export { render as IconAdvSecurityPack24 } from '../vue/IconAdvSecurityPack24.js';
 export { render as IconAdvSecurityPackEdr16 } from '../vue/IconAdvSecurityPackEdr16.js';
