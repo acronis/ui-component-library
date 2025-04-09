@@ -1,3 +1,10 @@
+## [0.9.0](https://github.com/acronis/ui-component-library/compare/icons/0.8.0...icons/0.9.0) (2025-04-09)
+
+
+### Features
+
+* add new icons for network monitoring and discount ([cbbec6f](https://github.com/acronis/ui-component-library/commit/cbbec6fdb0773d4ec6500350cbefe58d9736a23c))
+
 ## [0.8.0](https://github.com/acronis/ui-component-library/compare/icons/0.7.0...icons/0.8.0) (2025-03-04)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **icons:** update icons ([2ec45f0](https://github.com/acronis/ui-component-library/commit/2ec45f03a6dabed8a999703b3f5edfbca0b6c393))
-
-## [0.4.0](https://github.com/acronis/ui-component-library/compare/icons/0.3.1...icons/0.4.0) (2024-10-25)
-
-
-### Features
-
-* **icons:** update icons ([015eca9](https://github.com/acronis/ui-component-library/commit/015eca99eb5c2cd30431483b83d16d823d4ab6f5))
 
