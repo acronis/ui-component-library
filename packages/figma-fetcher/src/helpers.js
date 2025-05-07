@@ -36,7 +36,7 @@ export function formatName(name) {
     .toLowerCase()
     .trim()
     .replace(/\s*\/\s*/g, '/')
-    .replaceAll(' ', '-');
+    .replace(/\s+/g, '-');
 }
 
 export function removeFromName(name, texts) {
