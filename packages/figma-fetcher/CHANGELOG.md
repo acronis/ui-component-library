@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.2.1...figma-fetcher/0.2.2) (2025-05-08)
+
+
+### Bug Fixes
+
+* fix name normalizer to cover cases with names like "Long  Name" and "long-name" ([#179](https://github.com/acronis/ui-component-library/issues/179)) ([cd104d8](https://github.com/acronis/ui-component-library/commit/cd104d889e2eb4843f221fcf51fd638aba69c9eb))
+
 ## [0.2.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.2.0...figma-fetcher/0.2.1) (2025-03-06)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
-
-## [0.1.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.0...figma-fetcher/0.1.1) (2024-08-28)
-
-
-### Bug Fixes
-
-* remove comment in figma-fetcher ([b010d57](https://github.com/acronis/ui-component-library/commit/b010d57a30e88181cfe5b1c56d6a814937de203a))
 
