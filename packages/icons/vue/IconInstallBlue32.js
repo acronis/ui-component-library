@@ -13,7 +13,7 @@ const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   stroke: "#243143",
   "stroke-opacity": ".1",
-  d: "M16 28.5C9.096 28.5 3.5 22.904 3.5 16S9.096 3.5 16 3.5 28.5 9.096 28.5 16 22.904 28.5 16 28.5Z"
+  d: "M16 3.5c6.904 0 12.5 5.596 12.5 12.5S22.904 28.5 16 28.5 3.5 22.904 3.5 16 9.096 3.5 16 3.5Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",

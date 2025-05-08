@@ -9,7 +9,7 @@ const _hoisted_1 = {
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   stroke: "currentColor",
   "stroke-width": "2",
-  d: "M12.578 7.765 12.28 9H16.983l-5.09 11.876a.205.205 0 0 1-.393-.081V13H7.18L8.847 3h4.883l-1.152 4.765Z"
+  d: "m13.73 3-1.152 4.765L12.28 9h4.704l-5.09 11.876a.205.205 0 0 1-.393-.081V13H7.18L8.848 3h4.883Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = [
   _hoisted_2
