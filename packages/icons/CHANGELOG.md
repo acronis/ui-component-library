@@ -1,3 +1,10 @@
+## [0.10.0](https://github.com/acronis/ui-component-library/compare/icons/0.9.0...icons/0.10.0) (2025-05-08)
+
+
+### Features
+
+* add IconAi16 and IconCheckSmall16 components with corresponding exports ([2fa1521](https://github.com/acronis/ui-component-library/commit/2fa1521ffc674a833f7d82b822b070c27fb35210))
+
 ## [0.9.0](https://github.com/acronis/ui-component-library/compare/icons/0.8.0...icons/0.9.0) (2025-04-09)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * update icons from figma ([1032e75](https://github.com/acronis/ui-component-library/commit/1032e7543994dec82e2c19573d0977618e87e461))
-
-## [0.5.0](https://github.com/acronis/ui-component-library/compare/icons/0.4.0...icons/0.5.0) (2024-11-02)
-
-
-### Features
-
-* **icons:** update icons ([2ec45f0](https://github.com/acronis/ui-component-library/commit/2ec45f03a6dabed8a999703b3f5edfbca0b6c393))
 
