@@ -1,3 +1,10 @@
+## [0.3.0](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.2.2...figma-fetcher/0.3.0) (2025-06-13)
+
+
+### Features
+
+* enhance SVG optimization by adding prefixIds plugin to svgo configuration ([e1f0818](https://github.com/acronis/ui-component-library/commit/e1f0818c188e5fafa06dcc85d3f8ed919ae1a8d9))
+
 ## [0.2.2](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.2.1...figma-fetcher/0.2.2) (2025-05-08)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix readme in figma fetcher ([a189b90](https://github.com/acronis/ui-component-library/commit/a189b90b5fa8a3b01e0b09e873e855e3808d9536))
-
-## [0.1.2](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.1...figma-fetcher/0.1.2) (2024-10-09)
-
-
-### Bug Fixes
-
-* **deps:** allowed to use a more recent version of peer dependencies than specified in package.json ([#128](https://github.com/acronis/ui-component-library/issues/128)) ([5a395b9](https://github.com/acronis/ui-component-library/commit/5a395b98ab9964a9e136a3c597714c1fa9f35393))
 
