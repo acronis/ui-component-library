@@ -2,6 +2,8 @@ import path from 'node:path';
 import { optimize } from 'svgo';
 import { escapeRegExp, removeFromName } from './helpers.js';
 
+let svgoPrefixIdsCount = 0;
+
 /**
  * Asynchronously downloads an image from a given URL and saves it to a specified directory.
  * The directory is determined by the `name` parameter and the `exportIconConfig.iconsPath` configuration.
@@ -31,6 +33,13 @@ export async function downloadImage(config, icon) {
       plugins: [
         'preset-default',
         'removeDimensions',
+        {
+          name: 'prefixIds',
+          params: {
+            delim: '',
+            prefix: () => svgoPrefixIdsCount++,
+          },
+        },
         {
           name: 'addClassesToSVGElement',
           params: {
