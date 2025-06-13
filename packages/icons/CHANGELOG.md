@@ -1,3 +1,11 @@
+## [0.11.0](https://github.com/acronis/ui-component-library/compare/icons/0.10.0...icons/0.11.0) (2025-06-13)
+
+
+### Features
+
+* add new icons from figma ([4894b92](https://github.com/acronis/ui-component-library/commit/4894b92a182df756f7c03f0f54c251c4df5add13))
+* update icons from figma ([6744a25](https://github.com/acronis/ui-component-library/commit/6744a25ab677166370bb18dd5e78483cc3e64567))
+
 ## [0.10.0](https://github.com/acronis/ui-component-library/compare/icons/0.9.0...icons/0.10.0) (2025-05-08)
 
 
@@ -25,11 +33,4 @@
 ### Features
 
 * update icons from figma ([86f3ab4](https://github.com/acronis/ui-component-library/commit/86f3ab4289625553f1d4740bcc0b663ab5ff01ee))
-
-## [0.6.0](https://github.com/acronis/ui-component-library/compare/icons/0.5.0...icons/0.6.0) (2025-01-14)
-
-
-### Features
-
-* update icons from figma ([1032e75](https://github.com/acronis/ui-component-library/commit/1032e7543994dec82e2c19573d0977618e87e461))
 
