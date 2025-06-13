@@ -6,27 +6,16 @@ const _hoisted_1 = {
   viewBox: "0 0 32 32",
   class: "acv-icon"
 }
-const _hoisted_2 = /*#__PURE__*/_createElementVNode("g", { "clip-path": "url(#a)" }, [
-  /*#__PURE__*/_createElementVNode("rect", {
-    width: "32",
-    height: "32",
-    fill: "currentColor",
-    rx: "2"
-  })
-], -1 /* HOISTED */)
-const _hoisted_3 = /*#__PURE__*/_createElementVNode("defs", null, [
-  /*#__PURE__*/_createElementVNode("clipPath", { id: "a" }, [
-    /*#__PURE__*/_createElementVNode("path", {
-      fill: "#fff",
-      d: "M0 0h32v32H0z"
-    })
-  ])
-], -1 /* HOISTED */)
-const _hoisted_4 = [
-  _hoisted_2,
-  _hoisted_3
+const _hoisted_2 = /*#__PURE__*/_createElementVNode("rect", {
+  width: "32",
+  height: "32",
+  fill: "currentColor",
+  rx: "2"
+}, null, -1 /* HOISTED */)
+const _hoisted_3 = [
+  _hoisted_2
 ]
 
 export function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("svg", _hoisted_1, [..._hoisted_4]))
+  return (_openBlock(), _createElementBlock("svg", _hoisted_1, [..._hoisted_3]))
 }

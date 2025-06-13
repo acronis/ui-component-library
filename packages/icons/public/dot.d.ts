@@ -12,7 +12,7 @@ export { default as IconDotChartPurple16 } from '../vue/IconDotChartPurple16.js'
 export { default as IconDotChartRed16 } from '../vue/IconDotChartRed16.js';
 export { default as IconDotChartSuccess16 } from '../vue/IconDotChartSuccess16.js';
 export { default as IconDotChartTransparent16 } from '../vue/IconDotChartTransparent16.js';
-export { default as IconDotChartTurqoise16 } from '../vue/IconDotChartTurqoise16.js';
+export { default as IconDotChartTurquoise16 } from '../vue/IconDotChartTurquoise16.js';
 export { default as IconDotChartViolet16 } from '../vue/IconDotChartViolet16.js';
 export { default as IconDotChartWarning16 } from '../vue/IconDotChartWarning16.js';
 export { default as IconDotChartYellow16 } from '../vue/IconDotChartYellow16.js';

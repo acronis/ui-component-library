@@ -17,9 +17,9 @@ export { default as IconAdvBackupPackWorkstation24 } from '../vue/IconAdvBackupP
 export { default as IconAdvDlpPack16 } from '../vue/IconAdvDlpPack16.js';
 export { default as IconAdvDlpPack24 } from '../vue/IconAdvDlpPack24.js';
 export { default as IconAdvManagementPack16 } from '../vue/IconAdvManagementPack16.js';
-export { default as IconAdvManagementPack16DuplicateName } from '../vue/IconAdvManagementPack16DuplicateName.js';
 export { default as IconAdvManagementPack24 } from '../vue/IconAdvManagementPack24.js';
-export { default as IconAdvManagementPack24DuplicateName } from '../vue/IconAdvManagementPack24DuplicateName.js';
+export { default as IconAdvMobilePack16 } from '../vue/IconAdvMobilePack16.js';
+export { default as IconAdvMobilePack24 } from '../vue/IconAdvMobilePack24.js';
 export { default as IconAdvNetworkMonitoring16 } from '../vue/IconAdvNetworkMonitoring16.js';
 export { default as IconAdvNetworkMonitoring24 } from '../vue/IconAdvNetworkMonitoring24.js';
 export { default as IconAdvSecurityPack16 } from '../vue/IconAdvSecurityPack16.js';

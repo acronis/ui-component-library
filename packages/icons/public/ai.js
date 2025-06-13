@@ -1,4 +1,3 @@
-export { render as IconAi16 } from '../vue/IconAi16.js';
 export { render as IconAiChat16 } from '../vue/IconAiChat16.js';
 export { render as IconAiChat24 } from '../vue/IconAiChat24.js';
 export { render as IconAiChat32 } from '../vue/IconAiChat32.js';

@@ -1,3 +1,6 @@
 export { render as IconDlp16 } from '../vue/IconDlp16.js';
 export { render as IconDlp24 } from '../vue/IconDlp24.js';
+export { render as IconDlpServer16 } from '../vue/IconDlpServer16.js';
+export { render as IconDlpServer24 } from '../vue/IconDlpServer24.js';
 export { render as IconDlpWorkstation16 } from '../vue/IconDlpWorkstation16.js';
+export { render as IconDlpWorkstation24 } from '../vue/IconDlpWorkstation24.js';
