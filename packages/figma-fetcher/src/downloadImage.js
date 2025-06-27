@@ -45,6 +45,6 @@ export async function downloadImage(config, icon) {
     await config.onDownloadedIcon({ content, pathname, publicFolder: config.publicFolder, vueFolder: config.vueFolder });
   }
   catch (err) {
-    throw new Error(`Failed to download Icon with name -> ${pathname}`, { cause: err });
+    throw new Error(`Failed to download Icon with name -> ${pathname}, and Id -> ${icon.id}`, { cause: err });
   }
 }

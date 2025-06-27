@@ -35,6 +35,12 @@ export async function downloadIcons(userConfig) {
     // Extract the icons from the Figma file
     const icons = await getFigmaImages(config, figmaFile);
 
+    const invalidIcons = icons.filter(icon => !icon.image);
+
+    if (invalidIcons.length) {
+      throw new Error(`list of icons without image: ${invalidIcons.map(icon => `name: ${icon.name}, Id: ${icon.id}`).join('\n ')}`);
+    }
+
     console.log(`Api returned ${icons.length} icons\n`);
 
     // Clean the directory where the icons will be stored
