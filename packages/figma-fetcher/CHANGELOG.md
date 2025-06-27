@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.3.0...figma-fetcher/0.3.1) (2025-06-27)
+
+
+### Bug Fixes
+
+* improve error message formatting for invalid icons ([#180](https://github.com/acronis/ui-component-library/issues/180)) ([c5d56aa](https://github.com/acronis/ui-component-library/commit/c5d56aa63e40ee4d6394afddb5bbb8bbf08d1950))
+
 ## [0.3.0](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.2.2...figma-fetcher/0.3.0) (2025-06-13)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * improve icons logs ([#177](https://github.com/acronis/ui-component-library/issues/177)) ([c16399c](https://github.com/acronis/ui-component-library/commit/c16399cd5dbdb422c1adac6754ee11786169976c))
-
-## [0.1.3](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.2...figma-fetcher/0.1.3) (2024-10-16)
-
-
-### Bug Fixes
-
-* fix readme in figma fetcher ([a189b90](https://github.com/acronis/ui-component-library/commit/a189b90b5fa8a3b01e0b09e873e855e3808d9536))
 
