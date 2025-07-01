@@ -38,10 +38,10 @@ importers:
         version: 13.2.3(enquirer@2.4.1)
       vite:
         specifier: 5.4.19
-        version: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+        version: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
       vite-plugin-dts:
         specifier: 3.8.3
-        version: 3.8.3(@types/node@20.11.30)(rollup@4.28.1)(typescript@5.5.3)(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)))
+        version: 3.8.3(@types/node@20.11.30)(rollup@4.28.1)(typescript@5.5.3)(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)))
 
   packages/browserslist-config: {}
 
@@ -324,7 +324,7 @@ importers:
         version: 3.3.2
       vitest:
         specifier: 2.1.9
-        version: 2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+        version: 2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
 
   packages/figma-tokens:
     dependencies:
@@ -685,7 +685,7 @@ importers:
         version: 4.17.12
       '@vitest/coverage-v8':
         specifier: 2.1.2
-        version: 2.1.2(vitest@2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)))
+        version: 2.1.2(vitest@2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)))
       eslint:
         specifier: 9.12.0
         version: 9.12.0(jiti@1.21.6)
@@ -700,13 +700,13 @@ importers:
         version: 5.5.3
       vite:
         specifier: 5.4.19
-        version: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+        version: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
       vite-plugin-dts:
         specifier: 3.8.3
-        version: 3.8.3(@types/node@20.11.30)(rollup@4.28.1)(typescript@5.5.3)(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)))
+        version: 3.8.3(@types/node@20.11.30)(rollup@4.28.1)(typescript@5.5.3)(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)))
       vitest:
         specifier: 2.1.9
-        version: 2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+        version: 2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
 
 packages:
 
@@ -4873,6 +4873,9 @@ packages:
   domutils@3.1.0:
     resolution: {integrity: sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA==}
 
+  domutils@3.2.2:
+    resolution: {integrity: sha512-6kZKyUajlDuqlHKVX1w7gyslj9MPIXzIFiz/rGu35uC1wMi+kMhQwGhl4lt9unC9Vb9INnY9Z3/ZA3+FhASLaw==}
+
   dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
     engines: {node: '>=8'}
@@ -6424,9 +6427,11 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
 
   lodash.isfunction@3.0.9:
     resolution: {integrity: sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==}
@@ -6905,6 +6910,11 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
+  nanoid@3.3.11:
+    resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -6935,6 +6945,7 @@ packages:
   node-domexception@1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
+    deprecated: Use your platform's native DOMException instead
 
   node-fetch-native@1.6.4:
     resolution: {integrity: sha512-IhOigYzAKHd244OC0JIMIUrjzctirCmPkaIfhDeGcEETWof5zKYUW7e7MYvChGWh/4CJeXEgsRyGzuF334rOOQ==}
@@ -7773,6 +7784,10 @@ packages:
 
   postcss@8.4.49:
     resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.6:
+    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
   preact@10.20.1:
@@ -12968,7 +12983,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.1.2(vitest@2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)))':
+  '@vitest/coverage-v8@2.1.2(vitest@2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -12982,7 +12997,7 @@ snapshots:
       std-env: 3.7.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+      vitest: 2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
     transitivePeerDependencies:
       - supports-color
 
@@ -13009,13 +13024,13 @@ snapshots:
     optionalDependencies:
       vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.38))
 
-  '@vitest/mocker@2.1.9(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)))':
+  '@vitest/mocker@2.1.9(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)))':
     dependencies:
       '@vitest/spy': 2.1.9
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
 
   '@vitest/pretty-format@2.1.2':
     dependencies:
@@ -14634,6 +14649,12 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 5.0.3
 
+  domutils@3.2.2:
+    dependencies:
+      dom-serializer: 2.0.0
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+
   dot-prop@5.3.0:
     dependencies:
       is-obj: 2.0.0
@@ -15822,7 +15843,7 @@ snapshots:
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3
-      domutils: 3.1.0
+      domutils: 3.2.2
       entities: 4.5.0
 
   http-errors@2.0.0:
@@ -17123,6 +17144,8 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
+  nanoid@3.3.11: {}
+
   nanoid@3.3.7: {}
 
   nanoid@3.3.8: {}
@@ -17625,8 +17648,8 @@ snapshots:
     dependencies:
       htmlparser2: 8.0.2
       js-tokens: 8.0.3
-      postcss: 8.4.38
-      postcss-safe-parser: 6.0.0(postcss@8.4.38)
+      postcss: 8.5.6
+      postcss-safe-parser: 6.0.0(postcss@8.5.6)
 
   postcss-image-set-function@6.0.3(postcss@8.4.38):
     dependencies:
@@ -17946,6 +17969,10 @@ snapshots:
     dependencies:
       postcss: 8.4.38
 
+  postcss-safe-parser@6.0.0(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
+
   postcss-safe-parser@7.0.0(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
@@ -18023,6 +18050,12 @@ snapshots:
   postcss@8.4.49:
     dependencies:
       nanoid: 3.3.8
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.6:
+    dependencies:
+      nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -18991,6 +19024,11 @@ snapshots:
     dependencies:
       postcss: 8.4.49
 
+  sugarss@4.0.1(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
+    optional: true
+
   superjson@2.2.1:
     dependencies:
       copy-anything: 3.0.5
@@ -19560,13 +19598,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@2.1.9(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)):
+  vite-node@2.1.9(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0
       es-module-lexer: 1.5.4
       pathe: 1.1.2
-      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -19595,7 +19633,7 @@ snapshots:
       - rollup
       - supports-color
 
-  vite-plugin-dts@3.8.3(@types/node@20.11.30)(rollup@4.28.1)(typescript@5.5.3)(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))):
+  vite-plugin-dts@3.8.3(@types/node@20.11.30)(rollup@4.28.1)(typescript@5.5.3)(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))):
     dependencies:
       '@microsoft/api-extractor': 7.43.0(@types/node@20.11.30)
       '@rollup/pluginutils': 5.1.4(rollup@4.28.1)
@@ -19606,7 +19644,7 @@ snapshots:
       typescript: 5.5.3
       vue-tsc: 1.8.27(typescript@5.5.3)
     optionalDependencies:
-      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -19668,6 +19706,18 @@ snapshots:
       sass: 1.77.4
       stylus: 0.57.0
       sugarss: 4.0.1(postcss@8.4.49)
+
+  vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)):
+    dependencies:
+      esbuild: 0.21.5
+      postcss: 8.4.49
+      rollup: 4.28.1
+    optionalDependencies:
+      '@types/node': 20.11.30
+      fsevents: 2.3.3
+      sass: 1.77.4
+      stylus: 0.57.0
+      sugarss: 4.0.1(postcss@8.5.6)
 
   vitepress@1.1.0(@algolia/client-search@4.23.3)(@types/node@20.11.30)(@types/react@18.3.4)(postcss@8.4.38)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)(search-insights@2.13.0)(sortablejs@1.15.2)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.38))(typescript@5.4.5):
     dependencies:
@@ -19819,7 +19869,7 @@ snapshots:
   vitest@2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.38)):
     dependencies:
       '@vitest/expect': 2.1.9
-      '@vitest/mocker': 2.1.9(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)))
+      '@vitest/mocker': 2.1.9(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)))
       '@vitest/pretty-format': 2.1.9
       '@vitest/runner': 2.1.9
       '@vitest/snapshot': 2.1.9
@@ -19853,10 +19903,10 @@ snapshots:
       - terser
     optional: true
 
-  vitest@2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)):
+  vitest@2.1.9(@types/node@20.11.30)(jsdom@24.0.0)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)):
     dependencies:
       '@vitest/expect': 2.1.9
-      '@vitest/mocker': 2.1.9(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49)))
+      '@vitest/mocker': 2.1.9(vite@5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6)))
       '@vitest/pretty-format': 2.1.9
       '@vitest/runner': 2.1.9
       '@vitest/snapshot': 2.1.9
@@ -19872,8 +19922,8 @@ snapshots:
       tinyexec: 0.3.2
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
-      vite-node: 2.1.9(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.4.49))
+      vite: 5.4.19(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
+      vite-node: 2.1.9(@types/node@20.11.30)(sass@1.77.4)(stylus@0.57.0)(sugarss@4.0.1(postcss@8.5.6))
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.11.30
