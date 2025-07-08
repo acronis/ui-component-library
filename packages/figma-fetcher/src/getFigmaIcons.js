@@ -3,19 +3,9 @@ import { figmaClientRequest } from './figmaClient.js';
 import { findDuplicates, formatName } from './helpers.js';
 
 /**
- * Asynchronously fetches the icons from the Figma API.
- * The function starts by logging the start time and making a request to the Figma API to get the file with the provided `FILE_KEY`.
- * If the API response contains an error, the function throws an error with the error message from the response.
- * If the API request is successful, the function finds the page with the name specified in the `exportIconConfig.page` configuration.
- * If the page is not found, the function throws an error.
- * The function then finds the frame with the name specified in the `process.env.FRAME_NAME` configuration within the found page.
- * If the frame is not found, the function logs an error message and returns.
- * The function then iterates over the children of the found frame, and for each child that is not a 'COMPONENT_SET', it adds the child to the `resultIcons` array.
- * For each child that is a 'COMPONENT_SET', it iterates over its children and adds each one to the `resultIcons` array, with its name modified according to its own name and the name of the parent.
- * The function then maps over the `resultIcons` array to create a new array of icon objects, each with an `id` and a `name` property.
- * The `name` property is the formatted name of the icon, obtained by calling the `formatName` function with the icon's name.
- * The function finally returns the result of calling the `findDuplicates` function with 'name' and the array of icon objects.
- *
+ * Asynchronously fetches the icons from the Figma API using a two-step approach:
+ * 1. First gets the file structure to find page IDs
+ * 2. Then fetches only the specific pages we need
  * @async
  * @returns {Promise<Array | undefined>} An array of icon objects, each with an `id` and a `name` property. The `name` property is the formatted name of the icon.
  * @throws Will throw an error if the Figma API request fails or if the specified page or frame is not found.
@@ -28,19 +18,44 @@ export async function getFigmaIcons(config) {
     return;
   }
 
-  console.log('Fetching Figma file (this might take a while depending on the figma file size)');
-  const startTime = new Date().getTime();
-  const response = await figmaClient.get(`/files/${config.fileKey}`);
-  if (response.data.err) {
-    throw new Error(`Cannot get Figma file: ${response.data.err}`);
-  }
-  const endTime = new Date().getTime();
-  console.log(chalk.cyan.bold(`Finished fetching Figma in ${(endTime - startTime) / 1000}s\n`));
-  const pages = response.data.document.children.filter(c => config.pageNames.includes(c.name));
+  // Step 1: Get file structure to find page IDs
+  console.log('Fetching Figma file structure...');
+  const structureStartTime = new Date().getTime();
+  const structureResponse = await figmaClient.get(`/files/${config.fileKey}?depth=1`);
 
-  if (!pages.length) {
-    throw new Error('Cannot find pages with icons, check your settings');
+  if (structureResponse.data.err) {
+    throw new Error(`Cannot get Figma file structure: ${structureResponse.data.err}`);
   }
+
+  const structureEndTime = new Date().getTime();
+  console.log(chalk.cyan.bold(`Finished fetching structure in ${(structureEndTime - structureStartTime) / 1000}s`));
+
+  // Find the pages we need
+  const allPages = structureResponse.data.document.children;
+  const targetPages = allPages.filter(page => config.pageNames.includes(page.name));
+
+  if (!targetPages.length) {
+    throw new Error(`Cannot find pages with names: ${config.pageNames.join(', ')}. Available pages: ${allPages.map(p => p.name).join(', ')}`);
+  }
+
+  console.log(`Found ${targetPages.length} target pages: ${targetPages.map(p => p.name).join(', ')}`);
+
+  // Step 2: Fetch only the specific pages we need
+  console.log('Fetching specific pages...');
+  const pagesStartTime = new Date().getTime();
+
+  const pageIds = targetPages.map(page => page.id).join(',');
+  const pagesResponse = await figmaClient.get(`/files/${config.fileKey}/nodes?ids=${pageIds}`);
+
+  if (pagesResponse.data.err) {
+    throw new Error(`Cannot get Figma pages: ${pagesResponse.data.err}`);
+  }
+
+  const pagesEndTime = new Date().getTime();
+  console.log(chalk.cyan.bold(`Finished fetching pages in ${(pagesEndTime - pagesStartTime) / 1000}s\n`));
+
+  // Process the fetched pages
+  const pages = Object.values(pagesResponse.data.nodes).map(node => node.document);
 
   const framesWithIcons = pages.flatMap(page =>
     page.children.filter(c => c.type === 'FRAME' && config.frameNames.includes(c.name))
@@ -51,11 +66,12 @@ export async function getFigmaIcons(config) {
       chalk.red.bold(
         'Cannot find',
         chalk.white.bgRed(config.frameNames),
-        'Frames in this Page, check your settings',
+        'Frames in the specified pages, check your settings',
       ),
     );
     return;
   }
+
   const resultIcons = [];
   const iconsArray = [];
 

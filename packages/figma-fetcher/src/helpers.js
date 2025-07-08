@@ -11,8 +11,8 @@ export function getConfig() {
   return {
     token: envConfig.FIGMA_FETCHER_FIGMA_TOKEN,
     fileKey: envConfig.FIGMA_FETCHER_FILE_KEY,
-    frameNames: envConfig.FIGMA_FETCHER_FRAME_NAMES,
-    pageNames: envConfig.FIGMA_FETCHER_PAGE_NAMES,
+    frameNames: envConfig.FIGMA_FETCHER_FRAME_NAMES?.split(',').map(name => name.trim()) || [],
+    pageNames: envConfig.FIGMA_FETCHER_PAGE_NAMES?.split(',').map(name => name.trim()) || [],
     className: envConfig.FIGMA_FETCHER_CLASS_NAME,
     systemColor: envConfig.FIGMA_FETCHER_SYSTEM_COLOR,
     removeFromName: ['style=', 'type=', 'status='],
