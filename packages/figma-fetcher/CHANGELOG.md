@@ -1,3 +1,10 @@
+## [0.4.0](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.3.1...figma-fetcher/0.4.0) (2025-07-08)
+
+
+### Features
+
+* optimizing the loading script so that icons can be loaded from large Figma files ([#181](https://github.com/acronis/ui-component-library/issues/181)) ([df1079c](https://github.com/acronis/ui-component-library/commit/df1079c35f5a38b05ec40df93cd712599a09c71e))
+
 ## [0.3.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.3.0...figma-fetcher/0.3.1) (2025-06-27)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * pass figma token with env ([#178](https://github.com/acronis/ui-component-library/issues/178)) ([44b613b](https://github.com/acronis/ui-component-library/commit/44b613b755cf3fc67519b963d116e693426a6325))
-
-## [0.2.0](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.1.3...figma-fetcher/0.2.0) (2025-03-06)
-
-
-### Features
-
-* improve icons logs ([#177](https://github.com/acronis/ui-component-library/issues/177)) ([c16399c](https://github.com/acronis/ui-component-library/commit/c16399cd5dbdb422c1adac6754ee11786169976c))
 
