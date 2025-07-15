@@ -1,8 +1,6 @@
 import path from 'node:path';
 import { optimize } from 'svgo';
-import { escapeRegExp, removeFromName } from './helpers.js';
-
-let svgoPrefixIdsCount = 0;
+import { escapeRegExp, removeFromName, toPascalCase } from './helpers.js';
 
 /**
  * Asynchronously downloads an image from a given URL and saves it to a specified directory.
@@ -18,10 +16,11 @@ let svgoPrefixIdsCount = 0;
 export async function downloadImage(config, icon) {
   const url = icon.image;
   const pathname = removeFromName(icon.name, config.removeFromName);
-  const nameClean = path.basename(pathname);
+  const basename = path.basename(pathname);
+  const cleanName = toPascalCase(basename);
 
   try {
-    const isContinue = config.onBeforeDownloadIcon(nameClean);
+    const isContinue = config.onBeforeDownloadIcon(basename);
 
     if (isContinue === false) {
       return;
@@ -36,8 +35,8 @@ export async function downloadImage(config, icon) {
         {
           name: 'prefixIds',
           params: {
-            delim: '',
-            prefix: () => svgoPrefixIdsCount++,
+            delim: ':',
+            prefix: cleanName,
           },
         },
         {
@@ -51,7 +50,7 @@ export async function downloadImage(config, icon) {
     const systemColorRegex = new RegExp(escapeRegExp(config.systemColor), 'gi');
     const content = optimizedSvg.data.replace(systemColorRegex, 'currentColor');
 
-    await config.onDownloadedIcon({ content, pathname, publicFolder: config.publicFolder, vueFolder: config.vueFolder });
+    await config.onDownloadedIcon({ content, pathname, cleanName, publicFolder: config.publicFolder, vueFolder: config.vueFolder });
   }
   catch (err) {
     throw new Error(`Failed to download Icon with name -> ${pathname}, and Id -> ${icon.id}`, { cause: err });
