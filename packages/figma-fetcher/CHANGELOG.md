@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.4.0...figma-fetcher/0.4.1) (2025-07-15)
+
+
+### Bug Fixes
+
+* the icon prefix should be the same, otherwise, links to fills ([#182](https://github.com/acronis/ui-component-library/issues/182)) ([aeab783](https://github.com/acronis/ui-component-library/commit/aeab7831e5de4ef339520a5082935c62b736da2d))
+
 ## [0.4.0](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.3.1...figma-fetcher/0.4.0) (2025-07-08)
 
 
@@ -25,11 +32,4 @@
 ### Bug Fixes
 
 * fix name normalizer to cover cases with names like "Long  Name" and "long-name" ([#179](https://github.com/acronis/ui-component-library/issues/179)) ([cd104d8](https://github.com/acronis/ui-component-library/commit/cd104d889e2eb4843f221fcf51fd638aba69c9eb))
-
-## [0.2.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.2.0...figma-fetcher/0.2.1) (2025-03-06)
-
-
-### Bug Fixes
-
-* pass figma token with env ([#178](https://github.com/acronis/ui-component-library/issues/178)) ([44b613b](https://github.com/acronis/ui-component-library/commit/44b613b755cf3fc67519b963d116e693426a6325))
 
