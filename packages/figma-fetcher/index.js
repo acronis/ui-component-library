@@ -2,7 +2,6 @@ import { promises } from 'node:fs';
 import path from 'node:path';
 import { compileTemplate, parse } from '@vue/compiler-sfc';
 import { downloadIcons } from './src/downloadIcons.js';
-import { toPascalCase } from './src/helpers.js';
 
 async function run() {
   const names = new Set();
@@ -31,6 +30,7 @@ async function run() {
   async function onDownloadedIcon({
     content,
     pathname,
+    cleanName,
     vueFolder,
     publicFolder,
   }) {
@@ -42,7 +42,7 @@ export default _default;
     const prefix = 'Icon';
     const { descriptor } = parse(fileContent);
 
-    const fileName = `${prefix}${toPascalCase(pathname)}`;
+    const fileName = `${prefix}${cleanName}`;
     const fileVue = path.resolve(vueFolder, `${fileName}.vue`);
     const fileVueDTs = path.resolve(vueFolder, `${fileName}.d.ts`);
     const fileJs = path.resolve(vueFolder, `${fileName}.js`);
