@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.4.1...figma-fetcher/0.4.2) (2025-09-02)
+
+
+### Bug Fixes
+
+* enhance SVG optimization by adjusting viewBox and precision settings ([0713440](https://github.com/acronis/ui-component-library/commit/0713440c165fa561e731e780f916e34edb916c90))
+
 ## [0.4.1](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.4.0...figma-fetcher/0.4.1) (2025-07-15)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * enhance SVG optimization by adding prefixIds plugin to svgo configuration ([e1f0818](https://github.com/acronis/ui-component-library/commit/e1f0818c188e5fafa06dcc85d3f8ed919ae1a8d9))
-
-## [0.2.2](https://github.com/acronis/ui-component-library/compare/figma-fetcher/0.2.1...figma-fetcher/0.2.2) (2025-05-08)
-
-
-### Bug Fixes
-
-* fix name normalizer to cover cases with names like "Long  Name" and "long-name" ([#179](https://github.com/acronis/ui-component-library/issues/179)) ([cd104d8](https://github.com/acronis/ui-component-library/commit/cd104d889e2eb4843f221fcf51fd638aba69c9eb))
 
