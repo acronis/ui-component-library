@@ -30,7 +30,19 @@ export async function downloadImage(config, icon) {
     const svgText = await response.text();
     const optimizedSvg = optimize(svgText, {
       plugins: [
-        'preset-default',
+        {
+          name: 'preset-default',
+          params: {
+            overrides: {
+              // viewBox is required to resize SVGs with CSS.
+              // @see https://github.com/svg/svgo/issues/1128
+              removeViewBox: false,
+              // keep precision higher for cleaner diagonals
+              cleanupNumericValues: { floatPrecision: 4 },
+              convertPathData: { floatPrecision: 4 }
+            }
+          }
+        },
         'removeDimensions',
         {
           name: 'prefixIds',
