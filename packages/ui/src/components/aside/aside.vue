@@ -123,5 +123,3 @@
     </footer>
   </aside>
 </template>
-
-
