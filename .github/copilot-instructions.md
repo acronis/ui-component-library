@@ -12,7 +12,7 @@ Acronis UI Component Library is a Vue.js 3 monorepo containing UI components, ic
 - Install pnpm globally: `npm install -g pnpm@9.7.1`
 
 ### Bootstrap and Build Process
-**CRITICAL**: Always set timeouts of 90+ minutes for build commands and 60+ minutes for test commands. **NEVER CANCEL** long-running commands.
+**CRITICAL**: Always set timeouts of 90+ minutes for both build and test commands. **NEVER CANCEL** long-running commands.
 
 1. **Install dependencies** (takes ~1-5 minutes):
    ```bash
