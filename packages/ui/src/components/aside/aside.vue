@@ -2,8 +2,6 @@
   import type { AcvAsideEvents, AcvAsideProps, AcvAsideSlots } from './aside.ts';
   import { computed, watch } from 'vue';
   import { isBaseColor } from '../../utils/color.ts';
-  import { filterUsedSlots } from '../../utils/vue.ts';
-
   import './aside.css';
 
   defineOptions({
