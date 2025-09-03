@@ -90,7 +90,7 @@
 
 <template>
   <aside
-    v-show="!props.collapsible || props.modelValue"
+    v-if="!props.collapsible || props.modelValue"
     :class="asideClasses"
     :style="{ 
       '--acv-aside-dimension': dimensionPx,
