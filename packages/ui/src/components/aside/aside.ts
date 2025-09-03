@@ -5,74 +5,74 @@ export interface AcvAsideProps {
   /**
    * Width of the Aside (for left/right positioning) or height (for top/bottom positioning)
    */
-  width?: string
+  width?: string;
 
   /**
    * Background color of the Aside
    * @values transparent, primary, secondary, success, warning, danger, info, light, dark
    */
-  color?: string
+  color?: string;
 
   /**
    * Aside visibility state
    */
-  modelValue?: boolean
+  modelValue?: boolean;
 
   /**
    * Aside anchor/position relative to main content
    * @defaultValue 'left'
    */
-  anchor?: AcvAsideAnchor
+  anchor?: AcvAsideAnchor;
 
   /**
    * CSS position type
    * @defaultValue 'static'
    */
-  position?: AcvAsidePosition
+  position?: AcvAsidePosition;
 
   /**
    * Whether the aside can be collapsed/expanded
    * @defaultValue false
    */
-  collapsible?: boolean
+  collapsible?: boolean;
 
   /**
    * Persistence of aside when clicked outside of reference element
    */
-  persistent?: boolean
+  persistent?: boolean;
 
   /**
    * Whether to show shadow/elevation effect
    * @defaultValue false
    */
-  elevation?: boolean
+  elevation?: boolean;
 
   /**
    * Custom CSS classes to apply
    */
-  customClass?: string
+  customClass?: string;
 
   /**
    * ARIA label for accessibility
    */
-  ariaLabel?: string
+  ariaLabel?: string;
 
   /**
    * ARIA labelledby for accessibility
    */
-  ariaLabelledby?: string
+  ariaLabelledby?: string;
 
   /**
    * Whether animations are enabled
    * @defaultValue true
    */
-  animated?: boolean
+  animated?: boolean;
 
   /**
    * Whether the aside is responsive (hides on small screens)
    * @defaultValue true
    */
-  responsive?: boolean
+  responsive?: boolean;
 }
 
 export interface AcvAsideEvents {
@@ -107,15 +107,15 @@ export interface AcvAsideSlots {
   /**
    * Default slot for main content
    */
-  default?: () => any
+  default?: () => any;
 
   /**
    * Header slot for aside header content
    */
-  header?: () => any
+  header?: () => any;
 
   /**
    * Footer slot for aside footer content
    */
-  footer?: () => any
+  footer?: () => any;
 }

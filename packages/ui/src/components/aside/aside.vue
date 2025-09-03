@@ -17,7 +17,7 @@
     persistent: false,
     elevation: false,
     animated: true,
-    responsive: true
+    responsive: true,
   });
 
   const emit = defineEmits<AcvAsideEvents>();
@@ -94,7 +94,7 @@
     :class="asideClasses"
     :style="{ 
       '--acv-aside-dimension': dimensionPx,
-      '--acv-aside-bg-color': backgroundColor
+      '--acv-aside-bg-color': backgroundColor,
     }"
     :aria-label="props.ariaLabel"
     :aria-labelledby="props.ariaLabelledby"
