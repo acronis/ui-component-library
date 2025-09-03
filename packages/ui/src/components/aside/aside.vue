@@ -26,7 +26,9 @@
   // Width/Height calculations
   const dimensionPx = computed(() => {
     if (!props.width) return '';
-    return props.width.includes('px') || props.width.includes('%') || props.width.includes('rem')
+    // Match valid CSS units: px, %, em, rem, vw, vh, vmin, vmax, ch, ex, cm, mm, in, pt, pc, q
+    const cssUnitPattern = /^-?\d*\.?\d+\s*(px|%|em|rem|vw|vh|vmin|vmax|ch|ex|cm|mm|in|pt|pc|q)$/i;
+    return cssUnitPattern.test(props.width.trim())
       ? props.width
       : `${props.width}px`;
   });
