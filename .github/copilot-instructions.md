@@ -110,7 +110,7 @@ After making changes, **ALWAYS** validate with these complete scenarios:
 ### Key Packages
 ```
 packages/
-├── ui/                    - Main UI component library (@acronis-platform/ui-component-library)
+├── ui/                    - Main UI component library (@acronis-platform/ui)
 │   ├── src/components/    - Vue 3 components
 │   ├── src/styles/        - Styles, themes, design tokens
 │   ├── src/composables/   - Vue composables
