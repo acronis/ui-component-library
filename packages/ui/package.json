@@ -102,7 +102,7 @@
     "@vitest/utils": "2.1.2",
     "@vue/test-utils": "2.4.6",
     "browserslist": "4.23.0",
-    "cypress": "13.12.0",
+    "cypress": "15.1.0",
     "eslint": "9.12.0",
     "eslint-plugin-cypress": "3.5.0",
     "eslint-plugin-vuejs-accessibility": "2.4.1",
