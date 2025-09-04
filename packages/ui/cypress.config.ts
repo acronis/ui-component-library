@@ -18,6 +18,10 @@ export default defineConfig({
           // Ensure consistent DPR and window size
           launchOptions.args.push('--force-device-scale-factor=1');
           launchOptions.args.push('--window-size=1000,600');
+          // Reduce rendering variance in CI and hide scrollbars
+          launchOptions.args.push('--disable-gpu');
+          launchOptions.args.push('--disable-dev-shm-usage');
+          launchOptions.args.push('--hide-scrollbars');
         }
         return launchOptions;
       });

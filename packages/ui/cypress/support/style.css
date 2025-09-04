@@ -10,3 +10,39 @@ html {
   font-family: var(--acv-base-font-family-inter), sans-serif;
   color: var(--acv-color-gray-dark);
 }
+
+/* Normalize sizing and hide scrollbars to avoid 19px viewport drift in CI */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* prevent scrollbars affecting viewport size */
+}
+
+/* Common Cypress CT containers — pin to exact viewport size and hide scrollbars */
+/* stylelint-disable */
+#__cy_root,
+#__cy_wrapper,
+.mount-root,
+#root,
+#app {
+  width: 1000px;
+  height: 600px;
+  max-width: 1000px;
+  max-height: 600px;
+  overflow: hidden;
+}
+/* stylelint-enable */
+
+/* Hide webkit scrollbars explicitly (Chrome) */
+*::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
