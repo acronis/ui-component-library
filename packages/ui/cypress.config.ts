@@ -9,9 +9,9 @@ export default defineConfig({
       framework: 'vue',
       bundler: 'vite',
     },
-    setupNodeEvents(on: unknown) {
+    setupNodeEvents(on) {
       // implement node event listeners here
-      addMatchImageSnapshotPlugin(<Cypress.PluginEvents>on);
+      addMatchImageSnapshotPlugin(on);
     },
     excludeSpecPattern: [
       '**/__snapshots__/*',
