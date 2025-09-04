@@ -32,10 +32,25 @@ Cypress.Commands.add('mount' as any, mount);
 addMatchImageSnapshotCommand({
   failureThreshold: 0.2,
   capture: 'viewport',
-  // Temporarily allow size mismatch to avoid 19px CI drift while we pin env
-  allowSizeMismatch: true,
+  // Disallow size mismatches so viewport height/width must match exactly
+  allowSizeMismatch: false,
   // Ensure fonts are loaded before taking screenshot to avoid reflow-induced size changes
   onBeforeScreenshot: () => {
     return cy.document().then(doc => doc.fonts?.ready);
   },
+});
+
+// Ensure viewport and document sizing are stable for every test
+beforeEach(() => {
+  // Force the Cypress app iframe to the configured viewport
+  cy.viewport(1000, 600);
+  // Normalize document/body heights to avoid scrollbars affecting capture area
+  cy.document().then((doc) => {
+    doc.documentElement.style.height = '100%';
+    doc.body.style.height = '100%';
+    doc.documentElement.style.margin = '0';
+    doc.body.style.margin = '0';
+  });
+  // Always start at the top-left to avoid scroll offsets
+  // cy.window().then(() => cy.scrollTo(0, 0));
 });
