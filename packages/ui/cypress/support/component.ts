@@ -30,8 +30,8 @@ Cypress.Commands.add('mount' as any, mount);
 // can also add any default options to be used
 // by all instances of `matchImageSnapshot`
 addMatchImageSnapshotCommand({
-  failureThreshold: 0.2,
-  capture: 'viewport',
+  failureThreshold: 0.01,
+  // capture: 'viewport',
   // Disallow size mismatches so viewport height/width must match exactly
   allowSizeMismatch: false,
   // Ensure fonts are loaded before taking screenshot to avoid reflow-induced size changes
