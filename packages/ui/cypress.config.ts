@@ -11,6 +11,17 @@ export default defineConfig({
     },
     setupNodeEvents(on) {
       // implement node event listeners here
+      // Normalize Chrome rendering between local and CI to avoid snapshot size drift
+      on('before:browser:launch', (browser, launchOptions) => {
+        if (browser.name === 'chrome' || browser.family === 'chromium') {
+          launchOptions.args = launchOptions.args || [];
+          // Ensure consistent DPR and window size
+          launchOptions.args.push('--force-device-scale-factor=1');
+          launchOptions.args.push('--window-size=1000,600');
+        }
+        return launchOptions;
+      });
+
       addMatchImageSnapshotPlugin(on);
     },
     excludeSpecPattern: [
