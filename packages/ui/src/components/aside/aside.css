@@ -2,8 +2,8 @@
   :root {
     /* Insert component css variables here */
     --acv-aside-color: var(--acv-color-brand-primary);
-    --acv-aside-bg-color: var(--acv-color-surface-card);
-    --acv-aside-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --acv-aside-bg-color: var(--acv-color-surface-secondary);
+    --acv-aside-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
     --acv-aside-border: 1px solid var(--acv-color-border);
     --acv-aside-z-index: 10;
     --acv-aside-transition-duration: 0.3s;
@@ -81,28 +81,32 @@
   }
 
   .acv-aside--anchor-left.acv-aside--elevation {
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 0 8px rgb(0 0 0 / 0.15);
   }
 
   .acv-aside--anchor-right.acv-aside--elevation {
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+    box-shadow: -2px 0 8px rgb(0 0 0 / 0.15);
   }
 
   .acv-aside--anchor-top.acv-aside--elevation {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
   }
 
   .acv-aside--anchor-bottom.acv-aside--elevation {
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -2px 8px rgb(0 0 0 / 0.15);
   }
 
   /* Animation transitions */
   .acv-aside--animated {
-    transition: 
-      transform var(--acv-aside-transition-duration) var(--acv-aside-transition-timing),
-      opacity var(--acv-aside-transition-duration) var(--acv-aside-transition-timing),
-      width var(--acv-aside-transition-duration) var(--acv-aside-transition-timing),
-      height var(--acv-aside-transition-duration) var(--acv-aside-transition-timing);
+    transition:
+      transform var(--acv-aside-transition-duration)
+        var(--acv-aside-transition-timing),
+      opacity var(--acv-aside-transition-duration)
+        var(--acv-aside-transition-timing),
+      width var(--acv-aside-transition-duration)
+        var(--acv-aside-transition-timing),
+      height var(--acv-aside-transition-duration)
+        var(--acv-aside-transition-timing);
   }
 
   /* Collapsed states */
@@ -132,8 +136,7 @@
   .acv-aside__content {
     flex: 1;
     padding: 1rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
   }
 
   .acv-aside__footer {
@@ -184,7 +187,7 @@
   }
 
   /* Responsive behavior */
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .acv-aside--responsive.acv-aside--anchor-left,
     .acv-aside--responsive.acv-aside--anchor-right {
       width: 100%;
@@ -196,7 +199,7 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (width <= 480px) {
     .acv-aside--responsive.acv-aside--anchor-left,
     .acv-aside--responsive.acv-aside--anchor-right {
       max-width: 280px;
