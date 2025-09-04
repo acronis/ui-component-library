@@ -13,7 +13,7 @@ jobs:
   visual-regression:
     runs-on: ubuntu-latest
     container:
-      image: cypress/included:15.1.0
+      image: cypress/browsers:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
