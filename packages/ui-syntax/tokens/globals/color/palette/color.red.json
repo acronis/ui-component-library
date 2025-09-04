@@ -1,6 +1,5 @@
 {
   "color": {
-    "$type": "color",
     "red": {
       "lightest": {
         "value": "hsl(0deg 100% 98%)",
@@ -15,7 +14,7 @@
         "type": "color"
       },
       "base": {
-        "value": "hsl(0deg 81% 57%)",
+        "value": "{base.color.red}",
         "type": "color"
       },
       "dark": {
@@ -31,11 +30,11 @@
         "type": "color"
       },
       "hover": {
-        "value": "hsl(from var(--acv-color-red) calc(h - 4) s calc(l - 2))",
+        "value": "hsl(from var(--acv-color-red-base) calc(h - 4) s calc(l - 2))",
         "type": "color"
       },
       "active": {
-        "value": "hsl(from var(--acv-color-red) calc(h - 3) calc(s - 1) calc(l - 8))",
+        "value": "hsl(from var(--acv-color-red-base) calc(h - 3) calc(s - 1) calc(l - 8))",
         "type": "color"
       },
       "muted": {
