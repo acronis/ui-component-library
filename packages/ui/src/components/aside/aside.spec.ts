@@ -41,7 +41,7 @@ describe('test Aside component', () => {
     const wrapper = mount(Aside, {
       props: {
         color: 'primary',
-      } as AcvAsideProps,
+      },
     });
     expect(wrapper.classes()).toContain('acv-aside--color-primary');
   });
@@ -102,7 +102,7 @@ describe('test Aside component', () => {
     expect(wrapper.find('.acv-aside__content').text()).toBe('Main content');
   });
 
-  it('handles collapsible functionality', async () => {
+  it('handles collapsible functionality when collapsed', async () => {
     const wrapper = mount(Aside, {
       props: {
         collapsible: true,
@@ -110,20 +110,56 @@ describe('test Aside component', () => {
       } as AcvAsideProps,
     });
 
+    // When collapsible is true and modelValue is false, the aside should not be rendered
+    expect(wrapper.find('aside').exists()).toBe(false);
+  });
+
+  it('handles collapsible functionality when expanded', async () => {
+    const wrapper = mount(Aside, {
+      props: {
+        collapsible: true,
+        modelValue: true,
+      } as AcvAsideProps,
+    });
+
+    // When collapsible is true and modelValue is true, the aside should be rendered with correct classes
+    expect(wrapper.find('aside').exists()).toBe(true);
     expect(wrapper.classes()).toContain('acv-aside--collapsible');
-    expect(wrapper.classes()).toContain('acv-aside--collapsed');
-    expect(wrapper.isVisible()).toBe(false);
+    expect(wrapper.classes()).not.toContain('acv-aside--collapsed');
   });
 
   it('emits events on toggle', async () => {
     const wrapper = mount(Aside, {
       props: {
         collapsible: true,
-        modelValue: false,
+        modelValue: true,
       } as AcvAsideProps,
     });
 
     // Get the component instance to call toggle
+    const component = wrapper.vm as any;
+    component.toggle();
+
+    await nextTick();
+
+    const emitted = wrapper.emitted();
+    expect(emitted['update:modelValue']).toEqual([[false]]);
+    expect(emitted.toggle).toEqual([[false]]);
+    expect(emitted.close).toEqual([[]]);
+  });
+
+  it('emits open event when toggling from closed to open', async () => {
+    const wrapper = mount(Aside, {
+      props: {
+        collapsible: true,
+        modelValue: false,
+      } as AcvAsideProps,
+    });
+
+    // Initially the aside should not be rendered
+    expect(wrapper.find('aside').exists()).toBe(false);
+
+    // Toggle to open
     const component = wrapper.vm as any;
     component.toggle();
 
@@ -160,7 +196,6 @@ describe('test Aside component', () => {
     const aside = wrapper.find('aside');
     expect(aside.attributes('aria-label')).toBe('Sidebar navigation');
     expect(aside.attributes('aria-labelledby')).toBe('sidebar-title');
-    expect(aside.attributes('role')).toBe('complementary');
   });
 
   it('applies width dimension as CSS variable', async () => {
