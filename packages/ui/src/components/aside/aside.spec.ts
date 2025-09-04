@@ -1,6 +1,6 @@
 import type { AcvAsideProps } from './aside.ts';
 import { mount } from '@vue/test-utils';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { nextTick } from 'vue';
 import Aside from './aside.vue';
 
@@ -131,8 +131,8 @@ describe('test Aside component', () => {
 
     const emitted = wrapper.emitted();
     expect(emitted['update:modelValue']).toEqual([[true]]);
-    expect(emitted['toggle']).toEqual([[true]]);
-    expect(emitted['open']).toEqual([[]]);
+    expect(emitted.toggle).toEqual([[true]]);
+    expect(emitted.open).toEqual([[]]);
   });
 
   it('emits close event when modelValue changes to false', async () => {
@@ -146,7 +146,7 @@ describe('test Aside component', () => {
     await wrapper.setProps({ modelValue: false });
 
     const emitted = wrapper.emitted();
-    expect(emitted['close']).toBeTruthy();
+    expect(emitted.close).toBeTruthy();
   });
 
   it('sets accessibility attributes', () => {

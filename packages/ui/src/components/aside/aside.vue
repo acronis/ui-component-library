@@ -25,9 +25,10 @@
 
   // Width/Height calculations
   const dimensionPx = computed(() => {
-    if (!props.width) return '';
+    if (!props.width)
+      return '';
     // Match valid CSS units: px, %, em, rem, vw, vh, vmin, vmax, ch, ex, cm, mm, in, pt, pc, q
-    const cssUnitPattern = /^-?\d*\.?\d+\s*(px|%|em|rem|vw|vh|vmin|vmax|ch|ex|cm|mm|in|pt|pc|q)$/i;
+    const cssUnitPattern = /^-?(?:\d+(?:\.\d+)?|\.\d+)\s*(?:px|%|em|rem|vw|vh|vmin|vmax|ch|ex|cm|mm|in|pt|pc|q)$/i;
     return cssUnitPattern.test(props.width.trim())
       ? props.width
       : `${props.width}px`;
@@ -57,26 +58,28 @@
   });
 
   // Toggle functionality
-  const toggle = () => {
+  function toggle() {
     if (props.collapsible) {
       const newValue = !props.modelValue;
       emit('update:modelValue', newValue);
       emit('toggle', newValue);
-      
+
       if (newValue) {
         emit('open');
-      } else {
+      }
+      else {
         emit('close');
       }
     }
-  };
+  }
 
   // Watch for model value changes to emit events
   watch(() => props.modelValue, (newValue, oldValue) => {
     if (newValue !== oldValue) {
       if (newValue) {
         emit('open');
-      } else {
+      }
+      else {
         emit('close');
       }
     }
@@ -92,13 +95,12 @@
   <aside
     v-if="!props.collapsible || props.modelValue"
     :class="asideClasses"
-    :style="{ 
+    :style="{
       '--acv-aside-dimension': dimensionPx,
       '--acv-aside-bg-color': backgroundColor,
     }"
     :aria-label="props.ariaLabel"
     :aria-labelledby="props.ariaLabelledby"
-    role="complementary"
     v-bind="$attrs"
   >
     <!-- Header slot -->
