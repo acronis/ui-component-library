@@ -1,12 +1,59 @@
 @import "@acronis-platform/ui-syntax/styles/index.css";
-@import "@acronis-platform/ui-syntax/dist/css/acronis/acronis-light.css" screen
-  and (prefers-color-scheme: light);
-@import "@acronis-platform/ui-syntax/dist/css/acronis/acronis-dark.css" screen
-  and (prefers-color-scheme: dark);
+
+/* Force a single theme to avoid environment-specific prefers-color-scheme variance */
+@import "@acronis-platform/ui-syntax/dist/css/acronis/acronis-light.css";
 
 html {
   box-sizing: border-box;
   font-size: var(--acv-size-font-base);
   font-family: var(--acv-base-font-family-inter), sans-serif;
   color: var(--acv-color-gray-dark);
+  background: var(
+    --acv-color-white
+  ); /* ensure stable background for screenshots */
+  /* stylelint-disable */
+  color-scheme: light only; /* stabilize UA styles */
+  /* stylelint-enable */
+}
+
+/* Normalize sizing and hide scrollbars to avoid 19px viewport drift in CI */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+
+  /* Disable animations/transitions for visual stability */
+  transition: none !important;
+  animation: none !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* prevent scrollbars affecting viewport size */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Common Cypress CT containers — pin to exact viewport size and hide scrollbars */
+/* stylelint-disable */
+#__cy_root,
+#__cy_wrapper,
+.mount-root,
+#root,
+#app {
+  width: 1000px;
+  height: 600px;
+  max-width: 1000px;
+  max-height: 600px;
+  overflow: hidden;
+}
+/* stylelint-enable */
+
+/* Hide webkit scrollbars explicitly (Chrome) */
+*::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
 }

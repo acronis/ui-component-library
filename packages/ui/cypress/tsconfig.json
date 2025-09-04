@@ -1,7 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node", "@simonsmith/cypress-image-snapshot/types"],
     "jsx": "preserve"
   },
   "include": ["**/*.ts", "../cypress.d.ts"]
