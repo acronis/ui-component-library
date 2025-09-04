@@ -84,7 +84,7 @@
     "@acronis-platform/configs": "workspace:*",
     "@acronis-platform/utils": "workspace:*",
     "@cypress/vue": "6.0.1",
-    "@simonsmith/cypress-image-snapshot": "9.0.3",
+    "@simonsmith/cypress-image-snapshot": "10.0.2",
     "@storybook/addon-designs": "8.0.3",
     "@storybook/addon-essentials": "8.2.9",
     "@storybook/blocks": "8.2.9",

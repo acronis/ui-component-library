@@ -481,8 +481,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1(cypress@13.12.0)(vue@3.5.6(typescript@5.5.3))
       '@simonsmith/cypress-image-snapshot':
-        specifier: 9.0.3
-        version: 9.0.3(cypress@13.12.0)
+        specifier: 10.0.2
+        version: 10.0.2(cypress@13.12.0)
       '@storybook/addon-designs':
         specifier: 8.0.3
         version: 8.0.3(@storybook/blocks@8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.24.4))))(@storybook/components@8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.24.4))))(@storybook/theming@8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.24.4))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2963,10 +2963,10 @@ packages:
   '@shikijs/vscode-textmate@9.2.2':
     resolution: {integrity: sha512-TMp15K+GGYrWlZM8+Lnj9EaHEFmOen0WJBrfa17hF7taDOYthuPPV0GWzfd/9iMij0akS/8Yw2ikquH7uVi/fg==}
 
-  '@simonsmith/cypress-image-snapshot@9.0.3':
-    resolution: {integrity: sha512-6hFHS7UQ+NB3rU+RGf68bCwAsBalJ+Jr7xEa0RC/8pdYxG1RtCYb/Ai52stHKUCbYNBeYbrg+DMENlL9/XctHA==}
+  '@simonsmith/cypress-image-snapshot@10.0.2':
+    resolution: {integrity: sha512-FXapCkDKsL6F0M3Pqh8mIjhS5R4Jt8LaVxojLkGcza/WeqBxRYjkq+INfVV3hfzGRpQHsF3hklU1srALEDciQQ==}
     peerDependencies:
-      cypress: '>10.0.0'
+      cypress: '>13.0.0'
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -6185,8 +6185,8 @@ packages:
     resolution: {integrity: sha512-zrteXnqYxfQh7l5FHyL38jL39di8H8rHoecLH3JNxH3BwOrBsNeabdap5e0I23lD4HHI8W5VFBZqG4Eaq5LNcw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  jest-image-snapshot@6.4.0:
-    resolution: {integrity: sha512-IWGtSOnelwaVPd09STbJuLmnAwlBC/roJtTLGLb8M3TA0vfku3MRNEXmljTa1EMXqdRbA0oIWiqHFB1ttTGazQ==}
+  jest-image-snapshot@6.5.1:
+    resolution: {integrity: sha512-xlJFufgfY2Z4DsRsjcnTwxuynvo1bKdhf4OfcEftNuUAK+BwSCUtPmwlBGJhQ0XJXfm9JMAi/4BhQiHbaV8HrA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
       jest: '>=20 <=29'
@@ -12349,12 +12349,12 @@ snapshots:
 
   '@shikijs/vscode-textmate@9.2.2': {}
 
-  '@simonsmith/cypress-image-snapshot@9.0.3(cypress@13.12.0)':
+  '@simonsmith/cypress-image-snapshot@10.0.2(cypress@13.12.0)':
     dependencies:
       '@types/jest-image-snapshot': 6.4.0
       chalk: 4.1.2
       cypress: 13.12.0
-      jest-image-snapshot: 6.4.0
+      jest-image-snapshot: 6.5.1
     transitivePeerDependencies:
       - jest
 
@@ -16266,7 +16266,7 @@ snapshots:
 
   jest-get-type@29.6.3: {}
 
-  jest-image-snapshot@6.4.0:
+  jest-image-snapshot@6.5.1:
     dependencies:
       chalk: 4.1.2
       get-stdin: 5.0.1
@@ -16274,7 +16274,6 @@ snapshots:
       lodash: 4.17.21
       pixelmatch: 5.3.0
       pngjs: 3.4.0
-      rimraf: 2.7.1
       ssim.js: 3.5.0
 
   jest-matcher-utils@29.7.0:
@@ -17739,8 +17738,8 @@ snapshots:
     dependencies:
       htmlparser2: 8.0.2
       js-tokens: 8.0.3
-      postcss: 8.5.6
-      postcss-safe-parser: 6.0.0(postcss@8.5.6)
+      postcss: 8.4.38
+      postcss-safe-parser: 6.0.0(postcss@8.4.38)
 
   postcss-image-set-function@6.0.3(postcss@8.4.38):
     dependencies:
@@ -18059,10 +18058,6 @@ snapshots:
   postcss-safe-parser@6.0.0(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
-
-  postcss-safe-parser@6.0.0(postcss@8.5.6):
-    dependencies:
-      postcss: 8.5.6
 
   postcss-safe-parser@7.0.0(postcss@8.4.38):
     dependencies:
