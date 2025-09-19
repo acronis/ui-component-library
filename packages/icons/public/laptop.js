@@ -2,6 +2,7 @@ export { render as IconLaptopAb24 } from '../vue/IconLaptopAb24.js';
 export { render as IconLaptopAb32 } from '../vue/IconLaptopAb32.js';
 export { render as IconLaptopAppleAb24 } from '../vue/IconLaptopAppleAb24.js';
 export { render as IconLaptopAppleAb32 } from '../vue/IconLaptopAppleAb32.js';
+export { render as IconLaptopAppleArm32 } from '../vue/IconLaptopAppleArm32.js';
 export { render as IconLaptopDefaultDisabledIll96 } from '../vue/IconLaptopDefaultDisabledIll96.js';
 export { render as IconLaptopDefaultEnabledIll96 } from '../vue/IconLaptopDefaultEnabledIll96.js';
 export { render as IconLaptopLinux24 } from '../vue/IconLaptopLinux24.js';
@@ -14,5 +15,6 @@ export { render as IconLaptopVmDisabledIll96 } from '../vue/IconLaptopVmDisabled
 export { render as IconLaptopVmEnabledIll96 } from '../vue/IconLaptopVmEnabledIll96.js';
 export { render as IconLaptopWindowsAb24 } from '../vue/IconLaptopWindowsAb24.js';
 export { render as IconLaptopWindowsAb32 } from '../vue/IconLaptopWindowsAb32.js';
+export { render as IconLaptopWindowsArm32 } from '../vue/IconLaptopWindowsArm32.js';
 export { render as IconLaptopWindowsDisabledIll96 } from '../vue/IconLaptopWindowsDisabledIll96.js';
 export { render as IconLaptopWindowsEnabledIll96 } from '../vue/IconLaptopWindowsEnabledIll96.js';

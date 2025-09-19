@@ -1,3 +1,4 @@
+export { render as IconVmArm32 } from '../vue/IconVmArm32.js';
 export { render as IconVmHyperv32 } from '../vue/IconVmHyperv32.js';
 export { render as IconVmHypervRunning32 } from '../vue/IconVmHypervRunning32.js';
 export { render as IconVmReplicationPlanAb32 } from '../vue/IconVmReplicationPlanAb32.js';

@@ -8,15 +8,15 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M12 2a2 2 0 0 0-2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-8Z"
+  d: "M12 2c-1.1046 0-2 .8954-2 2h8c1.1046 0 2 .8954 2 2v8c1.1046 0 2-.8954 2-2V4c0-1.1046-.8954-2-2-2h-8Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M8 6a2 2 0 0 0-2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H8Z"
+  d: "M8 6c-1.1046 0-2 .8954-2 2h8c1.1046 0 2 .8954 2 2v8c1.1046 0 2-.8954 2-2V8c0-1.1046-.8954-2-2-2H8Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M4 10a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2H4Z"
+  d: "M4 10c-1.1046 0-2 .8954-2 2v8c0 1.1046.8954 2 2 2h8c1.1046 0 2-.8954 2-2v-8c0-1.1046-.8954-2-2-2H4Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [
   _hoisted_2,

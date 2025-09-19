@@ -13,7 +13,7 @@ const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
   "fill-rule": "evenodd",
-  d: "M24 5h2a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h2v4h4V5h8v4h4V5Zm2.707 20.707A1 1 0 0 0 27 25V12H5v13a1 1 0 0 0 1 1h20a1 1 0 0 0 .707-.293Z",
+  d: "M24 5h2a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h2v4h4V5h8v4h4V5Zm2.7071 20.7071A1.0001 1.0001 0 0 0 27 25V12H5v13a1 1 0 0 0 1 1h20c.2652 0 .5196-.1054.7071-.2929Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = [

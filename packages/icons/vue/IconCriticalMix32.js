@@ -9,17 +9,17 @@ const _hoisted_1 = {
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#FF810D",
   "fill-rule": "evenodd",
-  d: "M26 32a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z",
+  d: "M26 32c3.3137 0 6-2.6863 6-6s-2.6863-6-6-6-6 2.6863-6 6 2.6863 6 6 6Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   stroke: "#243143",
   "stroke-opacity": ".1",
-  d: "M26 20.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"
+  d: "M26 20.5c3.0376 0 5.5 2.4624 5.5 5.5s-2.4624 5.5-5.5 5.5-5.5-2.4624-5.5-5.5 2.4624-5.5 5.5-5.5Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",
-  d: "M26 22.5a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM26 29.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+  d: "M26 22.5c-.5523 0-1 .4477-1 1v2c0 .5523.4477 1 1 1s1-.4477 1-1v-2c0-.5523-.4477-1-1-1ZM26 29.5c.5523 0 1-.4477 1-1s-.4477-1-1-1-1 .4477-1 1 .4477 1 1 1Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [
   _hoisted_2,

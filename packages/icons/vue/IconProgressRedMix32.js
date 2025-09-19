@@ -8,16 +8,16 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#EA3939",
-  d: "M32 26a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
+  d: "M32 26c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   stroke: "#243143",
   "stroke-opacity": ".1",
-  d: "M26 20.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"
+  d: "M26 20.5c3.0376 0 5.5 2.4624 5.5 5.5s-2.4624 5.5-5.5 5.5-5.5-2.4624-5.5-5.5 2.4624-5.5 5.5-5.5Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",
-  d: "M23 27a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM27 26a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM30 26a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+  d: "M23 27c.5523 0 1-.4477 1-1s-.4477-1-1-1-1 .4477-1 1 .4477 1 1 1ZM27 26c0 .5523-.4477 1-1 1s-1-.4477-1-1 .4477-1 1-1 1 .4477 1 1ZM30 26c0 .5523-.4477 1-1 1s-1-.4477-1-1 .4477-1 1-1 1 .4477 1 1Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [
   _hoisted_2,

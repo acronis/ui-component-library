@@ -8,17 +8,17 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#408BEA",
-  d: "M26 32a6 6 0 1 1 0-12 6 6 0 0 1 0 12Z"
+  d: "M26 32c-3.3137 0-6-2.6863-6-6s2.6863-6 6-6 6 2.6863 6 6-2.6863 6-6 6Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   stroke: "#243143",
   "stroke-opacity": ".1",
-  d: "M26 20.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"
+  d: "M26 20.5c3.0376 0 5.5 2.4624 5.5 5.5s-2.4624 5.5-5.5 5.5-5.5-2.4624-5.5-5.5 2.4624-5.5 5.5-5.5Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",
   "fill-rule": "evenodd",
-  d: "M26 22a1 1 0 0 1 1 1v2.586l1.707 1.707a1 1 0 0 1-1.414 1.414l-2-2A1 1 0 0 1 25 26v-3a1 1 0 0 1 1-1Z",
+  d: "M26.0003 22c.5523 0 1 .4478 1 1.0001L27 25.5861l1.7071 1.7069c.3905.3905.3906 1.0237.0001 1.4142-.3905.3905-1.0237.3906-1.4142.0001l-2.0001-1.9999A1 1 0 0 1 25 26.0002l.0003-3.0003c0-.5523.4478-.9999 1-.9999Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [

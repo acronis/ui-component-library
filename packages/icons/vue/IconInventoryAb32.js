@@ -9,7 +9,7 @@ const _hoisted_1 = {
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
   "fill-rule": "evenodd",
-  d: "M10 9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-2.709c-1.073.66-2.174 1-3.291 1s-2.219-.34-3.293-1H10Zm11-4H11v2h2a1 1 0 0 1 .554.168C14.397 7.73 15.208 8 16 8c.792 0 1.601-.27 2.444-.832A1 1 0 0 1 18.999 7H21V5Z",
+  d: "M10 9c-.5523 0-1-.4477-1-1V4c0-.5523.4477-1 1-1h12c.5523 0 1 .4477 1 1v4c0 .5523-.4477 1-1 1h-2.7086c-1.0738.661-2.1748 1-3.2914 1-1.117 0-2.2185-.339-3.2932-1H10Zm11-4H11v2h1.9994c.1974 0 .3903.0584.5546.1679C14.3973 7.7299 15.2078 8 16 8c.7917 0 1.6014-.27 2.4437-.8319A1 1 0 0 1 18.9987 7H21V5Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
@@ -18,7 +18,7 @@ const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M25 6h1v21H6V6h1V4H5a1 1 0 0 0-1 1v23a1 1 0 0 0 1 1h22a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-2v2Z"
+  d: "M25 6h1v21H6V6h1V4H5c-.5523 0-1 .4477-1 1v23c0 .5523.4477 1 1 1h22c.5523 0 1-.4477 1-1V5c0-.5523-.4477-1-1-1h-2v2Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [
   _hoisted_2,
