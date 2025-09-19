@@ -1,0 +1,16 @@
+import { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createStaticVNode as _createStaticVNode } from "vue"
+
+const _hoisted_1 = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 16 16",
+  class: "acv-icon"
+}
+const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<g fill=\"currentColor\" fill-rule=\"evenodd\" clip-path=\"url(#SupportAccess16:a)\" clip-rule=\"evenodd\"><path d=\"M8 0c2.6351 0 4.8715 1.6994 5.6777 4.0615A3.7294 3.7294 0 0 0 13 4c-.4865 0-.9547.095-1.3936.2695C10.9611 2.9271 9.5891 2 8 2 5.7909 2 4 3.7909 4 6v.1387c.5886.2572 1 .8449 1 1.5283v5.626a.707.707 0 0 0 .707.707H7c.5523 0 1 .4477 1 1s-.4477 1-1 1H5.707a2.7068 2.7068 0 0 1-2.6152-2.0088C1.3638 13.8674.0002 12.4265 0 10.667V9.333c.0001-1.3667.8228-2.5413 2-3.0557V6c0-3.3137 2.6863-6 6-6ZM3 8.042c-.575.148-.9998.6699-1 1.291v1.334c.0002.6211.425 1.143 1 1.291V8.042Z\"></path><path d=\"M13 5.25c1.2426 0 2.25 1.0074 2.25 2.25v1.5322c.4312.1111.75.5019.75.9678v3c0 .5523-.4477 1-1 1h-4c-.5523 0-1-.4477-1-1v-3c0-.4659.3188-.8567.75-.9678V7.5c0-1.2426 1.0074-2.25 2.25-2.25ZM12 11v1h2v-1h-2Zm1-4.25a.75.75 0 0 0-.75.75V9h1.5V7.5a.75.75 0 0 0-.75-.75Z\"></path></g><defs><clipPath id=\"SupportAccess16:a\"><path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path></clipPath></defs>", 2)
+const _hoisted_4 = [
+  _hoisted_2
+]
+
+export function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("svg", _hoisted_1, [..._hoisted_4]))
+}
