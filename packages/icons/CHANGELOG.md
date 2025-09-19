@@ -1,3 +1,11 @@
+## [0.12.0](https://github.com/acronis/ui-component-library/compare/icons/0.11.0...icons/0.12.0) (2025-09-19)
+
+
+### Features
+
+* add new icon components and their TypeScript definitions ([3dd359c](https://github.com/acronis/ui-component-library/commit/3dd359cc4b8c727d1331771837e3d16c28a5173e))
+* add new icon exports and update existing icon definitions for consistency ([9224b5b](https://github.com/acronis/ui-component-library/commit/9224b5b53edddc071849daa7cd4f561fb8d8ecea))
+
 ## [0.11.0](https://github.com/acronis/ui-component-library/compare/icons/0.10.0...icons/0.11.0) (2025-06-13)
 
 
@@ -26,11 +34,4 @@
 ### Features
 
 * add IconCheckDouble16 and IconPinOutlineSmall32 components ([b985745](https://github.com/acronis/ui-component-library/commit/b985745d3e0324c3c29ac34a4fa1feb349f9ed37))
-
-## [0.7.0](https://github.com/acronis/ui-component-library/compare/icons/0.6.0...icons/0.7.0) (2025-02-18)
-
-
-### Features
-
-* update icons from figma ([86f3ab4](https://github.com/acronis/ui-component-library/commit/86f3ab4289625553f1d4740bcc0b663ab5ff01ee))
 
