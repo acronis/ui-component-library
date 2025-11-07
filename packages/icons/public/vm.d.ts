@@ -1,3 +1,4 @@
+export { default as IconVmArm32 } from '../vue/IconVmArm32.js';
 export { default as IconVmHyperv32 } from '../vue/IconVmHyperv32.js';
 export { default as IconVmHypervRunning32 } from '../vue/IconVmHypervRunning32.js';
 export { default as IconVmReplicationPlanAb32 } from '../vue/IconVmReplicationPlanAb32.js';

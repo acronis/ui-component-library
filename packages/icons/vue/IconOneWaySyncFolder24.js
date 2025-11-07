@@ -8,12 +8,12 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M11 11a1 1 0 0 1 2 0v1.8c0 .11.09.2.2.2h.8a.5.5 0 0 1 .4.8l-2 2.667a.5.5 0 0 1-.8 0l-2-2.667a.5.5 0 0 1 .4-.8h.8a.2.2 0 0 0 .2-.2V11Z"
+  d: "M10.9999 11c0-.5523.4478-1 1-1 .5523 0 1 .4477 1 1v1.8a.2.2 0 0 0 .2.2h.8c.4121 0 .6472.4704.4.8l-2 2.6667c-.2.2666-.6.2666-.8 0l-2-2.6667c-.2472-.3296-.012-.8.4-.8h.8a.2.2 0 0 0 .2-.2V11Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
   "fill-rule": "evenodd",
-  d: "M22 7a1 1 0 0 0-1-1h-8.28l-.771-2.316A1 1 0 0 0 11 3H3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7ZM4 19V5h6.28l.771 2.316A1 1 0 0 0 12 8h8v11H4Z",
+  d: "M22 7c0-.5523-.4477-1-1-1h-8.2792l-.7721-2.3162A1 1 0 0 0 11 3H3c-.5523 0-1 .4477-1 1v16c0 .5523.4477 1 1 1h18c.5523 0 1-.4477 1-1V7ZM4 19V5h6.2792l.7721 2.3162A1 1 0 0 0 12 8h8v11H4Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = [

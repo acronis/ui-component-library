@@ -22,7 +22,7 @@ const _hoisted_3 = /*#__PURE__*/_createElementVNode("circle", {
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",
   "fill-rule": "evenodd",
-  d: "M11.707 5.293a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L7 8.586l3.293-3.293a1 1 0 0 1 1.414 0Z",
+  d: "M11.7071 5.2929c.3905.3905.3905 1.0237 0 1.4142l-4 4c-.3905.3905-1.0237.3905-1.4142 0l-2-2c-.3905-.3905-.3905-1.0237 0-1.4142.3905-.3905 1.0237-.3905 1.4142 0L7 8.5858l3.2929-3.293c.3905-.3904 1.0237-.3904 1.4142 0Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [

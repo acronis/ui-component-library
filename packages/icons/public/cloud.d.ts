@@ -10,6 +10,7 @@ export { default as IconCloudServer16 } from '../vue/IconCloudServer16.js';
 export { default as IconCloudServer24 } from '../vue/IconCloudServer24.js';
 export { default as IconCloudStorage16 } from '../vue/IconCloudStorage16.js';
 export { default as IconCloudStorage24 } from '../vue/IconCloudStorage24.js';
+export { default as IconCloudToCloud16 } from '../vue/IconCloudToCloud16.js';
 export { default as IconCloudToCloud24 } from '../vue/IconCloudToCloud24.js';
 export { default as IconCloudTray16 } from '../vue/IconCloudTray16.js';
 export { default as IconCloudTray32 } from '../vue/IconCloudTray32.js';

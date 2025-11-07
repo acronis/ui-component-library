@@ -1,5 +1,7 @@
 export { default as IconM36516 } from '../vue/IconM36516.js';
 export { default as IconM36524 } from '../vue/IconM36524.js';
+export { default as IconM365GoogleBackups16 } from '../vue/IconM365GoogleBackups16.js';
+export { default as IconM365GoogleBackups24 } from '../vue/IconM365GoogleBackups24.js';
 export { default as IconM365RoomsEquipment16 } from '../vue/IconM365RoomsEquipment16.js';
 export { default as IconM365RoomsEquipment24 } from '../vue/IconM365RoomsEquipment24.js';
 export { default as IconM365RoomsEquipmentIncluded16 } from '../vue/IconM365RoomsEquipmentIncluded16.js';

@@ -14,11 +14,11 @@ const _hoisted_2 = /*#__PURE__*/_createElementVNode("circle", {
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#9BC225",
-  d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"
+  d: "M8 15c-3.866 0-7-3.134-7-7s3.134-7 7-7 7 3.134 7 7-3.134 7-7 7Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",
-  d: "m11.76 4.4-5 5-2.5-2.5L3.2 7.96l3.56 3.561 6.061-6.06-1.06-1.061Z"
+  d: "m11.7607 4.4-5 5-2.5-2.5L3.2 7.9606l3.5607 3.5607 6.0606-6.0606L11.7607 4.4Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [
   _hoisted_2,

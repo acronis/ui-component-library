@@ -2,6 +2,7 @@ export { render as IconServer16 } from '../vue/IconServer16.js';
 export { render as IconServer24 } from '../vue/IconServer24.js';
 export { render as IconServer32 } from '../vue/IconServer32.js';
 export { render as IconServer3Th24 } from '../vue/IconServer3Th24.js';
+export { render as IconServerArm32 } from '../vue/IconServerArm32.js';
 export { render as IconServerDisabledIll96 } from '../vue/IconServerDisabledIll96.js';
 export { render as IconServerEnabledIll96 } from '../vue/IconServerEnabledIll96.js';
 export { render as IconServerIncluded16 } from '../vue/IconServerIncluded16.js';

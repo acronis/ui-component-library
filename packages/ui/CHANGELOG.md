@@ -1,3 +1,10 @@
+## [1.35.3](https://github.com/acronis/ui-component-library/compare/v1.35.2...v1.35.3) (2025-11-07)
+
+
+### Bug Fixes
+
+* update SVG path data for improved accuracy in icon components ([3682032](https://github.com/acronis/ui-component-library/commit/36820323b44f403a67972d0e1fdb54b08a9b71e4))
+
 ## [1.35.2](https://github.com/acronis/ui-component-library/compare/v1.35.1...v1.35.2) (2024-12-17)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **notification:** move notification ([#171](https://github.com/acronis/ui-component-library/issues/171)) ([e38bf3e](https://github.com/acronis/ui-component-library/commit/e38bf3e8e22ce3bef8d32bcce4f78c5a08ad82a4))
-
-## [1.33.0](https://github.com/acronis/ui-component-library/compare/v1.32.0...v1.33.0) (2024-12-02)
-
-
-### Features
-
-* create ui-theme package ([#173](https://github.com/acronis/ui-component-library/issues/173)) ([027081f](https://github.com/acronis/ui-component-library/commit/027081f814272518aa3b4608311d1b4c0f730379))
 

@@ -21,7 +21,7 @@ const _hoisted_3 = /*#__PURE__*/_createElementVNode("circle", {
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/_createElementVNode("path", {
   fill: "#fff",
-  d: "M16 23a1.5 1.5 0 0 0 1.5-1.5v-6a1.5 1.5 0 0 0-3 0v6A1.5 1.5 0 0 0 16 23ZM16 9a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"
+  d: "M16 23c.8284 0 1.5-.6716 1.5-1.5v-6c0-.8284-.6716-1.5-1.5-1.5s-1.5.6716-1.5 1.5v6c0 .8284.6716 1.5 1.5 1.5ZM16 9c-.8284 0-1.5.6716-1.5 1.5S15.1716 12 16 12s1.5-.6716 1.5-1.5S16.8284 9 16 9Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = [
   _hoisted_2,

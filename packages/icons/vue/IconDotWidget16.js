@@ -8,7 +8,7 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M8 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+  d: "M8 8c0 2.2091-1.7909 4-4 4-2.2091 0-4-1.7909-4-4 0-2.2091 1.7909-4 4-4 2.2091 0 4 1.7909 4 4Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = [
   _hoisted_2

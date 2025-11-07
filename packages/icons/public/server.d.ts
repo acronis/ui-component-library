@@ -2,6 +2,7 @@ export { default as IconServer16 } from '../vue/IconServer16.js';
 export { default as IconServer24 } from '../vue/IconServer24.js';
 export { default as IconServer32 } from '../vue/IconServer32.js';
 export { default as IconServer3Th24 } from '../vue/IconServer3Th24.js';
+export { default as IconServerArm32 } from '../vue/IconServerArm32.js';
 export { default as IconServerDisabledIll96 } from '../vue/IconServerDisabledIll96.js';
 export { default as IconServerEnabledIll96 } from '../vue/IconServerEnabledIll96.js';
 export { default as IconServerIncluded16 } from '../vue/IconServerIncluded16.js';

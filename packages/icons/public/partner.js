@@ -1,6 +1,10 @@
 export { render as IconPartner16 } from '../vue/IconPartner16.js';
 export { render as IconPartner24 } from '../vue/IconPartner24.js';
 export { render as IconPartner32 } from '../vue/IconPartner32.js';
+export { render as IconPartnerDrInfrastructure16 } from '../vue/IconPartnerDrInfrastructure16.js';
+export { render as IconPartnerDrInfrastructure24 } from '../vue/IconPartnerDrInfrastructure24.js';
+export { render as IconPartnerGeoStorage16 } from '../vue/IconPartnerGeoStorage16.js';
+export { render as IconPartnerGeoStorage24 } from '../vue/IconPartnerGeoStorage24.js';
 export { render as IconPartnerSolid16 } from '../vue/IconPartnerSolid16.js';
 export { render as IconPartnerSolid24 } from '../vue/IconPartnerSolid24.js';
 export { render as IconPartnerSolid32 } from '../vue/IconPartnerSolid32.js';

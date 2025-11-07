@@ -68,13 +68,6 @@ To create a new **[component]** component, you need to create sources with:
 - demos (**@acronis-platform/examples/demos/[component]/[component]Basic.vue**)
 - add export to public.ts (**@acronis-platform/ui-component-library/src/components/index.ts**)
 
-You can create them manually or use [Hygen](https://www.hygen.io) generator.
-To use Hygen generator, you need to run the following command:
-
-```bash
-hygen component new
-```
-
 ## Creating examples of components usage
 
 You can create as many examples for that particular component as you want.

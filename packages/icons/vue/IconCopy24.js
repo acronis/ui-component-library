@@ -9,7 +9,7 @@ const _hoisted_1 = {
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
   "fill-rule": "evenodd",
-  d: "M9 7V4h11v11h-3V8a1 1 0 0 0-1-1H9Zm8 10v4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4V3a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-4Zm-2-8H4v11h11V9Z",
+  d: "M9 7V4h11v11h-3V8c0-.5523-.4477-1-1-1H9Zm8 10v4c0 .5523-.4477 1-1 1H3c-.5523 0-1-.4477-1-1V8c0-.5523.4477-1 1-1h4V3c0-.5523.4477-1 1-1h13c.5523 0 1 .4477 1 1v13c0 .5523-.4477 1-1 1h-4Zm-2-8H4v11h11V9Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = [

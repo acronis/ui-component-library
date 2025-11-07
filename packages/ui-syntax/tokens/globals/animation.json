@@ -81,7 +81,7 @@
       "value": "float 3s var(--acv-transition-easing-in-out-3) infinite"
     },
     "bounce": {
-      "value": "bounce 2s var(--acv-transition-easing-squish-2) infinite"
+      "value": "bounce 2s var(--acv-transition-easing-out-3) infinite"
     },
     "pulse": {
       "value": "pulse 2s var(--acv-transition-easing-out-3) infinite"

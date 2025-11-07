@@ -9,7 +9,6 @@ The main package is `@acronis-platform/ui`.
 
 ```md
 ├── .github                          - _Github Action workflows_
-├── _templates                       - _Hygen templates for component generator_
 ├── packages/browserlist-config      - _Browserlist configs_
 ├── packages/dev-server              - _Main package for components_
 ├── packages/documentation           - _Vitepress documentation_

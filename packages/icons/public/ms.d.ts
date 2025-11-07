@@ -15,6 +15,7 @@ export { default as IconMsOutlook16 } from '../vue/IconMsOutlook16.js';
 export { default as IconMsOutlook24 } from '../vue/IconMsOutlook24.js';
 export { default as IconMsSharepoint16 } from '../vue/IconMsSharepoint16.js';
 export { default as IconMsSharepoint24 } from '../vue/IconMsSharepoint24.js';
+export { default as IconMsSharepoint32 } from '../vue/IconMsSharepoint32.js';
 export { default as IconMsTeams16 } from '../vue/IconMsTeams16.js';
 export { default as IconMsTeams24 } from '../vue/IconMsTeams24.js';
 export { default as IconMsTeams32 } from '../vue/IconMsTeams32.js';

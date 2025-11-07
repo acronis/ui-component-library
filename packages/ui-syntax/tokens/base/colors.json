@@ -2,12 +2,32 @@
   "base": {
     "color": {
       "white": {
-        "value": "#ffffff",
+        "value": "hsl(0deg 100% 100%)",
         "type": "color"
       },
       "black": {
-        "value": "#000000",
+        "value": "hsl(230deg 13% 9%)",
         "type": "color"
+      },
+      "red": {
+        "value": "hsl(0deg 81% 57%)",
+        "type": "color"
+      },
+      "transparent": {
+        "type": "color",
+        "value": "hsl(0deg 0% 100% / 0)"
+      },
+      "lime": {
+        "type": "color",
+        "value": "hsl(66deg 70% 54%)"
+      },
+      "deep-orange": {
+        "type": "color",
+        "value": "hsl(14deg 100% 57%)"
+      },
+      "blue-gray": {
+        "type": "color",
+        "value": "hsl(200deg 18% 46%)"
       }
     }
   }

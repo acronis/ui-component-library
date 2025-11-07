@@ -7,7 +7,7 @@
         "fontWeight": "{base.font.weight.semi-bold.value}",
         "fontSize": "{font.size.heading}",
         "lineHeight": "{font.line-height.small.value}",
-        "spacing": "{font.letter-spacing.normal.value}"
+        "letterSpacing": "{font.letter-spacing.normal.value}"
       }
     },
     "h2": {
