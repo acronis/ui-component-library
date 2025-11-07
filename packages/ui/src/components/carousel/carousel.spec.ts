@@ -43,7 +43,7 @@ describe('test Carousel component', () => {
             <!--v-if--><i data-v-c834062e="" data-v-7a9642c5="" class="acv-custom-icon size-medium" role="presentation" style="--c834062e-iconSizeValue: 24px; --c834062e-fillColor: currentColor;">
               <!--v-if-->
               <!--v-if--><svg data-v-c834062e="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="acv-icon is-svg">
-                <path fill="currentColor" d="m5.414 7 3.293-3.293a1 1 0 0 0-1.414-1.414l-5 5a1 1 0 0 0 0 1.414l5 5a1 1 0 0 0 1.414-1.414L5.414 9H13a1 1 0 1 0 0-2H5.414Z"></path>
+                <path fill="currentColor" d="m5.4142 7 3.293-3.2929c.3904-.3905.3904-1.0237 0-1.4142-.3906-.3905-1.0238-.3905-1.4143 0l-5 5c-.3905.3905-.3905 1.0237 0 1.4142l5 5c.3905.3905 1.0237.3905 1.4142 0 .3905-.3905.3905-1.0237 0-1.4142L5.4142 9H13c.5523 0 1-.4477 1-1s-.4477-1-1-1H5.4142Z"></path>
               </svg>
               <!--v-if-->
               <!--v-if--><span data-v-c834062e="" class="visually-hidden"></span>
