@@ -3,9 +3,9 @@ export type AcvAsidePosition = 'static' | 'fixed' | 'sticky' | 'absolute';
 
 export interface AcvAsideProps {
   /**
-   * Width of the Aside (for left/right positioning) or height (for top/bottom positioning)
+   * Size of the Aside: controls the cross-axis dimension (width for left/right anchor, height for top/bottom anchor)
    */
-  width?: string
+  size?: string
 
   /**
    * Background color of the Aside
