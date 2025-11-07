@@ -1,6 +1,7 @@
 export { default as IconWorkstation16 } from '../vue/IconWorkstation16.js';
 export { default as IconWorkstation32 } from '../vue/IconWorkstation32.js';
 export { default as IconWorkstation3Th24 } from '../vue/IconWorkstation3Th24.js';
+export { default as IconWorkstationArm32 } from '../vue/IconWorkstationArm32.js';
 export { default as IconWorkstationIll72 } from '../vue/IconWorkstationIll72.js';
 export { default as IconWorkstationIncluded16 } from '../vue/IconWorkstationIncluded16.js';
 export { default as IconWorkstationIncluded24 } from '../vue/IconWorkstationIncluded24.js';

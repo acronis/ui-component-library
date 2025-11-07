@@ -6,7 +6,7 @@ const _hoisted_1 = {
   viewBox: "0 0 32 32",
   class: "acv-icon"
 }
-const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<path fill=\"#CADEF9\" d=\"M8 8a8 8 0 1 1 16 0v16a8 8 0 1 1-16 0V8Z\"></path><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M22 24V8a6 6 0 0 0-12 0v16a6 6 0 0 0 12 0ZM16 0a8 8 0 0 0-8 8v16a8 8 0 1 0 16 0V8a8 8 0 0 0-8-8Z\" clip-rule=\"evenodd\"></path><rect width=\"8\" height=\"2\" x=\"12\" y=\"15\" fill=\"currentColor\" rx=\"1\"></rect><path fill=\"currentColor\" fill-opacity=\".3\" d=\"M14 11a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4ZM14 19a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z\"></path><path fill=\"currentColor\" fill-opacity=\".1\" d=\"M16 7a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM16 23a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z\"></path>", 5)
+const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<path fill=\"#CADEF9\" d=\"M8 8c0-4.4183 3.5817-8 8-8s8 3.5817 8 8v16c0 4.4183-3.5817 8-8 8s-8-3.5817-8-8V8Z\"></path><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M22 24V8c0-3.3137-2.6863-6-6-6s-6 2.6863-6 6v16c0 3.3137 2.6863 6 6 6s6-2.6863 6-6ZM16 0c-4.4183 0-8 3.5817-8 8v16c0 4.4183 3.5817 8 8 8s8-3.5817 8-8V8c0-4.4183-3.5817-8-8-8Z\" clip-rule=\"evenodd\"></path><rect width=\"8\" height=\"2\" x=\"12\" y=\"15\" fill=\"currentColor\" rx=\"1\"></rect><path fill=\"currentColor\" fill-opacity=\".3\" d=\"M14 11c-.5523 0-1 .4477-1 1s.4477 1 1 1h4c.5523 0 1-.4477 1-1s-.4477-1-1-1h-4ZM14 19c-.5523 0-1 .4477-1 1s.4477 1 1 1h4c.5523 0 1-.4477 1-1s-.4477-1-1-1h-4Z\"></path><path fill=\"currentColor\" fill-opacity=\".1\" d=\"M16 7c-.5523 0-1 .4477-1 1s.4477 1 1 1 1-.4477 1-1-.4477-1-1-1ZM16 23c-.5523 0-1 .4477-1 1s.4477 1 1 1 1-.4477 1-1-.4477-1-1-1Z\"></path>", 5)
 const _hoisted_7 = [
   _hoisted_2
 ]

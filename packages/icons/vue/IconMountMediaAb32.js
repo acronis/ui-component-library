@@ -8,12 +8,12 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M20.667 17 17 19.722V10h-2v9.722L11.333 17 10 18.546 16 23l6-4.454L20.667 17Z"
+  d: "M20.6672 17 17 19.7224V10h-2v9.7224L11.3328 17 10 18.5459 16 23l6-4.4541L20.6672 17Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
   "fill-rule": "evenodd",
-  d: "M21.586 3H29v26H3V3h7.414l2 2h7.172l2-2ZM5 5v22h22V5h-4.586l-2 2h-8.828l-2-2H5Z",
+  d: "M21.5858 3H29v26H3V3h7.4142l2 2h7.1716l2-2ZM5 5v22h22V5h-4.5858l-2 2h-8.8284l-2-2H5Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = [

@@ -6,7 +6,7 @@ const _hoisted_1 = {
   viewBox: "0 0 24 24",
   class: "acv-icon"
 }
-const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<path fill=\"url(#3680a)\" d=\"M1 4a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4Z\"></path><path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M3 1a3 3 0 0 0-3 3v13a3 3 0 0 0 3 3h8v2H9a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-2v-2h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3H3ZM2 4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4Z\" clip-rule=\"evenodd\"></path><defs><linearGradient id=\"3683a\" x1=\"12\" x2=\"12\" y1=\"2\" y2=\"17\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#fff\" stop-opacity=\".4\"></stop><stop offset=\"1\" stop-color=\"#fff\" stop-opacity=\"0\"></stop></linearGradient></defs>", 3)
+const _hoisted_2 = /*#__PURE__*/_createStaticVNode("<path fill=\"url(#WorkstationNav24:a)\" d=\"M1 4c0-1.1046.8954-2 2-2h18c1.1046 0 2 .8954 2 2v13c0 1.1046-.8954 2-2 2H3c-1.1046 0-2-.8954-2-2V4Z\"></path><path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M3 1C1.3432 1 0 2.3432 0 4v13c0 1.6569 1.3431 3 3 3h8v2H9c-.5523 0-1 .4477-1 1s.4477 1 1 1h6c.5523 0 1-.4477 1-1s-.4477-1-1-1h-2v-2h8c1.6569 0 3-1.3431 3-3V4c0-1.6568-1.3431-3-3-3H3ZM2 4c0-.5523.4477-1 1-1h18c.5523 0 1 .4477 1 1v13c0 .5523-.4477 1-1 1H3c-.5523 0-1-.4477-1-1V4Z\" clip-rule=\"evenodd\"></path><defs><linearGradient id=\"WorkstationNav24:a\" x1=\"12\" x2=\"12\" y1=\"2\" y2=\"17\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#fff\" stop-opacity=\".4\"></stop><stop offset=\"1\" stop-color=\"#fff\" stop-opacity=\"0\"></stop></linearGradient></defs>", 3)
 const _hoisted_5 = [
   _hoisted_2
 ]

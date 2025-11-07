@@ -8,12 +8,12 @@ const _hoisted_1 = {
 }
 const _hoisted_2 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
-  d: "M4 4a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0V5a1 1 0 0 0-1-1ZM6 5a1 1 0 0 1 2 0v3a1 1 0 0 1-2 0V5ZM12 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+  d: "M4 4c-.5523 0-1 .4477-1 1v3c0 .5523.4477 1 1 1s1-.4477 1-1V5c0-.5523-.4477-1-1-1ZM6 5c0-.5523.4477-1 1-1s1 .4477 1 1v3c0 .5523-.4477 1-1 1s-1-.4477-1-1V5ZM12 6c.5523 0 1-.4477 1-1s-.4477-1-1-1-1 .4477-1 1 .4477 1 1 1Z"
 }, null, -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/_createElementVNode("path", {
   fill: "currentColor",
   "fill-rule": "evenodd",
-  d: "M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9v1h2a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2h2v-1H1a1 1 0 0 1-1-1V2Zm2 1h12v7H2V3Z",
+  d: "M0 2c0-.5523.4477-1 1-1h14c.5523 0 1 .4477 1 1v9c0 .5523-.4477 1-1 1H9v1h2c.5523 0 1 .4477 1 1s-.4477 1-1 1H5c-.5523 0-1-.4477-1-1s.4477-1 1-1h2v-1H1c-.5523 0-1-.4477-1-1V2Zm2 1h12v7H2V3Z",
   "clip-rule": "evenodd"
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = [
