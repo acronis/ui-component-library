@@ -21,7 +21,7 @@ describe('test Aside component', () => {
         "persistent": false,
         "position": "static",
         "responsive": true,
-        "width": undefined,
+        "size": undefined,
       }
     `);
   });
@@ -201,7 +201,7 @@ describe('test Aside component', () => {
   it('applies width dimension as CSS variable', async () => {
     const wrapper = mount(Aside, {
       props: {
-        width: '250px',
+        size: '250px',
       } as AcvAsideProps
     });
 
@@ -214,7 +214,7 @@ describe('test Aside component', () => {
   it('converts numeric width to pixels', async () => {
     const wrapper = mount(Aside, {
       props: {
-        width: '250',
+        size: '250',
       } as AcvAsideProps
     });
 
