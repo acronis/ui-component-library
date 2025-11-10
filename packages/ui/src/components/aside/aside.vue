@@ -25,13 +25,13 @@
 
   // Width/Height calculations
   const dimensionPx = computed(() => {
-    if (!props.width)
+    if (!props.size)
       return '';
     // Match valid CSS units: px, %, em, rem, vw, vh, vmin, vmax, ch, ex, cm, mm, in, pt, pc, q
     const cssUnitPattern = /^-?(?:\d+(?:\.\d+)?|\.\d+)\s*(?:px|%|em|rem|vw|vh|vmin|vmax|ch|ex|cm|mm|in|pt|pc|q)$/i;
-    return cssUnitPattern.test(props.width.trim())
-      ? props.width
-      : `${props.width}px`;
+    return cssUnitPattern.test(props.size.trim())
+      ? props.size
+      : `${props.size}px`;
   });
 
   // Background color

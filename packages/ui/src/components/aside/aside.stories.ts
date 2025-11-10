@@ -61,14 +61,14 @@ export const RightAnchor: Story = {
 export const TopAnchor: Story = {
   args: {
     anchor: 'top',
-    width: '200px', // This becomes height for top/bottom
+    size: '200px', // This becomes height for top/bottom
   },
 };
 
 export const BottomAnchor: Story = {
   args: {
     anchor: 'bottom',
-    width: '150px', // This becomes height for top/bottom
+    size: '150px', // This becomes height for top/bottom
   },
 };
 
@@ -114,13 +114,13 @@ export const WithHeaderAndFooter: Story = {
 
 export const CustomWidth: Story = {
   args: {
-    width: '400px',
+    size: '400px',
   },
 };
 
 export const WithPercentageWidth: Story = {
   args: {
-    width: '25%',
+    size: '25%',
   },
 };
 
@@ -196,7 +196,7 @@ function render(args: Args) {
           </template>
         </AcvAside>
         
-        <div style="padding: 20px; margin-left: ${args.anchor === 'left' ? args.width || '300px' : '0'}; margin-right: ${args.anchor === 'right' ? args.width || '300px' : '0'}; margin-top: ${args.anchor === 'top' ? args.width || '200px' : '0'}; margin-bottom: ${args.anchor === 'bottom' ? args.width || '150px' : '0'};">
+        <div style="padding: 20px; margin-left: ${args.anchor === 'left' ? args.size || '300px' : '0'}; margin-right: ${args.anchor === 'right' ? args.size || '300px' : '0'}; margin-top: ${args.anchor === 'top' ? args.size || '200px' : '0'}; margin-bottom: ${args.anchor === 'bottom' ? args.size || '150px' : '0'};">
           <h3>Main Content Area</h3>
           <p>This is the main content area. The aside component is positioned relative to this content.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
