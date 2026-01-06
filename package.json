@@ -21,7 +21,7 @@
     "release": "pnpm run release --workspaces"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=22.0.0"
   },
   "keywords": [],
   "author": "Acronis",
