@@ -24,12 +24,12 @@
   "devDependencies": {
     "@acronis-platform/configs": "workspace:*",
     "@acronis-platform/icons": "workspace:*",
-    "glob": "11.1.0",
-    "fs-extra": "11.2.0",
-    "style-dictionary": "4.2.0",
-    "stylelint": "16.2.1",
+    "glob": "13.0.0",
+    "fs-extra": "11.3.3",
+    "style-dictionary": "5.1.1",
+    "stylelint": "16.26.1",
     "ejs": "3.1.10",
-    "js-beautify": "1.15.1",
+    "js-beautify": "1.15.4",
     "chokidar-cli": "3.0.0"
   }
 }
