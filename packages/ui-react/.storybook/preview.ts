@@ -19,7 +19,7 @@ const preview: Preview = {
         title: 'Brand',
         icon: 'paintbrush',
         items: [
-          { value: 'acronis', title: 'Constructor Lab' },
+          { value: 'acronis', title: 'Default' },
           { value: 'deep-sky', title: 'Deep Sky' },
         ],
         dynamicTitle: true,
