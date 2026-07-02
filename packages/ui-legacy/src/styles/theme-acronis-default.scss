@@ -1,0 +1,9 @@
+/**
+ * Constructor Lab Default Theme - Standalone Entry
+ *
+ * This file is used as a build entry point to generate a separate CSS file
+ * for the Constructor Lab Default theme.
+ */
+
+@use './tokens/primitives';
+@use './themes/acronis-default';
