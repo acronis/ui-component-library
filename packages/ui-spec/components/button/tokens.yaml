@@ -1,0 +1,228 @@
+spec_version: '1.0'
+component: Button
+
+# References only. Values live in @spec-lab/tokens-pd (generated from
+# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# The token schema forbids a value/default key here — never restate values.
+# Names mirror the next-gen `components/Button/*` Figma variables: the color
+# tokens carry an explicit `-color-` segment (`…-container-color-idle`), border
+# colors are `…-container-border-color-<state>`, and shared box metrics live
+# under `--ui-button-global-container-*` / `-icon-size`.
+source: '@spec-lab/tokens-pd'
+
+tokens:
+  # ── Shared geometry / typography (root) ──
+  - name: --ui-button-global-container-height
+    affects: root
+  - name: --ui-button-global-container-gap
+    affects: root
+  - name: --ui-button-global-container-border-radius
+    affects: root
+  - name: --ui-button-global-container-padding-y
+    affects: root
+  - name: --ui-button-global-icon-size
+    affects: icon
+  - name: --ui-focus-primary
+    affects: root
+
+  # ── default (Primary) ──
+  - name: --ui-button-primary-container-color-idle
+    affects: root
+  - name: --ui-button-primary-container-color-hover
+    affects: root
+  - name: --ui-button-primary-container-color-active
+    affects: root
+  - name: --ui-button-primary-container-color-disabled
+    affects: root
+  - name: --ui-button-primary-container-padding-x
+    affects: root
+  - name: --ui-button-primary-container-width-min
+    affects: root
+  - name: --ui-button-primary-label-color-idle
+    affects: label
+  - name: --ui-button-primary-label-color-hover
+    affects: label
+  - name: --ui-button-primary-label-color-active
+    affects: label
+  - name: --ui-button-primary-label-color-disabled
+    affects: label
+  - name: --ui-button-primary-icon-color-idle
+    affects: icon
+  - name: --ui-button-primary-icon-color-hover
+    affects: icon
+  - name: --ui-button-primary-icon-color-active
+    affects: icon
+  - name: --ui-button-primary-icon-color-disabled
+    affects: icon
+
+  # ── secondary (bordered) ──
+  - name: --ui-button-secondary-container-color-idle
+    affects: root
+  - name: --ui-button-secondary-container-color-hover
+    affects: root
+  - name: --ui-button-secondary-container-color-active
+    affects: root
+  - name: --ui-button-secondary-container-color-disabled
+    affects: root
+  - name: --ui-button-secondary-container-border-color-idle
+    affects: root
+  - name: --ui-button-secondary-container-border-color-hover
+    affects: root
+  - name: --ui-button-secondary-container-border-color-active
+    affects: root
+  - name: --ui-button-secondary-container-border-color-disabled
+    affects: root
+  - name: --ui-button-secondary-container-border-style
+    affects: root
+  - name: --ui-button-secondary-container-border-width
+    affects: root
+  - name: --ui-button-secondary-container-padding-x
+    affects: root
+  - name: --ui-button-secondary-container-width-min
+    affects: root
+  - name: --ui-button-secondary-label-color-idle
+    affects: label
+  - name: --ui-button-secondary-label-color-hover
+    affects: label
+  - name: --ui-button-secondary-label-color-active
+    affects: label
+  - name: --ui-button-secondary-label-color-disabled
+    affects: label
+  - name: --ui-button-secondary-icon-color-idle
+    affects: icon
+  - name: --ui-button-secondary-icon-color-hover
+    affects: icon
+  - name: --ui-button-secondary-icon-color-active
+    affects: icon
+  - name: --ui-button-secondary-icon-color-disabled
+    affects: icon
+
+  # ── ghost (transparent, no container fill / border) ──
+  - name: --ui-button-ghost-container-padding-x
+    affects: root
+  - name: --ui-button-ghost-label-color-idle
+    affects: label
+  - name: --ui-button-ghost-label-color-hover
+    affects: label
+  - name: --ui-button-ghost-label-color-active
+    affects: label
+  - name: --ui-button-ghost-label-color-disabled
+    affects: label
+  - name: --ui-button-ghost-label-text-decoration-idle
+    affects: label
+  - name: --ui-button-ghost-label-text-decoration-hover
+    affects: label
+  - name: --ui-button-ghost-label-text-decoration-active
+    affects: label
+  - name: --ui-button-ghost-label-text-decoration-disabled
+    affects: label
+  - name: --ui-button-ghost-icon-color-idle
+    affects: icon
+  - name: --ui-button-ghost-icon-color-hover
+    affects: icon
+  - name: --ui-button-ghost-icon-color-active
+    affects: icon
+  - name: --ui-button-ghost-icon-color-disabled
+    affects: icon
+
+  # ── destructive ──
+  - name: --ui-button-destructive-container-color-idle
+    affects: root
+  - name: --ui-button-destructive-container-color-hover
+    affects: root
+  - name: --ui-button-destructive-container-color-active
+    affects: root
+  - name: --ui-button-destructive-container-color-disabled
+    affects: root
+  - name: --ui-button-destructive-container-padding-x
+    affects: root
+  - name: --ui-button-destructive-container-width-min
+    affects: root
+  - name: --ui-button-destructive-label-color-idle
+    affects: label
+  - name: --ui-button-destructive-label-color-hover
+    affects: label
+  - name: --ui-button-destructive-label-color-active
+    affects: label
+  - name: --ui-button-destructive-label-color-disabled
+    affects: label
+  - name: --ui-button-destructive-icon-color-idle
+    affects: icon
+  - name: --ui-button-destructive-icon-color-hover
+    affects: icon
+  - name: --ui-button-destructive-icon-color-active
+    affects: icon
+  - name: --ui-button-destructive-icon-color-disabled
+    affects: icon
+
+  # ── ai (gradient container via background-image) ──
+  - name: --ui-button-ai-container-color-idle
+    affects: root
+  - name: --ui-button-ai-container-color-hover
+    affects: root
+  - name: --ui-button-ai-container-color-active
+    affects: root
+  - name: --ui-button-ai-container-color-disabled
+    affects: root
+  - name: --ui-button-ai-container-padding-x
+    affects: root
+  - name: --ui-button-ai-container-width-min
+    affects: root
+  - name: --ui-button-ai-label-color-idle
+    affects: label
+  - name: --ui-button-ai-label-color-hover
+    affects: label
+  - name: --ui-button-ai-label-color-active
+    affects: label
+  - name: --ui-button-ai-label-color-disabled
+    affects: label
+  - name: --ui-button-ai-icon-color-idle
+    affects: icon
+  - name: --ui-button-ai-icon-color-hover
+    affects: icon
+  - name: --ui-button-ai-icon-color-active
+    affects: icon
+  - name: --ui-button-ai-icon-color-disabled
+    affects: icon
+
+  # ── inverted (bordered) ──
+  - name: --ui-button-inverted-container-color-idle
+    affects: root
+  - name: --ui-button-inverted-container-color-hover
+    affects: root
+  - name: --ui-button-inverted-container-color-active
+    affects: root
+  - name: --ui-button-inverted-container-color-disabled
+    affects: root
+  - name: --ui-button-inverted-container-border-color-idle
+    affects: root
+  - name: --ui-button-inverted-container-border-color-hover
+    affects: root
+  - name: --ui-button-inverted-container-border-color-active
+    affects: root
+  - name: --ui-button-inverted-container-border-color-disabled
+    affects: root
+  - name: --ui-button-inverted-container-border-style
+    affects: root
+  - name: --ui-button-inverted-container-border-width
+    affects: root
+  - name: --ui-button-inverted-container-padding-x
+    affects: root
+  - name: --ui-button-inverted-container-width-min
+    affects: root
+  - name: --ui-button-inverted-label-color-idle
+    affects: label
+  - name: --ui-button-inverted-label-color-hover
+    affects: label
+  - name: --ui-button-inverted-label-color-active
+    affects: label
+  - name: --ui-button-inverted-label-color-disabled
+    affects: label
+  - name: --ui-button-inverted-icon-color-idle
+    affects: icon
+  - name: --ui-button-inverted-icon-color-hover
+    affects: icon
+  - name: --ui-button-inverted-icon-color-active
+    affects: icon
+  - name: --ui-button-inverted-icon-color-disabled
+    affects: icon

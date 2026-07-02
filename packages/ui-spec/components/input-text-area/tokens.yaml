@@ -1,0 +1,73 @@
+spec_version: '1.0'
+component: InputTextArea
+
+# References only. Values live in @spec-lab/tokens-pd. The field furniture
+# (container / label / required / description / error) and the textarea box all use
+# the dedicated `--ui-input-text-area-*` tier; the focus ring uses the shared
+# `--ui-focus-*` tokens.
+source: '@spec-lab/tokens-pd'
+
+tokens:
+  # ── Field container ──
+  - { name: --ui-input-text-area-container-width-min, affects: root }
+  - { name: --ui-input-text-area-container-gap, affects: root }
+  - { name: --ui-input-text-area-container-label-gap, affects: label }
+
+  # ── Label + required marker ──
+  - { name: --ui-input-text-area-label-color-idle, affects: label }
+  - { name: --ui-input-text-area-label-color-disabled, affects: label }
+  - { name: --ui-input-text-area-required-color, affects: required }
+
+  # ── Box geometry ──
+  - {
+      name: --ui-input-text-area-box-height-min,
+      affects: textarea,
+      description: Minimum height (grows with vertical resize),
+    }
+  - { name: --ui-input-text-area-box-border-radius, affects: textarea }
+  - { name: --ui-input-text-area-box-border-width, affects: textarea }
+  - { name: --ui-input-text-area-box-padding-x, affects: textarea }
+  - { name: --ui-input-text-area-box-padding-y, affects: textarea }
+
+  # ── Box fill ──
+  - { name: --ui-input-text-area-box-color-idle, affects: textarea }
+  - { name: --ui-input-text-area-box-color-hover, affects: textarea }
+  - { name: --ui-input-text-area-box-color-disabled, affects: textarea }
+
+  # ── Box border (normal + error) ──
+  - { name: --ui-input-text-area-border-color-idle, affects: textarea }
+  - { name: --ui-input-text-area-border-color-hover, affects: textarea }
+  - { name: --ui-input-text-area-border-color-focus, affects: textarea }
+  - { name: --ui-input-text-area-border-color-disabled, affects: textarea }
+  - {
+      name: --ui-input-text-area-error-msg-box-border-color-idle,
+      affects: textarea,
+    }
+  - {
+      name: --ui-input-text-area-error-msg-box-border-color-hover,
+      affects: textarea,
+    }
+
+  # ── Value + placeholder text ──
+  - { name: --ui-input-text-area-value-color-idle, affects: textarea }
+  - { name: --ui-input-text-area-value-color-hover, affects: textarea }
+  - { name: --ui-input-text-area-value-color-disabled, affects: textarea }
+  - { name: --ui-input-text-area-placeholder-color-idle, affects: textarea }
+  - { name: --ui-input-text-area-placeholder-color-hover, affects: textarea }
+  - { name: --ui-input-text-area-placeholder-color-disabled, affects: textarea }
+
+  # ── Description + error message ──
+  - { name: --ui-input-text-area-description-color-idle, affects: description }
+  - {
+      name: --ui-input-text-area-description-color-disabled,
+      affects: description,
+    }
+  - { name: --ui-input-text-area-error-msg-error-color, affects: error }
+
+  # ── Focus rings ──
+  - { name: --ui-focus-primary, affects: textarea, description: Focus ring }
+  - {
+      name: --ui-focus-error,
+      affects: textarea,
+      description: Error-state focus ring,
+    }

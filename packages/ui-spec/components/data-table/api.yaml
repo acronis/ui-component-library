@@ -1,0 +1,71 @@
+spec_version: '1.0'
+component: DataTable
+
+# DataTable takes columns/data (it owns table state). The companion parts
+# (DataTableToolbar / DataTablePagination / DataTableColumnHeader /
+# DataTableViewOptions) take a TanStack `table` instance — see README.
+contract:
+  properties:
+    - name: columns
+      type: 'ColumnDef<TData, TValue>[]'
+      required: true
+      description: TanStack column definitions (header / cell renderers, accessors).
+    - name: data
+      type: 'TData[]'
+      required: true
+      description: The row data.
+    - name: getRowCanExpand
+      type: '(row: Row<TData>) => boolean'
+      required: false
+      description: Enables row expansion for rows that return true. Pair with renderExpandedRow.
+    - name: renderExpandedRow
+      type: '(row: Row<TData>) => ReactNode'
+      required: false
+      description: Renders the detail content for an expanded row.
+    - name: striped
+      type: boolean
+      required: false
+      default: 'false'
+      description: Alternating row backgrounds (borrowed from the Vue AvTable).
+    - name: bordered
+      type: boolean
+      required: false
+      default: 'false'
+      description: Vertical borders between columns (rows already have horizontal borders).
+    - name: highlightCurrentRow
+      type: boolean
+      required: false
+      default: 'false'
+      description: Highlight the row the user last clicked (the "current" row).
+    - name: skeleton
+      type: boolean
+      required: false
+      default: 'false'
+      description: Render placeholder skeleton rows instead of data (loading state).
+    - name: skeletonRows
+      type: number
+      required: false
+      default: '5'
+      description: Number of skeleton rows when skeleton is set.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: DataTable
+    status: implemented
+    import: "import { DataTable } from '@spec-lab/ui-react'"
+    example: |
+      <DataTable columns={columns} data={rows} />
+  vue:
+    component: AvDataTable
+    status: planned
+    import: "import { AvDataTable } from '@spec-lab/ui-vue'"
+    example: |
+      <AvDataTable :columns="columns" :data="rows" />
+  web-components:
+    element: ui-data-table
+    status: planned
+    import: "import '@spec-lab/ui-wc/data-table'"
+    example: |
+      <ui-data-table></ui-data-table>

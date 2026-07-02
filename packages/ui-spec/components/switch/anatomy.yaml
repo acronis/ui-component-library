@@ -1,0 +1,96 @@
+spec_version: '1.0'
+component: Switch
+
+schematic: |
+  container (label) ───────────────────────────┐
+   +---------------+                             │
+   | (thumb)  root |   label: "Enable Wi-Fi"     │
+   +---------------+                             │
+   thumb slides left <-> right with the checked state
+
+  Track states:
+  unchecked                 checked
+  +---------------+         +---------------+
+  | (thumb)       |         |       (thumb) |
+  +---------------+         +---------------+
+
+root:
+  element: button
+  role: switch
+  description: >-
+    The track. A button with role="switch" and aria-checked reflecting state
+    (Base UI Switch.Root). Fill comes from `--ui-switch-{off,on}-box-color-*`.
+
+parts:
+  - id: thumb
+    description: The sliding knob that moves between the off and on positions.
+    element: span
+  - id: container
+    description: >-
+      The wrapping `<label>` that lays out the toggle beside its label and
+      forwards clicks to the toggle. Only rendered when a label is provided;
+      otherwise the track is the root.
+    element: label
+    optional: true
+  - id: label
+    description: >-
+      The label text, naming the control via aria-labelledby. Tinted with
+      `--ui-switch-global-label-color`.
+    element: span
+    optional: true
+    visible_when: label provided
+
+# Switch owns one piece of internal state, `checked`, plus the logic that maps
+# interaction -> state -> visuals. The checked/unchecked visual states below are
+# therefore `internal` (driven by this state), reached via the controlled prop or
+# a play interaction (see transitions).
+internal_state:
+  - id: checked
+    type: boolean
+    values: [false, true]
+    initial: false
+    controllable_via: [checked]
+    controlled_default: default-checked
+    emits: checked-change
+    changed_by: click / Space / Enter toggles it (when uncontrolled)
+    description: On/off state; reflected to aria-checked and the thumb position.
+
+transitions:
+  - id: toggle
+    state: checked
+    on: click / Space / Enter
+    to: toggle (!checked)
+    guard: not disabled
+    effect: emits checked-change(next)
+    when_controlled: >-
+      internal value does NOT change; the component only emits checked-change and
+      the consumer must update the `checked` prop to reflect the new value.
+    interactive: true
+
+states:
+  - {
+      id: checked,
+      trigger: 'internal checked === true (data-[checked])',
+      kind: internal,
+      affects: [root, thumb],
+    }
+  - {
+      id: unchecked,
+      trigger: 'internal checked === false (data-[unchecked])',
+      kind: internal,
+      affects: [root, thumb],
+    }
+  - {
+      id: focus-visible,
+      trigger: keyboard focus,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [root],
+    }
+  - {
+      id: disabled,
+      trigger: 'disabled === true',
+      kind: prop,
+      prop: disabled,
+      affects: [root, thumb],
+    }

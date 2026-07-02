@@ -1,0 +1,7 @@
+spec_version: '1.0'
+component: PageContent
+
+# PageContent has no tokens — a layout-only padding region (no color).
+source: '@spec-lab/tokens-pd'
+
+tokens: []

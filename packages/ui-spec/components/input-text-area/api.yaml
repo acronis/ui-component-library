@@ -1,0 +1,113 @@
+spec_version: '1.0'
+component: InputTextArea
+
+# Framework-agnostic contract. The field furniture (label / required / description /
+# error) wraps a native `<textarea>`; its native attributes (placeholder, value,
+# name, required, readonly, rows, maxlength, …) pass through in every framework.
+# See `adapters` for per-framework syntax.
+contract:
+  properties:
+    - name: label
+      type: ReactNode
+      required: false
+      description: Field label rendered above the textarea, associated via `htmlFor`/`id`.
+    - name: required
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Appends a required marker (`*`) after the label and sets `aria-required`
+        on the textarea.
+    - name: description
+      type: ReactNode
+      required: false
+      description: Helper text below the textarea. Hidden while `error` is set.
+    - name: error
+      type: ReactNode
+      required: false
+      description: >-
+        Error message below the textarea. Its presence switches the field to the
+        error treatment (red box border via `aria-invalid`, red message replacing
+        the description).
+    - name: placeholder
+      type: string
+      required: false
+      description: Example/hint text shown when empty. Not a label substitute.
+    - name: value
+      type: string
+      required: false
+      description: Controlled value. Pair with the change event.
+    - name: default-value
+      type: string
+      required: false
+      description: Initial value when uncontrolled.
+    - name: rows
+      type: number
+      required: false
+      description: >-
+        Initial visible number of text rows. The field can still grow taller via
+        vertical resize; its minimum height is the `box-height-min` token.
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: Disables interaction; applies the disabled form tokens.
+    - name: name
+      type: string
+      required: false
+      description: Form field name submitted with the form.
+    - name: aria-invalid
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Marks the textarea invalid directly (an alternative to the `error` prop
+        when the consumer renders its own message). Switches the border to
+        `error-msg-box-border-color-{idle,hover}` and the focus ring to
+        `--ui-focus-error`.
+
+  events:
+    - name: change
+      payload: string
+      description: >-
+        Fired as the value changes (React: native `onChange`). The new value is
+        on `event.target.value`.
+
+  content:
+    - name: label
+      description: The label content.
+    - name: description
+      description: The helper text.
+    - name: error
+      description: The error message.
+
+  methods: []
+
+adapters:
+  react:
+    component: InputTextArea
+    status: implemented
+    import: "import { InputTextArea } from '@spec-lab/ui-react'"
+    example: |
+      <InputTextArea
+        label="Bio"
+        placeholder="Tell us about yourself"
+        description="Shown on your profile"
+        value={bio}
+        onChange={(e) => setBio(e.target.value)}
+      />
+
+      {/* Error */}
+      <InputTextArea label="Comment" value={value} error="Must be at least 20 characters" onChange={onChange} />
+  vue:
+    component: AvInputTextArea
+    status: planned
+    import: "import { AvInputTextArea } from '@spec-lab/ui-vue'"
+    example: |
+      <AvInputTextArea v-model="bio" label="Bio" placeholder="Tell us about yourself" />
+  web-components:
+    element: ui-input-text-area
+    status: planned
+    import: "import '@spec-lab/ui-wc/input-text-area'"
+    example: |
+      <ui-input-text-area label="Bio" placeholder="Tell us about yourself"></ui-input-text-area>

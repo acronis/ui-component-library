@@ -1,0 +1,53 @@
+spec_version: '1.0'
+component: RadioGroup
+
+# References only. Values live in @spec-lab/tokens-pd (generated from
+# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# Radio uses its dedicated `--ui-radio-*` tier (which mirrors `--ui-checkbox-*`):
+# two box state-groups (unchecked / checked), each with per-interaction fill,
+# border, and dot colors, plus global geometry and the label/description text.
+source: '@spec-lab/tokens-pd'
+
+tokens:
+  # ── Global geometry / layout ──
+  - { name: --ui-radio-global-box-size, affects: item }
+  - { name: --ui-radio-global-box-border-radius, affects: item }
+  - { name: --ui-radio-global-box-border-width, affects: item }
+  - { name: --ui-radio-global-box-margin-x, affects: item }
+  - { name: --ui-radio-global-container-gap, affects: container }
+  - { name: --ui-radio-global-container-width-min, affects: container }
+  - { name: --ui-radio-global-container-width-max, affects: container }
+  - { name: --ui-radio-global-container-content-gap, affects: content }
+  - { name: --ui-radio-global-container-content-width-max, affects: content }
+  - { name: --ui-radio-global-label-color, affects: label }
+  - { name: --ui-radio-global-description-color, affects: description }
+
+  # ── unchecked box (fill + border) ──
+  - { name: --ui-radio-unchecked-box-color-idle, affects: item }
+  - { name: --ui-radio-unchecked-box-color-hover, affects: item }
+  - { name: --ui-radio-unchecked-box-color-active, affects: item }
+  - { name: --ui-radio-unchecked-box-color-disabled, affects: item }
+  - { name: --ui-radio-unchecked-box-border-color-idle, affects: item }
+  - { name: --ui-radio-unchecked-box-border-color-hover, affects: item }
+  - { name: --ui-radio-unchecked-box-border-color-active, affects: item }
+  - { name: --ui-radio-unchecked-box-border-color-disabled, affects: item }
+
+  # ── checked box (fill + border + dot) ──
+  - { name: --ui-radio-checked-box-color-idle, affects: item }
+  - { name: --ui-radio-checked-box-color-hover, affects: item }
+  - { name: --ui-radio-checked-box-color-active, affects: item }
+  - { name: --ui-radio-checked-box-color-disabled, affects: item }
+  - { name: --ui-radio-checked-box-border-color-idle, affects: item }
+  - { name: --ui-radio-checked-box-border-color-hover, affects: item }
+  - { name: --ui-radio-checked-box-border-color-active, affects: item }
+  - { name: --ui-radio-checked-box-border-color-disabled, affects: item }
+  - { name: --ui-radio-checked-icon-color-idle, affects: indicator }
+  - { name: --ui-radio-checked-icon-color-hover, affects: indicator }
+  - { name: --ui-radio-checked-icon-color-active, affects: indicator }
+  - { name: --ui-radio-checked-icon-color-disabled, affects: indicator }
+
+  - {
+      name: --ui-focus-primary,
+      affects: item,
+      description: Focus-visible ring color,
+    }

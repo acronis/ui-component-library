@@ -1,0 +1,14 @@
+spec_version: '1.0'
+component: InputTextArea
+name: input-text-area
+status: ready
+category: forms
+description: >-
+  A full multiline text field: an optional label (with an optional required
+  marker), a `<textarea>` box that grows with vertical resize, and an optional
+  description or error message. For entering and editing longer free-text (notes,
+  comments, descriptions). Themed by the `--ui-input-text-area-*` token tier.
+since: 0.23.0
+figma:
+  node: '2797-2876'
+  codeConnect: packages/ui-react/src/components/ui/input-text-area/input-text-area.figma.tsx

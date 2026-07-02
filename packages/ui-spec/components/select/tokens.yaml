@@ -1,0 +1,76 @@
+spec_version: '1.0'
+component: Select
+
+# References only. Values live in @spec-lab/tokens-pd. `Select` is an alias of
+# the next-gen `InputSelect` family, so it consumes the `--ui-input-select-*` tier (it
+# previously bound the deleted `--ui-form-*` tier — issue #333). See the InputSelect
+# spec for the full part/token breakdown.
+source: '@spec-lab/tokens-pd'
+
+tokens:
+  # Trigger box (the Figma "Select" states)
+  - {
+      name: --ui-input-select-global-box-color-idle,
+      affects: root,
+      description: Trigger fill,
+    }
+  - { name: --ui-input-select-global-box-color-disabled, affects: root }
+  - {
+      name: --ui-input-select-normal-box-border-color-idle,
+      affects: root,
+      description: Border when idle,
+    }
+  - {
+      name: --ui-input-select-normal-box-border-color-hover,
+      affects: root,
+      description: Border on hover / open,
+    }
+  - { name: --ui-input-select-normal-box-border-color-disabled, affects: root }
+  - {
+      name: --ui-input-select-global-value-color-idle,
+      affects: value,
+      description: Selected value text,
+    }
+  - {
+      name: --ui-input-select-global-placeholder-color-idle,
+      affects: value,
+      description: Placeholder text,
+    }
+  - { name: --ui-input-select-global-value-color-disabled, affects: value }
+  - {
+      name: --ui-input-select-normal-icon-expand-color-idle,
+      affects: icon,
+      description: Chevron / selected-item check color,
+    }
+  - { name: --ui-input-select-normal-icon-expand-color-disabled, affects: icon }
+  - {
+      name: --ui-focus-primary,
+      affects: root,
+      description: Focus / open ring color,
+    }
+  # Popup + items
+  - {
+      name: --ui-input-select-dropdown-container-color,
+      affects: popup,
+      description: Popup background,
+    }
+  - {
+      name: --ui-input-select-dropdown-container-border-color,
+      affects: popup,
+      description: Popup border,
+    }
+  - {
+      name: --ui-input-select-dropdown-item-global-label-color,
+      affects: item,
+      description: Item text,
+    }
+  - {
+      name: --ui-input-select-dropdown-item-unselected-container-color-hover,
+      affects: item,
+      description: Highlighted item background,
+    }
+  - {
+      name: --ui-input-select-dropdown-section-label-group-color,
+      affects: group-label,
+      description: Group label text,
+    }

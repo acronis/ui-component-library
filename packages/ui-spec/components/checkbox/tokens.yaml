@@ -1,0 +1,73 @@
+spec_version: '1.0'
+component: Checkbox
+
+# References only. Values live in @spec-lab/tokens-pd (generated from
+# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# Checkbox uses its dedicated `--ui-checkbox-*` tier: three box state-groups
+# (unchecked / checked / indeterminate), each with per-interaction fill, border,
+# and glyph colors, plus global geometry and the label/description text.
+source: '@spec-lab/tokens-pd'
+
+tokens:
+  # ── Global geometry / layout ──
+  - { name: --ui-checkbox-global-box-size, affects: root }
+  - { name: --ui-checkbox-global-box-border-radius, affects: root }
+  - { name: --ui-checkbox-global-box-border-width, affects: root }
+  - { name: --ui-checkbox-global-box-margin-x, affects: root }
+  - { name: --ui-checkbox-global-container-gap, affects: container }
+  - { name: --ui-checkbox-global-container-width-min, affects: container }
+  - { name: --ui-checkbox-global-container-width-max, affects: container }
+  - { name: --ui-checkbox-global-container-content-gap, affects: content }
+  - { name: --ui-checkbox-global-container-content-width-max, affects: content }
+  - { name: --ui-checkbox-global-label-color, affects: label }
+  - { name: --ui-checkbox-global-description-color, affects: description }
+
+  # ── unchecked box (fill + border) ──
+  - { name: --ui-checkbox-unchecked-box-color-idle, affects: root }
+  - { name: --ui-checkbox-unchecked-box-color-hover, affects: root }
+  - { name: --ui-checkbox-unchecked-box-color-active, affects: root }
+  - { name: --ui-checkbox-unchecked-box-color-disabled, affects: root }
+  - { name: --ui-checkbox-unchecked-box-border-color-idle, affects: root }
+  - { name: --ui-checkbox-unchecked-box-border-color-hover, affects: root }
+  - { name: --ui-checkbox-unchecked-box-border-color-active, affects: root }
+  - { name: --ui-checkbox-unchecked-box-border-color-disabled, affects: root }
+
+  # ── checked box (fill + border + glyph) ──
+  - { name: --ui-checkbox-checked-box-color-idle, affects: root }
+  - { name: --ui-checkbox-checked-box-color-hover, affects: root }
+  - { name: --ui-checkbox-checked-box-color-active, affects: root }
+  - { name: --ui-checkbox-checked-box-color-disabled, affects: root }
+  - { name: --ui-checkbox-checked-box-border-color-idle, affects: root }
+  - { name: --ui-checkbox-checked-box-border-color-hover, affects: root }
+  - { name: --ui-checkbox-checked-box-border-color-active, affects: root }
+  - { name: --ui-checkbox-checked-box-border-color-disabled, affects: root }
+  - { name: --ui-checkbox-checked-icon-color-idle, affects: indicator }
+  - { name: --ui-checkbox-checked-icon-color-hover, affects: indicator }
+  - { name: --ui-checkbox-checked-icon-color-active, affects: indicator }
+  - { name: --ui-checkbox-checked-icon-color-disabled, affects: indicator }
+
+  # ── indeterminate box (fill + border + glyph) ──
+  - { name: --ui-checkbox-indeterminate-box-color-idle, affects: root }
+  - { name: --ui-checkbox-indeterminate-box-color-hover, affects: root }
+  - { name: --ui-checkbox-indeterminate-box-color-active, affects: root }
+  - { name: --ui-checkbox-indeterminate-box-color-disabled, affects: root }
+  - { name: --ui-checkbox-indeterminate-box-border-color-idle, affects: root }
+  - { name: --ui-checkbox-indeterminate-box-border-color-hover, affects: root }
+  - { name: --ui-checkbox-indeterminate-box-border-color-active, affects: root }
+  - {
+      name: --ui-checkbox-indeterminate-box-border-color-disabled,
+      affects: root,
+    }
+  - { name: --ui-checkbox-indeterminate-icon-color-idle, affects: indicator }
+  - { name: --ui-checkbox-indeterminate-icon-color-hover, affects: indicator }
+  - { name: --ui-checkbox-indeterminate-icon-color-active, affects: indicator }
+  - {
+      name: --ui-checkbox-indeterminate-icon-color-disabled,
+      affects: indicator,
+    }
+
+  - {
+      name: --ui-focus-primary,
+      affects: root,
+      description: Focus-visible ring color,
+    }

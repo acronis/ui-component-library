@@ -1,0 +1,61 @@
+spec_version: '1.0'
+component: ButtonMenu
+
+# References only — values live in @spec-lab/tokens-pd. `primary` uses a
+# single label/icon color across states; only `secondary` diverges them per
+# state and adds a container border. The open state reuses each variant's
+# `*-active` tokens.
+source: '@spec-lab/tokens-pd'
+
+tokens:
+  # ── Geometry (root / icon) ──
+  - { name: --ui-button-menu-global-container-height, affects: root }
+  - { name: --ui-button-menu-global-container-width-min, affects: root }
+  - { name: --ui-button-menu-global-container-padding-x, affects: root }
+  - { name: --ui-button-menu-global-container-gap, affects: root }
+  - { name: --ui-button-menu-global-container-border-radius, affects: root }
+  - { name: --ui-button-menu-global-icon-size, affects: icon }
+
+  # ── primary (solid) ──
+  - { name: --ui-button-menu-primary-container-color-idle, affects: root }
+  - { name: --ui-button-menu-primary-container-color-hover, affects: root }
+  - { name: --ui-button-menu-primary-container-color-active, affects: root }
+  - { name: --ui-button-menu-primary-container-color-disabled, affects: root }
+  - { name: --ui-button-menu-primary-label-color, affects: label }
+  - { name: --ui-button-menu-primary-icon-color, affects: icon }
+
+  # ── secondary (bordered) ──
+  - { name: --ui-button-menu-secondary-container-color-idle, affects: root }
+  - { name: --ui-button-menu-secondary-container-color-hover, affects: root }
+  - { name: --ui-button-menu-secondary-container-color-active, affects: root }
+  - { name: --ui-button-menu-secondary-container-color-disabled, affects: root }
+  - {
+      name: --ui-button-menu-secondary-container-border-color-idle,
+      affects: root,
+    }
+  - {
+      name: --ui-button-menu-secondary-container-border-color-hover,
+      affects: root,
+    }
+  - {
+      name: --ui-button-menu-secondary-container-border-color-active,
+      affects: root,
+    }
+  - {
+      name: --ui-button-menu-secondary-container-border-color-disabled,
+      affects: root,
+    }
+  - { name: --ui-button-menu-secondary-label-color-idle, affects: label }
+  - { name: --ui-button-menu-secondary-label-color-hover, affects: label }
+  - { name: --ui-button-menu-secondary-label-color-active, affects: label }
+  - { name: --ui-button-menu-secondary-label-color-disabled, affects: label }
+  - { name: --ui-button-menu-secondary-icon-color-idle, affects: icon }
+  - { name: --ui-button-menu-secondary-icon-color-hover, affects: icon }
+  - { name: --ui-button-menu-secondary-icon-color-active, affects: icon }
+  - { name: --ui-button-menu-secondary-icon-color-disabled, affects: icon }
+
+  - {
+      name: --ui-focus-primary,
+      affects: root,
+      description: Focus-visible ring color,
+    }

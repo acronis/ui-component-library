@@ -1,0 +1,48 @@
+spec_version: '1.0'
+component: ButtonIcon
+
+# References only — values live in @spec-lab/tokens-pd. Container fill
+# and icon color are shared across both variants (`--ui-button-icon-global-*`);
+# the secondary variant adds a 1px container border (`-secondary-*`).
+source: '@spec-lab/tokens-pd'
+
+tokens:
+  # ── Geometry (root) ──
+  - { name: --ui-button-icon-global-container-height, affects: root }
+  - { name: --ui-button-icon-global-container-border-radius, affects: root }
+  - { name: --ui-button-icon-global-icon-size, affects: icon }
+
+  # ── Container fill (shared by ghost + secondary) ──
+  - { name: --ui-button-icon-global-container-color-idle, affects: root }
+  - { name: --ui-button-icon-global-container-color-hover, affects: root }
+  - { name: --ui-button-icon-global-container-color-active, affects: root }
+  - { name: --ui-button-icon-global-container-color-disabled, affects: root }
+
+  # ── Icon color (shared by ghost + secondary) ──
+  - { name: --ui-button-icon-global-icon-color-idle, affects: icon }
+  - { name: --ui-button-icon-global-icon-color-hover, affects: icon }
+  - { name: --ui-button-icon-global-icon-color-active, affects: icon }
+  - { name: --ui-button-icon-global-icon-color-disabled, affects: icon }
+
+  # ── secondary container border ──
+  - {
+      name: --ui-button-icon-secondary-container-border-color-idle,
+      affects: root,
+    }
+  - {
+      name: --ui-button-icon-secondary-container-border-color-hover,
+      affects: root,
+    }
+  - {
+      name: --ui-button-icon-secondary-container-border-color-active,
+      affects: root,
+    }
+  - {
+      name: --ui-button-icon-secondary-container-border-color-disabled,
+      affects: root,
+    }
+  - {
+      name: --ui-focus-primary,
+      affects: root,
+      description: Focus-visible ring color,
+    }

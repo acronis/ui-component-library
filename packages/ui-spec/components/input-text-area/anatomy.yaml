@@ -1,0 +1,77 @@
+spec_version: '1.0'
+component: InputTextArea
+
+schematic: |
+  +-------------------------------+
+  |  label  required              |   root: <div> (field, vertical stack)
+  +-------------------------------+
+  | [ textarea                 ]  |   textarea: the box (role="textbox")
+  | [                       ◢  ]  |   vertical resize handle
+  +-------------------------------+
+  |  description | error          |   description (normal) OR error (error state)
+  +-------------------------------+
+
+root:
+  element: div
+  role: group
+  description: >-
+    The field container — a vertical stack of the label, the textarea box, and the
+    description / error message. Width is fluid with a minimum from
+    `--ui-input-text-area-container-width-min`.
+
+parts:
+  - id: label
+    description: The field label, rendered above the textarea (`<label htmlFor>`).
+    element: label
+  - id: required
+    description: The required marker (`*`) after the label; shown when `required`.
+    element: span
+  - id: textarea
+    description: >-
+      The native multiline `<textarea>` box (`role="textbox"`) — border, fill,
+      value / placeholder, per-state treatment; grows with vertical resize. 96px
+      min-height, 4px radius, 12px x-padding, 8px y-padding from
+      `--ui-input-text-area-box-*`.
+    element: textarea
+  - id: description
+    description: Helper text below the textarea (normal state).
+    element: p
+  - id: error
+    description: Error message below the textarea; replaces the description when `error` is set.
+    element: p
+
+layout:
+  type: stack
+  direction: vertical
+  align: start
+  order: [label, textarea, description, error]
+
+states:
+  - {
+      id: hover,
+      trigger: pointer hover over the textarea (enabled),
+      kind: pseudo,
+      pseudo: ':hover',
+      affects: [textarea],
+    }
+  - {
+      id: focus-visible,
+      trigger: keyboard or text-entry focus on the textarea,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [textarea],
+    }
+  - {
+      id: error,
+      trigger: 'error is set (or aria-invalid)',
+      kind: prop,
+      prop: error,
+      affects: [textarea, error],
+    }
+  - {
+      id: disabled,
+      trigger: 'disabled === true',
+      kind: prop,
+      prop: disabled,
+      affects: [label, textarea, description],
+    }

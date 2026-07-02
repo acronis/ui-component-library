@@ -1,0 +1,45 @@
+{
+  "name": "@spec-lab/ui-spec",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Framework-agnostic component specifications for the Constructor Lab UI Kit (Phase 0 spike).",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./index.ts",
+    "./components/*": "./components/*",
+    "./schema/*": "./schema/*"
+  },
+  "main": "./index.ts",
+  "scripts": {
+    "build": "echo \"no build (spec data package)\" && exit 0",
+    "clean": "echo \"nothing to clean (spec data package)\" && exit 0",
+    "dev": "echo \"no dev server (spec data package)\" && exit 0",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate": "vitest run",
+    "generate:stories": "tsx scripts/generate-stories.ts",
+    "kit-lint": "tsx scripts/kit-lint.ts",
+    "screen-audit": "tsx scripts/screen-audit.ts"
+  },
+  "keywords": [
+    "ui-kit",
+    "specs",
+    "design-system",
+    "acronis"
+  ],
+  "devDependencies": {
+    "@types/js-yaml": "4.0.9",
+    "@types/node": "catalog:",
+    "ajv": "catalog:",
+    "js-yaml": "4.1.1",
+    "tsx": "4.22.3",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}

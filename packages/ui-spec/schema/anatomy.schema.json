@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://acronis.com/ui-spec/anatomy.schema.json",
+  "title": "Component spec — anatomy.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec_version", "component", "root", "parts"],
+  "properties": {
+    "spec_version": { "type": "string" },
+    "component": { "type": "string" },
+    "schematic": {
+      "type": "string",
+      "description": "ASCII schematic of the layout, labelling the parts."
+    },
+    "root": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["element"],
+      "properties": {
+        "element": { "type": "string" },
+        "role": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "description"],
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "element": { "type": "string" },
+          "optional": { "type": "boolean" },
+          "visible_when": { "type": "string" }
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string" },
+        "direction": { "type": "string" },
+        "align": { "type": "string" },
+        "order": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "trigger", "kind"],
+        "properties": {
+          "id": { "type": "string" },
+          "trigger": { "type": "string" },
+          "kind": {
+            "enum": ["prop", "pseudo", "internal"],
+            "description": "How the state is reached: a prop value, a CSS pseudo-class, or component-owned (internal) state changed by interaction."
+          },
+          "pseudo": {
+            "type": "string",
+            "description": "CSS pseudo-class for kind=pseudo (e.g. ':hover')."
+          },
+          "prop": {
+            "type": "string",
+            "description": "For kind=prop: the api.yaml property that drives this state."
+          },
+          "affects": { "type": "array", "items": { "type": "string" } },
+          "exclusive_with": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "internal_state": {
+      "type": "array",
+      "description": "Component-owned state that changes via interaction and affects visual state (empty/absent for components that are a pure function of their props).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "description"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "initial": {},
+          "values": {
+            "type": "array",
+            "description": "Allowed values for enumerated state (omit for free/boolean)."
+          },
+          "controllable_via": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "api.yaml props that read/override this internal state."
+          },
+          "controlled_default": {
+            "type": "string",
+            "description": "api.yaml prop that seeds the value in uncontrolled mode (e.g. 'default-checked')."
+          },
+          "emits": {
+            "type": "string",
+            "description": "api.yaml event fired when the value changes (e.g. 'checked-change')."
+          },
+          "changed_by": {
+            "type": "string",
+            "description": "The interaction that mutates it (e.g. 'click / Space toggles')."
+          },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "description": "State machine: how interactions move internal state between values (and what that affects).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "state", "on", "to"],
+        "properties": {
+          "id": { "type": "string" },
+          "state": {
+            "type": "string",
+            "description": "internal_state id this transition mutates."
+          },
+          "from": {
+            "description": "Source value, or omit for any."
+          },
+          "on": {
+            "type": "string",
+            "description": "The event/interaction that triggers it (e.g. 'click / Space / Enter')."
+          },
+          "to": {
+            "description": "Resulting value, or an expression like 'toggle'."
+          },
+          "guard": {
+            "type": "string",
+            "description": "Condition that must hold (e.g. 'not disabled')."
+          },
+          "effect": {
+            "type": "string",
+            "description": "Side effect (e.g. 'emits checked-change(next)')."
+          },
+          "when_controlled": {
+            "type": "string",
+            "description": "How behaviour differs when the value is controlled by a prop."
+          },
+          "interactive": {
+            "type": "boolean",
+            "description": "Whether this transition is reachable by a user gesture (drives play-story generation)."
+          }
+        }
+      }
+    }
+  }
+}

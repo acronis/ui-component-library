@@ -1,0 +1,86 @@
+spec_version: '1.0'
+component: DataTable
+
+schematic: |
+  toolbar:   [ search input ] [ Reset ✕ ]            [ ⚙ View ▾ ]   (view-options)
+  table: <div> rounded border wrapper
+    column-header: per-column header — title + single-click sort toggle (↑/↓/↕)
+    row:           data row (selectable; selected → tinted)
+    expanded-row:  optional detail row under an expanded row
+    empty-state:   "No results." row when there is no data
+  pagination: "N of M selected"   [Rows per page ▾]  Page X of Y   ⏮ ◀ ▶ ⏭
+
+root:
+  element: div
+  description: >-
+    The bordered table wrapper. Renders a TanStack table over the Table
+    primitives. Manages sorting / filtering / visibility / selection /
+    pagination / expansion state internally (DataTable), or accepts a caller-built
+    `table` instance for the companion parts.
+
+parts:
+  - id: table
+    element: table
+    description: The table grid (Table / TableHeader / TableBody / rows / cells).
+  - id: column-header
+    element: button
+    description: >-
+      Sortable column header (DataTableColumnHeader) — a single-click toggle: the
+      title plus a trailing arrow (up = ascending, down = descending, both in the
+      active blue; a muted up/down arrow when unsorted). One click cycles the sort
+      direction. Column hiding lives in the toolbar's view-options menu, not here.
+  - id: row
+    element: tr
+    description: A data row; selectable, tinted when selected.
+  - id: expanded-row
+    element: tr
+    description: Optional detail row rendered under an expanded row.
+  - id: empty-state
+    element: tr
+    description: A single "No results." row shown when there is no data.
+  - id: toolbar
+    element: div
+    description: >-
+      DataTableToolbar — a column search box, a Reset button (when filtered), and
+      the view-options menu.
+  - id: view-options
+    element: div
+    description: >-
+      DataTableViewOptions — a menu of checkboxes toggling column visibility.
+  - id: pagination
+    element: div
+    description: >-
+      DataTablePagination — selection count, rows-per-page select, page indicator,
+      and first / prev / next / last controls.
+
+states:
+  - id: empty
+    trigger: data is empty
+    kind: prop
+    prop: data
+    affects: [empty-state]
+  - id: expandable
+    trigger: getRowCanExpand is provided
+    kind: prop
+    prop: getRowCanExpand
+    affects: [row, expanded-row]
+  - id: striped
+    trigger: striped is set
+    kind: prop
+    prop: striped
+    affects: [row]
+  - id: bordered
+    trigger: bordered is set
+    kind: prop
+    prop: bordered
+    affects: [table]
+  - id: current
+    trigger: highlightCurrentRow is set and a row is clicked
+    kind: prop
+    prop: highlightCurrentRow
+    affects: [row]
+  - id: skeleton
+    trigger: skeleton is set
+    kind: prop
+    prop: skeleton
+    affects: [row, cell]
