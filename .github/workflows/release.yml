@@ -1,0 +1,92 @@
+# Release flow driven by changesets.
+#
+# On every push to main, this workflow does ONE of:
+#   1. If unpublished changesets exist (.changeset/*.md), it opens
+#      (or updates) a "Version Packages" PR that bumps versions in
+#      package.json files and rewrites CHANGELOG.md.
+#   2. If no unpublished changesets exist but the previous PR was just
+#      merged, it publishes the bumped packages to npmjs.org with
+#      provenance attestation and creates a GitHub Release per tag.
+#
+# Publishing auth:
+#   Primary path is npm Trusted Publishing (OIDC) — the workflow is
+#   registered as a trusted publisher for the package, so npm exchanges
+#   the GitHub Actions OIDC token (id-token: write below) for a
+#   short-lived publishing credential. No long-lived token is used.
+#
+# Required secrets:
+#   ACV_TOKEN              GitHub PAT used to commit the version PR
+#                          AND trigger downstream workflows on its merge.
+#   NPMJS_PUBLISH_TOKEN    Optional fallback token for registry.npmjs.org.
+#                          Must be an *automation* token (bypasses 2FA);
+#                          a classic "Publish" token triggers EOTP. Only
+#                          used when the env lines below are uncommented.
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  release:
+    if: github.repository == 'acronis/uikit'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js (npm registry)
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      # Trusted Publishing (OIDC token exchange) requires npm >= 11.5.1.
+      # Node 22 ships npm 10.x, and `changeset publish` shells out to the
+      # global npm, so upgrade it before the publishing step.
+      - name: Upgrade npm for Trusted Publishing
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build UI library
+        run: pnpm --filter @spec-lab/shadcn-uikit build
+
+      - name: Run tests
+        run: pnpm --filter @spec-lab/shadcn-uikit test
+
+      - name: Validate design packages
+        run: pnpm --filter "./packages/design-*" test
+
+      - name: Create release PR or publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version
+          publish: pnpm run release
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
+          createGithubReleases: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACV_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
+          # Trusted Publishing (OIDC) is the active auth path. npm uses a
+          # token over OIDC whenever one is present, so these stay commented
+          # out — only one mechanism can ever be live at a time. To fall back
+          # to token auth, uncomment both (and ensure NPMJS_PUBLISH_TOKEN is
+          # an automation token, or you'll hit EOTP again).
+          # NPM_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}
+          # NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}

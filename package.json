@@ -1,0 +1,82 @@
+{
+  "name": "uikit-monorepo",
+  "private": true,
+  "description": "The Constructor Lab UI components library with color schemes and demos",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "changeset": "changeset",
+    "clean": "pnpm -r clean",
+    "sd": "pnpm --filter @spec-lab/style-dictionary build",
+    "sd:assets": "pnpm --filter @spec-lab/style-dictionary build pd-assets web-assets",
+    "sd:tokens": "pnpm --filter @spec-lab/style-dictionary build pd-dtcg pd-css",
+    "format": "prettier --write . --ignore-unknown",
+    "format:check": "prettier --check . --ignore-unknown",
+    "husky": "pnpm run lint-staged && pnpm run typecheck",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "lint-staged": "lint-staged",
+    "prepare": "husky",
+    "release": "changeset publish",
+    "test": "pnpm -r test",
+    "test:watch": "pnpm -r test:watch",
+    "tokens:sync": "pnpm --filter @spec-lab/design-tokens emit && pnpm --filter @spec-lab/tokens-pd build",
+    "typecheck": "pnpm -r typecheck",
+    "version": "changeset version"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "shadcn",
+    "react",
+    "tailwind"
+  ],
+  "author": "Constructor Lab International GmbH",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acronis/uikit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acronis/uikit/issues"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "0.7.0",
+    "@changesets/cli": "2.31.0",
+    "@commitlint/cli": "21.0.2",
+    "@commitlint/config-conventional": "21.0.2",
+    "@eslint/js": "^9.38.0",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-storybook": "10.4.1",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "globals": "^17.6.0",
+    "husky": "9.1.7",
+    "lint-staged": "17.0.5",
+    "prettier": "3.8.3",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.60.0"
+  },
+  "lint-staged": {
+    "apps/**/*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix"
+    ],
+    "packages/**/*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix"
+    ],
+    "tools/**/*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@10.27.0",
+  "publishConfig": {
+    "provenance": true
+  }
+}

@@ -1,0 +1,97 @@
+# Token-based release workflow — fallback / bootstrap path.
+#
+# Use this workflow when npm Trusted Publishing (OIDC) is not yet
+# configured for a package (e.g. first-ever publish of a new package).
+#
+# How it differs from release.yml:
+#   - Triggered manually (workflow_dispatch) instead of on every push.
+#   - Authenticates with a static Automation token (NPM_PUBLISH_TOKEN_2).
+#   - Publishes an explicit, fixed list of packages — safe to re-run because
+#     each package is skipped when its current version is already on npm.
+#   - Does NOT publish @spec-lab/shadcn-uikit (ui-legacy) — that
+#     package is handled exclusively by release.yml (OIDC path).
+#
+# Packages published by this workflow:
+#   @spec-lab/design-assets
+#   @spec-lab/design-tokens
+#   @spec-lab/icons-react
+#   @spec-lab/tokens-pd
+#   @spec-lab/ui-react
+#
+# Required secrets:
+#   NPM_PUBLISH_TOKEN_2   npm Automation token (NOT a classic Publish token —
+#                         classic tokens require 2FA and will hit EOTP).
+#
+# Provenance attestation is still enabled: the job already holds
+# id-token:write, so npm can generate the SLSA attestation even when the
+# publishing credential itself is a static token.
+name: Release (token auth)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    if: github.repository == 'acronis/uikit'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js (npm registry)
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate design packages
+        run: pnpm --filter "./packages/design-*" test
+
+      - name: Build tokens-pd
+        run: pnpm --filter @spec-lab/tokens-pd build
+
+      - name: Build icons-react
+        run: pnpm --filter @spec-lab/icons-react build
+
+      - name: Build ui-react
+        run: pnpm --filter @spec-lab/ui-react build
+
+      - name: Publish packages to npm
+        run: |
+          publish() {
+            local pkg="$1"; local dir="$2"
+            local ver; ver=$(node -p "require('./$dir/package.json').version")
+            # `npm view <pkg>@<ver> version` prints the version when published and
+            # nothing when absent (the E404 goes to stderr). Do NOT use --json: for
+            # a never-published package npm prints an error OBJECT to stdout, whose
+            # quotes defeat a naive existence test and skip every package.
+            if [ -n "$(npm view "$pkg@$ver" version 2>/dev/null)" ]; then
+              echo "⏭  $pkg@$ver already on npm, skipping"
+            else
+              echo "🚀 Publishing $pkg@$ver"
+              pnpm --filter "$pkg" publish --access public --no-git-checks
+            fi
+          }
+          publish @spec-lab/design-assets  packages/design-assets
+          publish @spec-lab/design-tokens  packages/design-tokens
+          publish @spec-lab/icons-react    packages/icons-react
+          publish @spec-lab/tokens-pd      packages/tokens-pd
+          publish @spec-lab/ui-react       packages/ui-react
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN_2 }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN_2 }}
+          NPM_CONFIG_PROVENANCE: true

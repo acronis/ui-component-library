@@ -1,0 +1,119 @@
+# Builds the demo + Storybook (ui-legacy and ui-react) + docs
+# into a single GitHub Pages artefact and deploys it.
+#
+# All sub-sites must ship in ONE artefact: GitHub Pages serves a single artefact
+# per deployment, so each deploy replaces the whole site. A separate per-app
+# deploy workflow would clobber the others.
+#
+# Trigger: GitHub Release published. \`release.yml\` is configured with
+# \`createGithubReleases: true\`, so a successful Changesets publish
+# emits the release event we listen to here — meaning the Pages site
+# only updates when a real version of the UI library ships, not on
+# every push to main.
+name: Demo & Storybook - Deploy to Pages
+
+on:
+  release:
+    types: [published]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Not needed if lastUpdated is not enabled
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build UI Component Library
+        run: pnpm --filter ./packages/ui-legacy run build
+
+      - name: Build demo
+        run: VITE_BASE_PATH=/uikit/ pnpm --filter ./apps/demo run build
+
+      - name: Build storybook
+        run: STORYBOOK_DISABLE_ADDON_VITEST=true pnpm --filter ./packages/ui-legacy run storybook:build
+
+      - name: Copy storybook to demo dist
+        run: |
+          rm -rf apps/demo/dist/storybook
+          cp -r packages/ui-legacy/storybook-static apps/demo/dist/storybook
+
+      # ui-react Storybook, served alongside the legacy one at /uikit/storybook-react.
+      # ui-react consumes its generated deps (icons-react, which pulls in
+      # tokens-pd/design-assets/style-dictionary) from dist, so build those first;
+      # ui-react's own source is bundled by Storybook via the .storybook alias.
+      # Storybook's static build uses relative asset paths, so it works under the
+      # subpath with no base flag (same as the legacy build above).
+      - name: Build ui-react storybook dependencies
+        run: pnpm --filter @spec-lab/icons-react... run build
+
+      - name: Build ui-react storybook
+        run: pnpm --filter ./packages/ui-react run storybook:build
+
+      - name: Copy ui-react storybook to demo dist
+        run: |
+          rm -rf apps/demo/dist/storybook-react
+          cp -r packages/ui-react/storybook-static apps/demo/dist/storybook-react
+
+      # The docs import @spec-lab/ui-react (and icons-react) from their
+      # built dist — the ui-react Storybook build above only bundles src, it does
+      # not emit the library dist — so build the ui-react library (+ its deps)
+      # before the docs build, or the static export fails to resolve the package.
+      - name: Build docs dependencies
+        run: pnpm --filter "@spec-lab/ui-react..." run build
+
+      - name: Build docs
+        run: DOCS_STATIC_EXPORT=true DOCS_BASE_PATH=/uikit/docs pnpm --filter ./apps/docs run build
+
+      - name: Copy docs to demo dist
+        run: cp -r apps/docs/out apps/demo/dist/docs
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/demo/dist
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

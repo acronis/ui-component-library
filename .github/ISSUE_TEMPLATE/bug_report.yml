@@ -1,0 +1,98 @@
+name: Bug report
+description: Report a bug in the Constructor Lab UI Kit
+title: '[Bug]: '
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a report, please [search existing issues](https://github.com/acronis/uikit/issues) to avoid duplicates.
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected package
+      options:
+        - '@spec-lab/ui-react'
+        - '@spec-lab/shadcn-uikit (ui-legacy)'
+        - '@spec-lab/icons-react'
+        - '@spec-lab/tokens-pd'
+        - '@spec-lab/design-tokens'
+        - '@spec-lab/design-assets'
+        - Other / unsure
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 'e.g. 0.4.0'
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction link
+      description: Link to a minimal reproduction on CodeSandbox, StackBlitz, or a public GitHub repo. Providing one speeds up investigation significantly.
+      placeholder: 'https://'
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: 'e.g. Chrome 125, Firefox 127, Safari 17'
+    validations:
+      required: false
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: 'e.g. macOS 14, Windows 11, Ubuntu 24.04'
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots, error logs, or anything else that may help.
+    validations:
+      required: false

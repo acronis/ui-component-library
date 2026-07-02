@@ -1,0 +1,13 @@
+dist
+node_modules
+*.min.js
+pnpm-lock.yaml
+
+# Generated, committed token artifacts (built by tools/style-dictionary).
+packages/tokens-pd/css
+packages/tokens-pd/tailwind
+packages/tokens-pd/dtcg
+
+# Design-token source tiers are formatted by the figma-to-design-tokens skill
+# emitters (DtcgFormatter), which own their house style. Keep Prettier out of them.
+packages/design-tokens/tiers

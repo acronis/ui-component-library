@@ -1,0 +1,59 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+# Screen-audit snapshots (captured by the /screen-audit skill; never committed)
+**/test/screen-audit/
+
+# Production
+build
+dist
+*.tsbuildinfo
+
+# Misc
+.DS_Store
+*.pem
+# Claude Code — personal/scratch only; skills/agents/settings.json are tracked
+**/.claude/settings.local.json
+**/.claude/plans/
+.playwright-mcp
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env*.local
+.env
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+*~
+
+# Turbo
+.turbo
+
+# Git worktrees
+.worktrees
+
+# Storybook
+storybook-static
+
+# Next.js
+.next
+
+# Fumadocs
+.source
+/apps/docs/out/
+
+# AI
+.ai

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Constructor Lab UI Kit — Repo, Process & Roadmap</title>
+<style>
+  :root {
+    --bg: #0b1020;
+    --bg-2: #121a33;
+    --panel: #16203d;
+    --panel-2: #1c2950;
+    --ink: #eef2ff;
+    --ink-dim: #aab4d4;
+    --ink-faint: #7f8bb3;
+    --accent: #6ea8fe;
+    --accent-2: #8b7bff;
+    --good: #4ade80;
+    --warn: #fbbf24;
+    --line: #2a3766;
+    --radius: 14px;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--sans);
+    background: radial-gradient(1200px 800px at 80% -10%, #1b2a55 0%, transparent 60%),
+                radial-gradient(1000px 700px at -10% 110%, #241a4d 0%, transparent 55%),
+                var(--bg);
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  /* Deck */
+  .deck { position: fixed; inset: 0; }
+  .slide {
+    position: absolute; inset: 0;
+    display: none;
+    flex-direction: column;
+    padding: 6vh 8vw 9vh;
+    animation: fade .35s ease;
+  }
+  .slide.active { display: flex; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .eyebrow {
+    font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: .8rem;
+  }
+  h1 { font-size: 3.4rem; line-height: 1.05; letter-spacing: -.02em; }
+  h2 { font-size: 2.2rem; line-height: 1.1; letter-spacing: -.01em; margin-bottom: .3rem; }
+  .sub { color: var(--ink-dim); font-size: 1.05rem; margin-top: .9rem; max-width: 60ch; }
+  .slide > .lead { color: var(--ink-dim); font-size: 1.1rem; margin: .2rem 0 1.6rem; max-width: 70ch; }
+
+  /* Title slide */
+  .title { justify-content: center; }
+  .title h1 { font-size: 4rem; max-width: 18ch; }
+  .title .gradient {
+    background: linear-gradient(100deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .meta-row { display: flex; gap: 2.5rem; margin-top: 2.6rem; flex-wrap: wrap; }
+  .meta-row .k { font-size: .72rem; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-faint); }
+  .meta-row .v { font-size: 1.05rem; color: var(--ink); margin-top: .25rem; font-weight: 600; }
+
+  /* Layout helpers */
+  .grid { display: grid; gap: 1rem; }
+  .cols-2 { grid-template-columns: 1fr 1fr; }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .fill { flex: 1; min-height: 0; }
+
+  .card {
+    background: linear-gradient(180deg, var(--panel), var(--bg-2));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem;
+  }
+  .card h3 { font-size: 1.05rem; display: flex; align-items: center; gap: .55rem; }
+  .card p { color: var(--ink-dim); font-size: .9rem; margin-top: .45rem; line-height: 1.5; }
+  .card .tag { font-size: .68rem; color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .dot { width: .6rem; height: .6rem; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+  ul.clean { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+  ul.clean li { display: flex; gap: .7rem; align-items: flex-start; color: var(--ink-dim); font-size: 1rem; line-height: 1.45; }
+  ul.clean li b { color: var(--ink); font-weight: 650; }
+  ul.clean li::before { content: "▸"; color: var(--accent); font-weight: 700; flex: none; line-height: 1.4; }
+
+  .pill { display: inline-block; padding: .2rem .6rem; border-radius: 999px; font-size: .72rem; font-weight: 700; }
+  .pill.pub { background: rgba(74,222,128,.14); color: var(--good); border: 1px solid rgba(74,222,128,.3); }
+  .pill.priv { background: rgba(127,139,179,.14); color: var(--ink-faint); border: 1px solid var(--line); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--line); }
+  th { color: var(--ink-faint); font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+  td { color: var(--ink-dim); }
+  td b, td code { color: var(--ink); }
+  code { font-family: var(--mono); font-size: .82em; background: rgba(110,168,254,.1); padding: .08em .35em; border-radius: 5px; color: var(--accent); }
+
+  /* Pipeline / flow */
+  .flow { display: flex; align-items: stretch; gap: .5rem; flex-wrap: wrap; }
+  .flow .step { flex: 1; min-width: 130px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: .9rem; }
+  .flow .step .n { font-size: .7rem; color: var(--accent); font-weight: 700; }
+  .flow .step .t { font-weight: 700; margin: .3rem 0; }
+  .flow .step .d { font-size: .8rem; color: var(--ink-dim); }
+  .arrow { align-self: center; color: var(--accent); font-size: 1.4rem; }
+
+  /* Timeline */
+  .timeline { display: flex; flex-direction: column; gap: .55rem; }
+  .tl-row { display: grid; grid-template-columns: 130px 110px 1fr; gap: 1rem; align-items: center;
+            background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .65rem .9rem; }
+  .tl-row .phase { font-weight: 700; }
+  .tl-row .when { color: var(--accent); font-size: .85rem; font-weight: 600; }
+  .tl-row .what { color: var(--ink-dim); font-size: .88rem; }
+  .tl-row.gate { border-color: rgba(139,123,255,.5); background: linear-gradient(90deg, rgba(139,123,255,.12), var(--panel)); }
+  .tl-row.gate .phase { color: var(--accent-2); }
+
+  /* Epics */
+  .epic { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; padding: .8rem 1rem; }
+  .epic .id { font-family: var(--mono); font-size: .72rem; color: var(--accent); }
+  .epic h3 { font-size: .98rem; margin: .15rem 0 .35rem; }
+  .epic p { font-size: .82rem; color: var(--ink-dim); line-height: 1.4; }
+
+  .stat { text-align: center; }
+  .stat .num { font-size: 2.6rem; font-weight: 800; letter-spacing: -.02em;
+               background: linear-gradient(120deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .lbl { color: var(--ink-dim); font-size: .82rem; margin-top: .2rem; }
+
+  .note { font-size: .82rem; color: var(--ink-faint); margin-top: 1rem; }
+  .kbd { font-family: var(--mono); background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: .1em .45em; font-size: .8em; color: var(--ink); }
+
+  /* Chrome */
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width .3s ease; z-index: 50; }
+  .counter { position: fixed; bottom: 1.4rem; right: 1.8rem; font-size: .8rem; color: var(--ink-faint); font-family: var(--mono); z-index: 50; }
+  .brand-tag { position: fixed; bottom: 1.4rem; left: 1.8rem; font-size: .8rem; color: var(--ink-faint); z-index: 50; letter-spacing: .04em; }
+  .nav-hint { position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%); font-size: .75rem; color: var(--ink-faint); z-index: 50; }
+  .navbtn { position: fixed; top: 50%; transform: translateY(-50%); z-index: 50; background: var(--panel); border: 1px solid var(--line); color: var(--ink); width: 42px; height: 42px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; opacity: .35; transition: opacity .2s; }
+  .navbtn:hover { opacity: 1; }
+  .navbtn.prev { left: 1.2rem; } .navbtn.next { right: 1.2rem; }
+
+  @media (max-width: 820px) {
+    .cols-2, .cols-3, .cols-4 { grid-template-columns: 1fr; }
+    h1, .title h1 { font-size: 2.4rem; }
+    .slide { padding: 5vh 6vw 8vh; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+
+  <!-- 1 — TITLE -->
+  <section class="slide title active">
+    <div class="eyebrow">Constructor Lab Platform · Design System</div>
+    <h1>The <span class="gradient">Constructor Lab UI Kit</span><br/>Repository, Process &amp; Roadmap</h1>
+    <p class="sub">A token-driven monorepo where design tokens → theme → components → icons form a single pipeline, with Figma as the upstream source of truth.</p>
+    <div class="meta-row">
+      <div><div class="k">Repository</div><div class="v">acronis/uikit</div></div>
+      <div><div class="k">Package manager</div><div class="v">pnpm 10 · Node 22</div></div>
+      <div><div class="k">North-star lib</div><div class="v">@spec-lab/ui-react</div></div>
+      <div><div class="k">v1 target</div><div class="v">End of Q3 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 2 — WHAT IT IS -->
+  <section class="slide">
+    <div class="eyebrow">Overview</div>
+    <h2>One pnpm monorepo, four roles</h2>
+    <p class="lead">A React component library, demo &amp; docs apps, two design-data packages, and a build-tooling tier — organized into four top-level directories, each with a distinct job.</p>
+    <div class="grid cols-4 fill">
+      <div class="card"><span class="tag">context/</span><h3>📘 Instructions</h3><p>Markdown read by both LLMs and humans — cross-workspace conventions, each workspace also has its own.</p></div>
+      <div class="card"><span class="tag">apps/</span><h3>🚀 Applications</h3><p>Deployed surfaces — the demo SPA and the docs site. Private.</p></div>
+      <div class="card"><span class="tag">packages/</span><h3>📦 Published</h3><p>Packages shipped to the npm registry — the libraries and design-data.</p></div>
+      <div class="card"><span class="tag">tools/</span><h3>🔧 Tooling</h3><p>Scripts that automate, translate &amp; execute — e.g. token→CSS builds. Never published.</p></div>
+    </div>
+    <p class="note">North star: <b>ui-react (Base UI)</b> is the one library teams build on; <b>ui-legacy (shadcn)</b> moves to maintenance / freeze with a defined deprecation path.</p>
+  </section>
+
+  <!-- 3 — THE PIPELINE -->
+  <section class="slide">
+    <div class="eyebrow">Architecture</div>
+    <h2>The single pipeline</h2>
+    <p class="lead">Figma is the upstream source of truth. Everything downstream is generated, validated, and committed — not hand-authored.</p>
+    <div class="flow fill" style="align-items:center">
+      <div class="step"><div class="n">SOURCE</div><div class="t">Figma</div><div class="d">Variables, styles &amp; "ready-for-dev" components</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">DATA</div><div class="t">design-tokens<br/>design-assets</div><div class="d">DTCG JSON + manifests, ajv-validated</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">BUILD</div><div class="t">style-dictionary</div><div class="d">Translates tokens → CSS / Tailwind presets</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">ARTIFACTS</div><div class="t">tokens-pd<br/>icons-react</div><div class="d">Per-brand CSS, presets, generated icons</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">CONSUME</div><div class="t">ui-react</div><div class="d">Base UI components themed by <code>--ui-*</code></div></div>
+    </div>
+    <p class="note">Runtime theming model: <code>--ui-*</code> custom properties + <code>[data-theme]</code> + <code>light-dark()</code>. A new Figma brand mode generates a new <code>&lt;brand&gt;.css</code> with <b>no code change</b>.</p>
+  </section>
+
+  <!-- 4 — WORKSPACES (published) -->
+  <section class="slide">
+    <div class="eyebrow">Workspaces · packages/</div>
+    <h2>What ships to npm</h2>
+    <table>
+      <thead><tr><th>Package</th><th>Role</th><th>Stack</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><b>ui-react</b></td><td>Next-gen component library — <i>new work goes here</i></td><td>Base UI · Vite · Tailwind v4</td><td><span class="pill pub">published</span></td></tr>
+        <tr><td><b>ui-legacy</b></td><td>shadcn-based library → freeze / maintenance</td><td>Vite · Storybook 10 · Vitest</td><td><span class="pill pub">published</span></td></tr>
+        <tr><td><b>icons-react</b></td><td>React icons generated from design-assets</td><td>Vite · tree-shakeable</td><td><span class="pill pub">published</span></td></tr>
+        <tr><td><b>design-tokens</b></td><td>DTCG-2025.10 token JSON (Figma-synced)</td><td>JSON data + ajv</td><td><span class="pill pub">published</span></td></tr>
+        <tr><td><b>design-assets</b></td><td>Icon/illustration manifests + binaries</td><td>JSON data + ajv</td><td><span class="pill pub">published</span></td></tr>
+        <tr><td><b>tokens-pd</b></td><td>Generated per-brand CSS + Tailwind presets</td><td>Built by style-dictionary</td><td><span class="pill pub">published</span></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Design-data packages ship JSON/binaries only — no build, no runtime API; their one real script is <code>validate</code>.</p>
+  </section>
+
+  <!-- 5 — WORKSPACES (private) -->
+  <section class="slide">
+    <div class="eyebrow">Workspaces · apps/ &amp; tools/</div>
+    <h2>Apps &amp; private tooling</h2>
+    <div class="grid cols-2 fill">
+      <div class="card"><h3><span class="dot"></span>apps/demo <span class="pill priv">private</span></h3><p>Vite SPA · React Router v7 · Zustand. Component showcase.</p></div>
+      <div class="card"><h3><span class="dot"></span>apps/docs <span class="pill priv">private</span></h3><p>Next.js 15 + Fumadocs documentation site — tracks the ui-react component ladder, token reference, icon catalog.</p></div>
+      <div class="card"><h3><span class="dot"></span>apps/demos <span class="pill priv">private</span></h3><p>Source-only shared demos — consumed via source exports; <code>dev</code>/<code>build</code> are no-ops.</p></div>
+      <div class="card"><h3><span class="dot"></span>tools/style-dictionary <span class="pill priv">private</span></h3><p>Style Dictionary v5 build: design-tokens → tokens-pd per-brand CSS custom properties.</p></div>
+      <div class="card"><h3><span class="dot"></span>tools/figma-icons-fetcher <span class="pill priv">private</span></h3><p>Fetches + SVGO-optimizes Figma icons into icons-svg / icons-svg-next with manifests.</p></div>
+      <div class="card"><h3><span class="dot"></span>tools/figma-token-exporter <span class="pill priv">private</span></h3><p>Self-hosted Figma plugin + local receiver — exports variables/styles to the design-tokens snapshot.</p></div>
+    </div>
+  </section>
+
+  <!-- 6 — DEV PROCESS: scripts -->
+  <section class="slide">
+    <div class="eyebrow">Development Process</div>
+    <h2>One script vocabulary everywhere</h2>
+    <p class="lead">Every workspace exposes the same script names. Run across all, or filter to one.</p>
+    <div class="grid cols-2 fill">
+      <div class="card">
+        <h3>🔁 Per-workspace scripts</h3>
+        <p style="margin-top:.8rem"><code>dev</code> · <code>build</code> · <code>test</code> · <code>test:watch</code> · <code>lint</code> · <code>lint:fix</code> · <code>typecheck</code> · <code>clean</code></p>
+        <p style="margin-top:1rem">Run as:</p>
+        <p><code>pnpm -r &lt;name&gt;</code> — all workspaces, topological order</p>
+        <p><code>pnpm --filter &lt;pkg&gt; &lt;name&gt;</code> — single workspace</p>
+      </div>
+      <div class="card">
+        <h3>🌳 Root-only scripts</h3>
+        <ul class="clean" style="margin-top:.8rem">
+          <li><b>format / format:check</b> — Prettier across the tree</li>
+          <li><b>changeset / version / release</b> — Changesets CLI</li>
+          <li><b>husky</b> — lint-staged + typecheck (pre-commit)</li>
+        </ul>
+        <p class="note" style="margin-top:1.2rem">Catalog block in <code>pnpm-workspace.yaml</code> is the single source of truth for shared dependency versions — bump in one place.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 — DEV PROCESS: commits & gates -->
+  <section class="slide">
+    <div class="eyebrow">Development Process</div>
+    <h2>Commit hygiene &amp; quality gates</h2>
+    <div class="grid cols-2 fill">
+      <div class="card">
+        <h3>✍️ Conventional Commits</h3>
+        <p>Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</code> — enforced by commitlint on every commit and on PR titles.</p>
+        <ul class="clean" style="margin-top:.9rem">
+          <li><b>feat</b> · <b>fix</b> · <b>chore</b> · <b>docs</b> · <b>refactor</b> · <b>test</b> · <b>ci</b></li>
+          <li>Scope = workspace or component <code>feat(button): add loading state</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🛡️ Pre-commit hook (Husky)</h3>
+        <ul class="clean" style="margin-top:.4rem">
+          <li><b>lint-staged</b> — eslint --fix on staged TS/JS, prettier on JSON/MD/YAML</li>
+          <li><b>typecheck</b> — <code>pnpm -r typecheck</code> across every workspace</li>
+        </ul>
+        <p class="note" style="margin-top:1rem"><b>Never</b> <code>--no-verify</code>. Never <code>--amend</code> a failed-hook commit. Fix the issue, re-commit.</p>
+      </div>
+    </div>
+    <p class="note">Published workspaces follow the Changesets workflow — commit <code>.changeset/*.md</code> alongside the code change it describes.</p>
+  </section>
+
+  <!-- 8 — AGENTS / AI workflow -->
+  <section class="slide">
+    <div class="eyebrow">Development Process · AI-native</div>
+    <h2>Agent-driven component pipeline</h2>
+    <p class="lead">The repo is built to be worked by AI agents — a phase-gated team flow turns a Figma node into a shipped component.</p>
+    <div class="flow fill" style="align-items:center">
+      <div class="step"><div class="n">1</div><div class="t">Design</div><div class="d">Read Figma node, map to Base UI + tokens</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">2</div><div class="t">Plan</div><div class="d">Decompose, identify deps</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">3</div><div class="t">Develop</div><div class="d">Component · tests · stories · Code Connect</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">4</div><div class="t">QA</div><div class="d">Vitest · lint · types · build</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">5</div><div class="t">Review</div><div class="d">Devil's-advocate gate</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">6</div><div class="t">Audit</div><div class="d">Screen / grammar consistency</div></div>
+    </div>
+    <p class="note">Skills like <code>/figma-component</code>, <code>/ui-kit-pipeline</code>, <code>/sync-tokens</code>, <code>/screen-audit</code> drive these flows. <b>AGENTS.md</b> at root + per-workspace is the single source of truth for conventions.</p>
+  </section>
+
+  <!-- 9 — ROADMAP: north star + state -->
+  <section class="slide">
+    <div class="eyebrow">Roadmap</div>
+    <h2>Where we are today</h2>
+    <p class="lead">The roadmap is fundamentally: <b>grow ui-react to a usable, then complete, surface — on a solid token foundation — while legacy is frozen and consumers migrate.</b></p>
+    <div class="grid cols-4 fill" style="align-items:center">
+      <div class="card stat"><div class="num">62</div><div class="lbl">ui-react components<br/>in tree (v0.54.0)</div></div>
+      <div class="card stat"><div class="num">82</div><div class="lbl">ui-legacy components<br/>→ freeze</div></div>
+      <div class="card stat"><div class="num">7</div><div class="lbl">Epics (#102–108)<br/>~98 task issues</div></div>
+      <div class="card stat"><div class="num">Q3</div><div class="lbl">2026 GA target<br/>(end of September)</div></div>
+    </div>
+    <p class="note">Capacity ≈ <b>3 FTE</b> (2 full-time + 2 part-time). WCAG 2.1 AA bar · Chrome/Edge 123+, Firefox 120+, Safari 17.5+. <b>Note:</b> the roadmap doc's "2/82" snapshot (dated 2026-06-25) is stale — the library has since accelerated to ~62 components across all tiers.</p>
+  </section>
+
+  <!-- 10 — ROADMAP: decisions locked -->
+  <section class="slide">
+    <div class="eyebrow">Roadmap · Decisions locked</div>
+    <h2>The five decisions that frame everything</h2>
+    <div class="grid cols-2 fill">
+      <div class="card"><span class="tag">Direction</span><h3>ui-react replaces ui-legacy</h3><p>Legacy → maintenance/freeze; all new work (incl. the Table cluster) targets ui-react. Legacy gets security/critical fixes only.</p></div>
+      <div class="card"><span class="tag">Sequencing</span><h3>Foundational-first buildout</h3><p>Components ship bottom-up: primitives → composites → data/complex, so higher-order components always have their building blocks.</p></div>
+      <div class="card"><span class="tag">Theming</span><h3>Generated, not hand-authored</h3><p>Brand themes are generated CSS from design-tokens → tokens-pd. <code>--ui-*</code> + <code>[data-theme]</code> + <code>light-dark()</code>. White-label = full Figma brand modes.</p></div>
+      <div class="card"><span class="tag">Timeline + a11y</span><h3>Q3 2026, WCAG 2.1 AA</h3><p>Usable base set by early Q3; v1 GA end of Q3. v1 = all basic Base UI + design-system components + selected complex (Table &amp; friends).</p></div>
+    </div>
+  </section>
+
+  <!-- 11 — ROADMAP: epics -->
+  <section class="slide">
+    <div class="eyebrow">Roadmap · Epics #102–108</div>
+    <h2>Seven epics</h2>
+    <div class="grid cols-2 fill" style="gap:.7rem">
+      <div class="epic"><div class="id">E1 · #102</div><h3>Foundation: tokens &amp; theming</h3><p>Enabler that leads everything — stable <code>--ui-*</code> contract, data-driven brand generation, token versioning.</p></div>
+      <div class="epic"><div class="id">E2 · #103</div><h3>ui-react component buildout</h3><p>Main thrust. Tier 0→3 ladder: primitives → composites → design-system/layout/shell.</p></div>
+      <div class="epic"><div class="id">E3 · #104</div><h3>Data components / Table</h3><p>Highest value, hardest. Sticky/resizable columns, sort, Data Table, plus Calendar/Tree/Chart/Command.</p></div>
+      <div class="epic"><div class="id">E4 · #105</div><h3>Figma ↔ Code</h3><p>Force-multiplier — Code Connect rollout, connect template, one-way token sync, design-to-code guidance.</p></div>
+      <div class="epic"><div class="id">E5 · #106</div><h3>Icons &amp; assets</h3><p>Complete icon pack generation, manifest validation, tree-shaking / bundle-size checks.</p></div>
+      <div class="epic"><div class="id">E6 · #107 &nbsp;·&nbsp; E7 · #108</div><h3>Docs &amp; adoption · Quality &amp; release</h3><p>Migration guide (legacy → ui-react), docs coverage; CI gates, a11y baseline, visual regression, Changesets discipline.</p></div>
+    </div>
+  </section>
+
+  <!-- 12 — ROADMAP: component ladder -->
+  <section class="slide">
+    <div class="eyebrow">Roadmap · E2 ladder</div>
+    <h2>The foundational-first ladder</h2>
+    <div class="grid cols-4 fill">
+      <div class="card"><span class="tag" style="color:var(--good)">Tier 1 · in tree ✅</span><h3>Form &amp; overlay</h3><p>Button · Switch · Input · Label · Field · Textarea · Checkbox · Radio · Select · Separator · Popover · Tooltip · Dialog · Sheet</p></div>
+      <div class="card"><span class="tag" style="color:var(--good)">Tier 2 · in tree ✅</span><h3>Composites</h3><p>Combobox · Dropdown · Slider · Tabs · Accordion · Collapsible · Toggle Group · Avatar · Chip · Tag · Alert · Progress · Skeleton · Spinner · Toast</p></div>
+      <div class="card"><span class="tag" style="color:var(--good)">Tier 3 · in tree ✅</span><h3>Design-system / shell</h3><p>Card · Stack · Grid · Section · Scroll Area · Resizable · App Shell · Sidebar · Nav · Breadcrumb · Pagination · Page Header/Content · Form · Filter · Empty</p></div>
+      <div class="card"><span class="tag">Tier 4 · landing</span><h3>Complex / data</h3><p>Table · Data Table · Chart · Number Field · Date Picker · Search · Description List · Widget — Calendar/Tree/Carousel/Command remaining</p></div>
+    </div>
+    <p class="note">Per-component DoD: Vitest test · Storybook story (all variants, <b>light + dark</b>) · Changeset · optional Figma Code Connect. The ladder is now largely populated; remaining v1 work is depth/polish per component + the last complex set, not greenfield primitives.</p>
+  </section>
+
+  <!-- 13 — ROADMAP: timeline -->
+  <section class="slide">
+    <div class="eyebrow">Roadmap · Sequencing</div>
+    <h2>The path to v1 (Q3 2026)</h2>
+    <div class="timeline fill">
+      <div class="tl-row"><span class="phase">P1 · Foundation</span><span class="when">Jun 2026</span><span class="what">E1 theme delivery + brand matrix + token contract; freeze legacy + publish deprecation notice</span></div>
+      <div class="tl-row"><span class="phase">P2 · Primitives</span><span class="when">Jun–Jul</span><span class="what">E2 Tier 1 + a11y baseline + Code Connect rollout</span></div>
+      <div class="tl-row gate"><span class="phase">🎯 Consumer drop</span><span class="when">early Jul</span><span class="what">Usable base set (Tier 1 + core Tier 2) published — consumers can build real screens</span></div>
+      <div class="tl-row"><span class="phase">P3 · Composites + DS</span><span class="when">Jul–Aug</span><span class="what">E2 Tier 2 + Tier 3 layout + E5 icons + migration guide</span></div>
+      <div class="tl-row"><span class="phase">P4 · Data/Table</span><span class="when">Aug–Sep</span><span class="what">E3 Table cluster + remaining complex components</span></div>
+      <div class="tl-row gate"><span class="phase">🎯 v1 GA</span><span class="when">end Sep</span><span class="what">E7 1.0 criteria + visual regression; ui-react v1 released; legacy → security-only</span></div>
+    </div>
+  </section>
+
+  <!-- 14 — CLOSE -->
+  <section class="slide title">
+    <div class="eyebrow">Summary</div>
+    <h1>One pipeline. <span class="gradient">One library.</span><br/>One source of truth.</h1>
+    <div class="grid cols-3" style="margin-top:2.4rem">
+      <div class="card"><h3>🎨 Token-driven</h3><p>Figma → tokens → theme → components → icons, all generated &amp; validated.</p></div>
+      <div class="card"><h3>🤖 AI-native process</h3><p>AGENTS.md + phase-gated agent pipeline + skills drive component delivery.</p></div>
+      <div class="card"><h3>🎯 Focused roadmap</h3><p>Grow ui-react to v1 by end-Q3 2026 on a frozen-legacy migration path.</p></div>
+    </div>
+    <p class="note">Sources: <code>AGENTS.md</code> · <code>context/conventions.md</code> · <code>context/commits.md</code> · <code>context/roadmap.md</code> · <code>context/project-board.md</code></p>
+  </section>
+
+</div>
+
+<button class="navbtn prev" id="prev" aria-label="Previous">‹</button>
+<button class="navbtn next" id="next" aria-label="Next">›</button>
+<div class="counter" id="counter">1 / 14</div>
+<div class="brand-tag">Constructor Lab UI Kit</div>
+<div class="nav-hint">Use <span class="kbd">←</span> <span class="kbd">→</span> · <span class="kbd">F</span> fullscreen</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+
+  function show(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    progress.style.width = ((i + 1) / total * 100) + '%';
+    counter.textContent = (i + 1) + ' / ' + total;
+    location.hash = i + 1;
+  }
+  function next() { show(i + 1); }
+  function prev() { show(i - 1); }
+
+  document.getElementById('next').onclick = next;
+  document.getElementById('prev').onclick = prev;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') show(0);
+    else if (e.key === 'End') show(total - 1);
+    else if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  // swipe
+  let tx = 0;
+  document.addEventListener('touchstart', e => tx = e.changedTouches[0].clientX, {passive:true});
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) (dx < 0 ? next : prev)();
+  }, {passive:true});
+
+  const start = parseInt(location.hash.slice(1)) - 1;
+  show(Number.isInteger(start) && start >= 0 ? start : 0);
+</script>
+</body>
+</html>

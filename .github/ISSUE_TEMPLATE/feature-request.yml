@@ -1,0 +1,51 @@
+name: Feature request
+description: Suggest an improvement or new feature for the Constructor Lab UI Kit
+title: '[Feature]: '
+labels: [feature request]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an idea! Please fill out the sections below.
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Related package
+      description: Which package would benefit from this feature?
+      options:
+        - '@spec-lab/ui-react'
+        - '@spec-lab/shadcn-uikit (ui-legacy)'
+        - '@spec-lab/icons-react'
+        - '@spec-lab/tokens-pd'
+        - New package / unsure
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature
+      description: A clear description of the feature, its use cases, and any alternatives you have considered. If you have a working prototype, please include a link.
+      placeholder: Feature description
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What alternatives or workarounds have you tried?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: additional-info
+    attributes:
+      label: Additional information
+      description: Additional information that helps us decide how to proceed.
+      options:
+        - label: I intend to submit a PR for this feature.
+        - label: I have already implemented and/or tested this feature.
+    validations:
+      required: false

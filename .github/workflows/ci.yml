@@ -1,0 +1,260 @@
+name: Test - CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+      WORKSPACES: >-
+        @spec-lab/shadcn-uikit-demo
+        @spec-lab/shadcn-uikit-demos
+        @spec-lab/uikit-docs
+        @spec-lab/design-assets
+        @spec-lab/design-tokens
+        @spec-lab/icons-react
+        @spec-lab/icons-svg-next
+        @spec-lab/tokens-pd
+        @spec-lab/shadcn-uikit
+        @spec-lab/ui-react
+        @spec-lab/ui-spec
+        @spec-lab/figma-design-assets-sync
+        @spec-lab/figma-icons-fetcher
+        @spec-lab/figma-token-exporter
+        @spec-lab/style-dictionary
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Detect published-workspace changes
+        if: "github.event_name == 'pull_request' && github.event.pull_request.title != 'chore(release): version packages'"
+        id: changeset_filter
+        uses: dorny/paths-filter@v3
+        with:
+          list-files: shell
+          filters: |
+            published:
+              - 'packages/ui-legacy/**'
+              - 'packages/ui-react/**'
+              - 'packages/icons-react/**'
+              - 'packages/tokens-pd/**'
+              - 'packages/design-tokens/**'
+              - 'packages/design-assets/**'
+            changeset:
+              - '.changeset/*.md'
+
+      - name: Enforce changeset for published-surface PRs
+        if: "github.event_name == 'pull_request' && github.event.pull_request.title != 'chore(release): version packages'"
+        env:
+          PUBLISHED_FILES: ${{ steps.changeset_filter.outputs.published_files }}
+          HAS_CHANGESET: ${{ steps.changeset_filter.outputs.changeset }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${PUBLISHED_FILES:-}" ]; then
+            echo "No published-workspace changes detected."
+            exit 0
+          fi
+
+          requires_changeset=false
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            case "$file" in
+              # docs / metadata
+              */README.md|*/CHANGELOG.md|*/CONTRIBUTING.md|*/AGENTS.md|*/context/*)
+                ;;
+              # test-only/story-only changes
+              */__tests__/*|*.test.*|*.spec.*|*.stories.*)
+                ;;
+              *)
+                requires_changeset=true
+                echo "Published-surface change detected: $file"
+                ;;
+            esac
+          done <<< "$PUBLISHED_FILES"
+
+          if [ "$requires_changeset" = true ] && [ "${HAS_CHANGESET}" != "true" ]; then
+            echo "A changeset is required for published-surface changes."
+            echo "Run 'pnpm changeset' and commit the generated .changeset/*.md file."
+            exit 1
+          fi
+
+          if [ "$requires_changeset" = true ]; then
+            echo "Changeset check passed."
+          else
+            echo "Only non-release-impacting published-workspace files changed."
+          fi
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node modules
+        id: cache-pnpm
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ env.cache-name }}-
+            ${{ runner.os }}-
+
+      # --frozen-lockfile: refuse the install if pnpm-lock.yaml is out of
+      # sync with package.json. This is what guarantees CI sees the exact
+      # tree a contributor saw locally.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Constructor Lab UI Component Library
+        run: pnpm --filter ./packages/ui-legacy run build
+
+      # Apps import the libraries by package name, so their dist (incl. types)
+      # must exist before `pnpm -r typecheck`. Building ui-react's graph covers
+      # tokens-pd (generated CSS), icons-react, and the design-data packages.
+      - name: Build library dependencies
+        run: pnpm --filter "@spec-lab/ui-react..." run build
+
+      - name: Lint (per workspace)
+        run: |
+          set -euo pipefail
+          for workspace in $WORKSPACES; do
+            pnpm --filter "$workspace" lint
+          done
+
+      # Generate the fumadocs .source files needed by apps/docs typecheck.
+      - name: Generate fumadocs source
+        run: pnpm --filter @spec-lab/uikit-docs exec fumadocs-mdx
+
+      - name: Typecheck (per workspace)
+        run: |
+          set -euo pipefail
+          for workspace in $WORKSPACES; do
+            pnpm --filter "$workspace" typecheck
+          done
+
+      # Build runs last so the topological build order (ui → demo / docs)
+      # is exercised against the same lockfile we just installed from.
+      - name: Build
+        run: pnpm -r build
+
+      # tokens-pd ships generated, committed artifacts. Fail the build if a token
+      # change wasn't re-generated + committed (the build above is idempotent).
+      - name: Verify generated tokens-pd is committed
+        run: git diff --exit-code -- packages/tokens-pd
+
+      - name: Test (per workspace)
+        run: |
+          set -euo pipefail
+          for workspace in $WORKSPACES; do
+            pnpm --filter "$workspace" test
+          done
+
+  # ── design-assets → SVG/React build ────────────────────────────────────────
+  # Incrementally rebuilds the asset artifacts when their inputs change, per the
+  # CI↔CLI contract in tools/style-dictionary/AGENTS.md. `assets-detect` finds
+  # which packs / shared inputs (rules, schema) changed; `assets-build` validates
+  # (fail closed) then invokes the tool with the right `--pack` selector. The
+  # `ci` job above already does a full `pnpm -r build`; this job exercises the
+  # granular per-pack path and the validate gate.
+  assets-detect:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.filter.outputs.packs == 'true' || steps.filter.outputs.shared == 'true' }}
+      shared: ${{ steps.filter.outputs.shared }}
+      packs_files: ${{ steps.filter.outputs.packs_files }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Detect changed asset inputs
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          list-files: shell
+          filters: |
+            packs:
+              - 'packages/design-assets/packs/**'
+            shared:
+              - 'packages/design-assets/rules/**'
+              - 'packages/design-assets/schemas/pack.schema.json'
+
+  assets-build:
+    needs: assets-detect
+    if: needs.assets-detect.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Fail closed before building: the resolver re-asserts the schema, but the
+      # package's own ajv validate is the authoritative gate.
+      - name: Validate design-assets
+        run: pnpm --filter @spec-lab/design-assets validate
+
+      - name: Build changed assets
+        env:
+          SHARED: ${{ needs.assets-detect.outputs.shared }}
+          PACKS_FILES: ${{ needs.assets-detect.outputs.packs_files }}
+        run: |
+          set -euo pipefail
+          if [ "$SHARED" = "true" ]; then
+            echo "Shared input (rules/schema) changed — rebuilding all asset packs."
+            packs=$(find packages/design-assets/packs -maxdepth 1 -name '*.json' -type f \
+              | sed -E 's#.*/([a-z0-9-]+)\.json#\1#' \
+              | sort -u | paste -sd, -)
+            if [ -z "$packs" ]; then
+              echo "No asset packs found to rebuild."
+              exit 0
+            fi
+            echo "Existing packs: $packs"
+            pnpm --filter @spec-lab/style-dictionary build pd-assets web-assets --pack="$packs"
+          else
+            packs=$(printf '%s\n' $PACKS_FILES \
+              | sed -nE 's#packages/design-assets/packs/([a-z0-9-]+)(\.json|/.*)#\1#p' \
+              | sort -u \
+              | { while read -r pack; do
+                    if [ -f "packages/design-assets/packs/${pack}.json" ]; then
+                      echo "$pack"
+                    fi
+                  done; true; } \
+              | paste -sd, -)
+            if [ -z "$packs" ]; then
+              echo "No existing changed packs to rebuild (only removals/renames)."
+              exit 0
+            fi
+            echo "Changed packs: $packs"
+            pnpm --filter @spec-lab/style-dictionary build pd-assets web-assets --pack="$packs"
+          fi
