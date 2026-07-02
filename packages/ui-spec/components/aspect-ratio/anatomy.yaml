@@ -1,0 +1,27 @@
+spec_version: '1.0'
+component: AspectRatio
+
+schematic: |
+  +---------------------+  ─┐
+  |                     |   │  root: <div> with
+  |       content       |   │  aspect-ratio: <ratio>
+  |                     |   │  (width from parent;
+  +---------------------+  ─┘   height = width / ratio)
+
+root:
+  element: div
+  description: >-
+    A full-width `<div>` whose height is derived from its width and the `ratio`
+    prop via the native CSS `aspect-ratio` property. `position: relative` lets
+    consumers absolutely-position overlays over the content.
+
+parts:
+  - id: content
+    element: '*'
+    description: >-
+      The child constrained to the ratio (typically an `<img>`/`<video>` sized
+      `h-full w-full object-cover`, but any element). Provided as children.
+
+# AspectRatio is a pure function of the continuous `ratio` prop — no discrete
+# states.
+states: []

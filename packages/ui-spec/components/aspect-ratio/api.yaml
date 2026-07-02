@@ -1,0 +1,45 @@
+spec_version: '1.0'
+component: AspectRatio
+
+# No cva axes — a single numeric `ratio` prop drives the CSS `aspect-ratio`.
+contract:
+  properties:
+    - name: ratio
+      type: number
+      required: false
+      default: 1
+      description: >-
+        Width-to-height ratio, e.g. `16 / 9`, `4 / 3`, `1`. Applied via the native
+        CSS `aspect-ratio` property.
+
+  events: []
+
+  content:
+    - name: default
+      description: >-
+        The content constrained to the ratio — an image, video, iframe/map, or
+        any box. Size it `h-full w-full` (and `object-cover` for media) to fill.
+
+  methods: []
+
+adapters:
+  react:
+    component: AspectRatio
+    status: implemented
+    import: "import { AspectRatio } from '@spec-lab/ui-react'"
+    example: |
+      <AspectRatio ratio={16 / 9}>
+        <img className="h-full w-full object-cover" src="/cover.jpg" alt="" />
+      </AspectRatio>
+  vue:
+    component: AvAspectRatio
+    status: planned
+    import: "import { AvAspectRatio } from '@spec-lab/ui-vue'"
+    example: |
+      <AvAspectRatio :ratio="16 / 9">…</AvAspectRatio>
+  web-components:
+    element: ui-aspect-ratio
+    status: planned
+    import: "import '@spec-lab/ui-wc/aspect-ratio'"
+    example: |
+      <ui-aspect-ratio ratio="1.778">…</ui-aspect-ratio>

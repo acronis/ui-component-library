@@ -53,6 +53,7 @@
     "resizable",
     "scroll-area",
     "separator",
+    "aspect-ratio",
     "---Overlays---",
     "dialog",
     "dropdown-menu",

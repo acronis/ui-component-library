@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: AspectRatio
+name: aspect-ratio
+status: draft
+category: layout
+description: >-
+  A layout-only primitive that constrains its box to a given width-to-height
+  ratio (via the native CSS `aspect-ratio`); the child — an image, video, map, or
+  any box — fills it. Ported from the legacy shadcn-uikit `aspect-ratio`.
+since: 0.55.0
+dependencies:
+  components: []
+# Design-pending v1: ported from ui-legacy without a "ready for dev" Figma node,
+# so there is no `figma:` block. Reconcile with
+# /figma-component AspectRatio <url> --update once mockups land.

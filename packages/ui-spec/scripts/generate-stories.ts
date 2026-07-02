@@ -50,6 +50,11 @@ const RENDER: Record<string, RenderHint> = {
     extraImports: ["import { AvatarFallback } from '../avatar';"],
     sample: '\n      <AvatarFallback>SN</AvatarFallback>\n    ',
   },
+  'aspect-ratio': {
+    props: 'ratio={16 / 9} className="w-64"',
+    sample:
+      '\n      <div className="flex h-full w-full items-center justify-center rounded-md bg-muted text-sm text-muted-foreground">16 : 9</div>\n    ',
+  },
   button: { sample: 'Label' },
   'button-group': {
     extraImports: ["import { Button } from '../../button';"],

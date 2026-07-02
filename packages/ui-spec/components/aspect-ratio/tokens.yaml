@@ -1,0 +1,8 @@
+spec_version: '1.0'
+component: AspectRatio
+
+# AspectRatio has no tokens — it's a layout-only primitive (a CSS `aspect-ratio`
+# box, no color/border/typography). The child provides its own styling.
+source: '@spec-lab/tokens'
+
+tokens: []

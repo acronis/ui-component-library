@@ -1,0 +1,46 @@
+---
+title: AspectRatio
+description: Constrains content to a fixed width-to-height ratio.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { AspectRatioDemo } from "@/components/demos-react/aspect-ratio";
+
+## Usage
+
+```tsx
+import { AspectRatio } from '@spec-lab/ui-react';
+```
+
+`AspectRatio` is a layout-only primitive: it constrains its box to a given
+`ratio` (width ÷ height) using the native CSS `aspect-ratio` property, and its
+child fills it. It carries no color tokens — style the child yourself. It's a
+**design-pending v1** ported from the legacy kit.
+
+## Examples
+
+<DemoReact>
+  <AspectRatioDemo />
+</DemoReact>
+
+Give it a width (from a parent or a `className`) and a `ratio`; size the child
+`h-full w-full` (and `object-cover` for media):
+
+```tsx
+// 16:9 media, clipped with a radius
+<AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg">
+  <img className="h-full w-full object-cover" src="/cover.jpg" alt="Cover" />
+</AspectRatio>
+
+// Square (default)
+<AspectRatio>
+  <img className="h-full w-full object-cover" src="/avatar.jpg" alt="" />
+</AspectRatio>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/aspect-ratio/aspect-ratio.tsx"
+  name="AspectRatioProps"
+/>
