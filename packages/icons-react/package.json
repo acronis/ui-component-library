@@ -1,0 +1,106 @@
+{
+  "name": "@spec-lab/icons-react",
+  "version": "0.5.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acronis/uikit.git",
+    "directory": "packages/icons-react"
+  },
+  "description": "Constructor Lab React icon components, generated from @spec-lab/icons-svg-next.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./stroke-mono": {
+      "import": "./dist/stroke-mono/index.js",
+      "types": "./dist/stroke-mono/index.d.ts"
+    },
+    "./solid-mono": {
+      "import": "./dist/solid-mono/index.js",
+      "types": "./dist/solid-mono/index.d.ts"
+    },
+    "./stroke-multi": {
+      "import": "./dist/stroke-multi/index.js",
+      "types": "./dist/stroke-multi/index.d.ts"
+    },
+    "./solid-multi": {
+      "import": "./dist/solid-multi/index.js",
+      "types": "./dist/solid-multi/index.d.ts"
+    },
+    "./legacy-map": "./legacy-icon-map.json"
+  },
+  "files": [
+    "dist",
+    "legacy-icon-map.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "generate": "tsx scripts/generate-icons.ts && tsx scripts/generate-legacy-map.ts",
+    "generate:legacy-map": "tsx scripts/generate-legacy-map.ts",
+    "build": "pnpm run generate && vite build -c vite.lib.config.ts",
+    "dev": "pnpm run generate && vite build -c vite.lib.config.ts --watch",
+    "clean": "rm -rf dist storybook-static node_modules/.vite src/packs *.tsbuildinfo",
+    "typecheck": "pnpm run generate && tsc --noEmit",
+    "test": "pnpm run generate && vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint scripts src/lib src/__tests__ src/__stories__ src/index.ts",
+    "lint:fix": "eslint scripts src/lib src/__tests__ src/__stories__ src/index.ts --fix",
+    "storybook": "pnpm run generate && storybook dev -p 6008",
+    "storybook:build": "pnpm run generate && storybook build"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@spec-lab/icons-svg-next": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "@storybook/addon-a11y": "10.4.1",
+    "@storybook/addon-docs": "10.4.1",
+    "@storybook/react": "10.4.1",
+    "@storybook/react-vite": "10.4.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "5.1.1",
+    "eslint": "catalog:",
+    "happy-dom": "20.9.0",
+    "storybook": "10.4.1",
+    "tsx": "4.22.3",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "5.0.1",
+    "vitest": "catalog:"
+  },
+  "keywords": [
+    "react",
+    "icons",
+    "svg",
+    "acronis"
+  ],
+  "author": "Constructor Lab International GmbH",
+  "license": "MIT",
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  }
+}
