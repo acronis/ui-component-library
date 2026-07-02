@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@spec-lab/shadcn-uikit": ["../../packages/ui-legacy/dist/index.d.ts"],
+      "@spec-lab/shadcn-uikit/react": [
+        "../../packages/ui-legacy/dist/react.d.ts"
+      ]
+    }
+  },
+  "include": ["src"]
+}
