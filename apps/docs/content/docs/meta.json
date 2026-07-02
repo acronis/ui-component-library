@@ -1,0 +1,16 @@
+{
+  "title": "UIKit Docs",
+  "pages": [
+    "getting-started",
+    "theming",
+    "typography",
+    "token-reference",
+    "components",
+    "layouts",
+    "patterns",
+    "icons",
+    "packages",
+    "guides",
+    "legacy"
+  ]
+}

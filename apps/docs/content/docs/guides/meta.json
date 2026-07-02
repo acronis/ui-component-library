@@ -1,0 +1,12 @@
+{
+  "title": "Guides",
+  "pages": [
+    "architecture",
+    "design-to-code",
+    "migration",
+    "tree-shaking",
+    "publishing",
+    "versioning",
+    "changelog"
+  ]
+}

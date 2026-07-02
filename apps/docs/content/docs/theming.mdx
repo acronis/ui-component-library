@@ -1,0 +1,60 @@
+---
+title: Theming
+description: Customize the look and feel of Constructor Lab UIKit using CSS custom properties and theme switching.
+---
+
+## How themes work
+
+Constructor Lab UIKit uses generated `--ui-*` CSS custom properties from
+[`@spec-lab/tokens-pd`](/packages/tokens-pd). You never hand-author
+theme values — they are generated from the design system and resolved at paint
+time, so brand and light/dark switches need no rebuild.
+
+Load the default `acronis` base, then (optionally) layer another brand override
+on top:
+
+```tsx
+import '@spec-lab/ui-react/styles'; // includes tokens-pd/css/acronis.css
+import '@spec-lab/tokens-pd/css/deep-sky.css'; // optional brand override
+```
+
+## Dark mode
+
+Dark mode is built into the tokens via `light-dark()` + `color-scheme`. Toggle
+the active scheme with `data-theme`:
+
+```html
+<html data-theme="dark"></html>
+```
+
+## Theme switching
+
+Brand switching is import-order based (last import wins), not a class toggle:
+
+```css
+@import '@spec-lab/tokens-pd/css/acronis.css';
+@import '@spec-lab/tokens-pd/css/deep-sky.css';
+```
+
+## Design tokens
+
+Key CSS variables you can override:
+
+| Variable                    | Purpose                |
+| --------------------------- | ---------------------- |
+| `--ui-background-surface-primary`   | Main page background   |
+| `--ui-background-surface-secondary` | Secondary surfaces     |
+| `--ui-text-on-surface-primary`      | Primary text color     |
+| `--ui-text-on-surface-secondary`    | Secondary / muted text |
+| `--ui-border-on-surface-border`     | Dividers and borders   |
+| `--ui-background-brand-primary`     | Brand accent color     |
+
+## Custom theme
+
+Override any variable in your CSS:
+
+```css
+:root {
+  --ui-background-brand-primary: #7c3aed;
+}
+```

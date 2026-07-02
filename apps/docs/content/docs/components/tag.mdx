@@ -1,0 +1,64 @@
+---
+title: Tag
+description: A compact label for a status, category, or keyword.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { TagDemo } from "@/components/demos-react/tag";
+
+## Usage
+
+```tsx
+import { Tag } from '@spec-lab/ui-react';
+```
+
+`Tag` renders a `<span>` styled by the `--ui-tag-*` tokens. An optional leading
+`icon` is rendered at 16px before the label.
+
+> **`Badge` is an alias of `Tag`.** The legacy generic shadcn `Badge` is replaced
+> by the design-system-native `Tag`, which carries its own token tier, icon slot,
+> and sizes. `import { Badge } from '@spec-lab/ui-react'` re-exports `Tag`
+> — same props, same variants. Prefer `Tag` in new code.
+
+## Examples
+
+
+<DemoReact>
+  <TagDemo />
+</DemoReact>
+
+Semantic variants (default is `neutral`):
+
+```tsx
+<Tag variant="info">Info</Tag>
+<Tag variant="success">Success</Tag>
+<Tag variant="warning">Warning</Tag>
+<Tag variant="critical">Critical</Tag>
+<Tag variant="danger">Danger</Tag>
+<Tag variant="neutral">Neutral</Tag>
+<Tag variant="ai">AI</Tag>
+```
+
+Two sizes — `default` (24px) and `sm` (20px):
+
+```tsx
+<Tag variant="info">Default</Tag>
+<Tag variant="info" size="sm">Small</Tag>
+```
+
+With a leading icon:
+
+```tsx
+import { CheckIcon } from '@spec-lab/icons-react/stroke-mono';
+
+<Tag variant="success" icon={<CheckIcon />}>
+  Completed
+</Tag>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/tag/tag.tsx"
+  name="TagProps"
+/>

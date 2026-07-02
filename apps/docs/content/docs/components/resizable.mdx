@@ -1,0 +1,77 @@
+---
+title: Resizable
+description: Draggable split panels with a resize handle.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { ResizableDemo } from "@/components/demos-react/resizable";
+
+## Usage
+
+```tsx
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from '@spec-lab/ui-react';
+```
+
+`Resizable` wraps [`react-resizable-panels`](https://github.com/bvaughn/react-resizable-panels).
+`ResizablePanelGroup` lays out `ResizablePanel` children along an `orientation`
+(`horizontal` or `vertical`), separated by a `ResizableHandle` the user drags.
+The handle is themed by the `--ui-resizable-*` tokens; pass `withHandle` to show
+a grab-bar pill.
+
+## Examples
+
+
+<DemoReact>
+  <ResizableDemo />
+</DemoReact>
+
+A horizontal split (sidebar + content):
+
+```tsx
+<ResizablePanelGroup orientation="horizontal">
+  <ResizablePanel defaultSize={40} minSize={20}>
+    Sidebar
+  </ResizablePanel>
+  <ResizableHandle withHandle />
+  <ResizablePanel defaultSize={60}>Content</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+A vertical split (editor + preview):
+
+```tsx
+<ResizablePanelGroup orientation="vertical">
+  <ResizablePanel defaultSize={60}>Editor</ResizablePanel>
+  <ResizableHandle withHandle />
+  <ResizablePanel defaultSize={40}>Preview</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+A plain handle without the grab-bar pill:
+
+```tsx
+<ResizablePanelGroup orientation="horizontal">
+  <ResizablePanel defaultSize={50}>One</ResizablePanel>
+  <ResizableHandle />
+  <ResizablePanel defaultSize={50}>Two</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+## API Reference
+
+### ResizableHandle
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/resizable/resizable.tsx"
+  name="ResizableHandleProps"
+/>
+
+`ResizablePanelGroup` and `ResizablePanel` pass through the `Group` and `Panel`
+props of `react-resizable-panels` (e.g. `orientation`, `defaultSize`, `minSize`,
+`maxSize`, `onResize`). See the
+[react-resizable-panels API](https://github.com/bvaughn/react-resizable-panels)
+for the full list.

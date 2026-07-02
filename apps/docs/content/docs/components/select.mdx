@@ -1,0 +1,80 @@
+---
+title: Select
+description: Choose one option from a list (alias of the InputSelect family).
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { SelectDemo } from "@/components/demos-react/select";
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  SelectGroup,
+  SelectGroupLabel,
+} from '@spec-lab/ui-react';
+```
+
+`Select` is an alias of the [`InputSelect`](/components/input-select)
+family, themed by the `--ui-input-select-*` tokens and built on Base UI's
+`Select` primitive. The `Select*` names map onto the corresponding
+`InputSelect*` parts (`SelectGroup` → `InputSelectSection`, `SelectGroupLabel` →
+`InputSelectSection­Label`). **Prefer importing `InputSelect*` directly in new
+code** — `Select` exists for compatibility.
+
+## Examples
+
+
+<DemoReact>
+  <SelectDemo />
+</DemoReact>
+
+A basic select:
+
+```tsx
+<Select items={fruitItems}>
+  <SelectTrigger aria-label="Fruit">
+    <SelectValue placeholder="Select an option" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana</SelectItem>
+    <SelectItem value="grapes">Grapes</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+A disabled trigger:
+
+```tsx
+<Select items={fruitItems} disabled>
+  <SelectTrigger aria-label="Fruit">
+    <SelectValue placeholder="Select an option" />
+  </SelectTrigger>
+  <SelectContent>{/* …items… */}</SelectContent>
+</Select>
+```
+
+Grouped options:
+
+```tsx
+<SelectContent>
+  <SelectGroup>
+    <SelectGroupLabel>Fruits</SelectGroupLabel>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana</SelectItem>
+  </SelectGroup>
+</SelectContent>
+```
+
+## API Reference
+
+The `Select*` parts are re-exports of the `InputSelect*` parts and share their
+props. See [InputSelect](/components/input-select) for the full reference
+and the [Base UI Select docs](https://base-ui.com/react/components/select) for
+each primitive's prop surface.

@@ -1,0 +1,69 @@
+---
+title: Tooltip
+description: A contextual hint shown on hover or focus.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { TooltipDemo } from "@/components/demos-react/tooltip";
+
+## Usage
+
+```tsx
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from '@spec-lab/ui-react';
+```
+
+`Tooltip`, `TooltipTrigger`, and `TooltipContent` wrap Base UI's `Tooltip`
+primitive — hover/focus open behavior, positioning, portalling, and ARIA come
+from Base UI. `TooltipTrigger` is polymorphic via the `render` prop, so it can
+wrap any element (such as a `Button`). Wrap your app (or a subtree) in
+`TooltipProvider` to share open/close timing across tooltips.
+
+## Examples
+
+
+<DemoReact>
+  <TooltipDemo />
+</DemoReact>
+
+A basic tooltip on a button:
+
+```tsx
+<Tooltip>
+  <TooltipTrigger render={<Button variant="secondary">Hover me</Button>} />
+  <TooltipContent>Helpful hint</TooltipContent>
+</Tooltip>
+```
+
+Position the content with `side` (and optionally `align`):
+
+```tsx
+<Tooltip>
+  <TooltipTrigger render={<Button variant="secondary">Top</Button>} />
+  <TooltipContent side="top">On top</TooltipContent>
+</Tooltip>
+```
+
+Share timing across many tooltips with a provider:
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger render={<ButtonIcon aria-label="Edit"><PencilIcon /></ButtonIcon>} />
+    <TooltipContent>Edit</TooltipContent>
+  </Tooltip>
+  {/* …more tooltips… */}
+</TooltipProvider>
+```
+
+## API Reference
+
+These parts re-export Base UI's `Tooltip` primitives and do not define their own
+named prop interfaces. `TooltipContent` additionally accepts `side`, `align`,
+`portalContainer`, and `keepMounted` to control positioning and portalling.
+Refer to the [Base UI Tooltip docs](https://base-ui.com/react/components/tooltip)
+for the full prop surface of each part.

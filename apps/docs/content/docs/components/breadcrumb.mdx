@@ -1,0 +1,104 @@
+---
+title: Breadcrumb
+description: Shows the path to the current page within a navigation hierarchy.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { BreadcrumbDemo } from "@/components/demos-react/breadcrumb";
+
+## Usage
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbEllipsis,
+} from '@spec-lab/ui-react';
+```
+
+`Breadcrumb` is a compound component. The structure is a single
+`BreadcrumbList` containing `BreadcrumbItem` parts, each holding a
+`BreadcrumbLink` (a navigable ancestor) or a `BreadcrumbPage` (the current page),
+separated by `BreadcrumbSeparator`. Use `BreadcrumbEllipsis` to collapse a long
+trail. `Breadcrumb` and `BreadcrumbLink` are polymorphic via Base UI's
+`useRender` (the `render` prop) — pass a router link for client-side
+navigation.
+
+## Examples
+
+
+<DemoReact>
+  <BreadcrumbDemo />
+</DemoReact>
+
+A typical trail:
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="#">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="#">Products</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Settings</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+Collapse intermediate levels with `BreadcrumbEllipsis`:
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="#">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbEllipsis />
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Current</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+Render a link as a router link with `render`:
+
+```tsx
+import { Link as RouterLink } from 'react-router';
+
+<BreadcrumbLink render={<RouterLink to="/products" />}>Products</BreadcrumbLink>
+```
+
+## API Reference
+
+### Breadcrumb
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/breadcrumb/breadcrumb.tsx"
+  name="BreadcrumbProps"
+/>
+
+### BreadcrumbLink
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/breadcrumb/breadcrumb.tsx"
+  name="BreadcrumbLinkProps"
+/>
+
+The remaining parts (`BreadcrumbList`, `BreadcrumbItem`, `BreadcrumbPage`,
+`BreadcrumbSeparator`, `BreadcrumbEllipsis`) accept the standard attributes of
+the element they render.

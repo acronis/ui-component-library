@@ -1,0 +1,52 @@
+---
+title: Switch
+description: Toggle between two states.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { SwitchDemo } from "@/components/demos-react/switch";
+
+## Usage
+
+```tsx
+import { Switch } from '@spec-lab/ui-react';
+```
+
+`Switch` wraps Base UI's `Switch` primitive — keyboard interaction, focus
+management, and ARIA come from Base UI. A 32×16 track with a 12px thumb, themed
+by the `--ui-switch-*` tokens.
+
+## Examples
+
+
+<DemoReact>
+  <SwitchDemo />
+</DemoReact>
+
+A bare switch (name it with `aria-label`):
+
+```tsx
+<Switch aria-label="Enable notifications" />
+```
+
+With a `label` — the whole row becomes clickable:
+
+```tsx
+<Switch label="Enable notifications" />
+```
+
+Controlled and disabled states:
+
+```tsx
+const [checked, setChecked] = React.useState(false);
+
+<Switch label="Dark mode" checked={checked} onCheckedChange={setChecked} />
+<Switch label="Locked setting" checked disabled />
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/switch/switch.tsx"
+  name="SwitchProps"
+/>

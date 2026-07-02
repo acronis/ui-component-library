@@ -1,0 +1,96 @@
+---
+title: DataTable
+description: A data grid on TanStack react-table — sorting, filtering, selection, pagination, and row expansion.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { DataTableDemo } from "@/components/demos-react/data-table";
+
+## Usage
+
+```tsx
+import {
+  DataTable,
+  DataTableColumnHeader,
+  DataTableToolbar,
+  DataTablePagination,
+  DataTableViewOptions,
+} from '@spec-lab/ui-react';
+import type { ColumnDef } from '@tanstack/react-table';
+```
+
+`DataTable` is a data grid built on [TanStack react-table](https://tanstack.com/table)
+v8, composed over the `Table` primitives. It manages sorting, filtering, column
+visibility, row selection, pagination, and optional row expansion. The companion
+parts — `DataTableColumnHeader`, `DataTableToolbar`, `DataTablePagination`,
+`DataTableViewOptions` — operate on a TanStack `table` instance you build with
+`useReactTable`. This is a design-pending v1; it reuses the `Table` component's
+`--ui-table-*` tokens (the wrapper border matches the cell borders).
+
+A `DataTableColumnHeader` sorts in a **single click**: the trailing arrow toggles
+ascending → descending and shows the direction with an up/down arrow in the brand
+blue, or a muted up/down arrow when the column is unsorted. Column hiding lives in
+the toolbar's `DataTableViewOptions` menu, keeping sorting to one click.
+
+## Examples
+
+<DemoReact>
+  <DataTableDemo />
+</DemoReact>
+
+```tsx
+const columns: ColumnDef<Payment>[] = [
+  {
+    accessorKey: 'email',
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
+  },
+  { accessorKey: 'amount', header: 'Amount' },
+];
+
+<DataTable columns={columns} data={payments} />
+```
+
+For a toolbar + pagination, build the table instance yourself and pass it to the
+companion parts:
+
+```tsx
+const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel(), /* … */ });
+
+<DataTableToolbar table={table} searchKey="email" />
+<DataTable columns={columns} data={data} />
+<DataTablePagination table={table} />
+```
+
+### Presentational flags
+
+Borrowed from the Vue `AvTable`, these are pure visual props on `DataTable`:
+
+```tsx
+<DataTable columns={columns} data={rows} striped />
+<DataTable columns={columns} data={rows} bordered />        {/* vertical column borders */}
+<DataTable columns={columns} data={rows} highlightCurrentRow /> {/* click to highlight */}
+<DataTable columns={columns} data={[]} skeleton skeletonRows={5} /> {/* loading */}
+```
+
+### Advanced recipes
+
+The heavier behaviors stay out of `DataTable` (to keep it lean) and are shown as
+**copy-paste recipes** that compose the `Table` primitives + TanStack directly —
+see the `UI/DataTable/Recipes` stories in Storybook.
+
+- **Tree mode** — pass `getSubRows: (row) => row.children` + `getExpandedRowModel()`
+  and indent the name cell by `row.depth`.
+- **Row groups** — `state.grouping` + `getGroupedRowModel()` + `getExpandedRowModel()`;
+  render a header row for `row.getIsGrouped()`.
+- **Virtual scrolling** — `useVirtualizer` from `@tanstack/react-virtual` over a
+  fixed-height scroll container, with spacer rows above/below the visible window
+  (keeps the column layout intact). Add `@tanstack/react-virtual` yourself.
+- **Column reorder** — `state.columnOrder` + `onColumnOrderChange`, with native
+  HTML5 `draggable` headers (no extra DnD dependency).
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/data-table/data-table.docs.ts"
+  name="DataTableProps"
+/>
