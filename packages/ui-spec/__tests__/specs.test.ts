@@ -23,8 +23,11 @@ const validators = Object.fromEntries(
 
 const componentNames = listComponentNames();
 const HERE = dirname(fileURLToPath(import.meta.url));
-const TOKENS_PD_CSS_DIR = resolve(HERE, '../../tokens-pd/css');
-const UI_REACT_COMPONENTS_DIR = resolve(HERE, '../../ui-react/src/components/ui');
+const TOKENS_PD_CSS_DIR = resolve(HERE, '../../tokens/css');
+const UI_REACT_COMPONENTS_DIR = resolve(
+  HERE,
+  '../../ui-react/src/components/ui'
+);
 
 describe('every component spec validates against its schema', () => {
   for (const name of componentNames) {
@@ -64,10 +67,16 @@ describe('state classification is coherent', () => {
       const propNames = new Set(api.contract.properties.map((p) => p.name));
       for (const s of anatomy.states ?? []) {
         if (s.kind === 'pseudo') {
-          expect(s.pseudo, `${name}/${s.id} (pseudo) needs a pseudo selector`).toBeTruthy();
+          expect(
+            s.pseudo,
+            `${name}/${s.id} (pseudo) needs a pseudo selector`
+          ).toBeTruthy();
         }
         if (s.kind === 'prop') {
-          expect(s.prop, `${name}/${s.id} (prop) needs a prop name`).toBeTruthy();
+          expect(
+            s.prop,
+            `${name}/${s.id} (prop) needs a prop name`
+          ).toBeTruthy();
           expect(
             propNames.has(s.prop ?? ''),
             `${name}/${s.id} references unknown prop "${s.prop}"`
@@ -82,8 +91,12 @@ describe('state classification is coherent', () => {
       }
       // Internal state must be wired to the real API: its controlling prop, its
       // uncontrolled-default prop, and its change event must all exist.
-      const eventNames = new Set((api.contract.events ?? []).map((e) => e.name));
-      const internalIds = new Set((anatomy.internal_state ?? []).map((s) => s.id));
+      const eventNames = new Set(
+        (api.contract.events ?? []).map((e) => e.name)
+      );
+      const internalIds = new Set(
+        (anatomy.internal_state ?? []).map((s) => s.id)
+      );
       for (const st of anatomy.internal_state ?? []) {
         for (const prop of st.controllable_via ?? []) {
           expect(
@@ -170,20 +183,27 @@ function tokenSetFromVarRefs(absDir: string): Set<string> {
   return tokens;
 }
 
-describe('token references resolve in tokens-pd', () => {
+describe('token references resolve in tokens', () => {
   const definedTokens = tokenSetFromCssDefinitions(TOKENS_PD_CSS_DIR);
 
   for (const name of componentNames) {
     it(`${name}: tokens.yaml names and ui-react var(--ui-*) refs are defined`, () => {
-      const specTokenNames = loadSpec(name).tokens.tokens.map((token) => token.name);
-      const missingSpecNames = specTokenNames.filter((token) => !definedTokens.has(token));
+      const specTokenNames = loadSpec(name).tokens.tokens.map(
+        (token) => token.name
+      );
+      const missingSpecNames = specTokenNames.filter(
+        (token) => !definedTokens.has(token)
+      );
       expect(
         missingSpecNames,
         `${name}: tokens.yaml contains undefined tokens:\n${missingSpecNames.join('\n')}`
       ).toEqual([]);
 
       const sourceDir = resolve(UI_REACT_COMPONENTS_DIR, name);
-      expect(existsSync(sourceDir), `${name}: missing ui-react component dir`).toBe(true);
+      expect(
+        existsSync(sourceDir),
+        `${name}: missing ui-react component dir`
+      ).toBe(true);
       if (!existsSync(sourceDir)) return;
 
       const sourceTokenNames = [...tokenSetFromVarRefs(sourceDir)];
@@ -230,7 +250,10 @@ describe('cva ↔ contract conformance', () => {
 
   it('ButtonMenu: api.yaml variant enum matches the cva keys in ui-react', () => {
     const source = readFileSync(
-      resolve(HERE, '../../ui-react/src/components/ui/button-menu/button-menu.tsx'),
+      resolve(
+        HERE,
+        '../../ui-react/src/components/ui/button-menu/button-menu.tsx'
+      ),
       'utf8'
     );
     const groups = extractCvaGroups(source);

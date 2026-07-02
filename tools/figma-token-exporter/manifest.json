@@ -8,6 +8,6 @@
   "documentAccess": "dynamic-page",
   "networkAccess": {
     "allowedDomains": ["http://localhost:3333"],
-    "reasoning": "Posts the exported token snapshot to a local receiver (pnpm --filter @spec-lab/figma-token-exporter receive) that writes it into packages/design-tokens/.tmp/figma-tokens/."
+    "reasoning": "Posts the exported token snapshot to a local receiver (pnpm --filter @spec-lab/figma-token-exporter receive) that writes it into packages/tokens/.tmp/figma-tokens/."
   }
 }

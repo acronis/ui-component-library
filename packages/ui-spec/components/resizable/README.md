@@ -56,5 +56,5 @@ import {
 ## Theming
 
 Colors, sizes, and the cursor come from the `--ui-resizable-*` token tier in
-`@spec-lab/tokens-pd` (generated from `@spec-lab/design-tokens`)
+`@spec-lab/tokens` (generated from `@spec-lab/tokens`)
 and resolve per brand/theme — see `tokens.yaml`. Don't hard-code values.

@@ -16,7 +16,7 @@ import { ScrollArea } from '../scroll-area';
 // Composable SidebarSecondary primitives mirroring the Figma "SidebarSecondary"
 // component set (node 2468:59502, variant expanded|collapsed). Every color and
 // metric is wired to a next-gen `--ui-sidebar-secondary-*` token from
-// @spec-lab/tokens-pd — no hex, no invented tokens.
+// @spec-lab/tokens — no hex, no invented tokens.
 //
 // Like SidebarPrimary, expanded/collapsed is a width-reflow state (not a panel
 // show/hide), modelled as a controlled/uncontrolled `expanded` prop (default
@@ -89,8 +89,7 @@ function useControllableBoolean(
   return [value, setValue];
 }
 
-export interface SidebarSecondaryProps
-  extends React.ComponentPropsWithoutRef<'nav'> {
+export interface SidebarSecondaryProps extends React.ComponentPropsWithoutRef<'nav'> {
   /** Controlled expanded (rail width) state. */
   expanded?: boolean;
   /** Uncontrolled initial expanded state. Defaults to `true` (full width). */
@@ -166,8 +165,7 @@ const SidebarSecondary = React.forwardRef<HTMLElement, SidebarSecondaryProps>(
 );
 SidebarSecondary.displayName = 'SidebarSecondary';
 
-export interface SidebarSecondaryHeaderProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+export interface SidebarSecondaryHeaderProps extends React.ComponentPropsWithoutRef<'div'> {
   /** Heading text (or pass as children). */
   label?: React.ReactNode;
 }
@@ -220,8 +218,7 @@ const SidebarSecondaryContent = React.forwardRef<
 ));
 SidebarSecondaryContent.displayName = 'SidebarSecondaryContent';
 
-export interface SidebarSecondaryCollapsedBreadcrumbProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+export interface SidebarSecondaryCollapsedBreadcrumbProps extends React.ComponentPropsWithoutRef<'div'> {
   /** The parent section label (breadcrumbLabel). */
   parentLabel: React.ReactNode;
   /** The current page label (labelCurrentPage). */
@@ -297,13 +294,18 @@ interface SidebarSecondarySectionContextValue {
 }
 
 const SidebarSecondarySectionContext =
-  React.createContext<SidebarSecondarySectionContextValue>({ expandable: false });
+  React.createContext<SidebarSecondarySectionContextValue>({
+    expandable: false,
+  });
 
-const SECTION_STATIC: SidebarSecondarySectionContextValue = { expandable: false };
-const SECTION_EXPANDABLE: SidebarSecondarySectionContextValue = { expandable: true };
+const SECTION_STATIC: SidebarSecondarySectionContextValue = {
+  expandable: false,
+};
+const SECTION_EXPANDABLE: SidebarSecondarySectionContextValue = {
+  expandable: true,
+};
 
-export interface SidebarSecondarySectionProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+export interface SidebarSecondarySectionProps extends React.ComponentPropsWithoutRef<'div'> {
   /**
    * Make the section a collapsible disclosure: the `SidebarSecondarySectionLabel`
    * becomes a chevron toggle and the `SidebarSecondaryMenu` becomes its panel.
@@ -322,7 +324,15 @@ const SidebarSecondarySection = React.forwardRef<
   SidebarSecondarySectionProps
 >(
   (
-    { className, expandable = false, open, defaultOpen = true, onOpenChange, children, ...props },
+    {
+      className,
+      expandable = false,
+      open,
+      defaultOpen = true,
+      onOpenChange,
+      children,
+      ...props
+    },
     ref
   ) => {
     // Sections are separated by vertical padding + the section label; the next-gen
@@ -363,8 +373,7 @@ const SidebarSecondarySection = React.forwardRef<
 );
 SidebarSecondarySection.displayName = 'SidebarSecondarySection';
 
-export interface SidebarSecondarySectionLabelProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+export interface SidebarSecondarySectionLabelProps extends React.ComponentPropsWithoutRef<'div'> {
   /** Trailing header actions (e.g. a ghost `ButtonIcon`). Rendered outside the toggle. */
   actions?: React.ReactNode;
   /**
@@ -498,7 +507,8 @@ const sidebarSecondaryMenuItemVariants = cva(sidebarSecondaryRowClasses, {
 });
 
 export interface SidebarSecondaryMenuItemProps
-  extends Omit<React.ComponentPropsWithoutRef<'a'>, 'children'>,
+  extends
+    Omit<React.ComponentPropsWithoutRef<'a'>, 'children'>,
     Omit<VariantProps<typeof sidebarSecondaryMenuItemVariants>, 'variant'> {
   /** Marks the current route: sets the `selected` variant + `aria-current="page"`. */
   selected?: boolean;
@@ -593,8 +603,9 @@ const SidebarSecondaryMenuSub = React.forwardRef<
 ));
 SidebarSecondaryMenuSub.displayName = 'SidebarSecondaryMenuSub';
 
-export interface SidebarSecondaryMenuSubTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof Collapsible.Trigger> {
+export interface SidebarSecondaryMenuSubTriggerProps extends React.ComponentPropsWithoutRef<
+  typeof Collapsible.Trigger
+> {
   /** Marks the parent row as selected. */
   selected?: boolean;
   /** Optional leading 16px icon. */
@@ -658,8 +669,10 @@ const SidebarSecondaryMenuSubContent = React.forwardRef<
 ));
 SidebarSecondaryMenuSubContent.displayName = 'SidebarSecondaryMenuSubContent';
 
-export interface SidebarSecondaryMenuSubItemProps
-  extends Omit<React.ComponentPropsWithoutRef<'a'>, 'children'> {
+export interface SidebarSecondaryMenuSubItemProps extends Omit<
+  React.ComponentPropsWithoutRef<'a'>,
+  'children'
+> {
   /** Marks the current route (Level-2 — no icon). */
   selected?: boolean;
   children?: React.ReactNode;
@@ -692,7 +705,9 @@ const SidebarSecondaryMenuSubItem = React.forwardRef<
         ),
         'aria-current': selected ? 'page' : undefined,
         children: (
-          <span className={cn('flex-1 truncate text-left', !expanded && 'sr-only')}>
+          <span
+            className={cn('flex-1 truncate text-left', !expanded && 'sr-only')}
+          >
             {children}
           </span>
         ),
@@ -705,8 +720,7 @@ const SidebarSecondaryMenuSubItem = React.forwardRef<
 });
 SidebarSecondaryMenuSubItem.displayName = 'SidebarSecondaryMenuSubItem';
 
-export interface SidebarSecondaryMenuItemExtrasProps
-  extends React.ComponentPropsWithoutRef<'span'> {
+export interface SidebarSecondaryMenuItemExtrasProps extends React.ComponentPropsWithoutRef<'span'> {
   /** Which trailing affordance to render. */
   variant: 'tag' | 'externalLink' | 'shortcut' | 'tag-externalLink';
   /** Shortcut text for the `shortcut` variant. */
@@ -752,8 +766,10 @@ const SidebarSecondaryMenuItemExtras = React.forwardRef<
 });
 SidebarSecondaryMenuItemExtras.displayName = 'SidebarSecondaryMenuItemExtras';
 
-export interface SidebarSecondaryCollapseTriggerProps
-  extends Omit<React.ComponentPropsWithoutRef<'button'>, 'children'> {
+export interface SidebarSecondaryCollapseTriggerProps extends Omit<
+  React.ComponentPropsWithoutRef<'button'>,
+  'children'
+> {
   /** Leading 16px icon (e.g. a panel-left glyph). */
   icon?: React.ReactNode;
   /**

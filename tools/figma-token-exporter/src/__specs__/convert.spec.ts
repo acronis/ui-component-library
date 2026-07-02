@@ -6,7 +6,7 @@ import { buildDtcgTree, convertPayloadToDocument } from '../convert.js';
 import { writeSnapshot } from '../write-snapshot.js';
 import type { ExportPayload } from '../types.js';
 
-// A minimal payload exercising every shape the design-tokens emitters read:
+// A minimal payload exercising every shape the tokens emitters read:
 // a multi-mode palette literal (theme), a semantic alias (brand), a component
 // alias + component literal, and an alias to a non-local "orphan" target.
 const payload: ExportPayload = {
@@ -45,7 +45,10 @@ const payload: ExportPayload = {
       variableCollectionId: 'col-theme',
       scopes: ['ALL_SCOPES'],
       hiddenFromPublishing: false,
-      valuesByMode: { 'm-light': { r: 1, g: 1, b: 1, a: 1 }, 'm-dark': { r: 0, g: 0, b: 0, a: 1 } },
+      valuesByMode: {
+        'm-light': { r: 1, g: 1, b: 1, a: 1 },
+        'm-dark': { r: 0, g: 0, b: 0, a: 1 },
+      },
     },
     {
       id: 'v-blue3',
@@ -54,7 +57,10 @@ const payload: ExportPayload = {
       variableCollectionId: 'col-theme',
       scopes: ['ALL_SCOPES'],
       hiddenFromPublishing: false,
-      valuesByMode: { 'm-light': { r: 1, g: 1, b: 1, a: 1 }, 'm-dark': { r: 0, g: 0, b: 0, a: 1 } },
+      valuesByMode: {
+        'm-light': { r: 1, g: 1, b: 1, a: 1 },
+        'm-dark': { r: 0, g: 0, b: 0, a: 1 },
+      },
     },
     {
       id: 'v-sem',
@@ -86,7 +92,9 @@ const payload: ExportPayload = {
       name: 'component/x/y',
       resolvedType: 'COLOR',
       variableCollectionId: 'col-brand',
-      valuesByMode: { 'm-acr': { type: 'VARIABLE_ALIAS', id: 'VariableID:139:23' } },
+      valuesByMode: {
+        'm-acr': { type: 'VARIABLE_ALIAS', id: 'VariableID:139:23' },
+      },
     },
   ],
   orphanVariables: [
@@ -139,18 +147,22 @@ describe('convertPayloadToDocument + buildDtcgTree', () => {
   it('component alias reference uses the target variable dotted name', () => {
     const chev = tree.brand.component.breadcrumb.chevron;
     expect(fc(chev).lastSyncedValue.ConstructorLab.reference).toBe(
-      '{semantic.colors.background.surface.primary}',
+      '{semantic.colors.background.surface.primary}'
     );
   });
 
   it('component literal color is an uppercase hex string', () => {
     const bga = tree.brand.component.button['background-active'];
-    expect(fc(bga).lastSyncedValue.ConstructorLab.literal).toMatch(/^#[0-9A-F]{6}$/);
+    expect(fc(bga).lastSyncedValue.ConstructorLab.literal).toMatch(
+      /^#[0-9A-F]{6}$/
+    );
   });
 
   it('orphan (non-local) alias target encodes as a {__library:VariableID} reference', () => {
     const orphRef = tree.brand.component.x.y;
-    expect(fc(orphRef).lastSyncedValue.ConstructorLab.reference).toBe('{__library:VariableID:139:23}');
+    expect(fc(orphRef).lastSyncedValue.ConstructorLab.reference).toBe(
+      '{__library:VariableID:139:23}'
+    );
   });
 });
 
@@ -162,12 +174,18 @@ describe('writeSnapshot', () => {
     const { files } = writeSnapshot(payload, outDir);
     expect(files.some((f) => f.endsWith('variables.tokens.json'))).toBe(true);
 
-    const exportSrc = readFileSync(join(outDir, 'variables.tokens.json'), 'utf8');
-    const meta = JSON.parse(readFileSync(join(outDir, 'variables-meta.json'), 'utf8'));
+    const exportSrc = readFileSync(
+      join(outDir, 'variables.tokens.json'),
+      'utf8'
+    );
+    const meta = JSON.parse(
+      readFileSync(join(outDir, 'variables-meta.json'), 'utf8')
+    );
     const referenced = new Set(exportSrc.match(/VariableID:\d+:\d+/g) ?? []);
 
     // The orphan-coverage gate's invariant: every VariableID in the export is a meta key.
-    for (const id of referenced) expect(meta[id], `meta missing ${id}`).toBeDefined();
+    for (const id of referenced)
+      expect(meta[id], `meta missing ${id}`).toBeDefined();
 
     expect(meta['VariableID:139:23']).toEqual({
       name: 'Transparent/Inverted-6',

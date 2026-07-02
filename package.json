@@ -20,7 +20,7 @@
     "release": "changeset publish",
     "test": "pnpm -r test",
     "test:watch": "pnpm -r test:watch",
-    "tokens:sync": "pnpm --filter @spec-lab/design-tokens emit && pnpm --filter @spec-lab/tokens-pd build",
+    "tokens:sync": "pnpm --filter @spec-lab/tokens emit && pnpm --filter @spec-lab/tokens build",
     "typecheck": "pnpm -r typecheck",
     "version": "changeset version"
   },

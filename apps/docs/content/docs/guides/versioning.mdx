@@ -8,7 +8,7 @@ description: Versioning strategy using Changesets and Conventional Commits.
 This monorepo versions its published packages with
 [Changesets](https://github.com/changesets/changesets). Each published
 workspace (`@spec-lab/ui-react`, `shadcn-uikit`, `icons-react`,
- `tokens-pd`, `design-tokens`, `design-assets`) is versioned
+`tokens`, `tokens`, `design-assets`) is versioned
 independently following [Semantic Versioning](https://semver.org/).
 
 Commit messages additionally follow
@@ -47,11 +47,11 @@ change.**
 
 ## Bump Type Rules
 
-| Bump      | When                                                        | Example                       |
-| --------- | ----------------------------------------------------------- | ----------------------------- |
-| **patch** | Bug fixes, internal refactors, consumer-invisible dep bumps | `0.34.0` → `0.34.1`           |
-| **minor** | Additive, backwards-compatible (new export/prop/option)     | `0.34.0` → `0.35.0`           |
-| **major** | Breaking change (removed export, rename, changed default)   | `0.34.0` → `1.0.0`            |
+| Bump      | When                                                        | Example             |
+| --------- | ----------------------------------------------------------- | ------------------- |
+| **patch** | Bug fixes, internal refactors, consumer-invisible dep bumps | `0.34.0` → `0.34.1` |
+| **minor** | Additive, backwards-compatible (new export/prop/option)     | `0.34.0` → `0.35.0` |
+| **major** | Breaking change (removed export, rename, changed default)   | `0.34.0` → `1.0.0`  |
 
 Prefer **minor** for new components and props; reserve **major** for planned
 breaking releases.

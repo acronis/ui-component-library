@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 // Secondary, Link→ghost, Destructive, Ai, Inverted). Each interaction state
 // (idle / hover / active / disabled) wires the container fill, label, icon, and
 // — for the variants that have one — the border to its own dedicated
-// `--ui-button-*` token from @spec-lab/tokens-pd. Every state is wired
+// `--ui-button-*` token from @spec-lab/tokens. Every state is wired
 // explicitly — even where acronis's value is unchanged — because these are
 // runtime `var()` references: a brand override is only honored if the matching
 // state token is referenced. The icon color is wired separately from the label

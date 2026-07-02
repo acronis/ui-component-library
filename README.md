@@ -6,8 +6,8 @@ packages, design-data packages, and supporting apps and tooling.
 
 **Architecture in brief:** The next-generation library (`@spec-lab/ui-react`)
 is built on [Base UI](https://base-ui.com/) unstyled primitives and themed by
-`@spec-lab/tokens-pd` (`--ui-*` CSS custom properties generated from
-`@spec-lab/design-tokens`). The legacy library
+`@spec-lab/tokens` (`--ui-*` CSS custom properties generated from
+`@spec-lab/tokens`). The legacy library
 (`@spec-lab/shadcn-uikit`) follows [shadcn/ui](https://ui.shadcn.com/)
 principles on Base UI + Radix primitives. Tailwind CSS is used **internally** to
 compile styles — consumers receive fully pre-built CSS and can use any styling
@@ -21,17 +21,17 @@ The repo is organized into four top-level directories: `context/` (shared docs),
 
 | Path                          | Package                          | Published | Role                                                                         |
 | ----------------------------- | -------------------------------- | --------- | ---------------------------------------------------------------------------- |
-| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**   | Next-gen React library on **Base UI**, themed by `tokens-pd`. New work here. |
+| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**   | Next-gen React library on **Base UI**, themed by `tokens`. New work here.    |
 | `packages/ui-legacy/`         | `@spec-lab/shadcn-uikit`         | **yes**   | Legacy shadcn-style React library (Base UI + Radix), 4 shipped themes.       |
 | `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**   | React icon components generated from `design-assets` (tree-shakeable).       |
 | `packages/icons-svg-next/`    | `@spec-lab/icons-svg-next`       | no        | Raw SVG sources for the next-gen icon set (source-only).                     |
-| `packages/design-tokens/`     | `@spec-lab/design-tokens`        | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
+| `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
 | `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**   | Icon/illustration manifests + bundled binaries. Data only.                   |
-| `packages/tokens-pd/`         | `@spec-lab/tokens-pd`            | **yes**   | Generated per-brand CSS vars, per-component CSS, Tailwind presets, DTCG.     |
+| `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | Generated per-brand CSS vars, per-component CSS, Tailwind presets, DTCG.     |
 | `apps/demo/`                  | `@spec-lab/shadcn-uikit-demo`    | no        | Vite SPA showcasing components with live theme switching.                    |
 | `apps/docs/`                  | `@spec-lab/uikit-docs`           | no        | Next.js 15 + Fumadocs documentation site.                                    |
 | `apps/demos/`                 | `@spec-lab/shadcn-uikit-demos`   | no        | Shared demo components (source-only, no build).                              |
-| `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no        | Style Dictionary v5 build: `design-tokens` → `tokens-pd` CSS/presets.        |
+| `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no        | Style Dictionary v5 build: `tokens` → `tokens` CSS/presets.                  |
 | `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no        | Fetches + SVGO-optimizes icons from Figma into the `icons-svg*` packages.    |
 | `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no        | Self-hosted Figma plugin + receiver that exports variables/styles to tokens. |
 
@@ -82,7 +82,7 @@ pnpm add @spec-lab/ui-react react react-dom
 ```
 
 `react` and `react-dom` (`^18.2.0 || ^19.0.0`) are peer dependencies. The theme
-layer (`@spec-lab/tokens-pd`) and icons (`@spec-lab/icons-react`)
+layer (`@spec-lab/tokens`) and icons (`@spec-lab/icons-react`)
 ship as direct dependencies, so no extra install is needed.
 
 ### Import Styles
@@ -210,15 +210,15 @@ to consume the kit.
 ### Tokens (`ui-react`)
 
 The next-gen library is themed entirely by `--ui-*` CSS custom properties from
-`@spec-lab/tokens-pd`, which are generated from
-`@spec-lab/design-tokens` via `@spec-lab/style-dictionary`. The
+`@spec-lab/tokens`, which are generated from
+`@spec-lab/tokens` via `@spec-lab/style-dictionary`. The
 token layer ships inside `@spec-lab/ui-react/styles`; light/dark and
 per-brand values are driven by CSS variables (zero JavaScript overhead,
 SSR-compatible). Override the `--ui-*` variables to customize.
 
 The token pipeline (and the Figma sync used to refresh it) is documented in the
-workspace docs for [`design-tokens`](./packages/design-tokens/AGENTS.md) and
-[`tokens-pd`](./packages/tokens-pd/AGENTS.md).
+workspace docs for [`tokens`](./packages/tokens/AGENTS.md) and
+[`tokens`](./packages/tokens/AGENTS.md).
 
 ### Themes (`ui-legacy`)
 
@@ -242,11 +242,11 @@ uikit/
 │   ├── ui-legacy/              # shadcn library     (@spec-lab/shadcn-uikit)
 │   ├── icons-react/            # React icons        (@spec-lab/icons-react)
 │   ├── icons-svg/              # Raw SVG sources    (@spec-lab/icons-svg)
-│   ├── design-tokens/          # DTCG tokens (data) (@spec-lab/design-tokens)
+│   ├── tokens/          # DTCG tokens (data) (@spec-lab/tokens)
 │   ├── design-assets/          # Asset manifests    (@spec-lab/design-assets)
-│   └── tokens-pd/              # Generated CSS/Tailwind (@spec-lab/tokens-pd)
+│   └── tokens/              # Generated CSS/Tailwind (@spec-lab/tokens)
 ├── tools/                      # Private build tooling
-│   ├── style-dictionary/       # design-tokens → tokens-pd CSS/presets
+│   ├── style-dictionary/       # tokens → tokens CSS/presets
 │   ├── figma-icons-fetcher/    # Figma → icons-svg* SVG fetcher
 │   └── figma-token-exporter/   # Figma plugin + receiver → token snapshot
 ├── context/                    # Cross-workspace docs (conventions, commits, releasing)
@@ -284,7 +284,7 @@ pnpm --filter @spec-lab/ui-react storybook
 
 The root also exposes token-pipeline shortcuts: `pnpm sd` (build all Style
 Dictionary targets), `pnpm sd:tokens` / `pnpm sd:assets` (subsets), and
-`pnpm tokens:sync` (re-emit `design-tokens` then rebuild `tokens-pd`).
+`pnpm tokens:sync` (re-emit `tokens` then rebuild `tokens`).
 
 ## 🚢 Releasing
 
@@ -338,7 +338,7 @@ export function App() {
 - [`AGENTS.md`](./AGENTS.md) — authoritative workspace map + conventions
 - [ui-react package](./packages/ui-react) — next-gen Base UI component library
 - [ui-legacy package](./packages/ui-legacy/README.md) — legacy shadcn library + theming
-- [design-tokens](./packages/design-tokens/AGENTS.md) / [tokens-pd](./packages/tokens-pd/AGENTS.md) — token pipeline
+- [tokens](./packages/tokens/AGENTS.md) / [tokens](./packages/tokens/AGENTS.md) — token pipeline
 - [Theme System Guide](./apps/docs/THEMES.md) — legacy theme usage guide
 - [Demo Package Documentation](./apps/demo/README.md)
 
@@ -358,4 +358,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [shadcn/ui](https://ui.shadcn.com/) — the original inspiration (`ui-legacy`)
 - [Radix UI](https://www.radix-ui.com/) — unstyled primitives (`ui-legacy`: NavigationMenu, Slot)
 - [Tailwind CSS](https://tailwindcss.com/) — internal build tool
-- [DTCG](https://www.designtokens.org/) — design token format used by `design-tokens`
+- [DTCG](https://www.designtokens.org/) — design token format used by `tokens`

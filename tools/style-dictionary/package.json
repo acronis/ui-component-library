@@ -2,7 +2,7 @@
   "name": "@spec-lab/style-dictionary",
   "version": "0.1.0",
   "private": true,
-  "description": "Translation tool: builds @spec-lab/design-tokens into per-brand CSS custom properties via an intermediate DTCG pass.",
+  "description": "Translation tool: builds @spec-lab/tokens into per-brand CSS custom properties via an intermediate DTCG pass.",
   "type": "module",
   "scripts": {
     "build": "tsx src/index.ts",
@@ -15,15 +15,14 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
-    "design-tokens",
+    "tokens",
     "style-dictionary",
     "dtcg",
     "css",
     "acronis"
   ],
   "devDependencies": {
-    "@spec-lab/design-assets": "workspace:*",
-    "@spec-lab/design-tokens": "workspace:*",
+    "@spec-lab/tokens": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "ajv": "catalog:",

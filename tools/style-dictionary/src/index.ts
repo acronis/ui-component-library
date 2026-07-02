@@ -13,7 +13,12 @@
 import { existsSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import path from 'node:path';
 
-import { type AssetFilter, buildAssetsForFilter, listPackNames } from './assets';
+import {
+  type AssetFilter,
+  buildAssetsForFilter,
+  designAssetsAvailable,
+  listPackNames,
+} from './assets';
 import {
   ALL_FILTERS,
   ASSETS_DIST,
@@ -24,11 +29,11 @@ import {
   type PlatformKey,
   rel,
 } from './platforms';
-import { buildTailwind } from './tailwind';
 import { buildCss, buildDtcg } from './tokens';
 
 /** Enumerate the asset pack names (`packs/*.json` stems, = each pack's `name`). */
-const availablePacks = (): string[] => listPackNames();
+const availablePacks = (): string[] =>
+  designAssetsAvailable() ? listPackNames() : [];
 
 // ── Assets dispatch ──────────────────────────────────────────────────────────
 // The asset build's source is @spec-lab/design-assets (SVG packs), NOT the
@@ -38,6 +43,15 @@ const availablePacks = (): string[] => listPackNames();
 // are reset).
 
 function buildAssets(filter: Filter, packs?: string[]): void {
+  // The asset stage needs `@spec-lab/design-assets` (an optional peer). When it
+  // isn't installed, skip with a warning rather than crash — the token outputs
+  // (dtcg/css) never depend on it, so `build` still produces the whole token kit.
+  if (!designAssetsAvailable()) {
+    console.warn(
+      '⚠ @spec-lab/design-assets is not installed — skipping the asset build (tokens are unaffected).'
+    );
+    return;
+  }
   if (!packs && existsSync(ASSETS_DIST)) {
     for (const entry of readdirSync(ASSETS_DIST)) {
       if (entry.startsWith(`${filter}-`)) {
@@ -67,12 +81,16 @@ function parseKey(key: string): Pair {
   // so the last dash is always the boundary between them.
   const dash = key.lastIndexOf('-');
   if (dash <= 0 || dash === key.length - 1) {
-    throw new Error(`Unknown platform: ${key}. Known: ${validKeys().join(', ')}.`);
+    throw new Error(
+      `Unknown platform: ${key}. Known: ${validKeys().join(', ')}.`
+    );
   }
   const filter = key.slice(0, dash) as Filter;
   const output = key.slice(dash + 1) as Output;
   if (!OUTPUTS.includes(output) || !filtersFor(output).includes(filter)) {
-    throw new Error(`Unknown platform: ${key}. Known: ${validKeys().join(', ')}.`);
+    throw new Error(
+      `Unknown platform: ${key}. Known: ${validKeys().join(', ')}.`
+    );
   }
   return { filter, output };
 }
@@ -88,7 +106,9 @@ function parseArgs(args: string[]): ParsedArgs {
     .find((a) => a.startsWith('--filter='))
     ?.slice('--filter='.length) as Filter | undefined;
   if (filterArg && !ALL_FILTERS.includes(filterArg)) {
-    throw new Error(`Unknown filter: ${filterArg}. Known: ${ALL_FILTERS.join(', ')}.`);
+    throw new Error(
+      `Unknown filter: ${filterArg}. Known: ${ALL_FILTERS.join(', ')}.`
+    );
   }
   const filters = filterArg ? [filterArg] : ALL_FILTERS;
 
@@ -102,7 +122,9 @@ function parseArgs(args: string[]): ParsedArgs {
     const known = availablePacks();
     const unknown = packs.filter((p) => !known.includes(p));
     if (unknown.length) {
-      throw new Error(`Unknown pack(s): ${unknown.join(', ')}. Known: ${known.join(', ')}.`);
+      throw new Error(
+        `Unknown pack(s): ${unknown.join(', ')}. Known: ${known.join(', ')}.`
+      );
     }
   }
 
@@ -121,15 +143,16 @@ function parseArgs(args: string[]): ParsedArgs {
 async function main(): Promise<void> {
   const { packs, pairs } = parseArgs(process.argv.slice(2));
 
-  // css + tailwind read the dtcg files, so build dtcg first for any filter needing them.
+  // css reads the dtcg files, so build dtcg first for any filter needing it.
   const dtcgFilters = new Set<Filter>();
   for (const { filter, output } of pairs) {
-    if (output === 'dtcg' || output === 'css' || output === 'tailwind') dtcgFilters.add(filter);
+    if (output === 'dtcg' || output === 'css') dtcgFilters.add(filter);
   }
   for (const filter of dtcgFilters) buildDtcg(filter);
-  for (const { filter, output } of pairs) if (output === 'css') await buildCss(filter);
-  for (const { filter, output } of pairs) if (output === 'tailwind') await buildTailwind(filter);
-  for (const { filter, output } of pairs) if (output === 'assets') buildAssets(filter, packs);
+  for (const { filter, output } of pairs)
+    if (output === 'css') await buildCss(filter);
+  for (const { filter, output } of pairs)
+    if (output === 'assets') buildAssets(filter, packs);
 }
 
 main().catch((error: unknown) => {

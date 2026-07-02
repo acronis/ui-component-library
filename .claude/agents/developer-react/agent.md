@@ -51,7 +51,7 @@ This is a React-only monorepo (no Vue). Your code lives in:
 - **Never hand-author a hex/hsl/oklch value.** If a color name isn't bridged
   yet, add it to the `@theme inline` block pointing at the relevant
   `@spec-lab/design-theme` token. Theme values change upstream in
-  `@spec-lab/design-tokens`, then rebuild `design-theme` — never fork
+  `@spec-lab/tokens`, then rebuild `design-theme` — never fork
   values inside a component.
 
 ## File layout per component

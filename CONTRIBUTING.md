@@ -139,8 +139,8 @@ Published workspaces are:
 - `@spec-lab/shadcn-uikit` (`packages/ui-legacy`)
 - `@spec-lab/ui-react`
 - `@spec-lab/icons-react`
-- `@spec-lab/tokens-pd`
-- `@spec-lab/design-tokens`
+- `@spec-lab/tokens`
+- `@spec-lab/tokens`
 - `@spec-lab/design-assets`
 
 From the repo root:

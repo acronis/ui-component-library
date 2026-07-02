@@ -1,12 +1,12 @@
 ---
 name: figma-to-design-tokens
-description: Sync design tokens from Figma into the design-tokens package (packages/design-tokens/tiers/*.json). Use when the user asks to update, sync, refresh, or pull design tokens from Figma. Runs a diff-gated pipeline — pulls a snapshot, shows a full diff report, waits for human approval, then emits to tiers/*.json — and never writes tier files without explicit approval.
+description: Sync design tokens from Figma into the tokens package (packages/tokens/tiers/*.json). Use when the user asks to update, sync, refresh, or pull design tokens from Figma. Runs a diff-gated pipeline — pulls a snapshot, shows a full diff report, waits for human approval, then emits to tiers/*.json — and never writes tier files without explicit approval.
 argument-hint: '[primitives | semantics | components | all]'
 ---
 
 # Skill: /figma-to-design-tokens
 
-Sync Figma design tokens into `packages/design-tokens/tiers/*.json`. This skill
+Sync Figma design tokens into `packages/tokens/tiers/*.json`. This skill
 is **self-contained**: its pull/build/diff/emit scripts live beside this file
 under `.claude/skills/figma-to-design-tokens/`. The key discipline: you **review
 a diff report before any tier file is written**.
@@ -32,7 +32,7 @@ Options:
 
 - **Fetch from Figma** _(default)_ — pull a new snapshot via the figma-console MCP
 - **Use last snapshot** — work from `.claude/skills/figma-to-design-tokens/snapshot/` files already present
-- **Use `.tmp/figma-tokens`** — build from `packages/design-tokens/.tmp/figma-tokens/`, the snapshot written by the repo's figma-token-exporter. **No figma-console involved** — skip the plugin check below, skip Phase 1 entirely, and run Phase 2 with `--tmp` (see below).
+- **Use `.tmp/figma-tokens`** — build from `packages/tokens/.tmp/figma-tokens/`, the snapshot written by the repo's figma-token-exporter. **No figma-console involved** — skip the plugin check below, skip Phase 1 entirely, and run Phase 2 with `--tmp` (see below).
 
 **Step 2a — plugin check (fetch path only)**
 
@@ -172,7 +172,7 @@ the loader auto-unwraps it.
 
 ```bash
 node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs          # default: reads snapshot/ (figma-console pull)
-node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp    # reads packages/design-tokens/.tmp/figma-tokens/ (figma-token-exporter)
+node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp    # reads packages/tokens/.tmp/figma-tokens/ (figma-token-exporter)
 ```
 
 `--tmp` is the figma-console-free path: it builds the snapshot from the
@@ -334,7 +334,7 @@ style-dictionary.
 
 ---
 
-## Phase 7 — Rebuild tokens-pd
+## Phase 7 — Rebuild tokens
 
 ```bash
 pnpm --filter @spec-lab/style-dictionary build
@@ -345,7 +345,7 @@ pnpm --filter @spec-lab/style-dictionary build
 ## Phase 8 — Validate
 
 ```bash
-pnpm --filter @spec-lab/design-tokens validate
+pnpm --filter @spec-lab/tokens validate
 ```
 
 On failure, diagnose. Common causes:
@@ -370,11 +370,11 @@ Create `.changeset/<name>.md`. The changeset must include:
 
 ```markdown
 ---
-'@spec-lab/design-tokens': minor # or patch/major
-'@spec-lab/tokens-pd': minor
+'@spec-lab/tokens': minor # or patch/major
+'@spec-lab/tokens': minor
 ---
 
-## design-tokens
+## tokens
 
 ### Added
 
@@ -406,8 +406,8 @@ If you reference `--ui-old-token-*` CSS variables, update to `--ui-new-token-*`.
 Stage specific files only:
 
 ```bash
-git add packages/design-tokens/tiers/primitives.json packages/design-tokens/tiers/semantics.json packages/design-tokens/tiers/components.json
-git add packages/tokens-pd/
+git add packages/tokens/tiers/primitives.json packages/tokens/tiers/semantics.json packages/tokens/tiers/components.json
+git add packages/tokens/
 git add .changeset/
 ```
 

@@ -3,11 +3,11 @@
 `@spec-lab/figma-token-exporter` — a **private** (unpublished) build
 tool: a small, self-hosted Figma plugin plus a local Node receiver that exports
 the design system's variables and styles into
-`packages/design-tokens/.tmp/figma-tokens/` — the snapshot the design-tokens
+`packages/tokens/.tmp/figma-tokens/` — the snapshot the tokens
 sync emitters consume.
 
 It exists to replace the third-party **figma-console** Desktop Bridge for the
-bulk token pull (step 1 of the [`/sync-tokens`](../../packages/design-tokens/context/figma-sync.md)
+bulk token pull (step 1 of the [`/sync-tokens`](../../packages/tokens/context/figma-sync.md)
 runbook). The Figma org is **not** on Enterprise, so the REST Variables API is
 unavailable and reading variables requires the Plugin API — i.e. _something must
 run inside Figma_. This makes that "something" a repo-owned plugin instead of an
@@ -50,7 +50,7 @@ Two halves, no build step:
 2. **The receiver** (`src/receiver.ts`, run via `tsx`) — listens on
    `http://localhost:3333`, converts the payload (`src/convert.ts`), and writes
    the snapshot files (`src/write-snapshot.ts`) into
-   `packages/design-tokens/.tmp/figma-tokens/`.
+   `packages/tokens/.tmp/figma-tokens/`.
 
 ```bash
 pnpm --filter @spec-lab/figma-token-exporter receive
@@ -64,7 +64,7 @@ operator walkthrough.
 
 ## Files written
 
-Into `packages/design-tokens/.tmp/figma-tokens/` (gitignored — never committed):
+Into `packages/tokens/.tmp/figma-tokens/` (gitignored — never committed):
 
 These feed the `/figma-to-design-tokens` skill's snapshot build
 (`figma-snapshot-build.mjs --tmp`), which normalizes them into one
@@ -86,5 +86,5 @@ plugin folds resolved orphan IDs into `variables-meta.json`.
 `pnpm --filter @spec-lab/figma-token-exporter test` runs the Vitest unit
 specs (pure converter + snapshot writer; no Figma, no network). The end-to-end
 correctness check is the sync itself: after a real export, `pnpm --filter
-@spec-lab/design-tokens emit` runs and `git diff tiers/` shows only
+@spec-lab/tokens emit` runs and `git diff tiers/` shows only
 intended changes.

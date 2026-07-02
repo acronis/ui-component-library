@@ -4,7 +4,7 @@ Releases are automated via
 [Changesets](https://github.com/changesets/changesets). The flow below
 applies to **any** published workspace in this monorepo. The published
 packages are `@spec-lab/shadcn-uikit` (ui-legacy), `ui-react`,
-`icons-react`, `tokens-pd`, `design-tokens`, and
+`icons-react`, `tokens`, `tokens`, and
 `design-assets`; the `apps/` and `tools/` workspaces are private (listed
 in `.changeset/config.json`'s `ignore` list).
 

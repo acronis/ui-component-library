@@ -49,7 +49,7 @@ This file adds the repo-specific map. Read [CLAUDE.md](../../../CLAUDE.md) first
 - "design token" — a `--av-*` CSS custom property from `design-theme`.
 - "token bridge" — the `@theme inline` block mapping Tailwind color names to
   `--av-*`.
-- "the token pipeline" — `design-tokens` → `design-theme` → library bridge.
+- "the token pipeline" — `tokens` → `design-theme` → library bridge.
 - `.ai/` — AI working files (not published). `apps/docs/` — published Fumadocs.
 
 ## Before writing or updating any doc

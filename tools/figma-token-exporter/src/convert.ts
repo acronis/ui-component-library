@@ -3,7 +3,7 @@
 // This is a faithful, trimmed port of figma-console-mcp's pipeline
 // (MIT — southleft/figma-console-mcp: dist/core/tokens/figma-converter.js +
 // formatters/dtcg.js + alias-resolver.js), restricted to the single-file,
-// all-modes export shape that this repo's design-tokens emitters consume.
+// all-modes export shape that this repo's tokens emitters consume.
 //
 // Faithfulness is the whole point: the `/figma-to-design-tokens` skill's
 // snapshot loader + tier emitters were written against figma-console's output,
@@ -34,7 +34,9 @@ export const FIGMA_MCP_EXTENSION_KEY = 'figma-console-mcp';
 // payload → TokenDocument  (port of figma-converter.js)
 // ---------------------------------------------------------------------------
 
-export function convertPayloadToDocument(payload: ExportPayload): TokenDocument {
+export function convertPayloadToDocument(
+  payload: ExportPayload
+): TokenDocument {
   // Reference resolution uses LOCAL variables only — exactly like
   // figma-console. An alias to a non-local target is encoded as
   // `{__library:VariableID:X:Y}` so the semantic emitter's library-alias branch
@@ -47,10 +49,10 @@ export function convertPayloadToDocument(payload: ExportPayload): TokenDocument 
   const sets = payload.collections.map((collection) => {
     const wantedModes = modesDefaultFirst(collection);
     const collectionVars = payload.variables.filter(
-      (v) => v.variableCollectionId === collection.id,
+      (v) => v.variableCollectionId === collection.id
     );
     const tokens = collectionVars.map((variable) =>
-      convertVariable(variable, wantedModes, variableById),
+      convertVariable(variable, wantedModes, variableById)
     );
     const set: TokenSet = {
       name: collection.name,
@@ -75,15 +77,20 @@ export function convertPayloadToDocument(payload: ExportPayload): TokenDocument 
 // figma-to-primitives expects the default (e.g. Light) in `$value` and Dark
 // under `modes.Dark` — so order by `defaultModeId`, not Figma's array order.
 function modesDefaultFirst(collection: RawCollection): RawMode[] {
-  const def = collection.modes.find((m) => m.modeId === collection.defaultModeId);
+  const def = collection.modes.find(
+    (m) => m.modeId === collection.defaultModeId
+  );
   if (!def) return collection.modes;
-  return [def, ...collection.modes.filter((m) => m.modeId !== collection.defaultModeId)];
+  return [
+    def,
+    ...collection.modes.filter((m) => m.modeId !== collection.defaultModeId),
+  ];
 }
 
 function convertVariable(
   variable: RawVariable,
   wantedModes: RawMode[],
-  variableById: Map<string, RawVariable>,
+  variableById: Map<string, RawVariable>
 ): Token {
   const path = variable.name.split('/').filter(Boolean);
   const type = mapResolvedType(variable.resolvedType, variable.name);
@@ -94,7 +101,11 @@ function convertVariable(
   for (const mode of wantedModes) {
     const rawValue = variable.valuesByMode[mode.modeId];
     if (rawValue === undefined) continue;
-    values[mode.name] = convertValue(rawValue, variable.resolvedType, variableById);
+    values[mode.name] = convertValue(
+      rawValue,
+      variable.resolvedType,
+      variableById
+    );
   }
 
   return {
@@ -114,7 +125,10 @@ function convertVariable(
   };
 }
 
-function mapResolvedType(resolvedType: FigmaResolvedType, variableName: string): TokenType {
+function mapResolvedType(
+  resolvedType: FigmaResolvedType,
+  variableName: string
+): TokenType {
   switch (resolvedType) {
     case 'COLOR':
       return 'color';
@@ -132,21 +146,23 @@ function mapResolvedType(resolvedType: FigmaResolvedType, variableName: string):
 function inferFloatType(variableName: string): TokenType {
   const lower = variableName.toLowerCase();
   if (lower.includes('opacity') || lower.includes('alpha')) return 'number';
-  if (lower.includes('font-weight') || lower.includes('weight')) return 'fontWeight';
+  if (lower.includes('font-weight') || lower.includes('weight'))
+    return 'fontWeight';
   if (lower.includes('duration') || lower.includes('delay')) return 'duration';
   return 'dimension';
 }
 
 function inferStringType(variableName: string): TokenType {
   const lower = variableName.toLowerCase();
-  if (lower.includes('font-family') || lower.includes('font/family')) return 'fontFamily';
+  if (lower.includes('font-family') || lower.includes('font/family'))
+    return 'fontFamily';
   return 'string';
 }
 
 function convertValue(
   rawValue: FigmaVariableValue,
   resolvedType: FigmaResolvedType,
-  variableById: Map<string, RawVariable>,
+  variableById: Map<string, RawVariable>
 ): TokenValue {
   if (isVariableAlias(rawValue)) {
     const target = variableById.get(rawValue.id);
@@ -166,15 +182,21 @@ function convertValue(
     return { literal: String(rawValue) };
   }
   if (resolvedType === 'FLOAT') {
-    return { literal: typeof rawValue === 'number' ? rawValue : Number(rawValue) };
+    return {
+      literal: typeof rawValue === 'number' ? rawValue : Number(rawValue),
+    };
   }
   if (resolvedType === 'BOOLEAN') {
     return { literal: Boolean(rawValue) };
   }
-  return { literal: typeof rawValue === 'string' ? rawValue : String(rawValue) };
+  return {
+    literal: typeof rawValue === 'string' ? rawValue : String(rawValue),
+  };
 }
 
-function isVariableAlias(value: FigmaVariableValue): value is FigmaVariableAlias {
+function isVariableAlias(
+  value: FigmaVariableValue
+): value is FigmaVariableAlias {
   return (
     typeof value === 'object' &&
     value !== null &&
@@ -226,7 +248,8 @@ export function buildDtcgTree(doc: TokenDocument): DtcgNode {
     if (!setGroup) {
       setGroup = Object.create(null) as DtcgNode;
       const mcpMeta: Record<string, unknown> = {};
-      if (set.meta?.figmaCollectionId) mcpMeta.figmaCollectionId = set.meta.figmaCollectionId;
+      if (set.meta?.figmaCollectionId)
+        mcpMeta.figmaCollectionId = set.meta.figmaCollectionId;
       if (set.name !== setKey) mcpMeta.originalName = set.name;
       if (Object.keys(mcpMeta).length > 0) {
         setGroup.$extensions = { [FIGMA_MCP_EXTENSION_KEY]: mcpMeta };
@@ -242,18 +265,24 @@ export function buildDtcgTree(doc: TokenDocument): DtcgNode {
 }
 
 function slugify(s: string): string {
-  return s
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    // Runs are already collapsed to a single '-' above, so a single anchored
-    // strip per side is sufficient — and avoids the backtracking-prone
-    // `/^-+|-+$/` alternation (ReDoS).
-    .replace(/^-/, '')
-    .replace(/-$/, '');
+  return (
+    s
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      // Runs are already collapsed to a single '-' above, so a single anchored
+      // strip per side is sufficient — and avoids the backtracking-prone
+      // `/^-+|-+$/` alternation (ReDoS).
+      .replace(/^-/, '')
+      .replace(/-$/, '')
+  );
 }
 
-function writeTokenIntoTree(root: DtcgNode, token: Token, setModes: string[]): void {
+function writeTokenIntoTree(
+  root: DtcgNode,
+  token: Token,
+  setModes: string[]
+): void {
   let cursor = root;
   for (let i = 0; i < token.path.length - 1; i++) {
     const segment = token.path[i];
@@ -291,7 +320,8 @@ function renderToken(token: Token, setModes: string[]): DtcgNode {
       if (m === primaryMode) continue;
       otherModes[m] = encodeValue(token.values[m]);
     }
-    if (Object.keys(otherModes).length > 0) mergeExtension(result, 'modes', otherModes);
+    if (Object.keys(otherModes).length > 0)
+      mergeExtension(result, 'modes', otherModes);
   }
 
   if (token.extensions) {
@@ -317,7 +347,8 @@ function mergeExtension(node: DtcgNode, key: string, payload: unknown): void {
 }
 
 function sortKeys(node: unknown): unknown {
-  if (node === null || typeof node !== 'object' || Array.isArray(node)) return node;
+  if (node === null || typeof node !== 'object' || Array.isArray(node))
+    return node;
   const obj = node as Record<string, unknown>;
   const sorted: Record<string, unknown> = Object.create(null);
   const keys = Object.keys(obj).sort((a, b) => {

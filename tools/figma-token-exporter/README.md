@@ -1,8 +1,8 @@
 # @spec-lab/figma-token-exporter
 
 A self-hosted **Figma plugin + local receiver** that exports the design
-system's variables and styles into `packages/design-tokens/.tmp/figma-tokens/`
-— the snapshot the design-tokens sync emitters consume.
+system's variables and styles into `packages/tokens/.tmp/figma-tokens/`
+— the snapshot the tokens sync emitters consume.
 
 It replaces the third-party **figma-console** Desktop Bridge for the bulk token
 pull. Reading Figma variables needs the Plugin API (the org isn't on Figma
@@ -25,7 +25,7 @@ Figma — this one is ours, with no external MCP server.
    ```
 
    It listens on `http://localhost:3333` and writes into
-   `packages/design-tokens/.tmp/figma-tokens/`. Leave it running.
+   `packages/tokens/.tmp/figma-tokens/`. Leave it running.
 
 2. **Open the target Figma file** in Figma Desktop and run **Constructor Lab Token
    Exporter**. It reads variables/collections/styles and shows a summary.
@@ -40,7 +40,7 @@ Figma — this one is ours, with no external MCP server.
    ```
 
    See
-   [`packages/design-tokens/context/figma-sync.md`](../../packages/design-tokens/context/figma-sync.md)
+   [`packages/tokens/context/figma-sync.md`](../../packages/tokens/context/figma-sync.md)
    for the canonical one-way runbook and diff review expectations.
 
 ### Changing the port

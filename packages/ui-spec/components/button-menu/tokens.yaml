@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: ButtonMenu
 
-# References only — values live in @spec-lab/tokens-pd. `primary` uses a
+# References only — values live in @spec-lab/tokens. `primary` uses a
 # single label/icon color across states; only `secondary` diverges them per
 # state and adds a container border. The open state reuses each variant's
 # `*-active` tokens.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Geometry (root / icon) ──

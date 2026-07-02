@@ -13,9 +13,8 @@
 #
 # Packages published by this workflow:
 #   @spec-lab/design-assets
-#   @spec-lab/design-tokens
+#   @spec-lab/tokens
 #   @spec-lab/icons-react
-#   @spec-lab/tokens-pd
 #   @spec-lab/ui-react
 #
 # Required secrets:
@@ -58,11 +57,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Validate design packages
-        run: pnpm --filter "./packages/design-*" test
+      - name: Validate tokens
+        run: pnpm --filter @spec-lab/tokens test
 
-      - name: Build tokens-pd
-        run: pnpm --filter @spec-lab/tokens-pd build
+      - name: Build tokens
+        run: pnpm --filter @spec-lab/tokens build
 
       - name: Build icons-react
         run: pnpm --filter @spec-lab/icons-react build
@@ -86,10 +85,8 @@ jobs:
               pnpm --filter "$pkg" publish --access public --no-git-checks
             fi
           }
-          publish @spec-lab/design-assets  packages/design-assets
-          publish @spec-lab/design-tokens  packages/design-tokens
+          publish @spec-lab/tokens         packages/tokens
           publish @spec-lab/icons-react    packages/icons-react
-          publish @spec-lab/tokens-pd      packages/tokens-pd
           publish @spec-lab/ui-react       packages/ui-react
         env:
           NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN_2 }}

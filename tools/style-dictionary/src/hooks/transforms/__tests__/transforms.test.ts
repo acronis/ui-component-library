@@ -2,7 +2,7 @@
 // semantic-only emit filter. These run without Style Dictionary or disk I/O —
 // they pin the HSL→rgb math, the Figma-matrix→angle gradient math, the `ui`
 // naming convention, dimension formatting, and which tiers get emitted, so the
-// generated tokens-pd output can't drift silently as brands/data grow (#177).
+// generated tokens output can't drift silently as brands/data grow (#177).
 
 import type { TransformedToken } from 'style-dictionary/types';
 import { describe, expect, it } from 'vitest';
@@ -50,8 +50,12 @@ describe('hslColorToRgb', () => {
   });
 
   it('passes an already-resolved `transparent` value through the transform untouched', () => {
-    const transform = colorHslToRgb.transform as (token: TransformedToken) => string;
-    expect(transform({ $type: 'color', $value: 'transparent' } as TransformedToken)).toBe('transparent');
+    const transform = colorHslToRgb.transform as (
+      token: TransformedToken
+    ) => string;
+    expect(
+      transform({ $type: 'color', $value: 'transparent' } as TransformedToken)
+    ).toBe('transparent');
   });
 
   it('clamps channels into the 0–255 byte range', () => {
@@ -63,14 +67,27 @@ describe('hslColorToRgb', () => {
   });
 
   it('throws on a non-hsl colorSpace instead of emitting garbage', () => {
-    expect(() => hslColorToRgb({ colorSpace: 'srgb', components: [1, 0, 0] } as unknown as DtcgColor)).toThrow(
-      /colorSpace/
-    );
+    expect(() =>
+      hslColorToRgb({
+        colorSpace: 'srgb',
+        components: [1, 0, 0],
+      } as unknown as DtcgColor)
+    ).toThrow(/colorSpace/);
   });
 
   it('the transform filters to color tokens', () => {
-    expect(colorHslToRgb.filter?.({ $type: 'color' } as TransformedToken, {} as never)).toBe(true);
-    expect(colorHslToRgb.filter?.({ $type: 'dimension' } as TransformedToken, {} as never)).toBe(false);
+    expect(
+      colorHslToRgb.filter?.(
+        { $type: 'color' } as TransformedToken,
+        {} as never
+      )
+    ).toBe(true);
+    expect(
+      colorHslToRgb.filter?.(
+        { $type: 'dimension' } as TransformedToken,
+        {} as never
+      )
+    ).toBe(false);
   });
 });
 
@@ -90,7 +107,9 @@ describe('gradientCss', () => {
         [0, 1, 0],
       ],
     });
-    expect(out).toBe('linear-gradient(90deg, rgb(255 0 0) 0%, rgb(0 0 255) 100%)');
+    expect(out).toBe(
+      'linear-gradient(90deg, rgb(255 0 0) 0%, rgb(0 0 255) 100%)'
+    );
   });
 
   it('maps the identity Figma transform matrix to 90deg (to right)', () => {
@@ -105,7 +124,8 @@ describe('gradientCss', () => {
 
   it('parses the angle from com.figma.cssGradient when no transform matrix is present', () => {
     const out = run([stop(hsl(0, 0, 0), 0), stop(hsl(0, 0, 100), 1)], {
-      'com.figma.cssGradient': 'linear-gradient(90deg, #000000 0%, #FFFFFF 100%);',
+      'com.figma.cssGradient':
+        'linear-gradient(90deg, #000000 0%, #FFFFFF 100%);',
     });
     expect(out).toContain('linear-gradient(90deg,');
   });
@@ -115,26 +135,41 @@ describe('gradientCss', () => {
   });
 
   it('rounds fractional stop positions', () => {
-    expect(run([stop(hsl(0, 0, 0), 0.2), stop(hsl(0, 0, 100), 1)])).toContain('rgb(0 0 0) 20%');
+    expect(run([stop(hsl(0, 0, 0), 0.2), stop(hsl(0, 0, 100), 1)])).toContain(
+      'rgb(0 0 0) 20%'
+    );
   });
 
   it('filters to gradient tokens', () => {
-    expect(gradientCss.filter?.({ $type: 'gradient' } as TransformedToken, {} as never)).toBe(true);
-    expect(gradientCss.filter?.({ $type: 'color' } as TransformedToken, {} as never)).toBe(false);
+    expect(
+      gradientCss.filter?.(
+        { $type: 'gradient' } as TransformedToken,
+        {} as never
+      )
+    ).toBe(true);
+    expect(
+      gradientCss.filter?.({ $type: 'color' } as TransformedToken, {} as never)
+    ).toBe(false);
   });
 });
 
 describe('uiName', () => {
   it('drops a leading `colors` tier segment and prefixes `ui`', () => {
-    expect(uiName(['colors', 'background', 'surface', 'primary'])).toBe('ui-background-surface-primary');
+    expect(uiName(['colors', 'background', 'surface', 'primary'])).toBe(
+      'ui-background-surface-primary'
+    );
   });
 
   it('keeps a non-colors tier root (component tokens)', () => {
-    expect(uiName(['button', 'primary', 'background', 'idle'])).toBe('ui-button-primary-background-idle');
+    expect(uiName(['button', 'primary', 'background', 'idle'])).toBe(
+      'ui-button-primary-background-idle'
+    );
   });
 
   it('strips underscores so `_global` becomes `global`', () => {
-    expect(uiName(['button', '_global', 'radius'])).toBe('ui-button-global-radius');
+    expect(uiName(['button', '_global', 'radius'])).toBe(
+      'ui-button-global-radius'
+    );
   });
 
   it('kebab-cases camelCase segments', () => {
@@ -157,7 +192,11 @@ describe('isEmittableToken (semantic-only filter)', () => {
   });
 
   it('keeps emitted tiers (semantic + component)', () => {
-    expect(isEmittableToken({ path: ['colors', 'background', 'brand', 'primary'] })).toBe(true);
-    expect(isEmittableToken({ path: ['button', 'primary', 'background', 'idle'] })).toBe(true);
+    expect(
+      isEmittableToken({ path: ['colors', 'background', 'brand', 'primary'] })
+    ).toBe(true);
+    expect(
+      isEmittableToken({ path: ['button', 'primary', 'background', 'idle'] })
+    ).toBe(true);
   });
 });

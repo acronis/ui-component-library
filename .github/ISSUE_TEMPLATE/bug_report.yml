@@ -16,8 +16,8 @@ body:
         - '@spec-lab/ui-react'
         - '@spec-lab/shadcn-uikit (ui-legacy)'
         - '@spec-lab/icons-react'
-        - '@spec-lab/tokens-pd'
-        - '@spec-lab/design-tokens'
+        - '@spec-lab/tokens'
+        - '@spec-lab/tokens'
         - '@spec-lab/design-assets'
         - Other / unsure
     validations:

@@ -41,8 +41,7 @@ jobs:
               - 'packages/ui-legacy/package.json'
               - 'packages/ui-legacy/Dockerfile.storybook'
               - 'packages/ui-legacy/docker-compose.storybook*.yml'
-              - 'packages/tokens-pd/**'
-              - 'packages/design-tokens/**'
+              - 'packages/tokens/**'
               - '.github/workflows/visual-regression.yml'
             ui-react:
               - 'packages/ui-react/src/**'
@@ -50,10 +49,8 @@ jobs:
               - 'packages/ui-react/package.json'
               - 'packages/ui-react/Dockerfile.storybook'
               - 'packages/ui-react/docker-compose.storybook*.yml'
-              - 'packages/tokens-pd/**'
-              - 'packages/design-tokens/**'
+              - 'packages/tokens/**'
               - 'packages/icons-react/**'
-              - 'packages/design-assets/**'
               - '.github/workflows/visual-regression.yml'
 
       - name: Setup PNPM
@@ -100,7 +97,7 @@ jobs:
       # ui-react depends on generated @spec-lab/icons-react output
       # (generated sources + dist/ are gitignored). Build that package (and its
       # own prerequisites) before Storybook so imports resolve. Avoid broad
-      # ui-react recursive builds here: they also pull in tokens-pd/style-dictionary,
+      # ui-react recursive builds here: they also pull in tokens/style-dictionary,
       # which is unrelated to visual snapshots and can fail on in-flight
       # design-assets schema migrations.
       - name: Build workspace dependencies

@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: InputSelect
 
-# References only — values live in @spec-lab/tokens-pd. The field furniture
+# References only — values live in @spec-lab/tokens. The field furniture
 # (container/label/required/description/error) + trigger box use the `global` /
 # `normal` / `error` groups; the popup (search/sections/items/status) uses the
 # `dropdown` group. All share the `--ui-input-select-*` tier. The multiple-select
 # item's checkbox indicator reuses the `--ui-checkbox-*` tier.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Field container + label ──

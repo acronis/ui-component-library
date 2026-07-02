@@ -1,0 +1,67 @@
+{
+  "name": "@spec-lab/tokens",
+  "version": "1.9.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/constructor-lab/facet.git",
+    "directory": "packages/tokens"
+  },
+  "description": "Constructor Lab design tokens: the DTCG source tiers plus the generated CSS (reference-based, brand + light/dark via selectors), SCSS mixins, JS token map, and Tailwind bridge — built by @spec-lab/style-dictionary.",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "tiers/**",
+    "schemas/**",
+    "css/**/*.css",
+    "scss/**/*.scss",
+    "js/**/*.js",
+    "js/**/*.d.ts",
+    "dtcg/**/*.json",
+    "README.md",
+    "CONTRIBUTING.md",
+    "LICENSE"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./css": "./css/index.css",
+    "./css/*": "./css/*",
+    "./scss/tokens": "./scss/_tokens.scss",
+    "./scss/mixins": "./scss/_mixins.scss",
+    "./scss/*": "./scss/*",
+    "./js": "./js/tokens.js",
+    "./js/*": "./js/*",
+    "./tiers/*": "./tiers/*",
+    "./schemas/*": "./schemas/*",
+    "./dtcg/*": "./dtcg/*"
+  },
+  "scripts": {
+    "build": "pnpm --filter @spec-lab/style-dictionary build pd-css",
+    "clean": "echo \"no clean (generated artifacts are committed; run build to regenerate)\" && exit 0",
+    "dev": "echo \"no dev (generated artifacts; run build)\" && exit 0",
+    "emit": "node ../../.claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp && node ../../.claude/skills/figma-to-design-tokens/emit-primitives.mjs && node ../../.claude/skills/figma-to-design-tokens/emit-semantics.mjs && node ../../.claude/skills/figma-to-design-tokens/emit-components.mjs && pnpm run validate",
+    "lint": "echo \"no lint (JSON data + generated artifacts; validated via test)\" && exit 0",
+    "lint:fix": "echo \"no lint (JSON data + generated artifacts)\" && exit 0",
+    "test": "pnpm run validate",
+    "test:watch": "echo \"no watch mode (run test)\" && exit 0",
+    "typecheck": "echo \"no typecheck (JSON data + generated artifacts)\" && exit 0",
+    "validate": "ajv compile -s schemas/tier.schema.json --spec=draft2020 --strict=false && ajv validate -s schemas/tier.schema.json -d \"tiers/primitives.json\" -d \"tiers/semantics.json\" -d \"tiers/components.json\" --spec=draft2020 --strict=false"
+  },
+  "keywords": [
+    "tokens",
+    "css-variables",
+    "scss",
+    "tailwind",
+    "dtcg",
+    "acronis"
+  ],
+  "devDependencies": {
+    "@spec-lab/style-dictionary": "workspace:*",
+    "ajv": "catalog:",
+    "ajv-cli": "catalog:",
+    "ajv-formats": "catalog:"
+  }
+}

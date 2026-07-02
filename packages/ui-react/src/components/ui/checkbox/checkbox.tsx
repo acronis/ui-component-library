@@ -1,14 +1,11 @@
 import * as React from 'react';
 import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
-import {
-  CheckIcon,
-  MinusIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+import { CheckIcon, MinusIcon } from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
 // Wraps Base UI's Checkbox primitive, themed by the dedicated next-gen
-// `--ui-checkbox-*` token tier from @spec-lab/tokens-pd. The box has three
+// `--ui-checkbox-*` token tier from @spec-lab/tokens. The box has three
 // logical states — `unchecked` (the base), `checked`, and `indeterminate` — each
 // with its own per-interaction (idle / hover / active / disabled) fill
 // (`*-box-color-*`), border (`*-box-border-color-*`), and glyph (`*-icon-color-*`)
@@ -51,8 +48,9 @@ const boxClasses = [
   'data-[disabled]:data-[indeterminate]:bg-[var(--ui-checkbox-indeterminate-box-color-disabled)] data-[disabled]:data-[indeterminate]:border-[var(--ui-checkbox-indeterminate-box-border-color-disabled)] data-[disabled]:data-[indeterminate]:text-[var(--ui-checkbox-indeterminate-icon-color-disabled)]',
 ].join(' ');
 
-export interface CheckboxProps
-  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
+export interface CheckboxProps extends React.ComponentPropsWithoutRef<
+  typeof CheckboxPrimitive.Root
+> {
   /** Optional label rendered beside the box; names the control. */
   label?: React.ReactNode;
   /** Optional secondary description rendered under the label. */
@@ -65,7 +63,8 @@ const Checkbox = React.forwardRef<
 >(({ className, label, description, indeterminate, ...props }, ref) => {
   const reactId = React.useId();
   const labelId = label != null ? `${reactId}-label` : undefined;
-  const descriptionId = description != null ? `${reactId}-description` : undefined;
+  const descriptionId =
+    description != null ? `${reactId}-description` : undefined;
   const hasContent = label != null || description != null;
 
   const box = (

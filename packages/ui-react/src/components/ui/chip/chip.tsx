@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 // A compact, interactive label. `variant` mirrors the Figma "Chip" `type`:
 // `removable` carries a trailing × (remove) button; `selectable` toggles a
 // selected state. The container fill/border/label/icon all wire to the dedicated
-// `--ui-chips-*` tier from @spec-lab/tokens-pd; geometry (height, gap,
+// `--ui-chips-*` tier from @spec-lab/tokens; geometry (height, gap,
 // padding, min-width, radius, border width, icon size) is tokenized too.
 // The Figma `state` enum (idle / hover / active / focused) maps to interaction
 // states, not props: `hover:` → the hover tokens, `:focus`/`focus-visible` → the
@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils';
 // `removable` (`active:`) and the selected state for `selectable`
 // (`data-[selected]`, driven by the `selected` prop).
 const chipVariants = cva(
-  "inline-flex h-[var(--ui-chips-container-height)] min-w-[var(--ui-chips-container-width-min)] items-center justify-center gap-[var(--ui-chips-container-gap)] rounded-[var(--ui-chips-border-radius)] border-[length:var(--ui-chips-border-width)] border-solid border-[var(--ui-chips-border-color-idle)] bg-[var(--ui-chips-container-color-idle)] px-[var(--ui-chips-container-padding-x)] text-sm leading-6 text-[var(--ui-chips-label-color)] hover:border-[var(--ui-chips-border-color-hover)] hover:bg-[var(--ui-chips-container-color-hover)] [&_svg]:size-[var(--ui-chips-icon-size)] [&_svg]:shrink-0 [&_svg]:text-[var(--ui-chips-icon-color)]",
+  'inline-flex h-[var(--ui-chips-container-height)] min-w-[var(--ui-chips-container-width-min)] items-center justify-center gap-[var(--ui-chips-container-gap)] rounded-[var(--ui-chips-border-radius)] border-[length:var(--ui-chips-border-width)] border-solid border-[var(--ui-chips-border-color-idle)] bg-[var(--ui-chips-container-color-idle)] px-[var(--ui-chips-container-padding-x)] text-sm leading-6 text-[var(--ui-chips-label-color)] hover:border-[var(--ui-chips-border-color-hover)] hover:bg-[var(--ui-chips-container-color-hover)] [&_svg]:size-[var(--ui-chips-icon-size)] [&_svg]:shrink-0 [&_svg]:text-[var(--ui-chips-icon-color)]',
   {
     variants: {
       variant: {

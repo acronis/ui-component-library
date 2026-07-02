@@ -3,7 +3,7 @@ name: component-readiness
 description: >
   Read-only pre-flight gate that audits ui-react components for token drift and
   spec/test completeness BEFORE running /figma-component. Per component it checks
-  that every --ui-* reference resolves in tokens-pd, that each referenced token
+  that every --ui-* reference resolves in tokens, that each referenced token
   tier is imported in styles/index.css, that the ui-spec 7-file set is present and
   conformance passes, that tests exist, and that the Figma link is intact
   (index.yaml node + a COMPLETE Code Connect). A deep mode adds Figma design
@@ -28,7 +28,7 @@ it makes the CSS property invalid and the element falls back to inherited values
 nothing fails the build, typecheck, lint, or `ui-spec test`. A token-sync (e.g.
 `/figma-to-design-tokens`) can rename or remove tokens out from under a shipped
 component, and the conformance test only regexes token **names**, never checks
-they **exist** in `tokens-pd` (the gap tracked in issue #297). This gate closes
+they **exist** in `tokens` (the gap tracked in issue #297). This gate closes
 that gap.
 
 Read the workspace contracts first — they override anything here on conflict:
@@ -59,8 +59,8 @@ mirrors `/figma-component` Phase 2.
 
 | Column      | Check                                                                                                                                                                                                                                                                                                       | Blocking?                      |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| **TOKENS**  | Every `--ui-*` referenced in the component's code (`.tsx`/`.ts`: `var(--ui-*)` bindings, test/story class assertions) **and** in its `ui-spec` YAML (`tokens.yaml`, `anatomy.yaml`) resolves to a token defined in `packages/tokens-pd/css/**`.                                                             | **Yes** → DRIFT                |
-| **IMPORTS** | Every component **tier** whose tokens it references (e.g. `--ui-radio-*` → `Radio`) is `@import`-ed in `packages/ui-react/src/styles/index.css`. Component tiers are **opt-in**; a missing import means the tokens are undefined at runtime even though they exist in `tokens-pd`.                          | **Yes** → DRIFT                |
+| **TOKENS**  | Every `--ui-*` referenced in the component's code (`.tsx`/`.ts`: `var(--ui-*)` bindings, test/story class assertions) **and** in its `ui-spec` YAML (`tokens.yaml`, `anatomy.yaml`) resolves to a token defined in `packages/tokens/css/**`.                                                                | **Yes** → DRIFT                |
+| **IMPORTS** | Every component **tier** whose tokens it references (e.g. `--ui-radio-*` → `Radio`) is `@import`-ed in `packages/ui-react/src/styles/index.css`. Component tiers are **opt-in**; a missing import means the tokens are undefined at runtime even though they exist in `tokens`.                             | **Yes** → DRIFT                |
 | **SPEC**    | The `ui-spec` 7-file set is present (`index.yaml`, `anatomy.yaml`, `api.yaml`, `tokens.yaml`, `behavior.md`, `accessibility.md`, `README.md`).                                                                                                                                                              | No → INCOMPLETE                |
 | **TESTS**   | `__tests__/<name>.test.tsx` exists.                                                                                                                                                                                                                                                                         | No → INCOMPLETE                |
 | **FIGMA**   | **Linkage parity:** `index.yaml` has a `figma.node` **and** a `<name>.figma.tsx` marked `COMPLETE` whose `figma.codeConnect` path resolves. Values: `LINKED` / `DRAFT` (Code Connect unfinished) / `PARTIAL` (one side missing/broken) / `NONE`. The script surfaces both node IDs for the live diff below. | No → INCOMPLETE (NONE/PARTIAL) |
@@ -139,7 +139,7 @@ MCP output and run the (dependency-free) comparator:
 ```bash
 # 1. agent: dump the node's design variables to JSON (node must be selected in Figma desktop)
 #    get_variable_defs({ nodeId, fileKey })  →  save as figma-vars.json
-# 2. compare against tokens-pd resolved values:
+# 2. compare against tokens resolved values:
 node .claude/skills/component-readiness/scripts/parity-values.mjs <Component> figma-vars.json [--theme light|dark] [--brand acronis]
 ```
 
@@ -176,11 +176,11 @@ diff PNG. Crop the Storybook capture to just the component for the cleanest resu
 
 ## Verdict → gate decision
 
-| Verdict        | Meaning                                                                           | Action before `/figma-component`                                                                                                               |
-| -------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **READY**      | No token drift; spec + tests present.                                             | Proceed.                                                                                                                                       |
-| **DRIFT**      | A `--ui-*` ref doesn't resolve, or a tier isn't imported. **Will render broken.** | **Fix first.** Rewire dead token names to the current `tokens-pd` tier; add the missing `@import` to `styles/index.css`. Then re-run the gate. |
-| **INCOMPLETE** | Renders fine, but the spec or tests are missing.                                  | Safe to build; close the gap in the same change (`/figma-component` Phases 3–4 produce these).                                                 |
+| Verdict        | Meaning                                                                           | Action before `/figma-component`                                                                                                            |
+| -------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **READY**      | No token drift; spec + tests present.                                             | Proceed.                                                                                                                                    |
+| **DRIFT**      | A `--ui-*` ref doesn't resolve, or a tier isn't imported. **Will render broken.** | **Fix first.** Rewire dead token names to the current `tokens` tier; add the missing `@import` to `styles/index.css`. Then re-run the gate. |
+| **INCOMPLETE** | Renders fine, but the spec or tests are missing.                                  | Safe to build; close the gap in the same change (`/figma-component` Phases 3–4 produce these).                                              |
 
 For a **`--update`** run of `/figma-component`, a `READY` verdict on the target
 component means you're refreshing a sound baseline; a `DRIFT` verdict means the
@@ -193,7 +193,7 @@ update must include the rewire, not just the design refresh.
 - **Read-only.** This skill never edits files. If it finds DRIFT, hand the fix to
   `/figma-component` or apply it directly — then re-run the gate to confirm green.
 - **Resolution is union-of-brands.** A token counts as defined if any brand CSS in
-  `tokens-pd/css/**` defines it (`acronis` is primary). Per-brand gaps are out of
+  `tokens/css/**` defines it (`acronis` is primary). Per-brand gaps are out of
   scope here.
 - **Dynamic prefixes are ignored.** Refs built by string concat
   (`var(--ui-button-${variant}-…)`) end in `-` and are skipped — the script can't

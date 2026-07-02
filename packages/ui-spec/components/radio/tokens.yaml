@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: RadioGroup
 
-# References only. Values live in @spec-lab/tokens-pd (generated from
-# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time.
 # Radio uses its dedicated `--ui-radio-*` tier (which mirrors `--ui-checkbox-*`):
 # two box state-groups (unchecked / checked), each with per-interaction fill,
 # border, and dot colors, plus global geometry and the label/description text.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Global geometry / layout ──

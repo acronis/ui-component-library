@@ -64,7 +64,7 @@ export const tokenRules = [
     title: 'No dangling token references',
     category: 'tokens',
     severity: 'must',
-    rule: 'Every `var(--ui-*)` referenced in a component (and listed in its spec tokens.yaml) must be defined in tokens-pd.',
+    rule: 'Every `var(--ui-*)` referenced in a component (and listed in its spec tokens.yaml) must be defined in tokens.',
     rationale:
       'A missing CSS var is a silent failure — the property is invalid and the element falls back to inherited color.',
     checklist: 'T6',

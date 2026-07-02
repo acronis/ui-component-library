@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: Slider
 
-# References only. Values live in @spec-lab/tokens-pd. No --ui-slider-*
+# References only. Values live in @spec-lab/tokens. No --ui-slider-*
 # tier — semantic tokens: the rail is the divider gray, the filled indicator and
 # thumb border use the brand action blue (secondary), and the thumb focus/drag
 # ring uses the primary focus color.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-border-on-surface-border

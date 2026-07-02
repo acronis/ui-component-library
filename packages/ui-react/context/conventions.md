@@ -30,7 +30,7 @@ Primitive.Root>`).
 - **Tailwind CSS v4** utility classes. Merge with `cn()` from
   `src/lib/utils.ts` (wraps `clsx` + `tailwind-merge`).
 - **Never hard-code a hex/hsl value.** Every color must resolve to a generated
-  `@spec-lab/tokens-pd` token (`--ui-*`). This is the one hard rule;
+  `@spec-lab/tokens` token (`--ui-*`). This is the one hard rule;
   the next two points are about _how_ you reference the token.
 
 ### Bridged names vs. direct token references
@@ -40,10 +40,12 @@ the token is**, not by habit:
 
 - **Shared semantic vocabulary → bridge a name.** Colors reused across many
   components (`bg-primary`, `text-foreground`, `border-border`, …) are bridged
-  to the `--ui-*` tokens in `src/styles/index.css`'s `@theme inline` block, and
+  to the `--ui-*` tokens by the **generated** `@theme inline` block that
+  `src/styles/index.css` imports from `@spec-lab/tokens/css/tailwind-theme.css`;
   components use the short Tailwind name. The bridge exists so a token is
-  renamed/re-pointed **once** and every consumer follows. If a shared color
-  isn't bridged yet, add it there.
+  renamed/re-pointed **once** and every consumer follows. If a shared color isn't
+  bridged yet, add it to the bridge map in `tools/style-dictionary`
+  (`bridge/tailwind-theme.ts`) and rebuild — not to `index.css`.
 - **Component-specific tokens → reference the token directly** with an
   arbitrary-value utility: `bg-[var(--ui-button-primary-background-idle)]`,
   `hover:border-[var(--ui-button-secondary-border-hover)]`. Use this for the
@@ -71,8 +73,8 @@ the token is**, not by habit:
 
 ## Theming source of truth
 
-`@spec-lab/design-tokens` (upstream source package; raw Design Tokens
-Community Group (DTCG) format) → `@spec-lab/tokens-pd` (generated CSS
+`@spec-lab/tokens` (upstream source package; raw Design Tokens
+Community Group (DTCG) format) → `@spec-lab/tokens` (generated CSS
 output package, built by `tools/style-dictionary`) → this package's `@theme`
-bridge → component utilities. Change colors in `design-tokens` and rebuild
-`tokens-pd`; don't fork values here.
+bridge → component utilities. Change colors in `tokens` and rebuild
+`tokens`; don't fork values here.

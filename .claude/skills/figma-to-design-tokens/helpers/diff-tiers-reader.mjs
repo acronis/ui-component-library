@@ -4,11 +4,13 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-const TIERS_DIR = fileURLToPath(new URL('../../../../packages/design-tokens/tiers/', import.meta.url));
+const TIERS_DIR = fileURLToPath(
+  new URL('../../../../packages/tokens/tiers/', import.meta.url)
+);
 
 const TIER_FILES = {
   primitives: `${TIERS_DIR}primitives.json`,
-  semantics:  `${TIERS_DIR}semantics.json`,
+  semantics: `${TIERS_DIR}semantics.json`,
   components: `${TIERS_DIR}components.json`,
 };
 
@@ -32,9 +34,15 @@ export class TiersReader {
     return this;
   }
 
-  get variableIndex() { return this.#variableIndex; }
-  get styleIndex()    { return this.#styleIndex; }
-  get tiers()         { return this.#tiers; }
+  get variableIndex() {
+    return this.#variableIndex;
+  }
+  get styleIndex() {
+    return this.#styleIndex;
+  }
+  get tiers() {
+    return this.#tiers;
+  }
 
   #indexTree(node, tier) {
     // Tiers use both $value (components) and `values` (primitives/semantics)
@@ -43,9 +51,9 @@ export class TiersReader {
     for (const { path, leaf } of TiersReader.#walkTier(node)) {
       const ext = leaf.$extensions ?? {};
       const variableId = ext['com.figma.variableId'];
-      const styleId    = ext['com.figma.styleId'];
+      const styleId = ext['com.figma.styleId'];
       if (variableId) this.#variableIndex.set(variableId, { tier, path, leaf });
-      if (styleId)    this.#styleIndex.set(styleId, { tier, path, leaf });
+      if (styleId) this.#styleIndex.set(styleId, { tier, path, leaf });
     }
   }
 

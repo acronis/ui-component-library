@@ -152,14 +152,13 @@ This is the phase that differs most from `/figma-component`. Two translations:
 ### 2a. Tokens
 
 ui-react colors must resolve to a generated `--ui-*` token from
-`@spec-lab/tokens-pd`. **Never** reference `--av-*` (that's the legacy
+`@spec-lab/tokens`. **Never** reference `--av-*` (that's the legacy
 prefix) and **never** hand-author hex/hsl. Pick the token tier in this order:
 
 1. **Component-specific tier, if it already exists.** Check first:
 
    ```bash
-   ls packages/tokens-pd/css/<ComponentName>/ 2>/dev/null && \
-     grep -rn "<component>" "packages/tokens-pd/css/<ComponentName>/acronis.css" | head
+   grep -n "<component>" "packages/tokens/css/components/<ComponentName>.css" 2>/dev/null | head
    ```
 
    If a `--ui-<name>-*` tier exists (e.g. a token sync already shipped it),
@@ -209,16 +208,17 @@ prefix) and **never** hand-author hex/hsl. Pick the token tier in this order:
    a danger fill → `--ui-background-status-danger`), don't invent a value:
 
    ```bash
-   grep -oE '\-\-ui-[a-z-]+' packages/tokens-pd/css/acronis.css | sort -u   # semantic vocabulary
+   grep -oE '\-\-ui-[a-z-]+' packages/tokens/css/semantics.css | sort -u   # semantic vocabulary
    ```
 
-   If a shared color you need isn't bridged yet, add it to the `@theme inline`
-   block in `src/styles/index.css` (don't reference a one-off `--ui-*` inline
-   if it's genuinely shared).
+   If a shared color you need isn't bridged yet, add it to the **generated**
+   `@theme inline` bridge — the map in `tools/style-dictionary/src/bridge/tailwind-theme.ts`
+   (then rebuild) — not to `src/styles/index.css` (don't reference a one-off
+   `--ui-*` inline if it's genuinely shared).
 
 3. **Don't invent a component tier.** If a port really needs per-component
    tokens that don't exist, those belong upstream in
-   `@spec-lab/design-tokens` → rebuild `tokens-pd`. For a design-pending
+   `@spec-lab/tokens` → rebuild `tokens`. For a design-pending
    v1, **prefer staying on semantic tokens** and flag to the user that the
    component-specific palette is pending a Figma/token pass — don't hand-author
    it here.
@@ -228,16 +228,16 @@ Wire **each interaction state to its own token** (`hover:` → `*-hover`,
 (legacy's `bg-primary/90` is exactly the pattern to drop). Brand overrides only
 honor the referenced token.
 
-> **tokens-pd component tiers are opt-in.** If you do use an existing
-> `--ui-<name>-*` tier, add one `@import '@spec-lab/tokens-pd/css/<Name>/acronis.css';`
-> to `src/styles/index.css` or the component renders unstyled. A component built
-> on semantic tokens only needs no new import (the semantic tier is always loaded).
+> **The whole token kit ships in one import.** `src/styles/index.css` does a single
+> `@import '@spec-lab/tokens/css'`, which includes every component tier
+> (`css/components/<Name>.css`) automatically — no per-component import to add. An
+> existing `--ui-<name>-*` tier is therefore already available.
 
-> **On `--update`, re-verify every token ref against the _current_ tokens-pd.**
+> **On `--update`, re-verify every token ref against the _current_ tokens.**
 > A missing CSS var is a **silent** failure — `var(--does-not-exist)` makes the
 > property invalid and the element falls back to inherited color; nothing fails
 > the build, typecheck, or lint:
-> `for t in $(grep -oE 'ui-[a-z-]+' packages/ui-react/src/components/ui/<name>/<name>.tsx | sort -u); do grep -qrF -- "--$t" packages/tokens-pd/css/ && echo "OK $t" || echo "MISS $t"; done`
+> `for t in $(grep -oE 'ui-[a-z-]+' packages/ui-react/src/components/ui/<name>/<name>.tsx | sort -u); do grep -qrF -- "--$t" packages/tokens/css/ && echo "OK $t" || echo "MISS $t"; done`
 > The **spec** (`tokens.yaml`) and the **tests** pin token names too — drift them together.
 
 ### 2b. Composition (primitive mapping)
@@ -538,7 +538,7 @@ the `/figma-component` Phase 5 notes for the single-mode variants and the
 - **No `COMPLETE` Code Connect** and **no `figma:` block in the spec.** Those
   require a real node; they're filled in by `/figma-component --update` later.
 - **No hand-authored component token palette.** When semantic tokens don't
-  cover a need, flag it for an upstream `design-tokens` pass — don't guess
+  cover a need, flag it for an upstream `tokens` pass — don't guess
   per-component hex values to "match" the legacy look pixel-for-pixel.
 
 ---

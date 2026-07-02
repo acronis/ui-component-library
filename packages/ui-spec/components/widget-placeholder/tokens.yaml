@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: WidgetPlaceholder
 
-# References only. Values live in @spec-lab/tokens-pd. No
+# References only. Values live in @spec-lab/tokens. No
 # `--ui-widget-placeholder-*` tier yet; this design-pending v1 maps the legacy
 # `--av-*` colors onto the shared semantic vocabulary (border/surface/text +
 # the brand action color for the icon/action).
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-border-on-surface-border

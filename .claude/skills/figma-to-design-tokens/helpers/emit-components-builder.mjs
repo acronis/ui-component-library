@@ -12,20 +12,46 @@ import { AliasTranslator } from './emit-alias-translator.mjs';
 // Figma "units" collection sections → our `units.<section>` group.
 const UNIT_SECTIONS = new Set(['gap', 'size', 'radius', 'stroke']);
 
-const OUT_PATH        = fileURLToPath(new URL('../../../../packages/design-tokens/tiers/components.json', import.meta.url));
-const PRIMITIVES_PATH = fileURLToPath(new URL('../../../../packages/design-tokens/tiers/primitives.json', import.meta.url));
-const SEMANTICS_PATH  = fileURLToPath(new URL('../../../../packages/design-tokens/tiers/semantics.json', import.meta.url));
+const OUT_PATH = fileURLToPath(
+  new URL('../../../../packages/tokens/tiers/components.json', import.meta.url)
+);
+const PRIMITIVES_PATH = fileURLToPath(
+  new URL('../../../../packages/tokens/tiers/primitives.json', import.meta.url)
+);
+const SEMANTICS_PATH = fileURLToPath(
+  new URL('../../../../packages/tokens/tiers/semantics.json', import.meta.url)
+);
 
 // Full component list from the snapshot — kept as a reference for callers
 // that want to pass an explicit subset. The default is null (= emit everything).
 export const DEFAULT_COMPONENTS = [
-  'Avatar', 'Breadcrumb', 'Button', 'ButtonIcon', 'ButtonMenu', 'Chips',
-  'CardFilter', 'Checkbox', 'Icon', 'Link', 'Menu',
-  'InputDatePicker', 'InputSearch', 'InputSelect', 'InputText', 'InputTextArea',
-  'MenuItem', 'Radio', 'Resizable', 'SearchGlobal',
-  'SidebarPrimary', 'SidebarSecondary', 'Switch', 'Table', 'Tag', 'Tooltip',
+  'Avatar',
+  'Breadcrumb',
+  'Button',
+  'ButtonIcon',
+  'ButtonMenu',
+  'Chips',
+  'CardFilter',
+  'Checkbox',
+  'Icon',
+  'Link',
+  'Menu',
+  'InputDatePicker',
+  'InputSearch',
+  'InputSelect',
+  'InputText',
+  'InputTextArea',
+  'MenuItem',
+  'Radio',
+  'Resizable',
+  'SearchGlobal',
+  'SidebarPrimary',
+  'SidebarSecondary',
+  'Switch',
+  'Table',
+  'Tag',
+  'Tooltip',
 ];
-
 
 // No case transformation: Figma segment names are preserved exactly as-is.
 // Components and SubComponents are PascalCase in Figma; everything else is camelCase.
@@ -37,14 +63,14 @@ export class ComponentsEmitter {
   #semantics;
   #allowlist;
   #aliasTranslator;
-  #validTypoRefs;  // Set<string> of known "{typography.G.N}" refs
-  #typoFallback;   // Map<dottedLeaf, canonicalRef> for hyphen-as-dot mismatches
+  #validTypoRefs; // Set<string> of known "{typography.G.N}" refs
+  #typoFallback; // Map<dottedLeaf, canonicalRef> for hyphen-as-dot mismatches
 
   constructor(snapshot, { components = DEFAULT_COMPONENTS } = {}) {
     this.#snapshot = snapshot;
     this.#primitives = JSON.parse(fs.readFileSync(PRIMITIVES_PATH, 'utf8'));
-    this.#semantics  = JSON.parse(fs.readFileSync(SEMANTICS_PATH, 'utf8'));
-    this.#allowlist  = new Set(components);
+    this.#semantics = JSON.parse(fs.readFileSync(SEMANTICS_PATH, 'utf8'));
+    this.#allowlist = new Set(components);
     this.#aliasTranslator = new AliasTranslator(this.#primitives);
     this.#buildTypoIndex();
   }
@@ -59,7 +85,8 @@ export class ComponentsEmitter {
     if (prevOut.$extensions) out.$extensions = prevOut.$extensions;
 
     const componentsNode = this.#snapshot.variables?.brand?.components;
-    if (!componentsNode) throw new Error('Snapshot missing brand.components subtree.');
+    if (!componentsNode)
+      throw new Error('Snapshot missing brand.components subtree.');
 
     for (const [figmaName, subtree] of Object.entries(componentsNode)) {
       if (figmaName.startsWith('$')) continue;
@@ -79,7 +106,9 @@ export class ComponentsEmitter {
     return root;
   }
 
-  get outputPath() { return OUT_PATH; }
+  get outputPath() {
+    return OUT_PATH;
+  }
 
   #emitComponent(figmaName, subtree) {
     const result = {};
@@ -106,8 +135,9 @@ export class ComponentsEmitter {
   }
 
   #buildLeaf(leaf) {
-    const variableId = leaf.$extensions?.['figma-console-mcp']?.variableId
-      ?? leaf.$extensions?.['com.figma.variableId'];
+    const variableId =
+      leaf.$extensions?.['figma-console-mcp']?.variableId ??
+      leaf.$extensions?.['com.figma.variableId'];
 
     const value = this.#translateValue(leaf.$value, variableId);
 
@@ -123,7 +153,8 @@ export class ComponentsEmitter {
 
     const scopes = cleanExt['com.figma.scopes'] ?? figmaExt.scopes;
     if (scopes) ext['com.figma.scopes'] = scopes;
-    if (cleanExt['com.figma.hiddenFromPublishing']) ext['com.figma.hiddenFromPublishing'] = true;
+    if (cleanExt['com.figma.hiddenFromPublishing'])
+      ext['com.figma.hiddenFromPublishing'] = true;
 
     // Multi-mode values.
     const modes = cleanExt.modes ?? {};
@@ -140,7 +171,8 @@ export class ComponentsEmitter {
         const normalizedKey = modeKey.toLowerCase().replace(/\s+/g, '-');
         translatedValues[normalizedKey] = this.#translateValue(modeRef, id);
       }
-      if (Object.keys(translatedValues).length > 0) token.values = translatedValues;
+      if (Object.keys(translatedValues).length > 0)
+        token.values = translatedValues;
     }
 
     // A leaf carries exactly one value carrier: per-mode `values` (the brand
@@ -153,7 +185,8 @@ export class ComponentsEmitter {
     // (Figma stores it in a string Variable, so its source $type is "string").
     // Correct it so the CSS builder emits a `.typography-*` utility class.
     const sample = token.values ? Object.values(token.values)[0] : token.$value;
-    if (typeof sample === 'string' && sample.startsWith('{typography.')) token.$type = 'typography';
+    if (typeof sample === 'string' && sample.startsWith('{typography.'))
+      token.$type = 'typography';
 
     token.platforms = ['PD'];
     if (Object.keys(ext).length > 0) token.$extensions = ext;
@@ -170,7 +203,8 @@ export class ComponentsEmitter {
   #translateValue(value, variableId) {
     // Transparent rule: a fully-transparent literal color (alpha 0) becomes the
     // CSS keyword `transparent` — its RGB channels are meaningless.
-    if (value && typeof value === 'object' && value.alpha === 0) return 'transparent';
+    if (value && typeof value === 'object' && value.alpha === 0)
+      return 'transparent';
     if (typeof value !== 'string') return value;
     if (value.startsWith('{')) return this.#translateAlias(value, variableId);
     // A bare dotted string is a typography reference; a bare word is an enum literal.
@@ -192,7 +226,7 @@ export class ComponentsEmitter {
 
   #buildTypoIndex() {
     this.#validTypoRefs = new Set();
-    this.#typoFallback  = new Map();
+    this.#typoFallback = new Map();
     const typo = this.#semantics.typography ?? {};
     for (const [group, sub] of Object.entries(typo)) {
       if (group.startsWith('$') || typeof sub !== 'object') continue;
@@ -210,7 +244,9 @@ export class ComponentsEmitter {
 
   #translateAlias(alias, variableId) {
     // Semantic / component self references: strip the redundant tier prefix.
-    const prefixed = alias.match(/^\{(?:brand\.)?(semantics|components)\.(.+)\}$/);
+    const prefixed = alias.match(
+      /^\{(?:brand\.)?(semantics|components)\.(.+)\}$/
+    );
     if (prefixed) return `{${prefixed[2].replace(/\s+/g, '-')}}`;
 
     const inner = alias.slice(1, -1);

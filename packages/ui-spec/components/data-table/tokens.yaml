@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: DataTable
 
-# References only. Values live in @spec-lab/tokens-pd. DataTable adds no
+# References only. Values live in @spec-lab/tokens. DataTable adds no
 # color of its own — it composes already-themed components (Table, Button,
 # DropdownMenu, InputSelect, …). Its own chrome reuses the Table component's
 # `--ui-table-*` tier so the wrapper border matches the cell borders and the
 # empty-state matches muted table text. The pagination/toolbar meta text (outside
 # the grid) uses the shared `text-muted-foreground`.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-table-global-cell-border-color

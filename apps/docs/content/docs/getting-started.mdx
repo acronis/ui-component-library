@@ -18,7 +18,7 @@ npm install @spec-lab/ui-react react react-dom
 ## Import the styles
 
 Import the stylesheet once, at your application's entry point. It bundles the
-Tailwind layer, the base `--ui-*` tokens from `@spec-lab/tokens-pd`, and
+Tailwind layer, the base `--ui-*` tokens from `@spec-lab/tokens`, and
 every component's token tier:
 
 ```tsx
@@ -70,12 +70,11 @@ active scheme with the `data-theme` attribute on a root element:
 
 ## Brands
 
-`acronis` is the default brand. Layer another brand by importing its override
-stylesheet after the base styles (last import wins):
+`acronis` is the default brand; every other brand ships in the same bundle. Switch
+brand with the `data-brand` attribute on a root element — no extra import:
 
-```tsx
-import '@spec-lab/ui-react/styles';
-import '@spec-lab/tokens-pd/css/deep-sky.css';
+```html
+<html data-brand="deep-sky"></html>
 ```
 
 See [Theming](/theming) for the full model.

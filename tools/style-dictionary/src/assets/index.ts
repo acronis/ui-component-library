@@ -2,5 +2,10 @@
 // build through `buildAssetsForFilter`; everything else (resolver, executor,
 // codegen) is internal and imported directly by tests.
 
-export { ASSET_FILTERS, buildAssetsForFilter, type AssetFilter, type BuildAssetsOptions } from './pipeline';
-export { listPackNames } from './read';
+export {
+  ASSET_FILTERS,
+  buildAssetsForFilter,
+  type AssetFilter,
+  type BuildAssetsOptions,
+} from './pipeline';
+export { designAssetsAvailable, listPackNames } from './read';

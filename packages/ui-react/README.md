@@ -1,8 +1,8 @@
 # @spec-lab/ui-react
 
 The next-generation Constructor Lab React component library — a **Base UI**
-implementation, themed by [`@spec-lab/tokens-pd`](../tokens-pd)
-(generated from [`@spec-lab/design-tokens`](../design-tokens)).
+implementation, themed by [`@spec-lab/tokens`](../tokens)
+(generated from [`@spec-lab/tokens`](../tokens)).
 
 > Early days: this package is being built out component by component. See
 > [`AGENTS.md`](./AGENTS.md) for conventions.
@@ -33,16 +33,13 @@ export function Example() {
 theme at runtime:
 
 ```css
-/* base brand */
+/* one import ships every brand + both themes */
 @import '@spec-lab/ui-react/styles';
-
-/* optional: layer another brand override on top */
-@import '@spec-lab/tokens-pd/css/deep-sky.css';
 ```
 
 ```html
-<!-- light/dark mode -->
-<html data-theme="dark"></html>
+<!-- brand + light/dark are attributes; no extra import -->
+<html data-brand="deep-sky" data-theme="dark"></html>
 ```
 
 Light/dark is driven by `light-dark()` + `color-scheme`; `dark:` utilities are

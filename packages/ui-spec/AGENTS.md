@@ -38,7 +38,7 @@ validated against JSON Schemas in `schema/`.
 
 `tokens.yaml` lists **only token names** (`--ui-button-primary-background-idle`),
 the part each affects, and a description. **It must not restate values** — those
-live in `@spec-lab/tokens-pd` (generated from `@spec-lab/design-tokens`).
+live in `@spec-lab/tokens` (generated from `@spec-lab/tokens`).
 The token-schema forbids a `value`/`default` key to enforce this. This is the
 single-source-of-truth rule that keeps specs from drifting from the design data.
 

@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: Switch
 
-# References only — values live in @spec-lab/tokens-pd. Track fill is
+# References only — values live in @spec-lab/tokens. Track fill is
 # wired per checked-state (off / on); the design's hover/active stops equal idle,
 # so only idle + disabled are referenced. Box/thumb geometry comes from layout
 # utilities, not tokens.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── track fill (off / on) ──

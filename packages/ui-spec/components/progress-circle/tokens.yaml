@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: ProgressCircle
 
-# References only. Values live in @spec-lab/tokens-pd. No
+# References only. Values live in @spec-lab/tokens. No
 # `--ui-progress-circle-*` tier — the arc reuses the shared status colors, the
 # track the border token, and the center label the surface foreground.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - {

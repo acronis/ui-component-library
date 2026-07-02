@@ -1,11 +1,11 @@
 # Migration plan — next-gen component token tier
 
-**Status:** IN PROGRESS — token layer (emitter + `tokens-pd`) and the Switch /
+**Status:** IN PROGRESS — token layer (emitter + `tokens`) and the Switch /
 Tooltip consumers + kitchen-sink are **done & committed** on branch
 `chore/sync-tokens-figma`; the rest of the ui-react re-theme is tracked as a
 follow-up (see §9). Design intent below is unchanged.
-**Owner workspace of the core change:** `packages/design-tokens` (emitter) +
-`tools/style-dictionary` (router/partition) → ripples into `packages/tokens-pd`
+**Owner workspace of the core change:** `packages/tokens` (emitter) +
+`tools/style-dictionary` (router/partition) → ripples into `packages/tokens`
 (generated) and `packages/ui-react` (consumers).
 **Date:** 2026-06-12.
 
@@ -13,7 +13,7 @@ This plan describes how the Constructor Lab UI Kit adopts the Figma **next-gen c
 token tier** (`brand.components`, PascalCase, 447 leaves) and retires the
 flattened legacy tier (`brand.componentLegacy`, now 27 leaves: `icon`, `tree`).
 It is grounded in the live snapshot at
-`packages/design-tokens/.tmp/figma-tokens/variables.tokens.json` and the current
+`packages/tokens/.tmp/figma-tokens/variables.tokens.json` and the current
 pipeline code; every claim below cites the file it came from.
 
 ---
@@ -27,13 +27,13 @@ The snapshot has **already migrated** in Figma:
 Checkbox, Input, MenuItem, SidebarPrimary, SidebarSecondary, Switch, Tag,
 Tooltip` (447 leaves).
 
-But the emitter has **not** migrated. `packages/design-tokens/.tmp/scripts/figma-to-components.mjs`
+But the emitter has **not** migrated. `packages/tokens/.tmp/scripts/figma-to-components.mjs`
 line 63 still sources `source.brand?.componentLegacy`. Consequently the
-committed `packages/design-tokens/tiers/components.json` in the working tree
+committed `packages/tokens/tiers/components.json` in the working tree
 **already contains only `icon` and `tree`** — every other component's `--ui-*`
-tokens have effectively been dropped. A `tokens-pd` rebuild against this snapshot
+tokens have effectively been dropped. A `tokens` rebuild against this snapshot
 would delete the `button`, `switch`, `tag`, `breadcrumb`, `tooltip`,
-`menu-item`, `sidebar` CSS dirs (`packages/tokens-pd/css/*`), breaking every
+`menu-item`, `sidebar` CSS dirs (`packages/tokens/css/*`), breaking every
 `packages/ui-react` component that binds `var(--ui-<component>-*)`.
 
 So this is **not** a green-field addition; it is a forced re-platform of the
@@ -148,7 +148,7 @@ Net contract examples after Option A + the two normalizations:
 --ui-tag-md-container-height           (new)
 ```
 
-This is a **breaking** change to `tokens-pd`'s `--ui-*` surface (§6).
+This is a **breaking** change to `tokens`'s `--ui-*` surface (§6).
 
 ---
 
@@ -258,14 +258,14 @@ The snapshot has **only `Constructor Lab`** in `brand.components` (verified — 
 in the next-gen tier yet). The data-driven mode loop (line 135) already iterates
 whatever modes exist, so this needs no code change, but it means **next-gen
 component tokens will have no `brand-b` override** until Figma adds the Brand B
-mode. The `tokens-pd` brand-override diff (which diffs brand-b against acronis)
+mode. The `tokens` brand-override diff (which diffs brand-b against acronis)
 will therefore emit empty/near-empty `css/<component>/brand-b.css` for the
 migrated components. Flag in §8 — is shipping acronis-only next-gen components
 acceptable for v1?
 
 ---
 
-## 3. tokens-pd / style-dictionary impact
+## 3. tokens / style-dictionary impact
 
 The router is `tools/style-dictionary/src/tailwind.ts` (`routeColor`, lines
 116–135) and partition is by `token.path[0]` (`sliceOf`, line 26).
@@ -311,9 +311,9 @@ string` token falls through and is silently dropped from the preset. For CSS
    drops a leading `colors` segment only — component roots are untouched, so
    `--ui-<component>-<rest>` falls out naturally.
 
-4. **Drift gate.** `tokens-pd` generated output is committed and CI fails on
+4. **Drift gate.** `tokens` generated output is committed and CI fails on
    drift. The PR that lands the emitter rework MUST also regenerate and commit all
-   of `packages/tokens-pd/{css,tailwind,dtcg}/**` in the same change.
+   of `packages/tokens/{css,tailwind,dtcg}/**` in the same change.
 
 ---
 
@@ -387,11 +387,11 @@ This is the largest blast-radius phase and should be **one PR per component**
 
 ## 6. token-contract / changeset implications
 
-1. **Breaking.** Per `packages/design-tokens/context/token-contract.md`, removing
+1. **Breaking.** Per `packages/tokens/context/token-contract.md`, removing
    or renaming a `--ui-*` token is **breaking**, and removing a component entry
    point (`css/<x>.css`) is breaking. This migration renames the entire component
    `--ui-*` surface and removes `chip`/`form` entry points → a **breaking** bump
-   on both `@spec-lab/design-tokens` and `@spec-lab/tokens-pd`.
+   on both `@spec-lab/tokens` and `@spec-lab/tokens`.
    Pre-1.0, that's a **minor** per the repo's convention (PR #266 uses the same
    `!`/minor framing). Use a `!`-marked conventional commit + changesets for both
    packages, with a migration note enumerating the rename map.
@@ -400,7 +400,7 @@ This is the largest blast-radius phase and should be **one PR per component**
    bindings change.
 3. **Provide a rename map** in the changeset body (old `--ui-*` → new `--ui-*`)
    so external consumers can migrate. Generate it mechanically by diffing the old
-   vs new `tokens-pd/css` custom-property names.
+   vs new `tokens/css` custom-property names.
 
 ### 6.3 PR #266 — recommendation (human decides)
 
@@ -444,7 +444,7 @@ phases on the same indent level can parallelize.
 
 **Phase 1 — Land #266 semantic/primitive/tooling parts** (§6.3). →
 
-**Phase 2 — Emitter rework** (`design-tokens`). The unblock.
+**Phase 2 — Emitter rework** (`tokens`). The unblock.
 
 - Rewrite `figma-to-components.mjs` per §2 (source switch, case-aware kebab,
   faithful nesting, `color`-word drop, `textStyle`→typography, string
@@ -453,14 +453,14 @@ phases on the same indent level can parallelize.
 - Update `lib/alias-map.mjs` (gradient + typography `has()` branches),
   `lib/typography-map.mjs` reuse, delete dead `GLOBAL_SCOPE`/regroup machinery.
 - Re-emit `tiers/components.json`; `validate` green. PR includes the regenerated
-  tier only (no tokens-pd yet, to keep the diff reviewable) **or** combine with
+  tier only (no tokens yet, to keep the diff reviewable) **or** combine with
   Phase 3 if reviewers prefer one buildable unit. → depends on Phase 1.
 
-**Phase 3 — tokens-pd / style-dictionary** (`tools/style-dictionary` + committed
-`tokens-pd`).
+**Phase 3 — tokens / style-dictionary** (`tools/style-dictionary` + committed
+`tokens`).
 
 - Decide component-Tailwind-utility fate (§3.1 — recommend drop). Add string-token
-  CSS emission (§3.2). Regenerate and commit all of `tokens-pd/{css,tailwind,
+  CSS emission (§3.2). Regenerate and commit all of `tokens/{css,tailwind,
 dtcg}`. Drift gate green. → depends on Phase 2.
 
 **Phase 4 — ui-react per-component re-theme** (one PR per component; parallelizable
@@ -478,7 +478,7 @@ Connect. → depends on Phase 3.
 **Phase 6 — docs + changesets finalize.**
 
 - `apps/docs` token/component pages; the rename-map migration note; ensure
-  changesets on `design-tokens`, `tokens-pd`, `ui-react`. → trails Phase 4/5.
+  changesets on `tokens`, `tokens`, `ui-react`. → trails Phase 4/5.
 
 Parallelization: Phase 0 (design) runs alongside Phase 1. Within Phase 4, every
 component PR is independent. Phase 5 can begin per-component.
@@ -537,7 +537,7 @@ and the precise remaining work, superseding the §7 phasing where they differ
   `lib/alias-map.mjs` gained the `{semantics.gradients.ai.*}` → `colors.background.ai.*`
   rewrite and `textStyle` → `typography.*` normalization. `tiers/components.json`
   re-emitted: **466 leaves**, 11 next-gen components + retained `icon`/`tree`.
-- **Phase 3 — tokens-pd** (`a478fd9`). All `css/`, `tailwind/`, `dtcg/` regenerated.
+- **Phase 3 — tokens** (`a478fd9`). All `css/`, `tailwind/`, `dtcg/` regenerated.
   `brand-b` dropped entirely (its semantic values were removed upstream in
   `a34581f`) — no `brand-b.css` / presets emitted anymore. Tailwind builder skips
   unroutable deep component roles (`box`/`tick`/`container`) with a warning;

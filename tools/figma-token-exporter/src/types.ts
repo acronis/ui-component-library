@@ -1,6 +1,6 @@
 // Shapes exchanged between the Figma plugin (plugin/code.js) and the Node
 // converter/receiver. The plugin emits the raw payload; the converter turns it
-// into the DTCG snapshot the design-tokens emitters consume.
+// into the DTCG snapshot the tokens emitters consume.
 
 export interface FigmaRgba {
   r: number;
@@ -14,7 +14,12 @@ export interface FigmaVariableAlias {
   id: string;
 }
 
-export type FigmaVariableValue = number | string | boolean | FigmaRgba | FigmaVariableAlias;
+export type FigmaVariableValue =
+  | number
+  | string
+  | boolean
+  | FigmaRgba
+  | FigmaVariableAlias;
 
 export type FigmaResolvedType = 'COLOR' | 'FLOAT' | 'STRING' | 'BOOLEAN';
 

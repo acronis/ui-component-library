@@ -3,7 +3,7 @@
 - **Status:** Proposed (not yet adopted)
 - **Date:** 2026-06-28
 - **Owner:** Leonid Romanov
-- **Affects:** `packages/ui-spec`, `packages/ui-react`, `packages/tokens-pd`,
+- **Affects:** `packages/ui-spec`, `packages/ui-react`, `packages/tokens`,
   the `ui-kit-pipeline` workflow, and the AI skill set.
 - **Builds on:** `packages/ui-spec/context/component-specs-proposal.md`
   (the framework-agnostic specs + grammar proposal already on file).
@@ -64,7 +64,7 @@ recur.
 
 **Non-goals**
 
-- Re-implementing tokens (we have `tokens-pd`) or replacing VR (we extend it).
+- Re-implementing tokens (we have `tokens`) or replacing VR (we extend it).
 - Importing the Vue kit's code or Vue-specific shape — we adopt the _model_.
 - Pixel-perfect Figma parity enforcement (we diff and report, not block on it).
 
@@ -74,7 +74,7 @@ We already have layers 1–2 and a partial 3. This proposal completes 3 and adds
 
 | Layer       | Question                            | Today                                    | This proposal                      |
 | ----------- | ----------------------------------- | ---------------------------------------- | ---------------------------------- |
-| **Tokens**  | what values                         | `tokens-pd` (`--ui-*`)                   | unchanged                          |
+| **Tokens**  | what values                         | `tokens` (`--ui-*`)                      | unchanged                          |
 | **Specs**   | what a component is                 | `ui-spec/components/*` (7-file)          | unchanged                          |
 | **Grammar** | how components must agree & compose | `ui-spec/patterns/*` (compositions only) | **add a rule registry**            |
 | **Screens** | how a product is assembled          | —                                        | **add screen descriptors + audit** |
@@ -168,7 +168,7 @@ only). `S` = default severity (`must`/`should`/`may`).
 | #   | Inconsistency                                     | D   | S      |
 | --- | ------------------------------------------------- | --- | ------ |
 | X1  | ui-react variant set ≠ legacy ≠ Figma ≠ Vue spec  | ref | should |
-| X2  | Token **value** drift (Figma vs `tokens-pd`)      | ref | must   |
+| X2  | Token **value** drift (Figma vs `tokens`)         | ref | must   |
 | X3  | Component present in a reference but missing here | ref | may    |
 
 The checklist is **append-only by the feedback loop** (§8): every new audit

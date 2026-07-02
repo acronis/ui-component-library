@@ -1,5 +1,5 @@
 // Turn an ExportPayload into the `.tmp/figma-tokens/` snapshot files the
-// design-tokens sync emitters consume, and write them to disk.
+// tokens sync emitters consume, and write them to disk.
 //
 // Files written (matching context/figma-sync.md):
 //   variables.tokens.json — DTCG export (consumed by all three emitters)
@@ -16,7 +16,7 @@ import type { ExportPayload, RawVariable, VariableMetaEntry } from './types.js';
 
 // tools/figma-token-exporter/src/ → repo root is three levels up.
 export const DEFAULT_OUT_DIR = fileURLToPath(
-  new URL('../../../packages/design-tokens/.tmp/figma-tokens/', import.meta.url),
+  new URL('../../../packages/tokens/.tmp/figma-tokens/', import.meta.url)
 );
 
 function buildMeta(payload: ExportPayload): Record<string, VariableMetaEntry> {
@@ -42,7 +42,10 @@ export interface WriteResult {
   files: string[];
 }
 
-export function writeSnapshot(payload: ExportPayload, outDir: string = DEFAULT_OUT_DIR): WriteResult {
+export function writeSnapshot(
+  payload: ExportPayload,
+  outDir: string = DEFAULT_OUT_DIR
+): WriteResult {
   mkdirSync(outDir, { recursive: true });
 
   const variablesTokens = buildDtcgTree(convertPayloadToDocument(payload));

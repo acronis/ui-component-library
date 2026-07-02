@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: Link
 
-# References only — values live in @spec-lab/tokens-pd. The `--ui-link-*`
+# References only — values live in @spec-lab/tokens. The `--ui-link-*`
 # tier wires text color, text decoration, and the external-icon color per state; the
 # focus ring uses the shared `--ui-focus-primary` token.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Layout ──

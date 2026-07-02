@@ -56,7 +56,7 @@ useEffect(() => {
 ## Theming
 
 Colors, sizes, the gradient border, and typography come from the
-`--ui-search-global-*` token tier in `@spec-lab/tokens-pd` (generated from
-`@spec-lab/design-tokens`) and resolve per brand/theme — see `tokens.yaml`.
+`--ui-search-global-*` token tier in `@spec-lab/tokens` (generated from
+`@spec-lab/tokens`) and resolve per brand/theme — see `tokens.yaml`.
 The border is a brand gradient, applied with a padding-box / border-box background
 rather than `border-color`. Don't hard-code values.

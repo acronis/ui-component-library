@@ -29,6 +29,6 @@
 
 ## Contrast
 
-- Color pairs come from `@spec-lab/tokens-pd` and are maintained against
+- Color pairs come from `@spec-lab/tokens` and are maintained against
   WCAG AA at the design-token level. The disabled treatment uses dedicated
   disabled tokens rather than an opacity dim, so contrast stays predictable.

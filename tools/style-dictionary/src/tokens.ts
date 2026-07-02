@@ -1,10 +1,10 @@
 // The token build domain: the two Style Dictionary stages that turn
-// @spec-lab/design-tokens into the published `@spec-lab/tokens-pd`
+// @spec-lab/tokens into the published `@spec-lab/tokens`
 // CSS. `index.ts` (the CLI) dispatches here; the SD hooks these stages share live
 // in `hooks/`.
 //
 //   1. buildDtcg (`<filter>-dtcg`) — read the Constructor Lab token files and emit six
-//      per-mode, 100%-DTCG JSON files into `tokens-pd/dtcg/`. Serialized from
+//      per-mode, 100%-DTCG JSON files into `tokens/dtcg/`. Serialized from
 //      `normalizeTree` directly, NOT via an SD format: SD's init normalization
 //      relocates `$type`, which would break the intermediate's "every token
 //      self-describing, references intact" contract. See context/pipeline.md.
@@ -21,21 +21,35 @@ import { fileURLToPath } from 'node:url';
 import StyleDictionary from 'style-dictionary';
 import type { Config, TransformedToken } from 'style-dictionary/types';
 
+import { emitTailwindTheme } from './bridge/tailwind-theme';
 import { STATIC_HOOKS } from './hooks';
-import { isEmittableToken } from './hooks/filters/semantic-only';
-import { collectDecls, type Decls, serializeCss } from './hooks/formats/css-light-dark';
+import { isPrimitiveToken } from './hooks/filters/semantic-only';
+import {
+  type BrandOverride,
+  collectDecls,
+  type Decls,
+  serializeSlice,
+  type StyleModel,
+  type WriteFile,
+} from './hooks/formats/css-light-dark';
 import { normalizeTree } from './hooks/preprocessors/acronis-dtcg';
 import { ACRONIS_CSS_GROUP } from './hooks/transforms';
+import { emitJs } from './js';
 import {
-  componentFile,
+  componentCssFile,
   cssDir,
   dtcgDir,
   FILTER_ENUM,
   type Filter,
+  indexCssFile,
+  jsDir,
   type PlatformKey,
+  primitivesCssFile,
   rel,
-  semanticsFile,
+  scssDir,
+  semanticsCssFile,
 } from './platforms';
+import { emitScss } from './scss';
 
 // ── Sources ──────────────────────────────────────────────────────────────────
 
@@ -44,9 +58,9 @@ type TokenTree = Record<string, unknown>;
 
 /** The three source token files, addressed via the package's `exports`. */
 const TOKEN_SOURCES = {
-  primitives: '@spec-lab/design-tokens/tiers/primitives.json',
-  semantics: '@spec-lab/design-tokens/tiers/semantics.json',
-  components: '@spec-lab/design-tokens/tiers/components.json',
+  primitives: '@spec-lab/tokens/tiers/primitives.json',
+  semantics: '@spec-lab/tokens/tiers/semantics.json',
+  components: '@spec-lab/tokens/tiers/components.json',
 } as const;
 
 type TokenSourceName = keyof typeof TOKEN_SOURCES;
@@ -67,7 +81,9 @@ function readTokenSource(name: TokenSourceName): TokenTree {
  */
 export function semanticRoots(): Set<string> {
   return new Set(
-    Object.keys(readTokenSource('semantics')).filter((key) => !key.startsWith('$'))
+    Object.keys(readTokenSource('semantics')).filter(
+      (key) => !key.startsWith('$')
+    )
   );
 }
 
@@ -95,7 +111,8 @@ export function tailwindRoleMap(
       | undefined;
     const roles = ext?.['com.acronis.tailwindRoles'];
     if (roles)
-      for (const [segment, namespace] of Object.entries(roles)) map.set(segment, namespace);
+      for (const [segment, namespace] of Object.entries(roles))
+        map.set(segment, namespace);
   }
   return map;
 }
@@ -143,7 +160,7 @@ export function collectValueKeys(node: unknown, into: Set<string>): void {
  * Discover the brand set from the token data — the union of `values` keys across
  * the brand-bearing tiers (semantic + components). `DEFAULT_BRAND` is emitted in
  * full and listed first; the rest are alphabetical. The brand set is
- * data-driven: adding a brand mode in `@spec-lab/design-tokens` adds a
+ * data-driven: adding a brand mode in `@spec-lab/tokens` adds a
  * brand here (and a generated `<brand>.css`) with **no code change**.
  */
 export function discoverBrands(): string[] {
@@ -154,7 +171,10 @@ export function discoverBrands(): string[] {
       `Default brand "${DEFAULT_BRAND}" has no token values in ${BRAND_TIERS.join(' / ')}`
     );
   }
-  return [DEFAULT_BRAND, ...[...keys].filter((b) => b !== DEFAULT_BRAND).sort()];
+  return [
+    DEFAULT_BRAND,
+    ...[...keys].filter((b) => b !== DEFAULT_BRAND).sort(),
+  ];
 }
 
 /** The discovered brand set (data-driven). */
@@ -215,7 +235,8 @@ const sortKeysDeep = (value: unknown): unknown => {
     return a < b ? -1 : a > b ? 1 : 0;
   });
   const out: Record<string, unknown> = {};
-  for (const k of entries) out[k] = sortKeysDeep((value as Record<string, unknown>)[k]);
+  for (const k of entries)
+    out[k] = sortKeysDeep((value as Record<string, unknown>)[k]);
   return out;
 };
 
@@ -234,14 +255,18 @@ export function buildDtcg(filter: Filter): void {
   }
 
   for (const view of VIEWS) {
-    const tree = normalizeTree(sources[view.source], view.mode, FILTER_ENUM[filter]);
+    const tree = normalizeTree(
+      sources[view.source],
+      view.mode,
+      FILTER_ENUM[filter]
+    );
     const dest = path.join(outDir, `${view.out}.json`);
     writeFileSync(dest, `${JSON.stringify(sortKeysDeep(tree), null, 2)}\n`);
     console.log(`✓ ${rel(dest)}`);
   }
 }
 
-// ── Stage 2: css ─────────────────────────────────────────────────────────────
+// ── Stage 2: css / scss / js ─────────────────────────────────────────────────
 
 const readView = (name: string): Config['tokens'] =>
   JSON.parse(readFileSync(path.join(dtcgDir(), `${name}.json`), 'utf8'));
@@ -261,112 +286,188 @@ const cssConfig = (filter: Filter, brand: Brand, theme: Theme): Config => {
   };
 };
 
-/** Resolve a brand+theme to its transformed, emittable tokens (primitives dropped). */
-export async function resolveTokens(
+/**
+ * Resolve a brand+theme to ALL transformed tokens (primitives included — they are
+ * now emitted as the theme layer, and their names are needed to resolve `{alias}`
+ * references into `var()`).
+ */
+export async function resolveAllTokens(
   filter: Filter,
   brand: Brand,
   theme: Theme
 ): Promise<TransformedToken[]> {
   const sd = makeSd(cssConfig(filter, brand, theme));
   const { allTokens } = await sd.getPlatformTokens(`${filter}-css`);
-  return allTokens.filter(isEmittableToken);
+  return allTokens;
 }
 
-/** Resolve a theme to a `path → value` map of its color tokens (already `rgb()`). */
-export async function resolveColorMap(
-  filter: Filter,
-  brand: Brand,
-  theme: Theme
-): Promise<Map<string, string>> {
-  const tokens = await resolveTokens(filter, brand, theme);
-  return new Map(
+/** path (`a.b.c`) → resolved color value, across every color token of a resolve. */
+const colorMap = (tokens: TransformedToken[]): Map<string, string> =>
+  new Map(
     tokens
-      .filter((t) => t.$type === 'color')
+      .filter((t) => t.$type === 'color' && typeof t.$value === 'string')
       .map((t) => [t.path.join('.'), t.$value as string])
   );
-}
 
-// The semantics tier (one root file per brand) vs the component tier (one dir per
-// component). Tokens partition by their first path segment; the semantic roots are
-// data-driven (see `semanticRoots`), so a new root (e.g. `gradients`) needs no edit.
+// Slice routing: `primitives` (the raw value / theme layer), `semantics` (the
+// shared vocabulary root file), or a component name (its own file). Semantic roots
+// are data-driven (see `semanticRoots`), so a new root needs no edit.
 const SEMANTIC_ROOTS = semanticRoots();
-const sliceOf = (token: TransformedToken): string =>
-  SEMANTIC_ROOTS.has(token.path[0]) ? 'semantics' : token.path[0];
-const sliceFile = (slice: string, brand: string): string =>
-  slice === 'semantics' ? semanticsFile(brand) : componentFile(slice, brand);
-
-const emptyDecls = (): Decls => ({ vars: new Map(), classes: new Map(), skipped: [] });
+const sliceOf = (token: TransformedToken): string => {
+  if (isPrimitiveToken(token)) return 'primitives';
+  return SEMANTIC_ROOTS.has(token.path[0]) ? 'semantics' : token.path[0];
+};
 
 /** Override-only maps: entries that differ from (or are absent in) the base. */
-export function diffDecls(base: Decls, brand: Decls): Pick<Decls, 'vars' | 'classes'> {
+export function diffDecls(
+  base: Decls,
+  brand: Decls
+): Pick<Decls, 'vars' | 'classes'> {
   const vars = new Map<string, string>();
-  for (const [name, value] of brand.vars) {
+  for (const [name, value] of brand.vars)
     if (base.vars.get(name) !== value) vars.set(name, value);
-  }
   const classes = new Map<string, string>();
-  for (const [selector, block] of brand.classes) {
+  for (const [selector, block] of brand.classes)
     if (base.classes.get(selector) !== block) classes.set(selector, block);
-  }
   return { vars, classes };
 }
 
-/** Remove the generated CSS tree (`tokens-pd/css/`) before a rebuild. */
-function cleanCssOutputs(): void {
-  rmSync(cssDir(), { recursive: true, force: true });
-}
+const emptyDecls = (): Decls => ({
+  vars: new Map(),
+  classes: new Map(),
+  skipped: [],
+});
 
-export async function buildCss(filter: Filter): Promise<void> {
-  cleanCssOutputs();
+/** Resolve all brands into the reference-based style model. */
+async function buildModel(filter: Filter): Promise<StyleModel> {
+  const base = BRANDS.find((b) => b.name === DEFAULT_BRAND);
+  if (!base)
+    throw new Error(`Default brand "${DEFAULT_BRAND}" is not in the brand set`);
 
-  // brand → slice → resolved declarations.
+  // Names + the primitive theme layer come from the default brand (names are
+  // brand/theme-invariant; the palette is brand-invariant, theme-keyed).
+  const baseLight = await resolveAllTokens(filter, base, 'light');
+  const baseDark = await resolveAllTokens(filter, base, 'dark');
+  const pathToName = new Map(baseLight.map((t) => [t.path.join('.'), t.name]));
+  const darkColors = colorMap(baseDark);
+  const collectOpts = { pathToName, darkColors };
+
+  const primitives = collectDecls(baseLight.filter(isPrimitiveToken), {
+    ...collectOpts,
+    themeLayer: true,
+  });
+
+  // Per brand: collect the non-primitive decls, partitioned by slice.
   const perBrand = new Map<string, Map<string, Decls>>();
   for (const brand of BRANDS) {
-    const darkColors = await resolveColorMap(filter, brand, 'dark');
-    const tokens = await resolveTokens(filter, brand, 'light');
-
+    const tokens =
+      brand.name === DEFAULT_BRAND
+        ? baseLight
+        : await resolveAllTokens(filter, brand, 'light');
     const bySlice = new Map<string, TransformedToken[]>();
     for (const token of tokens) {
+      if (isPrimitiveToken(token)) continue;
       const slice = sliceOf(token);
       const bucket = bySlice.get(slice);
       if (bucket) bucket.push(token);
       else bySlice.set(slice, [token]);
     }
-
     const decls = new Map<string, Decls>();
-    for (const [slice, toks] of bySlice) decls.set(slice, collectDecls(toks, darkColors));
+    for (const [slice, toks] of bySlice)
+      decls.set(
+        slice,
+        collectDecls(toks, { ...collectOpts, themeLayer: false })
+      );
     perBrand.set(brand.name, decls);
   }
 
-  const write = (dest: string, content: string): void => {
+  // Surface unrepresentable tokens (e.g. a malformed typography value in the
+  // source tiers) so a data defect isn't silently dropped from the output.
+  const skipped = [
+    ...primitives.skipped,
+    ...[...perBrand.entries()].flatMap(([brand, byslice]) =>
+      [...byslice.values()].flatMap((d) =>
+        d.skipped.map((s) => `${brand}: ${s}`)
+      )
+    ),
+  ];
+  if (skipped.length) {
+    console.warn(
+      `⚠ ${skipped.length} token(s) skipped as unrepresentable (check the source tiers):\n  ` +
+        skipped.join('\n  ')
+    );
+  }
+
+  const baseDecls = perBrand.get(DEFAULT_BRAND) ?? new Map<string, Decls>();
+  const nonDefault = BRANDS.filter((b) => b.name !== DEFAULT_BRAND);
+
+  const slices = [...baseDecls.keys()].sort().map((tier) => {
+    const sliceBase = baseDecls.get(tier) ?? emptyDecls();
+    const overrides: BrandOverride[] = nonDefault.map((brand) => {
+      const d = perBrand.get(brand.name)?.get(tier) ?? emptyDecls();
+      const { vars, classes } = diffDecls(sliceBase, d);
+      return { brand: brand.name, vars, classes };
+    });
+    return { tier, base: sliceBase, overrides };
+  });
+
+  return { primitives, slices };
+}
+
+/** Remove the generated style trees (`css/`, `scss/`, `js/`) before a rebuild. */
+function cleanStyleOutputs(): void {
+  for (const dir of [cssDir(), scssDir(), jsDir()])
+    rmSync(dir, { recursive: true, force: true });
+}
+
+export async function buildCss(filter: Filter): Promise<void> {
+  cleanStyleOutputs();
+  const model = await buildModel(filter);
+
+  const write: WriteFile = (dest, content) => {
     mkdirSync(path.dirname(dest), { recursive: true });
     writeFileSync(dest, content);
     console.log(`✓ ${rel(dest)}`);
   };
 
-  // Default brand: full files.
-  const baseDecls = perBrand.get(DEFAULT_BRAND) ?? new Map<string, Decls>();
-  for (const [slice, d] of baseDecls) {
+  // primitives.css — the theme layer (raw values + light-dark()).
+  write(
+    primitivesCssFile(),
+    serializeSlice({
+      tier: 'primitives',
+      themeLayer: true,
+      base: model.primitives,
+      overrides: [],
+    })
+  );
+
+  // semantics.css + one file per component (all brands inside via selectors).
+  const componentTiers: string[] = [];
+  for (const { tier, base, overrides } of model.slices) {
+    if (tier !== 'semantics') componentTiers.push(tier);
     write(
-      sliceFile(slice, DEFAULT_BRAND),
-      serializeCss({ brand: DEFAULT_BRAND, tier: slice, isOverride: false, vars: d.vars, classes: d.classes })
+      tier === 'semantics' ? semanticsCssFile() : componentCssFile(tier),
+      serializeSlice({ tier, themeLayer: false, base, overrides })
     );
   }
 
-  // Other brands: override-only files for every slice (default's slices + any
-  // brand-only slice), so every brand exposes the same stable set of imports.
-  for (const brand of BRANDS) {
-    if (brand.name === DEFAULT_BRAND) continue;
-    const decls = perBrand.get(brand.name) ?? new Map<string, Decls>();
-    const slices = new Set([...baseDecls.keys(), ...decls.keys()]);
-    for (const slice of slices) {
-      const { vars, classes } = diffDecls(
-        baseDecls.get(slice) ?? emptyDecls(),
-        decls.get(slice) ?? emptyDecls()
-      );
-      write(
-        sliceFile(slice, brand.name),
-        serializeCss({ brand: brand.name, tier: slice, isOverride: true, vars, classes })
-      );
-    }
-  }
+  // index.css — the single-import manifest.
+  const imports = [
+    `@import './primitives.css';`,
+    `@import './semantics.css';`,
+    ...componentTiers.sort().map((c) => `@import './components/${c}.css';`),
+  ];
+  write(
+    indexCssFile(),
+    `/* Generated by @spec-lab/style-dictionary — DO NOT EDIT. */\n` +
+      `/* The whole token kit in one import: primitives + semantics + components. */\n\n` +
+      `${imports.join('\n')}\n`
+  );
+
+  // The Tailwind v4 @theme inline bridge (shadcn-compatible color names).
+  emitTailwindTheme(model, write);
+
+  // SCSS mirror + JS token map (same model, no re-resolve).
+  emitScss(model, write);
+  emitJs(model, write);
 }

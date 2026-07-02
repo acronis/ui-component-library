@@ -27,13 +27,13 @@ defined deprecation path.
    composites before data/complex components, so higher-order components always
    have their building blocks.
 3. **Theming on the new pipeline.** Brand themes are **generated CSS exports**
-   from `design-tokens` → `tokens-pd` (built by `tools/style-dictionary`), paired
+   from `tokens` → `tokens` (built by `tools/style-dictionary`), paired
    with the new icon/illustration **assets**, not hand-authored SCSS. Brand set
    = the legacy brand family **plus any new brand Figma introduces** — generation
    is data-driven, so a new Figma brand needs no code change.
    _Amended 2026-06-10 (see [`e1-theme-delivery.md`](./e1-theme-delivery.md)):_
    the runtime model is `--ui-*` + `[data-theme]` + `light-dark()` (as already
-   shipped in `tokens-pd`), **not** the legacy `--av-*` + class toggle; and
+   shipped in `tokens`), **not** the legacy `--av-*` + class toggle; and
    white-label brands are authored as **full Figma brand modes**, not generated
    by a color-derivation script.
 4. **Timeline — Q3 2026 (Jul–Sep).** Consumers need a usable set of base
@@ -47,7 +47,7 @@ defined deprecation path.
    non-text indicators). Supported browsers for v1 and per-component DoD
    verification: **Chrome 123+ · Edge 123+ · Firefox 120+ · Safari 17.5+**
    (desktop), matching the `light-dark()` + `color-scheme` token delivery
-   baseline used by `tokens-pd`.
+   baseline used by `tokens`.
 6. **Legacy → `ui-react` migration path (issue #194).** For E6/v1, migration is
    **manual-first via the guide (#184)**. In-repo automation scope is limited to
    optional, targeted codemod recipes (for low-risk import/symbol rewrites), not
@@ -57,15 +57,15 @@ defined deprecation path.
 
 ## Current state (baseline)
 
-| Area             | Package                                         | Version | Maturity                                              |
-| ---------------- | ----------------------------------------------- | ------- | ----------------------------------------------------- |
-| Legacy lib       | `shadcn-uikit` (`ui-legacy`)                    | 0.36.3  | Mature — 82 components → **freeze**                   |
-| **Next-gen lib** | `ui-react`                                      | 0.54.0  | **~62 components in tree** (Tier 1–3 broadly covered) |
-| Tokens           | `design-tokens`                                 | 1.9.0   | DTCG JSON, Figma-synced, ajv-validated                |
-| Token artifacts  | `tokens-pd` (built by `tools/style-dictionary`) | 1.9.0   | Per-brand CSS + Tailwind presets                      |
-| Icons            | `icons-react`                                   | 0.5.0   | Generated from assets                                 |
-| Assets           | `design-assets`                                 | 0.4.0   | Manifests + binaries                                  |
-| Apps             | demo · docs · demos                             | 0.1–0.4 | Scaffolded showcases                                  |
+| Area             | Package                                      | Version | Maturity                                              |
+| ---------------- | -------------------------------------------- | ------- | ----------------------------------------------------- |
+| Legacy lib       | `shadcn-uikit` (`ui-legacy`)                 | 0.36.3  | Mature — 82 components → **freeze**                   |
+| **Next-gen lib** | `ui-react`                                   | 0.54.0  | **~62 components in tree** (Tier 1–3 broadly covered) |
+| Tokens           | `tokens`                                     | 1.9.0   | DTCG JSON, Figma-synced, ajv-validated                |
+| Token artifacts  | `tokens` (built by `tools/style-dictionary`) | 1.9.0   | Per-brand CSS + Tailwind presets                      |
+| Icons            | `icons-react`                                | 0.5.0   | Generated from assets                                 |
+| Assets           | `design-assets`                              | 0.4.0   | Manifests + binaries                                  |
+| Apps             | demo · docs · demos                          | 0.1–0.4 | Scaffolded showcases                                  |
 
 **Where the plan now stands:** ui-react has grown from 2 to **~62 components**
 (virtually all have a Vitest test and a Storybook story; ~60 carry Figma Code
@@ -86,7 +86,7 @@ ui-react components render `--ui-*` custom properties, so the token/theme
 contract must be stable before the component ladder accelerates. Implementation
 plan: [`e1-theme-delivery.md`](./e1-theme-delivery.md).
 
-- [ ] **Theme delivery (#172)** — `tokens-pd` ships per-brand CSS exports
+- [ ] **Theme delivery (#172)** — `tokens` ships per-brand CSS exports
       (`--ui-*`, `[data-theme]` + `light-dark()`), consumed by `ui-react` via
       `@theme inline` (Tailwind CSS v4 theme directive that maps CSS custom properties into theme tokens at build time; see https://tailwindcss.com/docs/theme#referencing-other-variables).
       Generation is already wired; remaining work is consumer ergonomics + the
@@ -96,12 +96,12 @@ plan: [`e1-theme-delivery.md`](./e1-theme-delivery.md).
       discovery shipped, PR #258). Brand set = the legacy brand family **plus any
       new brand Figma introduces**; track light/dark per brand. Remaining work is
       authoring the legacy brands as **full Figma modes** + sync.
-      See `packages/design-tokens/context/brand-matrix.md`.
+      See `packages/tokens/context/brand-matrix.md`.
 - [ ] **White-label fonts per brand** (#101) — brand-scoped font tokens + fallback stack.
 - [ ] **New assets wired to themes** (#175) — icon/illustration assets paired per brand.
 - [x] **Token contract & versioning** (#176) — define what a breaking token change is; how
-      `design-tokens` semver maps to `tokens-pd` and consumers.
-      See `packages/design-tokens/context/token-contract.md`.
+      `tokens` semver maps to `tokens` and consumers.
+      See `packages/tokens/context/token-contract.md`.
 - [ ] **Style Dictionary hardening** — test coverage for normalization, light-dark,
       gradients, brand scoping (partly done).
 - [ ] **Design context → design-grammar package** (#88) — relocate design context.
@@ -169,7 +169,7 @@ Depends on Tier 1–2 primitives (Tooltip, Dropdown, Checkbox, Scroll Area).
 
 - [x] Code Connect rollout beyond Button — ~60 `*.figma.tsx` across shipped ui-react components
 - [ ] Figma connect template (#87)
-- [ ] Document/automate one-way token sync (Figma → `design-tokens`)
+- [ ] Document/automate one-way token sync (Figma → `tokens`)
 - [ ] design-to-code workflow guidance for contributors
 
 ### E5 — Icons & assets · #106
@@ -212,7 +212,7 @@ Ratified v1.0 criteria (#191):
 - **Accessibility bar:** WCAG 2.1 AA and browser matrix from #193 applied to
   shipped components/docs and per-component DoD verification.
 - **Stable token contract:** E1 token contract/versioning (#176) is in force for
-  `design-tokens` → `tokens-pd` → `ui-react`, with no unresolved breaking-contract
+  `tokens` → `tokens` → `ui-react`, with no unresolved breaking-contract
   gaps for the v1 component surface.
 
 ## Sequencing (calendar — today is 2026-06-05)

@@ -1,14 +1,18 @@
 // Local receiver for the Constructor Lab Token Exporter Figma plugin.
 //
 // Listens on http://localhost:3333 and accepts a POSTed ExportPayload from the
-// plugin's UI iframe, then writes the design-tokens snapshot into
-// packages/design-tokens/.tmp/figma-tokens/. Keeps running so you can re-export
+// plugin's UI iframe, then writes the tokens snapshot into
+// packages/tokens/.tmp/figma-tokens/. Keeps running so you can re-export
 // without restarting; stop with Ctrl-C.
 //
 //   pnpm --filter @spec-lab/figma-token-exporter receive
 //   pnpm --filter @spec-lab/figma-token-exporter receive -- --port 4444
 
-import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
+import {
+  createServer,
+  type IncomingMessage,
+  type ServerResponse,
+} from 'node:http';
 import { writeSnapshot, DEFAULT_OUT_DIR } from './write-snapshot.js';
 import type { ExportPayload } from './types.js';
 
@@ -77,7 +81,8 @@ const server = createServer(async (req, res) => {
   try {
     raw = await readBody(req);
   } catch (err) {
-    const tooLarge = err instanceof Error && err.message === 'Payload too large';
+    const tooLarge =
+      err instanceof Error && err.message === 'Payload too large';
     sendJson(res, tooLarge ? 413 : 400, {
       ok: false,
       error: tooLarge ? 'Payload too large.' : 'Could not read request body.',
@@ -94,7 +99,10 @@ const server = createServer(async (req, res) => {
     return;
   }
   if (payload?.exporter !== 'acronis-figma-token-exporter') {
-    sendJson(res, 400, { ok: false, error: 'Unrecognized payload (missing exporter marker).' });
+    sendJson(res, 400, {
+      ok: false,
+      error: 'Unrecognized payload (missing exporter marker).',
+    });
     return;
   }
 
@@ -106,21 +114,31 @@ const server = createServer(async (req, res) => {
     console.log(
       `\n✓ Wrote snapshot from "${payload.fileName}" ` +
         `(${payload.variables.length} variables, ${payload.collections.length} collections, ` +
-        `${payload.orphanVariables.length} resolved orphans, ${payload.textStyles.length} text styles):`,
+        `${payload.orphanVariables.length} resolved orphans, ${payload.textStyles.length} text styles):`
     );
     for (const f of files) console.log(`  ${f}`);
     console.log('\nReady for the next export, or Ctrl-C to stop.');
 
     sendJson(res, 200, { ok: true, files });
   } catch (error) {
-    console.error('✗ Failed to write snapshot:', error instanceof Error ? (error.stack ?? error.message) : String(error));
-    sendJson(res, 500, { ok: false, error: 'Internal error writing the snapshot — see the receiver logs.' });
+    console.error(
+      '✗ Failed to write snapshot:',
+      error instanceof Error ? (error.stack ?? error.message) : String(error)
+    );
+    sendJson(res, 500, {
+      ok: false,
+      error: 'Internal error writing the snapshot — see the receiver logs.',
+    });
   }
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-  console.log(`Constructor Lab Token Exporter receiver listening on http://localhost:${PORT}`);
+  console.log(
+    `Constructor Lab Token Exporter receiver listening on http://localhost:${PORT}`
+  );
   console.log(`Writes into: ${DEFAULT_OUT_DIR}`);
-  console.log('In Figma: run the "Constructor Lab Token Exporter" plugin, then click "Send snapshot to repo".');
+  console.log(
+    'In Figma: run the "Constructor Lab Token Exporter" plugin, then click "Send snapshot to repo".'
+  );
   console.log('Leave this running; Ctrl-C to stop.\n');
 });

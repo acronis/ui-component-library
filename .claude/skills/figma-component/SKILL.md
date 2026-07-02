@@ -58,7 +58,7 @@ bash .claude/skills/component-readiness/scripts/audit.sh <ComponentName>   # or 
 
 - **`--update` an existing component:** run the gate on **that component first**.
   A `DRIFT` verdict means the update must include the token rewire (dead names →
-  current `tokens-pd` tier, missing `@import` in `styles/index.css`), not just the
+  current `tokens` tier, missing `@import` in `styles/index.css`), not just the
   design refresh. Don't layer new work on a silently-broken baseline.
 - **New component:** run it on `all` (or skip — there's nothing to audit yet) to
   confirm you're not about to build alongside pre-existing drift you'd be blamed
@@ -66,7 +66,7 @@ bash .claude/skills/component-readiness/scripts/audit.sh <ComponentName>   # or 
   flag them to the user.
 
 This gate fills the issue-#297 gap: `ui-spec test` validates token-name _shape_
-but never that the names _exist_ in `tokens-pd`, so drift otherwise passes CI.
+but never that the names _exist_ in `tokens`, so drift otherwise passes CI.
 
 ---
 
@@ -109,42 +109,43 @@ Write down, from the design:
 ## Phase 2 — Map design → tokens & primitives (decide before coding)
 
 **Tokens.** Color/spacing must resolve to a generated `--ui-*` token from
-`@spec-lab/tokens-pd`. Check it exists:
+`@spec-lab/tokens`. Check it exists:
 
 ```bash
-grep -rn "<component>" packages/tokens-pd/css --include="*.css" -i
+grep -rn "<component>" packages/tokens/css --include="*.css" -i
 ```
 
 - If the tokens exist (e.g. `--ui-breadcrumb-link-label-color-idle`), reference
   them directly: `text-[var(--ui-breadcrumb-link-label-color-idle)]`, `hover:…`, etc.
-- If a **shared** color is missing, bridge a Tailwind name in
-  `packages/ui-react/src/styles/index.css` (`@theme inline`).
+- If a **shared** color is missing, add it to the generated `@theme inline`
+  bridge map (`tools/style-dictionary/src/bridge/tailwind-theme.ts`) and rebuild
+  `@spec-lab/tokens` — not to `index.css`.
 - If **component-specific** tokens are missing entirely, they belong upstream
-  in `@spec-lab/design-tokens` → rebuild `tokens-pd`. **Do not
+  in `@spec-lab/tokens` → rebuild `tokens`. **Do not
   hand-author hex values** in the component. Flag this to the user.
 
 Wire **each interaction state to its own token** (`hover:` → `*-hover`,
 `disabled:` → `*-disabled`) even when the idle value happens to match — brand
 overrides only honor the referenced token.
 
-> **On `--update`, re-verify every token ref against the _current_ tokens-pd.**
+> **On `--update`, re-verify every token ref against the _current_ tokens.**
 > A missing CSS var is a **silent** failure — `var(--does-not-exist)` makes the
 > property invalid and the element falls back to inherited color; nothing fails
 > the build, typecheck, or lint. A token-sync (e.g. the `/sync-tokens` flow) can
 > rename tokens out from under a shipped component, leaving it referencing dead
 > names. So when updating, grep each ref and confirm it still resolves:
-> `for t in $(grep -oE 'ui-[a-z-]+' src/components/ui/<name>/<name>.tsx | sort -u); do grep -qF -- "--$t" packages/tokens-pd/css/<Tier>/acronis.css && echo "OK $t" || echo "MISS $t"; done`
+> `for t in $(grep -oE 'ui-[a-z-]+' src/components/ui/<name>/<name>.tsx | sort -u); do grep -qrF -- "--$t" packages/tokens/css/ && echo "OK $t" || echo "MISS $t"; done`
 > Don't forget the **spec** (`ui-spec/components/<name>/tokens.yaml` +
 > `anatomy.yaml`) and the **tests** — both pin token names and drift the same way.
 > (Worked example: the 2025-06 next-gen sync renamed `--ui-breadcrumb-link` →
 > `--ui-breadcrumb-link-label-color-idle`; the component kept the old name and
 > rendered links uncolored until re-themed.)
 
-> **tokens-pd component tiers are opt-in.** `src/styles/index.css` imports the
-> semantic tier (`css/acronis.css`) plus one `@import '…/css/<component>/acronis.css'`
-> per shipped component. A new component with its own tier (`--ui-<name>-*`) will
-> render **unstyled** until you add its tier import there. Verify the token is
-> defined: `grep -rn "<name>" packages/tokens-pd/css/<name>/acronis.css`.
+> **The whole token kit ships in one import.** `src/styles/index.css` does a single
+> `@import '@spec-lab/tokens/css'` — primitives + semantics + every component tier
+> (each new `--ui-<name>-*` tier lands in `css/components/<Name>.css` and is
+> included automatically). Verify a token is defined:
+> `grep -rn "<name>" packages/tokens/css/`.
 
 **Primitive.** Prefer a `@base-ui/react` primitive when one exists (check
 `node_modules/@base-ui/react/`). For anything stateful/interactive (dialog,
@@ -218,7 +219,7 @@ reality** — the legacy specs describe the Vue API).
 | `index.yaml`       | `component` PascalCase, `name` kebab, `status`, `category`, `since`, `figma.node`, `figma.codeConnect`.          |
 | `anatomy.yaml`     | `root` (element/role), `parts` (each id used in the `schematic`!), `layout`, `states`.                           |
 | `api.yaml`         | `contract` (properties/events/content/methods) + `adapters` (react `implemented`; vue/web-components `planned`). |
-| `tokens.yaml`      | **Names only**, `^--ui-…$`. No values/defaults — they live in tokens-pd.                                         |
+| `tokens.yaml`      | **Names only**, `^--ui-…$`. No values/defaults — they live in tokens.                                            |
 | `behavior.md`      | Given/When/Then scenarios.                                                                                       |
 | `accessibility.md` | ARIA, keyboard, screen reader, contrast.                                                                         |
 | `README.md`        | When to use / not use, examples, parts table.                                                                    |

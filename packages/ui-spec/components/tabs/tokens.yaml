@@ -1,15 +1,15 @@
 spec_version: '1.0'
 component: Tabs
 
-# References only. Values live in @spec-lab/tokens-pd (generated from
-# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time.
 # Design-pending v1: no `--ui-tabs-*` component tier yet, so the segmented
 # triggers consume the shared *semantic* brand tokens (via bridged Tailwind names
 # border-secondary / text-secondary / bg-secondary / text-secondary-foreground),
 # plus a direct focus-ring ref. NB the brand action blue is `brand-secondary`
 # (the same blue Button uses); `brand-primary` is the dark navy and is not used.
 # Replace with a `--ui-tabs-*` tier if/when a Figma pass introduces one.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - {

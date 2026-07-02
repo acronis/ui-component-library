@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Alert
 
-# References only. Values live in @spec-lab/tokens-pd. Reconciled with the
+# References only. Values live in @spec-lab/tokens. Reconciled with the
 # Figma design: a full border in the saturated status color, a pale status
 # surface, foreground text, and only the icon tinted with the status color. Each
 # variant maps to its pair below; the ai variant has no `strong` surface token so
 # its border/icon use the solid ai text token.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-text-on-surface-primary

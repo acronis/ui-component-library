@@ -1,9 +1,9 @@
 spec_version: '1.0'
 component: PageHeader
 
-# References only. Values live in @spec-lab/tokens-pd. Only the muted
+# References only. Values live in @spec-lab/tokens. Only the muted
 # breadcrumb/description carry color; the title inherits the foreground.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-text-on-surface-secondary

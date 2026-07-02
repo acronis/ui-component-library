@@ -9,7 +9,7 @@
 #   bash .claude/skills/component-readiness/scripts/audit.sh [ComponentName | kebab-name | all]
 #
 # Columns:
-#   TOKENS    every --ui-* ref (.tsx + tests + stories + spec) resolves in tokens-pd
+#   TOKENS    every --ui-* ref (.tsx + tests + stories + spec) resolves in tokens
 #   IMPORTS   every referenced component tier is @import-ed in ui-react styles/index.css
 #   SPEC      ui-spec 7-file set present
 #   TESTS     __tests__/<name>.test.tsx present
@@ -27,7 +27,7 @@ cd "$ROOT" || exit 1
 
 UI=packages/ui-react/src/components/ui
 SPEC=packages/ui-spec/components
-TOKENS=packages/tokens-pd/css
+TOKENS=packages/tokens/css
 STYLES=packages/ui-react/src/styles/index.css
 
 to_kebab() { printf '%s' "$1" | sed -E 's/([a-z0-9])([A-Z])/\1-\2/g' | tr '[:upper:]' '[:lower:]'; }
@@ -39,7 +39,7 @@ else
   comps=$(to_kebab "$arg")
 fi
 
-# Every --ui-* token DEFINED in tokens-pd (union across tiers + brands).
+# Every --ui-* token DEFINED in tokens (union across tiers + brands).
 defined="$(mktemp)"
 grep -rho -- '--ui-[a-z0-9-]*' "$TOKENS" | sort -u > "$defined"
 
@@ -71,17 +71,12 @@ for c in $comps; do
                 | grep -v -- '-$' | sort -u)"
   prose_stale="$(comm -23 <(printf '%s\n' "$prose_refs" | sort -u) "$defined" 2>/dev/null)"
 
-  # ---- IMPORTS: each referenced component tier is imported in styles/index.css ----
+  # ---- IMPORTS: the token bundle is imported in styles/index.css ----
+  # @spec-lab/tokens ships the whole kit in ONE import (@spec-lab/tokens/css) —
+  # primitives + semantics + every component tier — so per-component import checks
+  # are obsolete: if the bundle is imported, every component's tokens are defined.
   miss_imp=""
-  while read -r t; do
-    [ -z "$t" ] && continue
-    tier="$(grep -rl -- "$t:" "$TOKENS"/*/acronis.css 2>/dev/null | head -1 \
-            | sed -E "s|$TOKENS/([^/]+)/acronis.css|\1|")"
-    [ -z "$tier" ] && continue   # base/shared token (css/acronis.css) — always imported
-    grep -qF "css/$tier/acronis.css" "$STYLES" || miss_imp="$miss_imp $tier"
-  done < "$refs"
-  miss_imp="$(printf '%s' "$miss_imp" | tr ' ' '\n' | sort -u | tr '\n' ' ' | sed 's/^ *//;s/ *$//')"
-  if [ -z "$miss_imp" ]; then imp=PASS; else imp=FAIL; fi
+  if grep -qF "@spec-lab/tokens/css" "$STYLES"; then imp=PASS; else imp=FAIL; miss_imp="@spec-lab/tokens/css"; fi
 
   # ---- SPEC: 7-file set present ----
   spec_missing=""

@@ -1,13 +1,16 @@
 import * as React from 'react';
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
-import { ChevronRightIcon, EllipsisIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ChevronRightIcon,
+  EllipsisIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
 // Composable breadcrumb primitives mirroring the Figma "Breadcrumb" component.
 // Colors are wired to the next-gen `--ui-breadcrumb-*` tokens from
-// @spec-lab/tokens-pd: links use `--ui-breadcrumb-link-label-color-<state>`
+// @spec-lab/tokens: links use `--ui-breadcrumb-link-label-color-<state>`
 // (idle gray, darkening on hover/active), the current page uses
 // `--ui-breadcrumb-page-label-color`, and the chevron separator uses
 // `--ui-breadcrumb-separator-icon-color` sized by `--ui-breadcrumb-separator-icon-size`
@@ -64,8 +67,7 @@ const BreadcrumbItem = React.forwardRef<
 ));
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
-export interface BreadcrumbLinkProps
-  extends React.ComponentPropsWithoutRef<'a'> {
+export interface BreadcrumbLinkProps extends React.ComponentPropsWithoutRef<'a'> {
   /**
    * Replace the rendered `<a>` with another element or component (e.g. a
    * router `Link`) via Base UI composition.

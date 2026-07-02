@@ -87,5 +87,5 @@ registry are seeded first (Phase 0).
 | #   | Inconsistency                                     | Detect | Sev    |
 | --- | ------------------------------------------------- | ------ | ------ |
 | X1  | Variant set ≠ legacy ≠ Figma ≠ Vue spec           | ref    | should |
-| X2  | Token value drift (Figma vs tokens-pd)            | ref    | must   |
+| X2  | Token value drift (Figma vs tokens)               | ref    | must   |
 | X3  | Component present in a reference but missing here | ref    | may    |

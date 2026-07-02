@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Chip
 
-# References only. Values live in @spec-lab/tokens-pd (generated from
-# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time.
 # Chip binds the dedicated `--ui-chips-*` tier: container geometry, the
 # idle/hover/active container fill + border colors, the label color, and the
 # icon color/size. The focus ring reuses the shared `--ui-focus-primary`.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Geometry (root) ──

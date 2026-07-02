@@ -1,14 +1,14 @@
 spec_version: '1.0'
 component: Button
 
-# References only. Values live in @spec-lab/tokens-pd (generated from
-# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time.
 # The token schema forbids a value/default key here — never restate values.
 # Names mirror the next-gen `components/Button/*` Figma variables: the color
 # tokens carry an explicit `-color-` segment (`…-container-color-idle`), border
 # colors are `…-container-border-color-<state>`, and shared box metrics live
 # under `--ui-button-global-container-*` / `-icon-size`.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Shared geometry / typography (root) ──

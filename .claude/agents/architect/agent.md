@@ -26,13 +26,13 @@ Tailwind v4. Monorepo managed with pnpm workspaces + Changesets. No Vue.
 - `packages/ui-legacy` — published shadcn library; uses a little Radix + Base UI.
 - `packages/icons-react` — **generated** from `design-assets`; design the
   generator, not the output.
-- `packages/design-tokens` → `design-theme` → consuming libraries — the theming
+- `packages/tokens` → `design-theme` → consuming libraries — the theming
   pipeline. Token decisions belong upstream, not in components.
 
 ## Key constraints to design around
 
 - **No breaking changes** to published component APIs without an ADR.
-- **Token flow is one-directional:** `design-tokens` (raw DTCG) →
+- **Token flow is one-directional:** `tokens` (raw DTCG) →
   `design-theme` (generated CSS/SCSS/JS) → library `@theme` bridge → component
   utilities. Never design a component that forks theme values locally.
 - **Base UI composition:** polymorphism via `useRender` + `mergeProps` (`render`

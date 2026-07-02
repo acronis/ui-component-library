@@ -34,29 +34,28 @@ distinct role:
 
 ## Workspaces
 
-| Path                          | Package                          | Published? | Stack                                                                                                            | Workspace docs                                    |
-| ----------------------------- | -------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `packages/ui-legacy/`         | `@spec-lab/shadcn-uikit`         | **yes**    | Vite library, Storybook 10, Vitest + RTL                                                                         | [AGENTS.md](packages/ui-legacy/AGENTS.md)         |
-| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**    | Base UI library, Vite, Storybook 10, Vitest + RTL, Tailwind v4                                                   | [AGENTS.md](packages/ui-react/AGENTS.md)          |
-| `packages/ui-spec/`           | `@spec-lab/ui-spec`              | no         | Framework-agnostic component specs (YAML/MD) + cva conformance, Vitest, ajv-validated                            | [AGENTS.md](packages/ui-spec/AGENTS.md)           |
-| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `icons-svg-next`, Vite, Storybook, Vitest                                             | [AGENTS.md](packages/icons-react/AGENTS.md)       |
-| `packages/icons-svg-next/`    | `@spec-lab/icons-svg-next`       | no         | Raw SVG sources for the **next-gen** icon set (Figma `icon-packs` strategy)                                      | [AGENTS.md](packages/icons-svg-next/AGENTS.md)    |
-| `apps/demo/`                  | `@spec-lab/shadcn-uikit-demo`    | no         | Vite SPA, React Router v7, Zustand                                                                               | [AGENTS.md](apps/demo/AGENTS.md)                  |
-| `apps/docs/`                  | `@spec-lab/uikit-docs`           | no         | Next.js 15 + Fumadocs                                                                                            | [AGENTS.md](apps/docs/AGENTS.md)                  |
-| `apps/demos/`                 | `@spec-lab/shadcn-uikit-demos`   | no         | source-only (no build, no dev server)                                                                            | [AGENTS.md](apps/demos/AGENTS.md)                 |
-| `packages/design-tokens/`     | `@spec-lab/design-tokens`        | **yes**    | JSON data only (DTCG-2025.10 design tokens), ajv-validated                                                       | [AGENTS.md](packages/design-tokens/AGENTS.md)     |
-| `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**    | JSON data only (icon/illustration manifests + binaries), ajv-validated                                           | [AGENTS.md](packages/design-assets/AGENTS.md)     |
-| `packages/tokens-pd/`         | `@spec-lab/tokens-pd`            | **yes**    | Generated (committed) CSS + Tailwind presets + DTCG, built by the tool                                           | [AGENTS.md](packages/tokens-pd/AGENTS.md)         |
-| `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no         | Style Dictionary v5 build: design-tokens → tokens-pd CSS/presets                                                 | [AGENTS.md](tools/style-dictionary/AGENTS.md)     |
-| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg-next` (tsx, Vitest)                                    | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
-| `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no         | Self-hosted Figma plugin + local receiver: exports variables/styles → the `design-tokens` snapshot (tsx, Vitest) | [AGENTS.md](tools/figma-token-exporter/AGENTS.md) |
+| Path                          | Package                          | Published? | Stack                                                                                                               | Workspace docs                                    |
+| ----------------------------- | -------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `packages/ui-legacy/`         | `@spec-lab/shadcn-uikit`         | **yes**    | Vite library, Storybook 10, Vitest + RTL                                                                            | [AGENTS.md](packages/ui-legacy/AGENTS.md)         |
+| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**    | Base UI library, Vite, Storybook 10, Vitest + RTL, Tailwind v4                                                      | [AGENTS.md](packages/ui-react/AGENTS.md)          |
+| `packages/ui-spec/`           | `@spec-lab/ui-spec`              | no         | Framework-agnostic component specs (YAML/MD) + cva conformance, Vitest, ajv-validated                               | [AGENTS.md](packages/ui-spec/AGENTS.md)           |
+| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `icons-svg-next`, Vite, Storybook, Vitest                                                | [AGENTS.md](packages/icons-react/AGENTS.md)       |
+| `packages/icons-svg-next/`    | `@spec-lab/icons-svg-next`       | no         | Raw SVG sources for the **next-gen** icon set (Figma `icon-packs` strategy)                                         | [AGENTS.md](packages/icons-svg-next/AGENTS.md)    |
+| `apps/demo/`                  | `@spec-lab/shadcn-uikit-demo`    | no         | Vite SPA, React Router v7, Zustand                                                                                  | [AGENTS.md](apps/demo/AGENTS.md)                  |
+| `apps/docs/`                  | `@spec-lab/uikit-docs`           | no         | Next.js 15 + Fumadocs                                                                                               | [AGENTS.md](apps/docs/AGENTS.md)                  |
+| `apps/demos/`                 | `@spec-lab/shadcn-uikit-demos`   | no         | source-only (no build, no dev server)                                                                               | [AGENTS.md](apps/demos/AGENTS.md)                 |
+| `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**    | JSON data only (icon/illustration manifests + binaries), ajv-validated                                              | [AGENTS.md](packages/design-assets/AGENTS.md)     |
+| `packages/tokens/`            | `@spec-lab/tokens`               | **yes**    | DTCG source tiers + generated (committed) CSS/SCSS/JS + Tailwind bridge, built by the tool                          | [AGENTS.md](packages/tokens/AGENTS.md)            |
+| `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no         | Style Dictionary v5 build: `@spec-lab/tokens` tiers → CSS/SCSS/JS                                                   | [AGENTS.md](tools/style-dictionary/AGENTS.md)     |
+| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg-next` (tsx, Vitest)                                       | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
+| `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no         | Self-hosted Figma plugin + local receiver: exports variables/styles → the `@spec-lab/tokens` snapshot (tsx, Vitest) | [AGENTS.md](tools/figma-token-exporter/AGENTS.md) |
 
 `packages/` holds the published workspaces:
 
 - `packages/ui-legacy/` — the published shadcn-based UI library.
 - `packages/ui-react/` houses the published next-generation **Base UI**
   library (`@base-ui/react` as a direct dep), themed by
-  `@spec-lab/tokens-pd`. New component work goes here.
+  `@spec-lab/tokens`. New component work goes here.
 - `packages/ui-spec/` — **private** framework-agnostic component specs for
   the kit (the 7-file YAML/MD format). Validates each spec against JSON
   Schemas and checks `cva` variant/size conformance against the `ui-react`
@@ -69,22 +68,25 @@ distinct role:
   with the fetcher's `icon-packs` selection strategy. No build; it is the
   generated source for `@spec-lab/icons-react`. Synced via its `pull-icons`
   script or the `Fetch Figma Icons (next)` workflow.
-- `packages/design-tokens/` and `packages/design-assets/` — the published
-  **design-data** packages. These ship JSON (and, for assets, bundled
-  binaries) only: no build step, no runtime API. Their one real script
-  is `validate` (ajv); `build`/`dev`/`clean`/`lint`/`typecheck` are
-  no-ops and `test` aliases `validate`.
-- `packages/tokens-pd` ships the consumable token artifacts (per-brand CSS,
-  per-component CSS, Tailwind presets, DTCG). It has **no build logic of its own**
-  — its `build` delegates to `tools/style-dictionary`, which writes the generated
-  (and committed) output into the package.
+- `packages/design-assets/` — a published **design-data** package. Ships JSON +
+  bundled binaries only: no build step, no runtime API. Its one real script is
+  `validate` (ajv); `build`/`dev`/`clean`/`lint`/`typecheck` are no-ops and
+  `test` aliases `validate`.
+- `packages/tokens/` — the published tokens package (**merges the former
+  `design-tokens` source + `tokens-pd` output**). It holds the DTCG source
+  `tiers/*.json` (ajv-`validate`d) **and** the generated, committed
+  `css/` + `scss/` + `js/` + `dtcg/`. Its `build` delegates to
+  `tools/style-dictionary`. The CSS is **reference-based**: `css/primitives.css`
+  is the sole raw-value/`light-dark()` theme layer; semantics and per-component
+  tiers are `var(--…)` references. Brand = `[data-brand]`, light/dark =
+  `[data-theme]`; one import (`@spec-lab/tokens/css`) pulls in everything.
 
 `tools/` holds private (unpublished) build tooling:
 
 - `tools/style-dictionary/` — a Style Dictionary v5 translation pipeline
-  that builds `@spec-lab/design-tokens` into per-brand CSS custom
-  properties. Its real script is `build`; output lands in a gitignored
-  `dist/`.
+  that builds `@spec-lab/tokens`'s DTCG tiers into the package's generated
+  (committed) reference-based `css/`, `scss/`, and `js/` (+ the Tailwind bridge).
+  Its real script is `build`; asset output lands in a gitignored `dist/`.
 - `tools/figma-icons-fetcher/` — fetches SVG icons from a Figma file,
   SVGO-optimizes them, and writes them (with JSON manifests + mono/multicolor
   categorization) into `packages/icons-svg-next`. Node selection is pluggable
@@ -93,7 +95,7 @@ distinct role:
   `pull-icons` script.
 - `tools/figma-token-exporter/` — a **self-hosted Figma plugin + local
   receiver** that exports design-token variables/styles into
-  `packages/design-tokens/.tmp/figma-tokens/` (the snapshot the sync emitters
+  `packages/tokens/.tmp/figma-tokens/` (the snapshot the sync emitters
   consume). It replaces the third-party figma-console Desktop Bridge for the
   bulk token pull; its `src/convert.ts` faithfully ports figma-console's
   variable→DTCG serialization so the snapshot stays a drop-in. Run the receiver
@@ -155,14 +157,14 @@ that workspace**, never here.
   note. Companion task breakdowns: `context/backlog-p2-primitives.md`,
   `context/backlog-p3-p4.md`.
 - `context/e1-theme-delivery.md` — E1 theme-delivery implementation proposal:
-  how the theme-delivery work gets built on the shipped `tokens-pd` pipeline, and
+  how the theme-delivery work gets built on the shipped `tokens` pipeline, and
   what's reused from the legacy stack.
 - `context/project-board.md` — inherited operating model (epic/task model, status
   lifecycle + gates, fields, views, automation) for when the board is recreated in
   this repo; not yet set up here.
 - `context/next-gen-components-migration.md` — migrating the component token tier
   to Figma's next-gen `brand.components` (Option A naming, emitter rework,
-  tokens-pd impact, ui-react per-component re-theme). §9 tracks execution status,
+  tokens impact, ui-react per-component re-theme). §9 tracks execution status,
   the remaining ui-react backlog, and the Radio/Search/Select token gap.
 - `packages/ui-spec/context/component-specs-proposal.md` — the proposal behind
   `packages/ui-spec`: framework-agnostic component specs + a machine-readable

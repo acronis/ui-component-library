@@ -17,8 +17,7 @@ The flow applies to every published workspace:
   (primary)
 - `@spec-lab/shadcn-uikit` — the legacy library (`ui-legacy`)
 - `@spec-lab/icons-react`
-- `@spec-lab/tokens-pd`
-- `@spec-lab/design-tokens`
+- `@spec-lab/tokens`
 - `@spec-lab/design-assets`
 
 The `apps/` and `tools/` workspaces are private and never published (they are
@@ -109,11 +108,11 @@ npm config, or OIDC publishes will fail.
 
 These back the Release workflow — you rarely run them locally:
 
-| Script           | Runs               | Purpose                                  |
-| ---------------- | ------------------ | ---------------------------------------- |
-| `pnpm changeset` | `changeset`        | Add a changeset for your PR              |
-| `pnpm version`   | `changeset version`| Rewrite versions + changelogs (CI)       |
-| `pnpm release`   | `changeset publish`| Publish bumped packages to npm (CI)      |
+| Script           | Runs                | Purpose                             |
+| ---------------- | ------------------- | ----------------------------------- |
+| `pnpm changeset` | `changeset`         | Add a changeset for your PR         |
+| `pnpm version`   | `changeset version` | Rewrite versions + changelogs (CI)  |
+| `pnpm release`   | `changeset publish` | Publish bumped packages to npm (CI) |
 
 ## Usage after publishing
 

@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: AppShell
 
-# References only. Values live in @spec-lab/tokens-pd. The scaffold itself
+# References only. Values live in @spec-lab/tokens. The scaffold itself
 # is just surfaces + a header/footer divider; the sidebar/search bring their own
 # tokens.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-background-surface-primary

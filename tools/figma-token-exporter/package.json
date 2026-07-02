@@ -2,7 +2,7 @@
   "name": "@spec-lab/figma-token-exporter",
   "version": "0.1.0",
   "private": true,
-  "description": "Private build tool: a self-hosted Figma plugin + local receiver that exports design-token variables/styles into packages/design-tokens/.tmp/figma-tokens/ (the snapshot the sync emitters consume). Replaces the third-party figma-console Desktop Bridge for token pulls.",
+  "description": "Private build tool: a self-hosted Figma plugin + local receiver that exports design-token variables/styles into packages/tokens/.tmp/figma-tokens/ (the snapshot the sync emitters consume). Replaces the third-party figma-console Desktop Bridge for token pulls.",
   "type": "module",
   "exports": {
     "./convert": "./src/convert.ts",
@@ -21,7 +21,7 @@
   },
   "keywords": [
     "figma",
-    "design-tokens",
+    "tokens",
     "dtcg",
     "plugin",
     "acronis"

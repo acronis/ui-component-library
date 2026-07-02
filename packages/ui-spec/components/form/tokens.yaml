@@ -4,7 +4,7 @@ component: Form
 # Form has no tokens of its own — it's a native <form> that only adds a vertical
 # stack with gap. All color/typography comes from the Fields and controls it
 # composes (see the Field and InputBox specs). Values live in
-# @spec-lab/tokens-pd.
-source: '@spec-lab/tokens-pd'
+# @spec-lab/tokens.
+source: '@spec-lab/tokens'
 
 tokens: []

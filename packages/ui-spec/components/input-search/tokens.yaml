@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: InputSearch
 
-# References only — values live in @spec-lab/tokens-pd. The field
+# References only — values live in @spec-lab/tokens. The field
 # furniture (container, label, required) is owned by InputSearch; the box
 # geometry, fill, border, icon, value/placeholder, and clear come from the
 # composed `Search` box. All share the `--ui-input-search-*` tier.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Field container ──

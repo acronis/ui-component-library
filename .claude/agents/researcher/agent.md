@@ -22,7 +22,7 @@ Tailwind v4. pnpm monorepo; Changesets; Next.js + Fumadocs docs. No Vue.
 - Component APIs and variant sets across `packages/ui-react` and
   `packages/ui-legacy` (and the differences between the two).
 - Base UI primitive capabilities and composition (`useRender`/`mergeProps`).
-- The token pipeline: `design-tokens` → `design-theme` → library `@theme`
+- The token pipeline: `tokens` → `design-theme` → library `@theme`
   bridge → utilities.
 - Cross-workspace mechanics: the shared `apps/demos` Storybook alias, peer-dep
   layouts, the RSC `"use client"` manifest constraint in `apps/docs`.

@@ -1,0 +1,98 @@
+---
+title: tokens
+description: The Constructor Lab design tokens — DTCG source plus generated, reference-based CSS/SCSS/JS with brand + light/dark via selectors.
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+`@spec-lab/tokens` is the single tokens package. It holds both the **DTCG source
+tiers** (`tiers/*.json`) and the **generated, committed output** (`css/`, `scss/`,
+`js/`, `dtcg/`) built from them by the `tools/style-dictionary` pipeline — so
+consumers (and npm) get the output with no build step. (It supersedes the former
+`@spec-lab/design-tokens` + `@spec-lab/tokens-pd` split.)
+
+The CSS is **reference-based**: a value is stated once, at the layer that owns it,
+and everything downstream is a `var(--…)` reference — so brand and light/dark
+resolve at paint with no rebuild and no value duplication.
+
+## One import
+
+```css
+@import '@spec-lab/tokens/css';
+```
+
+`css/index.css` pulls in the whole kit: `primitives.css` + `semantics.css` +
+every `components/<Component>.css`. `@spec-lab/ui-react` already imports this when
+you load its styles entry, so most apps never import it directly.
+
+## The three layers
+
+- **`primitives.css`** — the raw value / theme layer: `--ui-palette-*`,
+  `--ui-units-*`, `--ui-font-*`. The **only** place `light-dark()` and concrete
+  color literals appear.
+- **`semantics.css`** — the shared vocabulary (`--ui-background-*`, `--ui-text-*`,
+  `--ui-border-*`, `--ui-glyph-*`, `--ui-focus-*`, `--ui-gradients-*`) + the
+  `.ui-typography-*` utility classes. Each token references a primitive.
+- **`components/<Component>.css`** — per-component tokens (e.g.
+  `--ui-button-global-radius`), each referencing a semantic or primitive.
+
+## Brand + light/dark are selectors
+
+Every brand and both themes are carried in the one bundle. Switch with attributes
+on any ancestor — no per-brand imports, no class toggles:
+
+```html
+<html data-brand="deep-sky" data-theme="dark"></html>
+```
+
+- **Light/dark** (`data-theme`) drives `color-scheme`, which resolves the
+  `light-dark()` pairs on the primitive layer (unset follows the OS preference).
+- **Brand** (`data-brand`) — the default brand renders under `:root`; every other
+  brand is an **override-only** block under `[data-brand='…']` (a declaration only
+  when its value differs from the default).
+
+## Tailwind bridge
+
+`css/tailwind-theme.css` is the generated Tailwind v4 `@theme inline` bridge — it
+maps shadcn-compatible color names (`bg-primary`, `text-muted-foreground`,
+`border-border`, …) onto the `--ui-*` semantic tokens as `var()` references, so
+brand/theme still resolve at paint. `@spec-lab/ui-react` imports it; a Tailwind app
+can too:
+
+```css
+@import '@spec-lab/tokens/css';
+@import '@spec-lab/tokens/css/tailwind-theme.css';
+```
+
+## SCSS and JS
+
+- **SCSS** — `@spec-lab/tokens/scss/mixins` exposes `@include tokens.ui-theme;`
+  (the full layer as a Sass mixin).
+- **JS** — `@spec-lab/tokens/js` exports a `tokens` map of each `--ui-*` name to
+  its `var(--…)` reference, for CSS-in-JS / inline styles.
+
+## The `--ui-*` naming convention
+
+Every CSS custom property is prefixed `ui` and the token path is flattened with
+hyphens; the `colors` tier root is dropped:
+
+| Token path                          | CSS variable                      |
+| ----------------------------------- | --------------------------------- |
+| `palette.blue.13`                   | `--ui-palette-blue-13`            |
+| `colors.background.surface.primary` | `--ui-background-surface-primary` |
+| `colors.text.on-surface.primary`    | `--ui-text-on-surface-primary`    |
+| `button._global.radius`             | `--ui-button-global-radius`       |
+
+## DTCG intermediate
+
+`dtcg/*.json` holds the per-mode, 100%-DTCG intermediate the CSS is generated from
+(e.g. `primitives-light.json`, `semantics-acronis.json`). Rarely consumed directly,
+but published for tools that prefer DTCG over CSS.
+
+<Callout type="warn">
+  The `css/`, `scss/`, `js/`, and `dtcg/` files are generated and carry a
+  DO-NOT-EDIT header. To change a value, edit a tier in `tiers/*.json` (or sync
+  from Figma) and rebuild — never hand-edit the output.
+</Callout>
+
+For how to apply these tokens in an app, see [Theming](/theming).

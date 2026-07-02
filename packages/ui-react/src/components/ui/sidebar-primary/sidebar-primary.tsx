@@ -11,7 +11,7 @@ import { ScrollArea } from '../scroll-area';
 // Composable SidebarPrimary primitives mirroring the Figma "SidebarPrimary"
 // component set (node 2092:4359, variant expanded|collapsed). Every color and
 // metric is wired to a next-gen `--ui-sidebar-primary-*` token from
-// @spec-lab/tokens-pd — no hex, no invented tokens.
+// @spec-lab/tokens — no hex, no invented tokens.
 //
 // expanded/collapsed is a width-reflow state, not a panel show/hide, so it is
 // modelled as a controlled/uncontrolled `expanded` prop (default true) that sets
@@ -72,8 +72,7 @@ function useControllableBoolean(
   return [value, setValue];
 }
 
-export interface SidebarPrimaryProps
-  extends React.ComponentPropsWithoutRef<'nav'> {
+export interface SidebarPrimaryProps extends React.ComponentPropsWithoutRef<'nav'> {
   /** Controlled expanded (rail width) state. */
   expanded?: boolean;
   /** Uncontrolled initial expanded state. Defaults to `true` (full width). */
@@ -261,7 +260,8 @@ const sidebarPrimaryMenuItemVariants = cva(
 );
 
 export interface SidebarPrimaryMenuItemProps
-  extends Omit<React.ComponentPropsWithoutRef<'a'>, 'children'>,
+  extends
+    Omit<React.ComponentPropsWithoutRef<'a'>, 'children'>,
     Omit<VariantProps<typeof sidebarPrimaryMenuItemVariants>, 'variant'> {
   /** Marks the current route: sets the `selected` variant + `aria-current="page"`. */
   selected?: boolean;
@@ -342,8 +342,7 @@ const SidebarPrimaryMenuItem = React.forwardRef<
 });
 SidebarPrimaryMenuItem.displayName = 'SidebarPrimaryMenuItem';
 
-export interface SidebarPrimaryMenuItemExtrasProps
-  extends React.ComponentPropsWithoutRef<'span'> {
+export interface SidebarPrimaryMenuItemExtrasProps extends React.ComponentPropsWithoutRef<'span'> {
   /** Which trailing affordance to render. */
   variant: 'tag' | 'externalLink' | 'shortcut' | 'tag-externalLink';
   /** Shortcut text (e.g. "⌘H") for the `shortcut` variant. */
@@ -390,8 +389,10 @@ const SidebarPrimaryMenuItemExtras = React.forwardRef<
 });
 SidebarPrimaryMenuItemExtras.displayName = 'SidebarPrimaryMenuItemExtras';
 
-export interface SidebarPrimaryCollapseTriggerProps
-  extends Omit<React.ComponentPropsWithoutRef<'button'>, 'children'> {
+export interface SidebarPrimaryCollapseTriggerProps extends Omit<
+  React.ComponentPropsWithoutRef<'button'>,
+  'children'
+> {
   /** Leading 16px icon (e.g. a panel-left glyph). */
   icon?: React.ReactNode;
   children?: React.ReactNode;

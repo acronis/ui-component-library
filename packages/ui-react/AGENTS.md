@@ -1,8 +1,8 @@
 # AGENTS.md — `packages/ui-react`
 
 `@spec-lab/ui-react` — the next-generation Constructor Lab React component
-library: a **Base UI implementation** themed by `@spec-lab/tokens-pd`
-(which is generated from `@spec-lab/design-tokens`).
+library: a **Base UI implementation** themed by `@spec-lab/tokens`
+(which is generated from `@spec-lab/tokens`).
 
 Repo-wide rules (TypeScript, file naming, editing rules, Conventional
 Commits, Changesets) live in the repo root's `./context/` and apply on
@@ -18,12 +18,13 @@ top of this file.
   dependency** (legacy treats it as an optional peer and mixes in Radix).
   Don't add Radix here. For element composition use Base UI's `useRender`
   - `mergeProps` (the `render` prop), not Radix `Slot` / `asChild`.
-- **Theming via generated tokens.** Color comes from
-  `@spec-lab/tokens-pd` (`--ui-*` CSS custom properties; light/dark via
-  `light-dark()` + the `[data-theme]` attribute). `src/styles/index.css` imports
-  `@spec-lab/tokens-pd/acronis.css` and bridges those onto Tailwind color
-  names via `@theme inline`. Don't hand-author theme values here — change them in
-  `@spec-lab/design-tokens` and rebuild `@spec-lab/tokens-pd`.
+- **Theming via generated tokens.** Color comes from `@spec-lab/tokens` (`--ui-*`
+  CSS custom properties; light/dark via `light-dark()` + `[data-theme]`, brand via
+  `[data-brand]`). `src/styles/index.css` imports the whole bundle in one line
+  (`@spec-lab/tokens/css`) plus the **generated** Tailwind bridge
+  (`@spec-lab/tokens/css/tailwind-theme.css`) that maps `--ui-*` onto Tailwind
+  color names. Don't hand-author theme values here — change a tier in
+  `@spec-lab/tokens` and rebuild.
 
 ## Shared conventions kept from legacy
 

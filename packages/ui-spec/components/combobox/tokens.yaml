@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: Combobox
 
-# References only. Values live in @spec-lab/tokens-pd. Combobox has no tier
+# References only. Values live in @spec-lab/tokens. Combobox has no tier
 # of its own — it reuses the `--ui-input-select-*` tokens so it matches InputSelect
 # (the non-searchable select). Listed here is a representative subset; the field
 # box, dropdown container, and items all draw from that tier.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-input-select-global-box-color-idle

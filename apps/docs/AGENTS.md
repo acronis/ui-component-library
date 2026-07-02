@@ -36,8 +36,8 @@ library is documented under a deprecated **Legacy** section
   pairs usage + code-snippet examples + `<AutoTypeTable>` with a **live
   `<DemoReact>`** preview (shadow-root isolated) — see "ui-react live demos"
   below. (They do **not** use the legacy `<DemoPreview>`.)
-- `content/docs/packages/` — the ecosystem section (`tokens-pd`, `icons-react`,
-  `design-tokens`, `design-assets`).
+- `content/docs/packages/` — the ecosystem section (`tokens`, `icons-react`,
+  `tokens`, `design-assets`).
 - `content/docs/legacy/` — the deprecated legacy library: a deprecation
   notice (`index.mdx`), the relocated legacy component pages
   (`legacy/components/`, ~50 files), and the legacy forms guide

@@ -2,8 +2,8 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 /**
- * Typography tokens are emitted by `@spec-lab/tokens-pd` as
- * `.ui-typography-*` utility classes (in `css/acronis.css`), not as custom
+ * Typography tokens are emitted by `@spec-lab/tokens` as
+ * `.ui-typography-*` utility classes (in `css/semantics.css`), not as custom
  * properties. This RSC reads that CSS at build time, parses each class rule and
  * its declarations, and renders a live sample per style with the parsed
  * declarations applied inline as `style` — so the sample renders correctly
@@ -24,16 +24,23 @@ interface TypographyStyle {
   letterSpacing: string;
 }
 
-/** `process.cwd()` is `apps/docs/` at build time; tokens-pd lives at the root. */
-const ACRONIS_CSS = resolve(
+/** `process.cwd()` is `apps/docs/` at build time; the tokens package is at root. */
+const SEMANTICS_CSS = resolve(
   process.cwd(),
   '..',
   '..',
-  'packages/tokens-pd/css/acronis.css'
+  'packages/tokens/css/semantics.css'
 );
 
 /** Preferred display order; any unlisted groups are appended after these. */
-const GROUP_ORDER = ['headings', 'body', 'link', 'caption', 'note', 'fineprint'];
+const GROUP_ORDER = [
+  'headings',
+  'body',
+  'link',
+  'caption',
+  'note',
+  'fineprint',
+];
 
 const SAMPLE = 'The quick brown fox jumps over the lazy dog';
 
@@ -67,14 +74,16 @@ function sampleStyle(style: TypographyStyle): React.CSSProperties {
   return {
     fontFamily: style.fontFamily || undefined,
     fontSize: style.fontSize || undefined,
-    fontWeight: style.fontWeight ? Number(style.fontWeight) || style.fontWeight : undefined,
+    fontWeight: style.fontWeight
+      ? Number(style.fontWeight) || style.fontWeight
+      : undefined,
     lineHeight: style.lineHeight || undefined,
     letterSpacing: style.letterSpacing || undefined,
   };
 }
 
 export function TypographyCatalog() {
-  const css = readFileSync(ACRONIS_CSS, 'utf-8');
+  const css = readFileSync(SEMANTICS_CSS, 'utf-8');
   const styles = parseTypography(css);
 
   const seen = new Set<string>();

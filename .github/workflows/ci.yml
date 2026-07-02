@@ -16,15 +16,12 @@ jobs:
         @spec-lab/shadcn-uikit-demo
         @spec-lab/shadcn-uikit-demos
         @spec-lab/uikit-docs
-        @spec-lab/design-assets
-        @spec-lab/design-tokens
+        @spec-lab/tokens
         @spec-lab/icons-react
         @spec-lab/icons-svg-next
-        @spec-lab/tokens-pd
         @spec-lab/shadcn-uikit
         @spec-lab/ui-react
         @spec-lab/ui-spec
-        @spec-lab/figma-design-assets-sync
         @spec-lab/figma-icons-fetcher
         @spec-lab/figma-token-exporter
         @spec-lab/style-dictionary
@@ -46,9 +43,7 @@ jobs:
               - 'packages/ui-legacy/**'
               - 'packages/ui-react/**'
               - 'packages/icons-react/**'
-              - 'packages/tokens-pd/**'
-              - 'packages/design-tokens/**'
-              - 'packages/design-assets/**'
+              - 'packages/tokens/**'
             changeset:
               - '.changeset/*.md'
 
@@ -131,7 +126,7 @@ jobs:
 
       # Apps import the libraries by package name, so their dist (incl. types)
       # must exist before `pnpm -r typecheck`. Building ui-react's graph covers
-      # tokens-pd (generated CSS), icons-react, and the design-data packages.
+      # @spec-lab/tokens (generated CSS), icons-react, and the design-data packages.
       - name: Build library dependencies
         run: pnpm --filter "@spec-lab/ui-react..." run build
 
@@ -158,10 +153,11 @@ jobs:
       - name: Build
         run: pnpm -r build
 
-      # tokens-pd ships generated, committed artifacts. Fail the build if a token
-      # change wasn't re-generated + committed (the build above is idempotent).
-      - name: Verify generated tokens-pd is committed
-        run: git diff --exit-code -- packages/tokens-pd
+      # @spec-lab/tokens ships generated, committed artifacts (css/scss/js/dtcg).
+      # Fail the build if a token change wasn't re-generated + committed (the
+      # build above is idempotent).
+      - name: Verify generated tokens are committed
+        run: git diff --exit-code -- packages/tokens/css packages/tokens/scss packages/tokens/js packages/tokens/dtcg
 
       - name: Test (per workspace)
         run: |

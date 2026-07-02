@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 // Radio group + item, wrapping Base UI's RadioGroup / Radio primitives. Radios
 // are mutually exclusive, so the group owns the selected value; each Radio takes
 // a `value`. Colors and geometry come from the dedicated next-gen `--ui-radio-*`
-// token tier from @spec-lab/tokens-pd (which mirrors `--ui-checkbox-*`):
+// token tier from @spec-lab/tokens (which mirrors `--ui-checkbox-*`):
 // the circle has two logical states — `unchecked` (the base) and `checked` —
 // each with its own per-interaction (idle / hover / active / disabled) fill
 // (`*-box-color-*`) and border (`*-box-border-color-*`) tokens. `unchecked` is

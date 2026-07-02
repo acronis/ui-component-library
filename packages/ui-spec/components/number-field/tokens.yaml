@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: NumberField
 
-# References only. Values live in @spec-lab/tokens-pd. No --ui-number-field-*
+# References only. Values live in @spec-lab/tokens. No --ui-number-field-*
 # tier — the box reuses the InputText tier (so it matches InputBox / InputText), and
 # the steppers use the shared muted/hover surface + text tokens.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-input-text-global-box-color-idle

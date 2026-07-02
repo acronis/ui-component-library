@@ -6,7 +6,7 @@
     "url": "git+https://github.com/constructor-lab/facet.git",
     "directory": "packages/ui-react"
   },
-  "description": "Constructor Lab React component library — a Base UI implementation, themed by @spec-lab/design-tokens.",
+  "description": "Constructor Lab React component library — a Base UI implementation, themed by @spec-lab/tokens.",
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -69,9 +69,8 @@
     }
   },
   "dependencies": {
-    "@spec-lab/design-assets": "workspace:*",
     "@spec-lab/icons-react": "workspace:*",
-    "@spec-lab/tokens-pd": "workspace:*",
+    "@spec-lab/tokens": "workspace:*",
     "@base-ui/react": "catalog:",
     "@tanstack/react-table": "catalog:",
     "class-variance-authority": "0.7.1",

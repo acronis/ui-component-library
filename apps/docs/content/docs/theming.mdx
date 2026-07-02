@@ -6,42 +6,47 @@ description: Customize the look and feel of Constructor Lab UIKit using CSS cust
 ## How themes work
 
 Constructor Lab UIKit uses generated `--ui-*` CSS custom properties from
-[`@spec-lab/tokens-pd`](/packages/tokens-pd). You never hand-author
-theme values — they are generated from the design system and resolved at paint
-time, so brand and light/dark switches need no rebuild.
+[`@spec-lab/tokens`](/packages/tokens). You never hand-author theme values — they
+are generated from the design system and resolved at paint time, so brand and
+light/dark switches need **no rebuild** and **no extra imports**.
 
-Load the default `acronis` base, then (optionally) layer another brand override
-on top:
+Everything ships in one bundle. `@spec-lab/ui-react/styles` already includes it;
+to consume the tokens directly, import once:
 
-```tsx
-import '@spec-lab/ui-react/styles'; // includes tokens-pd/css/acronis.css
-import '@spec-lab/tokens-pd/css/deep-sky.css'; // optional brand override
+```css
+@import '@spec-lab/tokens/css'; /* primitives + semantics + every component tier */
 ```
+
+Both axes are then switched by attributes on any ancestor (typically `<html>`):
+brand via `data-brand`, light/dark via `data-theme`. The bundle carries every
+brand (the default under `:root`, others as `[data-brand='…']` override blocks)
+and both themes (via `light-dark()` on the primitive layer).
 
 ## Dark mode
 
 Dark mode is built into the tokens via `light-dark()` + `color-scheme`. Toggle
-the active scheme with `data-theme`:
+the active scheme with `data-theme` (unset follows the OS preference):
 
 ```html
 <html data-theme="dark"></html>
 ```
 
-## Theme switching
+## Brand switching
 
-Brand switching is import-order based (last import wins), not a class toggle:
+Brand is an attribute, not an import or a class toggle — set `data-brand`:
 
-```css
-@import '@spec-lab/tokens-pd/css/acronis.css';
-@import '@spec-lab/tokens-pd/css/deep-sky.css';
+```html
+<html data-brand="deep-sky"></html>
 ```
+
+Combine the two freely, e.g. `<html data-brand="deep-sky" data-theme="dark">`.
 
 ## Design tokens
 
 Key CSS variables you can override:
 
-| Variable                    | Purpose                |
-| --------------------------- | ---------------------- |
+| Variable                            | Purpose                |
+| ----------------------------------- | ---------------------- |
 | `--ui-background-surface-primary`   | Main page background   |
 | `--ui-background-surface-secondary` | Secondary surfaces     |
 | `--ui-text-on-surface-primary`      | Primary text color     |

@@ -72,7 +72,7 @@ jobs:
 
       # ui-react Storybook, served alongside the legacy one at /uikit/storybook-react.
       # ui-react consumes its generated deps (icons-react, which pulls in
-      # tokens-pd/design-assets/style-dictionary) from dist, so build those first;
+      # tokens/design-assets/style-dictionary) from dist, so build those first;
       # ui-react's own source is bundled by Storybook via the .storybook alias.
       # Storybook's static build uses relative asset paths, so it works under the
       # subpath with no base flag (same as the legacy build above).

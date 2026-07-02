@@ -3,7 +3,7 @@
 // Reads local variables, collections, and text/paint/effect styles via the
 // Plugin API, resolves any cross-library alias targets (so the meta sidecar
 // covers every referenced VariableID), and hands the raw payload to the UI
-// iframe. The UI POSTs it to a local receiver that writes the design-tokens
+// iframe. The UI POSTs it to a local receiver that writes the tokens
 // snapshot. This file is intentionally "dumb": all DTCG/format logic lives in
 // the Node side (src/convert.ts) where it is typed and unit-tested.
 //
@@ -67,7 +67,12 @@ function collectAliasIds(variables) {
     for (var modeId in vbm) {
       if (!Object.prototype.hasOwnProperty.call(vbm, modeId)) continue;
       var val = vbm[modeId];
-      if (val && typeof val === 'object' && val.type === 'VARIABLE_ALIAS' && val.id) {
+      if (
+        val &&
+        typeof val === 'object' &&
+        val.type === 'VARIABLE_ALIAS' &&
+        val.id
+      ) {
         ids[val.id] = true;
       }
     }
@@ -138,7 +143,10 @@ async function buildPayload() {
       },
     });
   } catch (error) {
-    figma.ui.postMessage({ type: 'ERROR', error: (error && error.message) || String(error) });
+    figma.ui.postMessage({
+      type: 'ERROR',
+      error: (error && error.message) || String(error),
+    });
   }
 })();
 

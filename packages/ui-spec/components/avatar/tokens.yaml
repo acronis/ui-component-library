@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: Avatar
 
-# References only. Values live in @spec-lab/tokens-pd (generated from
-# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time.
 # The token schema forbids a value/default key here — never restate values.
 # Avatar binds the dedicated `--ui-avatar-*` tier: shared geometry + a 2px
 # border under `--ui-avatar-global-*`, a per-scheme background
 # (`--ui-avatar-color-<scheme>`) and initials color (`--ui-avatar-label-color-<scheme>`).
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   # ── Shared geometry / border (root) ──

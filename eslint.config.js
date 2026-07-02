@@ -29,7 +29,7 @@ export default tseslint.config(
       '**/.next/**',
       '**/.source/**',
       // Generated, committed token artifacts (built by tools/style-dictionary).
-      'packages/tokens-pd/**',
+      'packages/tokens/**',
     ],
   }, // General configuration for all files
   {

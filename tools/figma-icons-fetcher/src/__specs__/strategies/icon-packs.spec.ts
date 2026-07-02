@@ -22,13 +22,27 @@ const config: FetcherConfig = {
 
 // The fetched node is the section itself; its children are the pack frames.
 function sectionOf(packs: FigmaNode[]): FigmaPage {
-  const document: FigmaNode = { id: 's', name: 'icon-packs-source', type: 'SECTION', children: packs };
+  const document: FigmaNode = {
+    id: 's',
+    name: 'icon-packs-source',
+    type: 'SECTION',
+    children: packs,
+  };
   return { id: 's', name: 'icon-packs-source', document };
 }
 
-const icon = (id: string, name: string): FigmaNode => ({ id, name, type: 'COMPONENT' });
+const icon = (id: string, name: string): FigmaNode => ({
+  id,
+  name,
+  type: 'COMPONENT',
+});
 
-const title = (text: string): FigmaNode => ({ id: `t-${text}`, name: 'CategoryTitle', type: 'TEXT', characters: text });
+const title = (text: string): FigmaNode => ({
+  id: `t-${text}`,
+  name: 'CategoryTitle',
+  type: 'TEXT',
+  characters: text,
+});
 
 describe('iconPacksStrategy', () => {
   it('groups Category-nested icons as <pack>/<category> and direct icons under the pack', () => {
@@ -62,13 +76,13 @@ describe('iconPacksStrategy', () => {
           children: [icon('i3', '_assetsource/Constructor Lab')],
         },
       ]),
-      config,
+      config
     );
 
     expect(icons).toEqual([
       { id: 'i1', name: 'arrow-down', pageName: 'stroke-mono/arrows' },
       { id: 'i2', name: 'circle', pageName: 'stroke-mono/shapes' },
-      { id: 'i3', name: 'acronis', pageName: 'solid-mono' },
+      { id: 'i3', name: 'constructor-lab', pageName: 'solid-mono' },
     ]);
   });
 
@@ -80,14 +94,21 @@ describe('iconPacksStrategy', () => {
           name: 'stroke-mono',
           type: 'FRAME',
           children: [
-            { id: 'cat', name: 'Symbols', type: 'FRAME', children: [icon('i1', '_assetsource/Bell')] },
+            {
+              id: 'cat',
+              name: 'Symbols',
+              type: 'FRAME',
+              children: [icon('i1', '_assetsource/Bell')],
+            },
           ],
         },
       ]),
-      config,
+      config
     );
 
-    expect(icons).toEqual([{ id: 'i1', name: 'bell', pageName: 'stroke-mono/symbols' }]);
+    expect(icons).toEqual([
+      { id: 'i1', name: 'bell', pageName: 'stroke-mono/symbols' },
+    ]);
   });
 
   it('matches CategoryTitle text nodes case-insensitively after trimming', () => {
@@ -103,17 +124,24 @@ describe('iconPacksStrategy', () => {
               name: 'Category',
               type: 'FRAME',
               children: [
-                { id: 't1', name: '  cAtEgOrYtItLe  ', type: 'TEXT', characters: ' Brand Icons ' },
+                {
+                  id: 't1',
+                  name: '  cAtEgOrYtItLe  ',
+                  type: 'TEXT',
+                  characters: ' Brand Icons ',
+                },
                 icon('i1', '_assetsource/Cloud'),
               ],
             },
           ],
         },
       ]),
-      config,
+      config
     );
 
-    expect(icons).toEqual([{ id: 'i1', name: 'cloud', pageName: 'stroke-mono/brand-icons' }]);
+    expect(icons).toEqual([
+      { id: 'i1', name: 'cloud', pageName: 'stroke-mono/brand-icons' },
+    ]);
   });
 
   it('collects deeply nested icons within a category frame', () => {
@@ -148,16 +176,23 @@ describe('iconPacksStrategy', () => {
           ],
         },
       ]),
-      config,
+      config
     );
 
-    expect(icons).toEqual([{ id: 'i1', name: 'lock', pageName: 'solid-mono/nested' }]);
+    expect(icons).toEqual([
+      { id: 'i1', name: 'lock', pageName: 'solid-mono/nested' },
+    ]);
   });
 
   it('collects very deep icon trees without recursion overflow', () => {
     let nested: FigmaNode = icon('deep', '_assetsource/Database');
     for (let i = 0; i < 15_000; i += 1) {
-      nested = { id: `f-${i}`, name: `Frame ${i}`, type: 'FRAME', children: [nested] };
+      nested = {
+        id: `f-${i}`,
+        name: `Frame ${i}`,
+        type: 'FRAME',
+        children: [nested],
+      };
     }
 
     const icons = iconPacksStrategy(
@@ -166,13 +201,22 @@ describe('iconPacksStrategy', () => {
           id: 'p1',
           name: 'solid-mono',
           type: 'FRAME',
-          children: [{ id: 'cat1', name: 'Category', type: 'FRAME', children: [title('Deep'), nested] }],
+          children: [
+            {
+              id: 'cat1',
+              name: 'Category',
+              type: 'FRAME',
+              children: [title('Deep'), nested],
+            },
+          ],
         },
       ]),
-      config,
+      config
     );
 
-    expect(icons).toEqual([{ id: 'deep', name: 'database', pageName: 'solid-mono/deep' }]);
+    expect(icons).toEqual([
+      { id: 'deep', name: 'database', pageName: 'solid-mono/deep' },
+    ]);
   });
 
   it('ignores components without the _assetsource/ prefix and non-component noise', () => {
@@ -190,9 +234,11 @@ describe('iconPacksStrategy', () => {
           ],
         },
       ]),
-      config,
+      config
     );
 
-    expect(icons).toEqual([{ id: 'keep', name: 'database', pageName: 'solid-mono' }]);
+    expect(icons).toEqual([
+      { id: 'keep', name: 'database', pageName: 'solid-mono' },
+    ]);
   });
 });

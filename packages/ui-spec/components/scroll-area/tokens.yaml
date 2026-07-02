@@ -1,9 +1,9 @@
 spec_version: '1.0'
 component: ScrollArea
 
-# References only. Values live in @spec-lab/tokens-pd. No `--ui-scroll-area-*`
+# References only. Values live in @spec-lab/tokens. No `--ui-scroll-area-*`
 # tier exists yet; the overlay scrollbar reuses shared semantic tokens.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - {

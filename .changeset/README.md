@@ -25,8 +25,8 @@ Published workspaces are:
 - `@spec-lab/ui-react`
 - `@spec-lab/icons-react`
 - `@spec-lab/icons-svg`
-- `@spec-lab/tokens-pd`
-- `@spec-lab/design-tokens`
+- `@spec-lab/tokens`
+- `@spec-lab/tokens`
 - `@spec-lab/design-assets`
 
 The apps in `apps/*` are listed as ignored in `config.json`, so changesets

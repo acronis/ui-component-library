@@ -21,7 +21,7 @@
  *
  * Run: `pnpm --filter @spec-lab/icons-react generate:legacy-map`
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -29,7 +29,12 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const PKG = join(HERE, '..');
 const MONOREPO = join(PKG, '..', '..');
 
-const VARIANTS = ['stroke-mono', 'solid-mono', 'stroke-multi', 'solid-multi'] as const;
+const VARIANTS = [
+  'stroke-mono',
+  'solid-mono',
+  'stroke-multi',
+  'solid-multi',
+] as const;
 type Variant = (typeof VARIANTS)[number];
 const MONO: Variant[] = ['stroke-mono', 'solid-mono'];
 
@@ -45,10 +50,25 @@ for (const m of autoGen.matchAll(
   legacyToSource.set(m[1], m[2].replace(/\.svg$/, ''));
 }
 
-// 2. source/legacy name -> canonical asset key (via design-assets legacyNames)
-const pack = JSON.parse(
-  readFileSync(join(MONOREPO, 'packages/design-assets/packs/icons.json'), 'utf8')
-) as { assetsGroups?: Record<string, { assets?: Record<string, { metadata?: { legacyNames?: string[] } }> }> };
+// 2. source/legacy name -> canonical asset key (via design-assets legacyNames).
+// design-assets is an optional peer here: without it we can't map legacy names,
+// so emit an empty map (the package still builds; the legacy-map feature is a
+// no-op until design-assets is present).
+const ICONS_PACK = join(MONOREPO, 'packages/design-assets/packs/icons.json');
+type IconsPack = {
+  assetsGroups?: Record<
+    string,
+    { assets?: Record<string, { metadata?: { legacyNames?: string[] } }> }
+  >;
+};
+let pack: IconsPack = {};
+if (existsSync(ICONS_PACK)) {
+  pack = JSON.parse(readFileSync(ICONS_PACK, 'utf8')) as IconsPack;
+} else {
+  console.warn(
+    '⚠ @spec-lab/design-assets/packs/icons.json not found — emitting an empty legacy-icon map.'
+  );
+}
 const sourceToAssets = new Map<string, Set<string>>();
 for (const grp of Object.values(pack.assetsGroups ?? {})) {
   for (const [asset, a] of Object.entries(grp.assets ?? {})) {
@@ -60,7 +80,10 @@ for (const grp of Object.values(pack.assetsGroups ?? {})) {
 }
 
 // 3. available `<Name>Icon` per variant pack
-const packNames: Record<Variant, Set<string>> = {} as Record<Variant, Set<string>>;
+const packNames: Record<Variant, Set<string>> = {} as Record<
+  Variant,
+  Set<string>
+>;
 for (const v of VARIANTS) {
   const idx = readFileSync(join(PKG, 'src/packs', v, 'index.ts'), 'utf8');
   packNames[v] = new Set(idx.match(/\b[A-Z][A-Za-z0-9]+Icon\b/g) ?? []);
@@ -74,11 +97,19 @@ const resolveAsset = (source: string): string[] | null => {
   return null;
 };
 
-const icons: Record<string, { asset: string; source: string; variants: Record<string, string | null> }> = {};
-const colored: Record<string, { asset: string; source: string; multi: Record<string, string>; note: string }> = {};
+const icons: Record<
+  string,
+  { asset: string; source: string; variants: Record<string, string | null> }
+> = {};
+const colored: Record<
+  string,
+  { asset: string; source: string; multi: Record<string, string>; note: string }
+> = {};
 const unresolved: Record<string, string> = {};
 
-for (const [legacy, source] of [...legacyToSource].sort((a, b) => a[0].localeCompare(b[0]))) {
+for (const [legacy, source] of [...legacyToSource].sort((a, b) =>
+  a[0].localeCompare(b[0])
+)) {
   const assets = resolveAsset(source);
   if (!assets) {
     unresolved[legacy] = 'NO_LEGACY_NAME_MATCH';
@@ -88,9 +119,11 @@ for (const [legacy, source] of [...legacyToSource].sort((a, b) => a[0].localeCom
   const pick = (pred: (n: string) => boolean) =>
     assets.map((a) => ({ a, n: `${a}Icon` })).find(({ n }) => pred(n));
   const monoHit = pick((n) => MONO.some((v) => packNames[v].has(n)));
-  const anyHit = monoHit ?? pick((n) => VARIANTS.some((v) => packNames[v].has(n)));
+  const anyHit =
+    monoHit ?? pick((n) => VARIANTS.some((v) => packNames[v].has(n)));
   if (!anyHit) {
-    unresolved[legacy] = `NOT_IN_ANY_PACK(${assets.map((a) => `${a}Icon`).join('|')})`;
+    unresolved[legacy] =
+      `NOT_IN_ANY_PACK(${assets.map((a) => `${a}Icon`).join('|')})`;
     continue;
   }
   const name = anyHit.n;
@@ -132,7 +165,10 @@ const out = {
   unresolved,
 };
 
-writeFileSync(join(PKG, 'legacy-icon-map.json'), JSON.stringify(out, null, 2) + '\n');
+writeFileSync(
+  join(PKG, 'legacy-icon-map.json'),
+  JSON.stringify(out, null, 2) + '\n'
+);
 console.log(
   `legacy-icon-map.json: ${out.meta.counts.mapped} mapped, ${out.meta.counts.colored} colored, ${out.meta.counts.unresolved} unresolved (of ${out.meta.counts.total})`
 );

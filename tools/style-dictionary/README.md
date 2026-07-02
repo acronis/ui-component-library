@@ -1,7 +1,7 @@
 # @spec-lab/style-dictionary
 
 A **private** build tool (not published) that translates
-[`@spec-lab/design-tokens`](../../packages/design-tokens) into per-brand
+[`@spec-lab/tokens`](../../packages/tokens) into per-brand
 CSS custom properties, using [Style Dictionary v5](https://styledictionary.com/).
 It is the first tool in the repo's `tools/` tier.
 

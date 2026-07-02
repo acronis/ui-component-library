@@ -21,6 +21,21 @@ function packageRoot(): string {
   return path.dirname(require.resolve(`${DESIGN_ASSETS_PACKAGE}/package.json`));
 }
 
+/**
+ * True when `@spec-lab/design-assets` is installed. The asset pipeline is an
+ * optional stage: the package is a peer that may be absent (it is not a hard
+ * dependency of this tool), in which case the asset build/tests skip. The token
+ * build never touches it.
+ */
+export function designAssetsAvailable(): boolean {
+  try {
+    require.resolve(`${DESIGN_ASSETS_PACKAGE}/package.json`);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /** Enumerate the asset pack names (`packs/*.json` stems, = each pack's `name`). */
 export function listPackNames(): string[] {
   const packsDir = path.join(packageRoot(), 'packs');
@@ -41,7 +56,9 @@ export function loadAllRules(): Map<string, Rule> {
   const rulesDir = path.join(packageRoot(), 'rules');
   const rules = new Map<string, Rule>();
   for (const f of readdirSync(rulesDir).filter((n) => n.endsWith('.json'))) {
-    const rule = JSON.parse(readFileSync(path.join(rulesDir, f), 'utf8')) as Rule;
+    const rule = JSON.parse(
+      readFileSync(path.join(rulesDir, f), 'utf8')
+    ) as Rule;
     rules.set(rule.name, rule);
   }
   return rules;
@@ -52,7 +69,10 @@ export function loadAllRules(): Map<string, Rule> {
  * `./packs/icons-stroke-mono/add-24.svg`) to an absolute path under the package
  * root, plus whether it exists on disk.
  */
-export function resolveBinary(file: string): { absPath: string; exists: boolean } {
+export function resolveBinary(file: string): {
+  absPath: string;
+  exists: boolean;
+} {
   const absPath = path.join(packageRoot(), file.replace(/^\.\//, ''));
   return { absPath, exists: existsSync(absPath) };
 }

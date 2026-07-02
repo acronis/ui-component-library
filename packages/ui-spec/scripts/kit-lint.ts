@@ -30,6 +30,10 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, '../../..');
 const UI_DIR = resolve(REPO, 'packages/ui-react/src/components/ui');
 const STYLES = resolve(REPO, 'packages/ui-react/src/styles/index.css');
+// The `@theme inline` bridge (shadcn color names → --ui-* tokens) is generated
+// into @spec-lab/tokens and imported by ui-react; ui-react's index.css may still
+// add local `--color-*`. Read both so the bridged-name set is complete.
+const TW_BRIDGE = resolve(REPO, 'packages/tokens/css/tailwind-theme.css');
 
 export interface Finding {
   ruleId: string;
@@ -79,9 +83,16 @@ function stripComments(src: string): string {
 }
 
 function bridgedColorNames(): Set<string> {
-  const css = readFileSync(STYLES, 'utf8');
   const names = new Set<string>();
-  for (const m of css.matchAll(/--color-([a-z][a-z-]*)/g)) names.add(m[1]);
+  for (const file of [TW_BRIDGE, STYLES]) {
+    let css: string;
+    try {
+      css = readFileSync(file, 'utf8');
+    } catch {
+      continue; // generated bridge may be absent before a first token build
+    }
+    for (const m of css.matchAll(/--color-([a-z][a-z-]*)/g)) names.add(m[1]);
+  }
   return names;
 }
 
@@ -91,10 +102,22 @@ type Detector = (ctx: {
   bridged: Set<string>;
 }) => Finding[];
 
-function finding(ruleId: string, file: string, line: number, message: string): Finding {
+function finding(
+  ruleId: string,
+  file: string,
+  line: number,
+  message: string
+): Finding {
   const rule = getRule(ruleId);
   if (!rule) throw new Error(`kit-lint references unknown rule "${ruleId}"`);
-  return { ruleId, checklist: rule.checklist, severity: rule.severity, file, line, message };
+  return {
+    ruleId,
+    checklist: rule.checklist,
+    severity: rule.severity,
+    file,
+    line,
+    message,
+  };
 }
 
 const DETECTORS: Detector[] = [
@@ -107,9 +130,23 @@ const DETECTORS: Detector[] = [
     const func = /\b(?:rgba?|hsla?)\(/g;
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(hex))
-        out.push(finding('tokens/no-hardcoded-color', file, i + 1, `hard-coded color "${m[0]}" — use a --ui-* token`));
+        out.push(
+          finding(
+            'tokens/no-hardcoded-color',
+            file,
+            i + 1,
+            `hard-coded color "${m[0]}" — use a --ui-* token`
+          )
+        );
       for (const m of raw.matchAll(func))
-        out.push(finding('tokens/no-hardcoded-color', file, i + 1, `hard-coded color "${m[0]}…" — use a --ui-* token`));
+        out.push(
+          finding(
+            'tokens/no-hardcoded-color',
+            file,
+            i + 1,
+            `hard-coded color "${m[0]}…" — use a --ui-* token`
+          )
+        );
     });
     return out;
   },
@@ -123,9 +160,17 @@ const DETECTORS: Detector[] = [
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(re)) {
         const name = m[1];
-        const isColor = name.endsWith('-foreground') || UNBRIDGED_DENYLIST.has(name);
+        const isColor =
+          name.endsWith('-foreground') || UNBRIDGED_DENYLIST.has(name);
         if (isColor && !bridged.has(name))
-          out.push(finding('tokens/no-unbridged-name', file, i + 1, `"${m[0]}" — color name "${name}" is not bridged in ui-react @theme (silent invalid); use a --ui-* token`));
+          out.push(
+            finding(
+              'tokens/no-unbridged-name',
+              file,
+              i + 1,
+              `"${m[0]}" — color name "${name}" is not bridged in ui-react @theme (silent invalid); use a --ui-* token`
+            )
+          );
       }
     });
     return out;
@@ -134,10 +179,20 @@ const DETECTORS: Detector[] = [
   // T3 — opacity-modifier color hack (`bg-primary/90`).
   ({ file, lines }) => {
     const out: Finding[] = [];
-    const re = new RegExp(`\\b(?:${COLOR_PREFIXES})-[a-z][a-z-]*/[0-9]{1,3}\\b`, 'g');
+    const re = new RegExp(
+      `\\b(?:${COLOR_PREFIXES})-[a-z][a-z-]*/[0-9]{1,3}\\b`,
+      'g'
+    );
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(re))
-        out.push(finding('tokens/no-opacity-color-hack', file, i + 1, `opacity hack "${m[0]}" — wire a dedicated *-hover/*-active/*-disabled token`));
+        out.push(
+          finding(
+            'tokens/no-opacity-color-hack',
+            file,
+            i + 1,
+            `opacity hack "${m[0]}" — wire a dedicated *-hover/*-active/*-disabled token`
+          )
+        );
     });
     return out;
   },
@@ -145,12 +200,20 @@ const DETECTORS: Detector[] = [
   // Z1 — off-grid arbitrary spacing (literal px not a multiple of 4).
   ({ file, lines }) => {
     const out: Finding[] = [];
-    const re = /\b(?:p|px|py|pt|pr|pb|pl|m|mx|my|mt|mr|mb|ml|gap|gap-x|gap-y|space-x|space-y)-\[(\d+(?:\.\d+)?)px\]/g;
+    const re =
+      /\b(?:p|px|py|pt|pr|pb|pl|m|mx|my|mt|mr|mb|ml|gap|gap-x|gap-y|space-x|space-y)-\[(\d+(?:\.\d+)?)px\]/g;
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(re)) {
         const px = Number(m[1]);
         if (px % 4 !== 0)
-          out.push(finding('spacing/on-grid', file, i + 1, `off-grid spacing "${m[0]}" (${px}px not a 4px multiple)`));
+          out.push(
+            finding(
+              'spacing/on-grid',
+              file,
+              i + 1,
+              `off-grid spacing "${m[0]}" (${px}px not a 4px multiple)`
+            )
+          );
       }
     });
     return out;
@@ -173,10 +236,19 @@ const DETECTORS: Detector[] = [
       for (const m of raw.matchAll(re)) {
         const state = m[1];
         const token = m[2];
-        const suffix = [...BASE, ...STATES].find((s) => token.endsWith(`-${s}`));
+        const suffix = [...BASE, ...STATES].find((s) =>
+          token.endsWith(`-${s}`)
+        );
         if (!suffix) continue; // no state semantics in the token name → fine
         if (BASE.includes(suffix) || suffix !== state)
-          out.push(finding('tokens/state-token-wiring', file, i + 1, `"${state}:" wired to "${token}" — reference the matching *-${state} token`));
+          out.push(
+            finding(
+              'tokens/state-token-wiring',
+              file,
+              i + 1,
+              `"${state}:" wired to "${token}" — reference the matching *-${state} token`
+            )
+          );
       }
     });
     return out;
@@ -188,7 +260,14 @@ const DETECTORS: Detector[] = [
     const re = /\btext-\[(\d+(?:\.\d+)?)(px|rem|em)\]/g;
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(re))
-        out.push(finding('typography/type-scale', file, i + 1, `off-scale font size "${m[0]}" — use a type-scale token/utility`));
+        out.push(
+          finding(
+            'typography/type-scale',
+            file,
+            i + 1,
+            `off-scale font size "${m[0]}" — use a type-scale token/utility`
+          )
+        );
     });
     return out;
   },
@@ -199,7 +278,14 @@ const DETECTORS: Detector[] = [
     const re = /\bleading-\[(\d+(?:\.\d+)?)\]/g;
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(re))
-        out.push(finding('typography/line-height', file, i + 1, `off-ramp line-height "${m[0]}" — use a line-height token/utility`));
+        out.push(
+          finding(
+            'typography/line-height',
+            file,
+            i + 1,
+            `off-ramp line-height "${m[0]}" — use a line-height token/utility`
+          )
+        );
     });
     return out;
   },
@@ -210,7 +296,14 @@ const DETECTORS: Detector[] = [
     const re = /\bfont-\[(\d{2,3})\]/g;
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(re))
-        out.push(finding('typography/font-weight', file, i + 1, `arbitrary font-weight "${m[0]}" — use a named weight (font-normal/medium/semibold)`));
+        out.push(
+          finding(
+            'typography/font-weight',
+            file,
+            i + 1,
+            `arbitrary font-weight "${m[0]}" — use a named weight (font-normal/medium/semibold)`
+          )
+        );
     });
     return out;
   },
@@ -221,7 +314,14 @@ const DETECTORS: Detector[] = [
     const re = /\bduration-\[(\d+)m?s\]/g;
     lines.forEach((raw, i) => {
       for (const m of raw.matchAll(re))
-        out.push(finding('interaction/timing-parity', file, i + 1, `arbitrary transition duration "${m[0]}" — use a duration scale step (duration-150/200/300)`));
+        out.push(
+          finding(
+            'interaction/timing-parity',
+            file,
+            i + 1,
+            `arbitrary transition duration "${m[0]}" — use a duration scale step (duration-150/200/300)`
+          )
+        );
     });
     return out;
   },
@@ -285,7 +385,9 @@ export function formatReport(findings: Finding[]): string {
     if (!group.length) continue;
     lines.push(`\n${sev.toUpperCase()} (${group.length})`);
     for (const f of group)
-      lines.push(`  [${f.checklist} ${f.ruleId}] ${f.file}:${f.line} — ${f.message}`);
+      lines.push(
+        `  [${f.checklist} ${f.ruleId}] ${f.file}:${f.line} — ${f.message}`
+      );
   }
   const must = findings.filter((f) => f.severity === 'must').length;
   lines.push(`\n${findings.length} finding(s); ${must} must.`);
@@ -293,7 +395,9 @@ export function formatReport(findings: Finding[]): string {
 }
 
 // CLI: print the report; exit non-zero on any `must` finding.
-const isMain = process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
+const isMain =
+  process.argv[1] &&
+  resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
 if (isMain) {
   const today = new Date().toISOString().slice(0, 10);
   const { active, suppressed } = auditKitLint({ today });

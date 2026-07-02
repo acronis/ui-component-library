@@ -3,7 +3,7 @@
 - **Status:** Proposed (not yet adopted)
 - **Date:** 2026-06-07
 - **Owner:** Leonid Romanov
-- **Affects:** `packages/ui-react`, `packages/tokens-pd`, future Vue / Web
+- **Affects:** `packages/ui-react`, `packages/tokens`, future Vue / Web
   Component implementations; the `ui-kit-pipeline` agent workflow.
 - **Related:** [`context/roadmap.md`](../../../context/roadmap.md) (ui-react
   replaces legacy by Q3 2026; future non-React implementations),
@@ -65,7 +65,7 @@ conformance loop is what makes the model worth more than a wiki.
 - **Multi-framework future** (roadmap): one contract, many implementations.
 - **Agent-first repo:** structured, queryable ground truth beats prose.
 - **Single source of truth** to end the kind of drift we already hit (Figma vs
-  `tokens-pd` values on the Button work).
+  `tokens` values on the Button work).
 - **Timing:** `ui-react` has ~3 components today. Specs can _lead_
   implementation now, instead of retrofitting ~90 components later (as the Vue
   repo had to).
@@ -90,13 +90,13 @@ Adopt **Option 4**: a new framework-agnostic spec package (working name
 `packages/ui-spec`) plus a small machine-readable grammar, **spec-leads-
 implementation**, with these scope decisions:
 
-| Layer                                             | Decision                                                                                                                                                                                  |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api.yaml` contract + adapters                    | **Adopt fully** — the neutral contract future Vue/WC target.                                                                                                                              |
-| `anatomy.yaml`, `behavior.md`, `accessibility.md` | **Adopt** — consolidates today's scattered knowledge.                                                                                                                                     |
-| grammar rules + composition patterns              | **Adopt selectively** — start with the `must` rules (a11y, focus, escape-close). Overlaps `context/*` prose, but machine-readable is the upgrade.                                         |
-| `tokens.yaml`                                     | **Do NOT duplicate values.** Our `design-tokens → tokens-pd` pipeline is more mature (DTCG, multi-brand, `light-dark()`). Specs **reference `--ui-*` token names**, never restate values. |
-| `index.yaml` Figma link                           | Point at the existing Code Connect mapping; don't re-map.                                                                                                                                 |
+| Layer                                             | Decision                                                                                                                                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api.yaml` contract + adapters                    | **Adopt fully** — the neutral contract future Vue/WC target.                                                                                                                    |
+| `anatomy.yaml`, `behavior.md`, `accessibility.md` | **Adopt** — consolidates today's scattered knowledge.                                                                                                                           |
+| grammar rules + composition patterns              | **Adopt selectively** — start with the `must` rules (a11y, focus, escape-close). Overlaps `context/*` prose, but machine-readable is the upgrade.                               |
+| `tokens.yaml`                                     | **Do NOT duplicate values.** Our `tokens → tokens` pipeline is more mature (DTCG, multi-brand, `light-dark()`). Specs **reference `--ui-*` token names**, never restate values. |
+| `index.yaml` Figma link                           | Point at the existing Code Connect mapping; don't re-map.                                                                                                                       |
 
 ### Non-negotiable: conformance, or it rots
 
@@ -126,7 +126,7 @@ A spec with no check degrades into stale documentation. Required from the start:
 - **Maintenance burden at scale** → specs lead, not retrofit; one spec per
   component is part of DoD, not a separate migration.
 - **Spec/impl drift** → the conformance check (above) is mandatory, not optional.
-- **Duplication with tokens-pd / Code Connect** → reference, never restate.
+- **Duplication with tokens / Code Connect** → reference, never restate.
 - **Adapter examples going stale** → keep examples minimal; consider generating
   them, or lint them against the public API.
 

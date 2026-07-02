@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: Label
 
-# References only. Values live in @spec-lab/tokens-pd. Label has no
+# References only. Values live in @spec-lab/tokens. Label has no
 # `--ui-label-*` tier and sets no color of its own — it inherits the surface
 # foreground from context (bridged as text-foreground).
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-text-on-surface-primary

@@ -3,11 +3,15 @@ node_modules
 *.min.js
 pnpm-lock.yaml
 
+# Next.js auto-generates this on every build; it owns its style.
+apps/docs/next-env.d.ts
+
 # Generated, committed token artifacts (built by tools/style-dictionary).
-packages/tokens-pd/css
-packages/tokens-pd/tailwind
-packages/tokens-pd/dtcg
+packages/tokens/css
+packages/tokens/scss
+packages/tokens/js
+packages/tokens/dtcg
 
 # Design-token source tiers are formatted by the figma-to-design-tokens skill
 # emitters (DtcgFormatter), which own their house style. Keep Prettier out of them.
-packages/design-tokens/tiers
+packages/tokens/tiers

@@ -7,7 +7,7 @@
 //
 // Usage:
 //   node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs         # reads ./snapshot/ (figma-console pull)
-//   node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp   # reads packages/design-tokens/.tmp/figma-tokens/
+//   node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp   # reads packages/tokens/.tmp/figma-tokens/
 //
 // `--tmp` builds the snapshot from the figma-token-exporter output in
 // .tmp/figma-tokens/ — a fully figma-console-free path. The emit-*.mjs scripts
@@ -19,10 +19,15 @@ import { SnapshotBuilder } from './helpers/pull-snapshot-builder.mjs';
 
 const useTmp = process.argv.includes('--tmp');
 const sourceDir = useTmp
-  ? fileURLToPath(new URL('../../../packages/design-tokens/.tmp/figma-tokens/', import.meta.url))
+  ? fileURLToPath(
+      new URL('../../../packages/tokens/.tmp/figma-tokens/', import.meta.url)
+    )
   : undefined;
 
-if (useTmp) console.log('Source: packages/design-tokens/.tmp/figma-tokens/ (figma-token-exporter)');
+if (useTmp)
+  console.log(
+    'Source: packages/tokens/.tmp/figma-tokens/ (figma-token-exporter)'
+  );
 const loader = new FigmaSourceLoader(sourceDir).load();
 const builder = new SnapshotBuilder(loader);
 const snapshot = builder.buildAndWrite();
@@ -36,7 +41,9 @@ const styleCount = {
 
 console.log(`Wrote ${builder.outputPath}`);
 console.log(`  Variables: ${varCount} leaves`);
-console.log(`  Styles: ${styleCount.text} text, ${styleCount.color} color, ${styleCount.effect} effect`);
+console.log(
+  `  Styles: ${styleCount.text} text, ${styleCount.color} color, ${styleCount.effect} effect`
+);
 
 function countLeaves(node) {
   if (!node || typeof node !== 'object') return 0;

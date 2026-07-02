@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: DropdownMenu
 
-# References only. Values live in @spec-lab/tokens-pd (generated from
-# @spec-lab/design-tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time.
 # Design-pending v1: no `--ui-menu-*` tier yet, so the menu consumes the shared
 # *semantic* tokens (via bridged Tailwind names bg-background / text-foreground /
 # border-border / bg-accent / text-muted-foreground). Replace with a `--ui-menu-*`
 # tier if/when a Figma pass introduces one.
-source: '@spec-lab/tokens-pd'
+source: '@spec-lab/tokens'
 
 tokens:
   - {
