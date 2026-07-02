@@ -1,0 +1,71 @@
+spec_version: '1.0'
+component: Calendar
+
+# Calendar has no cva axes; its props ARE react-day-picker's `DayPicker` props
+# (`CalendarProps = React.ComponentProps<typeof DayPicker>`). The key ones are
+# documented here — see the react-day-picker docs for the full surface (matchers,
+# formatters, locale, etc.).
+contract:
+  properties:
+    - name: mode
+      type: "'single' | 'multiple' | 'range'"
+      required: false
+      description: Selection mode — one date, many dates, or a contiguous range.
+    - name: selected
+      type: 'Date | Date[] | DateRange | undefined'
+      required: false
+      description: The controlled selected value (shape depends on `mode`).
+    - name: defaultMonth
+      type: Date
+      required: false
+      description: The month shown on first render (uncontrolled month).
+    - name: captionLayout
+      type: "'label' | 'dropdown' | 'dropdown-months' | 'dropdown-years'"
+      required: false
+      default: label
+      description: A static month/year label, or month/year `<select>` dropdowns.
+    - name: showOutsideDays
+      type: boolean
+      required: false
+      default: true
+      description: Render the trailing/leading days of adjacent months.
+    - name: numberOfMonths
+      type: number
+      required: false
+      description: How many months to display side by side.
+    - name: disabled
+      type: 'Matcher | Matcher[]'
+      required: false
+      description: Days to disable (a date, range, day-of-week, predicate, …).
+
+  events:
+    - name: select
+      payload: 'Date | Date[] | DateRange | undefined'
+      description: >-
+        Fires when the selection changes (React: `onSelect`). Payload shape
+        depends on `mode`.
+
+  content: []
+
+  methods: []
+
+adapters:
+  react:
+    component: Calendar
+    status: implemented
+    import: "import { Calendar } from '@spec-lab/ui-react'"
+    example: |
+      const [date, setDate] = React.useState<Date>();
+      <Calendar mode="single" selected={date} onSelect={setDate} />
+  vue:
+    component: AvCalendar
+    status: planned
+    import: "import { AvCalendar } from '@spec-lab/ui-vue'"
+    example: |
+      <AvCalendar mode="single" v-model="date" />
+  web-components:
+    element: ui-calendar
+    status: planned
+    import: "import '@spec-lab/ui-wc/calendar'"
+    example: |
+      <ui-calendar mode="single"></ui-calendar>

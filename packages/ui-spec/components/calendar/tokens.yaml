@@ -1,0 +1,41 @@
+spec_version: '1.0'
+component: Calendar
+
+# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# paint time. The token schema forbids a value/default key here.
+#
+# Calendar has no dedicated `--ui-calendar-*` tier yet (design-pending v1); it
+# binds the shared SEMANTIC vocabulary via bridged Tailwind names. Day/nav
+# geometry is a local `--cell-size` (not a token) + react-day-picker defaults.
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── surface + text ──
+  - name: --ui-background-surface-primary # calendar background (bg-background)
+    affects: root
+  - name: --ui-text-on-surface-primary # day / nav text (text-foreground)
+    affects: day
+  - name: --ui-text-on-surface-secondary # weekday / outside / disabled (text-muted-foreground)
+    affects: weekday
+  - name: --ui-background-surface-hover # day / nav hover (bg-accent)
+    affects: day
+
+  # ── selection (blue / electricblue-info gamma, not the acronis brand navy) ──
+  - name: --ui-background-status-strong-info # selected / range start-end fill
+    affects: day
+  - name: --ui-glyph-on-brand-primary # selected day glyph (white on the blue fill)
+    affects: day
+  - name: --ui-background-status-info # range track (endpoints' cell + range middle)
+    affects: day
+  - name: --ui-text-on-status-info # range-middle glyph (blue on soft-info)
+    affects: day
+
+  # ── dropdown caption (captionLayout="dropdown") ──
+  - name: --ui-border-on-surface-border # dropdown border (border-input)
+    affects: caption
+  - name: --ui-border-on-surface-border-active # dropdown focus ring (ring-ring / border-ring)
+    affects: caption
+
+  # ── focus ring (day + nav) ──
+  - name: --ui-focus-primary
+    affects: day

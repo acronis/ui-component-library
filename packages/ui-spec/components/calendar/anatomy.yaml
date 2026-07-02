@@ -1,0 +1,50 @@
+spec_version: '1.0'
+component: Calendar
+
+schematic: |
+  +------------------------------------------+
+  | [<]        caption (Month YYYY)      [>]  |  nav: prev / next + caption
+  +------------------------------------------+
+  |  Mo  Tu  We  Th  Fr  Sa  Su               |  weekday header row
+  +------------------------------------------+
+  |   1   2   3   4   5   6   7    <- grid     |  grid: weeks of `day` cells
+  |   8  [9] 10  11  12  13  14                |  [ ] = today; filled = selected
+  |  15  16  17  18  19  20  21                |
+  +------------------------------------------+
+
+root:
+  element: div
+  description: >-
+    The calendar container (`data-slot="calendar"`) wrapping react-day-picker's
+    month view. Background from `--ui-background-surface-primary`.
+
+parts:
+  - id: nav
+    element: button
+    description: >-
+      Previous / next month buttons (chevron icons), neutral with a
+      surface-hover state and a token focus ring.
+  - id: caption
+    element: div
+    description: >-
+      The month/year label — a static label or, with `captionLayout="dropdown"`,
+      month/year `<select>` dropdowns.
+  - id: grid
+    element: table
+    description: The month grid (`role="grid"`) of week rows and `day` cells.
+  - id: weekday
+    element: div
+    description: Weekday header labels (Mo–Su), muted text.
+  - id: day
+    element: button
+    description: >-
+      A single day cell. Neutral by default; `hover` uses the surface-hover
+      token. Internal (react-day-picker-driven) render states: `selected` and
+      range start/end use the brand fill (`--ui-background-brand-primary` /
+      `--ui-glyph-on-brand-primary`); range middle uses the surface-hover fill;
+      `today` is underlined; `outside`/`disabled` days are muted.
+
+# Selection/today/range/disabled are internal render states owned by
+# react-day-picker (driven by `selected`/`disabled`/date props), not discrete
+# ui-react prop-states — see behavior.md.
+states: []

@@ -9,6 +9,7 @@ export * from './components/ui/breadcrumb';
 export * from './components/ui/button';
 export * from './components/ui/button-group';
 export * from './components/ui/button-menu';
+export * from './components/ui/calendar';
 export * from './components/ui/card';
 export * from './components/ui/card-filter';
 export * from './components/ui/chart';

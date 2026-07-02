@@ -55,6 +55,11 @@ const RENDER: Record<string, RenderHint> = {
     sample:
       '\n      <div className="flex h-full w-full items-center justify-center rounded-md bg-muted text-sm text-muted-foreground">16 : 9</div>\n    ',
   },
+  // Dates PINNED so the generated VR baseline is deterministic (no live "today").
+  calendar: {
+    props:
+      'mode="single" defaultMonth={new Date(2024, 0, 1)} today={new Date(2024, 0, 10)} selected={new Date(2024, 0, 15)} onSelect={() => {}}',
+  },
   button: { sample: 'Label' },
   'button-group': {
     extraImports: ["import { Button } from '../../button';"],

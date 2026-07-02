@@ -1,0 +1,18 @@
+spec_version: '1.0'
+component: Calendar
+name: calendar
+status: draft
+category: forms
+description: >-
+  A themed date calendar for selecting a single date, multiple dates, or a range.
+  Wraps `react-day-picker` (`DayPicker`) with `--ui-*` token styling and the
+  design system's chevron icons; supports month/dropdown captions, outside &
+  disabled days, and full keyboard navigation. Ported from the legacy
+  shadcn-uikit `calendar`.
+since: 0.55.0
+dependencies:
+  components: []
+# Runtime dep: react-day-picker@10 (see README).
+# Design-pending v1: ported from ui-legacy without a "ready for dev" Figma node,
+# so there is no `figma:` block. Reconcile with
+# /figma-component Calendar <url> --update once mockups land.

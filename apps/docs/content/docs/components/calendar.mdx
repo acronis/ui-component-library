@@ -1,0 +1,123 @@
+---
+title: Calendar
+description: A themed date calendar for single, multiple, or range selection.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { CalendarDemo, CalendarLocalizedDemo, CalendarInInputDatePickerDemo } from "@/components/demos-react/calendar";
+
+## Usage
+
+```tsx
+import { Calendar } from '@spec-lab/ui-react';
+```
+
+`Calendar` wraps [`react-day-picker`](https://daypicker.dev) with `--ui-*` token
+styling and the design system's chevron icons. It's the inline month view —
+selected/range days use the brand fill, `today` is underlined, and disabled /
+outside days are muted. It's usually **controlled**: hold `selected` in state and
+update it from `onSelect`. This is a **design-pending v1** ported from the legacy
+kit; `react-day-picker@10` is a dependency of `@spec-lab/ui-react`.
+
+## Examples
+
+<DemoReact>
+  <CalendarDemo />
+</DemoReact>
+
+Single date (controlled):
+
+```tsx
+const [date, setDate] = React.useState<Date>();
+
+<Calendar mode="single" selected={date} onSelect={setDate} />
+```
+
+Range selection with month/year dropdowns:
+
+```tsx
+const [range, setRange] = React.useState<DateRange>();
+
+<Calendar
+  mode="range"
+  captionLayout="dropdown"
+  selected={range}
+  onSelect={setRange}
+/>
+```
+
+Disable days (e.g. weekends) and show two months:
+
+```tsx
+<Calendar mode="single" numberOfMonths={2} disabled={{ dayOfWeek: [0, 6] }} />
+```
+
+### Localization
+
+Localization is handled by react-day-picker. Pass a
+[date-fns `locale`](https://date-fns.org/docs/I18n) — **re-exported from
+`react-day-picker/locale`, so you don't need a separate `date-fns` dependency** —
+to translate the month/weekday names and set the locale's first day of the week.
+For right-to-left languages, add `dir="rtl"` to mirror the layout.
+
+<DemoReact>
+  <CalendarLocalizedDemo />
+</DemoReact>
+
+```tsx
+import { arSA, de } from 'react-day-picker/locale';
+
+// German — localized labels, Monday-first week
+<Calendar mode="single" locale={de} />
+
+// Arabic — localized labels + right-to-left layout
+<Calendar mode="single" locale={arSA} dir="rtl" />
+```
+
+### In an `InputDatePicker`
+
+`InputDatePicker` is the field **trigger** only — it owns no popup. Compose it as
+a `Popover` trigger with this `Calendar` as the panel, and close the popover from
+`onSelect`:
+
+<DemoReact>
+  <CalendarInInputDatePickerDemo />
+</DemoReact>
+
+```tsx
+const [open, setOpen] = React.useState(false);
+const [date, setDate] = React.useState<Date>();
+
+<Popover open={open} onOpenChange={setOpen}>
+  <PopoverTrigger
+    render={
+      <InputDatePicker
+        label="Start date"
+        placeholder="Pick a date"
+        open={open}
+        value={date?.toLocaleDateString()}
+      />
+    }
+  />
+  <PopoverContent align="start" className="w-auto p-0">
+    <Calendar
+      mode="single"
+      selected={date}
+      onSelect={(d) => {
+        setDate(d);
+        setOpen(false);
+      }}
+    />
+  </PopoverContent>
+</Popover>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/calendar/calendar.docs.ts"
+  name="CalendarProps"
+/>
+
+Beyond these, `Calendar` accepts all of `react-day-picker`'s `DayPicker` props
+(matchers, `formatters`, `locale`, `weekStartsOn`, …).
