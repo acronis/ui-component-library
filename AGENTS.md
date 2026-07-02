@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Single source of truth for AI agents working in `acronis/uikit`.
+Single source of truth for AI agents working in `constructor-lab/facet`.
 
 This file is the **root index**. It is intentionally short (~120 lines) so
 it fits in any context window. Specifics live in:
@@ -14,11 +14,12 @@ workspace's context when you work inside that subtree.
 
 ## Repository overview
 
-`acronis/uikit` is a pnpm monorepo containing a React component
-library, a demo SPA, a documentation site, a shared demos package, two
-design-data packages (assets and tokens), and a build-tooling tier. The
-library and the two design-data packages are published; the apps and the
-tools are private.
+`constructor-lab/facet` is a pnpm monorepo containing a React component
+library, its framework-agnostic component specs, a demo SPA, a
+documentation site, a shared demos package, two design-data packages
+(assets and tokens), and a build-tooling tier. The library and the two
+design-data packages are published; the specs, the apps, and the tools
+are private.
 
 The repo is organized into four top-level directories, each with a
 distinct role:
@@ -37,7 +38,8 @@ distinct role:
 | ----------------------------- | -------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | `packages/ui-legacy/`         | `@spec-lab/shadcn-uikit`         | **yes**    | Vite library, Storybook 10, Vitest + RTL                                                                         | [AGENTS.md](packages/ui-legacy/AGENTS.md)         |
 | `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**    | Base UI library, Vite, Storybook 10, Vitest + RTL, Tailwind v4                                                   | [AGENTS.md](packages/ui-react/AGENTS.md)          |
-| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `design-assets`, Vite, Storybook, Vitest                                              | [AGENTS.md](packages/icons-react/AGENTS.md)       |
+| `packages/ui-spec/`           | `@spec-lab/ui-spec`              | no         | Framework-agnostic component specs (YAML/MD) + cva conformance, Vitest, ajv-validated                            | [AGENTS.md](packages/ui-spec/AGENTS.md)           |
+| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `icons-svg-next`, Vite, Storybook, Vitest                                             | [AGENTS.md](packages/icons-react/AGENTS.md)       |
 | `packages/icons-svg-next/`    | `@spec-lab/icons-svg-next`       | no         | Raw SVG sources for the **next-gen** icon set (Figma `icon-packs` strategy)                                      | [AGENTS.md](packages/icons-svg-next/AGENTS.md)    |
 | `apps/demo/`                  | `@spec-lab/shadcn-uikit-demo`    | no         | Vite SPA, React Router v7, Zustand                                                                               | [AGENTS.md](apps/demo/AGENTS.md)                  |
 | `apps/docs/`                  | `@spec-lab/uikit-docs`           | no         | Next.js 15 + Fumadocs                                                                                            | [AGENTS.md](apps/docs/AGENTS.md)                  |
@@ -46,7 +48,7 @@ distinct role:
 | `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**    | JSON data only (icon/illustration manifests + binaries), ajv-validated                                           | [AGENTS.md](packages/design-assets/AGENTS.md)     |
 | `packages/tokens-pd/`         | `@spec-lab/tokens-pd`            | **yes**    | Generated (committed) CSS + Tailwind presets + DTCG, built by the tool                                           | [AGENTS.md](packages/tokens-pd/AGENTS.md)         |
 | `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no         | Style Dictionary v5 build: design-tokens → tokens-pd CSS/presets                                                 | [AGENTS.md](tools/style-dictionary/AGENTS.md)     |
-| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg` (tsx, Vitest)                                         | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
+| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg-next` (tsx, Vitest)                                    | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
 | `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no         | Self-hosted Figma plugin + local receiver: exports variables/styles → the `design-tokens` snapshot (tsx, Vitest) | [AGENTS.md](tools/figma-token-exporter/AGENTS.md) |
 
 `packages/` holds the published workspaces:
@@ -55,17 +57,18 @@ distinct role:
 - `packages/ui-react/` houses the published next-generation **Base UI**
   library (`@base-ui/react` as a direct dep), themed by
   `@spec-lab/tokens-pd`. New component work goes here.
+- `packages/ui-spec/` — **private** framework-agnostic component specs for
+  the kit (the 7-file YAML/MD format). Validates each spec against JSON
+  Schemas and checks `cva` variant/size conformance against the `ui-react`
+  source. Currently a Phase 0 spike (`button`, `button-icon`, `switch`).
 - `packages/icons-react/` — published React icon components, **generated**
-  from `@spec-lab/design-assets` (24px masters + scale/stroke rules
-  baked into a `size` prop). Per-pack subpath exports, tree-shakeable.
-- `packages/icons-svg/` — **private, source-only** raw SVG icon sources
-  (monocolor + multicolor) fetched from Figma, plus per-page JSON manifests.
-  No build; consumed in-repo from `src/`. Synced via its `pull-icons` script
-  (which runs `tools/figma-icons-fetcher`) or the `Fetch Figma Icons` workflow.
-- `packages/icons-svg-next/` — sibling of `icons-svg` for the **next-gen** icon
-  set: same private, source-only model, but pulled from the `shadcn-uikit` Figma
-  file with the fetcher's `icon-packs` selection strategy. Synced via its
-  `pull-icons` script or the `Fetch Figma Icons (next)` workflow.
+  from `@spec-lab/icons-svg-next` (scale/stroke rules baked into a `size`
+  prop). Per-pack subpath exports, tree-shakeable.
+- `packages/icons-svg-next/` — **private, source-only** raw SVG icon sources
+  (monocolor + multicolor) for the **next-gen** icon set, pulled from Figma
+  with the fetcher's `icon-packs` selection strategy. No build; it is the
+  generated source for `@spec-lab/icons-react`. Synced via its `pull-icons`
+  script or the `Fetch Figma Icons (next)` workflow.
 - `packages/design-tokens/` and `packages/design-assets/` — the published
   **design-data** packages. These ship JSON (and, for assets, bundled
   binaries) only: no build step, no runtime API. Their one real script
@@ -84,9 +87,9 @@ distinct role:
   `dist/`.
 - `tools/figma-icons-fetcher/` — fetches SVG icons from a Figma file,
   SVGO-optimizes them, and writes them (with JSON manifests + mono/multicolor
-  categorization) into `packages/icons-svg` and `packages/icons-svg-next`. Node
-  selection is pluggable (`frames-by-name` / `new-frames` / `icon-packs`). Run via `tsx` (no
-  build step); drives the `Fetch Figma Icons` workflows and each package's
+  categorization) into `packages/icons-svg-next`. Node selection is pluggable
+  (`frames-by-name` / `new-frames` / `icon-packs`). Run via `tsx` (no build
+  step); drives the `Fetch Figma Icons (next)` workflow and the package's
   `pull-icons` script.
 - `tools/figma-token-exporter/` — a **self-hosted Figma plugin + local
   receiver** that exports design-token variables/styles into
@@ -152,15 +155,17 @@ that workspace**, never here.
   to Figma's next-gen `brand.components` (Option A naming, emitter rework,
   tokens-pd impact, ui-react per-component re-theme). §9 tracks execution status,
   the remaining ui-react backlog, and the Radio/Search/Select token gap.
-- `packages/ui-spec/context/component-specs-proposal.md` — **Proposed**
-  (not yet adopted):
-  framework-agnostic component specs + a machine-readable design grammar, to
-  support future non-React implementations and agent tooling.
-- `context/kit-consistency-audit-proposal.md` — **Proposed** (not yet adopted):
-  cross-component consistency rules (grammar), a common-inconsistency checklist,
-  a complete-screen consistency audit (render real screens → structural + AI
-  detectors), reference-implementation diffing, and a self-improving feedback
-  loop + new AI skills. Extends the component-specs proposal above.
+- `packages/ui-spec/context/component-specs-proposal.md` — the proposal behind
+  `packages/ui-spec`: framework-agnostic component specs + a machine-readable
+  design grammar, to support future non-React implementations and agent tooling.
+  **Phase 0 spike in progress** — see the workspace's `AGENTS.md`.
+- `context/kit-consistency-audit-proposal.md` — cross-component consistency
+  rules (grammar), a common-inconsistency checklist, a complete-screen
+  consistency audit (render real screens → structural + AI detectors),
+  reference-implementation diffing, and a self-improving feedback loop + AI
+  skills. Extends the component-specs proposal above; landing incrementally in
+  `packages/ui-spec` (`grammar/`, `screens/audit/`, the `kit-lint` and
+  `screen-audit` scripts).
 
 ## Tooling preconditions
 
