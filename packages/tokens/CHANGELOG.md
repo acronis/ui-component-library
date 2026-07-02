@@ -12,7 +12,7 @@
 
 ### Minor Changes
 
-- [#337](https://github.com/acronis/uikit/pull/337) [`62e2a0d`](https://github.com/acronis/uikit/commit/62e2a0df33293b5efd946af2e68ad38757964e69) Thanks [@heygabecom](https://github.com/heygabecom)! - ## design-tokens
+- [#337](https://github.com/acronis/uikit/pull/337) [`62e2a0d`](https://github.com/acronis/uikit/commit/62e2a0df33293b5efd946af2e68ad38757964e69) Thanks [@leonid](https://github.com/leonid)! - ## design-tokens
 
   ### Added — Primitives
 
@@ -218,7 +218,7 @@
 
 ### Minor Changes
 
-- [#317](https://github.com/acronis/uikit/pull/317) [`0d66857`](https://github.com/acronis/uikit/commit/0d66857127ac07df5ae5cbe95fbad6c7bc81e76d) Thanks [@heygabecom](https://github.com/heygabecom)! - ## design-tokens
+- [#317](https://github.com/acronis/uikit/pull/317) [`0d66857`](https://github.com/acronis/uikit/commit/0d66857127ac07df5ae5cbe95fbad6c7bc81e76d) Thanks [@leonid](https://github.com/leonid)! - ## design-tokens
 
   ### Added
 
@@ -284,7 +284,7 @@
 
 ### Minor Changes
 
-- [#308](https://github.com/acronis/uikit/pull/308) [`6d9bf1a`](https://github.com/acronis/uikit/commit/6d9bf1ae0ca447ae7ed5ee6d1e91b776edff6bde) Thanks [@heygabecom](https://github.com/heygabecom)! - ## design-tokens
+- [#308](https://github.com/acronis/uikit/pull/308) [`6d9bf1a`](https://github.com/acronis/uikit/commit/6d9bf1ae0ca447ae7ed5ee6d1e91b776edff6bde) Thanks [@leonid](https://github.com/leonid)! - ## design-tokens
 
   ### Added
 
@@ -388,7 +388,7 @@
 
 ### Minor Changes
 
-- [#285](https://github.com/acronis/uikit/pull/285) [`4e13963`](https://github.com/acronis/uikit/commit/4e139630719ebb51eedc99494b351aa657a75c78) Thanks [@heygabecom](https://github.com/heygabecom)! - ## design-tokens
+- [#285](https://github.com/acronis/uikit/pull/285) [`4e13963`](https://github.com/acronis/uikit/commit/4e139630719ebb51eedc99494b351aa657a75c78) Thanks [@leonid](https://github.com/leonid)! - ## design-tokens
 
   ### Added
 
@@ -419,7 +419,7 @@
 
   Brand-specific tokens (e.g. `background.brand.*`, `text.onSurface.*`) carry hardcoded HSL values for deep-sky; all other tokens alias into the shared semantics layer identical to the `acronis` brand.
 
-- [#285](https://github.com/acronis/uikit/pull/285) [`4e13963`](https://github.com/acronis/uikit/commit/4e139630719ebb51eedc99494b351aa657a75c78) Thanks [@heygabecom](https://github.com/heygabecom)! - ## design-tokens
+- [#285](https://github.com/acronis/uikit/pull/285) [`4e13963`](https://github.com/acronis/uikit/commit/4e139630719ebb51eedc99494b351aa657a75c78) Thanks [@leonid](https://github.com/leonid)! - ## design-tokens
 
   ### Deleted
 
@@ -464,7 +464,7 @@
 
 ### Major Changes
 
-- [#272](https://github.com/acronis/uikit/pull/272) [`d95fc1e`](https://github.com/acronis/uikit/commit/d95fc1e809f3f4fe0c62f0c92d0f48b81976765d) Thanks [@heygabecom](https://github.com/heygabecom)! - # `1.0.0` — first stable token release
+- [#272](https://github.com/acronis/uikit/pull/272) [`d95fc1e`](https://github.com/acronis/uikit/commit/d95fc1e809f3f4fe0c62f0c92d0f48b81976765d) Thanks [@leonid](https://github.com/leonid)! - # `1.0.0` — first stable token release
 
   This is the first stable (`1.0.0`) release of the published token packages. It
   consolidates the entire `feature/design-tokens-update` line of work into one
@@ -630,7 +630,7 @@
 
 ### Minor Changes
 
-- [#221](https://github.com/acronis/uikit/pull/221) [`848c600`](https://github.com/acronis/uikit/commit/848c60036c7591cf1d1ab01996147660c3cca7d5) Thanks [@heygabecom](https://github.com/heygabecom)! - Rename the token-source directory `tokens/` to `tiers/`.
+- [#221](https://github.com/acronis/uikit/pull/221) [`848c600`](https://github.com/acronis/uikit/commit/848c60036c7591cf1d1ab01996147660c3cca7d5) Thanks [@leonid](https://github.com/leonid)! - Rename the token-source directory `tokens/` to `tiers/`.
 
   The three token files now live under `tiers/` instead of `tokens/`, matching
   the "Tier" vocabulary (primitives / semantics / components) used throughout the
@@ -663,7 +663,7 @@
 
 ### Minor Changes
 
-- [#98](https://github.com/acronis/uikit/pull/98) [`23b62d4`](https://github.com/acronis/uikit/commit/23b62d49263276956b46d34cdd084003c9fd566b) Thanks [@heygabecom](https://github.com/heygabecom)! - Full Figma → tokens re-sync. Regenerated `primitives.json`, `semantic.json`, and
+- [#98](https://github.com/acronis/uikit/pull/98) [`23b62d4`](https://github.com/acronis/uikit/commit/23b62d49263276956b46d34cdd084003c9fd566b) Thanks [@leonid](https://github.com/leonid)! - Full Figma → tokens re-sync. Regenerated `primitives.json`, `semantic.json`, and
   `components.json` from the current Figma state via the documented sync workflow
   (`context/figma-sync.md`). The JSON now mirrors Figma exactly; removed/renamed
   paths were accepted rather than aliased.
@@ -741,7 +741,7 @@ link.strong-underline}` (5).
 
 ### Minor Changes
 
-- [#79](https://github.com/acronis/uikit/pull/79) [`40d3d53`](https://github.com/acronis/uikit/commit/40d3d535ed21da9b5c80142e7f496bc22e19dde9) Thanks [@heygabecom](https://github.com/heygabecom)! - Rename the design-data packages to disambiguate them as design-only data: `@spec-lab/tokens` → `@spec-lab/design-tokens` and `@spec-lab/assets` → `@spec-lab/design-assets`. Update your dependencies and imports to the new package names.
+- [#79](https://github.com/acronis/uikit/pull/79) [`40d3d53`](https://github.com/acronis/uikit/commit/40d3d535ed21da9b5c80142e7f496bc22e19dde9) Thanks [@leonid](https://github.com/leonid)! - Rename the design-data packages to disambiguate them as design-only data: `@spec-lab/tokens` → `@spec-lab/design-tokens` and `@spec-lab/assets` → `@spec-lab/design-assets`. Update your dependencies and imports to the new package names.
 
 ## 0.2.0
 

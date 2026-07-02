@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#93](https://github.com/acronis/uikit/pull/93) [`d7f1ceb`](https://github.com/acronis/uikit/commit/d7f1ceb06de69eae974b9e4533fb92c357a38695) Thanks [@heygabecom](https://github.com/heygabecom)! - Add `@spec-lab/style-dictionary` — the first inhabitant of the repo's
+- [#93](https://github.com/acronis/uikit/pull/93) [`d7f1ceb`](https://github.com/acronis/uikit/commit/d7f1ceb06de69eae974b9e4533fb92c357a38695) Thanks [@leonid](https://github.com/leonid)! - Add `@spec-lab/style-dictionary` — the first inhabitant of the repo's
   `tools/` tier. A private (unpublished) [Style Dictionary v5](https://styledictionary.com/)
   translation pipeline with two build domains, driven by a single CLI
   (`src/index.ts`) keyed by `<filter>-<output>` platform keys:

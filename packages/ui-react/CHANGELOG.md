@@ -1056,7 +1056,7 @@
 
 ### Minor Changes
 
-- [#198](https://github.com/acronis/uikit/pull/198) [`8cbe6cf`](https://github.com/acronis/uikit/commit/8cbe6cfb891cf59a2fe3c006a0ef8a08d06806ee) Thanks [@heygabecom](https://github.com/heygabecom)! - Rename `@spec-lab/design-theme` → `@spec-lab/tokens-pd` and rebuild it from the Style Dictionary pipeline.
+- [#198](https://github.com/acronis/uikit/pull/198) [`8cbe6cf`](https://github.com/acronis/uikit/commit/8cbe6cfb891cf59a2fe3c006a0ef8a08d06806ee) Thanks [@leonid](https://github.com/leonid)! - Rename `@spec-lab/design-theme` → `@spec-lab/tokens-pd` and rebuild it from the Style Dictionary pipeline.
 
   **`@spec-lab/tokens-pd` (was `@spec-lab/design-theme`) — breaking:**
   - **Package renamed.** Update the dependency and all import specifiers from

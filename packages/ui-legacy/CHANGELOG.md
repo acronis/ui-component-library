@@ -25,7 +25,7 @@
 
 ### Patch Changes
 
-- [#53](https://github.com/acronis/uikit/pull/53) [`30e5210`](https://github.com/acronis/uikit/commit/30e521043728453a6f21355315c1ed986fcdfc86) Thanks [@heygabecom](https://github.com/heygabecom)! - Fix: `dist/components/ui/drawer.d.ts` now ships with the published
+- [#53](https://github.com/acronis/uikit/pull/53) [`30e5210`](https://github.com/acronis/uikit/commit/30e521043728453a6f21355315c1ed986fcdfc86) Thanks [@leonid](https://github.com/leonid)! - Fix: `dist/components/ui/drawer.d.ts` now ships with the published
   tarball. Previously, `vite-plugin-dts` failed with TS2742 ("inferred type
   cannot be named") on six of the ten drawer exports because their types
   reach into `@radix-ui/react-dialog` (vaul's underlying primitive), which
