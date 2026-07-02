@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: ButtonGroup
+name: button-group
+status: draft
+category: buttons-actions
+description: >-
+  Groups adjacent buttons (and related controls) into a single segmented unit —
+  collapsing their shared inner edges — in a horizontal or vertical orientation.
+  Includes a static text/icon addon and a divider part.
+since: 0.55.0
+dependencies:
+  components: [button, separator]
+# Design-pending v1: ported from ui-legacy without a "ready for dev" Figma node,
+# so there is no `figma:` block yet. Reconcile with
+# /figma-component ButtonGroup <url> --update once mockups land.

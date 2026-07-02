@@ -1,0 +1,60 @@
+spec_version: '1.0'
+component: ButtonGroup
+
+# `orientation` is the sole cva axis on the root (its enum matches the cva keys in
+# the ui-react source). `ButtonGroupText` adds a `render` prop for Base UI
+# composition; `ButtonGroupSeparator` forwards `Separator`'s props.
+contract:
+  properties:
+    - name: orientation
+      type: "'horizontal' | 'vertical'"
+      required: false
+      default: horizontal
+      description: >-
+        Layout axis. `horizontal` collapses the left radius/border of adjacent
+        children; `vertical` stacks them and collapses the top radius/border.
+    - name: render
+      type: RenderProp
+      required: false
+      description: >-
+        (`ButtonGroupText` part) Replace its `<div>` with another element or
+        component via Base UI composition — e.g. render the addon as a `<label>`.
+
+  events: []
+
+  content:
+    - name: default
+      description: >-
+        The grouped controls — `Button`s and, optionally, `ButtonGroupText` /
+        `ButtonGroupSeparator` parts.
+
+  methods: []
+
+adapters:
+  react:
+    component: ButtonGroup
+    status: implemented
+    import: "import { ButtonGroup, ButtonGroupText, ButtonGroupSeparator } from '@spec-lab/ui-react'"
+    example: |
+      <ButtonGroup>
+        <Button variant="secondary">Day</Button>
+        <Button variant="secondary">Week</Button>
+        <Button variant="secondary">Month</Button>
+      </ButtonGroup>
+
+      <ButtonGroup>
+        <ButtonGroupText>https://</ButtonGroupText>
+        <Button variant="secondary">example.com</Button>
+      </ButtonGroup>
+  vue:
+    component: AvButtonGroup
+    status: planned
+    import: "import { AvButtonGroup } from '@spec-lab/ui-vue'"
+    example: |
+      <AvButtonGroup>…</AvButtonGroup>
+  web-components:
+    element: ui-button-group
+    status: planned
+    import: "import '@spec-lab/ui-wc/button-group'"
+    example: |
+      <ui-button-group>…</ui-button-group>

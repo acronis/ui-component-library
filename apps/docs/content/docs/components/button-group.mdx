@@ -1,0 +1,88 @@
+---
+title: ButtonGroup
+description: Groups adjacent buttons into a single segmented unit, horizontally or vertically.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { ButtonGroupDemo } from "@/components/demos-react/button-group";
+
+## Usage
+
+```tsx
+import {
+  ButtonGroup,
+  ButtonGroupText,
+  ButtonGroupSeparator,
+} from '@spec-lab/ui-react';
+```
+
+`ButtonGroup` is a `role="group"` container that collapses the shared inner
+radii and borders of its children so a set of related `Button`s reads as one
+segmented control. Two parts join them: `ButtonGroupText` (a static, muted,
+bordered label/icon addon — polymorphic via its `render` prop) and
+`ButtonGroupSeparator` (a divider that reuses `Separator`). Colors come from the
+shared semantic tokens; this is a **design-pending v1** ported from the legacy
+kit — reconcile against Figma when a mockup lands.
+
+## Examples
+
+<DemoReact>
+  <ButtonGroupDemo />
+</DemoReact>
+
+Segmented actions (horizontal is the default):
+
+```tsx
+<ButtonGroup>
+  <Button variant="secondary">Day</Button>
+  <Button variant="secondary">Week</Button>
+  <Button variant="secondary">Month</Button>
+</ButtonGroup>
+```
+
+Icon buttons — give each an `aria-label`:
+
+```tsx
+import { ChevronLeftIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono';
+
+<ButtonGroup>
+  <Button variant="secondary" aria-label="Previous"><ChevronLeftIcon /></Button>
+  <Button variant="secondary" aria-label="Next"><ChevronRightIcon /></Button>
+</ButtonGroup>
+```
+
+With a text addon and a separator:
+
+```tsx
+<ButtonGroup>
+  <ButtonGroupText>https://</ButtonGroupText>
+  <Button variant="secondary">example.com</Button>
+</ButtonGroup>
+
+<ButtonGroup>
+  <Button variant="secondary">Copy</Button>
+  <ButtonGroupSeparator />
+  <Button variant="secondary">Paste</Button>
+</ButtonGroup>
+```
+
+Vertical orientation:
+
+```tsx
+<ButtonGroup orientation="vertical">
+  <Button variant="secondary">Top</Button>
+  <Button variant="secondary">Middle</Button>
+  <Button variant="secondary">Bottom</Button>
+</ButtonGroup>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/button-group/button-group.tsx"
+  name="ButtonGroupProps"
+/>
+
+`ButtonGroupText` accepts native `<div>` attributes plus a `render` prop
+(`ButtonGroupTextProps`) for Base UI composition. `ButtonGroupSeparator` forwards
+`Separator`'s props (`orientation`, native attributes).

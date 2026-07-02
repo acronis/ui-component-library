@@ -6,6 +6,7 @@ export * from './components/ui/auth-layout';
 export * from './components/ui/avatar';
 export * from './components/ui/breadcrumb';
 export * from './components/ui/button';
+export * from './components/ui/button-group';
 export * from './components/ui/button-menu';
 export * from './components/ui/card';
 export * from './components/ui/card-filter';

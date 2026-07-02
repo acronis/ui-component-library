@@ -61,12 +61,23 @@ type IconsPack = {
     { assets?: Record<string, { metadata?: { legacyNames?: string[] } }> }
   >;
 };
+const OUT = join(PKG, 'legacy-icon-map.json');
 let pack: IconsPack = {};
 if (existsSync(ICONS_PACK)) {
   pack = JSON.parse(readFileSync(ICONS_PACK, 'utf8')) as IconsPack;
+} else if (existsSync(OUT)) {
+  // @spec-lab/design-assets (an optional peer) isn't checked out — its
+  // `legacyNames` bridge is the ONLY source for this map. Preserve the committed
+  // map instead of clobbering it with an empty one; a real regeneration needs
+  // design-assets present. This keeps a routine `build`/`typecheck` from wiping
+  // the authoritative map.
+  console.warn(
+    '⚠ @spec-lab/design-assets not found — preserving the existing legacy-icon-map.json (skipping regeneration).'
+  );
+  process.exit(0);
 } else {
   console.warn(
-    '⚠ @spec-lab/design-assets/packs/icons.json not found — emitting an empty legacy-icon map.'
+    '⚠ @spec-lab/design-assets not found and no existing map — emitting an empty legacy-icon map.'
   );
 }
 const sourceToAssets = new Map<string, Set<string>>();
@@ -165,10 +176,7 @@ const out = {
   unresolved,
 };
 
-writeFileSync(
-  join(PKG, 'legacy-icon-map.json'),
-  JSON.stringify(out, null, 2) + '\n'
-);
+writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
 console.log(
   `legacy-icon-map.json: ${out.meta.counts.mapped} mapped, ${out.meta.counts.colored} colored, ${out.meta.counts.unresolved} unresolved (of ${out.meta.counts.total})`
 );

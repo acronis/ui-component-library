@@ -1,0 +1,24 @@
+spec_version: '1.0'
+component: ButtonGroup
+
+# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# paint time. The token schema forbids a value/default key here.
+#
+# The grouped `item`s are `Button`s — they carry their own `--ui-button-*` tokens
+# (see the Button spec), not listed here. ButtonGroup's own parts bind the shared
+# SEMANTIC vocabulary via bridged Tailwind names: the `text` addon (muted surface,
+# border, primary text) and the `separator` (the shared divider color). No
+# dedicated `--ui-button-group-*` tier yet (design-pending v1).
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── text addon (ButtonGroupText) ──
+  - name: --ui-background-surface-secondary
+    affects: text
+  - name: --ui-border-on-surface-border
+    affects: text
+  - name: --ui-text-on-surface-primary
+    affects: text
+
+  # ── separator (ButtonGroupSeparator → Separator's divider color) ──
+  # (--ui-border-on-surface-border, shared with the text addon border above)

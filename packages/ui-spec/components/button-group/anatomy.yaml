@@ -1,0 +1,66 @@
+spec_version: '1.0'
+component: ButtonGroup
+
+schematic: |
+  horizontal (default):
+  +--------+--------+-----------+--------+
+  |  item  |  text  | separator |  item  |   root: <div role="group">
+  +--------+--------+-----------+--------+
+   shared inner edges collapsed (radius + border)
+
+  vertical:
+  +--------+
+  |  item  |
+  +--------+
+  |  item  |
+  +--------+
+
+root:
+  element: div
+  description: >-
+    A `role="group"` flex container (`data-orientation`). It collapses the shared
+    inner radii and borders of its direct children so they read as one segmented
+    control; `orientation` chooses the axis.
+
+parts:
+  - id: item
+    description: >-
+      A grouped control — typically a `Button` (any variant), but any child works.
+      The group collapses each item's inner corner radius and adjacent border.
+    element: '*'
+  - id: text
+    description: >-
+      `ButtonGroupText` — a static, muted, bordered label/icon addon (e.g. a URL
+      prefix or unit). Renders as a `<div>`; composes to another element via its
+      `render` prop.
+    element: div
+    optional: true
+  - id: separator
+    description: >-
+      `ButtonGroupSeparator` — a divider between items (reuses `Separator`,
+      vertical by default).
+    element: div
+    optional: true
+
+layout:
+  type: flex
+  direction: row
+  align: stretch
+  order: [item, text, separator]
+
+# ButtonGroup is a pure function of `orientation` — no internal state.
+states:
+  - {
+      id: horizontal,
+      trigger: "orientation === 'horizontal'",
+      kind: prop,
+      prop: orientation,
+      affects: [root],
+    }
+  - {
+      id: vertical,
+      trigger: "orientation === 'vertical'",
+      kind: prop,
+      prop: orientation,
+      affects: [root],
+    }

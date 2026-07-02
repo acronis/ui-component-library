@@ -51,6 +51,11 @@ const RENDER: Record<string, RenderHint> = {
     sample: '\n      <AvatarFallback>SN</AvatarFallback>\n    ',
   },
   button: { sample: 'Label' },
+  'button-group': {
+    extraImports: ["import { Button } from '../../button';"],
+    sample:
+      '\n      <Button variant="secondary">Day</Button>\n      <Button variant="secondary">Week</Button>\n      <Button variant="secondary">Month</Button>\n    ',
+  },
   'button-menu': { sample: 'Label' },
   chip: { sample: 'Label' },
   'card-filter': {
