@@ -49,7 +49,7 @@ per-workspace `AGENTS.md` files for area-specific conventions.
 
 ```bash
 # Clone the repository
-git clone https://github.com/acronis/uikit.git
+git clone https://github.com/constructor-lab/facet.git
 cd uikit
 
 # Install dependencies

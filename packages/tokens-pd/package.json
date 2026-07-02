@@ -3,7 +3,7 @@
   "version": "1.9.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acronis/uikit.git",
+    "url": "git+https://github.com/constructor-lab/facet.git",
     "directory": "packages/tokens-pd"
   },
   "description": "Constructor Lab platform (PD) design tokens: per-brand CSS custom properties, per-component CSS, Tailwind presets, and a DTCG intermediate — generated from @spec-lab/design-tokens via @spec-lab/style-dictionary.",

@@ -1,10 +1,13 @@
 # Constructor Lab UI Kit — Roadmap
 
-> Status: **ratified & on the board** · Owner: Leonid Romanov · Last updated: 2026-06-29
-> Tracks GitHub Project [acronis/projects/3](https://github.com/orgs/acronis/projects/3)
-> ("User Interface Kit Development"). The 7 epics below are issues **#102–108**;
-> ~98 task issues are linked as sub-issues with Status / Phase (P1–P5) / Size set.
-> Companion docs: [`backlog-p2-primitives.md`](./backlog-p2-primitives.md) ·
+> Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-06-29
+> The roadmap substance below is current, but its GitHub tracking is **inherited
+> from the upstream `acronis/uikit` project** ("User Interface Kit Development"):
+> the 7 epics as issues **#102–108** and ~98 task sub-issues with Status / Phase
+> (P1–P5) / Size. That board and those issues are **not set up in
+> `constructor-lab/facet`** (which currently has no issues or project board), so
+> treat every `#nnn` in these context docs as a historical reference, not a live
+> link. Companion docs: [`backlog-p2-primitives.md`](./backlog-p2-primitives.md) ·
 > [`backlog-p3-p4.md`](./backlog-p3-p4.md).
 
 ## North star

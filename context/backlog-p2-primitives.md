@@ -3,6 +3,8 @@
 > Phase P2 of [roadmap.md](./roadmap.md). Target: **Jun–Jul 2026**.
 > These unblock most of Tier 2/3 and are locked regardless of capacity/scope
 > decisions, so work can start now. Capacity allocation across 2–4 devs: TBD.
+> `#nnn` issue numbers are inherited from the upstream `acronis/uikit` project
+> and are not live here — see the tracking note in [roadmap.md](./roadmap.md).
 
 ## Conventions (apply to every task)
 

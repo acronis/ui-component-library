@@ -68,7 +68,7 @@ Two workflows can publish to npm; both attach build provenance.
   npm**. Requirements (all in place): the job has `permissions: id-token:
 write`, npm is upgraded to a Trusted-Publishing-capable version, and each
   package declares a `repository` field (provenance validates `repository.url`
-  against `https://github.com/acronis/uikit` — an empty/missing one fails with
+  against `https://github.com/constructor-lab/facet` — an empty/missing one fails with
   `E422`).
 
 - **`release-token.yml` — token auth (manual; bootstrap / fallback).**

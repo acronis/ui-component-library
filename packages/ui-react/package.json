@@ -3,7 +3,7 @@
   "version": "0.54.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acronis/uikit.git",
+    "url": "git+https://github.com/constructor-lab/facet.git",
     "directory": "packages/ui-react"
   },
   "description": "Constructor Lab React component library — a Base UI implementation, themed by @spec-lab/design-tokens.",

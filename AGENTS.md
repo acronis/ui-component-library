@@ -99,6 +99,12 @@ distinct role:
   variable→DTCG serialization so the snapshot stays a drop-in. Run the receiver
   via `tsx`; the plugin is imported into Figma Desktop from its `manifest.json`.
   Used by the `/sync-tokens` flow.
+- `tools/eslint-rules/` — a **local ESLint plugin** (`acronis-patterns`) that
+  encodes approved-pattern rules from `packages/ui-spec/patterns/` (currently
+  `no-adhoc-sheet`), wired directly into the root `eslint.config.js`. **Not a pnpm
+  workspace** — it has no `package.json` and none of the standard scripts; it's a
+  plain JS module imported by the flat config. The seed of an eventual
+  `@spec-lab/eslint-plugin-patterns`.
 
 ## Scripts vocabulary
 
@@ -143,14 +149,17 @@ that workspace**, never here.
 
 - `context/releasing.md` — Changesets workflow that applies to any
   published workspace in the monorepo.
-- `context/roadmap.md` — product roadmap (epics, phases, v1 scope/timeline);
-  tracked on GitHub Project #3 as issues #102–108. Companion task breakdowns:
-  `context/backlog-p2-primitives.md`, `context/backlog-p3-p4.md`.
-- `context/e1-theme-delivery.md` — E1 (#102) theme-delivery implementation
-  proposal: how the open theme sub-issues (#172/#173/#175/#101/#177) get built on
-  the shipped `tokens-pd` pipeline, and what's reused from the legacy stack.
-- `context/project-board.md` — how we run Project #3: epic/task model, status
-  lifecycle + gates, fields, views, and automation.
+- `context/roadmap.md` — product roadmap (epics, phases, v1 scope/timeline).
+  Epic/issue numbers (#102–108, etc.) are inherited from the upstream
+  `acronis/uikit` project and are not live in this repo — see the doc's tracking
+  note. Companion task breakdowns: `context/backlog-p2-primitives.md`,
+  `context/backlog-p3-p4.md`.
+- `context/e1-theme-delivery.md` — E1 theme-delivery implementation proposal:
+  how the theme-delivery work gets built on the shipped `tokens-pd` pipeline, and
+  what's reused from the legacy stack.
+- `context/project-board.md` — inherited operating model (epic/task model, status
+  lifecycle + gates, fields, views, automation) for when the board is recreated in
+  this repo; not yet set up here.
 - `context/next-gen-components-migration.md` — migrating the component token tier
   to Figma's next-gen `brand.components` (Option A naming, emitter rework,
   tokens-pd impact, ui-react per-component re-theme). §9 tracks execution status,

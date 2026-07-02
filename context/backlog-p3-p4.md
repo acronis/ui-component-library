@@ -4,6 +4,8 @@
 > [P2 primitives](./backlog-p2-primitives.md). Same DoD and conventions as P2
 > (Base UI source, CVA variants, `--av-*` theming, test + light/dark story +
 > changeset + a11y, optional Code Connect).
+> `#nnn` issue numbers are inherited from the upstream `acronis/uikit` project
+> and are not live here — see the tracking note in [roadmap.md](./roadmap.md).
 >
 > These are further out and carry more design unknowns, so estimates are coarser.
 > Each ★ = recommended v1 must-have; un-starred = first trim candidates.

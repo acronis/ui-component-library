@@ -35,10 +35,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acronis/uikit.git"
+    "url": "git+https://github.com/constructor-lab/facet.git"
   },
   "bugs": {
-    "url": "https://github.com/acronis/uikit/issues"
+    "url": "https://github.com/constructor-lab/facet/issues"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.7.0",
