@@ -1,0 +1,45 @@
+// AUTO-GENERATED from @spec-lab/ui-spec — DO NOT EDIT.
+// Regenerate: pnpm --filter @spec-lab/ui-spec generate:stories
+// `:hover` / `:active` stories require a Storybook pseudo-states addon to paint.
+
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { userEvent } from 'storybook/test';
+import { InputTextArea } from '../input-text-area';
+
+const meta = {
+  title: 'UI/InputTextArea/All States (generated)',
+  component: InputTextArea,
+} satisfies Meta<typeof InputTextArea>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const States: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <InputTextArea label="Bio" placeholder="Tell us about yourself" />
+      <InputTextArea
+        label="Bio"
+        placeholder="Tell us about yourself"
+        disabled
+      />
+    </div>
+  ),
+};
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: () => (
+    <InputTextArea label="Bio" placeholder="Tell us about yourself" />
+  ),
+};
+
+export const FocusVisible: Story = {
+  render: () => (
+    <InputTextArea label="Bio" placeholder="Tell us about yourself" />
+  ),
+  // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
+  play: async () => {
+    await userEvent.tab();
+  },
+};

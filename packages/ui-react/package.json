@@ -1,0 +1,130 @@
+{
+  "name": "@spec-lab/ui-react",
+  "version": "0.54.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acronis/uikit.git",
+    "directory": "packages/ui-react"
+  },
+  "description": "Constructor Lab React component library — a Base UI implementation, themed by @spec-lab/design-tokens.",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react.js",
+      "types": "./dist/react.d.ts"
+    },
+    "./styles": "./dist/ui-react.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "vite build -c vite.lib.config.ts",
+    "dev": "vite build -c vite.lib.config.ts --watch",
+    "clean": "rm -rf dist storybook-static node_modules/.vite *.tsbuildinfo",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "storybook": "storybook dev -p 6007",
+    "storybook:build": "storybook build",
+    "storybook:test:visual": "test-storybook",
+    "storybook:test:visual:update": "test-storybook --updateSnapshot",
+    "storybook:test:visual:docker": "pnpm storybook:build && docker compose -f ./docker-compose.storybook.yml up --build --abort-on-container-exit --exit-code-from test-runner",
+    "storybook:test:visual:docker:dark": "STORYBOOK_COLOR_MODE=dark pnpm storybook:test:visual:docker",
+    "storybook:test:visual:docker:all": "pnpm storybook:test:visual:docker && pnpm storybook:test:visual:docker:dark",
+    "storybook:test:visual:docker:update": "pnpm storybook:build && docker compose -f ./docker-compose.storybook.yml -f ./docker-compose.storybook.update.yml up --build --abort-on-container-exit --exit-code-from test-runner",
+    "storybook:test:visual:docker:update:dark": "STORYBOOK_COLOR_MODE=dark pnpm storybook:test:visual:docker:update",
+    "storybook:test:visual:docker:update:all": "pnpm storybook:test:visual:docker:update && pnpm storybook:test:visual:docker:update:dark",
+    "figma:connect": "figma connect parse",
+    "figma:connect:publish": "figma connect publish",
+    "figma:connect:unpublish": "figma connect unpublish"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@spec-lab/design-assets": "workspace:*",
+    "@spec-lab/icons-react": "workspace:*",
+    "@spec-lab/tokens-pd": "workspace:*",
+    "@base-ui/react": "catalog:",
+    "@tanstack/react-table": "catalog:",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "react-resizable-panels": "4.11.2",
+    "recharts": "catalog:",
+    "tailwind-merge": "3.6.0"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "1.4.8",
+    "@playwright/test": "1.60.0",
+    "@tanstack/react-virtual": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "@storybook/addon-a11y": "10.4.1",
+    "@storybook/addon-docs": "10.4.1",
+    "@storybook/addon-links": "10.4.1",
+    "@storybook/react": "10.4.1",
+    "@storybook/react-vite": "10.4.1",
+    "@storybook/test-runner": "0.24.4",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "5.1.1",
+    "@tailwindcss/postcss": "catalog:",
+    "eslint": "catalog:",
+    "happy-dom": "20.9.0",
+    "http-server": "14.1.1",
+    "jest-image-snapshot": "6.5.2",
+    "storybook": "10.4.1",
+    "tailwindcss": "catalog:",
+    "tw-animate-css": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "5.0.1",
+    "vitest": "catalog:"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "base-ui",
+    "typescript",
+    "uikit",
+    "acronis"
+  ],
+  "author": "Constructor Lab International GmbH",
+  "license": "MIT",
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  }
+}

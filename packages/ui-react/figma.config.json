@@ -1,0 +1,13 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "include": ["src/components/**/*.tsx"],
+    "exclude": [
+      "src/components/**/__tests__/**",
+      "src/components/**/__stories__/**"
+    ],
+    "importPaths": {
+      "src/components/ui/*": "@spec-lab/ui-react"
+    }
+  }
+}

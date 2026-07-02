@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+/* Enter/exit animation utilities (animate-in / fade / zoom / slide), keyed to
+   Base UI's data-[open] / data-[closed] state attributes — same library legacy
+   uses. Registers them as Tailwind v4 utilities so variants can prefix them. */
+@import 'tw-animate-css';
+@import '@spec-lab/tokens-pd/css/acronis.css';
+
+/* Component token tiers are opt-in (per @spec-lab/tokens-pd): import the
+   tier for every component this library ships, so its `--ui-<component>-*` tokens
+   are defined. Add a line here whenever a new component with its own tier lands. */
+@import '@spec-lab/tokens-pd/css/Avatar/acronis.css';
+@import '@spec-lab/tokens-pd/css/Button/acronis.css';
+@import '@spec-lab/tokens-pd/css/ButtonMenu/acronis.css';
+@import '@spec-lab/tokens-pd/css/ButtonIcon/acronis.css';
+@import '@spec-lab/tokens-pd/css/CardFilter/acronis.css';
+@import '@spec-lab/tokens-pd/css/Switch/acronis.css';
+@import '@spec-lab/tokens-pd/css/Checkbox/acronis.css';
+@import '@spec-lab/tokens-pd/css/Chips/acronis.css';
+@import '@spec-lab/tokens-pd/css/InputText/acronis.css';
+@import '@spec-lab/tokens-pd/css/InputTextArea/acronis.css';
+@import '@spec-lab/tokens-pd/css/InputSearch/acronis.css';
+@import '@spec-lab/tokens-pd/css/InputSelect/acronis.css';
+@import '@spec-lab/tokens-pd/css/InputDatePicker/acronis.css';
+@import '@spec-lab/tokens-pd/css/Link/acronis.css';
+@import '@spec-lab/tokens-pd/css/SearchGlobal/acronis.css';
+@import '@spec-lab/tokens-pd/css/Radio/acronis.css';
+@import '@spec-lab/tokens-pd/css/Breadcrumb/acronis.css';
+@import '@spec-lab/tokens-pd/css/Resizable/acronis.css';
+@import '@spec-lab/tokens-pd/css/Tag/acronis.css';
+@import '@spec-lab/tokens-pd/css/Tooltip/acronis.css';
+@import '@spec-lab/tokens-pd/css/SidebarPrimary/acronis.css';
+@import '@spec-lab/tokens-pd/css/SidebarSecondary/acronis.css';
+@import '@spec-lab/tokens-pd/css/Table/acronis.css';
+
+/* Theme switches via the `[data-theme]` attribute (set by the consumer /
+   next-themes), which drives the tokens' `light-dark()` + `color-scheme` — mirror
+   that for the `dark:` variant. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* Indeterminate Progress bar: a sliding indicator with no known completion.
+   Ported from ui-legacy's tailwind.preset; registered as a Tailwind v4 utility
+   (`animate-indeterminate-progress`) keyed to Base UI's `data-[indeterminate]`. */
+@theme {
+  --animate-indeterminate-progress: indeterminate-progress 1.5s ease-in-out infinite;
+}
+@keyframes indeterminate-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+/* Bridge: map the generated `--ui-*` design-token custom properties onto the
+   Tailwind color names the components use. `inline` emits `var(--ui-*)`
+   references rather than copying values, so the `light-dark()` values from
+   @spec-lab/tokens-pd drive light/dark mode with no rebuild. */
+@theme inline {
+  --color-background: var(--ui-background-surface-primary);
+  --color-foreground: var(--ui-text-on-surface-primary);
+
+  --color-primary: var(--ui-background-brand-primary);
+  --color-primary-foreground: var(--ui-glyph-on-brand-primary);
+
+  --color-secondary: var(--ui-background-brand-secondary);
+  --color-secondary-foreground: var(--ui-glyph-on-brand-secondary);
+
+  --color-destructive: var(--ui-background-status-danger);
+  --color-destructive-foreground: var(--ui-glyph-on-status-danger);
+
+  --color-muted: var(--ui-background-surface-secondary);
+  --color-muted-foreground: var(--ui-text-on-surface-secondary);
+
+  --color-accent: var(--ui-background-surface-hover);
+  --color-accent-foreground: var(--ui-text-on-surface-primary);
+
+  --color-border: var(--ui-border-on-surface-border);
+  --color-input: var(--ui-border-on-surface-border);
+  --color-ring: var(--ui-border-on-surface-border-active);
+}

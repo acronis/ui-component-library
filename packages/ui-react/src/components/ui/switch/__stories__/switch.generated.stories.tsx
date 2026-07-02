@@ -1,0 +1,43 @@
+// AUTO-GENERATED from @spec-lab/ui-spec — DO NOT EDIT.
+// Regenerate: pnpm --filter @spec-lab/ui-spec generate:stories
+// `:hover` / `:active` stories require a Storybook pseudo-states addon to paint.
+
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { userEvent } from 'storybook/test';
+import { Switch } from '../switch';
+
+const meta = {
+  title: 'UI/Switch/All States (generated)',
+  component: Switch,
+} satisfies Meta<typeof Switch>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const States: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Switch aria-label="Off" />
+      <Switch aria-label="On" defaultChecked />
+      <Switch aria-label="Disabled off" disabled />
+      <Switch aria-label="Disabled on" disabled defaultChecked />
+    </div>
+  ),
+};
+
+export const FocusVisible: Story = {
+  render: () => <Switch aria-label="Toggle" />,
+  // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
+  play: async () => {
+    await userEvent.tab();
+  },
+};
+
+// transition "toggle": click / Space / Enter -> toggle (!checked) [guard: not disabled]
+export const Toggle: Story = {
+  render: () => <Switch aria-label="Toggle" />,
+  play: async ({ canvasElement }) => {
+    const el = canvasElement.querySelector('[role="switch"], button');
+    if (el) await userEvent.click(el as HTMLElement);
+  },
+};
