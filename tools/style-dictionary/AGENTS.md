@@ -112,8 +112,8 @@ src/
                         SD preprocessor (kept for reuse, not currently registered).
     transforms/         color/hsl-to-rgb, gradient/css, dimension/px, scalar/css,
                         typography/css-class, name/ui + the `acronis/css` transform group.
-    filters/            semantic-only — the primitive-root predicates
-                        (isPrimitiveToken/isEmittableToken) the builder routes with.
+    primitive-roots.ts  the primitive-root predicate (isPrimitiveToken / PRIMITIVE_ROOTS)
+                        the builder routes emission with.
     formats/            css/light-dark — collectDecls + serializeSlice render the CSS
                         (reference-based; brand via [data-brand]).
     index.ts            STATIC_HOOKS — the registry every instance shares.

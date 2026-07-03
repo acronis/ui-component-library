@@ -1,8 +1,8 @@
-// Unit tests for the pure value/name transforms the CSS build applies, plus the
-// semantic-only emit filter. These run without Style Dictionary or disk I/O —
-// they pin the HSL→rgb math, the Figma-matrix→angle gradient math, the `ui`
-// naming convention, dimension formatting, and which tiers get emitted, so the
-// generated tokens output can't drift silently as brands/data grow (#177).
+// Unit tests for the pure value/name transforms the CSS build applies. These run
+// without Style Dictionary or disk I/O — they pin the HSL→rgb math, the
+// Figma-matrix→angle gradient math, the `ui` naming convention, and dimension
+// formatting, so the generated tokens output can't drift silently as brands/data
+// grow (#177).
 
 import type { TransformedToken } from 'style-dictionary/types';
 import { describe, expect, it } from 'vitest';
@@ -11,7 +11,6 @@ import { type DtcgColor, hslColorToRgb, colorHslToRgb } from '../color-hsl-rgb';
 import { gradientCss } from '../gradient-css';
 import { uiName } from '../name-ui';
 import { formatDimension } from '../dimension-px';
-import { isEmittableToken } from '../../filters/semantic-only';
 
 const hsl = (h: number, s: number, l: number, alpha?: number): DtcgColor => ({
   colorSpace: 'hsl',
@@ -181,22 +180,5 @@ describe('formatDimension', () => {
   it('joins value and unit', () => {
     expect(formatDimension({ value: 4, unit: 'px' })).toBe('4px');
     expect(formatDimension({ value: 0.25, unit: 'rem' })).toBe('0.25rem');
-  });
-});
-
-describe('isEmittableToken (semantic-only filter)', () => {
-  it('drops primitive resolution roots', () => {
-    expect(isEmittableToken({ path: ['palette', 'blue', '7'] })).toBe(false);
-    expect(isEmittableToken({ path: ['units', 'gap', 'sm'] })).toBe(false);
-    expect(isEmittableToken({ path: ['font', 'family', 'sans'] })).toBe(false);
-  });
-
-  it('keeps emitted tiers (semantic + component)', () => {
-    expect(
-      isEmittableToken({ path: ['colors', 'background', 'brand', 'primary'] })
-    ).toBe(true);
-    expect(
-      isEmittableToken({ path: ['button', 'primary', 'background', 'idle'] })
-    ).toBe(true);
   });
 });

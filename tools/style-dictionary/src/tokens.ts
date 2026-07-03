@@ -23,7 +23,7 @@ import type { Config, TransformedToken } from 'style-dictionary/types';
 
 import { emitTailwindTheme } from './bridge/tailwind-theme';
 import { STATIC_HOOKS } from './hooks';
-import { isPrimitiveToken } from './hooks/filters/semantic-only';
+import { isPrimitiveToken } from './hooks/primitive-roots';
 import {
   type BrandOverride,
   collectDecls,
