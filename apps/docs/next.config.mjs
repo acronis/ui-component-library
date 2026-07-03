@@ -20,7 +20,6 @@ const basePath = process.env.DOCS_BASE_PATH ?? '';
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  transpilePackages: ['@spec-lab/shadcn-uikit-demos'],
   // Expose the basePath to client code. basePath auto-applies to <Link>,
   // next/image, and `_next` assets, but NOT to manual fetch() — the shadow-DOM
   // previews fetch /api/ui-react-css, which must be prefixed when deployed

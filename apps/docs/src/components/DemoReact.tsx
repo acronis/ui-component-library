@@ -9,7 +9,7 @@ interface DemoReactProps {
 
 // Live preview wrapper for @spec-lab/ui-react components. Renders the
 // demo inside an isolated shadow root (ShadowDemo) so ui-react's stylesheet
-// can't collide with the legacy shadcn-uikit styles or Fumadocs CSS that are
+// can't collide with the Fumadocs CSS that is
 // loaded globally on the docs document. The matching code is shown in the
 // page's `## Examples` blocks, so this intentionally has no source toggle.
 export function DemoReact({ children, center }: DemoReactProps) {

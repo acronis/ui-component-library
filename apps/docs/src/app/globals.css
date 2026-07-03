@@ -7,9 +7,6 @@
 /* Scan landing page source so spacing utilities are generated */
 @source "./page.tsx";
 
-/* UIKit pre-built CSS (themes, tokens, components, base) */
-@import '@spec-lab/shadcn-uikit/styles';
-
 /* ─── Fumadocs color overrides to match Constructor Lab brand ─────────────────────── */
 :root {
   /* Constructor Lab primary blue (213 94% 51%) */
