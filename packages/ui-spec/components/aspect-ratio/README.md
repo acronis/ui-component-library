@@ -1,7 +1,7 @@
 # AspectRatio
 
 Constrains its content to a fixed **width-to-height ratio** using the native CSS
-`aspect-ratio` property. Ported from `ui-legacy` as a **design-pending v1** (no
+`aspect-ratio` property. Ported from the legacy shadcn UI kit as a **design-pending v1** (no
 Figma node yet; reconcile with `/figma-component AspectRatio <url> --update` when
 mockups land).
 

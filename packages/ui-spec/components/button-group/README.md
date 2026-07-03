@@ -2,7 +2,7 @@
 
 Groups adjacent buttons (and related controls) into a single **segmented unit** —
 the shared inner edges collapse so they read as one control. Ported from
-`ui-legacy` as a **design-pending v1** (no Figma node yet; reconcile with
+the legacy shadcn UI kit as a **design-pending v1** (no Figma node yet; reconcile with
 `/figma-component ButtonGroup <url> --update` when mockups land).
 
 ## When to use

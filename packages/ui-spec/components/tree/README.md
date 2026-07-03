@@ -4,7 +4,7 @@ A hierarchical **tree menu** — used inside dropdowns and as a standalone tree
 view. Rows nest with an indent, expand/collapse via a chevron, and support an
 optional checkbox, leading icon, and a trailing slot (e.g. a `Tag`).
 
-> **Design-pending v1.** Ported from ui-legacy's `tree` and reconciled against the
+> **Design-pending v1.** Ported from the legacy shadcn UI kit's `tree` and reconciled against the
 > Figma "Tree" component set (node `2847-8319`). The legacy ad-hoc `--tree-*`
 > styling is dropped for semantic `--ui-*` tokens; a dedicated `--ui-tree-*` tier
 > and the Figma per-state focus fill are deferred to a `/figma-component --update`.

@@ -25,7 +25,7 @@ For the complicated scenario, you can also create an example in the [Sandbox](ht
 ## Working in the monorepo
 
 This repo is a pnpm workspace with four packages: the published UI library
-(`packages/ui-legacy`), a Vite demo (`apps/demo`), a shared demo components
+(`packages/ui-react`), a Vite demo (`apps/demo`), a shared demo components
 package (`apps/demos`), and a Fumadocs site (`apps/docs`).
 
 Every workspace exposes the same script vocabulary, so you have two equally
@@ -39,7 +39,7 @@ pnpm -r lint
 
 # Or run it for a single workspace
 pnpm --filter @spec-lab/uikit-docs dev
-pnpm --filter @spec-lab/shadcn-uikit storybook
+pnpm --filter @spec-lab/ui-react storybook
 ```
 
 Shared dependency versions (React, TypeScript, ESLint, Vite, react-hook-form,
@@ -136,7 +136,6 @@ bump.
 
 Published workspaces are:
 
-- `@spec-lab/shadcn-uikit` (`packages/ui-legacy`)
 - `@spec-lab/ui-react`
 - `@spec-lab/icons-react`
 - `@spec-lab/tokens`

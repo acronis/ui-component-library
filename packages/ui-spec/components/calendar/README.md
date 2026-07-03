@@ -2,7 +2,7 @@
 
 An inline date **calendar** — pick a single date, multiple dates, or a range.
 Wraps [`react-day-picker`](https://daypicker.dev) (`DayPicker`) with `--ui-*`
-token styling and the design system's chevron icons. Ported from `ui-legacy` as
+token styling and the design system's chevron icons. Ported from the legacy shadcn UI kit as
 a **design-pending v1** (no Figma node yet; reconcile with
 `/figma-component Calendar <url> --update` when mockups land).
 

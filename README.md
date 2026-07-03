@@ -1,15 +1,13 @@
 # Constructor Lab UI Kit
 
-A pnpm monorepo for the Constructor Lab design system: two React component
-libraries, a design-token pipeline (Figma → JSON → CSS/Tailwind), icon
+A pnpm monorepo for the Constructor Lab design system: a React component
+library, a design-token pipeline (Figma → JSON → CSS/Tailwind), icon
 packages, design-data packages, and supporting apps and tooling.
 
-**Architecture in brief:** The next-generation library (`@spec-lab/ui-react`)
-is built on [Base UI](https://base-ui.com/) unstyled primitives and themed by
+**Architecture in brief:** The library (`@spec-lab/ui-react`) is built on
+[Base UI](https://base-ui.com/) unstyled primitives and themed by
 `@spec-lab/tokens` (`--ui-*` CSS custom properties generated from
-`@spec-lab/tokens`). The legacy library
-(`@spec-lab/shadcn-uikit`) follows [shadcn/ui](https://ui.shadcn.com/)
-principles on Base UI + Radix primitives. Tailwind CSS is used **internally** to
+`@spec-lab/tokens`). Tailwind CSS is used **internally** to
 compile styles — consumers receive fully pre-built CSS and can use any styling
 solution in their own project. No Tailwind installation required.
 
@@ -21,8 +19,7 @@ The repo is organized into four top-level directories: `context/` (shared docs),
 
 | Path                          | Package                          | Published | Role                                                                         |
 | ----------------------------- | -------------------------------- | --------- | ---------------------------------------------------------------------------- |
-| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**   | Next-gen React library on **Base UI**, themed by `tokens`. New work here.    |
-| `packages/ui-legacy/`         | `@spec-lab/shadcn-uikit`         | **yes**   | Legacy shadcn-style React library (Base UI + Radix), 4 shipped themes.       |
+| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**   | React component library on **Base UI**, themed by `tokens`.                  |
 | `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**   | React icon components generated from `design-assets` (tree-shakeable).       |
 | `packages/icons-svg-next/`    | `@spec-lab/icons-svg-next`       | no        | Raw SVG sources for the next-gen icon set (source-only).                     |
 | `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
@@ -71,9 +68,7 @@ The demo will be available at `http://localhost:3000`.
 
 ## 📖 Usage (`@spec-lab/ui-react`)
 
-`@spec-lab/ui-react` is the next-generation library and the recommended
-starting point for new work. For the legacy shadcn library see
-[`packages/ui-legacy/README.md`](./packages/ui-legacy/README.md).
+`@spec-lab/ui-react` is the Constructor Lab UI Kit's React component library.
 
 ### Installation
 
@@ -202,14 +197,14 @@ const className = cn(
 ## 🎨 Styling & Theming
 
 Tailwind CSS is used **internally** as a build-time tool to compile component
-styles. It is **not** part of the public API — both libraries ship standard,
+styles. It is **not** part of the public API — the library ships standard,
 pre-built CSS, so consumers can use any styling solution (CSS Modules, SCSS,
 plain CSS, Tailwind of any version, etc.). No Tailwind installation is required
 to consume the kit.
 
 ### Tokens (`ui-react`)
 
-The next-gen library is themed entirely by `--ui-*` CSS custom properties from
+The library is themed entirely by `--ui-*` CSS custom properties from
 `@spec-lab/tokens`, which are generated from
 `@spec-lab/tokens` via `@spec-lab/style-dictionary`. The
 token layer ships inside `@spec-lab/ui-react/styles`; light/dark and
@@ -219,15 +214,6 @@ SSR-compatible). Override the `--ui-*` variables to customize.
 The token pipeline (and the Figma sync used to refresh it) is documented in the
 workspace docs for [`tokens`](./packages/tokens/AGENTS.md) and
 [`tokens`](./packages/tokens/AGENTS.md).
-
-### Themes (`ui-legacy`)
-
-The legacy library ships four CSS themes (`acronis-default`, `acronis-ocean`,
-`cyber-chat`, `acronis-white-label`) plus a runtime theme/color-mode API
-(`initializeThemeSystem`, `applyTheme`, `applyColorMode`, `applyNavVariant`) and
-a `tw-animate-css` peer dependency. See
-[`packages/ui-legacy/README.md`](./packages/ui-legacy/README.md) and
-[Theme Documentation](./apps/docs/THEMES.md) for the full theming guide.
 
 ## 🏗️ Project Structure
 
@@ -239,7 +225,6 @@ uikit/
 │   └── docs/                   # Next.js + Fumadocs (@spec-lab/uikit-docs)
 ├── packages/                   # Published libraries + design data
 │   ├── ui-react/               # Base UI library    (@spec-lab/ui-react)
-│   ├── ui-legacy/              # shadcn library     (@spec-lab/shadcn-uikit)
 │   ├── icons-react/            # React icons        (@spec-lab/icons-react)
 │   ├── icons-svg/              # Raw SVG sources    (@spec-lab/icons-svg)
 │   ├── tokens/          # DTCG tokens (data) (@spec-lab/tokens)
@@ -336,10 +321,8 @@ export function App() {
 ## 📚 Documentation
 
 - [`AGENTS.md`](./AGENTS.md) — authoritative workspace map + conventions
-- [ui-react package](./packages/ui-react) — next-gen Base UI component library
-- [ui-legacy package](./packages/ui-legacy/README.md) — legacy shadcn library + theming
+- [ui-react package](./packages/ui-react) — Base UI component library
 - [tokens](./packages/tokens/AGENTS.md) / [tokens](./packages/tokens/AGENTS.md) — token pipeline
-- [Theme System Guide](./apps/docs/THEMES.md) — legacy theme usage guide
 - [Demo Package Documentation](./apps/demo/README.md)
 
 ## 📝 License
@@ -354,8 +337,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🔗 Links
 
-- [Base UI](https://base-ui.com/) — unstyled primitives (primary, `ui-react`)
-- [shadcn/ui](https://ui.shadcn.com/) — the original inspiration (`ui-legacy`)
-- [Radix UI](https://www.radix-ui.com/) — unstyled primitives (`ui-legacy`: NavigationMenu, Slot)
+- [Base UI](https://base-ui.com/) — unstyled primitives used by `ui-react`
 - [Tailwind CSS](https://tailwindcss.com/) — internal build tool
 - [DTCG](https://www.designtokens.org/) — design token format used by `tokens`

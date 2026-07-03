@@ -10,6 +10,6 @@ description: >-
 since: 0.55.0
 dependencies:
   components: [button, separator]
-# Design-pending v1: ported from ui-legacy without a "ready for dev" Figma node,
+# Design-pending v1: ported from the legacy shadcn UI kit without a "ready for dev" Figma node,
 # so there is no `figma:` block yet. Reconcile with
 # /figma-component ButtonGroup <url> --update once mockups land.

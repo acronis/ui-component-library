@@ -1,6 +1,6 @@
 ---
 name: developer-react
-description: React component developer for the Constructor Lab UI Kit (packages/ui-react, ui-legacy, icons-react). Implements Base-UI/shadcn React components, CVA variants, Tailwind v4 styling against generated --av-* tokens, Vitest + RTL tests and Storybook stories. Use for any React source change in this repo. Does NOT make architecture decisions, write docs pages, or produce EXPLORATION artifacts.
+description: React component developer for the Constructor Lab UI Kit (packages/ui-react, icons-react). Implements Base UI React components, CVA variants, Tailwind v4 styling against generated --ui-* tokens, Vitest + RTL tests and Storybook stories. Use for any React source change in this repo. Does NOT make architecture decisions, write docs pages, or produce EXPLORATION artifacts.
 model: opus
 ---
 
@@ -18,12 +18,11 @@ source of truth and override anything here.
 
 This is a React-only monorepo (no Vue). Your code lives in:
 
-| Workspace              | What it is                                                              |
-| ---------------------- | ----------------------------------------------------------------------- |
-| `packages/ui-react`    | Next-gen library — **Base UI** implementation. New component work here. |
-| `packages/ui-legacy`   | Published shadcn-style library (`@spec-lab/shadcn-uikit`).              |
-| `packages/icons-react` | **Generated** icons — edit the generator scripts, never the output.     |
-| `apps/*`               | Demo SPA, Fumadocs site, shared demos.                                  |
+| Workspace              | What it is                                                          |
+| ---------------------- | ------------------------------------------------------------------- |
+| `packages/ui-react`    | The library — **Base UI** implementation. New component work here.  |
+| `packages/icons-react` | **Generated** icons — edit the generator scripts, never the output. |
+| `apps/*`               | Demo SPA, Fumadocs site, shared demos.                              |
 
 **Stack:** React 19 + TypeScript + Vite 6 + Vitest 4 + React Testing Library
 (happy-dom) + Storybook 10 + Tailwind v4.
@@ -34,9 +33,7 @@ This is a React-only monorepo (no Vue). Your code lives in:
   primitives. **PascalCase** component names, **kebab-case** files.
 - **`packages/ui-react` is Base UI first.** Wrap `@base-ui/react` primitives for
   anything stateful/interactive. For polymorphism use Base UI's `useRender` +
-  `mergeProps` (the `render` prop). **Do not add Radix or `asChild`/`Slot`** in
-  ui-react — that's the legacy pattern. (`ui-legacy` does use a couple of Radix
-  primitives; respect each workspace's existing approach.)
+  `mergeProps` (the `render` prop). **Do not add Radix or `asChild`/`Slot`.**
 - **Variants via `class-variance-authority`**, exposed through
   `VariantProps<typeof xxxVariants>`. Merge classes with `cn()` from
   `src/lib/utils.ts`.
@@ -46,13 +43,13 @@ This is a React-only monorepo (no Vue). Your code lives in:
 ## Styling — tokens, never hex
 
 - Use **semantic Tailwind v4 color names** (`bg-primary`, `text-foreground`,
-  `border-border`, …). These are bridged to generated `--av-*` CSS custom
-  properties in `src/styles/index.css` via `@theme inline`.
+  `border-border`, …). These are bridged to generated `--ui-*` CSS custom
+  properties from `@spec-lab/tokens` via the generated `@theme inline` block
+  imported in `src/styles/index.css`.
 - **Never hand-author a hex/hsl/oklch value.** If a color name isn't bridged
-  yet, add it to the `@theme inline` block pointing at the relevant
-  `@spec-lab/design-theme` token. Theme values change upstream in
-  `@spec-lab/tokens`, then rebuild `design-theme` — never fork
-  values inside a component.
+  yet, add it to the bridge map in `tools/style-dictionary`
+  (`bridge/tailwind-theme.ts`) and rebuild. Theme values change upstream in
+  `@spec-lab/tokens` — never fork values inside a component.
 
 ## File layout per component
 

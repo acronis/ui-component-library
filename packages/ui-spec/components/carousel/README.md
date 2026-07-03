@@ -3,7 +3,7 @@
 A slideshow of scrollable, snapping slides with Previous / Next controls —
 horizontal or vertical, with optional loop and autoplay.
 
-> **Design-pending v1.** Ported from ui-legacy's `carousel`, built on the headless
+> **Design-pending v1.** Ported from the legacy shadcn UI kit's `carousel`, built on the headless
 > [`embla-carousel-react`](https://www.embla-carousel.com/) engine (drag, snap,
 > loop, plugins). The **navigation follows the legacy Figma mockup**: a bottom bar
 > with a "← Prev" link, pagination dots, and a "Next →" link (`CarouselNavigation`),

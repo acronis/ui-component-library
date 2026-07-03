@@ -4,7 +4,7 @@ A **command palette** — a searchable, filtered list of grouped commands with
 keyboard navigation and per-command shortcuts. Use it inline, or as a ⌘K overlay
 via `CommandDialog`.
 
-> **Design-pending v1.** Ported from ui-legacy's `command` (a `cmdk` wrapper) and
+> **Design-pending v1.** Ported from the legacy shadcn UI kit's `command` (a `cmdk` wrapper) and
 > rebuilt on the Base UI **Combobox** primitive + **Dialog** — per the roadmap
 > ("Command builds on Combobox + Dialog"), with **no `cmdk` dependency**. Base UI
 > owns filtering, keyboard nav, and ARIA. Reconcile against a Figma mockup with

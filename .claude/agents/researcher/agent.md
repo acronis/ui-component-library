@@ -19,11 +19,10 @@ Tailwind v4. pnpm monorepo; Changesets; Next.js + Fumadocs docs. No Vue.
 
 **Common research surfaces:**
 
-- Component APIs and variant sets across `packages/ui-react` and
-  `packages/ui-legacy` (and the differences between the two).
+- Component APIs and variant sets across `packages/ui-react`.
 - Base UI primitive capabilities and composition (`useRender`/`mergeProps`).
-- The token pipeline: `tokens` → `design-theme` → library `@theme`
-  bridge → utilities.
+- The token pipeline: `@spec-lab/tokens` → generated CSS/SCSS/JS → library
+  `@theme` bridge → utilities.
 - Cross-workspace mechanics: the shared `apps/demos` Storybook alias, peer-dep
   layouts, the RSC `"use client"` manifest constraint in `apps/docs`.
 
@@ -42,17 +41,16 @@ grep -rEn "#[0-9a-fA-F]{3,8}|hsl\(|oklch\(" packages/*/src/components --include=
 # Token bridge / theme wiring
 grep -rn "@theme" packages/*/src/styles
 
-# Radix usage (expected in legacy, NOT in ui-react)
+# Radix usage (should not appear in ui-react — Base UI only)
 grep -rn "@radix-ui" packages/*/src
 ```
 
 ## Capture when researching a component
 
-- Props interface and defaults; underlying Base UI / Radix primitive.
+- Props interface and defaults; underlying Base UI primitive.
 - Variant axes (`cva` config) and exposed `VariantProps`.
 - Which color tokens / Tailwind names it depends on.
 - Test coverage (cases vs props/variants) and Storybook variant coverage.
-- Cross-workspace differences (ui-react vs ui-legacy) for the same component.
 
 ## Artifact locations
 
