@@ -27,23 +27,27 @@ export class SemanticsEmitter {
   #aliasTranslator;
   #typoMapper;
 
-  constructor(snapshot) {
+  // `primitives` is injectable for tests; entry scripts pass nothing and it reads
+  // the committed primitives tier (the alias-resolution source).
+  constructor(snapshot, { primitives } = {}) {
     this.#snapshot = snapshot;
-    this.#primitives = JSON.parse(fs.readFileSync(PRIMITIVES_PATH, 'utf8'));
+    this.#primitives =
+      primitives ?? JSON.parse(fs.readFileSync(PRIMITIVES_PATH, 'utf8'));
     this.#aliasTranslator = new AliasTranslator(this.#primitives);
     this.#typoMapper = new TypographyMapper(this.#primitives);
   }
 
-  emit() {
-    const prevOut = fs.existsSync(OUT_PATH)
-      ? JSON.parse(fs.readFileSync(OUT_PATH, 'utf8'))
-      : {};
-
+  /**
+   * Pure: build the semantics tier from the snapshot (no I/O). `prev` is the
+   * previous tier whose hand-authored `$extensions` are preserved (the only
+   * "merge"). Testable in isolation; `emit()` wraps it with the file read/write.
+   */
+  build(prev = {}) {
     const out = {
       $schema: '../schemas/tier.schema.json',
       colors: { $type: 'color' },
     };
-    if (prevOut.$extensions) out.$extensions = prevOut.$extensions;
+    if (prev.$extensions) out.$extensions = prev.$extensions;
 
     const aliasErrors = [];
     this.#emitColors(out, aliasErrors);
@@ -58,10 +62,17 @@ export class SemanticsEmitter {
     // Attach the hand-authored $extensions before sorting so its key lands in
     // alphabetical position, then restore its content verbatim afterwards
     // (sortNode would otherwise reorder its hand-curated internals).
-    if (prevOut.$extensions) out.$extensions = prevOut.$extensions;
+    if (prev.$extensions) out.$extensions = prev.$extensions;
     const root = TreeUtils.sortNode(out);
-    if (prevOut.$extensions) root.$extensions = prevOut.$extensions;
+    if (prev.$extensions) root.$extensions = prev.$extensions;
+    return root;
+  }
 
+  emit() {
+    const prev = fs.existsSync(OUT_PATH)
+      ? JSON.parse(fs.readFileSync(OUT_PATH, 'utf8'))
+      : {};
+    const root = this.build(prev);
     fs.writeFileSync(OUT_PATH, DtcgFormatter.serialize(root));
     return root;
   }

@@ -3,244 +3,6 @@
     "$extensions": {
       "figma-console-mcp": { "exportedAt": "2026-07-03T19:28:11.632Z" }
     },
-    "font": {
-      "$extensions": {
-        "figma-console-mcp": {
-          "figmaCollectionId": "VariableCollectionId:1339:11258",
-          "originalName": "Font"
-        }
-      },
-      "font-family": {
-        "default": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11318",
-            "com.figma.scopes": ["FONT_FAMILY"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": "Inter" }
-          },
-          "$type": "fontFamily",
-          "$value": "Inter"
-        },
-        "monospace": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11319",
-            "com.figma.scopes": ["FONT_FAMILY"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": "IBM Plex Mono" }
-          },
-          "$type": "fontFamily",
-          "$value": "IBM Plex Mono"
-        }
-      },
-      "font-size": {
-        "font-size-10": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11310",
-            "com.figma.scopes": ["FONT_SIZE"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 10 }
-          },
-          "$type": "dimension",
-          "$value": 10
-        },
-        "font-size-11": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1727:2411",
-            "com.figma.scopes": ["FONT_SIZE"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 11 }
-          },
-          "$type": "dimension",
-          "$value": 11
-        },
-        "font-size-12": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11308",
-            "com.figma.scopes": ["FONT_SIZE"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 12 }
-          },
-          "$type": "dimension",
-          "$value": 12
-        },
-        "font-size-14": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11317",
-            "com.figma.scopes": ["FONT_SIZE"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 14 }
-          },
-          "$type": "dimension",
-          "$value": 14
-        },
-        "font-size-18": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11315",
-            "com.figma.scopes": ["FONT_SIZE"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 18 }
-          },
-          "$type": "dimension",
-          "$value": 18
-        },
-        "font-size-24": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11313",
-            "com.figma.scopes": ["FONT_SIZE"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 24 }
-          },
-          "$type": "dimension",
-          "$value": 24
-        },
-        "font-size-32": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11311",
-            "com.figma.scopes": ["FONT_SIZE"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 32 }
-          },
-          "$type": "dimension",
-          "$value": 32
-        }
-      },
-      "font-weight": {
-        "font-weight-bold": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11307",
-            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 700 }
-          },
-          "$type": "fontWeight",
-          "$value": 700
-        },
-        "font-weight-medium": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11312",
-            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 500 }
-          },
-          "$type": "fontWeight",
-          "$value": 500
-        },
-        "font-weight-regular": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11314",
-            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 400 }
-          },
-          "$type": "fontWeight",
-          "$value": 400
-        },
-        "font-weight-semibold": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11309",
-            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 600 }
-          },
-          "$type": "fontWeight",
-          "$value": 600
-        }
-      },
-      "letter-spacing": {
-        "letter-spacing-0": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:4275:1498",
-            "com.figma.scopes": ["LETTER_SPACING", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 0 }
-          },
-          "$type": "dimension",
-          "$value": 0
-        },
-        "letter-spacing-0-3": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1727:2408",
-            "com.figma.scopes": ["LETTER_SPACING", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 0.30000001192092896 }
-          },
-          "$type": "dimension",
-          "$value": 0.30000001192092896
-        },
-        "letter-spacing-1": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1727:2410",
-            "com.figma.scopes": ["LETTER_SPACING", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 1 }
-          },
-          "$type": "dimension",
-          "$value": 1
-        }
-      },
-      "line-height": {
-        "line-height-16": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11306",
-            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 16 }
-          },
-          "$type": "dimension",
-          "$value": 16
-        },
-        "line-height-20": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11305",
-            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 20 }
-          },
-          "$type": "dimension",
-          "$value": 20
-        },
-        "line-height-24": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11304",
-            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 24 }
-          },
-          "$type": "dimension",
-          "$value": 24
-        },
-        "line-height-32": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11316",
-            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 32 }
-          },
-          "$type": "dimension",
-          "$value": 32
-        },
-        "line-height-40": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1727:2407",
-            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 40 }
-          },
-          "$type": "dimension",
-          "$value": 40
-        },
-        "line-height-48": {
-          "$extensions": {
-            "com.figma.variableId": "VariableID:1339:11303",
-            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
-            "com.figma.hiddenFromPublishing": true,
-            "modes": { "Mode 1": 48 }
-          },
-          "$type": "dimension",
-          "$value": 48
-        }
-      }
-    },
     "theme": {
       "$extensions": {
         "figma-console-mcp": {
@@ -6362,6 +6124,244 @@
         }
       }
     },
+    "font": {
+      "$extensions": {
+        "figma-console-mcp": {
+          "figmaCollectionId": "VariableCollectionId:1339:11258",
+          "originalName": "Font"
+        }
+      },
+      "font-family": {
+        "default": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11318",
+            "com.figma.scopes": ["FONT_FAMILY"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": "Inter" }
+          },
+          "$type": "fontFamily",
+          "$value": "Inter"
+        },
+        "monospace": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11319",
+            "com.figma.scopes": ["FONT_FAMILY"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": "IBM Plex Mono" }
+          },
+          "$type": "fontFamily",
+          "$value": "IBM Plex Mono"
+        }
+      },
+      "font-size": {
+        "font-size-10": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11310",
+            "com.figma.scopes": ["FONT_SIZE"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 10 }
+          },
+          "$type": "dimension",
+          "$value": 10
+        },
+        "font-size-11": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1727:2411",
+            "com.figma.scopes": ["FONT_SIZE"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 11 }
+          },
+          "$type": "dimension",
+          "$value": 11
+        },
+        "font-size-12": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11308",
+            "com.figma.scopes": ["FONT_SIZE"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 12 }
+          },
+          "$type": "dimension",
+          "$value": 12
+        },
+        "font-size-14": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11317",
+            "com.figma.scopes": ["FONT_SIZE"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 14 }
+          },
+          "$type": "dimension",
+          "$value": 14
+        },
+        "font-size-18": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11315",
+            "com.figma.scopes": ["FONT_SIZE"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 18 }
+          },
+          "$type": "dimension",
+          "$value": 18
+        },
+        "font-size-24": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11313",
+            "com.figma.scopes": ["FONT_SIZE"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 24 }
+          },
+          "$type": "dimension",
+          "$value": 24
+        },
+        "font-size-32": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11311",
+            "com.figma.scopes": ["FONT_SIZE"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 32 }
+          },
+          "$type": "dimension",
+          "$value": 32
+        }
+      },
+      "font-weight": {
+        "font-weight-bold": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11307",
+            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 700 }
+          },
+          "$type": "fontWeight",
+          "$value": 700
+        },
+        "font-weight-medium": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11312",
+            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 500 }
+          },
+          "$type": "fontWeight",
+          "$value": 500
+        },
+        "font-weight-regular": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11314",
+            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 400 }
+          },
+          "$type": "fontWeight",
+          "$value": 400
+        },
+        "font-weight-semibold": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11309",
+            "com.figma.scopes": ["FONT_WEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 600 }
+          },
+          "$type": "fontWeight",
+          "$value": 600
+        }
+      },
+      "letter-spacing": {
+        "letter-spacing-0": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:4275:1498",
+            "com.figma.scopes": ["LETTER_SPACING", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 0 }
+          },
+          "$type": "dimension",
+          "$value": 0
+        },
+        "letter-spacing-0-3": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1727:2408",
+            "com.figma.scopes": ["LETTER_SPACING", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 0.30000001192092896 }
+          },
+          "$type": "dimension",
+          "$value": 0.30000001192092896
+        },
+        "letter-spacing-1": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1727:2410",
+            "com.figma.scopes": ["LETTER_SPACING", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 1 }
+          },
+          "$type": "dimension",
+          "$value": 1
+        }
+      },
+      "line-height": {
+        "line-height-16": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11306",
+            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 16 }
+          },
+          "$type": "dimension",
+          "$value": 16
+        },
+        "line-height-20": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11305",
+            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 20 }
+          },
+          "$type": "dimension",
+          "$value": 20
+        },
+        "line-height-24": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11304",
+            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 24 }
+          },
+          "$type": "dimension",
+          "$value": 24
+        },
+        "line-height-32": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11316",
+            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 32 }
+          },
+          "$type": "dimension",
+          "$value": 32
+        },
+        "line-height-40": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1727:2407",
+            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 40 }
+          },
+          "$type": "dimension",
+          "$value": 40
+        },
+        "line-height-48": {
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1339:11303",
+            "com.figma.scopes": ["LINE_HEIGHT", "FONT_VARIATIONS"],
+            "com.figma.hiddenFromPublishing": true,
+            "modes": { "Mode 1": 48 }
+          },
+          "$type": "dimension",
+          "$value": 48
+        }
+      }
+    },
     "units": {
       "$extensions": {
         "figma-console-mcp": {
@@ -6807,6 +6807,4118 @@
           },
           "$type": "dimension",
           "$value": 3
+        }
+      }
+    },
+    "brand": {
+      "$extensions": {
+        "figma-console-mcp": {
+          "figmaCollectionId": "VariableCollectionId:28:3678",
+          "originalName": "Brand"
+        }
+      },
+      "semantics": {
+        "colors": {
+          "background": {
+            "backdrop": {
+              "element": {
+                "primary": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:202:38",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "modes": {
+                      "Acronis": "{Transparent.white.inverse-95}",
+                      "deep-sky-itkontoret": "{Transparent.white.inverse-95}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{Transparent.white.inverse-95}"
+                },
+                "secondary": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:4370:2956",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "modes": {
+                      "Acronis": "{Transparent.blue.inverse-95}",
+                      "deep-sky-itkontoret": "{Transparent.blue.inverse-95}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{Transparent.blue.inverse-95}"
+                }
+              },
+              "screen": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1433",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.dark.fixed-90}",
+                    "deep-sky-itkontoret": "{Transparent.dark.fixed-90}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.dark.fixed-90}"
+              }
+            },
+            "brand": {
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1428",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-13-Brand}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.sidebarPrimary.idle}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-13-Brand}"
+              },
+              "primary-active": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:143:3",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.sidebarPrimary.active}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              },
+              "primary-disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:383:39",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-5}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.sidebarPrimary.disabled}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-5}"
+              },
+              "primary-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:143:2",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-12}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.sidebarPrimary.hover}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-12}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1429",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.buttonPrimary.idle}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              },
+              "secondary-active": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:265:59",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-9}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.buttonPrimary.active}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-9}"
+              },
+              "secondary-disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:227:24",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.buttonPrimary.disabled}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              },
+              "secondary-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:265:58",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-8}",
+                    "deep-sky-itkontoret": "{Branding.deep-sky-itkontoret.buttonPrimary.hover}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-8}"
+              }
+            },
+            "inverse": {
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3665:6953",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.dark.inverse-100}",
+                    "deep-sky-itkontoret": "{Transparent.dark.inverse-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.dark.inverse-100}"
+              }
+            },
+            "status": {
+              "ai": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2277:406",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Violet.Violet-1}",
+                    "deep-sky-itkontoret": "{Violet.Violet-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Violet.Violet-1}"
+              },
+              "ai-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2277:407",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Violet.Violet-2}",
+                    "deep-sky-itkontoret": "{Violet.Violet-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Violet.Violet-2}"
+              },
+              "ai-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2277:408",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Violet.Violet-3}",
+                    "deep-sky-itkontoret": "{Violet.Violet-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Violet.Violet-3}"
+              },
+              "critical": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:14",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-1}",
+                    "deep-sky-itkontoret": "{Orange.Orange-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-1}"
+              },
+              "critical-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:15",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-2}",
+                    "deep-sky-itkontoret": "{Orange.Orange-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-2}"
+              },
+              "critical-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:16",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-3}",
+                    "deep-sky-itkontoret": "{Orange.Orange-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-3}"
+              },
+              "danger": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:16",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-1}",
+                    "deep-sky-itkontoret": "{Red.Red-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-1}"
+              },
+              "danger-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:17",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-2}",
+                    "deep-sky-itkontoret": "{Red.Red-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-2}"
+              },
+              "danger-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:18",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-3}",
+                    "deep-sky-itkontoret": "{Red.Red-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-3}"
+              },
+              "info": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:8",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-1}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-1}"
+              },
+              "info-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:9",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-2}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-2}"
+              },
+              "info-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:10",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-3}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-3}"
+              },
+              "neutral": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263457",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Base}",
+                    "deep-sky-itkontoret": "{Base}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Base}"
+              },
+              "neutral-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263458",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-1}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-1}"
+              },
+              "neutral-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263459",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-2}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-2}"
+              },
+              "off": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:1205:160",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              },
+              "on": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:1205:161",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-6}",
+                    "deep-sky-itkontoret": "{Green.Green-6}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-6}"
+              },
+              "success": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:10",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-1}",
+                    "deep-sky-itkontoret": "{Green.Green-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-1}"
+              },
+              "success-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:11",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-2}",
+                    "deep-sky-itkontoret": "{Green.Green-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-2}"
+              },
+              "success-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:12",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-3}",
+                    "deep-sky-itkontoret": "{Green.Green-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-3}"
+              },
+              "warning": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:12",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-1}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-1}"
+              },
+              "warning-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:13",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-2}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-2}"
+              },
+              "warning-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:14",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-3}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-3}"
+              }
+            },
+            "statusStrong": {
+              "critical": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263451",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-7-Primary}",
+                    "deep-sky-itkontoret": "{Orange.Orange-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-7-Primary}"
+              },
+              "critical-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263452",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-8}",
+                    "deep-sky-itkontoret": "{Orange.Orange-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-8}"
+              },
+              "critical-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263453",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-9}",
+                    "deep-sky-itkontoret": "{Orange.Orange-9}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-9}"
+              },
+              "danger": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263454",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-7-Primary}",
+                    "deep-sky-itkontoret": "{Red.Red-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-7-Primary}"
+              },
+              "danger-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263455",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-9}",
+                    "deep-sky-itkontoret": "{Red.Red-9}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-9}"
+              },
+              "danger-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263456",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-10}",
+                    "deep-sky-itkontoret": "{Red.Red-10}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-10}"
+              },
+              "info": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263442",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Blue.Blue-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              },
+              "info-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263443",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-8}",
+                    "deep-sky-itkontoret": "{Blue.Blue-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-8}"
+              },
+              "info-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263444",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-9}",
+                    "deep-sky-itkontoret": "{Blue.Blue-9}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-9}"
+              },
+              "neutral": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263460",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-7}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-7}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-7}"
+              },
+              "neutral-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263461",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-8}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-8}"
+              },
+              "neutral-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263462",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-9}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-9}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-9}"
+              },
+              "success": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263445",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-7-Primary}",
+                    "deep-sky-itkontoret": "{Green.Green-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-7-Primary}"
+              },
+              "success-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263446",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-8}",
+                    "deep-sky-itkontoret": "{Green.Green-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-8}"
+              },
+              "success-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263447",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-9}",
+                    "deep-sky-itkontoret": "{Green.Green-9}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-9}"
+              },
+              "warning": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263448",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-7-Primary}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-7-Primary}"
+              },
+              "warning-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263449",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-8}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-8}"
+              },
+              "warning-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:910:263450",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-9}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-9}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-9}"
+              }
+            },
+            "surface": {
+              "active": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:141:276",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-2}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-2}"
+              },
+              "hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:141:275",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-1}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-1}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-1}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1426",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Base}",
+                    "deep-sky-itkontoret": "{Base}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Base}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1427",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-0}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-0}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-0}"
+              },
+              "transparent": {
+                "$description": "Transparent fill. Aliases Transparent/Clear (#FF00FF 0%).",
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2500:145417",
+                  "com.figma.scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.clear}",
+                    "deep-sky-itkontoret": "{Transparent.clear}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.clear}"
+              }
+            }
+          },
+          "border": {
+            "onBrand": {
+              "border": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:52:1377",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-10}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-10}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-10}"
+              },
+              "border-active": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:5",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-0}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-0}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-0}"
+              },
+              "divider": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:52:1378",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-10}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-10}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-10}"
+              }
+            },
+            "onStatus": {
+              "ai": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:4313:50249",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "modes": {
+                    "Acronis": "{Violet.Violet-4}",
+                    "deep-sky-itkontoret": "{Violet.Violet-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Violet.Violet-4}"
+              },
+              "aiStrong": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2277:437",
+                  "com.figma.scopes": [],
+                  "modes": {
+                    "Acronis": "{semantics.gradients.ai.idle}",
+                    "deep-sky-itkontoret": "{semantics.gradients.ai.idle}"
+                  }
+                },
+                "$type": "string",
+                "$value": "{semantics.gradients.ai.idle}"
+              },
+              "critical": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:41",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-4}",
+                    "deep-sky-itkontoret": "{Orange.Orange-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-4}"
+              },
+              "criticalStrong": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:797:2005",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-8}",
+                    "deep-sky-itkontoret": "{Orange.Orange-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-8}"
+              },
+              "danger": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:42",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Red.Red-4}",
+                    "deep-sky-itkontoret": "{Red.Red-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-4}"
+              },
+              "dangerStrong": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:797:2004",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Red.Red-8}",
+                    "deep-sky-itkontoret": "{Red.Red-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-8}"
+              },
+              "info": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:38",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-4}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-4}"
+              },
+              "infoStrong": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:797:2008",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-8}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-8}"
+              },
+              "neutral": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263463",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-4}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-4}"
+              },
+              "neutralStrong": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:912:268723",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-8}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-8}"
+              },
+              "success": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:39",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Green.Green-4}",
+                    "deep-sky-itkontoret": "{Green.Green-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-4}"
+              },
+              "successStrong": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:797:2007",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Green.Green-8}",
+                    "deep-sky-itkontoret": "{Green.Green-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-8}"
+              },
+              "warning": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:147:40",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-4}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-4}"
+              },
+              "warningStrong": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:797:2006",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-8}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-8}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-8}"
+              }
+            },
+            "onSurface": {
+              "border": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1437",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              },
+              "border-active": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:138:187",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-7}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              },
+              "border-error": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:1234:100",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Red.Red-7-Primary}",
+                    "deep-sky-itkontoret": "{Red.Red-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-7-Primary}"
+              },
+              "divider": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1438",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              }
+            },
+            "transparent": {
+              "$description": "Transparent stroke. Aliases Transparent/Clear (#FF00FF 0%).",
+              "$extensions": {
+                "com.figma.variableId": "VariableID:2500:145418",
+                "com.figma.scopes": ["STROKE_COLOR"],
+                "modes": {
+                  "Acronis": "{Transparent.clear}",
+                  "deep-sky-itkontoret": "{Transparent.clear}"
+                }
+              },
+              "$type": "color",
+              "$value": "{Transparent.clear}"
+            }
+          },
+          "focus": {
+            "brand": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1838:1394",
+                "com.figma.scopes": ["STROKE_COLOR"],
+                "modes": {
+                  "Acronis": "{Blue.Blue-4}",
+                  "deep-sky-itkontoret": "{Blue.Blue-4}"
+                }
+              },
+              "$type": "color",
+              "$value": "{Blue.Blue-4}"
+            },
+            "error": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1828:1379",
+                "com.figma.scopes": ["STROKE_COLOR"],
+                "modes": {
+                  "Acronis": "{Red.Red-4}",
+                  "deep-sky-itkontoret": "{Red.Red-4}"
+                }
+              },
+              "$type": "color",
+              "$value": "{Red.Red-4}"
+            },
+            "primary": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1828:1378",
+                "com.figma.scopes": ["STROKE_COLOR"],
+                "modes": {
+                  "Acronis": "{Blue.Blue-4}",
+                  "deep-sky-itkontoret": "{Blue.Blue-4}"
+                }
+              },
+              "$type": "color",
+              "$value": "{Blue.Blue-4}"
+            },
+            "secondary": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:1838:1393",
+                "com.figma.scopes": ["STROKE_COLOR"],
+                "modes": {
+                  "Acronis": "{Blue.Blue-4}",
+                  "deep-sky-itkontoret": "{Blue.Blue-4}"
+                }
+              },
+              "$type": "color",
+              "$value": "{Blue.Blue-4}"
+            }
+          },
+          "glyph": {
+            "onBackdrop": {
+              "elementPrimary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:8751",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-7}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              },
+              "screenPrimary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:143:179",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              }
+            },
+            "onBrand": {
+              "disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:179:195",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-10}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-10}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-10}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:52:2202",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:179:196",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-60}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-60}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-60}"
+              }
+            },
+            "onInverse": {
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:305:125",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              }
+            },
+            "onStatus": {
+              "ai": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:1936:2682",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Violet.Violet-11}",
+                    "deep-sky-itkontoret": "{Violet.Violet-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Violet.Violet-11}"
+              },
+              "critical": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:796:1732",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-11}",
+                    "deep-sky-itkontoret": "{Orange.Orange-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-11}"
+              },
+              "danger": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:796:1731",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-11}",
+                    "deep-sky-itkontoret": "{Red.Red-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-11}"
+              },
+              "disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:151:43",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              },
+              "info": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:796:1735",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-11}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-11}"
+              },
+              "neutral": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263464",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-11}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-11}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:7",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-11}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-11}"
+              },
+              "success": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:796:1734",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-11}",
+                    "deep-sky-itkontoret": "{Green.Green-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-11}"
+              },
+              "warning": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:796:1733",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-11}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-11}"
+              }
+            },
+            "onStatusStrong": {
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:4169:6903",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              }
+            },
+            "onSurface": {
+              "brand": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2463:54749",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-13-Brand}",
+                    "deep-sky-itkontoret": "{Blue.Blue-13-Brand}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-13-Brand}"
+              },
+              "destructive": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:143:8",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-7-Primary}",
+                    "deep-sky-itkontoret": "{Red.Red-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-7-Primary}"
+              },
+              "disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:56:1581",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-5}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              },
+              "neutral": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:1024:122",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-4}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-4}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1436",
+                  "com.figma.scopes": ["SHAPE_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-10}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              }
+            }
+          },
+          "text": {
+            "onBackdrop": {
+              "elementLink-active": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3939:3396",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-4}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-4}"
+              },
+              "elementLink-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3939:3395",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-4}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-4}"
+              },
+              "elementLink-idle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3939:3394",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-7-Primary}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-7-Primary}"
+              },
+              "elementPrimary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:7751",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.dark.inverse-100}",
+                    "deep-sky-itkontoret": "{Transparent.dark.inverse-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.dark.inverse-100}"
+              },
+              "screenLink-active": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:8760",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-4}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-4}"
+              },
+              "screenLink-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:8759",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-4}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-4}"
+              },
+              "screenLink-idle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:8758",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-4}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-4}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-4}"
+              },
+              "screenPrimary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:7747",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "screenSecondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:7754",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-60}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-60}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-60}"
+              }
+            },
+            "onBrand": {
+              "disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:52:1358",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-30}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-30}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-30}"
+              },
+              "link-disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:172",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-30}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-30}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-30}"
+              },
+              "link-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:170",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-5}",
+                    "deep-sky-itkontoret": "{Blue.Blue-5}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-5}"
+              },
+              "link-idle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:169",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Blue.Blue-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              },
+              "link-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:171",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Blue.Blue-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:52:1353",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:52:1354",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-60}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-60}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-60}"
+              }
+            },
+            "onInverse": {
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:305:127",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:4363:6331",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-60}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-60}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-60}"
+              }
+            },
+            "onStatus": {
+              "ai": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:912:266569",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Violet.Violet-11}",
+                    "deep-sky-itkontoret": "{Violet.Violet-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Violet.Violet-11}"
+              },
+              "critical": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:201:20",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Orange.Orange-11}",
+                    "deep-sky-itkontoret": "{Orange.Orange-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Orange.Orange-11}"
+              },
+              "danger": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:201:19",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-11}",
+                    "deep-sky-itkontoret": "{Red.Red-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-11}"
+              },
+              "info": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:201:17",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-11}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-11}"
+              },
+              "link-disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:8",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-5}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-5}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-5}"
+              },
+              "link-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:5",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-13}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-13}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-13}"
+              },
+              "link-idle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:4",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-11}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-11}"
+              },
+              "link-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:6",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-14}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-14}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-14}"
+              },
+              "neutral": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:911:263465",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-11}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-11}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:2",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-14}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-14}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-14}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:149:3",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-11}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-11}"
+              },
+              "success": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:201:21",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Green.Green-11}",
+                    "deep-sky-itkontoret": "{Green.Green-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Green.Green-11}"
+              },
+              "warning": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:201:18",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Yellow.Yellow-11}",
+                    "deep-sky-itkontoret": "{Yellow.Yellow-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Yellow.Yellow-11}"
+              }
+            },
+            "onStatusStrong": {
+              "ai": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12115",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "critical": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12112",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "danger": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12113",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "info": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12109",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "link": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12116",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{ElectricBlue.ElectricBlue-11}",
+                    "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{ElectricBlue.ElectricBlue-11}"
+              },
+              "neutral": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12114",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12107",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-0}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-0}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-0}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12108",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-2}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-2}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-2}"
+              },
+              "success": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12110",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              },
+              "warning": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3931:12111",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Transparent.white.fixed-100}",
+                    "deep-sky-itkontoret": "{Transparent.white.fixed-100}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Transparent.white.fixed-100}"
+              }
+            },
+            "onSurface": {
+              "destructive": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:150",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Red.Red-7-Primary}",
+                    "deep-sky-itkontoret": "{Red.Red-7-Primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Red.Red-7-Primary}"
+              },
+              "disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:52:1357",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-5}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-5}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-5}"
+              },
+              "link-disabled": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:160",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-3}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-3}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-3}"
+              },
+              "link-hover": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:156",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-8}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-11}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-8}"
+              },
+              "link-idle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:155",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-7-Primary}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-10}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-7-Primary}"
+              },
+              "link-pressed": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:139:159",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Blue.Blue-11}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-12}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Blue.Blue-11}"
+              },
+              "primary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1425",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-14}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-14}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-14}"
+              },
+              "secondary": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:50:1434",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "modes": {
+                    "Acronis": "{Grayscale.Gray-7}",
+                    "deep-sky-itkontoret": "{Grayscale.Gray-7}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{Grayscale.Gray-7}"
+              }
+            }
+          }
+        },
+        "gradients": {
+          "ai": {
+            "active": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:2277:28",
+                "com.figma.scopes": [],
+                "modes": {
+                  "Acronis": "linear-gradient(90deg, #2B369B 20%, #761571 100%);",
+                  "deep-sky-itkontoret": "linear-gradient(90deg, #2B369B 20%, #761571 100%);"
+                }
+              },
+              "$type": "string",
+              "$value": "linear-gradient(90deg, #2B369B 20%, #761571 100%);"
+            },
+            "disabled": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:2277:29",
+                "com.figma.scopes": [],
+                "modes": {
+                  "Acronis": "linear-gradient(90deg, #DFE2FF 20%, #FFDAFD 100%);",
+                  "deep-sky-itkontoret": "linear-gradient(90deg, #DFE2FF 20%, #FFDAFD 100%);"
+                }
+              },
+              "$type": "string",
+              "$value": "linear-gradient(90deg, #DFE2FF 20%, #FFDAFD 100%);"
+            },
+            "hover": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:2277:27",
+                "com.figma.scopes": [],
+                "modes": {
+                  "Acronis": "linear-gradient(90deg, #3342C3 20%, #B621AE 100%);",
+                  "deep-sky-itkontoret": "linear-gradient(90deg, #3342C3 20%, #B621AE 100%);"
+                }
+              },
+              "$type": "string",
+              "$value": "linear-gradient(90deg, #3342C3 20%, #B621AE 100%);"
+            },
+            "idle": {
+              "$extensions": {
+                "com.figma.variableId": "VariableID:2277:21",
+                "com.figma.scopes": [],
+                "modes": {
+                  "Acronis": "linear-gradient(90deg, #3849E0 20%, #FC2DF1 100%);",
+                  "deep-sky-itkontoret": "linear-gradient(90deg, #3849E0 20%, #FC2DF1 100%);"
+                }
+              },
+              "$type": "string",
+              "$value": "linear-gradient(90deg, #3849E0 20%, #FC2DF1 100%);"
+            }
+          }
+        }
+      },
+      "components": {
+        "Button": {
+          "_global": {
+            "container": {
+              "borderRadius": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2468:91027",
+                  "com.figma.scopes": ["CORNER_RADIUS", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{radius.radius-4}",
+                    "deep-sky-itkontoret": "{radius.radius-4}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{radius.radius-4}"
+              },
+              "gap": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2468:91024",
+                  "com.figma.scopes": ["GAP", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-8}",
+                    "deep-sky-itkontoret": "{gap.gap-8}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-8}"
+              },
+              "height": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2468:91026",
+                  "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-32}",
+                    "deep-sky-itkontoret": "{size.size-32}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-32}"
+              },
+              "paddingY": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2468:91025",
+                  "com.figma.scopes": ["GAP", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-8}",
+                    "deep-sky-itkontoret": "{gap.gap-8}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-8}"
+              }
+            },
+            "icon": {
+              "size": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2468:91028",
+                  "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-16}",
+                    "deep-sky-itkontoret": "{size.size-16}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-16}"
+              }
+            },
+            "label": {
+              "textStyle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2468:91029",
+                  "com.figma.scopes": [],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "typography.body.strong",
+                    "deep-sky-itkontoret": "typography.body.strong"
+                  }
+                },
+                "$type": "string",
+                "$value": "typography.body.strong"
+              }
+            }
+          },
+          "ai": {
+            "container": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2277:441",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.gradients.ai.active}",
+                      "deep-sky-itkontoret": "{semantics.gradients.ai.active}"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "{semantics.gradients.ai.active}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2277:442",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.gradients.ai.disabled}",
+                      "deep-sky-itkontoret": "{semantics.gradients.ai.disabled}"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "{semantics.gradients.ai.disabled}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2277:440",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.gradients.ai.hover}",
+                      "deep-sky-itkontoret": "{semantics.gradients.ai.hover}"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "{semantics.gradients.ai.hover}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2277:439",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.gradients.ai.idle}",
+                      "deep-sky-itkontoret": "{semantics.gradients.ai.idle}"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "{semantics.gradients.ai.idle}"
+                }
+              },
+              "paddingX": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5655",
+                  "com.figma.scopes": ["GAP", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-12}",
+                    "deep-sky-itkontoret": "{gap.gap-12}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-12}"
+              },
+              "widthMin": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5654",
+                  "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-64}",
+                    "deep-sky-itkontoret": "{size.size-64}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-64}"
+              }
+            },
+            "icon": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6862",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "disabled": {
+                  "$description": "TODO: raw #9AA3B0 \u2014 no semantic for ai disabled glyph; add one and rewire",
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6863",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6861",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6860",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                }
+              }
+            },
+            "label": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7498",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "disabled": {
+                  "$description": "TODO: raw #9AA3B0 \u2014 no semantic for ai disabled text; add one and rewire",
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7499",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7497",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7496",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                }
+              }
+            }
+          },
+          "destructive": {
+            "container": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5620",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.statusStrong.danger-pressed}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.statusStrong.danger-pressed}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.statusStrong.danger-pressed}"
+                },
+                "disabled": {
+                  "$description": "TODO: aliases primitive Red-3 \u2014 add semantic background/status-strong/danger-disabled and rewire",
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5621",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.status.danger}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.status.danger}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.status.danger}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5619",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.statusStrong.danger-hover}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.statusStrong.danger-hover}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.statusStrong.danger-hover}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5618",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.statusStrong.danger}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.statusStrong.danger}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.statusStrong.danger}"
+                }
+              },
+              "paddingX": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5625",
+                  "com.figma.scopes": ["GAP", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-12}",
+                    "deep-sky-itkontoret": "{gap.gap-12}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-12}"
+              },
+              "widthMin": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5624",
+                  "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-64}",
+                    "deep-sky-itkontoret": "{size.size-64}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-64}"
+              }
+            },
+            "icon": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6858",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6859",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6857",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6856",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                }
+              }
+            },
+            "label": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7494",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7495",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7493",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7492",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                }
+              }
+            }
+          },
+          "ghost": {
+            "container": {
+              "paddingX": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2238:6462",
+                  "com.figma.scopes": ["GAP", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-0}",
+                    "deep-sky-itkontoret": "{gap.gap-0}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-0}"
+              }
+            },
+            "icon": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6854",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.primary}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6855",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.disabled}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.disabled}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.disabled}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6853",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6852",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.primary}"
+                }
+              }
+            },
+            "label": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5611",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-pressed}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-pressed}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-pressed}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5612",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-disabled}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-disabled}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-disabled}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5610",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-hover}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-hover}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-hover}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5609",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-idle}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-idle}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-idle}"
+                }
+              },
+              "textDecoration": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5615",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "none",
+                      "deep-sky-itkontoret": "none"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "none"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5616",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "none",
+                      "deep-sky-itkontoret": "none"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "none"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5614",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "underline",
+                      "deep-sky-itkontoret": "underline"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "underline"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5613",
+                    "com.figma.scopes": [],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "none",
+                      "deep-sky-itkontoret": "none"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "none"
+                }
+              },
+              "textStyle": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3735:868",
+                    "com.figma.scopes": ["ALL_SCOPES"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "typography.link.strong",
+                      "deep-sky-itkontoret": "typography.link.strong"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "typography.link.strong"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3735:869",
+                    "com.figma.scopes": ["ALL_SCOPES"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "typography.link.strong",
+                      "deep-sky-itkontoret": "typography.link.strong"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "typography.link.strong"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3735:867",
+                    "com.figma.scopes": ["ALL_SCOPES"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "typography.link.strong-underline",
+                      "deep-sky-itkontoret": "typography.link.strong-underline"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "typography.link.strong-underline"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3735:866",
+                    "com.figma.scopes": ["ALL_SCOPES"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "typography.link.strong",
+                      "deep-sky-itkontoret": "typography.link.strong"
+                    }
+                  },
+                  "$type": "string",
+                  "$value": "typography.link.strong"
+                }
+              }
+            }
+          },
+          "primary": {
+            "container": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5578",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.brand.secondary-active}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.brand.secondary-active}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.brand.secondary-active}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5579",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.brand.secondary-disabled}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.brand.secondary-disabled}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.brand.secondary-disabled}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5577",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.brand.secondary-hover}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.brand.secondary-hover}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.brand.secondary-hover}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5576",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.brand.secondary}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.brand.secondary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.brand.secondary}"
+                }
+              },
+              "paddingX": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5583",
+                  "com.figma.scopes": ["GAP", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-12}",
+                    "deep-sky-itkontoret": "{gap.gap-12}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-12}"
+              },
+              "widthMin": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5582",
+                  "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-64}",
+                    "deep-sky-itkontoret": "{size.size-64}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-64}"
+              }
+            },
+            "icon": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6846",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6847",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6845",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6844",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onBrand.primary}"
+                }
+              }
+            },
+            "label": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7486",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7487",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7485",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7484",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onBrand.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onBrand.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onBrand.primary}"
+                }
+              }
+            }
+          },
+          "secondary": {
+            "container": {
+              "borderColor": {
+                "active": {
+                  "$description": "TODO: needs a transparent border semantic (#FF00FF 0%)",
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2468:91032",
+                    "com.figma.scopes": ["STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.border.onSurface.border-active}",
+                      "deep-sky-itkontoret": "{semantics.colors.border.onSurface.border-active}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.border.onSurface.border-active}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2468:91033",
+                    "com.figma.scopes": ["STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{ElectricBlue.ElectricBlue-3}",
+                      "deep-sky-itkontoret": "{Grayscale.Gray-3}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{ElectricBlue.ElectricBlue-3}"
+                },
+                "hover": {
+                  "$description": "TODO: needs a transparent border semantic (#FF00FF 0%)",
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2468:91031",
+                    "com.figma.scopes": ["STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.border.onSurface.border-active}",
+                      "deep-sky-itkontoret": "{semantics.colors.border.onSurface.border-active}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.border.onSurface.border-active}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2468:91030",
+                    "com.figma.scopes": ["STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{ElectricBlue.ElectricBlue-3}",
+                      "deep-sky-itkontoret": "{Grayscale.Gray-3}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{ElectricBlue.ElectricBlue-3}"
+                }
+              },
+              "borderStyle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5590",
+                  "com.figma.scopes": [],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "solid",
+                    "deep-sky-itkontoret": "solid"
+                  }
+                },
+                "$type": "string",
+                "$value": "solid"
+              },
+              "borderWidth": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5591",
+                  "com.figma.scopes": ["STROKE_FLOAT", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{stroke.width-1}",
+                    "deep-sky-itkontoret": "{stroke.width-1}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{stroke.width-1}"
+              },
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5595",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.surface.active}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.surface.active}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.surface.active}"
+                },
+                "disabled": {
+                  "$description": "TODO: needs a transparent fill semantic (value = #FF00FF 0%, the transparent convention)",
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5596",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": {
+                        "colorSpace": "hsl",
+                        "components": [300, 100, 50],
+                        "alpha": 0
+                      },
+                      "deep-sky-itkontoret": {
+                        "colorSpace": "hsl",
+                        "components": [300, 100, 50],
+                        "alpha": 0
+                      }
+                    }
+                  },
+                  "$type": "color",
+                  "$value": {
+                    "colorSpace": "hsl",
+                    "components": [300, 100, 50],
+                    "alpha": 0
+                  }
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5594",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.surface.hover}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.surface.hover}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.surface.hover}"
+                },
+                "idle": {
+                  "$description": "TODO: needs a transparent fill semantic (value = #FF00FF 0%, the transparent convention)",
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2236:5593",
+                    "com.figma.scopes": ["FRAME_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": {
+                        "colorSpace": "hsl",
+                        "components": [300, 100, 50],
+                        "alpha": 0
+                      },
+                      "deep-sky-itkontoret": {
+                        "colorSpace": "hsl",
+                        "components": [300, 100, 50],
+                        "alpha": 0
+                      }
+                    }
+                  },
+                  "$type": "color",
+                  "$value": {
+                    "colorSpace": "hsl",
+                    "components": [300, 100, 50],
+                    "alpha": 0
+                  }
+                }
+              },
+              "paddingX": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5600",
+                  "com.figma.scopes": ["GAP", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-12}",
+                    "deep-sky-itkontoret": "{gap.gap-12}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-12}"
+              },
+              "widthMin": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2236:5599",
+                  "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-64}",
+                    "deep-sky-itkontoret": "{size.size-64}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-64}"
+              }
+            },
+            "icon": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6850",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.primary}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6851",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.disabled}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.disabled}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.disabled}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6849",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.primary}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:6848",
+                    "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.glyph.onSurface.primary}",
+                      "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.primary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.glyph.onSurface.primary}"
+                }
+              }
+            },
+            "label": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7490",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-idle}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-idle}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-idle}"
+                },
+                "disabled": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7491",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-disabled}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-disabled}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-disabled}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7489",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-idle}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-idle}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-idle}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2238:7488",
+                    "com.figma.scopes": ["TEXT_FILL"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.text.onSurface.link-idle}",
+                      "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-idle}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.text.onSurface.link-idle}"
+                }
+              }
+            }
+          }
+        },
+        "Chip": {
+          "_global": {
+            "border": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3795:1056",
+                    "com.figma.scopes": ["STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{ElectricBlue.ElectricBlue-3}",
+                      "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-3}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{ElectricBlue.ElectricBlue-3}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3795:1055",
+                    "com.figma.scopes": ["STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.border.onSurface.border-active}",
+                      "deep-sky-itkontoret": "{semantics.colors.border.onSurface.border-active}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.border.onSurface.border-active}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3767:4115",
+                    "com.figma.scopes": ["STROKE_COLOR"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{ElectricBlue.ElectricBlue-3}",
+                      "deep-sky-itkontoret": "{ElectricBlue.ElectricBlue-3}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{ElectricBlue.ElectricBlue-3}"
+                }
+              },
+              "radius": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4111",
+                  "com.figma.scopes": ["CORNER_RADIUS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{radius.radius-12}",
+                    "deep-sky-itkontoret": "{radius.radius-12}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{radius.radius-12}"
+              },
+              "style": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4109",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "solid",
+                    "deep-sky-itkontoret": "solid"
+                  }
+                },
+                "$type": "string",
+                "$value": "solid"
+              },
+              "width": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4108",
+                  "com.figma.scopes": ["STROKE_FLOAT"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{stroke.width-1}",
+                    "deep-sky-itkontoret": "{stroke.width-1}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{stroke.width-1}"
+              }
+            },
+            "box": {
+              "color": {
+                "active": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3767:4114",
+                    "com.figma.scopes": ["ALL_SCOPES"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.surface.active}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.surface.active}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.surface.active}"
+                },
+                "hover": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3767:4113",
+                    "com.figma.scopes": ["ALL_SCOPES"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.surface.hover}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.surface.hover}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.surface.hover}"
+                },
+                "idle": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:3767:4112",
+                    "com.figma.scopes": ["ALL_SCOPES"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{semantics.colors.background.surface.secondary}",
+                      "deep-sky-itkontoret": "{semantics.colors.background.surface.secondary}"
+                    }
+                  },
+                  "$type": "color",
+                  "$value": "{semantics.colors.background.surface.secondary}"
+                }
+              },
+              "gap": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4119",
+                  "com.figma.scopes": ["GAP"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-4}",
+                    "deep-sky-itkontoret": "{gap.gap-4}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-4}"
+              },
+              "height": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4104",
+                  "com.figma.scopes": ["WIDTH_HEIGHT"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-24}",
+                    "deep-sky-itkontoret": "{size.size-24}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-24}"
+              },
+              "marginY": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3929:3831",
+                  "com.figma.scopes": ["GAP"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-4}",
+                    "deep-sky-itkontoret": "{gap.gap-4}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-4}"
+              },
+              "paddingX": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4105",
+                  "com.figma.scopes": ["GAP"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-8}",
+                    "deep-sky-itkontoret": "{gap.gap-8}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-8}"
+              },
+              "widthMin": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3799:201",
+                  "com.figma.scopes": ["WIDTH_HEIGHT"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-48}",
+                    "deep-sky-itkontoret": "{size.size-48}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-48}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4266",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onSurface.primary}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onSurface.primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onSurface.primary}"
+              },
+              "size": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4110",
+                  "com.figma.scopes": ["WIDTH_HEIGHT"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-16}",
+                    "deep-sky-itkontoret": "{size.size-16}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-16}"
+              }
+            }
+          },
+          "operational": {
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:4090:4824",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onSurface.link-idle}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onSurface.link-idle}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onSurface.link-idle}"
+              },
+              "textStyle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:4090:4825",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "typography.link.strong",
+                    "deep-sky-itkontoret": "typography.link.default"
+                  }
+                },
+                "$type": "string",
+                "$value": "typography.link.strong"
+              }
+            }
+          },
+          "removable": {
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4116",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onSurface.primary}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onSurface.primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onSurface.primary}"
+              },
+              "textStyle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:3767:4107",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "typography.body.default",
+                    "deep-sky-itkontoret": "typography.body.default"
+                  }
+                },
+                "$type": "string",
+                "$value": "typography.body.default"
+              }
+            }
+          },
+          "selectable": {
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:4090:12305",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onSurface.primary}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onSurface.primary}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onSurface.primary}"
+              },
+              "textStyle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:4090:12306",
+                  "com.figma.scopes": ["ALL_SCOPES"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "typography.body.default",
+                    "deep-sky-itkontoret": "typography.body.default"
+                  }
+                },
+                "$type": "string",
+                "$value": "typography.body.default"
+              }
+            }
+          }
+        },
+        "Tag": {
+          "_global": {
+            "container": {
+              "borderRadius": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:179",
+                  "com.figma.scopes": ["CORNER_RADIUS"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{radius.radius-full}",
+                    "deep-sky-itkontoret": "{radius.radius-full}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{radius.radius-full}"
+              },
+              "borderWidth": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:180",
+                  "com.figma.scopes": ["STROKE_FLOAT"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{stroke.width-1}",
+                    "deep-sky-itkontoret": "{stroke.width-1}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{stroke.width-1}"
+              },
+              "gap": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:186",
+                  "com.figma.scopes": ["GAP"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-4}",
+                    "deep-sky-itkontoret": "{gap.gap-4}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-4}"
+              },
+              "paddingX": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:185",
+                  "com.figma.scopes": ["GAP"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-8}",
+                    "deep-sky-itkontoret": "{gap.gap-8}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-8}"
+              },
+              "paddingY": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2313:42563",
+                  "com.figma.scopes": [
+                    "CORNER_RADIUS",
+                    "WIDTH_HEIGHT",
+                    "GAP",
+                    "STROKE_FLOAT",
+                    "EFFECT_FLOAT",
+                    "OPACITY",
+                    "FONT_VARIATIONS"
+                  ],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{gap.gap-0}",
+                    "deep-sky-itkontoret": "{gap.gap-0}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{gap.gap-0}"
+              },
+              "widthMax": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:181",
+                  "com.figma.scopes": ["WIDTH_HEIGHT"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-256}",
+                    "deep-sky-itkontoret": "{size.size-256}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-256}"
+              },
+              "widthMin": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:182",
+                  "com.figma.scopes": ["WIDTH_HEIGHT"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{size.size-32}",
+                    "deep-sky-itkontoret": "{size.size-32}"
+                  }
+                },
+                "$type": "dimension",
+                "$value": "{size.size-32}"
+              }
+            },
+            "label": {
+              "textStyle": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:265",
+                  "com.figma.scopes": [],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "typography.caption.strong",
+                    "deep-sky-itkontoret": "typography.caption.strong"
+                  }
+                },
+                "$type": "string",
+                "$value": "typography.caption.strong"
+              }
+            },
+            "md": {
+              "container": {
+                "height": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2265:183",
+                    "com.figma.scopes": ["WIDTH_HEIGHT"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{size.size-24}",
+                      "deep-sky-itkontoret": "{size.size-24}"
+                    }
+                  },
+                  "$type": "dimension",
+                  "$value": "{size.size-24}"
+                }
+              },
+              "icon": {
+                "borderWidth": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2515:164762",
+                    "com.figma.scopes": ["STROKE_FLOAT"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{stroke.width-1-6}",
+                      "deep-sky-itkontoret": "{stroke.width-1-6}"
+                    }
+                  },
+                  "$type": "dimension",
+                  "$value": "{stroke.width-1-6}"
+                },
+                "size": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2265:264",
+                    "com.figma.scopes": [
+                      "CORNER_RADIUS",
+                      "WIDTH_HEIGHT",
+                      "GAP",
+                      "STROKE_FLOAT",
+                      "EFFECT_FLOAT",
+                      "OPACITY",
+                      "FONT_VARIATIONS"
+                    ],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{size.size-16}",
+                      "deep-sky-itkontoret": "{size.size-16}"
+                    }
+                  },
+                  "$type": "dimension",
+                  "$value": "{size.size-16}"
+                }
+              }
+            },
+            "sm": {
+              "container": {
+                "height": {
+                  "$extensions": {
+                    "com.figma.variableId": "VariableID:2265:184",
+                    "com.figma.scopes": ["WIDTH_HEIGHT"],
+                    "com.figma.hiddenFromPublishing": true,
+                    "modes": {
+                      "Acronis": "{size.size-20}",
+                      "deep-sky-itkontoret": "{size.size-20}"
+                    }
+                  },
+                  "$type": "dimension",
+                  "$value": "{size.size-20}"
+                }
+              }
+            }
+          },
+          "ai": {
+            "container": {
+              "borderColor": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2313:42571",
+                  "com.figma.scopes": [],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.gradients.ai.idle}",
+                    "deep-sky-itkontoret": "{semantics.gradients.ai.idle}"
+                  }
+                },
+                "$type": "string",
+                "$value": "{semantics.gradients.ai.idle}"
+              },
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:205",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.background.status.ai}",
+                    "deep-sky-itkontoret": "{semantics.colors.background.status.ai}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.background.status.ai}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:260",
+                  "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onStatus.ai}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onStatus.ai}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onStatus.ai}"
+              }
+            },
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:206",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onStatus.ai}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onStatus.ai}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onStatus.ai}"
+              }
+            }
+          },
+          "critical": {
+            "container": {
+              "borderColor": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:197",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.border.onStatus.critical}",
+                    "deep-sky-itkontoret": "{semantics.colors.border.onStatus.critical}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.border.onStatus.critical}"
+              },
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:196",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.background.status.critical}",
+                    "deep-sky-itkontoret": "{semantics.colors.background.status.critical}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.background.status.critical}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:254",
+                  "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onStatus.critical}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onStatus.critical}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onStatus.critical}"
+              }
+            },
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:198",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onStatus.critical}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onStatus.critical}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onStatus.critical}"
+              }
+            }
+          },
+          "danger": {
+            "container": {
+              "borderColor": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:200",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.border.onStatus.danger}",
+                    "deep-sky-itkontoret": "{semantics.colors.border.onStatus.danger}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.border.onStatus.danger}"
+              },
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:199",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.background.status.danger}",
+                    "deep-sky-itkontoret": "{semantics.colors.background.status.danger}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.background.status.danger}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:256",
+                  "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onStatus.danger}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onStatus.danger}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onStatus.danger}"
+              }
+            },
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:201",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onStatus.danger}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onStatus.danger}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onStatus.danger}"
+              }
+            }
+          },
+          "info": {
+            "container": {
+              "borderColor": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:188",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.border.onStatus.info}",
+                    "deep-sky-itkontoret": "{semantics.colors.border.onStatus.info}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.border.onStatus.info}"
+              },
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:187",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.background.status.info}",
+                    "deep-sky-itkontoret": "{semantics.colors.background.status.info}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.background.status.info}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:249",
+                  "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onStatus.info}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onStatus.info}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onStatus.info}"
+              }
+            },
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:189",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onStatus.info}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onStatus.info}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onStatus.info}"
+              }
+            }
+          },
+          "neutral": {
+            "container": {
+              "borderColor": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:203",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.border.onStatus.neutral}",
+                    "deep-sky-itkontoret": "{semantics.colors.border.onStatus.neutral}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.border.onStatus.neutral}"
+              },
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:202",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.background.status.neutral}",
+                    "deep-sky-itkontoret": "{semantics.colors.background.status.neutral}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.background.status.neutral}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:258",
+                  "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onStatus.neutral}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onStatus.neutral}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onStatus.neutral}"
+              }
+            },
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:204",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onStatus.neutral}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onStatus.neutral}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onStatus.neutral}"
+              }
+            }
+          },
+          "success": {
+            "container": {
+              "borderColor": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:191",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.border.onStatus.success}",
+                    "deep-sky-itkontoret": "{semantics.colors.border.onStatus.success}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.border.onStatus.success}"
+              },
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:190",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.background.status.success}",
+                    "deep-sky-itkontoret": "{semantics.colors.background.status.success}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.background.status.success}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:250",
+                  "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onStatus.success}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onStatus.success}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onStatus.success}"
+              }
+            },
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:192",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onStatus.success}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onStatus.success}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onStatus.success}"
+              }
+            }
+          },
+          "warning": {
+            "container": {
+              "borderColor": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:194",
+                  "com.figma.scopes": ["STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.border.onStatus.warning}",
+                    "deep-sky-itkontoret": "{semantics.colors.border.onStatus.warning}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.border.onStatus.warning}"
+              },
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:193",
+                  "com.figma.scopes": ["FRAME_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.background.status.warning}",
+                    "deep-sky-itkontoret": "{semantics.colors.background.status.warning}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.background.status.warning}"
+              }
+            },
+            "icon": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:252",
+                  "com.figma.scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.glyph.onStatus.warning}",
+                    "deep-sky-itkontoret": "{semantics.colors.glyph.onStatus.warning}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.glyph.onStatus.warning}"
+              }
+            },
+            "label": {
+              "color": {
+                "$extensions": {
+                  "com.figma.variableId": "VariableID:2265:195",
+                  "com.figma.scopes": ["TEXT_FILL"],
+                  "com.figma.hiddenFromPublishing": true,
+                  "modes": {
+                    "Acronis": "{semantics.colors.text.onStatus.warning}",
+                    "deep-sky-itkontoret": "{semantics.colors.text.onStatus.warning}"
+                  }
+                },
+                "$type": "color",
+                "$value": "{semantics.colors.text.onStatus.warning}"
+              }
+            }
+          }
         }
       }
     }

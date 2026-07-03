@@ -68,23 +68,31 @@ export class ComponentsEmitter {
   #validTypoRefs; // Set<string> of known "{typography.G.N}" refs
   #typoFallback; // Map<dottedLeaf, canonicalRef> for hyphen-as-dot mismatches
 
-  constructor(snapshot, { components = DEFAULT_COMPONENTS } = {}) {
+  // `primitives`/`semantics` are injectable for tests; entry scripts pass nothing
+  // and they read the committed tiers (alias-resolution + typography sources).
+  constructor(
+    snapshot,
+    { components = DEFAULT_COMPONENTS, primitives, semantics } = {}
+  ) {
     this.#snapshot = snapshot;
-    this.#primitives = JSON.parse(fs.readFileSync(PRIMITIVES_PATH, 'utf8'));
-    this.#semantics = JSON.parse(fs.readFileSync(SEMANTICS_PATH, 'utf8'));
+    this.#primitives =
+      primitives ?? JSON.parse(fs.readFileSync(PRIMITIVES_PATH, 'utf8'));
+    this.#semantics =
+      semantics ?? JSON.parse(fs.readFileSync(SEMANTICS_PATH, 'utf8'));
     this.#allowlist = new Set(components);
     this.#aliasTranslator = new AliasTranslator(this.#primitives);
     this.#buildTypoIndex();
   }
 
-  emit() {
-    const prevOut = fs.existsSync(OUT_PATH)
-      ? JSON.parse(fs.readFileSync(OUT_PATH, 'utf8'))
-      : {};
-
+  /**
+   * Pure: build the components tier from the snapshot's allowlisted components
+   * (no I/O). `prev` supplies the hand-authored `$extensions` to preserve.
+   * Testable in isolation; `emit()` wraps it with the file read/write.
+   */
+  build(prev = {}) {
     const out = { $schema: '../schemas/tier.schema.json' };
     // Preserve hand-authored $extensions (e.g. com.acronis.tailwindRoles).
-    if (prevOut.$extensions) out.$extensions = prevOut.$extensions;
+    if (prev.$extensions) out.$extensions = prev.$extensions;
 
     const componentsNode = this.#snapshot.variables?.brand?.components;
     if (!componentsNode)
@@ -100,10 +108,17 @@ export class ComponentsEmitter {
     // Attach the hand-authored $extensions before sorting so its key lands in
     // alphabetical position, then restore its content verbatim afterwards
     // (sortNode would otherwise reorder its hand-curated internals).
-    if (prevOut.$extensions) out.$extensions = prevOut.$extensions;
+    if (prev.$extensions) out.$extensions = prev.$extensions;
     const root = TreeUtils.sortNode(out);
-    if (prevOut.$extensions) root.$extensions = prevOut.$extensions;
+    if (prev.$extensions) root.$extensions = prev.$extensions;
+    return root;
+  }
 
+  emit() {
+    const prev = fs.existsSync(OUT_PATH)
+      ? JSON.parse(fs.readFileSync(OUT_PATH, 'utf8'))
+      : {};
+    const root = this.build(prev);
     fs.writeFileSync(OUT_PATH, DtcgFormatter.serialize(root));
     return root;
   }
