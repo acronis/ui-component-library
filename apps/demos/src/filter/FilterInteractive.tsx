@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Filter } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Filter } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function FilterInteractive() {
   const [activeFilters, setActiveFilters] = React.useState<string[]>([]);
@@ -36,7 +36,7 @@ export function FilterInteractive() {
               Filters
             </Filter>
             {activeFilters.length > 0 && (
-              <Button variant="ghost" size="sm" onClick={clearAllFilters}>
+              <Button variant="ghost" onClick={clearAllFilters}>
                 Clear All
               </Button>
             )}
@@ -53,9 +53,9 @@ export function FilterInteractive() {
                   <Button
                     key={filter}
                     variant={
-                      activeFilters.includes(filter) ? 'default' : 'outline'
+                      activeFilters.includes(filter) ? 'default' : 'secondary'
                     }
-                    size="sm"
+                   
                     onClick={() => toggleFilter(filter)}
                   >
                     {filter}

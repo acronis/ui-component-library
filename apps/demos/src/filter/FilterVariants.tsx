@@ -1,4 +1,4 @@
-import { Filter } from '@spec-lab/shadcn-uikit/react';
+import { Filter } from '@spec-lab/ui-react';
 
 export function FilterVariants() {
   return (

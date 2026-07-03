@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Filter } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Filter } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function FilterMultipleGroups() {
   const [statusFilters, setStatusFilters] = React.useState<string[]>([]);
@@ -53,7 +53,7 @@ export function FilterMultipleGroups() {
               All Filters
             </Filter>
             {totalFilters > 0 && (
-              <Button variant="ghost" size="sm" onClick={clearAllFilters}>
+              <Button variant="ghost" onClick={clearAllFilters}>
                 Clear All
               </Button>
             )}

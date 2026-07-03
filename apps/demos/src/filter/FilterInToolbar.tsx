@@ -1,15 +1,15 @@
-import { Filter } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Filter } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function FilterInToolbar() {
   return (
     <div className="flex items-center justify-between p-4 border rounded-lg">
       <div className="flex gap-2">
         <Filter count={3}>Filters</Filter>
-        <Button variant="outline" size="sm">
+        <Button variant="secondary">
           Sort
         </Button>
-        <Button variant="outline" size="sm">
+        <Button variant="secondary">
           Export
         </Button>
       </div>

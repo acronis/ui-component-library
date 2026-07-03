@@ -1,0 +1,16 @@
+export {
+  WidgetTableData,
+  WidgetTableDataHeader,
+  WidgetTableDataTitle,
+  WidgetTableDataIcon,
+  WidgetTableDataContent,
+  WidgetTableDataTable,
+  WidgetTableDataThead,
+  WidgetTableDataTh,
+  WidgetTableDataTbody,
+  WidgetTableDataTr,
+  WidgetTableDataTd,
+  WidgetTableDataLink,
+  WidgetTableDataFooter,
+  type WidgetTableDataProps,
+} from './widget-table-data';

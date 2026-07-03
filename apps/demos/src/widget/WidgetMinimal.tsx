@@ -1,4 +1,4 @@
-import { Widget, WidgetContent } from '@spec-lab/shadcn-uikit/react';
+import { Widget, WidgetContent } from '@spec-lab/ui-react';
 
 export function WidgetMinimal() {
   return (

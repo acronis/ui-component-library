@@ -1,6 +1,7 @@
 export { cn } from './lib/utils';
 export * from './components/ui/accordion';
 export * from './components/ui/alert';
+export * from './components/ui/alert-dialog';
 export * from './components/ui/app-shell';
 export * from './components/ui/aspect-ratio';
 export * from './components/ui/auth-layout';
@@ -25,6 +26,7 @@ export * from './components/ui/dialog';
 export * from './components/ui/dropdown-menu';
 export * from './components/ui/empty';
 export * from './components/ui/field';
+export * from './components/ui/filter';
 export * from './components/ui/grid';
 export * from './components/ui/form';
 export * from './components/ui/radio';
@@ -36,6 +38,7 @@ export * from './components/ui/input-text';
 export * from './components/ui/input-text-area';
 export * from './components/ui/label';
 export * from './components/ui/link';
+export * from './components/ui/navigation-menu';
 export * from './components/ui/number-field';
 export * from './components/ui/page-content';
 export * from './components/ui/page-header';
@@ -88,4 +91,12 @@ export {
   Tag as Badge,
   type TagProps as BadgeProps,
 } from './components/ui/tag';
+export * from './components/ui/widget';
+export * from './components/ui/widget-alert';
 export * from './components/ui/widget-placeholder';
+export * from './components/ui/widget-progress-chunks';
+export * from './components/ui/widget-progress-tiers';
+export * from './components/ui/widget-protection-status';
+export * from './components/ui/widget-protection-summary';
+export * from './components/ui/widget-table-data';
+export * from './components/ui/widget-text';
