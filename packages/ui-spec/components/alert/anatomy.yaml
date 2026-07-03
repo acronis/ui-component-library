@@ -2,22 +2,23 @@ spec_version: '1.0'
 component: Alert
 
 schematic: |
-  alert: <div role="alert"> — rounded, full status border, pale status surface
+  alert: <div role="alert"> — rounded, subtle status border, pale status surface
     alert-icon:     leading status-tinted icon
     alert-content:  text column
       alert-title:        short heading
       alert-description:  supporting text
       alert-actions:      (optional) action buttons under the description
     alert-actions:  (optional) action buttons at the right edge
+    alert-close:    (optional) dismiss (×) button at the right edge
 
 root:
   element: div
   role: alert
   description: >-
-    The banner container — rounded, with a full border in the saturated status
-    color and a pale status surface; the text is the normal foreground and only
-    the icon is tinted with the status color. role="alert" so assistive tech
-    announces it.
+    The banner container — rounded, with a subtle border in the status color
+    (--ui-border-on-status-*) and a pale status surface; the text is the normal
+    foreground and the icon (and dismiss glyph) are tinted with the status color.
+    role="alert" so assistive tech announces it.
 
 parts:
   - id: alert
@@ -41,6 +42,13 @@ parts:
       Optional action buttons. Placed as a direct child of the alert (after the
       content) they sit at the right edge; placed inside the content they flow
       under the description.
+  - id: alert-close
+    element: button
+    description: >-
+      Optional dismiss (×) button (the design's `Dismissable`) — a full-height
+      cell at the right edge with a left-border divider and a centered ×. Its
+      divider, glyph, and hover surface are tinted by the variant; wire its
+      onClick to hide the alert.
 
 states:
   - id: variant

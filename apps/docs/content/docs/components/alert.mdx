@@ -75,6 +75,20 @@ Place `AlertActions` **inside** `AlertContent` (after the description) and it fl
 </AlertContent>
 ```
 
+Make it dismissible with `AlertClose` — a × button at the right edge, tinted by
+the variant. Wire its `onClick` to hide the alert:
+
+```tsx
+<Alert variant="warning">
+  <AlertIcon><CircleWarningIcon size={16} /></AlertIcon>
+  <AlertContent>
+    <AlertTitle>Scan completed</AlertTitle>
+    <AlertDescription>All devices were scanned.</AlertDescription>
+  </AlertContent>
+  <AlertClose onClick={() => setOpen(false)} />
+</Alert>
+```
+
 For transient, auto-dismissing notifications use [`Toast`](/components/toast); for
 a blocking confirmation use [`Dialog`](/components/dialog).
 
@@ -85,5 +99,5 @@ a blocking confirmation use [`Dialog`](/components/dialog).
   name="AlertProps"
 />
 
-`AlertIcon`, `AlertContent`, `AlertTitle`, `AlertDescription`, and `AlertActions`
-accept the props of their underlying element plus `className`.
+`AlertIcon`, `AlertContent`, `AlertTitle`, `AlertDescription`, `AlertActions`, and
+`AlertClose` accept the props of their underlying element plus `className`.

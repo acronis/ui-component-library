@@ -11,6 +11,7 @@ import { Button } from '../../button';
 import {
   Alert,
   AlertActions,
+  AlertClose,
   AlertContent,
   AlertDescription,
   AlertIcon,
@@ -125,6 +126,25 @@ export const ActionBelow: Story = {
           <Button variant="ghost">Dismiss</Button>
         </AlertActions>
       </AlertContent>
+    </Alert>
+  ),
+};
+
+// Dismissible — the optional close (×) button sits at the right edge, tinted by
+// the variant (the design's `Dismissable`).
+export const Dismissible: Story = {
+  render: () => (
+    <Alert className="w-[560px]">
+      <AlertIcon>
+        <CircleInfoIcon size={16} />
+      </AlertIcon>
+      <AlertContent>
+        <AlertTitle>Scan completed</AlertTitle>
+        <AlertDescription>
+          All registered devices were scanned successfully.
+        </AlertDescription>
+      </AlertContent>
+      <AlertClose />
     </Alert>
   ),
 };

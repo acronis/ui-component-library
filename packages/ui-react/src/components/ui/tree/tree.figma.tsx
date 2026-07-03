@@ -21,28 +21,40 @@ figma.connect(
   'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2847-8319',
   {
     props: {
-      expandable: figma.boolean('Expandable'),
-      checkbox: figma.boolean('Checkbox'),
-      icon: figma.boolean('Icon'),
-      tag: figma.boolean('Tag'),
+      checkbox: figma.boolean('Checkbox', {
+        true: <TreeItemCheckbox />,
+        false: undefined,
+      }),
+      icon: figma.boolean('Icon', {
+        true: (
+          <TreeItemIcon>
+            <FileIcon />
+          </TreeItemIcon>
+        ),
+        false: undefined,
+      }),
+      tag: figma.boolean('Tag', {
+        true: (
+          <Tag variant="info" size="sm" className="ml-auto">
+            Label
+          </Tag>
+        ),
+        false: undefined,
+      }),
+      group: figma.boolean('Expandable', {
+        true: <TreeItemGroup>{/* nested <TreeItem>s */}</TreeItemGroup>,
+        false: undefined,
+      }),
     },
-    example: ({ expandable, checkbox, icon, tag }) => (
+    example: ({ checkbox, icon, tag, group }) => (
       <TreeItem value="node">
         <TreeItemTrigger>
-          {checkbox && <TreeItemCheckbox />}
-          {icon && (
-            <TreeItemIcon>
-              <FileIcon />
-            </TreeItemIcon>
-          )}
+          {checkbox}
+          {icon}
           <TreeItemLabel>Label</TreeItemLabel>
-          {tag && (
-            <Tag variant="info" size="sm" className="ml-auto">
-              Label
-            </Tag>
-          )}
+          {tag}
         </TreeItemTrigger>
-        {expandable && <TreeItemGroup>{/* nested <TreeItem>s */}</TreeItemGroup>}
+        {group}
       </TreeItem>
     ),
   }

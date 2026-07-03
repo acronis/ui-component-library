@@ -1,56 +1,87 @@
 spec_version: '1.0'
 component: Alert
 
-# References only. Values live in @spec-lab/tokens. Reconciled with the
-# Figma design: a full border in the saturated status color, a pale status
-# surface, foreground text, and only the icon tinted with the status color. Each
-# variant maps to its pair below; the ai variant has no `strong` surface token so
-# its border/icon use the solid ai text token.
+# References only. Values live in @spec-lab/tokens. Reconciled with the Figma
+# "Alert" set (node 4313-4953): a subtle status border (--ui-border-on-status-*),
+# a pale status surface (--ui-background-status-*), foreground text, and a
+# status-tinted icon / close glyph (--ui-glyph-on-status-*). The dismiss button's
+# hover surface uses --ui-background-status-*-hover. Figma's `Unknown` = neutral.
 source: '@spec-lab/tokens'
 
 tokens:
   - name: --ui-text-on-surface-primary
     affects: alert
-    description: Title/description text (text-foreground) — all variants.
+    description: Title / description text (text-foreground) — all variants.
+  - name: --ui-focus-primary
+    affects: alert-close
+    description: Focus ring on the dismiss button.
+
+  # ── info ──
   - name: --ui-background-status-info
     affects: alert
-    description: Surface for the info variant.
-  - name: --ui-background-status-strong-info
+  - name: --ui-border-on-status-info
+    affects: alert
+  - name: --ui-glyph-on-status-info
     affects: alert-icon
-    description: Border + icon color for the info variant.
+  - name: --ui-background-status-info-hover
+    affects: alert-close
+
+  # ── success ──
   - name: --ui-background-status-success
     affects: alert
-    description: Surface for the success variant.
-  - name: --ui-background-status-strong-success
+  - name: --ui-border-on-status-success
+    affects: alert
+  - name: --ui-glyph-on-status-success
     affects: alert-icon
-    description: Border + icon color for the success variant.
+  - name: --ui-background-status-success-hover
+    affects: alert-close
+
+  # ── warning ──
   - name: --ui-background-status-warning
     affects: alert
-    description: Surface for the warning variant.
-  - name: --ui-background-status-strong-warning
+  - name: --ui-border-on-status-warning
+    affects: alert
+  - name: --ui-glyph-on-status-warning
     affects: alert-icon
-    description: Border + icon color for the warning variant.
+  - name: --ui-background-status-warning-hover
+    affects: alert-close
+
+  # ── critical ──
   - name: --ui-background-status-critical
     affects: alert
-    description: Surface for the critical variant.
-  - name: --ui-background-status-strong-critical
+  - name: --ui-border-on-status-critical
+    affects: alert
+  - name: --ui-glyph-on-status-critical
     affects: alert-icon
-    description: Border + icon color for the critical variant.
+  - name: --ui-background-status-critical-hover
+    affects: alert-close
+
+  # ── destructive (danger) ──
   - name: --ui-background-status-danger
     affects: alert
-    description: Surface for the destructive variant.
-  - name: --ui-background-status-strong-danger
-    affects: alert-icon
-    description: Border + icon color for the destructive variant.
-  - name: --ui-background-status-ai
+  - name: --ui-border-on-status-danger
     affects: alert
-    description: Surface for the ai variant.
-  - name: --ui-text-on-status-ai
+  - name: --ui-glyph-on-status-danger
     affects: alert-icon
-    description: Border + icon color for the ai variant (its -strong token is a gradient).
+  - name: --ui-background-status-danger-hover
+    affects: alert-close
+
+  # ── neutral (Figma "Unknown") ──
   - name: --ui-background-status-neutral
     affects: alert
-    description: Surface for the neutral variant.
-  - name: --ui-background-status-strong-neutral
+  - name: --ui-border-on-status-neutral
+    affects: alert
+  - name: --ui-glyph-on-status-neutral
     affects: alert-icon
-    description: Border + icon color for the neutral variant.
+  - name: --ui-background-status-neutral-hover
+    affects: alert-close
+
+  # ── ai ──
+  - name: --ui-background-status-ai
+    affects: alert
+  - name: --ui-border-on-status-ai-strong
+    affects: alert
+  - name: --ui-glyph-on-status-ai
+    affects: alert-icon
+  - name: --ui-background-status-ai-hover
+    affects: alert-close

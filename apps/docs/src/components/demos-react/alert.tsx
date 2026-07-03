@@ -3,6 +3,7 @@
 import {
   Alert,
   AlertActions,
+  AlertClose,
   AlertContent,
   AlertDescription,
   AlertIcon,
@@ -63,6 +64,16 @@ export function AlertDemo() {
         <AlertActions className="self-center">
           <Button>View devices</Button>
         </AlertActions>
+      </Alert>
+      <Alert variant="warning">
+        <AlertIcon>
+          <CircleWarningIcon size={16} />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Dismissible</AlertTitle>
+          <AlertDescription>This alert can be closed.</AlertDescription>
+        </AlertContent>
+        <AlertClose />
       </Alert>
     </div>
   );

@@ -1,35 +1,39 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { TimesIcon } from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `alert`
-// (packages/ui-legacy/src/components/ui/alert.tsx) and reconciled with the Figma
-// design (node 5337-71774): a rounded banner with a *full* border in the strong
-// status color, a pale status surface, foreground text, and only the icon tinted
-// with the status color. No Base UI primitive — semantic markup with
-// `role="alert"`. Each variant maps to the `--ui-*` status tokens: the pale
-// surface (`--ui-background-status-*`) + the saturated border/icon
-// (`--ui-background-status-strong-*`). `destructive` uses the danger tokens; `ai`
-// has no `strong` surface token, so it uses its solid text token for the
-// border + icon.
+// Ported from `@spec-lab/shadcn-uikit`'s `alert` and reconciled with the Figma
+// "Alert" set (node 4313-4953): a rounded banner with a subtle status border, a
+// pale status surface, foreground text, a status-tinted icon, and an optional
+// dismiss (×) button. No Base UI primitive — semantic markup with `role="alert"`.
+// Each variant maps to the `--ui-*` status tokens by role (matching the design's
+// variables):
+//   • border  -> --ui-border-on-status-*      (pastel, subtle)
+//   • surface -> --ui-background-status-*      (pale fill)
+//   • icon / close glyph -> --ui-glyph-on-status-*
+//   • close hover surface -> --ui-background-status-*-hover
+// `destructive` uses the `danger` tokens; Figma's `Unknown` type is `neutral`.
+// (This retheme fixes drift: the border/icon previously used the saturated
+// `--ui-background-status-strong-*` fill instead of the border/glyph roles.)
 const alertVariants = cva(
   'relative flex w-full items-start gap-3 rounded-md border p-4 text-foreground',
   {
     variants: {
       variant: {
-        info: 'border-[var(--ui-background-status-strong-info)] bg-[var(--ui-background-status-info)] [&_[data-slot=alert-icon]]:text-[var(--ui-background-status-strong-info)]',
+        info: 'border-[var(--ui-border-on-status-info)] bg-[var(--ui-background-status-info)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-info)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-info)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-info)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-info-hover)]',
         success:
-          'border-[var(--ui-background-status-strong-success)] bg-[var(--ui-background-status-success)] [&_[data-slot=alert-icon]]:text-[var(--ui-background-status-strong-success)]',
+          'border-[var(--ui-border-on-status-success)] bg-[var(--ui-background-status-success)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-success)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-success)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-success)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-success-hover)]',
         warning:
-          'border-[var(--ui-background-status-strong-warning)] bg-[var(--ui-background-status-warning)] [&_[data-slot=alert-icon]]:text-[var(--ui-background-status-strong-warning)]',
+          'border-[var(--ui-border-on-status-warning)] bg-[var(--ui-background-status-warning)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-warning)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-warning)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-warning)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-warning-hover)]',
         critical:
-          'border-[var(--ui-background-status-strong-critical)] bg-[var(--ui-background-status-critical)] [&_[data-slot=alert-icon]]:text-[var(--ui-background-status-strong-critical)]',
+          'border-[var(--ui-border-on-status-critical)] bg-[var(--ui-background-status-critical)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-critical)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-critical)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-critical)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-critical-hover)]',
         destructive:
-          'border-[var(--ui-background-status-strong-danger)] bg-[var(--ui-background-status-danger)] [&_[data-slot=alert-icon]]:text-[var(--ui-background-status-strong-danger)]',
-        ai: 'border-[var(--ui-text-on-status-ai)] bg-[var(--ui-background-status-ai)] [&_[data-slot=alert-icon]]:text-[var(--ui-text-on-status-ai)]',
+          'border-[var(--ui-border-on-status-danger)] bg-[var(--ui-background-status-danger)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-danger)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-danger)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-danger)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-danger-hover)]',
         neutral:
-          'border-[var(--ui-background-status-strong-neutral)] bg-[var(--ui-background-status-neutral)] [&_[data-slot=alert-icon]]:text-[var(--ui-background-status-strong-neutral)]',
+          'border-[var(--ui-border-on-status-neutral)] bg-[var(--ui-background-status-neutral)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-neutral)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-neutral)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-neutral)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-neutral-hover)]',
+        ai: 'border-[var(--ui-border-on-status-ai-strong)] bg-[var(--ui-background-status-ai)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-ai-strong)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-ai-hover)]',
       },
     },
     defaultVariants: {
@@ -127,6 +131,32 @@ const AlertActions = React.forwardRef<
 ));
 AlertActions.displayName = 'AlertActions';
 
+// Optional dismiss button (the design's `Dismissable`). A full-height cell at the
+// right edge with a left-border divider and a centered × — its divider, glyph,
+// and hover surface are tinted by the Alert variant (targets
+// [data-slot=alert-close]). The negative `-my-4 -mr-4` cancel the Alert's `p-4`
+// so the cell spans edge-to-edge; wire onClick to hide the alert. Defaults to a
+// 16px × icon and an accessible label ("Dismiss").
+const AlertClose = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ className, children, 'aria-label': ariaLabel = 'Dismiss', ...props }, ref) => (
+  <button
+    ref={ref}
+    type="button"
+    aria-label={ariaLabel}
+    data-slot="alert-close"
+    className={cn(
+      '-my-4 -mr-4 flex shrink-0 items-center justify-center self-stretch rounded-r-md border-l px-4 outline-none transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-focus-primary)]',
+      className
+    )}
+    {...props}
+  >
+    {children ?? <TimesIcon size={16} />}
+  </button>
+));
+AlertClose.displayName = 'AlertClose';
+
 export {
   Alert,
   AlertIcon,
@@ -134,4 +164,5 @@ export {
   AlertTitle,
   AlertDescription,
   AlertActions,
+  AlertClose,
 };
