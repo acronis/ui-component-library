@@ -1,0 +1,159 @@
+---
+title: Tree
+description: A hierarchical tree menu for dropdowns and standalone tree views.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { TreeDemo, TreeCheckboxesDemo, TreeComposableDemo, TreeInDropdownDemo, TreeVirtualizedDemo } from "@/components/demos-react/tree";
+
+## Usage
+
+```tsx
+import {
+  Tree,
+  TreeItem,
+  TreeItemTrigger,
+  TreeItemLabel,
+  TreeItemGroup,
+  TreeItemIcon,
+  TreeItemCheckbox,
+  TreeView,
+} from '@spec-lab/ui-react';
+```
+
+`Tree` is a hierarchical menu — rows nest with an indent, expand/collapse via a
+chevron, and each row can carry an optional checkbox, a leading icon, a label, and
+a trailing slot (e.g. a `Tag`). It ships two ways to use it:
+
+- **Composable parts** (`Tree` / `TreeItem` / `TreeItemTrigger` / …) for full
+  control over each row, and
+- a data-driven **`TreeView`** that renders a `TreeNode[]` for you.
+
+Selection is single; expansion and checkboxes are multi. State is uncontrolled via
+the `default*` props with `onNode*` callbacks. Colors resolve to `--ui-*` tokens
+(the blue selection gamma); it's a **design-pending v1** ported from the legacy kit.
+
+## Examples
+
+Data-driven with icons:
+
+<DemoReact>
+  <TreeDemo />
+</DemoReact>
+
+```tsx
+const data: TreeNode[] = [
+  { id: 'src', label: 'src', icon: <FolderIcon />, children: [
+    { id: 'index', label: 'index.ts', icon: <FileIcon /> },
+  ] },
+];
+
+<TreeView data={data} showIcon defaultExpanded={['src']} defaultSelected="index" />
+```
+
+With checkboxes:
+
+<DemoReact>
+  <TreeCheckboxesDemo />
+</DemoReact>
+
+```tsx
+<TreeView data={data} showIcon showCheckbox defaultChecked={['index']} />
+```
+
+### In a dropdown
+
+Tree's primary use is as the menu inside a dropdown. Pair a select-style trigger
+with a `Popover` holding the tree, and close on selecting a leaf node:
+
+<DemoReact>
+  <TreeInDropdownDemo />
+</DemoReact>
+
+```tsx
+const [open, setOpen] = React.useState(false);
+const [selected, setSelected] = React.useState<string>();
+
+<Popover open={open} onOpenChange={setOpen}>
+  <PopoverTrigger
+    render={
+      <Button variant="secondary" className="w-64 justify-between">
+        {selected ? labelById[selected] : 'Select a file'}
+        <ChevronDownIcon size={16} />
+      </Button>
+    }
+  />
+  <PopoverContent align="start" className="w-64 p-1">
+    <TreeView
+      data={data}
+      showIcon
+      onNodeSelect={(id) => {
+        setSelected(id);
+        if (isLeaf(id)) setOpen(false);
+      }}
+    />
+  </PopoverContent>
+</Popover>
+```
+
+### Composable parts
+
+For custom row content, compose the parts directly. A row is a `TreeItemTrigger`;
+give an item a `TreeItemGroup` of nested `TreeItem`s to make it expandable.
+
+<DemoReact>
+  <TreeComposableDemo />
+</DemoReact>
+
+```tsx
+<Tree defaultExpanded={['src']} defaultSelected="index">
+  <TreeItem value="src">
+    <TreeItemTrigger>
+      <TreeItemIcon><FolderIcon /></TreeItemIcon>
+      <TreeItemLabel>src</TreeItemLabel>
+    </TreeItemTrigger>
+    <TreeItemGroup>
+      <TreeItem value="index">
+        <TreeItemTrigger>
+          <TreeItemCheckbox />
+          <TreeItemLabel>index.ts</TreeItemLabel>
+          <Tag variant="info" size="sm" className="ml-auto">entry</Tag>
+        </TreeItemTrigger>
+      </TreeItem>
+    </TreeItemGroup>
+  </TreeItem>
+</Tree>
+```
+
+### Long trees (virtualized)
+
+For large trees, set `virtualized` on `TreeView` with a `height` — only the
+visible window of rows is mounted, so thousands of nodes stay fast. Rows render
+as a flat, scrollable list (depth via `aria-level`); expand/collapse recomputes
+the visible window.
+
+<DemoReact>
+  <TreeVirtualizedDemo />
+</DemoReact>
+
+```tsx
+<TreeView data={bigData} showIcon virtualized height={280} />
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/tree/tree.docs.ts"
+  name="TreeViewProps"
+/>
+
+Each node in `data`:
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/tree/tree.docs.ts"
+  name="TreeNode"
+/>
+
+The composable `Tree` accepts the shared state props (`defaultExpanded`,
+`defaultSelected`, `defaultChecked`, `onNode*`); `TreeItem` requires a `value`
+(its node id). All parts also accept their native element attributes.

@@ -1,0 +1,29 @@
+spec_version: '1.0'
+component: Tree
+
+# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# paint time. The token schema forbids a value/default key here.
+#
+# Tree has no dedicated `--ui-tree-*` tier yet (design-pending v1; Figma models it
+# under a `componentLegacy/tree/*` group). Rows bind the shared SEMANTIC
+# vocabulary — the blue (electricblue/info) selection gamma the Figma uses.
+# Nesting indent + row gaps are geometry (not tokens). Checkbox and Tag pull their
+# own tiers via those components.
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── row surface (idle transparent) ──
+  - name: --ui-background-status-info # row hover fill
+    affects: trigger
+  - name: --ui-background-status-info-hover # selected row fill
+    affects: trigger
+
+  # ── text / glyphs ──
+  - name: --ui-text-on-surface-primary # node label (text-foreground)
+    affects: label
+  - name: --ui-text-on-surface-secondary # chevron + leading icon
+    affects: chevron
+
+  # ── focus ring (item) ──
+  - name: --ui-focus-primary
+    affects: item

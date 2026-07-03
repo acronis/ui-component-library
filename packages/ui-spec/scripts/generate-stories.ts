@@ -154,6 +154,29 @@ const RENDER: Record<string, RenderHint> = {
       '    ',
     ].join('\n'),
   },
+  tree: {
+    ariaLabel: 'Files',
+    props: "defaultExpanded={['a']} defaultSelected=\"a1\"",
+    extraImports: [
+      "import { TreeItem, TreeItemGroup, TreeItemLabel, TreeItemTrigger } from '../tree';",
+    ],
+    sample: [
+      '',
+      '      <TreeItem value="a">',
+      '        <TreeItemTrigger>',
+      '          <TreeItemLabel>Parent</TreeItemLabel>',
+      '        </TreeItemTrigger>',
+      '        <TreeItemGroup>',
+      '          <TreeItem value="a1">',
+      '            <TreeItemTrigger>',
+      '              <TreeItemLabel>Child</TreeItemLabel>',
+      '            </TreeItemTrigger>',
+      '          </TreeItem>',
+      '        </TreeItemGroup>',
+      '      </TreeItem>',
+      '    ',
+    ].join('\n'),
+  },
   table: {
     extraImports: [
       "import { TableHeader, TableBody, TableRow, TableHead, TableCell, TableCaption } from '../table';",

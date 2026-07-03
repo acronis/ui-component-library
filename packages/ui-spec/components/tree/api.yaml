@@ -1,0 +1,122 @@
+spec_version: '1.0'
+component: Tree
+
+# Framework-agnostic contract. Tree is composable (see anatomy.yaml); state
+# (expand / select / check) lives on the root and is uncontrolled via the
+# `default*` props with change callbacks. TreeView is a data-driven convenience
+# wrapper over the same parts. Native <div> attributes pass through.
+contract:
+  properties:
+    - name: defaultExpanded
+      type: 'string[]'
+      required: false
+      default: '[]'
+      description: Node ids expanded on first render (uncontrolled). On the root.
+    - name: defaultSelected
+      type: string
+      required: false
+      default: undefined
+      description: Node id selected on first render (uncontrolled). Selection is single.
+    - name: defaultChecked
+      type: 'string[]'
+      required: false
+      default: '[]'
+      description: Node ids checked on first render (uncontrolled). Requires checkboxes.
+    - name: value
+      type: string
+      required: true
+      default: undefined
+      description: >-
+        Stable node id on a TreeItem — the key for its expand / select / check
+        state.
+    - name: data
+      type: 'TreeNode[]'
+      required: false
+      default: undefined
+      description: >-
+        TreeView only: the node array (`{ id, label, icon?, tag?, children? }`)
+        rendered recursively onto the parts.
+    - name: showCheckbox
+      type: boolean
+      required: false
+      default: 'false'
+      description: TreeView only — render a checkbox on every row.
+    - name: showIcon
+      type: boolean
+      required: false
+      default: 'false'
+      description: TreeView only — render each node's `icon`.
+    - name: virtualized
+      type: boolean
+      required: false
+      default: 'false'
+      description: >-
+        TreeView only — mount only the visible window of rows (flat, scrollable
+        list; depth via `aria-level`) so very large trees stay fast.
+    - name: height
+      type: 'number | string'
+      required: false
+      default: '320'
+      description: TreeView only — scroll-viewport height when `virtualized`.
+    - name: estimateRowHeight
+      type: number
+      required: false
+      default: '36'
+      description: TreeView only — estimated row height (px) for the virtualizer; rows are measured.
+    - name: overscan
+      type: number
+      required: false
+      default: '10'
+      description: TreeView only — rows rendered beyond the visible window on each side.
+
+  events:
+    - name: nodeToggle
+      payload: '{ id: string, expanded: boolean }'
+      description: A node was expanded or collapsed.
+    - name: nodeSelect
+      payload: '{ id: string }'
+      description: A node was selected.
+    - name: nodeCheck
+      payload: '{ id: string, checked: boolean }'
+      description: A node's checkbox changed.
+
+  content:
+    - name: default
+      description: >-
+        The composed tree. Author it from the parts — a Tree wrapping TreeItems;
+        each item holds a TreeItemTrigger (chevron + optional checkbox / icon,
+        label, optional trailing slot) and, when it has children, a TreeItemGroup
+        of nested TreeItems. Or pass `data` to TreeView to build it for you.
+
+  methods: []
+
+adapters:
+  react:
+    component: Tree
+    status: implemented
+    import: >-
+      import { Tree, TreeItem, TreeItemTrigger, TreeItemLabel, TreeItemGroup,
+      TreeItemCheckbox, TreeItemIcon, TreeView } from '@spec-lab/ui-react'
+    example: |
+      <Tree defaultExpanded={['src']} defaultSelected="index">
+        <TreeItem value="src">
+          <TreeItemTrigger>
+            <TreeItemIcon><FolderIcon /></TreeItemIcon>
+            <TreeItemLabel>src</TreeItemLabel>
+          </TreeItemTrigger>
+          <TreeItemGroup>
+            <TreeItem value="index">
+              <TreeItemTrigger>
+                <TreeItemLabel>index.ts</TreeItemLabel>
+              </TreeItemTrigger>
+            </TreeItem>
+          </TreeItemGroup>
+        </TreeItem>
+      </Tree>
+
+      // or, data-driven:
+      <TreeView data={nodes} showIcon showCheckbox defaultExpanded={['src']} />
+  vue:
+    status: planned
+  web-components:
+    status: planned

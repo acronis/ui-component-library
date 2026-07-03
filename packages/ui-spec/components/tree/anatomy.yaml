@@ -1,0 +1,128 @@
+spec_version: '1.0'
+component: Tree
+
+schematic: |
+  root: <div role="tree">
+  +---------------------------------------------------------------+
+  |  item: <div role="treeitem" aria-expanded aria-selected>      |
+  |   +---------------------------------------------------------+  |
+  |   | trigger: row                                            |  |
+  |   |  [chevron] [checkbox] [icon] label      [tag]           |  |
+  |   +---------------------------------------------------------+  |
+  |   group: <div role="group">  (rendered only when expanded)  |  |
+  |     +-----------------------------------------------------+   |
+  |     | item ...  (nested, one indent level deeper)         |   |
+  |     +-----------------------------------------------------+   |
+  +---------------------------------------------------------------+
+     trigger  -> idle transparent; hover --ui-background-status-info;
+                 selected --ui-background-status-info-hover
+     chevron  -> --ui-text-on-surface-secondary (toggles expand; aria-hidden)
+     checkbox -> the Checkbox token tier (--ui-checkbox-*)
+     icon     -> --ui-text-on-surface-secondary (leading, aria-hidden)
+     label    -> --ui-text-on-surface-primary
+     tag      -> a trailing Tag (--ui-tag-*) or meta slot (optional)
+
+root:
+  element: div
+  role: tree
+  description: >-
+    The tree container (`<div role="tree">`). Owns the expand / select / check
+    state and roving-tabindex keyboard navigation across its items.
+
+parts:
+  - id: item
+    description: >-
+      A single node (`<div role="treeitem">`) carrying `aria-level`,
+      `aria-selected`, and `aria-expanded` (when it has a group). Focusable; the
+      roving-tabindex focus target.
+    element: div
+  - id: trigger
+    description: >-
+      The visible, clickable row inside an item — indented by nesting level.
+      Clicking it selects the node (and toggles expansion when expandable). Holds
+      the chevron, checkbox, icon, label, and trailing slot.
+    element: div
+  - id: chevron
+    description: >-
+      Expand / collapse toggle (`<button aria-hidden tabindex="-1">`), a 16px
+      chevron-right (collapsed) / chevron-down (expanded). Only rendered when the
+      item has a group; a spacer keeps alignment otherwise.
+    element: button
+  - id: checkbox
+    description: >-
+      Optional per-row checkbox (the ui-react `Checkbox`), wired to the tree's
+      checked set. Clicking it toggles check without selecting the row.
+    element: button
+    optional: true
+  - id: icon
+    description: Optional leading icon slot (`aria-hidden`), 16px.
+    element: span
+    optional: true
+  - id: label
+    description: The node's text label.
+    element: span
+  - id: tag
+    description: >-
+      Optional trailing slot at the row's end — typically a `Tag` badge or meta
+      content.
+    element: span
+    optional: true
+  - id: group
+    description: >-
+      Container (`<div role="group">`) for a node's children, rendered only while
+      the parent is expanded. Nested items indent one level deeper.
+    element: div
+
+layout:
+  type: flex
+  direction: column
+
+states:
+  - id: hover
+    trigger: pointer hover over a row
+    kind: pseudo
+    pseudo: ':hover'
+    affects: [trigger]
+  - id: focus-visible
+    trigger: keyboard focus on an item
+    kind: pseudo
+    pseudo: ':focus-visible'
+    affects: [item, trigger]
+  - id: expanded
+    trigger: a node with children is opened
+    kind: internal
+    affects: [item, chevron, group]
+  - id: selected
+    trigger: a node is selected
+    kind: internal
+    affects: [item, trigger]
+  - id: checked
+    trigger: a node's checkbox is toggled on
+    kind: internal
+    affects: [checkbox]
+
+internal_state:
+  - id: expanded
+    type: array
+    values: ['the expanded node id(s)']
+    initial: 'none'
+    controllable_via: [defaultExpanded]
+    controlled_default: defaultExpanded
+    changed_by: clicking an expandable row / chevron, or ArrowRight / ArrowLeft
+    description: Which nodes are expanded.
+  - id: selected
+    type: string
+    values: ['the selected node id']
+    initial: 'none'
+    controllable_via: [defaultSelected]
+    controlled_default: defaultSelected
+    changed_by: clicking a row or pressing Enter / Space
+    description: The single selected node.
+  - id: checked
+    type: array
+    values: ['the checked node id(s)']
+    initial: 'none'
+    controllable_via: [defaultChecked]
+    controlled_default: defaultChecked
+    changed_by: toggling a row's checkbox
+    description: Which nodes are checked (when checkboxes are shown).

@@ -1,0 +1,23 @@
+spec_version: '1.0'
+component: Tree
+name: tree
+status: draft
+category: navigation
+description: >-
+  A hierarchical tree menu — used inside dropdowns and as a standalone tree
+  view. A set of composable parts (Tree, TreeItem, TreeItemTrigger,
+  TreeItemLabel, TreeItemGroup, plus TreeItemCheckbox / TreeItemIcon) with a
+  data-driven TreeView convenience wrapper. Each row can carry an expand
+  chevron, a checkbox, a leading icon, a label, and a trailing slot (e.g. a Tag),
+  across idle / hover / selected / focus states.
+since: 0.55.0
+dependencies:
+  components:
+    - ChevronRightIcon
+    - ChevronDownIcon
+    - Checkbox
+    - Tag
+    - ScrollArea
+figma:
+  node: 'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2847-8319'
+  codeConnect: packages/ui-react/src/components/ui/tree/tree.figma.tsx
