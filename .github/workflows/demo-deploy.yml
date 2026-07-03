@@ -1,4 +1,4 @@
-# Builds the demo + Storybook (ui-legacy and ui-react) + docs
+# Builds the demo + ui-react Storybook + docs
 # into a single GitHub Pages artefact and deploys it.
 #
 # All sub-sites must ship in ONE artefact: GitHub Pages serves a single artefact
@@ -56,21 +56,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build UI Component Library
+      # ui-legacy is retired (its Storybook is no longer deployed), but the demo
+      # still transitively imports it via the shared demos package's un-migrated
+      # gap dirs, so its dist must exist before the demo build below. Drop this
+      # once those gap dirs are migrated and ui-legacy is deleted.
+      - name: Build ui-legacy (transitive dep for demos gap dirs)
         run: pnpm --filter ./packages/ui-legacy run build
 
       - name: Build demo
         run: VITE_BASE_PATH=/uikit/ pnpm --filter ./apps/demo run build
 
-      - name: Build storybook
-        run: STORYBOOK_DISABLE_ADDON_VITEST=true pnpm --filter ./packages/ui-legacy run storybook:build
-
-      - name: Copy storybook to demo dist
-        run: |
-          rm -rf apps/demo/dist/storybook
-          cp -r packages/ui-legacy/storybook-static apps/demo/dist/storybook
-
-      # ui-react Storybook, served alongside the legacy one at /uikit/storybook-react.
+      # ui-react Storybook, served at /uikit/storybook-react.
       # ui-react consumes its generated deps (icons-react, which pulls in
       # tokens/design-assets/style-dictionary) from dist, so build those first;
       # ui-react's own source is bundled by Storybook via the .storybook alias.

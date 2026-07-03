@@ -19,7 +19,6 @@ jobs:
         @spec-lab/tokens
         @spec-lab/icons-react
         @spec-lab/icons-svg-next
-        @spec-lab/shadcn-uikit
         @spec-lab/ui-react
         @spec-lab/ui-spec
         @spec-lab/figma-icons-fetcher
@@ -40,7 +39,6 @@ jobs:
           list-files: shell
           filters: |
             published:
-              - 'packages/ui-legacy/**'
               - 'packages/ui-react/**'
               - 'packages/icons-react/**'
               - 'packages/tokens/**'
@@ -121,7 +119,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Constructor Lab UI Component Library
+      # ui-legacy is retired — not published, and no longer linted/typechecked/
+      # tested here. It stays only as a transitive BUILD dependency: the shared
+      # @spec-lab/shadcn-uikit-demos package still has un-migrated gap dirs
+      # (form/tree/sidebar/secondary-menu/combobox) that import it, and apps/demo
+      # consumes those, so its dist + types must exist before the typecheck below.
+      # Drop this step once those gap dirs are migrated and ui-legacy is deleted.
+      - name: Build ui-legacy (transitive dep for demos gap dirs)
         run: pnpm --filter ./packages/ui-legacy run build
 
       # Apps import the libraries by package name, so their dist (incl. types)

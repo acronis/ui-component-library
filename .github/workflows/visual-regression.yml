@@ -10,9 +10,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: ui-legacy
-            filter: '@spec-lab/shadcn-uikit'
-            dir: packages/ui-legacy
           - name: ui-react
             filter: '@spec-lab/ui-react'
             dir: packages/ui-react
@@ -35,14 +32,6 @@ jobs:
         id: changes
         with:
           filters: |
-            ui-legacy:
-              - 'packages/ui-legacy/src/**'
-              - 'packages/ui-legacy/.storybook/**'
-              - 'packages/ui-legacy/package.json'
-              - 'packages/ui-legacy/Dockerfile.storybook'
-              - 'packages/ui-legacy/docker-compose.storybook*.yml'
-              - 'packages/tokens/**'
-              - '.github/workflows/visual-regression.yml'
             ui-react:
               - 'packages/ui-react/src/**'
               - 'packages/ui-react/.storybook/**'

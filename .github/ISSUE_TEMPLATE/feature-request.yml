@@ -15,7 +15,6 @@ body:
       description: Which package would benefit from this feature?
       options:
         - '@spec-lab/ui-react'
-        - '@spec-lab/shadcn-uikit (ui-legacy)'
         - '@spec-lab/icons-react'
         - '@spec-lab/tokens'
         - New package / unsure

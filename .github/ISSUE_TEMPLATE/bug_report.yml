@@ -14,7 +14,6 @@ body:
       label: Affected package
       options:
         - '@spec-lab/ui-react'
-        - '@spec-lab/shadcn-uikit (ui-legacy)'
         - '@spec-lab/icons-react'
         - '@spec-lab/tokens'
         - '@spec-lab/tokens'

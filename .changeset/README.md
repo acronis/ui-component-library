@@ -21,7 +21,6 @@ Merging that PR triggers the actual publish to npm and GitHub Packages.
 
 Published workspaces are:
 
-- `@spec-lab/shadcn-uikit` (`packages/ui-legacy`)
 - `@spec-lab/ui-react`
 - `@spec-lab/icons-react`
 - `@spec-lab/icons-svg`
