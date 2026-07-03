@@ -1,4 +1,4 @@
-import { Input } from '@spec-lab/shadcn-uikit/react';
+import { Input } from '@spec-lab/ui-react';
 
 export function InputSizesDemo() {
   return (

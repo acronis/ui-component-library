@@ -1,22 +1,13 @@
 import { useState } from 'react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Input } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 import {
   SecondaryMenu,
   SecondaryMenuContent,
   SecondaryMenuGroup,
   SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  CalendarIcon,
-  HideIcon,
-  LockIcon,
-  MailIcon,
-  PhoneIcon,
-  SearchIcon,
-  ShowIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit';
+} from './secondary-menu-stub';
+import { CalendarIcon, EnvelopeIcon, EyeCrossedIcon, EyeIcon, LockIcon, MagnifierIcon, PhoneIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import { CreditCardIcon } from '@/components/icons/missing-icons';
 type DemoSection =
   | 'basic'
@@ -61,7 +52,7 @@ export function InputDemoWithSecondaryMenu() {
             <SecondaryMenuItem
               active={activeSection === 'icons'}
               onClick={() => setActiveSection('icons')}
-              icon={<MailIcon className="h-4 w-4" />}
+              icon={<EnvelopeIcon className="h-4 w-4" />}
             >
               With Icons
             </SecondaryMenuItem>
@@ -217,7 +208,7 @@ export function InputDemoWithSecondaryMenu() {
                   <h3>Icon Inputs</h3>
                   <div className="space-y-4">
                     <div className="relative">
-                      <MailIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+                      <EnvelopeIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
                       <Input
                         className="pl-10"
                         type="email"
@@ -233,7 +224,7 @@ export function InputDemoWithSecondaryMenu() {
                       />
                     </div>
                     <div className="relative">
-                      <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+                      <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
                       <Input
                         className="pl-10"
                         type="search"
@@ -438,9 +429,9 @@ export function InputDemoWithSecondaryMenu() {
                           }
                         >
                           {showPassword ? (
-                            <ShowIcon className="h-4 w-4" />
+                            <EyeIcon className="h-4 w-4" />
                           ) : (
-                            <HideIcon className="h-4 w-4" />
+                            <EyeCrossedIcon className="h-4 w-4" />
                           )}
                         </button>
                       </div>
@@ -467,7 +458,7 @@ export function InputDemoWithSecondaryMenu() {
                         Email <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
-                        <MailIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+                        <EnvelopeIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
                         <Input
                           id="form-email"
                           className="pl-10"
@@ -509,7 +500,7 @@ export function InputDemoWithSecondaryMenu() {
                   <h3>Search Input</h3>
                   <div className="space-y-4">
                     <div className="relative">
-                      <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+                      <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
                       <Input
                         className="pl-10"
                         type="search"

@@ -1,4 +1,4 @@
-import { RotateIcon } from '@spec-lab/shadcn-uikit';
+import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono'
 
 interface LoadingMessageProps {
   title?: string;
@@ -12,7 +12,7 @@ export function LoadingMessage({
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-300 space-y-2">
       <div className="flex items-center gap-2">
-        <RotateIcon className="h-4 w-4 animate-spin text-primary" />
+        <ArrowRotationIcon className="h-4 w-4 animate-spin text-primary" />
         <p className="font-semibold text-sm">{title}</p>
       </div>
       <p className="text-sm text-muted-foreground">{description}</p>

@@ -23,7 +23,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { FunnelChart, Funnel, Cell, LabelList } from 'recharts';
 // colors managed via colorPalette constant
 

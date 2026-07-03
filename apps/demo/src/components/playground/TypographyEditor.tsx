@@ -6,8 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
   Button,
-} from '@spec-lab/shadcn-uikit/react';
-import { RotateIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   applyTypographySettings,
   TypographySettings,
@@ -155,8 +155,8 @@ export const TypographyEditor: React.FC = () => {
           </p>
         </div>
         {isCustom && (
-          <Button variant="outline" size="sm" onClick={handleReset}>
-            <RotateIcon className="mr-2 h-4 w-4" />
+          <Button variant="secondary" onClick={handleReset}>
+            <ArrowRotationIcon className="mr-2 h-4 w-4" />
             Reset to Default
           </Button>
         )}

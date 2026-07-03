@@ -162,12 +162,15 @@ importers:
       '@hookform/resolvers':
         specifier: 'catalog:'
         version: 5.4.0(react-hook-form@7.76.1(react@19.2.6))
-      '@spec-lab/shadcn-uikit':
+      '@spec-lab/icons-react':
         specifier: workspace:*
-        version: link:../../packages/ui-legacy
+        version: link:../../packages/icons-react
       '@spec-lab/shadcn-uikit-demos':
         specifier: workspace:*
         version: link:../demos
+      '@spec-lab/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       '@tanstack/react-table':
         specifier: 'catalog:'
         version: 8.21.3(react-dom@19.2.6(react@19.2.6))(react@19.2.6)

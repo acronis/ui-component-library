@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from '@spec-lab/shadcn-uikit/react';
+import { Avatar, AvatarFallback } from '@spec-lab/ui-react';
 
 interface MessageAvatarProps {
   type: 'user' | 'ai' | 'loading';

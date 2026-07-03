@@ -1,11 +1,6 @@
 import * as React from 'react';
-import {
-  EllipsisHIcon,
-  ShowIcon,
-  EditIcon,
-  TrashOIcon,
-} from '@spec-lab/shadcn-uikit';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { BinIcon, EllipsisIcon, EyeIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ButtonIcon } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import type { DataRow } from '../../types';
 
 interface RowActionsProps {
@@ -26,24 +21,26 @@ interface RowActionsProps {
 export function RowActions({ onEdit, onDelete, onView }: RowActionsProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="ghost" size="icon" />}>
-        <EllipsisHIcon className="h-4 w-4" />
+      <DropdownMenuTrigger
+        render={<ButtonIcon variant="ghost" aria-label="Open menu" />}
+      >
+        <EllipsisIcon className="h-4 w-4" />
         <span className="sr-only">Open menu</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={onView}>
-          <ShowIcon className="mr-2 h-4 w-4" />
+          <EyeIcon className="mr-2 h-4 w-4" />
           View details
         </DropdownMenuItem>
         <DropdownMenuItem onClick={onEdit}>
-          <EditIcon className="mr-2 h-4 w-4" />
+          <PencilIcon className="mr-2 h-4 w-4" />
           Edit
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={onDelete} className="text-destructive">
-          <TrashOIcon className="mr-2 h-4 w-4" />
+          <BinIcon className="mr-2 h-4 w-4" />
           Delete
         </DropdownMenuItem>
       </DropdownMenuContent>

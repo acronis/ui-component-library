@@ -2,16 +2,16 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import EmojiPicker, { Theme } from 'emoji-picker-react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
 import { MessageInputProps } from '@/lib/chat/types';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Textarea } from '@spec-lab/shadcn-uikit/react';
+import { Button, ButtonIcon } from '@spec-lab/ui-react';
+import { Textarea } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { SendIcon, ShowIcon, HideIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { EyeCrossedIcon, EyeIcon, SendIcon } from '@spec-lab/icons-react/stroke-mono'
 import { SmileIcon } from '@/components/icons/missing-icons';
 
 export function MessageInput({
@@ -86,11 +86,11 @@ export function MessageInput({
             <Popover open={showEmojiPicker} onOpenChange={setShowEmojiPicker}>
               <PopoverTrigger
                 render={
-                  <Button
+                  <ButtonIcon
                     variant="ghost"
-                    size="sm"
-                    className="h-8 w-8 p-0"
+                    className="h-8 w-8"
                     disabled={disabled}
+                    aria-label="Insert emoji"
                   />
                 }
               >
@@ -112,19 +112,18 @@ export function MessageInput({
       <div className="flex items-center justify-between">
         <div className="flex gap-2">
           <Button
-            variant="outline"
-            size="sm"
+            variant="secondary"
             onClick={onPreviewToggle}
             className="h-8"
           >
             {showPreview ? (
               <>
-                <HideIcon className="h-3 w-3 mr-1" />
+                <EyeCrossedIcon className="h-3 w-3 mr-1" />
                 Edit
               </>
             ) : (
               <>
-                <ShowIcon className="h-3 w-3 mr-1" />
+                <EyeIcon className="h-3 w-3 mr-1" />
                 Preview
               </>
             )}
@@ -145,7 +144,6 @@ export function MessageInput({
           <Button
             onClick={handleSend}
             disabled={!value.trim() || disabled || isAtLimit}
-            size="sm"
             className="h-8"
           >
             <SendIcon className="h-3 w-3 mr-1" />

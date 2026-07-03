@@ -21,7 +21,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { Treemap } from 'recharts';
 // colors managed via colorPalette constant
 

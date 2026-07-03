@@ -1,7 +1,7 @@
 import React from 'react';
 import { BotModeSelectorProps, BotMode } from '@/lib/chat/types';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
+import { cn } from '@spec-lab/ui-react';
 
 const BOT_INFO = {
   eliza: {
@@ -33,8 +33,7 @@ export function BotModeSelector({
         {(Object.keys(BOT_INFO) as BotMode[]).map((mode) => (
           <Button
             key={mode}
-            variant={currentMode === mode ? 'default' : 'outline'}
-            size="sm"
+            variant={currentMode === mode ? 'default' : 'secondary'}
             onClick={() => onModeChange(mode)}
             className="h-8 px-3"
           >

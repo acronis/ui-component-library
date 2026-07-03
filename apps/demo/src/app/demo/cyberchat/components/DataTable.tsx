@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import { toast } from 'sonner';
 import type { TableData } from '../types';
 import { copyToClipboard } from '../utils/helpers';
@@ -68,7 +68,7 @@ export function DataTable({ data }: DataTableProps) {
         </table>
       </div>
       <Button
-        variant="link"
+        variant="ghost"
         className="h-auto p-0 text-primary"
         onClick={handleCopyTable}
       >

@@ -11,8 +11,8 @@ import {
   SectionTitle,
   SectionDescription,
   SectionContent,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 function PageHeaderExample() {
   return (
@@ -23,10 +23,8 @@ function PageHeaderExample() {
         Manage team members and their permissions.
       </PageHeaderDescription>
       <PageHeaderActions>
-        <Button variant="outline" size="sm">
-          Export
-        </Button>
-        <Button size="sm">Add User</Button>
+        <Button variant="secondary">Export</Button>
+        <Button>Add User</Button>
       </PageHeaderActions>
     </PageHeader>
   );

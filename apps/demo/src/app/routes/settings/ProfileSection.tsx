@@ -7,15 +7,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Label } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
+import { Label } from '@spec-lab/ui-react';
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { profileSchema } from '../../lib/validators';
 import type { ProfileFormData } from '../../lib/validators';
 import type { User } from '../../types';

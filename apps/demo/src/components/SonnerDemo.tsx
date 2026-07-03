@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Toaster } from '@spec-lab/shadcn-uikit/react';
+import { Toaster } from '@spec-lab/ui-react';
 import {
   SonnerBasic,
   SonnerWithDescription,
@@ -47,7 +47,8 @@ export function SonnerDemo() {
         Sonner library.
       </p>
 
-      <Toaster position="top-right" />
+      {/* TODO(uikit): ui-react's `Toaster` has no `position` prop (fixed bottom-right). */}
+      <Toaster />
 
       <div className="space-y-8">
         <DemoWithCode

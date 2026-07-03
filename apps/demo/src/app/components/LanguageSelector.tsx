@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { CheckIcon, GlobeIcon } from '@spec-lab/shadcn-uikit';
+import { CheckIcon, GlobeIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
-  Button,
+  ButtonIcon,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { cn } from '@spec-lab/ui-react';
 import { useLocale } from '../context/LocaleContext';
 
 export function LanguageSelector() {
@@ -36,11 +36,11 @@ export function LanguageSelector() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button
+          <ButtonIcon
             variant="ghost"
-            size="icon"
             disabled={isLoading || isChanging}
             className="relative"
+            aria-label="Select language"
           />
         }
       >

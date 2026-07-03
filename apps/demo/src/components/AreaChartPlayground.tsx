@@ -23,7 +23,7 @@ import {
   TabsList,
   TabsTrigger,
   Input,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import {
   AreaChart,
   Area,

@@ -1,7 +1,4 @@
-import {
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from '@spec-lab/shadcn-uikit';
+import { ChevronDownIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
 import type { Project } from '../types';
 
 interface CollapsibleTreeProps {

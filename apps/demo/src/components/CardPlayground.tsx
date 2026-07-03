@@ -22,13 +22,8 @@ import {
   Badge,
   Progress,
   Skeleton,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  ClockIcon,
-  ShoppingCartIcon,
-  ShowIcon,
-  UsersIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { CircleClockIcon, EyeIcon, ShoppingCartIcon, UsersIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   ActivityIcon,
   ArrowDownRightIcon,
@@ -223,9 +218,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   ShoppingCartIcon,
   ActivityIcon,
   ZapIcon,
-  ShowIcon,
+  EyeIcon,
   BarChart3Icon,
-  ClockIcon,
+  CircleClockIcon,
   TargetIcon,
   PercentIcon,
 };
@@ -259,6 +254,30 @@ const badgeVariants: BadgeVariant[] = [
   'danger',
   'neutral',
 ];
+
+// Legacy shadcn `Badge` had a 10-value variant set; ui-react `Badge`/`Tag` only
+// has the status set. Mechanical mapping per apps/demo/.fix-notes.md.
+type NewBadgeVariant =
+  | 'ai'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'critical'
+  | 'neutral'
+  | 'danger';
+
+const toNewBadgeVariant: Record<BadgeVariant, NewBadgeVariant> = {
+  default: 'neutral',
+  secondary: 'neutral',
+  destructive: 'danger',
+  outline: 'neutral',
+  success: 'success',
+  info: 'info',
+  warning: 'warning',
+  critical: 'critical',
+  danger: 'danger',
+  neutral: 'neutral',
+};
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
@@ -591,8 +610,8 @@ export function CardPlayground() {
               trendDirection === 'up'
                 ? 'success'
                 : trendDirection === 'down'
-                  ? 'destructive'
-                  : 'secondary'
+                  ? 'danger'
+                  : 'neutral'
             }
             className="text-[10px] px-1.5 py-0"
           >
@@ -632,7 +651,11 @@ export function CardPlayground() {
               </div>
             </div>
           </div>
-          {showBadge && <Badge variant={badgeVariant}>{badgeText}</Badge>}
+          {showBadge && (
+            <Badge variant={toNewBadgeVariant[badgeVariant]}>
+              {badgeText}
+            </Badge>
+          )}
           {iconPosition === 'right' && iconEl}
         </CardHeader>
         <CardContent className={compactMode ? 'px-4 pb-2' : ''}>
@@ -1381,7 +1404,7 @@ export function CardPlayground() {
   Card, CardHeader, CardTitle,
   CardDescription, CardContent, CardFooter,
   Badge, Progress
-} from '@spec-lab/shadcn-uikit/react'
+} from '@spec-lab/ui-react'
 <Card>
   <CardHeader className="flex flex-row items-center
     justify-between space-y-0 pb-2">
@@ -1627,7 +1650,7 @@ export function CardPlayground() {
           <CardContent className="space-y-3 text-sm">
             <div className="flex flex-wrap gap-2">
               {badgeVariants.map((bv) => (
-                <Badge key={bv} variant={bv}>
+                <Badge key={bv} variant={toNewBadgeVariant[bv]}>
                   {bv}
                 </Badge>
               ))}

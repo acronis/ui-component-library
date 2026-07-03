@@ -16,8 +16,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@spec-lab/shadcn-uikit": "workspace:*",
     "@spec-lab/shadcn-uikit-demos": "workspace:*",
+    "@spec-lab/ui-react": "workspace:*",
+    "@spec-lab/icons-react": "workspace:*",
     "@hookform/resolvers": "catalog:",
     "@tanstack/react-table": "catalog:",
     "culori": "4.0.2",
@@ -42,11 +43,11 @@
     "zustand": "5.0.14"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-syntax-highlighter": "15.5.13",
     "@vitejs/plugin-react": "5.1.1",
-    "@tailwindcss/postcss": "catalog:",
     "postcss": "8.5.15",
     "sass": "1.100.0",
     "tailwindcss": "catalog:",

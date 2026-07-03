@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button, ButtonIcon } from '@spec-lab/ui-react';
 import { FileSearchIcon, BrainIcon } from '@/components/icons/missing-icons';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 
@@ -76,16 +76,14 @@ export function LandingState() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Button
-                variant="outline"
-                size="sm"
+                variant="secondary"
                 className="h-9 gap-2 rounded-xl text-sm border-gray-200 bg-white hover:bg-gray-50"
               >
                 <FileSearchIcon className="h-4 w-4" />
                 <span>Add files</span>
               </Button>
               <Button
-                variant="outline"
-                size="sm"
+                variant="secondary"
                 className="h-9 gap-2 rounded-xl text-sm border-gray-200 bg-white hover:bg-gray-50"
               >
                 <BrainIcon className="h-4 w-4" />
@@ -94,7 +92,7 @@ export function LandingState() {
             </div>
             <div className="flex items-center gap-2">
               <Button
-                variant="outline"
+                variant="secondary"
                 className="h-9 gap-2 rounded-xl text-sm border-gray-200 bg-white hover:bg-gray-50"
               >
                 <span>{selectedModel}</span>
@@ -108,8 +106,9 @@ export function LandingState() {
                   />
                 </svg>
               </Button>
-              <Button
-                size="icon"
+              <ButtonIcon
+                variant="secondary"
+                aria-label="Send message"
                 className="h-9 w-9 rounded-xl bg-[#0D7DE5] hover:bg-[#0B6FD1]"
                 onClick={handleSend}
                 disabled={!inputValue.trim()}
@@ -123,7 +122,7 @@ export function LandingState() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </Button>
+              </ButtonIcon>
             </div>
           </div>
         </div>
@@ -139,7 +138,7 @@ export function LandingState() {
             {suggestionChips.map((chip) => (
               <Button
                 key={chip.id}
-                variant="outline"
+                variant="secondary"
                 className="h-auto py-2 px-4 font-normal text-sm rounded-full border-gray-200 bg-white hover:bg-gray-50"
                 onClick={() => selectSuggestion(chip.text)}
               >

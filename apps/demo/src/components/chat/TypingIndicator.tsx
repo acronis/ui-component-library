@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
 import { TypingIndicatorProps } from '@/lib/chat/types';
 
 export function TypingIndicator({ className, botMode }: TypingIndicatorProps) {

@@ -7,10 +7,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Label } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
+import { Label } from '@spec-lab/ui-react';
 import { passwordChangeSchema } from '../../lib/validators';
 import type { PasswordChangeFormData } from '../../lib/validators';
 import { toast } from 'sonner';

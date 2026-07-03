@@ -3,7 +3,7 @@ import {
   applyTheme,
   getCurrentTheme,
   type ThemeName,
-} from '@uikit-utils/theme-switcher';
+} from '@/lib/theme-switcher';
 import { CyberChatPage } from './CyberChatPage';
 
 const THEMES: { value: ThemeName; label: string }[] = [

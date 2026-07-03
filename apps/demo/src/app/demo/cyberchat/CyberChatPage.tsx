@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ScrollArea } from '@spec-lab/shadcn-uikit/react';
+import { ScrollArea } from '@spec-lab/ui-react';
 import { useCyberChatStore } from './store/useCyberChatStore';
 import { CyberChatSidebar } from './components/CyberChatSidebar';
 import { ChatHeader } from './components/ChatHeader';

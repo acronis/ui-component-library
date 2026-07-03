@@ -1,16 +1,10 @@
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  TableIcon,
-  SettingsIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChatIcon,
-} from '@spec-lab/shadcn-uikit';
+import { ChevronLeftIcon, ChevronRightIcon, CogIcon, LayoutTableIcon, MessageIcon } from '@spec-lab/icons-react/stroke-mono'
 import { LayoutDashboardIcon } from '@/components/icons/missing-icons';
-import { cn } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Separator } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
+import { ButtonIcon } from '@spec-lab/ui-react';
+import { Separator } from '@spec-lab/ui-react';
 import { useLocale } from '../context/LocaleContext';
 
 interface SidebarProps {
@@ -31,9 +25,9 @@ const navItems: NavItem[] = [
     href: 'dashboard',
     icon: LayoutDashboardIcon,
   },
-  { titleKey: 'navigation.data', href: 'data', icon: TableIcon },
-  { titleKey: 'navigation.chat', href: 'chat', icon: ChatIcon },
-  { titleKey: 'navigation.settings', href: 'settings', icon: SettingsIcon },
+  { titleKey: 'navigation.data', href: 'data', icon: LayoutTableIcon },
+  { titleKey: 'navigation.chat', href: 'chat', icon: MessageIcon },
+  { titleKey: 'navigation.settings', href: 'settings', icon: CogIcon },
 ];
 
 export function Sidebar({ isCollapsed, onCollapse, className }: SidebarProps) {
@@ -52,18 +46,18 @@ export function Sidebar({ isCollapsed, onCollapse, className }: SidebarProps) {
         {!isCollapsed && (
           <span className="font-semibold text-lg">Demo App</span>
         )}
-        <Button
+        <ButtonIcon
           variant="ghost"
-          size="icon"
           onClick={() => onCollapse(!isCollapsed)}
           className={cn(isCollapsed && 'mx-auto')}
+          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {isCollapsed ? (
             <ChevronRightIcon className="h-4 w-4" />
           ) : (
             <ChevronLeftIcon className="h-4 w-4" />
           )}
-        </Button>
+        </ButtonIcon>
       </div>
 
       <nav className="flex-1 space-y-1 p-2">

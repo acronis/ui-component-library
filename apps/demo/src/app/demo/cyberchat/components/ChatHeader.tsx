@@ -1,5 +1,5 @@
-import { Button, Switch } from '@spec-lab/shadcn-uikit/react';
-import { ChevronDownIcon } from '@spec-lab/shadcn-uikit';
+import { Button, Switch } from '@spec-lab/ui-react';
+import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono'
 import { useCyberChatStore } from '../store/useCyberChatStore';
 import { ThemeSwitcher } from '@/components/playground/ThemeSwitcher';
 import { TokenSelector } from '@/components/playground/TokenSelector';
@@ -32,7 +32,7 @@ export function ChatHeader() {
         <TokenSelector />
         <ThemeSwitcher variant="dropdown" size="sm" />
         <div className="relative">
-          <Button variant="outline" size="sm" onClick={toggleShareDropdown}>
+          <Button variant="secondary" onClick={toggleShareDropdown}>
             Share & Export
             <ChevronDownIcon className="ml-2 h-4 w-4" />
           </Button>

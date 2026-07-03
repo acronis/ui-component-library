@@ -5,7 +5,7 @@ import {
   CardContent,
   Input,
   Button,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 
 export function LoginPage() {

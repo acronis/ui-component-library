@@ -2,31 +2,33 @@ import {
   AlertContent,
   AlertIcon,
   Button,
-  CriticalIcon,
-  DangerIcon,
-  InfoIcon,
-  InfrastructureIcon,
-  SuccessIcon,
-  WarningIcon,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Label } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import {
+  CircleCheckIcon as SuccessIcon,
+  TriangleWarningIcon as WarningIcon,
+  DiamondWarningIcon as CriticalIcon,
+  CircleWarningIcon as DangerIcon,
+  CircleInfoIcon as InfoIcon,
+  ServerIcon as InfrastructureIcon,
+} from '@spec-lab/icons-react/stroke-mono';
+import { Input } from '@spec-lab/ui-react';
+import { Label } from '@spec-lab/ui-react';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Badge } from '@spec-lab/ui-react';
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Separator } from '@spec-lab/shadcn-uikit/react';
-import { Switch } from '@spec-lab/shadcn-uikit/react';
-import { Checkbox } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Separator } from '@spec-lab/ui-react';
+import { Switch } from '@spec-lab/ui-react';
+import { Checkbox } from '@spec-lab/ui-react';
 
 export const ComponentShowcase: React.FC = () => {
   return (
@@ -50,7 +52,7 @@ export const ComponentShowcase: React.FC = () => {
         <div className="flex flex-wrap gap-3">
           <Button variant="default">Primary</Button>
           <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
+          <Button variant="secondary">Outline</Button>
           <Button variant="ghost">Ghost</Button>
           <Button variant="destructive">Destructive</Button>
         </div>
@@ -82,8 +84,8 @@ export const ComponentShowcase: React.FC = () => {
             <CardContent>
               <div className="space-y-2">
                 <Badge>Badge</Badge>
-                <Badge variant="secondary">Secondary</Badge>
-                <Badge variant="outline">Outline</Badge>
+                <Badge variant="neutral">Secondary</Badge>
+                <Badge variant="neutral">Outline</Badge>
               </div>
             </CardContent>
           </Card>
@@ -235,9 +237,9 @@ export const ComponentShowcase: React.FC = () => {
           <CardContent className="pt-6">
             <div className="flex flex-wrap gap-2">
               <Badge>Default</Badge>
-              <Badge variant="secondary">Secondary</Badge>
-              <Badge variant="outline">Outline</Badge>
-              <Badge variant="destructive">Destructive</Badge>
+              <Badge variant="neutral">Secondary</Badge>
+              <Badge variant="neutral">Outline</Badge>
+              <Badge variant="danger">Destructive</Badge>
               <Badge className="bg-primary text-primary-foreground">
                 Primary
               </Badge>

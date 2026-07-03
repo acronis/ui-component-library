@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { cn } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
 import { MessageListProps } from '../../lib/chat/types';
 import { useChat } from '../../lib/chat/chat-service';
 import { TypingIndicator } from './TypingIndicator';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 
 interface MessageListPropsExtended extends MessageListProps {
   onAnswerQuestion?: (option: string) => void;
@@ -64,8 +64,7 @@ export function MessageList({
                 {message.options.map((option, index) => (
                   <Button
                     key={index}
-                    variant="outline"
-                    size="sm"
+                    variant="secondary"
                     onClick={() => handleOptionClick(option)}
                     className="w-full justify-start text-left"
                   >

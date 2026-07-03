@@ -5,11 +5,11 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Badge } from '@spec-lab/shadcn-uikit/react';
-import { Separator } from '@spec-lab/shadcn-uikit/react';
-import { EditIcon, TrashOIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Badge } from '@spec-lab/ui-react';
+import { Separator } from '@spec-lab/ui-react';
+import { BinIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono'
 import { format } from 'date-fns';
 import type { DataRow } from '../../types';
 
@@ -49,7 +49,7 @@ export function DetailView({
             <h3 className="text-sm font-medium text-muted-foreground mb-3">
               Status
             </h3>
-            <Badge variant="outline" className="capitalize">
+            <Badge variant="neutral" className="capitalize">
               <span
                 className={`mr-2 h-2 w-2 rounded-full ${statusColors[row.status]}`}
               />
@@ -89,7 +89,7 @@ export function DetailView({
                   <dt className="text-sm font-medium mb-2">Tags</dt>
                   <dd className="flex flex-wrap gap-2">
                     {row.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
+                      <Badge key={tag} variant="neutral">
                         {tag}
                       </Badge>
                     ))}
@@ -131,7 +131,7 @@ export function DetailView({
 
           <div className="flex gap-2">
             <Button onClick={() => onEdit(row)} className="flex-1">
-              <EditIcon className="mr-2 h-4 w-4" />
+              <PencilIcon className="mr-2 h-4 w-4" />
               Edit
             </Button>
             <Button
@@ -142,7 +142,7 @@ export function DetailView({
               }}
               className="flex-1"
             >
-              <TrashOIcon className="mr-2 h-4 w-4" />
+              <BinIcon className="mr-2 h-4 w-4" />
               Delete
             </Button>
           </div>

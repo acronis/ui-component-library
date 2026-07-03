@@ -1,9 +1,5 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import {
-  CopyIcon,
-  RotateIcon,
-  EllipsisHIcon,
-} from '@spec-lab/shadcn-uikit';
+import { ButtonIcon } from '@spec-lab/ui-react';
+import { ArrowRotationIcon, EllipsisIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   ThumbsUpIcon,
   ThumbsDownIcon,
@@ -20,12 +16,12 @@ interface MessageActionsProps {
 }
 
 const iconMap = {
-  copy: CopyIcon,
+  copy: FilesIcon,
   like: ThumbsUpIcon,
   dislike: ThumbsDownIcon,
   share: Share2Icon,
-  regenerate: RotateIcon,
-  more: EllipsisHIcon,
+  regenerate: ArrowRotationIcon,
+  more: EllipsisIcon,
 };
 
 export function MessageActions({ messageId, actions }: MessageActionsProps) {
@@ -75,16 +71,16 @@ export function MessageActions({ messageId, actions }: MessageActionsProps) {
         if (!Icon) return null;
 
         return (
-          <Button
+          <ButtonIcon
             key={action.type}
             variant="ghost"
-            size="icon"
+            aria-label={action.label}
             className={`h-8 w-8 ${action.active ? 'text-primary' : ''}`}
             onClick={() => handleAction(action.type)}
             title={action.label}
           >
             <Icon className="h-4 w-4" />
-          </Button>
+          </ButtonIcon>
         );
       })}
     </div>

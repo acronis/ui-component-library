@@ -81,27 +81,9 @@ export default defineConfig(({ mode }) => ({
       'react/jsx-dev-runtime',
     ],
     alias: {
-      '@spec-lab/shadcn-uikit-demos': resolve(
-        __dirname,
-        '../demos/src'
-      ),
-      '@spec-lab/shadcn-uikit/react': resolve(
-        __dirname,
-        '../../packages/ui-legacy/src/react.ts'
-      ),
-      '@spec-lab/shadcn-uikit/styles': resolve(
-        __dirname,
-        '../../packages/ui-legacy/src/styles/index.scss'
-      ),
-      '@spec-lab/shadcn-uikit': resolve(
-        __dirname,
-        '../../packages/ui-legacy/src/react.ts'
-      ),
-      '@uikit-utils': resolve(__dirname, '../../packages/ui-legacy/src/utils'),
-      'tw-animate-css/dist/tw-animate.css': resolve(
-        __dirname,
-        '../../packages/ui-legacy/node_modules/tw-animate-css/dist/tw-animate.css'
-      ),
+      // Consume the shared demos package from source (HMR); its own imports of
+      // @spec-lab/ui-react resolve via node_modules.
+      '@spec-lab/shadcn-uikit-demos': resolve(__dirname, '../demos/src'),
     },
     extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json'],
   },

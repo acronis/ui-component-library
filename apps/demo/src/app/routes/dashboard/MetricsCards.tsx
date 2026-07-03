@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UsersIcon } from '@spec-lab/shadcn-uikit';
+import { UsersIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   TrendingUpIcon,
   TrendingDownIcon,
@@ -11,7 +11,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import type { DashboardMetrics } from '../../types';
 
 interface MetricsCardsProps {

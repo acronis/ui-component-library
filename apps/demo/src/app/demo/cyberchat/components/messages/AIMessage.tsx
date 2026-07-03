@@ -1,4 +1,4 @@
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+import { Badge } from '@spec-lab/ui-react';
 import type { Message, TableData } from '../../types';
 import { MessageActions } from './MessageActions';
 import { DataTable } from '../DataTable';
@@ -56,7 +56,7 @@ export function AIMessage({ message }: AIMessageProps) {
           {message.badges.map((badge, i) => (
             <Badge
               key={i}
-              variant={badge.variant || 'outline'}
+              variant="neutral"
               className="text-xs"
             >
               {badge.text}

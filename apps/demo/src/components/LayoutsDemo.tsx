@@ -10,14 +10,36 @@ import {
   AuthLayoutCard,
   AuthLayoutLogo,
   AuthLayoutFooter,
-  DashboardLayout,
-  DashboardGrid,
   Button,
   Card,
   CardHeader,
   CardTitle,
   CardContent,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+
+// TODO(uikit): re-do with approved pattern. `DashboardLayout` / `DashboardGrid`
+// have no ui-react equivalent (superseded by `app-shell` / `grid`) — stand in
+// with a plain flex/grid `<div>` so the demo keeps rendering.
+function DashboardLayout({ children }: { children?: React.ReactNode }) {
+  return <div className="flex flex-col gap-4">{children}</div>;
+}
+
+function DashboardGrid({
+  cols = 3,
+  children,
+}: {
+  cols?: number;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div
+      className="grid gap-4"
+      style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 function AppShellExample() {
   return (

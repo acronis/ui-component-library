@@ -6,9 +6,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { SettingsIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button, ButtonIcon } from '@spec-lab/ui-react';
+import { CogIcon } from '@spec-lab/icons-react/stroke-mono'
 
 interface SettingsDialogProps {
   trigger?: React.ReactNode;
@@ -22,11 +22,11 @@ export function SettingsDialog({ trigger }: SettingsDialogProps) {
       <DialogTrigger
         render={
           (trigger as React.ReactElement) || (
-            <Button variant="ghost" size="icon" className="h-6 w-6" />
+            <ButtonIcon variant="ghost" aria-label="Settings" className="h-6 w-6" />
           )
         }
       >
-        {!trigger && <SettingsIcon className="h-4 w-4" />}
+        {!trigger && <CogIcon className="h-4 w-4" />}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[540px]">
         <DialogHeader className="pb-4 px-6">
@@ -168,7 +168,7 @@ export function SettingsDialog({ trigger }: SettingsDialogProps) {
         {/* Footer separator */}
         <div className="border-t border-border pt-6 px-6 pb-6">
           <div className="flex justify-end gap-3">
-            <Button variant="outline" onClick={() => setOpen(false)}>
+            <Button variant="secondary" onClick={() => setOpen(false)}>
               Cancel
             </Button>
             <Button onClick={() => setOpen(false)}>Save Changes</Button>

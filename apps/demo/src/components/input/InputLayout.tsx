@@ -4,11 +4,8 @@ import {
   SecondaryMenuContent,
   SecondaryMenuGroup,
   SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  ExclamationCircleIcon,
-  MailIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '../secondary-menu-stub';
+import { CircleWarningIcon, EnvelopeIcon } from '@spec-lab/icons-react/stroke-mono'
 import { RulerIcon } from '@/components/icons/missing-icons';
 export function InputLayout() {
   const navigate = useNavigate();
@@ -44,7 +41,7 @@ export function InputLayout() {
             <SecondaryMenuItem
               active={isActive('/input/icons')}
               onClick={() => navigate('/input/icons')}
-              icon={<MailIcon className="h-4 w-4" />}
+              icon={<EnvelopeIcon className="h-4 w-4" />}
             >
               With Icons
             </SecondaryMenuItem>
@@ -60,7 +57,7 @@ export function InputLayout() {
             <SecondaryMenuItem
               active={isActive('/input/validation')}
               onClick={() => navigate('/input/validation')}
-              icon={<ExclamationCircleIcon className="h-4 w-4" />}
+              icon={<CircleWarningIcon className="h-4 w-4" />}
             >
               Validation
             </SecondaryMenuItem>

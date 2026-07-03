@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import {
   Avatar,
   AvatarFallback,
-  Button,
+  ButtonIcon,
   Input,
   ScrollArea,
-} from '@spec-lab/shadcn-uikit/react';
-import { SearchIcon, PlusIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono'
 import { useCyberChatStore } from '../store/useCyberChatStore';
 import { CollapsibleTree } from './CollapsibleTree';
 import { ChatListItem } from './ChatListItem';
@@ -56,7 +56,7 @@ export function CyberChatSidebar() {
       {/* Search */}
       <div className="p-4 border-b border-border/50">
         <div className="relative">
-          <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder="Search..."
             value={searchQuery}
@@ -70,9 +70,9 @@ export function CyberChatSidebar() {
       <div className="border-b border-border/50">
         <div className="flex items-center justify-between px-4 py-3">
           <h3 className="text-sm font-semibold text-foreground">Projects</h3>
-          <Button
-            variant="default"
-            size="icon"
+          <ButtonIcon
+            variant="ghost"
+            aria-label="Add project"
             className="h-6 w-6"
             onClick={() => {
               // TODO: Open add project dialog
@@ -80,7 +80,7 @@ export function CyberChatSidebar() {
             }}
           >
             <PlusIcon className="h-3 w-3" />
-          </Button>
+          </ButtonIcon>
         </div>
         {filteredProjects.length > 0 && (
           <div className="px-2 pb-2">
@@ -98,9 +98,9 @@ export function CyberChatSidebar() {
       <div className="border-b border-border/50">
         <div className="flex items-center justify-between px-4 py-3">
           <h3 className="text-sm font-semibold text-foreground">Skills</h3>
-          <Button
-            variant="default"
-            size="icon"
+          <ButtonIcon
+            variant="ghost"
+            aria-label="Add skill"
             className="h-6 w-6"
             onClick={() => {
               // TODO: Open add skill dialog
@@ -108,7 +108,7 @@ export function CyberChatSidebar() {
             }}
           >
             <PlusIcon className="h-3 w-3" />
-          </Button>
+          </ButtonIcon>
         </div>
         {filteredSkills.length > 0 && (
           <div className="px-2 pb-2">
@@ -128,9 +128,9 @@ export function CyberChatSidebar() {
           <h3 className="text-sm font-semibold text-foreground">
             Recent chats
           </h3>
-          <Button
-            variant="default"
-            size="icon"
+          <ButtonIcon
+            variant="ghost"
+            aria-label="New chat"
             className="h-6 w-6"
             onClick={() => {
               // TODO: Open new chat dialog
@@ -138,7 +138,7 @@ export function CyberChatSidebar() {
             }}
           >
             <PlusIcon className="h-3 w-3" />
-          </Button>
+          </ButtonIcon>
         </div>
         <ScrollArea className="flex-1 px-2">
           <div className="space-y-1 py-2">

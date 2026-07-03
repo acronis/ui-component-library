@@ -1,11 +1,7 @@
 import * as React from 'react';
-import {
-  ChevronUpdownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@spec-lab/shadcn-uikit';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
+import { ArrowsDownUpIcon, ChevronLeftIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
+import { Button, ButtonIcon } from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
 import {
   Table,
   TableBody,
@@ -13,16 +9,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/shadcn-uikit/react';
-import { Checkbox } from '@spec-lab/shadcn-uikit/react';
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Checkbox } from '@spec-lab/ui-react';
+import { Badge } from '@spec-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { RowActions } from './RowActions';
 import { format } from 'date-fns';
 import type { DataRow } from '../../types';
@@ -186,7 +182,7 @@ export function DataTable({
                   className="h-8 px-2"
                 >
                   Name
-                  <ChevronUpdownIcon className="ml-2 h-4 w-4" />
+                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
                 </Button>
               </TableHead>
               <TableHead>
@@ -196,7 +192,7 @@ export function DataTable({
                   className="h-8 px-2"
                 >
                   Status
-                  <ChevronUpdownIcon className="ml-2 h-4 w-4" />
+                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
                 </Button>
               </TableHead>
               <TableHead>
@@ -206,7 +202,7 @@ export function DataTable({
                   className="h-8 px-2"
                 >
                   Category
-                  <ChevronUpdownIcon className="ml-2 h-4 w-4" />
+                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
                 </Button>
               </TableHead>
               <TableHead>
@@ -216,7 +212,7 @@ export function DataTable({
                   className="h-8 px-2"
                 >
                   Value
-                  <ChevronUpdownIcon className="ml-2 h-4 w-4" />
+                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
                 </Button>
               </TableHead>
               <TableHead>
@@ -226,7 +222,7 @@ export function DataTable({
                   className="h-8 px-2"
                 >
                   Updated
-                  <ChevronUpdownIcon className="ml-2 h-4 w-4" />
+                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
                 </Button>
               </TableHead>
               <TableHead className="w-12">Actions</TableHead>
@@ -255,7 +251,7 @@ export function DataTable({
                   </TableCell>
                   <TableCell className="font-medium">{row.name}</TableCell>
                   <TableCell>
-                    <Badge variant="outline" className="capitalize">
+                    <Badge variant="neutral" className="capitalize">
                       <span
                         className={`mr-2 h-2 w-2 rounded-full ${statusColors[row.status]}`}
                       />
@@ -308,24 +304,24 @@ export function DataTable({
             Page {currentPage + 1} of {totalPages || 1}
           </span>
           <div className="flex gap-1">
-            <Button
-              variant="outline"
-              size="icon"
+            <ButtonIcon
+              variant="secondary"
               onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
               disabled={currentPage === 0}
+              aria-label="Previous page"
             >
               <ChevronLeftIcon className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
+            </ButtonIcon>
+            <ButtonIcon
+              variant="secondary"
               onClick={() =>
                 setCurrentPage(Math.min(totalPages - 1, currentPage + 1))
               }
               disabled={currentPage >= totalPages - 1}
+              aria-label="Next page"
             >
               <ChevronRightIcon className="h-4 w-4" />
-            </Button>
+            </ButtonIcon>
           </div>
         </div>
       </div>

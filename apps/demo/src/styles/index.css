@@ -1,0 +1,29 @@
+/**
+ * Demo App Styles Entry Point (ui-react)
+ *
+ * Tailwind v4 + @spec-lab/tokens (--ui-* design tokens + the shadcn-name bridge).
+ * Mirrors packages/ui-react/src/styles/index.css. Tailwind scans the app, the
+ * shared demos package, and ui-react's source so their utility classes are
+ * generated here.
+ */
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* The whole token kit: primitives (theme layer) + semantics + component tiers.
+   Brand switches via [data-brand], light/dark via [data-theme]; values are
+   var() references resolved at paint. */
+@import '../../../../packages/tokens/css/index.css';
+/* Tailwind v4 @theme inline bridge (shadcn color names -> --ui-* tokens). */
+@import '../../../../packages/tokens/css/tailwind-theme.css';
+
+/* dark: variant keyed to [data-theme='dark'] (same as ui-react). */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* Generate the utility classes used by ui-react + the shared demos package. */
+@source "../../../../packages/ui-react/src";
+@source "../../../demos/src";
+
+/* Demo-app specific styles can be added here */
+body {
+  @apply bg-background text-foreground font-sans text-base;
+}

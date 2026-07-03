@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { ScrollArea } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { CopyIcon, RotateIcon } from '@spec-lab/shadcn-uikit';
+import { ScrollArea } from '@spec-lab/ui-react';
+import { ButtonIcon } from '@spec-lab/ui-react';
+import { ArrowRotationIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono'
 import { ThumbsUpIcon, ThumbsDownIcon } from '@/components/icons/missing-icons';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 import type { Message } from '../types';
@@ -31,18 +31,18 @@ function AIMessage({ message }: { message: Message }) {
           </p>
         </div>
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            <CopyIcon className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8">
+          <ButtonIcon variant="ghost" aria-label="Copy" className="h-8 w-8">
+            <FilesIcon className="h-4 w-4" />
+          </ButtonIcon>
+          <ButtonIcon variant="ghost" aria-label="Like" className="h-8 w-8">
             <ThumbsUpIcon className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8">
+          </ButtonIcon>
+          <ButtonIcon variant="ghost" aria-label="Dislike" className="h-8 w-8">
             <ThumbsDownIcon className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            <RotateIcon className="h-4 w-4" />
-          </Button>
+          </ButtonIcon>
+          <ButtonIcon variant="ghost" aria-label="Regenerate" className="h-8 w-8">
+            <ArrowRotationIcon className="h-4 w-4" />
+          </ButtonIcon>
         </div>
       </div>
     </div>

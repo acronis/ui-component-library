@@ -8,8 +8,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Separator } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Separator } from '@spec-lab/ui-react';
 import { BotMode } from '../../lib/chat/types';
 
 interface ChatInterfaceProps {

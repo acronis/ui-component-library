@@ -5,8 +5,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Badge } from '@spec-lab/ui-react';
 import { formatDistanceToNow } from 'date-fns';
 import type { ActivityLog } from '../../types';
 
@@ -83,7 +83,7 @@ export function RecentActivity({
                       addSuffix: true,
                     })}
                   </span>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="neutral" className="text-xs">
                     {activity.type}
                   </Badge>
                 </div>

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ShowIcon, HideIcon } from '@spec-lab/shadcn-uikit';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Label } from '@spec-lab/shadcn-uikit/react';
-import { Checkbox } from '@spec-lab/shadcn-uikit/react';
+import { EyeCrossedIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
+import { Button } from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
+import { Label } from '@spec-lab/ui-react';
+import { Checkbox } from '@spec-lab/ui-react';
 import { loginSchema } from '../../lib/validators';
 import type { LoginFormData } from '../../lib/validators';
 import { toast } from 'sonner';
@@ -72,9 +72,9 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
             disabled={isLoading}
           >
             {showPassword ? (
-              <HideIcon className="h-4 w-4" />
+              <EyeCrossedIcon className="h-4 w-4" />
             ) : (
-              <ShowIcon className="h-4 w-4" />
+              <EyeIcon className="h-4 w-4" />
             )}
           </button>
         </div>

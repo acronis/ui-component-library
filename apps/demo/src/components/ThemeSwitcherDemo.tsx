@@ -6,7 +6,7 @@ import {
   getCurrentColorMode,
   toggleColorMode,
   type ThemeName,
-} from '@spec-lab/shadcn-uikit';
+} from '@/lib/theme-switcher';
 
 export function ThemeSwitcherDemo() {
   const [theme, setTheme] = useState<ThemeName>('acronis-default');

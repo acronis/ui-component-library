@@ -6,9 +6,9 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { RotateIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono'
 
 export const TokenEditor: React.FC = () => {
   const {
@@ -133,8 +133,8 @@ export const TokenEditor: React.FC = () => {
           </p>
         </div>
         {isCustom && (
-          <Button variant="outline" size="sm" onClick={resetCustomTokens}>
-            <RotateIcon className="mr-2 h-4 w-4" />
+          <Button variant="secondary" onClick={resetCustomTokens}>
+            <ArrowRotationIcon className="mr-2 h-4 w-4" />
             Reset to Default
           </Button>
         )}

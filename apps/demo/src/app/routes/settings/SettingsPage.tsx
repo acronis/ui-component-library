@@ -4,7 +4,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { ProfileSection } from './ProfileSection';
 import { PreferencesSection } from './PreferencesSection';
 import { AccountSection } from './AccountSection';

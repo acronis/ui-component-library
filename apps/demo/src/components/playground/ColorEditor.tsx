@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { ColorToken } from '@/types/playground';
 import { ColorPicker } from './ColorPicker';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Label } from '@spec-lab/shadcn-uikit/react';
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Label } from '@spec-lab/ui-react';
+import { Badge } from '@spec-lab/ui-react';
 import { getContrastRatio, meetsWCAGAA } from '@/lib/playground/colorUtils';
 
 interface ColorEditorProps {
@@ -47,7 +47,7 @@ export const ColorEditor: React.FC<ColorEditorProps> = ({
         {contrastRatio !== null && (
           <div className="flex items-center gap-2">
             <Badge
-              variant={meetsAA ? 'default' : 'destructive'}
+              variant={meetsAA ? 'success' : 'danger'}
               className="text-xs"
             >
               {contrastRatio.toFixed(2)}:1
@@ -63,7 +63,7 @@ export const ColorEditor: React.FC<ColorEditorProps> = ({
         <PopoverTrigger
           render={
             <Button
-              variant="outline"
+              variant="secondary"
               className="w-full justify-start text-left font-normal"
               style={{
                 backgroundColor: color.hex,

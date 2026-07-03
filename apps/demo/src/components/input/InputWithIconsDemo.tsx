@@ -1,12 +1,5 @@
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import {
-  CalendarIcon,
-  LockIcon,
-  MailIcon,
-  PhoneIcon,
-  SearchIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit';
+import { Input } from '@spec-lab/ui-react';
+import { CalendarIcon, EnvelopeIcon, LockIcon, MagnifierIcon, PhoneIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import { CreditCardIcon } from '@/components/icons/missing-icons';
 export function InputWithIconsDemo() {
   return (
@@ -21,7 +14,7 @@ export function InputWithIconsDemo() {
           <h3>Icon Inputs</h3>
           <div className="space-y-4">
             <div className="relative">
-              <MailIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+              <EnvelopeIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
               <Input className="pl-10" type="email" placeholder="Email" />
             </div>
             <div className="relative">
@@ -29,7 +22,7 @@ export function InputWithIconsDemo() {
               <Input className="pl-10" type="password" placeholder="Password" />
             </div>
             <div className="relative">
-              <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+              <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
               <Input className="pl-10" type="search" placeholder="Search..." />
             </div>
             <div className="relative">

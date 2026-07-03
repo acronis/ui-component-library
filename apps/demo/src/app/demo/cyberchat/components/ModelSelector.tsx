@@ -3,8 +3,8 @@ import {
   Button,
   Switch,
   Separator,
-} from '@spec-lab/shadcn-uikit/react';
-import { ChevronDownIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono'
 import { useCyberChatStore } from '../store/useCyberChatStore';
 import { RadialProgress } from './RadialProgress';
 
@@ -47,8 +47,7 @@ export function ModelSelector() {
   return (
     <div className="relative" ref={dropdownRef}>
       <Button
-        variant="outline"
-        size="sm"
+        variant="secondary"
         onClick={toggleModelDropdown}
         className="h-9 min-w-[140px]"
       >

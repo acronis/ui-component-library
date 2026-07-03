@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
   Separator,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import {
   Bar,
   BarChart,

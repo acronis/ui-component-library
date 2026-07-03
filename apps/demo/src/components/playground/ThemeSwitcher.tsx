@@ -6,13 +6,13 @@ import {
 } from '@/components/icons/missing-icons';
 import { usePlaygroundStore } from '@/store/playground/playgroundStore.ts';
 import { ThemeMode } from '@/types/playground/index.ts';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 interface ThemeSwitcherProps {
   variant?: 'button' | 'dropdown';
@@ -24,7 +24,8 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
   variant = 'dropdown',
-  size = 'default',
+  // TODO(uikit): ui-react's Button has no `size` prop; kept in the public API
+  // for callers, but no longer forwarded.
   showLabel = false,
   className = '',
   onThemeChange,
@@ -61,8 +62,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
   if (variant === 'button') {
     return (
       <Button
-        variant="outline"
-        size={size}
+        variant="secondary"
         onClick={() => {
           const nextMode =
             theme.mode === ThemeMode.LIGHT
@@ -86,8 +86,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
       <DropdownMenuTrigger
         render={
           <Button
-            variant="outline"
-            size={size}
+            variant="secondary"
             className={className}
             aria-label="Select theme"
           />

@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
-import { UserIcon, BurgerMenuIcon } from '@spec-lab/shadcn-uikit';
+import { BarsIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   MoonIcon,
   SunIcon,
   LogOutIcon,
 } from '@/components/icons/missing-icons';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button, ButtonIcon } from '@spec-lab/ui-react';
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,7 +19,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { useAuth } from '../hooks/useAuth';
 import { LanguageSelector } from '../components/LanguageSelector';
 
@@ -54,14 +54,14 @@ export function Header({ onMenuToggle, showMenuButton = true }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-14 items-center gap-4 px-4">
         {showMenuButton && (
-          <Button
+          <ButtonIcon
             variant="ghost"
-            size="icon"
             onClick={onMenuToggle}
             className="md:hidden"
+            aria-label="Toggle menu"
           >
-            <BurgerMenuIcon className="h-5 w-5" />
-          </Button>
+            <BarsIcon className="h-5 w-5" />
+          </ButtonIcon>
         )}
 
         <div className="flex-1">
@@ -75,13 +75,17 @@ export function Header({ onMenuToggle, showMenuButton = true }: HeaderProps) {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
+          <ButtonIcon
+            variant="ghost"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
             {theme === 'light' ? (
               <MoonIcon className="h-5 w-5" />
             ) : (
               <SunIcon className="h-5 w-5" />
             )}
-          </Button>
+          </ButtonIcon>
 
           <LanguageSelector />
 

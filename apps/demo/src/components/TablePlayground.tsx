@@ -1,27 +1,5 @@
 import * as React from 'react';
-import {
-  CheckCircleIcon,
-  CheckIcon,
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CircleIcon,
-  CloseIcon,
-  ClockIcon,
-  EditIcon,
-  ExclamationCircleIcon,
-  ExternalLinkIcon,
-  InfoIcon,
-  MailIcon,
-  MinusIcon,
-  ShieldIcon,
-  ShoppingCartIcon,
-  ShowIcon,
-  StarIcon,
-  TimesCircleIcon,
-  TrashOIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit';
+import { BinIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, CircleCheckIcon, CircleClockIcon, CircleInfoIcon, CircleSmallIcon, CircleTimesIcon, CircleWarningIcon, EnvelopeIcon, EyeIcon, MinusIcon, PencilIcon, ShieldCheckIcon, ShoppingCartIcon, SquareArrowUpRightIcon, StarIcon, TimesIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   ActivityIcon,
   ArrowUpDownIcon,
@@ -77,7 +55,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 // Multiple datasources with diverse data types
 const dataSources = {
   users: {
@@ -618,7 +596,7 @@ const dataSources = {
 
 type DataSourceKey = keyof typeof dataSources;
 type SortDirection = 'asc' | 'desc' | null;
-type BadgeVariant = 'default' | 'secondary' | 'destructive' | 'outline';
+type BadgeVariant = 'success' | 'warning' | 'danger' | 'neutral';
 
 // Column descriptions for tooltips
 const columnDescriptions: Record<string, Record<string, string>> = {
@@ -691,7 +669,7 @@ const columnGroups: Record<
     { group: 'Reviews', columns: ['rating', 'featured'] },
   ],
   orders: [
-    { group: 'Order InfoIcon', columns: ['customer', 'date', 'items'] },
+    { group: 'Order CircleInfoIcon', columns: ['customer', 'date', 'items'] },
     { group: 'Financial', columns: ['total', 'payment'] },
     { group: 'Status', columns: ['status', 'priority'] },
   ],
@@ -1936,12 +1914,12 @@ export function TablePlayground() {
   const getBadgeVariant = (value: string): BadgeVariant => {
     // Status badges
     if (value === 'Active' || value === 'Delivered' || value === 'Deposit')
-      return 'default';
+      return 'success';
     if (value === 'Pending' || value === 'Processing' || value === 'Shipped')
-      return 'secondary';
+      return 'warning';
     if (value === 'Inactive' || value === 'Cancelled' || value === 'Withdrawal')
-      return 'destructive';
-    return 'outline';
+      return 'danger';
+    return 'neutral';
   };
 
   // Format cell value based on column and type
@@ -1960,7 +1938,7 @@ export function TablePlayground() {
                 }
               >
                 {content as any}
-                <InfoIcon className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-100" />
+                <CircleInfoIcon className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-100" />
               </TooltipTrigger>
               <TooltipContent>
                 <p className="text-xs max-w-xs">{rowData.tooltip}</p>
@@ -1975,9 +1953,9 @@ export function TablePlayground() {
     // Boolean values with icons
     if (typeof value === 'boolean') {
       const icon = value ? (
-        <CheckCircleIcon className="h-4 w-4 text-green-500" />
+        <CircleCheckIcon className="h-4 w-4 text-green-500" />
       ) : (
-        <TimesCircleIcon className="h-4 w-4 text-gray-400" />
+        <CircleTimesIcon className="h-4 w-4 text-gray-400" />
       );
       return wrapWithTooltip(icon);
     }
@@ -1987,7 +1965,7 @@ export function TablePlayground() {
       return (
         <div className="flex flex-wrap gap-1">
           {value.map((tag, idx) => (
-            <Badge key={idx} variant="outline" className="text-xs">
+            <Badge key={idx} variant="neutral" className="text-xs">
               <TagIcon className="h-2.5 w-2.5 mr-1" />
               {tag}
             </Badge>
@@ -2052,7 +2030,7 @@ export function TablePlayground() {
           rel="noopener noreferrer"
           className="text-blue-600 hover:underline flex items-center gap-1"
         >
-          <ExternalLinkIcon className="h-3 w-3" />
+          <SquareArrowUpRightIcon className="h-3 w-3" />
           Visit
         </a>
       );
@@ -2065,7 +2043,7 @@ export function TablePlayground() {
           href={`mailto:${value}`}
           className="text-blue-600 hover:underline flex items-center gap-1"
         >
-          <MailIcon className="h-3 w-3" />
+          <EnvelopeIcon className="h-3 w-3" />
           {value}
         </a>
       );
@@ -2083,13 +2061,13 @@ export function TablePlayground() {
     // Priority with color indicators (circles)
     if (column === 'priority' && showIcons && typeof value === 'string') {
       const priorityConfig = {
-        High: { color: 'text-red-500', icon: ExclamationCircleIcon },
-        Normal: { color: 'text-yellow-500', icon: ClockIcon },
-        Low: { color: 'text-green-500', icon: CheckCircleIcon },
+        High: { color: 'text-red-500', icon: CircleWarningIcon },
+        Normal: { color: 'text-yellow-500', icon: CircleClockIcon },
+        Low: { color: 'text-green-500', icon: CircleCheckIcon },
       };
       const config = priorityConfig[value as keyof typeof priorityConfig] || {
         color: 'text-gray-500',
-        icon: CircleIcon,
+        icon: CircleSmallIcon,
       };
       const Icon = config.icon;
       return (
@@ -2107,44 +2085,44 @@ export function TablePlayground() {
         { variant: BadgeVariant; icon: any; color: string }
       > = {
         Active: {
-          variant: 'default',
-          icon: CheckCircleIcon,
+          variant: 'success',
+          icon: CircleCheckIcon,
           color: 'text-green-500',
         },
         Inactive: {
-          variant: 'destructive',
-          icon: TimesCircleIcon,
+          variant: 'danger',
+          icon: CircleTimesIcon,
           color: 'text-red-500',
         },
         Pending: {
-          variant: 'secondary',
-          icon: ClockIcon,
+          variant: 'warning',
+          icon: CircleClockIcon,
           color: 'text-yellow-500',
         },
         Processing: {
-          variant: 'secondary',
+          variant: 'warning',
           icon: ActivityIcon,
           color: 'text-blue-500',
         },
         Delivered: {
-          variant: 'default',
-          icon: CheckCircleIcon,
+          variant: 'success',
+          icon: CircleCheckIcon,
           color: 'text-green-500',
         },
         Shipped: {
-          variant: 'secondary',
+          variant: 'warning',
           icon: PackageIcon,
           color: 'text-blue-500',
         },
         Cancelled: {
-          variant: 'destructive',
-          icon: TimesCircleIcon,
+          variant: 'danger',
+          icon: CircleTimesIcon,
           color: 'text-red-500',
         },
       };
       const config = statusConfig[value] || {
-        variant: 'outline' as BadgeVariant,
-        icon: CircleIcon,
+        variant: 'neutral' as BadgeVariant,
+        icon: CircleSmallIcon,
         color: 'text-gray-500',
       };
       const Icon = config.icon;
@@ -2174,7 +2152,7 @@ export function TablePlayground() {
     // Completion with enhanced progress bar (with icon)
     if (column === 'completion' && showProgress && typeof value === 'number') {
       const Icon =
-        value >= 90 ? CheckCircleIcon : value >= 50 ? ActivityIcon : ClockIcon;
+        value >= 90 ? CircleCheckIcon : value >= 50 ? ActivityIcon : CircleClockIcon;
       const color =
         value >= 90
           ? 'text-green-500'
@@ -2217,8 +2195,8 @@ export function TablePlayground() {
       typeof value === 'string'
     ) {
       const roleConfig: Record<string, { icon: any; color: string }> = {
-        Admin: { icon: ShieldIcon, color: 'text-red-500' },
-        Editor: { icon: EditIcon, color: 'text-blue-500' },
+        Admin: { icon: ShieldCheckIcon, color: 'text-red-500' },
+        Editor: { icon: PencilIcon, color: 'text-blue-500' },
         User: { icon: UserIcon, color: 'text-gray-500' },
       };
       const config = roleConfig[value] || {
@@ -2260,7 +2238,7 @@ export function TablePlayground() {
     // Discount with badge
     if (column === 'discount' && typeof value === 'number') {
       return value > 0 ? (
-        <Badge variant="secondary">{value}% OFF</Badge>
+        <Badge variant="neutral">{value}% OFF</Badge>
       ) : (
         <span className="text-muted-foreground">-</span>
       );
@@ -2322,7 +2300,7 @@ export function TablePlayground() {
       };
       const Icon = config.icon;
       return (
-        <Badge variant="outline" className="gap-1">
+        <Badge variant="neutral" className="gap-1">
           <Icon className={`h-3 w-3 ${config.color}`} />
           <span>{value}</span>
         </Badge>
@@ -2332,14 +2310,14 @@ export function TablePlayground() {
     // Verified with enhanced icon
     if (column === 'verified' && typeof value === 'boolean') {
       return value ? (
-        <Badge variant="default" className="gap-1">
-          {showIcons && <ShieldIcon className="h-3 w-3 text-green-500" />}
+        <Badge variant="success" className="gap-1">
+          {showIcons && <ShieldCheckIcon className="h-3 w-3 text-green-500" />}
           Verified
         </Badge>
       ) : (
-        <Badge variant="outline" className="gap-1">
+        <Badge variant="neutral" className="gap-1">
           {showIcons && (
-            <ExclamationCircleIcon className="h-3 w-3 text-yellow-500" />
+            <CircleWarningIcon className="h-3 w-3 text-yellow-500" />
           )}
           Unverified
         </Badge>
@@ -2349,7 +2327,7 @@ export function TablePlayground() {
     // Featured with badge
     if (column === 'featured' && typeof value === 'boolean') {
       return value ? (
-        <Badge variant="default" className="gap-1">
+        <Badge variant="neutral" className="gap-1">
           {showIcons && (
             <StarIcon className="h-3 w-3 fill-yellow-400 text-yellow-400" />
           )}
@@ -2820,27 +2798,7 @@ import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import React from 'react'
 
-import {
-  CheckCircleIcon,
-  CheckIcon,
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CircleIcon,
-  ClockIcon,
-  CloseIcon,
-  EditIcon,
-  ExclamationCircleIcon,
-  InfoIcon,
-  MailIcon,
-  ShieldIcon,
-  ShoppingCartIcon,
-  ShowIcon,
-  StarIcon,
-  TimesCircleIcon,
-  TrashOIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit'
+import { BinIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, CircleCheckIcon, CircleClockIcon, CircleInfoIcon, CircleSmallIcon, CircleTimesIcon, CircleWarningIcon, EnvelopeIcon, EyeIcon, PencilIcon, ShieldCheckIcon, ShoppingCartIcon, StarIcon, TimesIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   ActivityIcon,
   ArrowUpDownIcon,
@@ -2848,7 +2806,7 @@ import {
   ChevronsLeftIcon,
   ChevronsRightIcon,
   DollarSignIcon,
-  ExternalLinkIcon,
+  SquareArrowUpRightIcon,
   GripVerticalIcon,
   HeartIcon,
   MinusIcon,
@@ -2962,8 +2920,8 @@ export function DataTable() {
           Showing {start} to {end} of {total} entries
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" size="sm">Previous</Button>
-          <Button variant="outline" size="sm">Next</Button>
+          <Button variant="secondary">Previous</Button>
+          <Button variant="secondary">Next</Button>
         </div>
       </div>`
           : ''
@@ -3044,7 +3002,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
             {selectedRows.length > 0 && showBulkActions && (
               <div className="mb-4 p-3 bg-primary/10 rounded-lg border border-primary/20 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Badge variant="default" className="text-sm">
+                  <Badge variant="neutral" className="text-sm">
                     {selectedRows.length} selected
                   </Badge>
                   <span className="text-sm text-muted-foreground">
@@ -3054,18 +3012,17 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm" onClick={bulkExport}>
+                  <Button variant="secondary" onClick={bulkExport}>
                     Export Selected
                   </Button>
-                  <Button variant="destructive" size="sm" onClick={bulkDelete}>
+                  <Button variant="destructive" onClick={bulkDelete}>
                     Delete Selected
                   </Button>
                   <Button
                     variant="ghost"
-                    size="sm"
                     onClick={() => setSelectedRows([])}
                   >
-                    <CloseIcon className="h-4 w-4" />
+                    <TimesIcon className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
@@ -3081,14 +3038,13 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   className="max-w-sm"
                 />
                 <Button
-                  variant="outline"
-                  size="sm"
+                  variant="secondary"
                   onClick={() => setShowFilters(!showFilters)}
                 >
                   {showFilters ? 'Hide' : 'Show'} Column Filters
                 </Button>
                 {hasActiveFilters && (
-                  <Button variant="ghost" size="sm" onClick={clearAllFilters}>
+                  <Button variant="ghost" onClick={clearAllFilters}>
                     Clear All
                   </Button>
                 )}
@@ -3102,16 +3058,14 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                     <Label className="text-xs font-medium">Filter Logic:</Label>
                     <div className="flex gap-1">
                       <Button
-                        variant={filterLogic === 'AND' ? 'default' : 'outline'}
-                        size="sm"
+                        variant={filterLogic === 'AND' ? 'default' : 'secondary'}
                         onClick={() => setFilterLogic('AND')}
                         className="h-7 text-xs"
                       >
                         AND
                       </Button>
                       <Button
-                        variant={filterLogic === 'OR' ? 'default' : 'outline'}
-                        size="sm"
+                        variant={filterLogic === 'OR' ? 'default' : 'secondary'}
                         onClick={() => setFilterLogic('OR')}
                         className="h-7 text-xs"
                       >
@@ -3281,32 +3235,32 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
               {hasActiveFilters && (
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="neutral" className="text-xs">
                       {filterLogic} Logic
                     </Badge>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {globalSearch && (
-                      <Badge variant="secondary" className="gap-1">
+                      <Badge variant="neutral" className="gap-1">
                         Global: &ldquo;{globalSearch}&rdquo;
                         <button
                           onClick={() => setGlobalSearch('')}
                           className="ml-1 hover:bg-secondary-foreground/20 rounded-full p-0.5"
                         >
-                          <CloseIcon className="h-3 w-3" />
+                          <TimesIcon className="h-3 w-3" />
                         </button>
                       </Badge>
                     )}
                     {Object.entries(columnFilters).map(
                       ([col, value]) =>
                         value && (
-                          <Badge key={col} variant="outline" className="gap-1">
+                          <Badge key={col} variant="neutral" className="gap-1">
                             {col}: &ldquo;{value}&rdquo;
                             <button
                               onClick={() => clearColumnFilter(col)}
                               className="ml-1 hover:bg-secondary-foreground/20 rounded-full p-0.5"
                             >
-                              <CloseIcon className="h-3 w-3" />
+                              <TimesIcon className="h-3 w-3" />
                             </button>
                           </Badge>
                         )
@@ -3315,13 +3269,13 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       ([col, range]) =>
                         (range.min !== undefined ||
                           range.max !== undefined) && (
-                          <Badge key={col} variant="outline" className="gap-1">
+                          <Badge key={col} variant="neutral" className="gap-1">
                             {col}: {range.min ?? '∞'} - {range.max ?? '∞'}
                             <button
                               onClick={() => clearColumnFilter(col)}
                               className="ml-1 hover:bg-secondary-foreground/20 rounded-full p-0.5"
                             >
-                              <CloseIcon className="h-3 w-3" />
+                              <TimesIcon className="h-3 w-3" />
                             </button>
                           </Badge>
                         )
@@ -3329,13 +3283,13 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                     {Object.entries(dateFilters).map(
                       ([col, range]) =>
                         (range.start || range.end) && (
-                          <Badge key={col} variant="outline" className="gap-1">
+                          <Badge key={col} variant="neutral" className="gap-1">
                             {col}: {range.start || '∞'} → {range.end || '∞'}
                             <button
                               onClick={() => clearColumnFilter(col)}
                               className="ml-1 hover:bg-secondary-foreground/20 rounded-full p-0.5"
                             >
-                              <CloseIcon className="h-3 w-3" />
+                              <TimesIcon className="h-3 w-3" />
                             </button>
                           </Badge>
                         )
@@ -3358,8 +3312,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       className="max-w-xs h-8 text-sm"
                     />
                     <Button
-                      variant="outline"
-                      size="sm"
+                      variant="secondary"
                       onClick={saveFilterPreset}
                       disabled={!presetName.trim()}
                       className="h-8"
@@ -3378,7 +3331,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       <div key={index} className="flex items-center gap-1">
                         <Button
                           variant="secondary"
-                          size="sm"
                           onClick={() => loadFilterPreset(preset.config)}
                           className="h-7 text-xs"
                         >
@@ -3388,7 +3340,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           onClick={() => deleteFilterPreset(index)}
                           className="hover:bg-secondary rounded-full p-1"
                         >
-                          <CloseIcon className="h-3 w-3" />
+                          <TimesIcon className="h-3 w-3" />
                         </button>
                       </div>
                     ))}
@@ -3560,7 +3512,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       const headerContent = sortable ? (
                         <Button
                           variant="ghost"
-                          size="sm"
                           className="h-8 px-2"
                           onClick={(e) => handleSort(col, e.shiftKey)}
                         >
@@ -3574,7 +3525,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             <span className="ml-1 flex items-center gap-0.5">
                               {multiSortDirection === 'asc' ? '↑' : '↓'}
                               <Badge
-                                variant="secondary"
+                                variant="neutral"
                                 className="h-4 px-1 text-[10px]"
                               >
                                 {multiSortIndex + 1}
@@ -3746,7 +3697,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       >
                         <div className="flex flex-col items-center justify-center space-y-4">
                           <div className="rounded-full bg-destructive/10 p-4">
-                            <TimesCircleIcon className="h-12 w-12 text-destructive" />
+                            <CircleTimesIcon className="h-12 w-12 text-destructive" />
                           </div>
                           <div className="text-center space-y-2">
                             <h3 className="text-lg font-semibold">
@@ -3757,7 +3708,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             </p>
                           </div>
                           <Button
-                            variant="outline"
+                            variant="secondary"
                             onClick={() => {
                               setHasError(false);
                               setIsLoading(true);
@@ -3787,7 +3738,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           /* Custom Empty Component */
                           <div className="flex flex-col items-center justify-center space-y-4">
                             <div className="rounded-full bg-primary/10 p-4">
-                              <ExclamationCircleIcon className="h-12 w-12 text-primary" />
+                              <CircleWarningIcon className="h-12 w-12 text-primary" />
                             </div>
                             <div className="text-center space-y-2">
                               <h3 className="text-lg font-semibold">
@@ -3798,10 +3749,10 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                               </p>
                             </div>
                             <div className="flex gap-2">
-                              <Button variant="default" size="sm">
+                              <Button variant="default">
                                 Add New Item
                               </Button>
-                              <Button variant="outline" size="sm">
+                              <Button variant="secondary">
                                 Import Data
                               </Button>
                             </div>
@@ -3810,7 +3761,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           /* Default No Data Message */
                           <div className="flex flex-col items-center justify-center space-y-4">
                             <div className="rounded-full bg-muted p-4">
-                              <CircleIcon className="h-12 w-12 text-muted-foreground" />
+                              <CircleSmallIcon className="h-12 w-12 text-muted-foreground" />
                             </div>
                             <div className="text-center space-y-2">
                               <h3 className="text-lg font-semibold">No Data</h3>
@@ -3865,7 +3816,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                     {row._groupColumn}:
                                   </span>
                                   <span>{row._groupValue}</span>
-                                  <Badge variant="secondary" className="ml-2">
+                                  <Badge variant="neutral" className="ml-2">
                                     {row._groupCount}{' '}
                                     {row._groupCount === 1 ? 'row' : 'rows'}
                                   </Badge>
@@ -3955,7 +3906,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                 >
                                   <Button
                                     variant="ghost"
-                                    size="sm"
                                     className="h-6 w-6 p-0"
                                     onClick={() => toggleRowExpansion(index)}
                                   >
@@ -3989,30 +3939,27 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                   <div className="flex items-center gap-1">
                                     <Button
                                       variant="ghost"
-                                      size="sm"
                                       className="h-7 w-7 p-0"
                                       onClick={() => handleView(index)}
                                       title="View"
                                     >
-                                      <ShowIcon className="h-3 w-3" />
+                                      <EyeIcon className="h-3 w-3" />
                                     </Button>
                                     <Button
                                       variant="ghost"
-                                      size="sm"
                                       className="h-7 w-7 p-0"
                                       onClick={() => handleEdit(index)}
                                       title="Edit"
                                     >
-                                      <EditIcon className="h-3 w-3" />
+                                      <PencilIcon className="h-3 w-3" />
                                     </Button>
                                     <Button
                                       variant="ghost"
-                                      size="sm"
                                       className="h-7 w-7 p-0 text-destructive"
                                       onClick={() => handleDelete(index)}
                                       title="Delete"
                                     >
-                                      <TrashOIcon className="h-3 w-3" />
+                                      <BinIcon className="h-3 w-3" />
                                     </Button>
                                   </div>
                                 </TableCell>
@@ -4136,7 +4083,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                         />
                                         <Button
                                           variant="ghost"
-                                          size="sm"
                                           className="h-6 w-6 p-0 text-green-600"
                                           onClick={saveInlineEdit}
                                         >
@@ -4144,11 +4090,10 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                         </Button>
                                         <Button
                                           variant="ghost"
-                                          size="sm"
                                           className="h-6 w-6 p-0 text-red-600"
                                           onClick={cancelInlineEdit}
                                         >
-                                          <CloseIcon className="h-3 w-3" />
+                                          <TimesIcon className="h-3 w-3" />
                                         </Button>
                                       </div>
                                     ) : (
@@ -4165,7 +4110,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                               {row._hasChildren ? (
                                                 <Button
                                                   variant="ghost"
-                                                  size="sm"
                                                   className="h-4 w-4 p-0"
                                                   onClick={(e) => {
                                                     e.stopPropagation();
@@ -4251,30 +4195,27 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                   <div className="flex items-center gap-1">
                                     <Button
                                       variant="ghost"
-                                      size="sm"
                                       className="h-7 w-7 p-0"
                                       onClick={() => handleView(index)}
                                       title="View"
                                     >
-                                      <ShowIcon className="h-3 w-3" />
+                                      <EyeIcon className="h-3 w-3" />
                                     </Button>
                                     <Button
                                       variant="ghost"
-                                      size="sm"
                                       className="h-7 w-7 p-0"
                                       onClick={() => handleEdit(index)}
                                       title="Edit"
                                     >
-                                      <EditIcon className="h-3 w-3" />
+                                      <PencilIcon className="h-3 w-3" />
                                     </Button>
                                     <Button
                                       variant="ghost"
-                                      size="sm"
                                       className="h-7 w-7 p-0 text-destructive"
                                       onClick={() => handleDelete(index)}
                                       title="Delete"
                                     >
-                                      <TrashOIcon className="h-3 w-3" />
+                                      <BinIcon className="h-3 w-3" />
                                     </Button>
                                   </div>
                                 </TableCell>
@@ -4391,7 +4332,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       closeContextMenu();
                     }}
                   >
-                    <ShowIcon className="h-4 w-4" />
+                    <EyeIcon className="h-4 w-4" />
                     View Details
                   </button>
                   <button
@@ -4401,7 +4342,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       closeContextMenu();
                     }}
                   >
-                    <EditIcon className="h-4 w-4" />
+                    <PencilIcon className="h-4 w-4" />
                     Edit Row
                   </button>
                   <div className="border-t my-1" />
@@ -4412,7 +4353,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       closeContextMenu();
                     }}
                   >
-                    <TrashOIcon className="h-4 w-4" />
+                    <BinIcon className="h-4 w-4" />
                     Delete Row
                   </button>
                 </div>
@@ -4460,8 +4401,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           className="w-20 h-8 text-sm"
                         />
                         <Button
-                          variant="outline"
-                          size="sm"
+                          variant="secondary"
                           onClick={handlePageJump}
                           disabled={!pageInputValue}
                         >
@@ -4493,8 +4433,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                     {/* Navigation Buttons */}
                     <div className="flex gap-1">
                       <Button
-                        variant="outline"
-                        size="sm"
+                        variant="secondary"
                         onClick={() => setCurrentPage(1)}
                         disabled={currentPage === 1}
                         title="First page"
@@ -4502,8 +4441,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         <ChevronsLeftIcon className="h-4 w-4" />
                       </Button>
                       <Button
-                        variant="outline"
-                        size="sm"
+                        variant="secondary"
                         onClick={() =>
                           setCurrentPage((p) => Math.max(1, p - 1))
                         }
@@ -4513,8 +4451,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         <ChevronLeftIcon className="h-4 w-4" />
                       </Button>
                       <Button
-                        variant="outline"
-                        size="sm"
+                        variant="secondary"
                         onClick={() =>
                           setCurrentPage((p) => Math.min(totalPages, p + 1))
                         }
@@ -4524,8 +4461,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         <ChevronRightIcon className="h-4 w-4" />
                       </Button>
                       <Button
-                        variant="outline"
-                        size="sm"
+                        variant="secondary"
                         onClick={() => setCurrentPage(totalPages)}
                         disabled={currentPage === totalPages}
                         title="Last page"
@@ -4540,7 +4476,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                 {paginationMode === 'loadmore' &&
                   loadedRows < sortedData.length && (
                     <div className="flex justify-center">
-                      <Button variant="outline" onClick={loadMore}>
+                      <Button variant="secondary" onClick={loadMore}>
                         Load More (
                         {Math.min(pageSize, sortedData.length - loadedRows)}{' '}
                         more rows)
@@ -4628,25 +4564,25 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Total Rows:</span>
-                      <Badge variant="secondary">{currentData.length}</Badge>
+                      <Badge variant="neutral">{currentData.length}</Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">
                         Total Columns:
                       </span>
-                      <Badge variant="secondary">{currentColumns.length}</Badge>
+                      <Badge variant="neutral">{currentColumns.length}</Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">
                         Visible Columns:
                       </span>
-                      <Badge variant="secondary">{activeColumns.length}</Badge>
+                      <Badge variant="neutral">{activeColumns.length}</Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">
                         Filtered Rows:
                       </span>
-                      <Badge variant="secondary">{filteredData.length}</Badge>
+                      <Badge variant="neutral">{filteredData.length}</Badge>
                     </div>
                   </div>
                 </div>
@@ -4660,15 +4596,13 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                     </Label>
                     <div className="flex gap-1">
                       <Button
-                        variant="outline"
-                        size="sm"
+                        variant="secondary"
                         onClick={showAllColumns}
                       >
                         Show All
                       </Button>
                       <Button
-                        variant="outline"
-                        size="sm"
+                        variant="secondary"
                         onClick={hideAllColumns}
                       >
                         Hide All
@@ -4697,8 +4631,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   <div className="flex items-center justify-between">
                     <Label className="text-sm font-medium">Column Order</Label>
                     <Button
-                      variant="outline"
-                      size="sm"
+                      variant="secondary"
                       onClick={resetColumnOrder}
                     >
                       Reset Order
@@ -4715,7 +4648,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         <div className="flex gap-1">
                           <Button
                             variant="ghost"
-                            size="sm"
                             className="h-7 w-7 p-0"
                             onClick={() => moveColumn(col, 'left')}
                             disabled={index === 0}
@@ -4724,7 +4656,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           </Button>
                           <Button
                             variant="ghost"
-                            size="sm"
                             className="h-7 w-7 p-0"
                             onClick={() => moveColumn(col, 'right')}
                             disabled={index === columnOrder.length - 1}
@@ -4747,7 +4678,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         <Label className="text-xs text-muted-foreground">
                           Freeze Left
                         </Label>
-                        <Badge variant="outline">
+                        <Badge variant="neutral">
                           {frozenColumnsLeft} columns
                         </Badge>
                       </div>
@@ -4772,7 +4703,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         <Label className="text-xs text-muted-foreground">
                           Freeze Right
                         </Label>
-                        <Badge variant="outline">
+                        <Badge variant="neutral">
                           {frozenColumnsRight} columns
                         </Badge>
                       </div>
@@ -4859,7 +4790,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           </Label>
                           <Button
                             variant="ghost"
-                            size="sm"
                             onClick={() => resetColumnSettings(selectedColumn)}
                           >
                             Reset
@@ -4899,7 +4829,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             <Label className="text-xs text-muted-foreground">
                               Min Width (px)
                             </Label>
-                            <Badge variant="outline" className="text-xs">
+                            <Badge variant="neutral" className="text-xs">
                               {columnMinWidths[selectedColumn] || 50}px
                             </Badge>
                           </div>
@@ -4924,7 +4854,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             <Label className="text-xs text-muted-foreground">
                               Max Width (px)
                             </Label>
-                            <Badge variant="outline" className="text-xs">
+                            <Badge variant="neutral" className="text-xs">
                               {columnMaxWidths[selectedColumn] || 500}px
                             </Badge>
                           </div>
@@ -4954,17 +4884,17 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   <div className="space-y-1 text-xs">
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Total:</span>
-                      <Badge variant="secondary">{columnOrder.length}</Badge>
+                      <Badge variant="neutral">{columnOrder.length}</Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Visible:</span>
-                      <Badge variant="secondary">{activeColumns.length}</Badge>
+                      <Badge variant="neutral">{activeColumns.length}</Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">
                         Frozen (L/R):
                       </span>
-                      <Badge variant="secondary">
+                      <Badge variant="neutral">
                         {frozenColumnsLeft} / {frozenColumnsRight}
                       </Badge>
                     </div>
@@ -4972,7 +4902,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       <span className="text-muted-foreground">
                         Custom Settings:
                       </span>
-                      <Badge variant="secondary">
+                      <Badge variant="neutral">
                         {Object.keys(columnAlignments).length +
                           Object.keys(columnMinWidths).length +
                           Object.keys(columnMaxWidths).length}
@@ -5621,8 +5551,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
 
                   <div className="space-y-2">
                     <Button
-                      variant="outline"
-                      size="sm"
+                      variant="secondary"
                       onClick={() => {
                         setIsLoading(true);
                         setTimeout(() => setIsLoading(false), 3000);
@@ -5633,8 +5562,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                     </Button>
 
                     <Button
-                      variant="outline"
-                      size="sm"
+                      variant="secondary"
                       onClick={() => setHasError(!hasError)}
                       className="w-full"
                     >
@@ -5896,7 +5824,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       Enable from Columns tab
                     </p>
                   </div>
-                  <Badge variant={enableColumnGrouping ? 'default' : 'outline'}>
+                  <Badge variant={enableColumnGrouping ? 'success' : 'neutral'}>
                     {enableColumnGrouping ? 'Enabled' : 'Disabled'}
                   </Badge>
                 </div>
@@ -6006,7 +5934,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       <div className="space-y-1 text-xs text-muted-foreground">
                         <div className="flex items-center justify-between">
                           <span>Mode:</span>
-                          <Badge variant="outline">
+                          <Badge variant="neutral">
                             {selectionMode === 'checkbox'
                               ? 'Multiple'
                               : 'Single'}
@@ -6014,7 +5942,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         </div>
                         <div className="flex items-center justify-between">
                           <span>Selected:</span>
-                          <Badge variant="secondary">
+                          <Badge variant="neutral">
                             {selectedRows.length}
                           </Badge>
                         </div>
@@ -6023,8 +5951,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           <Badge
                             variant={
                               selectionMode === 'checkbox'
-                                ? 'default'
-                                : 'outline'
+                                ? 'success'
+                                : 'neutral'
                             }
                           >
                             {selectionMode === 'checkbox'
@@ -6175,7 +6103,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             <div className="flex items-center justify-between">
                               <span>Current Sort:</span>
                               <Badge
-                                variant={sortColumn ? 'secondary' : 'outline'}
+                                variant={sortColumn ? 'info' : 'neutral'}
                               >
                                 {sortColumn
                                   ? `${sortColumn} ${sortDirection === 'asc' ? '↑' : '↓'}`
@@ -6188,7 +6116,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           <>
                             <div className="flex items-center justify-between">
                               <span>Sort Columns:</span>
-                              <Badge variant="secondary">
+                              <Badge variant="neutral">
                                 {multiColumnSort.length}
                               </Badge>
                             </div>
@@ -6200,7 +6128,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                     className="flex items-center justify-between text-xs"
                                   >
                                     <Badge
-                                      variant="outline"
+                                      variant="neutral"
                                       className="text-[10px]"
                                     >
                                       {idx + 1}
@@ -6218,8 +6146,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       </div>
                       {(sortColumn || multiColumnSort.length > 0) && (
                         <Button
-                          variant="outline"
-                          size="sm"
+                          variant="secondary"
                           onClick={clearAllSorts}
                           className="w-full mt-2"
                         >
@@ -6318,21 +6245,21 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           <div className="space-y-1 text-xs text-muted-foreground">
                             <div className="flex items-center justify-between">
                               <span>Current Page:</span>
-                              <Badge variant="secondary">{currentPage}</Badge>
+                              <Badge variant="neutral">{currentPage}</Badge>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Total Pages:</span>
-                              <Badge variant="outline">{totalPages}</Badge>
+                              <Badge variant="neutral">{totalPages}</Badge>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Rows on Page:</span>
-                              <Badge variant="outline">
+                              <Badge variant="neutral">
                                 {paginatedData.length}
                               </Badge>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Total Rows:</span>
-                              <Badge variant="default">
+                              <Badge variant="neutral">
                                 {sortedData.length}
                               </Badge>
                             </div>
@@ -6352,17 +6279,17 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           <div className="space-y-1 text-xs text-muted-foreground">
                             <div className="flex items-center justify-between">
                               <span>Loaded Rows:</span>
-                              <Badge variant="secondary">{loadedRows}</Badge>
+                              <Badge variant="neutral">{loadedRows}</Badge>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Total Rows:</span>
-                              <Badge variant="default">
+                              <Badge variant="neutral">
                                 {sortedData.length}
                               </Badge>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Remaining:</span>
-                              <Badge variant="outline">
+                              <Badge variant="neutral">
                                 {Math.max(0, sortedData.length - loadedRows)}
                               </Badge>
                             </div>
@@ -6389,13 +6316,13 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   <div className="space-y-2 text-xs text-muted-foreground">
                     <div className="flex items-center justify-between">
                       <span>Global Search</span>
-                      <Badge variant="secondary">
+                      <Badge variant="neutral">
                         {globalSearch ? 'Active' : 'Inactive'}
                       </Badge>
                     </div>
                     <div className="flex items-center justify-between">
                       <span>Column Filters</span>
-                      <Badge variant="secondary">
+                      <Badge variant="neutral">
                         {Object.keys(columnFilters).length > 0
                           ? `${Object.keys(columnFilters).length} active`
                           : 'None'}
@@ -6403,7 +6330,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                     </div>
                     <div className="flex items-center justify-between">
                       <span>Filtered Results</span>
-                      <Badge variant="outline">
+                      <Badge variant="neutral">
                         {filteredData.length} / {currentData.length}
                       </Badge>
                     </div>
@@ -6605,9 +6532,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                               variant={
                                 rowNumberPosition === 'left'
                                   ? 'default'
-                                  : 'outline'
+                                  : 'secondary'
                               }
-                              size="sm"
                               onClick={() => setRowNumberPosition('left')}
                               className="flex-1"
                             >
@@ -6617,9 +6543,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                               variant={
                                 rowNumberPosition === 'right'
                                   ? 'default'
-                                  : 'outline'
+                                  : 'secondary'
                               }
-                              size="sm"
                               onClick={() => setRowNumberPosition('right')}
                               className="flex-1"
                             >
@@ -6662,8 +6587,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                               Formatting Rules
                             </Label>
                             <Button
-                              size="sm"
-                              variant="outline"
+                              variant="secondary"
                               className="h-7 text-xs"
                               onClick={() => {
                                 setConditionalRules([
@@ -6699,7 +6623,6 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                       Rule {ruleIndex + 1}
                                     </Label>
                                     <Button
-                                      size="sm"
                                       variant="ghost"
                                       className="h-6 w-6 p-0 text-destructive"
                                       onClick={() => {
@@ -6710,7 +6633,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                                         );
                                       }}
                                     >
-                                      <CloseIcon className="h-3 w-3" />
+                                      <TimesIcon className="h-3 w-3" />
                                     </Button>
                                   </div>
 
@@ -6912,9 +6835,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           <div className="grid grid-cols-2 gap-2">
                             <Button
                               variant={
-                                heatmapColor === 'green' ? 'default' : 'outline'
+                                heatmapColor === 'green' ? 'default' : 'secondary'
                               }
-                              size="sm"
                               onClick={() => setHeatmapColor('green')}
                               className="flex items-center gap-1"
                             >
@@ -6923,9 +6845,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             </Button>
                             <Button
                               variant={
-                                heatmapColor === 'blue' ? 'default' : 'outline'
+                                heatmapColor === 'blue' ? 'default' : 'secondary'
                               }
-                              size="sm"
                               onClick={() => setHeatmapColor('blue')}
                               className="flex items-center gap-1"
                             >
@@ -6934,9 +6855,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             </Button>
                             <Button
                               variant={
-                                heatmapColor === 'red' ? 'default' : 'outline'
+                                heatmapColor === 'red' ? 'default' : 'secondary'
                               }
-                              size="sm"
                               onClick={() => setHeatmapColor('red')}
                               className="flex items-center gap-1"
                             >
@@ -6947,9 +6867,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                               variant={
                                 heatmapColor === 'purple'
                                   ? 'default'
-                                  : 'outline'
+                                  : 'secondary'
                               }
-                              size="sm"
                               onClick={() => setHeatmapColor('purple')}
                               className="flex items-center gap-1"
                             >

@@ -21,14 +21,14 @@ import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import { ChatComponentsShowcase } from '@/components/playground/ChatComponentsShowcase.tsx';
 import { ChartsShowcase } from '@/components/playground/ChartsShowcase.tsx';
 import { AppLayout } from '@/app/layout/AppLayout.tsx';
 import { LocaleProvider } from '@/app/context/LocaleContext';
 import { AuthProvider } from '@/app/context/AuthContext';
 
-import { ArrowLeftIcon } from '@spec-lab/shadcn-uikit';
+import { ArrowLeftIcon } from '@spec-lab/icons-react/stroke-mono'
 const PlaygroundPage: React.FC = () => {
   const { theme, activeTokenSetId, tokenSets, customTokenSet } =
     usePlaygroundStore();
@@ -79,7 +79,7 @@ const PlaygroundPage: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link to="/">
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost">
                   <ArrowLeftIcon className="mr-2 h-4 w-4" />
                   Back to Components
                 </Button>

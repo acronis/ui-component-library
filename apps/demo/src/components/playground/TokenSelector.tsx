@@ -1,7 +1,7 @@
-import { CheckIcon } from '@spec-lab/shadcn-uikit';
+import { CheckIcon } from '@spec-lab/icons-react/stroke-mono'
 import { PaletteIcon } from '@/components/icons/missing-icons';
 import { usePlaygroundStore } from '@/store/playground/playgroundStore';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 interface TokenSelectorProps {
   className?: string;
@@ -40,7 +40,7 @@ export const TokenSelector: React.FC<TokenSelectorProps> = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={<Button variant="outline" className={className} />}
+        render={<Button variant="secondary" className={className} />}
       >
         <PaletteIcon className="mr-2 h-4 w-4" />
         <span>{activeTokenSet?.name || 'Select Theme'}</span>

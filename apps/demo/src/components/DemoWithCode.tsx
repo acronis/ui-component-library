@@ -1,13 +1,9 @@
 import * as React from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  CopyIcon,
-} from '@spec-lab/shadcn-uikit';
+import { CheckIcon, ChevronDownIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono'
 interface DemoWithCodeProps {
   title: string;
   description?: string;
@@ -77,7 +73,6 @@ export function DemoWithCode({
               <div className="relative bg-[#1e1e1e]">
                 <Button
                   variant="ghost"
-                  size="sm"
                   onClick={handleCopy}
                   className="absolute right-2 top-2 h-7 px-2 z-10 bg-black/20 hover:bg-black/40 text-white"
                 >
@@ -88,7 +83,7 @@ export function DemoWithCode({
                     </>
                   ) : (
                     <>
-                      <CopyIcon className="h-3.5 w-3.5 mr-1.5" />
+                      <FilesIcon className="h-3.5 w-3.5 mr-1.5" />
                       <span className="text-xs">Copy</span>
                     </>
                   )}

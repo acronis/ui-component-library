@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
 import { ChatContainerProps } from '../../lib/chat/types';
 import { ChatInterface } from './ChatInterface';
 

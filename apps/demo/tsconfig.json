@@ -13,15 +13,7 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["node"],
     "paths": {
-      "@/*": ["./src/*"],
-      "@spec-lab/shadcn-uikit": ["../../packages/ui-legacy/dist/index.d.ts"],
-      "@spec-lab/shadcn-uikit/react": [
-        "../../packages/ui-legacy/dist/react.d.ts"
-      ],
-      "@spec-lab/shadcn-uikit/styles": [
-        "../../packages/ui-legacy/src/styles/globals.css"
-      ],
-      "@uikit-utils/*": ["../../packages/ui-legacy/dist/utils/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"],

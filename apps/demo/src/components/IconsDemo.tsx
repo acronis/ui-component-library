@@ -1,11 +1,17 @@
 import * as React from 'react';
-import { AutoIcons } from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { SearchIcon } from '@spec-lab/shadcn-uikit';
+import { Input } from '@spec-lab/ui-react';
+import * as StrokeMonoIcons from '@spec-lab/icons-react/stroke-mono';
+import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
+
+// TODO(uikit): re-do with approved pattern. `AutoIcons` was a legacy
+// icon-catalog helper with no ui-react equivalent — browse the
+// `@spec-lab/icons-react/stroke-mono` pack directly instead.
 export function IconsDemo() {
   const [searchQuery, setSearchQuery] = React.useState('');
 
-  const iconEntries = Object.entries(AutoIcons);
+  const iconEntries = Object.entries(StrokeMonoIcons) as Array<
+    [string, React.ComponentType<{ className?: string }>]
+  >;
 
   const filteredIcons = iconEntries.filter(([name]) =>
     name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -22,7 +28,7 @@ export function IconsDemo() {
       <div className="space-y-6">
         <div className="sticky top-0 z-10 bg-background pb-4">
           <div className="relative max-w-md">
-            <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search icons..."
               value={searchQuery}

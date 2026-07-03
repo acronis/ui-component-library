@@ -1,6 +1,6 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { SettingsIcon } from '@spec-lab/shadcn-uikit';
-import { Switch } from '@spec-lab/shadcn-uikit/react';
+import { ButtonIcon } from '@spec-lab/ui-react';
+import { CogIcon } from '@spec-lab/icons-react/stroke-mono'
+import { Switch } from '@spec-lab/ui-react';
 
 interface ChatHeaderProps {
   hasMessages: boolean;
@@ -32,9 +32,9 @@ export function ChatHeader({ hasMessages }: ChatHeaderProps) {
               <Switch />
             </div>
           )}
-          <Button variant="ghost" size="icon">
-            <SettingsIcon className="h-5 w-5" />
-          </Button>
+          <ButtonIcon variant="ghost" aria-label="Settings">
+            <CogIcon className="h-5 w-5" />
+          </ButtonIcon>
         </div>
       </div>
     </div>

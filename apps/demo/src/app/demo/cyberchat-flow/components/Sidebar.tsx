@@ -1,7 +1,7 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { SearchIcon, PlusIcon } from '@spec-lab/shadcn-uikit';
-import { ScrollArea } from '@spec-lab/shadcn-uikit/react';
+import { ButtonIcon } from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
+import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ScrollArea } from '@spec-lab/ui-react';
 
 const mockChats = [
   { id: '1', title: 'Show me what you can', active: true },
@@ -17,7 +17,7 @@ export function Sidebar() {
       {/* Search */}
       <div className="p-4 border-b border-border">
         <div className="relative">
-          <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <MagnifierIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input placeholder="Search..." className="pl-9" />
         </div>
       </div>
@@ -28,9 +28,9 @@ export function Sidebar() {
           <div className="p-3">
             <div className="flex items-center justify-between mb-3 px-1">
               <h3 className="text-sm font-medium">Recent chats</h3>
-              <Button variant="ghost" size="icon" className="h-6 w-6">
+              <ButtonIcon variant="ghost" aria-label="New chat" className="h-6 w-6">
                 <PlusIcon className="h-4 w-4" />
-              </Button>
+              </ButtonIcon>
             </div>
             <div className="space-y-1">
               {mockChats.map((chat) => (

@@ -1,11 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import {
-  SendIcon,
-  FileTextIcon,
-  GlobeIcon,
-  CloseIcon,
-} from '@spec-lab/shadcn-uikit';
+import { ButtonIcon } from '@spec-lab/ui-react';
+import { FileTextIcon, GlobeIcon, SendIcon, TimesIcon } from '@spec-lab/icons-react/stroke-mono'
 import { BrainIcon } from '@/components/icons/missing-icons';
 import { toast } from 'sonner';
 import { useCyberChatStore } from '../store/useCyberChatStore';
@@ -112,7 +107,7 @@ export function ChatInput() {
                   onClick={() => removeAttachedFile(index)}
                   className="hover:text-destructive transition-colors"
                 >
-                  <CloseIcon className="h-4 w-4" />
+                  <TimesIcon className="h-4 w-4" />
                 </button>
               </div>
             ))}
@@ -148,46 +143,47 @@ export function ChatInput() {
                 onChange={handleFileSelect}
                 className="hidden"
               />
-              <Button
-                variant="outline"
-                size="icon"
+              <ButtonIcon
+                variant="secondary"
+                aria-label="Attach file"
                 className="h-9 w-9"
                 onClick={() => fileInputRef.current?.click()}
                 title="Attach file"
               >
                 <FileTextIcon className="h-5 w-5" />
-              </Button>
-              <Button
-                variant={deepResearchEnabled ? 'default' : 'outline'}
-                size="icon"
-                className="h-9 w-9"
+              </ButtonIcon>
+              <ButtonIcon
+                variant="secondary"
+                aria-label="Deep research mode"
+                className={`h-9 w-9 ${deepResearchEnabled ? 'bg-primary text-primary-foreground' : ''}`}
                 onClick={toggleDeepResearch}
                 title="Deep research mode"
               >
                 <BrainIcon className="h-5 w-5" />
-              </Button>
-              <Button
-                variant={webSearchEnabled ? 'default' : 'outline'}
-                size="icon"
-                className="h-9 w-9"
+              </ButtonIcon>
+              <ButtonIcon
+                variant="secondary"
+                aria-label="Web search mode"
+                className={`h-9 w-9 ${webSearchEnabled ? 'bg-primary text-primary-foreground' : ''}`}
                 onClick={toggleWebSearch}
                 title="Web search mode"
               >
                 <GlobeIcon className="h-5 w-5" />
-              </Button>
+              </ButtonIcon>
             </div>
 
             {/* Right side - Model selector and send */}
             <div className="flex items-center gap-2">
               <ModelSelector />
-              <Button
-                size="icon"
+              <ButtonIcon
+                variant="secondary"
+                aria-label="Send message"
                 className="h-9 w-9 shrink-0"
                 onClick={handleSend}
                 disabled={!inputValue.trim()}
               >
                 <SendIcon className="h-4 w-4" />
-              </Button>
+              </ButtonIcon>
             </div>
           </div>
         </div>

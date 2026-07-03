@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { ExclamationCircleIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -42,7 +42,7 @@ export class ErrorBoundary extends React.Component<
           <Card className="max-w-md w-full">
             <CardHeader>
               <div className="flex items-center gap-2">
-                <ExclamationCircleIcon className="h-5 w-5 text-destructive" />
+                <CircleWarningIcon className="h-5 w-5 text-destructive" />
                 <CardTitle>Something went wrong</CardTitle>
               </div>
               <CardDescription>

@@ -1,13 +1,7 @@
 import { useState } from 'react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import {
-  ArrowRightIcon,
-  ChevronDownIcon,
-  CloseIcon,
-  RotateIcon,
-  SearchIcon,
-} from '@spec-lab/shadcn-uikit';
+import { Input } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { ArrowRightIcon, ArrowRotationIcon, ChevronDownIcon, MagnifierIcon, TimesIcon } from '@spec-lab/icons-react/stroke-mono'
 export function InputSearchDemo() {
   const [search, setSearch] = useState('');
   const [searchWithFolder, setSearchWithFolder] = useState('');
@@ -45,7 +39,7 @@ export function InputSearchDemo() {
                 onChange={(e) => setSearch(e.target.value)}
                 className="h-8 pr-10 text-sm border-[rgba(38,104,197,0.3)]"
               />
-              <SearchIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#2668C5]" />
+              <MagnifierIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#2668C5]" />
             </div>
           </div>
         </div>
@@ -64,12 +58,12 @@ export function InputSearchDemo() {
                 readOnly
                 className="h-8 pr-10 text-sm border-[#2668C5] focus-visible:ring-[#2668C5]"
               />
-              <RotateIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#408BEA] animate-spin" />
+              <ArrowRotationIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#408BEA] animate-spin" />
             </div>
-            <Button onClick={handleSearch} size="sm" disabled={searchLoading}>
+            <Button onClick={handleSearch} disabled={searchLoading}>
               {searchLoading ? (
                 <>
-                  <RotateIcon className="mr-2 h-4 w-4 animate-spin" />
+                  <ArrowRotationIcon className="mr-2 h-4 w-4 animate-spin" />
                   Searching...
                 </>
               ) : (
@@ -100,7 +94,7 @@ export function InputSearchDemo() {
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-[#2668C5] hover:text-[#1a4d8f] transition-colors"
                   aria-label="Clear search"
                 >
-                  <CloseIcon className="h-4 w-4" />
+                  <TimesIcon className="h-4 w-4" />
                 </button>
               )}
             </div>
@@ -126,7 +120,7 @@ export function InputSearchDemo() {
                   In folder
                 </span>
                 <div className="h-full w-px bg-[rgba(38,104,197,0.3)]" />
-                <SearchIcon className="h-4 w-4 text-[#2668C5]" />
+                <MagnifierIcon className="h-4 w-4 text-[#2668C5]" />
               </div>
             </div>
           </div>
@@ -151,7 +145,7 @@ export function InputSearchDemo() {
                   In folder
                 </span>
                 <div className="h-full w-px bg-[#2668C5]" />
-                <RotateIcon className="h-4 w-4 text-[#408BEA] animate-spin" />
+                <ArrowRotationIcon className="h-4 w-4 text-[#408BEA] animate-spin" />
               </div>
             </div>
           </div>
@@ -181,7 +175,7 @@ export function InputSearchDemo() {
                   className="text-[#2668C5] hover:text-[#1a4d8f] transition-colors"
                   aria-label="Clear search"
                 >
-                  <CloseIcon className="h-4 w-4" />
+                  <TimesIcon className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -206,7 +200,7 @@ export function InputSearchDemo() {
                   <ChevronDownIcon className="h-3 w-3" />
                 </button>
                 <div className="h-full w-px bg-[rgba(38,104,197,0.3)]" />
-                <SearchIcon className="h-4 w-4 text-[#2668C5]" />
+                <MagnifierIcon className="h-4 w-4 text-[#2668C5]" />
               </div>
             </div>
           </div>
@@ -245,7 +239,7 @@ export function InputSearchDemo() {
                 readOnly
                 className="h-8 pr-10 text-sm border-[#2668C5] focus-visible:ring-[#2668C5]"
               />
-              <RotateIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#408BEA] animate-spin" />
+              <ArrowRotationIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#408BEA] animate-spin" />
             </div>
           </div>
         </div>
@@ -271,7 +265,7 @@ export function InputSearchDemo() {
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-[#2668C5] hover:text-[#1a4d8f] transition-colors"
                   aria-label="Clear path"
                 >
-                  <CloseIcon className="h-4 w-4" />
+                  <TimesIcon className="h-4 w-4" />
                 </button>
               )}
             </div>
