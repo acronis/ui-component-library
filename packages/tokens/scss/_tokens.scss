@@ -226,7 +226,7 @@
     --ui-palette-electricblue-electricblue-14: light-dark(rgb(0 21 51), rgb(248 250 252));
     --ui-palette-electricblue-electricblue-2: light-dark(rgb(226 235 245), rgb(32 58 95));
     --ui-palette-electricblue-electricblue-3: light-dark(rgb(214 228 245), rgb(38 70 115));
-    --ui-palette-electricblue-electricblue-4: light-dark(rgb(190 215 244), rgb(81 157 246));
+    --ui-palette-electricblue-electricblue-4: light-dark(rgb(190 215 244), rgb(41 81 122));
     --ui-palette-electricblue-electricblue-5: light-dark(rgb(117 174 240), rgb(48 89 145));
     --ui-palette-electricblue-electricblue-6: light-dark(rgb(48 125 232), rgb(83 131 197));
     --ui-palette-electricblue-electricblue-7-primary: light-dark(rgb(23 99 207), rgb(81 157 246));
@@ -813,6 +813,105 @@
   }
 
   :root, :host {
+    --ui-chip-global-border-color-active: var(--ui-palette-electricblue-electricblue-3);
+    --ui-chip-global-border-color-hover: var(--ui-border-on-surface-border-active);
+    --ui-chip-global-border-color-idle: var(--ui-palette-electricblue-electricblue-3);
+    --ui-chip-global-border-radius: var(--ui-units-radius-12);
+    --ui-chip-global-border-style: solid;
+    --ui-chip-global-border-width: var(--ui-units-stroke-1);
+    --ui-chip-global-box-color-active: var(--ui-background-surface-active);
+    --ui-chip-global-box-color-hover: var(--ui-background-surface-hover);
+    --ui-chip-global-box-color-idle: var(--ui-background-surface-secondary);
+    --ui-chip-global-box-gap: var(--ui-units-gap-4);
+    --ui-chip-global-box-height: var(--ui-units-size-24);
+    --ui-chip-global-box-margin-y: var(--ui-units-gap-4);
+    --ui-chip-global-box-padding-x: var(--ui-units-gap-8);
+    --ui-chip-global-box-width-min: var(--ui-units-size-48);
+    --ui-chip-global-icon-color: var(--ui-glyph-on-surface-primary);
+    --ui-chip-global-icon-size: var(--ui-units-size-16);
+    --ui-chip-operational-label-color: var(--ui-text-on-surface-link-idle);
+    --ui-chip-removable-label-color: var(--ui-text-on-surface-primary);
+    --ui-chip-selectable-label-color: var(--ui-text-on-surface-primary);
+  }
+
+  .ui-chip-operational-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-chip-removable-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-chip-selectable-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  [data-brand='deep-sky-itkontoret'] .ui-chip-operational-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  :root, :host {
+    --ui-dialog-body-gap: var(--ui-units-gap-12);
+    --ui-dialog-body-height-min: var(--ui-units-size-72);
+    --ui-dialog-body-padding-x: var(--ui-units-gap-16);
+    --ui-dialog-body-padding-y: var(--ui-units-gap-16);
+    --ui-dialog-container-border-radius: var(--ui-units-radius-8);
+    --ui-dialog-container-color: var(--ui-background-surface-secondary);
+    --ui-dialog-container-height-min: var(--ui-units-size-224);
+    --ui-dialog-container-size-md: var(--ui-units-size-632);
+    --ui-dialog-container-size-sm: var(--ui-units-size-512);
+    --ui-dialog-container-width-min: var(--ui-units-size-256);
+    --ui-dialog-footer-border-color: var(--ui-border-on-surface-divider);
+    --ui-dialog-footer-border-style: solid;
+    --ui-dialog-footer-border-width: var(--ui-units-stroke-1);
+    --ui-dialog-footer-color: var(--ui-background-surface-primary);
+    --ui-dialog-footer-description-color: var(--ui-text-on-surface-primary);
+    --ui-dialog-footer-gap: var(--ui-units-gap-16);
+    --ui-dialog-footer-height: var(--ui-units-size-64);
+    --ui-dialog-footer-padding-x: var(--ui-units-gap-16);
+    --ui-dialog-header-border-color: var(--ui-border-on-surface-divider);
+    --ui-dialog-header-border-style: solid;
+    --ui-dialog-header-border-width: var(--ui-units-stroke-1);
+    --ui-dialog-header-color: var(--ui-background-surface-primary);
+    --ui-dialog-header-gap: var(--ui-units-gap-16);
+    --ui-dialog-header-height: var(--ui-units-size-64);
+    --ui-dialog-header-padding-x: var(--ui-units-gap-16);
+    --ui-dialog-header-title-color: var(--ui-text-on-surface-primary);
+  }
+
+  .ui-dialog-footer-description-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-dialog-header-title-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0px;
+  }
+
+  :root, :host {
     --ui-input-date-picker-error-box-border-color-active: var(--ui-border-on-surface-border-error);
     --ui-input-date-picker-error-box-border-color-hover: var(--ui-border-on-surface-border-error);
     --ui-input-date-picker-error-box-border-color-idle: var(--ui-border-on-surface-border-error);
@@ -1325,6 +1424,53 @@
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
     font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  :root, :host {
+    --ui-loading-element-container-color-primary: var(--ui-background-backdrop-element-primary);
+    --ui-loading-element-container-color-secondary: var(--ui-background-backdrop-element-secondary);
+    --ui-loading-element-container-gap: var(--ui-units-gap-8);
+    --ui-loading-element-container-padding-x: var(--ui-units-gap-16);
+    --ui-loading-element-container-padding-y: var(--ui-units-gap-16);
+    --ui-loading-element-icon-color: var(--ui-glyph-on-backdrop-element-primary);
+    --ui-loading-element-icon-size: var(--ui-units-size-32);
+    --ui-loading-element-label-color: var(--ui-text-on-backdrop-element-primary);
+    --ui-loading-inline-container-gap: var(--ui-units-gap-8);
+    --ui-loading-inline-container-height: var(--ui-units-size-24);
+    --ui-loading-inline-icon-color: var(--ui-glyph-on-surface-primary);
+    --ui-loading-inline-icon-size: var(--ui-units-size-16);
+    --ui-loading-inline-label-color: var(--ui-text-on-surface-primary);
+    --ui-loading-screen-container-color: var(--ui-background-backdrop-screen);
+    --ui-loading-screen-container-gap: var(--ui-units-gap-8);
+    --ui-loading-screen-container-padding-x: var(--ui-units-gap-16);
+    --ui-loading-screen-container-padding-y: var(--ui-units-gap-16);
+    --ui-loading-screen-icon-color: var(--ui-glyph-on-backdrop-screen-primary);
+    --ui-loading-screen-icon-size: var(--ui-units-size-48);
+    --ui-loading-screen-label-color: var(--ui-text-on-backdrop-screen-primary);
+  }
+
+  .ui-loading-element-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-loading-inline-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-loading-screen-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
     line-height: 24px;
     letter-spacing: 0px;
   }

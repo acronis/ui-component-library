@@ -14712,7 +14712,7 @@
           "PD"
         ],
         "values": {
-          "default": "{__library:VariableID:3748:1159}"
+          "default": "{colors.text.onInverse.primary}"
         }
       },
       "textStyle": {

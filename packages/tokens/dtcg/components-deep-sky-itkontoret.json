@@ -10415,7 +10415,7 @@
           "com.figma.variableId": "VariableID:2235:1608"
         },
         "$type": "color",
-        "$value": "{__library:VariableID:3748:1159}"
+        "$value": "{colors.text.onInverse.primary}"
       },
       "textStyle": {
         "$extensions": {

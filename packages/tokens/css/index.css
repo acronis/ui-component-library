@@ -10,12 +10,15 @@
 @import './components/ButtonMenu.css';
 @import './components/CardFilter.css';
 @import './components/Checkbox.css';
+@import './components/Chip.css';
+@import './components/Dialog.css';
 @import './components/InputDatePicker.css';
 @import './components/InputSearch.css';
 @import './components/InputSelect.css';
 @import './components/InputText.css';
 @import './components/InputTextArea.css';
 @import './components/Link.css';
+@import './components/Loading.css';
 @import './components/Radio.css';
 @import './components/Resizable.css';
 @import './components/SearchGlobal.css';
