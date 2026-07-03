@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// .claude/skills/figma-to-design-tokens/emit-components.mjs
+// tools/token-emit/emit-components.mjs
 // Entry point for Step 6c: emit tiers/components.json from the current snapshot.
 //
 // Prerequisites:
@@ -7,8 +7,8 @@
 //   - tiers/primitives.json and tiers/semantics.json must be current
 //
 // Usage:
-//   node .claude/skills/figma-to-design-tokens/emit-components.mjs                   # all allowlisted components
-//   node .claude/skills/figma-to-design-tokens/emit-components.mjs --component Button # single component
+//   node tools/token-emit/emit-components.mjs                   # all allowlisted components
+//   node tools/token-emit/emit-components.mjs --component Button # single component
 
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';

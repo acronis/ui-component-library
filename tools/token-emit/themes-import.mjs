@@ -22,7 +22,7 @@
  *         palette.grayscale.* instead of palette.blue.*)
  *
  * Usage:
- *   node tools/themes-import/index.mjs [--dry-run]
+ *   node tools/token-emit/themes-import.mjs [--dry-run]
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';

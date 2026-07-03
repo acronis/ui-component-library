@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/emit-alias-translator.mjs
+// tools/token-emit/helpers/emit-alias-translator.mjs
 // Translates Figma alias strings into our token path aliases and validates
 // them against the current tiers/primitives.json.
 

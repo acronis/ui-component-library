@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// .claude/skills/figma-to-design-tokens/emit-primitives.mjs
+// tools/token-emit/emit-primitives.mjs
 // Entry point for Step 6a: emit tiers/primitives.json from the current snapshot.
 //
 // Prerequisites: snapshot/figma-snapshot.json must exist (run figma-snapshot-build.mjs).
 //
-// Usage: node .claude/skills/figma-to-design-tokens/emit-primitives.mjs
+// Usage: node tools/token-emit/emit-primitives.mjs
 
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';

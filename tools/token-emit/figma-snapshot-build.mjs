@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-// .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs
+// tools/token-emit/figma-snapshot-build.mjs
 // Entry point for Step 4: combine all Figma pull outputs into one normalized
-// .claude/skills/figma-to-design-tokens/snapshot/figma-snapshot.json.
+// tools/token-emit/snapshot/figma-snapshot.json.
 //
 // Prerequisites: the source snapshot files must be populated (see source below).
 //
 // Usage:
-//   node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs         # reads ./snapshot/ (figma-console pull)
-//   node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp   # reads packages/tokens/.tmp/figma-tokens/
+//   node tools/token-emit/figma-snapshot-build.mjs         # reads ./snapshot/ (figma-console pull)
+//   node tools/token-emit/figma-snapshot-build.mjs --tmp   # reads packages/tokens/.tmp/figma-tokens/
 //
 // `--tmp` builds the snapshot from the figma-token-exporter output in
 // .tmp/figma-tokens/ — a fully figma-console-free path. The emit-*.mjs scripts
@@ -20,7 +20,7 @@ import { SnapshotBuilder } from './helpers/pull-snapshot-builder.mjs';
 const useTmp = process.argv.includes('--tmp');
 const sourceDir = useTmp
   ? fileURLToPath(
-      new URL('../../../packages/tokens/.tmp/figma-tokens/', import.meta.url)
+      new URL('../../packages/tokens/.tmp/figma-tokens/', import.meta.url)
     )
   : undefined;
 

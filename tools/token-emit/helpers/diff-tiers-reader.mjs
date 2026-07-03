@@ -1,11 +1,11 @@
-// .claude/skills/figma-to-design-tokens/helpers/diff-tiers-reader.mjs
+// tools/token-emit/helpers/diff-tiers-reader.mjs
 // Reads all three tier files and builds lookup indexes keyed by Figma IDs.
 
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const TIERS_DIR = fileURLToPath(
-  new URL('../../../../packages/tokens/tiers/', import.meta.url)
+  new URL('../../../packages/tokens/tiers/', import.meta.url)
 );
 
 const TIER_FILES = {

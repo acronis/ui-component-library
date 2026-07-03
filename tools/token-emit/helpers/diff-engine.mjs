@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/diff-engine.mjs
+// tools/token-emit/helpers/diff-engine.mjs
 // Joins the snapshot variable/style indexes against the tiers indexes and
 // classifies every difference into a typed change record.
 

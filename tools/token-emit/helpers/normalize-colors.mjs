@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/normalize-colors.mjs
+// tools/token-emit/helpers/normalize-colors.mjs
 // Normalizes Figma-exported color leaves (hex strings) into the canonical DTCG
 // HSL form used by tiers/*.json, so the diff compares like-for-like and the
 // emitter can pass colors through without re-converting.

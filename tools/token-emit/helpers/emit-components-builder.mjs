@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/emit-components-builder.mjs
+// tools/token-emit/helpers/emit-components-builder.mjs
 // Builds tiers/components.json from a normalized figma-snapshot.json.
 // Filters by a COMPONENTS allowlist, maps PascalCase component names to
 // camelCase keys, and preserves hand-authored $extensions.
@@ -13,13 +13,13 @@ import { AliasTranslator } from './emit-alias-translator.mjs';
 const UNIT_SECTIONS = new Set(['gap', 'size', 'radius', 'stroke']);
 
 const OUT_PATH = fileURLToPath(
-  new URL('../../../../packages/tokens/tiers/components.json', import.meta.url)
+  new URL('../../../packages/tokens/tiers/components.json', import.meta.url)
 );
 const PRIMITIVES_PATH = fileURLToPath(
-  new URL('../../../../packages/tokens/tiers/primitives.json', import.meta.url)
+  new URL('../../../packages/tokens/tiers/primitives.json', import.meta.url)
 );
 const SEMANTICS_PATH = fileURLToPath(
-  new URL('../../../../packages/tokens/tiers/semantics.json', import.meta.url)
+  new URL('../../../packages/tokens/tiers/semantics.json', import.meta.url)
 );
 
 // Full component list from the snapshot — kept as a reference for callers

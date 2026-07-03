@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// .claude/skills/figma-to-design-tokens/figma-diff.mjs
+// tools/token-emit/figma-diff.mjs
 // Entry point for Step 5: diff snapshot/figma-snapshot.json against tiers/*.json.
 //
 // Usage:
-//   node .claude/skills/figma-to-design-tokens/figma-diff.mjs
-//   node .claude/skills/figma-to-design-tokens/figma-diff.mjs --tier components
+//   node tools/token-emit/figma-diff.mjs
+//   node tools/token-emit/figma-diff.mjs --tier components
 
 import fs from 'node:fs';
 import path from 'node:path';

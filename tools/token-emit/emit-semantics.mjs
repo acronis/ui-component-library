@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// .claude/skills/figma-to-design-tokens/emit-semantics.mjs
+// tools/token-emit/emit-semantics.mjs
 // Entry point for Step 6b: emit tiers/semantics.json from the current snapshot.
 //
 // Prerequisites:
 //   - snapshot/figma-snapshot.json must exist
 //   - tiers/primitives.json must be current (run emit-primitives.mjs first if needed)
 //
-// Usage: node .claude/skills/figma-to-design-tokens/emit-semantics.mjs
+// Usage: node tools/token-emit/emit-semantics.mjs
 
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';

@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/pull-snapshot-builder.mjs
+// tools/token-emit/helpers/pull-snapshot-builder.mjs
 // Merges all Figma pull outputs into one clean normalized figma-snapshot.json.
 // Responsibilities:
 //   - Walk DTCG variable tree via DtcgWalker

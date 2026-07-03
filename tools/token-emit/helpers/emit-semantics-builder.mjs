@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/emit-semantics-builder.mjs
+// tools/token-emit/helpers/emit-semantics-builder.mjs
 // Builds tiers/semantics.json from a normalized figma-snapshot.json.
 // Handles variable-backed semantic colors, AI gradients, and typography
 // derived from text styles.
@@ -12,10 +12,10 @@ import { AliasTranslator } from './emit-alias-translator.mjs';
 import { TypographyMapper } from './emit-typography-mapper.mjs';
 
 const OUT_PATH = fileURLToPath(
-  new URL('../../../../packages/tokens/tiers/semantics.json', import.meta.url)
+  new URL('../../../packages/tokens/tiers/semantics.json', import.meta.url)
 );
 const PRIMITIVES_PATH = fileURLToPath(
-  new URL('../../../../packages/tokens/tiers/primitives.json', import.meta.url)
+  new URL('../../../packages/tokens/tiers/primitives.json', import.meta.url)
 );
 
 const normalizeMode = (m) => m.toLowerCase().replace(/\s+/g, '-');

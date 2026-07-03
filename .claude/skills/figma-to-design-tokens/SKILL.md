@@ -171,8 +171,8 @@ the loader auto-unwraps it.
 ## Phase 2 — Combine
 
 ```bash
-node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs          # default: reads snapshot/ (figma-console pull)
-node .claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp    # reads packages/tokens/.tmp/figma-tokens/ (figma-token-exporter)
+node tools/token-emit/figma-snapshot-build.mjs          # default: reads snapshot/ (figma-console pull)
+node tools/token-emit/figma-snapshot-build.mjs --tmp    # reads packages/tokens/.tmp/figma-tokens/ (figma-token-exporter)
 ```
 
 `--tmp` is the figma-console-free path: it builds the snapshot from the
@@ -221,7 +221,7 @@ until it exits 0.
 ## Phase 3 — Diff
 
 ```bash
-node .claude/skills/figma-to-design-tokens/figma-diff.mjs [--tier <tier>]
+node tools/token-emit/figma-diff.mjs [--tier <tier>]
 ```
 
 Output: structured diff printed to stdout + `snapshot/figma-diff-report.json`
@@ -309,21 +309,21 @@ Run the appropriate emitter(s) based on the approved tier:
 
 ```bash
 # Primitives
-node .claude/skills/figma-to-design-tokens/emit-primitives.mjs
+node tools/token-emit/emit-primitives.mjs
 
 # Semantics (requires current primitives)
-node .claude/skills/figma-to-design-tokens/emit-semantics.mjs
+node tools/token-emit/emit-semantics.mjs
 
 # Components — all allowlisted components
-node .claude/skills/figma-to-design-tokens/emit-components.mjs
+node tools/token-emit/emit-components.mjs
 
 # Components — single component only
-node .claude/skills/figma-to-design-tokens/emit-components.mjs --component InputText
+node tools/token-emit/emit-components.mjs --component InputText
 
 # All tiers (order matters: primitives → semantics → components)
-node .claude/skills/figma-to-design-tokens/emit-primitives.mjs
-node .claude/skills/figma-to-design-tokens/emit-semantics.mjs
-node .claude/skills/figma-to-design-tokens/emit-components.mjs
+node tools/token-emit/emit-primitives.mjs
+node tools/token-emit/emit-semantics.mjs
+node tools/token-emit/emit-components.mjs
 ```
 
 After each emitter, validate immediately (Phase 8). Fix before running the next emitter.
@@ -453,7 +453,7 @@ which Collection a new token belongs in.
 | Components | \* (per component) | Brand                                | `Brand/components/<Component>` |
 
 - The **Brand** collection carries `semantics.colors`, `semantics.gradients`, and every `components.*` group; they share its mode axis (`acronis` only today).
-- **Components** are emitted only for the `COMPONENTS` allowlist in `helpers/emit-components-builder.mjs` (today: `Breadcrumb`, `Button`, `ButtonDropdown`, `ButtonIcon`, `ButtonDropdown`, `Checkbox`, `InputSearch`, `InputText`, `InputTextarea`, `Radio`, `SidebarPrimary`, `SidebarSecondary`, `Switch`, `Tag`, `Tooltip`). Extend the allowlist to pull more.
+- **Components** are emitted only for the `COMPONENTS` allowlist in `tools/token-emit/helpers/emit-components-builder.mjs` (today: `Breadcrumb`, `Button`, `ButtonDropdown`, `ButtonIcon`, `ButtonDropdown`, `Checkbox`, `InputSearch`, `InputText`, `InputTextarea`, `Radio`, `SidebarPrimary`, `SidebarSecondary`, `Switch`, `Tag`, `Tooltip`). Extend the allowlist to pull more.
 
 ### Name handling
 
@@ -461,9 +461,9 @@ Figma segment names are **kept verbatim** — Component/SubComponent names stay
 PascalCase (`Button`, `MenuItemList`); all other segments keep their Figma
 camelCase (`onSurface`, `statusStrong`, `borderColor`). (Style Dictionary
 kebab-cases the generated CSS var names, so consumers are unaffected.) Two groups
-are **translated** on import: palette names via `helpers/emit-palette-mapper.mjs`
+are **translated** on import: palette names via `tools/token-emit/helpers/emit-palette-mapper.mjs`
 (`Blue/Blue-7-Primary` → `palette.blue.7`) and unit aliases via
-`helpers/emit-alias-translator.mjs` (`gap/gap-4` → `units.gap.4`). Extend those
+`tools/token-emit/helpers/emit-alias-translator.mjs` (`gap/gap-4` → `units.gap.4`). Extend those
 helpers — don't bypass them — when a new palette/unit naming pattern appears.
 
 ### Mocked values

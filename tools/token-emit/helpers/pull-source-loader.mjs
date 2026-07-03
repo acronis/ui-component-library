@@ -1,5 +1,5 @@
-// .claude/skills/figma-to-design-tokens/helpers/pull-source-loader.mjs
-// Loads and validates all raw files from .claude/skills/figma-to-design-tokens/snapshot/ into memory.
+// tools/token-emit/helpers/pull-source-loader.mjs
+// Loads and validates all raw files from tools/token-emit/snapshot/ into memory.
 // Throws with clear messages on missing or unparseable files.
 
 import fs from 'node:fs';

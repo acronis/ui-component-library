@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/utils-color.mjs
+// tools/token-emit/helpers/utils-color.mjs
 // Color math utilities: hex parsing, HSL conversion, DTCG value builders.
 
 export class ColorUtils {

@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/utils-tree.mjs
+// tools/token-emit/helpers/utils-tree.mjs
 // Generic DTCG tree operations: path manipulation, leaf collection, sorting.
 
 export class TreeUtils {

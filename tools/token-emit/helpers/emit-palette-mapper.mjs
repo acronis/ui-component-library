@@ -1,4 +1,4 @@
-// .claude/skills/figma-to-design-tokens/helpers/emit-palette-mapper.mjs
+// tools/token-emit/helpers/emit-palette-mapper.mjs
 // Translates Figma palette path parts (from the DTCG variable tree) into our
 // kebab-case code path parts used in tiers/primitives.json.
 

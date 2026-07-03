@@ -1,0 +1,18 @@
+{
+  "name": "@spec-lab/token-emit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Emit pipeline: Figma variable/style snapshot → @spec-lab/tokens DTCG tier files (primitives/semantics/components) + brand wiring.",
+  "scripts": {
+    "emit": "node emit.mjs",
+    "build": "echo \"no build (run emit)\" && exit 0",
+    "dev": "echo \"no dev (run emit)\" && exit 0",
+    "clean": "echo \"nothing to clean\" && exit 0",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"no tests in this workspace\" && exit 0",
+    "test:watch": "echo \"no tests in this workspace\" && exit 0",
+    "typecheck": "echo \"no typecheck (plain .mjs)\" && exit 0"
+  }
+}
