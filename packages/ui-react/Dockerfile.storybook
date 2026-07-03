@@ -13,16 +13,14 @@ RUN npm install -g pnpm@10.27.0
 # Copy workspace manifests only — invalidated on lockfile/manifest changes (rare).
 # pnpm install --frozen-lockfile resolves the dependency graph for every importer
 # present on disk, so ui-react's full `workspace:*` closure must be copied:
-#   ui-react → icons-react, tokens, shadcn-uikit-demos
+#   ui-react → icons-react, tokens
 #   icons-react → icons-svg-next
 #   tokens ↔ style-dictionary (dev-only build cycle)
-#   shadcn-uikit-demos → ui-legacy (shadcn-uikit)
 COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
 COPY packages/ui-react/package.json ./packages/ui-react/
 COPY packages/icons-react/package.json ./packages/icons-react/
 COPY packages/icons-svg-next/package.json ./packages/icons-svg-next/
 COPY packages/tokens/package.json ./packages/tokens/
-COPY packages/ui-legacy/package.json ./packages/ui-legacy/
 COPY tools/style-dictionary/package.json ./tools/style-dictionary/
 COPY apps/demos/package.json ./apps/demos/
 

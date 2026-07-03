@@ -6,11 +6,7 @@
     "jsx": "react-jsx",
     "strict": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@spec-lab/shadcn-uikit": ["../../packages/ui-legacy/dist/index.d.ts"],
-      "@spec-lab/shadcn-uikit/react": [
-        "../../packages/ui-legacy/dist/react.d.ts"
-      ]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"]
