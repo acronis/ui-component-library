@@ -67,6 +67,26 @@ const RENDER: Record<string, RenderHint> = {
       '\n      <Button variant="secondary">Day</Button>\n      <Button variant="secondary">Week</Button>\n      <Button variant="secondary">Month</Button>\n    ',
   },
   'button-menu': { sample: 'Label' },
+  carousel: {
+    props: 'className="w-64"',
+    extraImports: [
+      "import { CarouselContent, CarouselItem, CarouselNavigation } from '../carousel';",
+    ],
+    sample: [
+      '',
+      '      <CarouselContent>',
+      '        {[1, 2, 3].map((n) => (',
+      '          <CarouselItem key={n}>',
+      '            <div className="flex aspect-square items-center justify-center rounded-md border border-border bg-muted text-4xl font-semibold text-foreground">',
+      '              {n}',
+      '            </div>',
+      '          </CarouselItem>',
+      '        ))}',
+      '      </CarouselContent>',
+      '      <CarouselNavigation />',
+      '    ',
+    ].join('\n'),
+  },
   chip: { sample: 'Label' },
   command: {
     props:

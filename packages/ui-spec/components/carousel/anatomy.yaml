@@ -1,0 +1,86 @@
+spec_version: '1.0'
+component: Carousel
+
+schematic: |
+  root: <div role="region" aria-roledescription="carousel">
+  +-------------------------------------------------------------+
+  |  viewport (overflow-hidden)                                 |
+  |  +-------------------------------------------------------+  |
+  |  | content (flex track, drag/snap)                       |  |
+  |  |  +---------+  +---------+  +---------+                 |  |
+  |  |  | item    |  | item    |  | item    | …               |  |
+  |  |  +---------+  +---------+  +---------+                 |  |
+  |  +-------------------------------------------------------+  |
+  |  navigation (mockup bar)                                    |
+  |    previous:"← Prev"    dots: • • • •     next:"Next →"     |
+  +-------------------------------------------------------------+
+     previous / next -> ghost Button (text + arrow), disabled at the edges
+     dots -> pagination indicators; active dot --ui-background-status-strong-info
+     item -> a slide (role="group" aria-roledescription="slide")
+
+root:
+  element: div
+  role: region
+  description: >-
+    The carousel landmark (`role="region" aria-roledescription="carousel"`). Owns
+    the embla instance (via context) and ArrowLeft/ArrowRight keyboard scrolling.
+
+parts:
+  - id: viewport
+    description: The clipping viewport (`overflow-hidden`); embla's scroll container.
+    element: div
+  - id: content
+    description: >-
+      The flex track holding the slides — dragged / snapped by embla. Horizontal
+      or vertical per `orientation`.
+    element: div
+  - id: item
+    description: A single slide (`role="group" aria-roledescription="slide"`), sized by its `basis`.
+    element: div
+  - id: navigation
+    description: >-
+      The mockup's bottom bar laying out previous · dots · next.
+    element: div
+  - id: previous
+    description: >-
+      Previous-slide control — a ghost `Button` "← Prev" (arrow + label); disabled
+      at the start (unless looping).
+    element: button
+  - id: next
+    description: >-
+      Next-slide control — a ghost `Button` "Next →" (label + arrow); disabled at
+      the end (unless looping).
+    element: button
+  - id: dots
+    description: >-
+      Pagination indicators (`role="tablist"`), one dot per snap; the active dot is
+      filled. Clicking a dot scrolls to that slide.
+    element: div
+
+layout:
+  type: flex
+  direction: row
+
+states:
+  - id: at-start
+    trigger: the carousel is scrolled to the first slide (and not looping)
+    kind: internal
+    affects: [previous]
+  - id: at-end
+    trigger: the carousel is scrolled to the last slide (and not looping)
+    kind: internal
+    affects: [next]
+
+internal_state:
+  - id: at-start
+    type: boolean
+    values: ['true', 'false']
+    initial: 'true'
+    changed_by: scrolling / dragging the carousel
+    description: Whether the first slide is in view — disables the previous control.
+  - id: at-end
+    type: boolean
+    values: ['true', 'false']
+    initial: 'false'
+    changed_by: scrolling / dragging the carousel
+    description: Whether the last slide is in view — disables the next control.

@@ -1,0 +1,77 @@
+---
+title: Carousel
+description: A slideshow of scrollable slides with prev / next and pagination dots.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { CarouselDemo, CarouselMultipleDemo } from "@/components/demos-react/carousel";
+
+## Usage
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNavigation,
+} from '@spec-lab/ui-react';
+```
+
+`Carousel` is a slideshow built on the headless
+[`embla-carousel-react`](https://www.embla-carousel.com/) engine (drag, snap,
+loop, autoplay plugins). Compose a `CarouselContent` track of `CarouselItem`
+slides, then add `CarouselNavigation` — the **← Prev · dots · Next →** bar from
+the design. It's a **design-pending v1** ported from the legacy kit.
+
+## Examples
+
+One slide at a time:
+
+<DemoReact>
+  <CarouselDemo />
+</DemoReact>
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    {slides.map((s) => (
+      <CarouselItem key={s.id}>{s.content}</CarouselItem>
+    ))}
+  </CarouselContent>
+  <CarouselNavigation />
+</Carousel>
+```
+
+Several at once — each `CarouselItem` sets its own `basis`:
+
+<DemoReact>
+  <CarouselMultipleDemo />
+</DemoReact>
+
+```tsx
+<Carousel opts={{ align: 'start' }}>
+  <CarouselContent>
+    {slides.map((s) => (
+      <CarouselItem key={s.id} className="basis-1/3">
+        {s.content}
+      </CarouselItem>
+    ))}
+  </CarouselContent>
+  <CarouselNavigation />
+</Carousel>
+```
+
+`CarouselNavigation` renders the mockup bar; for full control compose
+`CarouselPrevious`, `CarouselDots`, and `CarouselNext` yourself. Pass `opts` (e.g.
+`{ loop: true }`) / `plugins` to the embla engine, or grab the engine `api` via
+`setApi` for programmatic control.
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/carousel/carousel.tsx"
+  name="CarouselProps"
+/>
+
+`CarouselContent`, `CarouselItem`, `CarouselNavigation`, `CarouselPrevious`,
+`CarouselDots`, and `CarouselNext` accept their native element attributes.

@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: Carousel
+name: carousel
+status: draft
+category: data-display
+description: >-
+  A slideshow of scrollable slides with previous / next controls, horizontal or
+  vertical, powered by the headless embla engine (drag, snap, loop, autoplay
+  plugins). A set of composable parts sharing one carousel instance via context.
+since: 0.55.0
+dependencies:
+  components:
+    - ButtonIcon
+    - ArrowLeftIcon
+    - ArrowRightIcon

@@ -1,0 +1,69 @@
+spec_version: '1.0'
+component: Carousel
+
+# Framework-agnostic contract for a *composable* carousel (see anatomy.yaml).
+# The engine (drag / snap / loop / autoplay) is the embla adapter in React.
+contract:
+  properties:
+    - name: orientation
+      type: "'horizontal' | 'vertical'"
+      required: false
+      default: "'horizontal'"
+      description: Scroll axis.
+    - name: opts
+      type: CarouselOptions
+      required: false
+      default: undefined
+      description: >-
+        Engine options (React: embla) — e.g. `{ loop, align, dragFree,
+        slidesToScroll }`.
+    - name: plugins
+      type: CarouselPlugin
+      required: false
+      default: undefined
+      description: Engine plugins (embla, in React) — e.g. Autoplay.
+    - name: setApi
+      type: '(api: CarouselApi) => void'
+      required: false
+      default: undefined
+      description: Receive the engine api for imperative control.
+
+  events:
+    - name: select
+      payload: '{ index: number }'
+      description: >-
+        The selected slide changed (drag, control, or keyboard). Subscribe via the
+        `api` from `setApi`.
+
+  content:
+    - name: default
+      description: >-
+        Compose from the parts: a Content track wrapping Items (slides), plus
+        Previous / Next controls. Each Item sets its own `basis` (e.g. `basis-1/3`
+        to show three at once).
+
+  methods:
+    - name: scrollPrev
+      description: Scroll to the previous slide (exposed on the `api`).
+    - name: scrollNext
+      description: Scroll to the next slide (exposed on the `api`).
+
+adapters:
+  react:
+    component: Carousel
+    status: implemented
+    import: >-
+      import { Carousel, CarouselContent, CarouselItem, CarouselPrevious,
+      CarouselNext } from '@spec-lab/ui-react'
+    example: |
+      <Carousel opts={{ loop: true }}>
+        <CarouselContent>
+          <CarouselItem>Slide 1</CarouselItem>
+          <CarouselItem>Slide 2</CarouselItem>
+        </CarouselContent>
+        <CarouselNavigation /> {/* ← Prev · dots · Next → */}
+      </Carousel>
+  vue:
+    status: planned
+  web-components:
+    status: planned
