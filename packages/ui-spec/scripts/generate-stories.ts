@@ -68,6 +68,10 @@ const RENDER: Record<string, RenderHint> = {
   },
   'button-menu': { sample: 'Label' },
   chip: { sample: 'Label' },
+  command: {
+    props:
+      'className="w-80 rounded-md border border-border" placeholder="Type a command…" commands={[{ heading: \'Suggestions\', items: [{ value: \'calendar\', label: \'Calendar\' }, { value: \'search\', label: \'Search\', shortcut: \'⌘S\' }] }]}',
+  },
   'card-filter': {
     extraImports: [
       "import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';",

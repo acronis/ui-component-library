@@ -1,0 +1,74 @@
+spec_version: '1.0'
+component: Command
+
+schematic: |
+  root: <div data-slot="command">  (or inside a Dialog via CommandDialog)
+  +-------------------------------------------------------------+
+  |  input: [magnifier] <input role="combobox">   (search)      |
+  +-------------------------------------------------------------+
+  |  list: <div role="listbox">                                 |
+  |    group: <div role="group">                                |
+  |      group-label: <div>  "Suggestions"                      |
+  |      item: <div role="option">                              |
+  |        [icon] label                     [shortcut]          |
+  |    empty: shown when no command matches                     |
+  +-------------------------------------------------------------+
+     item     -> idle transparent; highlighted --ui-background-surface-hover
+     label    -> --ui-text-on-surface-primary
+     icon / shortcut / group-label -> --ui-text-on-surface-secondary
+
+root:
+  element: div
+  role: presentation
+  description: >-
+    The palette container. Wraps the search input and the filtered list. Built on
+    the Base UI Combobox primitive (always-open, inline list). `CommandDialog`
+    renders it inside a `Dialog`.
+
+parts:
+  - id: input
+    description: >-
+      Search field (`role="combobox"`) with a leading magnifier icon. Typing
+      filters the list.
+    element: input
+  - id: list
+    description: The filtered results container (`role="listbox"`).
+    element: div
+  - id: group
+    description: A section of related commands (`role="group"`), hidden when it has no matches.
+    element: div
+  - id: group-label
+    description: The section heading above a group's items.
+    element: div
+  - id: item
+    description: >-
+      A single command (`role="option"`). Highlighted on hover / keyboard nav;
+      chosen by click or Enter. May be disabled.
+    element: div
+  - id: icon
+    description: Optional leading icon inside an item.
+    element: span
+    optional: true
+  - id: shortcut
+    description: Optional trailing keyboard-shortcut hint inside an item.
+    element: span
+    optional: true
+  - id: empty
+    description: Message shown when no command matches the query.
+    element: div
+
+layout:
+  type: flex
+  direction: column
+
+states:
+  - id: highlighted
+    trigger: pointer hover or keyboard navigation onto an item
+    kind: pseudo
+    pseudo: '[data-highlighted]'
+    affects: [item]
+  - id: focus-visible
+    trigger: keyboard focus on the search input
+    kind: pseudo
+    pseudo: ':focus-visible'
+    affects: [input]

@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: Command
+name: command
+status: draft
+category: overlay
+description: >-
+  A command palette — a searchable, filtered list of commands grouped into
+  sections, with keyboard navigation and per-command shortcuts. Data-driven
+  (pass grouped `commands` + an `onSelect`); `CommandDialog` mounts it in a
+  Dialog for the ⌘K overlay.
+since: 0.55.0
+dependencies:
+  components:
+    - Dialog
+    - MagnifierIcon

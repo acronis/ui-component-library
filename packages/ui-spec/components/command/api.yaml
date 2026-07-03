@@ -1,0 +1,80 @@
+spec_version: '1.0'
+component: Command
+
+# Framework-agnostic contract. Command is data-driven: pass grouped `commands`
+# and an `onSelect`. Base UI Combobox owns filtering, keyboard nav, and ARIA.
+contract:
+  properties:
+    - name: commands
+      type: 'CommandGroup[]'
+      required: false
+      default: '[]'
+      description: >-
+        Grouped commands. Each group is `{ heading?, items }`; each item is
+        `{ value, label, icon?, shortcut?, disabled? }`. Filtering matches `label`.
+    - name: placeholder
+      type: string
+      required: false
+      default: "'Type a command…'"
+      description: Search input placeholder.
+    - name: emptyMessage
+      type: ReactNode
+      required: false
+      default: "'No results found.'"
+      description: Shown when no command matches the query.
+    - name: open
+      type: boolean
+      required: false
+      default: undefined
+      description: CommandDialog only — whether the dialog is open (controlled).
+    - name: defaultOpen
+      type: boolean
+      required: false
+      default: undefined
+      description: CommandDialog only — uncontrolled initial open state.
+    - name: title
+      type: string
+      required: false
+      default: "'Command palette'"
+      description: CommandDialog only — accessible label for the dialog.
+
+  events:
+    - name: select
+      payload: '{ value: string }'
+      description: A command was chosen (click or Enter on the highlighted item).
+    - name: openChange
+      payload: '{ open: boolean }'
+      description: CommandDialog only — the dialog opened or closed.
+
+  content:
+    - name: commands
+      description: >-
+        The commands are supplied as data (`commands`), not children — Base UI
+        Combobox filters its `items`. Render custom leading icons via each item's
+        `icon`, and shortcut hints via `shortcut`.
+
+  methods: []
+
+adapters:
+  react:
+    component: Command
+    status: implemented
+    import: "import { Command, CommandDialog } from '@spec-lab/ui-react'"
+    example: |
+      const commands = [
+        { heading: 'Suggestions', items: [
+          { value: 'calendar', label: 'Calendar', icon: <CalendarIcon /> },
+          { value: 'search', label: 'Search', shortcut: '⌘S' },
+        ] },
+      ];
+
+      // inline
+      <Command commands={commands} onSelect={(v) => run(v)} />
+
+      // ⌘K overlay
+      <CommandDialog open={open} onOpenChange={setOpen} commands={commands}
+        onSelect={(v) => { run(v); setOpen(false); }} />
+  vue:
+    status: planned
+  web-components:
+    status: planned

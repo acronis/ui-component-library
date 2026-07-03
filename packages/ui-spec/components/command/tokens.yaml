@@ -1,0 +1,31 @@
+spec_version: '1.0'
+component: Command
+
+# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# paint time. The token schema forbids a value/default key here.
+#
+# Command has no dedicated `--ui-command-*` tier yet (design-pending v1). It binds
+# the shared SEMANTIC vocabulary via bridged Tailwind names; the Dialog shell and
+# the item highlight reuse existing surface/text tokens.
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── surface + text ──
+  - name: --ui-background-surface-primary # palette background (bg-background)
+    affects: root
+  - name: --ui-text-on-surface-primary # command label (text-foreground)
+    affects: item
+  - name: --ui-text-on-surface-secondary # icon / shortcut / group heading / placeholder
+    affects: shortcut
+
+  # ── item highlight (hover / keyboard) ──
+  - name: --ui-background-surface-hover # highlighted item (bg-accent)
+    affects: item
+
+  # ── input divider ──
+  - name: --ui-border-on-surface-border # input bottom border (border-border)
+    affects: input
+
+  # ── focus ring (search input) ──
+  - name: --ui-focus-primary
+    affects: input
