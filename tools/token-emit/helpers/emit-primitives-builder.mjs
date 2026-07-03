@@ -33,7 +33,11 @@ export class PrimitivesEmitter {
     this.#snapshot = snapshot;
   }
 
-  emit() {
+  /**
+   * Pure: build the primitives tier object from the snapshot (no I/O). Testable
+   * in isolation; `emit()` wraps this with the file write.
+   */
+  build() {
     const out = {
       $schema: '../schemas/tier.schema.json',
       palette: { $type: 'color' },
@@ -57,8 +61,11 @@ export class PrimitivesEmitter {
     this.#emitFont(out);
     this.#emitLetterSpacing(out);
 
-    const root = TreeUtils.sortNode(out);
+    return TreeUtils.sortNode(out);
+  }
 
+  emit() {
+    const root = this.build();
     fs.writeFileSync(OUT_PATH, DtcgFormatter.serialize(root));
     return root;
   }
