@@ -1,6 +1,6 @@
 /**
  * Single source of truth for the icon packs this library generates from
- * `@spec-lab/icons-svg-next`, shared by the generator and the Vite lib
+ * `@spec-lab/icons-svg`, shared by the generator and the Vite lib
  * config.
  *
  * - `name` — published subpath (the `icons-` prefix is dropped) and `src/packs`
@@ -11,7 +11,7 @@
  *   so the icon inherits text color; `true` keeps the authored colors (and
  *   namespaces any gradient/clip ids to avoid cross-icon collisions).
  *
- * Pack → manifest mapping: a pack reads every icons-svg-next manifest named
+ * Pack → manifest mapping: a pack reads every icons-svg manifest named
  * `<name>` or `<name>-<category>` (so `stroke-mono` merges its six category
  * manifests), and resolves each icon name to the flat `svg/<name>.svg`.
  */

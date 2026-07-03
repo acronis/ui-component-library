@@ -1,4 +1,4 @@
-# @spec-lab/icons-svg-next
+# @spec-lab/icons-svg
 
 Next-generation raw SVG icon sources for Constructor Lab — redesigned icons fetched from
 the `shadcn-uikit` Figma file, plus per-pack JSON manifests. Private,
@@ -24,10 +24,10 @@ suffixed `-duplicate`.
 
 ```ts
 // raw SVG markup (resolved via the package "exports" map)
-import arrowUturn from '@spec-lab/icons-svg-next/svg/arrow-uturn.svg';
+import arrowUturn from '@spec-lab/icons-svg/svg/arrow-uturn.svg';
 
 // a manifest (array of icon names)
-import strokeArrows from '@spec-lab/icons-svg-next/figma/stroke-mono-arrows.json' with { type: 'json' };
+import strokeArrows from '@spec-lab/icons-svg/figma/stroke-mono-arrows.json' with { type: 'json' };
 ```
 
 ## Syncing icons from Figma
@@ -47,10 +47,10 @@ packs organized into `Category` frames split into per-category manifests. Only
 3. Run the sync, then commit and open a PR:
 
 ```bash
-pnpm --filter @spec-lab/icons-svg-next pull-icons
+pnpm --filter @spec-lab/icons-svg pull-icons
 git checkout -b chore/figma-icons-next-sync
-git add packages/icons-svg-next/src
-git commit -m "chore(icons-svg-next): sync icons from Figma"
+git add packages/icons-svg/src
+git commit -m "chore(icons-svg): sync icons from Figma"
 ```
 
 ### Via CI

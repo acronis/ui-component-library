@@ -1,7 +1,7 @@
 # @spec-lab/icons-react
 
 React icon components, generated from
-[`@spec-lab/icons-svg-next`](../icons-svg-next). Tree-shakeable, themed
+[`@spec-lab/icons-svg`](../icons-svg). Tree-shakeable, themed
 via `currentColor`, with the design-system size/stroke rules baked in.
 
 ## Install
@@ -42,7 +42,7 @@ const Icon = icons['chevron-down'];
 ## Develop
 
 ```sh
-pnpm --filter @spec-lab/icons-react generate    # regenerate from icons-svg-next
+pnpm --filter @spec-lab/icons-react generate    # regenerate from icons-svg
 pnpm --filter @spec-lab/icons-react storybook    # browse the gallery
 pnpm --filter @spec-lab/icons-react test         # Vitest + RTL
 pnpm --filter @spec-lab/icons-react build        # generate + lib bundle

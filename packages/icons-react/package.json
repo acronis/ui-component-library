@@ -6,7 +6,7 @@
     "url": "git+https://github.com/constructor-lab/facet.git",
     "directory": "packages/icons-react"
   },
-  "description": "Constructor Lab React icon components, generated from @spec-lab/icons-svg-next.",
+  "description": "Constructor Lab React icon components, generated from @spec-lab/icons-svg.",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -69,7 +69,7 @@
     }
   },
   "devDependencies": {
-    "@spec-lab/icons-svg-next": "workspace:*",
+    "@spec-lab/icons-svg": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:",
     "@storybook/addon-a11y": "10.4.1",

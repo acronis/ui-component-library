@@ -1,5 +1,5 @@
 {
-  "name": "@spec-lab/icons-svg-next",
+  "name": "@spec-lab/icons-svg",
   "version": "0.2.0",
   "private": true,
   "description": "Next-gen raw SVG icon sources for Constructor Lab — redesigned icons fetched from the shadcn-uikit Figma file, plus per-category JSON manifests.",

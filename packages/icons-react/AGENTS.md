@@ -1,18 +1,18 @@
 # AGENTS.md — `packages/icons-react`
 
 `@spec-lab/icons-react` — React icon components **generated from**
-[`@spec-lab/icons-svg-next`](../icons-svg-next). Published.
+[`@spec-lab/icons-svg`](../icons-svg). Published.
 
 Repo-wide rules live in the repo root's `./context/`. This file documents
 only what's specific to this workspace.
 
 ## Icons are generated, not authored
 
-`scripts/generate-icons.ts` reads the icons-svg-next name-list manifests
+`scripts/generate-icons.ts` reads the icons-svg name-list manifests
 (`src/figma/*.json`) + flat 24px SVG masters (`src/svg/*.svg`) and emits
 per-icon React components under `src/packs/<pack>/` — **gitignored**,
 regenerated on `build` / `typecheck` / `test` / `storybook`. Don't hand-edit
-anything under `src/packs/`; change the upstream icon (re-sync icons-svg-next)
+anything under `src/packs/`; change the upstream icon (re-sync icons-svg)
 or the generator.
 
 The hand-written code is small:
@@ -24,9 +24,9 @@ The hand-written code is small:
   built and the size/stroke rule (`ICON_SIZES`, `STROKE_WIDTH_PX`). Add a pack
   here (and a matching `exports` subpath + Vite entry).
 
-## How the icons-svg-next model maps to components
+## How the icons-svg model maps to components
 
-- One 24px master SVG per icon, flat in `icons-svg-next/src/svg/`. Each pack's
+- One 24px master SVG per icon, flat in `icons-svg/src/svg/`. Each pack's
   icon names come from its manifest(s): a pack reads every manifest named
   `<pack>` or `<pack>-<category>` (so `stroke-mono` merges its six category
   manifests — `stroke-mono-arrows`, `…-shapes`, …) and resolves each name to
@@ -55,13 +55,13 @@ The hand-written code is small:
 
 ## Packs
 
-All four icons-svg-next packs are generated (see `scripts/packs.ts`):
+All four icons-svg packs are generated (see `scripts/packs.ts`):
 `stroke-mono` (395), `solid-mono` (59), `stroke-multi` (12), `solid-multi` (1).
-Counts grow as the upstream `@spec-lab/icons-svg-next` set does — no
+Counts grow as the upstream `@spec-lab/icons-svg` set does — no
 code change needed. `@spec-lab/ui-react` depends on this package so
 components/stories can compose icons.
 
-The icons-svg-next source is a live WIP surface, so generated names can include
+The icons-svg source is a live WIP surface, so generated names can include
 collisions (`*-duplicate`) and size-suffixed strays (`agent-qnap--32`) until the
 Figma source is cleaned; fix at the source and re-sync rather than hand-editing.
 

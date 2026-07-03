@@ -18,7 +18,7 @@ jobs:
         @spec-lab/uikit-docs
         @spec-lab/tokens
         @spec-lab/icons-react
-        @spec-lab/icons-svg-next
+        @spec-lab/icons-svg
         @spec-lab/ui-react
         @spec-lab/ui-spec
         @spec-lab/figma-icons-fetcher

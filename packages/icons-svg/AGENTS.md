@@ -1,6 +1,6 @@
-# AGENTS.md — `packages/icons-svg-next`
+# AGENTS.md — `packages/icons-svg`
 
-`@spec-lab/icons-svg-next` — **private, source-only** package of raw SVG
+`@spec-lab/icons-svg` — **private, source-only** package of raw SVG
 icon sources for the **next-generation** icon set, fetched from the
 `shadcn-uikit` Figma file, plus per-category JSON manifests. No build step, no
 published artifact: consumers read `src/` directly through the package `exports`

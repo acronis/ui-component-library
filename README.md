@@ -21,7 +21,7 @@ The repo is organized into four top-level directories: `context/` (shared docs),
 | ----------------------------- | -------------------------------- | --------- | ---------------------------------------------------------------------------- |
 | `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**   | React component library on **Base UI**, themed by `tokens`.                  |
 | `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**   | React icon components generated from `design-assets` (tree-shakeable).       |
-| `packages/icons-svg-next/`    | `@spec-lab/icons-svg-next`       | no        | Raw SVG sources for the next-gen icon set (source-only).                     |
+| `packages/icons-svg/`         | `@spec-lab/icons-svg`            | no        | Raw SVG sources for the next-gen icon set (source-only).                     |
 | `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
 | `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**   | Icon/illustration manifests + bundled binaries. Data only.                   |
 | `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | Generated per-brand CSS vars, per-component CSS, Tailwind presets, DTCG.     |

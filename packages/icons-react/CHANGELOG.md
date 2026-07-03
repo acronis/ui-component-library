@@ -21,7 +21,7 @@
 
 ### Minor Changes
 
-- [#270](https://github.com/acronis/uikit/pull/270) [`9ce1b45`](https://github.com/acronis/uikit/commit/9ce1b4585571aa96c136d200489d0939749b2ece) Thanks [@leonid](https://github.com/leonid)! - Generate icon components from `@spec-lab/icons-svg-next` instead of
+- [#270](https://github.com/acronis/uikit/pull/270) [`9ce1b45`](https://github.com/acronis/uikit/commit/9ce1b4585571aa96c136d200489d0939749b2ece) Thanks [@leonid](https://github.com/leonid)! - Generate icon components from `@spec-lab/icons-svg` instead of
   `@spec-lab/design-assets`. This swaps in the redesigned next-gen icon
   set, so the packs grow substantially — `stroke-mono` (395), `solid-mono` (59),
   `stroke-multi` (12), `solid-multi` (1) — and the size/stroke rule (sm/md/lg =

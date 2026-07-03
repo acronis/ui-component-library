@@ -38,15 +38,15 @@ distinct role:
 | ----------------------------- | -------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**    | Base UI library, Vite, Storybook 10, Vitest + RTL, Tailwind v4                                                      | [AGENTS.md](packages/ui-react/AGENTS.md)          |
 | `packages/ui-spec/`           | `@spec-lab/ui-spec`              | no         | Framework-agnostic component specs (YAML/MD) + cva conformance, Vitest, ajv-validated                               | [AGENTS.md](packages/ui-spec/AGENTS.md)           |
-| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `icons-svg-next`, Vite, Storybook, Vitest                                                | [AGENTS.md](packages/icons-react/AGENTS.md)       |
-| `packages/icons-svg-next/`    | `@spec-lab/icons-svg-next`       | no         | Raw SVG sources for the **next-gen** icon set (Figma `icon-packs` strategy)                                         | [AGENTS.md](packages/icons-svg-next/AGENTS.md)    |
+| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `icons-svg`, Vite, Storybook, Vitest                                                     | [AGENTS.md](packages/icons-react/AGENTS.md)       |
+| `packages/icons-svg/`         | `@spec-lab/icons-svg`            | no         | Raw SVG sources for the **next-gen** icon set (Figma `icon-packs` strategy)                                         | [AGENTS.md](packages/icons-svg/AGENTS.md)         |
 | `apps/demo/`                  | `@spec-lab/ui-kit-demo`          | no         | Vite SPA, React Router v7, Zustand                                                                                  | [AGENTS.md](apps/demo/AGENTS.md)                  |
 | `apps/docs/`                  | `@spec-lab/uikit-docs`           | no         | Next.js 15 + Fumadocs                                                                                               | [AGENTS.md](apps/docs/AGENTS.md)                  |
 | `apps/demos/`                 | `@spec-lab/ui-kit-demos`         | no         | source-only (no build, no dev server)                                                                               | [AGENTS.md](apps/demos/AGENTS.md)                 |
 | `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**    | JSON data only (icon/illustration manifests + binaries), ajv-validated                                              | [AGENTS.md](packages/design-assets/AGENTS.md)     |
 | `packages/tokens/`            | `@spec-lab/tokens`               | **yes**    | DTCG source tiers + generated (committed) CSS/SCSS/JS + Tailwind bridge, built by the tool                          | [AGENTS.md](packages/tokens/AGENTS.md)            |
 | `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no         | Style Dictionary v5 build: `@spec-lab/tokens` tiers → CSS/SCSS/JS                                                   | [AGENTS.md](tools/style-dictionary/AGENTS.md)     |
-| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg-next` (tsx, Vitest)                                       | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
+| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg` (tsx, Vitest)                                            | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
 | `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no         | Self-hosted Figma plugin + local receiver: exports variables/styles → the `@spec-lab/tokens` snapshot (tsx, Vitest) | [AGENTS.md](tools/figma-token-exporter/AGENTS.md) |
 
 `packages/` holds the published workspaces:
@@ -59,9 +59,9 @@ distinct role:
   Schemas and checks `cva` variant/size conformance against the `ui-react`
   source. Currently a Phase 0 spike (`button`, `button-icon`, `switch`).
 - `packages/icons-react/` — published React icon components, **generated**
-  from `@spec-lab/icons-svg-next` (scale/stroke rules baked into a `size`
+  from `@spec-lab/icons-svg` (scale/stroke rules baked into a `size`
   prop). Per-pack subpath exports, tree-shakeable.
-- `packages/icons-svg-next/` — **private, source-only** raw SVG icon sources
+- `packages/icons-svg/` — **private, source-only** raw SVG icon sources
   (monocolor + multicolor) for the **next-gen** icon set, pulled from Figma
   with the fetcher's `icon-packs` selection strategy. No build; it is the
   generated source for `@spec-lab/icons-react`. Synced via its `pull-icons`
@@ -87,7 +87,7 @@ distinct role:
   Its real script is `build`; asset output lands in a gitignored `dist/`.
 - `tools/figma-icons-fetcher/` — fetches SVG icons from a Figma file,
   SVGO-optimizes them, and writes them (with JSON manifests + mono/multicolor
-  categorization) into `packages/icons-svg-next`. Node selection is pluggable
+  categorization) into `packages/icons-svg`. Node selection is pluggable
   (`frames-by-name` / `new-frames` / `icon-packs`). Run via `tsx` (no build
   step); drives the `Fetch Figma Icons (next)` workflow and the package's
   `pull-icons` script.

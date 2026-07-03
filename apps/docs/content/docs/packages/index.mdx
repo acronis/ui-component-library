@@ -20,7 +20,7 @@ packages:
   committed output. `tools/style-dictionary` builds the tiers into the same
   package's reference-based `css/` + `scss/` + `js/` (+ the Tailwind bridge and a
   DTCG intermediate).
-- `@spec-lab/icons-react` is generated from the `@spec-lab/icons-svg-next` SVG
+- `@spec-lab/icons-react` is generated from the `@spec-lab/icons-svg` SVG
   sources by the icon generator (tree-shakeable React components).
 - `@spec-lab/design-assets` ships icon / illustration JSON manifests + bundled
   binaries (an optional data package).
@@ -31,7 +31,7 @@ Finally, `@spec-lab/ui-react` consumes `@spec-lab/tokens` for theming and
 ```
 tokens/tiers   ─►  tools/style-dictionary  ─►  tokens (css/scss/js) ─┐
                                                                      ├─► ui-react
-icons-svg-next ─►  icon generator          ─►  icons-react ──────────┘
+icons-svg ─►  icon generator          ─►  icons-react ──────────┘
 ```
 
 ## Published packages
@@ -43,7 +43,7 @@ icons-svg-next ─►  icon generator          ─►  icons-react ────�
 | `@spec-lab/design-assets` | Icon / illustration JSON manifests + bundled binaries     | yes       |
 
 <Callout type="info">
-  The source SVG packages (`icons-svg`, `icons-svg-next`), the tooling under
+  The source SVG packages (`icons-svg`, `icons-svg`), the tooling under
   `tools/`, and the apps (`demo`, `docs`, `kitchen-sink`) are **private** and
   not published. Only the five packages above are on npm.
 </Callout>

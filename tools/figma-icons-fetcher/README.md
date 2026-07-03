@@ -105,7 +105,7 @@ live in `src/strategies/`.
   frame are grouped `<pack>/<category>` (the category name is read from its
   `CategoryTitle` text), so e.g. `stroke-mono` splits into `stroke-mono-arrows`,
   `stroke-mono-shapes`, … ; icons listed directly under a pack are grouped under
-  the pack itself. This is what `packages/icons-svg-next` uses.
+  the pack itself. This is what `packages/icons-svg` uses.
 
 ## Sync behavior
 
