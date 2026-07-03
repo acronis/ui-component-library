@@ -1,7 +1,8 @@
-// Preprocessor: normalize an Constructor Lab token tree into a per-mode, DTCG-conformant
-// tree. This is stage 1's real work, expressed as a Style Dictionary hook so the
-// vendor divergences are resolved inside SD's pipeline (preprocessors run on the
-// token object before resolution/expansion). See context/pipeline.md.
+// Normalize a Constructor Lab token tree into a per-mode, DTCG-conformant tree.
+// This is stage 1's real work; `normalizeTree` is called directly by the token
+// builder (see tokens.ts), not registered as a Style Dictionary preprocessor —
+// SD's own init normalization would relocate `$type` and break the DTCG artifact.
+// See context/pipeline.md.
 //
 // Constructor Lab tokens diverge from DTCG in two ways this pass resolves:
 //   - per-mode `values` dict          → a single `$value` for the requested mode
@@ -12,9 +13,7 @@
 // traceability; `{group.token}` alias strings are kept as references (resolution
 // happens later, in the CSS builder).
 
-import type { Preprocessor, PreprocessedTokens } from 'style-dictionary/types';
-
-export const ACRONIS_DTCG = 'acronis/dtcg';
+import type { PreprocessedTokens } from 'style-dictionary/types';
 
 type Node = Record<string, unknown>;
 
@@ -108,17 +107,4 @@ export function normalizeTree(
   defaultMode?: string
 ): PreprocessedTokens {
   return (walk(root, undefined, mode, platformId, defaultMode) ?? {}) as PreprocessedTokens;
-}
-
-/**
- * Build the `acronis/dtcg` preprocessor for one mode + platform. A fresh
- * instance is created per view (each closes over its own `mode`/`platformId`)
- * and registered inline on a Style Dictionary instance to normalize its source
- * within the SD pipeline.
- */
-export function acronisDtcg(mode: string, platformId: string): Preprocessor {
-  return {
-    name: ACRONIS_DTCG,
-    preprocessor: (tokens) => normalizeTree(tokens as Node, mode, platformId),
-  };
 }

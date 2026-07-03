@@ -107,9 +107,9 @@ src/
   scss.ts, js.ts        emitScss / emitJs — SCSS mixin + JS token map from the model.
   bridge/tailwind-theme.ts  emitTailwindTheme — the generated `@theme inline` bridge.
   hooks/                Style Dictionary hooks — the token pipeline's extension points.
-    preprocessors/      acronis/dtcg — Constructor Lab source → per-mode DTCG. `normalizeTree`
-                        is what stage 1 calls directly; `acronisDtcg` wraps it as an
-                        SD preprocessor (kept for reuse, not currently registered).
+    preprocessors/      acronis-dtcg — Constructor Lab source → per-mode DTCG. `normalizeTree`
+                        is what stage 1 calls directly (deliberately not an SD
+                        preprocessor — see the stage-1 gotcha above).
     transforms/         color/hsl-to-rgb, gradient/css, dimension/px, scalar/css,
                         typography/css-class, name/ui + the `acronis/css` transform group.
     primitive-roots.ts  the primitive-root predicate (isPrimitiveToken / PRIMITIVE_ROOTS)
