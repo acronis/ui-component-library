@@ -42,7 +42,7 @@
     "build": "pnpm --filter @spec-lab/style-dictionary build pd-css",
     "clean": "echo \"no clean (generated artifacts are committed; run build to regenerate)\" && exit 0",
     "dev": "echo \"no dev (generated artifacts; run build)\" && exit 0",
-    "emit": "node ../../.claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp && node ../../.claude/skills/figma-to-design-tokens/emit-primitives.mjs && node ../../.claude/skills/figma-to-design-tokens/emit-semantics.mjs && node ../../.claude/skills/figma-to-design-tokens/emit-components.mjs && pnpm run validate",
+    "emit": "node ../../.claude/skills/figma-to-design-tokens/figma-snapshot-build.mjs --tmp && node ../../.claude/skills/figma-to-design-tokens/emit-primitives.mjs && node ../../.claude/skills/figma-to-design-tokens/emit-semantics.mjs && node ../../.claude/skills/figma-to-design-tokens/emit-components.mjs && node ../../tools/themes-import/index.mjs && pnpm run validate",
     "lint": "echo \"no lint (JSON data + generated artifacts; validated via test)\" && exit 0",
     "lint:fix": "echo \"no lint (JSON data + generated artifacts)\" && exit 0",
     "test": "pnpm run validate",

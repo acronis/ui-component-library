@@ -120,7 +120,7 @@ export function tailwindRoleMap(
 // ── Shared design data ─────────────────────────────────────────────────────────
 
 /** The brand emitted in full; every other brand is a diff against it. */
-export const DEFAULT_BRAND = 'acronis';
+export const DEFAULT_BRAND = 'default';
 
 /**
  * Stage-1 outputs. `primitives` carries the Theme axis (light/dark); `semantic`
@@ -255,10 +255,12 @@ export function buildDtcg(filter: Filter): void {
   }
 
   for (const view of VIEWS) {
+    const isBrandTier = (BRAND_TIERS as readonly string[]).includes(view.source);
     const tree = normalizeTree(
       sources[view.source],
       view.mode,
-      FILTER_ENUM[filter]
+      FILTER_ENUM[filter],
+      isBrandTier ? DEFAULT_BRAND : undefined
     );
     const dest = path.join(outDir, `${view.out}.json`);
     writeFileSync(dest, `${JSON.stringify(sortKeysDeep(tree), null, 2)}\n`);
