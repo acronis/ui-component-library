@@ -4,7 +4,7 @@ A centered empty-state placeholder shown when there is no data or content.
 Composable from parts; no variants.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Empty`. No `--ui-empty-*` token tier yet, so
+> the legacy shadcn UI kit `Empty`. No `--ui-empty-*` token tier yet, so
 > it themes from the shared semantic text tokens (title `text-foreground`,
 > description/icon `text-muted-foreground`). Reconcile with
 > `/figma-component Empty <url> --update` once a mockup lands.

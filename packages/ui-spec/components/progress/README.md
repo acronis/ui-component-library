@@ -4,7 +4,7 @@ A horizontal bar showing the completion of a known-length task, or an
 indeterminate sliding bar when the length is unknown.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Progress`. No `--ui-progress-*` tier yet; the
+> the legacy shadcn UI kit `Progress`. No `--ui-progress-*` tier yet; the
 > track uses `bg-input` and the indicator the brand blue (`bg-secondary`).
 > Reconcile with `/figma-component Progress <url> --update` once a mockup lands.
 

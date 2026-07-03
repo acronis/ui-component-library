@@ -4,7 +4,7 @@ A transient notification shown in a corner stack — triggered imperatively with
 the `toast(...)` API and rendered by a single `<Toaster>` region.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `sonner` wrapper, rebuilt on the Base UI toast
+> the legacy shadcn UI kit `sonner` wrapper, rebuilt on the Base UI toast
 > manager (no Sonner dependency). No `--ui-toast-*` tier; a neutral card surface
 > with the status conveyed by a colored icon (per-status surface tinting is
 > design-pending). Reconcile with `/figma-component Toast <url> --update` once a

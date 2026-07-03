@@ -3,7 +3,7 @@
 A thin rule that divides content, horizontally or vertically.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Separator`; uses the shared `bg-border`
+> the legacy shadcn UI kit `Separator`; uses the shared `bg-border`
 > divider token (no `--ui-separator-*` tier). Reconcile with
 > `/figma-component Separator <url> --update` once a mockup lands.
 

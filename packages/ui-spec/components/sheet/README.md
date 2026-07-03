@@ -4,7 +4,7 @@ A modal side panel anchored to a screen edge — for showing or acting on detail
 information without leaving the page.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Sheet` (the same Base UI Dialog primitive the
+> the legacy shadcn UI kit `Sheet` (the same Base UI Dialog primitive the
 > `Dialog` component uses, edge-anchored). Themes on the shared semantic tokens
 > like the Dialog family — no `--ui-sheet-*` tier yet. Reconcile with
 > `/figma-component Sheet <url> --update` (Cyber-Compliance node 3442-31542).

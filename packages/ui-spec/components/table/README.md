@@ -4,7 +4,7 @@ Displays rows and columns of data. Composable from native table parts, with
 sortable column headers and a selected row state.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Table` and informed by the pre-release Table
+> the legacy shadcn UI kit `Table` and informed by the pre-release Table
 > design (shadcn-uikit Figma, node 2948-2416). Themed by the existing
 > `--ui-table-*` token tier. A **TanStack-backed `DataTable`** (sorting,
 > selection, pagination over these primitives) is a planned follow-up — these

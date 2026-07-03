@@ -4,7 +4,7 @@ An empty-state placeholder for a dashboard widget — a bordered card with a
 header, a centered illustration / message / action, and an optional footer.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `WidgetPlaceholder`. No
+> the legacy shadcn UI kit `WidgetPlaceholder`. No
 > `--ui-widget-placeholder-*` tier; it maps onto semantic tokens (the muted
 > illustration tone is a stand-in for the legacy soft-brand tint). Reconcile with
 > `/figma-component WidgetPlaceholder <url> --update` once a mockup lands.

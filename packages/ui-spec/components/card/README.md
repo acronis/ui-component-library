@@ -4,7 +4,7 @@ A surface that groups related content and actions into a bordered, rounded
 container. Composable from parts; no variants.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Card`. There is no `--ui-card-*` token tier
+> the legacy shadcn UI kit `Card`. There is no `--ui-card-*` token tier
 > yet, so colors resolve to the shared semantic tokens. Reconcile against Figma
 > with `/figma-component Card <url> --update` once a mockup lands.
 

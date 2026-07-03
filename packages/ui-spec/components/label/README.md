@@ -3,7 +3,7 @@
 A caption for a form control — small, medium-weight text tied to an input.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Label`. No `--ui-label-*` tier; the text
+> the legacy shadcn UI kit `Label`. No `--ui-label-*` tier; the text
 > inherits `text-foreground`. Reconcile with `/figma-component Label <url>
 --update` once a mockup lands.
 

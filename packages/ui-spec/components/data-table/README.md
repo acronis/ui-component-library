@@ -5,7 +5,7 @@ primitives — sorting, filtering, column visibility, row selection, pagination,
 and optional row expansion.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `data-table`. Adds no color of its own — it
+> the legacy shadcn UI kit `data-table`. Adds no color of its own — it
 > composes already-themed ui-react components. Reconcile with
 > `/figma-component DataTable <url> --update` once a mockup lands.
 

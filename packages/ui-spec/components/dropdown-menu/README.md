@@ -4,7 +4,7 @@ A menu of actions anchored to a trigger, opened on demand. Composable from a
 rich set of parts; built on the Base UI Menu primitive.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `DropdownMenu`. No `--ui-menu-*` token tier
+> the legacy shadcn UI kit `DropdownMenu`. No `--ui-menu-*` token tier
 > yet, so it themes from the shared semantic tokens (surface `bg-background`,
 > highlighted item `bg-accent`, separator `bg-border`, shortcut
 > `text-muted-foreground`); enter/exit animations use `tw-animate-css`. Reconcile

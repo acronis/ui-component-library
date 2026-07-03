@@ -4,7 +4,7 @@ Switches between related panels of content within the same context. A bordered
 segmented-control tab group built on the Base UI Tabs primitive.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Tabs`. No `--ui-tabs-*` token tier yet, so
+> the legacy shadcn UI kit `Tabs`. No `--ui-tabs-*` token tier yet, so
 > the segments use the shared brand tokens — the **`secondary`** bridge (the same
 > action blue Button uses), not `primary` (which is the dark navy brand). The
 > active segment is rendered **filled** (`bg-secondary` + a pure-white

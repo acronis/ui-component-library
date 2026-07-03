@@ -4,7 +4,7 @@ A floating panel anchored to a trigger, shown on demand for secondary content or
 quick actions. Built on the Base UI Popover primitive.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Popover`. No `--ui-popover-*` token tier yet,
+> the legacy shadcn UI kit `Popover`. No `--ui-popover-*` token tier yet,
 > so the popup uses the shared semantic surface tokens (`bg-background` /
 > `text-foreground` / `border-border`); enter/exit animations use `tw-animate-css`.
 > Reconcile with `/figma-component Popover <url> --update` once a mockup lands.

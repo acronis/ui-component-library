@@ -4,7 +4,7 @@ A modal overlay that interrupts the user to show focused content or request a
 decision. Composable from parts; built on the Base UI Dialog primitive.
 
 > **Status: draft (design-pending v1).** Ported from the legacy
-> `@spec-lab/shadcn-uikit` `Dialog`. There is no `--ui-dialog-*` token
+> the legacy shadcn UI kit `Dialog`. There is no `--ui-dialog-*` token
 > tier yet, so colors resolve to the shared semantic tokens. Enter/exit
 > animations use `tw-animate-css` (overlay fade, popup fade + zoom), keyed to
 > Base UI's open/closed state. Reconcile against Figma with

@@ -4,7 +4,7 @@
 // root. So each unique `<svg>` geometry is emitted ONCE as a constant and reused
 // across sizes (and, for the merged icons group, across styles); the component
 // clones it per render with the size's width/height/strokeWidth and any forwarded
-// props (mirrors ui-legacy's BaseIcon clone). A hand-authored size override
+// props (mirrors the legacy kit's BaseIcon clone). A hand-authored size override
 // (different markup) naturally falls into its own geometry constant.
 //
 // Two shapes:

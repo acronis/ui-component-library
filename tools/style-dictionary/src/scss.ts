@@ -1,6 +1,6 @@
 // SCSS output (`scss/`): a mirror of the token layer as a reusable mixin, so a
 // Sass consumer gets the same compact, reference-based tokens via `@include`
-// (the ergonomic ui-legacy's theme mixins use) instead of a raw `@import`.
+// (the ergonomic the legacy kit's theme mixins use) instead of a raw `@import`.
 //
 //   scss/_tokens.scss  — `@mixin ui-tokens` wrapping every generated rule
 //                        (primitives theme layer + semantics + components + brand
