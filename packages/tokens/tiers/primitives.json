@@ -3241,7 +3241,7 @@
         },
         "platforms": ["PD"],
         "values": {
-          "dark": "{Blue.Blue-7-Primary}",
+          "dark": { "colorSpace": "hsl", "components": [210.37, 49.69, 31.96] },
           "light": { "colorSpace": "hsl", "components": [212.22, 71.05, 85.1] }
         }
       },
