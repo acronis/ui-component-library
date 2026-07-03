@@ -108,6 +108,22 @@ Write down, from the design:
 
 ## Phase 2 — Map design → tokens & primitives (decide before coding)
 
+**Token-gap check first.** Before mapping colors by hand, run
+[`/token-gap-check <ComponentName> <figma-url>`](../token-gap-check/SKILL.md) — it
+takes the Phase 1 `get_variable_defs` output and flags any **colour variable the
+node references that has no matching `--ui-*` token** (the silent-fallback gap:
+e.g. Figma `border/onStatus/ai` with no `--ui-border-on-status-ai`). Save the
+`get_variable_defs` JSON and:
+
+```bash
+node .claude/skills/token-gap-check/scripts/check.mjs /tmp/<name>-vars.json
+```
+
+Resolve every `MISSING` row **before** coding — targeted tier edit (add the alias
+to `packages/tokens/tiers/*.json` + rebuild) or a full `/figma-to-design-tokens`
+sync (see that skill). This is the design-side complement to Phase 0's
+`/component-readiness` (which checks the tokens the _code_ references).
+
 **Tokens.** Color/spacing must resolve to a generated `--ui-*` token from
 `@spec-lab/tokens`. Check it exists:
 
@@ -356,6 +372,8 @@ the committed baselines still pass, and commit no PNGs.
 
 ## Output checklist (done = all green)
 
+- [ ] `/token-gap-check` run (Phase 2) — every design colour variable maps to a
+      defined `--ui-*` token; any `MISSING` filled before coding.
 - [ ] `src/components/ui/<name>/<name>.tsx` — Base UI + `--ui-*` tokens, no hex.
 - [ ] `index.ts` + export line in `src/index.ts`.
 - [ ] `__tests__/<name>.test.tsx` — render, variants/states, a11y roles, ref,
