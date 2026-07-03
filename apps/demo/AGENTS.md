@@ -1,6 +1,6 @@
 # AGENTS.md — `apps/demo`
 
-`@spec-lab/shadcn-uikit-demo` — the Vite-based demo SPA used to
+`@spec-lab/ui-kit-demo` — the Vite-based demo SPA used to
 exercise components in realistic flows. **Private**, not published.
 
 Cross-cutting topics live in `../../context/*.md`. This file documents
@@ -19,24 +19,25 @@ only what is specific to this workspace.
 ## Running
 
 ```bash
-pnpm --filter @spec-lab/shadcn-uikit-demo dev
+pnpm --filter @spec-lab/ui-kit-demo dev
 ```
 
 Opens at `http://localhost:3000`. Preview the built app with
-`pnpm --filter @spec-lab/shadcn-uikit-demo preview`.
+`pnpm --filter @spec-lab/ui-kit-demo preview`.
 
 ## What this workspace is for
 
-- Manual verification of `@spec-lab/shadcn-uikit` changes in
+- Manual verification of `@spec-lab/ui-react` changes in
   realistic page layouts (forms, tables, dialogs, toasts).
-- Theme switching: the demo lets you flip through `acronis-default`,
-  `acronis-ocean`, `cyber-chat`, and white-label variants.
+- Theme switching: light/dark via the ui-react `[data-theme]` model (a local
+  theme-switcher util under `src/lib/`; the legacy multi-brand themes it carried
+  over from the old kit are pending rework onto `[data-brand]`).
 - i18n smoke testing — strings live under `src/i18n/` (or similar).
 
 ## No tests here
 
 This workspace has no automated test suite (and no `test` / `test:watch` scripts).
-Component-level coverage belongs in `packages/ui-legacy`'s Vitest + Storybook suites. If you're tempted to add a test here, ask whether it belongs in the library workspace instead.
+Component-level coverage belongs in `packages/ui-react`'s Vitest + Storybook suites. If you're tempted to add a test here, ask whether it belongs in the library workspace instead.
 
 ## zod version note
 

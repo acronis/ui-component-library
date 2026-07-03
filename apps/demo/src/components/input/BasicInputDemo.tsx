@@ -1,6 +1,6 @@
 import { DemoWithCode } from '@/components/DemoWithCode.tsx';
 import inputBasicCode from '../../../../demos/src/input/InputBasic.tsx?raw';
-import { InputBasic } from '@spec-lab/shadcn-uikit-demos/input';
+import { InputBasic } from '@spec-lab/ui-kit-demos/input';
 import * as React from 'react';
 
 export function BasicInputDemo() {

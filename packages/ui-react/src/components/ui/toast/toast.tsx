@@ -13,8 +13,7 @@ import {
 import { cn } from '@/lib/utils';
 import { Spinner } from '../spinner';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `sonner`
-// (packages/ui-legacy/src/components/ui/sonner.tsx), which wrapped the Sonner
+// Ported from the legacy shadcn UI kit's `sonner`, which wrapped the Sonner
 // library. Rebuilt on the Base UI toast primitive (the ui-react convention), so
 // no Sonner dependency. The contract is preserved: drop a single `<Toaster />`
 // at the app root and call the imperative `toast(...)` / `toast.success(...)`

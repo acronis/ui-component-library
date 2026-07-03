@@ -5,9 +5,9 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-// Initial version ported from `@spec-lab/shadcn-uikit`'s `sheet`
-// (packages/ui-legacy/src/components/ui/sheet.tsx). A modal side panel — the
-// same Base UI Dialog primitive the `Dialog` component uses (keyboard, focus
+// Initial version ported from the legacy shadcn UI kit's `sheet`. A modal
+// side panel — the same Base UI Dialog primitive the `Dialog` component uses
+// (keyboard, focus
 // trap, scroll lock, ARIA come from Base UI), but anchored to a screen edge with
 // a slide transition. In the Vue kit this was `Details`; it's re-exported under
 // `Details*` aliases for a 1:1 drop-in. No `--ui-sheet-*` token tier exists yet,

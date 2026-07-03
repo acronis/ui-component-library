@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-// Composable empty-state parts ported from `@spec-lab/shadcn-uikit`'s
-// `empty` (packages/ui-legacy/src/components/ui/empty.tsx). Plain styled
-// elements — no Base UI primitive. No `--ui-empty-*` token tier exists yet, so
+// Composable empty-state parts ported from the legacy shadcn UI kit's
+// `empty`. Plain styled elements — no Base UI primitive. No `--ui-empty-*`
+// token tier exists yet, so
 // this design-pending v1 themes from the shared semantic text tokens:
 //   • title       -> text-foreground (--ui-text-on-surface-primary)
 //   • description / icon -> text-muted-foreground (--ui-text-on-surface-secondary)

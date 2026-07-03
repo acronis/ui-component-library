@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AlertVariants } from '@spec-lab/shadcn-uikit-demos/alert';
+import { AlertVariants } from '@spec-lab/ui-kit-demos/alert';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

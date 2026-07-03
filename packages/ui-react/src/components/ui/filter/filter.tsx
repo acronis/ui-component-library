@@ -4,8 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `filter`
-// (packages/ui-legacy/src/components/ui/filter.tsx). A plain styled button —
+// Ported from the legacy shadcn UI kit's `filter`. A plain styled button —
 // no Base UI primitive needed (it's not stateful/compound). The legacy version
 // wrapped shadcn's `Button` and themed itself from four dedicated `--filter-*`
 // HSL vars (all "Technical/fixed-link" / "Technical/fixed-button" — the brand

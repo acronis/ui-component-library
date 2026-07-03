@@ -22,54 +22,41 @@ pnpm --filter @spec-lab/uikit-docs dev
 
 ## What this site documents
 
-The site is **focused on `@spec-lab/ui-react`** (the next-gen Base UI
-library) and its ecosystem packages. The legacy `@spec-lab/shadcn-uikit`
-library is documented under a deprecated **Legacy** section
-(`content/docs/legacy/`).
+The site documents **`@spec-lab/ui-react`** (the next-gen Base UI
+library) and its ecosystem packages (tokens, icons-react, design-assets).
 
 ## Content structure
 
 - `content/docs/` — MDX pages + `meta.json` files controlling sidebar order.
-  Top-level order: `index`, `getting-started`, `theming`, `components`, `icons`,
-  `packages`, `guides`, `legacy`.
+  Top-level order: `getting-started`, `theming`, `typography`,
+  `token-reference`, `components`, `layouts`, `patterns`, `icons`, `packages`,
+  `guides`.
 - `content/docs/components/` — one MDX file per **ui-react** component. Each
   pairs usage + code-snippet examples + `<AutoTypeTable>` with a **live
   `<DemoReact>`** preview (shadow-root isolated) — see "ui-react live demos"
-  below. (They do **not** use the legacy `<DemoPreview>`.)
+  below.
 - `content/docs/packages/` — the ecosystem section (`tokens`, `icons-react`,
-  `tokens`, `design-assets`).
-- `content/docs/legacy/` — the deprecated legacy library: a deprecation
-  notice (`index.mdx`), the relocated legacy component pages
-  (`legacy/components/`, ~50 files), and the legacy forms guide
-  (`legacy/forms.mdx`). These pages **keep their live `<DemoPreview>`** widgets.
-- `src/components/DemoPreview.tsx` — async RSC for live preview + source toggle
-  (used by the legacy pages only).
-- `src/components/demos/` — client-wrapper files that re-export from
-  `@spec-lab/shadcn-uikit-demos` and add `'use client'`. Demo
-  components use hooks and browser APIs, so they need that directive;
-  the shared demos package doesn't add it, so the wrappers do. **These pull
-  from the legacy library** (`shadcn-uikit-demos` → `shadcn-uikit/react`) and
-  back the **legacy** pages only.
+  `design-assets`).
 - `src/components/demos-react/` — `'use client'` demos for the **ui-react**
   pages, importing straight from `@spec-lab/ui-react`. One
   `<Name>Demo` per component, rendered through `<DemoReact>` (see below).
 - `src/components/DemoReact.tsx` + `src/components/ShadowDemo.tsx` — the
   ui-react live-preview wrapper: `ShadowDemo` mounts the demo in a **shadow
   root** that adopts ui-react's stylesheet (fetched from `/api/ui-react-css`),
-  isolating it from the legacy + Fumadocs CSS on the global document.
+  isolating it from the Fumadocs CSS on the global document.
 - `src/components/IconCatalog.tsx` — searchable catalog rendering the
   `@spec-lab/icons-react` packs (`/docs/icons`).
 
 ## ui-react live demos (shadow-root isolated)
 
 ui-react component pages render **live `<DemoReact>` previews**, not just static
-code blocks. This took a workaround: the shared
-`@spec-lab/shadcn-uikit-demos` package imports the **legacy** specifier,
-and the alias trick that lets ui-react's Storybook swap the library at build time
-**does not work in the Next/RSC docs build** — bundler-aliasing a `"use client"`
-component drops it from Next's client manifest, so it renders as `undefined`
-(see `packages/ui-react/AGENTS.md`). So ui-react demos **don't** go through the
-shared demos package at all. Instead:
+code blocks — but docs don't import these from the shared
+`@spec-lab/ui-kit-demos` package (the one `apps/demo` consumes). Re-exporting a
+`"use client"` component across that package boundary hits a Next/RSC
+limitation: bundler-aliasing/re-exporting drops it from Next's client
+manifest, so it renders as `undefined` (see `packages/ui-react/AGENTS.md`) — a
+problem Storybook's webpack build doesn't have. So ui-react demos are written
+directly in this workspace instead:
 
 - write a `'use client'` demo in `src/components/demos-react/<name>.tsx` that
   imports directly from `@spec-lab/ui-react`, and
@@ -77,7 +64,7 @@ shared demos package at all. Instead:
   (`ShadowDemo`) that adopts ui-react's stylesheet from `/api/ui-react-css`.
 
 The shadow boundary keeps ui-react's Tailwind preflight from colliding with the
-legacy + Fumadocs CSS loaded globally on the docs document. For components with
+Fumadocs CSS loaded globally on the docs document. For components with
 portaled overlays (Select/Tooltip popups), the demo reads `useShadowMount()` and
 passes it as the primitive's `portalContainer` so the popup inherits the shadow's
 styles. See `card-filter.tsx` / `input-select.tsx` for the pattern.
@@ -100,17 +87,6 @@ styles. See `card-filter.tsx` / `input-select.tsx` for the pattern.
 
 These are easy to get wrong because the conventions differ by component:
 
-### `<DemoPreview sourcePath="...">`
-
-`sourcePath` is **relative to the monorepo root**, not the docs app:
-
-```
-sourcePath="apps/demos/src/button/ButtonVariants.tsx"
-```
-
-`DemoPreview` resolves this via `resolve(process.cwd(), '..', '..', sourcePath)`
-because `process.cwd()` is `apps/docs/` at build time.
-
 ### `<AutoTypeTable path="...">`
 
 `AutoTypeTable` paths are **relative to `apps/docs/`**:
@@ -118,8 +94,6 @@ because `process.cwd()` is `apps/docs/` at build time.
 ```
 <AutoTypeTable path="../../packages/ui-react/src/components/ui/button/button.tsx" name="ButtonProps" />
 ```
-
-(Legacy pages still point at `../../packages/ui-legacy/src/components/ui/<x>.tsx`.)
 
 For compound components or types that `AutoTypeTable` cannot resolve
 (re-exported Base UI types, complex CVA generics, parts with no exported prop
@@ -129,11 +103,12 @@ interface), use a `.docs.ts` companion file alongside the component source:
 <AutoTypeTable path="../../packages/ui-react/src/components/ui/<component>/<component>.docs.ts" name="..." />
 ```
 
-Several `.docs.ts` companions exist in `ui-legacy`. Only create a new one when
-`AutoTypeTable` fails to produce a useful table from the original source — many
-ui-react compound parts (e.g. the `InputSelect*` family) extend Base UI props
-without their own interface, so they need a companion or should be documented
-with usage examples instead.
+Several `.docs.ts` companions already exist in ui-react (e.g. `dialog`,
+`popover`, `tabs`). Only create a new one when `AutoTypeTable` fails to
+produce a useful table from the original source — many ui-react compound
+parts (e.g. the `InputSelect*` family) extend Base UI props without their own
+interface, so they need a companion or should be documented with usage
+examples instead.
 
 ### `AutoTypeTable` global registration
 

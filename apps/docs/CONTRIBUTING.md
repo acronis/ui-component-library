@@ -31,7 +31,7 @@ easy to get wrong.
 2. **Add a client wrapper** in `src/components/demos/<DemoName>.tsx`:
    ```tsx
    'use client';
-   export { DemoName } from '@spec-lab/shadcn-uikit-demos/<component>';
+   export { DemoName } from '@spec-lab/ui-kit-demos/<component>';
    ```
 3. **Create the MDX page** at `content/docs/components/<component>.mdx`.
 4. **Use `<DemoPreview>` to render** with source toggle. Its

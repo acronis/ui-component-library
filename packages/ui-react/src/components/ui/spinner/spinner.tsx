@@ -3,8 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `spinner`
-// (packages/ui-legacy/src/components/ui/spinner.tsx). A CSS loading spinner — no
+// Ported from the legacy shadcn UI kit's `spinner`. A CSS loading spinner — no
 // Base UI primitive. No `--ui-spinner-*` tier; the ring color defaults to the
 // brand action blue via `text-secondary` (--ui-background-brand-secondary, used
 // through `border-current`), replacing the legacy `--spinner-color` var.

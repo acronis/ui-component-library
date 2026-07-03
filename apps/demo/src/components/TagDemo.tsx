@@ -12,7 +12,7 @@ import {
   TagVersion,
   TagCategory,
   TagMixedSizes,
-} from '@spec-lab/shadcn-uikit-demos/tag';
+} from '@spec-lab/ui-kit-demos/tag';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

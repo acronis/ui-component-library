@@ -8,7 +8,7 @@ import {
   DisabledSelect,
   FormattedValueSelect,
   ScrollableSelect,
-} from '@spec-lab/shadcn-uikit-demos/select';
+} from '@spec-lab/ui-kit-demos/select';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

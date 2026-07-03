@@ -25,9 +25,8 @@ import {
   TableRow,
 } from '../table';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `data-table`
-// (packages/ui-legacy/src/components/ui/data-table/). A TanStack-react-table v8
-// data grid composed over the ui-react Table primitives — sorting, filtering,
+// Ported from the legacy shadcn UI kit's `data-table`. A TanStack-react-table
+// v8 data grid composed over the ui-react Table primitives — sorting, filtering,
 // column visibility, row selection, pagination, and optional row expansion. The
 // presentational flags (`striped`, `bordered`, `skeleton`, `highlightCurrentRow`)
 // are borrowed from the Vue `AvTable`; behavioral features come from TanStack.

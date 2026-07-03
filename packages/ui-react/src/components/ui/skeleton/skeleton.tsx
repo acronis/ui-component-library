@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `skeleton`
-// (packages/ui-legacy/src/components/ui/skeleton.tsx). A pulsing placeholder box
+// Ported from the legacy shadcn UI kit's `skeleton`. A pulsing placeholder box
 // for loading states — no Base UI primitive, just a styled `<div>`. The legacy
 // `bg-muted` (--ui-background-surface-secondary) is near-white and nearly
 // invisible on a white surface, so the fill uses the more visible

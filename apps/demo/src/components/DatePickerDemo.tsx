@@ -8,7 +8,7 @@ import {
   DatePickerFormats,
   DatePickerPresets,
   DatePickerDisabled,
-} from '@spec-lab/shadcn-uikit-demos/date-picker';
+} from '@spec-lab/ui-kit-demos/date-picker';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

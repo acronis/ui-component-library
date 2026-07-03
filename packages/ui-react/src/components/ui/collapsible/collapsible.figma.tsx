@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Ported from ui-legacy without a "ready for dev" Figma node. Collapsible is a
+// Ported from the legacy shadcn UI kit without a "ready for dev" Figma node. Collapsible is a
 // behavioral disclosure primitive (no standalone design). Replace 'FIGMA_NODE_URL'
 // and flip to COMPLETE via `/figma-component Collapsible <url> --update`.
 import figma from '@figma/code-connect';

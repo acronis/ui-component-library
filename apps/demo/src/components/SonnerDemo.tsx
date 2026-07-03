@@ -17,7 +17,7 @@ import {
   SonnerDismissible,
   SonnerPositions,
   SonnerRealWorld,
-} from '@spec-lab/shadcn-uikit-demos/sonner';
+} from '@spec-lab/ui-kit-demos/sonner';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

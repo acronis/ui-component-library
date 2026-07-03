@@ -7,8 +7,7 @@ import {
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `form`
-// (packages/ui-legacy/src/components/ui/form.tsx), rebuilt on Base UI's Form.
+// Ported from the legacy shadcn UI kit's `form`, rebuilt on Base UI's Form.
 // The legacy form was a react-hook-form wrapper (FormProvider/Controller); this
 // version drops that dependency and coordinates the ui-react `Field`s directly via
 // Base UI's native form: it collects values by each Field's `name`, runs their

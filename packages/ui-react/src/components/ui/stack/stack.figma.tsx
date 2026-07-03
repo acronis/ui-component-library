@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Layout primitive ported from ui-legacy; no dedicated Figma node. Replace
+// Layout primitive ported from the legacy shadcn UI kit; no dedicated Figma node. Replace
 // 'FIGMA_NODE_URL' and flip to COMPLETE via `/figma-component Stack <url> --update`.
 import figma from '@figma/code-connect';
 

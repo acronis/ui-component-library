@@ -3,8 +3,7 @@ import { Tabs as TabsPrimitive } from '@base-ui/react/tabs';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `tabs`
-// (packages/ui-legacy/src/components/ui/tabs.tsx). A bordered segmented-control
+// Ported from the legacy shadcn UI kit's `tabs`. A bordered segmented-control
 // tab group built on the Base UI Tabs primitive (keyboard nav, roving focus,
 // ARIA come from Base UI). No `--ui-tabs-*` token tier exists yet, so this
 // design-pending v1 themes from the shared semantic tokens:

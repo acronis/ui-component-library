@@ -4,8 +4,7 @@ import { CheckIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `dropdown-menu`
-// (packages/ui-legacy/src/components/ui/dropdown-menu.tsx). A menu of actions
+// Ported from the legacy shadcn UI kit's `dropdown-menu`. A menu of actions
 // anchored to a trigger, built on the Base UI Menu primitive (positioning, focus
 // management, typeahead, outside-press / Esc dismissal, ARIA). No `--ui-menu-*`
 // token tier exists yet, so this design-pending v1 themes from the shared

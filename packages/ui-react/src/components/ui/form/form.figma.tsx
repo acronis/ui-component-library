@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Ported from ui-legacy without a "ready for dev" Figma node, rebuilt on Base UI's
+// Ported from the legacy shadcn UI kit without a "ready for dev" Figma node, rebuilt on Base UI's
 // Form (dropping react-hook-form). A Figma node would map a form layout of Fields
 // + a submit action. Replace 'FIGMA_NODE_URL' and flip to COMPLETE via
 // `/figma-component Form <url> --update`.

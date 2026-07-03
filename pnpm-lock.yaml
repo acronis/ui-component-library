@@ -165,7 +165,7 @@ importers:
       '@spec-lab/icons-react':
         specifier: workspace:*
         version: link:../../packages/icons-react
-      '@spec-lab/shadcn-uikit-demos':
+      '@spec-lab/ui-kit-demos':
         specifier: workspace:*
         version: link:../demos
       '@spec-lab/ui-react':

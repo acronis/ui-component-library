@@ -4,7 +4,7 @@ import {
   BreadcrumbWithIcons,
   BreadcrumbWithEllipsis,
   BreadcrumbIconsEllipsis,
-} from '@spec-lab/shadcn-uikit-demos/breadcrumb';
+} from '@spec-lab/ui-kit-demos/breadcrumb';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

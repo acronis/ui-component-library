@@ -9,7 +9,7 @@ import {
   CarouselVertical,
   CarouselAutoplay,
   CarouselFigmaStyle,
-} from '@spec-lab/shadcn-uikit-demos/carousel';
+} from '@spec-lab/ui-kit-demos/carousel';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

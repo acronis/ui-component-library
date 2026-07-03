@@ -5,7 +5,7 @@ import { Collapsible as CollapsiblePrimitive } from '@base-ui/react/collapsible'
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `collapsible`. A thin wrapper over
+// Ported from the legacy shadcn UI kit's `collapsible`. A thin wrapper over
 // Base UI's Collapsible — a disclosure: a trigger toggles a height-animating panel.
 // No colors of its own (it's the primitive behind Accordion and the sidebars).
 const Collapsible = CollapsiblePrimitive.Root;

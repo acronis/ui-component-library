@@ -1,4 +1,4 @@
-# Contributing to `@spec-lab/shadcn-uikit-demos`
+# Contributing to `@spec-lab/ui-kit-demos`
 
 This is the **source-only** shared demos workspace — reusable demo
 components consumed by both `apps/demo` and `apps/docs`. **Private**,
@@ -51,8 +51,8 @@ instead and skip this workspace.
 ## Verification
 
 ```bash
-pnpm --filter @spec-lab/shadcn-uikit-demos typecheck
-pnpm --filter @spec-lab/shadcn-uikit-demos lint
+pnpm --filter @spec-lab/ui-kit-demos typecheck
+pnpm --filter @spec-lab/ui-kit-demos lint
 ```
 
 There is no build step and no test suite in this workspace. Verify your demo renders by running `apps/demo` or `apps/docs` with the demo wired in.

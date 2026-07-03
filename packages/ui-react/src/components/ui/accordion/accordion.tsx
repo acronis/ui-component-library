@@ -6,7 +6,7 @@ import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `accordion`. A vertical set of
+// Ported from the legacy shadcn UI kit's `accordion`. A vertical set of
 // disclosure sections built on Base UI's Accordion. Markup-only — the item divider
 // uses the shared border token (bare `border-b` renders transparent in ui-react,
 // so it must name `border-border`); text inherits the foreground.

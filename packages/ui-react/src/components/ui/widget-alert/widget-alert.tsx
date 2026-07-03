@@ -4,9 +4,8 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 // WidgetAlert — dashboard alert-notification widget, ported from
-// `@spec-lab/shadcn-uikit`'s `widget-alert`
-// (packages/ui-legacy/src/components/ui/widget-alert.tsx). No
-// `--ui-widget-alert-*` tier exists yet, so this design-pending v1 themes its
+// the legacy shadcn UI kit's `widget-alert`. No `--ui-widget-alert-*` tier
+// exists yet, so this design-pending v1 themes its
 // per-variant surface from the same status vocabulary the Alert component
 // uses (packages/ui-react/src/components/ui/alert/alert.tsx):
 //   • surface -> --ui-background-status-*   (pale per-status fill)

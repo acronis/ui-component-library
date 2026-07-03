@@ -3,9 +3,8 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 // Composable dashboard-widget empty-state parts, ported from
-// `@spec-lab/shadcn-uikit`'s `widget-placeholder`
-// (packages/ui-legacy/src/components/ui/widget-placeholder.tsx). Plain styled
-// elements — no Base UI primitive. No `--ui-widget-placeholder-*` tier exists
+// the legacy shadcn UI kit's `widget-placeholder`. Plain styled elements — no
+// Base UI primitive. No `--ui-widget-placeholder-*` tier exists
 // yet, so this design-pending v1 themes from the shared semantic vocabulary:
 //   • root      -> border-border + bg-background + text-foreground
 //   • icon/action (was --av-fixed-link) -> text-secondary (the brand action blue)

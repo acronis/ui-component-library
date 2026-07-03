@@ -5,8 +5,7 @@ import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `navigation-menu`
-// (packages/ui-legacy/src/components/ui/navigation-menu.tsx), which used
+// Ported from the legacy shadcn UI kit's `navigation-menu`, which used
 // `@radix-ui/react-navigation-menu`. Rebuilt on the Base UI NavigationMenu
 // primitive (keyboard/hover/click activation, focus management, positioning,
 // ARIA come from Base UI). No `--ui-navigation-menu-*` tier exists yet, so this

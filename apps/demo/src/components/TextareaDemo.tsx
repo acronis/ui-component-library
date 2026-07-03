@@ -12,7 +12,7 @@ import {
   TextareaResizeOptions,
   TextareaForm,
   TextareaUseCases,
-} from '@spec-lab/shadcn-uikit-demos/textarea';
+} from '@spec-lab/ui-kit-demos/textarea';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

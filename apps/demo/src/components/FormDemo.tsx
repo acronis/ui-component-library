@@ -6,7 +6,7 @@ import {
   FormRegistration,
   FormContact,
   FormSettings,
-} from '@spec-lab/shadcn-uikit-demos/form';
+} from '@spec-lab/ui-kit-demos/form';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

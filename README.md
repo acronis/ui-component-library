@@ -28,9 +28,9 @@ The repo is organized into four top-level directories: `context/` (shared docs),
 | `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
 | `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**   | Icon/illustration manifests + bundled binaries. Data only.                   |
 | `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | Generated per-brand CSS vars, per-component CSS, Tailwind presets, DTCG.     |
-| `apps/demo/`                  | `@spec-lab/shadcn-uikit-demo`    | no        | Vite SPA showcasing components with live theme switching.                    |
+| `apps/demo/`                  | `@spec-lab/ui-kit-demo`          | no        | Vite SPA showcasing components with live theme switching.                    |
 | `apps/docs/`                  | `@spec-lab/uikit-docs`           | no        | Next.js 15 + Fumadocs documentation site.                                    |
-| `apps/demos/`                 | `@spec-lab/shadcn-uikit-demos`   | no        | Shared demo components (source-only, no build).                              |
+| `apps/demos/`                 | `@spec-lab/ui-kit-demos`         | no        | Shared demo components (source-only, no build).                              |
 | `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no        | Style Dictionary v5 build: `tokens` → `tokens` CSS/presets.                  |
 | `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no        | Fetches + SVGO-optimizes icons from Figma into the `icons-svg*` packages.    |
 | `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no        | Self-hosted Figma plugin + receiver that exports variables/styles to tokens. |
@@ -234,8 +234,8 @@ a `tw-animate-css` peer dependency. See
 ```
 uikit/
 ├── apps/                       # Deployed apps (private)
-│   ├── demo/                   # Vite SPA          (@spec-lab/shadcn-uikit-demo)
-│   ├── demos/                  # Shared demos      (@spec-lab/shadcn-uikit-demos)
+│   ├── demo/                   # Vite SPA          (@spec-lab/ui-kit-demo)
+│   ├── demos/                  # Shared demos      (@spec-lab/ui-kit-demos)
 │   └── docs/                   # Next.js + Fumadocs (@spec-lab/uikit-docs)
 ├── packages/                   # Published libraries + design data
 │   ├── ui-react/               # Base UI library    (@spec-lab/ui-react)

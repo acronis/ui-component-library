@@ -4,7 +4,7 @@ import { TimesIcon } from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `alert` and reconciled with the Figma
+// Ported from the legacy shadcn UI kit's `alert` and reconciled with the Figma
 // "Alert" set (node 4313-4953): a rounded banner with a subtle status border, a
 // pale status surface, foreground text, a status-tinted icon, and an optional
 // dismiss (×) button. No Base UI primitive — semantic markup with `role="alert"`.

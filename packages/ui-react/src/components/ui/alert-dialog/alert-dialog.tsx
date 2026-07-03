@@ -4,8 +4,7 @@ import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `alert-dialog`
-// (packages/ui-legacy/src/components/ui/alert-dialog.tsx), which already used
+// Ported from the legacy shadcn UI kit's `alert-dialog`, which already used
 // `@base-ui/react`'s AlertDialog (imported here via the `/alert-dialog`
 // subpath, matching this package's `dialog.tsx` wrapping pattern) — so this
 // port is mostly a token pass, not a primitive swap. No `--ui-alert-dialog-*`
@@ -19,8 +18,8 @@ import { buttonVariants } from '@/components/ui/button';
 // The popup's enter/exit transform+animation classes are copied from this
 // package's own `dialog.tsx` (translate -50%/-50% + zoom/fade via
 // `tw-animate-css`) rather than the legacy version's slide-from-top variant,
-// which depended on a `dialog-offset` Tailwind theme value that only exists in
-// `packages/ui-legacy/tailwind.preset.js` and has no ui-react equivalent.
+// which depended on a `dialog-offset` Tailwind theme value that only existed
+// in the legacy shadcn UI kit's Tailwind preset and has no ui-react equivalent.
 // `AlertDialogAction`/`AlertDialogCancel` reuse this package's `buttonVariants`;
 // ui-react's Button has no `outline` variant (unlike legacy shadcn), so
 // `AlertDialogCancel` uses `secondary` — the closest bordered/neutral analog.

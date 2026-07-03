@@ -5,8 +5,7 @@ import { Progress as ProgressPrimitive } from '@base-ui/react';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `progress`
-// (packages/ui-legacy/src/components/ui/progress.tsx). Wraps Base UI's Progress
+// Ported from the legacy shadcn UI kit's `progress`. Wraps Base UI's Progress
 // primitive (Root → Track → Indicator). No `--ui-progress-*` tier yet: the
 // track uses the shared border token via `bg-input`, and the filled indicator
 // uses the brand action blue via `bg-secondary` (--ui-background-brand-secondary,

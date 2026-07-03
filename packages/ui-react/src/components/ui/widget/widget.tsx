@@ -4,11 +4,10 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 // Dashboard-widget container for charts, progress indicators, and data
-// displays, ported from `@spec-lab/shadcn-uikit`'s `widget`
-// (packages/ui-legacy/src/components/ui/widget.tsx). Plain styled elements —
-// no Base UI primitive, mirroring the sibling `widget-placeholder` port. No
-// `--ui-widget-*` tier exists yet, so this design-pending v1 themes from the
-// shared semantic vocabulary:
+// displays, ported from the legacy shadcn UI kit's `widget`. Plain styled
+// elements — no Base UI primitive, mirroring the sibling `widget-placeholder`
+// port. No `--ui-widget-*` tier exists yet, so this design-pending v1 themes
+// from the shared semantic vocabulary:
 //   • root surface/text (was --av-inversed-primary / --av-fixed-primary) ->
 //     bg-background / text-foreground; border -> border-border (a bare
 //     `border` is transparent here, unlike legacy's Tailwind config)

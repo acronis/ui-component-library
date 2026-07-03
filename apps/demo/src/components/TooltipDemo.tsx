@@ -6,7 +6,7 @@ import {
   TooltipLongText,
   TooltipCustomDelay,
   TooltipMultiple,
-} from '@spec-lab/shadcn-uikit-demos/tooltip';
+} from '@spec-lab/ui-kit-demos/tooltip';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -12,7 +12,7 @@ import {
   CardInteractive,
   CardVariants,
   CardList,
-} from '@spec-lab/shadcn-uikit-demos/card';
+} from '@spec-lab/ui-kit-demos/card';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

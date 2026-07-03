@@ -8,7 +8,7 @@ import {
   PopoverAlignments,
   PopoverIconTriggers,
   PopoverFilter,
-} from '@spec-lab/shadcn-uikit-demos/popover';
+} from '@spec-lab/ui-kit-demos/popover';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-// Composable dashboard-widget table parts, ported from `@spec-lab/shadcn-uikit`'s
-// `widget-table-data` (packages/ui-legacy/src/components/ui/widget-table-data.tsx).
-// Plain styled elements — no Base UI primitive. No `--ui-widget-table-data-*`
+// Composable dashboard-widget table parts, ported from the legacy shadcn UI
+// kit's `widget-table-data`. Plain styled elements — no Base UI primitive. No
+// `--ui-widget-table-data-*`
 // tier exists yet, so this design-pending v1 themes the outer chrome from the
 // shared semantic vocabulary (same root/header/icon mapping as
 // `widget-placeholder`) and the actual `<table>` internals from the dedicated

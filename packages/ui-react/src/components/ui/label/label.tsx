@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `label`
-// (packages/ui-legacy/src/components/ui/label.tsx). A caption for a form
+// Ported from the legacy shadcn UI kit's `label`. A caption for a form
 // control — a plain `<label>`, no Base UI primitive. The text color is
 // inherited (`text-foreground` from context), so no `--ui-label-*` tier is
 // needed. `peer-disabled:*` dims the label when an associated `peer`-marked

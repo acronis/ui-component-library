@@ -7,9 +7,9 @@ import {
 
 import { cn } from '@/lib/utils';
 
-// Composable table primitives ported from `@spec-lab/shadcn-uikit`'s
-// `table` (packages/ui-legacy/src/components/ui/table.tsx) and informed by the
-// "pre-release" Table design in the shadcn-uikit Figma (node 2948-2416). Unlike
+// Composable table primitives ported from the legacy shadcn UI kit's `table`
+// and informed by the "pre-release" Table design in the shadcn-uikit Figma
+// (node 2948-2416). Unlike
 // Card/Dialog, a `--ui-table-*` token tier already exists, so these parts theme
 // directly from it (imported in styles/index.css):
 //   • cell   -> --ui-table-global-cell-{border-color,padding-x,padding-y,min-height}

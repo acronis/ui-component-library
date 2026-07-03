@@ -1,6 +1,6 @@
 # AGENTS.md — `apps/demos`
 
-`@spec-lab/shadcn-uikit-demos` — a **source-only** workspace
+`@spec-lab/ui-kit-demos` — a **source-only** workspace
 that houses reusable component demos consumed by `apps/demo` and
 `apps/docs`. **Private**, not published.
 
@@ -36,7 +36,7 @@ The only scripts that actually run are `lint`, `lint:fix`, and
 - **TanStack Form** + **TanStack zod adapter** alongside **react-hook-form**
   — both are showcased to compare patterns.
 - **zod 3** (pinned at `3.25.76`). **Intentionally different from**
-  `apps/demo` and `packages/ui-legacy`, which are on zod 4. The form
+  `apps/demo`, which is on zod 4. The form
   libraries' adapters in this workspace haven't been upgraded yet.
   Aligning is a tracked follow-up — see the catalog comment in
   `pnpm-workspace.yaml`. Don't try to bump it in passing.

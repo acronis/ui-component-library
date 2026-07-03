@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Ported from ui-legacy without a wired "ready for dev" node. The intended design
+// Ported from the legacy shadcn UI kit without a wired "ready for dev" node. The intended design
 // is Cyber-Compliance node 3442-31542 (the side panel that was `Details` in Vue).
 // Replace 'FIGMA_NODE_URL' and flip to COMPLETE via
 // `/figma-component Sheet <url> --update`, then validate with `figma:connect`.

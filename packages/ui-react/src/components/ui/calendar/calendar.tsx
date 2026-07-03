@@ -14,7 +14,7 @@ import {
 
 import { cn } from '@/lib/utils';
 
-// Ported from ui-legacy's `calendar` — a themed wrapper around `react-day-picker`
+// Ported from the legacy shadcn UI kit's `calendar` — a themed wrapper around `react-day-picker`
 // (`DayPicker`). It supports single/multiple/range selection, month/dropdown
 // caption layouts, outside/disabled days, and keyboard navigation, all handled
 // by react-day-picker.

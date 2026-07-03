@@ -9,7 +9,7 @@ import {
   FilterMultipleGroups,
   FilterInToolbar,
   FilterDisabled,
-} from '@spec-lab/shadcn-uikit-demos/filter';
+} from '@spec-lab/ui-kit-demos/filter';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

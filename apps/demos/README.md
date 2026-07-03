@@ -1,4 +1,4 @@
-# `@spec-lab/shadcn-uikit-demos`
+# `@spec-lab/ui-kit-demos`
 
 Shared **source-only** demo components consumed by `apps/demo` and
 `apps/docs` via the pnpm workspace protocol.
@@ -10,7 +10,7 @@ This workspace deliberately has no `dev` script. The TSX files under
 
 - `apps/demo` — through the `resolveAtAlias` Vite plugin that maps
   `@/...` from any importer's tree onto `apps/demos/src/...`. Run
-  `pnpm --filter @spec-lab/shadcn-uikit-demo dev` to iterate on
+  `pnpm --filter @spec-lab/ui-kit-demo dev` to iterate on
   a demo with HMR; edits in `apps/demos/src/` reload instantly.
 - `apps/docs` — through Fumadocs' `<DemoPreview sourcePath="apps/demos/src/...">`
   RSC, which renders the demo inside the docs site. Run
@@ -39,6 +39,6 @@ artefact to produce, no tests live here). `lint`, `lint:fix`, and
 workspace filter:
 
 ```bash
-pnpm --filter @spec-lab/shadcn-uikit-demos typecheck
-pnpm --filter @spec-lab/shadcn-uikit-demos lint
+pnpm --filter @spec-lab/ui-kit-demos typecheck
+pnpm --filter @spec-lab/ui-kit-demos lint
 ```

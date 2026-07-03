@@ -4,11 +4,11 @@ import { useRender } from '@base-ui/react/use-render';
 
 import { cn } from '@/lib/utils';
 
-// Initial version ported from `@spec-lab/shadcn-uikit`'s `card`
-// (packages/ui-legacy/src/components/ui/card.tsx). No "ready for dev" Figma node
-// exists yet, so this is a design-pending v1: there is no `--ui-card-*` token
-// tier, so the surface/text/border colors resolve to the shared **semantic**
-// tokens via the bridged Tailwind names in `src/styles/index.css`:
+// Initial version ported from the legacy shadcn UI kit's `card`. No "ready
+// for dev" Figma node exists yet, so this is a design-pending v1: there is no
+// `--ui-card-*` token tier, so the surface/text/border colors resolve to the
+// shared **semantic** tokens via the bridged Tailwind names in
+// `src/styles/index.css`:
 //   • bg-background    → --ui-background-surface-primary   (legacy `bg-card`)
 //   • text-foreground  → --ui-text-on-surface-primary      (legacy `text-card-foreground`)
 //   • border-border    → --ui-border-on-surface-border      (legacy bare `border`)

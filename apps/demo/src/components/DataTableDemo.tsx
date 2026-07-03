@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DataTableFull } from '@spec-lab/shadcn-uikit-demos/data-table';
+import { DataTableFull } from '@spec-lab/ui-kit-demos/data-table';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

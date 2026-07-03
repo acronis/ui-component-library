@@ -10,7 +10,7 @@ export interface AspectRatioProps extends React.ComponentPropsWithoutRef<'div'> 
   ratio?: number;
 }
 
-// Ported from ui-legacy's `aspect-ratio`. A layout-only primitive that
+// Ported from the legacy shadcn UI kit's `aspect-ratio`. A layout-only primitive that
 // constrains its box to a given width:height ratio; the child (e.g. an image or
 // video) fills it. It carries no color tokens.
 //

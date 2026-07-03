@@ -80,7 +80,7 @@ export default defineConfig(({ mode }) => ({
     alias: {
       // Consume the shared demos package from source (HMR); its own imports of
       // @spec-lab/ui-react resolve via node_modules.
-      '@spec-lab/shadcn-uikit-demos': resolve(__dirname, '../demos/src'),
+      '@spec-lab/ui-kit-demos': resolve(__dirname, '../demos/src'),
     },
     extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json'],
   },

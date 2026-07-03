@@ -12,7 +12,7 @@ import {
   ButtonGroupZoomControls,
   ButtonGroupSizes,
   ButtonGroupComplexToolbar,
-} from '@spec-lab/shadcn-uikit-demos/button-group';
+} from '@spec-lab/ui-kit-demos/button-group';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

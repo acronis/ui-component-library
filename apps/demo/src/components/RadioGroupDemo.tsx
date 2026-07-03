@@ -10,7 +10,7 @@ import {
   RadioGroupCards,
   RadioGroupSizes,
   RadioGroupPriority,
-} from '@spec-lab/shadcn-uikit-demos/radio-group';
+} from '@spec-lab/ui-kit-demos/radio-group';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

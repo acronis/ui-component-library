@@ -10,7 +10,7 @@ import {
   TabsDocumentation,
   TabsCompact,
   TabsVertical,
-} from '@spec-lab/shadcn-uikit-demos/tabs';
+} from '@spec-lab/ui-kit-demos/tabs';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

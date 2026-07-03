@@ -12,7 +12,7 @@ import {
   DropdownMenuDisabled,
   DropdownMenuAlignments,
   DropdownMenuComplex,
-} from '@spec-lab/shadcn-uikit-demos/dropdown-menu';
+} from '@spec-lab/ui-kit-demos/dropdown-menu';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

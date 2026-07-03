@@ -9,7 +9,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@spec-lab/icons-react/stroke-mono
 import { cn } from '@/lib/utils';
 import { Button, type ButtonProps } from '../button';
 
-// Ported from ui-legacy's `carousel` — a slideshow built on the headless
+// Ported from the legacy shadcn UI kit's `carousel` — a slideshow built on the headless
 // `embla-carousel-react` engine (drag, snap, loop, orientation, autoplay
 // plugins). Composable parts share one embla instance via context.
 //

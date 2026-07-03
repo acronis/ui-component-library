@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ChartAll } from '@spec-lab/shadcn-uikit-demos/chart';
+import { ChartAll } from '@spec-lab/ui-kit-demos/chart';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

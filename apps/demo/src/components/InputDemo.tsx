@@ -12,7 +12,7 @@ import {
   InputForm,
   InputSearch,
   InputVariousTypes,
-} from '@spec-lab/shadcn-uikit-demos/input';
+} from '@spec-lab/ui-kit-demos/input';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

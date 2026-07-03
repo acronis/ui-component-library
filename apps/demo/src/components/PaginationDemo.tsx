@@ -5,7 +5,7 @@ import {
   PaginationLastPage,
   PaginationSimple,
   PaginationCompact,
-} from '@spec-lab/shadcn-uikit-demos/pagination';
+} from '@spec-lab/ui-kit-demos/pagination';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

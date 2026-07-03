@@ -12,7 +12,7 @@ import {
   CalendarFixedWeeks,
   CalendarWeekStart,
   CalendarMinMax,
-} from '@spec-lab/shadcn-uikit-demos/calendar';
+} from '@spec-lab/ui-kit-demos/calendar';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -1,4 +1,4 @@
-# @spec-lab/shadcn-uikit-demo
+# @spec-lab/ui-kit-demo
 
 Demo application showcasing all components from the @spec-lab/shadcn-uikit library.
 

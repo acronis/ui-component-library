@@ -36,7 +36,7 @@ top of this file.
 
 ## The shared demos package
 
-The `@spec-lab/shadcn-uikit-demos` workspace (consumed by `apps/demo`) now
+The `@spec-lab/ui-kit-demos` workspace (consumed by `apps/demo`) now
 imports `@spec-lab/ui-react` **directly** — the legacy package it was named after
 is gone, and the old `.storybook`/tsconfig alias that remapped the legacy
 specifier to this library's `src` has been removed. This library's Storybook

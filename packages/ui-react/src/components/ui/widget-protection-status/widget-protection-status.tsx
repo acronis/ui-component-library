@@ -3,9 +3,8 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 // Composable dashboard-widget protection-status parts, ported from
-// `@spec-lab/shadcn-uikit`'s `widget-protection-status`
-// (packages/ui-legacy/src/components/ui/widget-protection-status.tsx). Plain
-// styled elements — no Base UI primitive. No `--ui-widget-protection-status-*`
+// the legacy shadcn UI kit's `widget-protection-status`. Plain styled
+// elements — no Base UI primitive. No `--ui-widget-protection-status-*`
 // tier exists yet, so this design-pending v1 themes the chrome from the shared
 // semantic vocabulary (same root/header/icon mapping as `widget-placeholder`):
 //   • root      -> border-border + bg-background + text-foreground

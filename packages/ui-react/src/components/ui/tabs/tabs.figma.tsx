@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Ported from ui-legacy without a "ready for dev" Figma node. Tabs is a
+// Ported from the legacy shadcn UI kit without a "ready for dev" Figma node. Tabs is a
 // compositional component (the only enum-ish prop, orientation, lives on Base
 // UI's Root), so there are no property mappings to verify here — only the node
 // URL is missing. Replace 'FIGMA_NODE_URL' with the component-set link and flip

@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Ported from ui-legacy without a "ready for dev" Figma node. A Figma node would
+// Ported from the legacy shadcn UI kit without a "ready for dev" Figma node. A Figma node would
 // map the group's `orientation` and its segmented children. Replace
 // 'FIGMA_NODE_URL' and flip to COMPLETE via
 // `/figma-component ButtonGroup <url> --update`.

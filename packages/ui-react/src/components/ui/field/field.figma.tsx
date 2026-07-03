@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Ported from ui-legacy without a "ready for dev" Figma node, rebuilt on Base UI's
+// Ported from the legacy shadcn UI kit without a "ready for dev" Figma node, rebuilt on Base UI's
 // Field. A Figma node would map a labelled field (label / control / description /
 // error). Replace 'FIGMA_NODE_URL' and flip to COMPLETE via
 // `/figma-component Field <url> --update`.

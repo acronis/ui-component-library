@@ -8,8 +8,7 @@ import { cn } from '@/lib/utils';
 import { labelClassName } from '../label';
 import { Separator } from '../separator';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `field`
-// (packages/ui-legacy/src/components/ui/field.tsx), rebuilt on Base UI's `Field`
+// Ported from the legacy shadcn UI kit's `field`, rebuilt on Base UI's `Field`
 // primitive. `Field` (Root) / `FieldLabel` / `FieldControl` / `FieldDescription` /
 // `FieldError` auto-wire the label↔control↔description↔error associations and
 // expose Base UI's validity state — no manual `htmlFor`/`id`/`aria-*`. The

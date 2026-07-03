@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WORKSPACES: >-
-        @spec-lab/shadcn-uikit-demo
-        @spec-lab/shadcn-uikit-demos
+        @spec-lab/ui-kit-demo
+        @spec-lab/ui-kit-demos
         @spec-lab/uikit-docs
         @spec-lab/tokens
         @spec-lab/icons-react

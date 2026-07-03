@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 import { Checkbox } from '../checkbox';
 import { ScrollArea } from '../scroll-area';
 
-// Ported from ui-legacy's `tree` (packages/ui-legacy/src/components/ui/tree.tsx)
+// Ported from the legacy shadcn UI kit's `tree`
 // and reconciled against the Figma "Tree" component set
 // (node 2847-8319 / doc 2092-2578): a tree menu, used inside dropdowns and as a
 // standalone tree view. A row can carry an expand chevron, a checkbox, a leading

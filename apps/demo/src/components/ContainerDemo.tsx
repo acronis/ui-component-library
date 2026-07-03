@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ContainerResponsive } from '@spec-lab/shadcn-uikit-demos/container';
+import { ContainerResponsive } from '@spec-lab/ui-kit-demos/container';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

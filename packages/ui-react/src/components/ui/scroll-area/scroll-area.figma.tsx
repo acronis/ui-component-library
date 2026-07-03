@@ -1,5 +1,5 @@
 // Figma Code Connect — status: NEEDS_FIGMA_URL
-// Ported from ui-legacy without a "ready for dev" Figma node. ScrollArea is a
+// Ported from the legacy shadcn UI kit without a "ready for dev" Figma node. ScrollArea is a
 // compositional component (its only prop is the structural `orientation`), so
 // there are no visual variant mappings to verify — only the node URL is missing.
 // Replace 'FIGMA_NODE_URL' with the component link and flip the status to

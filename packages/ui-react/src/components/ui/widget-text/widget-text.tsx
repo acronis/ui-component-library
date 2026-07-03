@@ -3,9 +3,8 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 // WidgetText — text-based dashboard metric widget, ported from
-// `@spec-lab/shadcn-uikit`'s `widget-text`
-// (packages/ui-legacy/src/components/ui/widget-text.tsx). Plain styled
-// elements — no Base UI primitive. No `--ui-widget-text-*` tier exists yet,
+// the legacy shadcn UI kit's `widget-text`. Plain styled elements — no Base
+// UI primitive. No `--ui-widget-text-*` tier exists yet,
 // so this design-pending v1 themes from the shared semantic vocabulary
 // (mirroring the widget-placeholder reference port):
 //   • root      -> border-border + bg-background + text-foreground (legacy's

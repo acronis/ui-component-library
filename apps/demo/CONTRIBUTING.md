@@ -1,4 +1,4 @@
-# Contributing to `@spec-lab/shadcn-uikit-demo`
+# Contributing to `@spec-lab/ui-kit-demo`
 
 This is the Vite-based demo SPA used to exercise the published library
 in realistic flows. **Private**, not published, **no changeset needed**.
@@ -25,7 +25,7 @@ If a demo is reusable across both this app and `apps/docs`, build it in
 
 ## Workflow
 
-1. `pnpm --filter @spec-lab/shadcn-uikit-demo dev` →
+1. `pnpm --filter @spec-lab/ui-kit-demo dev` →
    `http://localhost:3000`.
 2. Add or update pages under `src/`.
 3. If you're showcasing a new library component, add it to the
@@ -38,10 +38,10 @@ If a demo is reusable across both this app and `apps/docs`, build it in
 ## Verification
 
 ```bash
-pnpm --filter @spec-lab/shadcn-uikit-demo typecheck
-pnpm --filter @spec-lab/shadcn-uikit-demo lint
-pnpm --filter @spec-lab/shadcn-uikit-demo build  # production build
-pnpm --filter @spec-lab/shadcn-uikit-demo preview
+pnpm --filter @spec-lab/ui-kit-demo typecheck
+pnpm --filter @spec-lab/ui-kit-demo lint
+pnpm --filter @spec-lab/ui-kit-demo build  # production build
+pnpm --filter @spec-lab/ui-kit-demo preview
 ```
 
 Manual smoke testing in `pnpm dev` is the primary verification. There

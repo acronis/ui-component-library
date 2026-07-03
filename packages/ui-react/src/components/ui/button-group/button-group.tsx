@@ -6,7 +6,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
 
-// Ported from ui-legacy's `button-group`. Groups adjacent `Button`s (and other
+// Ported from the legacy shadcn UI kit's `button-group`. Groups adjacent `Button`s (and other
 // controls) into a single segmented control: the root collapses the shared inner
 // edges so the buttons read as one unit. Two parts join them — a static text/icon
 // addon (`ButtonGroupText`) and a divider (`ButtonGroupSeparator`, which reuses

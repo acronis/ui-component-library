@@ -5,10 +5,10 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-// Initial version ported from `@spec-lab/shadcn-uikit`'s `dialog`
-// (packages/ui-legacy/src/components/ui/dialog.tsx). A modal overlay built on
-// the Base UI Dialog primitive (keyboard, focus trap, scroll lock, ARIA come
-// from Base UI). No `--ui-dialog-*` token tier exists yet, so this design-
+// Initial version ported from the legacy shadcn UI kit's `dialog`. A modal
+// overlay built on the Base UI Dialog primitive (keyboard, focus trap, scroll
+// lock, ARIA come from Base UI). No `--ui-dialog-*` token tier exists yet, so
+// this design-
 // pending v1 themes from the shared semantic tokens via bridged Tailwind names:
 //   • overlay  -> var(--ui-background-overlay-primary)   (legacy `bg-black/80`)
 //   • popup    -> bg-muted        = --ui-background-surface-secondary

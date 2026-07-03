@@ -11,8 +11,8 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@spec-lab/shadcn-uikit-demo",
-    "@spec-lab/shadcn-uikit-demos",
+    "@spec-lab/ui-kit-demo",
+    "@spec-lab/ui-kit-demos",
     "@spec-lab/uikit-docs"
   ]
 }

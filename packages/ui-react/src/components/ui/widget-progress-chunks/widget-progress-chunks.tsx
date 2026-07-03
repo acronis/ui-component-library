@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-// Chunked-progress dashboard widget, ported from `@spec-lab/shadcn-uikit`'s
-// `widget-progress-chunks` (packages/ui-legacy/src/components/ui/widget-progress-chunks.tsx).
-// Plain styled elements — no Base UI primitive, mirroring the sibling
+// Chunked-progress dashboard widget, ported from the legacy shadcn UI kit's
+// `widget-progress-chunks`. Plain styled elements — no Base UI primitive,
+// mirroring the sibling
 // `widget`/`widget-placeholder` ports. No `--ui-widget-progress-chunks-*` tier
 // exists yet, so this design-pending v1 themes from the shared semantic
 // vocabulary:

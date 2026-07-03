@@ -3,8 +3,7 @@ import { Popover as PopoverPrimitive } from '@base-ui/react/popover';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab/shadcn-uikit`'s `popover`
-// (packages/ui-legacy/src/components/ui/popover.tsx). A floating panel anchored
+// Ported from the legacy shadcn UI kit's `popover`. A floating panel anchored
 // to a trigger, built on the Base UI Popover primitive (positioning, focus
 // management, outside-press / Esc dismissal, ARIA come from Base UI). No
 // `--ui-popover-*` token tier exists yet, so this design-pending v1 themes from

@@ -4,7 +4,7 @@ import {
   ButtonTranslucent,
   ButtonSizes,
   ButtonDisabled,
-} from '@spec-lab/shadcn-uikit-demos/button';
+} from '@spec-lab/ui-kit-demos/button';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

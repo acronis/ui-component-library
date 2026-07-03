@@ -7,7 +7,7 @@ import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono';
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent } from '../dialog';
 
-// Command palette. Ported from ui-legacy's `command` (a cmdk wrapper) and rebuilt
+// Command palette. Ported from the legacy shadcn UI kit's `command` (a cmdk wrapper) and rebuilt
 // on ui-react conventions per the roadmap ("Command builds on Combobox + Dialog")
 // — no cmdk dependency. It's the Base UI Combobox primitive rendered as an
 // **always-open, inline** filtered list (Combobox.List renders without a

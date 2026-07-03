@@ -5,7 +5,7 @@ import {
   ChipRemovable,
   ChipWithIconsRemovable,
   ChipFilters,
-} from '@spec-lab/shadcn-uikit-demos/chip';
+} from '@spec-lab/ui-kit-demos/chip';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

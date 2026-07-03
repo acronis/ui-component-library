@@ -4,7 +4,7 @@ import {
   NavigationMenuSecondaryTab,
   NavigationMenuSimple,
   NavigationMenuWithIcons,
-} from '@spec-lab/shadcn-uikit-demos/navigation-menu';
+} from '@spec-lab/ui-kit-demos/navigation-menu';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

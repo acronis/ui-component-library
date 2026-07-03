@@ -12,7 +12,7 @@ import {
   LoginPattern,
   SignupPattern,
   ErrorPagesPattern,
-} from '@spec-lab/shadcn-uikit-demos/patterns';
+} from '@spec-lab/ui-kit-demos/patterns';
 
 export function PatternsDemo() {
   return (
