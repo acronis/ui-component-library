@@ -4,20 +4,26 @@
 :root, :host {
   --ui-button-icon-global-container-border-radius: var(--ui-units-radius-4);
   --ui-button-icon-global-container-color-active: var(--ui-background-surface-active);
-  --ui-button-icon-global-container-color-disabled: var(--ui-background-transparent);
+  --ui-button-icon-global-container-color-disabled: var(--ui-background-surface-transparent);
   --ui-button-icon-global-container-color-hover: var(--ui-background-surface-hover);
-  --ui-button-icon-global-container-color-idle: var(--ui-background-transparent);
+  --ui-button-icon-global-container-color-idle: var(--ui-background-surface-transparent);
   --ui-button-icon-global-container-height: var(--ui-units-size-32);
   --ui-button-icon-global-container-padding-x: var(--ui-units-gap-4);
+  --ui-button-icon-global-container-width: var(--ui-units-size-32);
   --ui-button-icon-global-icon-color-active: var(--ui-glyph-on-surface-primary);
   --ui-button-icon-global-icon-color-disabled: var(--ui-glyph-on-surface-disabled);
   --ui-button-icon-global-icon-color-hover: var(--ui-glyph-on-surface-primary);
   --ui-button-icon-global-icon-color-idle: var(--ui-glyph-on-surface-primary);
-  --ui-button-icon-global-icon-size: var(--ui-units-size-24);
-  --ui-button-icon-secondary-container-border-color-active: var(--ui-border-transparent);
-  --ui-button-icon-secondary-container-border-color-disabled: var(--ui-border-on-surface-border);
-  --ui-button-icon-secondary-container-border-color-hover: var(--ui-border-transparent);
-  --ui-button-icon-secondary-container-border-color-idle: var(--ui-border-on-surface-border);
+  --ui-button-icon-global-icon-size: var(--ui-units-size-16);
+  --ui-button-icon-secondary-container-border-color-active: var(--ui-border-on-surface-border-active);
+  --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-electricblue-electricblue-3);
+  --ui-button-icon-secondary-container-border-color-hover: var(--ui-border-on-surface-border-active);
+  --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-electricblue-electricblue-3);
   --ui-button-icon-secondary-container-border-style: solid;
   --ui-button-icon-secondary-container-border-width: var(--ui-units-stroke-1);
+}
+
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+  --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+  --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }

@@ -13,7 +13,7 @@
   --ui-button-ai-icon-color-hover: var(--ui-glyph-on-brand-primary);
   --ui-button-ai-icon-color-idle: var(--ui-glyph-on-brand-primary);
   --ui-button-ai-label-color-active: var(--ui-text-on-brand-primary);
-  --ui-button-ai-label-color-disabled: var(--ui-text-on-brand-disabled);
+  --ui-button-ai-label-color-disabled: var(--ui-text-on-brand-primary);
   --ui-button-ai-label-color-hover: var(--ui-text-on-brand-primary);
   --ui-button-ai-label-color-idle: var(--ui-text-on-brand-primary);
   --ui-button-destructive-container-color-active: var(--ui-background-status-strong-danger-pressed);
@@ -23,11 +23,11 @@
   --ui-button-destructive-container-padding-x: var(--ui-units-gap-12);
   --ui-button-destructive-container-width-min: var(--ui-units-size-64);
   --ui-button-destructive-icon-color-active: var(--ui-glyph-on-brand-primary);
-  --ui-button-destructive-icon-color-disabled: var(--ui-glyph-on-brand-disabled);
+  --ui-button-destructive-icon-color-disabled: var(--ui-glyph-on-brand-primary);
   --ui-button-destructive-icon-color-hover: var(--ui-glyph-on-brand-primary);
   --ui-button-destructive-icon-color-idle: var(--ui-glyph-on-brand-primary);
   --ui-button-destructive-label-color-active: var(--ui-text-on-brand-primary);
-  --ui-button-destructive-label-color-disabled: var(--ui-text-on-brand-disabled);
+  --ui-button-destructive-label-color-disabled: var(--ui-text-on-brand-primary);
   --ui-button-destructive-label-color-hover: var(--ui-text-on-brand-primary);
   --ui-button-destructive-label-color-idle: var(--ui-text-on-brand-primary);
   --ui-button-ghost-container-padding-x: var(--ui-units-gap-0);
@@ -38,7 +38,7 @@
   --ui-button-ghost-label-color-active: var(--ui-text-on-surface-link-pressed);
   --ui-button-ghost-label-color-disabled: var(--ui-text-on-surface-link-disabled);
   --ui-button-ghost-label-color-hover: var(--ui-text-on-surface-link-hover);
-  --ui-button-ghost-label-color-idle: var(--ui-text-on-surface-link);
+  --ui-button-ghost-label-color-idle: var(--ui-text-on-surface-link-idle);
   --ui-button-ghost-label-text-decoration-active: none;
   --ui-button-ghost-label-text-decoration-disabled: none;
   --ui-button-ghost-label-text-decoration-hover: underline;
@@ -48,26 +48,6 @@
   --ui-button-global-container-height: var(--ui-units-size-32);
   --ui-button-global-container-padding-y: var(--ui-units-gap-8);
   --ui-button-global-icon-size: var(--ui-units-size-16);
-  --ui-button-inverted-container-border-color-active: transparent;
-  --ui-button-inverted-container-border-color-disabled: var(--ui-palette-transparent-inverted-9);
-  --ui-button-inverted-container-border-color-hover: transparent;
-  --ui-button-inverted-container-border-color-idle: transparent;
-  --ui-button-inverted-container-border-style: solid;
-  --ui-button-inverted-container-border-width: var(--ui-units-stroke-1);
-  --ui-button-inverted-container-color-active: var(--ui-background-inverted-active);
-  --ui-button-inverted-container-color-disabled: var(--ui-background-inverted-disabled);
-  --ui-button-inverted-container-color-hover: var(--ui-background-inverted-hover);
-  --ui-button-inverted-container-color-idle: var(--ui-background-inverted-primary);
-  --ui-button-inverted-container-padding-x: var(--ui-units-gap-12);
-  --ui-button-inverted-container-width-min: var(--ui-units-size-64);
-  --ui-button-inverted-icon-color-active: var(--ui-glyph-on-inverted-primary);
-  --ui-button-inverted-icon-color-disabled: var(--ui-glyph-on-inverted-disabled);
-  --ui-button-inverted-icon-color-hover: var(--ui-glyph-on-inverted-primary);
-  --ui-button-inverted-icon-color-idle: var(--ui-glyph-on-inverted-primary);
-  --ui-button-inverted-label-color-active: var(--ui-text-on-overlay-primary);
-  --ui-button-inverted-label-color-disabled: var(--ui-text-on-inverted-disabled);
-  --ui-button-inverted-label-color-hover: var(--ui-text-on-inverted-primary);
-  --ui-button-inverted-label-color-idle: var(--ui-text-on-inverted-primary);
   --ui-button-primary-container-color-active: var(--ui-background-brand-secondary-active);
   --ui-button-primary-container-color-disabled: var(--ui-background-brand-secondary-disabled);
   --ui-button-primary-container-color-hover: var(--ui-background-brand-secondary-hover);
@@ -75,17 +55,17 @@
   --ui-button-primary-container-padding-x: var(--ui-units-gap-12);
   --ui-button-primary-container-width-min: var(--ui-units-size-64);
   --ui-button-primary-icon-color-active: var(--ui-glyph-on-brand-primary);
-  --ui-button-primary-icon-color-disabled: var(--ui-glyph-on-brand-disabled);
+  --ui-button-primary-icon-color-disabled: var(--ui-glyph-on-brand-primary);
   --ui-button-primary-icon-color-hover: var(--ui-glyph-on-brand-primary);
   --ui-button-primary-icon-color-idle: var(--ui-glyph-on-brand-primary);
   --ui-button-primary-label-color-active: var(--ui-text-on-brand-primary);
-  --ui-button-primary-label-color-disabled: var(--ui-text-on-brand-disabled);
+  --ui-button-primary-label-color-disabled: var(--ui-text-on-brand-primary);
   --ui-button-primary-label-color-hover: var(--ui-text-on-brand-primary);
   --ui-button-primary-label-color-idle: var(--ui-text-on-brand-primary);
-  --ui-button-secondary-container-border-color-active: transparent;
-  --ui-button-secondary-container-border-color-disabled: var(--ui-border-on-surface-border);
-  --ui-button-secondary-container-border-color-hover: transparent;
-  --ui-button-secondary-container-border-color-idle: var(--ui-border-on-surface-border);
+  --ui-button-secondary-container-border-color-active: var(--ui-border-on-surface-border-active);
+  --ui-button-secondary-container-border-color-disabled: var(--ui-palette-electricblue-electricblue-3);
+  --ui-button-secondary-container-border-color-hover: var(--ui-border-on-surface-border-active);
+  --ui-button-secondary-container-border-color-idle: var(--ui-palette-electricblue-electricblue-3);
   --ui-button-secondary-container-border-style: solid;
   --ui-button-secondary-container-border-width: var(--ui-units-stroke-1);
   --ui-button-secondary-container-color-active: var(--ui-background-surface-active);
@@ -98,10 +78,10 @@
   --ui-button-secondary-icon-color-disabled: var(--ui-glyph-on-surface-disabled);
   --ui-button-secondary-icon-color-hover: var(--ui-glyph-on-surface-primary);
   --ui-button-secondary-icon-color-idle: var(--ui-glyph-on-surface-primary);
-  --ui-button-secondary-label-color-active: var(--ui-text-on-surface-link);
+  --ui-button-secondary-label-color-active: var(--ui-text-on-surface-link-idle);
   --ui-button-secondary-label-color-disabled: var(--ui-text-on-surface-link-disabled);
-  --ui-button-secondary-label-color-hover: var(--ui-text-on-surface-link);
-  --ui-button-secondary-label-color-idle: var(--ui-text-on-surface-link);
+  --ui-button-secondary-label-color-hover: var(--ui-text-on-surface-link-idle);
+  --ui-button-secondary-label-color-idle: var(--ui-text-on-surface-link-idle);
 }
 
 .ui-button-ghost-label-text-style-active {
@@ -144,14 +124,7 @@
   letter-spacing: 0px;
 }
 
-[data-brand='deep-sky'], :host([data-brand='deep-sky']) {
-  --ui-button-destructive-icon-color-active: var(--ui-glyph-on-inverted-primary);
-  --ui-button-destructive-icon-color-disabled: var(--ui-glyph-on-inverted-disabled);
-  --ui-button-destructive-icon-color-hover: var(--ui-glyph-on-inverted-primary);
-  --ui-button-destructive-icon-color-idle: var(--ui-glyph-on-inverted-primary);
-  --ui-button-destructive-label-color-active: var(--ui-text-on-inverted-primary);
-  --ui-button-destructive-label-color-hover: var(--ui-text-on-inverted-primary);
-  --ui-button-destructive-label-color-idle: var(--ui-text-on-inverted-primary);
-  --ui-button-secondary-label-color-active: var(--ui-text-on-surface-link-pressed);
-  --ui-button-secondary-label-color-hover: var(--ui-text-on-surface-link-hover);
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+  --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+  --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }

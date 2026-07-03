@@ -2,22 +2,18 @@
 /* Source: @spec-lab/tokens • tier: semantics */
 
 :root, :host {
+  --ui-background-backdrop-element-primary: var(--ui-palette-transparent-white-inverse-95);
+  --ui-background-backdrop-element-secondary: var(--ui-palette-transparent-blue-inverse-95);
+  --ui-background-backdrop-screen: var(--ui-palette-transparent-dark-fixed-90);
   --ui-background-brand-primary: var(--ui-palette-blue-13);
   --ui-background-brand-primary-active: var(--ui-palette-blue-7);
   --ui-background-brand-primary-disabled: var(--ui-palette-blue-5);
-  --ui-background-brand-primary-focus: var(--ui-palette-blue-10);
   --ui-background-brand-primary-hover: var(--ui-palette-blue-12);
   --ui-background-brand-secondary: var(--ui-palette-blue-7);
   --ui-background-brand-secondary-active: var(--ui-palette-blue-9);
   --ui-background-brand-secondary-disabled: var(--ui-palette-blue-3);
   --ui-background-brand-secondary-hover: var(--ui-palette-blue-8);
-  --ui-background-inverted-active: var(--ui-palette-blue-8);
-  --ui-background-inverted-disabled: var(--ui-palette-blue-11);
-  --ui-background-inverted-hover: var(--ui-palette-blue-9);
-  --ui-background-inverted-primary: var(--ui-palette-blue-10);
-  --ui-background-overlay-inverted: var(--ui-palette-transparent-inverted-1);
-  --ui-background-overlay-inverted-dark: var(--ui-palette-transparent-dark-inverted);
-  --ui-background-overlay-primary: var(--ui-palette-transparent-dark-11);
+  --ui-background-inverse-primary: var(--ui-palette-transparent-dark-inverse-100);
   --ui-background-status-ai: var(--ui-palette-violet-1);
   --ui-background-status-ai-hover: var(--ui-palette-violet-2);
   --ui-background-status-ai-pressed: var(--ui-palette-violet-3);
@@ -41,9 +37,9 @@
   --ui-background-status-strong-danger: var(--ui-palette-red-7);
   --ui-background-status-strong-danger-hover: var(--ui-palette-red-9);
   --ui-background-status-strong-danger-pressed: var(--ui-palette-red-10);
-  --ui-background-status-strong-info: var(--ui-palette-electricblue-electricblue-7-primary);
-  --ui-background-status-strong-info-hover: var(--ui-palette-electricblue-electricblue-8);
-  --ui-background-status-strong-info-pressed: var(--ui-palette-electricblue-electricblue-9);
+  --ui-background-status-strong-info: var(--ui-palette-blue-7);
+  --ui-background-status-strong-info-hover: var(--ui-palette-blue-8);
+  --ui-background-status-strong-info-pressed: var(--ui-palette-blue-9);
   --ui-background-status-strong-neutral: var(--ui-palette-grayscale-7);
   --ui-background-status-strong-neutral-hover: var(--ui-palette-grayscale-8);
   --ui-background-status-strong-neutral-pressed: var(--ui-palette-grayscale-9);
@@ -59,14 +55,14 @@
   --ui-background-status-warning: var(--ui-palette-yellow-1);
   --ui-background-status-warning-hover: var(--ui-palette-yellow-2);
   --ui-background-status-warning-pressed: var(--ui-palette-yellow-3);
-  --ui-background-surface-active: var(--ui-palette-blue-3);
+  --ui-background-surface-active: var(--ui-palette-blue-2);
   --ui-background-surface-hover: var(--ui-palette-blue-1);
   --ui-background-surface-primary: var(--ui-palette-base);
   --ui-background-surface-secondary: var(--ui-palette-blue-0);
-  --ui-background-transparent: var(--ui-palette-transparent-clear);
-  --ui-border-on-brand-border: var(--ui-palette-transparent-inverted-9);
+  --ui-background-surface-transparent: var(--ui-palette-transparent-clear);
+  --ui-border-on-brand-border: var(--ui-palette-transparent-white-fixed-10);
   --ui-border-on-brand-border-active: var(--ui-palette-grayscale-0);
-  --ui-border-on-brand-divider: var(--ui-palette-transparent-inverted-9);
+  --ui-border-on-brand-divider: var(--ui-palette-transparent-white-fixed-10);
   --ui-border-on-status-ai: var(--ui-palette-violet-4);
   --ui-border-on-status-ai-strong: var(--ui-gradients-ai-idle);
   --ui-border-on-status-critical: var(--ui-palette-orange-4);
@@ -90,13 +86,12 @@
   --ui-focus-error: var(--ui-palette-red-4);
   --ui-focus-primary: var(--ui-palette-blue-4);
   --ui-focus-secondary: var(--ui-palette-blue-4);
-  --ui-glyph-on-brand-disabled: var(--ui-palette-transparent-inverted-9);
-  --ui-glyph-on-brand-primary: var(--ui-palette-transparent-inverted-0);
-  --ui-glyph-on-brand-secondary: var(--ui-palette-transparent-inverted-4);
-  --ui-glyph-on-inverted-disabled: var(--ui-palette-transparent-inverted-7);
-  --ui-glyph-on-inverted-primary: var(--ui-palette-transparent-inverted-0);
-  --ui-glyph-on-inverted-secondary: var(--ui-palette-transparent-inverted-4);
-  --ui-glyph-on-overlay-primary: var(--ui-palette-transparent-inverted-0);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-blue-7);
+  --ui-glyph-on-backdrop-screen-primary: var(--ui-palette-transparent-white-fixed-100);
+  --ui-glyph-on-brand-disabled: var(--ui-palette-transparent-white-fixed-10);
+  --ui-glyph-on-brand-primary: var(--ui-palette-transparent-white-fixed-100);
+  --ui-glyph-on-brand-secondary: var(--ui-palette-transparent-white-fixed-60);
+  --ui-glyph-on-inverse-primary: var(--ui-palette-transparent-white-fixed-100);
   --ui-glyph-on-status-ai: var(--ui-palette-violet-11);
   --ui-glyph-on-status-critical: var(--ui-palette-orange-11);
   --ui-glyph-on-status-danger: var(--ui-palette-red-11);
@@ -104,6 +99,7 @@
   --ui-glyph-on-status-info: var(--ui-palette-electricblue-electricblue-11);
   --ui-glyph-on-status-neutral: var(--ui-palette-grayscale-11);
   --ui-glyph-on-status-primary: var(--ui-palette-electricblue-electricblue-11);
+  --ui-glyph-on-status-strong-primary: var(--ui-palette-transparent-white-fixed-100);
   --ui-glyph-on-status-success: var(--ui-palette-green-11);
   --ui-glyph-on-status-warning: var(--ui-palette-yellow-11);
   --ui-glyph-on-surface-brand: var(--ui-palette-blue-13);
@@ -115,39 +111,52 @@
   --ui-gradients-ai-disabled: linear-gradient(90deg, rgb(223 226 255) 20%, rgb(255 218 253) 100%);
   --ui-gradients-ai-hover: linear-gradient(90deg, rgb(51 66 195) 20%, rgb(182 33 174) 100%);
   --ui-gradients-ai-idle: linear-gradient(90deg, rgb(56 73 224) 20%, rgb(252 45 241) 100%);
-  --ui-text-on-brand-disabled: var(--ui-palette-transparent-inverted-0);
-  --ui-text-on-brand-link: var(--ui-palette-blue-7);
-  --ui-text-on-brand-link-disabled: var(--ui-palette-transparent-inverted-1);
+  --ui-text-on-backdrop-element-link-active: var(--ui-palette-electricblue-electricblue-4);
+  --ui-text-on-backdrop-element-link-hover: var(--ui-palette-electricblue-electricblue-4);
+  --ui-text-on-backdrop-element-link-idle: var(--ui-palette-electricblue-electricblue-7-primary);
+  --ui-text-on-backdrop-element-primary: var(--ui-palette-transparent-dark-inverse-100);
+  --ui-text-on-backdrop-screen-link-active: var(--ui-palette-electricblue-electricblue-4);
+  --ui-text-on-backdrop-screen-link-hover: var(--ui-palette-electricblue-electricblue-4);
+  --ui-text-on-backdrop-screen-link-idle: var(--ui-palette-electricblue-electricblue-4);
+  --ui-text-on-backdrop-screen-primary: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-backdrop-screen-secondary: var(--ui-palette-transparent-white-fixed-60);
+  --ui-text-on-brand-disabled: var(--ui-palette-transparent-white-fixed-30);
+  --ui-text-on-brand-link-disabled: var(--ui-palette-transparent-white-fixed-30);
   --ui-text-on-brand-link-hover: var(--ui-palette-blue-5);
+  --ui-text-on-brand-link-idle: var(--ui-palette-blue-7);
   --ui-text-on-brand-link-pressed: var(--ui-palette-blue-3);
-  --ui-text-on-brand-primary: var(--ui-palette-transparent-inverted-0);
-  --ui-text-on-brand-secondary: var(--ui-palette-transparent-inverted-4);
-  --ui-text-on-inverted-disabled: var(--ui-palette-transparent-inverted-7);
-  --ui-text-on-inverted-primary: var(--ui-palette-transparent-inverted-0);
-  --ui-text-on-overlay-inverted-light: var(--ui-palette-transparent-light-inverted);
-  --ui-text-on-overlay-link: var(--ui-palette-blue-7);
-  --ui-text-on-overlay-link-hover: var(--ui-palette-blue-5);
-  --ui-text-on-overlay-link-pressed: var(--ui-palette-blue-3);
-  --ui-text-on-overlay-primary: var(--ui-palette-transparent-inverted-0);
-  --ui-text-on-overlay-secondary: var(--ui-palette-transparent-inverted-4);
+  --ui-text-on-brand-primary: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-brand-secondary: var(--ui-palette-transparent-white-fixed-60);
+  --ui-text-on-inverse-primary: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-inverse-secondary: var(--ui-palette-transparent-white-fixed-60);
   --ui-text-on-status-ai: var(--ui-palette-violet-11);
   --ui-text-on-status-critical: var(--ui-palette-orange-11);
   --ui-text-on-status-danger: var(--ui-palette-red-11);
   --ui-text-on-status-info: var(--ui-palette-electricblue-electricblue-11);
-  --ui-text-on-status-link: var(--ui-palette-electricblue-electricblue-11);
   --ui-text-on-status-link-disabled: var(--ui-palette-electricblue-electricblue-5);
   --ui-text-on-status-link-hover: var(--ui-palette-electricblue-electricblue-13);
+  --ui-text-on-status-link-idle: var(--ui-palette-electricblue-electricblue-11);
   --ui-text-on-status-link-pressed: var(--ui-palette-electricblue-electricblue-14);
   --ui-text-on-status-neutral: var(--ui-palette-grayscale-11);
   --ui-text-on-status-primary: var(--ui-palette-grayscale-14);
   --ui-text-on-status-secondary: var(--ui-palette-grayscale-11);
+  --ui-text-on-status-strong-ai: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-status-strong-critical: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-status-strong-danger: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-status-strong-info: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-status-strong-link: var(--ui-palette-electricblue-electricblue-11);
+  --ui-text-on-status-strong-neutral: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-status-strong-primary: var(--ui-palette-grayscale-0);
+  --ui-text-on-status-strong-secondary: var(--ui-palette-grayscale-2);
+  --ui-text-on-status-strong-success: var(--ui-palette-transparent-white-fixed-100);
+  --ui-text-on-status-strong-warning: var(--ui-palette-transparent-white-fixed-100);
   --ui-text-on-status-success: var(--ui-palette-green-11);
   --ui-text-on-status-warning: var(--ui-palette-yellow-11);
   --ui-text-on-surface-destructive: var(--ui-palette-red-7);
   --ui-text-on-surface-disabled: var(--ui-palette-grayscale-5);
-  --ui-text-on-surface-link: var(--ui-palette-blue-7);
   --ui-text-on-surface-link-disabled: var(--ui-palette-blue-3);
   --ui-text-on-surface-link-hover: var(--ui-palette-blue-8);
+  --ui-text-on-surface-link-idle: var(--ui-palette-blue-7);
   --ui-text-on-surface-link-pressed: var(--ui-palette-blue-11);
   --ui-text-on-surface-primary: var(--ui-palette-grayscale-14);
   --ui-text-on-surface-secondary: var(--ui-palette-grayscale-7);
@@ -305,34 +314,514 @@
   letter-spacing: 1px;
 }
 
-[data-brand='deep-sky'], :host([data-brand='deep-sky']) {
-  --ui-background-brand-primary: rgb(14 105 139);
-  --ui-background-brand-primary-active: rgb(30 172 242);
-  --ui-background-brand-primary-disabled: rgb(162 224 255);
-  --ui-background-brand-primary-focus: rgb(30 172 242);
-  --ui-background-brand-primary-hover: rgb(10 93 123);
-  --ui-background-brand-secondary: rgb(68 81 93);
-  --ui-background-brand-secondary-active: rgb(41 49 55);
-  --ui-background-brand-secondary-disabled: rgb(199 203 207);
-  --ui-background-brand-secondary-hover: rgb(54 65 74);
-  --ui-background-status-off: rgb(199 203 207);
-  --ui-background-surface-active: rgb(216 222 228);
-  --ui-background-surface-hover: rgb(236 238 239);
-  --ui-background-surface-secondary: rgb(246 246 247);
-  --ui-border-on-brand-border-active: var(--ui-palette-transparent-inverted-0);
-  --ui-border-on-surface-border: rgb(199 203 207);
-  --ui-border-on-surface-border-active: rgb(68 81 93);
-  --ui-border-on-surface-divider: rgb(199 203 207);
-  --ui-glyph-on-brand-disabled: var(--ui-palette-transparent-inverted-1);
-  --ui-glyph-on-status-disabled: rgb(199 203 207);
-  --ui-glyph-on-surface-disabled: rgb(199 203 207);
-  --ui-glyph-on-surface-neutral: rgb(199 203 207);
-  --ui-glyph-on-surface-primary: rgb(68 81 93);
-  --ui-text-on-surface-disabled: rgb(41 49 55);
-  --ui-text-on-surface-link: rgb(68 81 93);
-  --ui-text-on-surface-link-disabled: rgb(199 203 207);
-  --ui-text-on-surface-link-hover: rgb(54 65 74);
-  --ui-text-on-surface-link-pressed: rgb(41 49 55);
-  --ui-text-on-surface-primary: rgb(68 81 93);
-  --ui-text-on-surface-secondary: rgb(54 65 74);
+[data-brand='blue-yellow-uss-signal'], :host([data-brand='blue-yellow-uss-signal']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-blue-yellow-uss-signal-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-blue-yellow-uss-signal-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-blue-yellow-uss-signal-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-blue-yellow-uss-signal-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-blue-yellow-uss-signal-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-blue-yellow-uss-signal-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-blue-yellow-uss-signal-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-blue-yellow-uss-signal-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='brown'], :host([data-brand='brown']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-brown-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-brown-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-brown-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-brown-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-brown-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-brown-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-brown-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-brown-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='dark-gray'], :host([data-brand='dark-gray']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-dark-gray-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-dark-gray-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-dark-gray-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-dark-gray-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-dark-gray-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-dark-gray-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-dark-gray-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-dark-gray-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='deep-purple'], :host([data-brand='deep-purple']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-deep-purple-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-deep-purple-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-deep-purple-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-deep-purple-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-deep-purple-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-deep-purple-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-deep-purple-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-deep-purple-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-deep-sky-itkontoret-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-deep-sky-itkontoret-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-deep-sky-itkontoret-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-deep-sky-itkontoret-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-deep-sky-itkontoret-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-deep-sky-itkontoret-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-deep-sky-itkontoret-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-deep-sky-itkontoret-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='green-also-choise-df'], :host([data-brand='green-also-choise-df']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-green-also-choise-df-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-green-also-choise-df-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-green-also-choise-df-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-green-also-choise-df-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-green-also-choise-df-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-green-also-choise-df-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-green-also-choise-df-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-green-also-choise-df-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='ingram-micro'], :host([data-brand='ingram-micro']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-ingram-micro-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-ingram-micro-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-ingram-micro-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-ingram-micro-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-ingram-micro-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-ingram-micro-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-ingram-micro-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-ingram-micro-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='light-blue-hp'], :host([data-brand='light-blue-hp']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-light-blue-hp-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-light-blue-hp-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-light-blue-hp-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-light-blue-hp-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-light-blue-hp-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-light-blue-hp-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-light-blue-hp-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-light-blue-hp-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='light-gray'], :host([data-brand='light-gray']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-light-gray-sidebarprimary-background-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-light-gray-sidebarprimary-background-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-light-gray-sidebarprimary-background-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-light-gray-sidebarprimary-background-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-light-gray-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-light-gray-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-light-gray-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-light-gray-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='orange-tsukaeru-helpox'], :host([data-brand='orange-tsukaeru-helpox']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-orange-tsukaeru-helpox-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-orange-tsukaeru-helpox-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-orange-tsukaeru-helpox-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-orange-tsukaeru-helpox-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-orange-tsukaeru-helpox-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-orange-tsukaeru-helpox-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-orange-tsukaeru-helpox-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-orange-tsukaeru-helpox-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='pinky'], :host([data-brand='pinky']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-pinky-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-pinky-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-pinky-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-pinky-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-pinky-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-pinky-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-pinky-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-pinky-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='purple'], :host([data-brand='purple']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-purple-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-purple-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-purple-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-purple-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-purple-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-purple-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-purple-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-purple-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='purple-fusion-media'], :host([data-brand='purple-fusion-media']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-purple-fusion-media-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-purple-fusion-media-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-purple-fusion-media-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-purple-fusion-media-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-purple-fusion-media-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-purple-fusion-media-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-purple-fusion-media-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-purple-fusion-media-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='red-fire-brick'], :host([data-brand='red-fire-brick']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-red-fire-brick-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-red-fire-brick-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-red-fire-brick-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-red-fire-brick-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-red-fire-brick-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-red-fire-brick-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-red-fire-brick-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-red-fire-brick-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='red-home-pl'], :host([data-brand='red-home-pl']) {
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='sand'], :host([data-brand='sand']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-sand-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-sand-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-sand-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-sand-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-sand-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-sand-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-sand-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-sand-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='telstra'], :host([data-brand='telstra']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-telstra-sidebarprimary-background-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-telstra-sidebarprimary-background-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-telstra-sidebarprimary-background-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-telstra-sidebarprimary-background-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-telstra-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-telstra-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-telstra-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-telstra-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='virtual-one'], :host([data-brand='virtual-one']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-virtual-one-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-virtual-one-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-virtual-one-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-virtual-one-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-virtual-one-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-virtual-one-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-virtual-one-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-virtual-one-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-virtuozzo-sidebarprimary-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-virtuozzo-sidebarprimary-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-virtuozzo-sidebarprimary-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-virtuozzo-sidebarprimary-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-virtuozzo-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-virtuozzo-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-virtuozzo-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-virtuozzo-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
+}
+
+[data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
+  --ui-background-brand-primary: var(--ui-palette-branding-yellow-1c-sidebarprimary-background-idle);
+  --ui-background-brand-primary-active: var(--ui-palette-branding-yellow-1c-sidebarprimary-background-active);
+  --ui-background-brand-primary-disabled: var(--ui-palette-branding-yellow-1c-sidebarprimary-background-disabled);
+  --ui-background-brand-primary-hover: var(--ui-palette-branding-yellow-1c-sidebarprimary-background-hover);
+  --ui-background-brand-secondary: var(--ui-palette-branding-yellow-1c-buttonprimary-idle);
+  --ui-background-brand-secondary-active: var(--ui-palette-branding-yellow-1c-buttonprimary-active);
+  --ui-background-brand-secondary-disabled: var(--ui-palette-branding-yellow-1c-buttonprimary-disabled);
+  --ui-background-brand-secondary-hover: var(--ui-palette-branding-yellow-1c-buttonprimary-hover);
+  --ui-background-status-off: var(--ui-palette-grayscale-3);
+  --ui-background-surface-active: var(--ui-palette-grayscale-2);
+  --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+  --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+  --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+  --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+  --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+  --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+  --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+  --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+  --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+  --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+  --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
 }

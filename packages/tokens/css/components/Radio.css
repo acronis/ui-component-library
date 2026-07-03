@@ -14,9 +14,9 @@
   --ui-radio-checked-icon-color-disabled: var(--ui-glyph-on-surface-disabled);
   --ui-radio-checked-icon-color-hover: var(--ui-glyph-on-brand-primary);
   --ui-radio-checked-icon-color-idle: var(--ui-glyph-on-brand-primary);
-  --ui-radio-global-box-border-radius: var(--ui-units-radius-999);
+  --ui-radio-global-box-border-radius: var(--ui-units-radius-full);
   --ui-radio-global-box-border-width: var(--ui-units-stroke-1);
-  --ui-radio-global-box-margin-x: var(--ui-units-gap-4);
+  --ui-radio-global-box-margin-y: var(--ui-units-gap-4);
   --ui-radio-global-box-size: var(--ui-units-size-16);
   --ui-radio-global-container-content-gap: var(--ui-units-gap-0);
   --ui-radio-global-container-content-width-max: var(--ui-units-size-632);

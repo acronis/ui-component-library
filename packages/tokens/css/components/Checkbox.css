@@ -16,7 +16,7 @@
   --ui-checkbox-checked-icon-color-idle: var(--ui-glyph-on-brand-primary);
   --ui-checkbox-global-box-border-radius: var(--ui-units-radius-2);
   --ui-checkbox-global-box-border-width: var(--ui-units-stroke-1);
-  --ui-checkbox-global-box-margin-x: var(--ui-units-gap-4);
+  --ui-checkbox-global-box-margin-y: var(--ui-units-gap-4);
   --ui-checkbox-global-box-size: var(--ui-units-size-16);
   --ui-checkbox-global-container-content-gap: var(--ui-units-gap-0);
   --ui-checkbox-global-container-content-width-max: var(--ui-units-size-632);

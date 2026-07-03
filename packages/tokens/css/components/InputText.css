@@ -75,7 +75,3 @@
   line-height: 16px;
   letter-spacing: 0px;
 }
-
-[data-brand='deep-sky'], :host([data-brand='deep-sky']) {
-  --ui-input-text-global-placeholder-color-disabled: var(--ui-text-on-surface-secondary);
-}

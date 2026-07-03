@@ -20,7 +20,7 @@
   --ui-sidebar-secondary-global-container-footer-border-color: var(--ui-border-on-surface-border);
   --ui-sidebar-secondary-global-container-footer-border-width: var(--ui-units-stroke-1);
   --ui-sidebar-secondary-global-container-header-padding-x: var(--ui-units-gap-16);
-  --ui-sidebar-secondary-global-container-header-padding-y: var(--ui-units-gap-12);
+  --ui-sidebar-secondary-global-container-header-padding-y: var(--ui-units-gap-16);
   --ui-sidebar-secondary-global-header-label-color: var(--ui-text-on-surface-primary);
   --ui-sidebar-secondary-global-section-list-gap: var(--ui-units-gap-0);
   --ui-sidebar-secondary-menu-item-extras-global-container-gap: var(--ui-units-gap-8);
@@ -42,7 +42,7 @@
   --ui-sidebar-secondary-menu-item-unselected-container-color-hover: var(--ui-background-surface-hover);
   --ui-sidebar-secondary-menu-item-unselected-container-color-idle: var(--ui-background-surface-secondary);
   --ui-sidebar-secondary-section-container-header-gap: var(--ui-units-gap-8);
-  --ui-sidebar-secondary-section-container-header-min-width: undefinedundefined;
+  --ui-sidebar-secondary-section-container-header-min-width: var(--ui-units-size-40);
   --ui-sidebar-secondary-section-container-header-padding-x: var(--ui-units-gap-16);
   --ui-sidebar-secondary-section-container-header-padding-y: var(--ui-units-gap-2);
   --ui-sidebar-secondary-section-container-padding-y: var(--ui-units-gap-0);
@@ -99,10 +99,6 @@
   letter-spacing: 0px;
 }
 
-[data-brand='deep-sky'], :host([data-brand='deep-sky']) {
-  --ui-sidebar-secondary-global-container-color: var(--ui-background-surface-primary);
-  --ui-sidebar-secondary-menu-item-unselected-container-color-idle: var(--ui-background-surface-primary);
-  --ui-sidebar-secondary-section-container-header-padding-y: var(--ui-units-gap-8);
-  --ui-sidebar-secondary-section-container-padding-y: var(--ui-units-gap-8);
-  --ui-sidebar-secondary-section-icon-arrow-color: rgb(255 255 255);
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+  --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
 }

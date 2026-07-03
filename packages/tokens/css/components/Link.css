@@ -2,23 +2,29 @@
 /* Source: @spec-lab/tokens • tier: Link */
 
 :root, :host {
-  --ui-link-color-active: var(--ui-text-on-surface-link-pressed);
-  --ui-link-color-disabled: var(--ui-text-on-surface-link-disabled);
-  --ui-link-color-hover: var(--ui-text-on-surface-link-hover);
-  --ui-link-color-idle: var(--ui-text-on-surface-link);
-  --ui-link-container-gap: var(--ui-units-gap-4);
-  --ui-link-container-height: var(--ui-units-size-32);
-  --ui-link-external-icon-color-active: var(--ui-text-on-surface-link-pressed);
-  --ui-link-external-icon-color-disabled: var(--ui-text-on-surface-link-disabled);
-  --ui-link-external-icon-color-hover: var(--ui-text-on-surface-link-hover);
-  --ui-link-external-icon-color-idle: var(--ui-text-on-surface-link);
-  --ui-link-text-decoration-active: none;
-  --ui-link-text-decoration-disabled: none;
-  --ui-link-text-decoration-hover: underline;
-  --ui-link-text-decoration-idle: none;
+  --ui-link-global-container-gap: var(--ui-units-gap-4);
+  --ui-link-global-container-height: var(--ui-units-size-32);
+  --ui-link-global-text-decoration-active: none;
+  --ui-link-global-text-decoration-disabled: none;
+  --ui-link-global-text-decoration-hover: underline;
+  --ui-link-global-text-decoration-idle: none;
+  --ui-link-inverse-external-icon-color-active: var(--ui-glyph-on-backdrop-screen-primary);
+  --ui-link-inverse-external-icon-color-hover: var(--ui-glyph-on-backdrop-screen-primary);
+  --ui-link-inverse-external-icon-color-idle: var(--ui-glyph-on-backdrop-screen-primary);
+  --ui-link-inverse-text-color-active: var(--ui-text-on-backdrop-screen-link-active);
+  --ui-link-inverse-text-color-hover: var(--ui-text-on-backdrop-screen-link-hover);
+  --ui-link-inverse-text-color-idle: var(--ui-text-on-backdrop-screen-link-idle);
+  --ui-link-normal-external-icon-color-active: var(--ui-text-on-surface-link-pressed);
+  --ui-link-normal-external-icon-color-disabled: var(--ui-text-on-surface-link-disabled);
+  --ui-link-normal-external-icon-color-hover: var(--ui-text-on-surface-link-hover);
+  --ui-link-normal-external-icon-color-idle: var(--ui-text-on-surface-link-idle);
+  --ui-link-normal-text-color-active: var(--ui-text-on-surface-link-pressed);
+  --ui-link-normal-text-color-disabled: var(--ui-text-on-surface-link-disabled);
+  --ui-link-normal-text-color-hover: var(--ui-text-on-surface-link-hover);
+  --ui-link-normal-text-color-idle: var(--ui-text-on-surface-link-idle);
 }
 
-.ui-link-text-style-active {
+.ui-link-global-text-style-active {
   font-family: Inter, system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -26,7 +32,7 @@
   letter-spacing: 0px;
 }
 
-.ui-link-text-style-disabled {
+.ui-link-global-text-style-disabled {
   font-family: Inter, system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -34,7 +40,7 @@
   letter-spacing: 0px;
 }
 
-.ui-link-text-style-hover {
+.ui-link-global-text-style-hover {
   font-family: Inter, system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -42,7 +48,7 @@
   letter-spacing: 0px;
 }
 
-.ui-link-text-style-idle {
+.ui-link-global-text-style-idle {
   font-family: Inter, system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;

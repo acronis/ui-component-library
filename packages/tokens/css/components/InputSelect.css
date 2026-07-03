@@ -139,19 +139,11 @@
   letter-spacing: 0px;
 }
 
-[data-brand='deep-sky'], :host([data-brand='deep-sky']) {
-  --ui-input-select-dropdown-container-border-color: var(--ui-border-on-surface-border);
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
   --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
   --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
   --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
   --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
   --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
-  --ui-input-select-error-icon-color-hover: var(--ui-text-on-surface-secondary);
-  --ui-input-select-error-icon-color-idle: var(--ui-text-on-surface-secondary);
-  --ui-input-select-error-icon-expand-color-hover: var(--ui-glyph-on-surface-primary);
-  --ui-input-select-error-icon-expand-color-idle: var(--ui-glyph-on-surface-primary);
-  --ui-input-select-global-box-gap: var(--ui-units-gap-12);
   --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
-  --ui-input-select-normal-icon-color-hover: var(--ui-text-on-surface-secondary);
-  --ui-input-select-normal-icon-color-idle: var(--ui-text-on-surface-secondary);
 }

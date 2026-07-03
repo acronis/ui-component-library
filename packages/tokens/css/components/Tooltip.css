@@ -3,18 +3,18 @@
 
 :root, :host {
   --ui-tooltip-container-border-radius: var(--ui-units-radius-4);
-  --ui-tooltip-container-color: var(--ui-background-overlay-inverted-dark);
+  --ui-tooltip-container-color: var(--ui-background-inverse-primary);
   --ui-tooltip-container-padding-x: var(--ui-units-gap-12);
   --ui-tooltip-container-padding-y: var(--ui-units-gap-8);
   --ui-tooltip-container-width-max: var(--ui-units-size-256);
   --ui-tooltip-container-width-min: var(--ui-units-size-48);
-  --ui-tooltip-label-color: var(--ui-text-on-overlay-inverted-light);
+  --ui-tooltip-label-color: var(--ui-text-on-inverse-primary);
 }
 
 .ui-tooltip-label-text-style {
   font-family: Inter, system-ui, sans-serif;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 16px;
   letter-spacing: 0px;
 }

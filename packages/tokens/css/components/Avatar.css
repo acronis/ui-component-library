@@ -7,10 +7,10 @@
   --ui-avatar-color-teal: var(--ui-palette-teal-3);
   --ui-avatar-color-violet: var(--ui-palette-violet-3);
   --ui-avatar-color-yellow: var(--ui-palette-yellow-3);
+  --ui-avatar-global-avatar-border-border-radius: var(--ui-units-radius-full);
   --ui-avatar-global-avatar-border-border-style: solid;
   --ui-avatar-global-avatar-border-border-width: var(--ui-units-stroke-2);
   --ui-avatar-global-avatar-border-color: var(--ui-palette-base);
-  --ui-avatar-global-avatar-border-radius: var(--ui-units-radius-999);
   --ui-avatar-global-avatar-group-gap: var(--ui-units-gap-neg-6);
   --ui-avatar-global-avatar-size: var(--ui-units-size-32);
   --ui-avatar-global-container-gap: var(--ui-units-gap-8);

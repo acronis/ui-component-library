@@ -14,7 +14,7 @@
   --ui-tag-danger-container-color: var(--ui-background-status-danger);
   --ui-tag-danger-icon-color: var(--ui-glyph-on-status-danger);
   --ui-tag-danger-label-color: var(--ui-text-on-status-danger);
-  --ui-tag-global-container-border-radius: var(--ui-units-radius-999);
+  --ui-tag-global-container-border-radius: var(--ui-units-radius-full);
   --ui-tag-global-container-border-width: var(--ui-units-stroke-1);
   --ui-tag-global-container-gap: var(--ui-units-gap-4);
   --ui-tag-global-container-padding-x: var(--ui-units-gap-8);

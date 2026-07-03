@@ -3,21 +3,22 @@
 
 :root, :host {
   --ui-table-data-gap: var(--ui-units-gap-8);
+  --ui-table-data-row-color-active: var(--ui-background-surface-hover);
+  --ui-table-data-row-color-hover: var(--ui-background-surface-hover);
+  --ui-table-data-row-color-idle: transparent;
   --ui-table-data-value-color-disabled: var(--ui-text-on-surface-disabled);
   --ui-table-data-value-color-idle: var(--ui-text-on-surface-primary);
-  --ui-table-global-cell-border-color: var(--ui-border-on-surface-border);
-  --ui-table-global-cell-border-style: solid;
-  --ui-table-global-cell-border-width: var(--ui-units-stroke-1);
+  --ui-table-global-cell-icon-margin-y: var(--ui-units-gap-4);
   --ui-table-global-cell-min-height: var(--ui-units-size-40);
   --ui-table-global-cell-padding-x: var(--ui-units-size-16);
   --ui-table-global-cell-padding-y: var(--ui-units-size-8);
-  --ui-table-global-row-color-active: var(--ui-background-surface-active);
-  --ui-table-global-row-color-hover: var(--ui-background-surface-hover);
-  --ui-table-global-row-color-idle: transparent;
+  --ui-table-global-cell-tag-margin-y: var(--ui-units-gap-2);
+  --ui-table-global-row-border-color: var(--ui-border-on-surface-border);
+  --ui-table-global-row-border-style: solid;
+  --ui-table-global-row-border-width: var(--ui-units-stroke-1);
   --ui-table-header-cell-color-active: var(--ui-background-surface-active);
   --ui-table-header-cell-color-hover: var(--ui-background-surface-hover);
   --ui-table-header-cell-color-idle: transparent;
-  --ui-table-header-cell-padding-x: var(--ui-units-size-16);
   --ui-table-header-gap: var(--ui-units-gap-8);
   --ui-table-header-label-color: var(--ui-text-on-surface-primary);
   --ui-table-header-sort-icon-color-active: var(--ui-glyph-on-surface-primary);
