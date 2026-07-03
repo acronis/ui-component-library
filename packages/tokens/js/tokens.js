@@ -85,6 +85,7 @@ export const tokens = {
   "ui-border-on-brand-border": "var(--ui-border-on-brand-border)",
   "ui-border-on-brand-border-active": "var(--ui-border-on-brand-border-active)",
   "ui-border-on-brand-divider": "var(--ui-border-on-brand-divider)",
+  "ui-border-on-status-ai": "var(--ui-border-on-status-ai)",
   "ui-border-on-status-ai-strong": "var(--ui-border-on-status-ai-strong)",
   "ui-border-on-status-critical": "var(--ui-border-on-status-critical)",
   "ui-border-on-status-critical-strong": "var(--ui-border-on-status-critical-strong)",

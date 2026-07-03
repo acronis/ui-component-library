@@ -33,12 +33,10 @@ const alertVariants = cva(
           'border-[var(--ui-border-on-status-danger)] bg-[var(--ui-background-status-danger)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-danger)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-danger)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-danger)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-danger-hover)]',
         neutral:
           'border-[var(--ui-border-on-status-neutral)] bg-[var(--ui-background-status-neutral)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-neutral)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-neutral)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-neutral)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-neutral-hover)]',
-        // The ai border is the pale violet the Figma uses (--ui-palette-violet-4
-        // = #e4cced). There is no --ui-border-on-status-ai semantic token yet
-        // (--ui-border-on-status-ai-strong is the ai *gradient*, invalid as a
-        // border-color), so this references the primitive directly pending an
-        // upstream --ui-border-on-status-ai token.
-        ai: 'border-[var(--ui-palette-violet-4)] bg-[var(--ui-background-status-ai)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:border-[var(--ui-palette-violet-4)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-ai-hover)]',
+        // ai border is the pale violet --ui-border-on-status-ai (= palette
+        // violet-4, #e4cced); note --ui-border-on-status-ai-strong is the ai
+        // *gradient*, not a border color.
+        ai: 'border-[var(--ui-border-on-status-ai)] bg-[var(--ui-background-status-ai)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-ai)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-ai-hover)]',
       },
     },
     defaultVariants: {

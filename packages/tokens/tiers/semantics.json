@@ -781,6 +781,13 @@
         }
       },
       "onStatus": {
+        "ai": {
+          "platforms": ["PD"],
+          "values": {
+            "acronis": "{palette.violet.4}",
+            "deep-sky": "{palette.violet.4}"
+          }
+        },
         "ai-strong": {
           "$extensions": {
             "com.figma.scopes": [],
