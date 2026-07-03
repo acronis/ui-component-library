@@ -1,65 +1,64 @@
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-} from '@spec-lab/shadcn-uikit/react';
+  SidebarPrimary,
+  SidebarPrimaryContent,
+  SidebarPrimaryMenu,
+  SidebarPrimaryMenuItem,
+  SidebarPrimaryMenuItemExtras,
+  SidebarPrimarySection,
+  Tag,
+} from '@spec-lab/ui-react';
 import { CalendarIcon, FileTextIcon, FolderHouseIcon, InboxIcon } from '@spec-lab/icons-react/stroke-mono'
+
 export function SidebarWithBadges() {
   return (
-    <div className="h-[400px] border rounded-lg overflow-hidden flex">
-      <SidebarProvider>
-        <Sidebar collapsible="none">
-          <SidebarContent>
-            <SidebarGroup>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton>
-                      <FolderHouseIcon />
-                      <span>Dashboard</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton>
-                      <InboxIcon />
-                      <span>Messages</span>
-                      <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-[#243143]">
-                        12
-                      </span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton>
-                      <CalendarIcon />
-                      <span>Events</span>
-                      <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-[#243143]">
-                        3
-                      </span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton>
-                      <FileTextIcon />
-                      <span>Documents</span>
-                      <span className="ml-auto rounded-full bg-[#DAE9AE] px-2 py-0 text-[10px] font-bold tracking-wider text-[#407009]">
-                        NEW
-                      </span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </SidebarContent>
-        </Sidebar>
-        <div className="flex-1 flex items-center justify-center p-4 bg-background">
-          <p className="text-sm text-muted-foreground">Main content area</p>
-        </div>
-      </SidebarProvider>
+    <div className="flex h-[400px] overflow-hidden rounded-lg border">
+      <SidebarPrimary>
+        <SidebarPrimaryContent>
+          <SidebarPrimarySection>
+            <SidebarPrimaryMenu>
+              <SidebarPrimaryMenuItem href="#" icon={<FolderHouseIcon />}>
+                Dashboard
+              </SidebarPrimaryMenuItem>
+              <SidebarPrimaryMenuItem href="#" icon={<InboxIcon />}>
+                Messages
+                <SidebarPrimaryMenuItemExtras
+                  variant="tag"
+                  tag={
+                    <Tag variant="neutral" size="sm">
+                      12
+                    </Tag>
+                  }
+                />
+              </SidebarPrimaryMenuItem>
+              <SidebarPrimaryMenuItem href="#" icon={<CalendarIcon />}>
+                Events
+                <SidebarPrimaryMenuItemExtras
+                  variant="tag"
+                  tag={
+                    <Tag variant="neutral" size="sm">
+                      3
+                    </Tag>
+                  }
+                />
+              </SidebarPrimaryMenuItem>
+              <SidebarPrimaryMenuItem href="#" icon={<FileTextIcon />}>
+                Documents
+                <SidebarPrimaryMenuItemExtras
+                  variant="tag"
+                  tag={
+                    <Tag variant="info" size="sm">
+                      NEW
+                    </Tag>
+                  }
+                />
+              </SidebarPrimaryMenuItem>
+            </SidebarPrimaryMenu>
+          </SidebarPrimarySection>
+        </SidebarPrimaryContent>
+      </SidebarPrimary>
+      <div className="flex flex-1 items-center justify-center bg-background p-4">
+        <p className="text-sm text-muted-foreground">Main content area</p>
+      </div>
     </div>
   );
 }

@@ -3,12 +3,13 @@ import { useForm } from '@tanstack/react-form';
 import * as z from 'zod';
 import {
   Field,
-  FieldLabel,
+  FieldControl,
   FieldDescription,
   FieldError,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+  FieldLabel,
+} from '@spec-lab/ui-react';
+import { InputBox } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 const usernameSchema = z
   .string()
@@ -43,38 +44,30 @@ export function FormTanstackBasic() {
             },
           }}
         >
-          {(field) => (
-            <Field
-              data-invalid={
-                field.state.meta.isTouched && field.state.meta.errors.length > 0
-                  ? 'true'
-                  : undefined
-              }
-            >
-              <FieldLabel htmlFor={field.name}>Username</FieldLabel>
-              <Input
-                id={field.name}
-                placeholder="Enter username"
-                value={field.state.value}
-                onChange={(e) => field.handleChange(e.target.value)}
-                onBlur={field.handleBlur}
-                aria-invalid={
-                  field.state.meta.isTouched &&
-                  field.state.meta.errors.length > 0
-                }
-              />
-              <FieldDescription>
-                This is your public display name.
-              </FieldDescription>
-              {field.state.meta.isTouched && (
-                <FieldError
-                  errors={field.state.meta.errors.map((e) => ({
-                    message: e?.toString(),
-                  }))}
+          {(field) => {
+            const errorMessage = field.state.meta.isTouched
+              ? field.state.meta.errors[0]?.toString()
+              : undefined;
+            return (
+              <Field invalid={!!errorMessage}>
+                <FieldLabel>Username</FieldLabel>
+                <FieldControl
+                  render={
+                    <InputBox
+                      placeholder="Enter username"
+                      value={field.state.value}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      onBlur={field.handleBlur}
+                    />
+                  }
                 />
-              )}
-            </Field>
-          )}
+                <FieldDescription>
+                  This is your public display name.
+                </FieldDescription>
+                {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+              </Field>
+            );
+          }}
         </form.Field>
 
         <form.Subscribe

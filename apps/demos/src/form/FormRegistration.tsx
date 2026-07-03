@@ -1,18 +1,11 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Checkbox } from '@spec-lab/shadcn-uikit/react';
+import { Field, FieldControl, FieldError, FieldLabel } from '@spec-lab/ui-react';
+import { InputBox } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Checkbox } from '@spec-lab/ui-react';
 
 const formSchema = z
   .object({
@@ -59,112 +52,100 @@ export function FormRegistration() {
 
   return (
     <div className="w-full max-w-md rounded-lg border p-6">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <FormField
-              control={form.control}
-              name="firstName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>First Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="John" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+          <Controller
+            control={form.control}
+            name="firstName"
+            render={({ field, fieldState }) => (
+              <Field invalid={!!fieldState.error} name={field.name}>
+                <FieldLabel>First Name</FieldLabel>
+                <FieldControl render={<InputBox placeholder="John" {...field} />} />
+                {fieldState.error && (
+                  <FieldError match>{fieldState.error.message}</FieldError>
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            control={form.control}
+            name="lastName"
+            render={({ field, fieldState }) => (
+              <Field invalid={!!fieldState.error} name={field.name}>
+                <FieldLabel>Last Name</FieldLabel>
+                <FieldControl render={<InputBox placeholder="Doe" {...field} />} />
+                {fieldState.error && (
+                  <FieldError match>{fieldState.error.message}</FieldError>
+                )}
+              </Field>
+            )}
+          />
+        </div>
+        <Controller
+          control={form.control}
+          name="email"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Email</FieldLabel>
+              <FieldControl
+                render={<InputBox type="email" placeholder="john@example.com" {...field} />}
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
               )}
-            />
-            <FormField
-              control={form.control}
-              name="lastName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Last Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Doe" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="password"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Password</FieldLabel>
+              <FieldControl
+                render={<InputBox type="password" placeholder="Enter password" {...field} />}
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
               )}
-            />
-          </div>
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="john@example.com"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    type="password"
-                    placeholder="Enter password"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Confirm Password</FormLabel>
-                <FormControl>
-                  <Input
-                    type="password"
-                    placeholder="Confirm password"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="terms"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel className="font-normal">
-                    I accept the terms and conditions
-                  </FormLabel>
-                  <FormMessage />
-                </div>
-              </FormItem>
-            )}
-          />
-          <Button type="submit" className="w-full">
-            Create account
-          </Button>
-        </form>
-      </Form>
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="confirmPassword"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Confirm Password</FieldLabel>
+              <FieldControl
+                render={<InputBox type="password" placeholder="Confirm password" {...field} />}
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="terms"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <Checkbox
+                checked={field.value}
+                onCheckedChange={field.onChange}
+                label="I accept the terms and conditions"
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Button type="submit" className="w-full">
+          Create account
+        </Button>
+      </form>
     </div>
   );
 }

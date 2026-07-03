@@ -1,19 +1,16 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Textarea } from '@spec-lab/shadcn-uikit/react';
+  Field,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from '@spec-lab/ui-react';
+import { InputBox, InputTextArea } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 const formSchema = z.object({
   username: z
@@ -53,68 +50,66 @@ export function FormProfile() {
 
   return (
     <div className="w-full max-w-md">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="johndoe" {...field} />
-                </FormControl>
-                <FormDescription>
-                  This is your public display name. It can be your real name or
-                  a pseudonym.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="john@example.com"
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription>
-                  We&apos;ll never share your email with anyone else.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="bio"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Bio</FormLabel>
-                <FormControl>
-                  <Textarea
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <Controller
+          control={form.control}
+          name="username"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Username</FieldLabel>
+              <FieldControl render={<InputBox placeholder="johndoe" {...field} />} />
+              <FieldDescription>
+                This is your public display name. It can be your real name or a
+                pseudonym.
+              </FieldDescription>
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="email"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Email</FieldLabel>
+              <FieldControl
+                render={<InputBox type="email" placeholder="john@example.com" {...field} />}
+              />
+              <FieldDescription>
+                We&apos;ll never share your email with anyone else.
+              </FieldDescription>
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="bio"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Bio</FieldLabel>
+              <FieldControl
+                render={
+                  <InputTextArea
                     placeholder="Tell us a little bit about yourself"
                     className="resize-none"
                     {...field}
                   />
-                </FormControl>
-                <FormDescription>
-                  You can write up to 160 characters.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">Update profile</Button>
-        </form>
-      </Form>
+                }
+              />
+              <FieldDescription>You can write up to 160 characters.</FieldDescription>
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Button type="submit">Update profile</Button>
+      </form>
     </div>
   );
 }

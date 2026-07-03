@@ -1,4 +1,4 @@
-import { Tree, TreeNode } from '@spec-lab/shadcn-uikit/react';
+import { TreeView, type TreeNode } from '@spec-lab/ui-react';
 import { FolderIcon, RectangleImageIcon, VideoCameraIcon } from '@spec-lab/icons-react/stroke-mono'
 import { MusicIcon } from '../icons/missing-icons';
 const mixedData: TreeNode[] = [
@@ -59,7 +59,7 @@ const mixedData: TreeNode[] = [
 
 export function TreeMixedContent() {
   return (
-    <Tree
+    <TreeView
       data={mixedData}
       showIcon
       showCheckbox

@@ -1,57 +1,56 @@
 import { useState } from 'react';
 import {
-  SecondaryMenu,
-  SecondaryMenuContent,
-  SecondaryMenuGroup,
-  SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
-import { ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
+  SidebarSecondary,
+  SidebarSecondaryContent,
+  SidebarSecondaryMenu,
+  SidebarSecondaryMenuItem,
+  SidebarSecondaryMenuItemExtras,
+  SidebarSecondarySection,
+  SidebarSecondarySectionLabel,
+} from '@spec-lab/ui-react';
+
+// SidebarSecondaryMenuItem only supports fixed-purpose trailing extras (tag /
+// shortcut / externalLink) — there is no generic "custom trailing icon" slot.
+// `externalLink` (a trailing SquareArrowUpRightIcon) is the closest built-in
+// match for "an icon on the right of the row".
 export function SecondaryMenuWithRightIcons() {
   const [activeItem, setActiveItem] = useState('nav1');
 
+  const items = [
+    { id: 'nav1', title: 'General Settings' },
+    { id: 'nav2', title: 'Privacy & Security' },
+    { id: 'nav3', title: 'Notifications' },
+    { id: 'nav4', title: 'Appearance' },
+  ];
+
   return (
     <div
-      className="border rounded-lg overflow-hidden"
+      className="overflow-hidden rounded-lg border"
       style={{ height: '400px' }}
     >
-      <SecondaryMenu>
-        <SecondaryMenuContent>
-          <SecondaryMenuGroup title="Navigation">
-            <SecondaryMenuItem
-              active={activeItem === 'nav1'}
-              onClick={() => setActiveItem('nav1')}
-              icon={<ChevronRightIcon className="h-4 w-4" />}
-              iconPosition="right"
-            >
-              General Settings
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'nav2'}
-              onClick={() => setActiveItem('nav2')}
-              icon={<ChevronRightIcon className="h-4 w-4" />}
-              iconPosition="right"
-            >
-              Privacy & Security
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'nav3'}
-              onClick={() => setActiveItem('nav3')}
-              icon={<ChevronRightIcon className="h-4 w-4" />}
-              iconPosition="right"
-            >
-              Notifications
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'nav4'}
-              onClick={() => setActiveItem('nav4')}
-              icon={<ChevronRightIcon className="h-4 w-4" />}
-              iconPosition="right"
-            >
-              Appearance
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
-        </SecondaryMenuContent>
-      </SecondaryMenu>
+      <SidebarSecondary>
+        <SidebarSecondaryContent>
+          <SidebarSecondarySection>
+            <SidebarSecondarySectionLabel>Navigation</SidebarSecondarySectionLabel>
+            <SidebarSecondaryMenu>
+              {items.map((item) => (
+                <SidebarSecondaryMenuItem
+                  key={item.id}
+                  href="#"
+                  selected={activeItem === item.id}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActiveItem(item.id);
+                  }}
+                >
+                  {item.title}
+                  <SidebarSecondaryMenuItemExtras variant="externalLink" />
+                </SidebarSecondaryMenuItem>
+              ))}
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
+        </SidebarSecondaryContent>
+      </SidebarSecondary>
     </div>
   );
 }

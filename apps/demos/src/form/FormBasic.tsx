@@ -1,18 +1,16 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+  Field,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from '@spec-lab/ui-react';
+import { InputBox } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -36,27 +34,27 @@ export function FormBasic() {
 
   return (
     <div className="w-full max-w-md">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter username" {...field} />
-                </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">Submit</Button>
-        </form>
-      </Form>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <Controller
+          control={form.control}
+          name="username"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Username</FieldLabel>
+              <FieldControl
+                render={<InputBox placeholder="Enter username" {...field} />}
+              />
+              <FieldDescription>
+                This is your public display name.
+              </FieldDescription>
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
     </div>
   );
 }

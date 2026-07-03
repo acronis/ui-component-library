@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import {
-  SecondaryMenu,
-  SecondaryMenuContent,
-  SecondaryMenuGroup,
-  SecondaryMenuItem,
-  SecondaryMenuHeader,
-  SecondaryMenuFooter,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+  Button,
+  SidebarSecondary,
+  SidebarSecondaryContent,
+  SidebarSecondaryFooter,
+  SidebarSecondaryHeader,
+  SidebarSecondaryMenu,
+  SidebarSecondaryMenuItem,
+  SidebarSecondarySection,
+  SidebarSecondarySectionLabel,
+} from '@spec-lab/ui-react';
 
 import { ArrowInDownIcon, ArrowOutUpIcon, FileTextIcon, RectangleImageIcon } from '@spec-lab/icons-react/stroke-mono'
 export function SecondaryMenuComplete() {
@@ -15,65 +17,88 @@ export function SecondaryMenuComplete() {
 
   return (
     <div
-      className="border rounded-lg overflow-hidden"
+      className="overflow-hidden rounded-lg border"
       style={{ height: '500px' }}
     >
-      <SecondaryMenu>
-        <SecondaryMenuHeader>
-          <h3 className="text-sm font-semibold text-[#243143]">File Manager</h3>
-        </SecondaryMenuHeader>
+      <SidebarSecondary>
+        <SidebarSecondaryHeader label="File Manager" />
 
-        <SecondaryMenuContent>
-          <SecondaryMenuGroup title="Recent">
-            <SecondaryMenuItem
-              active={activeItem === 'recent1'}
-              onClick={() => setActiveItem('recent1')}
-              icon={<FileTextIcon className="h-4 w-4" />}
-            >
-              Project Proposal
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'recent2'}
-              onClick={() => setActiveItem('recent2')}
-              icon={<RectangleImageIcon className="h-4 w-4" />}
-            >
-              Design Mockups
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
+        <SidebarSecondaryContent>
+          <SidebarSecondarySection>
+            <SidebarSecondarySectionLabel>Recent</SidebarSecondarySectionLabel>
+            <SidebarSecondaryMenu>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<FileTextIcon />}
+                selected={activeItem === 'recent1'}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveItem('recent1');
+                }}
+              >
+                Project Proposal
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<RectangleImageIcon />}
+                selected={activeItem === 'recent2'}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveItem('recent2');
+                }}
+              >
+                Design Mockups
+              </SidebarSecondaryMenuItem>
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
 
-          <SecondaryMenuGroup title="Folders">
-            <SecondaryMenuItem
-              active={activeItem === 'folder1'}
-              onClick={() => setActiveItem('folder1')}
-              icon={<FileTextIcon className="h-4 w-4" />}
-              iconPosition="left"
-            >
-              Documents
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'folder2'}
-              onClick={() => setActiveItem('folder2')}
-              icon={<RectangleImageIcon className="h-4 w-4" />}
-            >
-              Media
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'folder3'}
-              onClick={() => setActiveItem('folder3')}
-              icon={<ArrowInDownIcon className="h-4 w-4" />}
-            >
-              Downloads
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
-        </SecondaryMenuContent>
+          <SidebarSecondarySection>
+            <SidebarSecondarySectionLabel>Folders</SidebarSecondarySectionLabel>
+            <SidebarSecondaryMenu>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<FileTextIcon />}
+                selected={activeItem === 'folder1'}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveItem('folder1');
+                }}
+              >
+                Documents
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<RectangleImageIcon />}
+                selected={activeItem === 'folder2'}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveItem('folder2');
+                }}
+              >
+                Media
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<ArrowInDownIcon />}
+                selected={activeItem === 'folder3'}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveItem('folder3');
+                }}
+              >
+                Downloads
+              </SidebarSecondaryMenuItem>
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
+        </SidebarSecondaryContent>
 
-        <SecondaryMenuFooter>
-          <Button variant="outline" size="sm" className="w-full">
-            <ArrowOutUpIcon className="mr-2 h-4 w-4" />
+        <SidebarSecondaryFooter className="px-[var(--ui-sidebar-secondary-menu-item-global-container-padding-x)]">
+          <Button variant="secondary" className="w-full">
+            <ArrowOutUpIcon />
             Upload Files
           </Button>
-        </SecondaryMenuFooter>
-      </SecondaryMenu>
+        </SidebarSecondaryFooter>
+      </SidebarSecondary>
     </div>
   );
 }

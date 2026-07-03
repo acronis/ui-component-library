@@ -1,10 +1,24 @@
-import { Button } from '@spec-lab/ui-react';
 import {
+  Button,
+  InputText,
+  Label,
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@spec-lab/ui-react';
-import { Input, Label } from '@spec-lab/shadcn-uikit/react';
+
+// ui-react's `InputText` is a full field wrapper (its own <div>; `className`
+// lands on the inner <input>, not the wrapper), so a bare `col-span-2` on the
+// component itself has no effect on the grid layout below. Wrap it in a div
+// that carries the grid placement instead, and keep the row label as a
+// standalone `Label` (rather than InputText's own `label` prop) so it stays
+// in its own grid column.
+const fields = [
+  { id: 'width', label: 'Width', defaultValue: '100%' },
+  { id: 'maxWidth', label: 'Max. width', defaultValue: '300px' },
+  { id: 'height', label: 'Height', defaultValue: '25px' },
+  { id: 'maxHeight', label: 'Max. height', defaultValue: 'none' },
+];
 
 export function PopoverWithForm() {
   return (
@@ -22,38 +36,14 @@ export function PopoverWithForm() {
               </p>
             </div>
             <div className="grid gap-2">
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="width">Width</Label>
-                <Input
-                  id="width"
-                  defaultValue="100%"
-                  className="col-span-2 h-8"
-                />
-              </div>
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="maxWidth">Max. width</Label>
-                <Input
-                  id="maxWidth"
-                  defaultValue="300px"
-                  className="col-span-2 h-8"
-                />
-              </div>
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="height">Height</Label>
-                <Input
-                  id="height"
-                  defaultValue="25px"
-                  className="col-span-2 h-8"
-                />
-              </div>
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="maxHeight">Max. height</Label>
-                <Input
-                  id="maxHeight"
-                  defaultValue="none"
-                  className="col-span-2 h-8"
-                />
-              </div>
+              {fields.map(({ id, label, defaultValue }) => (
+                <div key={id} className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor={id}>{label}</Label>
+                  <div className="col-span-2">
+                    <InputText id={id} defaultValue={defaultValue} className="h-8" />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </PopoverContent>

@@ -1,4 +1,4 @@
-import { Tree, TreeNode } from '@spec-lab/shadcn-uikit/react';
+import { TreeView, type TreeNode } from '@spec-lab/ui-react';
 
 const deepData: TreeNode[] = [
   {
@@ -33,7 +33,7 @@ const deepData: TreeNode[] = [
 
 export function TreeDeepNesting() {
   return (
-    <Tree
+    <TreeView
       data={deepData}
       defaultExpanded={['level1', 'level2', 'level3', 'level4']}
     />

@@ -1,22 +1,15 @@
-import * as React from 'react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from '@spec-lab/ui-react';
 
-import { ArrowsDownUpIcon, CheckIcon } from '@spec-lab/icons-react/stroke-mono'
-const statuses = [
+type Status = { value: string; label: string };
+
+const statuses: Status[] = [
   { value: 'active', label: 'Active' },
   { value: 'inactive', label: 'Inactive' },
   { value: 'pending', label: 'Pending' },
@@ -24,54 +17,24 @@ const statuses = [
 ];
 
 export function ComboboxSmall() {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
-
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger
-        render={
-          <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            className="h-8 w-[200px] justify-between text-sm"
-          />
-        }
-      >
-        {value
-          ? statuses.find((status) => status.value === value)?.label
-          : 'Select status...'}
-        <ArrowsDownUpIcon className="ml-2 h-3 w-3 shrink-0 opacity-50" />
-      </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
-        <Command>
-          <CommandInput placeholder="Search status..." className="h-8" />
-          <CommandList>
-            <CommandEmpty>No status found.</CommandEmpty>
-            <CommandGroup>
-              {statuses.map((status) => (
-                <CommandItem
-                  key={status.value}
-                  value={status.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? '' : currentValue);
-                    setOpen(false);
-                  }}
-                >
-                  <CheckIcon
-                    className={cn(
-                      'mr-2 h-3 w-3',
-                      value === status.value ? 'opacity-100' : 'opacity-0'
-                    )}
-                  />
-                  {status.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+    <div className="w-[200px]">
+      <Combobox items={statuses}>
+        <ComboboxInput
+          placeholder="Select status..."
+          containerClassName="h-8"
+        />
+        <ComboboxContent>
+          <ComboboxEmpty>No status found.</ComboboxEmpty>
+          <ComboboxList>
+            {(status: Status) => (
+              <ComboboxItem key={status.value} value={status}>
+                {status.label}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   );
 }

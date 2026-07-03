@@ -1,16 +1,16 @@
-import { toast } from '@spec-lab/shadcn-uikit/react';
+import { toast } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 
+// ui-react's toast has no separate `cancel` slot — every toast already shows
+// a built-in close button, and only a single inline `action` is supported.
+// The closest equivalent is a confirm-style toast with one action button;
+// the always-present close button covers "cancel".
 export function SonnerWithCancel() {
   return (
     <Button
       onClick={() =>
         toast('Are you sure?', {
           description: 'This action cannot be undone.',
-          cancel: {
-            label: 'Cancel',
-            onClick: () => console.log('Cancelled'),
-          },
           action: {
             label: 'Continue',
             onClick: () => toast.success('Action completed'),

@@ -1,16 +1,37 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from '@spec-lab/ui-react';
 
-import { ArrowsDownUpIcon } from '@spec-lab/icons-react/stroke-mono'
+type Framework = { value: string; label: string };
+
+const frameworks: Framework[] = [
+  { value: 'next.js', label: 'Next.js' },
+  { value: 'sveltekit', label: 'SvelteKit' },
+  { value: 'nuxt.js', label: 'Nuxt.js' },
+  { value: 'remix', label: 'Remix' },
+];
+
 export function ComboboxDisabled() {
   return (
-    <Button
-      variant="outline"
-      role="combobox"
-      disabled
-      className="w-[280px] justify-between"
-    >
-      Select framework...
-      <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-    </Button>
+    <div className="w-[280px]">
+      <Combobox items={frameworks} disabled>
+        <ComboboxInput placeholder="Select framework..." />
+        <ComboboxContent>
+          <ComboboxEmpty>No framework found.</ComboboxEmpty>
+          <ComboboxList>
+            {(framework: Framework) => (
+              <ComboboxItem key={framework.value} value={framework}>
+                {framework.label}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   );
 }

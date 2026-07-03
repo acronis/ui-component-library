@@ -1,46 +1,47 @@
+// Reflects ui-react's `--ui-sidebar-secondary-*` tokens (packages/tokens/css/
+// components/SidebarSecondary.css) — not the legacy shadcn SecondaryMenu's
+// fixed px/hex values, which no longer apply.
 export function SecondaryMenuSpecs() {
   return (
     <div className="space-y-3 text-sm">
       <div>
-        <strong className="font-semibold">Width:</strong> 240px (fixed)
+        <strong className="font-semibold">Width:</strong> 256px expanded, 48px
+        collapsed
       </div>
       <div>
-        <strong className="font-semibold">Padding:</strong> 24px horizontal,
-        12px vertical
+        <strong className="font-semibold">Header Padding:</strong> 16px
+        horizontal, 12px vertical
       </div>
       <div>
-        <strong className="font-semibold">Title Padding:</strong> 24px
-        horizontal, 16px top, 8px bottom
+        <strong className="font-semibold">Section Header Padding:</strong>{' '}
+        16px horizontal, 2px vertical
       </div>
       <div>
-        <strong className="font-semibold">Gap:</strong> 16px between icon and
-        text
+        <strong className="font-semibold">Row:</strong> 40px min height, 16px
+        horizontal padding, 8px vertical padding, 8px icon-to-label gap
       </div>
       <div>
         <strong className="font-semibold">Icon Size:</strong> 16×16px
       </div>
       <div>
-        <strong className="font-semibold">Active Background:</strong> rgba(38,
-        104, 197, 0.05)
-      </div>
-      <div>
-        <strong className="font-semibold">Divider:</strong> rgba(38, 104, 197,
-        0.1)
-      </div>
-      <div>
         <strong className="font-semibold">Typography:</strong>
         <ul className="ml-4 mt-1 space-y-1">
-          <li>Menu Item: Inter Semi Bold, 14px, 24px line-height</li>
-          <li>Title: Inter Bold, 11px, 16px line-height, uppercase</li>
+          <li>
+            Menu item / section label: Inter Semi Bold, 14px, 24px
+            line-height
+          </li>
+          <li>Header: Inter Regular, 24px, 32px line-height</li>
         </ul>
       </div>
       <div>
-        <strong className="font-semibold">Colors:</strong>
-        <ul className="ml-4 mt-1 space-y-1">
-          <li>Default: #2668C5 (Technical/fixed-link)</li>
-          <li>Active: #243143 (Text/fixed-primary)</li>
-          <li>Disabled: rgba(36, 49, 67, 0.7)</li>
-        </ul>
+        <strong className="font-semibold">Colors:</strong> every fill, border,
+        and label is a{' '}
+        <code className="rounded bg-muted px-1 py-0.5 text-xs">
+          --ui-sidebar-secondary-*
+        </code>{' '}
+        token from <code className="text-xs">@spec-lab/tokens</code> — no
+        fixed hex values. Selected and unselected rows each wire their own
+        idle/hover/active token so brand overrides apply per state.
       </div>
     </div>
   );

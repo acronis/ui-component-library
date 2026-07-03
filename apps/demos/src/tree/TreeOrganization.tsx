@@ -1,4 +1,4 @@
-import { Tree, TreeNode } from '@spec-lab/shadcn-uikit/react';
+import { TreeView, type TreeNode } from '@spec-lab/ui-react';
 
 const organizationData: TreeNode[] = [
   {
@@ -49,7 +49,7 @@ const organizationData: TreeNode[] = [
 
 export function TreeOrganization() {
   return (
-    <Tree
+    <TreeView
       data={organizationData}
       defaultExpanded={['company', 'engineering', 'design']}
       onNodeSelect={(id) => console.log('Selected employee:', id)}

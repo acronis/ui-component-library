@@ -1,4 +1,4 @@
-import { Tree, TreeNode } from '@spec-lab/shadcn-uikit/react';
+import { TreeView, type TreeNode } from '@spec-lab/ui-react';
 import { FileTextIcon, FolderIcon } from '@spec-lab/icons-react/stroke-mono'
 import { CodeIcon } from '../icons/missing-icons';
 const projectData: TreeNode[] = [
@@ -64,7 +64,7 @@ const projectData: TreeNode[] = [
 
 export function TreeControlled() {
   return (
-    <Tree
+    <TreeView
       data={projectData}
       showIcon
       showCheckbox

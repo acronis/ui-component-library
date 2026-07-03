@@ -1,21 +1,19 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Textarea } from '@spec-lab/shadcn-uikit/react';
-import { Switch } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Separator } from '@spec-lab/shadcn-uikit/react';
+  Field,
+  FieldContent,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from '@spec-lab/ui-react';
+import { InputBox, InputTextArea } from '@spec-lab/ui-react';
+import { Switch } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Separator } from '@spec-lab/ui-react';
 
 const formSchema = z.object({
   displayName: z.string().min(2, 'Display name must be at least 2 characters.'),
@@ -51,166 +49,158 @@ export function FormLayoutSections() {
 
   return (
     <div className="w-full max-w-lg">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {/* Section: Profile */}
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-base font-semibold">Profile</h3>
-              <p className="text-sm text-muted-foreground">
-                Update your public profile information.
-              </p>
-            </div>
-            <FormField
-              control={form.control}
-              name="displayName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Display name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="you@example.com"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="bio"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Bio</FormLabel>
-                  <FormControl>
-                    <Textarea
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {/* Section: Profile */}
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-base font-semibold">Profile</h3>
+            <p className="text-sm text-muted-foreground">
+              Update your public profile information.
+            </p>
+          </div>
+          <Controller
+            control={form.control}
+            name="displayName"
+            render={({ field, fieldState }) => (
+              <Field invalid={!!fieldState.error} name={field.name}>
+                <FieldLabel>Display name</FieldLabel>
+                <FieldControl render={<InputBox placeholder="Your name" {...field} />} />
+                {fieldState.error && (
+                  <FieldError match>{fieldState.error.message}</FieldError>
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            control={form.control}
+            name="email"
+            render={({ field, fieldState }) => (
+              <Field invalid={!!fieldState.error} name={field.name}>
+                <FieldLabel>Email</FieldLabel>
+                <FieldControl
+                  render={<InputBox type="email" placeholder="you@example.com" {...field} />}
+                />
+                {fieldState.error && (
+                  <FieldError match>{fieldState.error.message}</FieldError>
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            control={form.control}
+            name="bio"
+            render={({ field, fieldState }) => (
+              <Field invalid={!!fieldState.error} name={field.name}>
+                <FieldLabel>Bio</FieldLabel>
+                <FieldControl
+                  render={
+                    <InputTextArea
                       placeholder="A short bio about yourself"
                       className="resize-none"
                       {...field}
                     />
-                  </FormControl>
-                  <FormDescription>Up to 160 characters.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                  }
+                />
+                <FieldDescription>Up to 160 characters.</FieldDescription>
+                {fieldState.error && (
+                  <FieldError match>{fieldState.error.message}</FieldError>
+                )}
+              </Field>
+            )}
+          />
+        </div>
+
+        <Separator />
+
+        {/* Section: Notifications */}
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-base font-semibold">Notifications</h3>
+            <p className="text-sm text-muted-foreground">
+              Choose how you want to be notified.
+            </p>
           </div>
-
-          <Separator />
-
-          {/* Section: Notifications */}
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-base font-semibold">Notifications</h3>
-              <p className="text-sm text-muted-foreground">
-                Choose how you want to be notified.
-              </p>
-            </div>
-            <FormField
-              control={form.control}
-              name="emailNotifications"
-              render={({ field }) => (
-                <FormItem className="flex items-center justify-between rounded-lg border p-4">
-                  <div className="space-y-0.5">
-                    <FormLabel className="text-sm font-medium">
-                      Email notifications
-                    </FormLabel>
-                    <FormDescription>
+          <Controller
+            control={form.control}
+            name="emailNotifications"
+            render={({ field }) => (
+              <Field orientation="horizontal" className="justify-between rounded-lg border p-4">
+                <FieldLabel>
+                  <FieldContent>
+                    <span>Email notifications</span>
+                    <FieldDescription>
                       Receive notifications about account activity.
-                    </FormDescription>
-                  </div>
-                  <FormControl>
-                    <Switch
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="marketingEmails"
-              render={({ field }) => (
-                <FormItem className="flex items-center justify-between rounded-lg border p-4">
-                  <div className="space-y-0.5">
-                    <FormLabel className="text-sm font-medium">
-                      Marketing emails
-                    </FormLabel>
-                    <FormDescription>
+                    </FieldDescription>
+                  </FieldContent>
+                </FieldLabel>
+                <Switch checked={field.value} onCheckedChange={field.onChange} />
+              </Field>
+            )}
+          />
+          <Controller
+            control={form.control}
+            name="marketingEmails"
+            render={({ field }) => (
+              <Field orientation="horizontal" className="justify-between rounded-lg border p-4">
+                <FieldLabel>
+                  <FieldContent>
+                    <span>Marketing emails</span>
+                    <FieldDescription>
                       Get updates on new features and promotions.
-                    </FormDescription>
-                  </div>
-                  <FormControl>
-                    <Switch
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+                    </FieldDescription>
+                  </FieldContent>
+                </FieldLabel>
+                <Switch checked={field.value} onCheckedChange={field.onChange} />
+              </Field>
+            )}
+          />
+        </div>
+
+        <Separator />
+
+        {/* Section: Security */}
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-base font-semibold">Security</h3>
+            <p className="text-sm text-muted-foreground">
+              Change your password. Leave blank to keep the current one.
+            </p>
           </div>
+          <Controller
+            control={form.control}
+            name="currentPassword"
+            render={({ field, fieldState }) => (
+              <Field invalid={!!fieldState.error} name={field.name}>
+                <FieldLabel>Current password</FieldLabel>
+                <FieldControl
+                  render={<InputBox type="password" placeholder="••••••••" {...field} />}
+                />
+                {fieldState.error && (
+                  <FieldError match>{fieldState.error.message}</FieldError>
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            control={form.control}
+            name="newPassword"
+            render={({ field, fieldState }) => (
+              <Field invalid={!!fieldState.error} name={field.name}>
+                <FieldLabel>New password</FieldLabel>
+                <FieldControl
+                  render={<InputBox type="password" placeholder="••••••••" {...field} />}
+                />
+                <FieldDescription>Must be at least 8 characters.</FieldDescription>
+                {fieldState.error && (
+                  <FieldError match>{fieldState.error.message}</FieldError>
+                )}
+              </Field>
+            )}
+          />
+        </div>
 
-          <Separator />
-
-          {/* Section: Security */}
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-base font-semibold">Security</h3>
-              <p className="text-sm text-muted-foreground">
-                Change your password. Leave blank to keep the current one.
-              </p>
-            </div>
-            <FormField
-              control={form.control}
-              name="currentPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Current password</FormLabel>
-                  <FormControl>
-                    <Input type="password" placeholder="••••••••" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="newPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>New password</FormLabel>
-                  <FormControl>
-                    <Input type="password" placeholder="••••••••" {...field} />
-                  </FormControl>
-                  <FormDescription>
-                    Must be at least 8 characters.
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <Button type="submit">Save changes</Button>
-        </form>
-      </Form>
+        <Button type="submit">Save changes</Button>
+      </form>
     </div>
   );
 }

@@ -3,21 +3,21 @@ import { useForm } from '@tanstack/react-form';
 import * as z from 'zod';
 import {
   Field,
-  FieldLabel,
+  FieldControl,
   FieldDescription,
   FieldError,
   FieldGroup,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Textarea } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+  FieldLabel,
+} from '@spec-lab/ui-react';
+import { InputBox, InputTextArea } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 const profileSchema = z.object({
   username: z
@@ -30,6 +30,8 @@ const profileSchema = z.object({
 });
 
 type ProfileValues = z.infer<typeof profileSchema>;
+
+const roleItems = { admin: 'Admin', editor: 'Editor', viewer: 'Viewer' };
 
 export function FormTanstackProfile() {
   const [submitted, setSubmitted] = React.useState<ProfileValues | null>(null);
@@ -46,7 +48,7 @@ export function FormTanstackProfile() {
         <pre className="text-xs bg-muted rounded p-3 overflow-auto">
           {JSON.stringify(submitted, null, 2)}
         </pre>
-        <Button variant="outline" size="sm" onClick={() => setSubmitted(null)}>
+        <Button variant="secondary" onClick={() => setSubmitted(null)}>
           Edit again
         </Button>
       </div>
@@ -74,37 +76,28 @@ export function FormTanstackProfile() {
               },
             }}
           >
-            {(field) => (
-              <Field
-                data-invalid={
-                  field.state.meta.isTouched &&
-                  field.state.meta.errors.length > 0
-                    ? 'true'
-                    : undefined
-                }
-              >
-                <FieldLabel htmlFor={field.name}>Username</FieldLabel>
-                <Input
-                  id={field.name}
-                  placeholder="johndoe"
-                  value={field.state.value as string}
-                  onChange={(e) => field.handleChange(e.target.value as never)}
-                  onBlur={field.handleBlur}
-                  aria-invalid={
-                    field.state.meta.isTouched &&
-                    field.state.meta.errors.length > 0
-                  }
-                />
-                <FieldDescription>Your public display name.</FieldDescription>
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
+            {(field) => {
+              const errorMessage = field.state.meta.isTouched
+                ? field.state.meta.errors[0]?.toString()
+                : undefined;
+              return (
+                <Field invalid={!!errorMessage}>
+                  <FieldLabel>Username</FieldLabel>
+                  <FieldControl
+                    render={
+                      <InputBox
+                        placeholder="johndoe"
+                        value={field.state.value}
+                        onChange={(e) => field.handleChange(e.target.value)}
+                        onBlur={field.handleBlur}
+                      />
+                    }
                   />
-                )}
-              </Field>
-            )}
+                  <FieldDescription>Your public display name.</FieldDescription>
+                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                </Field>
+              );
+            }}
           </form.Field>
 
           <form.Field
@@ -118,37 +111,28 @@ export function FormTanstackProfile() {
               },
             }}
           >
-            {(field) => (
-              <Field
-                data-invalid={
-                  field.state.meta.isTouched &&
-                  field.state.meta.errors.length > 0
-                    ? 'true'
-                    : undefined
-                }
-              >
-                <FieldLabel htmlFor={field.name}>Email</FieldLabel>
-                <Input
-                  id={field.name}
-                  type="email"
-                  placeholder="jane@example.com"
-                  value={field.state.value as never}
-                  onChange={(e) => field.handleChange(e.target.value as never)}
-                  onBlur={field.handleBlur}
-                  aria-invalid={
-                    field.state.meta.isTouched &&
-                    field.state.meta.errors.length > 0
-                  }
-                />
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
+            {(field) => {
+              const errorMessage = field.state.meta.isTouched
+                ? field.state.meta.errors[0]?.toString()
+                : undefined;
+              return (
+                <Field invalid={!!errorMessage}>
+                  <FieldLabel>Email</FieldLabel>
+                  <FieldControl
+                    render={
+                      <InputBox
+                        type="email"
+                        placeholder="jane@example.com"
+                        value={field.state.value}
+                        onChange={(e) => field.handleChange(e.target.value)}
+                        onBlur={field.handleBlur}
+                      />
+                    }
                   />
-                )}
-              </Field>
-            )}
+                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                </Field>
+              );
+            }}
           </form.Field>
 
           <form.Field
@@ -162,40 +146,31 @@ export function FormTanstackProfile() {
               },
             }}
           >
-            {(field) => (
-              <Field
-                data-invalid={
-                  field.state.meta.isTouched &&
-                  field.state.meta.errors.length > 0
-                    ? 'true'
-                    : undefined
-                }
-              >
-                <FieldLabel htmlFor={field.name}>Role</FieldLabel>
-                <Select
-                  value={field.state.value}
-                  onValueChange={(val) =>
-                    field.handleChange((val ?? '') as never)
-                  }
-                >
-                  <SelectTrigger id={field.name} onBlur={field.handleBlur}>
-                    <SelectValue placeholder="Select a role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="admin">Admin</SelectItem>
-                    <SelectItem value="editor">Editor</SelectItem>
-                    <SelectItem value="viewer">Viewer</SelectItem>
-                  </SelectContent>
-                </Select>
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
-                  />
-                )}
-              </Field>
-            )}
+            {(field) => {
+              const errorMessage = field.state.meta.isTouched
+                ? field.state.meta.errors[0]?.toString()
+                : undefined;
+              return (
+                <Field invalid={!!errorMessage}>
+                  <FieldLabel>Role</FieldLabel>
+                  <Select
+                    items={roleItems}
+                    value={field.state.value}
+                    onValueChange={(val) => field.handleChange(val ?? '')}
+                  >
+                    <SelectTrigger onBlur={field.handleBlur}>
+                      <SelectValue placeholder="Select a role" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="admin">Admin</SelectItem>
+                      <SelectItem value="editor">Editor</SelectItem>
+                      <SelectItem value="viewer">Viewer</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                </Field>
+              );
+            }}
           </form.Field>
 
           <form.Field
@@ -209,27 +184,29 @@ export function FormTanstackProfile() {
               },
             }}
           >
-            {(field) => (
-              <Field>
-                <FieldLabel htmlFor={field.name}>Bio</FieldLabel>
-                <Textarea
-                  id={field.name}
-                  placeholder="Tell us a little about yourself"
-                  className="resize-none"
-                  value={field.state.value as never}
-                  onChange={(e) => field.handleChange(e.target.value as never)}
-                  onBlur={field.handleBlur}
-                />
-                <FieldDescription>Up to 160 characters.</FieldDescription>
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
+            {(field) => {
+              const errorMessage = field.state.meta.isTouched
+                ? field.state.meta.errors[0]?.toString()
+                : undefined;
+              return (
+                <Field invalid={!!errorMessage}>
+                  <FieldLabel>Bio</FieldLabel>
+                  <FieldControl
+                    render={
+                      <InputTextArea
+                        placeholder="Tell us a little about yourself"
+                        className="resize-none"
+                        value={field.state.value}
+                        onChange={(e) => field.handleChange(e.target.value)}
+                        onBlur={field.handleBlur}
+                      />
+                    }
                   />
-                )}
-              </Field>
-            )}
+                  <FieldDescription>Up to 160 characters.</FieldDescription>
+                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                </Field>
+              );
+            }}
           </form.Field>
 
           <form.Subscribe selector={(s) => [s.canSubmit, s.isSubmitting]}>

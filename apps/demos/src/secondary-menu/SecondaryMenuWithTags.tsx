@@ -1,51 +1,62 @@
 import { useState } from 'react';
 import {
-  SecondaryMenu,
-  SecondaryMenuContent,
-  SecondaryMenuGroup,
-  SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
+  SidebarSecondary,
+  SidebarSecondaryContent,
+  SidebarSecondaryMenu,
+  SidebarSecondaryMenuItem,
+  SidebarSecondaryMenuItemExtras,
+  SidebarSecondarySection,
+  SidebarSecondarySectionLabel,
+  Tag,
+} from '@spec-lab/ui-react';
 
 export function SecondaryMenuWithTags() {
   const [activeItem, setActiveItem] = useState('feature1');
 
+  const items = [
+    { id: 'feature1', title: 'Dashboard' },
+    { id: 'feature2', title: 'Analytics', tag: 'NEW' },
+    { id: 'feature3', title: 'AI Assistant', tag: 'BETA' },
+    { id: 'feature4', title: 'Reports' },
+  ];
+
   return (
     <div
-      className="border rounded-lg overflow-hidden"
+      className="overflow-hidden rounded-lg border"
       style={{ height: '400px' }}
     >
-      <SecondaryMenu>
-        <SecondaryMenuContent>
-          <SecondaryMenuGroup title="Features">
-            <SecondaryMenuItem
-              active={activeItem === 'feature1'}
-              onClick={() => setActiveItem('feature1')}
-            >
-              Dashboard
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'feature2'}
-              onClick={() => setActiveItem('feature2')}
-              tag="NEW"
-            >
-              Analytics
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'feature3'}
-              onClick={() => setActiveItem('feature3')}
-              tag="BETA"
-            >
-              AI Assistant
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'feature4'}
-              onClick={() => setActiveItem('feature4')}
-            >
-              Reports
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
-        </SecondaryMenuContent>
-      </SecondaryMenu>
+      <SidebarSecondary>
+        <SidebarSecondaryContent>
+          <SidebarSecondarySection>
+            <SidebarSecondarySectionLabel>Features</SidebarSecondarySectionLabel>
+            <SidebarSecondaryMenu>
+              {items.map((item) => (
+                <SidebarSecondaryMenuItem
+                  key={item.id}
+                  href="#"
+                  selected={activeItem === item.id}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActiveItem(item.id);
+                  }}
+                >
+                  {item.title}
+                  {item.tag && (
+                    <SidebarSecondaryMenuItemExtras
+                      variant="tag"
+                      tag={
+                        <Tag variant="info" size="sm">
+                          {item.tag}
+                        </Tag>
+                      }
+                    />
+                  )}
+                </SidebarSecondaryMenuItem>
+              ))}
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
+        </SidebarSecondaryContent>
+      </SidebarSecondary>
     </div>
   );
 }

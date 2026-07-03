@@ -1,30 +1,18 @@
-import { toast } from '@spec-lab/shadcn-uikit/react';
+import { toast } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 
+// ui-react's `Toaster` renders a single stack fixed to the bottom-right of
+// the viewport — there's no per-toast `position` option. This drops to the
+// closest capability: a note about the fixed placement, plus a basic toast.
 export function SonnerPositions() {
   return (
-    <div className="grid grid-cols-3 gap-3">
-      <Button onClick={() => toast('Top Left', { position: 'top-left' })}>
-        Top Left
-      </Button>
-      <Button onClick={() => toast('Top Center', { position: 'top-center' })}>
-        Top Center
-      </Button>
-      <Button onClick={() => toast('Top Right', { position: 'top-right' })}>
-        Top Right
-      </Button>
-      <Button onClick={() => toast('Bottom Left', { position: 'bottom-left' })}>
-        Bottom Left
-      </Button>
-      <Button
-        onClick={() => toast('Bottom Center', { position: 'bottom-center' })}
-      >
-        Bottom Center
-      </Button>
-      <Button
-        onClick={() => toast('Bottom Right', { position: 'bottom-right' })}
-      >
-        Bottom Right
+    <div className="flex flex-col gap-3">
+      <p className="text-sm text-muted-foreground">
+        Toasts always appear in a single stack, fixed to the bottom-right of
+        the viewport.
+      </p>
+      <Button onClick={() => toast('This toast is always bottom-right')}>
+        Show Toast
       </Button>
     </div>
   );

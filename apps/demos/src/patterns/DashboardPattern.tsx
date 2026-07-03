@@ -9,8 +9,8 @@ import {
   PageHeaderTitle,
   PageHeaderDescription,
   PageHeaderActions,
-  DashboardLayout,
-  DashboardGrid,
+  Stack,
+  Grid,
   Card,
   CardHeader,
   CardTitle,
@@ -21,7 +21,7 @@ import {
   WidgetContent,
   Button,
   Badge,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 const metrics = [
   { title: 'Total Devices', value: '2,847', change: '+12%', trend: 'up' },
@@ -83,10 +83,8 @@ export function DashboardPattern() {
         <AppShellHeader>
           <span className="font-semibold">Constructor Lab Cyber Protect</span>
           <div className="ml-auto flex items-center gap-2">
-            <Badge variant="outline">Admin</Badge>
-            <Button variant="outline" size="sm">
-              Logout
-            </Button>
+            <Badge variant="neutral">Admin</Badge>
+            <Button variant="secondary">Logout</Button>
           </div>
         </AppShellHeader>
         <AppShellMain className="p-6">
@@ -96,15 +94,13 @@ export function DashboardPattern() {
               Overview of your backup and protection status.
             </PageHeaderDescription>
             <PageHeaderActions>
-              <Button variant="outline" size="sm">
-                Export Report
-              </Button>
-              <Button size="sm">Run Backup</Button>
+              <Button variant="secondary">Export Report</Button>
+              <Button>Run Backup</Button>
             </PageHeaderActions>
           </PageHeader>
 
-          <DashboardLayout>
-            <DashboardGrid cols={4}>
+          <Stack gap="lg">
+            <Grid cols={4}>
               {metrics.map((m) => (
                 <Card key={m.title}>
                   <CardHeader className="pb-1">
@@ -120,9 +116,9 @@ export function DashboardPattern() {
                   </CardContent>
                 </Card>
               ))}
-            </DashboardGrid>
+            </Grid>
 
-            <DashboardGrid cols={2}>
+            <Grid cols={2}>
               <Widget size="lg">
                 <WidgetHeader>
                   <WidgetTitle>Recent Alerts</WidgetTitle>
@@ -144,10 +140,10 @@ export function DashboardPattern() {
                           <Badge
                             variant={
                               alert.severity === 'error'
-                                ? 'destructive'
+                                ? 'danger'
                                 : alert.severity === 'warning'
-                                  ? 'outline'
-                                  : 'secondary'
+                                  ? 'warning'
+                                  : 'success'
                             }
                           >
                             {alert.severity}
@@ -188,8 +184,8 @@ export function DashboardPattern() {
                   </div>
                 </WidgetContent>
               </Widget>
-            </DashboardGrid>
-          </DashboardLayout>
+            </Grid>
+          </Stack>
         </AppShellMain>
       </AppShellBody>
     </AppShell>

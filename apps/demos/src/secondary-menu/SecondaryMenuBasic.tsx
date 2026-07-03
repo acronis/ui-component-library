@@ -1,49 +1,48 @@
 import { useState } from 'react';
 import {
-  SecondaryMenu,
-  SecondaryMenuContent,
-  SecondaryMenuGroup,
-  SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
+  SidebarSecondary,
+  SidebarSecondaryContent,
+  SidebarSecondaryMenu,
+  SidebarSecondaryMenuItem,
+  SidebarSecondarySection,
+} from '@spec-lab/ui-react';
 
 export function SecondaryMenuBasic() {
   const [activeItem, setActiveItem] = useState('dashboard');
 
+  const items = [
+    { id: 'dashboard', title: 'Dashboard' },
+    { id: 'analytics', title: 'Analytics' },
+    { id: 'reports', title: 'Reports' },
+    { id: 'settings', title: 'Settings' },
+  ];
+
   return (
     <div
-      className="border rounded-lg overflow-hidden"
+      className="overflow-hidden rounded-lg border"
       style={{ height: '400px' }}
     >
-      <SecondaryMenu>
-        <SecondaryMenuContent>
-          <SecondaryMenuGroup>
-            <SecondaryMenuItem
-              active={activeItem === 'dashboard'}
-              onClick={() => setActiveItem('dashboard')}
-            >
-              Dashboard
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'analytics'}
-              onClick={() => setActiveItem('analytics')}
-            >
-              Analytics
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'reports'}
-              onClick={() => setActiveItem('reports')}
-            >
-              Reports
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'settings'}
-              onClick={() => setActiveItem('settings')}
-            >
-              Settings
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
-        </SecondaryMenuContent>
-      </SecondaryMenu>
+      <SidebarSecondary>
+        <SidebarSecondaryContent>
+          <SidebarSecondarySection>
+            <SidebarSecondaryMenu>
+              {items.map((item) => (
+                <SidebarSecondaryMenuItem
+                  key={item.id}
+                  href="#"
+                  selected={activeItem === item.id}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActiveItem(item.id);
+                  }}
+                >
+                  {item.title}
+                </SidebarSecondaryMenuItem>
+              ))}
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
+        </SidebarSecondaryContent>
+      </SidebarSecondary>
     </div>
   );
 }

@@ -1,22 +1,15 @@
-import * as React from 'react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from '@spec-lab/ui-react';
 
-import { ArrowsDownUpIcon, CheckIcon } from '@spec-lab/icons-react/stroke-mono'
-const frameworks = [
+type Framework = { value: string; label: string };
+
+const frameworks: Framework[] = [
   { value: 'next.js', label: 'Next.js' },
   { value: 'sveltekit', label: 'SvelteKit' },
   { value: 'nuxt.js', label: 'Nuxt.js' },
@@ -28,54 +21,21 @@ const frameworks = [
 ];
 
 export function ComboboxBasic() {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
-
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger
-        render={
-          <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            className="w-[280px] justify-between"
-          />
-        }
-      >
-        {value
-          ? frameworks.find((framework) => framework.value === value)?.label
-          : 'Select framework...'}
-        <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-      </PopoverTrigger>
-      <PopoverContent className="w-[280px] p-0">
-        <Command>
-          <CommandInput placeholder="Search framework..." />
-          <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
-            <CommandGroup>
-              {frameworks.map((framework) => (
-                <CommandItem
-                  key={framework.value}
-                  value={framework.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? '' : currentValue);
-                    setOpen(false);
-                  }}
-                >
-                  <CheckIcon
-                    className={cn(
-                      'mr-2 h-4 w-4',
-                      value === framework.value ? 'opacity-100' : 'opacity-0'
-                    )}
-                  />
-                  {framework.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+    <div className="w-[280px]">
+      <Combobox items={frameworks}>
+        <ComboboxInput placeholder="Select framework..." clearable />
+        <ComboboxContent>
+          <ComboboxEmpty>No framework found.</ComboboxEmpty>
+          <ComboboxList>
+            {(framework: Framework) => (
+              <ComboboxItem key={framework.value} value={framework}>
+                {framework.label}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   );
 }

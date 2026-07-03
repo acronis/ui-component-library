@@ -1,85 +1,80 @@
 import { useState } from 'react';
 import {
-  SecondaryMenu,
-  SecondaryMenuContent,
-  SecondaryMenuGroup,
-  SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
+  SidebarSecondary,
+  SidebarSecondaryContent,
+  SidebarSecondaryMenu,
+  SidebarSecondaryMenuItem,
+  SidebarSecondarySection,
+  SidebarSecondarySectionLabel,
+} from '@spec-lab/ui-react';
 import { ArrowInDownIcon, ArrowOutUpIcon, BinIcon, FileTextIcon, PencilIcon, RectangleImageIcon, VideoCameraIcon } from '@spec-lab/icons-react/stroke-mono'
 import { MusicIcon } from '../icons/missing-icons';
+
 export function SecondaryMenuWithGroups() {
   const [activeItem, setActiveItem] = useState('documents');
 
+  const contentItems = [
+    { id: 'documents', title: 'Documents', icon: FileTextIcon },
+    { id: 'images', title: 'Images', icon: RectangleImageIcon },
+    { id: 'videos', title: 'Videos', icon: VideoCameraIcon },
+    { id: 'audio', title: 'Audio Files', icon: MusicIcon },
+  ];
+
+  const actionItems = [
+    { id: 'upload', title: 'Upload', icon: ArrowOutUpIcon },
+    { id: 'download', title: 'Download', icon: ArrowInDownIcon },
+    { id: 'edit', title: 'Edit', icon: PencilIcon },
+    { id: 'delete', title: 'Delete', icon: BinIcon },
+  ];
+
   return (
     <div
-      className="border rounded-lg overflow-hidden"
+      className="overflow-hidden rounded-lg border"
       style={{ height: '500px' }}
     >
-      <SecondaryMenu>
-        <SecondaryMenuContent>
-          <SecondaryMenuGroup title="Content">
-            <SecondaryMenuItem
-              active={activeItem === 'documents'}
-              onClick={() => setActiveItem('documents')}
-              icon={<FileTextIcon className="h-4 w-4" />}
-            >
-              Documents
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'images'}
-              onClick={() => setActiveItem('images')}
-              icon={<RectangleImageIcon className="h-4 w-4" />}
-            >
-              Images
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'videos'}
-              onClick={() => setActiveItem('videos')}
-              icon={<VideoCameraIcon className="h-4 w-4" />}
-            >
-              Videos
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'audio'}
-              onClick={() => setActiveItem('audio')}
-              icon={<MusicIcon className="h-4 w-4" />}
-            >
-              Audio Files
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
+      <SidebarSecondary>
+        <SidebarSecondaryContent>
+          <SidebarSecondarySection>
+            <SidebarSecondarySectionLabel>Content</SidebarSecondarySectionLabel>
+            <SidebarSecondaryMenu>
+              {contentItems.map((item) => (
+                <SidebarSecondaryMenuItem
+                  key={item.id}
+                  href="#"
+                  icon={<item.icon />}
+                  selected={activeItem === item.id}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActiveItem(item.id);
+                  }}
+                >
+                  {item.title}
+                </SidebarSecondaryMenuItem>
+              ))}
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
 
-          <SecondaryMenuGroup title="Actions">
-            <SecondaryMenuItem
-              active={activeItem === 'upload'}
-              onClick={() => setActiveItem('upload')}
-              icon={<ArrowOutUpIcon className="h-4 w-4" />}
-            >
-              Upload
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'download'}
-              onClick={() => setActiveItem('download')}
-              icon={<ArrowInDownIcon className="h-4 w-4" />}
-            >
-              Download
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'edit'}
-              onClick={() => setActiveItem('edit')}
-              icon={<PencilIcon className="h-4 w-4" />}
-            >
-              Edit
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'delete'}
-              onClick={() => setActiveItem('delete')}
-              icon={<BinIcon className="h-4 w-4" />}
-            >
-              Delete
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
-        </SecondaryMenuContent>
-      </SecondaryMenu>
+          <SidebarSecondarySection>
+            <SidebarSecondarySectionLabel>Actions</SidebarSecondarySectionLabel>
+            <SidebarSecondaryMenu>
+              {actionItems.map((item) => (
+                <SidebarSecondaryMenuItem
+                  key={item.id}
+                  href="#"
+                  icon={<item.icon />}
+                  selected={activeItem === item.id}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActiveItem(item.id);
+                  }}
+                >
+                  {item.title}
+                </SidebarSecondaryMenuItem>
+              ))}
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
+        </SidebarSecondaryContent>
+      </SidebarSecondary>
     </div>
   );
 }

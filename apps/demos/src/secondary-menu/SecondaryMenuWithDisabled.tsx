@@ -1,52 +1,75 @@
 import { useState } from 'react';
 import {
-  SecondaryMenu,
-  SecondaryMenuContent,
-  SecondaryMenuGroup,
-  SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
+  SidebarSecondary,
+  SidebarSecondaryContent,
+  SidebarSecondaryMenu,
+  SidebarSecondaryMenuItem,
+  SidebarSecondarySection,
+  SidebarSecondarySectionLabel,
+} from '@spec-lab/ui-react';
 import { FileTextIcon, RectangleImageIcon, VideoCameraIcon } from '@spec-lab/icons-react/stroke-mono'
 import { MusicIcon } from '../icons/missing-icons';
+
+// SidebarSecondaryMenuItem has no built-in `disabled` prop or token — its root
+// is an `<a>`, and `disabled` isn't a valid anchor attribute. Disabled rows are
+// modelled the accessible way instead: no `href`/`onClick`, `aria-disabled`,
+// removed from the tab order, and dimmed generically (`opacity-50`, not a
+// color token — there is no disabled variant in the design).
 export function SecondaryMenuWithDisabled() {
   const [activeItem, setActiveItem] = useState('opt1');
 
   return (
     <div
-      className="border rounded-lg overflow-hidden"
+      className="overflow-hidden rounded-lg border"
       style={{ height: '400px' }}
     >
-      <SecondaryMenu>
-        <SecondaryMenuContent>
-          <SecondaryMenuGroup title="Options">
-            <SecondaryMenuItem
-              active={activeItem === 'opt1'}
-              onClick={() => setActiveItem('opt1')}
-              icon={<FileTextIcon className="h-4 w-4" />}
-            >
-              Available Option
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              disabled
-              icon={<RectangleImageIcon className="h-4 w-4" />}
-            >
-              Disabled Option
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'opt3'}
-              onClick={() => setActiveItem('opt3')}
-              icon={<VideoCameraIcon className="h-4 w-4" />}
-            >
-              Another Available
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              disabled
-              icon={<MusicIcon className="h-4 w-4" />}
-            >
-              Coming Soon
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
-        </SecondaryMenuContent>
-      </SecondaryMenu>
+      <SidebarSecondary>
+        <SidebarSecondaryContent>
+          <SidebarSecondarySection>
+            <SidebarSecondarySectionLabel>Options</SidebarSecondarySectionLabel>
+            <SidebarSecondaryMenu>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<FileTextIcon />}
+                selected={activeItem === 'opt1'}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveItem('opt1');
+                }}
+              >
+                Available Option
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem
+                icon={<RectangleImageIcon />}
+                aria-disabled="true"
+                tabIndex={-1}
+                className="pointer-events-none opacity-50"
+              >
+                Disabled Option
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<VideoCameraIcon />}
+                selected={activeItem === 'opt3'}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setActiveItem('opt3');
+                }}
+              >
+                Another Available
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem
+                icon={<MusicIcon />}
+                aria-disabled="true"
+                tabIndex={-1}
+                className="pointer-events-none opacity-50"
+              >
+                Coming Soon
+              </SidebarSecondaryMenuItem>
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
+        </SidebarSecondaryContent>
+      </SidebarSecondary>
     </div>
   );
 }

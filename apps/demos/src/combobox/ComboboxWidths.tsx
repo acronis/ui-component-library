@@ -1,22 +1,15 @@
-import * as React from 'react';
-import { cn } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from '@spec-lab/ui-react';
 
-import { ArrowsDownUpIcon, CheckIcon } from '@spec-lab/icons-react/stroke-mono'
-const languages = [
+type Option = { value: string; label: string };
+
+const languages: Option[] = [
   { value: 'javascript', label: 'JavaScript' },
   { value: 'typescript', label: 'TypeScript' },
   { value: 'python', label: 'Python' },
@@ -27,7 +20,7 @@ const languages = [
   { value: 'php', label: 'PHP' },
 ];
 
-const countries = [
+const countries: Option[] = [
   { value: 'us', label: 'United States' },
   { value: 'uk', label: 'United Kingdom' },
   { value: 'ca', label: 'Canada' },
@@ -39,113 +32,39 @@ const countries = [
 ];
 
 export function ComboboxWidths() {
-  const [languageOpen, setLanguageOpen] = React.useState(false);
-  const [languageValue, setLanguageValue] = React.useState('');
-
-  const [countryOpen, setCountryOpen] = React.useState(false);
-  const [countryValue, setCountryValue] = React.useState('');
-
   return (
     <div className="flex flex-wrap gap-4">
-      <Popover open={languageOpen} onOpenChange={setLanguageOpen}>
-        <PopoverTrigger
-          render={
-            <Button
-              variant="outline"
-              role="combobox"
-              aria-expanded={languageOpen}
-              className="w-[200px] justify-between"
-            />
-          }
-        >
-          {languageValue
-            ? languages.find((lang) => lang.value === languageValue)?.label
-            : 'Select language...'}
-          <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0">
-          <Command>
-            <CommandInput placeholder="Search language..." />
-            <CommandList>
-              <CommandEmpty>No language found.</CommandEmpty>
-              <CommandGroup>
-                {languages.map((lang) => (
-                  <CommandItem
-                    key={lang.value}
-                    value={lang.value}
-                    onSelect={(currentValue) => {
-                      setLanguageValue(
-                        currentValue === languageValue ? '' : currentValue
-                      );
-                      setLanguageOpen(false);
-                    }}
-                  >
-                    <CheckIcon
-                      className={cn(
-                        'mr-2 h-4 w-4',
-                        languageValue === lang.value
-                          ? 'opacity-100'
-                          : 'opacity-0'
-                      )}
-                    />
-                    {lang.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverContent>
-      </Popover>
+      <div className="w-[200px]">
+        <Combobox items={languages}>
+          <ComboboxInput placeholder="Select language..." clearable />
+          <ComboboxContent>
+            <ComboboxEmpty>No language found.</ComboboxEmpty>
+            <ComboboxList>
+              {(lang: Option) => (
+                <ComboboxItem key={lang.value} value={lang}>
+                  {lang.label}
+                </ComboboxItem>
+              )}
+            </ComboboxList>
+          </ComboboxContent>
+        </Combobox>
+      </div>
 
-      <Popover open={countryOpen} onOpenChange={setCountryOpen}>
-        <PopoverTrigger
-          render={
-            <Button
-              variant="outline"
-              role="combobox"
-              aria-expanded={countryOpen}
-              className="w-[320px] justify-between"
-            />
-          }
-        >
-          {countryValue
-            ? countries.find((country) => country.value === countryValue)?.label
-            : 'Select country...'}
-          <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </PopoverTrigger>
-        <PopoverContent className="w-[320px] p-0">
-          <Command>
-            <CommandInput placeholder="Search country..." />
-            <CommandList>
-              <CommandEmpty>No country found.</CommandEmpty>
-              <CommandGroup>
-                {countries.map((country) => (
-                  <CommandItem
-                    key={country.value}
-                    value={country.value}
-                    onSelect={(currentValue) => {
-                      setCountryValue(
-                        currentValue === countryValue ? '' : currentValue
-                      );
-                      setCountryOpen(false);
-                    }}
-                  >
-                    <CheckIcon
-                      className={cn(
-                        'mr-2 h-4 w-4',
-                        countryValue === country.value
-                          ? 'opacity-100'
-                          : 'opacity-0'
-                      )}
-                    />
-                    {country.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverContent>
-      </Popover>
+      <div className="w-[320px]">
+        <Combobox items={countries}>
+          <ComboboxInput placeholder="Select country..." clearable />
+          <ComboboxContent>
+            <ComboboxEmpty>No country found.</ComboboxEmpty>
+            <ComboboxList>
+              {(country: Option) => (
+                <ComboboxItem key={country.value} value={country}>
+                  {country.label}
+                </ComboboxItem>
+              )}
+            </ComboboxList>
+          </ComboboxContent>
+        </Combobox>
+      </div>
     </div>
   );
 }

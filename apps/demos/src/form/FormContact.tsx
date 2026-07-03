@@ -1,25 +1,17 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Textarea } from '@spec-lab/shadcn-uikit/react';
+import { Field, FieldControl, FieldError, FieldLabel } from '@spec-lab/ui-react';
+import { InputBox, InputTextArea } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -38,6 +30,8 @@ const formSchema = z.object({
     message: 'Please select a priority level.',
   }),
 });
+
+const priorityItems = { low: 'Low', medium: 'Medium', high: 'High' };
 
 export function FormContact() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -58,92 +52,99 @@ export function FormContact() {
 
   return (
     <div className="w-full max-w-md">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="your@email.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="priority"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Priority</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select priority level" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="low">Low</SelectItem>
-                    <SelectItem value="medium">Medium</SelectItem>
-                    <SelectItem value="high">High</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="subject"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Subject</FormLabel>
-                <FormControl>
-                  <Input placeholder="What is this about?" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <Controller
+          control={form.control}
+          name="name"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Name</FieldLabel>
+              <FieldControl render={<InputBox placeholder="Your name" {...field} />} />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="email"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Email</FieldLabel>
+              <FieldControl
+                render={<InputBox type="email" placeholder="your@email.com" {...field} />}
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="priority"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Priority</FieldLabel>
+              <Select
+                items={priorityItems}
+                value={field.value}
+                onValueChange={field.onChange}
+              >
+                <SelectTrigger onBlur={field.onBlur}>
+                  <SelectValue placeholder="Select priority level" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="low">Low</SelectItem>
+                  <SelectItem value="medium">Medium</SelectItem>
+                  <SelectItem value="high">High</SelectItem>
+                </SelectContent>
+              </Select>
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="subject"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Subject</FieldLabel>
+              <FieldControl
+                render={<InputBox placeholder="What is this about?" {...field} />}
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="message"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Message</FieldLabel>
+              <FieldControl
+                render={
+                  <InputTextArea
                     placeholder="Your message here..."
                     className="min-h-[120px] resize-none"
                     {...field}
                   />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">Send message</Button>
-        </form>
-      </Form>
+                }
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Button type="submit">Send message</Button>
+      </form>
     </div>
   );
 }

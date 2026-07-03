@@ -1,18 +1,11 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Checkbox } from '@spec-lab/shadcn-uikit/react';
+import { Field, FieldControl, FieldError, FieldLabel } from '@spec-lab/ui-react';
+import { InputBox } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Checkbox } from '@spec-lab/ui-react';
 
 const formSchema = z.object({
   email: z.string().email({
@@ -42,64 +35,52 @@ export function FormLogin() {
 
   return (
     <div className="w-full max-w-md rounded-lg border p-6">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="email@example.com"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    type="password"
-                    placeholder="Enter password"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="remember"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel className="font-normal">Remember me</FormLabel>
-                </div>
-              </FormItem>
-            )}
-          />
-          <Button type="submit" className="w-full">
-            Sign in
-          </Button>
-        </form>
-      </Form>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <Controller
+          control={form.control}
+          name="email"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Email</FieldLabel>
+              <FieldControl
+                render={<InputBox type="email" placeholder="email@example.com" {...field} />}
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="password"
+          render={({ field, fieldState }) => (
+            <Field invalid={!!fieldState.error} name={field.name}>
+              <FieldLabel>Password</FieldLabel>
+              <FieldControl
+                render={<InputBox type="password" placeholder="Enter password" {...field} />}
+              />
+              {fieldState.error && (
+                <FieldError match>{fieldState.error.message}</FieldError>
+              )}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="remember"
+          render={({ field }) => (
+            <Checkbox
+              checked={field.value}
+              onCheckedChange={field.onChange}
+              label="Remember me"
+            />
+          )}
+        />
+        <Button type="submit" className="w-full">
+          Sign in
+        </Button>
+      </form>
     </div>
   );
 }

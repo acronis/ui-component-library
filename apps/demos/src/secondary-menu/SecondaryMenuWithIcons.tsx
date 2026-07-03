@@ -1,60 +1,51 @@
 import { useState } from 'react';
 import {
-  SecondaryMenu,
-  SecondaryMenuContent,
-  SecondaryMenuGroup,
-  SecondaryMenuItem,
-} from '@spec-lab/shadcn-uikit/react';
+  SidebarSecondary,
+  SidebarSecondaryContent,
+  SidebarSecondaryMenu,
+  SidebarSecondaryMenuItem,
+  SidebarSecondarySection,
+} from '@spec-lab/ui-react';
 import { BellIcon, CogIcon, EnvelopeIcon, FolderHouseIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+
 export function SecondaryMenuWithIcons() {
   const [activeItem, setActiveItem] = useState('home');
 
+  const items = [
+    { id: 'home', title: 'Home', icon: FolderHouseIcon },
+    { id: 'profile', title: 'Profile', icon: UserIcon },
+    { id: 'notifications', title: 'Notifications', icon: BellIcon },
+    { id: 'messages', title: 'Messages', icon: EnvelopeIcon },
+    { id: 'config', title: 'Configuration', icon: CogIcon },
+  ];
+
   return (
     <div
-      className="border rounded-lg overflow-hidden"
+      className="overflow-hidden rounded-lg border"
       style={{ height: '400px' }}
     >
-      <SecondaryMenu>
-        <SecondaryMenuContent>
-          <SecondaryMenuGroup>
-            <SecondaryMenuItem
-              active={activeItem === 'home'}
-              onClick={() => setActiveItem('home')}
-              icon={<FolderHouseIcon className="h-4 w-4" />}
-            >
-              Home
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'profile'}
-              onClick={() => setActiveItem('profile')}
-              icon={<UserIcon className="h-4 w-4" />}
-            >
-              Profile
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'notifications'}
-              onClick={() => setActiveItem('notifications')}
-              icon={<BellIcon className="h-4 w-4" />}
-            >
-              Notifications
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'messages'}
-              onClick={() => setActiveItem('messages')}
-              icon={<EnvelopeIcon className="h-4 w-4" />}
-            >
-              Messages
-            </SecondaryMenuItem>
-            <SecondaryMenuItem
-              active={activeItem === 'config'}
-              onClick={() => setActiveItem('config')}
-              icon={<CogIcon className="h-4 w-4" />}
-            >
-              Configuration
-            </SecondaryMenuItem>
-          </SecondaryMenuGroup>
-        </SecondaryMenuContent>
-      </SecondaryMenu>
+      <SidebarSecondary>
+        <SidebarSecondaryContent>
+          <SidebarSecondarySection>
+            <SidebarSecondaryMenu>
+              {items.map((item) => (
+                <SidebarSecondaryMenuItem
+                  key={item.id}
+                  href="#"
+                  icon={<item.icon />}
+                  selected={activeItem === item.id}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActiveItem(item.id);
+                  }}
+                >
+                  {item.title}
+                </SidebarSecondaryMenuItem>
+              ))}
+            </SidebarSecondaryMenu>
+          </SidebarSecondarySection>
+        </SidebarSecondaryContent>
+      </SidebarSecondary>
     </div>
   );
 }
