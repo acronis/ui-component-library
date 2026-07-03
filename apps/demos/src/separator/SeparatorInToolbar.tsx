@@ -1,4 +1,4 @@
-import { Separator } from '@spec-lab/shadcn-uikit/react';
+import { Separator } from '@spec-lab/ui-react';
 
 export function SeparatorInToolbar() {
   return (

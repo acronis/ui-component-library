@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   Label,
   RadioGroup,
-  RadioGroupItem,
-} from '@spec-lab/shadcn-uikit/react';
+  Radio,
+} from '@spec-lab/ui-react';
 
 export function RadioGroupPriority() {
   const [value, setValue] = React.useState('medium');
@@ -15,7 +15,7 @@ export function RadioGroupPriority() {
         onValueChange={(next) => setValue(next as string)}
       >
         <div className="flex items-start space-x-2">
-          <RadioGroupItem value="low" id="priority-low" className="mt-1" />
+          <Radio value="low" id="priority-low" className="mt-1" />
           <div className="grid gap-1.5 leading-none">
             <Label htmlFor="priority-low">Low Priority</Label>
             <p className="text-sm text-muted-foreground">
@@ -24,7 +24,7 @@ export function RadioGroupPriority() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem
+          <Radio
             value="medium"
             id="priority-medium"
             className="mt-1"
@@ -37,7 +37,7 @@ export function RadioGroupPriority() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem value="high" id="priority-high" className="mt-1" />
+          <Radio value="high" id="priority-high" className="mt-1" />
           <div className="grid gap-1.5 leading-none">
             <Label htmlFor="priority-high">High Priority</Label>
             <p className="text-sm text-muted-foreground">
@@ -46,7 +46,7 @@ export function RadioGroupPriority() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem
+          <Radio
             value="urgent"
             id="priority-urgent"
             className="mt-1"

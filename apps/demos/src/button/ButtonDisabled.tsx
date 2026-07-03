@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 
 export function ButtonDisabled() {
   return (

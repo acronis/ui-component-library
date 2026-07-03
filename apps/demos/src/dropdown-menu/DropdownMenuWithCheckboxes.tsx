@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuCheckboxItem,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function DropdownMenuWithCheckboxes() {
   const [showStatusBar, setShowStatusBar] = useState(true);
@@ -16,7 +16,7 @@ export function DropdownMenuWithCheckboxes() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger render={<Button variant="secondary" />}>
         View Options
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">

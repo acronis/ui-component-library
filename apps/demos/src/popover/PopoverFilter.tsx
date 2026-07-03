@@ -1,16 +1,16 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { FilterIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { FunnelIcon } from '@spec-lab/icons-react/stroke-mono'
 export function PopoverFilter() {
   return (
     <div className="flex justify-center rounded-lg border p-8">
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
-          <FilterIcon className="mr-2 h-4 w-4" />
+        <PopoverTrigger render={<Button variant="secondary" />}>
+          <FunnelIcon className="mr-2 h-4 w-4" />
           Filters
         </PopoverTrigger>
         <PopoverContent className="w-80">
@@ -37,10 +37,8 @@ export function PopoverFilter() {
               </div>
             </div>
             <div className="flex justify-end gap-2 pt-2">
-              <Button variant="ghost" size="sm">
-                Clear
-              </Button>
-              <Button size="sm">Apply</Button>
+              <Button variant="ghost">Clear</Button>
+              <Button>Apply</Button>
             </div>
           </div>
         </PopoverContent>

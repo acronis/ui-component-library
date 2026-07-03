@@ -1,25 +1,26 @@
 import * as React from 'react';
-import { Checkbox, Label } from '@spec-lab/shadcn-uikit/react';
+import { Checkbox, Label } from '@spec-lab/ui-react';
 
 export function CheckboxIndeterminate() {
-  const [indeterminate, setIndeterminate] = React.useState<
-    boolean | 'indeterminate'
-  >('indeterminate');
+  const [state, setState] = React.useState<boolean | 'indeterminate'>(
+    'indeterminate'
+  );
 
   return (
     <div className="flex items-center space-x-2">
       <Checkbox
         id="indeterminate"
-        checked={indeterminate}
-        onCheckedChange={setIndeterminate}
+        checked={state === true}
+        indeterminate={state === 'indeterminate'}
+        onCheckedChange={setState}
       />
       <Label
         htmlFor="indeterminate"
         className="text-sm font-normal cursor-pointer"
       >
-        {indeterminate === 'indeterminate'
+        {state === 'indeterminate'
           ? 'Indeterminate'
-          : indeterminate
+          : state
             ? 'Checked'
             : 'Unchecked'}
       </Label>

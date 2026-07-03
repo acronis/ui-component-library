@@ -15,29 +15,17 @@ import {
   SidebarMenuSubItem,
   SidebarProvider,
 } from '@spec-lab/shadcn-uikit/react';
-import {
-  CalendarIcon,
-  ChevronRightIcon,
-  FileTextIcon,
-  HelpCircleIcon,
-  HomeFolderIcon,
-  MailboxIcon,
-  SearchIcon,
-  SettingsIcon,
-  ShieldIcon,
-  UserIcon,
-  UsersIcon,
-} from '@spec-lab/shadcn-uikit';
+import { CalendarIcon, ChevronRightIcon, CircleHelpIcon, CogIcon, FileTextIcon, FolderHouseIcon, InboxIcon, MagnifierIcon, ShieldCheckIcon, UserIcon, UsersIcon } from '@spec-lab/icons-react/stroke-mono'
 import { BarChartIcon } from '../icons/missing-icons';
 export function SidebarFull() {
   const [activeItem, setActiveItem] = useState('home');
 
   const mainNavItems = [
-    { id: 'home', title: 'Home', icon: HomeFolderIcon },
-    { id: 'inbox', title: 'Inbox', icon: MailboxIcon, badge: '7' },
+    { id: 'home', title: 'Home', icon: FolderHouseIcon },
+    { id: 'inbox', title: 'Inbox', icon: InboxIcon, badge: '7' },
     { id: 'calendar', title: 'Calendar', icon: CalendarIcon },
-    { id: 'search', title: 'Search', icon: SearchIcon },
-    { id: 'settings', title: 'Settings', icon: SettingsIcon },
+    { id: 'search', title: 'Search', icon: MagnifierIcon },
+    { id: 'settings', title: 'Settings', icon: CogIcon },
   ];
 
   const projectNavItems = [
@@ -66,7 +54,7 @@ export function SidebarFull() {
   const analyticsNavItems = [
     { id: 'analytics', title: 'Analytics', icon: BarChartIcon },
     { id: 'reports', title: 'Reports', icon: FileTextIcon },
-    { id: 'security', title: 'Security', icon: ShieldIcon, tag: 'NEW' },
+    { id: 'security', title: 'Security', icon: ShieldCheckIcon, tag: 'NEW' },
   ];
 
   return (
@@ -76,7 +64,7 @@ export function SidebarFull() {
           <SidebarHeader className="border-b border-sidebar-border">
             <div className="flex items-center gap-2 px-4 py-3">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sidebar-accent text-sidebar-accent-foreground">
-                <HomeFolderIcon className="h-4 w-4" />
+                <FolderHouseIcon className="h-4 w-4" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-semibold">Constructor Lab UIKit</span>
@@ -184,7 +172,7 @@ export function SidebarFull() {
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
-                  <HelpCircleIcon />
+                  <CircleHelpIcon />
                   <span>Help & Support</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>

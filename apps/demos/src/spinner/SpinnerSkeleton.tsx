@@ -1,4 +1,4 @@
-import { Spinner } from '@spec-lab/shadcn-uikit/react';
+import { Spinner } from '@spec-lab/ui-react';
 
 export function SpinnerSkeleton() {
   return (

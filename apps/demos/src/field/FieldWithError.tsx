@@ -4,14 +4,14 @@ import {
   FieldLabel,
   FieldDescription,
   FieldError,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
 
 export function FieldWithError() {
   return (
     <div className="w-full max-w-sm space-y-6">
       {/* Single error */}
-      <Field data-invalid="true">
+      <Field invalid>
         <FieldLabel htmlFor="email-error">Email</FieldLabel>
         <Input
           id="email-error"
@@ -19,13 +19,11 @@ export function FieldWithError() {
           defaultValue="notanemail"
           aria-invalid
         />
-        <FieldError
-          errors={[{ message: 'Please enter a valid email address.' }]}
-        />
+        <FieldError match>Please enter a valid email address.</FieldError>
       </Field>
 
       {/* Multiple errors */}
-      <Field data-invalid="true">
+      <Field invalid>
         <FieldLabel htmlFor="password-error">Password</FieldLabel>
         <Input
           id="password-error"
@@ -34,12 +32,12 @@ export function FieldWithError() {
           aria-invalid
         />
         <FieldDescription>Must be strong and unique.</FieldDescription>
-        <FieldError
-          errors={[
-            { message: 'Must be at least 8 characters.' },
-            { message: 'Must contain at least one number.' },
-          ]}
-        />
+        <FieldError match>
+          <ul className="ml-4 flex list-disc flex-col gap-1">
+            <li>Must be at least 8 characters.</li>
+            <li>Must contain at least one number.</li>
+          </ul>
+        </FieldError>
       </Field>
     </div>
   );

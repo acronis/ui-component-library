@@ -5,7 +5,7 @@ import {
   SecondaryMenuGroup,
   SecondaryMenuItem,
 } from '@spec-lab/shadcn-uikit/react';
-import { ChevronRightIcon } from '@spec-lab/shadcn-uikit';
+import { ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
 export function SecondaryMenuWithRightIcons() {
   const [activeItem, setActiveItem] = useState('nav1');
 

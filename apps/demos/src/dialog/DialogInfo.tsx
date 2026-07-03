@@ -7,13 +7,13 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { InfoIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DialogInfo() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>
+      <DialogTrigger render={<Button variant="secondary" />}>
         View Info
       </DialogTrigger>
       <DialogContent className="sm:max-w-lg">
@@ -24,7 +24,7 @@ export function DialogInfo() {
         <DialogBody>
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <InfoIcon className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
+              <CircleInfoIcon className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
               <div className="space-y-2">
                 <p className="text-sm font-medium">Important Information</p>
                 <p className="text-sm text-gray-600">

@@ -1,15 +1,16 @@
-import { Button, Input, Label } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Input, Label } from '@spec-lab/shadcn-uikit/react';
 
 export function PopoverWithForm() {
   return (
     <div className="flex justify-center rounded-lg border p-8">
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
+        <PopoverTrigger render={<Button variant="secondary" />}>
           Settings
         </PopoverTrigger>
         <PopoverContent className="w-80">

@@ -1,5 +1,5 @@
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { HideIcon } from '@spec-lab/shadcn-uikit';
+import { Input } from '@spec-lab/ui-react';
+import { EyeCrossedIcon } from '@spec-lab/icons-react/stroke-mono'
 export function PasswordInputError() {
   return (
     <div className="space-y-4">
@@ -17,7 +17,7 @@ export function PasswordInputError() {
             className="absolute right-3 top-1/2 -translate-y-1/2 text-[#EA3939]"
             aria-label="Show password"
           >
-            <HideIcon className="h-4 w-4" />
+            <EyeCrossedIcon className="h-4 w-4" />
           </button>
         </div>
         <p
@@ -45,7 +45,7 @@ export function PasswordInputError() {
             className="absolute right-3 top-1/2 -translate-y-1/2 text-[#EA3939]"
             aria-label="Show password"
           >
-            <HideIcon className="h-4 w-4" />
+            <EyeCrossedIcon className="h-4 w-4" />
           </button>
         </div>
         <p

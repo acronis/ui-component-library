@@ -1,4 +1,4 @@
-import { Checkbox, Label } from '@spec-lab/shadcn-uikit/react';
+import { Checkbox, Label } from '@spec-lab/ui-react';
 
 export function CheckboxStates() {
   return (
@@ -30,7 +30,7 @@ export function CheckboxStates() {
           </Label>
         </div>
         <div className="flex items-center space-x-2">
-          <Checkbox id="state-indeterminate" checked="indeterminate" />
+          <Checkbox id="state-indeterminate" indeterminate />
           <Label htmlFor="state-indeterminate" className="text-sm font-normal">
             Indeterminate
           </Label>

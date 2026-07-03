@@ -274,9 +274,15 @@ importers:
       '@hookform/resolvers':
         specifier: 'catalog:'
         version: 5.4.0(react-hook-form@7.76.1(react@19.2.6))
+      '@spec-lab/icons-react':
+        specifier: workspace:*
+        version: link:../../packages/icons-react
       '@spec-lab/shadcn-uikit':
         specifier: workspace:*
         version: link:../../packages/ui-legacy
+      '@spec-lab/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       '@tanstack/react-form':
         specifier: 1.33.0
         version: 1.33.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)

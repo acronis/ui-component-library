@@ -4,10 +4,10 @@ import {
   FieldLabel,
   FieldContent,
   FieldDescription,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Switch } from '@spec-lab/shadcn-uikit/react';
-import { Checkbox } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
+import { Switch } from '@spec-lab/ui-react';
+import { Checkbox } from '@spec-lab/ui-react';
 
 export function FieldHorizontal() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { HideIcon, ShowIcon } from '@spec-lab/shadcn-uikit';
+import { Input } from '@spec-lab/ui-react';
+import { EyeCrossedIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
 export function PasswordInputFilled() {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordValue, setPasswordValue] = useState('MyP@ssw0rd');
@@ -25,9 +25,9 @@ export function PasswordInputFilled() {
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
             {showPassword ? (
-              <ShowIcon className="h-4 w-4" />
+              <EyeIcon className="h-4 w-4" />
             ) : (
-              <HideIcon className="h-4 w-4" />
+              <EyeCrossedIcon className="h-4 w-4" />
             )}
           </button>
         </div>

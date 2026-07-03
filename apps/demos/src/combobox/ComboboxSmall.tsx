@@ -15,7 +15,7 @@ import {
   PopoverTrigger,
 } from '@spec-lab/shadcn-uikit/react';
 
-import { CheckIcon, ChevronUpdownIcon } from '@spec-lab/shadcn-uikit';
+import { ArrowsDownUpIcon, CheckIcon } from '@spec-lab/icons-react/stroke-mono'
 const statuses = [
   { value: 'active', label: 'Active' },
   { value: 'inactive', label: 'Inactive' },
@@ -42,7 +42,7 @@ export function ComboboxSmall() {
         {value
           ? statuses.find((status) => status.value === value)?.label
           : 'Select status...'}
-        <ChevronUpdownIcon className="ml-2 h-3 w-3 shrink-0 opacity-50" />
+        <ArrowsDownUpIcon className="ml-2 h-3 w-3 shrink-0 opacity-50" />
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>

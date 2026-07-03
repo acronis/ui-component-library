@@ -3,7 +3,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function TabsCompact() {
   return (

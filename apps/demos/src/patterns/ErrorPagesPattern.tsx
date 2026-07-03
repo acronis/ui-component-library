@@ -7,7 +7,7 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 function Error404() {
   return (
@@ -43,7 +43,7 @@ function Error500() {
           Something went wrong on our end. Please try again in a moment.
         </p>
         <div className="flex gap-2 justify-center">
-          <Button variant="outline">Try Again</Button>
+          <Button variant="secondary">Try Again</Button>
           <Button>Contact Support</Button>
         </div>
       </AuthLayoutCard>

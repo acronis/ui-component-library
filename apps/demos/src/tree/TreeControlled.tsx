@@ -1,5 +1,5 @@
 import { Tree, TreeNode } from '@spec-lab/shadcn-uikit/react';
-import { FileTextIcon, FolderIcon } from '@spec-lab/shadcn-uikit';
+import { FileTextIcon, FolderIcon } from '@spec-lab/icons-react/stroke-mono'
 import { CodeIcon } from '../icons/missing-icons';
 const projectData: TreeNode[] = [
   {

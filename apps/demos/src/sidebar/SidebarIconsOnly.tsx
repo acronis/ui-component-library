@@ -8,12 +8,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@spec-lab/shadcn-uikit/react';
-import {
-  CalendarIcon,
-  HomeFolderIcon,
-  MailboxIcon,
-  SettingsIcon,
-} from '@spec-lab/shadcn-uikit';
+import { CalendarIcon, CogIcon, FolderHouseIcon, InboxIcon } from '@spec-lab/icons-react/stroke-mono'
 export function SidebarIconsOnly() {
   return (
     <div className="h-[400px] border rounded-lg overflow-hidden flex">
@@ -28,7 +23,7 @@ export function SidebarIconsOnly() {
                       tooltip="Home"
                       className="justify-center"
                     >
-                      <HomeFolderIcon />
+                      <FolderHouseIcon />
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
@@ -36,7 +31,7 @@ export function SidebarIconsOnly() {
                       tooltip="Inbox"
                       className="justify-center"
                     >
-                      <MailboxIcon />
+                      <InboxIcon />
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
@@ -52,7 +47,7 @@ export function SidebarIconsOnly() {
                       tooltip="Settings"
                       className="justify-center"
                     >
-                      <SettingsIcon />
+                      <CogIcon />
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>

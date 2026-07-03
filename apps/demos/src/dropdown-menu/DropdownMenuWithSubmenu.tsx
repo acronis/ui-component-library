@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,12 +8,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  CloudIcon,
-  MailIcon,
-  MessagesIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { CloudIcon, EnvelopeIcon, MessagesIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   ExternalLinkIcon,
   LifeBuoyIcon,
@@ -23,12 +19,12 @@ import {
 export function DropdownMenuWithSubmenu() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger render={<Button variant="secondary" />}>
         More Actions
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuItem>
-          <MailIcon className="mr-2 h-4 w-4" />
+          <EnvelopeIcon className="mr-2 h-4 w-4" />
           <span>Email</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -43,7 +39,7 @@ export function DropdownMenuWithSubmenu() {
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuItem>
-              <MailIcon className="mr-2 h-4 w-4" />
+              <EnvelopeIcon className="mr-2 h-4 w-4" />
               <span>Email</span>
             </DropdownMenuItem>
             <DropdownMenuItem>

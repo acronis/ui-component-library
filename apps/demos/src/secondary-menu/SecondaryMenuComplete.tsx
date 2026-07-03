@@ -9,12 +9,7 @@ import {
 } from '@spec-lab/shadcn-uikit/react';
 import { Button } from '@spec-lab/shadcn-uikit/react';
 
-import {
-  DownloadIcon,
-  FileTextIcon,
-  ImageIcon,
-  UploadIcon,
-} from '@spec-lab/shadcn-uikit';
+import { ArrowInDownIcon, ArrowOutUpIcon, FileTextIcon, RectangleImageIcon } from '@spec-lab/icons-react/stroke-mono'
 export function SecondaryMenuComplete() {
   const [activeItem, setActiveItem] = useState('recent1');
 
@@ -40,7 +35,7 @@ export function SecondaryMenuComplete() {
             <SecondaryMenuItem
               active={activeItem === 'recent2'}
               onClick={() => setActiveItem('recent2')}
-              icon={<ImageIcon className="h-4 w-4" />}
+              icon={<RectangleImageIcon className="h-4 w-4" />}
             >
               Design Mockups
             </SecondaryMenuItem>
@@ -58,14 +53,14 @@ export function SecondaryMenuComplete() {
             <SecondaryMenuItem
               active={activeItem === 'folder2'}
               onClick={() => setActiveItem('folder2')}
-              icon={<ImageIcon className="h-4 w-4" />}
+              icon={<RectangleImageIcon className="h-4 w-4" />}
             >
               Media
             </SecondaryMenuItem>
             <SecondaryMenuItem
               active={activeItem === 'folder3'}
               onClick={() => setActiveItem('folder3')}
-              icon={<DownloadIcon className="h-4 w-4" />}
+              icon={<ArrowInDownIcon className="h-4 w-4" />}
             >
               Downloads
             </SecondaryMenuItem>
@@ -74,7 +69,7 @@ export function SecondaryMenuComplete() {
 
         <SecondaryMenuFooter>
           <Button variant="outline" size="sm" className="w-full">
-            <UploadIcon className="mr-2 h-4 w-4" />
+            <ArrowOutUpIcon className="mr-2 h-4 w-4" />
             Upload Files
           </Button>
         </SecondaryMenuFooter>

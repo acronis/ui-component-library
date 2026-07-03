@@ -15,7 +15,7 @@ import {
   PopoverTrigger,
 } from '@spec-lab/shadcn-uikit/react';
 
-import { CheckIcon, ChevronUpdownIcon } from '@spec-lab/shadcn-uikit';
+import { ArrowsDownUpIcon, CheckIcon } from '@spec-lab/icons-react/stroke-mono'
 const languages = [
   { value: 'javascript', label: 'JavaScript' },
   { value: 'typescript', label: 'TypeScript' },
@@ -61,7 +61,7 @@ export function ComboboxWidths() {
           {languageValue
             ? languages.find((lang) => lang.value === languageValue)?.label
             : 'Select language...'}
-          <ChevronUpdownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0">
           <Command>
@@ -111,7 +111,7 @@ export function ComboboxWidths() {
           {countryValue
             ? countries.find((country) => country.value === countryValue)?.label
             : 'Select country...'}
-          <ChevronUpdownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </PopoverTrigger>
         <PopoverContent className="w-[320px] p-0">
           <Command>

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Spinner } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Spinner } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function SpinnerButton() {
   const [loading, setLoading] = React.useState(false);
@@ -22,7 +22,7 @@ export function SpinnerButton() {
           'Click to Load'
         )}
       </Button>
-      <Button variant="outline" onClick={simulateLoading} disabled={loading}>
+      <Button variant="secondary" onClick={simulateLoading} disabled={loading}>
         {loading ? (
           <>
             <Spinner size="sm" className="mr-2" />

@@ -1,8 +1,8 @@
 import {
   Label,
   RadioGroup,
-  RadioGroupItem,
-} from '@spec-lab/shadcn-uikit/react';
+  Radio,
+} from '@spec-lab/ui-react';
 
 export function RadioGroupPayment() {
   return (
@@ -10,7 +10,7 @@ export function RadioGroupPayment() {
       <h4 className="font-semibold">Select Payment Method</h4>
       <RadioGroup defaultValue="credit-card">
         <div className="flex items-start space-x-2">
-          <RadioGroupItem
+          <Radio
             value="credit-card"
             id="pay-credit"
             className="mt-1"
@@ -23,7 +23,7 @@ export function RadioGroupPayment() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem value="paypal" id="pay-paypal" className="mt-1" />
+          <Radio value="paypal" id="pay-paypal" className="mt-1" />
           <div className="grid gap-1.5 leading-none">
             <Label htmlFor="pay-paypal">PayPal</Label>
             <p className="text-sm text-muted-foreground">
@@ -32,7 +32,7 @@ export function RadioGroupPayment() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem
+          <Radio
             value="bank-transfer"
             id="pay-bank"
             className="mt-1"

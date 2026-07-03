@@ -1,4 +1,4 @@
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+import { Badge } from '@spec-lab/ui-react';
 
 export function BadgeSmall() {
   return (

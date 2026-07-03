@@ -1,29 +1,29 @@
 import {
-  Button,
   ButtonGroup,
   ButtonGroupSeparator,
-} from '@spec-lab/shadcn-uikit/react';
-import { ClipboardIcon, CopyIcon } from '@spec-lab/shadcn-uikit';
+  ButtonIcon,
+} from '@spec-lab/ui-react';
+import { ClipboardIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono'
 import { RedoIcon, ScissorsIcon, UndoIcon } from '../icons/missing-icons';
 export function ButtonGroupWithSeparators() {
   return (
     <ButtonGroup>
-      <Button variant="outline" size="icon">
+      <ButtonIcon variant="secondary" aria-label="Undo">
         <UndoIcon className="h-4 w-4" />
-      </Button>
-      <Button variant="outline" size="icon">
+      </ButtonIcon>
+      <ButtonIcon variant="secondary" aria-label="Redo">
         <RedoIcon className="h-4 w-4" />
-      </Button>
+      </ButtonIcon>
       <ButtonGroupSeparator />
-      <Button variant="outline" size="icon">
-        <CopyIcon className="h-4 w-4" />
-      </Button>
-      <Button variant="outline" size="icon">
+      <ButtonIcon variant="secondary" aria-label="Copy">
+        <FilesIcon className="h-4 w-4" />
+      </ButtonIcon>
+      <ButtonIcon variant="secondary" aria-label="Cut">
         <ScissorsIcon className="h-4 w-4" />
-      </Button>
-      <Button variant="outline" size="icon">
+      </ButtonIcon>
+      <ButtonIcon variant="secondary" aria-label="Paste">
         <ClipboardIcon className="h-4 w-4" />
-      </Button>
+      </ButtonIcon>
     </ButtonGroup>
   );
 }

@@ -1,4 +1,4 @@
-import { Progress } from '@spec-lab/shadcn-uikit/react';
+import { Progress } from '@spec-lab/ui-react';
 
 export function ProgressSizes() {
   return (

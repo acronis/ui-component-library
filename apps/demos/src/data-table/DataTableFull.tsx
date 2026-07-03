@@ -8,8 +8,8 @@ import {
   flexRender,
 } from '@tanstack/react-table';
 import { useState } from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Checkbox } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
+import { Checkbox } from '@spec-lab/ui-react';
 import {
   Table,
   TableBody,
@@ -17,7 +17,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,15 +25,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Badge } from '@spec-lab/ui-react';
 import {
   DataTableColumnHeader,
   DataTablePagination,
   DataTableToolbar,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
-import { EllipsisHIcon } from '@spec-lab/shadcn-uikit';
+import { EllipsisIcon } from '@spec-lab/icons-react/stroke-mono'
 export type Payment = {
   id: string;
   amount: number;
@@ -155,10 +155,8 @@ const columns: ColumnDef<Payment>[] = [
     id: 'select',
     header: ({ table }) => (
       <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() ? 'indeterminate' : false)
-        }
+        checked={table.getIsAllPageRowsSelected()}
+        indeterminate={table.getIsSomePageRowsSelected()}
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
       />
@@ -182,12 +180,12 @@ const columns: ColumnDef<Payment>[] = [
       const status = row.getValue('status') as string;
       const variant =
         status === 'success'
-          ? 'default'
+          ? 'success'
           : status === 'processing'
-            ? 'secondary'
+            ? 'info'
             : status === 'pending'
-              ? 'outline'
-              : 'destructive';
+              ? 'warning'
+              : 'danger';
 
       return (
         <Badge variant={variant} className="capitalize">
@@ -238,7 +236,7 @@ const columns: ColumnDef<Payment>[] = [
             render={<Button variant="ghost" className="h-8 w-8 p-0" />}
           >
             <span className="sr-only">Open menu</span>
-            <EllipsisHIcon className="h-4 w-4" />
+            <EllipsisIcon className="h-4 w-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>

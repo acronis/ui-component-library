@@ -4,23 +4,23 @@ import {
   AlertContent,
   AlertTitle,
   AlertDescription,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 import {
-  SuccessIcon,
-  WarningIcon,
-  CriticalIcon,
-  DangerIcon,
-  InfrastructureIcon,
-  InfoIcon,
-  AiSparklesIcon,
-} from '@spec-lab/shadcn-uikit/react';
+  CircleCheckIcon,
+  TriangleWarningIcon,
+  DiamondWarningIcon,
+  CircleWarningIcon,
+  ServerIcon,
+  CircleInfoIcon,
+  SparklesIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 export function AlertVariants() {
   return (
     <div className="flex flex-col gap-4">
       <Alert variant="ai">
         <AlertIcon>
-          <AiSparklesIcon />
+          <SparklesIcon />
         </AlertIcon>
         <AlertContent>
           <AlertDescription>
@@ -31,7 +31,7 @@ export function AlertVariants() {
 
       <Alert variant="neutral">
         <AlertIcon>
-          <InfrastructureIcon />
+          <ServerIcon />
         </AlertIcon>
         <AlertContent>
           <AlertDescription>
@@ -42,7 +42,7 @@ export function AlertVariants() {
 
       <Alert variant="success">
         <AlertIcon>
-          <SuccessIcon />
+          <CircleCheckIcon />
         </AlertIcon>
         <AlertContent>
           <AlertDescription>Operation completed successfully!</AlertDescription>
@@ -51,7 +51,7 @@ export function AlertVariants() {
 
       <Alert variant="warning">
         <AlertIcon>
-          <WarningIcon />
+          <TriangleWarningIcon />
         </AlertIcon>
         <AlertContent>
           <AlertDescription>
@@ -62,7 +62,7 @@ export function AlertVariants() {
 
       <Alert variant="critical">
         <AlertIcon>
-          <CriticalIcon />
+          <DiamondWarningIcon />
         </AlertIcon>
         <AlertContent>
           <AlertDescription>
@@ -73,7 +73,7 @@ export function AlertVariants() {
 
       <Alert variant="destructive">
         <AlertIcon>
-          <DangerIcon />
+          <CircleWarningIcon />
         </AlertIcon>
         <AlertContent>
           <AlertDescription>
@@ -84,7 +84,7 @@ export function AlertVariants() {
 
       <Alert variant="info">
         <AlertIcon>
-          <InfoIcon />
+          <CircleInfoIcon />
         </AlertIcon>
         <AlertContent>
           <AlertTitle>System Update Available</AlertTitle>

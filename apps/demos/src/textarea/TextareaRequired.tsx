@@ -1,4 +1,4 @@
-import { Textarea } from '@spec-lab/shadcn-uikit/react';
+import { Textarea } from '@spec-lab/ui-react';
 
 export function TextareaRequired() {
   return (

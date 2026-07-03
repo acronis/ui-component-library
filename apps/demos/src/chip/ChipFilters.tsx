@@ -1,5 +1,5 @@
-import { Chip } from '@spec-lab/shadcn-uikit/react';
-import { StarIcon } from '@spec-lab/shadcn-uikit';
+import { Chip } from '@spec-lab/ui-react';
+import { StarIcon } from '@spec-lab/icons-react/stroke-mono'
 import { TagIcon } from '../icons/missing-icons';
 export function ChipFilters() {
   return (

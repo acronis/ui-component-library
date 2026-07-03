@@ -1,16 +1,16 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function DropdownMenuAlignments() {
   return (
     <div className="flex gap-4 flex-wrap">
       <DropdownMenu>
-        <DropdownMenuTrigger render={<Button variant="outline" />}>
+        <DropdownMenuTrigger render={<Button variant="secondary" />}>
           Align Start
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start">
@@ -21,7 +21,7 @@ export function DropdownMenuAlignments() {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger render={<Button variant="outline" />}>
+        <DropdownMenuTrigger render={<Button variant="secondary" />}>
           Align Center
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center">
@@ -32,7 +32,7 @@ export function DropdownMenuAlignments() {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger render={<Button variant="outline" />}>
+        <DropdownMenuTrigger render={<Button variant="secondary" />}>
           Align End
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">

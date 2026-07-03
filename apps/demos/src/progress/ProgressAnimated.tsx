@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Progress, Button } from '@spec-lab/shadcn-uikit/react';
+import { Progress, Button } from '@spec-lab/ui-react';
 
 export function ProgressAnimated() {
   const [progress, setProgress] = React.useState(50);
@@ -26,9 +26,7 @@ export function ProgressAnimated() {
         </div>
         <Progress value={progress} className="w-full" />
       </div>
-      <Button onClick={handleStart} size="sm">
-        Start Progress
-      </Button>
+      <Button onClick={handleStart}>Start Progress</Button>
     </div>
   );
 }

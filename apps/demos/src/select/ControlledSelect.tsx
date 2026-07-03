@@ -5,8 +5,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit';
-import { Label } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Label } from '@spec-lab/ui-react';
 
 export function ControlledSelect() {
   const [value, setValue] = React.useState<string>('');

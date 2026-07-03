@@ -1,8 +1,8 @@
 import {
   Label,
   RadioGroup,
-  RadioGroupItem,
-} from '@spec-lab/shadcn-uikit/react';
+  Radio,
+} from '@spec-lab/ui-react';
 
 export function RadioGroupForm() {
   return (
@@ -15,7 +15,7 @@ export function RadioGroupForm() {
       </div>
       <RadioGroup defaultValue="email">
         <div className="flex items-start space-x-2">
-          <RadioGroupItem value="email" id="notify-email" className="mt-1" />
+          <Radio value="email" id="notify-email" className="mt-1" />
           <div className="grid gap-1.5 leading-none">
             <Label htmlFor="notify-email">Email</Label>
             <p className="text-sm text-muted-foreground">
@@ -24,7 +24,7 @@ export function RadioGroupForm() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem value="sms" id="notify-sms" className="mt-1" />
+          <Radio value="sms" id="notify-sms" className="mt-1" />
           <div className="grid gap-1.5 leading-none">
             <Label htmlFor="notify-sms">SMS</Label>
             <p className="text-sm text-muted-foreground">
@@ -33,7 +33,7 @@ export function RadioGroupForm() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem value="push" id="notify-push" className="mt-1" />
+          <Radio value="push" id="notify-push" className="mt-1" />
           <div className="grid gap-1.5 leading-none">
             <Label htmlFor="notify-push">Push Notification</Label>
             <p className="text-sm text-muted-foreground">
@@ -42,7 +42,7 @@ export function RadioGroupForm() {
           </div>
         </div>
         <div className="flex items-start space-x-2">
-          <RadioGroupItem value="none" id="notify-none" className="mt-1" />
+          <Radio value="none" id="notify-none" className="mt-1" />
           <div className="grid gap-1.5 leading-none">
             <Label htmlFor="notify-none">None</Label>
             <p className="text-sm text-muted-foreground">

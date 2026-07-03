@@ -1,15 +1,15 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function PopoverAlignments() {
   return (
     <div className="flex flex-wrap justify-center gap-4 rounded-lg border p-8">
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
+        <PopoverTrigger render={<Button variant="secondary" />}>
           Align Start
         </PopoverTrigger>
         <PopoverContent align="start" className="w-64">
@@ -18,7 +18,7 @@ export function PopoverAlignments() {
       </Popover>
 
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
+        <PopoverTrigger render={<Button variant="secondary" />}>
           Align Center
         </PopoverTrigger>
         <PopoverContent align="center" className="w-64">
@@ -27,7 +27,7 @@ export function PopoverAlignments() {
       </Popover>
 
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
+        <PopoverTrigger render={<Button variant="secondary" />}>
           Align End
         </PopoverTrigger>
         <PopoverContent align="end" className="w-64">

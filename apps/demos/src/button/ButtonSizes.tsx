@@ -1,14 +1,14 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button, ButtonIcon } from '@spec-lab/ui-react';
 
 export function ButtonSizes() {
   return (
     <div className="button-grid">
-      <Button size="sm">Small</Button>
-      <Button size="default">Default</Button>
-      <Button size="lg">Large</Button>
-      <Button size="icon" variant="secondary">
+      <Button>Small</Button>
+      <Button>Default</Button>
+      <Button>Large</Button>
+      <ButtonIcon aria-label="More options" variant="secondary">
         ⋯
-      </Button>
+      </ButtonIcon>
     </div>
   );
 }

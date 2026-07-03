@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Calendar } from '@spec-lab/shadcn-uikit/react';
+import { Calendar } from '@spec-lab/ui-react';
 
 export function CalendarWeekStart() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());

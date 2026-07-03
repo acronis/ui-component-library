@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Checkbox, Label } from '@spec-lab/shadcn-uikit/react';
+import { Checkbox, Label } from '@spec-lab/ui-react';
 
 export function CheckboxControlled() {
   const [checked, setChecked] = React.useState(false);

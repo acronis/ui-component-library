@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { format } from 'date-fns';
-import { cn } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Calendar } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Calendar } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 type DateRange = { from: Date | undefined; to?: Date | undefined };
 
-import { CalendarIcon } from '@spec-lab/shadcn-uikit';
+import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DatePickerRange() {
   const [dateRange, setDateRange] = React.useState<DateRange>({
     from: undefined,
@@ -23,7 +23,7 @@ export function DatePickerRange() {
       <PopoverTrigger
         render={
           <Button
-            variant="outline"
+            variant="secondary"
             className={cn(
               'w-[320px] justify-start text-left font-normal',
               !dateRange.from && 'text-muted-foreground'

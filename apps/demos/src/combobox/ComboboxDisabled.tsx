@@ -1,6 +1,6 @@
 import { Button } from '@spec-lab/shadcn-uikit/react';
 
-import { ChevronUpdownIcon } from '@spec-lab/shadcn-uikit';
+import { ArrowsDownUpIcon } from '@spec-lab/icons-react/stroke-mono'
 export function ComboboxDisabled() {
   return (
     <Button
@@ -10,7 +10,7 @@ export function ComboboxDisabled() {
       className="w-[280px] justify-between"
     >
       Select framework...
-      <ChevronUpdownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+      <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
     </Button>
   );
 }

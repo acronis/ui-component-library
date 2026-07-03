@@ -5,8 +5,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button, Input, Label } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button, Input, Label } from '@spec-lab/ui-react';
 
 export function CardWithForm() {
   return (

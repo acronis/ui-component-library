@@ -1,4 +1,4 @@
-import { Spinner, Button } from '@spec-lab/shadcn-uikit/react';
+import { Spinner, Button } from '@spec-lab/ui-react';
 
 export function SpinnerGrid() {
   return (
@@ -29,7 +29,7 @@ export function SpinnerGrid() {
           <p className="text-xs text-muted-foreground/70 mt-1">
             Wait until it is completed.
           </p>
-          <Button variant="outline" size="sm" className="mt-3">
+          <Button variant="secondary" className="mt-3">
             Action
           </Button>
         </div>

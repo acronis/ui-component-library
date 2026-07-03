@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,24 +6,20 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  MailIcon,
-  MessagesIcon,
-  SettingsIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { CogIcon, EnvelopeIcon, MessagesIcon } from '@spec-lab/icons-react/stroke-mono'
 import { KeyboardIcon } from '../icons/missing-icons';
 export function DropdownMenuMultipleSections() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger render={<Button variant="secondary" />}>
         Options
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <MailIcon className="mr-2 h-4 w-4" />
+          <EnvelopeIcon className="mr-2 h-4 w-4" />
           <span>Send Email</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -34,7 +30,7 @@ export function DropdownMenuMultipleSections() {
         <DropdownMenuLabel>Settings</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <SettingsIcon className="mr-2 h-4 w-4" />
+          <CogIcon className="mr-2 h-4 w-4" />
           <span>Preferences</span>
         </DropdownMenuItem>
         <DropdownMenuItem>

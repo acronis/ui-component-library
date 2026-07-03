@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   Label,
   RadioGroup,
-  RadioGroupItem,
-} from '@spec-lab/shadcn-uikit/react';
+  Radio,
+} from '@spec-lab/ui-react';
 
 export function RadioGroupCards() {
   const [value, setValue] = React.useState('card');
@@ -21,7 +21,7 @@ export function RadioGroupCards() {
           onClick={() => setValue('card')}
         >
           <div className="flex items-start space-x-2">
-            <RadioGroupItem value="card" id="plan-card" />
+            <Radio value="card" id="plan-card" />
             <div className="grid gap-1.5 leading-none">
               <Label htmlFor="plan-card" className="cursor-pointer">
                 Card View
@@ -40,7 +40,7 @@ export function RadioGroupCards() {
           onClick={() => setValue('list')}
         >
           <div className="flex items-start space-x-2">
-            <RadioGroupItem value="list" id="plan-list" />
+            <Radio value="list" id="plan-list" />
             <div className="grid gap-1.5 leading-none">
               <Label htmlFor="plan-list" className="cursor-pointer">
                 List View
@@ -59,7 +59,7 @@ export function RadioGroupCards() {
           onClick={() => setValue('grid')}
         >
           <div className="flex items-start space-x-2">
-            <RadioGroupItem value="grid" id="plan-grid" />
+            <Radio value="grid" id="plan-grid" />
             <div className="grid gap-1.5 leading-none">
               <Label htmlFor="plan-grid" className="cursor-pointer">
                 Grid View

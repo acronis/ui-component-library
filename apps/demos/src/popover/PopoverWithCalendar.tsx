@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Calendar } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Calendar } from '@spec-lab/ui-react';
 
 export function PopoverWithCalendar() {
   const [date, setDate] = React.useState<Date>();
@@ -13,7 +13,7 @@ export function PopoverWithCalendar() {
   return (
     <div className="flex justify-center rounded-lg border p-8">
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
+        <PopoverTrigger render={<Button variant="secondary" />}>
           {date ? date.toLocaleDateString() : 'Pick a date'}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">

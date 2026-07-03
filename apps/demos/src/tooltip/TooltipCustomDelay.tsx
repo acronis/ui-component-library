@@ -1,22 +1,20 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  TooltipArrow,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function TooltipCustomDelay() {
   return (
     <TooltipProvider delay={800}>
       <Tooltip>
         <TooltipTrigger>
-          <Button variant="outline">Slow to appear</Button>
+          <Button variant="secondary">Slow to appear</Button>
         </TooltipTrigger>
         <TooltipContent>
           <p>This tooltip has a longer delay</p>
-          <TooltipArrow />
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

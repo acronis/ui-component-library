@@ -1,4 +1,4 @@
-import { Switch } from '@spec-lab/shadcn-uikit/react';
+import { Switch } from '@spec-lab/ui-react';
 
 export function SwitchBasic() {
   return <Switch />;

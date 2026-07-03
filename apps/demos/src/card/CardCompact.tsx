@@ -1,4 +1,4 @@
-import { Card } from '@spec-lab/shadcn-uikit/react';
+import { Card } from '@spec-lab/ui-react';
 
 export function CardCompact() {
   return (

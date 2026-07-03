@@ -4,14 +4,14 @@ import {
   EmptyHeader,
   EmptyTitle,
   EmptyDescription,
-} from '@spec-lab/shadcn-uikit/react';
-import { MailboxIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { InboxIcon } from '@spec-lab/icons-react/stroke-mono'
 export function EmptyBasic() {
   return (
     <div className="flex min-h-[300px] items-center justify-center border rounded-lg bg-gray-50">
       <Empty>
         <EmptyIcon className="text-primary">
-          <MailboxIcon className="h-[72px] w-[72px]" />
+          <InboxIcon className="h-[72px] w-[72px]" />
         </EmptyIcon>
         <EmptyHeader>
           <EmptyTitle>No messages</EmptyTitle>

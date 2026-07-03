@@ -5,13 +5,9 @@ import {
   EmptyTitle,
   EmptyDescription,
   EmptyActions,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import {
-  CalendarIcon,
-  MailIcon,
-  ShoppingCartIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { CalendarIcon, EnvelopeIcon, ShoppingCartIcon } from '@spec-lab/icons-react/stroke-mono'
 import { DatabaseIcon } from '../icons/missing-icons';
 export function EmptyVariousStates() {
   return (
@@ -42,7 +38,7 @@ export function EmptyVariousStates() {
             </EmptyDescription>
           </EmptyHeader>
           <EmptyActions>
-            <Button variant="outline">Browse Products</Button>
+            <Button variant="secondary">Browse Products</Button>
           </EmptyActions>
         </Empty>
       </div>
@@ -67,7 +63,7 @@ export function EmptyVariousStates() {
       <div className="flex min-h-[250px] items-center justify-center border rounded-lg bg-gray-50">
         <Empty>
           <EmptyIcon className="h-24 w-24">
-            <MailIcon className="text-[#2668C5]" />
+            <EnvelopeIcon className="text-[#2668C5]" />
           </EmptyIcon>
           <EmptyHeader>
             <EmptyTitle>Inbox is empty</EmptyTitle>

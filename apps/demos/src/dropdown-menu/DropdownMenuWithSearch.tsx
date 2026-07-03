@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { Button, Input } from '@spec-lab/shadcn-uikit/react';
+import { Button, Input } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { ChevronDownIcon, SearchIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { ChevronDownIcon, MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DropdownMenuWithSearch() {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -28,14 +28,14 @@ export function DropdownMenuWithSearch() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger render={<Button variant="secondary" />}>
         Select Value
         <ChevronDownIcon className="ml-2 h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <div className="px-2 py-2">
           <div className="relative">
-            <SearchIcon className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+            <MagnifierIcon className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search..."
               value={searchQuery}

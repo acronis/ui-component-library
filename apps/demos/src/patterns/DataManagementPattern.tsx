@@ -24,7 +24,7 @@ import {
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 const devices = [
   {
@@ -69,13 +69,10 @@ const devices = [
   },
 ];
 
-const statusVariant: Record<
-  string,
-  'default' | 'secondary' | 'destructive' | 'outline'
-> = {
-  protected: 'secondary',
-  warning: 'outline',
-  error: 'destructive',
+const statusVariant: Record<string, 'success' | 'warning' | 'danger'> = {
+  protected: 'success',
+  warning: 'warning',
+  error: 'danger',
 };
 
 export function DataManagementPattern() {
@@ -122,7 +119,7 @@ export function DataManagementPattern() {
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-48"
                 />
-                <Button size="sm">Add Device</Button>
+                <Button>Add Device</Button>
               </PageHeaderActions>
             </PageHeader>
 
@@ -157,9 +154,7 @@ export function DataManagementPattern() {
                         {device.lastBackup}
                       </TableCell>
                       <TableCell className="text-right">
-                        <Button variant="ghost" size="sm">
-                          Backup Now
-                        </Button>
+                        <Button variant="ghost">Backup Now</Button>
                       </TableCell>
                     </TableRow>
                   ))}
@@ -172,7 +167,6 @@ export function DataManagementPattern() {
                 <PaginationContent>
                   <PaginationItem>
                     <PaginationPrevious
-                      size="default"
                       onClick={() => setPage((p) => Math.max(1, p - 1))}
                     />
                   </PaginationItem>
@@ -181,7 +175,6 @@ export function DataManagementPattern() {
                   </PaginationItem>
                   <PaginationItem>
                     <PaginationNext
-                      size="default"
                       onClick={() => setPage((p) => Math.min(3, p + 1))}
                     />
                   </PaginationItem>

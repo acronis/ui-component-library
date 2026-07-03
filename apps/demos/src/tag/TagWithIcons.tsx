@@ -1,34 +1,27 @@
-import { Tag } from '@spec-lab/shadcn-uikit/react';
-import {
-  CheckCircleIcon,
-  CircleIcon,
-  ExclamationCircleIcon,
-  InfoIcon,
-  TimesCircleIcon,
-  WarningCircleIcon,
-} from '@spec-lab/shadcn-uikit';
+import { Tag } from '@spec-lab/ui-react';
+import { CircleCheckIcon, CircleInfoIcon, CircleSmallIcon, CircleTimesIcon, CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
 export function TagWithIcons() {
   return (
     <div className="flex flex-wrap gap-3">
-      <Tag variant="success" icon={<CheckCircleIcon className="h-4 w-4" />}>
+      <Tag variant="success" icon={<CircleCheckIcon className="h-4 w-4" />}>
         Active
       </Tag>
-      <Tag variant="info" icon={<InfoIcon className="h-4 w-4" />}>
+      <Tag variant="info" icon={<CircleInfoIcon className="h-4 w-4" />}>
         Info
       </Tag>
-      <Tag variant="warning" icon={<WarningCircleIcon className="h-4 w-4" />}>
+      <Tag variant="warning" icon={<CircleWarningIcon className="h-4 w-4" />}>
         Warning
       </Tag>
       <Tag
         variant="critical"
-        icon={<ExclamationCircleIcon className="h-4 w-4" />}
+        icon={<CircleWarningIcon className="h-4 w-4" />}
       >
         Critical
       </Tag>
-      <Tag variant="danger" icon={<TimesCircleIcon className="h-4 w-4" />}>
+      <Tag variant="danger" icon={<CircleTimesIcon className="h-4 w-4" />}>
         Error
       </Tag>
-      <Tag variant="neutral" icon={<CircleIcon className="h-4 w-4" />}>
+      <Tag variant="neutral" icon={<CircleSmallIcon className="h-4 w-4" />}>
         Neutral
       </Tag>
     </div>

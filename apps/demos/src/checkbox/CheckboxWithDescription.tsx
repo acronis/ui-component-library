@@ -1,4 +1,4 @@
-import { Checkbox, Label } from '@spec-lab/shadcn-uikit/react';
+import { Checkbox, Label } from '@spec-lab/ui-react';
 
 export function CheckboxWithDescription() {
   return (

@@ -6,8 +6,8 @@ import {
   EmptyDescription,
   EmptyActions,
   EmptyLinks,
-} from '@spec-lab/shadcn-uikit/react';
-import { FileTextIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { FileTextIcon } from '@spec-lab/icons-react/stroke-mono'
 export function EmptyOnlyLinks() {
   return (
     <div className="flex min-h-[300px] items-center justify-center border rounded-lg bg-gray-50">

@@ -4,13 +4,10 @@ import {
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from '@spec-lab/shadcn-uikit/react';
-import { Card, CardContent } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Card, CardContent } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
 export function CarouselFigmaStyle() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);

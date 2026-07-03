@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Checkbox, Label } from '@spec-lab/shadcn-uikit/react';
+import { Checkbox, Label } from '@spec-lab/ui-react';
 
 export function CheckboxParentChild() {
   const [items, setItems] = React.useState([
@@ -10,21 +10,16 @@ export function CheckboxParentChild() {
 
   const allChecked = items.every((item) => item.checked);
   const someChecked = items.some((item) => item.checked);
-  const parentChecked = allChecked
-    ? true
-    : someChecked
-      ? 'indeterminate'
-      : false;
 
   return (
     <div className="space-y-2">
       <div className="flex items-center space-x-2">
         <Checkbox
           id="parent"
-          checked={parentChecked}
+          checked={allChecked}
+          indeterminate={someChecked && !allChecked}
           onCheckedChange={(checked) => {
-            const newChecked = checked === true;
-            setItems(items.map((item) => ({ ...item, checked: newChecked })));
+            setItems(items.map((item) => ({ ...item, checked })));
           }}
         />
         <Label htmlFor="parent" className="text-sm font-medium cursor-pointer">

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ButtonGroup } from '@spec-lab/shadcn-uikit/react';
+import { ButtonGroup } from '@spec-lab/ui-react';
 
 export function ButtonGroupDaySelectorSmall() {
   const [selectedDay, setSelectedDay] = React.useState<string>('Mon');

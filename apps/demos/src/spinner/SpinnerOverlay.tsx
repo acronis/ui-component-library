@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Spinner, Button } from '@spec-lab/shadcn-uikit/react';
+import { Spinner, Button } from '@spec-lab/ui-react';
 
 export function SpinnerOverlay() {
   const [dataLoading, setDataLoading] = React.useState(false);

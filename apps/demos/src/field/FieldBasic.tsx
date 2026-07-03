@@ -3,8 +3,8 @@ import {
   Field,
   FieldLabel,
   FieldDescription,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
 
 export function FieldBasic() {
   return (

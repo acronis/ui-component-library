@@ -7,7 +7,7 @@ import {
   Button,
   Input,
   Label,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function LoginPattern() {
   const [loading, setLoading] = React.useState(false);

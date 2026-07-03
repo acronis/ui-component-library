@@ -5,13 +5,7 @@ import {
   SecondaryMenuGroup,
   SecondaryMenuItem,
 } from '@spec-lab/shadcn-uikit/react';
-import {
-  BellIcon,
-  HomeFolderIcon,
-  MailIcon,
-  SettingsIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit';
+import { BellIcon, CogIcon, EnvelopeIcon, FolderHouseIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 export function SecondaryMenuWithIcons() {
   const [activeItem, setActiveItem] = useState('home');
 
@@ -26,7 +20,7 @@ export function SecondaryMenuWithIcons() {
             <SecondaryMenuItem
               active={activeItem === 'home'}
               onClick={() => setActiveItem('home')}
-              icon={<HomeFolderIcon className="h-4 w-4" />}
+              icon={<FolderHouseIcon className="h-4 w-4" />}
             >
               Home
             </SecondaryMenuItem>
@@ -47,14 +41,14 @@ export function SecondaryMenuWithIcons() {
             <SecondaryMenuItem
               active={activeItem === 'messages'}
               onClick={() => setActiveItem('messages')}
-              icon={<MailIcon className="h-4 w-4" />}
+              icon={<EnvelopeIcon className="h-4 w-4" />}
             >
               Messages
             </SecondaryMenuItem>
             <SecondaryMenuItem
               active={activeItem === 'config'}
               onClick={() => setActiveItem('config')}
-              icon={<SettingsIcon className="h-4 w-4" />}
+              icon={<CogIcon className="h-4 w-4" />}
             >
               Configuration
             </SecondaryMenuItem>

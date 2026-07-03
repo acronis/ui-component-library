@@ -10,7 +10,7 @@ import {
   WidgetLabel,
 } from '@spec-lab/shadcn-uikit/react';
 import { Button } from '@spec-lab/shadcn-uikit/react';
-import { ShieldIcon, WarningCircleIcon } from '@spec-lab/shadcn-uikit';
+import { CircleWarningIcon, ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   ActivityIcon,
   BarChart3Icon,
@@ -23,7 +23,7 @@ export function WidgetDashboardGrid() {
       <Widget interactive>
         <WidgetHeader>
           <WidgetIcon>
-            <ShieldIcon className="h-4 w-4" />
+            <ShieldCheckIcon className="h-4 w-4" />
           </WidgetIcon>
           <WidgetTitle>Protected</WidgetTitle>
         </WidgetHeader>
@@ -36,7 +36,7 @@ export function WidgetDashboardGrid() {
       <Widget interactive>
         <WidgetHeader>
           <WidgetIcon>
-            <WarningCircleIcon className="h-4 w-4" />
+            <CircleWarningIcon className="h-4 w-4" />
           </WidgetIcon>
           <WidgetTitle>Alerts</WidgetTitle>
         </WidgetHeader>

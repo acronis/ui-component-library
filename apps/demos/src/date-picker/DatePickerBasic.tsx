@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { format } from 'date-fns';
-import { cn } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Calendar } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Calendar } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
-import { CalendarIcon } from '@spec-lab/shadcn-uikit';
+import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DatePickerBasic() {
   const [date, setDate] = React.useState<Date>();
 
@@ -18,7 +18,7 @@ export function DatePickerBasic() {
       <PopoverTrigger
         render={
           <Button
-            variant="outline"
+            variant="secondary"
             className={cn(
               'w-[280px] justify-start text-left font-normal',
               !date && 'text-muted-foreground'

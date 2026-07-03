@@ -4,13 +4,10 @@ import {
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from '@spec-lab/shadcn-uikit/react';
-import { Card, CardContent } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Card, CardContent } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
 export function CarouselWithDots() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
@@ -49,7 +46,6 @@ export function CarouselWithDots() {
       <div className="flex items-center justify-center gap-4 mt-4">
         <Button
           variant="ghost"
-          size="sm"
           onClick={() => api?.scrollPrev()}
           disabled={!api?.canScrollPrev()}
           className="text-[hsl(var(--carousel-nav-text))] disabled:text-[hsl(var(--carousel-nav-text-disabled)/0.3)]"
@@ -73,7 +69,6 @@ export function CarouselWithDots() {
         </div>
         <Button
           variant="ghost"
-          size="sm"
           onClick={() => api?.scrollNext()}
           disabled={!api?.canScrollNext()}
           className="text-[hsl(var(--carousel-nav-text))] disabled:text-[hsl(var(--carousel-nav-text-disabled)/0.3)]"

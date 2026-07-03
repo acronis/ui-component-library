@@ -1,21 +1,16 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  CloudIcon,
-  MailIcon,
-  SettingsIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { CloudIcon, CogIcon, EnvelopeIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DropdownMenuDisabled() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger render={<Button variant="secondary" />}>
         Actions
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
@@ -24,11 +19,11 @@ export function DropdownMenuDisabled() {
           <span>View Profile</span>
         </DropdownMenuItem>
         <DropdownMenuItem disabled>
-          <SettingsIcon className="mr-2 h-4 w-4" />
+          <CogIcon className="mr-2 h-4 w-4" />
           <span>Settings (Coming Soon)</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <MailIcon className="mr-2 h-4 w-4" />
+          <EnvelopeIcon className="mr-2 h-4 w-4" />
           <span>Contact</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />

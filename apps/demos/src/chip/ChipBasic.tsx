@@ -1,4 +1,4 @@
-import { Chip } from '@spec-lab/shadcn-uikit/react';
+import { Chip } from '@spec-lab/ui-react';
 
 export function ChipBasic() {
   return (

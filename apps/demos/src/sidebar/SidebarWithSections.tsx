@@ -9,11 +9,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@spec-lab/shadcn-uikit/react';
-import {
-  HomeFolderIcon,
-  SearchIcon,
-  SettingsIcon,
-} from '@spec-lab/shadcn-uikit';
+import { CogIcon, FolderHouseIcon, MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
 import { BarChartIcon } from '../icons/missing-icons';
 export function SidebarWithSections() {
   return (
@@ -29,13 +25,13 @@ export function SidebarWithSections() {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton isActive>
-                      <HomeFolderIcon />
+                      <FolderHouseIcon />
                       <span>Dashboard</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <SearchIcon />
+                      <MagnifierIcon />
                       <span>Search</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -57,7 +53,7 @@ export function SidebarWithSections() {
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <SettingsIcon />
+                      <CogIcon />
                       <span>Settings</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

@@ -9,14 +9,14 @@ import {
   WidgetLabel,
 } from '@spec-lab/shadcn-uikit/react';
 import { Button } from '@spec-lab/shadcn-uikit/react';
-import { ShieldIcon } from '@spec-lab/shadcn-uikit';
+import { ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono'
 import { MoreVerticalIcon } from '../icons/missing-icons';
 export function WidgetWithIcon() {
   return (
     <Widget className="w-[350px]">
       <WidgetHeader>
         <WidgetIcon>
-          <ShieldIcon className="h-4 w-4" />
+          <ShieldCheckIcon className="h-4 w-4" />
         </WidgetIcon>
         <WidgetTitle>Protection Status</WidgetTitle>
         <WidgetActions>

@@ -6,15 +6,15 @@ import {
   EmptyDescription,
   EmptyActions,
   EmptyLinks,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { SearchIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
 export function EmptyWithButtonAndLink() {
   return (
     <div className="flex min-h-[300px] items-center justify-center border rounded-lg bg-gray-50">
       <Empty>
         <EmptyIcon className="h-24 w-24">
-          <SearchIcon className="text-[#2668C5]" />
+          <MagnifierIcon className="text-[#2668C5]" />
         </EmptyIcon>
         <EmptyHeader>
           <EmptyTitle>No results found</EmptyTitle>

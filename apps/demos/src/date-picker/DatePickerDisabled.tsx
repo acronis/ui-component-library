@@ -1,10 +1,10 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 
-import { CalendarIcon } from '@spec-lab/shadcn-uikit';
+import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DatePickerDisabled() {
   return (
     <Button
-      variant="outline"
+      variant="secondary"
       disabled
       className="w-[280px] justify-start text-left font-normal"
     >

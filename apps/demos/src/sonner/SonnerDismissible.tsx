@@ -1,5 +1,5 @@
 import { toast } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 
 export function SonnerDismissible() {
   return (

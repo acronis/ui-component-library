@@ -7,8 +7,8 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button, Input } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button, Input } from '@spec-lab/ui-react';
 
 export function DialogForm() {
   return (
@@ -46,7 +46,7 @@ export function DialogForm() {
           </form>
         </DialogBody>
         <DialogFooter>
-          <DialogTrigger render={<Button variant="outline" />}>
+          <DialogTrigger render={<Button variant="secondary" />}>
             Cancel
           </DialogTrigger>
           <Button>Create Account</Button>

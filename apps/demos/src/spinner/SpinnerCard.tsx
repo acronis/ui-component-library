@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function SpinnerCard() {
   const [dataLoading, setDataLoading] = React.useState(false);
@@ -43,7 +43,7 @@ export function SpinnerCard() {
             </div>
             <Button
               onClick={simulateDataLoad}
-              variant="outline"
+              variant="secondary"
               className="w-full"
             >
               Reload Data

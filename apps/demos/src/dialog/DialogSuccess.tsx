@@ -7,9 +7,9 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { CheckCircleIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { CircleCheckIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DialogSuccess() {
   return (
     <Dialog>
@@ -22,7 +22,7 @@ export function DialogSuccess() {
         <DialogBody>
           <div className="flex flex-col items-center justify-center py-8 space-y-4">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-              <CheckCircleIcon className="h-10 w-10 text-green-600" />
+              <CircleCheckIcon className="h-10 w-10 text-green-600" />
             </div>
             <div className="text-center space-y-2">
               <p className="text-sm font-medium">Task Completed Successfully</p>

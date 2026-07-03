@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@spec-lab/shadcn-uikit": "workspace:*",
+    "@spec-lab/ui-react": "workspace:*",
+    "@spec-lab/icons-react": "workspace:*",
     "@hookform/resolvers": "catalog:",
     "@tanstack/react-form": "1.33.0",
     "@tanstack/react-table": "catalog:",

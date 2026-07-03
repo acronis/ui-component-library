@@ -4,9 +4,9 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@spec-lab/shadcn-uikit/react';
-import { Card, CardContent } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Card, CardContent } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function CarouselProducts() {
   return (

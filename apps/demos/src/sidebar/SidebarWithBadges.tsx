@@ -8,12 +8,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@spec-lab/shadcn-uikit/react';
-import {
-  CalendarIcon,
-  FileTextIcon,
-  HomeFolderIcon,
-  MailboxIcon,
-} from '@spec-lab/shadcn-uikit';
+import { CalendarIcon, FileTextIcon, FolderHouseIcon, InboxIcon } from '@spec-lab/icons-react/stroke-mono'
 export function SidebarWithBadges() {
   return (
     <div className="h-[400px] border rounded-lg overflow-hidden flex">
@@ -25,13 +20,13 @@ export function SidebarWithBadges() {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <HomeFolderIcon />
+                      <FolderHouseIcon />
                       <span>Dashboard</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <MailboxIcon />
+                      <InboxIcon />
                       <span>Messages</span>
                       <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-[#243143]">
                         12

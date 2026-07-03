@@ -1,4 +1,4 @@
-import { Tag } from '@spec-lab/shadcn-uikit/react';
+import { Tag } from '@spec-lab/ui-react';
 
 export function TagEnvironment() {
   return (

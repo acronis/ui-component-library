@@ -1,9 +1,9 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 
 export function ButtonTranslucent() {
   return (
     <div className="button-grid">
-      <Button variant="translucent">Translucent</Button>
+      <Button variant="inverted">Translucent</Button>
     </div>
   );
 }

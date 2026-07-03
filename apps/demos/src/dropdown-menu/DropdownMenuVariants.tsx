@@ -1,11 +1,11 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function DropdownMenuVariants() {
   return (
@@ -35,7 +35,7 @@ export function DropdownMenuVariants() {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger render={<Button variant="outline" />}>
+        <DropdownMenuTrigger render={<Button variant="secondary" />}>
           Outline
         </DropdownMenuTrigger>
         <DropdownMenuContent>

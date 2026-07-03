@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from '@spec-lab/shadcn-uikit/react';
+import { Button, ButtonGroup } from '@spec-lab/ui-react';
 
 export function ButtonGroupSizes() {
   return (
@@ -6,37 +6,25 @@ export function ButtonGroupSizes() {
       <div>
         <p className="text-xs text-muted-foreground mb-2">Small</p>
         <ButtonGroup>
-          <Button variant="outline" size="sm">
-            Small
-          </Button>
-          <Button variant="outline" size="sm">
-            Buttons
-          </Button>
-          <Button variant="outline" size="sm">
-            Group
-          </Button>
+          <Button variant="secondary">Small</Button>
+          <Button variant="secondary">Buttons</Button>
+          <Button variant="secondary">Group</Button>
         </ButtonGroup>
       </div>
       <div>
         <p className="text-xs text-muted-foreground mb-2">Default</p>
         <ButtonGroup>
-          <Button variant="outline">Default</Button>
-          <Button variant="outline">Buttons</Button>
-          <Button variant="outline">Group</Button>
+          <Button variant="secondary">Default</Button>
+          <Button variant="secondary">Buttons</Button>
+          <Button variant="secondary">Group</Button>
         </ButtonGroup>
       </div>
       <div>
         <p className="text-xs text-muted-foreground mb-2">Large</p>
         <ButtonGroup>
-          <Button variant="outline" size="lg">
-            Large
-          </Button>
-          <Button variant="outline" size="lg">
-            Buttons
-          </Button>
-          <Button variant="outline" size="lg">
-            Group
-          </Button>
+          <Button variant="secondary">Large</Button>
+          <Button variant="secondary">Buttons</Button>
+          <Button variant="secondary">Group</Button>
         </ButtonGroup>
       </div>
     </div>

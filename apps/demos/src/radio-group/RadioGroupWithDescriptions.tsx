@@ -1,14 +1,14 @@
 import {
   Label,
   RadioGroup,
-  RadioGroupItem,
-} from '@spec-lab/shadcn-uikit/react';
+  Radio,
+} from '@spec-lab/ui-react';
 
 export function RadioGroupWithDescriptions() {
   return (
     <RadioGroup defaultValue="comfortable">
       <div className="flex items-start space-x-2">
-        <RadioGroupItem value="default" id="r2-default" className="mt-1" />
+        <Radio value="default" id="r2-default" className="mt-1" />
         <div className="grid gap-1.5 leading-none">
           <Label htmlFor="r2-default">Default</Label>
           <p className="text-sm text-muted-foreground">
@@ -17,7 +17,7 @@ export function RadioGroupWithDescriptions() {
         </div>
       </div>
       <div className="flex items-start space-x-2">
-        <RadioGroupItem
+        <Radio
           value="comfortable"
           id="r2-comfortable"
           className="mt-1"
@@ -30,7 +30,7 @@ export function RadioGroupWithDescriptions() {
         </div>
       </div>
       <div className="flex items-start space-x-2">
-        <RadioGroupItem value="compact" id="r2-compact" className="mt-1" />
+        <Radio value="compact" id="r2-compact" className="mt-1" />
         <div className="grid gap-1.5 leading-none">
           <Label htmlFor="r2-compact">Compact</Label>
           <p className="text-sm text-muted-foreground">

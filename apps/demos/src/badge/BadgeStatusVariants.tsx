@@ -1,4 +1,4 @@
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+import { Badge } from '@spec-lab/ui-react';
 
 export function BadgeStatusVariants() {
   return (
@@ -10,7 +10,6 @@ export function BadgeStatusVariants() {
       <Badge variant="danger">Danger</Badge>
       <Badge variant="neutral">Neutral</Badge>
       <Badge variant="ai">AI</Badge>
-      <Badge variant="ai-solid">AI</Badge>
     </div>
   );
 }

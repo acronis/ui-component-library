@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Chip } from '@spec-lab/shadcn-uikit/react';
+import { Chip } from '@spec-lab/ui-react';
 
 export function ChipRemovable() {
   const [chips, setChips] = useState([

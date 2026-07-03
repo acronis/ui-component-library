@@ -100,15 +100,7 @@ import {
   YAxis,
   CartesianGrid,
 } from 'recharts';
-import {
-  CheckCircleIcon,
-  EllipsisHIcon,
-  FileTextIcon,
-  InfoIcon,
-  ShieldIcon,
-  TimesCircleIcon,
-  WarningCircleIcon,
-} from '@spec-lab/shadcn-uikit';
+import { CircleCheckIcon, CircleInfoIcon, CircleTimesIcon, CircleWarningIcon, EllipsisIcon, FileTextIcon, ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono'
 import { DatabaseIcon } from '../icons/missing-icons';
 // ── Sample Data ──
 
@@ -215,7 +207,7 @@ export function WidgetAll() {
                 </WidgetIcon>
                 <WidgetTitle>Backup Jobs</WidgetTitle>
                 <WidgetActions>
-                  <EllipsisHIcon className="h-4 w-4" />
+                  <EllipsisIcon className="h-4 w-4" />
                 </WidgetActions>
               </WidgetHeader>
               <WidgetContent className="flex-1">
@@ -253,7 +245,7 @@ export function WidgetAll() {
                 </WidgetIcon>
                 <WidgetTitle>Recovery Points</WidgetTitle>
                 <WidgetActions>
-                  <EllipsisHIcon className="h-4 w-4" />
+                  <EllipsisIcon className="h-4 w-4" />
                 </WidgetActions>
               </WidgetHeader>
               <WidgetContent className="flex-1">
@@ -297,11 +289,11 @@ export function WidgetAll() {
             <Widget size="lg" interactive>
               <WidgetHeader>
                 <WidgetIcon>
-                  <ShieldIcon className="h-4 w-4" />
+                  <ShieldCheckIcon className="h-4 w-4" />
                 </WidgetIcon>
                 <WidgetTitle>Protection Coverage</WidgetTitle>
                 <WidgetActions>
-                  <EllipsisHIcon className="h-4 w-4" />
+                  <EllipsisIcon className="h-4 w-4" />
                 </WidgetActions>
               </WidgetHeader>
               <WidgetContent className="flex-1 flex items-center justify-center">
@@ -349,7 +341,7 @@ export function WidgetAll() {
                 </WidgetIcon>
                 <WidgetTitle>Storage Usage</WidgetTitle>
                 <WidgetActions>
-                  <EllipsisHIcon className="h-4 w-4" />
+                  <EllipsisIcon className="h-4 w-4" />
                 </WidgetActions>
               </WidgetHeader>
               <WidgetContent className="flex-1">
@@ -408,7 +400,7 @@ export function WidgetAll() {
                 </WidgetIcon>
                 <WidgetTitle>Data Protection Map — Organizations</WidgetTitle>
                 <WidgetActions>
-                  <EllipsisHIcon className="h-4 w-4" />
+                  <EllipsisIcon className="h-4 w-4" />
                 </WidgetActions>
               </WidgetHeader>
               <WidgetContent className="flex-1">
@@ -434,7 +426,7 @@ export function WidgetAll() {
             <WidgetProgressTiers interactive>
               <WidgetProgressTiersHeader>
                 <WidgetProgressTiersIcon>
-                  <ShieldIcon className="h-4 w-4" />
+                  <ShieldCheckIcon className="h-4 w-4" />
                 </WidgetProgressTiersIcon>
                 <WidgetProgressTiersTitle>
                   Protection Status
@@ -501,7 +493,7 @@ export function WidgetAll() {
             <WidgetProtectionStatus interactive>
               <WidgetProtectionStatusHeader>
                 <WidgetProtectionStatusIcon>
-                  <ShieldIcon className="h-4 w-4" />
+                  <ShieldCheckIcon className="h-4 w-4" />
                 </WidgetProtectionStatusIcon>
                 <WidgetProtectionStatusTitle>
                   Overall Status
@@ -524,7 +516,7 @@ export function WidgetAll() {
             <WidgetProtectionSummary interactive>
               <WidgetProtectionSummaryHeader>
                 <WidgetProtectionSummaryIcon>
-                  <ShieldIcon className="h-4 w-4" />
+                  <ShieldCheckIcon className="h-4 w-4" />
                 </WidgetProtectionSummaryIcon>
                 <WidgetProtectionSummaryTitle>
                   Protection Summary
@@ -561,7 +553,7 @@ export function WidgetAll() {
           <div className="grid gap-4 md:grid-cols-2">
             <WidgetAlert variant="info" interactive>
               <WidgetAlertIcon>
-                <InfoIcon className="h-4 w-4" />
+                <CircleInfoIcon className="h-4 w-4" />
               </WidgetAlertIcon>
               <WidgetAlertContent>
                 <WidgetAlertTitle>System Update Available</WidgetAlertTitle>
@@ -571,13 +563,13 @@ export function WidgetAll() {
                 </WidgetAlertDescription>
               </WidgetAlertContent>
               <WidgetAlertActions>
-                <EllipsisHIcon className="h-4 w-4" />
+                <EllipsisIcon className="h-4 w-4" />
               </WidgetAlertActions>
             </WidgetAlert>
 
             <WidgetAlert variant="success" interactive>
               <WidgetAlertIcon>
-                <CheckCircleIcon className="h-4 w-4" />
+                <CircleCheckIcon className="h-4 w-4" />
               </WidgetAlertIcon>
               <WidgetAlertContent>
                 <WidgetAlertTitle>Backup Completed</WidgetAlertTitle>
@@ -587,13 +579,13 @@ export function WidgetAll() {
                 </WidgetAlertDescription>
               </WidgetAlertContent>
               <WidgetAlertActions>
-                <EllipsisHIcon className="h-4 w-4" />
+                <EllipsisIcon className="h-4 w-4" />
               </WidgetAlertActions>
             </WidgetAlert>
 
             <WidgetAlert variant="warning" interactive>
               <WidgetAlertIcon>
-                <WarningCircleIcon className="h-4 w-4" />
+                <CircleWarningIcon className="h-4 w-4" />
               </WidgetAlertIcon>
               <WidgetAlertContent>
                 <WidgetAlertTitle>Storage Running Low</WidgetAlertTitle>
@@ -604,13 +596,13 @@ export function WidgetAll() {
                 </WidgetAlertDescription>
               </WidgetAlertContent>
               <WidgetAlertActions>
-                <EllipsisHIcon className="h-4 w-4" />
+                <EllipsisIcon className="h-4 w-4" />
               </WidgetAlertActions>
             </WidgetAlert>
 
             <WidgetAlert variant="danger" interactive>
               <WidgetAlertIcon>
-                <TimesCircleIcon className="h-4 w-4" />
+                <CircleTimesIcon className="h-4 w-4" />
               </WidgetAlertIcon>
               <WidgetAlertContent>
                 <WidgetAlertTitle>Backup Failed</WidgetAlertTitle>
@@ -620,7 +612,7 @@ export function WidgetAll() {
                 </WidgetAlertDescription>
               </WidgetAlertContent>
               <WidgetAlertActions>
-                <EllipsisHIcon className="h-4 w-4" />
+                <EllipsisIcon className="h-4 w-4" />
               </WidgetAlertActions>
             </WidgetAlert>
           </div>
@@ -630,7 +622,7 @@ export function WidgetAll() {
           <div className="space-y-2">
             <WidgetAlert variant="info">
               <WidgetAlertIcon>
-                <InfoIcon className="h-4 w-4" />
+                <CircleInfoIcon className="h-4 w-4" />
               </WidgetAlertIcon>
               <WidgetAlertContent>
                 <WidgetAlertTitle>
@@ -640,7 +632,7 @@ export function WidgetAll() {
             </WidgetAlert>
             <WidgetAlert variant="success">
               <WidgetAlertIcon>
-                <CheckCircleIcon className="h-4 w-4" />
+                <CircleCheckIcon className="h-4 w-4" />
               </WidgetAlertIcon>
               <WidgetAlertContent>
                 <WidgetAlertTitle>
@@ -673,7 +665,7 @@ export function WidgetAll() {
             <WidgetText interactive>
               <WidgetTextHeader>
                 <WidgetTextIcon>
-                  <ShieldIcon className="h-4 w-4" />
+                  <ShieldCheckIcon className="h-4 w-4" />
                 </WidgetTextIcon>
                 <WidgetTextTitle>Protected Devices</WidgetTextTitle>
               </WidgetTextHeader>
@@ -797,7 +789,7 @@ export function WidgetAll() {
               </WidgetPlaceholderHeader>
               <WidgetPlaceholderContent>
                 <WidgetPlaceholderImage>
-                  <ShieldIcon className="h-[72px] w-[72px]" />
+                  <ShieldCheckIcon className="h-[72px] w-[72px]" />
                 </WidgetPlaceholderImage>
                 <WidgetPlaceholderText>
                   No disaster recovery plans configured yet.

@@ -1,5 +1,5 @@
-import { Tag } from '@spec-lab/shadcn-uikit/react';
-import { StarIcon } from '@spec-lab/shadcn-uikit';
+import { Tag } from '@spec-lab/ui-react';
+import { StarIcon } from '@spec-lab/icons-react/stroke-mono'
 import { ZapIcon } from '../icons/missing-icons';
 export function TagFeature() {
   return (
@@ -10,10 +10,10 @@ export function TagFeature() {
       <Tag variant="info" icon={<ZapIcon className="h-4 w-4" />}>
         Fast
       </Tag>
-      <Tag variant="warning" size="small">
+      <Tag variant="warning" size="sm">
         Beta
       </Tag>
-      <Tag variant="neutral" size="small">
+      <Tag variant="neutral" size="sm">
         Legacy
       </Tag>
     </div>

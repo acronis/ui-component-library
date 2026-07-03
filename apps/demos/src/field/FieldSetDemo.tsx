@@ -7,12 +7,9 @@ import {
   FieldLegend,
   FieldGroup,
   FieldContent,
-} from '@spec-lab/shadcn-uikit/react';
-import { Switch } from '@spec-lab/shadcn-uikit/react';
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Switch } from '@spec-lab/ui-react';
+import { RadioGroup, Radio } from '@spec-lab/ui-react';
 
 export function FieldSetDemo() {
   return (
@@ -61,15 +58,15 @@ export function FieldSetDemo() {
         <RadioGroup defaultValue="system" className="space-y-2">
           <Field orientation="horizontal">
             <FieldLabel htmlFor="theme-light">Light</FieldLabel>
-            <RadioGroupItem id="theme-light" value="light" />
+            <Radio id="theme-light" value="light" />
           </Field>
           <Field orientation="horizontal">
             <FieldLabel htmlFor="theme-dark">Dark</FieldLabel>
-            <RadioGroupItem id="theme-dark" value="dark" />
+            <Radio id="theme-dark" value="dark" />
           </Field>
           <Field orientation="horizontal">
             <FieldLabel htmlFor="theme-system">System</FieldLabel>
-            <RadioGroupItem id="theme-system" value="system" />
+            <Radio id="theme-system" value="system" />
           </Field>
         </RadioGroup>
       </FieldSet>

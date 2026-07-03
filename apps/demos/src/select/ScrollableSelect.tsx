@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
 
 const countries = [
   { code: 'af', name: 'Afghanistan' },

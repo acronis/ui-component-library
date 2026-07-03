@@ -7,17 +7,17 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function DialogSizes() {
   return (
     <div className="flex flex-wrap gap-4">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger render={<Button variant="secondary" />}>
           Small (464px)
         </DialogTrigger>
-        <DialogContent className="max-w-[464px]">
+        <DialogContent size="xs">
           <DialogHeader>
             <DialogTitle>Small Dialog</DialogTitle>
             <DialogCloseButton />
@@ -34,10 +34,10 @@ export function DialogSizes() {
       </Dialog>
 
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger render={<Button variant="secondary" />}>
           Medium (672px)
         </DialogTrigger>
-        <DialogContent className="max-w-[672px]">
+        <DialogContent size="md">
           <DialogHeader>
             <DialogTitle>Medium Dialog</DialogTitle>
             <DialogCloseButton />
@@ -54,10 +54,10 @@ export function DialogSizes() {
       </Dialog>
 
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger render={<Button variant="secondary" />}>
           Large (832px)
         </DialogTrigger>
-        <DialogContent className="max-w-[832px]">
+        <DialogContent size="lg">
           <DialogHeader>
             <DialogTitle>Large Dialog</DialogTitle>
             <DialogCloseButton />

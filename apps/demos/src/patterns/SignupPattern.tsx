@@ -8,7 +8,7 @@ import {
   Input,
   Label,
   Progress,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 const steps = ['Account', 'Profile', 'Done'];
 
@@ -82,7 +82,7 @@ export function SignupPattern() {
             </div>
             <div className="flex gap-2">
               <Button
-                variant="outline"
+                variant="secondary"
                 className="flex-1"
                 onClick={() => setStep(0)}
               >

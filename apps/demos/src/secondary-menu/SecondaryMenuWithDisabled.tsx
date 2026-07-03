@@ -5,11 +5,7 @@ import {
   SecondaryMenuGroup,
   SecondaryMenuItem,
 } from '@spec-lab/shadcn-uikit/react';
-import {
-  FileTextIcon,
-  ImageIcon,
-  VideosIcon,
-} from '@spec-lab/shadcn-uikit';
+import { FileTextIcon, RectangleImageIcon, VideoCameraIcon } from '@spec-lab/icons-react/stroke-mono'
 import { MusicIcon } from '../icons/missing-icons';
 export function SecondaryMenuWithDisabled() {
   const [activeItem, setActiveItem] = useState('opt1');
@@ -31,14 +27,14 @@ export function SecondaryMenuWithDisabled() {
             </SecondaryMenuItem>
             <SecondaryMenuItem
               disabled
-              icon={<ImageIcon className="h-4 w-4" />}
+              icon={<RectangleImageIcon className="h-4 w-4" />}
             >
               Disabled Option
             </SecondaryMenuItem>
             <SecondaryMenuItem
               active={activeItem === 'opt3'}
               onClick={() => setActiveItem('opt3')}
-              icon={<VideosIcon className="h-4 w-4" />}
+              icon={<VideoCameraIcon className="h-4 w-4" />}
             >
               Another Available
             </SecondaryMenuItem>

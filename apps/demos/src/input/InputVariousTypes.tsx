@@ -1,9 +1,5 @@
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import {
-  CalendarIcon,
-  PhoneIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit';
+import { Input } from '@spec-lab/ui-react';
+import { CalendarIcon, PhoneIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import { CreditCardIcon } from '../icons/missing-icons';
 export function InputVariousTypes() {
   return (

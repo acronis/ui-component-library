@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Switch, Label } from '@spec-lab/shadcn-uikit/react';
+import { Switch, Label } from '@spec-lab/ui-react';
 
 export function SwitchForm() {
   const [notifications, setNotifications] = React.useState(true);

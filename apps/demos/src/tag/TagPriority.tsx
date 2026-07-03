@@ -1,8 +1,5 @@
-import { Tag } from '@spec-lab/shadcn-uikit/react';
-import {
-  ExclamationCircleIcon,
-  WarningCircleIcon,
-} from '@spec-lab/shadcn-uikit';
+import { Tag } from '@spec-lab/ui-react';
+import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
 import { TrendingDownIcon, TrendingUpIcon } from '../icons/missing-icons';
 export function TagPriority() {
   return (
@@ -12,11 +9,11 @@ export function TagPriority() {
       </Tag>
       <Tag
         variant="critical"
-        icon={<ExclamationCircleIcon className="h-4 w-4" />}
+        icon={<CircleWarningIcon className="h-4 w-4" />}
       >
         High
       </Tag>
-      <Tag variant="warning" icon={<WarningCircleIcon className="h-4 w-4" />}>
+      <Tag variant="warning" icon={<CircleWarningIcon className="h-4 w-4" />}>
         Medium
       </Tag>
       <Tag variant="info" icon={<TrendingDownIcon className="h-4 w-4" />}>

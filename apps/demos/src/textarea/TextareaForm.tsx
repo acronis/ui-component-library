@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Textarea, Button } from '@spec-lab/shadcn-uikit/react';
+import { Textarea, Button } from '@spec-lab/ui-react';
 
 export function TextareaForm() {
   const [comment, setComment] = useState('');

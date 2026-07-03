@@ -1,10 +1,5 @@
 import { Tree, TreeNode } from '@spec-lab/shadcn-uikit/react';
-import {
-  FileIcon,
-  FileTextIcon,
-  FolderIcon,
-  ImageIcon,
-} from '@spec-lab/shadcn-uikit';
+import { FileIcon, FileTextIcon, FolderIcon, RectangleImageIcon } from '@spec-lab/icons-react/stroke-mono'
 import { MusicIcon } from '../icons/missing-icons';
 const fileSystemData: TreeNode[] = [
   {
@@ -56,12 +51,12 @@ const fileSystemData: TreeNode[] = [
           {
             id: '2-1-1',
             label: 'beach.jpg',
-            icon: <ImageIcon className="h-4 w-4 text-green-500" />,
+            icon: <RectangleImageIcon className="h-4 w-4 text-green-500" />,
           },
           {
             id: '2-1-2',
             label: 'sunset.jpg',
-            icon: <ImageIcon className="h-4 w-4 text-green-500" />,
+            icon: <RectangleImageIcon className="h-4 w-4 text-green-500" />,
           },
         ],
       },
@@ -73,7 +68,7 @@ const fileSystemData: TreeNode[] = [
           {
             id: '2-2-1',
             label: 'portrait.jpg',
-            icon: <ImageIcon className="h-4 w-4 text-green-500" />,
+            icon: <RectangleImageIcon className="h-4 w-4 text-green-500" />,
           },
         ],
       },

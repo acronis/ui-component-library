@@ -1,24 +1,24 @@
-import { Tag } from '@spec-lab/shadcn-uikit/react';
+import { Tag } from '@spec-lab/ui-react';
 
 export function TagSmall() {
   return (
     <div className="flex flex-wrap gap-3">
-      <Tag variant="success" size="small">
+      <Tag variant="success" size="sm">
         Success
       </Tag>
-      <Tag variant="info" size="small">
+      <Tag variant="info" size="sm">
         Info
       </Tag>
-      <Tag variant="warning" size="small">
+      <Tag variant="warning" size="sm">
         Warning
       </Tag>
-      <Tag variant="critical" size="small">
+      <Tag variant="critical" size="sm">
         Critical
       </Tag>
-      <Tag variant="danger" size="small">
+      <Tag variant="danger" size="sm">
         Danger
       </Tag>
-      <Tag variant="neutral" size="small">
+      <Tag variant="neutral" size="sm">
         Neutral
       </Tag>
     </div>

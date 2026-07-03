@@ -1,21 +1,21 @@
-import { Button, ButtonGroup } from '@spec-lab/shadcn-uikit/react';
-import { PauseIcon, PlayIcon } from '@spec-lab/shadcn-uikit';
+import { ButtonGroup, ButtonIcon } from '@spec-lab/ui-react';
+import { MediaPauseIcon, MediaPlayIcon } from '@spec-lab/icons-react/stroke-mono'
 import { SkipBackIcon, SkipForwardIcon } from '../icons/missing-icons';
 export function ButtonGroupMediaControls() {
   return (
     <ButtonGroup>
-      <Button variant="outline" size="icon">
+      <ButtonIcon variant="secondary" aria-label="Previous track">
         <SkipBackIcon className="h-4 w-4" />
-      </Button>
-      <Button variant="outline" size="icon">
-        <PlayIcon className="h-4 w-4" />
-      </Button>
-      <Button variant="outline" size="icon">
-        <PauseIcon className="h-4 w-4" />
-      </Button>
-      <Button variant="outline" size="icon">
+      </ButtonIcon>
+      <ButtonIcon variant="secondary" aria-label="Play">
+        <MediaPlayIcon className="h-4 w-4" />
+      </ButtonIcon>
+      <ButtonIcon variant="secondary" aria-label="Pause">
+        <MediaPauseIcon className="h-4 w-4" />
+      </ButtonIcon>
+      <ButtonIcon variant="secondary" aria-label="Next track">
         <SkipForwardIcon className="h-4 w-4" />
-      </Button>
+      </ButtonIcon>
     </ButtonGroup>
   );
 }

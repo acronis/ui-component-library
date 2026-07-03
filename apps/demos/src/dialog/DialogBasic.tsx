@@ -7,8 +7,8 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function DialogBasic() {
   return (
@@ -26,7 +26,7 @@ export function DialogBasic() {
           </p>
         </DialogBody>
         <DialogFooter>
-          <DialogTrigger render={<Button variant="outline" />}>
+          <DialogTrigger render={<Button variant="secondary" />}>
             Cancel
           </DialogTrigger>
           <Button>Confirm</Button>

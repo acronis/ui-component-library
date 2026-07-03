@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 const users = [
   {
@@ -53,22 +53,22 @@ export function TableSortable() {
         <TableHeader>
           <TableRow>
             <TableHead>
-              <Button variant="ghost" size="sm" className="h-8 px-2">
+              <Button variant="ghost" className="h-8 px-2">
                 Name ↕
               </Button>
             </TableHead>
             <TableHead>
-              <Button variant="ghost" size="sm" className="h-8 px-2">
+              <Button variant="ghost" className="h-8 px-2">
                 Email ↕
               </Button>
             </TableHead>
             <TableHead>
-              <Button variant="ghost" size="sm" className="h-8 px-2">
+              <Button variant="ghost" className="h-8 px-2">
                 Role ↕
               </Button>
             </TableHead>
             <TableHead>
-              <Button variant="ghost" size="sm" className="h-8 px-2">
+              <Button variant="ghost" className="h-8 px-2">
                 Status ↕
               </Button>
             </TableHead>

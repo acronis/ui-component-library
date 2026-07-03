@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Chip } from '@spec-lab/shadcn-uikit/react';
-import { CheckCircleIcon } from '@spec-lab/shadcn-uikit';
+import { Chip } from '@spec-lab/ui-react';
+import { CircleCheckIcon } from '@spec-lab/icons-react/stroke-mono'
 import { TagIcon, ZapIcon } from '../icons/missing-icons';
 export function ChipWithIconsRemovable() {
   const [selectedChips, setSelectedChips] = useState([
     { id: 1, label: 'Design', icon: <TagIcon className="h-4 w-4" /> },
     { id: 2, label: 'Development', icon: <ZapIcon className="h-4 w-4" /> },
-    { id: 3, label: 'Testing', icon: <CheckCircleIcon className="h-4 w-4" /> },
+    { id: 3, label: 'Testing', icon: <CircleCheckIcon className="h-4 w-4" /> },
   ]);
 
   const handleRemoveSelectedChip = (id: number) => {

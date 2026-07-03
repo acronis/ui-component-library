@@ -1,9 +1,5 @@
 import { Tree, TreeNode } from '@spec-lab/shadcn-uikit/react';
-import {
-  FolderIcon,
-  ImageIcon,
-  VideosIcon,
-} from '@spec-lab/shadcn-uikit';
+import { FolderIcon, RectangleImageIcon, VideoCameraIcon } from '@spec-lab/icons-react/stroke-mono'
 import { MusicIcon } from '../icons/missing-icons';
 const mixedData: TreeNode[] = [
   {
@@ -19,12 +15,12 @@ const mixedData: TreeNode[] = [
           {
             id: 'video1',
             label: 'tutorial.mp4',
-            icon: <VideosIcon className="h-4 w-4 text-red-500" />,
+            icon: <VideoCameraIcon className="h-4 w-4 text-red-500" />,
           },
           {
             id: 'video2',
             label: 'demo.mp4',
-            icon: <VideosIcon className="h-4 w-4 text-red-500" />,
+            icon: <VideoCameraIcon className="h-4 w-4 text-red-500" />,
           },
         ],
       },
@@ -48,12 +44,12 @@ const mixedData: TreeNode[] = [
           {
             id: 'img1',
             label: 'logo.png',
-            icon: <ImageIcon className="h-4 w-4 text-green-500" />,
+            icon: <RectangleImageIcon className="h-4 w-4 text-green-500" />,
           },
           {
             id: 'img2',
             label: 'banner.jpg',
-            icon: <ImageIcon className="h-4 w-4 text-green-500" />,
+            icon: <RectangleImageIcon className="h-4 w-4 text-green-500" />,
           },
         ],
       },

@@ -15,7 +15,7 @@ import {
   PopoverTrigger,
 } from '@spec-lab/shadcn-uikit/react';
 
-import { CheckIcon, ChevronUpdownIcon } from '@spec-lab/shadcn-uikit';
+import { ArrowsDownUpIcon, CheckIcon } from '@spec-lab/icons-react/stroke-mono'
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },
   { value: 'sveltekit', label: 'SvelteKit' },
@@ -65,7 +65,7 @@ export function ComboboxForm() {
                   (framework) => framework.value === frameworkValue
                 )?.label
               : 'Select framework...'}
-            <ChevronUpdownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </PopoverTrigger>
           <PopoverContent className="w-full p-0">
             <Command>
@@ -121,7 +121,7 @@ export function ComboboxForm() {
             }
           >
             Select language...
-            <ChevronUpdownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            <ArrowsDownUpIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </PopoverTrigger>
           <PopoverContent className="w-full p-0">
             <Command>

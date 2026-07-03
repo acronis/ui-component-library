@@ -3,8 +3,8 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button, Label } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button, Label } from '@spec-lab/ui-react';
 
 export function TabsDashboard() {
   return (
@@ -47,15 +47,11 @@ export function TabsDashboard() {
         <div className="space-y-4 rounded-lg border p-4">
           <div className="flex items-center justify-between">
             <Label>Email Notifications</Label>
-            <Button variant="outline" size="sm">
-              Configure
-            </Button>
+            <Button variant="secondary">Configure</Button>
           </div>
           <div className="flex items-center justify-between">
             <Label>Privacy Settings</Label>
-            <Button variant="outline" size="sm">
-              Manage
-            </Button>
+            <Button variant="secondary">Manage</Button>
           </div>
         </div>
       </TabsContent>

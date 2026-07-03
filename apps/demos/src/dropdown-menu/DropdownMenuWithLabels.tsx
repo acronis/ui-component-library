@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,13 +7,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuShortcut,
-} from '@spec-lab/shadcn-uikit/react';
-import { SettingsIcon, UserIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { CogIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import { CreditCardIcon, KeyboardIcon } from '../icons/missing-icons';
 export function DropdownMenuWithLabels() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger render={<Button variant="secondary" />}>
         Account
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
@@ -30,7 +30,7 @@ export function DropdownMenuWithLabels() {
           <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <SettingsIcon className="mr-2 h-4 w-4" />
+          <CogIcon className="mr-2 h-4 w-4" />
           <span>Settings</span>
           <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
         </DropdownMenuItem>

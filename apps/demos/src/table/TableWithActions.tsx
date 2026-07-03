@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 const users = [
   {
@@ -65,12 +65,8 @@ export function TableWithActions() {
               <TableCell>{user.email}</TableCell>
               <TableCell>{user.role}</TableCell>
               <TableCell className="text-right">
-                <Button variant="ghost" size="sm">
-                  Edit
-                </Button>
-                <Button variant="ghost" size="sm">
-                  Delete
-                </Button>
+                <Button variant="ghost">Edit</Button>
+                <Button variant="ghost">Delete</Button>
               </TableCell>
             </TableRow>
           ))}

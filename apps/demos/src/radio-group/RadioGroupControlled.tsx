@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   Label,
   RadioGroup,
-  RadioGroupItem,
-} from '@spec-lab/shadcn-uikit/react';
+  Radio,
+} from '@spec-lab/ui-react';
 
 export function RadioGroupControlled() {
   const [value, setValue] = React.useState('option-one');
@@ -15,15 +15,15 @@ export function RadioGroupControlled() {
         onValueChange={(next) => setValue(next as string)}
       >
         <div className="flex items-center space-x-2">
-          <RadioGroupItem value="option-one" id="r1-option-one" />
+          <Radio value="option-one" id="r1-option-one" />
           <Label htmlFor="r1-option-one">Option One</Label>
         </div>
         <div className="flex items-center space-x-2">
-          <RadioGroupItem value="option-two" id="r1-option-two" />
+          <Radio value="option-two" id="r1-option-two" />
           <Label htmlFor="r1-option-two">Option Two</Label>
         </div>
         <div className="flex items-center space-x-2">
-          <RadioGroupItem value="option-three" id="r1-option-three" />
+          <Radio value="option-three" id="r1-option-three" />
           <Label htmlFor="r1-option-three">Option Three</Label>
         </div>
       </RadioGroup>

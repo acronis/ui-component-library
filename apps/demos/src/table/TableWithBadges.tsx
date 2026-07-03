@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/shadcn-uikit/react';
-import { Badge } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Badge } from '@spec-lab/ui-react';
 
 const invoices = [
   {
@@ -73,10 +73,10 @@ export function TableWithBadges() {
                 <Badge
                   variant={
                     invoice.paymentStatus === 'Paid'
-                      ? 'default'
+                      ? 'success'
                       : invoice.paymentStatus === 'Pending'
-                        ? 'secondary'
-                        : 'destructive'
+                        ? 'warning'
+                        : 'danger'
                   }
                 >
                   {invoice.paymentStatus}

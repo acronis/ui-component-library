@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Input, Button } from '@spec-lab/shadcn-uikit/react';
-import { LockIcon, MailIcon } from '@spec-lab/shadcn-uikit';
+import { Input, Button } from '@spec-lab/ui-react';
+import { EnvelopeIcon, LockIcon } from '@spec-lab/icons-react/stroke-mono'
 export function InputForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +21,7 @@ export function InputForm() {
           Email <span className="text-red-500">*</span>
         </label>
         <div className="relative">
-          <MailIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+          <EnvelopeIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
           <Input
             id="form-email"
             className="pl-10"

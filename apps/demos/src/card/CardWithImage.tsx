@@ -5,8 +5,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function CardWithImage() {
   return (
@@ -22,7 +22,7 @@ export function CardWithImage() {
         </p>
       </CardContent>
       <CardFooter>
-        <Button variant="outline">View Gallery</Button>
+        <Button variant="secondary">View Gallery</Button>
       </CardFooter>
     </Card>
   );

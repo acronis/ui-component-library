@@ -6,8 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from '@spec-lab/shadcn-uikit/react';
-import { Card, CardContent } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Card, CardContent } from '@spec-lab/ui-react';
 
 export function CarouselAutoplay() {
   const [api, setApi] = React.useState<CarouselApi>();

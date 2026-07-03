@@ -6,15 +6,15 @@ import {
   EmptyDescription,
   EmptyActions,
   EmptyLinks,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { TimesCircleIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { CircleTimesIcon } from '@spec-lab/icons-react/stroke-mono'
 export function EmptyError() {
   return (
     <div className="flex min-h-[300px] items-center justify-center border rounded-lg bg-gray-50">
       <Empty>
         <EmptyIcon className="h-24 w-24">
-          <TimesCircleIcon className="text-red-500" />
+          <CircleTimesIcon className="text-red-500" />
         </EmptyIcon>
         <EmptyHeader>
           <EmptyTitle>Failed to load content</EmptyTitle>

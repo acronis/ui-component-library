@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, ButtonGroup } from '@spec-lab/shadcn-uikit/react';
+import { ButtonGroup, ButtonIcon } from '@spec-lab/ui-react';
 import { BoldIcon, ItalicIcon, UnderlineIcon } from '../icons/missing-icons';
 export function ButtonGroupTextFormatting() {
   const [textFormat, setTextFormat] = React.useState<string[]>([]);
@@ -14,27 +14,27 @@ export function ButtonGroupTextFormatting() {
 
   return (
     <ButtonGroup>
-      <Button
-        variant={textFormat.includes('bold') ? 'default' : 'outline'}
-        size="icon"
+      <ButtonIcon
+        variant={textFormat.includes('bold') ? 'secondary' : 'ghost'}
+        aria-label="Bold"
         onClick={() => toggleFormat('bold')}
       >
         <BoldIcon className="h-4 w-4" />
-      </Button>
-      <Button
-        variant={textFormat.includes('italic') ? 'default' : 'outline'}
-        size="icon"
+      </ButtonIcon>
+      <ButtonIcon
+        variant={textFormat.includes('italic') ? 'secondary' : 'ghost'}
+        aria-label="Italic"
         onClick={() => toggleFormat('italic')}
       >
         <ItalicIcon className="h-4 w-4" />
-      </Button>
-      <Button
-        variant={textFormat.includes('underline') ? 'default' : 'outline'}
-        size="icon"
+      </ButtonIcon>
+      <ButtonIcon
+        variant={textFormat.includes('underline') ? 'secondary' : 'ghost'}
+        aria-label="Underline"
         onClick={() => toggleFormat('underline')}
       >
         <UnderlineIcon className="h-4 w-4" />
-      </Button>
+      </ButtonIcon>
     </ButtonGroup>
   );
 }

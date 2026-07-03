@@ -1,5 +1,5 @@
 import { Fragment, useMemo, useState } from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button, ButtonIcon } from '@spec-lab/ui-react';
 import {
   Table,
   TableBody,
@@ -7,7 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { MinusIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
 
 const records = [
   {
@@ -86,10 +87,9 @@ export function TableExpandableRows() {
               <Fragment key={record.id}>
                 <TableRow>
                   <TableCell className="font-medium">
-                    <Button
+                    <ButtonIcon
                       variant="ghost"
-                      size="sm"
-                      className="mr-2 h-7 w-7 p-0"
+                      className="mr-2"
                       onClick={() => toggleRow(record.id)}
                       aria-label={
                         expanded
@@ -97,8 +97,8 @@ export function TableExpandableRows() {
                           : `Expand ${record.date}`
                       }
                     >
-                      {expanded ? '−' : '+'}
-                    </Button>
+                      {expanded ? <MinusIcon /> : <PlusIcon />}
+                    </ButtonIcon>
                     {record.date}
                   </TableCell>
                   <TableCell>{record.name}</TableCell>
@@ -118,7 +118,7 @@ export function TableExpandableRows() {
           })}
           <TableRow>
             <TableCell colSpan={2} className="text-center">
-              <Button variant="link" size="sm" onClick={toggleAllRows}>
+              <Button variant="ghost" onClick={toggleAllRows}>
                 {allExpanded ? 'Collapse all rows' : 'Expand all rows'}
               </Button>
             </TableCell>

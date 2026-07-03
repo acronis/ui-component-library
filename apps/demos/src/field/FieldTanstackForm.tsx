@@ -7,17 +7,17 @@ import {
   FieldDescription,
   FieldError,
   FieldGroup,
-} from '@spec-lab/shadcn-uikit/react';
-import { Input } from '@spec-lab/shadcn-uikit/react';
-import { Textarea } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Input } from '@spec-lab/ui-react';
+import { Textarea } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 const schema = z.object({
   username: z
@@ -30,6 +30,23 @@ const schema = z.object({
 });
 
 type FormValues = z.infer<typeof schema>;
+
+// FieldError renders a single message; fold TanStack Form's error list into
+// text or a bulleted list, matching the legacy field's multi-error display.
+function fieldErrorContent(errors: unknown[]) {
+  const messages = errors
+    .map((error) => (error == null ? '' : String(error)))
+    .filter(Boolean);
+  if (messages.length === 0) return null;
+  if (messages.length === 1) return messages[0];
+  return (
+    <ul className="ml-4 flex list-disc flex-col gap-1">
+      {messages.map((message, index) => (
+        <li key={index}>{message}</li>
+      ))}
+    </ul>
+  );
+}
 
 export function FieldTanstackForm() {
   const [submitted, setSubmitted] = React.useState<FormValues | null>(null);
@@ -46,7 +63,7 @@ export function FieldTanstackForm() {
         <pre className="text-xs bg-muted rounded p-3 overflow-auto">
           {JSON.stringify(submitted, null, 2)}
         </pre>
-        <Button variant="outline" size="sm" onClick={() => setSubmitted(null)}>
+        <Button variant="secondary" onClick={() => setSubmitted(null)}>
           Edit again
         </Button>
       </div>
@@ -76,11 +93,9 @@ export function FieldTanstackForm() {
           >
             {(field) => (
               <Field
-                data-invalid={
+                invalid={
                   field.state.meta.isTouched &&
                   field.state.meta.errors.length > 0
-                    ? 'true'
-                    : undefined
                 }
               >
                 <FieldLabel htmlFor={field.name}>Username</FieldLabel>
@@ -96,13 +111,12 @@ export function FieldTanstackForm() {
                   }
                 />
                 <FieldDescription>Your public display name.</FieldDescription>
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
-                  />
-                )}
+                {field.state.meta.isTouched &&
+                  field.state.meta.errors.length > 0 && (
+                    <FieldError match>
+                      {fieldErrorContent(field.state.meta.errors)}
+                    </FieldError>
+                  )}
               </Field>
             )}
           </form.Field>
@@ -120,11 +134,9 @@ export function FieldTanstackForm() {
           >
             {(field) => (
               <Field
-                data-invalid={
+                invalid={
                   field.state.meta.isTouched &&
                   field.state.meta.errors.length > 0
-                    ? 'true'
-                    : undefined
                 }
               >
                 <FieldLabel htmlFor={field.name}>Email</FieldLabel>
@@ -140,13 +152,12 @@ export function FieldTanstackForm() {
                     field.state.meta.errors.length > 0
                   }
                 />
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
-                  />
-                )}
+                {field.state.meta.isTouched &&
+                  field.state.meta.errors.length > 0 && (
+                    <FieldError match>
+                      {fieldErrorContent(field.state.meta.errors)}
+                    </FieldError>
+                  )}
               </Field>
             )}
           </form.Field>
@@ -164,11 +175,9 @@ export function FieldTanstackForm() {
           >
             {(field) => (
               <Field
-                data-invalid={
+                invalid={
                   field.state.meta.isTouched &&
                   field.state.meta.errors.length > 0
-                    ? 'true'
-                    : undefined
                 }
               >
                 <FieldLabel htmlFor={field.name}>Role</FieldLabel>
@@ -185,13 +194,12 @@ export function FieldTanstackForm() {
                     <SelectItem value="viewer">Viewer</SelectItem>
                   </SelectContent>
                 </Select>
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
-                  />
-                )}
+                {field.state.meta.isTouched &&
+                  field.state.meta.errors.length > 0 && (
+                    <FieldError match>
+                      {fieldErrorContent(field.state.meta.errors)}
+                    </FieldError>
+                  )}
               </Field>
             )}
           </form.Field>
@@ -219,13 +227,12 @@ export function FieldTanstackForm() {
                   onBlur={field.handleBlur}
                 />
                 <FieldDescription>Up to 160 characters.</FieldDescription>
-                {field.state.meta.isTouched && (
-                  <FieldError
-                    errors={field.state.meta.errors.map((e) => ({
-                      message: e?.toString(),
-                    }))}
-                  />
-                )}
+                {field.state.meta.isTouched &&
+                  field.state.meta.errors.length > 0 && (
+                    <FieldError match>
+                      {fieldErrorContent(field.state.meta.errors)}
+                    </FieldError>
+                  )}
               </Field>
             )}
           </form.Field>

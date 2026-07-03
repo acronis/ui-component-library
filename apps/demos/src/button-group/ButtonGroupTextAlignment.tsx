@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, ButtonGroup } from '@spec-lab/shadcn-uikit/react';
+import { ButtonGroup, ButtonIcon } from '@spec-lab/ui-react';
 import {
   AlignCenterIcon,
   AlignLeftIcon,
@@ -10,27 +10,27 @@ export function ButtonGroupTextAlignment() {
 
   return (
     <ButtonGroup>
-      <Button
-        variant={alignment === 'left' ? 'default' : 'outline'}
-        size="icon"
+      <ButtonIcon
+        variant={alignment === 'left' ? 'secondary' : 'ghost'}
+        aria-label="Align left"
         onClick={() => setAlignment('left')}
       >
         <AlignLeftIcon className="h-4 w-4" />
-      </Button>
-      <Button
-        variant={alignment === 'center' ? 'default' : 'outline'}
-        size="icon"
+      </ButtonIcon>
+      <ButtonIcon
+        variant={alignment === 'center' ? 'secondary' : 'ghost'}
+        aria-label="Align center"
         onClick={() => setAlignment('center')}
       >
         <AlignCenterIcon className="h-4 w-4" />
-      </Button>
-      <Button
-        variant={alignment === 'right' ? 'default' : 'outline'}
-        size="icon"
+      </ButtonIcon>
+      <ButtonIcon
+        variant={alignment === 'right' ? 'secondary' : 'ghost'}
+        aria-label="Align right"
         onClick={() => setAlignment('right')}
       >
         <AlignRightIcon className="h-4 w-4" />
-      </Button>
+      </ButtonIcon>
     </ButtonGroup>
   );
 }

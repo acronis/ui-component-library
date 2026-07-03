@@ -1,11 +1,10 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  TooltipArrow,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
 export function TooltipMultiple() {
   return (
@@ -17,7 +16,6 @@ export function TooltipMultiple() {
           </TooltipTrigger>
           <TooltipContent>
             <p>Save your changes</p>
-            <TooltipArrow />
           </TooltipContent>
         </Tooltip>
 
@@ -27,7 +25,6 @@ export function TooltipMultiple() {
           </TooltipTrigger>
           <TooltipContent>
             <p>Discard changes</p>
-            <TooltipArrow />
           </TooltipContent>
         </Tooltip>
 
@@ -37,7 +34,6 @@ export function TooltipMultiple() {
           </TooltipTrigger>
           <TooltipContent>
             <p>Delete permanently</p>
-            <TooltipArrow />
           </TooltipContent>
         </Tooltip>
       </div>

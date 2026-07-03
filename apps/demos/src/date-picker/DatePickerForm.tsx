@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { format } from 'date-fns';
-import { cn } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
-import { Calendar } from '@spec-lab/shadcn-uikit/react';
+import { cn } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
+import { Calendar } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
 
-import { CalendarIcon } from '@spec-lab/shadcn-uikit';
+import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono'
 export function DatePickerForm() {
   const [appointmentDate, setAppointmentDate] = React.useState<Date>();
 
@@ -24,7 +24,7 @@ export function DatePickerForm() {
             render={
               <Button
                 id="appointment-date"
-                variant="outline"
+                variant="secondary"
                 className={cn(
                   'w-full justify-start text-left font-normal',
                   !appointmentDate && 'text-muted-foreground'
@@ -62,7 +62,7 @@ export function DatePickerForm() {
             render={
               <Button
                 id="event-date"
-                variant="outline"
+                variant="secondary"
                 className="w-full justify-start text-left font-normal text-muted-foreground"
               />
             }

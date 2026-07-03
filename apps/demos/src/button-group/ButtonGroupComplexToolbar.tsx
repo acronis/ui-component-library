@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Button, ButtonGroup } from '@spec-lab/shadcn-uikit/react';
-import { ListIcon } from '@spec-lab/shadcn-uikit';
+import { Button, ButtonGroup, ButtonIcon } from '@spec-lab/ui-react';
+import { ListIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   AlignCenterIcon,
   AlignLeftIcon,
@@ -27,68 +27,68 @@ export function ButtonGroupComplexToolbar() {
   return (
     <div className="flex flex-wrap gap-4">
       <ButtonGroup>
-        <Button variant="outline" size="icon">
+        <ButtonIcon variant="secondary" aria-label="Undo">
           <UndoIcon className="h-4 w-4" />
-        </Button>
-        <Button variant="outline" size="icon">
+        </ButtonIcon>
+        <ButtonIcon variant="secondary" aria-label="Redo">
           <RedoIcon className="h-4 w-4" />
-        </Button>
+        </ButtonIcon>
       </ButtonGroup>
 
       <ButtonGroup>
-        <Button
-          variant={textFormat.includes('bold') ? 'default' : 'outline'}
-          size="icon"
+        <ButtonIcon
+          variant={textFormat.includes('bold') ? 'secondary' : 'ghost'}
+          aria-label="Bold"
           onClick={() => toggleFormat('bold')}
         >
           <BoldIcon className="h-4 w-4" />
-        </Button>
-        <Button
-          variant={textFormat.includes('italic') ? 'default' : 'outline'}
-          size="icon"
+        </ButtonIcon>
+        <ButtonIcon
+          variant={textFormat.includes('italic') ? 'secondary' : 'ghost'}
+          aria-label="Italic"
           onClick={() => toggleFormat('italic')}
         >
           <ItalicIcon className="h-4 w-4" />
-        </Button>
-        <Button
-          variant={textFormat.includes('underline') ? 'default' : 'outline'}
-          size="icon"
+        </ButtonIcon>
+        <ButtonIcon
+          variant={textFormat.includes('underline') ? 'secondary' : 'ghost'}
+          aria-label="Underline"
           onClick={() => toggleFormat('underline')}
         >
           <UnderlineIcon className="h-4 w-4" />
-        </Button>
+        </ButtonIcon>
       </ButtonGroup>
 
       <ButtonGroup>
-        <Button
-          variant={alignment === 'left' ? 'default' : 'outline'}
-          size="icon"
+        <ButtonIcon
+          variant={alignment === 'left' ? 'secondary' : 'ghost'}
+          aria-label="Align left"
           onClick={() => setAlignment('left')}
         >
           <AlignLeftIcon className="h-4 w-4" />
-        </Button>
-        <Button
-          variant={alignment === 'center' ? 'default' : 'outline'}
-          size="icon"
+        </ButtonIcon>
+        <ButtonIcon
+          variant={alignment === 'center' ? 'secondary' : 'ghost'}
+          aria-label="Align center"
           onClick={() => setAlignment('center')}
         >
           <AlignCenterIcon className="h-4 w-4" />
-        </Button>
-        <Button
-          variant={alignment === 'right' ? 'default' : 'outline'}
-          size="icon"
+        </ButtonIcon>
+        <ButtonIcon
+          variant={alignment === 'right' ? 'secondary' : 'ghost'}
+          aria-label="Align right"
           onClick={() => setAlignment('right')}
         >
           <AlignRightIcon className="h-4 w-4" />
-        </Button>
+        </ButtonIcon>
       </ButtonGroup>
 
       <ButtonGroup>
-        <Button variant="outline">
+        <Button variant="secondary">
           <ListIcon className="mr-2 h-4 w-4" />
           Bullet
         </Button>
-        <Button variant="outline">
+        <Button variant="secondary">
           <ListOrderedIcon className="mr-2 h-4 w-4" />
           Numbered
         </Button>

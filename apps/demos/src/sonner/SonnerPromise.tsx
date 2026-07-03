@@ -1,5 +1,5 @@
-import { toast } from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { toast } from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function SonnerPromise() {
   return (
@@ -10,7 +10,7 @@ export function SonnerPromise() {
             setTimeout(() => resolve({ name: 'Sonner' }), 2000)
           );
 
-        toast.promise(promise, {
+        toast.promise(promise(), {
           loading: 'Loading...',
           success: (data: any) => {
             return `${data.name} toast has been added`;

@@ -1,16 +1,16 @@
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { InfoIcon } from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono'
 export function PopoverWithActions() {
   return (
     <div className="flex justify-center rounded-lg border p-8">
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
-          <InfoIcon className="mr-2 h-4 w-4" />
+        <PopoverTrigger render={<Button variant="secondary" />}>
+          <CircleInfoIcon className="mr-2 h-4 w-4" />
           Show Info
         </PopoverTrigger>
         <PopoverContent className="w-80">
@@ -24,11 +24,11 @@ export function PopoverWithActions() {
               </p>
             </div>
             <div className="space-y-2">
-              <Button variant="link" className="h-auto p-0 text-primary">
+              <Button variant="ghost" className="h-auto p-0 text-primary">
                 <span className="mr-2 h-4 w-4 rounded bg-primary" />
                 First action
               </Button>
-              <Button variant="link" className="h-auto p-0 text-primary">
+              <Button variant="ghost" className="h-auto p-0 text-primary">
                 <span className="mr-2 h-4 w-4 rounded bg-primary" />
                 Second action
               </Button>

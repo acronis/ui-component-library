@@ -1,32 +1,32 @@
 import * as React from 'react';
 import {
-  Button,
   ButtonGroup,
   ButtonGroupText,
-} from '@spec-lab/shadcn-uikit/react';
-import { ZoomInIcon, ZoomOutIcon } from '@spec-lab/shadcn-uikit';
+  ButtonIcon,
+} from '@spec-lab/ui-react';
+import { MagnifierMinusIcon, MagnifierPlusIcon } from '@spec-lab/icons-react/stroke-mono'
 export function ButtonGroupZoomControls() {
   const [zoom, setZoom] = React.useState(100);
 
   return (
     <ButtonGroup>
-      <Button
-        variant="outline"
-        size="icon"
+      <ButtonIcon
+        variant="secondary"
+        aria-label="Zoom out"
         onClick={() => setZoom(Math.max(25, zoom - 25))}
       >
-        <ZoomOutIcon className="h-4 w-4" />
-      </Button>
+        <MagnifierMinusIcon className="h-4 w-4" />
+      </ButtonIcon>
       <ButtonGroupText className="min-w-[80px] justify-center">
         {zoom}%
       </ButtonGroupText>
-      <Button
-        variant="outline"
-        size="icon"
+      <ButtonIcon
+        variant="secondary"
+        aria-label="Zoom in"
         onClick={() => setZoom(Math.min(200, zoom + 25))}
       >
-        <ZoomInIcon className="h-4 w-4" />
-      </Button>
+        <MagnifierPlusIcon className="h-4 w-4" />
+      </ButtonIcon>
     </ButtonGroup>
   );
 }

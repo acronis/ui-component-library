@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+import { Button } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,14 +12,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
   DropdownMenuShortcut,
-} from '@spec-lab/shadcn-uikit/react';
-import {
-  ChevronDownIcon,
-  CloudIcon,
-  MailIcon,
-  MessagesIcon,
-  UserIcon,
-} from '@spec-lab/shadcn-uikit';
+} from '@spec-lab/ui-react';
+import { ChevronDownIcon, CloudIcon, EnvelopeIcon, MessagesIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import {
   CreditCardIcon,
   ExternalLinkIcon,
@@ -34,7 +28,7 @@ export function DropdownMenuComplex() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger render={<Button variant="secondary" />}>
         Advanced Menu
         <ChevronDownIcon className="ml-2 h-4 w-4" />
       </DropdownMenuTrigger>
@@ -74,7 +68,7 @@ export function DropdownMenuComplex() {
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuItem>
-              <MailIcon className="mr-2 h-4 w-4" />
+              <EnvelopeIcon className="mr-2 h-4 w-4" />
               <span>By Email</span>
             </DropdownMenuItem>
             <DropdownMenuItem>

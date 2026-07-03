@@ -7,8 +7,8 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/shadcn-uikit/react';
-import { Button } from '@spec-lab/shadcn-uikit/react';
+} from '@spec-lab/ui-react';
+import { Button } from '@spec-lab/ui-react';
 
 export function DialogScrollable() {
   return (
@@ -53,7 +53,7 @@ export function DialogScrollable() {
           </div>
         </DialogBody>
         <DialogFooter>
-          <DialogTrigger render={<Button variant="outline" />}>
+          <DialogTrigger render={<Button variant="secondary" />}>
             Decline
           </DialogTrigger>
           <Button>Accept</Button>
