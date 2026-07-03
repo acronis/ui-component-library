@@ -79,7 +79,9 @@ tokens:
   # ── ai ──
   - name: --ui-background-status-ai
     affects: alert
-  - name: --ui-border-on-status-ai-strong
+  # No --ui-border-on-status-ai semantic yet (the -ai-strong token is the ai
+  # gradient); the ai border uses the pale violet primitive the Figma references.
+  - name: --ui-palette-violet-4
     affects: alert
   - name: --ui-glyph-on-status-ai
     affects: alert-icon
