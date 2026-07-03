@@ -12,9 +12,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@spec-lab/shadcn-uikit": ["./src/index.ts"],
-      "@spec-lab/shadcn-uikit/react": ["./src/react.ts"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src", ".storybook", "vitest.shims.d.ts"],

@@ -56,13 +56,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # ui-legacy is retired (its Storybook is no longer deployed), but the demo
-      # still transitively imports it via the shared demos package's un-migrated
-      # gap dirs, so its dist must exist before the demo build below. Drop this
-      # once those gap dirs are migrated and ui-legacy is deleted.
-      - name: Build ui-legacy (transitive dep for demos gap dirs)
-        run: pnpm --filter ./packages/ui-legacy run build
-
       - name: Build demo
         run: VITE_BASE_PATH=/uikit/ pnpm --filter ./apps/demo run build
 

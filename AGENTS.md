@@ -36,7 +36,6 @@ distinct role:
 
 | Path                          | Package                          | Published? | Stack                                                                                                               | Workspace docs                                    |
 | ----------------------------- | -------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `packages/ui-legacy/`         | `@spec-lab/shadcn-uikit`         | **yes**    | Vite library, Storybook 10, Vitest + RTL                                                                            | [AGENTS.md](packages/ui-legacy/AGENTS.md)         |
 | `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**    | Base UI library, Vite, Storybook 10, Vitest + RTL, Tailwind v4                                                      | [AGENTS.md](packages/ui-react/AGENTS.md)          |
 | `packages/ui-spec/`           | `@spec-lab/ui-spec`              | no         | Framework-agnostic component specs (YAML/MD) + cva conformance, Vitest, ajv-validated                               | [AGENTS.md](packages/ui-spec/AGENTS.md)           |
 | `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `icons-svg-next`, Vite, Storybook, Vitest                                                | [AGENTS.md](packages/icons-react/AGENTS.md)       |
@@ -52,8 +51,7 @@ distinct role:
 
 `packages/` holds the published workspaces:
 
-- `packages/ui-legacy/` — the published shadcn-based UI library.
-- `packages/ui-react/` houses the published next-generation **Base UI**
+- `packages/ui-react/` houses the published **Base UI**
   library (`@base-ui/react` as a direct dep), themed by
   `@spec-lab/tokens`. New component work goes here.
 - `packages/ui-spec/` — **private** framework-agnostic component specs for

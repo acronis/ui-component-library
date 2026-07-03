@@ -14,8 +14,8 @@ catalog:
   '@types/react-dom': 19.2.3
   '@types/node': 25.9.1
 
-  # Base UI — primitive set for the next-gen packages/ui-react library
-  # (a direct dependency there). packages/ui-legacy keeps it as a peer.
+  # Base UI — primitive set for the packages/ui-react library
+  # (a direct dependency there).
   '@base-ui/react': 1.4.1
 
   # Toolchain
@@ -31,9 +31,8 @@ catalog:
   vite: 6.4.2
   vitest: 4.1.7
 
-  # Cross-workspace runtime deps. Versions intentionally match
-  # packages/ui-legacy (the published library) so its typecheck stays
-  # stable; private apps adopt these versions to remove drift.
+  # Cross-workspace runtime deps, shared so private apps + the published
+  # packages/ui-react library stay on one version and don't drift.
   react-hook-form: 7.76.1
   '@hookform/resolvers': 5.4.0
   '@tanstack/react-table': 8.21.3

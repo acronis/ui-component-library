@@ -39,10 +39,22 @@ type Variant = (typeof VARIANTS)[number];
 const MONO: Variant[] = ['stroke-mono', 'solid-mono'];
 
 // 1. legacy React name -> source svg name (strip extension)
-const autoGen = readFileSync(
-  join(MONOREPO, 'packages/ui-legacy/src/components/icons/auto-generated.tsx'),
-  'utf8'
+// ui-legacy (@spec-lab/shadcn-uikit) has been removed from this monorepo, so the
+// map can no longer be regenerated from its source. The committed
+// legacy-icon-map.json is retained as-is (MFEs still migrating off the old
+// PUBLISHED shadcn-uikit resolve names from it via the `legacy-map` export).
+// Skip regeneration when the source is absent so the build stays green.
+const autoGenPath = join(
+  MONOREPO,
+  'packages/ui-legacy/src/components/icons/auto-generated.tsx'
 );
+if (!existsSync(autoGenPath)) {
+  console.log(
+    'legacy-icon-map: ui-legacy source not present — keeping the committed legacy-icon-map.json (no regeneration).'
+  );
+  process.exit(0);
+}
+const autoGen = readFileSync(autoGenPath, 'utf8');
 const legacyToSource = new Map<string, string>();
 for (const m of autoGen.matchAll(
   /\* ([A-Z][A-Za-z0-9]*Icon) - Auto-generated from ([^\s*]+)/g

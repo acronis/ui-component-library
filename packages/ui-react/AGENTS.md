@@ -12,7 +12,7 @@ top of this file.
 
 @context/conventions.md
 
-## How this differs from `packages/ui-legacy`
+## Design choices (vs the retired legacy shadcn kit)
 
 - **Base UI first.** Primitives come from `@base-ui/react`, a **direct
   dependency** (legacy treats it as an optional peer and mixes in Radix).
@@ -34,22 +34,14 @@ top of this file.
   `VariantProps`. Merge classes with `cn()` (`src/lib/utils.ts`).
 - **Tailwind CSS v4** utilities. PascalCase component names; kebab-case files.
 
-## Reusing the shared demos
+## The shared demos package
 
-The `@spec-lab/shadcn-uikit-demos` workspace (used by `apps/demo`
-and `apps/docs` for the legacy library) is reused here. The demos import
-the legacy package specifier; `.storybook/main.ts` aliases
-`@spec-lab/shadcn-uikit[/react]` to this library's `src`, so the
-**same demo source** renders against ui-react's components (see
-`button/__stories__/button-demos.stories.tsx`). Only add demo-backed
-stories for components ui-react actually exports, or the Storybook build
-will fail to resolve the missing ones.
-
-> A neutral import token (aliased per consumer) was tried so apps/demo,
-> apps/docs, and this Storybook could all switch libraries. It works for
-> Vite consumers but breaks the Next/RSC docs build — bundler-aliasing a
-> `"use client"` component drops it from Next's client manifest, so it
-> renders as `undefined`. Hence the alias lives only here (Vite, no RSC).
+The `@spec-lab/shadcn-uikit-demos` workspace (consumed by `apps/demo`) now
+imports `@spec-lab/ui-react` **directly** — the legacy package it was named after
+is gone, and the old `.storybook`/tsconfig alias that remapped the legacy
+specifier to this library's `src` has been removed. This library's Storybook
+renders its own `src/components/**/__stories__/*.stories.tsx`; it does not pull
+in the shared demos package.
 
 ## File layout per component
 
@@ -94,7 +86,7 @@ pnpm --filter @spec-lab/ui-react storybook:test:visual:docker
 The `storybook:test:visual[:update]` scripts run the same thing without Docker
 (host renderer) — useful for a quick local look, but their output must **not**
 be committed. See `test/__snapshots__/README.md`. CI:
-`.github/workflows/visual-regression.yml` (matrix over `ui-legacy` + `ui-react`).
+`.github/workflows/visual-regression.yml` (matrix over `ui-react`, light + dark).
 
 ## When you add or change anything in `src/`
 
