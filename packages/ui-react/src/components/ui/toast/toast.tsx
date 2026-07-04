@@ -103,7 +103,7 @@ function ToastList() {
         className={cn(
           'relative flex w-full items-start gap-3 rounded border border-border bg-background p-4 shadow-md',
           'transition-all data-[ending-style]:opacity-0 data-[starting-style]:opacity-0',
-          'data-[starting-style]:translate-x-4 data-[ending-style]:translate-x-4'
+          'ltr:data-[starting-style]:translate-x-4 rtl:data-[starting-style]:-translate-x-4 ltr:data-[ending-style]:translate-x-4 rtl:data-[ending-style]:-translate-x-4'
         )}
       >
         {icon ? <span className="mt-0.5 shrink-0">{icon}</span> : null}
@@ -149,7 +149,7 @@ function Toaster({ timeout, limit, portalContainer }: ToasterProps) {
       limit={limit}
     >
       <ToastPrimitive.Portal container={portalContainer}>
-        <ToastPrimitive.Viewport className="fixed bottom-4 right-4 z-[100] flex w-[384px] max-w-[calc(100vw-2rem)] flex-col gap-3 outline-none">
+        <ToastPrimitive.Viewport className="fixed bottom-4 end-4 z-[100] flex w-[384px] max-w-[calc(100vw-2rem)] flex-col gap-3 outline-none">
           <ToastList />
         </ToastPrimitive.Viewport>
       </ToastPrimitive.Portal>

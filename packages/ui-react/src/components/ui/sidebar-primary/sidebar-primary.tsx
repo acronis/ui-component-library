@@ -322,7 +322,7 @@ const SidebarPrimaryMenuItem = React.forwardRef<
                 collapsed but stay queryable for the same reason. */}
             <span
               className={cn(
-                'min-w-0 flex-1 truncate text-left',
+                'min-w-0 flex-1 truncate text-start',
                 !expanded && 'sr-only'
               )}
             >
@@ -416,7 +416,7 @@ const SidebarPrimaryCollapseTrigger = React.forwardRef<
         aria-expanded={expanded}
         className={cn(
           sidebarPrimaryMenuItemVariants({ variant: 'unselected' }),
-          'text-left',
+          'text-start',
           className
         )}
         onClick={(event) => {

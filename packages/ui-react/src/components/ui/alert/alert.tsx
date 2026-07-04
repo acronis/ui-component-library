@@ -150,7 +150,7 @@ const AlertClose = React.forwardRef<
     aria-label={ariaLabel}
     data-slot="alert-close"
     className={cn(
-      '-my-4 -mr-4 flex shrink-0 items-center justify-center self-stretch rounded-r-md border-l px-4 outline-none transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-focus-primary)]',
+      '-my-4 -me-4 flex shrink-0 items-center justify-center self-stretch rounded-e-md border-s px-4 outline-none transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-focus-primary)]',
       className
     )}
     {...props}

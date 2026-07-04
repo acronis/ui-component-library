@@ -147,7 +147,7 @@ const SidebarSecondary = React.forwardRef<HTMLElement, SidebarSecondaryProps>(
             string
           >),
           className: cn(
-            'group/sidebar flex h-full flex-col bg-[var(--ui-sidebar-secondary-global-container-color)] border-r border-[var(--ui-sidebar-secondary-global-container-border-color)] [border-right-width:var(--ui-sidebar-secondary-global-container-border-width)] w-[var(--ui-sidebar-secondary-collapsed-container-width)] data-[state=expanded]:w-[var(--ui-sidebar-secondary-expanded-container-width)] transition-[width]',
+            'group/sidebar flex h-full flex-col bg-[var(--ui-sidebar-secondary-global-container-color)] border-e border-[var(--ui-sidebar-secondary-global-container-border-color)] [border-inline-end-width:var(--ui-sidebar-secondary-global-container-border-width)] w-[var(--ui-sidebar-secondary-collapsed-container-width)] data-[state=expanded]:w-[var(--ui-sidebar-secondary-expanded-container-width)] transition-[width]',
             className
           ),
           children,
@@ -438,7 +438,7 @@ const SidebarSecondarySectionLabel = React.forwardRef<
     >
       <Collapsible.Trigger
         className={cn(
-          'group/section flex min-w-0 flex-1 items-center gap-[var(--ui-sidebar-secondary-section-container-header-gap)] text-left',
+          'group/section flex min-w-0 flex-1 items-center gap-[var(--ui-sidebar-secondary-section-container-header-gap)] text-start',
           sectionLabelTextClass,
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-brand)] focus-visible:ring-inset'
         )}
@@ -564,7 +564,7 @@ const SidebarSecondaryMenuItem = React.forwardRef<
                 an icon-only row keeps an accessible name (a11y §7). */}
             <span
               className={cn(
-                'min-w-0 flex-1 truncate text-left',
+                'min-w-0 flex-1 truncate text-start',
                 !expanded && 'sr-only'
               )}
             >
@@ -626,7 +626,7 @@ const SidebarSecondaryMenuSubTrigger = React.forwardRef<
         sidebarSecondaryMenuItemVariants({
           variant: selected ? 'selected' : 'unselected',
         }),
-        'text-left',
+        'text-start',
         className
       )}
       {...props}
@@ -700,13 +700,13 @@ const SidebarSecondaryMenuSubItem = React.forwardRef<
           // token was removed in the next-gen sync; reconstruct the indent from
           // surviving tokens so the label aligns under level-1 labels (row
           // padding + icon column + gap).
-          'pl-[calc(var(--ui-sidebar-secondary-menu-item-global-container-padding-x)+var(--ui-sidebar-secondary-menu-item-global-icon-size)+var(--ui-sidebar-secondary-menu-item-global-container-gap))]',
+          'ps-[calc(var(--ui-sidebar-secondary-menu-item-global-container-padding-x)+var(--ui-sidebar-secondary-menu-item-global-icon-size)+var(--ui-sidebar-secondary-menu-item-global-container-gap))]',
           className
         ),
         'aria-current': selected ? 'page' : undefined,
         children: (
           <span
-            className={cn('flex-1 truncate text-left', !expanded && 'sr-only')}
+            className={cn('flex-1 truncate text-start', !expanded && 'sr-only')}
           >
             {children}
           </span>
@@ -797,7 +797,7 @@ const SidebarSecondaryCollapseTrigger = React.forwardRef<
         aria-expanded={expanded}
         className={cn(
           sidebarSecondaryMenuItemVariants({ variant: 'unselected' }),
-          'text-left',
+          'text-start',
           className
         )}
         onClick={(event) => {

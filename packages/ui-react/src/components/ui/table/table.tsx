@@ -133,7 +133,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
               : undefined
       }
       className={cn(
-        'h-10 px-[var(--ui-table-header-cell-padding-x)] text-left align-middle text-sm font-semibold text-[var(--ui-table-header-label-color)] [&:has([role=checkbox])]:pr-0',
+        'h-10 px-[var(--ui-table-header-cell-padding-x)] text-start align-middle text-sm font-semibold text-[var(--ui-table-header-label-color)] [&:has([role=checkbox])]:pe-0',
         sortable &&
           'cursor-pointer transition-colors hover:bg-[var(--ui-table-header-cell-color-hover)]',
         className

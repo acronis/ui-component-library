@@ -121,7 +121,7 @@ const WidgetTableDataTh = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      'px-3 py-2 text-left text-xs font-semibold text-[var(--ui-table-header-label-color)]',
+      'px-3 py-2 text-start text-xs font-semibold text-[var(--ui-table-header-label-color)]',
       className
     )}
     {...props}

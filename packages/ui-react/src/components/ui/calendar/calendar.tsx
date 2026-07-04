@@ -119,16 +119,16 @@ function Calendar({
         week_number_header: cn('w-[var(--cell-size)] select-none', defaultClassNames.week_number_header),
         week_number: cn('select-none text-[0.8rem] text-muted-foreground', defaultClassNames.week_number),
         day: cn(
-          'group/day relative aspect-square h-full w-full select-none p-0 text-center [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md',
+          'group/day relative aspect-square h-full w-full select-none p-0 text-center [&:first-child[data-selected=true]_button]:rounded-s-md [&:last-child[data-selected=true]_button]:rounded-e-md',
           defaultClassNames.day
         ),
         range_start: cn(
-          'rounded-l-md bg-[var(--ui-background-status-info)]',
+          'rounded-s-md bg-[var(--ui-background-status-info)]',
           defaultClassNames.range_start
         ),
         range_middle: cn('rounded-none', defaultClassNames.range_middle),
         range_end: cn(
-          'rounded-r-md bg-[var(--ui-background-status-info)]',
+          'rounded-e-md bg-[var(--ui-background-status-info)]',
           defaultClassNames.range_end
         ),
         today: cn(

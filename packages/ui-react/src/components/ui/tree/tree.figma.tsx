@@ -35,7 +35,7 @@ figma.connect(
       }),
       tag: figma.boolean('Tag', {
         true: (
-          <Tag variant="info" size="sm" className="ml-auto">
+          <Tag variant="info" size="sm" className="ms-auto">
             Label
           </Tag>
         ),

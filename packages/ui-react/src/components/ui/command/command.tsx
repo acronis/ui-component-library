@@ -149,7 +149,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>(
                       {item.shortcut != null && item.shortcut !== '' && (
                         <span
                           data-slot="command-shortcut"
-                          className="ml-auto text-xs tracking-widest text-[var(--ui-text-on-surface-secondary)]"
+                          className="ms-auto text-xs tracking-widest text-[var(--ui-text-on-surface-secondary)]"
                         >
                           {item.shortcut}
                         </span>

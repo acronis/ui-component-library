@@ -562,7 +562,7 @@ function rowContent(node: TreeNode, opts: RowOpts): React.ReactNode {
       {opts.showCheckbox && <TreeItemCheckbox />}
       {opts.showIcon && node.icon != null && <TreeItemIcon>{node.icon}</TreeItemIcon>}
       <TreeItemLabel>{node.label}</TreeItemLabel>
-      {node.tag != null && <span className="ml-auto shrink-0">{node.tag}</span>}
+      {node.tag != null && <span className="ms-auto shrink-0">{node.tag}</span>}
     </>
   );
 }

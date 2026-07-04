@@ -147,7 +147,7 @@ describe('SidebarSecondary', () => {
     render(<Panel />);
     const backup = screen.getByRole('link', { name: 'Backup' });
     expect(backup).toHaveClass(
-      'pl-[calc(var(--ui-sidebar-secondary-menu-item-global-container-padding-x)+var(--ui-sidebar-secondary-menu-item-global-icon-size)+var(--ui-sidebar-secondary-menu-item-global-container-gap))]'
+      'ps-[calc(var(--ui-sidebar-secondary-menu-item-global-container-padding-x)+var(--ui-sidebar-secondary-menu-item-global-icon-size)+var(--ui-sidebar-secondary-menu-item-global-container-gap))]'
     );
   });
 
