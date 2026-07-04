@@ -8,12 +8,19 @@
 #
 # Invoke from anywhere with:
 #   docker compose -f packages/ui-react/docker-compose.storybook.yml up ...
+#
+# `platform: linux/amd64` is pinned on every service so image builds and Chromium
+# renders are byte-for-byte reproducible against CI (GitHub `ubuntu-latest` =
+# amd64). Without it, Apple-Silicon (arm64) hosts render subtly different font
+# antialiasing and every baseline drifts vs CI. On amd64 hosts this is a no-op;
+# on arm64 it runs under emulation (slower, but the baselines actually match CI).
 services:
   storybook:
     build:
       context: ../..
       dockerfile: packages/ui-react/Dockerfile.storybook
     image: ui-react-storybook
+    platform: linux/amd64
     ports:
       - '6006:6006'
     # Serve the pre-built static output from the host — no build step in Docker
@@ -31,6 +38,7 @@ services:
       context: ../..
       dockerfile: packages/ui-react/Dockerfile.storybook
     image: ui-react-storybook
+    platform: linux/amd64
     command: pnpm exec test-storybook --url http://storybook:6006 --maxWorkers=4
     environment:
       - STORYBOOK_COLOR_MODE=${STORYBOOK_COLOR_MODE:-light}
