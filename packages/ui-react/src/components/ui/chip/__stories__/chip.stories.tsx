@@ -11,11 +11,11 @@ const meta = {
   argTypes: {
     variant: {
       control: 'inline-radio',
-      options: ['removable', 'selectable'],
+      options: ['removable', 'selectable', 'operational'],
       description:
-        '`removable` carries a trailing × remove button; `selectable` is a toggle that shows the active styling when `selected`.',
+        '`removable` carries a trailing × remove button; `selectable` is a toggle that shows the active styling when `selected`; `operational` is a semibold action chip (`role="button"`, no × / no toggle).',
       table: {
-        type: { summary: "'removable' | 'selectable'" },
+        type: { summary: "'removable' | 'selectable' | 'operational'" },
         defaultValue: { summary: 'removable' },
         category: 'Appearance',
       },
@@ -75,6 +75,10 @@ export const SelectableSelected: Story = {
   args: { variant: 'selectable', selected: true },
 };
 
+export const Operational: Story = {
+  args: { variant: 'operational', children: 'Action' },
+};
+
 export const WithIcon: Story = {
   args: { variant: 'selectable', icon: <CircleInfoIcon /> },
 };
@@ -97,6 +101,12 @@ export const Overview: Story = {
         </Chip>
         <Chip variant="selectable" icon={<CircleInfoIcon />} selected>
           Selected · icon
+        </Chip>
+      </div>
+      <div className="flex flex-wrap items-center gap-2">
+        <Chip variant="operational">Operational</Chip>
+        <Chip variant="operational" icon={<CircleInfoIcon />}>
+          Action · icon
         </Chip>
       </div>
     </div>

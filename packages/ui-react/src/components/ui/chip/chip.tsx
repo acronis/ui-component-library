@@ -5,24 +5,27 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 // A compact, interactive label. `variant` mirrors the Figma "Chip" `type`:
-// `removable` carries a trailing × (remove) button; `selectable` toggles a
-// selected state. The container fill/border/label/icon all wire to the dedicated
-// `--ui-chips-*` tier from @spec-lab/tokens; geometry (height, gap,
-// padding, min-width, radius, border width, icon size) is tokenized too.
-// The Figma `state` enum (idle / hover / active / focused) maps to interaction
-// states, not props: `hover:` → the hover tokens, `:focus`/`focus-visible` → the
-// 3px `--ui-focus-primary` ring, and the `active` look is the pressed state for
-// `removable` (`active:`) and the selected state for `selectable`
-// (`data-[selected]`, driven by the `selected` prop).
+// `removable` (Figma `dismissable`) carries a trailing × (remove) button;
+// `selectable` toggles a selected state; `operational` is an action chip with a
+// semibold brand-blue label and no × / toggle. The container fill/border and
+// geometry come from the shared `--ui-chip-global-*` tier from @spec-lab/tokens;
+// the label color is per-variant (`--ui-chip-<variant>-label-color`) and the icon
+// from `--ui-chip-global-icon-*`. The Figma `state` enum (idle / hover / active /
+// focused) maps to interaction states, not props: `hover:` → the hover tokens,
+// `:focus-visible`/`:focus-within` → the 3px `--ui-focus-primary` ring, and the
+// `active` look is the pressed state for `removable`/`operational` (`active:`) and
+// the selected state for `selectable` (`data-[selected]`, driven by `selected`).
 const chipVariants = cva(
-  'inline-flex h-[var(--ui-chips-container-height)] min-w-[var(--ui-chips-container-width-min)] items-center justify-center gap-[var(--ui-chips-container-gap)] rounded-[var(--ui-chips-border-radius)] border-[length:var(--ui-chips-border-width)] border-solid border-[var(--ui-chips-border-color-idle)] bg-[var(--ui-chips-container-color-idle)] px-[var(--ui-chips-container-padding-x)] text-sm leading-6 text-[var(--ui-chips-label-color)] hover:border-[var(--ui-chips-border-color-hover)] hover:bg-[var(--ui-chips-container-color-hover)] [&_svg]:size-[var(--ui-chips-icon-size)] [&_svg]:shrink-0 [&_svg]:text-[var(--ui-chips-icon-color)]',
+  'inline-flex h-[var(--ui-chip-global-box-height)] min-w-[var(--ui-chip-global-box-width-min)] items-center justify-center gap-[var(--ui-chip-global-box-gap)] rounded-[var(--ui-chip-global-border-radius)] border-[length:var(--ui-chip-global-border-width)] border-solid border-[var(--ui-chip-global-border-color-idle)] bg-[var(--ui-chip-global-box-color-idle)] px-[var(--ui-chip-global-box-padding-x)] text-sm leading-6 hover:border-[var(--ui-chip-global-border-color-hover)] hover:bg-[var(--ui-chip-global-box-color-hover)] [&_svg]:size-[var(--ui-chip-global-icon-size)] [&_svg]:shrink-0 [&_svg]:text-[var(--ui-chip-global-icon-color)]',
   {
     variants: {
       variant: {
         removable:
-          'focus-within:outline-none focus-within:ring-[3px] focus-within:ring-[var(--ui-focus-primary)] active:border-[var(--ui-chips-border-color-active)] active:bg-[var(--ui-chips-container-color-active)]',
+          'text-[var(--ui-chip-removable-label-color)] focus-within:outline-none focus-within:ring-[3px] focus-within:ring-[var(--ui-focus-primary)] active:border-[var(--ui-chip-global-border-color-active)] active:bg-[var(--ui-chip-global-box-color-active)]',
         selectable:
-          'cursor-pointer focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] data-[selected=true]:border-[var(--ui-chips-border-color-active)] data-[selected=true]:bg-[var(--ui-chips-container-color-active)]',
+          'cursor-pointer text-[var(--ui-chip-selectable-label-color)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] data-[selected=true]:border-[var(--ui-chip-global-border-color-active)] data-[selected=true]:bg-[var(--ui-chip-global-box-color-active)]',
+        operational:
+          'cursor-pointer font-semibold text-[var(--ui-chip-operational-label-color)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] active:border-[var(--ui-chip-global-border-color-active)] active:bg-[var(--ui-chip-global-box-color-active)]',
       },
     },
     defaultVariants: {
@@ -63,26 +66,33 @@ const Chip = React.forwardRef<HTMLDivElement, ChipProps>(
     },
     ref
   ) => {
-    const selectable = variant === 'selectable';
+    // `selectable` and `operational` are activated like a button; `removable`'s
+    // interactive element is its inner × button, so the chip itself stays a div.
+    const buttonLike = variant === 'selectable' || variant === 'operational';
     return (
       <div
         ref={ref}
         className={cn(chipVariants({ variant }), className)}
         onKeyDown={(event) => {
-          // The selectable chip is a div with button semantics; mirror native
+          // A button-like chip is a div with button semantics; mirror native
           // button activation so Enter/Space fire its click handler.
-          if (selectable && (event.key === 'Enter' || event.key === ' ')) {
+          if (buttonLike && (event.key === 'Enter' || event.key === ' ')) {
             event.preventDefault();
             event.currentTarget.click();
           }
           onKeyDown?.(event);
         }}
-        {...(selectable
+        {...(buttonLike
           ? {
               role: 'button',
               tabIndex: 0,
-              'aria-pressed': Boolean(selected),
-              'data-selected': selected ? 'true' : undefined,
+              // Only `selectable` is a toggle; `operational` is a plain action.
+              ...(variant === 'selectable'
+                ? {
+                    'aria-pressed': Boolean(selected),
+                    'data-selected': selected ? 'true' : undefined,
+                  }
+                : {}),
             }
           : {})}
         {...props}

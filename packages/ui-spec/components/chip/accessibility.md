@@ -19,7 +19,7 @@
 
 - A visible 3px `--ui-focus-primary` ring marks focus — on the × button for
   `removable` (via `focus-within` on the container) and on the chip itself for
-  `selectable` (`focus-visible`). Focus is never suppressed without a
+  `selectable` / `operational` (`focus-visible`). Focus is never suppressed without a
   replacement indicator.
 
 ## Screen readers
@@ -30,5 +30,5 @@
 
 ## Contrast
 
-- Label, border, and icon colors come from `--ui-chips-*` tokens that meet the
+- Label, border, and icon colors come from `--ui-chip-*` tokens that meet the
   contrast bar per theme; do not override them with ad-hoc colors.

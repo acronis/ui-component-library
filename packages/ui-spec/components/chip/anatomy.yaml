@@ -2,13 +2,13 @@ spec_version: '1.0'
 component: Chip
 
 schematic: |
-  removable:                       selectable (selected):
-  +----------------------------+   +-------------------------+
-  | [icon]  label        [×]   |   | [icon]  label           |
-  +----------------------------+   +-------------------------+
-     ^       ^          ^             ^       ^
-     icon    label      remove        icon    label
-  hover / :active / focus-within     hover / selected / focus-visible
+  removable:                    selectable (selected):      operational:
+  +----------------------+      +---------------------+      +-------------------+
+  | [icon]  label   [×]  |      | [icon]  label       |      | [icon]  label     |
+  +----------------------+      +---------------------+      +-------------------+
+     ^       ^        ^            ^       ^                    ^       ^
+     icon    label    remove       icon    label               icon    label
+  hover / :active / focus-within  hover / selected / focus     hover / :active / focus
 
 root:
   element: div
@@ -16,13 +16,15 @@ root:
     The pill — a flex row with a 1px border and 12px radius. `variant` decides
     its contents and behavior: `removable` renders a `remove` button and is a
     plain container; `selectable` becomes a toggle (`role="button"`,
-    `aria-pressed`) that applies the active style when `selected`.
+    `aria-pressed`) that applies the active style when `selected`; `operational`
+    is an action chip (`role="button"`, no × / no toggle) with a semibold
+    brand-blue label.
 
 parts:
   - id: icon
     description: >-
       Optional leading icon, rendered at 16px before the label and tinted with
-      `--ui-chips-icon-color`.
+      `--ui-chip-global-icon-color`.
     element: svg
     optional: true
     visible_when: an `icon` is provided
@@ -53,6 +55,13 @@ states:
   - {
       id: selectable,
       trigger: "variant === 'selectable'",
+      kind: prop,
+      prop: variant,
+      affects: [root],
+    }
+  - {
+      id: operational,
+      trigger: "variant === 'operational'",
       kind: prop,
       prop: variant,
       affects: [root],

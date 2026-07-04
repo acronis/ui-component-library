@@ -7,13 +7,16 @@ component: Chip
 contract:
   properties:
     - name: variant
-      type: "'removable' | 'selectable'"
+      type: "'removable' | 'selectable' | 'operational'"
       required: false
       default: removable
       description: >-
         `removable` renders a trailing × button; `selectable` is a toggle
         (`role="button"` + `aria-pressed`) that applies the active style when
-        `selected`. Both share the `--ui-chips-*` container/border/label tokens.
+        `selected`; `operational` is an action chip (`role="button"`, no × / no
+        toggle) with a semibold brand-blue label. All share the shared
+        `--ui-chip-global-*` container/border/icon tokens and set a per-variant
+        `--ui-chip-<variant>-label-color`.
     - name: selected
       type: boolean
       required: false
@@ -52,6 +55,7 @@ adapters:
     example: |
       <Chip onRemove={() => remove(id)}>Filter</Chip>
       <Chip variant="selectable" selected={on} onClick={toggle}>Option</Chip>
+      <Chip variant="operational" onClick={run}>Action</Chip>
       <Chip variant="selectable" icon={<CircleInfoIcon />}>With icon</Chip>
   vue:
     component: AvChip

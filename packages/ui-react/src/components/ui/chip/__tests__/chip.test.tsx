@@ -44,10 +44,33 @@ describe('Chip', () => {
     expect(root).toHaveAttribute('aria-pressed', 'true');
     expect(root).toHaveAttribute('data-selected', 'true');
     expect(root).toHaveClass(
-      'data-[selected=true]:bg-[var(--ui-chips-container-color-active)]'
+      'data-[selected=true]:bg-[var(--ui-chip-global-box-color-active)]'
     );
     // No remove button on a selectable chip.
     expect(screen.queryByRole('button', { name: 'Remove' })).toBeNull();
+  });
+
+  it('exposes the operational variant as an action button (no toggle, no remove)', () => {
+    const { container } = render(<Chip variant="operational">Action</Chip>);
+    const root = container.firstElementChild as HTMLElement;
+    expect(root).toHaveAttribute('role', 'button');
+    expect(root).not.toHaveAttribute('aria-pressed');
+    expect(root).toHaveClass('text-[var(--ui-chip-operational-label-color)]');
+    // No remove button on an operational chip.
+    expect(screen.queryByRole('button', { name: 'Remove' })).toBeNull();
+  });
+
+  it('activates an operational chip with the keyboard', async () => {
+    const onClick = vi.fn();
+    const user = userEvent.setup();
+    render(
+      <Chip variant="operational" onClick={onClick}>
+        Action
+      </Chip>
+    );
+    await user.tab();
+    await user.keyboard('{Enter}');
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('reflects the unselected state', () => {
