@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
-import { CheckIcon, MinusIcon } from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
@@ -14,14 +13,17 @@ import { cn } from '@/lib/utils';
 // data-unchecked AND data-indeterminate, so the single-attribute overrides win on
 // specificity), and `data-[disabled]:data-[<state>]` overrides those in turn. The
 // glyph (check when checked, minus when indeterminate) inherits the Root's text
-// color via the Indicator's `text-current`. Box geometry (16px size, 2px radius)
+// color via the Indicator's `text-current`. It is drawn inline (not the general
+// `@spec-lab/icons-react` check, which is full-bleed and would fill the box) so it
+// matches Figma's compact checkbox glyph exactly: an 8px mark centered in the 16px
+// box with a 1.6px stroke. Box geometry (16px size, 2px radius)
 // comes from `--ui-checkbox-global-box-*`; the focus ring uses `--ui-focus-primary`.
 //
 // An optional `label` / `description` compose the full Figma field: the box, an
 // optional label, and an optional description stacked beside it. When either is
 // present the whole row is a `<label>` (so clicking the text toggles the box — a
 // Base UI checkbox renders a labelable <button>), the box gets a top margin of
-// `--ui-checkbox-global-box-margin-x` (4px = (line-height 24 − box 16) / 2, the
+// `--ui-checkbox-global-box-margin-y` (4px = (line-height 24 − box 16) / 2, the
 // design's box alignment margin) to center it on the first text line, and the
 // box is wired to the text via aria-labelledby / aria-describedby. With neither,
 // the box renders on its own (name it with `aria-label`).
@@ -75,13 +77,25 @@ const Checkbox = React.forwardRef<
       aria-describedby={descriptionId}
       className={cn(
         boxClasses,
-        hasContent && 'mt-[var(--ui-checkbox-global-box-margin-x)]',
+        hasContent && 'mt-[var(--ui-checkbox-global-box-margin-y)]',
         className
       )}
       {...props}
     >
       <CheckboxPrimitive.Indicator className="flex items-center justify-center text-current">
-        {indeterminate ? <MinusIcon size={16} /> : <CheckIcon size={16} />}
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.6}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden
+        >
+          <path d={indeterminate ? 'M4.5 8H11.5' : 'M4 8.25L6.5 10.75L12 5.25'} />
+        </svg>
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   );
