@@ -24,12 +24,15 @@ contract:
         Modal behavior — traps focus and locks background scroll while open.
         `'trap-focus'` keeps the focus trap but allows background interaction.
     - name: side
-      type: "'top' | 'right' | 'bottom' | 'left'"
+      type: "'top' | 'right' | 'bottom' | 'left' | 'start' | 'end'"
       required: false
       default: "'right'"
       description: >-
-        Screen edge the panel anchors to and slides in from (on the content
-        part). Left/right are full-height; top/bottom are full-width.
+        Edge the panel anchors to and slides in from (on the content part).
+        Top/bottom are full-width; left/right are full-height and anchor to a
+        fixed physical edge in every locale; start/end are direction-aware
+        (inline-start / inline-end) and flip sides + slide direction under RTL.
+        Prefer start/end for locale-agnostic layouts.
     - name: portal
       type: boolean
       required: false

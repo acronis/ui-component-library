@@ -137,3 +137,34 @@ export const Bottom: Story = {
     </Sheet>
   ),
 };
+
+// Direction-aware sides: `start` anchors to the inline-start edge (left in LTR,
+// right in RTL) and `end` to inline-end. Toggle the Direction toolbar to RTL to
+// see the panel and its slide flip.
+export const Start: Story = {
+  render: () => (
+    <Sheet defaultOpen>
+      <SheetContent side="start">
+        <SheetHeader>
+          <SheetTitle>Filters</SheetTitle>
+          <SheetCloseButton />
+        </SheetHeader>
+        <PanelBody />
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+export const End: Story = {
+  render: () => (
+    <Sheet defaultOpen>
+      <SheetContent side="end">
+        <SheetHeader>
+          <SheetTitle>Workload details</SheetTitle>
+          <SheetCloseButton />
+        </SheetHeader>
+        <PanelBody />
+      </SheetContent>
+    </Sheet>
+  ),
+};

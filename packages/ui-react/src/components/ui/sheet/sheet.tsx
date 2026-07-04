@@ -32,9 +32,15 @@ const sheetVariants = cva(
         top: 'inset-x-0 top-0 max-h-[80vh] border-b border-border data-[open]:slide-in-from-top data-[closed]:slide-out-to-top',
         bottom:
           'inset-x-0 bottom-0 max-h-[80vh] border-t border-border data-[open]:slide-in-from-bottom data-[closed]:slide-out-to-bottom',
+        // `left`/`right` anchor to a fixed physical edge in every locale.
         left: 'inset-y-0 left-0 h-full w-3/4 border-r border-border data-[open]:slide-in-from-left data-[closed]:slide-out-to-left sm:max-w-md',
         right:
           'inset-y-0 right-0 h-full w-3/4 border-l border-border data-[open]:slide-in-from-right data-[closed]:slide-out-to-right sm:max-w-md',
+        // `start`/`end` are direction-aware: they anchor to the inline-start /
+        // inline-end edge, so a panel flips sides (and slide direction) under RTL.
+        start:
+          'inset-y-0 start-0 h-full w-3/4 border-e border-border ltr:data-[open]:slide-in-from-left rtl:data-[open]:slide-in-from-right ltr:data-[closed]:slide-out-to-left rtl:data-[closed]:slide-out-to-right sm:max-w-md',
+        end: 'inset-y-0 end-0 h-full w-3/4 border-s border-border ltr:data-[open]:slide-in-from-right rtl:data-[open]:slide-in-from-left ltr:data-[closed]:slide-out-to-right rtl:data-[closed]:slide-out-to-left sm:max-w-md',
       },
     },
     defaultVariants: {
@@ -69,7 +75,12 @@ SheetOverlay.displayName = 'SheetOverlay';
 export interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>,
     VariantProps<typeof sheetVariants> {
-  /** Screen edge the panel anchors to. Defaults to `right`. */
+  /**
+   * Edge the panel anchors to. Defaults to `right`. `top`/`bottom` are
+   * full-width; `left`/`right` anchor to a fixed physical edge; `start`/`end`
+   * are direction-aware (inline-start / inline-end) and flip under RTL — prefer
+   * these for locale-agnostic layouts.
+   */
   side?: VariantProps<typeof sheetVariants>['side'];
   /**
    * Render the content inside a portal (default `true`). Base UI requires the

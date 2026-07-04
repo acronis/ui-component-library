@@ -18,7 +18,11 @@ import {
 
 // The default portal renders the popup into document.body, which Testing
 // Library's `screen` queries — Base UI requires the popup to sit in a portal.
-function OpenSheet(props: { side?: 'top' | 'bottom' | 'left' | 'right' } = {}) {
+function OpenSheet(
+  props: {
+    side?: 'top' | 'bottom' | 'left' | 'right' | 'start' | 'end';
+  } = {}
+) {
   return (
     <Sheet open>
       <SheetContent side={props.side}>
@@ -52,6 +56,21 @@ describe('Sheet', () => {
   it('anchors to the requested side', () => {
     render(<OpenSheet side="left" />);
     expect(screen.getByRole('dialog')).toHaveClass('left-0', 'inset-y-0');
+  });
+
+  it('anchors to a direction-aware side with logical properties', () => {
+    const { rerender } = render(<OpenSheet side="start" />);
+    expect(screen.getByRole('dialog')).toHaveClass(
+      'start-0',
+      'border-e',
+      'inset-y-0'
+    );
+    rerender(<OpenSheet side="end" />);
+    expect(screen.getByRole('dialog')).toHaveClass(
+      'end-0',
+      'border-s',
+      'inset-y-0'
+    );
   });
 
   it('drives the panel surface from the bridged semantic tokens', () => {
