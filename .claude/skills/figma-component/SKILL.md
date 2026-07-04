@@ -182,6 +182,20 @@ Names are `PascalCase(asset) + Icon` (`chevron-right` → `ChevronRightIcon`).
 Pass `size={16}` to match 16px design icons. There is **no** home/house icon
 today — check, don't assume.
 
+> **Inline glyphs ≠ library icons — check the geometry, don't approximate.** When
+> a control embeds a small mark (checkbox check, radio dot, chevrons baked into a
+> component), Figma often draws it as an **inline path**, not an icon instance —
+> and that glyph is usually **smaller than the box that contains it** with its own
+> stroke weight. The general `@spec-lab/icons-react` icons are **full-bleed** (the
+> artwork fills the frame), so rendering one at the box size (`<CheckIcon
+size={16}>` in a 16px box) paints a mark ~60% too large, and the icon's
+> size→stroke coupling means no single `size` reproduces a small-glyph-with-heavy-stroke.
+> If `get_design_context` returns the glyph as an inline `<path .../>` (fetch the
+> node's SVG — the asset URLs resolve to real SVG source), **reproduce that exact
+> path + `stroke-width` in a matching `viewBox`** rather than reaching for a
+> library icon. Worked example: `checkbox.tsx` draws the check/minus inline (8px
+> mark, 1.6px stroke, 16px box) to match Figma; the library check would fill the box.
+
 ---
 
 ## Phase 3 — Implement in packages/ui-react
@@ -338,6 +352,28 @@ Add `<Name>`: …
 Stories must be checked in light **and** dark mode in Storybook
 (`pnpm --filter @spec-lab/ui-react storybook`).
 
+**Visual parity vs Figma (required — VR does not cover this).** VR only catches
+_regressions from a committed baseline_, and its `failureThreshold` is **0.5% of
+pixels** over the whole (often wide, mostly-empty) story canvas — so a wrong-from-
+day-one, small-area error (a mis-sized icon, an off-by-4px glyph, a 2px radius
+drift) is **invisible** to it: the baseline bakes in the mistake, and the pixel
+delta is sub-threshold anyway. Before regenerating baselines, diff the render
+against the **design**, so you're not about to snapshot a wrong render as "correct":
+
+```bash
+# 1. capture the Figma node image via the MCP (get_screenshot / get_design_context) → /tmp/<name>-figma.png
+# 2. pixel-diff it against the Storybook render (crop the baseline to just the component for a clean signal):
+node .claude/skills/component-readiness/scripts/parity-image.mjs /tmp/<name>-figma.png \
+  packages/ui-react/test/__snapshots__/ui-<name>--default.png --out /tmp/<name>-parity.png
+```
+
+Read the diff PNG (the two aren't pixel-aligned, so the % is a signal, not a
+gate). **Also check element geometry explicitly** — box/icon/glyph size, gaps,
+radius, padding — against the Figma node's values (`get_variable_defs` for
+tokenized dims; for an **inline glyph** the size lives in the SVG `<path>` /
+`viewBox`, not a token — see the Phase-2 inline-glyph note). A too-big check icon
+(icons-react full-bleed at box size) is the canonical miss this step catches.
+
 **Visual regression.** Stories are also VR cases (`@storybook/test-runner` +
 `jest-image-snapshot`, config in `.storybook/test-runner.ts`; baselines in
 `test/__snapshots__/`). CI runs a **light _and_ dark** matrix
@@ -379,6 +415,9 @@ the committed baselines still pass, and commit no PNGs.
 - [ ] `__tests__/<name>.test.tsx` — render, variants/states, a11y roles, ref,
       `render`-prop composition.
 - [ ] `__stories__/<name>.stories.tsx` (hand) + `<name>.generated.stories.tsx`.
+- [ ] **Visual parity vs Figma** (Phase 5) — render diffed against the Figma node
+      image (`parity-image.mjs`) and element geometry (box/icon/glyph size, gaps,
+      radius) checked against the design; VR does **not** cover this.
 - [ ] VR baselines regenerated in Docker for **both** light and dark
       (`storybook:test:visual:docker:update:all`) and reviewed; both `<id>.png` and
       `<id>--dark.png` committed (orphans deleted).
