@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Input } from '@spec-lab/ui-react';
-import { EyeCrossedIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
+import { EyeOffIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
 export function PasswordInputWithHint() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -22,7 +22,7 @@ export function PasswordInputWithHint() {
             {showPassword ? (
               <EyeIcon className="h-4 w-4" />
             ) : (
-              <EyeCrossedIcon className="h-4 w-4" />
+              <EyeOffIcon className="h-4 w-4" />
             )}
           </button>
         </div>

@@ -11,7 +11,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@spec-lab/ui-react';
-import { EyeCrossedIcon, EyeIcon, SendIcon } from '@spec-lab/icons-react/stroke-mono'
+import { EyeOffIcon, EyeIcon, SendIcon } from '@spec-lab/icons-react/stroke-mono'
 import { SmileIcon } from '@/components/icons/missing-icons';
 
 export function MessageInput({
@@ -118,7 +118,7 @@ export function MessageInput({
           >
             {showPreview ? (
               <>
-                <EyeCrossedIcon className="h-3 w-3 mr-1" />
+                <EyeOffIcon className="h-3 w-3 mr-1" />
                 Edit
               </>
             ) : (

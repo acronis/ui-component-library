@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { EyeCrossedIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
+import { EyeOffIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
 import { Button } from '@spec-lab/ui-react';
 import { Input } from '@spec-lab/ui-react';
 import { Label } from '@spec-lab/ui-react';
@@ -72,7 +72,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
             disabled={isLoading}
           >
             {showPassword ? (
-              <EyeCrossedIcon className="h-4 w-4" />
+              <EyeOffIcon className="h-4 w-4" />
             ) : (
               <EyeIcon className="h-4 w-4" />
             )}

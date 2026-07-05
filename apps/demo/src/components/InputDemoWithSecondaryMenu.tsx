@@ -7,7 +7,7 @@ import {
   SecondaryMenuGroup,
   SecondaryMenuItem,
 } from './secondary-menu-stub';
-import { CalendarIcon, EnvelopeIcon, EyeCrossedIcon, EyeIcon, LockIcon, MagnifierIcon, PhoneIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CalendarIcon, EnvelopeIcon, EyeOffIcon, EyeIcon, LockIcon, MagnifierIcon, PhoneIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
 import { CreditCardIcon } from '@/components/icons/missing-icons';
 type DemoSection =
   | 'basic'
@@ -431,7 +431,7 @@ export function InputDemoWithSecondaryMenu() {
                           {showPassword ? (
                             <EyeIcon className="h-4 w-4" />
                           ) : (
-                            <EyeCrossedIcon className="h-4 w-4" />
+                            <EyeOffIcon className="h-4 w-4" />
                           )}
                         </button>
                       </div>

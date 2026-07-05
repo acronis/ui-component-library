@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Input } from '@spec-lab/ui-react';
-import { EyeCrossedIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
+import { EyeOffIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
 export function PasswordInputFilled() {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordValue, setPasswordValue] = useState('MyP@ssw0rd');
@@ -27,7 +27,7 @@ export function PasswordInputFilled() {
             {showPassword ? (
               <EyeIcon className="h-4 w-4" />
             ) : (
-              <EyeCrossedIcon className="h-4 w-4" />
+              <EyeOffIcon className="h-4 w-4" />
             )}
           </button>
         </div>

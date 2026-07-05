@@ -1,5 +1,5 @@
 import { Input } from '@spec-lab/ui-react';
-import { EyeCrossedIcon } from '@spec-lab/icons-react/stroke-mono'
+import { EyeOffIcon } from '@spec-lab/icons-react/stroke-mono'
 export function PasswordInputError() {
   return (
     <div className="space-y-4">
@@ -17,7 +17,7 @@ export function PasswordInputError() {
             className="absolute right-3 top-1/2 -translate-y-1/2 text-[#EA3939]"
             aria-label="Show password"
           >
-            <EyeCrossedIcon className="h-4 w-4" />
+            <EyeOffIcon className="h-4 w-4" />
           </button>
         </div>
         <p
@@ -45,7 +45,7 @@ export function PasswordInputError() {
             className="absolute right-3 top-1/2 -translate-y-1/2 text-[#EA3939]"
             aria-label="Show password"
           >
-            <EyeCrossedIcon className="h-4 w-4" />
+            <EyeOffIcon className="h-4 w-4" />
           </button>
         </div>
         <p
