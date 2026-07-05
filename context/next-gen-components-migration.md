@@ -1,9 +1,17 @@
 # Migration plan — next-gen component token tier
 
-**Status:** IN PROGRESS — token layer (emitter + `tokens`) and the Switch /
-Tooltip consumers + kitchen-sink are **done & committed** on branch
-`chore/sync-tokens-figma`; the rest of the ui-react re-theme is tracked as a
-follow-up (see §9). Design intent below is unchanged.
+> **Status: SUPERSEDED / COMPLETED — this migration has landed on `main`.**
+> The next-gen component token tier is emitted, and every component below except
+> the Button `inverted` variant is re-themed and passing the readiness gate; the
+> former Radio / Search / Select blocker is resolved (see §9). This document is
+> kept for provenance: the design rationale (§1) and the Docker/x86 VR landmine
+> (§5) remain accurate, but the implementation detail in the body is historical.
+>
+> **Pipeline note:** the emit pipeline now lives in `tools/token-emit/`
+> (`emit-components.mjs`, `emit.mjs`, `figma-diff.mjs`, …). The
+> `packages/tokens/.tmp/scripts/…` and `figma-to-components.mjs` paths cited
+> throughout the body are the historical locations and no longer exist.
+
 **Owner workspace of the core change:** `packages/tokens` (emitter) +
 `tools/style-dictionary` (router/partition) → ripples into `packages/tokens`
 (generated) and `packages/ui-react` (consumers).
@@ -391,7 +399,7 @@ This is the largest blast-radius phase and should be **one PR per component**
    or renaming a `--ui-*` token is **breaking**, and removing a component entry
    point (`css/<x>.css`) is breaking. This migration renames the entire component
    `--ui-*` surface and removes `chip`/`form` entry points → a **breaking** bump
-   on both `@spec-lab/tokens` and `@spec-lab/tokens`.
+   on `@spec-lab/tokens`.
    Pre-1.0, that's a **minor** per the repo's convention (PR #266 uses the same
    `!`/minor framing). Use a `!`-marked conventional commit + changesets for both
    packages, with a migration note enumerating the rename map.
@@ -558,31 +566,36 @@ and the precise remaining work, superseding the §7 phasing where they differ
   generalize the ui-spec cva-conformance test beyond Button (sidebar's
   `extras-variant` / `selected|unselected` axis is currently unchecked).
 
-### Remaining ui-react re-theme (the follow-up — NOT done)
+### ui-react re-theme — DONE (except Button `inverted`)
 
-Every component below binds `var(--ui-<component>-*)` directly and currently
-references **dead** token names → renders unstyled (builds still pass; missing
-CSS vars don't error). Inventory from a token-ref audit on this branch:
+**ButtonIcon, Breadcrumb, Checkbox, and Input are DONE** — each is re-themed
+onto the next-gen names and passes the readiness gate
+(`bash .claude/skills/component-readiness/scripts/audit.sh <name>` → tokens
+PASS). For `input` the tokens all resolve; only its ui-spec 7-file set and Figma
+link are still pending (the gate reports INCOMPLETE for those rows, not token
+drift). `Tag` needed **no** work — it binds semantic `--ui-*-on-status-*`, not
+the component tier.
 
-| Component    | Dead refs                                  | Migrates to                                                                                     | Notes                                                       |
-| ------------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `Button`     | 44 (`<variant>-background/border-<state>`) | `<variant>-container[-border-color]-<state>` + `-label-/-icon-` + `global-container-*` geometry | flagship; `ghost` has no container fill token (transparent) |
-| `ButtonIcon` | 12 (`-background/border/icon-<state>`)     | `-global-container-<state>` + `-global-icon-*`                                                  | single (no variants)                                        |
-| `Breadcrumb` | 4 (`chevron/gap/link/value`)               | `link-label-<state>`, `list-gap`, `page-label-color`, `separator-icon-{color,size}`             |                                                             |
-| `Checkbox`   | `--ui-form-*` (removed tier)               | `--ui-checkbox-{checked,unchecked}-box[-border-color]-<state>` + `-icon-` (43 tokens)           |                                                             |
-| `Input`      | `--ui-form-*` (removed tier)               | `--ui-input-{content,box,error}-*` (35 tokens)                                                  |                                                             |
+The only surviving component-tier gap is Button's `inverted` variant:
 
-Each follow-up unit (one PR per component per §5/§7) = re-theme + update
-`__tests__` token assertions + `__stories__` + Code Connect + **regenerate VR
-baselines in Docker (x86), not on the dev mac** (§5 landmine). `Tag` needs **no**
-work — it binds semantic `--ui-*-on-status-*`, not the component tier.
+| Component           | Dead refs                                                                                                              | Migrates to                                                    | Notes                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `Button` (inverted) | ~20 dangling `--ui-button-inverted-*` (`container[-border-color/-style/-width]`, `label`, `icon`, geometry, per state) | pending — no `inverted` source in Figma `brand.components` yet | rest of Button re-themed & resolving; add the `inverted` tokens in Figma or drop the variant |
 
-### ⚠️ Blocker — Radio / Search / Select are stranded (no next-gen tokens)
+The remaining unit = re-theme + update `__tests__` token assertions +
+`__stories__` + Code Connect + **regenerate VR baselines in Docker (x86), not on
+the dev mac** (§5 landmine).
 
-`Radio`, `Search`, `Select` all bind the removed `--ui-form-*` tier, but Figma's
-next-gen `brand.components` set has **no** radio/search/select tokens — only
-`checkbox` + `input` came out of the old `form` umbrella. So these three have
-**nowhere to migrate**: they will be unstyled until either (a) Figma adds
-`Radio`/`Search`/`Select` to `brand.components`, or (b) a decision is made to
-keep emitting legacy form tokens for them in the interim. This is a **Figma /
-design prerequisite**, not just code — escalate before the follow-up PRs.
+### Radio / Search / Select — RESOLVED
+
+The earlier blocker ("no next-gen radio/search/select tokens exist") is
+**resolved**: the next-gen tiers now exist —
+`packages/tokens/css/components/Radio.css`, `InputSearch.css`, `InputSelect.css`
+(+ `SearchGlobal.css`). Status via the readiness gate:
+
+- **`select` — READY** (tokens PASS, spec + Figma linked).
+- **`radio` — small DRIFT**: a single dangling token
+  (`--ui-radio-global-box-margin-x`); otherwise re-themed.
+- **`search` — tokens PASS**, but still needs its ui-spec 7-file set + a
+  Figma/Code Connect link (the gate reports INCOMPLETE only for the spec/Figma
+  rows).

@@ -1,6 +1,10 @@
 # Proposal: Kit Consistency & Screen Audit System
 
-- **Status:** Proposed (not yet adopted)
+- **Status:** Largely IMPLEMENTED — Phases 0–3 plus the discrepancy ledger and
+  the overrides mechanism have LANDED in `packages/ui-spec` (grammar registry +
+  `CHECKLIST.md`, `kit-lint`, screen descriptors + `screen-audit`). See
+  `packages/ui-spec/AGENTS.md` for live status. Still open: reference-implementation
+  diffing (§8) and the AI visual-review pass. This doc is kept for provenance.
 - **Date:** 2026-06-28
 - **Owner:** Leonid Romanov
 - **Affects:** `packages/ui-spec`, `packages/ui-react`, `packages/tokens`,
@@ -56,6 +60,9 @@ recur.
   visual reviewer.
 - **Reference-implementation diffing** (legacy, Vue kit, Figma) to catch missing
   variants / drifted tokens / missing rules.
+  > **Note:** legacy-diffing is no longer possible — the `ui-legacy` package has
+  > been removed. Figma (X2) and the external Vue `@uikit/ui-kit` (X3) are the
+  > surviving reference sources.
 - A **self-improving loop**: every audit finding becomes a fix **and** a new
   permanent check, so component quality ratchets up over time.
 - **AI- and human-compatible**: every layer is structured data (TS/YAML
@@ -170,6 +177,10 @@ only). `S` = default severity (`must`/`should`/`may`).
 | X1  | ui-react variant set ≠ legacy ≠ Figma ≠ Vue spec  | ref | should |
 | X2  | Token **value** drift (Figma vs `tokens`)         | ref | must   |
 | X3  | Component present in a reference but missing here | ref | may    |
+
+> **Note:** the `legacy` leg of X1/X3 is dead — the `ui-legacy` package has been
+> removed. Figma (X2) and the external Vue `@uikit/ui-kit` (X3) are the surviving
+> reference sources.
 
 The checklist is **append-only by the feedback loop** (§8): every new audit
 finding that isn't already covered adds a row + a detector.
@@ -323,7 +334,9 @@ the others". AI proposes; findings are filed, not auto-applied.
 
 A `kit-diff` report (skill-driven) compares our specs/grammar/screens against:
 
-- **`ui-legacy`** — variant/prop coverage parity (X1, X3).
+- **`ui-legacy`** — variant/prop coverage parity (X1, X3). **No longer available:
+  the `ui-legacy` package has been removed** — Figma (X2) and the external Vue
+  `@uikit/ui-kit` (X3) are the surviving reference sources.
 - **Figma** (Code Connect nodes + `get_variable_defs`) — token **value** drift
   (X2) and variant parity (X1/C4). Uses the same Figma MCP we already use.
 - **The Vue `@uikit/ui-kit`** specs/grammar — missing rules or components (X3).
