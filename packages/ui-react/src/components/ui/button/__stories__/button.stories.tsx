@@ -11,12 +11,11 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'secondary', 'ghost', 'destructive', 'ai', 'inverted'],
+      options: ['default', 'secondary', 'ghost', 'destructive', 'ai'],
       description: 'Visual style — mirrors the Figma Button `Variant` property.',
       table: {
         type: {
-          summary:
-            "'default' | 'secondary' | 'ghost' | 'destructive' | 'ai' | 'inverted'",
+          summary: "'default' | 'secondary' | 'ghost' | 'destructive' | 'ai'",
         },
         defaultValue: { summary: 'default' },
         category: 'Appearance',
@@ -58,7 +57,6 @@ export const Variants: Story = {
       <Button variant="ghost">Ghost</Button>
       <Button variant="destructive">Destructive</Button>
       <Button variant="ai">Ai</Button>
-      <Button variant="inverted">Inverted</Button>
     </div>
   ),
 };
@@ -80,9 +78,6 @@ export const Disabled: Story = {
       </Button>
       <Button variant="ai" disabled>
         Ai
-      </Button>
-      <Button variant="inverted" disabled>
-        Inverted
       </Button>
     </div>
   ),

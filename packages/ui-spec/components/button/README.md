@@ -1,7 +1,7 @@
 # Button
 
-Triggers an action or event. Six styles — `default` (Primary), `secondary`,
-`ghost`, `destructive`, `ai`, `inverted` — in a single 32px-tall size.
+Triggers an action or event. Five styles — `default` (Primary), `secondary`,
+`ghost`, `destructive`, `ai` — in a single 32px-tall size.
 
 ## When to use
 

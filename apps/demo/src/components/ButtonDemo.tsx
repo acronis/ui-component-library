@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {
   ButtonVariants,
-  ButtonTranslucent,
   ButtonSizes,
   ButtonDisabled,
 } from '@spec-lab/ui-kit-demos/button';
@@ -9,7 +8,6 @@ import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings
 import buttonVariantsCode from '../../../demos/src/button/ButtonVariants.tsx?raw';
-import buttonTranslucentCode from '../../../demos/src/button/ButtonTranslucent.tsx?raw';
 import buttonSizesCode from '../../../demos/src/button/ButtonSizes.tsx?raw';
 import buttonDisabledCode from '../../../demos/src/button/ButtonDisabled.tsx?raw';
 
@@ -28,14 +26,6 @@ export function ButtonDemo() {
           code={buttonVariantsCode}
         >
           <ButtonVariants />
-        </DemoWithCode>
-
-        <DemoWithCode
-          title="Translucent Variant"
-          description="Semi-transparent button style for overlay contexts."
-          code={buttonTranslucentCode}
-        >
-          <ButtonTranslucent />
         </DemoWithCode>
 
         <DemoWithCode

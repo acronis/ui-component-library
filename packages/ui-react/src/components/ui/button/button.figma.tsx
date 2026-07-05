@@ -1,5 +1,5 @@
 // Figma Code Connect — status: COMPLETE
-// Mapped to the "Button" component set in the shadcn-uikit Figma file.
+// Mapped to the "Button" component set in the ui-react Figma file.
 import figma from '@figma/code-connect';
 
 import { Button } from './button';
@@ -15,7 +15,6 @@ figma.connect(
         ghost: 'ghost',
         destructive: 'destructive',
         ai: 'ai',
-        inverted: 'inverted',
       }),
       // The Figma button encodes interaction state as a variant; only the
       // Disabled state maps to a code prop (Idle/Hover/Active/Focus are visual).

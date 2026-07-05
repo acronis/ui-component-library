@@ -76,13 +76,6 @@ states:
       affects: [root],
     }
   - {
-      id: inverted,
-      trigger: "variant === 'inverted'",
-      kind: prop,
-      prop: variant,
-      affects: [root],
-    }
-  - {
       id: hover,
       trigger: pointer hover,
       kind: pseudo,

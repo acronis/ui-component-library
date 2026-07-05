@@ -5,7 +5,7 @@
 ### Renders the requested visual style
 
 **Given** a Button with `variant` set to one of `default`, `secondary`, `ghost`,
-`destructive`, `ai`, or `inverted`
+`destructive`, or `ai`
 **When** it renders
 **Then** background, label, and border resolve from that variant's
 `--ui-button-<style>-*` tokens for the current interaction state.
