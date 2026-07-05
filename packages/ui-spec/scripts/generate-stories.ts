@@ -621,7 +621,7 @@ const RENDER: Record<string, RenderHint> = {
     sample: [
       '',
       '      <ResizablePanel defaultSize={50}>One</ResizablePanel>',
-      '      <ResizableHandle withHandle />',
+      '      <ResizableHandle />',
       '      <ResizablePanel defaultSize={50}>Two</ResizablePanel>',
       '    ',
     ].join('\n'),

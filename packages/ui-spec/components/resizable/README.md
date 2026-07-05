@@ -1,8 +1,9 @@
 # Resizable
 
 A group of panels separated by draggable handles, letting users resize adjacent
-regions along one axis. Composable from a panel group, panels, and handles — the
-React adapter wraps [`react-resizable-panels`](https://github.com/bvaughn/react-resizable-panels).
+regions along one axis. Composable from a panel group, panels, and handles — each handle is a thin
+divider line. The React adapter wraps
+[`react-resizable-panels`](https://github.com/bvaughn/react-resizable-panels).
 
 ## When to use
 
@@ -18,11 +19,11 @@ React adapter wraps [`react-resizable-panels`](https://github.com/bvaughn/react-
 
 ## Parts
 
-| Part                  | Role                                                          |
-| --------------------- | ------------------------------------------------------------- |
-| `ResizablePanelGroup` | Container; sets the axis via `orientation` and tracks sizes.  |
-| `ResizablePanel`      | A resizable region (`defaultSize` / `minSize` / `maxSize`).   |
-| `ResizableHandle`     | The draggable separator; `withHandle` adds the grab-bar grip. |
+| Part                  | Role                                                         |
+| --------------------- | ------------------------------------------------------------ |
+| `ResizablePanelGroup` | Container; sets the axis via `orientation` and tracks sizes. |
+| `ResizablePanel`      | A resizable region (`defaultSize` / `minSize` / `maxSize`).  |
+| `ResizableHandle`     | The draggable separator between two panels (a 1px divider).  |
 
 ## Examples
 
@@ -33,12 +34,12 @@ import {
   ResizableHandle,
 } from '@spec-lab/ui-react';
 
-// Horizontal split with a visible grip
+// Horizontal split
 <ResizablePanelGroup orientation="horizontal" className="h-64 rounded border">
   <ResizablePanel defaultSize={30} minSize={20}>
     Sidebar
   </ResizablePanel>
-  <ResizableHandle withHandle />
+  <ResizableHandle />
   <ResizablePanel defaultSize={70}>Content</ResizablePanel>
 </ResizablePanelGroup>;
 

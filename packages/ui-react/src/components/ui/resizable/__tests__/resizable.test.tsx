@@ -6,16 +6,14 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '../resizab
 
 const Group = ({
   orientation = 'horizontal',
-  withHandle,
   handleClassName,
 }: {
   orientation?: 'horizontal' | 'vertical';
-  withHandle?: boolean;
   handleClassName?: string;
 }) => (
   <ResizablePanelGroup orientation={orientation}>
     <ResizablePanel defaultSize={50}>One</ResizablePanel>
-    <ResizableHandle withHandle={withHandle} className={handleClassName} />
+    <ResizableHandle className={handleClassName} />
     <ResizablePanel defaultSize={50}>Two</ResizablePanel>
   </ResizablePanelGroup>
 );
@@ -28,12 +26,9 @@ describe('Resizable', () => {
     expect(screen.getByRole('separator')).toBeInTheDocument();
   });
 
-  it('renders the grab-bar grip only when withHandle is set', () => {
-    const { rerender } = render(<Group />);
+  it('renders the handle as a line only (no grip child)', () => {
+    render(<Group />);
     expect(screen.getByRole('separator').children).toHaveLength(0);
-
-    rerender(<Group withHandle />);
-    expect(screen.getByRole('separator').children).toHaveLength(1);
   });
 
   it('forwards className to the handle', () => {
@@ -57,14 +52,14 @@ describe('Resizable', () => {
     expect(handle).toHaveAttribute('tabindex', '0');
   });
 
-  it('uses tokenized divider/grip/focus colors', () => {
-    render(<Group withHandle />);
+  it('uses tokenized divider/focus colors', () => {
+    render(<Group />);
     const handle = screen.getByRole('separator');
     expect(handle).toHaveClass(
-      'after:bg-[var(--ui-resizable-border-color-hover)]',
+      'after:bg-[var(--ui-border-on-surface-border)]',
+      'hover:after:bg-[var(--ui-resizable-border-color-hover)]',
       'active:after:bg-[var(--ui-resizable-border-color-active)]',
       'focus-visible:ring-[var(--ui-focus-primary)]'
     );
-    expect(handle.firstElementChild).toHaveClass('bg-[var(--ui-resizable-bar-color)]');
   });
 });
