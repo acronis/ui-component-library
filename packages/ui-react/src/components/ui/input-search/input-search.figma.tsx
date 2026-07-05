@@ -6,7 +6,7 @@ import { InputSearch } from './input-search';
 
 figma.connect(
   InputSearch,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2617-339',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2617-339',
   {
     props: {
       // `hasLabel` gates the label; map straight through to the label text.

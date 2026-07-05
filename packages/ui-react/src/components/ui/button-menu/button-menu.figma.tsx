@@ -6,7 +6,7 @@ import { ButtonMenu } from './button-menu';
 
 figma.connect(
   ButtonMenu,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2542-6423',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2542-6423',
   {
     props: {
       label: figma.string('label'),

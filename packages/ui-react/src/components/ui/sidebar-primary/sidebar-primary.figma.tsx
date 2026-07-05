@@ -19,7 +19,7 @@ import {
 
 figma.connect(
   SidebarPrimary,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2092-4359',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2092-4359',
   {
     props: {
       expanded: figma.enum('variant', {
@@ -55,7 +55,7 @@ figma.connect(
 // the tag / shortcut text.
 figma.connect(
   SidebarPrimaryMenuItemExtras,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2463-49164',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2463-49164',
   {
     props: {
       variant: figma.enum('variant', {

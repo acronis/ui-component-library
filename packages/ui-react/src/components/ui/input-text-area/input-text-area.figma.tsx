@@ -6,7 +6,7 @@ import { InputTextArea } from './input-text-area';
 
 figma.connect(
   InputTextArea,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2797-2876',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2797-2876',
   {
     props: {
       label: figma.boolean('hasLabel', {

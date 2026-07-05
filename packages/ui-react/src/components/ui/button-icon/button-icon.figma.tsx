@@ -6,7 +6,7 @@ import { ButtonIcon } from './button-icon';
 
 figma.connect(
   ButtonIcon,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2236-6286',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2236-6286',
   {
     props: {
       // `variant` maps to the Figma `variant` property (secondary / ghost).

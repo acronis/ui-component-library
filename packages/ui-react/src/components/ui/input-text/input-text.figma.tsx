@@ -6,7 +6,7 @@ import { InputText } from './input-text';
 
 figma.connect(
   InputText,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2624-248',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2624-248',
   {
     props: {
       label: figma.string('label'),

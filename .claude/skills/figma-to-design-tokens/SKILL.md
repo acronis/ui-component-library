@@ -14,7 +14,7 @@ a diff report before any tier file is written**.
 All `node …` commands below are written relative to the **repo root** — run them
 from there.
 
-Figma file: `https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit`
+Figma file: `https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react`
 
 ---
 

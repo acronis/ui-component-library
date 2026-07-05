@@ -12,7 +12,7 @@ import {
 
 figma.connect(
   AppShell,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2782-1495',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2782-1495',
   {
     example: () => (
       <AppShell>

@@ -9,7 +9,7 @@ import { SearchGlobal } from './search-global';
 
 figma.connect(
   SearchGlobal,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2999-116',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2999-116',
   {
     props: {
       placeholder: figma.string('placeholder'),

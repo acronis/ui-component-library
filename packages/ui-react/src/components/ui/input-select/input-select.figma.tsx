@@ -18,7 +18,7 @@ import {
 
 figma.connect(
   InputSelect,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2639-293',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2639-293',
   {
     props: {
       label: figma.boolean('hasLabel', {

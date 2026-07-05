@@ -6,7 +6,7 @@ import { Link } from './link';
 
 figma.connect(
   Link,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=3741-981',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=3741-981',
   {
     props: {
       label: figma.string('Label'),

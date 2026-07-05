@@ -8,7 +8,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 
 figma.connect(
   Tooltip,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=1010-36',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=1010-36',
   {
     example: () => (
       <Tooltip>

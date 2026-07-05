@@ -9,7 +9,7 @@ import { Switch } from './switch';
 
 figma.connect(
   Switch,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=1838-1908',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=1838-1908',
   {
     props: {
       checked: figma.enum('variant', {

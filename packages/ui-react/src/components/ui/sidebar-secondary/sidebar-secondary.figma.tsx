@@ -25,7 +25,7 @@ import {
 
 figma.connect(
   SidebarSecondary,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2468-59502',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2468-59502',
   {
     props: {
       expanded: figma.enum('variant', {
@@ -75,7 +75,7 @@ figma.connect(
 // collapsed split is the runtime open state.
 figma.connect(
   SidebarSecondarySection,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2891-16563',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2891-16563',
   {
     props: {
       expandable: figma.enum('expandable', {

@@ -14,7 +14,7 @@ import {
 
 figma.connect(
   BreadcrumbLink,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2238-42071',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2238-42071',
   {
     props: {
       label: figma.string('label'),
@@ -25,7 +25,7 @@ figma.connect(
 
 figma.connect(
   BreadcrumbPage,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2238-43556',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2238-43556',
   {
     props: {
       label: figma.string('label'),
@@ -36,7 +36,7 @@ figma.connect(
 
 figma.connect(
   BreadcrumbSeparator,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2238-43588',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2238-43588',
   {
     example: () => <BreadcrumbSeparator />,
   }

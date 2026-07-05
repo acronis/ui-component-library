@@ -6,7 +6,7 @@ import { Tag } from './tag';
 
 figma.connect(
   Tag,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=907-257669',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=907-257669',
   {
     props: {
       variant: figma.enum('variant', {

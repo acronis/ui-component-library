@@ -11,7 +11,7 @@ import {
 
 figma.connect(
   PageHeader,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2850-701',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2850-701',
   {
     example: () => (
       <PageHeader>

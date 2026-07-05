@@ -10,5 +10,5 @@ description: >-
   SidebarSecondary / SearchGlobal and your page content into its slots.
 since: 0.52.0
 figma:
-  node: 'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=2782-1495'
+  node: 'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2782-1495'
   codeConnect: packages/ui-react/src/components/ui/app-shell/app-shell.figma.tsx

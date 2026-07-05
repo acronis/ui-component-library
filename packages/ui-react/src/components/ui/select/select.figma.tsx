@@ -15,7 +15,7 @@ import {
 
 figma.connect(
   Select,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=1846-1815',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=1846-1815',
   {
     props: {
       disabled: figma.enum('State', {

@@ -9,7 +9,7 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from './resizabl
 
 figma.connect(
   ResizableHandle,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=3476-5078',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=3476-5078',
   {
     example: () => (
       <ResizablePanelGroup orientation="horizontal">

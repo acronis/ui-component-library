@@ -7,7 +7,7 @@ import { InputDatePicker } from './input-date-picker';
 
 figma.connect(
   InputDatePicker,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=3034-966',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=3034-966',
   {
     props: {
       label: figma.boolean('hasLabel', {

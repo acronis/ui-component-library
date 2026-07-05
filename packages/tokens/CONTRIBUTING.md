@@ -178,7 +178,7 @@ The sync skill needs:
 - IDE / tool thatthat reads the repo's `.mcp.json` and starts the Figma bridge for you. (VS Code, JetBrains, etc.)
 
 **1. Open the plugin in Figma.** In Figma Desktop, open the
-[shadcn-uikit file](https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit),
+[shadcn-uikit file](https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react),
 then **Plugins → Development → Figma Desktop Bridge → Run**. Leave it open — the
 status pill turns green when it's connected.
 

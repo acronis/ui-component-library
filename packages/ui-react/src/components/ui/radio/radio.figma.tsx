@@ -9,7 +9,7 @@ import { Radio, RadioGroup } from './radio';
 
 figma.connect(
   Radio,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=848-13',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=848-13',
   {
     props: {
       selected: figma.enum('State', {

@@ -6,7 +6,7 @@ import { CardFilter } from './card-filter';
 
 figma.connect(
   CardFilter,
-  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/shadcn-uikit?node-id=3293-2431',
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=3293-2431',
   {
     props: {
       label: figma.string('label'),
