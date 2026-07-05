@@ -1,5 +1,5 @@
 // Figma Code Connect — status: COMPLETE
-// Mapped to the "SidebarPrimary" component set in the shadcn-uikit Figma file
+// Mapped to the "SidebarPrimary" component set in the ui-react Figma file
 // (node 2092:4359). The set's single variant property `variant`
 // (options: expanded | collapsed — confirmed via get_context_for_code_connect)
 // maps to the React `expanded` boolean. The `sectionList` / `footerList` Figma
