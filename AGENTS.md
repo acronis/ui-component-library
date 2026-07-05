@@ -16,10 +16,10 @@ workspace's context when you work inside that subtree.
 
 `constructor-lab/facet` is a pnpm monorepo containing a React component
 library, its framework-agnostic component specs, a demo SPA, a
-documentation site, a shared demos package, two design-data packages
-(assets and tokens), and a build-tooling tier. The library and the two
-design-data packages are published; the specs, the apps, and the tools
-are private.
+documentation site, a shared demos package, a design-tokens package, an
+icon set (SVG sources + generated React components), and a build-tooling
+tier. The library, the tokens package, and the React icons are published;
+the specs, the apps, and the tools are private.
 
 The repo is organized into four top-level directories, each with a
 distinct role:
@@ -43,7 +43,6 @@ distinct role:
 | `apps/demo/`                  | `@spec-lab/ui-kit-demo`          | no         | Vite SPA, React Router v7, Zustand                                                                                  | [AGENTS.md](apps/demo/AGENTS.md)                  |
 | `apps/docs/`                  | `@spec-lab/uikit-docs`           | no         | Next.js 15 + Fumadocs                                                                                               | [AGENTS.md](apps/docs/AGENTS.md)                  |
 | `apps/demos/`                 | `@spec-lab/ui-kit-demos`         | no         | source-only (no build, no dev server)                                                                               | [AGENTS.md](apps/demos/AGENTS.md)                 |
-| `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**    | JSON data only (icon/illustration manifests + binaries), ajv-validated                                              | [AGENTS.md](packages/design-assets/AGENTS.md)     |
 | `packages/tokens/`            | `@spec-lab/tokens`               | **yes**    | DTCG source tiers + generated (committed) CSS/SCSS/JS + Tailwind bridge, built by the tool                          | [AGENTS.md](packages/tokens/AGENTS.md)            |
 | `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no         | Style Dictionary v5 build: `@spec-lab/tokens` tiers → CSS/SCSS/JS                                                   | [AGENTS.md](tools/style-dictionary/AGENTS.md)     |
 | `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg` (tsx, Vitest)                                            | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
@@ -66,10 +65,6 @@ distinct role:
   with the fetcher's `icon-packs` selection strategy. No build; it is the
   generated source for `@spec-lab/icons-react`. Synced via its `pull-icons`
   script or the `Fetch Figma Icons (next)` workflow.
-- `packages/design-assets/` — a published **design-data** package. Ships JSON +
-  bundled binaries only: no build step, no runtime API. Its one real script is
-  `validate` (ajv); `build`/`dev`/`clean`/`lint`/`typecheck` are no-ops and
-  `test` aliases `validate`.
 - `packages/tokens/` — the published tokens package (**merges the former
   `design-tokens` source + `tokens-pd` output**). It holds the DTCG source
   `tiers/*.json` (ajv-`validate`d) **and** the generated, committed
@@ -152,8 +147,7 @@ that workspace**, never here.
 - `context/roadmap.md` — product roadmap (epics, phases, v1 scope/timeline).
   Epic/issue numbers (#102–108, etc.) are inherited from the upstream
   `acronis/uikit` project and are not live in this repo — see the doc's tracking
-  note. Companion task breakdowns: `context/backlog-p2-primitives.md`,
-  `context/backlog-p3-p4.md`.
+  note.
 - `context/e1-theme-delivery.md` — E1 theme-delivery implementation proposal:
   how the theme-delivery work gets built on the shipped `tokens` pipeline, and
   what's reused from the legacy stack.

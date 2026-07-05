@@ -3,10 +3,10 @@
 Releases are automated via
 [Changesets](https://github.com/changesets/changesets). The flow below
 applies to **any** published workspace in this monorepo. The published
-packages are `@spec-lab/shadcn-uikit` (ui-legacy), `ui-react`,
-`icons-react`, `tokens`, `tokens`, and
-`design-assets`; the `apps/` and `tools/` workspaces are private (listed
-in `.changeset/config.json`'s `ignore` list).
+packages are `@spec-lab/ui-react`, `@spec-lab/icons-react`, and
+`@spec-lab/tokens`. The `apps/` workspaces are excluded via
+`.changeset/config.json`'s `ignore` list; `tools/` and the private packages
+(`@spec-lab/ui-spec`, `@spec-lab/icons-svg`) are excluded via `"private": true`.
 
 ## When to add a Changeset
 
@@ -77,15 +77,14 @@ write`, npm is upgraded to a Trusted-Publishing-capable version, and each
   per-package skip-if-already-published guard, so it is safe to re-run. Use it
   for a package's **first-ever publish** — OIDC Trusted Publishing cannot
   bootstrap a package that doesn't exist on npm yet — or if OIDC config is
-  missing. It deliberately does **not** publish `shadcn-uikit` (ui-legacy),
-  which stays on the OIDC path.
+  missing.
 
 ### Putting a new package on the OIDC path (one-time)
 
 1. Publish its first version via `release-token.yml` (the package must exist on
    npm before OIDC will work).
 2. On npmjs.com → the package → **Settings → Trusted Publisher → GitHub
-   Actions**, set: organization `acronis`, repository `uikit`, workflow
+   Actions**, set: organization `constructor-lab`, repository `facet`, workflow
    filename `release.yml`, environment blank.
 3. Done — later versions publish automatically through `release.yml` on the
    Version-Packages-PR merge, no token.
