@@ -29,8 +29,7 @@
   "keywords": [
     "ui-kit",
     "specs",
-    "design-system",
-    "acronis"
+    "design-system"
   ],
   "devDependencies": {
     "@types/js-yaml": "4.0.9",

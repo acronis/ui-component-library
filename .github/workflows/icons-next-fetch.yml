@@ -32,7 +32,7 @@ permissions:
 jobs:
   fetch:
     # Don't run on forks — only the canonical repo holds the Figma token.
-    if: github.repository == 'acronis/uikit'
+    if: github.repository == 'constructor-lab/facet'
     runs-on: ubuntu-latest
 
     steps:

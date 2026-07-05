@@ -35,7 +35,7 @@ permissions:
 
 jobs:
   release:
-    if: github.repository == 'acronis/uikit'
+    if: github.repository == 'constructor-lab/facet'
     runs-on: ubuntu-latest
 
     steps:
