@@ -1,0 +1,107 @@
+spec_version: '1.0'
+component: ButtonMenuDropdown
+
+# Framework-agnostic contract for a *composable* dropdown panel: a trigger plus
+# a popup of sections and items (see anatomy.yaml). The root owns the open state;
+# positioning props live on the content; per-item extras (icon / shortcut /
+# cascade) live on the item.
+contract:
+  properties:
+    - name: open
+      type: boolean
+      required: false
+      description: Controlled open state. Pair with the change event.
+    - name: default-open
+      type: boolean
+      required: false
+      default: false
+      description: Initial open state when uncontrolled.
+    - name: side
+      type: "'top' | 'bottom' | 'left' | 'right' | 'inline-start' | 'inline-end'"
+      required: false
+      default: "'bottom'"
+      description: On the content — which side of the trigger to render on.
+    - name: align
+      type: "'start' | 'center' | 'end'"
+      required: false
+      description: On the content — alignment along the chosen side.
+    - name: side-offset
+      type: number
+      required: false
+      default: 4
+      description: On the content — distance in px from the trigger.
+    - name: portal
+      type: boolean
+      required: false
+      default: true
+      description: On the content — render the popup inside a portal.
+    - name: icon
+      type: ReactNode
+      required: false
+      description: On an item — a leading icon (16px), rendered before the label.
+    - name: shortcut
+      type: ReactNode
+      required: false
+      description: On an item — a trailing keyboard-shortcut hint.
+    - name: cascade
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        On an item — show a trailing cascade chevron. Indicator only; the live
+        submenu is deferred. An item also accepts the Base UI Menu item
+        `disabled` prop to dim and disable it.
+
+  events:
+    - name: open-change
+      payload: boolean
+      description: Fired when the panel opens or closes (React `onOpenChange`).
+    - name: item-click
+      payload: MouseEvent
+      description: Fired when an item is activated (pointer or keyboard).
+
+  content:
+    - name: default
+      description: >-
+        A `trigger` plus the `content` popup, which holds one or more `section`s
+        of `item`s. Each item is a label with optional `icon`, `shortcut`, and
+        `cascade` extras.
+
+  methods: []
+
+adapters:
+  react:
+    component: ButtonMenuDropdown
+    status: implemented
+    import: >-
+      import { ButtonMenuDropdown, ButtonMenuDropdownTrigger,
+      ButtonMenuDropdownContent, ButtonMenuDropdownSection,
+      ButtonMenuDropdownItem } from '@spec-lab/ui-react'
+    example: |
+      <ButtonMenuDropdown>
+        <ButtonMenuDropdownTrigger render={<ButtonMenu>Actions</ButtonMenu>} />
+        <ButtonMenuDropdownContent>
+          <ButtonMenuDropdownSection>
+            <ButtonMenuDropdownItem icon={<PencilIcon />} shortcut="⌘R">
+              Rename
+            </ButtonMenuDropdownItem>
+            <ButtonMenuDropdownItem cascade>Move to</ButtonMenuDropdownItem>
+          </ButtonMenuDropdownSection>
+        </ButtonMenuDropdownContent>
+      </ButtonMenuDropdown>
+  vue:
+    component: AvButtonMenuDropdown
+    status: planned
+    import: "import { AvButtonMenuDropdown, AvButtonMenuDropdownItem } from '@spec-lab/ui-vue'"
+    example: |
+      <AvButtonMenuDropdown>
+        <AvButtonMenuDropdownItem>Rename</AvButtonMenuDropdownItem>
+      </AvButtonMenuDropdown>
+  web-components:
+    element: ui-button-menu-dropdown
+    status: planned
+    import: "import '@spec-lab/ui-wc/button-menu-dropdown'"
+    example: |
+      <ui-button-menu-dropdown>
+        <ui-button-menu-dropdown-item>Rename</ui-button-menu-dropdown-item>
+      </ui-button-menu-dropdown>

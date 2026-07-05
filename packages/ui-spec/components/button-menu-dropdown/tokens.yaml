@@ -1,0 +1,64 @@
+spec_version: '1.0'
+component: ButtonMenuDropdown
+
+# References only — values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time. This component
+# has its OWN dedicated `--ui-button-menu-dropdown-*` tier (it does not reuse the
+# generic semantic tokens the design-pending DropdownMenu consumes).
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── Panel container (root popup) ──
+  - { name: --ui-button-menu-dropdown-container-color, affects: root }
+  - { name: --ui-button-menu-dropdown-container-border-color, affects: root }
+  - { name: --ui-button-menu-dropdown-container-border-width, affects: root }
+  - { name: --ui-button-menu-dropdown-container-border-radius, affects: root }
+  - { name: --ui-button-menu-dropdown-container-gap, affects: root }
+  - { name: --ui-button-menu-dropdown-container-padding-x, affects: root }
+  - { name: --ui-button-menu-dropdown-container-padding-y, affects: root }
+
+  # ── Section ──
+  - {
+      name: --ui-button-menu-dropdown-section-container-border-color,
+      affects: section,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-container-border-width,
+      affects: section,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-container-padding-x,
+      affects: section,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-container-padding-y,
+      affects: section,
+    }
+  - { name: --ui-button-menu-dropdown-section-list-gap, affects: section }
+
+  # ── Item ──
+  - { name: --ui-button-menu-dropdown-item-container-color-idle, affects: item }
+  - {
+      name: --ui-button-menu-dropdown-item-container-color-hover,
+      affects: item,
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-container-color-active,
+      affects: item,
+    }
+  - { name: --ui-button-menu-dropdown-item-container-gap, affects: item }
+  - { name: --ui-button-menu-dropdown-item-container-height, affects: item }
+  - { name: --ui-button-menu-dropdown-item-container-padding-x, affects: item }
+  - { name: --ui-button-menu-dropdown-item-container-padding-y, affects: item }
+  - { name: --ui-button-menu-dropdown-item-label-color, affects: item }
+  - { name: --ui-button-menu-dropdown-item-icon-color, affects: icon }
+
+  # ── Extras (trailing) ──
+  - {
+      name: --ui-button-menu-dropdown-extras-cascade-icon-color,
+      affects: cascade,
+    }
+  - {
+      name: --ui-button-menu-dropdown-extras-shortcut-label-color,
+      affects: shortcut,
+    }

@@ -1,0 +1,125 @@
+spec_version: '1.0'
+component: ButtonMenuDropdown
+
+schematic: |
+  trigger: <button> (opens the panel — usually a ButtonMenu)
+
+  ─ when open ─────────────────────────────
+  root: <div role="menu"> (popup)
+  +---------------------------------------+
+  | section:                              |
+  |   item: [icon] Rename    [shortcut]   |
+  |   item: [icon] Copy      [shortcut]   |
+  |   item:        Move to   [cascade] ›  |
+  | ───────────────────────────────────── |  <- section divider (non-first)
+  | section:                              |
+  |   item: [icon] Delete                 |
+  |   item:        Unavailable (disabled) |
+  +---------------------------------------+
+     legend: icon = leading glyph · shortcut = trailing hint ·
+             cascade = trailing chevron
+     panel  -> container tokens (bg / border / radius / padding)
+     item highlight (pointer or keyboard) -> item-container-color-hover
+     item press -> item-container-color-active
+
+root:
+  element: div
+  role: menu
+  description: >-
+    The portaled, positioned dropdown panel (Base UI `Menu.Popup`). A bordered,
+    rounded surface receiving focus and roving keyboard navigation when open;
+    themed from the `--ui-button-menu-dropdown-container-*` tokens.
+
+parts:
+  - id: trigger
+    description: The control that opens the panel (Base UI `Menu.Trigger`).
+    element: button
+  - id: section
+    description: >-
+      A grouped list of items (`role="group"`). Non-first sections carry a top
+      divider from the section-container border tokens.
+    element: div
+  - id: item
+    description: >-
+      An action row (`role="menuitem"`). Highlighted via `data-[highlighted]`
+      (pointer or keyboard) and pressed via `:active`, each mapped to its own
+      item-container color token.
+    element: div
+  - id: icon
+    description: The optional leading icon (16px), in the item icon color.
+    element: svg
+    optional: true
+  - id: shortcut
+    description: An optional trailing keyboard-shortcut hint, muted via the extras token.
+    element: span
+    optional: true
+  - id: cascade
+    description: >-
+      An optional trailing chevron indicating a nested submenu. Renders the
+      indicator only — the live submenu is deferred.
+    element: svg
+    optional: true
+
+layout:
+  type: flex
+  direction: column
+  order: [section]
+
+internal_state:
+  - id: open
+    type: boolean
+    values: [false, true]
+    initial: false
+    controllable_via: [open]
+    controlled_default: default-open
+    emits: open-change
+    changed_by: >-
+      trigger click / Enter / Space / Arrow opens; selecting an item, Esc, or
+      outside-press closes (when uncontrolled)
+    description: Whether the dropdown panel is shown.
+
+transitions:
+  - id: open
+    state: open
+    from: false
+    on: trigger activation
+    to: true
+    effect: emits open-change(true)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+  - id: close
+    state: open
+    from: true
+    on: item select / Esc / outside press
+    to: false
+    effect: emits open-change(false)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+
+states:
+  - {
+      id: open,
+      trigger: 'internal open === true (data-[open])',
+      kind: internal,
+      affects: [root],
+    }
+  - {
+      id: closed,
+      trigger: 'internal open === false (data-[closed])',
+      kind: internal,
+      affects: [root],
+    }
+  - {
+      id: highlighted,
+      trigger: 'pointer hover or keyboard nav (data-[highlighted])',
+      kind: internal,
+      affects: [item],
+    }
+  - {
+      id: disabled,
+      trigger: 'an item with disabled (data-[disabled])',
+      kind: internal,
+      affects: [item],
+    }

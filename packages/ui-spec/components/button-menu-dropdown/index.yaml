@@ -1,0 +1,19 @@
+spec_version: '1.0'
+component: ButtonMenuDropdown
+name: button-menu-dropdown
+status: ready
+category: overlays
+description: >-
+  The themed dropdown panel a ButtonMenu opens: a bordered surface of one or
+  more sections, each a list of menu items (label + optional leading icon +
+  optional trailing extras — a shortcut hint and/or a cascade chevron). A set of
+  composable parts (trigger, content, section, item) built on the Base UI Menu
+  primitive; themed by its dedicated `--ui-button-menu-dropdown-*` token tier.
+since: 0.55.0
+dependencies:
+  components:
+    - ButtonMenu
+    - ChevronRightIcon
+figma:
+  node: '3116-60887'
+  codeConnect: packages/ui-react/src/components/ui/button-menu-dropdown/button-menu-dropdown.figma.tsx
