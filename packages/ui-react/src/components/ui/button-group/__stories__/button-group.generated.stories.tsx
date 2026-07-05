@@ -18,10 +18,10 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <ButtonGroup>
-        <Button variant="secondary">Day</Button>
-        <Button variant="secondary">Week</Button>
-        <Button variant="secondary">Month</Button>
-      </ButtonGroup>
+      <Button variant="secondary">Day</Button>
+      <Button variant="secondary">Week</Button>
+      <Button variant="secondary">Month</Button>
+    </ButtonGroup>
     </div>
   ),
 };

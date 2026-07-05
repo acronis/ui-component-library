@@ -4,14 +4,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent } from 'storybook/test';
-import {
-  InputSelectField,
-  InputSelectLabel,
-  InputSelectTrigger,
-  InputSelectValue,
-  InputSelectContent,
-  InputSelectItem,
-} from '../input-select';
+import { InputSelectField, InputSelectLabel, InputSelectTrigger, InputSelectValue, InputSelectContent, InputSelectItem } from '../input-select';
 import { InputSelect } from '../input-select';
 
 const meta = {
@@ -26,37 +19,36 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <InputSelect>
-        <InputSelectField>
-          <InputSelectLabel>Fruit</InputSelectLabel>
-          <InputSelectTrigger>
-            <InputSelectValue placeholder="Select an option" />
-          </InputSelectTrigger>
-        </InputSelectField>
-        <InputSelectContent>
-          <InputSelectItem value="apple">Apple</InputSelectItem>
-          <InputSelectItem value="banana">Banana</InputSelectItem>
-        </InputSelectContent>
-      </InputSelect>
+      <InputSelectField>
+        <InputSelectLabel>Fruit</InputSelectLabel>
+        <InputSelectTrigger>
+          <InputSelectValue placeholder="Select an option" />
+        </InputSelectTrigger>
+      </InputSelectField>
+      <InputSelectContent>
+        <InputSelectItem value="apple">Apple</InputSelectItem>
+        <InputSelectItem value="banana">Banana</InputSelectItem>
+      </InputSelectContent>
+    </InputSelect>
       <InputSelect disabled>
-        <InputSelectField>
-          <InputSelectLabel>Fruit</InputSelectLabel>
-          <InputSelectTrigger>
-            <InputSelectValue placeholder="Select an option" />
-          </InputSelectTrigger>
-        </InputSelectField>
-        <InputSelectContent>
-          <InputSelectItem value="apple">Apple</InputSelectItem>
-          <InputSelectItem value="banana">Banana</InputSelectItem>
-        </InputSelectContent>
-      </InputSelect>
+      <InputSelectField>
+        <InputSelectLabel>Fruit</InputSelectLabel>
+        <InputSelectTrigger>
+          <InputSelectValue placeholder="Select an option" />
+        </InputSelectTrigger>
+      </InputSelectField>
+      <InputSelectContent>
+        <InputSelectItem value="apple">Apple</InputSelectItem>
+        <InputSelectItem value="banana">Banana</InputSelectItem>
+      </InputSelectContent>
+    </InputSelect>
     </div>
   ),
 };
 
 export const Hover: Story = {
   parameters: { pseudo: { hover: true } },
-  render: () => (
-    <InputSelect>
+  render: () => <InputSelect>
       <InputSelectField>
         <InputSelectLabel>Fruit</InputSelectLabel>
         <InputSelectTrigger>
@@ -67,13 +59,11 @@ export const Hover: Story = {
         <InputSelectItem value="apple">Apple</InputSelectItem>
         <InputSelectItem value="banana">Banana</InputSelectItem>
       </InputSelectContent>
-    </InputSelect>
-  ),
+    </InputSelect>,
 };
 
 export const FocusVisible: Story = {
-  render: () => (
-    <InputSelect>
+  render: () => <InputSelect>
       <InputSelectField>
         <InputSelectLabel>Fruit</InputSelectLabel>
         <InputSelectTrigger>
@@ -84,8 +74,7 @@ export const FocusVisible: Story = {
         <InputSelectItem value="apple">Apple</InputSelectItem>
         <InputSelectItem value="banana">Banana</InputSelectItem>
       </InputSelectContent>
-    </InputSelect>
-  ),
+    </InputSelect>,
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();
@@ -94,8 +83,7 @@ export const FocusVisible: Story = {
 
 // transition "openPopup": trigger press / Space / Enter / ArrowDown -> true [guard: not disabled]
 export const OpenPopup: Story = {
-  render: () => (
-    <InputSelect>
+  render: () => <InputSelect>
       <InputSelectField>
         <InputSelectLabel>Fruit</InputSelectLabel>
         <InputSelectTrigger>
@@ -106,8 +94,7 @@ export const OpenPopup: Story = {
         <InputSelectItem value="apple">Apple</InputSelectItem>
         <InputSelectItem value="banana">Banana</InputSelectItem>
       </InputSelectContent>
-    </InputSelect>
-  ),
+    </InputSelect>,
   play: async ({ canvasElement }) => {
     const el = canvasElement.querySelector('[role="group"], div');
     if (el) await userEvent.click(el as HTMLElement);

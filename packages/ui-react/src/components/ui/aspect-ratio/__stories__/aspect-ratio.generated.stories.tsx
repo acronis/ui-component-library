@@ -17,10 +17,8 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <AspectRatio ratio={16 / 9} className="w-64">
-        <div className="flex h-full w-full items-center justify-center rounded-md bg-muted text-sm text-muted-foreground">
-          16 : 9
-        </div>
-      </AspectRatio>
+      <div className="flex h-full w-full items-center justify-center rounded-md bg-muted text-sm text-muted-foreground">16 : 9</div>
+    </AspectRatio>
     </div>
   ),
 };

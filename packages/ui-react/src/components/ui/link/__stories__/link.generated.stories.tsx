@@ -18,9 +18,7 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Link href="#">Link</Link>
-      <Link href="#" disabled>
-        Link
-      </Link>
+      <Link href="#" disabled>Link</Link>
     </div>
   ),
 };

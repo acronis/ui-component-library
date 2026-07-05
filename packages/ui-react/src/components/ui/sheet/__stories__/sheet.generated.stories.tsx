@@ -4,15 +4,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent } from 'storybook/test';
-import {
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetCloseButton,
-  SheetBody,
-  SheetDescription,
-  SheetFooter,
-} from '../sheet';
+import { SheetContent, SheetHeader, SheetTitle, SheetCloseButton, SheetBody, SheetDescription, SheetFooter } from '../sheet';
 import { Button } from '../../button';
 import { Sheet } from '../sheet';
 
@@ -28,26 +20,6 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Sheet defaultOpen>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Workload details</SheetTitle>
-            <SheetCloseButton />
-          </SheetHeader>
-          <SheetBody>
-            <SheetDescription>Inspect the selected workload.</SheetDescription>
-          </SheetBody>
-          <SheetFooter>
-            <Button>Edit</Button>
-          </SheetFooter>
-        </SheetContent>
-      </Sheet>
-    </div>
-  ),
-};
-
-export const FocusVisible: Story = {
-  render: () => (
-    <Sheet defaultOpen>
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Workload details</SheetTitle>
@@ -61,7 +33,25 @@ export const FocusVisible: Story = {
         </SheetFooter>
       </SheetContent>
     </Sheet>
+    </div>
   ),
+};
+
+export const FocusVisible: Story = {
+  render: () => <Sheet defaultOpen>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Workload details</SheetTitle>
+          <SheetCloseButton />
+        </SheetHeader>
+        <SheetBody>
+          <SheetDescription>Inspect the selected workload.</SheetDescription>
+        </SheetBody>
+        <SheetFooter>
+          <Button>Edit</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>,
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();

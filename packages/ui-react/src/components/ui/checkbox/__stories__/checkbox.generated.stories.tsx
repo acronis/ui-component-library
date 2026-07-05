@@ -16,14 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const States: Story = {
   render: () => (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 16,
-        alignItems: 'center',
-      }}
-    >
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
       <Checkbox aria-label="Off" />
       <Checkbox aria-label="On" defaultChecked />
       <Checkbox aria-label="Disabled off" disabled />

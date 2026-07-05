@@ -67,6 +67,25 @@ const RENDER: Record<string, RenderHint> = {
       '\n      <Button variant="secondary">Day</Button>\n      <Button variant="secondary">Week</Button>\n      <Button variant="secondary">Month</Button>\n    ',
   },
   'button-menu': { sample: 'Label' },
+  'button-menu-dropdown': {
+    props: 'defaultOpen',
+    extraImports: [
+      "import { ButtonMenuDropdownTrigger, ButtonMenuDropdownContent, ButtonMenuDropdownSection, ButtonMenuDropdownItem } from '../button-menu-dropdown';",
+      "import { PencilIcon } from '@spec-lab/icons-react/stroke-mono';",
+    ],
+    sample: [
+      '',
+      '      <ButtonMenuDropdownTrigger>Actions</ButtonMenuDropdownTrigger>',
+      '      <ButtonMenuDropdownContent>',
+      '        <ButtonMenuDropdownSection>',
+      '          <ButtonMenuDropdownItem icon={<PencilIcon />} shortcut="⌘R">Rename</ButtonMenuDropdownItem>',
+      '          <ButtonMenuDropdownItem>Duplicate</ButtonMenuDropdownItem>',
+      '          <ButtonMenuDropdownItem cascade>Move to</ButtonMenuDropdownItem>',
+      '        </ButtonMenuDropdownSection>',
+      '      </ButtonMenuDropdownContent>',
+      '    ',
+    ].join('\n'),
+  },
   carousel: {
     props: 'className="w-64"',
     extraImports: [

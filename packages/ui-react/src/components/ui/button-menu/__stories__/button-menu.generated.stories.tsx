@@ -18,38 +18,16 @@ const VARIANTS = ['primary', 'secondary'] as const;
 
 export const Variants: Story = {
   render: () => (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 12,
-        alignItems: 'center',
-      }}
-    >
-      {VARIANTS.map((v) => (
-        <ButtonMenu key={v} variant={v}>
-          Label
-        </ButtonMenu>
-      ))}
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+      {VARIANTS.map((v) => <ButtonMenu key={v} variant={v}>Label</ButtonMenu>)}
     </div>
   ),
 };
 
 export const Disabled: Story = {
   render: () => (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 12,
-        alignItems: 'center',
-      }}
-    >
-      {VARIANTS.map((v) => (
-        <ButtonMenu key={v} variant={v} disabled>
-          Label
-        </ButtonMenu>
-      ))}
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+      {VARIANTS.map((v) => <ButtonMenu key={v} variant={v} disabled>Label</ButtonMenu>)}
     </div>
   ),
 };
