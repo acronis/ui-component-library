@@ -6,7 +6,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 // Mirrors the Figma "ButtonIcon" component set: an icon-only button (square 32px
-// box, 24px glyph centered → the design's 4px padding) with a `variant` property
+// box, 16px glyph centered) with a `variant` property
 // (`ghost` / `secondary`) and idle / hover / active / disabled states. The
 // container fill and the glyph color are shared across both variants and come
 // from the `--ui-button-icon-global-*` tokens; only `secondary` draws a 1px
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 // `--ui-button-icon-secondary-container-border-color-*` tokens — `ghost` has no
 // border (the Figma draws none). Each interaction state is wired to its own token
 // (runtime `var()` references, so brand overrides are honored). Box geometry —
-// 32px height, 4px radius, 24px icon — comes from the `global-container-*` /
+// 32px height, 4px radius, 16px icon — comes from the `global-container-*` /
 // `global-icon-size` tokens. Like Button, disabled uses the design's explicit
 // disabled tokens (not opacity), and the focus state is a 3px `--ui-focus-primary`
 // ring flush to the edge (no offset), matching the Figma.
