@@ -7,8 +7,7 @@
 > (P1–P5) / Size. That board and those issues are **not set up in
 > `constructor-lab/facet`** (which currently has no issues or project board), so
 > treat every `#nnn` in these context docs as a historical reference, not a live
-> link. Companion docs: [`backlog-p2-primitives.md`](./backlog-p2-primitives.md) ·
-> [`backlog-p3-p4.md`](./backlog-p3-p4.md).
+> link.
 
 ## North star
 
