@@ -10,7 +10,7 @@ component: DataTable
 source: '@spec-lab/tokens'
 
 tokens:
-  - name: --ui-table-global-cell-border-color
+  - name: --ui-table-global-row-border-color
     affects: table
     description: Wrapper border — matches the Table cell borders.
   - name: --ui-table-data-value-color-disabled
@@ -22,7 +22,7 @@ tokens:
   - name: --ui-background-surface-secondary
     affects: row
     description: Striped row background + skeleton placeholder bars.
-  - name: --ui-table-global-row-color-active
+  - name: --ui-table-data-row-color-active
     affects: row
     description: Current (last-clicked) row highlight — the active-row color.
   - name: --ui-table-header-cell-color-hover

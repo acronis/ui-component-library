@@ -34,7 +34,7 @@ import {
 // take the `table` instance returned to column cells via TanStack context.
 // The grid cells/rows/headers are themed by the Table primitives' `--ui-table-*`
 // tier; DataTable's own chrome reuses that tier too — the wrapper border matches
-// the cell borders (`--ui-table-global-cell-border-color`), the empty-state uses
+// the cell borders (`--ui-table-global-row-border-color`), the empty-state uses
 // the muted table-value color, the current row the active-row color, and stripes
 // the secondary surface.
 
@@ -99,13 +99,13 @@ export function DataTable<TData, TValue>({
   // Vertical borders are opt-in; a trailing border on the last cell would
   // double up with the wrapper, so suppress it.
   const borderedClass = bordered
-    ? '[&_th:not(:last-child)]:border-e [&_td:not(:last-child)]:border-e [&_th]:border-[var(--ui-table-global-cell-border-color)] [&_td]:border-[var(--ui-table-global-cell-border-color)]'
+    ? '[&_th:not(:last-child)]:border-e [&_td:not(:last-child)]:border-e [&_th]:border-[var(--ui-table-global-row-border-color)] [&_td]:border-[var(--ui-table-global-row-border-color)]'
     : undefined;
 
   return (
     <div
       className={cn(
-        'rounded-md border border-[var(--ui-table-global-cell-border-color)]',
+        'rounded-md border border-[var(--ui-table-global-row-border-color)]',
         borderedClass
       )}
     >
@@ -159,7 +159,7 @@ export function DataTable<TData, TValue>({
                         'bg-[var(--ui-background-surface-secondary)]',
                       isCurrent &&
                         !isSelected &&
-                        'bg-[var(--ui-table-global-row-color-active)]'
+                        'bg-[var(--ui-table-data-row-color-active)]'
                     )}
                   >
                     {row.getVisibleCells().map((cell) => (

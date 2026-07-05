@@ -1,10 +1,7 @@
-// Figma Code Connect — status: NEEDS_FIGMA_URL
-// Informed by the "pre-release" Table design in the shadcn-uikit Figma
-// (node 2948-2416), but not yet wired to a "ready for dev" node. Table is a
+// Figma Code Connect — status: COMPLETE
+// Mapped to the "Table" design in the ui-react Figma file. Table is a
 // compositional primitive set (no variant/size props), so there are no property
-// mappings to verify — only the node URL is missing. Replace 'FIGMA_NODE_URL'
-// with the component-set link and flip the status to COMPLETE via
-// `/figma-component Table <url> --update`, then validate with `figma:connect`.
+// mappings — the example shows a representative composed table.
 import figma from '@figma/code-connect';
 
 import {
@@ -16,7 +13,10 @@ import {
   TableRow,
 } from './table';
 
-figma.connect(Table, 'FIGMA_NODE_URL', {
+figma.connect(
+  Table,
+  'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=4567-6801',
+  {
   example: () => (
     <Table>
       <TableHeader>
