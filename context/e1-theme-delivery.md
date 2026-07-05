@@ -8,9 +8,9 @@ Companion to [`roadmap.md`](./roadmap.md) for epic **E1 (#102)**. Turns the open
 theme-delivery sub-issues (#172, #173, #175, #101, #177) into a concrete
 implementation plan, grounded in what's already shipped and what's reusable from
 the legacy stack. The design **contracts** this builds on live in
-[`../packages/tokens/context/brand-matrix.md`](../packages/tokens/context/brand-matrix.md)
+[`../packages/tokens/context/glossary.md`](../packages/tokens/context/glossary.md)
 (brand axis) and
-[`../packages/tokens/context/token-contract.md`](../packages/tokens/context/token-contract.md)
+[`../packages/tokens/context/versioning.md`](../packages/tokens/context/versioning.md)
 (versioning).
 
 ## Decisions (2026-06-10)
@@ -35,55 +35,62 @@ roadmap and in issues #172/#173:
 ## Shipped baseline (what E1 already has)
 
 - **Pipeline:** `tokens` (DTCG JSON) → `tools/style-dictionary` →
-  `tokens` (per-brand CSS, per-component CSS, Tailwind presets, DTCG).
+  `tokens` (shared CSS with per-brand `[data-brand]` selector blocks,
+  per-component CSS, Tailwind presets, DTCG).
 - **Runtime model:** `--ui-*` tokens; light/dark folded into every token via
   `light-dark()` + `color-scheme` + `[data-theme]`.
 - **Brand model:** `acronis` is the full base; other brands are override-only
-  diffs (today `brand-b`). Brand discovery is **data-driven** — a new
-  `values.<brand>` key → a generated `<brand>.css`, no code change (PR #258).
-- **Consumption:** `ui-react/src/styles/index.css` imports `tokens`'s
-  `acronis.css` + opt-in per-component tiers, and bridges `--ui-*` onto Tailwind
-  names via `@theme inline`.
+  diffs, emitted as `[data-brand='<brand>'], :host([data-brand='<brand>'])`
+  blocks **inside** the shared `semantics.css` (+ per-component tiers) — ~20 real
+  brands ship today. Brand discovery is **data-driven** — a new `values.<brand>`
+  key → a new `[data-brand]` block in the shared CSS, no code change (PR #258).
+- **Consumption:** `ui-react/src/styles/index.css` pulls the whole kit with a
+  single `@import '@spec-lab/tokens/css'` (primitives + semantics + every
+  component tier), and bridges `--ui-*` onto Tailwind names via `@theme inline`.
 
 So #172 ("generate per-brand CSS") and #173 ("data-driven generation") are
-**mechanically already true** for the pipeline. The remaining E1 work is: the
-brand _data_ (the 22 legacy brands as Figma modes), the consumer _entry-point_
-ergonomics, fonts, assets, and test hardening.
+**mechanically already true** for the pipeline — and the bulk of the brand
+_data_ has landed too (~20 brands ship as `[data-brand]` modes). The remaining
+E1 work is: the consumer _entry-point_ ergonomics, fonts, per-brand assets, and
+test hardening.
 
 ## Reuse map: legacy → new pipeline
 
-| Legacy artifact                                    | Location                                                       | Reuse in the new pipeline                                                                                                                              |
-| -------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 22 brand OKLch palettes                            | `@uikit/ui-kit/packages/themes/src/mixins/*.scss` + `src/js/*` | **Data source** for authoring the brand Figma modes (color values + partner→brand mapping). Not imported; transcribed into Figma → synced to `tokens`. |
-| Hue-override white-label pattern                   | `themes/src/mixins/<brand>.scss` (`--av-*-hue-override`)       | Informs which tokens a brand _must_ override (the [brand override surface](../packages/tokens/context/brand-matrix.md#brand-override-surface)).        |
-| `prepareThemeColors` derivation (darken/mix/rgba)  | `themes/src/utils/prepareThemeColors.util.ts`                  | **Reference only** under decision #2. Candidate for a future optional authoring helper, not the contract.                                              |
-| OKLch→sRGB→HSL math + per-brand emit loop          | `ui-legacy/scripts/generate-white-label-themes.ts`             | **Blueprint** for any conversion helper; the new pipeline emits rgb `light-dark()` from Style Dictionary instead.                                      |
-| Dual `[data-theme]` / class selector               | `themes/src/<brand>.scss`, `themes/README.md`                  | We adopt the **`[data-theme]`** half; drop the `.theme-{brand}` class half.                                                                            |
-| Base layer (reset, typography, font stack, mixins) | `@uikit/ui-kit/packages/styles/src/`                           | Mostly superseded by Tailwind v4 + tokens. The **font-stack model** (`--av-font-family-*` + Inter/Open Sans fallback) feeds #101.                      |
-| `ui-legacy` four shipped themes                    | `packages/ui-legacy/src/styles/themes/`                        | Naming/precedent for brand entry points; the `acronis-white-label.scss` shows the per-brand-class delivery we're replacing.                            |
+| Legacy artifact                                    | Location                                                                                       | Reuse in the new pipeline                                                                                                                              |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 22 brand OKLch palettes                            | `@uikit/ui-kit/packages/themes/src/mixins/*.scss` + `src/js/*`                                 | **Data source** for authoring the brand Figma modes (color values + partner→brand mapping). Not imported; transcribed into Figma → synced to `tokens`. |
+| Hue-override white-label pattern                   | `themes/src/mixins/<brand>.scss` (`--av-*-hue-override`)                                       | Informs which tokens a brand _must_ override (the brand override surface).                                                                             |
+| `prepareThemeColors` derivation (darken/mix/rgba)  | `themes/src/utils/prepareThemeColors.util.ts`                                                  | **Reference only** under decision #2. Candidate for a future optional authoring helper, not the contract.                                              |
+| OKLch→sRGB→HSL math + per-brand emit loop          | `@uikit/ui-kit` `scripts/generate-white-label-themes.ts` (external Vue kit — not in this repo) | **Blueprint** for any conversion helper; the new pipeline emits rgb `light-dark()` from Style Dictionary instead.                                      |
+| Dual `[data-theme]` / class selector               | `themes/src/<brand>.scss`, `themes/README.md`                                                  | We adopt the **`[data-theme]`** half; drop the `.theme-{brand}` class half.                                                                            |
+| Base layer (reset, typography, font stack, mixins) | `@uikit/ui-kit/packages/styles/src/`                                                           | Mostly superseded by Tailwind v4 + tokens. The **font-stack model** (`--av-font-family-*` + Inter/Open Sans fallback) feeds #101.                      |
+| Legacy four shipped themes                         | `@uikit/ui-kit` `src/styles/themes/` (external Vue kit — not in this repo)                     | Naming/precedent for brand entry points; the `acronis-white-label.scss` shows the per-brand-class delivery we're replacing.                            |
 
 ## Per-issue plan
 
 ### #172 — per-brand theme CSS exports from the token pipeline
 
-Pipeline already emits `css/<brand>.css` + `css/<component>/<brand>.css`. Gap is
-**ergonomics + contract**, not generation:
+Pipeline already emits every brand as a `[data-brand]` selector block inside the
+shared `semantics.css` (+ per-component tiers), pulled in by the single
+`@spec-lab/tokens/css` import. Gap is **ergonomics + contract**, not generation:
 
-- Confirm/declare the per-brand **entry points** as public (see
-  [token-contract](../packages/tokens/context/token-contract.md#tokens--the-real-consumer-facing-contract)).
-- Document the consumption recipe in `ui-react`: load `acronis.css` base, layer
-  `<brand>.css`, flip `[data-theme]`. Add a Storybook toolbar/decorator that
-  switches `[data-theme]` so every story renders under each brand (extends the
-  existing light/dark check).
+- Confirm/declare the single `@spec-lab/tokens/css` **entry point** and the
+  `[data-brand]` switch as public (see
+  [versioning](../packages/tokens/context/versioning.md)).
+- Document the consumption recipe in `ui-react`: one `@spec-lab/tokens/css`
+  import, flip `[data-brand]` for the brand and `[data-theme]` for light/dark.
+  Add a Storybook toolbar/decorator that switches `[data-brand]` so every story
+  renders under each brand (extends the existing light/dark check).
 - **Out of scope:** the class-toggle (`.theme-{brand}`) delivery — superseded by
   decision #1.
 
 ### #173 — data-driven white-label brand generation
 
-Generation is done (`discoverBrands()`); the deliverable is the **brand data**:
+Generation is done (`discoverBrands()`) and the bulk of the **brand data** has
+landed — ~20 brands now ship as `[data-brand]` modes:
 
-- Author the 22 legacy brands (per the [brand matrix](../packages/tokens/context/brand-matrix.md#the-matrix)) as **Figma brand modes**, using the legacy palettes as the value source.
-- Sync into `tokens` (`values.<brand>` keys) → rebuild `tokens` → each brand auto-emits its `<brand>.css`. **No code change** (the data-driven property to protect — add a guard, see #177).
+- The legacy brands have been authored as **Figma brand modes** (using the legacy palettes as the value source) and synced in; any remaining brands follow the same path.
+- Sync into `tokens` (`values.<brand>` keys) → rebuild `tokens` → each brand auto-emits its `[data-brand]` block inside the shared CSS. **No code change** (the data-driven property to protect — add a guard, see #177).
 - This is a **Figma-authoring + sync** task, not a coding task. It cannot be hand-fabricated in `tiers/*.json` (per `tokens/AGENTS.md`).
 - **Optional follow-up (not E1-blocking):** a hue-derivation helper that scaffolds a draft brand mode from one accent color, porting the legacy `prepareThemeColors` math — convenience for designers, never the source of truth.
 
@@ -105,7 +112,7 @@ Lock the pipeline guarantees so brand/data growth can't silently regress:
 - **Brand discovery** — done (`discover-brands.test.ts`, PR #258); extend to assert a synthetic added brand surfaces with no code change.
 - **light-dark zipping** — primitives' light+dark resolve into one `light-dark()` decl.
 - **Gradients** — `--ui-background-ai-*` linear-gradient tokens pass through intact (not rgb-coerced).
-- **Brand scoping** — non-default brands emit override-only (diff vs `acronis`), default emits full.
+- **Brand scoping** — non-default brands emit override-only `[data-brand]` blocks (diff vs `acronis`); the base emits the full `:root, :host` set.
 - **Drift guard** — a rebuild is byte-stable for unchanged input (the property PR #258 verified manually).
 
 ## Runtime integration: apps, microfrontends, shadow DOM
@@ -115,32 +122,47 @@ primitive is **inherited CSS custom properties**, and the generated CSS is
 already written for it — `tokens` emits:
 
 ```css
+/* primitives.css — the sole raw-value / light-dark() theme layer */
 :root,
 :host {
-  /* base + brand values */
   color-scheme: light dark;
-  --ui-background-brand-primary: light-dark(rgb(0 32 77), rgb(238 242 247));
+  --ui-palette-blue-13: light-dark(rgb(0 32 77), rgb(238 242 247));
+}
+/* semantics.css — base (acronis) references, dual-scoped */
+:root,
+:host {
+  --ui-background-brand-primary: var(--ui-palette-blue-13);
   /* … */
 }
 [data-theme='dark'],
 :host([data-theme='dark']) {
   color-scheme: dark; /* … */
 }
+/* semantics.css — a brand as an override-only [data-brand] block */
+[data-brand='brown'],
+:host([data-brand='brown']) {
+  --ui-background-brand-primary: var(
+    --ui-palette-branding-brown-sidebarprimary-idle
+  );
+}
 ```
 
-Two properties of that output drive everything below: **`--ui-*` and
+Three properties of that output drive everything below: **`--ui-*` and
 `color-scheme` are inherited** (they cross the shadow boundary down the flattened
-tree), and every block is **dual-scoped to `:root` _and_ `:host`** so the same
-stylesheet works whether it's loaded in the document or adopted into a shadow
-root. Theming is delivered by **inheritance**, not by selector reach — a
-`var(--ui-*)` anywhere resolves against the nearest ancestor (in either tree)
-that defined it.
+tree), every block is **dual-scoped to `:root`/`:host` _and_ the
+`[data-brand]`/`[data-theme]` attribute forms** so the same stylesheet works
+whether it's loaded in the document or adopted into a shadow root, and brands are
+**override-only `[data-brand]` blocks in that same shared CSS** rather than
+separate files. Theming is delivered by **inheritance**, not by selector reach —
+a `var(--ui-*)` anywhere resolves against the nearest ancestor (in either tree,
+under the nearest `[data-brand]`) that defined it.
 
 ### Plain app (light DOM)
 
-Import `acronis.css` (+ an optional `<brand>.css`) once at the document; set
-`[data-theme]` on `<html>` (e.g. via `next-themes`). The Tailwind `dark:` variant
-is already wired to `[data-theme='dark']` in `ui-react/src/styles/index.css`.
+Import `@spec-lab/tokens/css` once at the document; set `[data-brand]` for the
+brand and `[data-theme]` on `<html>` (e.g. via `next-themes`). The Tailwind
+`dark:` variant is already wired to `[data-theme='dark']` in
+`ui-react/src/styles/index.css`.
 Toggling the attribute flips `color-scheme`, which flips every token's
 `light-dark()` — one switch, whole tree.
 
@@ -163,28 +185,27 @@ Toggling the attribute flips `color-scheme`, which flips every token's
 - **Shared brand, many MFEs:** define the token base **once** in the shell
   document `:root`. MFEs ship only their component CSS referencing `var(--ui-*)`
   — they must **not** each emit a `:root` token block (duplication + last-wins
-  conflicts). Token **names are the contract** ([token-contract](../packages/tokens/context/token-contract.md)),
+  conflicts). Token **names are the contract** ([versioning](../packages/tokens/context/versioning.md)),
   so version skew between MFEs is tolerated as long as names hold.
 - **Theme switch across MFEs:** toggle `[data-theme]` on `<html>`; it inherits
   into every MFE and their shadow roots. Shadow-isolated MFEs that adopt token
   CSS into their own roots should mirror the attribute onto each host (observe
   the document and copy it).
-- **Different brand per MFE on one page — the one real gap.** Brand overrides are
-  emitted globally (`:root, :host`), so two brands on the same page both target
-  `:root` and collide (last wins for the whole document). Today's clean answer:
-  give each such MFE its **own shadow root** and adopt that brand's `<brand>.css`
-  into it, where `:host` scopes it correctly. The pipeline enhancement that would
-  remove the shadow-root requirement: a **container-scoped brand build** that
-  emits overrides under a selector like `:where([data-brand='x'])` / a brand
-  class, so brands can coexist in one light-DOM tree. (Tracked as a follow-up to
-  #172/#173, not E1-blocking.)
+- **Different brand per MFE on one page — solved.** Brand overrides ship as
+  **container-scoped `[data-brand='x'], :host([data-brand='x'])` blocks** in the
+  shared CSS, so two brands can coexist in one light-DOM tree: put each MFE (or
+  subtree) under its own `[data-brand]` attribute and each resolves against the
+  nearest `[data-brand]` ancestor — no per-MFE shadow root required. Shadow
+  isolation is still available (the `:host` half of each block scopes an adopted
+  stylesheet to its root), but it's now optional rather than the only clean
+  answer.
 
 ### Pitfalls checklist
 
 - Never ship the `:root` token block from more than one bundle on a page.
 - Inside shadow DOM, scope with `:host`, not `:root`.
-- Multi-brand in a single light-DOM document needs the container-scoped build
-  above; otherwise isolate per shadow root.
+- Multi-brand in a single light-DOM document works via `[data-brand]` on each
+  subtree (already shipped); per-shadow-root isolation is optional, not required.
 - Per-MFE Tailwind **preflight/reset** can fight across apps — scope or dedupe it
   (orthogonal to tokens, but bites the same integrations).
 - Avoid FOUC: load the token base before first paint (it's small and inlinable).
@@ -199,16 +220,18 @@ Toggling the attribute flips `color-scheme`, which flips every token's
 
 1. #177 test hardening (cheap, protects everything after).
 2. #101 fonts + #172 consumption ergonomics (small, unblock brand authoring).
-3. #173 brand-mode authoring in Figma + sync (the bulk; design-led).
+3. #173 brand-mode authoring in Figma + sync — **largely done** (~20 brands
+   shipped); finish any remaining brands (design-led).
 4. #175 assets per brand (after a short asset-binding design note).
 
 ## Open items
 
 - Reconcile the roadmap's forward "legacy four" (`acronis-default`,
-  `acronis-ocean`, `cyber-chat`, `acronis-white-label`) with the legacy 22-brand
-  set — which brands actually ship for v1? (Also flagged in the brand matrix.)
+  `acronis-ocean`, `cyber-chat`, `acronis-white-label`) with the shipped ~20
+  `[data-brand]` modes — which brands actually ship for v1?
 - #175 needs an asset-selection contract before implementation.
-- **Container-scoped brand build** (follow-up to #172/#173): emit brand overrides
-  under `:where([data-brand='x'])` / a brand class in addition to `:root, :host`,
-  so multiple brands can coexist in one light-DOM document without per-MFE shadow
-  roots (see [Runtime integration → Microfrontends](#microfrontends)).
+
+_(The **container-scoped brand build** that previously sat here has shipped —
+brand overrides are emitted as `[data-brand='x'], :host([data-brand='x'])` blocks
+so multiple brands coexist in one light-DOM document without per-MFE shadow
+roots; see [Runtime integration → Microfrontends](#microfrontends).)_
