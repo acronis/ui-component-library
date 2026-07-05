@@ -1,5 +1,5 @@
 // Figma Code Connect — status: COMPLETE
-// Mapped to the "ButtonMenu" component set in the shadcn-uikit Figma file.
+// Mapped to the "ButtonMenu" component set in the ui-react Figma file.
 import figma from '@figma/code-connect';
 
 import { ButtonMenu } from './button-menu';
