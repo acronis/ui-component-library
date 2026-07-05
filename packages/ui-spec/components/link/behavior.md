@@ -4,19 +4,20 @@
 
 **Given** an `href` and a label
 **When** the link renders
-**Then** it is an `<a role="link">` with the label in `--ui-link-color-idle` (semibold,
-no underline).
+**Then** it is an `<a role="link">` with the label in
+`--ui-link-normal-text-color-idle` (semibold, no underline; `variant="inverse"`
+swaps to the `--ui-link-inverse-*` set).
 
 **Given** `external`
-**Then** a trailing external-link icon is appended (`--ui-link-external-icon-color-*`).
+**Then** a trailing external-link icon is appended (`--ui-link-normal-external-icon-color-*`).
 
 ## Interaction
 
 **Given** the link
 **When** the pointer hovers
-**Then** the text shifts to `--ui-link-color-hover` and the
-`--ui-link-text-decoration-hover` underline appears (the icon shifts to its hover
-color).
+**Then** the text shifts to `--ui-link-normal-text-color-hover` and the
+`--ui-link-global-text-decoration-hover` underline appears (the icon shifts to its
+hover color).
 
 **Given** the link
 **When** it is pressed (`:active`)
@@ -34,7 +35,7 @@ color).
 
 **Given** `disabled`
 **When** the link renders
-**Then** it uses `--ui-link-color-disabled`, drops its `href`, sets
+**Then** it uses `--ui-link-normal-text-color-disabled`, drops its `href`, sets
 `aria-disabled="true"` and `tabindex="-1"`, and does not navigate or underline.
 
 ## Composition

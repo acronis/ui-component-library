@@ -1,32 +1,41 @@
 spec_version: '1.0'
 component: Link
 
-# References only — values live in @spec-lab/tokens. The `--ui-link-*`
-# tier wires text color, text decoration, and the external-icon color per state; the
-# focus ring uses the shared `--ui-focus-primary` token.
+# References only — values live in @spec-lab/tokens. Shared bits come from
+# `--ui-link-global-*` (container gap/height, per-state text decoration). The
+# `variant` picks the color set: `normal` (`--ui-link-normal-*`) on a light
+# surface, `inverse` (`--ui-link-inverse-*`) on a dark one — each wires per-state
+# text color + external-icon color. The focus ring uses `--ui-focus-primary`.
 source: '@spec-lab/tokens'
 
 tokens:
-  # ── Layout ──
-  - { name: --ui-link-container-gap, affects: root }
+  # ── Global (layout + text decoration, shared by both variants) ──
+  - { name: --ui-link-global-container-gap, affects: root }
+  - { name: --ui-link-global-container-height, affects: root }
+  - { name: --ui-link-global-text-decoration-idle, affects: label }
+  - { name: --ui-link-global-text-decoration-hover, affects: label }
+  - { name: --ui-link-global-text-decoration-active, affects: label }
+  - { name: --ui-link-global-text-decoration-disabled, affects: label }
 
-  # ── Text color ──
-  - { name: --ui-link-color-idle, affects: label }
-  - { name: --ui-link-color-hover, affects: label }
-  - { name: --ui-link-color-active, affects: label }
-  - { name: --ui-link-color-disabled, affects: label }
+  # ── normal variant — text color ──
+  - { name: --ui-link-normal-text-color-idle, affects: label }
+  - { name: --ui-link-normal-text-color-hover, affects: label }
+  - { name: --ui-link-normal-text-color-active, affects: label }
+  - { name: --ui-link-normal-text-color-disabled, affects: label }
 
-  # ── Text decoration (underline on hover) ──
-  - { name: --ui-link-text-decoration-idle, affects: label }
-  - { name: --ui-link-text-decoration-hover, affects: label }
-  - { name: --ui-link-text-decoration-active, affects: label }
-  - { name: --ui-link-text-decoration-disabled, affects: label }
+  # ── normal variant — external icon color ──
+  - { name: --ui-link-normal-external-icon-color-idle, affects: icon }
+  - { name: --ui-link-normal-external-icon-color-hover, affects: icon }
+  - { name: --ui-link-normal-external-icon-color-active, affects: icon }
+  - { name: --ui-link-normal-external-icon-color-disabled, affects: icon }
 
-  # ── External icon color ──
-  - { name: --ui-link-external-icon-color-idle, affects: icon }
-  - { name: --ui-link-external-icon-color-hover, affects: icon }
-  - { name: --ui-link-external-icon-color-active, affects: icon }
-  - { name: --ui-link-external-icon-color-disabled, affects: icon }
+  # ── inverse variant (on a dark surface; no disabled state) ──
+  - { name: --ui-link-inverse-text-color-idle, affects: label }
+  - { name: --ui-link-inverse-text-color-hover, affects: label }
+  - { name: --ui-link-inverse-text-color-active, affects: label }
+  - { name: --ui-link-inverse-external-icon-color-idle, affects: icon }
+  - { name: --ui-link-inverse-external-icon-color-hover, affects: icon }
+  - { name: --ui-link-inverse-external-icon-color-active, affects: icon }
 
   # ── Focus ring ──
   - { name: --ui-focus-primary, affects: root, description: Focus ring }

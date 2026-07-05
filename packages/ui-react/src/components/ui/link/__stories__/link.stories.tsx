@@ -7,6 +7,17 @@ const meta = {
   component: Link,
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['normal', 'inverse'],
+      description:
+        'Colour set for the surface the link sits on (Figma `background`): `normal` on light, `inverse` on dark.',
+      table: {
+        type: { summary: "'normal' | 'inverse'" },
+        defaultValue: { summary: 'normal' },
+        category: 'Appearance',
+      },
+    },
     children: {
       control: 'text',
       description: 'The link label.',
@@ -50,6 +61,16 @@ export const External: Story = {
 
 export const Disabled: Story = {
   args: { disabled: true },
+};
+
+// `inverse` is for links on a dark surface — shown here on a dark panel.
+export const Inverse: Story = {
+  args: { variant: 'inverse', external: true },
+  render: (args) => (
+    <div className="bg-[var(--ui-background-inverse-primary)] p-4">
+      <Link {...args}>Inverse link</Link>
+    </div>
+  ),
 };
 
 // Inline within a sentence — the common usage.

@@ -5,6 +5,14 @@ component: Link
 # through. See `adapters` for per-framework syntax.
 contract:
   properties:
+    - name: variant
+      type: "'normal' | 'inverse'"
+      required: false
+      default: "'normal'"
+      description: >-
+        Colour set for the surface the link sits on (Figma `background`):
+        `normal` on a light surface, `inverse` on a dark one. `inverse` has no
+        disabled state (the design defines none).
     - name: href
       type: string
       required: false
