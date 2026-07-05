@@ -1,0 +1,64 @@
+spec_version: '1.0'
+component: ButtonIconMenu
+
+contract:
+  properties:
+    - name: open
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Whether the menu this triggers is open. Applies the open (`*-active`)
+        treatment and reflects `aria-expanded`. Keep it in sync with the menu.
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Disables interaction. Applies the explicit disabled tokens (not opacity)
+        and suppresses click.
+    - name: type
+      type: "'button' | 'submit' | 'reset'"
+      required: false
+      default: "'button'"
+      description: Native HTML button type.
+    - name: aria-label
+      type: string
+      required: false
+      default: "'More options'"
+      description: >-
+        Accessible name. This control is icon-only; defaults to "More options"
+        and can be overridden with a more specific label.
+
+  events:
+    - name: click
+      payload: MouseEvent
+      description: >-
+        Fired on activation — typically toggles the menu it controls. Not fired
+        while disabled.
+
+  content:
+    - name: default
+      description: >-
+        None — the ellipsis glyph is built in. ButtonIconMenu takes no content
+        children (use ButtonIcon for an arbitrary icon).
+
+adapters:
+  react:
+    component: ButtonIconMenu
+    status: implemented
+    import: "import { ButtonIconMenu } from '@spec-lab/ui-react'"
+    example: |
+      <ButtonIconMenu open={open} aria-label="Row actions" onClick={toggle} />
+  vue:
+    element: AvButtonIconMenu
+    status: planned
+    import: "import { AvButtonIconMenu } from '@spec-lab/ui-vue'"
+    example: |
+      <AvButtonIconMenu :open="open" aria-label="Row actions" />
+  web-components:
+    element: ui-button-icon-menu
+    status: planned
+    import: "import '@spec-lab/ui-wc/button-icon-menu'"
+    example: |
+      <ui-button-icon-menu aria-label="Row actions"></ui-button-icon-menu>

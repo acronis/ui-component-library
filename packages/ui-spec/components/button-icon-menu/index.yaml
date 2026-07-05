@@ -1,0 +1,14 @@
+spec_version: '1.0'
+component: ButtonIconMenu
+name: button-icon-menu
+status: ready
+category: actions
+description: >-
+  Icon-only menu trigger — a 32×32 bordered button with a fixed 16px ellipsis
+  ("more"/kebab) glyph. The icon-only sibling of ButtonMenu: presentational, with
+  an `open` prop that applies the active treatment and reflects `aria-expanded`.
+  Reuses the ButtonIcon `secondary` token tier.
+since: 0.55.0
+figma:
+  node: '3116-62813'
+  codeConnect: packages/ui-react/src/components/ui/button-icon-menu/button-icon-menu.figma.tsx

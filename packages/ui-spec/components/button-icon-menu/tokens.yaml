@@ -1,0 +1,49 @@
+spec_version: '1.0'
+component: ButtonIconMenu
+
+# References only — values live in @spec-lab/tokens. ButtonIconMenu reuses the
+# ButtonIcon `secondary` tier: shared geometry/fill/icon from
+# `--ui-button-icon-global-*` plus the 1px container border from
+# `--ui-button-icon-secondary-container-border-color-*`.
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── Geometry (root) ──
+  - { name: --ui-button-icon-global-container-height, affects: root }
+  - { name: --ui-button-icon-global-container-border-radius, affects: root }
+  - { name: --ui-button-icon-global-icon-size, affects: icon }
+
+  # ── Container fill ──
+  - { name: --ui-button-icon-global-container-color-idle, affects: root }
+  - { name: --ui-button-icon-global-container-color-hover, affects: root }
+  - { name: --ui-button-icon-global-container-color-active, affects: root }
+  - { name: --ui-button-icon-global-container-color-disabled, affects: root }
+
+  # ── Icon color ──
+  - { name: --ui-button-icon-global-icon-color-idle, affects: icon }
+  - { name: --ui-button-icon-global-icon-color-hover, affects: icon }
+  - { name: --ui-button-icon-global-icon-color-active, affects: icon }
+  - { name: --ui-button-icon-global-icon-color-disabled, affects: icon }
+
+  # ── Container border (secondary) ──
+  - {
+      name: --ui-button-icon-secondary-container-border-color-idle,
+      affects: root,
+    }
+  - {
+      name: --ui-button-icon-secondary-container-border-color-hover,
+      affects: root,
+    }
+  - {
+      name: --ui-button-icon-secondary-container-border-color-active,
+      affects: root,
+    }
+  - {
+      name: --ui-button-icon-secondary-container-border-color-disabled,
+      affects: root,
+    }
+  - {
+      name: --ui-focus-primary,
+      affects: root,
+      description: Focus-visible ring color,
+    }

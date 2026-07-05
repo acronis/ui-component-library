@@ -1,0 +1,58 @@
+spec_version: '1.0'
+component: ButtonIconMenu
+
+schematic: |
+  +----------+
+  |   icon   |   root: <button> 32x32 (bordered)
+  +----------+
+  icon: fixed ellipsis ("more") glyph, 16px, centered
+
+root:
+  element: button
+  role: button
+  description: >-
+    32×32 square icon-only trigger surface (background, 1px border, radius). Opens
+    a menu; the `open` prop applies the active treatment and reflects
+    `aria-expanded`.
+
+parts:
+  - id: icon
+    description: The built-in ellipsis ("more") glyph, sized to 16px.
+    element: svg
+
+states:
+  - {
+      id: hover,
+      trigger: pointer hover,
+      kind: pseudo,
+      pseudo: ':hover',
+      affects: [root, icon],
+    }
+  - {
+      id: active,
+      trigger: pointer or keyboard activation (press),
+      kind: pseudo,
+      pseudo: ':active',
+      affects: [root, icon],
+    }
+  - {
+      id: open,
+      trigger: 'open === true (menu open)',
+      kind: prop,
+      prop: open,
+      affects: [root, icon],
+    }
+  - {
+      id: focus-visible,
+      trigger: keyboard focus,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [root],
+    }
+  - {
+      id: disabled,
+      trigger: 'disabled === true',
+      kind: prop,
+      prop: disabled,
+      affects: [root, icon],
+    }
