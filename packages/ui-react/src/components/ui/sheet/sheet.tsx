@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 // a slide transition. In the Vue kit this was `Details`; it's re-exported under
 // `Details*` aliases for a 1:1 drop-in. No `--ui-sheet-*` token tier exists yet,
 // so this design-pending v1 mirrors the Dialog family's semantic theming:
-//   • overlay  -> var(--ui-background-overlay-primary)
+//   • overlay  -> var(--ui-background-backdrop-screen)
 //   • panel    -> bg-muted        = --ui-background-surface-secondary
 //   • header / footer -> bg-background = --ui-background-surface-primary bars,
 //     divided by border-border
@@ -64,7 +64,7 @@ const SheetOverlay = React.forwardRef<
   <DialogPrimitive.Backdrop
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-[var(--ui-background-overlay-primary)] duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
+      'fixed inset-0 z-50 bg-[var(--ui-background-backdrop-screen)] duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
       className
     )}
     {...props}

@@ -12,7 +12,7 @@ source: '@spec-lab/tokens'
 
 tokens:
   - {
-      name: --ui-background-overlay-primary,
+      name: --ui-background-backdrop-screen,
       affects: overlay,
       description: Scrim color behind the panel (direct var ref),
     }

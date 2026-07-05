@@ -10,7 +10,7 @@ import { buttonVariants } from '@/components/ui/button';
 // port is mostly a token pass, not a primitive swap. No `--ui-alert-dialog-*`
 // tier exists yet, so this design-pending v1 themes from the shared semantic
 // tokens:
-//   • overlay  -> bg-[var(--ui-background-overlay-primary)] (legacy hard-coded
+//   • overlay  -> bg-[var(--ui-background-backdrop-screen)] (legacy hard-coded
 //     `bg-black/80`, a raw un-tokenized value)
 //   • popup    -> bg-background + border-border + text-foreground
 //   • description -> text-muted-foreground (unchanged from legacy — already
@@ -42,7 +42,7 @@ const AlertDialogOverlay = React.forwardRef<
   <AlertDialogPrimitive.Backdrop
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-[var(--ui-background-overlay-primary)] duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
+      'fixed inset-0 z-50 bg-[var(--ui-background-backdrop-screen)] duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
       className
     )}
     {...props}

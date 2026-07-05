@@ -19,7 +19,7 @@ schematic: |
                                       +========================+
      root    -> bg-muted (surface-secondary) panel + shadow, edge border
      header / footer -> bg-background (surface-primary) bars, border-border
-     overlay -> var(--ui-background-overlay-primary)
+     overlay -> var(--ui-background-backdrop-screen)
      close   -> times icon, text-muted-foreground → hover text-foreground
      side    -> top | right (default) | bottom | left (slides in from that edge)
 
@@ -41,7 +41,7 @@ parts:
   - id: overlay
     description: >-
       Full-screen scrim (Base UI `Dialog.Backdrop`) behind the panel, tinted with
-      `--ui-background-overlay-primary`.
+      `--ui-background-backdrop-screen`.
     element: div
   - id: header
     description: >-
