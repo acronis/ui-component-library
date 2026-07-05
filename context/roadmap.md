@@ -1,6 +1,6 @@
 # Constructor Lab UI Kit — Roadmap
 
-> Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-06-29
+> Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-07-05
 > The roadmap substance below is current, but its GitHub tracking is **inherited
 > from the upstream `acronis/uikit` project** ("User Interface Kit Development"):
 > the 7 epics as issues **#102–108** and ~98 task sub-issues with Status / Phase
@@ -15,14 +15,15 @@
 A single, token-driven UI Kit where **design tokens → theme → components →
 icons/assets** form one pipeline, Figma is the upstream source of truth, and
 **`@spec-lab/ui-react` (Base UI) is the one component library teams
-build on.** `ui-legacy` (`shadcn-uikit`) moves to **maintenance/freeze** with a
-defined deprecation path.
+build on.** `ui-legacy` (`shadcn-uikit`) has been removed from this repo;
+`ui-react` is the sole library.
 
 ## Decisions locked (2026-06-05)
 
-1. **`ui-react` replaces `ui-legacy`.** Legacy → maintenance/freeze; no new
-   features land there. All new work — **including the Table cluster** — targets
-   `ui-react`. Legacy gets only security/critical fixes.
+1. **`ui-react` replaces `ui-legacy`.** _(History: `ui-legacy` /
+   `shadcn-uikit` has since been removed from this repo; `ui-react` is now the
+   sole library.)_ All work — **including the Table cluster** — targets
+   `ui-react`.
 2. **Foundational-first buildout.** Components ship bottom-up: primitives before
    composites before data/complex components, so higher-order components always
    have their building blocks.
@@ -37,10 +38,8 @@ defined deprecation path.
    white-label brands are authored as **full Figma brand modes**, not generated
    by a color-derivation script.
 4. **Timeline — Q3 2026 (Jul–Sep).** Consumers need a usable set of base
-   components in Q3 2026. `ui-legacy` coexists **until the end of Q3 2026** and is
-   **phased out by Q3 2026**; after that it is security-only. **v1 scope** = all
-   basic Base UI components + our design-system components + selected complex
-   components (Table & friends).
+   components in Q3 2026. **v1 scope** = all basic Base UI components + our
+   design-system components + selected complex components (Table & friends).
 5. **A11y bar + browser support matrix (issue #193).** `ui-react` v1 targets
    **WCAG 2.1 AA** for shipped components and docs surfaces (keyboard operation,
    visible focus, semantic name/role/value, and contrast: 4.5:1 text, 3:1
@@ -48,33 +47,31 @@ defined deprecation path.
    verification: **Chrome 123+ · Edge 123+ · Firefox 120+ · Safari 17.5+**
    (desktop), matching the `light-dark()` + `color-scheme` token delivery
    baseline used by `tokens`.
-6. **Legacy → `ui-react` migration path (issue #194).** For E6/v1, migration is
-   **manual-first via the guide (#184)**. In-repo automation scope is limited to
+6. **External consumer migration path (issue #194).** For any team still on the
+   old `shadcn-uikit` outside this repo, migration to `ui-react` is
+   **manual-first via the guide (#184)**. Automation scope is limited to
    optional, targeted codemod recipes (for low-risk import/symbol rewrites), not
-   a fully automated end-to-end legacy→ui-react codemod.
+   a fully automated end-to-end codemod.
 
 ---
 
 ## Current state (baseline)
 
-| Area             | Package                                      | Version | Maturity                                              |
-| ---------------- | -------------------------------------------- | ------- | ----------------------------------------------------- |
-| Legacy lib       | `shadcn-uikit` (`ui-legacy`)                 | 0.36.3  | Mature — 82 components → **freeze**                   |
-| **Next-gen lib** | `ui-react`                                   | 0.54.0  | **~62 components in tree** (Tier 1–3 broadly covered) |
-| Tokens           | `tokens`                                     | 1.9.0   | DTCG JSON, Figma-synced, ajv-validated                |
-| Token artifacts  | `tokens` (built by `tools/style-dictionary`) | 1.9.0   | Per-brand CSS + Tailwind presets                      |
-| Icons            | `icons-react`                                | 0.5.0   | Generated from assets                                 |
-| Assets           | `design-assets`                              | 0.4.0   | Manifests + binaries                                  |
-| Apps             | demo · docs · demos                          | 0.1–0.4 | Scaffolded showcases                                  |
+| Area            | Package                                      | Version | Maturity                                              |
+| --------------- | -------------------------------------------- | ------- | ----------------------------------------------------- |
+| **Library**     | `ui-react`                                   | 0.54.0  | **~79 components in tree** (Tier 1–3 broadly covered) |
+| Tokens          | `tokens`                                     | 1.9.0   | DTCG JSON, Figma-synced, ajv-validated                |
+| Token artifacts | `tokens` (built by `tools/style-dictionary`) | 1.9.0   | Per-brand CSS + Tailwind presets                      |
+| Icons           | `icons-react`                                | 0.5.0   | Generated from `icons-svg`                            |
+| Apps            | demo · docs · demos                          | 0.1–0.4 | Scaffolded showcases                                  |
 
-**Where the plan now stands:** ui-react has grown from 2 to **~62 components**
-(virtually all have a Vitest test and a Storybook story; ~60 carry Figma Code
+**Where the plan now stands:** ui-react has grown from 2 to **~79 components**
+(virtually all have a Vitest test and a Storybook story; ~66 carry Figma Code
 Connect). Tier 1 (form/overlay) and Tier 2 (composites) are in tree, and most of
-Tier 3 (layout/shell/design-system) has landed. The remaining roadmap work is
-**depth/polish per component to the full DoD, the last complex components
-(Calendar · Tree · Carousel · Command), and the v1 hardening pass** (a11y, visual
-regression, migration guide) — not greenfield primitives. Legacy stays frozen
-while consumers migrate.
+Tier 3 (layout/shell/design-system) has landed. The complex set
+(Calendar · Tree · Carousel · Command) has shipped. The remaining roadmap work is
+**depth/polish per component to the full DoD and the v1 hardening pass** (a11y,
+visual regression, docs) — not greenfield primitives.
 
 ---
 
@@ -98,7 +95,7 @@ plan: [`e1-theme-delivery.md`](./e1-theme-delivery.md).
       authoring the legacy brands as **full Figma modes** + sync.
       See `packages/tokens/context/brand-matrix.md`.
 - [ ] **White-label fonts per brand** (#101) — brand-scoped font tokens + fallback stack.
-- [ ] **New assets wired to themes** (#175) — icon/illustration assets paired per brand.
+- [ ] **New icons wired to themes** (#175) — `icons-react` icons paired per brand.
 - [x] **Token contract & versioning** (#176) — define what a breaking token change is; how
       `tokens` semver maps to `tokens` and consumers.
       See `packages/tokens/context/token-contract.md`.
@@ -162,26 +159,26 @@ Depends on Tier 1–2 primitives (Tooltip, Dropdown, Checkbox, Scroll Area).
 - [ ] Column header sort — inline-toggle variant, not Dropdown-only (#48)
 - [ ] Tooltip portal escape hatch (#47) — port as ui-react Tooltip feature
 - [x] Data Table (composition layer) (#86) — `data-table` in tree
-- [ ] **Remaining complex set for v1:** Calendar · Tree · Carousel · Command
-      _(Chart ✅ and Date Picker ✅ (`input-date-picker`) already in tree)_
+- [x] **Complex set for v1:** Calendar ✅ · Tree ✅ · Carousel ✅ · Command ✅ —
+      all in tree _(Chart ✅ and Date Picker ✅ (`input-date-picker`) too)_
 
 ### E4 — Figma ↔ Code · #105 _(force-multiplier)_
 
-- [x] Code Connect rollout beyond Button — ~60 `*.figma.tsx` across shipped ui-react components
+- [x] Code Connect rollout beyond Button — ~66 `*.figma.tsx` across shipped ui-react components
 - [ ] Figma connect template (#87)
 - [ ] Document/automate one-way token sync (Figma → `tokens`)
 - [ ] design-to-code workflow guidance for contributors
 
 ### E5 — Icons & assets · #106
 
-- [ ] Complete icon pack generation coverage from `design-assets`
-- [ ] Asset manifest validation & per-pack subpath export audit
+- [ ] Complete icon pack generation coverage from `icons-svg` → `icons-react`
+- [ ] Icon manifest validation & per-pack subpath export audit
 - [ ] Tree-shaking / bundle-size checks for `icons-react`
 
 ### E6 — Docs & adoption · #107
 
-- [ ] **Migration guide: legacy → ui-react** (component mapping + manual flow; optional codemod recipes where viable)
-- [x] Deprecation notice + timeline published on `ui-legacy` (issue #185)
+- [ ] **Migration guide for external consumers: `shadcn-uikit` → ui-react**
+      (component mapping + manual flow; optional codemod recipes where viable)
 - [ ] Docs site (apps/docs) coverage tracks ui-react component ladder
       (including the token reference, typography, and icon catalog pages)
 
@@ -203,7 +200,7 @@ ui-react v1 = **all basic Base UI components** (E2 Tier 1 + Tier 2) **+ our
 design-system components** (layout/shell, brand-specific elements — E2 Tier 3)
 **+ selected complex components** led by **Table** (E3). Backed by the stable
 token/theme contract (E1), a11y baseline and visual regression (E7), and a
-migration guide (E6). On v1, `ui-legacy` goes security-only.
+migration guide for external consumers (E6).
 
 Ratified v1.0 criteria (#191):
 
@@ -215,25 +212,24 @@ Ratified v1.0 criteria (#191):
   `tokens` → `tokens` → `ui-react`, with no unresolved breaking-contract
   gaps for the v1 component surface.
 
-## Sequencing (calendar — today is 2026-06-05)
+## Sequencing (calendar — today is 2026-07-05)
 
-| Phase                    | When          | Focus                                                                                              | Exit criteria                                           |
-| ------------------------ | ------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| **P1 — Foundation**      | **Jun 2026**  | E1 theme delivery + brand matrix + token contract; freeze legacy + publish deprecation notice (E6) | Brand themes generated from new pipeline; legacy frozen |
-| **P2 — Primitives**      | **Jun–Jul**   | E2 Tier 1 + a11y baseline (E7) + Code Connect rollout (E4)                                         | Form/overlay primitives shipped to DoD                  |
-| **🎯 Q3 consumer drop**  | **early Jul** | Usable base set (Tier 1 + core Tier 2) published for consuming teams                               | Consumers can build real screens on ui-react            |
-| **P3 — Composites + DS** | **Jul–Aug**   | E2 Tier 2 + Tier 3 design-system/layout + E5 icons + migration guide (E6)                          | Composite + layout surface complete                     |
-| **P4 — Data/Table**      | **Aug–Sep**   | E3 Table cluster (#44–49, #86) + remaining complex components                                      | Table: sticky/resizable/sort + Data Table               |
-| **🎯 v1 GA**             | **end Sep**   | E7 1.0 criteria + visual regression; legacy → security-only                                        | ui-react v1 released; legacy EOL date set               |
+| Phase                                    | When          | Focus                                                                     | Exit criteria                                |
+| ---------------------------------------- | ------------- | ------------------------------------------------------------------------- | -------------------------------------------- |
+| **P1 — Foundation** ✅                   | **Jun 2026**  | E1 theme delivery + brand matrix + token contract                         | Brand themes generated from new pipeline     |
+| **P2 — Primitives** ✅                   | **Jun–Jul**   | E2 Tier 1 + a11y baseline (E7) + Code Connect rollout (E4)                | Form/overlay primitives shipped to DoD       |
+| **🎯 Q3 consumer drop** ✅               | **early Jul** | Usable base set (Tier 1 + core Tier 2) published for consuming teams      | Consumers can build real screens on ui-react |
+| **P3 — Composites + DS** _(in progress)_ | **Jul–Aug**   | E2 Tier 2 + Tier 3 design-system/layout + E5 icons + migration guide (E6) | Composite + layout surface complete          |
+| **P4 — Data/Table**                      | **Aug–Sep**   | E3 Table cluster (#44–49, #86); complex components already shipped        | Table: sticky/resizable/sort + Data Table    |
+| **🎯 v1 GA**                             | **end Sep**   | E7 1.0 criteria + visual regression                                       | ui-react v1 released                         |
 
-> **Reality check (updated 2026-06-29).** ui-react has reached **~62 components in
+> **Reality check (updated 2026-07-05).** ui-react has reached **~79 components in
 > tree** — the breadth target for v1 is largely met, well ahead of the original
-> "2/82" baseline. The remaining risk has shifted from _breadth_ to _depth_:
-> bringing each component to the full DoD, finishing the Table cluster (#44/#46/#48)
-> and the last complex components (Calendar · Tree · Carousel · Command), and the
-> v1 hardening pass (a11y, visual regression, migration guide). If capacity is
-> limited, the lever is still **narrowing the widget family and trimming the
-> complex set**, not slipping the date.
+> "2/82" baseline. The complex set (Calendar · Tree · Carousel · Command) has
+> shipped. The remaining risk has shifted from _breadth_ to _depth_: bringing each
+> component to the full DoD, finishing the Table cluster (#44/#46/#48), and the
+> v1 hardening pass (a11y, visual regression, docs). If capacity is limited, the
+> lever is still **narrowing the widget family**, not slipping the date.
 
 ---
 
