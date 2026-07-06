@@ -48,9 +48,9 @@ contract:
       required: false
       default: false
       description: >-
-        On an item — show a trailing cascade chevron. Indicator only; the live
-        submenu is deferred. An item also accepts the Base UI Menu item
-        `disabled` prop to dim and disable it.
+        On an item — show a trailing cascade chevron. Indicator only; use a
+        submenu trigger for a live nested menu. An item also accepts the Base UI
+        Menu item `disabled` prop to dim and disable it.
 
   events:
     - name: open-change

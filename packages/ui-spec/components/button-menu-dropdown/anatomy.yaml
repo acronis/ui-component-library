@@ -11,13 +11,19 @@ schematic: |
   |   item: [icon] Rename    [shortcut]   |
   |   item: [icon] Copy      [shortcut]   |
   |   item:        Move to   [cascade] ›  |
-  | ───────────────────────────────────── |  <- section divider (non-first)
-  | section:                              |
-  |   item: [icon] Delete                 |
-  |   item:        Unavailable (disabled) |
-  +---------------------------------------+
+  |   submenu-trigger: Move to ›  ┐       |
+  | ─────────────────────────────┼─────── |  <- section divider (non-first)
+  | section:                     │        |
+  |   item: [icon] Delete         │        |
+  |   item:        Unavailable    │        |
+  +──────────────────────────────┼────────+
+                                  └─> submenu (nested panel, inline-end)
+                                      +----------------------+
+                                      | section:             |
+                                      |   item: Documents    |
+                                      +----------------------+
      legend: icon = leading glyph · shortcut = trailing hint ·
-             cascade = trailing chevron
+             cascade = trailing chevron · submenu-trigger opens a submenu
      panel  -> container tokens (bg / border / radius / padding)
      item highlight (pointer or keyboard) -> item-container-color-hover
      item press -> item-container-color-active
@@ -55,9 +61,22 @@ parts:
     optional: true
   - id: cascade
     description: >-
-      An optional trailing chevron indicating a nested submenu. Renders the
-      indicator only — the live submenu is deferred.
+      An optional trailing chevron on a plain item indicating a nested submenu.
+      Renders the indicator only — use `submenu-trigger` for a live nested menu.
     element: svg
+    optional: true
+  - id: submenu-trigger
+    description: >-
+      A `menuitem` (`aria-haspopup="menu"`) that opens a nested submenu panel.
+      Styled like an item with a leading icon plus a trailing cascade chevron;
+      stays highlighted (`data-[popup-open]`) while its submenu is open.
+    element: div
+    optional: true
+  - id: submenu
+    description: >-
+      The nested panel a submenu-trigger opens (a `menu` popup positioned to the
+      inline-end side), reusing the container/item tokens of the root panel.
+    element: div
     optional: true
 
 layout:

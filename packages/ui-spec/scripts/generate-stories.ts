@@ -267,6 +267,25 @@ const RENDER: Record<string, RenderHint> = {
       '    ',
     ].join('\n'),
   },
+  menu: {
+    props: 'defaultOpen',
+    extraImports: [
+      "import { MenuTrigger, MenuContent, MenuSection, MenuItem } from '../menu';",
+      "import { PencilIcon } from '@spec-lab/icons-react/stroke-mono';",
+    ],
+    sample: [
+      '',
+      '      <MenuTrigger>Actions</MenuTrigger>',
+      '      <MenuContent>',
+      '        <MenuSection>',
+      '          <MenuItem icon={<PencilIcon />} shortcut="⌘R">Rename</MenuItem>',
+      '          <MenuItem>Duplicate</MenuItem>',
+      '          <MenuItem cascade>Move to</MenuItem>',
+      '        </MenuSection>',
+      '      </MenuContent>',
+      '    ',
+    ].join('\n'),
+  },
   empty: {
     extraImports: [
       "import { EmptyIcon, EmptyHeader, EmptyTitle, EmptyDescription } from '../empty';",

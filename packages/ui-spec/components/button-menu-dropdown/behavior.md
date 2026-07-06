@@ -42,7 +42,23 @@ truncating with an ellipsis when the panel is too narrow.
 **When** it renders
 **Then** a trailing chevron appears in
 `--ui-button-menu-dropdown-extras-cascade-icon-color` (mirrored in RTL). This is
-an indicator only — the live submenu is deferred.
+an indicator only — use a submenu trigger (below) for a live nested menu.
+
+## Cascaded submenus
+
+### A submenu trigger opens a nested panel
+
+**Given** a submenu trigger row (label + optional leading `icon` + a trailing
+cascade chevron)
+**When** the user hovers it, presses Enter/Space, or presses the End-side arrow
+**Then** a nested panel opens to the `inline-end` side, themed from the same
+`--ui-button-menu-dropdown-container-*` / item tokens as the root panel, and
+receives roving keyboard navigation; the Start-side arrow or Esc closes it.
+
+**Given** a submenu is open
+**When** its trigger renders
+**Then** the trigger row stays in the hover state
+(`--ui-button-menu-dropdown-item-container-color-hover`) via `data-[popup-open]`.
 
 ## Interaction states
 

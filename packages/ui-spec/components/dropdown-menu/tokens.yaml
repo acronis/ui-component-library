@@ -3,35 +3,63 @@ component: DropdownMenu
 
 # References only. Values live in @spec-lab/tokens (generated from
 # @spec-lab/tokens) and resolve per brand/theme at paint time.
-# Design-pending v1: no `--ui-menu-*` tier yet, so the menu consumes the shared
-# *semantic* tokens (via bridged Tailwind names bg-background / text-foreground /
-# border-border / bg-accent / text-muted-foreground). Replace with a `--ui-menu-*`
-# tier if/when a Figma pass introduces one.
+# DropdownMenu is an alias of `Menu` (see components/menu), so it renders from
+# the shared `--ui-button-menu-dropdown-*` token tier that `Menu` is styled from.
 source: '@spec-lab/tokens'
 
 tokens:
   - {
-      name: --ui-background-surface-primary,
+      name: --ui-button-menu-dropdown-container-color,
       affects: root,
-      description: Popup surface (bridged as bg-background),
+      description: Popup surface,
     }
   - {
-      name: --ui-text-on-surface-primary,
+      name: --ui-button-menu-dropdown-container-border-color,
       affects: root,
-      description: Popup text color (bridged as text-foreground),
+      description: Popup border,
     }
   - {
-      name: --ui-border-on-surface-border,
+      name: --ui-button-menu-dropdown-container-border-radius,
       affects: root,
-      description: Popup border and separator (bridged as border-border / bg-border),
+      description: Popup corner radius,
     }
   - {
-      name: --ui-background-surface-hover,
+      name: --ui-button-menu-dropdown-item-label-color,
       affects: item,
-      description: Highlighted item background (bridged as bg-accent),
+      description: Item + label text color,
     }
   - {
-      name: --ui-text-on-surface-secondary,
+      name: --ui-button-menu-dropdown-item-container-color-idle,
+      affects: item,
+      description: Idle item background,
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-container-color-hover,
+      affects: item,
+      description: Highlighted item background (pointer or keyboard),
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-container-color-active,
+      affects: item,
+      description: Pressed item background,
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-icon-color,
+      affects: item,
+      description: Leading icon + checkbox/radio indicator color,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-container-border-color,
+      affects: separator,
+      description: Separator / section divider color,
+    }
+  - {
+      name: --ui-button-menu-dropdown-extras-shortcut-label-color,
       affects: shortcut,
-      description: Shortcut hint color (bridged as text-muted-foreground),
+      description: Shortcut hint color,
+    }
+  - {
+      name: --ui-button-menu-dropdown-extras-cascade-icon-color,
+      affects: submenu-trigger,
+      description: Submenu / cascade chevron color,
     }
