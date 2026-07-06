@@ -22,7 +22,6 @@
     "acronis"
   ],
   "devDependencies": {
-    "@spec-lab/tokens": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "ajv": "catalog:",

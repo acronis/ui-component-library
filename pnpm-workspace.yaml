@@ -16,7 +16,7 @@ catalog:
 
   # Base UI — primitive set for the packages/ui-react library
   # (a direct dependency there).
-  '@base-ui/react': 1.4.1
+  '@base-ui/react': 1.6.0
 
   # Toolchain
   typescript: 6.0.3

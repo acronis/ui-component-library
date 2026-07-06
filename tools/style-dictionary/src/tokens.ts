@@ -16,7 +16,6 @@
 
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import StyleDictionary from 'style-dictionary';
 import type { Config, TransformedToken } from 'style-dictionary/types';
@@ -48,6 +47,7 @@ import {
   rel,
   scssDir,
   semanticsCssFile,
+  tiersDir,
 } from './platforms';
 import { emitScss } from './scss';
 
@@ -56,19 +56,19 @@ import { emitScss } from './scss';
 /** A raw token tree (a DTCG-shaped JSON object). */
 type TokenTree = Record<string, unknown>;
 
-/** The three source token files, addressed via the package's `exports`. */
+/** The three source token files, read from `tokens/tiers/` by relative path. */
 const TOKEN_SOURCES = {
-  primitives: '@spec-lab/tokens/tiers/primitives.json',
-  semantics: '@spec-lab/tokens/tiers/semantics.json',
-  components: '@spec-lab/tokens/tiers/components.json',
+  primitives: 'primitives.json',
+  semantics: 'semantics.json',
+  components: 'components.json',
 } as const;
 
 type TokenSourceName = keyof typeof TOKEN_SOURCES;
 
 /** Read and parse one source token file by name. */
 function readTokenSource(name: TokenSourceName): TokenTree {
-  const url = import.meta.resolve(TOKEN_SOURCES[name]);
-  return JSON.parse(readFileSync(fileURLToPath(url), 'utf8')) as TokenTree;
+  const file = path.join(tiersDir(), TOKEN_SOURCES[name]);
+  return JSON.parse(readFileSync(file, 'utf8')) as TokenTree;
 }
 
 /**

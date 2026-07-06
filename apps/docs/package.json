@@ -18,7 +18,7 @@
   "dependencies": {
     "@spec-lab/icons-react": "workspace:*",
     "@spec-lab/ui-react": "workspace:*",
-    "@base-ui/react": "1.5.0",
+    "@base-ui/react": "catalog:",
     "@radix-ui/react-dialog": "1.1.15",
     "@tanstack/react-table": "catalog:",
     "fumadocs-core": "16.9.3",

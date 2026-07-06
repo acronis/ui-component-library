@@ -58,6 +58,15 @@ export const DIST = path.join(ROOT, 'dist');
  */
 export const TOKENS_PKG = path.resolve(ROOT, '..', '..', 'packages', 'tokens');
 
+/**
+ * The DTCG source tiers this tool reads. Addressed by relative path (not the
+ * `@spec-lab/tokens` package specifier) so this tool does NOT declare a build
+ * dependency on the package it writes into — that edge would form a cycle with
+ * `tokens`' own `build` (which invokes this tool), and pnpm resolves a cycle by
+ * running both concurrently, racing on the shared `tokens/{dtcg,css}` writes.
+ */
+export const tiersDir = (): string => path.join(TOKENS_PKG, 'tiers');
+
 /** The DTCG intermediate ships under `tokens/dtcg/`. */
 export const dtcgDir = (): string => path.join(TOKENS_PKG, 'dtcg');
 
