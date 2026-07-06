@@ -78,11 +78,12 @@ describe('Menu', () => {
     );
   });
 
-  it('renders a trailing cascade chevron', () => {
+  it('renders a trailing cascade chevron that flips in RTL', () => {
     render(<DemoMenu />);
     const item = screen.getByRole('menuitem', { name: 'Move to' });
     expect(item.querySelector('svg')).toHaveClass(
-      'text-[var(--ui-button-menu-dropdown-extras-cascade-icon-color)]'
+      'text-[var(--ui-button-menu-dropdown-extras-cascade-icon-color)]',
+      'rtl:rotate-180'
     );
   });
 
@@ -139,6 +140,18 @@ describe('Menu submenu', () => {
     expect(trigger).toHaveAttribute('data-popup-open');
     expect(trigger).toContainElement(screen.getByTestId('sub-icon'));
     expect(screen.getByRole('menuitem', { name: 'Documents' })).toBeInTheDocument();
+  });
+
+  it('flips the submenu-trigger cascade chevron in RTL', () => {
+    render(<DemoSubmenu />);
+    const trigger = screen.getByRole('menuitem', { name: /Move to/ });
+    // The trailing cascade chevron is the last svg (the first is the leading icon).
+    const svgs = trigger.querySelectorAll('svg');
+    const chevron = svgs[svgs.length - 1];
+    expect(chevron).toHaveClass(
+      'text-[var(--ui-button-menu-dropdown-extras-cascade-icon-color)]',
+      'rtl:rotate-180'
+    );
   });
 });
 

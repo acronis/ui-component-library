@@ -53,6 +53,20 @@ its idle/hover/active states to their own token. This is a design-pending v1;
 same parts — they render identically, share the same token tier, and only
 differ in name/spec. See the [DropdownMenu](/components/dropdown-menu) page.
 
+### Right-to-left
+
+`Menu` is RTL-ready: it uses logical CSS (padding, margins, indicator inset) and
+flips the cascade chevron (`rtl:rotate-180`) from the ambient `dir`. For nested
+menus to also **open** on the correct (inline-end → left) side, wrap your app
+once in Base UI's `DirectionProvider` — it drives Base UI's positioning, whereas
+the DOM `dir` attribute drives the CSS mirroring:
+
+```tsx
+import { DirectionProvider } from '@base-ui/react/direction-provider';
+
+<DirectionProvider direction="rtl">{/* app + menus */}</DirectionProvider>;
+```
+
 ## Examples
 
 <DemoReact>

@@ -132,3 +132,13 @@ roving keyboard navigation.
 **Given** an open panel
 **When** an item is selected, Esc is pressed, or the user clicks outside
 **Then** the panel closes (emitting open-change).
+
+## Right-to-left
+
+### The cascade mirrors in RTL
+
+**Given** a Menu in a right-to-left context (a `dir="rtl"` ancestor for CSS and
+a Base UI `DirectionProvider direction="rtl"` for positioning)
+**When** a submenu opens
+**Then** the leading icon and label sit on the right, the cascade chevron flips
+(`rtl:rotate-180`), and the submenu panel opens to the inline-end (left) side.

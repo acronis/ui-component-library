@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { DirectionProvider } from '@base-ui/react/direction-provider';
 import {
   BinIcon,
   FilesIcon,
@@ -159,6 +160,52 @@ export const CheckboxAndRadio: Story = {
       </Menu>
     );
   },
+};
+
+// The cascade in a right-to-left context: the panel opens to the inline-end
+// (left) side, the leading icon and label sit on the right, and the cascade
+// chevron flips (`rtl:rotate-180`). RTL positioning comes from Base UI's
+// `DirectionProvider`; the CSS mirroring from the document `dir`. A real app
+// sets `dir` on the document root (so portaled popups inherit it) and wraps once
+// in `DirectionProvider` — the decorator below mirrors that; the preview's global
+// decorator resets `dir` to LTR for every other story.
+export const CascadedSubmenuRTL: Story = {
+  name: 'Cascaded Submenu (RTL)',
+  decorators: [
+    (Story) => {
+      document.documentElement.dir = 'rtl';
+      return <Story />;
+    },
+  ],
+  render: () => (
+    <DirectionProvider direction="rtl">
+      <Menu defaultOpen>
+        <MenuTrigger>Actions</MenuTrigger>
+        <MenuContent>
+          <MenuSection>
+            <MenuItem icon={<PencilIcon />} shortcut="⌘R">
+              Rename
+            </MenuItem>
+            <MenuItem icon={<FilesIcon />} shortcut="⌘C">
+              Copy
+            </MenuItem>
+            <MenuSubmenu defaultOpen>
+              <MenuSubmenuTrigger icon={<FolderIcon />}>Move to</MenuSubmenuTrigger>
+              <MenuSubmenuContent>
+                <MenuSection>
+                  <MenuItem>Documents</MenuItem>
+                  <MenuItem>Downloads</MenuItem>
+                </MenuSection>
+              </MenuSubmenuContent>
+            </MenuSubmenu>
+          </MenuSection>
+          <MenuSection>
+            <MenuItem icon={<BinIcon />}>Delete</MenuItem>
+          </MenuSection>
+        </MenuContent>
+      </Menu>
+    </DirectionProvider>
+  ),
 };
 
 export const LongLabels: Story = {
