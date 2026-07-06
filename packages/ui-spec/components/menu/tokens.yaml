@@ -1,0 +1,87 @@
+spec_version: '1.0'
+component: Menu
+
+# References only — values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time. Menu has its
+# OWN dedicated `--ui-button-menu-dropdown-*` tier (named for the component it
+# was first built for); `ButtonMenuDropdown` and `DropdownMenu` alias Menu and
+# so share this same tier.
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── Panel container (root popup) ──
+  - { name: --ui-button-menu-dropdown-container-color, affects: root }
+  - { name: --ui-button-menu-dropdown-container-border-color, affects: root }
+  - { name: --ui-button-menu-dropdown-container-border-width, affects: root }
+  - { name: --ui-button-menu-dropdown-container-border-radius, affects: root }
+  - { name: --ui-button-menu-dropdown-container-gap, affects: root }
+  - { name: --ui-button-menu-dropdown-container-padding-x, affects: root }
+  - { name: --ui-button-menu-dropdown-container-padding-y, affects: root }
+
+  # ── Section ──
+  - {
+      name: --ui-button-menu-dropdown-section-container-border-color,
+      affects: section,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-container-border-width,
+      affects: section,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-container-padding-x,
+      affects: section,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-container-padding-y,
+      affects: section,
+    }
+  - {
+      name: --ui-button-menu-dropdown-section-list-gap,
+      affects: section,
+      description: Also the standalone separator's block margin.,
+    }
+
+  # ── Item (also shared by checkbox-item / radio-item / submenu-trigger, which
+  #    reuse the same row styling, and label, which reuses padding + text color) ──
+  - { name: --ui-button-menu-dropdown-item-container-color-idle, affects: item }
+  - {
+      name: --ui-button-menu-dropdown-item-container-color-hover,
+      affects: item,
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-container-color-active,
+      affects: item,
+    }
+  - { name: --ui-button-menu-dropdown-item-container-gap, affects: item }
+  - { name: --ui-button-menu-dropdown-item-container-height, affects: item }
+  - {
+      name: --ui-button-menu-dropdown-item-container-padding-x,
+      affects: item,
+      description: Also the label part's horizontal padding.,
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-container-padding-y,
+      affects: item,
+      description: Also the label part's vertical padding.,
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-label-color,
+      affects: item,
+      description: Also the label part's text color.,
+    }
+  - {
+      name: --ui-button-menu-dropdown-item-icon-color,
+      affects: icon,
+      description: Also the checkbox/radio indicator color.,
+    }
+
+  # ── Extras (trailing) ──
+  - {
+      name: --ui-button-menu-dropdown-extras-cascade-icon-color,
+      affects: cascade,
+      description: Also the submenu-trigger's trailing chevron.,
+    }
+  - {
+      name: --ui-button-menu-dropdown-extras-shortcut-label-color,
+      affects: shortcut,
+    }

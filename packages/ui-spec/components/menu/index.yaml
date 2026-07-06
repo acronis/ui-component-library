@@ -1,0 +1,16 @@
+spec_version: '1.0'
+component: Menu
+name: menu
+status: draft
+category: overlays
+description: >-
+  The canonical composable menu: a trigger plus a portaled popup of one or more
+  groups/sections of items — actions, checkbox items, radio items, labels,
+  separators, and cascaded submenus. Built on the Base UI Menu primitive;
+  themed by the shared `--ui-button-menu-dropdown-*` token tier.
+  `ButtonMenuDropdown` and `DropdownMenu` are thin aliases of these parts.
+since: 0.55.0
+dependencies:
+  components:
+    - CheckIcon
+    - ChevronRightIcon

@@ -1,0 +1,145 @@
+spec_version: '1.0'
+component: Menu
+
+# Framework-agnostic contract for a *composable* menu: a trigger plus a popup
+# of groups/sections of items (see anatomy.yaml). The root owns the open
+# state; positioning props live on the content; per-item extras (icon /
+# shortcut / cascade / inset) and the checkbox/radio contract live on their
+# respective parts.
+contract:
+  properties:
+    - name: open
+      type: boolean
+      required: false
+      description: Controlled open state. Pair with the change event.
+    - name: default-open
+      type: boolean
+      required: false
+      default: false
+      description: Initial open state when uncontrolled.
+    - name: side
+      type: "'top' | 'bottom' | 'left' | 'right' | 'inline-start' | 'inline-end'"
+      required: false
+      default: "'bottom'"
+      description: On the content — which side of the trigger to render on.
+    - name: align
+      type: "'start' | 'center' | 'end'"
+      required: false
+      description: On the content — alignment along the chosen side.
+    - name: side-offset
+      type: number
+      required: false
+      default: 4
+      description: On the content — distance in px from the trigger.
+    - name: portal
+      type: boolean
+      required: false
+      default: true
+      description: On the content — render the popup inside a portal.
+    - name: icon
+      type: ReactNode
+      required: false
+      description: >-
+        On an item or submenu-trigger — a leading icon (16px), rendered before
+        the label.
+    - name: shortcut
+      type: ReactNode
+      required: false
+      description: On an item — a trailing keyboard-shortcut hint.
+    - name: cascade
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        On an item — show a trailing cascade chevron. Indicator only; use a
+        submenu-trigger for a live nested menu. An item also accepts the Base
+        UI Menu item `disabled` prop to dim and disable it.
+    - name: inset
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        On an item, label, or submenu-trigger — left-pad the row to align with
+        rows that have a leading checkbox/radio indicator.
+    - name: value
+      type: string
+      required: false
+      description: >-
+        On a radio group — the controlled selected value. On a radio item —
+        this item's own value.
+    - name: default-value
+      type: string
+      required: false
+      description: On a radio group — the initial selected value when uncontrolled.
+
+  events:
+    - name: open-change
+      payload: boolean
+      description: Fired when the panel opens or closes (React `onOpenChange`).
+    - name: item-click
+      payload: MouseEvent
+      description: Fired when an item is activated (pointer or keyboard).
+    - name: checked-change
+      payload: boolean
+      description: Fired by a checkbox item when toggled (React `onCheckedChange`).
+    - name: value-change
+      payload: string
+      description: >-
+        Fired by a radio group when the selection changes (React
+        `onValueChange`).
+
+  content:
+    - name: default
+      description: >-
+        A `trigger` plus the `content` popup, which holds one or more `group`s
+        or `section`s of `item`s, `checkbox-item`s, a `radio-group` of
+        `radio-item`s, `label`s, and `separator`s — plus optional cascaded
+        submenus (`submenu-trigger` + `submenu`).
+
+  methods: []
+
+adapters:
+  react:
+    component: Menu
+    status: implemented
+    import: >-
+      import { Menu, MenuTrigger, MenuContent, MenuSection, MenuItem,
+      MenuSubmenu, MenuSubmenuTrigger, MenuSubmenuContent } from
+      '@spec-lab/ui-react'
+    example: |
+      <Menu>
+        <MenuTrigger>Actions</MenuTrigger>
+        <MenuContent>
+          <MenuSection>
+            <MenuItem icon={<PencilIcon />} shortcut="⌘R">
+              Rename
+            </MenuItem>
+            <MenuSubmenu>
+              <MenuSubmenuTrigger icon={<FolderIcon />}>
+                Move to
+              </MenuSubmenuTrigger>
+              <MenuSubmenuContent>
+                <MenuSection>
+                  <MenuItem>Documents</MenuItem>
+                </MenuSection>
+              </MenuSubmenuContent>
+            </MenuSubmenu>
+          </MenuSection>
+        </MenuContent>
+      </Menu>
+  vue:
+    component: AvMenu
+    status: planned
+    import: "import { AvMenu, AvMenuItem } from '@spec-lab/ui-vue'"
+    example: |
+      <AvMenu>
+        <AvMenuItem>Rename</AvMenuItem>
+      </AvMenu>
+  web-components:
+    element: ui-menu
+    status: planned
+    import: "import '@spec-lab/ui-wc/menu'"
+    example: |
+      <ui-menu>
+        <ui-menu-item>Rename</ui-menu-item>
+      </ui-menu>

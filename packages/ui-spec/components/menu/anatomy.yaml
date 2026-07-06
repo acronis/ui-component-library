@@ -1,0 +1,205 @@
+spec_version: '1.0'
+component: Menu
+
+schematic: |
+  trigger: <button> (opens the panel)
+
+  ─ when open ─────────────────────────────
+  root: <div role="menu"> (popup)
+  +-----------------------------------------+
+  | group: (plain — no divider)              |
+  |   item: [icon] Rename        [shortcut]  |
+  |   item: [icon] Copy          [shortcut]  |
+  |   item:        Move to       [cascade] › |
+  |   submenu-trigger: [icon] Move to ›  ┐   |
+  +────────────────────────────────────┼─────+
+  | section: (top divider, non-first)    │   |
+  | ───────────────────────────────────  │   |  <- section-container border
+  |   label: "Appearance"                │   |
+  |   checkbox-item: ✓ Show grid         │   |
+  |   separator: ──────────────────────  │   |
+  |   label: "Density"                   │   |
+  |   radio-group:                       │   |
+  |     radio-item: ● Comfortable        │   |
+  |     radio-item:   Compact            │   |
+  +────────────────────────────────────┼─────+
+                                        └─> submenu (nested panel, inline-end)
+                                            +----------------------+
+                                            | section:             |
+                                            |   item: Documents    |
+                                            +----------------------+
+     legend: icon = leading glyph · shortcut = trailing hint (item's `shortcut`
+             prop, or the standalone `shortcut` part inside an item's children)
+             · cascade = trailing chevron indicator only · submenu-trigger
+             opens a live nested menu
+     panel  -> container tokens (bg / border / radius / padding)
+     item highlight (pointer or keyboard) -> item-container-color-hover
+     item press -> item-container-color-active
+
+root:
+  element: div
+  role: menu
+  description: >-
+    The portaled, positioned menu panel (Base UI `Menu.Popup`). A bordered,
+    rounded surface receiving focus and roving keyboard navigation when open;
+    themed from the `--ui-button-menu-dropdown-container-*` tokens.
+
+parts:
+  - id: trigger
+    description: The control that opens the panel (Base UI `Menu.Trigger`).
+    element: button
+  - id: group
+    description: >-
+      A plain, unstyled `role="group"` wrapper for clustering related parts
+      (e.g. a checkbox item plus its label) without a divider. Unlike
+      `section`, it adds no border/padding/gap of its own.
+    element: div
+    optional: true
+  - id: section
+    description: >-
+      A grouped list of items (`role="group"`). Non-first sections carry a top
+      divider from the section-container border tokens.
+    element: div
+  - id: item
+    description: >-
+      An action row (`role="menuitem"`). Highlighted via `data-[highlighted]`
+      (pointer or keyboard) and pressed via `:active`, each mapped to its own
+      item-container color token.
+    element: div
+  - id: icon
+    description: The optional leading icon (16px), in the item icon color.
+    element: svg
+    optional: true
+  - id: shortcut
+    description: >-
+      A trailing keyboard-shortcut hint, muted via the extras token — either an
+      item's `shortcut` prop or the standalone shortcut part rendered inside an
+      item's children.
+    element: span
+    optional: true
+  - id: cascade
+    description: >-
+      An optional trailing chevron on a plain item indicating a nested submenu.
+      Renders the indicator only — use `submenu-trigger` for a live nested menu.
+    element: svg
+    optional: true
+  - id: submenu-trigger
+    description: >-
+      A `menuitem` (`aria-haspopup="menu"`) that opens a nested submenu panel.
+      Styled like an item with a leading icon plus a trailing cascade chevron;
+      stays highlighted (`data-[popup-open]`) while its submenu is open.
+    element: div
+    optional: true
+  - id: submenu
+    description: >-
+      The nested panel a submenu-trigger opens (a `menu` popup positioned to the
+      inline-end side), reusing the container/item tokens of the root panel.
+    element: div
+    optional: true
+  - id: checkbox-item
+    description: >-
+      A toggleable row (`role="menuitemcheckbox"`) with a leading check
+      indicator in the item icon color. Controlled via `checked` / the
+      checked-change event, or uncontrolled via `default-checked`.
+    element: div
+    optional: true
+  - id: radio-group
+    description: >-
+      A plain wrapper (`role="group"`) around a set of mutually exclusive
+      `radio-item`s, tracking the selected `value`.
+    element: div
+    optional: true
+  - id: radio-item
+    description: >-
+      A single-choice row (`role="menuitemradio"`) with a leading dot indicator
+      in the item icon color, inside a `radio-group` keyed by its own `value`.
+    element: div
+    optional: true
+  - id: label
+    description: A non-interactive section heading; `inset` aligns it with indicator rows.
+    element: div
+    optional: true
+  - id: separator
+    description: A divider (`role="separator"`) between groups of items.
+    element: div
+    optional: true
+
+layout:
+  type: flex
+  direction: column
+  order: [group, section, label, separator, item]
+
+# Menu formally tracks one internal_state entry at the root — whether the
+# panel is open (controllable/uncontrollable exactly like a checkbox item's
+# checked state or a radio group's value, which are documented as `internal`
+# states below without a dedicated internal_state entry of their own).
+internal_state:
+  - id: open
+    type: boolean
+    values: [false, true]
+    initial: false
+    controllable_via: [open]
+    controlled_default: default-open
+    emits: open-change
+    changed_by: >-
+      trigger click / Enter / Space / Arrow opens; selecting an item, Esc, or
+      outside-press closes (when uncontrolled)
+    description: Whether the menu panel is shown.
+
+transitions:
+  - id: open
+    state: open
+    from: false
+    on: trigger activation
+    to: true
+    effect: emits open-change(true)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+  - id: close
+    state: open
+    from: true
+    on: item select / Esc / outside press
+    to: false
+    effect: emits open-change(false)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+
+states:
+  - {
+      id: open,
+      trigger: 'internal open === true (data-[open])',
+      kind: internal,
+      affects: [root],
+    }
+  - {
+      id: closed,
+      trigger: 'internal open === false (data-[closed])',
+      kind: internal,
+      affects: [root],
+    }
+  - {
+      id: highlighted,
+      trigger: 'pointer hover or keyboard nav (data-[highlighted])',
+      kind: internal,
+      affects: [item, checkbox-item, radio-item, submenu-trigger],
+    }
+  - {
+      id: disabled,
+      trigger: 'an item/checkbox-item/radio-item with disabled (data-[disabled])',
+      kind: internal,
+      affects: [item, checkbox-item, radio-item],
+    }
+  - {
+      id: checked,
+      trigger: 'internal checked === true (data-[checked])',
+      kind: internal,
+      affects: [checkbox-item],
+    }
+  - {
+      id: selected,
+      trigger: "a radio-item's value matches its radio-group's value",
+      kind: internal,
+      affects: [radio-item],
+    }

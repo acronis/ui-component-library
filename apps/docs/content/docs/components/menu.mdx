@@ -1,0 +1,142 @@
+---
+title: Menu
+description: A composable menu of actions, anchored to a trigger and opened on demand.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { MenuDemo } from '@/components/demos-react/menu';
+
+## Usage
+
+```tsx
+import {
+  Menu,
+  MenuTrigger,
+  MenuPortal,
+  MenuContent,
+  MenuGroup,
+  MenuSection,
+  MenuItem,
+  MenuSubmenu,
+  MenuSubmenuTrigger,
+  MenuSubmenuContent,
+  MenuCheckboxItem,
+  MenuRadioItem,
+  MenuRadioGroup,
+  MenuLabel,
+  MenuSeparator,
+  MenuShortcut,
+} from '@spec-lab/ui-react';
+```
+
+`Menu` is the canonical Base UI Menu wrapper in the kit — a composable set of
+parts (root, trigger, portal, content, group/section, item, submenu,
+checkbox/radio items, label, separator, shortcut) built on Base UI's Menu
+primitive (positioning, roving focus, typeahead, outside-press / Esc
+dismissal, ARIA). `Menu` owns the open state; `MenuTrigger` opens it; and
+`MenuContent` is the portaled popup holding one or more `MenuSection`s of
+`MenuItem`s, with optional leading icons, trailing shortcuts, a `cascade`
+chevron, labels, separators, and checkbox/radio items.
+
+Nested menus are built from `MenuSubmenu` + `MenuSubmenuTrigger` +
+`MenuSubmenuContent` — a live, hoverable/keyboard-navigable cascade rather
+than just a static `cascade` indicator. `MenuSubmenuTrigger` renders like a
+regular item (with an optional leading `icon`) plus a trailing chevron, and
+its `MenuSubmenuContent` is itself a `MenuContent`, so submenus can nest
+arbitrarily deep.
+
+`Menu` is themed from the dedicated `--ui-button-menu-dropdown-*` token tier
+(`@spec-lab/tokens`): a bordered panel (container tokens) holds sections (a top
+divider from the section tokens on non-first sections), and each item wires
+its idle/hover/active states to their own token. This is a design-pending v1;
+`ButtonMenuDropdown` and `DropdownMenu` are thin re-export aliases of these
+same parts — they render identically, share the same token tier, and only
+differ in name/spec. See the [DropdownMenu](/components/dropdown-menu) page.
+
+## Examples
+
+<DemoReact>
+  <MenuDemo />
+</DemoReact>
+
+A basic actions menu:
+
+```tsx
+<Menu>
+  <MenuTrigger render={<Button variant="secondary">Open menu</Button>} />
+  <MenuContent>
+    <MenuSection>
+      <MenuItem icon={<PencilIcon />} shortcut="⌘R">
+        Rename
+      </MenuItem>
+      <MenuItem icon={<FilesIcon />} shortcut="⌘C">
+        Copy
+      </MenuItem>
+    </MenuSection>
+    <MenuSection>
+      <MenuItem icon={<BinIcon />}>Delete</MenuItem>
+    </MenuSection>
+  </MenuContent>
+</Menu>
+```
+
+Checkbox and radio items (consumer owns the values):
+
+```tsx
+<MenuContent>
+  <MenuLabel>Appearance</MenuLabel>
+  <MenuCheckboxItem checked={grid} onCheckedChange={setGrid}>
+    Show grid
+  </MenuCheckboxItem>
+  <MenuSeparator />
+  <MenuLabel>Density</MenuLabel>
+  <MenuRadioGroup value={density} onValueChange={setDensity}>
+    <MenuRadioItem value="comfortable">Comfortable</MenuRadioItem>
+    <MenuRadioItem value="compact">Compact</MenuRadioItem>
+  </MenuRadioGroup>
+</MenuContent>
+```
+
+A live, nested submenu:
+
+```tsx
+<MenuSubmenu>
+  <MenuSubmenuTrigger icon={<FolderIcon />}>Move to</MenuSubmenuTrigger>
+  <MenuSubmenuContent>
+    <MenuSection>
+      <MenuItem>Documents</MenuItem>
+      <MenuItem>Downloads</MenuItem>
+    </MenuSection>
+  </MenuSubmenuContent>
+</MenuSubmenu>
+```
+
+## API Reference
+
+### MenuItem
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/menu/menu.docs.ts"
+  name="MenuItemProps"
+/>
+
+### MenuContent
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/menu/menu.docs.ts"
+  name="MenuContentProps"
+/>
+
+### MenuSubmenuTrigger
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/menu/menu.docs.ts"
+  name="MenuSubmenuTriggerProps"
+/>
+
+`Menu` (root) accepts the Base UI Menu root props — `open` / `defaultOpen`,
+`onOpenChange`, `modal`. `MenuLabel` / `MenuSubmenuTrigger` take an `inset`
+flag; `MenuCheckboxItem` takes `checked` / `onCheckedChange`; `MenuRadioGroup`
+takes `value` / `onValueChange`. See the
+[Base UI Menu docs](https://base-ui.com/react/components/menu) for the full
+prop surface of each part.
