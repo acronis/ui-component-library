@@ -140,6 +140,25 @@ const RENDER: Record<string, RenderHint> = {
       '    ',
     ].join('\n'),
   },
+  drawer: {
+    props: 'defaultOpen',
+    extraImports: [
+      "import { DrawerContent, DrawerHeader, DrawerTitle, DrawerCloseButton, DrawerBody, DrawerDescription } from '../drawer';",
+    ],
+    sample: [
+      '',
+      '      <DrawerContent>',
+      '        <DrawerHeader>',
+      '          <DrawerTitle>Notifications</DrawerTitle>',
+      '          <DrawerCloseButton />',
+      '        </DrawerHeader>',
+      '        <DrawerBody>',
+      '          <DrawerDescription>You are all caught up.</DrawerDescription>',
+      '        </DrawerBody>',
+      '      </DrawerContent>',
+      '    ',
+    ].join('\n'),
+  },
   dialog: {
     props: 'defaultOpen',
     extraImports: [

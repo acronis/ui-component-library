@@ -1,0 +1,81 @@
+---
+title: Drawer
+description: A panel that slides in from a screen edge with swipe-to-dismiss gestures.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { DrawerDemo } from "@/components/demos-react/drawer";
+
+## Usage
+
+```tsx
+import {
+  Drawer, DrawerTrigger, DrawerContent, DrawerSwipeArea, DrawerHeader,
+  DrawerTitle, DrawerCloseButton, DrawerBody, DrawerDescription, DrawerFooter,
+} from '@spec-lab/ui-react';
+```
+
+`Drawer` wraps Base UI's `Drawer` primitive — a panel that slides in from a
+screen edge with **swipe-to-dismiss** gestures (Base UI provides the focus trap,
+scroll lock, ARIA, and drag physics; Drawer extends Dialog). The `side` prop
+picks the edge (`top` / `bottom` / `left` / `right`, default `bottom`) and maps
+to Base UI's swipe direction. Compose it from parts: a trigger, the content
+panel, and an optional swipe-area handle, header (title + close), body (with a
+description), and footer. This is a design-pending v1 themed on the shared
+semantic tokens like the Sheet/Dialog family.
+
+> **Drawer vs Sheet.** Both slide in from an edge. Reach for `Drawer` when you
+> want touch swipe gestures and edge affordances (mobile bottom sheets); reach
+> for `Sheet` for a plain desktop side panel with no gesture layer. They are
+> independent components.
+
+## Examples
+
+<DemoReact>
+  <DrawerDemo />
+</DemoReact>
+
+```tsx
+<Drawer side="bottom">
+  <DrawerTrigger render={<Button variant="secondary">Open drawer</Button>} />
+  <DrawerContent>
+    <DrawerSwipeArea />
+    <DrawerHeader>
+      <DrawerTitle>Notifications</DrawerTitle>
+      <DrawerCloseButton />
+    </DrawerHeader>
+    <DrawerBody>
+      <DrawerDescription>You are all caught up.</DrawerDescription>
+    </DrawerBody>
+    <DrawerFooter>
+      <Button>Mark all read</Button>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+```
+
+`side` anchors the panel to any edge — `left`/`right` are full-height,
+`top`/`bottom` full-width:
+
+```tsx
+<Drawer side="right">
+  <DrawerContent> … </DrawerContent>
+</Drawer>
+```
+
+## API Reference
+
+The root `Drawer` owns the open state (`open`, `defaultOpen`, `onOpenChange`,
+`modal`) and the `side` edge:
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/drawer/drawer.docs.ts"
+  name="DrawerProps"
+/>
+
+`DrawerContent` — the portaled, edge-anchored sliding panel:
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/drawer/drawer.docs.ts"
+  name="DrawerContentProps"
+/>

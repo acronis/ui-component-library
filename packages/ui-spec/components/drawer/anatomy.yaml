@@ -1,0 +1,162 @@
+spec_version: '1.0'
+component: Drawer
+
+schematic: |
+  trigger: <button> (opens the drawer)
+
+  ─ when open (side="bottom") ─────────────────────────────────
+  backdrop: full-screen scrim
+  viewport: full-screen flex box pinning the popup to the edge
+                                      +========================+
+                                      | popup: <div role=dialog>|
+                                      |     swipe-area handle    |
+                                      | +--------------------+  |
+                                      | | header: title  (×) |  |
+                                      | +--------------------+  |
+                                      | | body:              |  |
+                                      | |   description      |  |
+                                      | |   …content…        |  |
+                                      | +--------------------+  |
+                                      | | footer:  [actions] |  |
+                                      | +--------------------+  |
+                                      +==========▲=============+
+                                          slides in / swipes out
+     popup   -> bg-muted (surface-secondary) panel + shadow, edge border,
+                transform tracks --drawer-swipe-movement-x/y
+     header / footer -> bg-background (surface-primary) bars, border-border
+     backdrop -> var(--ui-background-backdrop-screen)
+     swipe-area -> border-border grab handle (Base UI swipe-to-open area)
+     close   -> times icon, text-muted-foreground → hover text-foreground
+     side    -> top | bottom (default) | left | right (edge + slide direction)
+
+root:
+  element: div
+  role: dialog
+  description: >-
+    The sliding panel (Base UI `Drawer.Popup`), anchored to a screen edge by
+    `side` and portaled. Carries `role="dialog"`/`aria-modal`, is labelled by the
+    title and described by the description, traps focus, locks scroll while open,
+    and can be dismissed by a swipe gesture in the `side` direction.
+
+parts:
+  - id: trigger
+    description: >-
+      The control that opens the drawer (Base UI `Drawer.Trigger`). Polymorphic
+      via `render` — usually a Button. Optional; a controlled drawer needs none.
+    element: button
+    optional: true
+  - id: backdrop
+    description: >-
+      Full-screen scrim (Base UI `Drawer.Backdrop`) behind the panel, tinted with
+      `--ui-background-backdrop-screen` and faded on the swipe transition.
+    element: div
+    optional: true
+  - id: viewport
+    description: >-
+      Full-screen flex container (Base UI `Drawer.Viewport`) that pins the popup
+      to the edge chosen by `side`.
+    element: div
+  - id: swipe-area
+    description: >-
+      Base UI `Drawer.SwipeArea` styled as a visible grab handle — a centered
+      `border-border` bar that also serves as the swipe-to-open gesture area.
+    element: div
+    optional: true
+  - id: header
+    description: >-
+      Top bar holding the title and close button. White surface
+      (`bg-background`) with a bottom divider.
+    element: div
+    optional: true
+  - id: title
+    description: >-
+      The drawer's accessible name (Base UI `Drawer.Title`), wired to
+      `aria-labelledby`. Uses `text-foreground`.
+    element: h2
+  - id: close
+    description: >-
+      Icon button (Base UI `Drawer.Close` + a times icon) that dismisses the
+      drawer. Labelled "Close" for screen readers.
+    element: button
+    optional: true
+  - id: body
+    description: Scrollable content region between the header and footer.
+    element: div
+    optional: true
+  - id: description
+    description: >-
+      Supporting text (Base UI `Drawer.Description`), wired to
+      `aria-describedby`. Uses `text-muted-foreground`.
+    element: p
+    optional: true
+  - id: footer
+    description: >-
+      Bottom action bar (right-aligned). White surface (`bg-background`) with a
+      top divider.
+    element: div
+    optional: true
+
+layout:
+  type: flex
+  direction: column
+  order: [swipe-area, header, body, footer]
+
+internal_state:
+  - id: open
+    type: boolean
+    values: [false, true]
+    initial: false
+    controllable_via: [open]
+    controlled_default: default-open
+    emits: open-change
+    changed_by: >-
+      trigger click opens; close button / Esc / outside-press / swipe-to-dismiss
+      closes (when uncontrolled)
+    description: Whether the drawer is shown; reflected to the panel + backdrop.
+
+transitions:
+  - id: open
+    state: open
+    from: false
+    on: trigger click
+    to: true
+    effect: emits open-change(true)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+  - id: close
+    state: open
+    from: true
+    on: close button / Esc / outside press / swipe
+    to: false
+    effect: emits open-change(false)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+
+states:
+  - {
+      id: open,
+      trigger: 'internal open === true (data-[open])',
+      kind: internal,
+      affects: [backdrop],
+    }
+  - {
+      id: closed,
+      trigger: 'internal open === false (data-[closed])',
+      kind: internal,
+      affects: [backdrop],
+    }
+  - {
+      id: swiping,
+      trigger: 'the panel is being dragged (data-[swiping])',
+      kind: internal,
+      affects: [backdrop],
+    }
+  - {
+      id: focus-visible,
+      trigger: keyboard focus on the close button,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [close],
+    }

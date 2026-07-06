@@ -1,0 +1,17 @@
+spec_version: '1.0'
+component: Drawer
+name: drawer
+status: draft
+category: overlays
+description: >-
+  A panel that slides in from a screen edge with swipe-to-dismiss gestures. Wraps
+  Base UI's `Drawer` primitive (which extends Dialog — keyboard, focus trap,
+  scroll lock, ARIA — and adds drag physics). Composable parts (trigger, backdrop,
+  viewport, popup, swipe-area handle, header, title, close, body, description,
+  footer); the `side` prop picks the edge and maps to Base UI's `swipeDirection`.
+  Standalone from `Sheet` (a positioned Dialog with no gestures). Design
+  reconciliation against Figma is pending.
+since: 0.55.0
+dependencies:
+  components:
+    - TimesIcon

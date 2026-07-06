@@ -1,0 +1,48 @@
+spec_version: '1.0'
+component: Drawer
+
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# Design-pending v1: no `--ui-drawer-*` component tier exists yet, so the panel
+# consumes the shared *semantic* tokens (mirroring the Sheet/Dialog family) via
+# bridged Tailwind names (bg-muted / bg-background / text-foreground /
+# text-muted-foreground / border-border) plus direct var() refs for the backdrop
+# and focus ring. Replace with a `--ui-drawer-*` tier if a Figma pass introduces one.
+source: '@spec-lab/tokens'
+
+tokens:
+  - {
+      name: --ui-background-backdrop-screen,
+      affects: backdrop,
+      description: Scrim color behind the panel (direct var ref),
+    }
+  - {
+      name: --ui-background-surface-secondary,
+      affects: root,
+      description: Panel surface (bridged as `bg-muted`),
+    }
+  - {
+      name: --ui-background-surface-primary,
+      affects: header,
+      description: Header / footer bar surface (bridged as `bg-background`),
+    }
+  - {
+      name: --ui-text-on-surface-primary,
+      affects: title,
+      description: Title / default text color (bridged as `text-foreground`),
+    }
+  - {
+      name: --ui-text-on-surface-secondary,
+      affects: description,
+      description: 'Description + idle close-icon color (bridged as text-muted-foreground)',
+    }
+  - {
+      name: --ui-border-on-surface-border,
+      affects: header,
+      description: 'Header/footer dividers, edge border, and swipe-area handle bar (bridged as border-border / bg-border)',
+    }
+  - {
+      name: --ui-focus-primary,
+      affects: close,
+      description: Focus-visible ring on the close button,
+    }
