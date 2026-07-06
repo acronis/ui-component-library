@@ -11,9 +11,14 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-  DropdownMenuShortcut,
 } from '@spec-lab/ui-react';
-import { ChevronDownIcon, CloudIcon, EnvelopeIcon, MessagesIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ChevronDownIcon,
+  CloudIcon,
+  EnvelopeIcon,
+  MessagesIcon,
+  UserIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   CreditCardIcon,
   ExternalLinkIcon,
@@ -35,15 +40,11 @@ export function DropdownMenuComplex() {
       <DropdownMenuContent className="w-64">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <UserIcon className="mr-2 h-4 w-4" />
-          <span>Profile</span>
-          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+        <DropdownMenuItem icon={<UserIcon />} shortcut="⇧⌘P">
+          Profile
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <CreditCardIcon className="mr-2 h-4 w-4" />
-          <span>Billing</span>
-          <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+        <DropdownMenuItem icon={<CreditCardIcon />} shortcut="⌘B">
+          Billing
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Preferences</DropdownMenuLabel>
@@ -52,53 +53,34 @@ export function DropdownMenuComplex() {
           checked={showStatusBar}
           onCheckedChange={setShowStatusBar}
         >
-          <span>Status Bar</span>
+          Status Bar
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           checked={showActivityBar}
           onCheckedChange={setShowActivityBar}
         >
-          <span>Activity Bar</span>
+          Activity Bar
         </DropdownMenuCheckboxItem>
         <DropdownMenuSeparator />
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            <UserPlusIcon className="mr-2 h-4 w-4" />
-            <span>Invite Team</span>
+          <DropdownMenuSubTrigger icon={<UserPlusIcon />}>
+            Invite Team
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            <DropdownMenuItem>
-              <EnvelopeIcon className="mr-2 h-4 w-4" />
-              <span>By Email</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <MessagesIcon className="mr-2 h-4 w-4" />
-              <span>By Message</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <PlusCircleIcon className="mr-2 h-4 w-4" />
-              <span>More Options</span>
-            </DropdownMenuItem>
+            <DropdownMenuItem icon={<EnvelopeIcon />}>By Email</DropdownMenuItem>
+            <DropdownMenuItem icon={<MessagesIcon />}>By Message</DropdownMenuItem>
+            <DropdownMenuItem icon={<PlusCircleIcon />}>More Options</DropdownMenuItem>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <ExternalLinkIcon className="mr-2 h-4 w-4" />
-          <span>GitHub</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <LifeBuoyIcon className="mr-2 h-4 w-4" />
-          <span>Support</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem disabled>
-          <CloudIcon className="mr-2 h-4 w-4" />
-          <span>API (Coming Soon)</span>
+        <DropdownMenuItem icon={<ExternalLinkIcon />}>GitHub</DropdownMenuItem>
+        <DropdownMenuItem icon={<LifeBuoyIcon />}>Support</DropdownMenuItem>
+        <DropdownMenuItem icon={<CloudIcon />} disabled>
+          API (Coming Soon)
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOutIcon className="mr-2 h-4 w-4" />
-          <span>Log out</span>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        <DropdownMenuItem icon={<LogOutIcon />} shortcut="⇧⌘Q">
+          Log out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

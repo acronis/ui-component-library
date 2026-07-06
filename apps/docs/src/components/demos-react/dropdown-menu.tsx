@@ -7,7 +7,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@spec-lab/ui-react';
 import { useShadowMount } from '@/components/ShadowDemo';
@@ -20,14 +19,8 @@ export function DropdownMenuDemo() {
       <DropdownMenuContent portalContainer={mount} className="w-56">
         <DropdownMenuLabel>My account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          Profile
-          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          Settings
-          <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-        </DropdownMenuItem>
+        <DropdownMenuItem shortcut="⇧⌘P">Profile</DropdownMenuItem>
+        <DropdownMenuItem shortcut="⌘S">Settings</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Log out</DropdownMenuItem>
       </DropdownMenuContent>

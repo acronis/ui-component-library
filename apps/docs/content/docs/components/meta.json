@@ -60,6 +60,7 @@
     "---Overlays---",
     "command",
     "dialog",
+    "menu",
     "dropdown-menu",
     "popover",
     "tooltip",
