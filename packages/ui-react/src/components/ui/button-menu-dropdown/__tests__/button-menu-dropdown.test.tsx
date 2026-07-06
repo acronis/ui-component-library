@@ -7,6 +7,9 @@ import {
   ButtonMenuDropdownContent,
   ButtonMenuDropdownItem,
   ButtonMenuDropdownSection,
+  ButtonMenuDropdownSubmenu,
+  ButtonMenuDropdownSubmenuContent,
+  ButtonMenuDropdownSubmenuTrigger,
   ButtonMenuDropdownTrigger,
 } from '../button-menu-dropdown';
 
@@ -95,5 +98,57 @@ describe('ButtonMenuDropdown', () => {
     render(<DemoMenu contentRef={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLElement);
     expect(ref.current).toHaveAttribute('role', 'menu');
+  });
+});
+
+describe('ButtonMenuDropdown submenu', () => {
+  function DemoSubmenu() {
+    return (
+      <ButtonMenuDropdown open>
+        <ButtonMenuDropdownTrigger>Actions</ButtonMenuDropdownTrigger>
+        <ButtonMenuDropdownContent>
+          <ButtonMenuDropdownSection>
+            <ButtonMenuDropdownItem>Rename</ButtonMenuDropdownItem>
+            <ButtonMenuDropdownSubmenu open>
+              <ButtonMenuDropdownSubmenuTrigger icon={<svg data-testid="sub-icon" />}>
+                Move to
+              </ButtonMenuDropdownSubmenuTrigger>
+              <ButtonMenuDropdownSubmenuContent>
+                <ButtonMenuDropdownSection>
+                  <ButtonMenuDropdownItem>Documents</ButtonMenuDropdownItem>
+                </ButtonMenuDropdownSection>
+              </ButtonMenuDropdownSubmenuContent>
+            </ButtonMenuDropdownSubmenu>
+          </ButtonMenuDropdownSection>
+        </ButtonMenuDropdownContent>
+      </ButtonMenuDropdown>
+    );
+  }
+
+  it('renders the trigger as a menuitem with a submenu popup', () => {
+    render(<DemoSubmenu />);
+    const trigger = screen.getByRole('menuitem', { name: /Move to/ });
+    expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+    // The nested submenu panel and its item are both mounted while open.
+    expect(screen.getByRole('menuitem', { name: 'Documents' })).toBeInTheDocument();
+  });
+
+  it('reflects the open submenu with the hover-token highlight', () => {
+    render(<DemoSubmenu />);
+    const trigger = screen.getByRole('menuitem', { name: /Move to/ });
+    expect(trigger).toHaveAttribute('data-popup-open');
+    expect(trigger).toHaveClass(
+      'data-[popup-open]:bg-[var(--ui-button-menu-dropdown-item-container-color-hover)]'
+    );
+  });
+
+  it('shows the trailing cascade chevron and leading icon on the trigger', () => {
+    render(<DemoSubmenu />);
+    const trigger = screen.getByRole('menuitem', { name: /Move to/ });
+    expect(trigger).toContainElement(screen.getByTestId('sub-icon'));
+    const chevron = trigger.querySelector(
+      '.text-\\[var\\(--ui-button-menu-dropdown-extras-cascade-icon-color\\)\\]'
+    );
+    expect(chevron).toBeInTheDocument();
   });
 });

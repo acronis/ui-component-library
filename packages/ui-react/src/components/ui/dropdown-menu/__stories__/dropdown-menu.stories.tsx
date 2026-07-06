@@ -11,7 +11,6 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '../dropdown-menu';
 
@@ -47,6 +46,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// DropdownMenu is an alias of `Menu` — see the `UI/Menu` stories for the full
+// set of cases (submenus, sections, icons). These keep the alias's basic shape.
 export const Default: Story = {
   render: () => (
     <DropdownMenu defaultOpen>
@@ -54,14 +55,8 @@ export const Default: Story = {
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>My account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          Profile
-          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          Settings
-          <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-        </DropdownMenuItem>
+        <DropdownMenuItem shortcut="⇧⌘P">Profile</DropdownMenuItem>
+        <DropdownMenuItem shortcut="⌘S">Settings</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Log out</DropdownMenuItem>
       </DropdownMenuContent>

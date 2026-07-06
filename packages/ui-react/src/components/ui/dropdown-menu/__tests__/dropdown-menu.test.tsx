@@ -47,9 +47,12 @@ describe('DropdownMenu', () => {
     expect(screen.getByRole('separator')).toBeInTheDocument();
   });
 
-  it('themes the popup from the bridged semantic tokens', () => {
+  it('themes the popup from the shared menu container tokens', () => {
     render(<DemoMenu defaultOpen />);
-    expect(screen.getByRole('menu')).toHaveClass('bg-background', 'text-foreground');
+    expect(screen.getByRole('menu')).toHaveClass(
+      'bg-[var(--ui-button-menu-dropdown-container-color)]',
+      'rounded-[var(--ui-button-menu-dropdown-container-border-radius)]'
+    );
   });
 
   it('invokes an item handler on click', async () => {
