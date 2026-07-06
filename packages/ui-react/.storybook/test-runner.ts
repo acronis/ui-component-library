@@ -43,18 +43,18 @@ const config: TestRunnerConfig = {
       image = await page.screenshot({ animations: 'disabled', fullPage: true });
     } else {
       // Floating UI (dialogs, menus, listboxes) renders in a portal outside
-      // #storybook-root. When such an overlay is open, capture the union of the
-      // story root (the trigger) and the overlay so the control AND its popup
-      // are both in frame — framing the overlay alone clips the trigger above it.
-      const overlay = page
-        .locator(
-          '[role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"]'
-        )
-        .first();
-      const hasOverlay = (await overlay.count()) > 0;
-      const targets = hasOverlay
-        ? [page.locator('#storybook-root'), overlay]
-        : [page.locator('#storybook-root')];
+      // #storybook-root. Union the story root (the trigger) with EVERY open
+      // overlay so the control AND its popup(s) are in frame — including the
+      // stacked panels of a cascaded submenu, each of which is its own
+      // [role="menu"] portal (framing only the first one clips the rest).
+      const overlays = page.locator(
+        '[role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"]'
+      );
+      const overlayCount = await overlays.count();
+      const targets = [
+        page.locator('#storybook-root'),
+        ...Array.from({ length: overlayCount }, (_, i) => overlays.nth(i)),
+      ];
       const boxes = (await Promise.all(targets.map((t) => t.boundingBox()))).filter(
         (b): b is NonNullable<typeof b> => b !== null
       );
