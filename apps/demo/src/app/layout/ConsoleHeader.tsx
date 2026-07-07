@@ -23,6 +23,7 @@ import {
 import { getCurrentColorMode, toggleColorMode } from '@/lib/theme-switcher';
 import { useAuth } from '../hooks/useAuth';
 import { LanguageSelector } from '../components/LanguageSelector';
+import { TOUR_ANCHORS } from '../onboarding/tour-steps';
 
 // The AppShell top bar (protection-dashboard `header` region): a centered global
 // search flanked by equal side columns so it stays truly centered regardless of
@@ -45,8 +46,12 @@ export function ConsoleHeader() {
           aria-label="Search"
           placeholder="Search…"
           className="w-[28rem] justify-self-center"
+          data-tour-id={TOUR_ANCHORS.globalSearch}
         />
-        <div className="flex items-center gap-2 justify-self-end">
+        <div
+          className="flex items-center gap-2 justify-self-end"
+          data-tour-id={TOUR_ANCHORS.account}
+        >
           <ButtonIcon
             variant="ghost"
             onClick={handleToggleTheme}

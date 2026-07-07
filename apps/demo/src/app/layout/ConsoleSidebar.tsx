@@ -39,6 +39,8 @@ import {
   SidebarSecondarySectionLabel,
 } from '@spec-lab/ui-react';
 import { useLocale } from '../context/LocaleContext';
+import { useOnboardingStore } from '@/store/onboarding/onboardingStore';
+import { TOUR_ANCHORS } from '../onboarding/tour-steps';
 
 // The routed sections live at root paths inside the demo (no /console nesting):
 // `/dashboard`, `/data`, `/chat`, `/settings`. The primary rail is the collapsed
@@ -141,9 +143,14 @@ function LogoMark() {
 
 function PrimaryNav({ currentSection }: { currentSection: string }) {
   const { t } = useLocale();
+  const startTour = useOnboardingStore((s) => s.startTour);
 
   return (
-    <SidebarPrimary expanded={false} aria-label="Primary">
+    <SidebarPrimary
+      expanded={false}
+      aria-label="Primary"
+      data-tour-id={TOUR_ANCHORS.primaryNav}
+    >
       <SidebarPrimaryHeader>
         <LogoMark />
       </SidebarPrimaryHeader>
@@ -168,6 +175,7 @@ function PrimaryNav({ currentSection }: { currentSection: string }) {
           <SidebarPrimaryMenuItem
             icon={<CircleHelpIcon />}
             render={<button type="button" />}
+            onClick={() => startTour()}
           >
             Help
           </SidebarPrimaryMenuItem>
@@ -187,8 +195,8 @@ function SecondaryNav({ currentSection }: { currentSection: string }) {
   const label = (item: NavItem): string =>
     item.label ?? (item.labelKey ? t(item.labelKey) : item.section);
 
-  const renderSection = (title: string, items: NavItem[]) => (
-    <SidebarSecondarySection>
+  const renderSection = (title: string, items: NavItem[], anchorId?: string) => (
+    <SidebarSecondarySection data-tour-id={anchorId}>
       <SidebarSecondarySectionLabel>{title}</SidebarSecondarySectionLabel>
       <SidebarSecondaryMenu>
         {items.map((item) => (
@@ -214,12 +222,12 @@ function SecondaryNav({ currentSection }: { currentSection: string }) {
     ].find((item) => item.section === currentSection) ?? overviewItems[0];
 
   return (
-    <SidebarSecondary>
+    <SidebarSecondary data-tour-id={TOUR_ANCHORS.secondaryNav}>
       <SidebarSecondaryHeader label={areaLabel} />
       <SidebarSecondaryContent>
         {renderSection('Overview', overviewItems)}
         {renderSection('Workspace', workspaceItems)}
-        {renderSection('Catalog', catalogItems)}
+        {renderSection('Catalog', catalogItems, TOUR_ANCHORS.catalog)}
         {renderSection('Foundations', foundationsItems)}
       </SidebarSecondaryContent>
       <SidebarSecondaryCollapsedBreadcrumb

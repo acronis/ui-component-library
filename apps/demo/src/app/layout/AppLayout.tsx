@@ -7,6 +7,7 @@ import {
 } from '@spec-lab/ui-react';
 import { ConsoleHeader } from './ConsoleHeader';
 import { ConsoleSidebar } from './ConsoleSidebar';
+import { DemoOnboardingTour } from '../onboarding/DemoOnboardingTour';
 
 // The demo console frame: the kit's AppShell composite realizing the
 // protection-dashboard screen spec — a collapsed primary rail + expanded
@@ -26,6 +27,7 @@ export function AppLayout() {
           <Outlet />
         </AppShellMain>
       </AppShellBody>
+      <DemoOnboardingTour />
     </AppShell>
   );
 }
