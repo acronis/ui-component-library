@@ -3,15 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   BoxIcon,
   ChevronLeftIcon,
+  BrushPaintingIcon,
   ChevronsLeftIcon,
   CircleHelpIcon,
   CogIcon,
+  FlaskIcon,
   LayoutGridIcon,
   LayoutIcon,
   LayoutTableIcon,
   MessageIcon,
   MonitorIcon,
   PuzzleIcon,
+  RectangleImageIcon,
   ServerIcon,
 } from '@spec-lab/icons-react/stroke-mono';
 import { AcronisIcon } from '@spec-lab/icons-react/solid-mono';
@@ -93,6 +96,29 @@ const catalogItems: NavItem[] = [
     to: 'catalog/screens',
     label: 'Screens',
     icon: <LayoutIcon />,
+  },
+];
+
+// Design-token + icon foundations, plus the full-screen theme playground (an
+// absolute route outside the shell). Mirrors the app-spec `Foundations` section.
+const foundationsItems: NavItem[] = [
+  {
+    section: 'design-tokens',
+    to: 'foundations/design-tokens',
+    label: 'Design Tokens',
+    icon: <BrushPaintingIcon />,
+  },
+  {
+    section: 'icons',
+    to: 'foundations/icons',
+    label: 'Icons',
+    icon: <RectangleImageIcon />,
+  },
+  {
+    section: 'playground',
+    to: '/playground',
+    label: 'Playground',
+    icon: <FlaskIcon />,
   },
 ];
 
@@ -180,9 +206,12 @@ function SecondaryNav({ currentSection }: { currentSection: string }) {
   );
 
   const currentItem =
-    [...overviewItems, ...workspaceItems, ...catalogItems].find(
-      (item) => item.section === currentSection
-    ) ?? overviewItems[0];
+    [
+      ...overviewItems,
+      ...workspaceItems,
+      ...catalogItems,
+      ...foundationsItems,
+    ].find((item) => item.section === currentSection) ?? overviewItems[0];
 
   return (
     <SidebarSecondary>
@@ -191,6 +220,7 @@ function SecondaryNav({ currentSection }: { currentSection: string }) {
         {renderSection('Overview', overviewItems)}
         {renderSection('Workspace', workspaceItems)}
         {renderSection('Catalog', catalogItems)}
+        {renderSection('Foundations', foundationsItems)}
       </SidebarSecondaryContent>
       <SidebarSecondaryCollapsedBreadcrumb
         parentLabel={areaLabel}

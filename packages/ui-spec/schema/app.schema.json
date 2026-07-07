@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://acronis.com/ui-spec/app.schema.json",
+  "title": "App descriptor — app.yaml",
+  "description": "A machine-readable description of a whole application assembled from the kit: its kind, shell pattern, navigation, and the screens/patterns it composes. The layer above screens — the source of truth for what an app is and how it is wired. The demo console is the first app.yaml.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec_version", "app", "name", "kind", "title"],
+  "properties": {
+    "spec_version": { "type": "string" },
+    "app": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Za-z0-9]*$",
+      "description": "PascalCase app identity (e.g. `DemoConsole`)."
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "kebab slug; must equal the folder name under apps/."
+    },
+    "kind": {
+      "enum": ["spa", "single-screen", "microfrontend"],
+      "description": "The shape of the app the descriptor generates."
+    },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "shell": {
+      "type": "string",
+      "description": "Name of the layout pattern that frames the app (e.g. `app-shell`)."
+    },
+    "primaryNav": {
+      "type": "array",
+      "description": "Top-level areas of the app — the primary navigation rail.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "route"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "label": { "type": "string" },
+          "route": { "type": "string" },
+          "icon": { "type": "string" }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "description": "Grouped secondary navigation — each group holds the routed entries it contains.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["group", "items"],
+        "properties": {
+          "group": { "type": "string" },
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "label", "route"],
+              "properties": {
+                "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+                "label": { "type": "string" },
+                "route": { "type": "string" },
+                "screen": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]*$",
+                  "description": "Optional screen slug (screens/<slug>) this entry renders."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "screens": {
+      "type": "array",
+      "description": "Screen slugs (screens/<slug>) this app assembles. Each must exist.",
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }
+    },
+    "patterns": {
+      "type": "array",
+      "description": "Usage-pattern slugs (patterns/<slug>) this app composes. Each must exist.",
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }
+    },
+    "tour": {
+      "type": "string",
+      "description": "Identifier of the onboarding tour this app ships (defined in the app)."
+    }
+  }
+}

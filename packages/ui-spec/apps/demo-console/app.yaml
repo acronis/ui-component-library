@@ -1,0 +1,54 @@
+spec_version: '1.0'
+app: DemoConsole
+name: demo-console
+kind: spa
+title: Constructor Lab Console
+description: >-
+  The spec-driven reference console for the Constructor Lab UI Kit: a believable
+  single-product admin console built entirely from the kit. It realizes the
+  app-shell pattern as its frame (collapsed primary rail + secondary section nav
+  + a centered global search header), routes real product screens (Overview,
+  Data, Chat, Settings), and folds the component/pattern/screen catalog and the
+  design-token/icon foundations into one navigable surface. The catalog is driven
+  by @spec-lab/ui-spec's spec-index so it cannot drift from what exists.
+shell: app-shell
+primaryNav:
+  - { id: dashboard, label: Dashboard, route: /dashboard, icon: MonitorIcon }
+  - { id: data, label: Data, route: /data, icon: LayoutTableIcon }
+  - { id: chat, label: Chat, route: /chat, icon: MessageIcon }
+  - { id: settings, label: Settings, route: /settings, icon: CogIcon }
+sections:
+  - group: Overview
+    items:
+      - {
+          id: dashboard,
+          label: Dashboard,
+          route: /dashboard,
+          screen: protection-dashboard,
+        }
+      - { id: data, label: Data, route: /data }
+  - group: Workspace
+    items:
+      - { id: chat, label: Chat, route: /chat }
+      - { id: settings, label: Settings, route: /settings }
+  - group: Catalog
+    items:
+      - { id: components, label: Components, route: /catalog/components }
+      - { id: patterns, label: Patterns, route: /catalog/patterns }
+      - { id: screens, label: Screens, route: /catalog/screens }
+  - group: Foundations
+    items:
+      - {
+          id: design-tokens,
+          label: Design Tokens,
+          route: /foundations/design-tokens,
+        }
+      - { id: icons, label: Icons, route: /foundations/icons }
+      - { id: playground, label: Playground, route: /playground }
+screens:
+  - protection-dashboard
+patterns:
+  - app-shell
+  - dashboard
+  - sheet-detail-panel
+tour: demo-onboarding

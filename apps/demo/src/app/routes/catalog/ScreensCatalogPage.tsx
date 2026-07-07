@@ -19,7 +19,7 @@ import {
 import { specIndex, statusVariant } from './spec-index';
 
 // The console itself is the app-shell realization of the protection-dashboard
-// screen, so its live view is the console's Overview (the /demo/dashboard route).
+// screen, so its live view is the console's Overview (the /dashboard route).
 // Relative Link, consistent with the sidebar's nav wiring.
 const LIVE_ROUTES: Record<string, string> = {
   'protection-dashboard': '../../dashboard',

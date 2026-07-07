@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
+  Link as UiLink,
   PageHeader,
   PageHeaderDescription,
   PageHeaderTitle,
@@ -23,6 +25,7 @@ import {
   statusVariant,
   type SpecComponent,
 } from './spec-index';
+import { hasDemo } from './component-demos';
 
 // Primitives before Composites; anything else falls to the end.
 const LAYER_ORDER = ['primitive', 'composite'];
@@ -41,12 +44,17 @@ function ComponentTable({ items }: { items: SpecComponent[] }) {
           <TableHead>Category</TableHead>
           <TableHead>Layer</TableHead>
           <TableHead>Status</TableHead>
+          <TableHead>Demo</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {items.map((component) => (
           <TableRow key={component.name}>
-            <TableCell className="font-medium">{component.component}</TableCell>
+            <TableCell className="font-medium">
+              <UiLink render={<Link to={component.name} />}>
+                {component.component}
+              </UiLink>
+            </TableCell>
             <TableCell className="text-muted-foreground">
               {component.category}
             </TableCell>
@@ -57,6 +65,15 @@ function ComponentTable({ items }: { items: SpecComponent[] }) {
               <Tag variant={statusVariant(component.status)} size="sm">
                 {component.status}
               </Tag>
+            </TableCell>
+            <TableCell>
+              {hasDemo(component.name) ? (
+                <Tag variant="success" size="sm">
+                  Live
+                </Tag>
+              ) : (
+                <span className="text-muted-foreground text-sm">—</span>
+              )}
             </TableCell>
           </TableRow>
         ))}

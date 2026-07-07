@@ -9,6 +9,7 @@ import { DashboardPage } from './routes/dashboard/DashboardPage';
 import { DataTablePage } from './routes/data/DataTablePage';
 import { SettingsPage } from './routes/settings/SettingsPage';
 import { ComponentsCatalogPage } from './routes/catalog/ComponentsCatalogPage';
+import { ComponentDetailPage } from './routes/catalog/ComponentDetailPage';
 import { PatternsCatalogPage } from './routes/catalog/PatternsCatalogPage';
 import { PatternDetailPage } from './routes/catalog/PatternDetailPage';
 import { ScreensCatalogPage } from './routes/catalog/ScreensCatalogPage';
@@ -18,7 +19,15 @@ import { CyberChatHostDemo } from './demo/cyberchat/CyberChatHostDemo';
 import CyberChatFlowRoute from './demo/cyberchat-flow/route';
 import CyberChatFlowAppRoute from './demo/cyberchat-flow/app/route';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { PlaygroundPage } from '@/pages/playground/PlaygroundPage';
+import { DesignTokensDemo } from '@/components/DesignTokensDemo';
+import { IconsDemo } from '@/components/IconsDemo';
 
+// The console IS the app: the app-shell frame (AppLayout) is mounted at the
+// root and every product screen, the spec-driven catalog, and the design-token /
+// icon foundations render inside it. Auth (`login`), the standalone chat demos
+// (`cyberchat*`), and the full-screen theme `playground` stay reachable as
+// top-level routes outside the shell.
 export function DemoApp() {
   return (
     <ErrorBoundary>
@@ -26,6 +35,7 @@ export function DemoApp() {
         <AuthProvider>
           <Routes>
             <Route path="login" element={<LoginPage />} />
+            <Route path="playground" element={<PlaygroundPage />} />
             <Route path="cyberchat" element={<CyberChatRoute />} />
             <Route path="cyberchat-themed" element={<CyberChatHostDemo />} />
             <Route path="cyberchat-flow" element={<CyberChatFlowRoute />} />
@@ -36,7 +46,7 @@ export function DemoApp() {
             <Route
               path="/"
               element={
-                <ProtectedRoute redirectTo="/demo/login">
+                <ProtectedRoute redirectTo="/login">
                   <AppLayout />
                 </ProtectedRoute>
               }
@@ -47,11 +57,12 @@ export function DemoApp() {
               <Route path="settings" element={<SettingsPage />} />
               <Route path="chat" element={<ChatRoute />} />
               <Route path="catalog">
-                <Route
-                  index
-                  element={<Navigate to="components" replace />}
-                />
+                <Route index element={<Navigate to="components" replace />} />
                 <Route path="components" element={<ComponentsCatalogPage />} />
+                <Route
+                  path="components/:name"
+                  element={<ComponentDetailPage />}
+                />
                 <Route path="patterns" element={<PatternsCatalogPage />} />
                 <Route
                   path="patterns/:name"
@@ -59,6 +70,18 @@ export function DemoApp() {
                 />
                 <Route path="screens" element={<ScreensCatalogPage />} />
               </Route>
+              <Route path="foundations">
+                <Route
+                  index
+                  element={<Navigate to="design-tokens" replace />}
+                />
+                <Route
+                  path="design-tokens"
+                  element={<DesignTokensDemo />}
+                />
+                <Route path="icons" element={<IconsDemo />} />
+              </Route>
+              <Route path="*" element={<Navigate to="dashboard" replace />} />
             </Route>
           </Routes>
         </AuthProvider>

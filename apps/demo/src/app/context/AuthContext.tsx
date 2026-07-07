@@ -54,7 +54,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         updateAuthStorage({ token: mockToken, user: newUser });
         setUser(newUser);
-        navigate('/demo/dashboard');
+        navigate('/dashboard');
       } finally {
         setIsLoading(false);
       }
@@ -65,7 +65,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = React.useCallback(() => {
     updateAuthStorage({ token: null, user: null });
     setUser(null);
-    navigate('/demo/login');
+    navigate('/login');
   }, [navigate]);
 
   const updateUser = React.useCallback(

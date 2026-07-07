@@ -17,7 +17,7 @@ export function LoginPage() {
 
   React.useEffect(() => {
     if (isAuthenticated) {
-      navigate('/demo/dashboard');
+      navigate('/dashboard');
     }
   }, [isAuthenticated, navigate]);
 
