@@ -3,6 +3,7 @@ component: Tooltip
 name: tooltip
 status: ready
 category: overlay
+layer: primitive
 description: >-
   A contextual hint that appears on hover or focus of its trigger and disappears
   when the interaction ends. Used for supplementary information — not for

@@ -3,6 +3,7 @@ component: Button
 name: button
 status: ready
 category: actions
+layer: primitive
 description: >-
   Triggers an action or event when activated. Five visual styles (default,
   secondary, ghost, destructive, ai) in a single 32px-tall size.

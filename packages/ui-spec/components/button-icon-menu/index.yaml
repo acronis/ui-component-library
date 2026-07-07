@@ -3,6 +3,7 @@ component: ButtonIconMenu
 name: button-icon-menu
 status: ready
 category: actions
+layer: primitive
 description: >-
   Icon-only menu trigger — a 32×32 bordered button with a fixed 16px ellipsis
   ("more"/kebab) glyph. The icon-only sibling of ButtonMenu: presentational, with

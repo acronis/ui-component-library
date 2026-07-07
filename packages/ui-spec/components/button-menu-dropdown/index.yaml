@@ -3,6 +3,7 @@ component: ButtonMenuDropdown
 name: button-menu-dropdown
 status: ready
 category: overlays
+layer: primitive
 description: >-
   The themed dropdown panel a ButtonMenu opens: a bordered surface of one or
   more sections, each a list of menu items (label + optional leading icon +

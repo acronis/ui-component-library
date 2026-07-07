@@ -3,6 +3,7 @@ component: DescriptionList
 name: description-list
 status: ready
 category: data-display
+layer: primitive
 description: >-
   A key/value data list — rows of label → value, where the value can be plain
   text, a status (leading icon + value + a muted description), or action links.

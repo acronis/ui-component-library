@@ -3,6 +3,7 @@ component: Command
 name: command
 status: draft
 category: overlay
+layer: composite
 description: >-
   A command palette — a searchable, filtered list of commands grouped into
   sections, with keyboard navigation and per-command shortcuts. Data-driven

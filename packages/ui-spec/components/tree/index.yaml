@@ -3,6 +3,7 @@ component: Tree
 name: tree
 status: draft
 category: navigation
+layer: primitive
 description: >-
   A hierarchical tree menu — used inside dropdowns and as a standalone tree
   view. A set of composable parts (Tree, TreeItem, TreeItemTrigger,

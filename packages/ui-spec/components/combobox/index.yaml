@@ -3,6 +3,7 @@ component: Combobox
 name: combobox
 status: draft
 category: forms
+layer: primitive
 description: >-
   A searchable select built on Base UI's Combobox primitive — a typeable input
   that filters a list of items in a dropdown. Reuses the InputSelect token tier so

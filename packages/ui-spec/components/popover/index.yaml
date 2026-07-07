@@ -3,6 +3,7 @@ component: Popover
 name: popover
 status: draft
 category: overlays
+layer: primitive
 description: >-
   A floating panel anchored to a trigger, shown on demand for secondary content
   or quick actions. Built on the Base UI Popover primitive (positioning, focus

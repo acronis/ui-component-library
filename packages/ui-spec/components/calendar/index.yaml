@@ -3,6 +3,7 @@ component: Calendar
 name: calendar
 status: draft
 category: forms
+layer: primitive
 description: >-
   A themed date calendar for selecting a single date, multiple dates, or a range.
   Wraps `react-day-picker` (`DayPicker`) with `--ui-*` token styling and the

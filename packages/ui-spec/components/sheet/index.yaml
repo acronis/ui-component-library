@@ -3,6 +3,7 @@ component: Sheet
 name: sheet
 status: draft
 category: overlays
+layer: primitive
 description: >-
   A modal side panel anchored to a screen edge — for showing or acting on
   detailed information without leaving the page. Composable parts (trigger,

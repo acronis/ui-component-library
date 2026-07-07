@@ -3,6 +3,7 @@ component: Grid
 name: grid
 status: draft
 category: layout
+layer: primitive
 description: >-
   A responsive CSS-grid layout primitive — lay children into a column count that
   steps down at smaller breakpoints, with a configurable gap. Ported 1:1 from the

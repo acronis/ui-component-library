@@ -3,6 +3,7 @@ component: WidgetPlaceholder
 name: widget-placeholder
 status: draft
 category: data-display
+layer: composite
 description: >-
   An empty-state placeholder for a dashboard widget — a bordered card with a
   header (icon + title), a centered illustration / message / action, and an

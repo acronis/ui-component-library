@@ -3,6 +3,7 @@ component: Pagination
 name: pagination
 status: draft
 category: navigation
+layer: primitive
 description: >-
   Navigation for paged content — previous / next controls, numbered page links
   with a current-page marker, and an ellipsis for skipped ranges. Markup-only (no

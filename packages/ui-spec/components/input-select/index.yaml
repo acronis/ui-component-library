@@ -3,6 +3,7 @@ component: InputSelect
 name: input-select
 status: ready
 category: forms
+layer: primitive
 description: >-
   The next-gen select field: an optional label (with a required marker), a
   trigger box showing the value / placeholder and a chevron, an optional

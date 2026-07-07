@@ -3,6 +3,7 @@ component: Chart
 name: chart
 status: draft
 category: data-display
+layer: primitive
 description: >-
   A theming layer over recharts — a `ChartContainer` that supplies series colors
   and recharts class overrides, plus tooltip and legend chrome

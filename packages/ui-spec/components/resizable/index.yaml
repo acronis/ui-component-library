@@ -3,6 +3,7 @@ component: Resizable
 name: resizable
 status: ready
 category: layout
+layer: primitive
 description: >-
   A group of panels separated by draggable handles that let the user resize
   adjacent regions along one axis. Composable parts (panel group, panel,

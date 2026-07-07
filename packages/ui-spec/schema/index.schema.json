@@ -18,6 +18,7 @@
     "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
     "status": { "enum": ["draft", "ready", "stable", "deprecated"] },
     "category": { "type": "string" },
+    "layer": { "enum": ["primitive", "composite"] },
     "description": { "type": "string" },
     "since": { "type": "string" },
     "dependencies": {

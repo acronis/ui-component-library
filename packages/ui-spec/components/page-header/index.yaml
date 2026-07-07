@@ -3,6 +3,7 @@ component: PageHeader
 name: page-header
 status: ready
 category: layout
+layer: composite
 description: >-
   The page header region — an optional breadcrumb, a title row (title left,
   actions right), and an optional description. Sits at the top of a page's content.

@@ -3,6 +3,7 @@ component: Skeleton
 name: skeleton
 status: draft
 category: feedback
+layer: primitive
 description: >-
   A pulsing placeholder box for loading states. Shape and size come from the
   caller's className. Ported from the legacy shadcn-uikit `skeleton`.

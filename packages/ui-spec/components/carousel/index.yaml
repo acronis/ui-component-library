@@ -3,6 +3,7 @@ component: Carousel
 name: carousel
 status: draft
 category: data-display
+layer: primitive
 description: >-
   A slideshow of scrollable slides with previous / next controls, horizontal or
   vertical, powered by the headless embla engine (drag, snap, loop, autoplay

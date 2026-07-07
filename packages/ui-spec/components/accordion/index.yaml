@@ -3,6 +3,7 @@ component: Accordion
 name: accordion
 status: draft
 category: layout
+layer: primitive
 description: >-
   A vertical set of disclosure sections — each with a header trigger and a
   height-animating panel; single or multiple open at once. Built on Base UI's

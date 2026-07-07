@@ -3,6 +3,7 @@ component: Separator
 name: separator
 status: draft
 category: layout
+layer: primitive
 description: >-
   A thin rule that visually and semantically divides content. Built on the Base
   UI Separator primitive (sets the `separator` role + aria-orientation). Ported

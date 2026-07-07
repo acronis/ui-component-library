@@ -3,6 +3,7 @@ component: AuthLayout
 name: auth-layout
 status: ready
 category: layout
+layer: composite
 description: >-
   A centered-card layout for authentication flows (sign-in / sign-up /
   forgot-password / 2FA) — a full-page centered surface card with a brand/logo

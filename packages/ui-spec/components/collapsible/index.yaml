@@ -3,6 +3,7 @@ component: Collapsible
 name: collapsible
 status: draft
 category: layout
+layer: primitive
 description: >-
   A disclosure primitive — a trigger toggles a height-animating panel. Built on
   Base UI's Collapsible; it's the primitive behind Accordion and the sidebars.

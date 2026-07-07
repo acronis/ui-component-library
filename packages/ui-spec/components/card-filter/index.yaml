@@ -3,6 +3,7 @@ component: CardFilter
 name: card-filter
 status: ready
 category: data-display
+layer: composite
 description: >-
   A compact stat/filter card: a caption label above a prominent value, with an
   optional leading icon. Three variants — `static` (presentational), `static-empty`

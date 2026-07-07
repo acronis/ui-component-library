@@ -3,6 +3,7 @@ component: Progress
 name: progress
 status: draft
 category: feedback
+layer: primitive
 description: >-
   A horizontal bar showing the completion of a known-length task, or an
   indeterminate sliding bar when the length is unknown. Ported from the legacy

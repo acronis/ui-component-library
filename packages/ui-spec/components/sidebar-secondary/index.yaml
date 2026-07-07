@@ -3,6 +3,7 @@ component: SidebarSecondary
 name: sidebar-secondary
 status: ready
 category: navigation
+layer: composite
 description: >-
   The contextual second-level navigation panel that sits beside the primary
   rail. A set of composable parts (header, content, sections with optional

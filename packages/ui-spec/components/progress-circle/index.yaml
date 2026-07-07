@@ -3,6 +3,7 @@ component: ProgressCircle
 name: progress-circle
 status: draft
 category: feedback
+layer: primitive
 description: >-
   A circular (radial) progress indicator — an SVG ring whose arc fills with the
   value and whose color tracks the level (danger / critical / warning / success),

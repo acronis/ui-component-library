@@ -3,6 +3,7 @@ component: DataTable
 name: data-table
 status: draft
 category: data-display
+layer: composite
 description: >-
   A data grid built on TanStack react-table v8, composed over the Table
   primitives — sorting, filtering, column visibility, row selection, pagination,

@@ -3,6 +3,7 @@ component: Checkbox
 name: checkbox
 status: ready
 category: forms
+layer: primitive
 description: >-
   A control that lets users select or deselect an option. Supports checked,
   unchecked, and indeterminate states; used individually for a binary choice or

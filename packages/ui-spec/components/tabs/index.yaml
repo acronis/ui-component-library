@@ -3,6 +3,7 @@ component: Tabs
 name: tabs
 status: draft
 category: navigation
+layer: primitive
 description: >-
   Switches between related panels of content within the same context. A
   bordered segmented-control tab group (list, trigger, content) built on the

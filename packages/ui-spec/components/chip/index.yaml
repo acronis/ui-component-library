@@ -3,6 +3,7 @@ component: Chip
 name: chip
 status: ready
 category: data-display
+layer: primitive
 description: >-
   A compact, interactive label for a selection or a removable token. The
   `removable` variant carries a trailing × button; the `selectable` variant is a

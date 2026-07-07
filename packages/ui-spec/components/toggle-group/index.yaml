@@ -3,6 +3,7 @@ component: ToggleGroup
 name: toggle-group
 status: draft
 category: forms
+layer: primitive
 description: >-
   A set of pressable toggle buttons (single or multiple selection) — plus a
   standalone Toggle. Built on Base UI's Toggle / ToggleGroup. Ported from the

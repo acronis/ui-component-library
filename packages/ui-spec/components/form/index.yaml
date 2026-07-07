@@ -3,6 +3,7 @@ component: Form
 name: form
 status: draft
 category: forms
+layer: primitive
 description: >-
   A native form element with consolidated validation, built on Base UI's Form. It
   collects values by each Field's name, runs the Fields' validation on submit (or

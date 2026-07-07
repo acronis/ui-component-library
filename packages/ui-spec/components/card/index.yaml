@@ -3,6 +3,7 @@ component: Card
 name: card
 status: draft
 category: layout
+layer: primitive
 description: >-
   A surface that groups related content and actions. A set of composable parts
   (header, title, description, content, footer) on a bordered, rounded container

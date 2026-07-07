@@ -3,6 +3,7 @@ component: ButtonGroup
 name: button-group
 status: draft
 category: buttons-actions
+layer: primitive
 description: >-
   Groups adjacent buttons (and related controls) into a single segmented unit —
   collapsing their shared inner edges — in a horizontal or vertical orientation.

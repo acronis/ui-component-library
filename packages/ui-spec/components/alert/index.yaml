@@ -3,6 +3,7 @@ component: Alert
 name: alert
 status: ready
 category: feedback
+layer: primitive
 description: >-
   A status banner with severity variants (info / success / warning / critical /
   destructive / ai / neutral) and composable icon, content, title, description,

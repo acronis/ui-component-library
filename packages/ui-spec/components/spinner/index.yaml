@@ -3,6 +3,7 @@ component: Spinner
 name: spinner
 status: draft
 category: feedback
+layer: primitive
 description: >-
   An indeterminate loading indicator — a spinning ring in four sizes. Ported from
   the legacy shadcn-uikit `Spinner`; a CSS spinner (no primitive), colored by the

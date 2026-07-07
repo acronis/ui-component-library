@@ -3,6 +3,7 @@ component: Select
 name: select
 status: ready
 category: forms
+layer: primitive
 description: >-
   A form control that displays the current selection and reveals a list of
   predefined options when activated. Composed from parts (trigger, value,

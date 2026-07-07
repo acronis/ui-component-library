@@ -3,6 +3,7 @@ component: InputText
 name: input-text
 status: ready
 category: forms
+layer: primitive
 description: >-
   A full single-line text field: an optional label (with an optional required
   marker), the text input box, an optional clear button, and an optional

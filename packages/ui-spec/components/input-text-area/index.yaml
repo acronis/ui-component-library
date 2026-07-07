@@ -3,6 +3,7 @@ component: InputTextArea
 name: input-text-area
 status: ready
 category: forms
+layer: primitive
 description: >-
   A full multiline text field: an optional label (with an optional required
   marker), a `<textarea>` box that grows with vertical resize, and an optional

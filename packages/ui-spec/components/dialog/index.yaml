@@ -3,6 +3,7 @@ component: Dialog
 name: dialog
 status: draft
 category: overlays
+layer: primitive
 description: >-
   A modal overlay that interrupts the user to show focused content or request a
   decision. A set of composable parts (trigger, overlay, content, header, title,

@@ -3,6 +3,7 @@ component: Field
 name: field
 status: draft
 category: forms
+layer: primitive
 description: >-
   A form-field wrapper that ties a control to its label, description, and error,
   built on Base UI's Field primitive so those associations (and the validity

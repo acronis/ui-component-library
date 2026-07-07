@@ -3,6 +3,7 @@ component: SidebarPrimary
 name: sidebar-primary
 status: ready
 category: navigation
+layer: composite
 description: >-
   The app-level navigation rail. A set of composable parts (header, content,
   footer, sections, menu, menu items, extras) that reflows between an expanded

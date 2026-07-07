@@ -3,6 +3,7 @@ component: Avatar
 name: avatar
 status: ready
 category: data-display
+layer: primitive
 description: >-
   A user or entity avatar — a circular badge showing a profile image or, when
   none is available, the entity's initials on a tinted background. Five color

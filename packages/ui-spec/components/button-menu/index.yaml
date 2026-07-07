@@ -3,6 +3,7 @@ component: ButtonMenu
 name: button-menu
 status: ready
 category: actions
+layer: primitive
 description: >-
   A button that opens a dropdown menu: a label followed by a chevron that points
   up while the menu is open. Two visual styles (primary, secondary) across idle,

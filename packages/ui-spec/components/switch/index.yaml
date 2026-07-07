@@ -3,6 +3,7 @@ component: Switch
 name: switch
 status: ready
 category: forms
+layer: primitive
 description: >-
   A binary on/off toggle. Wraps the Base UI Switch primitive; the change takes
   effect immediately (no separate submit).

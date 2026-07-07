@@ -3,6 +3,7 @@ component: InputSearch
 name: input-search
 status: ready
 category: forms
+layer: primitive
 description: >-
   A full search field: an optional label (with an optional required marker)
   above the search box. Builds on the bare `Search` box (leading magnifier,

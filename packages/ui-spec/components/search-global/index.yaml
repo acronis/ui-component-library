@@ -3,6 +3,7 @@ component: SearchGlobal
 name: search-global
 status: ready
 category: forms
+layer: composite
 description: >-
   A prominent global "search anything" field — a pill-shaped box with a gradient
   brand border, a leading magnifier, a borderless input, and a trailing

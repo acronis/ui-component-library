@@ -3,6 +3,7 @@ component: Menu
 name: menu
 status: draft
 category: overlays
+layer: primitive
 description: >-
   The canonical composable menu: a trigger plus a portaled popup of one or more
   groups/sections of items — actions, checkbox items, radio items, labels,

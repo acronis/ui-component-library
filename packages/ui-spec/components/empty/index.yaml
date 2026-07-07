@@ -3,6 +3,7 @@ component: Empty
 name: empty
 status: draft
 category: data-display
+layer: primitive
 description: >-
   A centered empty-state placeholder shown when there is no data or content. A
   set of composable parts (icon, header, title, description, actions, links).

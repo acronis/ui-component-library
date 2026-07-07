@@ -3,6 +3,7 @@ component: InputDatePicker
 name: input-date-picker
 status: ready
 category: forms
+layer: primitive
 description: >-
   The date-field trigger: a button box that displays a formatted date (or a
   start–end range when `pickerType="dateRange"`) and a trailing calendar icon,

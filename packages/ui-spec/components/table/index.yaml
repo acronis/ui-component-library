@@ -3,6 +3,7 @@ component: Table
 name: table
 status: ready
 category: data-display
+layer: primitive
 description: >-
   Displays rows and columns of data. A set of composable parts (header, body,
   footer, row, column header, cell, caption) with sortable column headers and a

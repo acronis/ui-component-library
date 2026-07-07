@@ -3,6 +3,7 @@ component: Label
 name: label
 status: draft
 category: forms
+layer: primitive
 description: >-
   A caption for a form control. Ported from the legacy shadcn-uikit `Label`; a
   plain `<label>` with small medium-weight type that dims when an associated

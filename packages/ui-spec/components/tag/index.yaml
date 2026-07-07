@@ -3,6 +3,7 @@ component: Tag
 name: tag
 status: ready
 category: data-display
+layer: primitive
 description: >-
   A compact label that represents, categorizes, or highlights a piece of
   information — a status, attribute, or keyword. Six status variants across two

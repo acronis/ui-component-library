@@ -3,6 +3,7 @@ component: Drawer
 name: drawer
 status: draft
 category: overlays
+layer: primitive
 description: >-
   A panel that slides in from a screen edge with swipe-to-dismiss gestures. Wraps
   Base UI's `Drawer` primitive (which extends Dialog — keyboard, focus trap,

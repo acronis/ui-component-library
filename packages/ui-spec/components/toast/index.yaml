@@ -3,6 +3,7 @@ component: Toast
 name: toast
 status: draft
 category: feedback
+layer: primitive
 description: >-
   A transient notification shown in a corner stack — title, optional description,
   status icon, optional action, and a close button. Triggered imperatively via

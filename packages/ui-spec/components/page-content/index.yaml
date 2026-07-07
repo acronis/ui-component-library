@@ -3,6 +3,7 @@ component: PageContent
 name: page-content
 status: draft
 category: layout
+layer: primitive
 description: >-
   The page content region — the padded gutter for a page's body. A <div> meant to
   nest inside AppShellMain (so it doesn't duplicate the main landmark). Ported from

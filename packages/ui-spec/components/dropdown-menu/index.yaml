@@ -3,6 +3,7 @@ component: DropdownMenu
 name: dropdown-menu
 status: draft
 category: overlays
+layer: primitive
 description: >-
   A menu of actions anchored to a trigger, opened on demand. A rich set of
   composable parts (trigger, content, item, checkbox item, radio item, label,

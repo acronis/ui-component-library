@@ -3,6 +3,7 @@ component: ScrollArea
 name: scroll-area
 status: draft
 category: layout
+layer: primitive
 description: >-
   A scrollable region with a custom overlay scrollbar built on the Base UI
   Scroll Area primitive. The bar floats over the content and reserves no layout
