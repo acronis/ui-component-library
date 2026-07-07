@@ -1,0 +1,167 @@
+spec_version: '1.0'
+component: Tour
+
+# Framework-agnostic contract for a *composable* coach-mark: the overlay is
+# assembled from parts (see anatomy.yaml). The root owns the open state and the
+# active step index; the parts read that state to render the counter and drive
+# Next / Back / Skip. Property names are neutral; see `adapters` for per-framework
+# syntax.
+contract:
+  properties:
+    - name: step-count
+      type: number
+      required: false
+      default: 1
+      description: >-
+        Total number of steps — drives the step counter and the last-step logic
+        (on the root).
+    - name: active-step
+      type: number
+      required: false
+      description: Controlled active step index (0-based). Pair with the change event.
+    - name: default-active-step
+      type: number
+      required: false
+      default: 0
+      description: Initial active step index when uncontrolled.
+    - name: open
+      type: boolean
+      required: false
+      description: Controlled open state. Pair with the change event.
+    - name: default-open
+      type: boolean
+      required: false
+      default: false
+      description: Initial open state when uncontrolled.
+    - name: side
+      type: "'top' | 'bottom' | 'left' | 'right'"
+      required: false
+      default: "'bottom'"
+      description: Which side of the anchor the coach-mark renders on (content part).
+    - name: align
+      type: "'start' | 'center' | 'end'"
+      required: false
+      default: "'center'"
+      description: Alignment along the chosen side (content part).
+    - name: side-offset
+      type: number
+      required: false
+      default: 8
+      description: Distance in px from the anchor (content part).
+    - name: anchor
+      type: 'Element | ref'
+      required: false
+      default: undefined
+      description: >-
+        Element the coach-mark is positioned against (content part). When omitted,
+        it anchors to the trigger. Pass the step's target for a tour that walks
+        across landmarks.
+    - name: pulse
+      type: boolean
+      required: false
+      default: true
+      description: Whether the beacon animates its pulsing ring (beacon part).
+    - name: portal
+      type: boolean
+      required: false
+      default: true
+      description: >-
+        Render the content inside a portal (content part). Required by the
+        underlying primitive for correct stacking; disable only when supplying
+        your own portal ancestor.
+    - name: format
+      type: '(current, total) => node'
+      required: false
+      default: undefined
+      description: >-
+        Customize the step-counter text (step-counter part). Receives the 1-based
+        current step and the total; defaults to "{current} of {total}".
+    - name: render
+      type: 'RenderProp'
+      required: false
+      default: undefined
+      description: >-
+        Composition prop available on the trigger, beacon, close, and button parts
+        — replaces the rendered element with another component (e.g. render the
+        trigger as a Button) while merging props. React-only; other frameworks use
+        their own polymorphism.
+
+  events:
+    - name: active-step-change
+      payload: number
+      description: >-
+        Fired with the next 0-based index when the active step changes (React:
+        `onActiveStepChange`).
+    - name: open-change
+      payload: boolean
+      description: >-
+        Fired when the coach-mark opens or closes (React: `onOpenChange`). Payload
+        is the new open value.
+    - name: complete
+      payload: void
+      description: >-
+        Fired when the user advances past the last step (Next on the final step;
+        React: `onComplete`).
+    - name: skip
+      payload: void
+      description: >-
+        Fired when the user skips or dismisses the tour (Skip; React: `onSkip`).
+
+  content:
+    - name: default
+      description: >-
+        The composed coach-mark. Author it from the parts: an optional trigger and
+        beacon marking the target, an optional scrim, plus the content (panel)
+        wrapping a header (title), a body (with a description), and a footer
+        holding the step counter and the Next / Back / Skip actions.
+
+  methods: []
+
+adapters:
+  react:
+    component: Tour
+    status: implemented
+    import: >-
+      import { Tour, TourTrigger, TourBeacon, TourScrim, TourContent, TourHeader,
+      TourTitle, TourDescription, TourBody, TourFooter, TourStepCounter,
+      TourActions, TourNextButton, TourBackButton, TourSkipButton, TourClose } from
+      '@spec-lab/ui-react'
+    example: |
+      <Tour stepCount={5} defaultOpen>
+        <TourTrigger render={<Button variant="secondary">Protection</Button>} />
+        <TourContent side="right">
+          <TourClose />
+          <TourHeader>
+            <TourTitle>Protection management</TourTitle>
+          </TourHeader>
+          <TourBody>
+            <TourDescription>Manage backups and recovery here.</TourDescription>
+          </TourBody>
+          <TourFooter>
+            <TourStepCounter />
+            <TourActions>
+              <TourSkipButton />
+              <TourBackButton />
+              <TourNextButton />
+            </TourActions>
+          </TourFooter>
+        </TourContent>
+      </Tour>
+
+  vue:
+    component: AvTour
+    status: planned
+    import: "import { AvTour } from '@spec-lab/ui-vue'"
+    example: |
+      <AvTour :step-count="5" default-open>
+        <!-- coach-mark parts -->
+      </AvTour>
+
+  web-components:
+    element: ui-tour
+    status: planned
+    import: "import '@spec-lab/ui-wc/tour'"
+    example: |
+      <ui-tour step-count="5" default-open>
+        <!-- coach-mark parts -->
+      </ui-tour>

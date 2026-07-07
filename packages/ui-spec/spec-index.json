@@ -545,6 +545,14 @@
       "since": "0.12.0"
     },
     {
+      "name": "tour",
+      "component": "Tour",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "composite",
+      "since": "1.1.0"
+    },
+    {
       "name": "tree",
       "component": "Tree",
       "category": "navigation",

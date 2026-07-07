@@ -1,0 +1,62 @@
+spec_version: '1.0'
+component: Tour
+
+# References only. Values live in @spec-lab/tokens (generated from
+# @spec-lab/tokens) and resolve per brand/theme at paint time. No `--ui-tour-*`
+# tier exists — this design-pending v1 themes from the shared semantic tokens.
+# Button and Link parts carry their own `--ui-button-*` / `--ui-link-*` tokens,
+# documented in those components' specs. The token schema forbids a value/default
+# key here — never restate values.
+source: '@spec-lab/tokens'
+
+tokens:
+  - {
+      name: --ui-background-surface-primary,
+      affects: content,
+      description: Coach-mark panel surface,
+    }
+  - {
+      name: --ui-background-brand-primary,
+      affects: content,
+      description: Panel border (the brand-blue coach-mark outline),
+    }
+  - {
+      name: --ui-text-on-surface-primary,
+      affects: title,
+      description: Title and description text color,
+    }
+  - {
+      name: --ui-text-on-surface-secondary,
+      affects: step-counter,
+      description: Step-counter text color,
+    }
+  - {
+      name: --ui-border-on-brand-divider,
+      affects: footer,
+      description: Footer top divider,
+    }
+  - {
+      name: --ui-background-backdrop-screen,
+      affects: scrim,
+      description: Dimming scrim tint,
+    }
+  - {
+      name: --ui-background-status-strong-success,
+      affects: beacon,
+      description: The beacon "green light" (design-pending — no dedicated token),
+    }
+  - {
+      name: --ui-text-on-brand-link-idle,
+      affects: close,
+      description: Close-icon color — idle,
+    }
+  - {
+      name: --ui-text-on-brand-link-hover,
+      affects: close,
+      description: Close-icon color — hover,
+    }
+  - {
+      name: --ui-focus-primary,
+      affects: close,
+      description: Focus-visible ring color,
+    }

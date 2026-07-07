@@ -1,0 +1,18 @@
+spec_version: '1.0'
+component: Tour
+name: tour
+status: draft
+category: overlays
+layer: composite
+description: >-
+  A guided-onboarding "coach-mark": a stepped popover anchored to a target that
+  gets a pulsing beacon ("green light") and an optional dimming scrim. Composed
+  of parts (trigger/anchor, beacon, scrim, content, header, title, description,
+  body, footer, step counter, and Next / Back / Skip actions); the root owns the
+  active step index and open state so the parts can drive navigation. Design
+  reconciliation pending.
+since: 1.1.0
+dependencies:
+  components:
+    - Button
+    - TimesIcon

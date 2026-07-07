@@ -1,0 +1,224 @@
+spec_version: '1.0'
+component: Tour
+
+schematic: |
+  trigger: <button> (opens the tour)   beacon: pulsing "green light" over the target
+
+  ─ when open ────────────────────────────────────────────────
+  scrim: optional full-screen dimming backdrop
+                        +===============================+
+                        | content: <div role=dialog>    |
+                        |                          (×) close |
+                        | +---------------------------+ |
+                        | | header:                   | |
+                        | |   title                   | |
+                        | +---------------------------+ |
+                        | | body:                     | |
+                        | |   description             | |
+                        | +---------------------------+ |
+                        | | footer:                   | |
+                        | |  step-counter   actions:  | |
+                        | |   "2 of 5"  [skip][back][next] |
+                        | +---------------------------+ |
+                        +===============▲===============+
+                              anchored to the target
+     content -> bg-background surface + brand-blue border (border-primary) + shadow
+     border  -> --ui-background-brand-primary (brand coach-mark outline)
+     divider -> --ui-border-on-brand-divider (footer top border)
+     scrim   -> --ui-background-backdrop-screen
+     beacon  -> --ui-background-status-strong-success (the "green light")
+     close   -> times icon, --ui-text-on-brand-link-idle → hover -hover
+     step-counter -> text-muted-foreground
+     next-button / back-button / skip-button -> Button (primary / secondary / ghost)
+
+root:
+  element: div
+  role: dialog
+  description: >-
+    The coach-mark panel (Base UI `Popover.Popup`), positioned against the step's
+    anchor and portaled. Carries `role="dialog"`, is labelled by the title and
+    described by the description, manages focus, and dismisses on Esc /
+    outside-press. The `Tour` root owns the active step index and open state.
+
+parts:
+  - id: trigger
+    description: >-
+      The control that opens the tour (Base UI `Popover.Trigger`). Polymorphic
+      via `render` — usually a Button or the beacon target. Optional; a controlled
+      tour needs none.
+    element: button
+    optional: true
+  - id: beacon
+    description: >-
+      The "green light" — a decorative pulsing dot (`aria-hidden`) placed over or
+      next to the target a step points at. Uses
+      `--ui-background-status-strong-success`; `pulse` toggles the ping ring.
+    element: span
+    optional: true
+  - id: scrim
+    description: >-
+      Optional full-screen dimming backdrop (Base UI `Popover.Backdrop`) behind
+      the panel, tinted with `--ui-background-backdrop-screen`. NOTE: v1 dims
+      uniformly — no spotlight cut-out around the target yet.
+    element: div
+    optional: true
+  - id: content
+    description: >-
+      The coach-mark panel (Base UI `Popover.Popup` in a `Positioner`). White
+      surface (`bg-background`) with a brand-blue border (`border-primary`),
+      rounded corners, and a shadow. Accepts `side`/`align`/`side-offset`/`anchor`.
+    element: div
+  - id: close
+    description: >-
+      Icon button (Base UI `Popover.Close` + a times icon) that dismisses the
+      tour. Labelled "Close" for screen readers.
+    element: button
+    optional: true
+  - id: header
+    description: Top region holding the title.
+    element: div
+    optional: true
+  - id: title
+    description: >-
+      The coach-mark's accessible name (Base UI `Popover.Title`), wired to
+      `aria-labelledby`. Uses `text-foreground`, semibold 14/24.
+    element: h2
+  - id: description
+    description: >-
+      Supporting body text (Base UI `Popover.Description`), wired to
+      `aria-describedby`. Uses `text-foreground`, 14/24.
+    element: p
+    optional: true
+  - id: body
+    description: Content region between the header and footer.
+    element: div
+    optional: true
+  - id: footer
+    description: >-
+      Bottom bar holding the step counter and the navigation actions, separated
+      from the body by a brand-tinted top divider.
+    element: div
+    optional: true
+  - id: step-counter
+    description: >-
+      Renders the current position in the tour, e.g. "2 of 5", from the root
+      state. Customizable via a format function.
+    element: span
+    optional: true
+  - id: actions
+    description: Layout wrapper grouping the navigation buttons.
+    element: div
+    optional: true
+  - id: next-button
+    description: >-
+      Advances to the next step (Button, primary). Reads "Done" and completes the
+      tour on the last step.
+    element: button
+    optional: true
+  - id: back-button
+    description: >-
+      Returns to the previous step (Button, secondary). Disabled on the first
+      step.
+    element: button
+    optional: true
+  - id: skip-button
+    description: Dismisses the tour without completing it (Button, ghost).
+    element: button
+    optional: true
+
+layout:
+  type: flex
+  direction: column
+  order: [header, body, footer]
+
+internal_state:
+  - id: open
+    type: boolean
+    values: [false, true]
+    initial: false
+    controllable_via: [open]
+    controlled_default: default-open
+    emits: open-change
+    changed_by: >-
+      trigger click opens; close button / Esc / outside-press / Skip / Next on the
+      last step closes (when uncontrolled)
+    description: Whether the coach-mark is shown; reflected to the panel + scrim.
+  - id: active-step
+    type: number
+    initial: 0
+    controllable_via: [active-step]
+    controlled_default: default-active-step
+    emits: active-step-change
+    changed_by: Next advances; Back retreats (clamped to [0, step-count - 1])
+    description: >-
+      The zero-based index of the current step; drives the step counter and the
+      first/last-step logic.
+
+transitions:
+  - id: open
+    state: open
+    from: false
+    on: trigger click
+    to: true
+    effect: emits open-change(true)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+    interactive: true
+  - id: close
+    state: open
+    from: true
+    on: close button / Esc / outside press / Skip / Next on last step
+    to: false
+    effect: emits open-change(false) (+ skip or complete)
+    when_controlled: >-
+      internal value does NOT change; the component emits open-change and the
+      consumer must update the `open` prop.
+    interactive: true
+  - id: next
+    state: active-step
+    on: Next button (not on the last step)
+    to: active-step + 1
+    guard: active-step < step-count - 1
+    effect: emits active-step-change(next)
+    interactive: true
+  - id: back
+    state: active-step
+    on: Back button
+    to: active-step - 1
+    guard: active-step > 0
+    effect: emits active-step-change(next)
+    interactive: true
+
+states:
+  - {
+      id: open,
+      trigger: 'internal open === true (data-[open])',
+      kind: internal,
+      affects: [scrim, content],
+    }
+  - {
+      id: closed,
+      trigger: 'internal open === false (data-[closed])',
+      kind: internal,
+      affects: [scrim, content],
+    }
+  - {
+      id: first-step,
+      trigger: 'active-step === 0',
+      kind: internal,
+      affects: [back-button],
+    }
+  - {
+      id: last-step,
+      trigger: 'active-step === step-count - 1',
+      kind: internal,
+      affects: [next-button],
+    }
+  - {
+      id: focus-visible,
+      trigger: keyboard focus on a control,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [close, next-button, back-button, skip-button],
+    }

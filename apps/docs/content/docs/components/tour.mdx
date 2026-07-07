@@ -1,0 +1,135 @@
+---
+title: Tour
+description: A guided-onboarding coach-mark — a stepped popover with a beacon and optional scrim.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { TourDemo } from "@/components/demos-react/tour";
+
+## Usage
+
+```tsx
+import {
+  Tour,
+  TourTrigger,
+  TourBeacon,
+  TourScrim,
+  TourContent,
+  TourHeader,
+  TourTitle,
+  TourDescription,
+  TourBody,
+  TourFooter,
+  TourStepCounter,
+  TourActions,
+  TourNextButton,
+  TourBackButton,
+  TourSkipButton,
+  TourClose,
+} from '@spec-lab/ui-react';
+```
+
+`Tour` is a composable **coach-mark** for guided onboarding: a stepped popover,
+built on Base UI's `Popover`, anchored to a target that gets a pulsing
+**beacon** ("green light") and an optional dimming **scrim**. The `Tour` root
+owns the active step index and the open state; the parts read that state to
+render a "2 of 5" counter and drive **Next / Back / Skip**. `TourNextButton`,
+`TourBackButton`, and `TourSkipButton` are kit `Button`s wired to that state
+(Back disables on the first step; Next reads "Done" and fires `onComplete` on the
+last). It themes from the shared semantic tokens — a brand-blue border, the
+`--ui-background-status-strong-success` beacon, and the standard backdrop scrim.
+
+Anchoring the coach-mark to a specific DOM target (`anchor`), scrolling it into
+view, and persisting a "seen once" flag are left to the consumer, which drives
+the active step and open state.
+
+<Callout type="info">
+  Design-pending v1 — themed from semantic tokens with no `--ui-tour-*` tier.
+  There is no spotlight cut-out mask (the scrim dims uniformly) and the beacon
+  reuses the status-success green; both are flagged for the Figma/token pass.
+</Callout>
+
+## Examples
+
+<DemoReact>
+  <TourDemo />
+</DemoReact>
+
+A stepped coach-mark:
+
+```tsx
+<Tour stepCount={5} defaultOpen onComplete={markSeen} onSkip={markSeen}>
+  <TourTrigger render={<Button variant="secondary">Protection</Button>} />
+  <TourContent side="right">
+    <TourClose />
+    <TourHeader>
+      <TourTitle>Protection management</TourTitle>
+    </TourHeader>
+    <TourBody>
+      <TourDescription>Manage backups and recovery here.</TourDescription>
+    </TourBody>
+    <TourFooter>
+      <TourStepCounter />
+      <TourActions>
+        <TourSkipButton />
+        <TourBackButton />
+        <TourNextButton />
+      </TourActions>
+    </TourFooter>
+  </TourContent>
+</Tour>
+```
+
+Add a dimming scrim behind the coach-mark with `TourScrim`:
+
+```tsx
+<Tour stepCount={3} defaultOpen>
+  <TourTrigger render={<Button variant="secondary">Overview</Button>} />
+  <TourScrim />
+  <TourContent>{/* … */}</TourContent>
+</Tour>
+```
+
+Mark a target with the standalone beacon (decorative, `aria-hidden`); pass
+`pulse={false}` for a static dot:
+
+```tsx
+<TourBeacon />
+<TourBeacon pulse={false} />
+```
+
+## API Reference
+
+### Tour
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/tour/tour.tsx"
+  name="TourProps"
+/>
+
+### TourContent
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/tour/tour.tsx"
+  name="TourContentProps"
+/>
+
+### TourBeacon
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/tour/tour.tsx"
+  name="TourBeaconProps"
+/>
+
+### TourStepCounter
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/tour/tour.tsx"
+  name="TourStepCounterProps"
+/>
+
+`TourNextButton`, `TourBackButton`, and `TourSkipButton` accept the standard
+[`ButtonProps`](/docs/components/button). The remaining parts (`TourHeader`,
+`TourTitle`, `TourDescription`, `TourBody`, `TourFooter`, `TourActions`,
+`TourClose`, `TourTrigger`, `TourScrim`) accept the standard attributes of the
+element they render.
