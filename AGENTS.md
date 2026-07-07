@@ -174,6 +174,12 @@ that workspace**, never here.
   mechanism (a `layer` field on each `ui-spec` `index.yaml`, non-breaking), the
   pattern→composite graduation pipeline, and the future templates gallery in
   `apps/demo`. Proposed; not yet adopted.
+- `context/demo-console-portal-proposal.md` — Phase 4 of the layers work: turn
+  `apps/demo` into one **console portal** (an `AppShell` realizing the
+  `protection-dashboard` screen) that surfaces screens/patterns/component-demos
+  **driven by a spec-index** generated from `ui-spec`, plus a guided multi-step
+  onboarding `Popover` tour. Recommends hand-built screens + spec catalog (4a)
+  over a generic runtime renderer (4b, deferred). Proposed; not yet adopted.
 
 ## Tooling preconditions
 
