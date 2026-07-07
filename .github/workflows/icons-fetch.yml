@@ -68,7 +68,7 @@ jobs:
         run: pnpm --filter @spec-lab/icons-svg pull-icons
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.ACV_TOKEN }}
           branch: chore/figma-icons-sync

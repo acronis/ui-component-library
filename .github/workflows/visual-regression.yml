@@ -28,7 +28,7 @@ jobs:
       # build + Docker steps below are skipped when nothing relevant changed, so
       # docs-only / tooling-only PRs don't pay for a full Storybook + Playwright run.
       - name: Detect relevant changes
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         id: changes
         with:
           filters: |
@@ -61,7 +61,7 @@ jobs:
 
       - name: Cache pnpm store
         if: steps.changes.outputs[matrix.name] == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
@@ -75,7 +75,7 @@ jobs:
       # changed files are recompiled when the cache is restored.
       - name: Cache Storybook build
         if: steps.changes.outputs[matrix.name] == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             ${{ matrix.dir }}/node_modules/.vite
@@ -107,7 +107,7 @@ jobs:
 
       - name: Upload diff artifacts on failure
         if: failure() && steps.changes.outputs[matrix.name] == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: visual-regression-diffs-${{ matrix.name }}${{ matrix.color_mode && format('-{0}', matrix.color_mode) || '' }}
           path: ${{ matrix.dir }}/test/__snapshots__/__diff_output__/

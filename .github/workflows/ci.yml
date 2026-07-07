@@ -34,7 +34,7 @@ jobs:
       - name: Detect published-workspace changes
         if: "github.event_name == 'pull_request' && github.event.pull_request.title != 'chore(release): version packages'"
         id: changeset_filter
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         with:
           list-files: shell
           filters: |
@@ -103,7 +103,7 @@ jobs:
 
       - name: Cache node modules
         id: cache-pnpm
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         env:
           cache-name: cache-node-modules
         with:
@@ -180,7 +180,7 @@ jobs:
 
       - name: Detect changed asset inputs
         id: filter
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         with:
           list-files: shell
           filters: |
