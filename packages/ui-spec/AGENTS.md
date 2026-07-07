@@ -64,7 +64,11 @@ agent-facing source of truth for "how to combine components" and are rendered
 for humans in the docs site's **Patterns** section. Validated by
 `__tests__/patterns.test.ts` against `schema/pattern.schema.json`, which also
 checks every referenced `components[]` entry exists in `@spec-lab/ui-react`.
-See [`patterns/README.md`](./patterns/README.md).
+A proven pattern can **graduate** into a published composite component; it then
+records the link via `implementedBy`, which the test resolves to a real
+`layer: composite` component (the Primitive/Composite classification added by
+`context/component-layers-proposal.md`). See [`patterns/README.md`](./patterns/README.md)
+and [`patterns/GRADUATION.md`](./patterns/GRADUATION.md).
 
 ## Grammar (cross-component rules)
 

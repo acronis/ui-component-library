@@ -27,9 +27,19 @@ function listPatterns(): string[] {
 const toKebab = (s: string): string =>
   s.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 
+const COMPONENTS_DIR = join(PKG_ROOT, 'components');
+
 interface Pattern {
   name: string;
   components: string[];
+  implementedBy?: string;
+}
+
+/** The `layer` classification from a component's ui-spec index.yaml, or null. */
+function componentLayer(component: string): string | null {
+  const idx = join(COMPONENTS_DIR, toKebab(component), 'index.yaml');
+  if (!existsSync(idx)) return null;
+  return (parseYaml(readFileSync(idx, 'utf8')) as { layer?: string }).layer ?? null;
 }
 
 describe('every usage pattern validates and references real components', () => {
@@ -55,6 +65,19 @@ describe('every usage pattern validates and references real components', () => {
         missing,
         `${name}: components not found in ui-react: ${missing.join(', ')}`
       ).toEqual([]);
+
+      // A pattern that has graduated into a published composite must point at a
+      // real ui-react component whose spec is classified `layer: composite`.
+      if (data.implementedBy) {
+        expect(
+          existsSync(resolve(UI_REACT_UI, toKebab(data.implementedBy))),
+          `${name}: implementedBy '${data.implementedBy}' not found in ui-react`
+        ).toBe(true);
+        expect(
+          componentLayer(data.implementedBy),
+          `${name}: implementedBy '${data.implementedBy}' must be a spec'd component with layer: composite`
+        ).toBe('composite');
+      }
     });
   }
 });

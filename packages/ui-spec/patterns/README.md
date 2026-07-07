@@ -22,9 +22,21 @@ by `__tests__/patterns.test.ts`. Key fields:
 - `when_to_use` / `when_not_to_use` / `anti_patterns` — guidance.
 - `components` — the ui-react components it composes (PascalCase; each must
   exist, enforced by the test).
+- `implementedBy` — the published composite this pattern has **graduated** into,
+  if any (PascalCase). Must resolve to a ui-react component classified
+  `layer: composite` (enforced by the test). See
+  [`GRADUATION.md`](./GRADUATION.md).
 - `replaces` — the legacy element it supersedes, if any.
 - `example` — the approved React composition (the copy-paste starting point).
 - `demo` / `docs` — where it is rendered for humans.
+
+## Graduation (pattern → composite)
+
+A proven recipe can graduate into a single published composite component; the
+pattern then records the link via `implementedBy`, and consumers reach for the
+composite instead of re-assembling the recipe. Criteria and the current
+graduations are in [`GRADUATION.md`](./GRADUATION.md). Recipes that never
+graduate (e.g. `filter-popover`) are a valid, permanent state.
 
 ## Two audiences
 

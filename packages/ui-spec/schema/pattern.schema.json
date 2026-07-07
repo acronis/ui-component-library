@@ -38,6 +38,11 @@
       "items": { "type": "string", "pattern": "^[A-Z][A-Za-z0-9]*$" },
       "description": "ui-react components this pattern composes (PascalCase). Each must exist."
     },
+    "implementedBy": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Za-z0-9]*$",
+      "description": "The published composite component this pattern has graduated into, if any (PascalCase). Must be a ui-react component whose ui-spec is classified `layer: composite`. See GRADUATION.md."
+    },
     "demo": {
       "type": "string",
       "description": "Path to the live demo that renders this pattern."
