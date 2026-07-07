@@ -1,86 +1,58 @@
 import * as React from 'react';
-import { useLocation } from 'react-router-dom';
-import { BarsIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import { UserIcon } from '@spec-lab/icons-react/stroke-mono';
 import {
   MoonIcon,
   SunIcon,
   LogOutIcon,
 } from '@/components/icons/missing-icons';
-import { Button, ButtonIcon } from '@spec-lab/ui-react';
 import {
+  AppShellHeader,
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@spec-lab/ui-react';
-import {
+  Button,
+  ButtonIcon,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  SearchGlobal,
 } from '@spec-lab/ui-react';
+import { getCurrentColorMode, toggleColorMode } from '@/lib/theme-switcher';
 import { useAuth } from '../hooks/useAuth';
 import { LanguageSelector } from '../components/LanguageSelector';
 
-interface HeaderProps {
-  onMenuToggle?: () => void;
-  showMenuButton?: boolean;
-}
-
-const routeLabels: Record<string, string> = {
-  dashboard: 'Dashboard',
-  chat: 'Chat',
-  data: 'Data Table',
-  settings: 'Settings',
-};
-
-export function Header({ onMenuToggle, showMenuButton = true }: HeaderProps) {
+// The AppShell top bar (protection-dashboard `header` region): a centered global
+// search flanked by equal side columns so it stays truly centered regardless of
+// the account label width, with the theme toggle, language selector and account
+// menu pinned to the trailing (end) edge. Uses logical `justify-self` so the
+// layout mirrors under RTL.
+export function ConsoleHeader() {
   const { user, logout } = useAuth();
-  const location = useLocation();
-  const [theme, setTheme] = React.useState<'light' | 'dark'>('light');
+  const [mode, setMode] = React.useState<'light' | 'dark'>(() =>
+    getCurrentColorMode()
+  );
 
-  const pathSegments = location.pathname.split('/').filter(Boolean);
-  const currentRoute = pathSegments[pathSegments.length - 1];
-  const breadcrumbLabel = routeLabels[currentRoute] || currentRoute;
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-  };
+  const handleToggleTheme = () => setMode(toggleColorMode());
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex h-14 items-center gap-4 px-4">
-        {showMenuButton && (
+    <AppShellHeader>
+      <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <span aria-hidden="true" />
+        <SearchGlobal
+          aria-label="Search"
+          placeholder="Search…"
+          className="w-[28rem] justify-self-center"
+        />
+        <div className="flex items-center gap-2 justify-self-end">
           <ButtonIcon
             variant="ghost"
-            onClick={onMenuToggle}
-            className="md:hidden"
-            aria-label="Toggle menu"
-          >
-            <BarsIcon className="h-5 w-5" />
-          </ButtonIcon>
-        )}
-
-        <div className="flex-1">
-          <nav className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <span>App</span>
-            <span>/</span>
-            <span className="text-foreground font-medium">
-              {breadcrumbLabel}
-            </span>
-          </nav>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <ButtonIcon
-            variant="ghost"
-            onClick={toggleTheme}
+            onClick={handleToggleTheme}
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? (
+            {mode === 'light' ? (
               <MoonIcon className="h-5 w-5" />
             ) : (
               <SunIcon className="h-5 w-5" />
@@ -130,6 +102,6 @@ export function Header({ onMenuToggle, showMenuButton = true }: HeaderProps) {
           </DropdownMenu>
         </div>
       </div>
-    </header>
+    </AppShellHeader>
   );
 }

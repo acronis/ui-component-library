@@ -1,43 +1,31 @@
-import * as React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from './Header';
-import { Sidebar } from './Sidebar';
+import {
+  AppShell,
+  AppShellBody,
+  AppShellMain,
+  AppShellSidebar,
+} from '@spec-lab/ui-react';
+import { ConsoleHeader } from './ConsoleHeader';
+import { ConsoleSidebar } from './ConsoleSidebar';
 
+// The demo console frame: the kit's AppShell composite realizing the
+// protection-dashboard screen spec — a collapsed primary rail + expanded
+// secondary section nav (ConsoleSidebar) beside a body of the sticky global-
+// search header (ConsoleHeader) over the routed main content. The sidebar is
+// hidden below `md` (the rail + panel are too wide for a phone); the section
+// nav stays reachable from the routed content on those widths.
 export function AppLayout() {
-  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth < 768) {
-        setSidebarCollapsed(true);
-      }
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   return (
-    <div className="flex h-screen overflow-hidden">
-      <Sidebar
-        isCollapsed={sidebarCollapsed}
-        onCollapse={setSidebarCollapsed}
-        className="hidden md:flex"
-      />
-
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <Header
-          onMenuToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
-          showMenuButton={isMobile}
-        />
-
-        <main className="flex-1 overflow-y-auto p-6">
+    <AppShell className="h-screen">
+      <AppShellSidebar className="hidden md:flex">
+        <ConsoleSidebar />
+      </AppShellSidebar>
+      <AppShellBody>
+        <ConsoleHeader />
+        <AppShellMain className="p-6">
           <Outlet />
-        </main>
-      </div>
-    </div>
+        </AppShellMain>
+      </AppShellBody>
+    </AppShell>
   );
 }
