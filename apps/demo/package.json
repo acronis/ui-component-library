@@ -43,6 +43,7 @@
     "zustand": "5.0.14"
   },
   "devDependencies": {
+    "@spec-lab/ui-spec": "workspace:*",
     "@tailwindcss/postcss": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

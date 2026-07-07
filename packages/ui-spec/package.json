@@ -9,7 +9,8 @@
     "./package.json": "./package.json",
     ".": "./index.ts",
     "./components/*": "./components/*",
-    "./schema/*": "./schema/*"
+    "./schema/*": "./schema/*",
+    "./spec-index.json": "./spec-index.json"
   },
   "main": "./index.ts",
   "scripts": {
@@ -23,6 +24,7 @@
     "test:watch": "vitest",
     "validate": "vitest run",
     "generate:stories": "tsx scripts/generate-stories.ts",
+    "generate:spec-index": "tsx scripts/generate-spec-index.ts",
     "kit-lint": "tsx scripts/kit-lint.ts",
     "screen-audit": "tsx scripts/screen-audit.ts"
   },

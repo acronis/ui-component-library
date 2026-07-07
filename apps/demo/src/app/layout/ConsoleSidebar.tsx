@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
+  BoxIcon,
   ChevronLeftIcon,
   ChevronsLeftIcon,
   CircleHelpIcon,
   CogIcon,
   LayoutGridIcon,
+  LayoutIcon,
   LayoutTableIcon,
   MessageIcon,
   MonitorIcon,
+  PuzzleIcon,
   ServerIcon,
 } from '@spec-lab/icons-react/stroke-mono';
 import { AcronisIcon } from '@spec-lab/icons-react/solid-mono';
@@ -42,9 +45,14 @@ import { useLocale } from '../context/LocaleContext';
 // (Base UI composition) with a `<Link>`.
 
 interface NavItem {
-  /** Route section (relative link + the last path segment used for selection). */
+  /** The last path segment used for selection. */
   section: string;
-  labelKey: string;
+  /** Relative link target; defaults to `section` when the link is a single segment. */
+  to?: string;
+  /** i18n key for the label; when absent, `label` is used verbatim. */
+  labelKey?: string;
+  /** Static label (for entries with no i18n string, e.g. the catalog). */
+  label?: string;
   icon: React.ReactNode;
 }
 
@@ -63,6 +71,29 @@ const overviewItems: NavItem[] = [
 const workspaceItems: NavItem[] = [
   { section: 'chat', labelKey: 'navigation.chat', icon: <MessageIcon /> },
   { section: 'settings', labelKey: 'navigation.settings', icon: <CogIcon /> },
+];
+
+// Spec-driven catalog: the last path segment is unique per entry, so it doubles
+// as the selection key while the link points at the nested `catalog/*` route.
+const catalogItems: NavItem[] = [
+  {
+    section: 'components',
+    to: 'catalog/components',
+    label: 'Components',
+    icon: <BoxIcon />,
+  },
+  {
+    section: 'patterns',
+    to: 'catalog/patterns',
+    label: 'Patterns',
+    icon: <PuzzleIcon />,
+  },
+  {
+    section: 'screens',
+    to: 'catalog/screens',
+    label: 'Screens',
+    icon: <LayoutIcon />,
+  },
 ];
 
 function useCurrentSection(): string {
@@ -127,8 +158,29 @@ function SecondaryNav({ currentSection }: { currentSection: string }) {
   const { t } = useLocale();
   const areaLabel = 'Console';
 
+  const label = (item: NavItem): string =>
+    item.label ?? (item.labelKey ? t(item.labelKey) : item.section);
+
+  const renderSection = (title: string, items: NavItem[]) => (
+    <SidebarSecondarySection>
+      <SidebarSecondarySectionLabel>{title}</SidebarSecondarySectionLabel>
+      <SidebarSecondaryMenu>
+        {items.map((item) => (
+          <SidebarSecondaryMenuItem
+            key={item.section}
+            icon={item.icon}
+            selected={currentSection === item.section}
+            render={<Link to={item.to ?? item.section} />}
+          >
+            {label(item)}
+          </SidebarSecondaryMenuItem>
+        ))}
+      </SidebarSecondaryMenu>
+    </SidebarSecondarySection>
+  );
+
   const currentItem =
-    [...overviewItems, ...workspaceItems].find(
+    [...overviewItems, ...workspaceItems, ...catalogItems].find(
       (item) => item.section === currentSection
     ) ?? overviewItems[0];
 
@@ -136,40 +188,13 @@ function SecondaryNav({ currentSection }: { currentSection: string }) {
     <SidebarSecondary>
       <SidebarSecondaryHeader label={areaLabel} />
       <SidebarSecondaryContent>
-        <SidebarSecondarySection>
-          <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
-          <SidebarSecondaryMenu>
-            {overviewItems.map((item) => (
-              <SidebarSecondaryMenuItem
-                key={item.section}
-                icon={item.icon}
-                selected={currentSection === item.section}
-                render={<Link to={item.section} />}
-              >
-                {t(item.labelKey)}
-              </SidebarSecondaryMenuItem>
-            ))}
-          </SidebarSecondaryMenu>
-        </SidebarSecondarySection>
-        <SidebarSecondarySection>
-          <SidebarSecondarySectionLabel>Workspace</SidebarSecondarySectionLabel>
-          <SidebarSecondaryMenu>
-            {workspaceItems.map((item) => (
-              <SidebarSecondaryMenuItem
-                key={item.section}
-                icon={item.icon}
-                selected={currentSection === item.section}
-                render={<Link to={item.section} />}
-              >
-                {t(item.labelKey)}
-              </SidebarSecondaryMenuItem>
-            ))}
-          </SidebarSecondaryMenu>
-        </SidebarSecondarySection>
+        {renderSection('Overview', overviewItems)}
+        {renderSection('Workspace', workspaceItems)}
+        {renderSection('Catalog', catalogItems)}
       </SidebarSecondaryContent>
       <SidebarSecondaryCollapsedBreadcrumb
         parentLabel={areaLabel}
-        currentLabel={t(currentItem.labelKey)}
+        currentLabel={label(currentItem)}
       />
       <SidebarSecondaryFooter>
         <SidebarSecondaryMenu>

@@ -1,0 +1,643 @@
+{
+  "components": [
+    {
+      "name": "accordion",
+      "component": "Accordion",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.49.0"
+    },
+    {
+      "name": "alert",
+      "component": "Alert",
+      "category": "feedback",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.48.0"
+    },
+    {
+      "name": "app-shell",
+      "component": "AppShell",
+      "category": "layout",
+      "status": "ready",
+      "layer": "composite",
+      "since": "0.52.0"
+    },
+    {
+      "name": "aspect-ratio",
+      "component": "AspectRatio",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "auth-layout",
+      "component": "AuthLayout",
+      "category": "layout",
+      "status": "ready",
+      "layer": "composite",
+      "since": "0.52.0"
+    },
+    {
+      "name": "avatar",
+      "component": "Avatar",
+      "category": "data-display",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.22.0"
+    },
+    {
+      "name": "breadcrumb",
+      "component": "Breadcrumb",
+      "category": "navigation",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.6.0"
+    },
+    {
+      "name": "button",
+      "component": "Button",
+      "category": "actions",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.4.0"
+    },
+    {
+      "name": "button-group",
+      "component": "ButtonGroup",
+      "category": "buttons-actions",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "button-icon",
+      "component": "ButtonIcon",
+      "category": "actions",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.4.0"
+    },
+    {
+      "name": "button-icon-menu",
+      "component": "ButtonIconMenu",
+      "category": "actions",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "button-menu",
+      "component": "ButtonMenu",
+      "category": "actions",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.17.0"
+    },
+    {
+      "name": "button-menu-dropdown",
+      "component": "ButtonMenuDropdown",
+      "category": "overlays",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "calendar",
+      "component": "Calendar",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "card",
+      "component": "Card",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.8.0"
+    },
+    {
+      "name": "card-filter",
+      "component": "CardFilter",
+      "category": "data-display",
+      "status": "ready",
+      "layer": "composite",
+      "since": "0.26.0"
+    },
+    {
+      "name": "carousel",
+      "component": "Carousel",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "chart",
+      "component": "Chart",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.47.0"
+    },
+    {
+      "name": "checkbox",
+      "component": "Checkbox",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.7.0"
+    },
+    {
+      "name": "chip",
+      "component": "Chip",
+      "category": "data-display",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.36.0"
+    },
+    {
+      "name": "collapsible",
+      "component": "Collapsible",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.49.0"
+    },
+    {
+      "name": "combobox",
+      "component": "Combobox",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.49.0"
+    },
+    {
+      "name": "command",
+      "component": "Command",
+      "category": "overlay",
+      "status": "draft",
+      "layer": "composite",
+      "since": "0.55.0"
+    },
+    {
+      "name": "data-table",
+      "component": "DataTable",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "composite",
+      "since": "0.42.0"
+    },
+    {
+      "name": "description-list",
+      "component": "DescriptionList",
+      "category": "data-display",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.43.0"
+    },
+    {
+      "name": "dialog",
+      "component": "Dialog",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.9.0"
+    },
+    {
+      "name": "drawer",
+      "component": "Drawer",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "dropdown-menu",
+      "component": "DropdownMenu",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.14.0"
+    },
+    {
+      "name": "empty",
+      "component": "Empty",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.13.0"
+    },
+    {
+      "name": "field",
+      "component": "Field",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.47.0"
+    },
+    {
+      "name": "form",
+      "component": "Form",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.48.0"
+    },
+    {
+      "name": "grid",
+      "component": "Grid",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.51.0"
+    },
+    {
+      "name": "input-date-picker",
+      "component": "InputDatePicker",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.30.0"
+    },
+    {
+      "name": "input-search",
+      "component": "InputSearch",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.29.0"
+    },
+    {
+      "name": "input-select",
+      "component": "InputSelect",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.29.0"
+    },
+    {
+      "name": "input-text",
+      "component": "InputText",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.26.0"
+    },
+    {
+      "name": "input-text-area",
+      "component": "InputTextArea",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.23.0"
+    },
+    {
+      "name": "label",
+      "component": "Label",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.40.0"
+    },
+    {
+      "name": "link",
+      "component": "Link",
+      "category": "navigation",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.31.0"
+    },
+    {
+      "name": "menu",
+      "component": "Menu",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "number-field",
+      "component": "NumberField",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.51.0"
+    },
+    {
+      "name": "page-content",
+      "component": "PageContent",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.52.0"
+    },
+    {
+      "name": "page-header",
+      "component": "PageHeader",
+      "category": "layout",
+      "status": "ready",
+      "layer": "composite",
+      "since": "0.52.0"
+    },
+    {
+      "name": "pagination",
+      "component": "Pagination",
+      "category": "navigation",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.51.0"
+    },
+    {
+      "name": "popover",
+      "component": "Popover",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.12.0"
+    },
+    {
+      "name": "progress",
+      "component": "Progress",
+      "category": "feedback",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.40.0"
+    },
+    {
+      "name": "progress-circle",
+      "component": "ProgressCircle",
+      "category": "feedback",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.43.0"
+    },
+    {
+      "name": "radio",
+      "component": "RadioGroup",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.7.0"
+    },
+    {
+      "name": "resizable",
+      "component": "Resizable",
+      "category": "layout",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.23.0"
+    },
+    {
+      "name": "scroll-area",
+      "component": "ScrollArea",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.53.0"
+    },
+    {
+      "name": "search-global",
+      "component": "SearchGlobal",
+      "category": "forms",
+      "status": "ready",
+      "layer": "composite",
+      "since": "0.23.0"
+    },
+    {
+      "name": "section",
+      "component": "Section",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.51.0"
+    },
+    {
+      "name": "select",
+      "component": "Select",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.10.0"
+    },
+    {
+      "name": "separator",
+      "component": "Separator",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.15.0"
+    },
+    {
+      "name": "sheet",
+      "component": "Sheet",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.42.0"
+    },
+    {
+      "name": "sidebar-primary",
+      "component": "SidebarPrimary",
+      "category": "navigation",
+      "status": "ready",
+      "layer": "composite",
+      "since": "0.7.0"
+    },
+    {
+      "name": "sidebar-secondary",
+      "component": "SidebarSecondary",
+      "category": "navigation",
+      "status": "ready",
+      "layer": "composite",
+      "since": "0.7.0"
+    },
+    {
+      "name": "skeleton",
+      "component": "Skeleton",
+      "category": "feedback",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.48.0"
+    },
+    {
+      "name": "slider",
+      "component": "Slider",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.50.0"
+    },
+    {
+      "name": "spinner",
+      "component": "Spinner",
+      "category": "feedback",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.15.0"
+    },
+    {
+      "name": "stack",
+      "component": "Stack",
+      "category": "layout",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.51.0"
+    },
+    {
+      "name": "switch",
+      "component": "Switch",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.4.0"
+    },
+    {
+      "name": "table",
+      "component": "Table",
+      "category": "data-display",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.10.0"
+    },
+    {
+      "name": "tabs",
+      "component": "Tabs",
+      "category": "navigation",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.11.0"
+    },
+    {
+      "name": "tag",
+      "component": "Tag",
+      "category": "data-display",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.12.0"
+    },
+    {
+      "name": "toast",
+      "component": "Toast",
+      "category": "feedback",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.41.0"
+    },
+    {
+      "name": "toggle-group",
+      "component": "ToggleGroup",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.51.0"
+    },
+    {
+      "name": "tooltip",
+      "component": "Tooltip",
+      "category": "overlay",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "0.12.0"
+    },
+    {
+      "name": "tree",
+      "component": "Tree",
+      "category": "navigation",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "0.55.0"
+    },
+    {
+      "name": "widget-placeholder",
+      "component": "WidgetPlaceholder",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "composite",
+      "since": "0.41.0"
+    }
+  ],
+  "patterns": [
+    {
+      "name": "app-shell",
+      "pattern": "AppShellLayout",
+      "status": "draft",
+      "category": "layout",
+      "intent": "Assemble a full authenticated app screen by dropping the primary nav, optional secondary menu, global search, and page content into the App Shell's slots.",
+      "components": [
+        "AppShell",
+        "SidebarPrimary",
+        "SidebarSecondary",
+        "SearchGlobal"
+      ],
+      "implementedBy": "AppShell",
+      "demo": "apps/docs/src/components/demos-react/app-shell.tsx",
+      "docs": "apps/docs/content/docs/patterns/app-shell.mdx"
+    },
+    {
+      "name": "dashboard",
+      "pattern": "Dashboard",
+      "status": "draft",
+      "category": "layout",
+      "intent": "Build a dashboard screen by laying widgets into a container-query Grid inside the App Shell's main content.",
+      "components": ["AppShell", "Grid", "WidgetPlaceholder"],
+      "demo": "apps/docs/src/components/demos-react/dashboard.tsx",
+      "docs": "apps/docs/content/docs/patterns/dashboard.mdx"
+    },
+    {
+      "name": "data-table-bulk-actions",
+      "pattern": "DataTableBulkActions",
+      "status": "draft",
+      "category": "data-display",
+      "intent": "Select rows in a data table and act on the selection via a contextual bulk-action bar.",
+      "components": ["Table", "Checkbox", "Button", "DataTable"],
+      "demo": "apps/docs/src/components/demos-react/patterns/data-table-bulk-actions.tsx",
+      "docs": "apps/docs/content/docs/patterns/data-table-bulk-actions.mdx"
+    },
+    {
+      "name": "empty-screen",
+      "pattern": "EmptyScreen",
+      "status": "draft",
+      "category": "layout",
+      "intent": "Show a full-screen zero state inside the App Shell when a page has no content yet.",
+      "components": ["AppShell", "Empty", "SidebarPrimary"],
+      "demo": "apps/docs/src/components/demos-react/empty-screen.tsx",
+      "docs": "apps/docs/content/docs/patterns/empty-screen.mdx"
+    },
+    {
+      "name": "filter-popover",
+      "pattern": "FilterPopover",
+      "status": "draft",
+      "category": "data-display",
+      "intent": "A trigger button that opens a popover containing filter fields with Apply / Reset actions.",
+      "components": ["Popover", "InputSelect", "Button"],
+      "demo": "apps/docs/src/components/demos-react/patterns/filter-popover.tsx",
+      "docs": "apps/docs/content/docs/patterns/filter-popover.mdx"
+    },
+    {
+      "name": "sheet-detail-panel",
+      "pattern": "SheetDetailPanel",
+      "status": "draft",
+      "category": "overlays",
+      "intent": "Show the details of a selected item in a side Sheet — title, key/value properties, content states, and footer actions.",
+      "components": ["Sheet", "DescriptionList", "Button", "Spinner", "Empty"],
+      "demo": "apps/docs/src/components/demos-react/patterns/sheet-detail-panel.tsx",
+      "docs": "apps/docs/content/docs/patterns/sheet-detail-panel.mdx"
+    }
+  ],
+  "screens": [
+    {
+      "name": "protection-dashboard",
+      "title": "Protection Dashboard",
+      "status": "draft",
+      "category": "console",
+      "route": "/protection/dashboard",
+      "story": "ui-appshell--with-secondary",
+      "pattern": "app-shell"
+    }
+  ]
+}

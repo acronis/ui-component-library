@@ -235,6 +235,9 @@ importers:
         specifier: 5.0.14
         version: 5.0.14(@types/react@19.2.15)(immer@11.1.8)(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
     devDependencies:
+      '@spec-lab/ui-spec':
+        specifier: workspace:*
+        version: link:../../packages/ui-spec
       '@tailwindcss/postcss':
         specifier: 'catalog:'
         version: 4.3.0

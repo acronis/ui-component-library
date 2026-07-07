@@ -8,6 +8,9 @@ import { LoginPage } from './routes/login/LoginPage';
 import { DashboardPage } from './routes/dashboard/DashboardPage';
 import { DataTablePage } from './routes/data/DataTablePage';
 import { SettingsPage } from './routes/settings/SettingsPage';
+import { ComponentsCatalogPage } from './routes/catalog/ComponentsCatalogPage';
+import { PatternsCatalogPage } from './routes/catalog/PatternsCatalogPage';
+import { ScreensCatalogPage } from './routes/catalog/ScreensCatalogPage';
 import ChatRoute from './demo/chat/route';
 import CyberChatRoute from './demo/cyberchat/route';
 import { CyberChatHostDemo } from './demo/cyberchat/CyberChatHostDemo';
@@ -42,6 +45,15 @@ export function DemoApp() {
               <Route path="data" element={<DataTablePage />} />
               <Route path="settings" element={<SettingsPage />} />
               <Route path="chat" element={<ChatRoute />} />
+              <Route path="catalog">
+                <Route
+                  index
+                  element={<Navigate to="components" replace />}
+                />
+                <Route path="components" element={<ComponentsCatalogPage />} />
+                <Route path="patterns" element={<PatternsCatalogPage />} />
+                <Route path="screens" element={<ScreensCatalogPage />} />
+              </Route>
             </Route>
           </Routes>
         </AuthProvider>
