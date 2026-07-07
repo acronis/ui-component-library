@@ -1,5 +1,7 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import {
+  Button,
   Card,
   CardContent,
   PageHeader,
@@ -15,6 +17,13 @@ import {
   Tag,
 } from '@spec-lab/ui-react';
 import { specIndex, statusVariant } from './spec-index';
+
+// The console itself is the app-shell realization of the protection-dashboard
+// screen, so its live view is the console's Overview (the /demo/dashboard route).
+// Relative Link, consistent with the sidebar's nav wiring.
+const LIVE_ROUTES: Record<string, string> = {
+  'protection-dashboard': '../../dashboard',
+};
 
 export function ScreensCatalogPage() {
   return (
@@ -37,6 +46,7 @@ export function ScreensCatalogPage() {
                 <TableHead>Pattern</TableHead>
                 <TableHead>Story</TableHead>
                 <TableHead>Status</TableHead>
+                <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -56,6 +66,18 @@ export function ScreensCatalogPage() {
                     <Tag variant={statusVariant(screen.status)} size="sm">
                       {screen.status}
                     </Tag>
+                  </TableCell>
+                  <TableCell>
+                    {LIVE_ROUTES[screen.name] ? (
+                      <Button
+                        variant="ghost"
+                        render={<Link to={LIVE_ROUTES[screen.name]} />}
+                      >
+                        View live
+                      </Button>
+                    ) : (
+                      <span className="text-muted-foreground">—</span>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}

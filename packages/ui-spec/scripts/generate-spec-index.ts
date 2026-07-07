@@ -43,6 +43,11 @@ export interface SpecIndexPattern {
   status: string;
   category?: string;
   intent?: string;
+  description?: string;
+  when_to_use?: string[];
+  when_not_to_use?: string[];
+  anti_patterns?: string[];
+  example?: string;
   components?: string[];
   implementedBy?: string;
   demo?: string;
@@ -125,6 +130,11 @@ function buildPatterns(): SpecIndexPattern[] {
         ...pick(raw, [
           'category',
           'intent',
+          'description',
+          'when_to_use',
+          'when_not_to_use',
+          'anti_patterns',
+          'example',
           'components',
           'implementedBy',
           'demo',

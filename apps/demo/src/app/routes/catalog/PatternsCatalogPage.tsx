@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -28,7 +29,12 @@ export function PatternsCatalogPage() {
 
       <Grid cols={2} gap="lg" container>
         {specIndex.patterns.map((pattern) => (
-          <Card key={pattern.name} className="flex h-full flex-col">
+          <Link
+            key={pattern.name}
+            to={pattern.name}
+            className="rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <Card className="flex h-full flex-col transition-colors hover:border-primary">
             <CardHeader className="gap-2">
               <div className="flex items-start justify-between gap-2">
                 <CardTitle>{pattern.pattern}</CardTitle>
@@ -56,7 +62,8 @@ export function PatternsCatalogPage() {
                 ) : null}
               </Stack>
             </CardContent>
-          </Card>
+            </Card>
+          </Link>
         ))}
       </Grid>
     </Stack>

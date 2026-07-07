@@ -568,6 +568,20 @@
       "status": "draft",
       "category": "layout",
       "intent": "Assemble a full authenticated app screen by dropping the primary nav, optional secondary menu, global search, and page content into the App Shell's slots.",
+      "description": "The sanctioned way to build a top-level screen: an `AppShell` whose sidebar slot holds `SidebarPrimary` (and, when a section has sub-navigation, `SidebarSecondary` beside it), whose header slot holds `SearchGlobal` plus account/actions, and whose main slot holds the routed page content. App Shell is a slot-based layout — it owns only the structure (full-height row, sticky header, independently scrolling main); the rich behavior comes from the components placed in the slots.",
+      "when_to_use": [
+        "The root frame of an authenticated application screen.",
+        "Screens that need persistent primary nav + a global header across routes."
+      ],
+      "when_not_to_use": [
+        "Marketing or auth screens — use the (future) Auth Layout.",
+        "A region within a page — use Section / Stack / Grid."
+      ],
+      "anti_patterns": [
+        "Hand-rolling a fixed sidebar/header with raw divs instead of the AppShell slots (loses the landmark semantics and sticky/scroll behavior).",
+        "Putting page content in AppShellHeader, or more than one AppShellMain (breaks the single `main` landmark).",
+        "Styling the scaffold with custom colors instead of letting SidebarPrimary / SearchGlobal own their tokens."
+      ],
       "components": [
         "AppShell",
         "SidebarPrimary",
@@ -584,6 +598,18 @@
       "status": "draft",
       "category": "layout",
       "intent": "Build a dashboard screen by laying widgets into a container-query Grid inside the App Shell's main content.",
+      "description": "The sanctioned way to build a dashboard: an `AppShell` (primary nav + header) whose main holds a `PageHeader` and a `Grid` of widgets. The Grid uses `container` so the widget columns respond to the main content's width — which shrinks as the sidebar expands — rather than the viewport. There is no dedicated \"DashboardLayout\" component: a dashboard is App Shell + a container Grid of widgets (e.g. WidgetPlaceholder / Card), which is this composition.",
+      "when_to_use": [
+        "Overview / dashboard screens made of a grid of widget cards."
+      ],
+      "when_not_to_use": [
+        "A general two-dimensional layout outside a variable-width area — a plain `Grid` (viewport breakpoints) is enough.",
+        "Non-grid page content — use `Section` / `Stack`."
+      ],
+      "anti_patterns": [
+        "Reaching for a bespoke \"dashboard layout\" component — it's just App Shell + a container Grid (this pattern).",
+        "Using a viewport-breakpoint Grid inside App Shell main — the columns won't account for the sidebar width; use `<Grid container>`."
+      ],
       "components": ["AppShell", "Grid", "WidgetPlaceholder"],
       "demo": "apps/docs/src/components/demos-react/dashboard.tsx",
       "docs": "apps/docs/content/docs/patterns/dashboard.mdx"
@@ -594,6 +620,21 @@
       "status": "draft",
       "category": "data-display",
       "intent": "Select rows in a data table and act on the selection via a contextual bulk-action bar.",
+      "description": "The sanctioned way to offer row selection with bulk actions (delete, export, …): a checkbox selection column drives a contextual bar that replaces the toolbar while rows are selected, showing the count and the available actions. Because the bulk bar and the row checkboxes must read the SAME selection state, this composes the Table primitives + DataTablePagination over a single `useReactTable` instance — not the self-contained `DataTable` (which owns its own internal state and can't share selection with external chrome).",
+      "when_to_use": [
+        "A table where users pick several rows and apply one action to all of them.",
+        "Destructive or batch operations (delete, export, assign) on multiple rows."
+      ],
+      "when_not_to_use": [
+        "A read-only or single-select table — use `DataTable` directly.",
+        "One action per row — put a row action (menu / button) in a cell instead."
+      ],
+      "anti_patterns": [
+        "Using the self-contained `DataTable` and a separate `useReactTable` for the bar — their selection states diverge.",
+        "Leaving the bulk bar always visible — show it only while rows are selected.",
+        "Hiding the selection count — always show \"N selected\" so the scope is clear."
+      ],
+      "example": "const table = useReactTable({\n  data,\n  columns, // includes a checkbox 'select' column\n  getCoreRowModel: getCoreRowModel(),\n  getPaginationRowModel: getPaginationRowModel(),\n  enableRowSelection: true,\n  onRowSelectionChange: setRowSelection,\n  state: { rowSelection },\n});\nconst selected = table.getSelectedRowModel().rows;\n\n{selected.length > 0 ? (\n  <div className=\"flex items-center justify-between rounded-md border border-border bg-muted px-4 py-2\">\n    <span className=\"text-sm font-medium\">{selected.length} selected</span>\n    <div className=\"flex gap-2\">\n      <Button variant=\"ghost\" onClick={() => table.resetRowSelection()}>Clear</Button>\n      <Button variant=\"secondary\">Export</Button>\n      <Button variant=\"destructive\">Delete</Button>\n    </div>\n  </div>\n) : (\n  <DataTableToolbar table={table} searchKey=\"email\" />\n)}\n<Table>{/* render table.getHeaderGroups() / getRowModel() */}</Table>\n<DataTablePagination table={table} />\n",
       "components": ["Table", "Checkbox", "Button", "DataTable"],
       "demo": "apps/docs/src/components/demos-react/patterns/data-table-bulk-actions.tsx",
       "docs": "apps/docs/content/docs/patterns/data-table-bulk-actions.mdx"
@@ -604,6 +645,18 @@
       "status": "draft",
       "category": "layout",
       "intent": "Show a full-screen zero state inside the App Shell when a page has no content yet.",
+      "description": "The sanctioned full-screen empty state: an `AppShell` (primary nav + header) whose main centers an `Empty` (icon + title + description + optional action). Use it for first-run / no-data screens so the chrome stays consistent while the content area communicates the empty state. The sidebar configuration (expanded / collapsed / with a secondary nav) is independent — see the App Shell stories.",
+      "when_to_use": [
+        "A page that has no data yet (first run, filtered-to-nothing, not-set-up)."
+      ],
+      "when_not_to_use": [
+        "An empty region inside an otherwise full page — use `Empty` on its own.",
+        "A loading state — use a `Spinner` / `Skeleton` in place of the content."
+      ],
+      "anti_patterns": [
+        "Replacing the whole shell with a bare centered message (loses the nav/header chrome and the user's place in the app).",
+        "Using `Empty` without centering it in the main area — it should sit in the optical center of the content region."
+      ],
       "components": ["AppShell", "Empty", "SidebarPrimary"],
       "demo": "apps/docs/src/components/demos-react/empty-screen.tsx",
       "docs": "apps/docs/content/docs/patterns/empty-screen.mdx"
@@ -614,6 +667,22 @@
       "status": "draft",
       "category": "data-display",
       "intent": "A trigger button that opens a popover containing filter fields with Apply / Reset actions.",
+      "description": "The sanctioned way to offer multi-criteria filtering of a list or table without leaving the page: a Button opens a Popover holding a small form of select fields, with a primary Apply and a ghost Reset in a right-aligned footer. Composes existing components — no bespoke widget. Supersedes the legacy `el-multi-search`.",
+      "when_to_use": [
+        "Filtering a table or list by a few discrete criteria (status, region, type).",
+        "Keeping filter controls tucked away until the user wants them."
+      ],
+      "when_not_to_use": [
+        "A single always-visible filter — render the field inline instead of a popover.",
+        "Free-text search — use a search field (InputSearch / SearchGlobal), not selects.",
+        "A blocking, full-screen task — use a Dialog."
+      ],
+      "anti_patterns": [
+        "Building a one-off dropdown panel by hand instead of composing Popover.",
+        "Putting destructive or navigation actions in the footer (only Apply / Reset).",
+        "Auto-applying on every change AND showing an Apply button — pick one model."
+      ],
+      "example": "<Popover>\n  <PopoverTrigger render={<Button variant=\"secondary\">Filters</Button>} />\n  <PopoverContent align=\"start\" sideOffset={8} className=\"w-80 p-0\">\n    <form\n      onSubmit={(e) => {\n        e.preventDefault();\n        applyFilters(/* read field values */);\n      }}\n      onReset={() => clearFilters()}\n    >\n      <div className=\"border-b border-border px-5 py-4\">\n        <p className=\"text-sm font-semibold leading-none\">Filters</p>\n      </div>\n      <div className=\"grid gap-4 px-5 py-4\">\n        <InputSelect items={statuses}>\n          <InputSelectField>\n            <InputSelectLabel>Status</InputSelectLabel>\n            <InputSelectTrigger>\n              <InputSelectValue placeholder=\"Any status\" />\n            </InputSelectTrigger>\n          </InputSelectField>\n          <InputSelectContent>\n            <InputSelectItem value=\"active\">Active</InputSelectItem>\n            <InputSelectItem value=\"error\">Error</InputSelectItem>\n          </InputSelectContent>\n        </InputSelect>\n      </div>\n      <div className=\"flex justify-end gap-2 border-t border-border px-5 py-4\">\n        <Button type=\"reset\" variant=\"ghost\">Reset</Button>\n        <Button type=\"submit\">Apply</Button>\n      </div>\n    </form>\n  </PopoverContent>\n</Popover>\n",
       "components": ["Popover", "InputSelect", "Button"],
       "demo": "apps/docs/src/components/demos-react/patterns/filter-popover.tsx",
       "docs": "apps/docs/content/docs/patterns/filter-popover.mdx"
@@ -624,6 +693,23 @@
       "status": "draft",
       "category": "overlays",
       "intent": "Show the details of a selected item in a side Sheet — title, key/value properties, content states, and footer actions.",
+      "description": "The sanctioned way to present \"details of the selected thing\" beside its list: a `Sheet` anchored to the right edge with a header (title + close), a body that renders either a key/value property list or a content state (loading → Spinner, empty/error → Empty), and a footer of actions. This is the React composition of the Vue kit's feature-rich `Details` component — its content-state, properties, and action-bar behavior become a composed recipe rather than props baked into the Sheet primitive.",
+      "when_to_use": [
+        "Inspecting/acting on a selected row or entity next to its table or list.",
+        "A detail view that must load, can be empty, and offers a few actions."
+      ],
+      "when_not_to_use": [
+        "A centered confirmation or short form — use `Dialog`.",
+        "Persistent, non-modal page chrome — use `SidebarSecondary`, not a modal Sheet.",
+        "A simple message with no data/actions — a plain `Sheet` is enough."
+      ],
+      "anti_patterns": [
+        "Hand-rolling a fixed side panel instead of composing `Sheet` (loses focus trap, scroll lock, ARIA, animations).",
+        "Rendering a spinner/empty state inline in the body INSTEAD of switching the whole body by a `contentState` — mixed states confuse.",
+        "Putting more than ~2–3 primary actions in the footer; overflow belongs in a menu.",
+        "Omitting `SheetTitle` — the panel then has no accessible name."
+      ],
+      "example": "function DetailPanel({ open, onOpenChange, contentState, item }) {\n  return (\n    <Sheet open={open} onOpenChange={onOpenChange}>\n      <SheetContent side=\"right\">\n        <SheetHeader>\n          <SheetTitle>{item?.name ?? 'Details'}</SheetTitle>\n          <SheetCloseButton />\n        </SheetHeader>\n        <SheetBody>\n          {contentState === 'loading' ? (\n            <div className=\"flex h-full items-center justify-center\"><Spinner /></div>\n          ) : contentState === 'empty' ? (\n            <Empty>\n              <EmptyHeader>\n                <EmptyTitle>Nothing to show</EmptyTitle>\n                <EmptyDescription>This item has no details yet.</EmptyDescription>\n              </EmptyHeader>\n            </Empty>\n          ) : (\n            <DescriptionList className=\"-mx-6\">\n              {item.properties.map((p) => (\n                <DescriptionListItem key={p.label}>\n                  <DescriptionListLabel className=\"text-muted-foreground\">{p.label}</DescriptionListLabel>\n                  <DescriptionListValue className=\"font-medium\">{p.value}</DescriptionListValue>\n                </DescriptionListItem>\n              ))}\n            </DescriptionList>\n          )}\n        </SheetBody>\n        <SheetFooter>\n          <SheetClose render={<Button variant=\"ghost\">Close</Button>} />\n          <Button>Edit</Button>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  );\n}\n",
       "components": ["Sheet", "DescriptionList", "Button", "Spinner", "Empty"],
       "demo": "apps/docs/src/components/demos-react/patterns/sheet-detail-panel.tsx",
       "docs": "apps/docs/content/docs/patterns/sheet-detail-panel.mdx"

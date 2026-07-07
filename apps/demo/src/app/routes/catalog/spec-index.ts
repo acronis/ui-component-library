@@ -20,6 +20,11 @@ export interface SpecPattern {
   status: string;
   category?: string;
   intent?: string;
+  description?: string;
+  when_to_use?: string[];
+  when_not_to_use?: string[];
+  anti_patterns?: string[];
+  example?: string;
   components?: string[];
   implementedBy?: string;
   demo?: string;

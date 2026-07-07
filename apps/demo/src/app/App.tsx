@@ -10,6 +10,7 @@ import { DataTablePage } from './routes/data/DataTablePage';
 import { SettingsPage } from './routes/settings/SettingsPage';
 import { ComponentsCatalogPage } from './routes/catalog/ComponentsCatalogPage';
 import { PatternsCatalogPage } from './routes/catalog/PatternsCatalogPage';
+import { PatternDetailPage } from './routes/catalog/PatternDetailPage';
 import { ScreensCatalogPage } from './routes/catalog/ScreensCatalogPage';
 import ChatRoute from './demo/chat/route';
 import CyberChatRoute from './demo/cyberchat/route';
@@ -52,6 +53,10 @@ export function DemoApp() {
                 />
                 <Route path="components" element={<ComponentsCatalogPage />} />
                 <Route path="patterns" element={<PatternsCatalogPage />} />
+                <Route
+                  path="patterns/:name"
+                  element={<PatternDetailPage />}
+                />
                 <Route path="screens" element={<ScreensCatalogPage />} />
               </Route>
             </Route>
