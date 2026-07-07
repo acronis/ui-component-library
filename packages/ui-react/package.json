@@ -1,6 +1,6 @@
 {
   "name": "@spec-lab/ui-react",
-  "version": "0.54.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/constructor-lab/facet.git",

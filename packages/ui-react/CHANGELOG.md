@@ -1,5 +1,164 @@
 # @spec-lab/ui-react
 
+## 1.0.0
+
+### Major Changes
+
+- [`802e657`](https://github.com/constructor-lab/facet/commit/802e657f473e5a89eb28939abde7a267c438c59d) Thanks [@m231-a](https://github.com/m231-a)! - Merge `@spec-lab/design-tokens` and `@spec-lab/tokens-pd` into a single published package, `@spec-lab/tokens`, and rework token/theme delivery to be reference-based.
+  - **New package `@spec-lab/tokens`** holds the DTCG source tiers (`tiers/*.json`) **and** the generated, committed CSS/SCSS/JS. `@spec-lab/design-tokens` and `@spec-lab/tokens-pd` are removed.
+  - **Reference-based CSS, no value duplication.** `css/primitives.css` is the only layer with raw values + `light-dark()`; the semantic and per-component tiers emit `var(--…)` references onto it, so each value is stated once. Brand switches via `[data-brand]`, light/dark via `[data-theme]` — both carried in one bundle (no per-brand files, no runtime stylesheet injection).
+  - **Single import.** `@spec-lab/tokens/css` pulls in primitives + semantics + every component tier (replaces the ~24 per-component `@import`s). Adds SCSS mixins (`@spec-lab/tokens/scss/mixins`) and a JS token map (`@spec-lab/tokens/js`).
+  - **Tailwind bridge is generated** as `@spec-lab/tokens/css/tailwind-theme.css` (previously hand-maintained in ui-react). The per-brand / per-component baked Tailwind presets are dropped.
+
+  Migration: replace `@spec-lab/tokens-pd` and `@spec-lab/design-tokens` with `@spec-lab/tokens`; `@import '@spec-lab/tokens/css'` once (plus `@import '@spec-lab/tokens/css/tailwind-theme.css'` for the Tailwind bridge); select a brand with `[data-brand="deep-sky"]` instead of importing a per-brand stylesheet.
+
+### Minor Changes
+
+- [`4f65138`](https://github.com/constructor-lab/facet/commit/4f6513821afe23bbef133abdbc2100af15649a08) Thanks [@m231-a](https://github.com/m231-a)! - Reconcile `Alert` with the Figma design and add a dismiss button. Retheme the variant border and icon to the correct status tokens (`--ui-border-on-status-*` subtle border + `--ui-glyph-on-status-*` icon) instead of the saturated `--ui-background-status-strong-*` fill, and add an optional `AlertClose` (×) part tinted by the variant. Completes the Figma Code Connect.
+
+- [`64e627d`](https://github.com/constructor-lab/facet/commit/64e627db3fdb31cdf7510f84e7960663fbce65be) Thanks [@m231-a](https://github.com/m231-a)! - Add `AspectRatio` — a layout primitive that constrains its content to a fixed width-to-height `ratio` via the native CSS `aspect-ratio` property. Initial version ported from `ui-legacy` (modernized off the padding-bottom hack); design reconciliation pending.
+
+- [`2bd49b0`](https://github.com/constructor-lab/facet/commit/2bd49b0d3689f728f5dadd3081cd5345b7ac151c) Thanks [@m231-a](https://github.com/m231-a)! - Button: remove the `inverted` variant. It was dropped from the Figma design (the
+  current variant set is `default` / `secondary` / `ghost` / `destructive` / `ai`)
+  and referenced a `--ui-button-inverted-*` token tier that no longer exists, so it
+  rendered unstyled. Consumers using `variant="inverted"` should switch to
+  `secondary` (the bordered style). Pre-1.0 breaking change.
+
+- [`6b72586`](https://github.com/constructor-lab/facet/commit/6b725861ca2013c9438c1ae1f66b356e518bf41c) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonGroup` (with `ButtonGroupText` and `ButtonGroupSeparator`) — a segmented container that collapses the shared inner edges of adjacent buttons, in horizontal or vertical orientation. Initial version ported from `ui-legacy`; design reconciliation pending. Radix `Slot`/`asChild` is replaced by the Base UI `render` prop, and the divider reuses `Separator`.
+
+- [`1d02b6c`](https://github.com/constructor-lab/facet/commit/1d02b6c8ef99ed196df1c10788da3ce00e845846) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonIconMenu`: an icon-only menu trigger — a 32×32 bordered button with a
+  fixed ellipsis ("more") glyph. The icon-only sibling of `ButtonMenu`:
+  presentational, with an `open` prop that applies the active treatment and
+  reflects `aria-expanded`, composable onto a menu trigger via `render`. Reuses the
+  ButtonIcon `secondary` token tier; accessible name defaults to "More options".
+
+- [`2ac43cc`](https://github.com/constructor-lab/facet/commit/2ac43cc68bca0a239cb803ebba32fb35352e85ed) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonMenuDropdown` — the themed dropdown panel a `ButtonMenu` opens. A
+  composable set of Base UI Menu parts (`ButtonMenuDropdown`,
+  `ButtonMenuDropdownTrigger`, `ButtonMenuDropdownContent`,
+  `ButtonMenuDropdownSection`, `ButtonMenuDropdownItem`) themed from the dedicated
+  `--ui-button-menu-dropdown-*` token tier: a bordered panel of divided sections
+  whose items support a leading icon, a trailing shortcut hint, and a cascade
+  chevron indicator. The optional search field and live submenu are deferred.
+
+- [`cd23e63`](https://github.com/constructor-lab/facet/commit/cd23e634819f8f57d014c86f4e8ce2b4f44207b2) Thanks [@m231-a](https://github.com/m231-a)! - Add `Calendar` — a themed date calendar (single / multiple / range selection, month & dropdown captions, disabled/outside days) wrapping `react-day-picker`, styled with `--ui-*` tokens. Initial version ported from `ui-legacy`; design reconciliation pending. Adds `react-day-picker@10` as a dependency of `@spec-lab/ui-react`.
+
+- [`a1b9ca2`](https://github.com/constructor-lab/facet/commit/a1b9ca2bea46d11f251f5550cfb0725401e8a07a) Thanks [@m231-a](https://github.com/m231-a)! - Add `Carousel` — a slideshow built on the headless `embla-carousel-react` engine (drag, snap, loop, orientation, autoplay plugins) with composable parts (`Carousel`, `CarouselContent`, `CarouselItem`) and a `CarouselNavigation` bar (← Prev link · pagination dots · Next → link) matching the design mockup. Styled with `--ui-*` tokens. Adds `embla-carousel-react` as a dependency of `@spec-lab/ui-react`. Initial version ported from `ui-legacy`; design reconciliation pending.
+
+- [`bec9e35`](https://github.com/constructor-lab/facet/commit/bec9e35f254fae6a1cf29037a2fedb42d12bfa8b) Thanks [@m231-a](https://github.com/m231-a)! - Chip: add the `operational` action variant (semibold brand-blue action chip —
+  `role="button"`, keyboard-activatable, no toggle / no remove) and re-theme all
+  variants onto the current `--ui-chip-*` token tier (the dead `--ui-chips-*`
+  names introduced silent color fallbacks after the next-gen token sync).
+
+- [`aea1c3d`](https://github.com/constructor-lab/facet/commit/aea1c3dc3e84f887350de2c693b66cedd103b003) Thanks [@m231-a](https://github.com/m231-a)! - Add `Command` — a data-driven command palette (`Command` inline + `CommandDialog` for the ⌘K overlay) with grouped commands, per-command icons/shortcuts/disabled, filtering, and keyboard navigation. Built on the Base UI `Combobox` primitive + `Dialog` (no `cmdk` dependency), styled with `--ui-*` semantic tokens. Initial version ported from `ui-legacy`; design reconciliation pending.
+
+- [`085ea2e`](https://github.com/constructor-lab/facet/commit/085ea2e00ca13da9d0ad6fb055a07de4c07ff383) Thanks [@m231-a](https://github.com/m231-a)! - Add `Drawer` — a panel that slides in from a screen edge with swipe-to-dismiss gestures, wrapping Base UI's `Drawer` primitive. Composable parts (`DrawerTrigger`, `DrawerContent`, `DrawerSwipeArea`, `DrawerHeader`, `DrawerTitle`, `DrawerCloseButton`, `DrawerBody`, `DrawerDescription`, `DrawerFooter`, plus granular `DrawerPopup`/`DrawerViewport`/`DrawerBackdrop`), with a `side` prop (`top`/`bottom`/`left`/`right`) mapped to Base UI's `swipeDirection`. Standalone from `Sheet`. Initial version; design reconciliation pending.
+
+- [`a569e76`](https://github.com/constructor-lab/facet/commit/a569e7626c15a6fe2c237267fa0fe5e2df29a9b8) Thanks [@m231-a](https://github.com/m231-a)! - Link: add an `inverse` variant and rewire onto the restructured token tier. The
+  `--ui-link-*` tokens were reorganised in the next-gen sync into `--ui-link-global-*`
+  (gap/height, per-state text decoration) plus `--ui-link-normal-*` / `--ui-link-inverse-*`
+  color sets; the component referenced the removed flat names and rendered unstyled.
+  It now uses a `variant` prop (`'normal' | 'inverse'`, default `normal`, mapping the
+  Figma `background` property) — `inverse` is for links on a dark surface (no disabled
+  state, per the design).
+
+- [`95e4e35`](https://github.com/constructor-lab/facet/commit/95e4e357ccaaf7e243ecbe29546f1535127a0e11) Thanks [@m231-a](https://github.com/m231-a)! - Add a canonical `Menu` component and make `ButtonMenuDropdown` and `DropdownMenu` aliases of it.
+
+  `Menu` is the full Base UI Menu wrapper — `Menu`, `MenuTrigger`, `MenuPortal`, `MenuContent`, `MenuGroup`, `MenuSection`, `MenuItem` (`icon` / `shortcut` / `cascade` / `inset`), live cascaded submenus (`MenuSubmenu` / `MenuSubmenuTrigger` / `MenuSubmenuContent`), `MenuCheckboxItem`, `MenuRadioItem`, `MenuRadioGroup`, `MenuLabel`, `MenuSeparator`, `MenuShortcut` — styled from the `--ui-button-menu-dropdown-*` token tier.
+  - **`ButtonMenuDropdown`** re-exports `Menu`'s parts under the existing names and now gains **live submenus** (`ButtonMenuDropdownSubmenu` / `…SubmenuTrigger` / `…SubmenuContent`); the previous submenu deferral is lifted. Renders identically to before.
+  - **`DropdownMenu`** re-exports `Menu`'s parts (its full checkbox/radio/label/separator/shortcut/submenu API is preserved) and is now **restyled** from the shared `--ui-button-menu-dropdown-*` tokens instead of the generic semantic tokens — a visual change. Prefer the `shortcut` prop on `DropdownMenuItem` over a `DropdownMenuShortcut` child.
+
+- [`a6615c6`](https://github.com/constructor-lab/facet/commit/a6615c69f05bb6892eec399af492911392fcbff4) Thanks [@m231-a](https://github.com/m231-a)! - Port the components that were unique to the legacy `@spec-lab/shadcn-uikit`
+  library into ui-react as design-pending v1s (Base UI + semantic `--ui-*`
+  tokens), filling the last real component gaps:
+  - **Dashboard widgets** — `Widget` (container family), `WidgetAlert`,
+    `WidgetText`, `WidgetTableData`, `WidgetProtectionStatus`,
+    `WidgetProtectionSummary`, `WidgetProgressChunks`, `WidgetProgressTiers`.
+  - **`NavigationMenu`** — horizontal top-nav, reimplemented on Base UI
+    (`@base-ui/react/navigation-menu`) instead of Radix.
+  - **`Filter`** — filter button with count badge (distinct from `CardFilter`).
+  - **`AlertDialog`** — confirmation dialog on Base UI (`@base-ui/react/alert-dialog`).
+
+  Each ships a component, tests, and stories, and carries a doc-comment noting the
+  `--av-*` → `--ui-*` token mapping and a `/figma-component <Name> --update`
+  reconcile note for when Figma mockups land.
+
+- [`bc964df`](https://github.com/constructor-lab/facet/commit/bc964dfac4587c8240e49f445d48e5acef4adeb4) Thanks [@m231-a](https://github.com/m231-a)! - Resizable: remove the `withHandle` grab-bar grip to match the current Figma
+  design. The design dropped the grip, so the `withHandle` prop and the grip's
+  `--ui-resizable-bar-*` tokens (bar color/width/height/border-radius, since
+  removed from `@spec-lab/tokens`) are gone — the handle now renders the divider
+  line only (idle gray via `--ui-border-on-surface-border`, hover/active blue).
+  This also fixes the handle rendering at 0 width: it referenced the now-deleted
+  `--ui-resizable-bar-width`, so the hit-area is now a literal 9px.
+
+  Breaking (pre-1.0): drop `withHandle` from any `<ResizableHandle>` usage.
+
+- [`f65aba5`](https://github.com/constructor-lab/facet/commit/f65aba5d6320b524ac899a7e4404772a764a9f26) Thanks [@m231-a](https://github.com/m231-a)! - Sheet: add direction-aware `start` / `end` `side` variants. They anchor to the
+  inline-start / inline-end edge (using logical `start-0`/`end-0` + `border-e`/
+  `border-s`) and flip side and slide direction under RTL, unlike the fixed
+  physical `left` / `right`. Prefer `start`/`end` for locale-agnostic layouts.
+
+- [`410215a`](https://github.com/constructor-lab/facet/commit/410215a87ec6ded52664c7493be6d692d928590f) Thanks [@m231-a](https://github.com/m231-a)! - Add `Tree` — a hierarchical tree menu with composable parts (`Tree`, `TreeItem`, `TreeItemTrigger`, `TreeItemLabel`, `TreeItemGroup`, `TreeItemCheckbox`, `TreeItemIcon`) and a data-driven `TreeView` wrapper. Supports expand/collapse, single selection, multi-checkbox, leading icons, and trailing slots (e.g. `Tag`), with roving-tabindex keyboard navigation and full WAI-ARIA tree roles. `TreeView` can virtualize long trees (`virtualized` + `height`) so thousands of nodes stay fast. Styled with `--ui-*` semantic tokens (the blue selection gamma). Initial version ported from `ui-legacy` and reconciled against the Figma "Tree" component set; design reconciliation of a dedicated token tier is pending.
+
+### Patch Changes
+
+- [`082deb3`](https://github.com/constructor-lab/facet/commit/082deb3e050b62575427acb2ed6aa079635838b4) Thanks [@m231-a](https://github.com/m231-a)! - Add the missing `--ui-border-on-status-ai` semantic token (the pale violet `{palette.violet.4}` the Figma uses; the tier previously only had the `ai-strong` gradient border), and repoint `Alert`'s ai border/divider from the `--ui-palette-violet-4` primitive stopgap to it.
+
+- [`383853d`](https://github.com/constructor-lab/facet/commit/383853deb4a7548068ac57de1cbfa277ef1ae413) Thanks [@m231-a](https://github.com/m231-a)! - Avatar: rewire the corner radius onto the current
+  `--ui-avatar-global-avatar-border-border-radius` token. The previous
+  `--ui-avatar-global-avatar-border-radius` name was moved under the border group
+  in the next-gen token sync, leaving the component referencing a dead variable
+  that resolved to no radius (rendering avatars as squares instead of circles).
+
+- [`41db262`](https://github.com/constructor-lab/facet/commit/41db26252ce1b734dfff6ae6ce158f4d8e7e2e88) Thanks [@m231-a](https://github.com/m231-a)! - Bump `@base-ui/react` to `1.6.0` (from the catalog). No API changes in the kit; tests, types, and the library build all pass on the new version.
+
+- [`f1b61bc`](https://github.com/constructor-lab/facet/commit/f1b61bca3aa36ddd49aa33fe23fd21f75b574b44) Thanks [@m231-a](https://github.com/m231-a)! - Checkbox: match the Figma design more faithfully.
+  - Draw the check / indeterminate glyph inline at Figma's exact geometry (an 8px
+    mark centered in the 16px box with a 1.6px stroke) instead of the general
+    `@spec-lab/icons-react` check rendered at box size, which was full-bleed and
+    ~65% too large.
+  - Rewire the box alignment offset onto the current `--ui-checkbox-global-box-margin-y`
+    token (the previous `--ui-checkbox-global-box-margin-x` name was renamed in the
+    next-gen token sync, leaving the label/description layout referencing a dead
+    variable that silently fell back to no offset).
+
+- [`137f664`](https://github.com/constructor-lab/facet/commit/137f66477c9fa7d5631b8aadca5a4d7625410de3) Thanks [@m231-a](https://github.com/m231-a)! - Dialog / Sheet / AlertDialog: rewire the modal overlay onto the current
+  `--ui-background-backdrop-screen` token. The previous `--ui-background-overlay-primary`
+  was renamed to the `--ui-background-backdrop-*` family in the next-gen sync,
+  leaving the backdrop referencing a dead variable that resolved to transparent
+  (no dim). The scrim now renders again.
+
+- [`6abe4df`](https://github.com/constructor-lab/facet/commit/6abe4dff5f3a205d971a4bc4a2ceef821fbe3e04) Thanks [@m231-a](https://github.com/m231-a)! - Replace physical CSS utilities with their logical equivalents for RTL support so
+  components render correctly in both LTR and RTL directions. Covers avatar,
+  breadcrumb, resizable, select/input-select, sidebar-primary, sidebar-secondary,
+  switch (the upstream set) plus this repo's additional components: tabs,
+  button-group, calendar, table, data-table, dropdown-menu, command, tree,
+  input-date-picker, alert, alert-dialog, toast, navigation-menu, and
+  widget-table-data.
+
+  Changes are `ml/mr → ms/me`, `pl/pr → ps/pe`, `left/right → start/end`,
+  `text-left → text-start`, `border-l/r → border-s/e`, `rounded-l/r → rounded-s/e`,
+  `[border-right-width] → [border-inline-end-width]`, direction-aware `translate-x`
+  (switch thumb, toast slide), and `rtl:rotate-180` on directional chevrons.
+  Centered modals (dialog/alert-dialog), the spinner arc, `side`-prop sheets, and
+  primitive-resolved popover/menu slide animations are intentionally left physical.
+
+- [`8f195fc`](https://github.com/constructor-lab/facet/commit/8f195fce1b7bce04752beac4fd594c5e9049ccc7) Thanks [@m231-a](https://github.com/m231-a)! - Fix `SidebarPrimary` layout drift from Figma: the first `SidebarPrimarySection`
+  no longer gets an extra top padding/divider (only bottom padding, matching
+  Figma's `firstSection` split), `SidebarPrimaryFooter` no longer double-pads its
+  rows on top of each item's own padding, and `SidebarPrimaryCollapseTrigger`'s
+  icon now rotates 180° between the expanded and collapsed rail states.
+
+- [`a7de48b`](https://github.com/constructor-lab/facet/commit/a7de48b5a00e40258ff83931c1982c71e6c2a97a) Thanks [@m231-a](https://github.com/m231-a)! - Table / DataTable: rewire onto the restructured `--ui-table-*` token tier. The
+  next-gen sync moved the row fill colors under `data` and the cell border under
+  `row`, and merged the header cell padding into `global`:
+  `--ui-table-global-row-color-*` → `--ui-table-data-row-color-*`,
+  `--ui-table-global-cell-border-color` → `--ui-table-global-row-border-color`,
+  `--ui-table-header-cell-padding-x` → `--ui-table-global-cell-padding-x`. Both
+  components referenced the removed names and rendered rows without their fill /
+  border. Also wires the Table Figma Code Connect to its ready-for-dev node.
+- Updated dependencies [[`082deb3`](https://github.com/constructor-lab/facet/commit/082deb3e050b62575427acb2ed6aa079635838b4), [`802e657`](https://github.com/constructor-lab/facet/commit/802e657f473e5a89eb28939abde7a267c438c59d)]:
+  - @spec-lab/tokens@2.0.0
+
 ## 0.54.0
 
 ### Minor Changes
