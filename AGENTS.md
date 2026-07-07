@@ -169,6 +169,11 @@ that workspace**, never here.
   skills. Extends the component-specs proposal above; landing incrementally in
   `packages/ui-spec` (`grammar/`, `screens/audit/`, the `kit-lint` and
   `screen-audit` scripts).
+- `context/component-layers-proposal.md` — the **Primitive vs Composite** layer
+  model for components (jargon-free; no atoms/molecules), the classify-don't-move
+  mechanism (a `layer` field on each `ui-spec` `index.yaml`, non-breaking), the
+  pattern→composite graduation pipeline, and the future templates gallery in
+  `apps/demo`. Proposed; not yet adopted.
 
 ## Tooling preconditions
 
