@@ -1,0 +1,78 @@
+---
+title: AppShell
+description: The full-page application scaffold — a sidebar column beside a body of a sticky header over scrolling main content.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { AppShellDemo } from "@/components/demos-react/app-shell";
+
+## Usage
+
+```tsx
+import {
+  AppShell,
+  AppShellSidebar,
+  AppShellBody,
+  AppShellHeader,
+  AppShellMain,
+  AppShellFooter,
+} from '@spec-lab/ui-react';
+```
+
+`AppShell` is a **composite**, slot-based page scaffold: an `AppShellSidebar`
+column (holds a `SidebarPrimary`, optionally a `SidebarSecondary`) beside an
+`AppShellBody` column of a sticky `AppShellHeader` (typically with a
+`SearchGlobal`) over a scrolling `AppShellMain`, with an optional
+`AppShellFooter`. It is layout-only — the rich parts come from the navigation and
+search components dropped into its slots. Surfaces use the shared `--ui-*`
+semantic tokens (`bg-background`, `border-border`).
+
+## Examples
+
+
+<DemoReact>
+  <AppShellDemo />
+</DemoReact>
+
+A full shell with a primary sidebar, header, and page content:
+
+```tsx
+<AppShell className="h-screen">
+  <AppShellSidebar>
+    <SidebarPrimary>{/* … */}</SidebarPrimary>
+  </AppShellSidebar>
+  <AppShellBody>
+    <AppShellHeader>
+      <SearchGlobal aria-label="Search" />
+    </AppShellHeader>
+    <AppShellMain className="p-6">
+      <PageHeader>
+        <PageHeaderRow>
+          <PageHeaderTitle>Assets</PageHeaderTitle>
+        </PageHeaderRow>
+      </PageHeader>
+      {/* page content */}
+    </AppShellMain>
+  </AppShellBody>
+</AppShell>
+```
+
+Add a secondary sidebar beside the primary rail:
+
+```tsx
+<AppShellSidebar>
+  <SidebarPrimary expanded={false}>{/* … */}</SidebarPrimary>
+  <SidebarSecondary>{/* … */}</SidebarSecondary>
+</AppShellSidebar>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/app-shell/app-shell.docs.ts"
+  name="AppShellProps"
+/>
+
+The structural parts (`AppShellSidebar`, `AppShellBody`, `AppShellHeader`,
+`AppShellMain`, `AppShellFooter`) accept the standard attributes of the element
+they render.

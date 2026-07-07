@@ -1,0 +1,65 @@
+---
+title: AuthLayout
+description: A centered-card layout for authentication flows — sign-in, sign-up, forgot-password, and 2FA.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { AuthLayoutDemo } from "@/components/demos-react/auth-layout";
+
+## Usage
+
+```tsx
+import {
+  AuthLayout,
+  AuthLayoutCard,
+  AuthLayoutLogo,
+  AuthLayoutFooter,
+} from '@spec-lab/ui-react';
+```
+
+`AuthLayout` is a **composite** layout for authentication flows (sign-in /
+sign-up / forgot-password / 2FA): a full-page centered surface that holds an
+`AuthLayoutCard`. Inside the card, an `AuthLayoutLogo` is the top brand slot, the
+form content is the card's children, and an `AuthLayoutFooter` holds the bottom
+links. It is layout-only — drop your own `InputText`, `Button`, and links into
+the slots. Surfaces use the shared `--ui-*` semantic tokens (`bg-background`,
+`border-border`).
+
+## Examples
+
+
+<DemoReact>
+  <AuthLayoutDemo />
+</DemoReact>
+
+A sign-in screen:
+
+```tsx
+<AuthLayout>
+  <AuthLayoutCard>
+    <AuthLayoutLogo>
+      <span className="text-base font-semibold">Sign in</span>
+    </AuthLayoutLogo>
+    <div className="flex flex-col gap-4">
+      <InputText label="Email" type="email" placeholder="you@example.com" />
+      <InputText label="Password" type="password" />
+      <Button className="w-full">Sign in</Button>
+    </div>
+    <AuthLayoutFooter>
+      <a className="underline underline-offset-4" href="#">
+        Forgot password?
+      </a>
+    </AuthLayoutFooter>
+  </AuthLayoutCard>
+</AuthLayout>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/auth-layout/auth-layout.docs.ts"
+  name="AuthLayoutProps"
+/>
+
+The structural parts (`AuthLayoutCard`, `AuthLayoutLogo`, `AuthLayoutFooter`)
+accept the standard attributes of the `<div>` they render.

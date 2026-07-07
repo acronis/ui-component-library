@@ -3,9 +3,12 @@
   "pages": [
     "index",
     "---Composites---",
+    "app-shell",
+    "auth-layout",
     "card-filter",
     "command",
     "data-table",
+    "page-header",
     "search-global",
     "sidebar-primary",
     "sidebar-secondary",

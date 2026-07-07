@@ -1,0 +1,76 @@
+---
+title: PageHeader
+description: The page header region — an optional breadcrumb, a title row with actions, and an optional description.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { PageHeaderDemo } from "@/components/demos-react/page-header";
+
+## Usage
+
+```tsx
+import {
+  PageHeader,
+  PageHeaderBreadcrumb,
+  PageHeaderRow,
+  PageHeaderTitle,
+  PageHeaderDescription,
+  PageHeaderActions,
+} from '@spec-lab/ui-react';
+```
+
+`PageHeader` is a **composite** header region that sits at the top of a page's
+content. It renders a `role="banner"` container composing an optional
+`PageHeaderBreadcrumb`, a `PageHeaderRow` (title on the left, `PageHeaderActions`
+pushed to the right), and an optional `PageHeaderDescription`. It is markup-only —
+the only color is the muted breadcrumb/description (`text-muted-foreground` →
+`--ui-text-on-surface-secondary`).
+
+## Examples
+
+
+<DemoReact>
+  <PageHeaderDemo />
+</DemoReact>
+
+A title row with actions:
+
+```tsx
+<PageHeader>
+  <PageHeaderRow>
+    <PageHeaderTitle>Reports</PageHeaderTitle>
+    <PageHeaderActions>
+      <Button variant="ghost">Export</Button>
+      <Button>New report</Button>
+    </PageHeaderActions>
+  </PageHeaderRow>
+</PageHeader>
+```
+
+With a breadcrumb and a description:
+
+```tsx
+<PageHeader>
+  <PageHeaderBreadcrumb>Home / Reports</PageHeaderBreadcrumb>
+  <PageHeaderRow>
+    <PageHeaderTitle>Reports</PageHeaderTitle>
+    <PageHeaderActions>
+      <Button>New report</Button>
+    </PageHeaderActions>
+  </PageHeaderRow>
+  <PageHeaderDescription>
+    All scheduled and on-demand reports for your workloads.
+  </PageHeaderDescription>
+</PageHeader>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/page-header/page-header.docs.ts"
+  name="PageHeaderProps"
+/>
+
+The structural parts (`PageHeaderBreadcrumb`, `PageHeaderRow`,
+`PageHeaderTitle`, `PageHeaderDescription`, `PageHeaderActions`) accept the
+standard attributes of the element they render.
