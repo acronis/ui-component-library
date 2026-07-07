@@ -120,11 +120,52 @@ drift-gate pattern).
 - Existing `cyberchat*` demo routes stay; the console portal is the new default
   landing, they remain reachable.
 
-## 8. Open questions
+## 8. Decisions (kickoff review)
 
-- Spec-index: emit a committed `spec-index.json` in `ui-spec` (drift-gated), or
-  generate it in `apps/demo`'s prebuild? (Proposed: committed in ui-spec, gated.)
-- Do we replace the existing `dashboard`/`data`/`settings` routes with the portal
-  sections, or nest the portal under a new `/console` and keep them? (Proposed:
-  the portal becomes the shell; those pages become sections within it.)
-- Tour: is a scrim/spotlight wanted (focus dimming), or plain anchored popovers?
+- **Spec-index lives in `ui-spec`** — a committed, drift-gated `spec-index.json`
+  (source of truth), consumed by `apps/demo`.
+- **Routes from root.** The portal _is_ the app — no `/console` nesting. Today's
+  `dashboard`/`data`/`settings` become sections at root paths; `cyberchat*` stay
+  reachable.
+- **Tour uses a spotlight + beacon** ("green light"), not plain popovers — see §9.
+
+## 9. Evolution: the demo as a spec-generated app
+
+The bigger intent: the console portal is not just _illustrated by_ specs — it is
+**generated/updated from an app-level spec**, making it the live test of an
+"app/screen spec → app" solution. Editing the app spec (e.g. changing the app
+description, adding a screen) should update the demo app.
+
+- **App spec (new ui-spec type).** Above `screens/`, an `apps/<slug>/app.yaml`
+  describing a whole app: kind (`spa` | `single-screen` | `microfrontend`),
+  metadata/description, its `screens[]` (→ `ui-spec/screens`), routes, primary/
+  secondary nav, the patterns/composites it uses, and its onboarding tour(s).
+  Validated like the other specs. The demo portal is the first `app.yaml`.
+- **Generation skill (new).** A `/generate-app` (working name) skill that
+  generates or updates an app from its `app.yaml` + the referenced screen/pattern
+  specs, assembling **only approved patterns and composites**. Targets a SPA, a
+  single screen, or a microfrontend. This is the natural successor to
+  `/react-component` / `/figma-component` at the app altitude, and the reason 4a
+  is hand-built first: we build the reference portal, extract the `app.yaml`
+  format from it, then the skill regenerates it (build → formalize → generate,
+  same graduation philosophy as pattern→composite).
+- **Sequencing.** 4a builds the reference portal by hand and defines `app.yaml`
+  descriptively; the generator (and the generic `screen.yaml` renderer, 4b) come
+  after the format is proven against the real portal.
+
+## 10. Tour component ("green light" coach-mark)
+
+The guided tour needs more than a bare `Popover`; per the referenced Figma
+(Main-menu-improvements, node `1608-126436`) it's a **coach-mark**: a stepped
+popover with a title/body, **Next / Back / Skip** + step counter, anchored to a
+target that gets a **beacon ("green light")** pulse and a **spotlight/scrim**
+dimming the rest. Proposed as a **dedicated component** (working name
+`Tour` / `Coachmark` / `StepPopover`) rather than ad-hoc popovers:
+
+- Likely a new `ui-react` primitive/composite built on `Popover` + a scrim +
+  a beacon indicator, themed from tokens (flag any token/primitive gap — e.g. a
+  spotlight cut-out or the beacon color — as a follow-up; don't hand-roll hex).
+- **Tours are defined in the app spec / `apps/demo`** (the step list + anchors),
+  and driven by the component. Persist "seen" once; re-trigger from Help.
+- Its own `/react-component`-style spec + stories when built. Scoped to **Phase
+  4a.4**; 4a.1–4a.3 don't depend on it.

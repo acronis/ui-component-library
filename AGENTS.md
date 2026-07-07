@@ -176,10 +176,14 @@ that workspace**, never here.
   `apps/demo`. Proposed; not yet adopted.
 - `context/demo-console-portal-proposal.md` — Phase 4 of the layers work: turn
   `apps/demo` into one **console portal** (an `AppShell` realizing the
-  `protection-dashboard` screen) that surfaces screens/patterns/component-demos
-  **driven by a spec-index** generated from `ui-spec`, plus a guided multi-step
-  onboarding `Popover` tour. Recommends hand-built screens + spec catalog (4a)
-  over a generic runtime renderer (4b, deferred). Proposed; not yet adopted.
+  `protection-dashboard` screen, routes from root) that surfaces
+  screens/patterns/component-demos **driven by a committed `spec-index.json`** in
+  `ui-spec`. Evolves toward the demo being **generated/updated from an app-level
+  spec** (`apps/<slug>/app.yaml`: spa | single-screen | microfrontend) via a
+  future `/generate-app` skill (build reference → formalize `app.yaml` → generate,
+  like pattern→composite), plus a dedicated **coach-mark tour component**
+  (stepped `Popover` + beacon "green light" + spotlight). Hand-built 4a; generic
+  `screen.yaml` renderer + generator deferred to 4b. Proposed; not yet adopted.
 
 ## Tooling preconditions
 
