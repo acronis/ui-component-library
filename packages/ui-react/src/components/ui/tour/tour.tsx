@@ -21,13 +21,15 @@ import { Button, type ButtonProps } from '../button';
 //   • border  -> border-primary  (--ui-background-brand-primary — the brand-blue
 //     coach-mark outline; follows the active [data-brand])
 //   • divider -> --ui-border-on-brand-divider
-//   • scrim   -> --ui-background-backdrop-screen (same as Dialog's overlay)
+//   • scrim   -> a ~35% color-mix of --ui-background-backdrop-screen (a LIGHT
+//     dim — a modal-weight backdrop hides the element the tour describes)
 //   • beacon  -> --ui-background-status-strong-success (the "green light")
 // KNOWN GAPS (flag for a Figma/token pass, do NOT hand-roll): there is no
 // spotlight cut-out mask token (the scrim dims uniformly, it does not punch a
-// hole around the target), and the beacon reuses the strong-success status green
-// rather than a dedicated coach-mark/beacon token. Reconcile with
-// `/figma-component Tour <url> --update` once a mockup lands.
+// hole around the target); the light scrim is a color-mix of the screen backdrop
+// rather than a dedicated coach-mark scrim token; and the beacon reuses the
+// strong-success status green rather than a dedicated beacon token. Reconcile
+// with `/figma-component Tour <url> --update` once a mockup lands.
 
 interface TourContextValue {
   activeStep: number;
@@ -199,7 +201,10 @@ TourBeacon.displayName = 'TourBeacon';
 
 /**
  * Optional dimming scrim behind the coach-mark (Base UI `Popover.Backdrop`).
- * NOTE: v1 dims uniformly — there is no spotlight cut-out around the target yet.
+ * NOTE: v1 dims uniformly — there is no spotlight cut-out around the target yet,
+ * so the dim is kept LIGHT (a ~35% mix of the screen-backdrop token) to keep the
+ * highlighted element readable underneath. A dedicated lighter coach-mark scrim
+ * token would be a cleaner long-term home (see the header token-gap note).
  */
 const TourScrim = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Backdrop>,
@@ -208,7 +213,7 @@ const TourScrim = React.forwardRef<
   <PopoverPrimitive.Backdrop
     ref={ref}
     className={cn(
-      'fixed inset-0 z-40 bg-[var(--ui-background-backdrop-screen)] duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
+      'fixed inset-0 z-40 [background-color:color-mix(in_oklab,var(--ui-background-backdrop-screen)_35%,transparent)] duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
       className
     )}
     {...props}
