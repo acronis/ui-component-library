@@ -3,6 +3,10 @@ name: Visual Regression
 
 on: [pull_request]
 
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   visual-regression:
     runs-on: ubuntu-latest
