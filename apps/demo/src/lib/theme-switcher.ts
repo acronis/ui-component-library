@@ -34,7 +34,6 @@ export type ThemeName =
 export type ColorMode = 'light' | 'dark' | 'system';
 
 const THEME_CLASS_PREFIX = 'theme-';
-const DARK_CLASS = 'dark';
 const THEME_STORAGE_KEY = 'av-theme';
 const COLOR_MODE_STORAGE_KEY = 'av-color-mode';
 
@@ -135,16 +134,18 @@ export function loadPersistedTheme(): ThemeName | null {
  * ```
  */
 export function applyColorMode(mode: ColorMode, persist = true): void {
-  const root = document.documentElement;
+  const isDark =
+    mode === 'system'
+      ? window.matchMedia('(prefers-color-scheme: dark)').matches
+      : mode === 'dark';
 
-  if (mode === 'system') {
-    const systemPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches;
-    root.classList.toggle(DARK_CLASS, systemPrefersDark);
-  } else {
-    root.classList.toggle(DARK_CLASS, mode === 'dark');
-  }
+  // Shipped @spec-lab/tokens key light/dark off `[data-theme]` (not a legacy
+  // `.dark` class); those token blocks also set `color-scheme`, so setting the
+  // attribute is all that is needed to flip the whole `--ui-*` palette.
+  document.documentElement.setAttribute(
+    'data-theme',
+    isDark ? 'dark' : 'light'
+  );
 
   if (persist) {
     try {
@@ -161,7 +162,7 @@ export function applyColorMode(mode: ColorMode, persist = true): void {
  * @returns 'light' or 'dark' based on the current state
  */
 export function getCurrentColorMode(): 'light' | 'dark' {
-  return document.documentElement.classList.contains(DARK_CLASS)
+  return document.documentElement.getAttribute('data-theme') === 'dark'
     ? 'dark'
     : 'light';
 }
@@ -217,7 +218,10 @@ export function watchSystemColorScheme(): () => void {
     try {
       const persistedMode = localStorage.getItem(COLOR_MODE_STORAGE_KEY);
       if (persistedMode === 'system') {
-        document.documentElement.classList.toggle(DARK_CLASS, e.matches);
+        document.documentElement.setAttribute(
+          'data-theme',
+          e.matches ? 'dark' : 'light'
+        );
       }
     } catch (error) {
       console.warn('Failed to check persisted color mode:', error);

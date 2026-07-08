@@ -147,7 +147,7 @@ function PrimaryNav({ currentSection }: { currentSection: string }) {
 
   return (
     <SidebarPrimary
-      expanded={false}
+      defaultExpanded={false}
       aria-label="Primary"
       data-tour-id={TOUR_ANCHORS.primaryNav}
     >
