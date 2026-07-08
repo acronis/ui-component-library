@@ -1,0 +1,83 @@
+spec_version: '1.0'
+pattern: DetailDrawer
+name: detail-drawer
+status: draft
+category: overlays
+since: 1.0.0
+intent: Show details of a selected item in an edge-anchored Drawer — header, key/value properties, content states, and footer actions.
+description: >-
+  The sanctioned way to present "details of the selected thing" in a
+  non-blocking, edge-anchored `Drawer`: a header (title + close), a body that
+  renders either a `DescriptionList` of key/value properties or a content state
+  (loading → `Spinner`, empty/error → `Empty`), and a footer of `Button`
+  actions, with a `Separator` framing the footer. This is the `Drawer`-based
+  sibling of `sheet-detail-panel`: reach for **detail-drawer** when the panel is
+  a lightweight, dismissible surface anchored to a screen edge (built on the
+  `Drawer` primitive); reach for **sheet-detail-panel** when you want the
+  modal, dialog-based `Sheet` (focus-trapped, backdrop, scroll-locked). Same
+  content recipe, different overlay primitive.
+
+when_to_use:
+  - Inspecting a selected row/entity in a panel that slides in from a screen edge.
+  - A detail view that must load, can be empty, and offers a few actions.
+  - A non-blocking inspector the user can leave open while scanning the list.
+when_not_to_use:
+  - A modal, focus-trapped detail panel with a backdrop — use `sheet-detail-panel` (the `Sheet` variant).
+  - A centered confirmation or short form — use `confirm-dialog` or `form-dialog`.
+  - Persistent page chrome that never dismisses — use `SidebarSecondary`, not a Drawer.
+
+anti_patterns:
+  - Hand-rolling a fixed edge panel instead of composing `Drawer` (loses the swipe/dismiss, animations, and ARIA wiring).
+  - Rendering a spinner/empty state inline in the body INSTEAD of switching the whole body by a content state — mixed states confuse.
+  - Putting more than ~2–3 primary actions in the footer; overflow belongs in a menu.
+  - Omitting `DrawerTitle`, leaving the panel with no accessible name.
+
+components:
+  - Drawer
+  - DescriptionList
+  - Button
+  - Spinner
+  - Empty
+  - Separator
+
+# Approved starting point. Switch the whole body by contentState; keep the header
+# (title + close) and footer (actions) stable across states.
+example: |
+  function DetailDrawer({ open, onOpenChange, contentState, item }) {
+    return (
+      <Drawer open={open} onOpenChange={onOpenChange}>
+        <DrawerContent side="right">
+          <DrawerHeader>
+            <DrawerTitle>{item?.name ?? 'Details'}</DrawerTitle>
+            <DrawerCloseButton />
+          </DrawerHeader>
+          <DrawerBody>
+            {contentState === 'loading' ? (
+              <div className="flex h-full items-center justify-center"><Spinner /></div>
+            ) : contentState === 'empty' ? (
+              <Empty>
+                <EmptyHeader>
+                  <EmptyTitle>Nothing to show</EmptyTitle>
+                  <EmptyDescription>This item has no details yet.</EmptyDescription>
+                </EmptyHeader>
+              </Empty>
+            ) : (
+              <DescriptionList>
+                {item.properties.map((p) => (
+                  <DescriptionListItem key={p.label}>
+                    <DescriptionListLabel>{p.label}</DescriptionListLabel>
+                    <DescriptionListValue>{p.value}</DescriptionListValue>
+                  </DescriptionListItem>
+                ))}
+              </DescriptionList>
+            )}
+          </DrawerBody>
+          <Separator />
+          <DrawerFooter>
+            <DrawerClose render={<Button variant="ghost">Close</Button>} />
+            <Button>Edit</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    );
+  }

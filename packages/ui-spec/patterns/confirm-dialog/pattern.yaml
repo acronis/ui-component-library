@@ -1,0 +1,57 @@
+spec_version: '1.0'
+pattern: ConfirmDialog
+name: confirm-dialog
+status: draft
+category: overlays
+since: 1.0.0
+intent: A modal confirmation for a discrete, often destructive action — AlertDialog with a title, description, and cancel / confirm actions.
+description: >-
+  The sanctioned way to make a user confirm a single, consequential action: an
+  `AlertDialog` with a `AlertDialogTitle`, a short `AlertDialogDescription`
+  stating the consequence, and exactly two footer actions — an
+  `AlertDialogCancel` and an `AlertDialogAction` (styled `destructive` when the
+  action is irreversible). `AlertDialog` is deliberately more insistent than a
+  plain `Dialog`: it traps focus, defaults focus to the safe choice, and cannot
+  be dismissed by clicking outside — the point of a confirmation. Composes the
+  primitive rather than a bespoke confirm modal.
+
+when_to_use:
+  - Confirming a destructive or irreversible action (delete, revoke, disconnect).
+  - A yes/no decision with a clear consequence and no data to enter.
+  - Interrupting a risky flow so the user must acknowledge before proceeding.
+when_not_to_use:
+  - A non-destructive inline toggle or setting — apply it directly, don't gate it behind a dialog.
+  - Anything that collects input (even one field) — use `form-dialog`.
+  - A routine, reversible action — a `toast` with undo is friendlier than a modal.
+
+anti_patterns:
+  - Using a dismissible `Dialog` (click-outside closes) for a destructive confirm — reach for `AlertDialog`, which won't dismiss accidentally.
+  - More than two actions in the footer — a confirmation is binary; extra choices belong elsewhere.
+  - Focusing the destructive action by default — default focus stays on Cancel.
+  - A vague description ("Are you sure?") that hides the consequence instead of naming it.
+
+components:
+  - AlertDialog
+  - Button
+
+# Approved starting point. Title + consequence, Cancel + a destructive-styled
+# confirm; the shape does not vary.
+example: |
+  function DeleteConfirm({ open, onOpenChange, onConfirm, name }) {
+    return (
+      <AlertDialog open={open} onOpenChange={onOpenChange}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete {name}?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This permanently removes {name} and its data. This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel render={<Button variant="ghost">Cancel</Button>} />
+            <AlertDialogAction render={<Button variant="destructive">Delete</Button>} onClick={onConfirm} />
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    );
+  }

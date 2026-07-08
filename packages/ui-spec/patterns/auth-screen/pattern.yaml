@@ -1,0 +1,63 @@
+spec_version: '1.0'
+pattern: AuthScreen
+name: auth-screen
+status: draft
+category: layout
+since: 1.0.0
+intent: A centered authentication screen (sign-in / sign-up / reset) built on AuthLayout with a card-framed form and a footer link.
+description: >-
+  The sanctioned way to build an authentication screen: `AuthLayout` centers the
+  page and holds an `AuthLayoutCard` framing a short form of `InputText` fields
+  and a full-width primary `Button`, with a `Link` (forgot-password / switch to
+  sign-up) in the `AuthLayoutFooter`. One recipe covers sign-in, sign-up, and
+  reset — only the fields, the submit label, and the footer link change. Composes
+  existing components rather than a bespoke login screen.
+
+when_to_use:
+  - Any unauthenticated entry screen — sign-in, sign-up, password reset, MFA challenge.
+  - A short, focused form the user completes before entering the app.
+  - Keeping the branding + form centered and consistent across all auth variants.
+when_not_to_use:
+  - A settings or profile form inside the authenticated app — use a page layout, not `AuthLayout`.
+  - A multi-step onboarding flow — use `wizard-dialog` or a routed sequence.
+  - A modal credential prompt over existing content — use a `Dialog`.
+
+anti_patterns:
+  - Hand-centering a card with ad-hoc flexbox instead of composing `AuthLayout` (loses the shared logo/footer slots and responsive framing).
+  - Putting more than the essential fields in the card — auth screens stay short; defer everything else to inside the app.
+  - Using a raw `<a>` for the footer link instead of `Link`, breaking focus-ring and color tokens.
+  - Making the submit button anything but full-width primary — the single obvious action is the point.
+
+components:
+  - AuthLayout
+  - Card
+  - InputText
+  - Button
+  - Link
+
+# Approved starting point. AuthLayoutCard frames a short InputText form + a
+# full-width primary Button; the footer holds a single Link.
+example: |
+  function SignInScreen({ onSubmit }) {
+    return (
+      <AuthLayout>
+        <AuthLayoutCard>
+          <AuthLayoutLogo>
+            <span className="text-base font-semibold">Sign in</span>
+          </AuthLayoutLogo>
+          <Card>
+            <CardContent>
+              <form className="flex flex-col gap-4" onSubmit={onSubmit}>
+                <InputText label="Email" type="email" placeholder="you@example.com" required />
+                <InputText label="Password" type="password" required />
+                <Button type="submit" className="w-full">Sign in</Button>
+              </form>
+            </CardContent>
+          </Card>
+          <AuthLayoutFooter>
+            <Link href="/reset">Forgot password?</Link>
+          </AuthLayoutFooter>
+        </AuthLayoutCard>
+      </AuthLayout>
+    );
+  }

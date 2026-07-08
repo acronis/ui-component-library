@@ -1,0 +1,76 @@
+spec_version: '1.0'
+pattern: SidebarNavigation
+name: sidebar-navigation
+status: draft
+category: navigation
+since: 1.0.0
+intent: The two-tier app navigation — a collapsed primary icon rail of top-level areas beside an expandable secondary section panel, with drill-down for nested items.
+description: >-
+  The sanctioned composition for the kit's primary navigation: a
+  `SidebarPrimary` icon rail listing top-level product areas, and a
+  `SidebarSecondary` panel showing the sections of the active area.
+  `SidebarSecondary`'s built-in `SidebarSecondaryMenuSub` handles one level of
+  drill-down; use `Collapsible` sections for grouped links and a `Tree` when the
+  section is a deep, arbitrarily-nested hierarchy. Where the top-level areas read
+  better as a horizontal bar than a rail, `NavigationMenu` is the sanctioned
+  alternative for that tier. This is the nav composition itself — not the page
+  frame around it.
+
+when_to_use:
+  - An application with several top-level areas, each holding its own sections.
+  - Navigation that must stay visible and persistent while the user works.
+  - A section list deep enough to need drill-down (submenus) or a hierarchy (Tree).
+when_not_to_use:
+  - The whole application frame (header + rails + main region) — that is the `app-shell` pattern; this composes only the nav that lives inside it.
+  - A flat handful of destinations with no nesting — a single menu or `NavigationMenu` bar is enough; skip the two-tier rail.
+  - Transient, task-scoped navigation — use tabs or an overlay, not persistent chrome.
+
+anti_patterns:
+  - Rebuilding the icon rail or section panel by hand instead of composing `SidebarPrimary` / `SidebarSecondary` (loses collapse state, active-item wiring, ARIA).
+  - Nesting a `Tree` inside every section when one drill-down level via `SidebarSecondaryMenuSub` would do — reserve `Tree` for genuinely deep hierarchies.
+  - Duplicating the primary areas as both a rail AND a top `NavigationMenu` — pick one home for the top tier.
+  - Putting page content or actions in the sidebars instead of the main region.
+
+components:
+  - SidebarPrimary
+  - SidebarSecondary
+  - NavigationMenu
+  - Collapsible
+  - Tree
+
+# Approved starting point. Primary rail = top-level areas; secondary panel =
+# sections of the active area, with Collapsible groups (swap in Tree for deep
+# hierarchies).
+example: |
+  <div className="flex h-full">
+    <SidebarPrimary>
+      <SidebarPrimaryContent>
+        <SidebarPrimaryMenu>
+          <SidebarPrimaryMenuItem active aria-label="Dashboard">
+            <DashboardIcon />
+          </SidebarPrimaryMenuItem>
+          <SidebarPrimaryMenuItem aria-label="Protection">
+            <ShieldIcon />
+          </SidebarPrimaryMenuItem>
+        </SidebarPrimaryMenu>
+      </SidebarPrimaryContent>
+    </SidebarPrimary>
+    <SidebarSecondary>
+      <SidebarSecondaryHeader>Protection</SidebarSecondaryHeader>
+      <SidebarSecondaryContent>
+        <SidebarSecondarySection>
+          <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
+          <SidebarSecondaryMenu>
+            <SidebarSecondaryMenuItem active>Devices</SidebarSecondaryMenuItem>
+            <SidebarSecondaryMenuSub>
+              <SidebarSecondaryMenuSubTrigger>Policies</SidebarSecondaryMenuSubTrigger>
+              <SidebarSecondaryMenuSubContent>
+                <SidebarSecondaryMenuSubItem>Backup</SidebarSecondaryMenuSubItem>
+                <SidebarSecondaryMenuSubItem>Antivirus</SidebarSecondaryMenuSubItem>
+              </SidebarSecondaryMenuSubContent>
+            </SidebarSecondaryMenuSub>
+          </SidebarSecondaryMenu>
+        </SidebarSecondarySection>
+      </SidebarSecondaryContent>
+    </SidebarSecondary>
+  </div>

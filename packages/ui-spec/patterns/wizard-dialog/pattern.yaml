@@ -1,0 +1,68 @@
+spec_version: '1.0'
+pattern: WizardDialog
+name: wizard-dialog
+status: draft
+category: overlays
+since: 1.0.0
+intent: A multi-step flow inside a modal Dialog — a step/progress indicator, per-step form content, and Back / Next / Finish navigation.
+description: >-
+  The sanctioned way to run a short, guided multi-step task without leaving the
+  page: a `Dialog` whose header carries a `Progress` step indicator, whose body
+  swaps `Form` content per step, and whose footer navigates with Back / Next and
+  a final Finish. The dialog stays mounted across steps so entered values
+  persist; only the visible step's fields change. Reserve it for flows that are
+  genuinely staged — 2 to a few steps — where splitting the input reduces
+  cognitive load.
+
+when_to_use:
+  - A guided setup/onboarding with 2–a few discrete steps in a fixed order.
+  - Breaking a longer form into digestible stages with a visible progress cue.
+  - A flow where later steps depend on earlier answers but the whole thing is short.
+when_not_to_use:
+  - A single step — use `form-dialog`.
+  - A long or branching linear flow better as a full-page route with its own URL per step.
+  - A yes/no confirmation — use `confirm-dialog`.
+
+anti_patterns:
+  - Remounting the dialog (or unmounting steps) between steps so entered data is lost — keep it mounted and preserve state.
+  - Hiding progress so the user can't tell how many steps remain — always show the `Progress` indicator.
+  - Allowing Next while the current step is invalid — gate advancement on the step's `Form` validation.
+  - Cramming every field into one step and faking a wizard — if it's one step, it's a `form-dialog`.
+
+components:
+  - Dialog
+  - Progress
+  - Form
+  - Button
+
+# Approved starting point. Progress in the header, per-step Form in the body,
+# Back / Next / Finish in the footer; keep the dialog mounted across steps.
+example: |
+  function SetupWizard({ open, onOpenChange, onFinish, steps }) {
+    const [step, setStep] = React.useState(0);
+    const isLast = step === steps.length - 1;
+    return (
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{steps[step].title}</DialogTitle>
+            <Progress value={((step + 1) / steps.length) * 100} />
+          </DialogHeader>
+          <Form onFormSubmit={() => (isLast ? onFinish() : setStep((s) => s + 1))}>
+            <DialogBody>{steps[step].content}</DialogBody>
+            <DialogFooter>
+              <Button
+                variant="ghost"
+                type="button"
+                disabled={step === 0}
+                onClick={() => setStep((s) => s - 1)}
+              >
+                Back
+              </Button>
+              <Button type="submit">{isLast ? 'Finish' : 'Next'}</Button>
+            </DialogFooter>
+          </Form>
+        </DialogContent>
+      </Dialog>
+    );
+  }

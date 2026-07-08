@@ -601,6 +601,84 @@
       "docs": "apps/docs/content/docs/patterns/app-shell.mdx"
     },
     {
+      "name": "auth-screen",
+      "pattern": "AuthScreen",
+      "status": "draft",
+      "category": "layout",
+      "intent": "A centered authentication screen (sign-in / sign-up / reset) built on AuthLayout with a card-framed form and a footer link.",
+      "description": "The sanctioned way to build an authentication screen: `AuthLayout` centers the page and holds an `AuthLayoutCard` framing a short form of `InputText` fields and a full-width primary `Button`, with a `Link` (forgot-password / switch to sign-up) in the `AuthLayoutFooter`. One recipe covers sign-in, sign-up, and reset — only the fields, the submit label, and the footer link change. Composes existing components rather than a bespoke login screen.",
+      "when_to_use": [
+        "Any unauthenticated entry screen — sign-in, sign-up, password reset, MFA challenge.",
+        "A short, focused form the user completes before entering the app.",
+        "Keeping the branding + form centered and consistent across all auth variants."
+      ],
+      "when_not_to_use": [
+        "A settings or profile form inside the authenticated app — use a page layout, not `AuthLayout`.",
+        "A multi-step onboarding flow — use `wizard-dialog` or a routed sequence.",
+        "A modal credential prompt over existing content — use a `Dialog`."
+      ],
+      "anti_patterns": [
+        "Hand-centering a card with ad-hoc flexbox instead of composing `AuthLayout` (loses the shared logo/footer slots and responsive framing).",
+        "Putting more than the essential fields in the card — auth screens stay short; defer everything else to inside the app.",
+        "Using a raw `<a>` for the footer link instead of `Link`, breaking focus-ring and color tokens.",
+        "Making the submit button anything but full-width primary — the single obvious action is the point."
+      ],
+      "example": "function SignInScreen({ onSubmit }) {\n  return (\n    <AuthLayout>\n      <AuthLayoutCard>\n        <AuthLayoutLogo>\n          <span className=\"text-base font-semibold\">Sign in</span>\n        </AuthLayoutLogo>\n        <Card>\n          <CardContent>\n            <form className=\"flex flex-col gap-4\" onSubmit={onSubmit}>\n              <InputText label=\"Email\" type=\"email\" placeholder=\"you@example.com\" required />\n              <InputText label=\"Password\" type=\"password\" required />\n              <Button type=\"submit\" className=\"w-full\">Sign in</Button>\n            </form>\n          </CardContent>\n        </Card>\n        <AuthLayoutFooter>\n          <Link href=\"/reset\">Forgot password?</Link>\n        </AuthLayoutFooter>\n      </AuthLayoutCard>\n    </AuthLayout>\n  );\n}\n",
+      "components": ["AuthLayout", "Card", "InputText", "Button", "Link"]
+    },
+    {
+      "name": "card-grid",
+      "pattern": "CardGrid",
+      "status": "draft",
+      "category": "layout",
+      "intent": "A responsive grid of uniform cards (catalog / gallery / overview tiles) under a page header.",
+      "description": "The sanctioned layout for a set of peer items shown as tiles: a `PageHeader` over a responsive `Grid` of uniform `Card`s. `Grid`'s `cols` variant handles the responsive column counts, so every tile aligns and reflows consistently without ad-hoc CSS grid. Use it for catalogs, galleries, product/plan pickers, and overview tiles — anywhere the items are homogeneous cards rather than tabular rows.",
+      "when_to_use": [
+        "A collection of peer items best shown as uniform cards (catalog, gallery, plan picker).",
+        "Content that should reflow responsively from one column to several.",
+        "An overview page where each tile links into a detail view."
+      ],
+      "when_not_to_use": [
+        "Tabular records with columns to sort/filter/paginate — use `table-view`.",
+        "A widget dashboard of heterogeneous, differently-sized panels — use the `dashboard` pattern (including its container-query grid inside the AppShell main region).",
+        "A single prominent item — a lone `Card` needs no grid."
+      ],
+      "anti_patterns": [
+        "Rolling a bespoke CSS grid instead of composing `Grid` (loses the kit's responsive column tiers and gap tokens).",
+        "Mixing wildly different card heights/contents so the grid reads as a broken table — keep tiles uniform.",
+        "Cramming dashboard widgets into a uniform card grid — heterogeneous panels belong in `dashboard`.",
+        "Omitting the `PageHeader`, leaving the grid without a title or context."
+      ],
+      "example": "function CatalogGrid({ items }) {\n  return (\n    <div className=\"flex flex-col gap-6\">\n      <PageHeader>\n        <PageHeaderRow>\n          <PageHeaderTitle>Integrations</PageHeaderTitle>\n        </PageHeaderRow>\n        <PageHeaderDescription>Connect the tools your team already uses.</PageHeaderDescription>\n      </PageHeader>\n      <Grid cols={3} gap=\"md\">\n        {items.map((item) => (\n          <Card key={item.id}>\n            <CardHeader>\n              <CardTitle>{item.name}</CardTitle>\n              <CardDescription>{item.summary}</CardDescription>\n            </CardHeader>\n            <CardFooter>\n              <Button variant=\"secondary\">Connect</Button>\n            </CardFooter>\n          </Card>\n        ))}\n      </Grid>\n    </div>\n  );\n}\n",
+      "components": ["PageHeader", "Grid", "Card"]
+    },
+    {
+      "name": "confirm-dialog",
+      "pattern": "ConfirmDialog",
+      "status": "draft",
+      "category": "overlays",
+      "intent": "A modal confirmation for a discrete, often destructive action — AlertDialog with a title, description, and cancel / confirm actions.",
+      "description": "The sanctioned way to make a user confirm a single, consequential action: an `AlertDialog` with a `AlertDialogTitle`, a short `AlertDialogDescription` stating the consequence, and exactly two footer actions — an `AlertDialogCancel` and an `AlertDialogAction` (styled `destructive` when the action is irreversible). `AlertDialog` is deliberately more insistent than a plain `Dialog`: it traps focus, defaults focus to the safe choice, and cannot be dismissed by clicking outside — the point of a confirmation. Composes the primitive rather than a bespoke confirm modal.",
+      "when_to_use": [
+        "Confirming a destructive or irreversible action (delete, revoke, disconnect).",
+        "A yes/no decision with a clear consequence and no data to enter.",
+        "Interrupting a risky flow so the user must acknowledge before proceeding."
+      ],
+      "when_not_to_use": [
+        "A non-destructive inline toggle or setting — apply it directly, don't gate it behind a dialog.",
+        "Anything that collects input (even one field) — use `form-dialog`.",
+        "A routine, reversible action — a `toast` with undo is friendlier than a modal."
+      ],
+      "anti_patterns": [
+        "Using a dismissible `Dialog` (click-outside closes) for a destructive confirm — reach for `AlertDialog`, which won't dismiss accidentally.",
+        "More than two actions in the footer — a confirmation is binary; extra choices belong elsewhere.",
+        "Focusing the destructive action by default — default focus stays on Cancel.",
+        "A vague description (\"Are you sure?\") that hides the consequence instead of naming it."
+      ],
+      "example": "function DeleteConfirm({ open, onOpenChange, onConfirm, name }) {\n  return (\n    <AlertDialog open={open} onOpenChange={onOpenChange}>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>Delete {name}?</AlertDialogTitle>\n          <AlertDialogDescription>\n            This permanently removes {name} and its data. This action cannot be undone.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel render={<Button variant=\"ghost\">Cancel</Button>} />\n          <AlertDialogAction render={<Button variant=\"destructive\">Delete</Button>} onClick={onConfirm} />\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  );\n}\n",
+      "components": ["AlertDialog", "Button"]
+    },
+    {
       "name": "dashboard",
       "pattern": "Dashboard",
       "status": "draft",
@@ -646,6 +724,39 @@
       "components": ["Table", "Checkbox", "Button", "DataTable"],
       "demo": "apps/demos/src/patterns/DataTableBulkActionsDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/data-table-bulk-actions.mdx"
+    },
+    {
+      "name": "detail-drawer",
+      "pattern": "DetailDrawer",
+      "status": "draft",
+      "category": "overlays",
+      "intent": "Show details of a selected item in an edge-anchored Drawer — header, key/value properties, content states, and footer actions.",
+      "description": "The sanctioned way to present \"details of the selected thing\" in a non-blocking, edge-anchored `Drawer`: a header (title + close), a body that renders either a `DescriptionList` of key/value properties or a content state (loading → `Spinner`, empty/error → `Empty`), and a footer of `Button` actions, with a `Separator` framing the footer. This is the `Drawer`-based sibling of `sheet-detail-panel`: reach for **detail-drawer** when the panel is a lightweight, dismissible surface anchored to a screen edge (built on the `Drawer` primitive); reach for **sheet-detail-panel** when you want the modal, dialog-based `Sheet` (focus-trapped, backdrop, scroll-locked). Same content recipe, different overlay primitive.",
+      "when_to_use": [
+        "Inspecting a selected row/entity in a panel that slides in from a screen edge.",
+        "A detail view that must load, can be empty, and offers a few actions.",
+        "A non-blocking inspector the user can leave open while scanning the list."
+      ],
+      "when_not_to_use": [
+        "A modal, focus-trapped detail panel with a backdrop — use `sheet-detail-panel` (the `Sheet` variant).",
+        "A centered confirmation or short form — use `confirm-dialog` or `form-dialog`.",
+        "Persistent page chrome that never dismisses — use `SidebarSecondary`, not a Drawer."
+      ],
+      "anti_patterns": [
+        "Hand-rolling a fixed edge panel instead of composing `Drawer` (loses the swipe/dismiss, animations, and ARIA wiring).",
+        "Rendering a spinner/empty state inline in the body INSTEAD of switching the whole body by a content state — mixed states confuse.",
+        "Putting more than ~2–3 primary actions in the footer; overflow belongs in a menu.",
+        "Omitting `DrawerTitle`, leaving the panel with no accessible name."
+      ],
+      "example": "function DetailDrawer({ open, onOpenChange, contentState, item }) {\n  return (\n    <Drawer open={open} onOpenChange={onOpenChange}>\n      <DrawerContent side=\"right\">\n        <DrawerHeader>\n          <DrawerTitle>{item?.name ?? 'Details'}</DrawerTitle>\n          <DrawerCloseButton />\n        </DrawerHeader>\n        <DrawerBody>\n          {contentState === 'loading' ? (\n            <div className=\"flex h-full items-center justify-center\"><Spinner /></div>\n          ) : contentState === 'empty' ? (\n            <Empty>\n              <EmptyHeader>\n                <EmptyTitle>Nothing to show</EmptyTitle>\n                <EmptyDescription>This item has no details yet.</EmptyDescription>\n              </EmptyHeader>\n            </Empty>\n          ) : (\n            <DescriptionList>\n              {item.properties.map((p) => (\n                <DescriptionListItem key={p.label}>\n                  <DescriptionListLabel>{p.label}</DescriptionListLabel>\n                  <DescriptionListValue>{p.value}</DescriptionListValue>\n                </DescriptionListItem>\n              ))}\n            </DescriptionList>\n          )}\n        </DrawerBody>\n        <Separator />\n        <DrawerFooter>\n          <DrawerClose render={<Button variant=\"ghost\">Close</Button>} />\n          <Button>Edit</Button>\n        </DrawerFooter>\n      </DrawerContent>\n    </Drawer>\n  );\n}\n",
+      "components": [
+        "Drawer",
+        "DescriptionList",
+        "Button",
+        "Spinner",
+        "Empty",
+        "Separator"
+      ]
     },
     {
       "name": "empty-screen",
@@ -696,6 +807,68 @@
       "docs": "apps/docs/content/docs/patterns/filter-popover.mdx"
     },
     {
+      "name": "form-dialog",
+      "pattern": "FormDialog",
+      "status": "draft",
+      "category": "overlays",
+      "intent": "A short create/edit form inside a modal Dialog, with a titled header and a cancel / submit footer.",
+      "description": "The sanctioned way to capture a short create/edit form without leaving the page: a `Dialog` whose body holds a `Form` of `Field` + `InputText` controls, a header naming the task, and a footer with a ghost cancel and a primary submit. `Form` owns validation and error wiring; each `Field` binds a control to its label and error slot. Keep it to a handful of fields — the modal is for a quick, focused entry, not a whole page of inputs.",
+      "when_to_use": [
+        "Creating or editing a small record (a few fields) without a full-page route.",
+        "A focused entry task the user should finish or cancel before continuing.",
+        "Reusing one form for both create and edit by seeding default values."
+      ],
+      "when_not_to_use": [
+        "More than a single step — use `wizard-dialog`.",
+        "A whole page of fields or complex layout — use a dedicated route, not a dialog.",
+        "A yes/no or destructive confirmation with no input — use `confirm-dialog`."
+      ],
+      "anti_patterns": [
+        "Wiring validation and error messages by hand instead of using `Form` + `Field`.",
+        "Submitting on backdrop click or losing entered data when the dialog closes — confirm or preserve the draft.",
+        "Overfilling the modal so it scrolls endlessly — if it needs that many fields, it's a page.",
+        "Omitting `DialogTitle`, leaving the dialog without an accessible name."
+      ],
+      "example": "function CreateProjectDialog({ open, onOpenChange, onSubmit }) {\n  return (\n    <Dialog open={open} onOpenChange={onOpenChange}>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>New project</DialogTitle>\n          <DialogCloseButton />\n        </DialogHeader>\n        <Form onFormSubmit={onSubmit}>\n          <DialogBody className=\"flex flex-col gap-4\">\n            <Field name=\"name\">\n              <FieldLabel>Name</FieldLabel>\n              <FieldControl render={<InputText placeholder=\"Acme migration\" required />} />\n              <FieldError />\n            </Field>\n            <Field name=\"key\">\n              <FieldLabel>Key</FieldLabel>\n              <FieldControl render={<InputText placeholder=\"ACME\" />} />\n              <FieldDescription>A short identifier used in URLs.</FieldDescription>\n            </Field>\n          </DialogBody>\n          <DialogFooter>\n            <DialogClose render={<Button variant=\"ghost\">Cancel</Button>} />\n            <Button type=\"submit\">Create</Button>\n          </DialogFooter>\n        </Form>\n      </DialogContent>\n    </Dialog>\n  );\n}\n",
+      "components": ["Dialog", "Form", "Field", "InputText", "Button"]
+    },
+    {
+      "name": "intelligence-panel",
+      "pattern": "IntelligencePanel",
+      "status": "draft",
+      "category": "ai",
+      "intent": "An AI assistant panel — a scrollable message thread with an assistant avatar, a text composer with a send action, suggested-prompt chips, and streaming/loading states.",
+      "description": "The sanctioned way to surface an AI assistant beside the app: a `Drawer` anchored to the right edge whose body is a `ScrollArea` message thread (each assistant turn led by an `Avatar`), a footer composer built from `InputTextArea` plus a send `ButtonIcon`, and a row of suggested-prompt `Chip`s that seed the composer. Streaming is expressed with a `Spinner` on the in-flight assistant turn; a `Separator` divides the thread from the composer. Composes existing components — the conversation UI is a recipe, not a bespoke chat widget.",
+      "when_to_use": [
+        "An in-app AI assistant / copilot that stays available beside the current task.",
+        "A conversational thread that streams responses and offers starter prompts.",
+        "Keeping the assistant non-blocking — the user can dismiss it and keep working."
+      ],
+      "when_not_to_use": [
+        "A one-shot prompt with a single answer — use an inline field, not a threaded panel.",
+        "A blocking, full-attention flow — use a `Dialog`.",
+        "Static help content with no conversation — a plain `Drawer` or docs link is enough."
+      ],
+      "anti_patterns": [
+        "Hand-rolling a fixed side panel instead of composing `Drawer` (loses focus trap, scroll lock, ARIA, animations).",
+        "Auto-scrolling the thread on every token without pinning to bottom — the user loses their place while reading history.",
+        "Disabling the whole panel while streaming instead of showing a `Spinner` on the pending turn and keeping the composer usable.",
+        "Rendering suggested prompts as bare buttons rather than `Chip`s, breaking the kit's affordance for dismissible/selectable hints."
+      ],
+      "example": "function IntelligencePanel({ open, onOpenChange, messages, streaming, onSend, suggestions }) {\n  const [draft, setDraft] = React.useState('');\n  return (\n    <Drawer open={open} onOpenChange={onOpenChange}>\n      <DrawerContent side=\"right\">\n        <DrawerHeader>\n          <DrawerTitle>Assistant</DrawerTitle>\n          <DrawerCloseButton />\n        </DrawerHeader>\n        <DrawerBody className=\"p-0\">\n          <ScrollArea className=\"h-full\">\n            <div className=\"flex flex-col gap-4 px-5 py-4\">\n              {messages.map((m) => (\n                <div key={m.id} className=\"flex gap-3\">\n                  {m.role === 'assistant' && (\n                    <Avatar>\n                      <AvatarFallback>AI</AvatarFallback>\n                    </Avatar>\n                  )}\n                  <p className=\"text-sm leading-relaxed\">{m.content}</p>\n                </div>\n              ))}\n              {streaming && (\n                <div className=\"flex items-center gap-3 text-muted-foreground\">\n                  <Avatar>\n                    <AvatarFallback>AI</AvatarFallback>\n                  </Avatar>\n                  <Spinner />\n                </div>\n              )}\n            </div>\n          </ScrollArea>\n        </DrawerBody>\n        <Separator />\n        <DrawerFooter className=\"flex-col items-stretch gap-3\">\n          <div className=\"flex flex-wrap gap-2\">\n            {suggestions.map((s) => (\n              <Chip key={s} onClick={() => setDraft(s)}>{s}</Chip>\n            ))}\n          </div>\n          <form\n            className=\"flex items-end gap-2\"\n            onSubmit={(e) => {\n              e.preventDefault();\n              onSend(draft);\n              setDraft('');\n            }}\n          >\n            <InputTextArea\n              className=\"flex-1\"\n              placeholder=\"Ask anything…\"\n              value={draft}\n              onChange={(e) => setDraft(e.target.value)}\n            />\n            <ButtonIcon type=\"submit\" aria-label=\"Send\" disabled={!draft.trim()}>\n              <SendIcon />\n            </ButtonIcon>\n          </form>\n        </DrawerFooter>\n      </DrawerContent>\n    </Drawer>\n  );\n}\n",
+      "components": [
+        "Drawer",
+        "ScrollArea",
+        "InputTextArea",
+        "Button",
+        "ButtonIcon",
+        "Avatar",
+        "Chip",
+        "Spinner",
+        "Separator"
+      ]
+    },
+    {
       "name": "sheet-detail-panel",
       "pattern": "SheetDetailPanel",
       "status": "draft",
@@ -721,6 +894,96 @@
       "components": ["Sheet", "DescriptionList", "Button", "Spinner", "Empty"],
       "demo": "apps/demos/src/patterns/SheetDetailPanelDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/sheet-detail-panel.mdx"
+    },
+    {
+      "name": "sidebar-navigation",
+      "pattern": "SidebarNavigation",
+      "status": "draft",
+      "category": "navigation",
+      "intent": "The two-tier app navigation — a collapsed primary icon rail of top-level areas beside an expandable secondary section panel, with drill-down for nested items.",
+      "description": "The sanctioned composition for the kit's primary navigation: a `SidebarPrimary` icon rail listing top-level product areas, and a `SidebarSecondary` panel showing the sections of the active area. `SidebarSecondary`'s built-in `SidebarSecondaryMenuSub` handles one level of drill-down; use `Collapsible` sections for grouped links and a `Tree` when the section is a deep, arbitrarily-nested hierarchy. Where the top-level areas read better as a horizontal bar than a rail, `NavigationMenu` is the sanctioned alternative for that tier. This is the nav composition itself — not the page frame around it.",
+      "when_to_use": [
+        "An application with several top-level areas, each holding its own sections.",
+        "Navigation that must stay visible and persistent while the user works.",
+        "A section list deep enough to need drill-down (submenus) or a hierarchy (Tree)."
+      ],
+      "when_not_to_use": [
+        "The whole application frame (header + rails + main region) — that is the `app-shell` pattern; this composes only the nav that lives inside it.",
+        "A flat handful of destinations with no nesting — a single menu or `NavigationMenu` bar is enough; skip the two-tier rail.",
+        "Transient, task-scoped navigation — use tabs or an overlay, not persistent chrome."
+      ],
+      "anti_patterns": [
+        "Rebuilding the icon rail or section panel by hand instead of composing `SidebarPrimary` / `SidebarSecondary` (loses collapse state, active-item wiring, ARIA).",
+        "Nesting a `Tree` inside every section when one drill-down level via `SidebarSecondaryMenuSub` would do — reserve `Tree` for genuinely deep hierarchies.",
+        "Duplicating the primary areas as both a rail AND a top `NavigationMenu` — pick one home for the top tier.",
+        "Putting page content or actions in the sidebars instead of the main region."
+      ],
+      "example": "<div className=\"flex h-full\">\n  <SidebarPrimary>\n    <SidebarPrimaryContent>\n      <SidebarPrimaryMenu>\n        <SidebarPrimaryMenuItem active aria-label=\"Dashboard\">\n          <DashboardIcon />\n        </SidebarPrimaryMenuItem>\n        <SidebarPrimaryMenuItem aria-label=\"Protection\">\n          <ShieldIcon />\n        </SidebarPrimaryMenuItem>\n      </SidebarPrimaryMenu>\n    </SidebarPrimaryContent>\n  </SidebarPrimary>\n  <SidebarSecondary>\n    <SidebarSecondaryHeader>Protection</SidebarSecondaryHeader>\n    <SidebarSecondaryContent>\n      <SidebarSecondarySection>\n        <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>\n        <SidebarSecondaryMenu>\n          <SidebarSecondaryMenuItem active>Devices</SidebarSecondaryMenuItem>\n          <SidebarSecondaryMenuSub>\n            <SidebarSecondaryMenuSubTrigger>Policies</SidebarSecondaryMenuSubTrigger>\n            <SidebarSecondaryMenuSubContent>\n              <SidebarSecondaryMenuSubItem>Backup</SidebarSecondaryMenuSubItem>\n              <SidebarSecondaryMenuSubItem>Antivirus</SidebarSecondaryMenuSubItem>\n            </SidebarSecondaryMenuSubContent>\n          </SidebarSecondaryMenuSub>\n        </SidebarSecondaryMenu>\n      </SidebarSecondarySection>\n    </SidebarSecondaryContent>\n  </SidebarSecondary>\n</div>\n",
+      "components": [
+        "SidebarPrimary",
+        "SidebarSecondary",
+        "NavigationMenu",
+        "Collapsible",
+        "Tree"
+      ]
+    },
+    {
+      "name": "table-view",
+      "pattern": "TableView",
+      "status": "draft",
+      "category": "layout",
+      "intent": "A full list/table screen — a page header, a search + filter toolbar, and a paginated DataTable of records.",
+      "description": "The sanctioned shape for a records screen: a `PageHeader` (title + primary action), a toolbar pairing an `InputSearch` for free-text with `Filter` triggers for discrete criteria, and a `DataTable` rendering the rows with its built-in `DataTablePagination`. This is the canonical \"list of things\" layout — compose it rather than assembling a bespoke table page. For row selection with a contextual action bar, see `data-table-bulk-actions`, which layers selection onto this same table.",
+      "when_to_use": [
+        "A primary screen listing records the user browses, searches, filters, and paginates.",
+        "A table that needs both free-text search (InputSearch) and discrete filters (Filter).",
+        "Any place the app shows \"all the Xs\" as the main content of a route."
+      ],
+      "when_not_to_use": [
+        "Rows that need multi-select plus a bulk-action bar — use `data-table-bulk-actions`.",
+        "A small, fixed set of rows with no search/filter/pagination — a plain `Table` is enough.",
+        "Card-based catalog/gallery tiles rather than tabular rows — use `card-grid`."
+      ],
+      "anti_patterns": [
+        "Reimplementing sorting/pagination by hand instead of using `DataTable` + `DataTablePagination`.",
+        "Using `InputSearch` for discrete-value filtering (status, type) — those belong in `Filter`, not free-text.",
+        "Omitting the `PageHeader` so the screen has no title or home for its primary action.",
+        "Placing per-row selection checkboxes here without the bulk-action bar — if you need selection, adopt `data-table-bulk-actions`."
+      ],
+      "example": "function DevicesView({ columns, rows, onSearch, onCreate }) {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <PageHeader>\n        <PageHeaderRow>\n          <PageHeaderTitle>Devices</PageHeaderTitle>\n          <PageHeaderActions>\n            <Button onClick={onCreate}>Add device</Button>\n          </PageHeaderActions>\n        </PageHeaderRow>\n      </PageHeader>\n      <div className=\"flex items-center gap-2\">\n        <InputSearch\n          className=\"max-w-xs\"\n          placeholder=\"Search devices…\"\n          onChange={(e) => onSearch(e.target.value)}\n        />\n        <Filter count={2}>Status</Filter>\n        <Filter>Type</Filter>\n      </div>\n      <DataTable columns={columns} data={rows} />\n    </div>\n  );\n}\n",
+      "components": [
+        "PageHeader",
+        "DataTable",
+        "InputSearch",
+        "Filter",
+        "Button"
+      ]
+    },
+    {
+      "name": "wizard-dialog",
+      "pattern": "WizardDialog",
+      "status": "draft",
+      "category": "overlays",
+      "intent": "A multi-step flow inside a modal Dialog — a step/progress indicator, per-step form content, and Back / Next / Finish navigation.",
+      "description": "The sanctioned way to run a short, guided multi-step task without leaving the page: a `Dialog` whose header carries a `Progress` step indicator, whose body swaps `Form` content per step, and whose footer navigates with Back / Next and a final Finish. The dialog stays mounted across steps so entered values persist; only the visible step's fields change. Reserve it for flows that are genuinely staged — 2 to a few steps — where splitting the input reduces cognitive load.",
+      "when_to_use": [
+        "A guided setup/onboarding with 2–a few discrete steps in a fixed order.",
+        "Breaking a longer form into digestible stages with a visible progress cue.",
+        "A flow where later steps depend on earlier answers but the whole thing is short."
+      ],
+      "when_not_to_use": [
+        "A single step — use `form-dialog`.",
+        "A long or branching linear flow better as a full-page route with its own URL per step.",
+        "A yes/no confirmation — use `confirm-dialog`."
+      ],
+      "anti_patterns": [
+        "Remounting the dialog (or unmounting steps) between steps so entered data is lost — keep it mounted and preserve state.",
+        "Hiding progress so the user can't tell how many steps remain — always show the `Progress` indicator.",
+        "Allowing Next while the current step is invalid — gate advancement on the step's `Form` validation.",
+        "Cramming every field into one step and faking a wizard — if it's one step, it's a `form-dialog`."
+      ],
+      "example": "function SetupWizard({ open, onOpenChange, onFinish, steps }) {\n  const [step, setStep] = React.useState(0);\n  const isLast = step === steps.length - 1;\n  return (\n    <Dialog open={open} onOpenChange={onOpenChange}>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>{steps[step].title}</DialogTitle>\n          <Progress value={((step + 1) / steps.length) * 100} />\n        </DialogHeader>\n        <Form onFormSubmit={() => (isLast ? onFinish() : setStep((s) => s + 1))}>\n          <DialogBody>{steps[step].content}</DialogBody>\n          <DialogFooter>\n            <Button\n              variant=\"ghost\"\n              type=\"button\"\n              disabled={step === 0}\n              onClick={() => setStep((s) => s - 1)}\n            >\n              Back\n            </Button>\n            <Button type=\"submit\">{isLast ? 'Finish' : 'Next'}</Button>\n          </DialogFooter>\n        </Form>\n      </DialogContent>\n    </Dialog>\n  );\n}\n",
+      "components": ["Dialog", "Progress", "Form", "Button"]
     }
   ],
   "screens": [
