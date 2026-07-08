@@ -1,0 +1,75 @@
+---
+title: Table view
+description: A full list/table screen — a page header, a search + filter toolbar, and a paginated DataTable of records.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { TableViewDemo } from "@/components/demos-react/patterns/table-view";
+
+The sanctioned shape for a records screen: a **`PageHeader`** (title + primary
+action), a toolbar pairing an **`InputSearch`** for free-text with **`Filter`**
+triggers for discrete criteria, and a **`DataTable`** rendering the rows with
+its built-in **`DataTablePagination`**. This is the canonical "list of things"
+layout — compose it rather than assembling a bespoke table page. For row
+selection with a contextual action bar, see `data-table-bulk-actions`, which
+layers selection onto this same table.
+
+<DemoReact>
+  <TableViewDemo />
+</DemoReact>
+
+## When to use
+
+- A primary screen listing records the user browses, searches, filters, and
+  paginates.
+- A table that needs both free-text search (InputSearch) and discrete filters
+  (Filter).
+- Any place the app shows "all the Xs" as the main content of a route.
+
+## When not to use
+
+- Rows that need multi-select plus a bulk-action bar — use
+  `data-table-bulk-actions`.
+- A small, fixed set of rows with no search/filter/pagination — a plain `Table`
+  is enough.
+- Card-based catalog/gallery tiles rather than tabular rows — use `card-grid`.
+
+## Composition
+
+```tsx
+function DevicesView({ columns, rows, onSearch, onCreate }) {
+  return (
+    <div className="flex flex-col gap-4">
+      <PageHeader>
+        <PageHeaderRow>
+          <PageHeaderTitle>Devices</PageHeaderTitle>
+          <PageHeaderActions>
+            <Button onClick={onCreate}>Add device</Button>
+          </PageHeaderActions>
+        </PageHeaderRow>
+      </PageHeader>
+      <div className="flex items-center gap-2">
+        <InputSearch
+          className="max-w-xs"
+          placeholder="Search devices…"
+          onChange={(e) => onSearch(e.target.value)}
+        />
+        <Filter count={2}>Status</Filter>
+        <Filter>Type</Filter>
+      </div>
+      <DataTable columns={columns} data={rows} />
+    </div>
+  );
+}
+```
+
+## Guidelines
+
+- Use `DataTable` + `DataTablePagination` rather than reimplementing sorting and
+  pagination by hand.
+- Put discrete-value filtering (status, type) in `Filter`, not `InputSearch` —
+  free-text search and filters are different affordances.
+- Keep the `PageHeader` so the screen has a title and a home for its primary
+  action.
+- If you need per-row selection, adopt `data-table-bulk-actions` — don't add
+  bare checkboxes without the bulk-action bar.

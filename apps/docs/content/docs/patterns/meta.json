@@ -2,11 +2,25 @@
   "title": "Patterns",
   "pages": [
     "index",
-    "dashboard",
+    "---Layouts---",
     "app-shell",
+    "dashboard",
+    "table-view",
+    "card-grid",
+    "auth-screen",
+    "empty-screen",
+    "---Navigation---",
+    "sidebar-navigation",
+    "---Data---",
     "filter-popover",
     "data-table-bulk-actions",
+    "---Overlays---",
     "sheet-detail-panel",
-    "empty-screen"
+    "detail-drawer",
+    "confirm-dialog",
+    "form-dialog",
+    "wizard-dialog",
+    "---AI---",
+    "intelligence-panel"
   ]
 }

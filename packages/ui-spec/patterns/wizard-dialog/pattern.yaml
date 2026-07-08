@@ -36,6 +36,7 @@ components:
   - Button
 
 demo: apps/demos/src/patterns/WizardDialogDemo.tsx
+docs: apps/docs/content/docs/patterns/wizard-dialog.mdx
 
 # Approved starting point. Progress in the header, per-step Form in the body,
 # Back / Next / Finish in the footer; keep the dialog mounted across steps.

@@ -36,6 +36,7 @@ components:
   - Link
 
 demo: apps/demos/src/patterns/AuthScreenDemo.tsx
+docs: apps/docs/content/docs/patterns/auth-screen.mdx
 
 # Approved starting point. AuthLayoutCard frames a short InputText form + a
 # full-width primary Button; the footer holds a single Link.

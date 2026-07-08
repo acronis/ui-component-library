@@ -37,6 +37,7 @@ components:
   - Button
 
 demo: apps/demos/src/patterns/TableViewDemo.tsx
+docs: apps/docs/content/docs/patterns/table-view.mdx
 
 # Approved starting point. Header on top, search + filters in a toolbar row, then
 # the DataTable with its pagination.

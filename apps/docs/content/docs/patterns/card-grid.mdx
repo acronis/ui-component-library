@@ -1,0 +1,73 @@
+---
+title: Card grid
+description: A responsive grid of uniform cards (catalog / gallery / overview tiles) under a page header.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { CardGridDemo } from "@/components/demos-react/patterns/card-grid";
+
+The sanctioned layout for a set of peer items shown as tiles: a **`PageHeader`**
+over a responsive **`Grid`** of uniform **`Card`**s. `Grid`'s `cols` variant
+handles the responsive column counts, so every tile aligns and reflows
+consistently without ad-hoc CSS grid. Use it for catalogs, galleries,
+product/plan pickers, and overview tiles — anywhere the items are homogeneous
+cards rather than tabular rows.
+
+<DemoReact>
+  <CardGridDemo />
+</DemoReact>
+
+## When to use
+
+- A collection of peer items best shown as uniform cards (catalog, gallery, plan
+  picker).
+- Content that should reflow responsively from one column to several.
+- An overview page where each tile links into a detail view.
+
+## When not to use
+
+- Tabular records with columns to sort/filter/paginate — use `table-view`.
+- A widget dashboard of heterogeneous, differently-sized panels — use the
+  `dashboard` pattern (including its container-query grid inside the AppShell
+  main region).
+- A single prominent item — a lone `Card` needs no grid.
+
+## Composition
+
+```tsx
+function CatalogGrid({ items }) {
+  return (
+    <div className="flex flex-col gap-6">
+      <PageHeader>
+        <PageHeaderRow>
+          <PageHeaderTitle>Integrations</PageHeaderTitle>
+        </PageHeaderRow>
+        <PageHeaderDescription>Connect the tools your team already uses.</PageHeaderDescription>
+      </PageHeader>
+      <Grid cols={3} gap="md">
+        {items.map((item) => (
+          <Card key={item.id}>
+            <CardHeader>
+              <CardTitle>{item.name}</CardTitle>
+              <CardDescription>{item.summary}</CardDescription>
+            </CardHeader>
+            <CardFooter>
+              <Button variant="secondary">Connect</Button>
+            </CardFooter>
+          </Card>
+        ))}
+      </Grid>
+    </div>
+  );
+}
+```
+
+## Guidelines
+
+- Compose `Grid` rather than rolling a bespoke CSS grid — you'd lose the kit's
+  responsive column tiers and gap tokens.
+- Keep tiles uniform in height and content, so the grid doesn't read as a broken
+  table.
+- Put heterogeneous dashboard widgets in the `dashboard` pattern, not a uniform
+  card grid.
+- Keep the `PageHeader` so the grid has a title and context.

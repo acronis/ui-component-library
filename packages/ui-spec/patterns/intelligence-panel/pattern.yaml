@@ -42,6 +42,7 @@ components:
   - Separator
 
 demo: apps/demos/src/patterns/IntelligencePanelDemo.tsx
+docs: apps/docs/content/docs/patterns/intelligence-panel.mdx
 
 # Approved starting point. Keep the thread in a ScrollArea body, the composer in
 # the footer, and switch the pending assistant turn to a Spinner while streaming.

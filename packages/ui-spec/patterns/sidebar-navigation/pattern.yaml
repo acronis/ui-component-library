@@ -39,6 +39,7 @@ components:
   - Tree
 
 demo: apps/demos/src/patterns/SidebarNavigationDemo.tsx
+docs: apps/docs/content/docs/patterns/sidebar-navigation.mdx
 
 # Approved starting point. Primary rail = top-level areas; secondary panel =
 # sections of the active area, with Collapsible groups (swap in Tree for deep

@@ -1,0 +1,113 @@
+---
+title: Intelligence panel
+description: An AI assistant panel — a scrollable message thread, a composer with a send action, suggested-prompt chips, and streaming states.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { IntelligencePanelDemo } from "@/components/demos-react/patterns/intelligence-panel";
+
+The sanctioned way to surface an AI assistant beside the app: a **`Drawer`**
+anchored to the right edge whose body is a **`ScrollArea`** message thread (each
+assistant turn led by an **`Avatar`**), a footer composer built from
+**`InputTextArea`** plus a send **`ButtonIcon`**, and a row of suggested-prompt
+**`Chip`**s that seed the composer. Streaming is expressed with a **`Spinner`**
+on the in-flight assistant turn; a **`Separator`** divides the thread from the
+composer. It composes existing components — the conversation UI is a recipe, not
+a bespoke chat widget.
+
+<DemoReact>
+  <IntelligencePanelDemo />
+</DemoReact>
+
+## When to use
+
+- An in-app AI assistant / copilot that stays available beside the current task.
+- A conversational thread that streams responses and offers starter prompts.
+- Keeping the assistant non-blocking — the user can dismiss it and keep working.
+
+## When not to use
+
+- A one-shot prompt with a single answer — use an inline field, not a threaded
+  panel.
+- A blocking, full-attention flow — use a `Dialog`.
+- Static help content with no conversation — a plain `Drawer` or docs link is
+  enough.
+
+## Composition
+
+```tsx
+function IntelligencePanel({ open, onOpenChange, messages, streaming, onSend, suggestions }) {
+  const [draft, setDraft] = React.useState('');
+  return (
+    <Drawer open={open} onOpenChange={onOpenChange}>
+      <DrawerContent side="right">
+        <DrawerHeader>
+          <DrawerTitle>Assistant</DrawerTitle>
+          <DrawerCloseButton />
+        </DrawerHeader>
+        <DrawerBody className="p-0">
+          <ScrollArea className="h-full">
+            <div className="flex flex-col gap-4 px-5 py-4">
+              {messages.map((m) => (
+                <div key={m.id} className="flex gap-3">
+                  {m.role === 'assistant' && (
+                    <Avatar>
+                      <AvatarFallback>AI</AvatarFallback>
+                    </Avatar>
+                  )}
+                  <p className="text-sm leading-relaxed">{m.content}</p>
+                </div>
+              ))}
+              {streaming && (
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <Avatar>
+                    <AvatarFallback>AI</AvatarFallback>
+                  </Avatar>
+                  <Spinner />
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+        </DrawerBody>
+        <Separator />
+        <DrawerFooter className="flex-col items-stretch gap-3">
+          <div className="flex flex-wrap gap-2">
+            {suggestions.map((s) => (
+              <Chip key={s} onClick={() => setDraft(s)}>{s}</Chip>
+            ))}
+          </div>
+          <form
+            className="flex items-end gap-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSend(draft);
+              setDraft('');
+            }}
+          >
+            <InputTextArea
+              className="flex-1"
+              placeholder="Ask anything…"
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+            />
+            <ButtonIcon type="submit" aria-label="Send" disabled={!draft.trim()}>
+              <SendIcon />
+            </ButtonIcon>
+          </form>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+}
+```
+
+## Guidelines
+
+- Compose `Drawer` rather than hand-rolling a fixed side panel — you'd lose the
+  focus trap, scroll lock, ARIA wiring, and animations.
+- Pin the thread to the bottom instead of auto-scrolling on every token, so the
+  user doesn't lose their place while reading history.
+- Keep the composer usable while streaming — show a `Spinner` on the pending
+  turn rather than disabling the whole panel.
+- Render suggested prompts as `Chip`s, not bare buttons, to keep the kit's
+  affordance for dismissible/selectable hints.

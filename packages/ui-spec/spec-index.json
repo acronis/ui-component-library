@@ -625,7 +625,8 @@
       ],
       "example": "function SignInScreen({ onSubmit }) {\n  return (\n    <AuthLayout>\n      <AuthLayoutCard>\n        <AuthLayoutLogo>\n          <span className=\"text-base font-semibold\">Sign in</span>\n        </AuthLayoutLogo>\n        <Card>\n          <CardContent>\n            <form className=\"flex flex-col gap-4\" onSubmit={onSubmit}>\n              <InputText label=\"Email\" type=\"email\" placeholder=\"you@example.com\" required />\n              <InputText label=\"Password\" type=\"password\" required />\n              <Button type=\"submit\" className=\"w-full\">Sign in</Button>\n            </form>\n          </CardContent>\n        </Card>\n        <AuthLayoutFooter>\n          <Link href=\"/reset\">Forgot password?</Link>\n        </AuthLayoutFooter>\n      </AuthLayoutCard>\n    </AuthLayout>\n  );\n}\n",
       "components": ["AuthLayout", "Card", "InputText", "Button", "Link"],
-      "demo": "apps/demos/src/patterns/AuthScreenDemo.tsx"
+      "demo": "apps/demos/src/patterns/AuthScreenDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/auth-screen.mdx"
     },
     {
       "name": "card-grid",
@@ -652,7 +653,8 @@
       ],
       "example": "function CatalogGrid({ items }) {\n  return (\n    <div className=\"flex flex-col gap-6\">\n      <PageHeader>\n        <PageHeaderRow>\n          <PageHeaderTitle>Integrations</PageHeaderTitle>\n        </PageHeaderRow>\n        <PageHeaderDescription>Connect the tools your team already uses.</PageHeaderDescription>\n      </PageHeader>\n      <Grid cols={3} gap=\"md\">\n        {items.map((item) => (\n          <Card key={item.id}>\n            <CardHeader>\n              <CardTitle>{item.name}</CardTitle>\n              <CardDescription>{item.summary}</CardDescription>\n            </CardHeader>\n            <CardFooter>\n              <Button variant=\"secondary\">Connect</Button>\n            </CardFooter>\n          </Card>\n        ))}\n      </Grid>\n    </div>\n  );\n}\n",
       "components": ["PageHeader", "Grid", "Card"],
-      "demo": "apps/demos/src/patterns/CardGridDemo.tsx"
+      "demo": "apps/demos/src/patterns/CardGridDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/card-grid.mdx"
     },
     {
       "name": "confirm-dialog",
@@ -679,7 +681,8 @@
       ],
       "example": "function DeleteConfirm({ open, onOpenChange, onConfirm, name }) {\n  return (\n    <AlertDialog open={open} onOpenChange={onOpenChange}>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>Delete {name}?</AlertDialogTitle>\n          <AlertDialogDescription>\n            This permanently removes {name} and its data. This action cannot be undone.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel render={<Button variant=\"ghost\">Cancel</Button>} />\n          <AlertDialogAction render={<Button variant=\"destructive\">Delete</Button>} onClick={onConfirm} />\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  );\n}\n",
       "components": ["AlertDialog", "Button"],
-      "demo": "apps/demos/src/patterns/ConfirmDialogDemo.tsx"
+      "demo": "apps/demos/src/patterns/ConfirmDialogDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/confirm-dialog.mdx"
     },
     {
       "name": "dashboard",
@@ -760,7 +763,8 @@
         "Empty",
         "Separator"
       ],
-      "demo": "apps/demos/src/patterns/DetailDrawerDemo.tsx"
+      "demo": "apps/demos/src/patterns/DetailDrawerDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/detail-drawer.mdx"
     },
     {
       "name": "empty-screen",
@@ -835,7 +839,8 @@
       ],
       "example": "function CreateProjectDialog({ open, onOpenChange, onSubmit }) {\n  return (\n    <Dialog open={open} onOpenChange={onOpenChange}>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>New project</DialogTitle>\n          <DialogCloseButton />\n        </DialogHeader>\n        <Form onFormSubmit={onSubmit}>\n          <DialogBody className=\"flex flex-col gap-4\">\n            <Field name=\"name\">\n              <FieldLabel>Name</FieldLabel>\n              <FieldControl render={<InputText placeholder=\"Acme migration\" required />} />\n              <FieldError />\n            </Field>\n            <Field name=\"key\">\n              <FieldLabel>Key</FieldLabel>\n              <FieldControl render={<InputText placeholder=\"ACME\" />} />\n              <FieldDescription>A short identifier used in URLs.</FieldDescription>\n            </Field>\n          </DialogBody>\n          <DialogFooter>\n            <DialogClose render={<Button variant=\"ghost\">Cancel</Button>} />\n            <Button type=\"submit\">Create</Button>\n          </DialogFooter>\n        </Form>\n      </DialogContent>\n    </Dialog>\n  );\n}\n",
       "components": ["Dialog", "Form", "Field", "InputText", "Button"],
-      "demo": "apps/demos/src/patterns/FormDialogDemo.tsx"
+      "demo": "apps/demos/src/patterns/FormDialogDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/form-dialog.mdx"
     },
     {
       "name": "intelligence-panel",
@@ -872,7 +877,8 @@
         "Spinner",
         "Separator"
       ],
-      "demo": "apps/demos/src/patterns/IntelligencePanelDemo.tsx"
+      "demo": "apps/demos/src/patterns/IntelligencePanelDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/intelligence-panel.mdx"
     },
     {
       "name": "sheet-detail-panel",
@@ -932,7 +938,8 @@
         "Collapsible",
         "Tree"
       ],
-      "demo": "apps/demos/src/patterns/SidebarNavigationDemo.tsx"
+      "demo": "apps/demos/src/patterns/SidebarNavigationDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/sidebar-navigation.mdx"
     },
     {
       "name": "table-view",
@@ -965,7 +972,8 @@
         "Filter",
         "Button"
       ],
-      "demo": "apps/demos/src/patterns/TableViewDemo.tsx"
+      "demo": "apps/demos/src/patterns/TableViewDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/table-view.mdx"
     },
     {
       "name": "wizard-dialog",
@@ -992,7 +1000,8 @@
       ],
       "example": "function SetupWizard({ open, onOpenChange, onFinish, steps }) {\n  const [step, setStep] = React.useState(0);\n  const isLast = step === steps.length - 1;\n  return (\n    <Dialog open={open} onOpenChange={onOpenChange}>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>{steps[step].title}</DialogTitle>\n          <Progress value={((step + 1) / steps.length) * 100} />\n        </DialogHeader>\n        <Form onFormSubmit={() => (isLast ? onFinish() : setStep((s) => s + 1))}>\n          <DialogBody>{steps[step].content}</DialogBody>\n          <DialogFooter>\n            <Button\n              variant=\"ghost\"\n              type=\"button\"\n              disabled={step === 0}\n              onClick={() => setStep((s) => s - 1)}\n            >\n              Back\n            </Button>\n            <Button type=\"submit\">{isLast ? 'Finish' : 'Next'}</Button>\n          </DialogFooter>\n        </Form>\n      </DialogContent>\n    </Dialog>\n  );\n}\n",
       "components": ["Dialog", "Progress", "Form", "Button"],
-      "demo": "apps/demos/src/patterns/WizardDialogDemo.tsx"
+      "demo": "apps/demos/src/patterns/WizardDialogDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/wizard-dialog.mdx"
     }
   ],
   "screens": [

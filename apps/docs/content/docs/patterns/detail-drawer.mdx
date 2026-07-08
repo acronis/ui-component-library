@@ -1,0 +1,88 @@
+---
+title: Detail drawer
+description: Show details of a selected item in an edge-anchored Drawer — header, key/value properties, content states, and footer actions.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { DetailDrawerDemo } from "@/components/demos-react/patterns/detail-drawer";
+
+The sanctioned way to present "details of the selected thing" in a non-blocking,
+edge-anchored **`Drawer`**: a header (title + close), a body that renders either
+a **`DescriptionList`** of key/value properties or a content state (loading →
+**`Spinner`**, empty/error → **`Empty`**), and a footer of **`Button`** actions,
+with a **`Separator`** framing the footer. This is the `Drawer`-based sibling of
+`sheet-detail-panel`: reach for **detail-drawer** when the panel is a
+lightweight, dismissible surface anchored to a screen edge; reach for
+**sheet-detail-panel** when you want the modal, dialog-based `Sheet`
+(focus-trapped, backdrop, scroll-locked). Same content recipe, different overlay
+primitive.
+
+<DemoReact>
+  <DetailDrawerDemo />
+</DemoReact>
+
+## When to use
+
+- Inspecting a selected row/entity in a panel that slides in from a screen edge.
+- A detail view that must load, can be empty, and offers a few actions.
+- A non-blocking inspector the user can leave open while scanning the list.
+
+## When not to use
+
+- A modal, focus-trapped detail panel with a backdrop — use `sheet-detail-panel`
+  (the `Sheet` variant).
+- A centered confirmation or short form — use `confirm-dialog` or `form-dialog`.
+- Persistent page chrome that never dismisses — use `SidebarSecondary`, not a
+  Drawer.
+
+## Composition
+
+```tsx
+function DetailDrawer({ open, onOpenChange, contentState, item }) {
+  return (
+    <Drawer open={open} onOpenChange={onOpenChange}>
+      <DrawerContent side="right">
+        <DrawerHeader>
+          <DrawerTitle>{item?.name ?? 'Details'}</DrawerTitle>
+          <DrawerCloseButton />
+        </DrawerHeader>
+        <DrawerBody>
+          {contentState === 'loading' ? (
+            <div className="flex h-full items-center justify-center"><Spinner /></div>
+          ) : contentState === 'empty' ? (
+            <Empty>
+              <EmptyHeader>
+                <EmptyTitle>Nothing to show</EmptyTitle>
+                <EmptyDescription>This item has no details yet.</EmptyDescription>
+              </EmptyHeader>
+            </Empty>
+          ) : (
+            <DescriptionList>
+              {item.properties.map((p) => (
+                <DescriptionListItem key={p.label}>
+                  <DescriptionListLabel>{p.label}</DescriptionListLabel>
+                  <DescriptionListValue>{p.value}</DescriptionListValue>
+                </DescriptionListItem>
+              ))}
+            </DescriptionList>
+          )}
+        </DrawerBody>
+        <Separator />
+        <DrawerFooter>
+          <DrawerClose render={<Button variant="ghost">Close</Button>} />
+          <Button>Edit</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+}
+```
+
+## Guidelines
+
+- Compose `Drawer` rather than hand-rolling a fixed edge panel — you'd lose the
+  swipe/dismiss, animations, and ARIA wiring.
+- Switch the whole body by content state instead of mixing an inline
+  spinner/empty state into loaded content.
+- Keep the footer to ~2–3 primary actions; overflow belongs in a menu.
+- Always give the panel an accessible name with `DrawerTitle`.

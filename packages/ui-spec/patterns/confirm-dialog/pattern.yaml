@@ -35,6 +35,7 @@ components:
   - Button
 
 demo: apps/demos/src/patterns/ConfirmDialogDemo.tsx
+docs: apps/docs/content/docs/patterns/confirm-dialog.mdx
 
 # Approved starting point. Title + consequence, Cancel + a destructive-styled
 # confirm; the shape does not vary.

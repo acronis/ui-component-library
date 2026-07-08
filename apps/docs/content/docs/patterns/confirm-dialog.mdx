@@ -1,0 +1,66 @@
+---
+title: Confirm dialog
+description: A modal confirmation for a discrete, often destructive action — AlertDialog with a title, description, and cancel / confirm actions.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { ConfirmDialogDemo } from "@/components/demos-react/patterns/confirm-dialog";
+
+The sanctioned way to make a user confirm a single, consequential action: an
+**`AlertDialog`** with an `AlertDialogTitle`, a short `AlertDialogDescription`
+stating the consequence, and exactly two footer actions — an `AlertDialogCancel`
+and an `AlertDialogAction` (styled `destructive` when the action is
+irreversible). `AlertDialog` is deliberately more insistent than a plain
+`Dialog`: it traps focus, defaults focus to the safe choice, and cannot be
+dismissed by clicking outside — the point of a confirmation. It composes the
+primitive rather than a bespoke confirm modal.
+
+<DemoReact>
+  <ConfirmDialogDemo />
+</DemoReact>
+
+## When to use
+
+- Confirming a destructive or irreversible action (delete, revoke, disconnect).
+- A yes/no decision with a clear consequence and no data to enter.
+- Interrupting a risky flow so the user must acknowledge before proceeding.
+
+## When not to use
+
+- A non-destructive inline toggle or setting — apply it directly, don't gate it
+  behind a dialog.
+- Anything that collects input (even one field) — use `form-dialog`.
+- A routine, reversible action — a `toast` with undo is friendlier than a modal.
+
+## Composition
+
+```tsx
+function DeleteConfirm({ open, onOpenChange, onConfirm, name }) {
+  return (
+    <AlertDialog open={open} onOpenChange={onOpenChange}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Delete {name}?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This permanently removes {name} and its data. This action cannot be undone.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel render={<Button variant="ghost">Cancel</Button>} />
+          <AlertDialogAction render={<Button variant="destructive">Delete</Button>} onClick={onConfirm} />
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+```
+
+## Guidelines
+
+- Reach for `AlertDialog`, not a dismissible `Dialog`, for a destructive
+  confirm — it won't dismiss on click-outside.
+- Keep the footer binary — a confirmation has exactly two actions; extra choices
+  belong elsewhere.
+- Leave default focus on Cancel, not the destructive action.
+- Name the consequence in the description ("This permanently removes…") rather
+  than a vague "Are you sure?".

@@ -1,0 +1,85 @@
+---
+title: Sidebar navigation
+description: The two-tier app navigation — a primary icon rail of top-level areas beside an expandable secondary section panel, with drill-down.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { SidebarNavigationDemo } from "@/components/demos-react/patterns/sidebar-navigation";
+
+The sanctioned composition for the kit's primary navigation: a
+**`SidebarPrimary`** icon rail listing top-level product areas, and a
+**`SidebarSecondary`** panel showing the sections of the active area.
+`SidebarSecondary`'s built-in `SidebarSecondaryMenuSub` handles one level of
+drill-down; use **`Collapsible`** sections for grouped links and a **`Tree`**
+when the section is a deep, arbitrarily-nested hierarchy. Where the top-level
+areas read better as a horizontal bar than a rail, **`NavigationMenu`** is the
+sanctioned alternative for that tier. This is the nav composition itself — not
+the page frame around it.
+
+<DemoReact>
+  <SidebarNavigationDemo />
+</DemoReact>
+
+## When to use
+
+- An application with several top-level areas, each holding its own sections.
+- Navigation that must stay visible and persistent while the user works.
+- A section list deep enough to need drill-down (submenus) or a hierarchy
+  (Tree).
+
+## When not to use
+
+- The whole application frame (header + rails + main region) — that is the
+  `app-shell` pattern; this composes only the nav that lives inside it.
+- A flat handful of destinations with no nesting — a single menu or
+  `NavigationMenu` bar is enough; skip the two-tier rail.
+- Transient, task-scoped navigation — use tabs or an overlay, not persistent
+  chrome.
+
+## Composition
+
+```tsx
+<div className="flex h-full">
+  <SidebarPrimary>
+    <SidebarPrimaryContent>
+      <SidebarPrimaryMenu>
+        <SidebarPrimaryMenuItem selected aria-label="Dashboard">
+          <DashboardIcon />
+        </SidebarPrimaryMenuItem>
+        <SidebarPrimaryMenuItem aria-label="Protection">
+          <ShieldIcon />
+        </SidebarPrimaryMenuItem>
+      </SidebarPrimaryMenu>
+    </SidebarPrimaryContent>
+  </SidebarPrimary>
+  <SidebarSecondary>
+    <SidebarSecondaryHeader>Protection</SidebarSecondaryHeader>
+    <SidebarSecondaryContent>
+      <SidebarSecondarySection>
+        <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
+        <SidebarSecondaryMenu>
+          <SidebarSecondaryMenuItem selected>Devices</SidebarSecondaryMenuItem>
+          <SidebarSecondaryMenuSub>
+            <SidebarSecondaryMenuSubTrigger>Policies</SidebarSecondaryMenuSubTrigger>
+            <SidebarSecondaryMenuSubContent>
+              <SidebarSecondaryMenuSubItem>Backup</SidebarSecondaryMenuSubItem>
+              <SidebarSecondaryMenuSubItem>Antivirus</SidebarSecondaryMenuSubItem>
+            </SidebarSecondaryMenuSubContent>
+          </SidebarSecondaryMenuSub>
+        </SidebarSecondaryMenu>
+      </SidebarSecondarySection>
+    </SidebarSecondaryContent>
+  </SidebarSecondary>
+</div>
+```
+
+## Guidelines
+
+- Compose `SidebarPrimary` / `SidebarSecondary` rather than rebuilding the icon
+  rail or section panel by hand — you'd lose the collapse state, active-item
+  wiring, and ARIA.
+- Reserve `Tree` for genuinely deep hierarchies; a single drill-down level via
+  `SidebarSecondaryMenuSub` is enough for most sections.
+- Pick one home for the top tier — don't duplicate the primary areas as both a
+  rail and a top `NavigationMenu`.
+- Keep page content and actions in the main region, not in the sidebars.

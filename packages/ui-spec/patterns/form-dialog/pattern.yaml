@@ -36,6 +36,7 @@ components:
   - Button
 
 demo: apps/demos/src/patterns/FormDialogDemo.tsx
+docs: apps/docs/content/docs/patterns/form-dialog.mdx
 
 # Approved starting point. Title in the header, a Form of Field + InputText in
 # the body, cancel + submit in the footer.

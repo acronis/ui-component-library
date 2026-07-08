@@ -1,0 +1,74 @@
+---
+title: Form dialog
+description: A short create/edit form inside a modal Dialog, with a titled header and a cancel / submit footer.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { FormDialogDemo } from "@/components/demos-react/patterns/form-dialog";
+
+The sanctioned way to capture a short create/edit form without leaving the page:
+a **`Dialog`** whose body holds a **`Form`** of **`Field`** + **`InputText`**
+controls, a header naming the task, and a footer with a ghost cancel and a
+primary submit. `Form` owns validation and error wiring; each `Field` binds a
+control to its label and error slot. Keep it to a handful of fields — the modal
+is for a quick, focused entry, not a whole page of inputs.
+
+<DemoReact>
+  <FormDialogDemo />
+</DemoReact>
+
+## When to use
+
+- Creating or editing a small record (a few fields) without a full-page route.
+- A focused entry task the user should finish or cancel before continuing.
+- Reusing one form for both create and edit by seeding default values.
+
+## When not to use
+
+- More than a single step — use `wizard-dialog`.
+- A whole page of fields or complex layout — use a dedicated route, not a dialog.
+- A yes/no or destructive confirmation with no input — use `confirm-dialog`.
+
+## Composition
+
+```tsx
+function CreateProjectDialog({ open, onOpenChange, onSubmit }) {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>New project</DialogTitle>
+          <DialogCloseButton />
+        </DialogHeader>
+        <Form onFormSubmit={onSubmit}>
+          <DialogBody className="flex flex-col gap-4">
+            <Field name="name">
+              <FieldLabel>Name</FieldLabel>
+              <FieldControl render={<InputText placeholder="Acme migration" required />} />
+              <FieldError />
+            </Field>
+            <Field name="key">
+              <FieldLabel>Key</FieldLabel>
+              <FieldControl render={<InputText placeholder="ACME" />} />
+              <FieldDescription>A short identifier used in URLs.</FieldDescription>
+            </Field>
+          </DialogBody>
+          <DialogFooter>
+            <DialogClose render={<Button variant="ghost">Cancel</Button>} />
+            <Button type="submit">Create</Button>
+          </DialogFooter>
+        </Form>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+## Guidelines
+
+- Use `Form` + `Field` for validation and error messages rather than wiring them
+  by hand.
+- Confirm or preserve the draft on close — don't submit on backdrop click or
+  silently lose entered data.
+- Keep the field count small; if the modal scrolls endlessly, it's a page.
+- Always give the dialog an accessible name with `DialogTitle`.

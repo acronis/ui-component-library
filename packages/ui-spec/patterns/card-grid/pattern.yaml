@@ -34,6 +34,7 @@ components:
   - Card
 
 demo: apps/demos/src/patterns/CardGridDemo.tsx
+docs: apps/docs/content/docs/patterns/card-grid.mdx
 
 # Approved starting point. A PageHeader over a responsive Grid of uniform Cards;
 # let Grid's cols variant drive the columns.
