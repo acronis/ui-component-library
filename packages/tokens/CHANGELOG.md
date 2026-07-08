@@ -1,5 +1,22 @@
 # @spec-lab/design-tokens
 
+## 2.1.0
+
+### Minor Changes
+
+- [`c601e91`](https://github.com/constructor-lab/facet/commit/c601e91333147da55b3f4497f885216bc972d5af) Thanks [@m231-a](https://github.com/m231-a)! - Add a chart-color palette: nine categorical series colors (`--ui-chart-1` …
+  `--ui-chart-9`) plus six semantic roles (`--ui-chart-success`,
+  `--ui-chart-warning`, `--ui-chart-danger`, `--ui-chart-critical`,
+  `--ui-chart-info`, `--ui-chart-neutral`). Additive — nothing existing changed.
+
+  These are repo-authored data-viz colors, not sourced from Figma. They live in
+  their own `tiers/charts.json` tier (theme-invariant, single `$value`, no
+  `com.figma.*` discriminator) precisely so the Figma re-emit pipeline — which
+  overwrites `primitives.json`/`semantics.json`/`components.json` wholesale from
+  the snapshot — cannot clobber them. Values are preserved from the legacy Acronis
+  palette; HSL components were chosen to round-trip exactly through the build's
+  `color/hsl-to-rgb` transform.
+
 ## 2.0.0
 
 ### Major Changes

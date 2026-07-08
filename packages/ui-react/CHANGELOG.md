@@ -1,5 +1,19 @@
 # @spec-lab/ui-react
 
+## 1.1.0
+
+### Minor Changes
+
+- [`6c018e5`](https://github.com/constructor-lab/facet/commit/6c018e5764449e6bf7f59f03a06c5a556ce0f6b2) Thanks [@m231-a](https://github.com/m231-a)! - Add `Tour` — a composable guided-onboarding coach-mark built on Base UI
+  `Popover`: a stepped popover with a title/body, a step counter, and Next / Back /
+  Skip controls, plus a pulsing beacon ("green light") and an optional dimming
+  scrim. Initial version; design reconciliation pending.
+
+### Patch Changes
+
+- Updated dependencies [[`c601e91`](https://github.com/constructor-lab/facet/commit/c601e91333147da55b3f4497f885216bc972d5af)]:
+  - @spec-lab/tokens@2.1.0
+
 ## 1.0.0
 
 ### Major Changes
