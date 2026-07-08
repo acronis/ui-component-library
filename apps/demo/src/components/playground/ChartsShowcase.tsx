@@ -71,63 +71,63 @@ const radialChartData = [
 const barChartConfig = {
   desktop: {
     label: 'Desktop',
-    color: 'hsl(var(--av-primary))',
+    color: 'var(--ui-chart-1)',
   },
   mobile: {
     label: 'Mobile',
-    color: 'hsl(var(--av-info))',
+    color: 'var(--ui-chart-info)',
   },
 };
 
 const lineChartConfig = {
   revenue: {
     label: 'Revenue',
-    color: 'hsl(var(--av-success))',
+    color: 'var(--ui-chart-success)',
   },
   expenses: {
     label: 'Expenses',
-    color: 'hsl(var(--av-destructive))',
+    color: 'var(--ui-chart-danger)',
   },
 };
 
 const areaChartConfig = {
   users: {
     label: 'Users',
-    color: 'hsl(var(--av-primary))',
+    color: 'var(--ui-chart-1)',
   },
 };
 
 const pieChartConfig = {
   chrome: {
     label: 'Chrome',
-    color: 'hsl(var(--av-primary))',
+    color: 'var(--ui-chart-1)',
   },
   safari: {
     label: 'Safari',
-    color: 'hsl(var(--av-info))',
+    color: 'var(--ui-chart-info)',
   },
   firefox: {
     label: 'Firefox',
-    color: 'hsl(var(--av-warning))',
+    color: 'var(--ui-chart-warning)',
   },
   edge: {
     label: 'Edge',
-    color: 'hsl(var(--av-success))',
+    color: 'var(--ui-chart-success)',
   },
 };
 
 const radialChartConfig = {
   desktop: {
     label: 'Desktop',
-    color: 'hsl(var(--av-primary))',
+    color: 'var(--ui-chart-1)',
   },
   mobile: {
     label: 'Mobile',
-    color: 'hsl(var(--av-info))',
+    color: 'var(--ui-chart-info)',
   },
   tablet: {
     label: 'Tablet',
-    color: 'hsl(var(--av-warning))',
+    color: 'var(--ui-chart-warning)',
   },
 };
 
