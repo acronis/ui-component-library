@@ -6,25 +6,25 @@
  */
 
 export const CHART_COLORS = [
-  'var(--av-chart-blue)',
-  'var(--av-chart-green)',
-  'var(--av-chart-purple)',
-  'var(--av-chart-turquoise)',
-  'var(--av-chart-red)',
-  'var(--av-chart-violet)',
-  'var(--av-chart-yellow)',
-  'var(--av-chart-brown)',
-  'var(--av-chart-grey)',
+  'var(--ui-chart-1)',
+  'var(--ui-chart-2)',
+  'var(--ui-chart-3)',
+  'var(--ui-chart-4)',
+  'var(--ui-chart-5)',
+  'var(--ui-chart-6)',
+  'var(--ui-chart-7)',
+  'var(--ui-chart-8)',
+  'var(--ui-chart-9)',
 ] as const;
 
 export const CHART_COLORS_SEMANTIC = {
-  primary: 'var(--av-chart-blue)',
-  success: 'var(--av-chart-green)',
-  warning: 'var(--av-chart-yellow)',
-  danger: 'var(--av-chart-red)',
-  info: 'var(--av-chart-info)',
-  critical: 'var(--av-chart-critical)',
-  neutral: 'var(--av-chart-grey)',
+  primary: 'var(--ui-chart-1)',
+  success: 'var(--ui-chart-success)',
+  warning: 'var(--ui-chart-warning)',
+  danger: 'var(--ui-chart-danger)',
+  info: 'var(--ui-chart-info)',
+  critical: 'var(--ui-chart-critical)',
+  neutral: 'var(--ui-chart-neutral)',
 } as const;
 
 /**

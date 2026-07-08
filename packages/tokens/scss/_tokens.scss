@@ -1884,6 +1884,24 @@
   }
 
   :root, :host {
+    --ui-chart-1: rgb(65 105 225);
+    --ui-chart-2: rgb(45 184 154);
+    --ui-chart-3: rgb(217 70 239);
+    --ui-chart-4: rgb(56 189 248);
+    --ui-chart-5: rgb(239 83 80);
+    --ui-chart-6: rgb(124 58 237);
+    --ui-chart-7: rgb(212 201 42);
+    --ui-chart-8: rgb(165 124 82);
+    --ui-chart-9: rgb(156 163 175);
+    --ui-chart-critical: rgb(255 129 13);
+    --ui-chart-danger: rgb(234 57 57);
+    --ui-chart-info: rgb(64 139 234);
+    --ui-chart-neutral: rgb(156 163 175);
+    --ui-chart-success: rgb(155 194 37);
+    --ui-chart-warning: rgb(255 193 7);
+  }
+
+  :root, :host {
     --ui-background-backdrop-element-primary: var(--ui-palette-transparent-white-inverse-95);
     --ui-background-backdrop-element-secondary: var(--ui-palette-transparent-blue-inverse-95);
     --ui-background-backdrop-screen: var(--ui-palette-transparent-dark-fixed-90);

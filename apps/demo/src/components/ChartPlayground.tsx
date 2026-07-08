@@ -376,23 +376,24 @@ type CurveType =
   | 'stepAfter'
   | 'basis';
 
-// Constructor Lab chart color palette - from themes/acronis-default.scss
+// Constructor Lab chart color palette - the @spec-lab/tokens --ui-chart-* tier.
+// The swatch picker applies concrete hex values (the color <input> needs them);
+// each hex matches the resolved value of the named --ui-chart-* token.
 const colorPalette = [
-  { name: '--av-chart-blue', value: '#4169e1' },
-  { name: '--av-chart-green', value: '#2db89a' },
-  { name: '--av-chart-purple', value: '#d946ef' },
-  { name: '--av-chart-red', value: '#ef5350' },
-  { name: '--av-chart-yellow', value: '#d4c92a' },
-  { name: '--av-chart-turquoise', value: '#38bdf8' },
-  { name: '--av-chart-brown', value: '#a57c52' },
-  { name: '--av-chart-violet', value: '#7c3aed' },
-  { name: '--av-chart-grey', value: '#9ca3af' },
-  { name: '--av-chart-light-blue', value: '#93c5fd' },
-  { name: '--av-chart-success', value: '#9bc225' },
-  { name: '--av-chart-warning', value: '#ffc107' },
-  { name: '--av-chart-danger', value: '#ea3939' },
-  { name: '--av-chart-critical', value: '#ff810d' },
-  { name: '--av-chart-info', value: '#408bea' },
+  { name: '--ui-chart-1', value: '#4169e1' },
+  { name: '--ui-chart-2', value: '#2db89a' },
+  { name: '--ui-chart-3', value: '#d946ef' },
+  { name: '--ui-chart-4', value: '#38bdf8' },
+  { name: '--ui-chart-5', value: '#ef5350' },
+  { name: '--ui-chart-6', value: '#7c3aed' },
+  { name: '--ui-chart-7', value: '#d4c92a' },
+  { name: '--ui-chart-8', value: '#a57c52' },
+  { name: '--ui-chart-9', value: '#9ca3af' },
+  { name: '--ui-chart-success', value: '#9bc225' },
+  { name: '--ui-chart-warning', value: '#ffc107' },
+  { name: '--ui-chart-danger', value: '#ea3939' },
+  { name: '--ui-chart-critical', value: '#ff810d' },
+  { name: '--ui-chart-info', value: '#408bea' },
 ];
 
 // Helper to get default color by index
@@ -1482,8 +1483,8 @@ const data = [
 
 // ChartConfig for tooltips & legend
 const config: ChartConfig = {
-  sales: { label: 'Sales', color: 'var(--chart-blue)' },
-  revenue: { label: 'Revenue', color: 'var(--chart-green)' },
+  sales: { label: 'Sales', color: 'var(--ui-chart-1)' },
+  revenue: { label: 'Revenue', color: 'var(--ui-chart-2)' },
 }`}</code>
             </pre>
             <div className="space-y-2 text-sm">

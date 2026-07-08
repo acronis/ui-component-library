@@ -56,11 +56,20 @@ import { emitScss } from './scss';
 /** A raw token tree (a DTCG-shaped JSON object). */
 type TokenTree = Record<string, unknown>;
 
-/** The three source token files, read from `tokens/tiers/` by relative path. */
+/**
+ * The source token files, read from `tokens/tiers/` by relative path.
+ *
+ * `charts` is a repo-authored tier (theme-invariant chart palette), not a Figma
+ * re-emit target — it has no emitter, so the Figma sync pipeline can never
+ * overwrite it. It carries the Brand/Theme axes trivially (single `$value` per
+ * token), so it is neither a `BRAND_TIERS` member nor a primitive root; it emits
+ * its own `components/chart.css` slice via `sliceOf`.
+ */
 const TOKEN_SOURCES = {
   primitives: 'primitives.json',
   semantics: 'semantics.json',
   components: 'components.json',
+  charts: 'charts.json',
 } as const;
 
 type TokenSourceName = keyof typeof TOKEN_SOURCES;
@@ -183,6 +192,9 @@ export const BRAND_NAMES: readonly string[] = discoverBrands();
 const VIEWS: DtcgView[] = [
   { out: 'primitives-light', source: 'primitives', mode: 'light' },
   { out: 'primitives-dark', source: 'primitives', mode: 'dark' },
+  // The chart palette is mode-invariant (single `$value`), so `mode` is ignored
+  // by `normalizeTree` — one view feeds every brand/theme merge unchanged.
+  { out: 'charts', source: 'charts', mode: 'default' },
   ...BRAND_NAMES.flatMap((brand): DtcgView[] => [
     { out: `semantics-${brand}`, source: 'semantics', mode: brand },
     { out: `components-${brand}`, source: 'components', mode: brand },
@@ -276,6 +288,7 @@ const readView = (name: string): Config['tokens'] =>
 /** Merge a brand's semantic + component views with one theme of the primitives. */
 const mergeViews = (brand: Brand, theme: Theme): Config['tokens'] => ({
   ...readView(`primitives-${theme}`),
+  ...readView('charts'),
   ...readView(brand.semantics),
   ...readView(brand.components),
 });

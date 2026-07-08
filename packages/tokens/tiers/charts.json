@@ -1,0 +1,232 @@
+{
+  "$schema": "../schemas/tier.schema.json",
+  "chart": {
+    "$type": "color",
+    "$description": "Repo-authored categorical + semantic chart palette (data-viz series colors). Not sourced from Figma: these tokens carry no com.figma.variableId/styleId by design and live in their own tier file so the Figma re-emit pipeline (emit-primitives/semantics/components, which overwrite their tiers wholesale from the snapshot) cannot clobber them. Theme-invariant (single $value; no light/dark variant, matching the legacy palette). Values preserved from the legacy Acronis kit; HSL components chosen to round-trip exactly through color/hsl-to-rgb.",
+    "1": {
+      "$description": "Chart series color 1 (blue) - #4169e1.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          225,
+          72.73,
+          56.86
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "2": {
+      "$description": "Chart series color 2 (green) - #2db89a.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          167.05,
+          60.7,
+          44.9
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "3": {
+      "$description": "Chart series color 3 (purple) - #d946ef.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          292.19,
+          84.08,
+          60.59
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "4": {
+      "$description": "Chart series color 4 (turquoise) - #38bdf8.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          198.44,
+          93.2,
+          59.61
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "5": {
+      "$description": "Chart series color 5 (red) - #ef5350.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          1.13,
+          83.25,
+          62.55
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "6": {
+      "$description": "Chart series color 6 (violet) - #7c3aed.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          262.12,
+          83.26,
+          57.84
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "7": {
+      "$description": "Chart series color 7 (yellow) - #d4c92a.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          56.12,
+          66.93,
+          49.8
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "8": {
+      "$description": "Chart series color 8 (brown) - #a57c52.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          30.36,
+          33.6,
+          48.43
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "9": {
+      "$description": "Chart series color 9 (grey) - #9ca3af.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          217.89,
+          10.61,
+          64.9
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "success": {
+      "$description": "Chart semantic color success - #9bc225.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          74.9,
+          67.97,
+          45.29
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "warning": {
+      "$description": "Chart semantic color warning - #ffc107.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          45,
+          100,
+          51.37
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "danger": {
+      "$description": "Chart semantic color danger - #ea3939.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          0,
+          80.82,
+          57.06
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "critical": {
+      "$description": "Chart semantic color critical - #ff810d.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          28.76,
+          100,
+          52.55
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "info": {
+      "$description": "Chart semantic color info - #408bea.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          213.53,
+          80.19,
+          58.43
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    },
+    "neutral": {
+      "$description": "Chart semantic color neutral - #9ca3af.",
+      "$value": {
+        "colorSpace": "hsl",
+        "components": [
+          217.89,
+          10.61,
+          64.9
+        ]
+      },
+      "platforms": [
+        "WEB",
+        "PD"
+      ]
+    }
+  }
+}

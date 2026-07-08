@@ -1567,8 +1567,8 @@ const data = [
 
 // ChartConfig for tooltips & legend
 const config: ChartConfig = {
-  sales: { label: 'Sales', color: 'var(--chart-blue)' },
-  revenue: { label: 'Revenue', color: 'var(--chart-green)' },
+  sales: { label: 'Sales', color: 'var(--ui-chart-1)' },
+  revenue: { label: 'Revenue', color: 'var(--ui-chart-2)' },
 }`}</code>
             </pre>
             <div className="space-y-2 text-sm">

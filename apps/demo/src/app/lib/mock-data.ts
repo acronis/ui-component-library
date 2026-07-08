@@ -116,7 +116,7 @@ export function generateDistributionData(): DistributionData {
   return segments.map((segment, i) => ({
     name: segment.name,
     value: segment.baseValue + Math.floor((Math.random() - 0.5) * 50),
-    fill: `var(--av-chart-${i + 1})`,
+    fill: `var(--ui-chart-${i + 1})`,
   }));
 }
 
