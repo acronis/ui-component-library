@@ -36,7 +36,7 @@ components:
   - Spinner
   - Empty
 
-demo: apps/docs/src/components/demos-react/patterns/sheet-detail-panel.tsx
+demo: apps/demos/src/patterns/SheetDetailPanelDemo.tsx
 docs: apps/docs/content/docs/patterns/sheet-detail-panel.mdx
 
 # Approved starting point. Switch the whole body by `contentState`; keep the

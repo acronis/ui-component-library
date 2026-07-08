@@ -1,48 +1,11 @@
 'use client';
 
-import {
-  AppShell,
-  AppShellBody,
-  AppShellHeader,
-  AppShellMain,
-  AppShellSidebar,
-} from '@spec-lab/ui-react';
+import { AppShellDemo as SharedAppShellDemo } from '@spec-lab/ui-kit-demos/patterns';
 
-const navItems = ['Dashboard', 'Workloads', 'Protection', 'Reports', 'Settings'];
-
+// Thin `'use client'` render-wrapper around the shared demo (single source of
+// truth in @spec-lab/ui-kit-demos). A render-wrapper — not a bare re-export —
+// because Next drops a re-exported client component from its client manifest.
+// See apps/docs/AGENTS.md.
 export function AppShellDemo() {
-  return (
-    <div className="h-[440px] overflow-hidden rounded-md border border-border">
-      <AppShell className="h-full min-h-0">
-        <AppShellSidebar className="w-56 flex-col gap-1 bg-[var(--ui-background-brand-primary)] p-3 text-[var(--ui-glyph-on-brand-primary)]">
-          <div className="px-2 pb-3 text-sm font-semibold">Constructor Lab</div>
-          {navItems.map((item, i) => (
-            <div
-              key={item}
-              className={
-                'rounded-md px-3 py-2 text-sm ' +
-                (i === 0 ? 'bg-white/15 font-medium' : 'opacity-80')
-              }
-            >
-              {item}
-            </div>
-          ))}
-        </AppShellSidebar>
-        <AppShellBody>
-          <AppShellHeader>
-            <span className="text-sm font-semibold">Dashboard</span>
-            <span className="ml-auto text-sm text-[var(--ui-text-on-surface-secondary)]">
-              admin@acronis.com
-            </span>
-          </AppShellHeader>
-          <AppShellMain className="p-6">
-            <h1 className="text-lg font-semibold">Current page title</h1>
-            <p className="mt-2 text-sm text-[var(--ui-text-on-surface-secondary)]">
-              The main content area scrolls independently of the sidebar and header.
-            </p>
-          </AppShellMain>
-        </AppShellBody>
-      </AppShell>
-    </div>
-  );
+  return <SharedAppShellDemo />;
 }

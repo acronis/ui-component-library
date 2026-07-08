@@ -1,63 +1,12 @@
 'use client';
 
-import {
-  AppShell,
-  AppShellBody,
-  AppShellHeader,
-  AppShellMain,
-  AppShellSidebar,
-  Grid,
-  PageHeader,
-  PageHeaderRow,
-  PageHeaderTitle,
-} from '@spec-lab/ui-react';
+import { DashboardDemo as SharedDashboardDemo } from '@spec-lab/ui-kit-demos/patterns';
 
-const nav = ['Dashboard', 'Workloads', 'Protection', 'Reports', 'Settings'];
-const widgets = ['Protected', 'Alerts', 'Storage', 'Backups', 'Devices', 'Users'];
-
-const Widget = ({ title }: { title: string }) => (
-  <div className="rounded-lg border border-border bg-background p-4">
-    <div className="text-sm font-medium">{title}</div>
-    <div className="mt-2 h-16 rounded bg-[var(--ui-background-surface-secondary)]" />
-  </div>
-);
-
+// Thin `'use client'` render-wrapper around the shared demo (single source of
+// truth in @spec-lab/ui-kit-demos). A render-wrapper — not a bare re-export —
+// because Next drops a re-exported client component from its client manifest
+// (renders `undefined`); wrapping it in a locally-defined client component
+// keeps it in the manifest. See apps/docs/AGENTS.md.
 export function DashboardDemo() {
-  return (
-    <div className="h-[480px] overflow-hidden rounded-md border border-border">
-      <AppShell className="h-full min-h-0">
-        <AppShellSidebar className="w-52 flex-col gap-1 bg-[var(--ui-background-brand-primary)] p-3 text-[var(--ui-glyph-on-brand-primary)]">
-          <div className="px-2 pb-3 text-sm font-semibold">Constructor Lab</div>
-          {nav.map((item, i) => (
-            <div
-              key={item}
-              className={
-                'rounded-md px-3 py-2 text-sm ' +
-                (i === 0 ? 'bg-white/15 font-medium' : 'opacity-80')
-              }
-            >
-              {item}
-            </div>
-          ))}
-        </AppShellSidebar>
-        <AppShellBody>
-          <AppShellHeader>
-            <span className="text-sm font-semibold">Dashboard</span>
-          </AppShellHeader>
-          <AppShellMain className="p-6">
-            <PageHeader>
-              <PageHeaderRow>
-                <PageHeaderTitle>Overview</PageHeaderTitle>
-              </PageHeaderRow>
-            </PageHeader>
-            <Grid container cols={3}>
-              {widgets.map((w) => (
-                <Widget key={w} title={w} />
-              ))}
-            </Grid>
-          </AppShellMain>
-        </AppShellBody>
-      </AppShell>
-    </div>
-  );
+  return <SharedDashboardDemo />;
 }

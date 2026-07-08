@@ -597,7 +597,7 @@
         "SearchGlobal"
       ],
       "implementedBy": "AppShell",
-      "demo": "apps/docs/src/components/demos-react/app-shell.tsx",
+      "demo": "apps/demos/src/patterns/AppShellDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/app-shell.mdx"
     },
     {
@@ -619,7 +619,7 @@
         "Using a viewport-breakpoint Grid inside App Shell main — the columns won't account for the sidebar width; use `<Grid container>`."
       ],
       "components": ["AppShell", "Grid", "WidgetPlaceholder"],
-      "demo": "apps/docs/src/components/demos-react/dashboard.tsx",
+      "demo": "apps/demos/src/patterns/DashboardDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/dashboard.mdx"
     },
     {
@@ -644,7 +644,7 @@
       ],
       "example": "const table = useReactTable({\n  data,\n  columns, // includes a checkbox 'select' column\n  getCoreRowModel: getCoreRowModel(),\n  getPaginationRowModel: getPaginationRowModel(),\n  enableRowSelection: true,\n  onRowSelectionChange: setRowSelection,\n  state: { rowSelection },\n});\nconst selected = table.getSelectedRowModel().rows;\n\n{selected.length > 0 ? (\n  <div className=\"flex items-center justify-between rounded-md border border-border bg-muted px-4 py-2\">\n    <span className=\"text-sm font-medium\">{selected.length} selected</span>\n    <div className=\"flex gap-2\">\n      <Button variant=\"ghost\" onClick={() => table.resetRowSelection()}>Clear</Button>\n      <Button variant=\"secondary\">Export</Button>\n      <Button variant=\"destructive\">Delete</Button>\n    </div>\n  </div>\n) : (\n  <DataTableToolbar table={table} searchKey=\"email\" />\n)}\n<Table>{/* render table.getHeaderGroups() / getRowModel() */}</Table>\n<DataTablePagination table={table} />\n",
       "components": ["Table", "Checkbox", "Button", "DataTable"],
-      "demo": "apps/docs/src/components/demos-react/patterns/data-table-bulk-actions.tsx",
+      "demo": "apps/demos/src/patterns/DataTableBulkActionsDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/data-table-bulk-actions.mdx"
     },
     {
@@ -666,7 +666,7 @@
         "Using `Empty` without centering it in the main area — it should sit in the optical center of the content region."
       ],
       "components": ["AppShell", "Empty", "SidebarPrimary"],
-      "demo": "apps/docs/src/components/demos-react/empty-screen.tsx",
+      "demo": "apps/demos/src/patterns/EmptyScreenDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/empty-screen.mdx"
     },
     {
@@ -692,7 +692,7 @@
       ],
       "example": "<Popover>\n  <PopoverTrigger render={<Button variant=\"secondary\">Filters</Button>} />\n  <PopoverContent align=\"start\" sideOffset={8} className=\"w-80 p-0\">\n    <form\n      onSubmit={(e) => {\n        e.preventDefault();\n        applyFilters(/* read field values */);\n      }}\n      onReset={() => clearFilters()}\n    >\n      <div className=\"border-b border-border px-5 py-4\">\n        <p className=\"text-sm font-semibold leading-none\">Filters</p>\n      </div>\n      <div className=\"grid gap-4 px-5 py-4\">\n        <InputSelect items={statuses}>\n          <InputSelectField>\n            <InputSelectLabel>Status</InputSelectLabel>\n            <InputSelectTrigger>\n              <InputSelectValue placeholder=\"Any status\" />\n            </InputSelectTrigger>\n          </InputSelectField>\n          <InputSelectContent>\n            <InputSelectItem value=\"active\">Active</InputSelectItem>\n            <InputSelectItem value=\"error\">Error</InputSelectItem>\n          </InputSelectContent>\n        </InputSelect>\n      </div>\n      <div className=\"flex justify-end gap-2 border-t border-border px-5 py-4\">\n        <Button type=\"reset\" variant=\"ghost\">Reset</Button>\n        <Button type=\"submit\">Apply</Button>\n      </div>\n    </form>\n  </PopoverContent>\n</Popover>\n",
       "components": ["Popover", "InputSelect", "Button"],
-      "demo": "apps/docs/src/components/demos-react/patterns/filter-popover.tsx",
+      "demo": "apps/demos/src/patterns/FilterPopoverDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/filter-popover.mdx"
     },
     {
@@ -719,7 +719,7 @@
       ],
       "example": "function DetailPanel({ open, onOpenChange, contentState, item }) {\n  return (\n    <Sheet open={open} onOpenChange={onOpenChange}>\n      <SheetContent side=\"right\">\n        <SheetHeader>\n          <SheetTitle>{item?.name ?? 'Details'}</SheetTitle>\n          <SheetCloseButton />\n        </SheetHeader>\n        <SheetBody>\n          {contentState === 'loading' ? (\n            <div className=\"flex h-full items-center justify-center\"><Spinner /></div>\n          ) : contentState === 'empty' ? (\n            <Empty>\n              <EmptyHeader>\n                <EmptyTitle>Nothing to show</EmptyTitle>\n                <EmptyDescription>This item has no details yet.</EmptyDescription>\n              </EmptyHeader>\n            </Empty>\n          ) : (\n            <DescriptionList className=\"-mx-6\">\n              {item.properties.map((p) => (\n                <DescriptionListItem key={p.label}>\n                  <DescriptionListLabel className=\"text-muted-foreground\">{p.label}</DescriptionListLabel>\n                  <DescriptionListValue className=\"font-medium\">{p.value}</DescriptionListValue>\n                </DescriptionListItem>\n              ))}\n            </DescriptionList>\n          )}\n        </SheetBody>\n        <SheetFooter>\n          <SheetClose render={<Button variant=\"ghost\">Close</Button>} />\n          <Button>Edit</Button>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  );\n}\n",
       "components": ["Sheet", "DescriptionList", "Button", "Spinner", "Empty"],
-      "demo": "apps/docs/src/components/demos-react/patterns/sheet-detail-panel.tsx",
+      "demo": "apps/demos/src/patterns/SheetDetailPanelDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/sheet-detail-panel.mdx"
     }
   ],

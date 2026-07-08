@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@spec-lab/icons-react": "workspace:*",
+    "@spec-lab/ui-kit-demos": "workspace:*",
     "@spec-lab/ui-react": "workspace:*",
     "@base-ui/react": "catalog:",
     "@radix-ui/react-dialog": "1.1.15",

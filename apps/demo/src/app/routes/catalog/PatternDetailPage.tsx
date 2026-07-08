@@ -16,6 +16,7 @@ import { ArrowLeftIcon, CheckIcon, FilesIcon } from '@spec-lab/icons-react/strok
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { specIndex, statusVariant, type SpecPattern } from './spec-index';
+import { patternDemos } from './pattern-demos';
 
 // Reuse the demo's established syntax-highlighter setup (see DemoWithCode):
 // Prism + the vscDarkPlus theme on a dark surface, transparent inner background.
@@ -106,6 +107,8 @@ export function PatternDetailPage() {
 
   if (!pattern) return <PatternNotFound />;
 
+  const Demo = patternDemos[pattern.name];
+
   return (
     <Stack gap="xl">
       <Button variant="ghost" render={<Link to=".." relative="path" />}>
@@ -161,6 +164,17 @@ export function PatternDetailPage() {
           <LabeledList title="Anti-patterns" items={pattern.anti_patterns} />
         ) : null}
       </Stack>
+
+      {Demo ? (
+        <Card>
+          <CardHeader>
+            <CardTitle>Live preview</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Demo />
+          </CardContent>
+        </Card>
+      ) : null}
 
       <Card>
         <CardHeader>

@@ -28,5 +28,5 @@ components:
   - Grid
   - WidgetPlaceholder
 
-demo: apps/docs/src/components/demos-react/dashboard.tsx
+demo: apps/demos/src/patterns/DashboardDemo.tsx
 docs: apps/docs/content/docs/patterns/dashboard.mdx

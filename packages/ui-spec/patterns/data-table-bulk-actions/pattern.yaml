@@ -32,7 +32,7 @@ components:
   - Button
   - DataTable
 
-demo: apps/docs/src/components/demos-react/patterns/data-table-bulk-actions.tsx
+demo: apps/demos/src/patterns/DataTableBulkActionsDemo.tsx
 docs: apps/docs/content/docs/patterns/data-table-bulk-actions.mdx
 
 # Approved starting point. One `useReactTable` instance feeds the checkbox column,

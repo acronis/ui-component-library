@@ -31,7 +31,7 @@ components:
   - InputSelect
   - Button
 
-demo: apps/docs/src/components/demos-react/patterns/filter-popover.tsx
+demo: apps/demos/src/patterns/FilterPopoverDemo.tsx
 docs: apps/docs/content/docs/patterns/filter-popover.mdx
 
 # Approved starting point. Anchor the panel to the trigger's start edge

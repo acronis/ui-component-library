@@ -27,5 +27,5 @@ components:
   - Empty
   - SidebarPrimary
 
-demo: apps/docs/src/components/demos-react/empty-screen.tsx
+demo: apps/demos/src/patterns/EmptyScreenDemo.tsx
 docs: apps/docs/content/docs/patterns/empty-screen.mdx

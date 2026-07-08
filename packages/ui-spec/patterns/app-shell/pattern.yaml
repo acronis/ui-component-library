@@ -35,5 +35,5 @@ components:
 # scaffold; the recipe above shows how to populate its slots). See GRADUATION.md.
 implementedBy: AppShell
 
-demo: apps/docs/src/components/demos-react/app-shell.tsx
+demo: apps/demos/src/patterns/AppShellDemo.tsx
 docs: apps/docs/content/docs/patterns/app-shell.mdx
