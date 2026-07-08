@@ -642,7 +642,11 @@ export const PREDEFINED_TOKEN_SETS: Record<string, TokenSet> = {
   acronis: ACRONIS_TOKEN_SET,
   default: DEFAULT_TOKEN_SET,
   'white-label': WHITE_LABEL_TOKEN_SET,
-  chat: ACRONIS_ELECTRIC_TOKEN_SET,
+  // Key must equal the set's `id` — the selector stores `tokenSet.id`, and the
+  // editor looks it up by that key. `ACRONIS_ELECTRIC_TOKEN_SET.id` is
+  // 'electric'; keying it as 'chat' meant selecting it persisted an
+  // `activeTokenSetId` with no matching key, crashing the page on next load.
+  electric: ACRONIS_ELECTRIC_TOKEN_SET,
   ocean: OCEAN_TOKEN_SET,
   forest: FOREST_TOKEN_SET,
   sunset: SUNSET_TOKEN_SET,

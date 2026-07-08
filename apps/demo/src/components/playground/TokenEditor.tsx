@@ -19,7 +19,11 @@ export const TokenEditor: React.FC = () => {
     resetCustomTokens,
   } = usePlaygroundStore();
 
-  const activeTokenSet = customTokenSet || tokenSets[activeTokenSetId];
+  // Fall back to the always-present `default` set so a stale/unknown persisted
+  // `activeTokenSetId` degrades gracefully instead of crashing on
+  // `activeTokenSet.light` below.
+  const activeTokenSet =
+    customTokenSet || tokenSets[activeTokenSetId] || tokenSets.default;
   const isCustom = !!customTokenSet;
 
   const handleColorChange = (
