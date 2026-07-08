@@ -40,6 +40,8 @@ components:
   - Empty
   - Separator
 
+demo: apps/demos/src/patterns/DetailDrawerDemo.tsx
+
 # Approved starting point. Switch the whole body by contentState; keep the header
 # (title + close) and footer (actions) stable across states.
 example: |

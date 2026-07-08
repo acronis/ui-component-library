@@ -36,6 +36,8 @@ components:
   - Filter
   - Button
 
+demo: apps/demos/src/patterns/TableViewDemo.tsx
+
 # Approved starting point. Header on top, search + filters in a toolbar row, then
 # the DataTable with its pagination.
 example: |

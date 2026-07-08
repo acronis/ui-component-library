@@ -34,6 +34,8 @@ components:
   - AlertDialog
   - Button
 
+demo: apps/demos/src/patterns/ConfirmDialogDemo.tsx
+
 # Approved starting point. Title + consequence, Cancel + a destructive-styled
 # confirm; the shape does not vary.
 example: |

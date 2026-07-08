@@ -35,6 +35,8 @@ components:
   - InputText
   - Button
 
+demo: apps/demos/src/patterns/FormDialogDemo.tsx
+
 # Approved starting point. Title in the header, a Form of Field + InputText in
 # the body, cancel + submit in the footer.
 example: |

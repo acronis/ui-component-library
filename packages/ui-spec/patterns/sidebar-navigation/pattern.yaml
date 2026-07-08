@@ -38,6 +38,8 @@ components:
   - Collapsible
   - Tree
 
+demo: apps/demos/src/patterns/SidebarNavigationDemo.tsx
+
 # Approved starting point. Primary rail = top-level areas; secondary panel =
 # sections of the active area, with Collapsible groups (swap in Tree for deep
 # hierarchies).
@@ -46,7 +48,7 @@ example: |
     <SidebarPrimary>
       <SidebarPrimaryContent>
         <SidebarPrimaryMenu>
-          <SidebarPrimaryMenuItem active aria-label="Dashboard">
+          <SidebarPrimaryMenuItem selected aria-label="Dashboard">
             <DashboardIcon />
           </SidebarPrimaryMenuItem>
           <SidebarPrimaryMenuItem aria-label="Protection">
@@ -61,7 +63,7 @@ example: |
         <SidebarSecondarySection>
           <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
           <SidebarSecondaryMenu>
-            <SidebarSecondaryMenuItem active>Devices</SidebarSecondaryMenuItem>
+            <SidebarSecondaryMenuItem selected>Devices</SidebarSecondaryMenuItem>
             <SidebarSecondaryMenuSub>
               <SidebarSecondaryMenuSubTrigger>Policies</SidebarSecondaryMenuSubTrigger>
               <SidebarSecondaryMenuSubContent>
