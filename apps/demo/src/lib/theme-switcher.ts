@@ -1,119 +1,117 @@
 /**
  * Theme Switcher Utility
  *
- * Provides functions to programmatically switch between themes and color modes.
- * Supports both theme switching (e.g., acronis-default, acronis-ocean) and
- * color mode switching (light/dark).
+ * Provides functions to programmatically switch between brands and color modes.
+ * Brand is driven by the shipped `@spec-lab/tokens` `[data-brand]` model
+ * (default brand = `:root`, i.e. no attribute); light/dark is a separate axis
+ * via `[data-theme]`.
  */
 
-export type ThemeName =
-  | 'acronis-default'
-  | 'acronis-ocean'
-  | 'cyber-chat'
-  | 'custom'
-  | 'purple'
-  | 'brown'
-  | 'sand'
-  | 'light-gray'
-  | 'dark-gray'
-  | 'ingram-micro'
-  | 'red-fire-brick'
-  | 'yellow-1c'
-  | 'deep-sky-itkontoret'
+/**
+ * The brand identities shipped by `@spec-lab/tokens` as `[data-brand='…']`
+ * blocks, plus `'default'` meaning the `:root` brand (no `data-brand`).
+ */
+export type BrandName =
+  | 'default'
   | 'blue-yellow-uss-signal'
-  | 'red-home-pl'
-  | 'orange-tsukaeru-helpox'
-  | 'green-also-choise-df'
-  | 'light-blue-hp'
-  | 'purple-fusion-media'
-  | 'virtual-one'
-  | 'telstra'
+  | 'brown'
+  | 'dark-gray'
   | 'deep-purple'
+  | 'deep-sky-itkontoret'
+  | 'green-also-choise-df'
+  | 'ingram-micro'
+  | 'light-blue-hp'
+  | 'light-gray'
+  | 'orange-tsukaeru-helpox'
   | 'pinky'
-  | 'virtuozzo';
+  | 'purple'
+  | 'purple-fusion-media'
+  | 'red-fire-brick'
+  | 'red-home-pl'
+  | 'sand'
+  | 'telstra'
+  | 'virtual-one'
+  | 'virtuozzo'
+  | 'yellow-1c';
 export type ColorMode = 'light' | 'dark' | 'system';
 
-const THEME_CLASS_PREFIX = 'theme-';
 const THEME_STORAGE_KEY = 'av-theme';
 const COLOR_MODE_STORAGE_KEY = 'av-color-mode';
 
 /**
- * Apply a theme to the document root element and any additional roots.
+ * Apply a brand to the document root element and any additional roots.
  *
- * @param theme - The theme name to apply
- * @param persist - Whether to persist the theme choice to localStorage (default: true)
- * @param extraRoots - Additional elements to apply the theme to (e.g. shadow DOM inner containers)
+ * Shipped `@spec-lab/tokens` switch brand via the `[data-brand]` attribute
+ * (default brand = `:root`, no attribute). `'default'` therefore removes the
+ * attribute; any other brand sets `data-brand="<brand>"`.
+ *
+ * @param brand - The brand name to apply
+ * @param persist - Whether to persist the brand choice to localStorage (default: true)
+ * @param extraRoots - Additional elements to apply the brand to (e.g. shadow DOM inner containers)
  *
  * @example
  * ```typescript
- * import { applyTheme } from '@/lib/theme-switcher'
+ * import { applyBrand } from '@/lib/theme-switcher'
  *
- * applyTheme('acronis-ocean')
+ * applyBrand('purple')
  *
  * // Shadow DOM usage:
- * applyTheme('acronis-ocean', true, [shadowContainer])
+ * applyBrand('purple', true, [shadowContainer])
  * ```
  */
-export function applyTheme(
-  theme: ThemeName,
+export function applyBrand(
+  brand: BrandName,
   persist = true,
   extraRoots: HTMLElement[] = []
 ): void {
   const allRoots = [document.documentElement, ...extraRoots];
 
   allRoots.forEach((root) => {
-    root.classList.forEach((className) => {
-      if (className.startsWith(THEME_CLASS_PREFIX)) {
-        root.classList.remove(className);
-      }
-    });
-
-    root.classList.add(`${THEME_CLASS_PREFIX}${theme}`);
+    if (brand === 'default') {
+      root.removeAttribute('data-brand');
+    } else {
+      root.setAttribute('data-brand', brand);
+    }
   });
 
   if (persist) {
     try {
-      localStorage.setItem(THEME_STORAGE_KEY, theme);
+      localStorage.setItem(THEME_STORAGE_KEY, brand);
     } catch (error) {
-      console.warn('Failed to persist theme to localStorage:', error);
+      console.warn('Failed to persist brand to localStorage:', error);
     }
   }
 }
 
 /**
- * Get the currently applied theme
+ * Get the currently applied brand
  *
- * @returns The current theme name or null if no theme is explicitly set
+ * @returns The current brand name, or `'default'` when no `data-brand` is set
  */
-export function getCurrentTheme(): ThemeName | null {
-  const root = document.documentElement;
-
-  for (const className of root.classList) {
-    if (className.startsWith(THEME_CLASS_PREFIX)) {
-      return className.replace(THEME_CLASS_PREFIX, '') as ThemeName;
-    }
-  }
-
-  return null;
+export function getCurrentBrand(): BrandName {
+  return (
+    (document.documentElement.getAttribute('data-brand') as BrandName | null) ??
+    'default'
+  );
 }
 
 /**
- * Load the persisted theme from localStorage and apply it
- * Call this on application startup to restore the user's theme preference
+ * Load the persisted brand from localStorage and apply it
+ * Call this on application startup to restore the user's brand preference
  *
- * @returns The loaded theme name or null if no theme was persisted
+ * @returns The loaded brand name or null if no brand was persisted
  */
-export function loadPersistedTheme(): ThemeName | null {
+export function loadPersistedBrand(): BrandName | null {
   try {
-    const persistedTheme = localStorage.getItem(
+    const persistedBrand = localStorage.getItem(
       THEME_STORAGE_KEY
-    ) as ThemeName | null;
-    if (persistedTheme) {
-      applyTheme(persistedTheme, false);
-      return persistedTheme;
+    ) as BrandName | null;
+    if (persistedBrand) {
+      applyBrand(persistedBrand, false);
+      return persistedBrand;
     }
   } catch (error) {
-    console.warn('Failed to load persisted theme from localStorage:', error);
+    console.warn('Failed to load persisted brand from localStorage:', error);
   }
 
   return null;
@@ -254,7 +252,7 @@ export function watchSystemColorScheme(): () => void {
  * ```
  */
 export function initializeThemeSystem(): () => void {
-  loadPersistedTheme();
+  loadPersistedBrand();
   loadPersistedColorMode();
 
   const cleanup = watchSystemColorScheme();

@@ -22,6 +22,7 @@ import {
 } from '@spec-lab/ui-react';
 import { getCurrentColorMode, toggleColorMode } from '@/lib/theme-switcher';
 import { useAuth } from '../hooks/useAuth';
+import { BrandSelector } from '../components/BrandSelector';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { TOUR_ANCHORS } from '../onboarding/tour-steps';
 
@@ -63,6 +64,8 @@ export function ConsoleHeader() {
               <SunIcon className="h-5 w-5" />
             )}
           </ButtonIcon>
+
+          <BrandSelector />
 
           <LanguageSelector />
 

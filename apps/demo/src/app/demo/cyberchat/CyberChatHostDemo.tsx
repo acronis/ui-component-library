@@ -1,50 +1,49 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import {
-  applyTheme,
-  getCurrentTheme,
-  type ThemeName,
+  applyBrand,
+  getCurrentBrand,
+  type BrandName,
 } from '@/lib/theme-switcher';
 import { CyberChatPage } from './CyberChatPage';
 
-const THEMES: { value: ThemeName; label: string }[] = [
-  { value: 'acronis-default', label: 'Default' },
-  { value: 'acronis-ocean', label: 'Ocean' },
-  { value: 'purple', label: 'White Label' },
-  { value: 'cyber-chat', label: 'Cyber Chat' },
+const THEMES: { value: BrandName; label: string }[] = [
+  { value: 'default', label: 'Default' },
+  { value: 'purple', label: 'Purple' },
+  { value: 'telstra', label: 'Telstra' },
+  { value: 'ingram-micro', label: 'Ingram Micro' },
+  { value: 'dark-gray', label: 'Dark Gray' },
+  { value: 'sand', label: 'Sand' },
 ];
 
-function getThemeClasses(el: HTMLElement | null): string {
+function getBrandAttr(el: HTMLElement | null): string {
   if (!el) return '—';
-  const classes = Array.from(el.classList).filter((c) =>
-    c.startsWith('theme-')
-  );
-  return classes.length ? classes.join(' ') : '—';
+  return el.getAttribute('data-brand') ?? '—';
 }
 
 /**
- * Simulates how a host app embeds CyberChat and applies branding via applyTheme.
+ * Simulates how a host app embeds CyberChat and applies branding via applyBrand.
  *
- * The "embedded app" container is passed as extraRoots to applyTheme(), so theme
- * classes land on the inner container directly — matching how cyberchat-ui works
- * in production with shadow DOM roots.
+ * The "embedded app" container is passed as extraRoots to applyBrand(), so the
+ * `data-brand` attribute lands on the inner container directly — matching how
+ * cyberchat-ui works in production with shadow DOM roots.
  */
 export function CyberChatHostDemo() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [activeTheme, setActiveTheme] = useState<ThemeName>(
-    () => getCurrentTheme() ?? 'acronis-default'
+  const [activeTheme, setActiveTheme] = useState<BrandName>(() =>
+    getCurrentBrand()
   );
   const [applyToContainer, setApplyToContainer] = useState(true);
   const [documentClasses, setDocumentClasses] = useState('—');
   const [containerClasses, setContainerClasses] = useState('—');
 
   const applySelectedTheme = useCallback(
-    (theme: ThemeName, toContainer: boolean) => {
+    (theme: BrandName, toContainer: boolean) => {
       const extraRoots =
         toContainer && containerRef.current ? [containerRef.current] : [];
-      applyTheme(theme, true, extraRoots);
+      applyBrand(theme, true, extraRoots);
       setActiveTheme(theme);
-      setDocumentClasses(getThemeClasses(document.documentElement));
-      setContainerClasses(getThemeClasses(containerRef.current));
+      setDocumentClasses(getBrandAttr(document.documentElement));
+      setContainerClasses(getBrandAttr(containerRef.current));
     },
     []
   );
@@ -54,7 +53,7 @@ export function CyberChatHostDemo() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleThemeChange = (theme: ThemeName) => {
+  const handleThemeChange = (theme: BrandName) => {
     applySelectedTheme(theme, applyToContainer);
   };
 
