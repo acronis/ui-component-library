@@ -19,6 +19,7 @@
     "@spec-lab/ui-kit-demos": "workspace:*",
     "@spec-lab/ui-react": "workspace:*",
     "@spec-lab/icons-react": "workspace:*",
+    "@spec-lab/tokens": "workspace:*",
     "@hookform/resolvers": "catalog:",
     "@tanstack/react-table": "catalog:",
     "culori": "4.0.2",
