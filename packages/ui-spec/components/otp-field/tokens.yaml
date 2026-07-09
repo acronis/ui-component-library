@@ -1,0 +1,22 @@
+spec_version: '1.0'
+component: OTPField
+
+# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# paint time. There is no dedicated `--ui-otp-*` tier: each slot reuses the
+# `--ui-input-text-*` box tokens (matching InputText / InputBox), plus the shared
+# focus ring on the focused slot.
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── slot box (geometry + idle/hover/disabled fill & border) ──
+  - { name: --ui-input-text-global-box-border-radius, affects: input }
+  - { name: --ui-input-text-global-box-color-idle, affects: input }
+  - { name: --ui-input-text-global-box-color-disabled, affects: input }
+  - { name: --ui-input-text-normal-box-border-color-idle, affects: input }
+  - { name: --ui-input-text-normal-box-border-color-hover, affects: input }
+  - { name: --ui-input-text-normal-box-border-color-disabled, affects: input }
+  # ── slot value text ──
+  - { name: --ui-input-text-global-value-color-idle, affects: input }
+  - { name: --ui-input-text-global-value-color-disabled, affects: input }
+  # ── focused slot ──
+  - { name: --ui-focus-primary, affects: input }

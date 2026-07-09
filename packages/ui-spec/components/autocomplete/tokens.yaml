@@ -1,0 +1,78 @@
+spec_version: '1.0'
+component: Autocomplete
+
+# References only. Values live in @spec-lab/tokens. Autocomplete has no tier of
+# its own — it reuses the `--ui-input-select-*` tokens so its field box and
+# dropdown match InputSelect / Combobox. Listed here is a representative subset;
+# the field box, dropdown container, and items all draw from that tier.
+source: '@spec-lab/tokens'
+
+tokens:
+  # ── field box ──
+  - {
+      name: --ui-input-select-global-box-color-idle,
+      affects: autocomplete-input,
+    }
+  - {
+      name: --ui-input-select-global-box-color-hover,
+      affects: autocomplete-input,
+    }
+  - {
+      name: --ui-input-select-global-box-color-disabled,
+      affects: autocomplete-input,
+    }
+  - {
+      name: --ui-input-select-normal-box-border-color-idle,
+      affects: autocomplete-input,
+    }
+  - {
+      name: --ui-input-select-normal-box-border-color-hover,
+      affects: autocomplete-input,
+    }
+  - {
+      name: --ui-input-select-normal-box-border-color-disabled,
+      affects: autocomplete-input,
+    }
+  - {
+      name: --ui-input-select-global-value-color-idle,
+      affects: autocomplete-input,
+    }
+  - {
+      name: --ui-input-select-global-placeholder-color-idle,
+      affects: autocomplete-input,
+    }
+  - { name: --ui-focus-primary, affects: autocomplete-input }
+  # ── dropdown container ──
+  - {
+      name: --ui-input-select-dropdown-container-color,
+      affects: autocomplete-content,
+    }
+  - {
+      name: --ui-input-select-dropdown-container-border-color,
+      affects: autocomplete-content,
+    }
+  - {
+      name: --ui-input-select-dropdown-container-border-radius,
+      affects: autocomplete-content,
+    }
+  # ── items ──
+  - {
+      name: --ui-input-select-dropdown-item-global-label-color,
+      affects: autocomplete-item,
+    }
+  - {
+      name: --ui-input-select-dropdown-item-unselected-container-color-idle,
+      affects: autocomplete-item,
+    }
+  - {
+      name: --ui-input-select-dropdown-item-unselected-container-color-hover,
+      affects: autocomplete-item,
+    }
+  - {
+      name: --ui-input-select-dropdown-section-label-group-color,
+      affects: autocomplete-group-label,
+    }
+  - {
+      name: --ui-input-select-normal-description-color-idle,
+      affects: autocomplete-empty,
+    }

@@ -1,0 +1,12 @@
+spec_version: '1.0'
+component: Autocomplete
+name: autocomplete
+status: draft
+category: forms
+layer: primitive
+description: >-
+  A free-text input with a filtered list of suggestions. Unlike Combobox — which
+  selects a value from a fixed list and constrains the input to it — Autocomplete
+  keeps the typed text as the value and merely suggests completions. Use it for
+  search-as-you-type, tag/email entry, and open-ended fields.
+since: 1.1.0

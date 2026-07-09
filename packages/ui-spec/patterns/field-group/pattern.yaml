@@ -1,0 +1,64 @@
+spec_version: '1.0'
+pattern: FieldGroup
+name: field-group
+status: draft
+category: forms
+since: 1.0.0
+intent: A set of related choice controls under one legend — a CheckboxGroup, a RadioGroup, or a run of Switches.
+description: >-
+  The sanctioned way to present a group of related controls as one labelled unit.
+  A `FieldSet` wraps the group and a `FieldLegend` names it (the group's
+  accessible name); inside sits exactly one kind of control set: a
+  `CheckboxGroup` of `Checkbox`es for multi-select, a `RadioGroup` of `Radio`s for
+  single-select, or a stack of `Switch`es for independent toggles. The group is
+  the validation unit — one `FieldError` under the set covers "pick at least one".
+  Use horizontal/responsive `Field` orientation for label-left settings rows.
+
+when_to_use:
+  - Several checkboxes/radios that answer one question ("Which channels?", "Plan?").
+  - A block of on/off settings that belong together.
+  - You want one legend + one error for the whole group, not per control.
+when_not_to_use:
+  - A single standalone checkbox or switch — use a plain `Field` + `Checkbox`/`Switch`.
+  - More than ~7 options, or options needing search — use `Select`/`Combobox`.
+  - Mutually exclusive options where one must always be set — a `RadioGroup` with a default, not checkboxes.
+
+anti_patterns:
+  - A group of checkboxes with no `FieldSet`/`FieldLegend`, so screen readers hear orphaned controls.
+  - Mixing checkboxes and radios in one group, or using checkboxes for mutually-exclusive choices.
+  - Putting the error on each control instead of once under the set.
+  - Reaching for `FieldError` under a `FieldSet` — it needs a `Field.Root` ancestor; surface the group message directly (or wrap the group in a `Field`).
+  - Hand-managing an array of booleans instead of letting `CheckboxGroup` own the `string[]` value.
+
+components:
+  - Field
+  - CheckboxGroup
+  - Checkbox
+  - Radio
+  - Switch
+
+demo: apps/demos/src/patterns/FieldGroupDemo.tsx
+docs: apps/docs/content/docs/patterns/field-group.mdx
+
+# Approved starting point. A FieldSet + FieldLegend naming a CheckboxGroup; the
+# group owns a string[] of the ticked names, and one message covers the set.
+# (`FieldError` needs a `Field.Root` ancestor, so a group message is surfaced
+# directly — or wrap the whole group in a `Field` to reuse `FieldError`.)
+example: |
+  function ChannelsField({ value, onValueChange }) {
+    return (
+      <FieldSet>
+        <FieldLegend>Notification channels</FieldLegend>
+        <CheckboxGroup value={value} onValueChange={onValueChange}>
+          <Checkbox name="email" label="Email" />
+          <Checkbox name="sms" label="SMS" />
+          <Checkbox name="push" label="Push notifications" />
+        </CheckboxGroup>
+        {value.length === 0 && (
+          <p className="text-sm text-[var(--ui-text-on-status-danger)]">
+            Choose at least one channel.
+          </p>
+        )}
+      </FieldSet>
+    );
+  }

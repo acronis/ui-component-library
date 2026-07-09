@@ -1,0 +1,73 @@
+spec_version: '1.0'
+component: CheckboxGroup
+
+schematic: |
+  root: <div role="group">          value = ["email", "push"]
+   [x] Email          item   = a member Checkbox (name="email")
+   [ ] SMS
+   [x] Push           <- ticked members appear in the group's value
+
+root:
+  element: div
+  role: group
+  description: >-
+    Container that owns the group's value — the list of ticked members' `name`s
+    — and shares it with the member checkboxes (Base UI CheckboxGroup). A
+    layout-only wrapper: it stacks members vertically at a fixed gap and carries
+    no color of its own; each member is a `Checkbox` with its own `--ui-checkbox-*`
+    theming.
+
+parts:
+  - id: item
+    description: >-
+      A member `Checkbox` (a `button` with `role="checkbox"`, each carries a
+      `name`). It ticks when its `name` is in the group's value and reports back
+      through the group. Rendered and themed by the `Checkbox` component — see its
+      spec.
+    element: button
+
+# The group owns one piece of state — the array of ticked members' names. A
+# member is "checked" when its `name` is in the array; ticking a member is a
+# transition on that state.
+internal_state:
+  - id: value
+    type: string[]
+    initial: '[]'
+    controllable_via: [value]
+    controlled_default: default-value
+    emits: value-change
+    changed_by: clicking a member toggles its name in/out of the array (when uncontrolled)
+    description: The ticked members' names; each member ticks when its name is present.
+
+transitions:
+  - id: toggle-member
+    state: value
+    on: click / Space on a member
+    to: the member's name added to / removed from the array
+    guard: group not disabled
+    effect: emits value-change(next)
+    when_controlled: >-
+      internal value does NOT change; the group emits value-change and the
+      consumer updates the `value` prop.
+    interactive: false
+
+states:
+  - {
+      id: checked,
+      trigger: 'member name is in the group value (member data-[checked])',
+      kind: internal,
+      affects: [item],
+    }
+  - {
+      id: unchecked,
+      trigger: 'member name is not in the group value',
+      kind: internal,
+      affects: [item],
+    }
+  - {
+      id: disabled,
+      trigger: 'disabled === true (data-[disabled]) — disables every member',
+      kind: prop,
+      prop: disabled,
+      affects: [item],
+    }

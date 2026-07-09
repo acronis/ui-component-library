@@ -1,0 +1,86 @@
+spec_version: '1.0'
+component: OTPField
+
+schematic: |
+  root: <div> (length = 6)
+   +---+ +---+ +---+  separator  +---+ +---+ +---+
+   | 1 | | 2 | | 3 |     -       | 4 | | 5 | | 6 |
+   +---+ +---+ +---+             +---+ +---+ +---+
+     ^ input (one <input> slot per character); the focused slot shows the ring
+
+root:
+  element: div
+  description: >-
+    The field container that owns the whole value across `length` slots, moves
+    focus as characters are typed/deleted, handles paste-to-fill, and renders a
+    hidden validation input for form submission (Base UI OTPField.Root).
+
+parts:
+  - id: input
+    description: >-
+      A single character slot (Base UI OTPField.Input). One is rendered per
+      `length`; each reuses the `--ui-input-text-*` box tokens (border, fill,
+      value color) and shows the `--ui-focus-primary` ring while focused.
+    element: input
+  - id: separator
+    description: >-
+      An optional non-interactive separator drawn between slots (e.g. a dash
+      between two groups of three). Tinted with the muted foreground.
+    element: span
+    optional: true
+    visible_when: rendered between slots
+
+# The field owns one piece of state — the concatenated code string. Typing,
+# deleting, and pasting mutate it; when it reaches `length` the field is complete.
+internal_state:
+  - id: value
+    type: string
+    initial: "''"
+    controllable_via: [value]
+    controlled_default: default-value
+    emits: value-change
+    changed_by: typing / deleting / pasting into the slots (when uncontrolled)
+    description: >-
+      The entered code (filtered by `validation-type`, clamped to `length`).
+      Distributed one character per slot.
+
+transitions:
+  - id: enter-character
+    state: value
+    on: type a character in the focused slot
+    to: character appended; focus advances to the next slot
+    guard: character passes `validation-type` and value length < `length`
+    effect: emits value-change(next); auto-submits the form if `auto-submit` and complete
+    when_controlled: >-
+      internal value does NOT change; the field emits value-change and the
+      consumer updates the `value` prop.
+    interactive: true
+  - id: delete-character
+    state: value
+    on: Backspace
+    to: last character removed; focus moves to the previous slot
+    guard: not disabled
+    effect: emits value-change(next)
+    interactive: true
+
+states:
+  - {
+      id: filled,
+      trigger: 'a slot contains a character (data-[filled])',
+      kind: internal,
+      affects: [input],
+    }
+  - {
+      id: focus-visible,
+      trigger: keyboard focus on a slot,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [input],
+    }
+  - {
+      id: disabled,
+      trigger: 'disabled === true — disables every slot',
+      kind: prop,
+      prop: disabled,
+      affects: [input],
+    }

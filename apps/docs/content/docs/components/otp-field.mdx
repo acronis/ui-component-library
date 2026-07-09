@@ -1,0 +1,62 @@
+---
+title: OTP field
+description: A segmented one-time-code input for verification and 2FA flows.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { OTPFieldDemo } from "@/components/demos-react/otp-field";
+
+## Usage
+
+```tsx
+import { OTPField, OTPFieldInput, OTPFieldSeparator } from '@spec-lab/ui-react';
+```
+
+`OTPField` wraps Base UI's `OTPField` (Root / Input / Separator) — a segmented
+input for one-time codes. The Root owns the whole value across `length` slots and
+handles focus movement, paste-to-fill, and a hidden validation input; render one
+`OTPFieldInput` per slot.
+
+## Examples
+
+<DemoReact>
+  <OTPFieldDemo />
+</DemoReact>
+
+A six-digit code:
+
+```tsx
+<OTPField length={6}>
+  {Array.from({ length: 6 }).map((_, i) => (
+    <OTPFieldInput key={i} />
+  ))}
+</OTPField>
+```
+
+Grouped with a separator, and masked:
+
+```tsx
+<OTPField length={6}>
+  <OTPFieldInput />
+  <OTPFieldInput />
+  <OTPFieldInput />
+  <OTPFieldSeparator />
+  <OTPFieldInput />
+  <OTPFieldInput />
+  <OTPFieldInput />
+</OTPField>
+
+<OTPField length={4} mask>
+  {Array.from({ length: 4 }).map((_, i) => (
+    <OTPFieldInput key={i} />
+  ))}
+</OTPField>
+```
+
+## API Reference
+
+`OTPField` (Root) forwards all props of Base UI's
+[`OTPField.Root`](https://base-ui.com/react/components/otp-field) — notably
+`length` (required), `value` / `defaultValue`, `onValueChange`, `mask`,
+`autoSubmit`, and `validationType` (default `'numeric'`). `OTPFieldInput` renders
+a single slot; `OTPFieldSeparator` renders a decorative separator between slots.

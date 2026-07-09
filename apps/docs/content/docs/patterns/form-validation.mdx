@@ -1,0 +1,70 @@
+---
+title: Form validation
+description: Inline field validation with accessible error messages — native Form/Field validity or a schema resolver.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { FormValidationDemo } from "@/components/demos-react/patterns/form-validation";
+
+How the kit surfaces validation. Each **`Field`** wires its control to a
+**`FieldError`** slot; an invalid field flips `data-[invalid]` and shows the
+message in the danger color, associated via `aria-describedby`. Two sanctioned
+approaches share the same markup: **native** (Base UI `Form` + `Field` run HTML
+constraint + per-field `validate` on submit/blur) and **schema** (drive `Field`'s
+`invalid` from a `react-hook-form` + `zod` `Controller`). A `Meter` can reflect a
+derived score such as password strength.
+
+<DemoReact>
+  <FormValidationDemo />
+</DemoReact>
+
+## When to use
+
+- Any form where input must be checked before submit.
+- You need accessible, per-field error messages tied to the control.
+- Cross-field rules (password confirmation) — reach for the schema approach.
+
+## When not to use
+
+- A field with no failure mode (freeform notes) — don't invent validation.
+- Server-only validation — still surface it via `Form`'s `errors`, but skip client `validate`.
+
+## Composition
+
+The native approach — Base UI `Form` runs each field's validation on submit, and
+`FieldError`'s `match` picks the message per failure reason:
+
+```tsx
+function SignUpForm({ onSubmit }) {
+  return (
+    <Form onFormSubmit={onSubmit} className="max-w-sm">
+      <Field name="email">
+        <FieldLabel>Email</FieldLabel>
+        <FieldControl render={<InputText type="email" required placeholder="you@example.com" />} />
+        <FieldError match="valueMissing">Email is required.</FieldError>
+        <FieldError match="typeMismatch">Enter a valid email address.</FieldError>
+      </Field>
+      <Field
+        name="password"
+        validate={(value) => (String(value).length < 8 ? "Use at least 8 characters." : null)}
+      >
+        <FieldLabel>Password</FieldLabel>
+        <FieldControl render={<InputText type="password" required />} />
+        <FieldError />
+      </Field>
+      <Button type="submit">Create account</Button>
+    </Form>
+  );
+}
+```
+
+For schema-driven validation, wrap each `Field` in a `react-hook-form`
+`Controller`, set `invalid={!!fieldState.error}`, and render
+`fieldState.error.message` inside `<FieldError match>`.
+
+## Guidelines
+
+- Never show a red border with no message, or a message not linked to the control.
+- Prefer `onBlur` / `onSubmit` validation over validating on every keystroke.
+- Use `FieldError` (not a bespoke `<div>`) so the `aria-describedby` wiring stays intact.
+- On failed submit, move focus to the first invalid field.

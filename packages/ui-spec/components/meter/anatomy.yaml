@@ -1,0 +1,46 @@
+spec_version: '1.0'
+component: Meter
+
+schematic: |
+  root: <div role="meter">  (value / min / max)
+    label   "Storage used"            value  "72%"   <- header row (optional)
+    track:     full-width rail (bg-input)
+      indicator: brand-blue fill; width = (value − min) / (max − min)
+
+root:
+  element: div
+  role: meter
+  description: >-
+    Base UI Meter.Root. Carries `aria-valuenow` / `aria-valuemin` /
+    `aria-valuemax` (and an optional `aria-valuetext`). Groups the label, value,
+    track, and indicator into one accessible reading.
+
+parts:
+  - id: label
+    element: span
+    description: >-
+      The name of what is being measured (Base UI Meter.Label), e.g. "Storage
+      used". Optional.
+    optional: true
+  - id: value
+    element: span
+    description: >-
+      The formatted current value (Base UI Meter.Value), e.g. "72%" or "512 GB",
+      per the root's `format` / `locale`. Tinted with the muted foreground.
+      Optional.
+    optional: true
+  - id: track
+    element: div
+    description: The full-width rail the indicator fills (bg-input).
+  - id: indicator
+    element: div
+    description: >-
+      The brand-blue fill (bg-secondary). Its width is set from the value's
+      position between `min` and `max`.
+
+states:
+  - id: filled
+    trigger: value between min and max
+    kind: prop
+    prop: value
+    affects: [indicator]

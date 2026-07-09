@@ -1,0 +1,71 @@
+spec_version: '1.0'
+pattern: FormTwoColumn
+name: form-two-column
+status: draft
+category: forms
+since: 1.0.0
+intent: A responsive multi-column form — Fields laid out in a grid that collapses to one column on narrow viewports.
+description: >-
+  A longer form (profile, settings, billing) laid out as a responsive grid of
+  `Field`s: two columns when there's room, one column when space is tight, so no
+  field is ever cramped. Built on `form-layout` — same `Form` + `Field`
+  validation wiring — but the paired fields sit in a `Grid` (use `container` so
+  the columns respond to the form's own width, not the viewport). Full-width
+  fields (a textarea, a wide `Autocomplete`) and the submit row live in the
+  `Form`'s own column, outside the grid, so they naturally span the full width.
+
+when_to_use:
+  - A form long enough that a single column would scroll excessively.
+  - Naturally paired fields (first/last name, city/postcode) that read well side by side.
+  - Settings/profile pages on wide layouts that must still work on mobile.
+when_not_to_use:
+  - Short forms (≤4 fields) — a single column (`form-layout`) is calmer.
+  - Inside a narrow dialog or drawer — keep one column.
+  - Fields with long labels/help text that would misalign across columns.
+
+anti_patterns:
+  - A fixed multi-column grid that doesn't collapse, forcing horizontal scroll on mobile.
+  - Splitting a single logical field (label + control) across two columns.
+  - Forcing a full-width field (textarea, wide picker) into a single column — keep it outside the grid.
+  - Different row heights making the two columns drift out of alignment.
+
+components:
+  - Form
+  - Grid
+  - Field
+  - InputText
+  - Autocomplete
+  - Button
+
+demo: apps/demos/src/patterns/FormTwoColumnDemo.tsx
+docs: apps/docs/content/docs/patterns/form-two-column.mdx
+
+# Approved starting point. Paired fields in a container-query `Grid` (two columns
+# when the form is wide enough, one when it isn't); full-width fields and the
+# submit row stay in the Form's column, outside the grid.
+example: |
+  function AccountForm({ onSubmit }) {
+    return (
+      <Form onFormSubmit={onSubmit} className="max-w-2xl">
+        <Grid container cols={2} gap="md">
+          <Field name="firstName">
+            <FieldLabel>First name</FieldLabel>
+            <FieldControl render={<InputText required />} />
+            <FieldError />
+          </Field>
+          <Field name="lastName">
+            <FieldLabel>Last name</FieldLabel>
+            <FieldControl render={<InputText required />} />
+            <FieldError />
+          </Field>
+        </Grid>
+        <Field name="notes">
+          <FieldLabel>Notes</FieldLabel>
+          <FieldControl render={<InputTextArea />} />
+        </Field>
+        <div className="flex justify-end">
+          <Button type="submit">Save</Button>
+        </div>
+      </Form>
+    );
+  }

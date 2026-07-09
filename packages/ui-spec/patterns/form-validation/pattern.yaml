@@ -1,0 +1,68 @@
+spec_version: '1.0'
+pattern: FormValidation
+name: form-validation
+status: draft
+category: forms
+since: 1.0.0
+intent: Inline field validation with accessible error messages — native Form/Field validity or a schema resolver.
+description: >-
+  How the kit surfaces validation. Each `Field` wires its control to a
+  `FieldError` slot; an invalid field flips `data-[invalid]` and shows the
+  message in the danger color, associated via `aria-describedby`. Two sanctioned
+  approaches share the same markup: (1) **native** — let Base UI `Form` + `Field`
+  run HTML constraint validation (`required`, `type="email"`, `pattern`) plus a
+  per-field `validate` on submit/blur, choosing which message to show with
+  `FieldError match`; (2) **schema** — drive `Field`'s `invalid` from a
+  `react-hook-form` + `zod` `Controller` and render `fieldState.error.message`.
+  Optionally reflect a derived score (e.g. password strength) with a `Meter`.
+
+when_to_use:
+  - Any form where input must be checked before submit.
+  - You need accessible, per-field error messages tied to the control.
+  - Cross-field rules (password confirmation) — reach for the schema approach.
+when_not_to_use:
+  - A field with no failure mode (freeform notes) — don't invent validation.
+  - Server-only validation with no client rules — still use `Form`'s `errors` to surface them, but skip client `validate`.
+
+anti_patterns:
+  - Showing a red border with no message, or a message not linked to the control.
+  - Validating aggressively on every keystroke before the user has finished (prefer `onBlur`/`onSubmit`).
+  - Rolling a bespoke error `<div>` instead of `FieldError`, losing the `aria-describedby` wiring.
+  - Blocking submit silently — always move focus/scroll to the first invalid field.
+
+components:
+  - Form
+  - Field
+  - InputText
+  - Button
+  - Meter
+
+demo: apps/demos/src/patterns/FormValidationDemo.tsx
+docs: apps/docs/content/docs/patterns/form-validation.mdx
+
+# Approved starting point — the NATIVE approach. Base UI Form runs each Field's
+# validation on submit; FieldError `match` picks the message per failure reason.
+example: |
+  function SignUpForm({ onSubmit }) {
+    return (
+      <Form onFormSubmit={onSubmit} className="max-w-sm">
+        <Field name="email">
+          <FieldLabel>Email</FieldLabel>
+          <FieldControl render={<InputText type="email" required placeholder="you@example.com" />} />
+          <FieldError match="valueMissing">Email is required.</FieldError>
+          <FieldError match="typeMismatch">Enter a valid email address.</FieldError>
+        </Field>
+        <Field
+          name="password"
+          validate={(value) =>
+            String(value).length < 8 ? 'Use at least 8 characters.' : null
+          }
+        >
+          <FieldLabel>Password</FieldLabel>
+          <FieldControl render={<InputText type="password" required />} />
+          <FieldError />
+        </Field>
+        <Button type="submit">Create account</Button>
+      </Form>
+    );
+  }
