@@ -1,0 +1,53 @@
+---
+title: Checkbox group
+description: Shared state for a set of related checkboxes, read and written as a list of names.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { CheckboxGroupDemo } from "@/components/demos-react/checkbox-group";
+
+## Usage
+
+```tsx
+import { CheckboxGroup, Checkbox } from '@spec-lab/ui-react';
+```
+
+`CheckboxGroup` wraps Base UI's `CheckboxGroup` — a container that gives a set of
+`Checkbox`es a shared value. The group's value is a `string[]` of the ticked
+checkboxes' `name`s. Pair it with `FieldSet` + `FieldLegend` (see the
+[field group](/patterns/field-group) pattern) to give the group an accessible
+name and a single error slot.
+
+## Examples
+
+<DemoReact>
+  <CheckboxGroupDemo />
+</DemoReact>
+
+Uncontrolled, with initial selection:
+
+```tsx
+<CheckboxGroup defaultValue={['email']}>
+  <Checkbox name="email" label="Email" />
+  <Checkbox name="sms" label="SMS" />
+  <Checkbox name="push" label="Push notifications" />
+</CheckboxGroup>
+```
+
+Controlled:
+
+```tsx
+const [value, setValue] = React.useState<string[]>(['email']);
+
+<CheckboxGroup value={value} onValueChange={setValue}>
+  <Checkbox name="email" label="Email" />
+  <Checkbox name="sms" label="SMS" />
+</CheckboxGroup>
+```
+
+## API Reference
+
+`CheckboxGroup` forwards all props of Base UI's
+[`CheckboxGroup`](https://base-ui.com/react/components/checkbox-group) — notably
+`value` / `defaultValue` (`string[]` of ticked names), `onValueChange`,
+`allValues` (for a parent checkbox), and `disabled`.

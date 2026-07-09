@@ -1,0 +1,65 @@
+---
+title: Autocomplete
+description: A free-text input with a filtered list of suggestions.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { AutocompleteDemo } from "@/components/demos-react/autocomplete";
+
+## Usage
+
+```tsx
+import {
+  Autocomplete,
+  AutocompleteInput,
+  AutocompleteContent,
+  AutocompleteList,
+  AutocompleteItem,
+  AutocompleteEmpty,
+} from '@spec-lab/ui-react';
+```
+
+`Autocomplete` wraps Base UI's `Autocomplete`. Unlike
+[`Combobox`](/components/combobox) — which selects a value from a fixed list and
+constrains the input to it — `Autocomplete` keeps the typed text as the value and
+merely **suggests** completions. Use it for search-as-you-type, tag/email entry,
+and open-ended fields. The Root filters `items` by the input value automatically.
+
+## Examples
+
+<DemoReact>
+  <AutocompleteDemo />
+</DemoReact>
+
+```tsx
+const countries = ['Australia', 'Austria', 'Belgium', 'Canada'];
+
+<Autocomplete items={countries}>
+  <AutocompleteInput placeholder="Search country…" clearable />
+  <AutocompleteContent>
+    <AutocompleteEmpty>No match — keep what you typed.</AutocompleteEmpty>
+    <AutocompleteList>
+      {(item: string) => (
+        <AutocompleteItem key={item} value={item}>
+          {item}
+        </AutocompleteItem>
+      )}
+    </AutocompleteList>
+  </AutocompleteContent>
+</Autocomplete>
+```
+
+Inside a shadow root or other portal host, pass `portalContainer` to
+`AutocompleteContent` so the popup inherits styles.
+
+## API Reference
+
+`Autocomplete` (Root) forwards all props of Base UI's
+[`Autocomplete.Root`](https://base-ui.com/react/components/autocomplete) —
+notably `items`, `value` / `defaultValue`, and `onValueChange`. The field box is
+`AutocompleteInput`:
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/autocomplete/autocomplete.tsx"
+  name="AutocompleteInputProps"
+/>

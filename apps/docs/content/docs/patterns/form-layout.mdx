@@ -1,0 +1,65 @@
+---
+title: Form layout
+description: A full-page vertical form — a Form of labelled Fields grouped into titled sections, with a submit action.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { FormLayoutDemo } from "@/components/demos-react/patterns/form-layout";
+
+The sanctioned skeleton for a page-level form: a single **`Form`** owning a stack
+of **`Field`s**, each pairing a `FieldLabel`, a control (`InputText`,
+`InputTextArea`, `Select`, …), an optional `FieldDescription`, and a `FieldError`
+slot. Related fields group under a **`FieldSet`** + **`FieldLegend`**. `Form`
+collects values by each field's `name` and validates on submit — this is the base
+that `form-two-column`, `form-validation`, and `field-group` specialize.
+
+<DemoReact>
+  <FormLayoutDemo />
+</DemoReact>
+
+## When to use
+
+- A create/edit form that owns a whole page or a dedicated route.
+- More fields than fit comfortably in a `form-dialog`.
+- You want label↔control↔description↔error wiring handled for you (no manual `htmlFor` / `aria-*`).
+
+## When not to use
+
+- A handful of fields in a modal — use `form-dialog`.
+- A multi-step flow — use `wizard-dialog`.
+- A dense side-by-side layout is required from the start — start from `form-two-column`.
+
+## Composition
+
+```tsx
+function ProfileForm({ onSubmit }) {
+  return (
+    <Form onFormSubmit={onSubmit} className="max-w-xl">
+      <FieldSet>
+        <FieldLegend>Profile</FieldLegend>
+        <Field name="name">
+          <FieldLabel>Full name</FieldLabel>
+          <FieldControl render={<InputText placeholder="Ada Lovelace" required />} />
+          <FieldError />
+        </Field>
+        <Field name="bio">
+          <FieldLabel>Bio</FieldLabel>
+          <FieldControl render={<InputTextArea placeholder="A short introduction" />} />
+          <FieldDescription>Shown on your public profile.</FieldDescription>
+        </Field>
+      </FieldSet>
+      <div className="flex justify-end gap-2">
+        <Button type="button" variant="ghost">Cancel</Button>
+        <Button type="submit">Save changes</Button>
+      </div>
+    </Form>
+  );
+}
+```
+
+## Guidelines
+
+- Let `Field` associate the label, control, description, and error — never hand-wire `htmlFor` / `id` / `aria-describedby`.
+- Group related fields under a `FieldSet`, and always give the group an accessible name with `FieldLegend`.
+- Keep the gap between fields consistent — let `Form`'s stack own the rhythm.
+- Put a primary `Button type="submit"` (optionally a ghost cancel) at the end.

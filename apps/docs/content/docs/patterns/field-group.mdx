@@ -1,0 +1,59 @@
+---
+title: Field group
+description: A set of related choice controls under one legend — a CheckboxGroup, a RadioGroup, or a run of Switches.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { FieldGroupDemo } from "@/components/demos-react/patterns/field-group";
+
+The sanctioned way to present a group of related controls as one labelled unit. A
+**`FieldSet`** wraps the group and a **`FieldLegend`** names it; inside sits
+exactly one kind of control set: a **`CheckboxGroup`** of `Checkbox`es for
+multi-select, a **`RadioGroup`** of `Radio`s for single-select, or a stack of
+`Switch`es for independent toggles. The group is the validation unit — one
+`FieldError` under the set covers "pick at least one".
+
+<DemoReact>
+  <FieldGroupDemo />
+</DemoReact>
+
+## When to use
+
+- Several checkboxes/radios that answer one question ("Which channels?", "Plan?").
+- A block of on/off settings that belong together.
+- You want one legend + one error for the whole group, not per control.
+
+## When not to use
+
+- A single standalone checkbox or switch — use a plain `Field` + `Checkbox` / `Switch`.
+- More than ~7 options, or options needing search — use `Select` / `Combobox`.
+- Mutually exclusive options where one must always be set — a `RadioGroup` with a default, not checkboxes.
+
+## Composition
+
+```tsx
+function ChannelsField({ value, onValueChange }) {
+  return (
+    <FieldSet>
+      <FieldLegend>Notification channels</FieldLegend>
+      <CheckboxGroup value={value} onValueChange={onValueChange}>
+        <Checkbox name="email" label="Email" />
+        <Checkbox name="sms" label="SMS" />
+        <Checkbox name="push" label="Push notifications" />
+      </CheckboxGroup>
+      {value.length === 0 && (
+        <p className="text-sm text-[var(--ui-text-on-status-danger)]">
+          Choose at least one channel.
+        </p>
+      )}
+    </FieldSet>
+  );
+}
+```
+
+## Guidelines
+
+- Always wrap a group in `FieldSet` + `FieldLegend` so screen readers hear a named group, not orphaned controls.
+- Don't mix checkboxes and radios in one group; use radios for mutually-exclusive choices.
+- Put the error once under the set, not on each control. `FieldError` needs a `Field.Root` ancestor, so under a `FieldSet` surface the message directly (or wrap the whole group in a `Field`).
+- Let `CheckboxGroup` own the `string[]` value instead of hand-managing an array of booleans.

@@ -1,0 +1,56 @@
+---
+title: Meter
+description: A static measurement within a known range — quota, usage, or a score.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { MeterDemo } from "@/components/demos-react/meter";
+
+## Usage
+
+```tsx
+import { Meter, MeterLabel, MeterValue, MeterTrack } from '@spec-lab/ui-react';
+```
+
+`Meter` wraps Base UI's `Meter` (Root / Label / Value / Track / Indicator). Use it
+for a **static** measurement within a known range — disk usage, a backup quota, a
+strength score — as opposed to [`Progress`](/components/progress), which shows
+task advancement and can be indeterminate. The fill width is derived from `value`
+/ `min` / `max`; format the displayed number with the Root's `format` / `locale`.
+
+## Examples
+
+<DemoReact>
+  <MeterDemo />
+</DemoReact>
+
+A labelled meter with a percentage value:
+
+```tsx
+<Meter value={72}>
+  <div className="flex items-center justify-between">
+    <MeterLabel>Storage used</MeterLabel>
+    <MeterValue />
+  </div>
+  <MeterTrack />
+</Meter>
+```
+
+With units and a custom range:
+
+```tsx
+<Meter value={512} min={0} max={1024} format={{ style: 'unit', unit: 'gigabyte' }}>
+  <MeterLabel>Backup quota</MeterLabel>
+  <MeterValue />
+  <MeterTrack />
+</Meter>
+```
+
+## API Reference
+
+`Meter` (Root) forwards all props of Base UI's
+[`Meter.Root`](https://base-ui.com/react/components/meter) — notably `value`
+(required), `min` (default `0`), `max` (default `100`), `format`
+(`Intl.NumberFormatOptions`), and `locale`. `MeterLabel`, `MeterValue`,
+`MeterTrack`, and `MeterIndicator` forward their respective Base UI parts'
+props. `MeterTrack` renders a default `MeterIndicator` when given no children.

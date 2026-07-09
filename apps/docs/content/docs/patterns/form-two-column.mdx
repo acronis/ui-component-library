@@ -1,0 +1,68 @@
+---
+title: Two-column form
+description: A responsive multi-column form — Fields laid out in a grid that collapses to one column on narrow viewports.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { FormTwoColumnDemo } from "@/components/demos-react/patterns/form-two-column";
+
+A longer form (profile, settings, billing) laid out as a responsive grid of
+**`Field`s**: two columns when there's room, one column when space is tight, so no
+field is ever cramped. Built on `form-layout` — same `Form` + `Field` validation
+wiring — but the paired fields sit in a [`Grid`](/components/grid) with
+`container`, so the columns respond to the form's own width. Full-width fields (a
+textarea, a wide `Autocomplete`) and the submit row live in the `Form`'s own
+column, outside the grid.
+
+<DemoReact>
+  <FormTwoColumnDemo />
+</DemoReact>
+
+## When to use
+
+- A form long enough that a single column would scroll excessively.
+- Naturally paired fields (first/last name, city/postcode) that read well side by side.
+- Settings/profile pages on wide layouts that must still work on mobile.
+
+## When not to use
+
+- Short forms (≤4 fields) — a single column (`form-layout`) is calmer.
+- Inside a narrow dialog or drawer — keep one column.
+- Fields with long labels/help text that would misalign across columns.
+
+## Composition
+
+```tsx
+function AccountForm({ onSubmit }) {
+  return (
+    <Form onFormSubmit={onSubmit} className="max-w-2xl">
+      <Grid container cols={2} gap="md">
+        <Field name="firstName">
+          <FieldLabel>First name</FieldLabel>
+          <FieldControl render={<InputText required />} />
+          <FieldError />
+        </Field>
+        <Field name="lastName">
+          <FieldLabel>Last name</FieldLabel>
+          <FieldControl render={<InputText required />} />
+          <FieldError />
+        </Field>
+      </Grid>
+      <Field name="notes">
+        <FieldLabel>Notes</FieldLabel>
+        <FieldControl render={<InputTextArea />} />
+      </Field>
+      <div className="flex justify-end">
+        <Button type="submit">Save</Button>
+      </div>
+    </Form>
+  );
+}
+```
+
+## Guidelines
+
+- Use `Grid` with `container` so columns respond to the form's width — it works inside narrow panels, drawers, and full pages alike.
+- Keep a single logical field (label + control) within one grid cell.
+- Keep full-width controls and the submit row outside the grid, in the `Form`'s own column.
+- Watch for uneven row heights that drift the columns out of alignment.
