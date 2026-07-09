@@ -1,5 +1,21 @@
 # @spec-lab/ui-react
 
+## 1.2.0
+
+### Minor Changes
+
+- [#5](https://github.com/constructor-lab/facet/pull/5) [`3fb91b5`](https://github.com/constructor-lab/facet/commit/3fb91b55f931d6af2b6b56e7ac040da371ac8197) Thanks [@leonid](https://github.com/leonid)! - Add four Base UI form primitives so more of the form/field surface is covered:
+  - `CheckboxGroup` — shared state for a set of `Checkbox`es (reads/writes a
+    `string[]` of the ticked names); pairs with `Field` / `FieldSet`.
+  - `OTPField` (`OTPFieldInput`, `OTPFieldSeparator`) — a segmented one-time-code
+    input for verification / 2FA, with paste-to-fill and optional masking.
+  - `Autocomplete` (`AutocompleteInput`, `AutocompleteContent`, `AutocompleteList`,
+    `AutocompleteItem`, `AutocompleteEmpty`, `AutocompleteGroup`,
+    `AutocompleteGroupLabel`) — a free-text input with filtered suggestions, reusing
+    the `--ui-input-select-*` tokens.
+  - `Meter` (`MeterLabel`, `MeterValue`, `MeterTrack`, `MeterIndicator`) — a static
+    measurement bar (quota, usage, strength) distinct from `Progress`.
+
 ## 1.1.0
 
 ### Minor Changes
