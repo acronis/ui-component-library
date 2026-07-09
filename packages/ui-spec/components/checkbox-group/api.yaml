@@ -1,0 +1,74 @@
+spec_version: '1.0'
+component: CheckboxGroup
+
+# Framework-agnostic contract for the group. The value lives on the group as a
+# list of the ticked members' names; each member Checkbox takes a `name`. See
+# `adapters` for per-framework syntax.
+contract:
+  properties:
+    - name: value
+      type: string[]
+      required: false
+      description: Controlled list of ticked members' names. Pair with the change event.
+    - name: default-value
+      type: string[]
+      required: false
+      description: Initially ticked members' names when uncontrolled.
+    - name: all-values
+      type: string[]
+      required: false
+      description: >-
+        Names of every member in the group. Provide it when composing a parent
+        "select all" checkbox so it can compute the indeterminate/all state.
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: Disables every member in the group.
+
+  events:
+    - name: value-change
+      payload: string[]
+      description: >-
+        Fired when a member is ticked or unticked (React: `onValueChange`).
+        Payload is the new list of ticked names.
+
+  content:
+    - name: default
+      description: >-
+        Member `Checkbox`es. Each takes a `name` and an optional `label` /
+        `description`; the group reads/writes their ticked state by `name`.
+
+  methods: []
+
+adapters:
+  react:
+    component: CheckboxGroup
+    status: implemented
+    import: "import { CheckboxGroup, Checkbox } from '@spec-lab/ui-react'"
+    example: |
+      const [value, setValue] = useState<string[]>(['email']);
+
+      <CheckboxGroup value={value} onValueChange={setValue}>
+        <Checkbox name="email" label="Email" />
+        <Checkbox name="sms" label="SMS" />
+        <Checkbox name="push" label="Push notifications" />
+      </CheckboxGroup>
+  vue:
+    component: AvCheckboxGroup
+    status: planned
+    import: "import { AvCheckboxGroup, AvCheckbox } from '@spec-lab/ui-vue'"
+    example: |
+      <AvCheckboxGroup v-model="value">
+        <AvCheckbox name="email" label="Email" />
+        <AvCheckbox name="sms" label="SMS" />
+      </AvCheckboxGroup>
+  web-components:
+    element: ui-checkbox-group
+    status: planned
+    import: "import '@spec-lab/ui-wc/checkbox-group'"
+    example: |
+      <ui-checkbox-group>
+        <ui-checkbox name="email">Email</ui-checkbox>
+        <ui-checkbox name="sms">SMS</ui-checkbox>
+      </ui-checkbox-group>

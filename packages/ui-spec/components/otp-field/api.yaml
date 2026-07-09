@@ -1,0 +1,106 @@
+spec_version: '1.0'
+component: OTPField
+
+# Framework-agnostic contract. The field owns the whole value; render `length`
+# input slots inside it. Native form attributes pass through via a hidden input.
+# See `adapters` for per-framework syntax.
+contract:
+  properties:
+    - name: length
+      type: number
+      required: true
+      description: Number of character slots — the fixed code length.
+    - name: value
+      type: string
+      required: false
+      description: Controlled code value. Pair with the change event.
+    - name: default-value
+      type: string
+      required: false
+      description: Initial code value when uncontrolled.
+    - name: mask
+      type: boolean
+      required: false
+      default: false
+      description: Masks entered characters (like a password), for sensitive codes.
+    - name: auto-submit
+      type: boolean
+      required: false
+      default: false
+      description: Submits the owning form automatically once the code is complete.
+    - name: validation-type
+      type: "'numeric' | 'alpha' | 'alphanumeric' | 'none'"
+      required: false
+      default: numeric
+      description: Filters which characters are accepted into the slots.
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: Disables every slot.
+    - name: required
+      type: boolean
+      required: false
+      default: false
+      description: Marks the field required in a form.
+    - name: name
+      type: string
+      required: false
+      description: Form field name submitted with the code value.
+
+  events:
+    - name: value-change
+      payload: string
+      description: >-
+        Fired as the code changes (React: `onValueChange`). Payload is the
+        current code string.
+    - name: value-complete
+      payload: string
+      description: >-
+        Fired when all slots are filled (React: `onValueComplete`). Payload is
+        the complete code.
+
+  content:
+    - name: default
+      description: >-
+        `length` input slots, optionally with separators between groups. Render
+        one slot per character (e.g. map over an array of `length`).
+
+  methods: []
+
+adapters:
+  react:
+    component: OTPField
+    status: implemented
+    import: "import { OTPField, OTPFieldInput, OTPFieldSeparator } from '@spec-lab/ui-react'"
+    example: |
+      <OTPField length={6} onValueComplete={verify}>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <OTPFieldInput key={i} />
+        ))}
+      </OTPField>
+
+      {/* Grouped with a separator */}
+      <OTPField length={6}>
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldSeparator />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+      </OTPField>
+  vue:
+    component: AvOtpField
+    status: planned
+    import: "import { AvOtpField, AvOtpFieldInput } from '@spec-lab/ui-vue'"
+    example: |
+      <AvOtpField :length="6" @value-complete="verify">
+        <AvOtpFieldInput v-for="i in 6" :key="i" />
+      </AvOtpField>
+  web-components:
+    element: ui-otp-field
+    status: planned
+    import: "import '@spec-lab/ui-wc/otp-field'"
+    example: |
+      <ui-otp-field length="6"></ui-otp-field>

@@ -1,0 +1,11 @@
+spec_version: '1.0'
+component: Meter
+name: meter
+status: draft
+category: feedback
+layer: primitive
+description: >-
+  Shows a static measurement within a known range — disk usage, a backup quota, a
+  strength score. Unlike Progress, which shows task advancement and can be
+  indeterminate, a meter is a fixed reading of "how much of a whole".
+since: 1.1.0

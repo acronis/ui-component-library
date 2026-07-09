@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: CheckboxGroup
+name: checkbox-group
+status: draft
+category: forms
+layer: primitive
+description: >-
+  Provides shared state to a set of related checkboxes so the group reads and
+  writes a single list of the ticked options' names. Use it for a multi-select
+  question ("Which channels?") where any number of options may be selected;
+  pairs with a Field/FieldSet for a labelled, validated group.
+since: 1.1.0
+dependencies:
+  components:
+    - Checkbox

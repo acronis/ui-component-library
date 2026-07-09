@@ -41,6 +41,14 @@
       "since": "0.52.0"
     },
     {
+      "name": "autocomplete",
+      "component": "Autocomplete",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "1.1.0"
+    },
+    {
       "name": "avatar",
       "component": "Avatar",
       "category": "data-display",
@@ -151,6 +159,14 @@
       "status": "ready",
       "layer": "primitive",
       "since": "0.7.0"
+    },
+    {
+      "name": "checkbox-group",
+      "component": "CheckboxGroup",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "1.1.0"
     },
     {
       "name": "chip",
@@ -321,12 +337,28 @@
       "since": "0.55.0"
     },
     {
+      "name": "meter",
+      "component": "Meter",
+      "category": "feedback",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "1.1.0"
+    },
+    {
       "name": "number-field",
       "component": "NumberField",
       "category": "forms",
       "status": "draft",
       "layer": "primitive",
       "since": "0.51.0"
+    },
+    {
+      "name": "otp-field",
+      "component": "OTPField",
+      "category": "forms",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "1.1.0"
     },
     {
       "name": "page-content",

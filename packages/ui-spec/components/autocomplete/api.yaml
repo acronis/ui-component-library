@@ -1,0 +1,93 @@
+spec_version: '1.0'
+component: Autocomplete
+
+# Framework-agnostic contract. Generic over the suggestion item type. The value
+# is the typed input string (not a constrained selection). See `adapters` for
+# per-framework syntax and the compound parts.
+contract:
+  properties:
+    - name: items
+      type: readonly T[]
+      required: false
+      description: >-
+        The suggestions to filter and show. Strings, or objects the list maps
+        over via a render function.
+    - name: value
+      type: string
+      required: false
+      description: Controlled typed text. Pair with the change event.
+    - name: default-value
+      type: string
+      required: false
+      description: Initial typed text when uncontrolled.
+    - name: open
+      type: boolean
+      required: false
+      description: Controlled open state of the suggestion dropdown.
+    - name: default-open
+      type: boolean
+      required: false
+      default: false
+      description: Initial open state when uncontrolled.
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: Disables the field.
+
+  events:
+    - name: value-change
+      payload: string
+      description: >-
+        Fired as the typed text changes — including when a suggestion is chosen
+        (React: `onValueChange`). Payload is the current input string.
+    - name: open-change
+      payload: boolean
+      description: >-
+        Fired when the dropdown opens or closes (React: `onOpenChange`).
+
+  content:
+    - name: default
+      description: >-
+        The compound parts — `AutocompleteInput`, then `AutocompleteContent`
+        wrapping `AutocompleteList` (with `AutocompleteItem`s and an
+        `AutocompleteEmpty`), optionally grouped with
+        `AutocompleteGroup` / `AutocompleteGroupLabel`.
+
+  methods: []
+
+adapters:
+  react:
+    component: Autocomplete
+    status: implemented
+    import: >-
+      import { Autocomplete, AutocompleteInput, AutocompleteContent,
+      AutocompleteList, AutocompleteItem, AutocompleteEmpty } from '@spec-lab/ui-react'
+    example: |
+      const countries = ['Australia', 'Austria', 'Belgium', 'Canada'];
+
+      <Autocomplete items={countries}>
+        <AutocompleteInput placeholder="Search country…" clearable />
+        <AutocompleteContent>
+          <AutocompleteEmpty>No match — keep what you typed.</AutocompleteEmpty>
+          <AutocompleteList>
+            {(item: string) => (
+              <AutocompleteItem key={item} value={item}>
+                {item}
+              </AutocompleteItem>
+            )}
+          </AutocompleteList>
+        </AutocompleteContent>
+      </Autocomplete>
+  vue:
+    component: AvAutocomplete
+    status: planned
+    import: "import { AvAutocomplete } from '@spec-lab/ui-vue'"
+    example: |
+      <AvAutocomplete :items="countries" v-model="query" />
+  web-components:
+    element: ui-autocomplete
+    status: planned
+    import: "import '@spec-lab/ui-wc/autocomplete'"
+    example: |
+      <ui-autocomplete placeholder="Search country…"></ui-autocomplete>

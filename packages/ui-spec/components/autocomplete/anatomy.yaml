@@ -1,0 +1,67 @@
+spec_version: '1.0'
+component: Autocomplete
+
+schematic: |
+  autocomplete: Autocomplete.Root (holds items + typed value; filters by input)
+    autocomplete-input:   field box — typeable input + optional clear (✕)
+    autocomplete-content: portaled dropdown surface
+      autocomplete-list:    the (filtered) suggestion list
+        autocomplete-item:    one suggestion (fills the input when chosen)
+      autocomplete-empty:   "no match" message when the filter matches nothing
+      autocomplete-group:   optional group of suggestions
+        autocomplete-group-label: group heading
+
+root:
+  element: div
+  description: >-
+    Autocomplete (Base UI Autocomplete.Root) — holds the suggestion `items` and
+    the typed value, and filters the items by the input text. The value is the
+    typed string, not a constrained selection; choosing a suggestion just fills
+    the input.
+
+parts:
+  - id: autocomplete-input
+    element: input
+    description: >-
+      The field box — a typeable Autocomplete.Input with an optional clear
+      button. Reuses the `--ui-input-select-*` box tokens (matching InputSelect /
+      Combobox).
+  - id: autocomplete-content
+    element: div
+    description: The portaled dropdown surface (positioner + popup).
+  - id: autocomplete-list
+    element: div
+    description: >-
+      The list container. Its children may be a function `(item) => …` that the
+      list maps over the filtered suggestions.
+  - id: autocomplete-item
+    element: div
+    description: One suggestion; tints when highlighted and fills the input when chosen.
+  - id: autocomplete-empty
+    element: div
+    description: A message shown when the filter matches no suggestions.
+  - id: autocomplete-group
+    element: div
+    description: An optional group of suggestions.
+  - id: autocomplete-group-label
+    element: div
+    description: The heading for a group.
+
+internal_state:
+  - id: open
+    type: boolean
+    values: [false, true]
+    initial: false
+    controllable_via: [open]
+    controlled_default: default-open
+    changed_by: typing in the input, Esc, or choosing a suggestion
+    description: Whether the suggestion dropdown is open.
+
+states:
+  - id: open
+    trigger: the suggestion dropdown is open
+    kind: internal
+  - id: disabled
+    trigger: disabled is set
+    kind: prop
+    prop: disabled

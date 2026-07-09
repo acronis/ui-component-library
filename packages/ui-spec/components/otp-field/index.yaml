@@ -1,0 +1,11 @@
+spec_version: '1.0'
+component: OTPField
+name: otp-field
+status: draft
+category: forms
+layer: primitive
+description: >-
+  A segmented input for a fixed-length one-time code — verification codes, 2FA,
+  PINs. Renders one slot per character; the field owns the whole value and
+  handles focus movement, paste-to-fill, and optional masking.
+since: 1.1.0

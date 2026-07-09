@@ -1,0 +1,19 @@
+spec_version: '1.0'
+component: Meter
+
+# References only. Values live in @spec-lab/tokens. No `--ui-meter-*` tier: the
+# track uses the shared border token (bridged as bg-input) and the indicator uses
+# the brand action blue (bridged as bg-secondary) — matching Progress. The value
+# text uses the muted foreground.
+source: '@spec-lab/tokens'
+
+tokens:
+  - name: --ui-border-on-surface-border
+    affects: track
+    description: Track rail fill (bg-input).
+  - name: --ui-background-brand-secondary
+    affects: indicator
+    description: Indicator fill, the brand action blue (bg-secondary).
+  - name: --ui-text-on-surface-secondary
+    affects: value
+    description: Formatted value text (text-muted-foreground).

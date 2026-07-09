@@ -1,0 +1,75 @@
+spec_version: '1.0'
+component: Meter
+
+# Framework-agnostic contract. The value is a fixed reading between min and max;
+# render a label/value header above the track. See `adapters` for per-framework
+# syntax and the compound parts.
+contract:
+  properties:
+    - name: value
+      type: number
+      required: true
+      description: The current measurement, between `min` and `max`.
+    - name: max
+      type: number
+      required: false
+      default: '100'
+      description: The value representing the full range.
+    - name: min
+      type: number
+      required: false
+      default: '0'
+      description: The value representing the empty range.
+    - name: format
+      type: Intl.NumberFormatOptions
+      required: false
+      description: >-
+        Number-format options for the displayed value (e.g. percent, or a unit
+        like gigabytes).
+    - name: locale
+      type: string
+      required: false
+      description: Locale used to format the value; defaults to the runtime locale.
+
+  events: []
+
+  content:
+    - name: default
+      description: >-
+        The compound parts — an optional `MeterLabel` + `MeterValue` header row,
+        then a `MeterTrack` (which renders a `MeterIndicator`).
+
+  methods: []
+
+adapters:
+  react:
+    component: Meter
+    status: implemented
+    import: "import { Meter, MeterLabel, MeterValue, MeterTrack } from '@spec-lab/ui-react'"
+    example: |
+      <Meter value={72}>
+        <div className="flex items-center justify-between">
+          <MeterLabel>Storage used</MeterLabel>
+          <MeterValue />
+        </div>
+        <MeterTrack />
+      </Meter>
+
+      {/* With units and a custom range */}
+      <Meter value={512} min={0} max={1024} format={{ style: 'unit', unit: 'gigabyte' }}>
+        <MeterLabel>Backup quota</MeterLabel>
+        <MeterValue />
+        <MeterTrack />
+      </Meter>
+  vue:
+    component: AvMeter
+    status: planned
+    import: "import { AvMeter } from '@spec-lab/ui-vue'"
+    example: |
+      <AvMeter :value="72" label="Storage used" />
+  web-components:
+    element: ui-meter
+    status: planned
+    import: "import '@spec-lab/ui-wc/meter'"
+    example: |
+      <ui-meter value="72" label="Storage used"></ui-meter>
