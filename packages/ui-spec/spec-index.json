@@ -789,6 +789,35 @@
       "docs": "apps/docs/content/docs/patterns/empty-screen.mdx"
     },
     {
+      "name": "field-group",
+      "pattern": "FieldGroup",
+      "status": "draft",
+      "category": "forms",
+      "intent": "A set of related choice controls under one legend — a CheckboxGroup, a RadioGroup, or a run of Switches.",
+      "description": "The sanctioned way to present a group of related controls as one labelled unit. A `FieldSet` wraps the group and a `FieldLegend` names it (the group's accessible name); inside sits exactly one kind of control set: a `CheckboxGroup` of `Checkbox`es for multi-select, a `RadioGroup` of `Radio`s for single-select, or a stack of `Switch`es for independent toggles. The group is the validation unit — one `FieldError` under the set covers \"pick at least one\". Use horizontal/responsive `Field` orientation for label-left settings rows.",
+      "when_to_use": [
+        "Several checkboxes/radios that answer one question (\"Which channels?\", \"Plan?\").",
+        "A block of on/off settings that belong together.",
+        "You want one legend + one error for the whole group, not per control."
+      ],
+      "when_not_to_use": [
+        "A single standalone checkbox or switch — use a plain `Field` + `Checkbox`/`Switch`.",
+        "More than ~7 options, or options needing search — use `Select`/`Combobox`.",
+        "Mutually exclusive options where one must always be set — a `RadioGroup` with a default, not checkboxes."
+      ],
+      "anti_patterns": [
+        "A group of checkboxes with no `FieldSet`/`FieldLegend`, so screen readers hear orphaned controls.",
+        "Mixing checkboxes and radios in one group, or using checkboxes for mutually-exclusive choices.",
+        "Putting the error on each control instead of once under the set.",
+        "Reaching for `FieldError` under a `FieldSet` — it needs a `Field.Root` ancestor; surface the group message directly (or wrap the group in a `Field`).",
+        "Hand-managing an array of booleans instead of letting `CheckboxGroup` own the `string[]` value."
+      ],
+      "example": "function ChannelsField({ value, onValueChange }) {\n  return (\n    <FieldSet>\n      <FieldLegend>Notification channels</FieldLegend>\n      <CheckboxGroup value={value} onValueChange={onValueChange}>\n        <Checkbox name=\"email\" label=\"Email\" />\n        <Checkbox name=\"sms\" label=\"SMS\" />\n        <Checkbox name=\"push\" label=\"Push notifications\" />\n      </CheckboxGroup>\n      {value.length === 0 && (\n        <p className=\"text-sm text-[var(--ui-text-on-status-danger)]\">\n          Choose at least one channel.\n        </p>\n      )}\n    </FieldSet>\n  );\n}\n",
+      "components": ["Field", "CheckboxGroup", "Checkbox", "Radio", "Switch"],
+      "demo": "apps/demos/src/patterns/FieldGroupDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/field-group.mdx"
+    },
+    {
       "name": "filter-popover",
       "pattern": "FilterPopover",
       "status": "draft",
@@ -841,6 +870,103 @@
       "components": ["Dialog", "Form", "Field", "InputText", "Button"],
       "demo": "apps/demos/src/patterns/FormDialogDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/form-dialog.mdx"
+    },
+    {
+      "name": "form-layout",
+      "pattern": "FormLayout",
+      "status": "draft",
+      "category": "forms",
+      "intent": "A full-page vertical form — a Form of labelled Fields grouped into titled sections, with a submit action.",
+      "description": "The sanctioned skeleton for a page-level form: a single `Form` owning a stack of `Field`s, each pairing a `FieldLabel`, a control (`InputText`, `InputTextArea`, `Select`, …), an optional `FieldDescription`, and a `FieldError` slot. Related fields are grouped under a `FieldSet` + `FieldLegend`. `Form` collects values by each Field's `name` and validates on submit; a primary `Button type=\"submit\"` (optionally a ghost cancel) closes the form. Fields stack vertically at a consistent gap — this is the base every other form pattern (`form-two-column`, `form-validation`, `field-group`) specializes.",
+      "when_to_use": [
+        "A create/edit form that owns a whole page or a dedicated route.",
+        "More fields than fit comfortably in a `form-dialog`.",
+        "You want label↔control↔description↔error wiring handled for you (no manual `htmlFor`/`aria-*`)."
+      ],
+      "when_not_to_use": [
+        "A handful of fields in a modal — use `form-dialog`.",
+        "A multi-step flow — use `wizard-dialog`.",
+        "A dense side-by-side layout is required from the start — start from `form-two-column`."
+      ],
+      "anti_patterns": [
+        "Hand-wiring `htmlFor`/`id`/`aria-describedby` instead of letting `Field` associate the parts.",
+        "Placing a bare `<input>` next to a floating `<label>` outside a `Field`.",
+        "Grouping unrelated fields under one `FieldSet`, or omitting `FieldLegend` so the group has no accessible name.",
+        "Inconsistent gaps between fields — let `Form`'s stack own the rhythm."
+      ],
+      "example": "function ProfileForm({ onSubmit }) {\n  return (\n    <Form onFormSubmit={onSubmit} className=\"max-w-xl\">\n      <FieldSet>\n        <FieldLegend>Profile</FieldLegend>\n        <Field name=\"name\">\n          <FieldLabel>Full name</FieldLabel>\n          <FieldControl render={<InputText placeholder=\"Ada Lovelace\" required />} />\n          <FieldError />\n        </Field>\n        <Field name=\"bio\">\n          <FieldLabel>Bio</FieldLabel>\n          <FieldControl render={<InputTextArea placeholder=\"A short introduction\" />} />\n          <FieldDescription>Shown on your public profile.</FieldDescription>\n        </Field>\n      </FieldSet>\n      <div className=\"flex justify-end gap-2\">\n        <Button type=\"button\" variant=\"ghost\">Cancel</Button>\n        <Button type=\"submit\">Save changes</Button>\n      </div>\n    </Form>\n  );\n}\n",
+      "components": [
+        "Form",
+        "Field",
+        "InputText",
+        "InputTextArea",
+        "Select",
+        "Button"
+      ],
+      "demo": "apps/demos/src/patterns/FormLayoutDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/form-layout.mdx"
+    },
+    {
+      "name": "form-two-column",
+      "pattern": "FormTwoColumn",
+      "status": "draft",
+      "category": "forms",
+      "intent": "A responsive multi-column form — Fields laid out in a grid that collapses to one column on narrow viewports.",
+      "description": "A longer form (profile, settings, billing) laid out as a responsive grid of `Field`s: two columns when there's room, one column when space is tight, so no field is ever cramped. Built on `form-layout` — same `Form` + `Field` validation wiring — but the paired fields sit in a `Grid` (use `container` so the columns respond to the form's own width, not the viewport). Full-width fields (a textarea, a wide `Autocomplete`) and the submit row live in the `Form`'s own column, outside the grid, so they naturally span the full width.",
+      "when_to_use": [
+        "A form long enough that a single column would scroll excessively.",
+        "Naturally paired fields (first/last name, city/postcode) that read well side by side.",
+        "Settings/profile pages on wide layouts that must still work on mobile."
+      ],
+      "when_not_to_use": [
+        "Short forms (≤4 fields) — a single column (`form-layout`) is calmer.",
+        "Inside a narrow dialog or drawer — keep one column.",
+        "Fields with long labels/help text that would misalign across columns."
+      ],
+      "anti_patterns": [
+        "A fixed multi-column grid that doesn't collapse, forcing horizontal scroll on mobile.",
+        "Splitting a single logical field (label + control) across two columns.",
+        "Forcing a full-width field (textarea, wide picker) into a single column — keep it outside the grid.",
+        "Different row heights making the two columns drift out of alignment."
+      ],
+      "example": "function AccountForm({ onSubmit }) {\n  return (\n    <Form onFormSubmit={onSubmit} className=\"max-w-2xl\">\n      <Grid container cols={2} gap=\"md\">\n        <Field name=\"firstName\">\n          <FieldLabel>First name</FieldLabel>\n          <FieldControl render={<InputText required />} />\n          <FieldError />\n        </Field>\n        <Field name=\"lastName\">\n          <FieldLabel>Last name</FieldLabel>\n          <FieldControl render={<InputText required />} />\n          <FieldError />\n        </Field>\n      </Grid>\n      <Field name=\"notes\">\n        <FieldLabel>Notes</FieldLabel>\n        <FieldControl render={<InputTextArea />} />\n      </Field>\n      <div className=\"flex justify-end\">\n        <Button type=\"submit\">Save</Button>\n      </div>\n    </Form>\n  );\n}\n",
+      "components": [
+        "Form",
+        "Grid",
+        "Field",
+        "InputText",
+        "Autocomplete",
+        "Button"
+      ],
+      "demo": "apps/demos/src/patterns/FormTwoColumnDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/form-two-column.mdx"
+    },
+    {
+      "name": "form-validation",
+      "pattern": "FormValidation",
+      "status": "draft",
+      "category": "forms",
+      "intent": "Inline field validation with accessible error messages — native Form/Field validity or a schema resolver.",
+      "description": "How the kit surfaces validation. Each `Field` wires its control to a `FieldError` slot; an invalid field flips `data-[invalid]` and shows the message in the danger color, associated via `aria-describedby`. Two sanctioned approaches share the same markup: (1) **native** — let Base UI `Form` + `Field` run HTML constraint validation (`required`, `type=\"email\"`, `pattern`) plus a per-field `validate` on submit/blur, choosing which message to show with `FieldError match`; (2) **schema** — drive `Field`'s `invalid` from a `react-hook-form` + `zod` `Controller` and render `fieldState.error.message`. Optionally reflect a derived score (e.g. password strength) with a `Meter`.",
+      "when_to_use": [
+        "Any form where input must be checked before submit.",
+        "You need accessible, per-field error messages tied to the control.",
+        "Cross-field rules (password confirmation) — reach for the schema approach."
+      ],
+      "when_not_to_use": [
+        "A field with no failure mode (freeform notes) — don't invent validation.",
+        "Server-only validation with no client rules — still use `Form`'s `errors` to surface them, but skip client `validate`."
+      ],
+      "anti_patterns": [
+        "Showing a red border with no message, or a message not linked to the control.",
+        "Validating aggressively on every keystroke before the user has finished (prefer `onBlur`/`onSubmit`).",
+        "Rolling a bespoke error `<div>` instead of `FieldError`, losing the `aria-describedby` wiring.",
+        "Blocking submit silently — always move focus/scroll to the first invalid field."
+      ],
+      "example": "function SignUpForm({ onSubmit }) {\n  return (\n    <Form onFormSubmit={onSubmit} className=\"max-w-sm\">\n      <Field name=\"email\">\n        <FieldLabel>Email</FieldLabel>\n        <FieldControl render={<InputText type=\"email\" required placeholder=\"you@example.com\" />} />\n        <FieldError match=\"valueMissing\">Email is required.</FieldError>\n        <FieldError match=\"typeMismatch\">Enter a valid email address.</FieldError>\n      </Field>\n      <Field\n        name=\"password\"\n        validate={(value) =>\n          String(value).length < 8 ? 'Use at least 8 characters.' : null\n        }\n      >\n        <FieldLabel>Password</FieldLabel>\n        <FieldControl render={<InputText type=\"password\" required />} />\n        <FieldError />\n      </Field>\n      <Button type=\"submit\">Create account</Button>\n    </Form>\n  );\n}\n",
+      "components": ["Form", "Field", "InputText", "Button", "Meter"],
+      "demo": "apps/demos/src/patterns/FormValidationDemo.tsx",
+      "docs": "apps/docs/content/docs/patterns/form-validation.mdx"
     },
     {
       "name": "intelligence-panel",

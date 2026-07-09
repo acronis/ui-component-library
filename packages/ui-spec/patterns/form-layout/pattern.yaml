@@ -1,0 +1,69 @@
+spec_version: '1.0'
+pattern: FormLayout
+name: form-layout
+status: draft
+category: forms
+since: 1.0.0
+intent: A full-page vertical form — a Form of labelled Fields grouped into titled sections, with a submit action.
+description: >-
+  The sanctioned skeleton for a page-level form: a single `Form` owning a stack
+  of `Field`s, each pairing a `FieldLabel`, a control (`InputText`,
+  `InputTextArea`, `Select`, …), an optional `FieldDescription`, and a
+  `FieldError` slot. Related fields are grouped under a `FieldSet` +
+  `FieldLegend`. `Form` collects values by each Field's `name` and validates on
+  submit; a primary `Button type="submit"` (optionally a ghost cancel) closes the
+  form. Fields stack vertically at a consistent gap — this is the base every other
+  form pattern (`form-two-column`, `form-validation`, `field-group`) specializes.
+
+when_to_use:
+  - A create/edit form that owns a whole page or a dedicated route.
+  - More fields than fit comfortably in a `form-dialog`.
+  - You want label↔control↔description↔error wiring handled for you (no manual `htmlFor`/`aria-*`).
+when_not_to_use:
+  - A handful of fields in a modal — use `form-dialog`.
+  - A multi-step flow — use `wizard-dialog`.
+  - A dense side-by-side layout is required from the start — start from `form-two-column`.
+
+anti_patterns:
+  - Hand-wiring `htmlFor`/`id`/`aria-describedby` instead of letting `Field` associate the parts.
+  - Placing a bare `<input>` next to a floating `<label>` outside a `Field`.
+  - Grouping unrelated fields under one `FieldSet`, or omitting `FieldLegend` so the group has no accessible name.
+  - Inconsistent gaps between fields — let `Form`'s stack own the rhythm.
+
+components:
+  - Form
+  - Field
+  - InputText
+  - InputTextArea
+  - Select
+  - Button
+
+demo: apps/demos/src/patterns/FormLayoutDemo.tsx
+docs: apps/docs/content/docs/patterns/form-layout.mdx
+
+# Approved starting point. A Form of Fields, one FieldSet grouping related
+# fields, a submit button. Uses Base UI's native Form validation (no extra lib).
+example: |
+  function ProfileForm({ onSubmit }) {
+    return (
+      <Form onFormSubmit={onSubmit} className="max-w-xl">
+        <FieldSet>
+          <FieldLegend>Profile</FieldLegend>
+          <Field name="name">
+            <FieldLabel>Full name</FieldLabel>
+            <FieldControl render={<InputText placeholder="Ada Lovelace" required />} />
+            <FieldError />
+          </Field>
+          <Field name="bio">
+            <FieldLabel>Bio</FieldLabel>
+            <FieldControl render={<InputTextArea placeholder="A short introduction" />} />
+            <FieldDescription>Shown on your public profile.</FieldDescription>
+          </Field>
+        </FieldSet>
+        <div className="flex justify-end gap-2">
+          <Button type="button" variant="ghost">Cancel</Button>
+          <Button type="submit">Save changes</Button>
+        </div>
+      </Form>
+    );
+  }
