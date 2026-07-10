@@ -13,7 +13,7 @@ const Collapsible = CollapsiblePrimitive.Root;
 const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
 
 const CollapsibleContent = React.forwardRef<
-  React.ElementRef<typeof CollapsiblePrimitive.Panel>,
+  React.ComponentRef<typeof CollapsiblePrimitive.Panel>,
   React.ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Panel>
 >(({ className, ...props }, ref) => (
   <CollapsiblePrimitive.Panel

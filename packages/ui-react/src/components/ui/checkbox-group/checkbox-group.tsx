@@ -17,7 +17,7 @@ export type CheckboxGroupProps = React.ComponentPropsWithoutRef<
 >;
 
 const CheckboxGroup = React.forwardRef<
-  React.ElementRef<typeof CheckboxGroupPrimitive>,
+  React.ComponentRef<typeof CheckboxGroupPrimitive>,
   CheckboxGroupProps
 >(({ className, ...props }, ref) => (
   <CheckboxGroupPrimitive

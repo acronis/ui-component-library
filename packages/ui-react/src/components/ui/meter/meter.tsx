@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils';
 // renders the formatted number (drive locale/units through the Root's `format` /
 // `locale`).
 const Meter = React.forwardRef<
-  React.ElementRef<typeof MeterPrimitive.Root>,
+  React.ComponentRef<typeof MeterPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof MeterPrimitive.Root>
 >(({ className, ...props }, ref) => (
   <MeterPrimitive.Root
@@ -27,7 +27,7 @@ const Meter = React.forwardRef<
 Meter.displayName = 'Meter';
 
 const MeterLabel = React.forwardRef<
-  React.ElementRef<typeof MeterPrimitive.Label>,
+  React.ComponentRef<typeof MeterPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof MeterPrimitive.Label>
 >(({ className, ...props }, ref) => (
   <MeterPrimitive.Label
@@ -39,7 +39,7 @@ const MeterLabel = React.forwardRef<
 MeterLabel.displayName = 'MeterLabel';
 
 const MeterValue = React.forwardRef<
-  React.ElementRef<typeof MeterPrimitive.Value>,
+  React.ComponentRef<typeof MeterPrimitive.Value>,
   React.ComponentPropsWithoutRef<typeof MeterPrimitive.Value>
 >(({ className, ...props }, ref) => (
   <MeterPrimitive.Value
@@ -51,7 +51,7 @@ const MeterValue = React.forwardRef<
 MeterValue.displayName = 'MeterValue';
 
 const MeterTrack = React.forwardRef<
-  React.ElementRef<typeof MeterPrimitive.Track>,
+  React.ComponentRef<typeof MeterPrimitive.Track>,
   React.ComponentPropsWithoutRef<typeof MeterPrimitive.Track>
 >(({ className, children, ...props }, ref) => (
   <MeterPrimitive.Track
@@ -68,7 +68,7 @@ const MeterTrack = React.forwardRef<
 MeterTrack.displayName = 'MeterTrack';
 
 const MeterIndicator = React.forwardRef<
-  React.ElementRef<typeof MeterPrimitive.Indicator>,
+  React.ComponentRef<typeof MeterPrimitive.Indicator>,
   React.ComponentPropsWithoutRef<typeof MeterPrimitive.Indicator>
 >(({ className, ...props }, ref) => (
   <MeterPrimitive.Indicator

@@ -16,7 +16,7 @@ const NumberField = NumberFieldPrimitive.Root;
 // The bordered box wrapping the steppers + input. Mirrors the InputBox field box
 // (height / radius / border / bg / hover / focus-within ring / disabled / invalid).
 const NumberFieldGroup = React.forwardRef<
-  React.ElementRef<typeof NumberFieldPrimitive.Group>,
+  React.ComponentRef<typeof NumberFieldPrimitive.Group>,
   React.ComponentPropsWithoutRef<typeof NumberFieldPrimitive.Group>
 >(({ className, ...props }, ref) => (
   <NumberFieldPrimitive.Group
@@ -35,7 +35,7 @@ const NumberFieldGroup = React.forwardRef<
 NumberFieldGroup.displayName = 'NumberFieldGroup';
 
 const NumberFieldInput = React.forwardRef<
-  React.ElementRef<typeof NumberFieldPrimitive.Input>,
+  React.ComponentRef<typeof NumberFieldPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof NumberFieldPrimitive.Input>
 >(({ className, ...props }, ref) => (
   <NumberFieldPrimitive.Input
@@ -53,7 +53,7 @@ const stepperClassName =
   'flex w-9 shrink-0 cursor-pointer items-center justify-center text-[var(--ui-text-on-surface-secondary)] transition-colors not-disabled:hover:bg-[var(--ui-background-surface-hover)] not-disabled:hover:text-[var(--ui-text-on-surface-primary)] disabled:cursor-not-allowed disabled:text-[var(--ui-text-on-surface-disabled)]';
 
 const NumberFieldDecrement = React.forwardRef<
-  React.ElementRef<typeof NumberFieldPrimitive.Decrement>,
+  React.ComponentRef<typeof NumberFieldPrimitive.Decrement>,
   React.ComponentPropsWithoutRef<typeof NumberFieldPrimitive.Decrement>
 >(({ className, children, ...props }, ref) => (
   <NumberFieldPrimitive.Decrement
@@ -67,7 +67,7 @@ const NumberFieldDecrement = React.forwardRef<
 NumberFieldDecrement.displayName = 'NumberFieldDecrement';
 
 const NumberFieldIncrement = React.forwardRef<
-  React.ElementRef<typeof NumberFieldPrimitive.Increment>,
+  React.ComponentRef<typeof NumberFieldPrimitive.Increment>,
   React.ComponentPropsWithoutRef<typeof NumberFieldPrimitive.Increment>
 >(({ className, children, ...props }, ref) => (
   <NumberFieldPrimitive.Increment

@@ -60,7 +60,7 @@ export interface CheckboxProps extends React.ComponentPropsWithoutRef<
 }
 
 const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
 >(({ className, label, description, indeterminate, ...props }, ref) => {
   const reactId = React.useId();

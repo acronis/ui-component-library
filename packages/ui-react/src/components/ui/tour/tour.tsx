@@ -207,7 +207,7 @@ TourBeacon.displayName = 'TourBeacon';
  * token would be a cleaner long-term home (see the header token-gap note).
  */
 const TourScrim = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Backdrop>,
+  React.ComponentRef<typeof PopoverPrimitive.Backdrop>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Backdrop>
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Backdrop
@@ -247,7 +247,7 @@ export interface TourContentProps
 }
 
 const TourContent = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Popup>,
+  React.ComponentRef<typeof PopoverPrimitive.Popup>,
   TourContentProps
 >(
   (
@@ -309,7 +309,7 @@ const TourHeader = React.forwardRef<
 TourHeader.displayName = 'TourHeader';
 
 const TourTitle = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Title>,
+  React.ComponentRef<typeof PopoverPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Title
@@ -321,7 +321,7 @@ const TourTitle = React.forwardRef<
 TourTitle.displayName = 'TourTitle';
 
 const TourDescription = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Description>,
+  React.ComponentRef<typeof PopoverPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Description
@@ -447,7 +447,7 @@ TourSkipButton.displayName = 'TourSkipButton';
 
 /** Close (X) control in the coach-mark header (Base UI `Popover.Close`). */
 const TourClose = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Close>,
+  React.ComponentRef<typeof PopoverPrimitive.Close>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Close>
 >(({ className, children, ...props }, ref) => (
   <PopoverPrimitive.Close
