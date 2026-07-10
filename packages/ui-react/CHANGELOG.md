@@ -1,5 +1,16 @@
 # @spec-lab/ui-react
 
+## 1.2.1
+
+### Patch Changes
+
+- [#6](https://github.com/constructor-lab/facet/pull/6) [`d1a26db`](https://github.com/constructor-lab/facet/commit/d1a26db8403321c61f6725a6a70ed04076e5ede3) Thanks [@leonid](https://github.com/leonid)! - Fix a one-frame flash when a `Sheet` closes. The overlay faded over `duration-200`
+  while the panel slid over `duration-300`; Base UI keeps the dialog mounted for the
+  longer panel exit, so the backdrop finished early and reverted to its resting
+  opacity — flashing fully opaque for the remaining ~100ms. The overlay now uses
+  `duration-300` to match the panel. (Dialog already used matched durations and
+  Drawer uses Base UI transitions, so neither was affected.)
+
 ## 1.2.0
 
 ### Minor Changes
