@@ -64,7 +64,11 @@ const SheetOverlay = React.forwardRef<
   <DialogPrimitive.Backdrop
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-[var(--ui-background-backdrop-screen)] duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
+      // duration-300 matches the panel slide (sheetVariants). If the backdrop
+      // fade finishes earlier than the panel, Base UI keeps the dialog mounted
+      // for the longer panel exit while the backdrop reverts to its resting
+      // opacity — a one-frame flash on close. Keep the two exits the same length.
+      'fixed inset-0 z-50 bg-[var(--ui-background-backdrop-screen)] duration-300 data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0',
       className
     )}
     {...props}
