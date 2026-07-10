@@ -51,7 +51,7 @@ export interface MenuContentProps
 }
 
 const MenuContent = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.Popup>,
+  React.ComponentRef<typeof MenuPrimitive.Popup>,
   MenuContentProps
 >(
   (
@@ -96,7 +96,7 @@ const sectionClassName =
   'flex flex-col gap-[var(--ui-button-menu-dropdown-section-list-gap)] border-t [border-top-width:var(--ui-button-menu-dropdown-section-container-border-width)] border-[color:var(--ui-button-menu-dropdown-section-container-border-color)] px-[var(--ui-button-menu-dropdown-section-container-padding-x)] py-[var(--ui-button-menu-dropdown-section-container-padding-y)] first:border-t-0';
 
 const MenuSection = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.Group>,
+  React.ComponentRef<typeof MenuPrimitive.Group>,
   React.ComponentPropsWithoutRef<typeof MenuPrimitive.Group>
 >(({ className, ...props }, ref) => (
   <MenuPrimitive.Group
@@ -126,7 +126,7 @@ export interface MenuItemProps
 }
 
 const MenuItem = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.Item>,
+  React.ComponentRef<typeof MenuPrimitive.Item>,
   MenuItemProps
 >(({ className, icon, shortcut, cascade, inset, children, ...props }, ref) => (
   <MenuPrimitive.Item
@@ -166,7 +166,7 @@ export interface MenuSubmenuTriggerProps
 }
 
 const MenuSubmenuTrigger = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.SubmenuTrigger>,
+  React.ComponentRef<typeof MenuPrimitive.SubmenuTrigger>,
   MenuSubmenuTriggerProps
 >(({ className, icon, inset, children, ...props }, ref) => (
   <MenuPrimitive.SubmenuTrigger
@@ -194,7 +194,7 @@ MenuSubmenuTrigger.displayName = 'MenuSubmenuTrigger';
 // A submenu's panel is a nested Menu.Popup — Base UI positions it to the
 // `inline-end` side automatically — so it reuses the root content wrapper.
 const MenuSubmenuContent = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.Popup>,
+  React.ComponentRef<typeof MenuPrimitive.Popup>,
   MenuContentProps
 >((props, ref) => <MenuContent ref={ref} {...props} />);
 MenuSubmenuContent.displayName = 'MenuSubmenuContent';
@@ -203,7 +203,7 @@ const indicatorItemClassName =
   'relative flex min-h-[var(--ui-button-menu-dropdown-item-container-height)] cursor-default select-none items-center gap-[var(--ui-button-menu-dropdown-item-container-gap)] whitespace-nowrap ps-8 pe-[var(--ui-button-menu-dropdown-item-container-padding-x)] py-[var(--ui-button-menu-dropdown-item-container-padding-y)] text-sm font-semibold leading-6 text-[var(--ui-button-menu-dropdown-item-label-color)] outline-none transition-colors bg-[var(--ui-button-menu-dropdown-item-container-color-idle)] data-[highlighted]:bg-[var(--ui-button-menu-dropdown-item-container-color-hover)] active:bg-[var(--ui-button-menu-dropdown-item-container-color-active)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50';
 
 const MenuCheckboxItem = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.CheckboxItem>,
+  React.ComponentRef<typeof MenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof MenuPrimitive.CheckboxItem>
 >(({ className, children, ...props }, ref) => (
   <MenuPrimitive.CheckboxItem
@@ -222,7 +222,7 @@ const MenuCheckboxItem = React.forwardRef<
 MenuCheckboxItem.displayName = 'MenuCheckboxItem';
 
 const MenuRadioItem = React.forwardRef<
-  React.ElementRef<typeof MenuPrimitive.RadioItem>,
+  React.ComponentRef<typeof MenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof MenuPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
   <MenuPrimitive.RadioItem

@@ -16,7 +16,7 @@ const Tooltip = TooltipPrimitive.Root;
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
 const TooltipContent = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitive.Popup>,
+  React.ComponentRef<typeof TooltipPrimitive.Popup>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Popup> & {
     sideOffset?: number;
     side?: TooltipPrimitive.Positioner.Props['side'];

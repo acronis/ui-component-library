@@ -74,7 +74,7 @@ export interface AutocompleteContentProps
 }
 
 const AutocompleteContent = React.forwardRef<
-  React.ElementRef<typeof AutocompletePrimitive.Popup>,
+  React.ComponentRef<typeof AutocompletePrimitive.Popup>,
   AutocompleteContentProps
 >(
   (
@@ -105,7 +105,7 @@ const AutocompleteContent = React.forwardRef<
 AutocompleteContent.displayName = 'AutocompleteContent';
 
 const AutocompleteList = React.forwardRef<
-  React.ElementRef<typeof AutocompletePrimitive.List>,
+  React.ComponentRef<typeof AutocompletePrimitive.List>,
   React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.List>
 >(({ className, ...props }, ref) => (
   <AutocompletePrimitive.List
@@ -117,7 +117,7 @@ const AutocompleteList = React.forwardRef<
 AutocompleteList.displayName = 'AutocompleteList';
 
 const AutocompleteItem = React.forwardRef<
-  React.ElementRef<typeof AutocompletePrimitive.Item>,
+  React.ComponentRef<typeof AutocompletePrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.Item>
 >(({ className, children, ...props }, ref) => (
   <AutocompletePrimitive.Item
@@ -136,7 +136,7 @@ const AutocompleteItem = React.forwardRef<
 AutocompleteItem.displayName = 'AutocompleteItem';
 
 const AutocompleteEmpty = React.forwardRef<
-  React.ElementRef<typeof AutocompletePrimitive.Empty>,
+  React.ComponentRef<typeof AutocompletePrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.Empty>
 >(({ className, ...props }, ref) => (
   <AutocompletePrimitive.Empty
@@ -153,7 +153,7 @@ AutocompleteEmpty.displayName = 'AutocompleteEmpty';
 const AutocompleteGroup = AutocompletePrimitive.Group;
 
 const AutocompleteGroupLabel = React.forwardRef<
-  React.ElementRef<typeof AutocompletePrimitive.GroupLabel>,
+  React.ComponentRef<typeof AutocompletePrimitive.GroupLabel>,
   React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.GroupLabel>
 >(({ className, ...props }, ref) => (
   <AutocompletePrimitive.GroupLabel

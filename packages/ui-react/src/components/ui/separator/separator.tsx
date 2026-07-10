@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 // (--ui-border-on-surface-border), replacing the legacy `bg-primary/10` hack.
 
 const Separator = React.forwardRef<
-  React.ElementRef<typeof SeparatorPrimitive>,
+  React.ComponentRef<typeof SeparatorPrimitive>,
   React.ComponentPropsWithoutRef<typeof SeparatorPrimitive>
 >(({ className, orientation = 'horizontal', ...props }, ref) => (
   <SeparatorPrimitive

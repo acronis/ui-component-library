@@ -92,7 +92,7 @@ export interface ComboboxContentProps
 }
 
 const ComboboxContent = React.forwardRef<
-  React.ElementRef<typeof ComboboxPrimitive.Popup>,
+  React.ComponentRef<typeof ComboboxPrimitive.Popup>,
   ComboboxContentProps
 >(
   (
@@ -123,7 +123,7 @@ const ComboboxContent = React.forwardRef<
 ComboboxContent.displayName = 'ComboboxContent';
 
 const ComboboxList = React.forwardRef<
-  React.ElementRef<typeof ComboboxPrimitive.List>,
+  React.ComponentRef<typeof ComboboxPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.List>
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.List
@@ -135,7 +135,7 @@ const ComboboxList = React.forwardRef<
 ComboboxList.displayName = 'ComboboxList';
 
 const ComboboxItem = React.forwardRef<
-  React.ElementRef<typeof ComboboxPrimitive.Item>,
+  React.ComponentRef<typeof ComboboxPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
   <ComboboxPrimitive.Item
@@ -158,7 +158,7 @@ const ComboboxItem = React.forwardRef<
 ComboboxItem.displayName = 'ComboboxItem';
 
 const ComboboxEmpty = React.forwardRef<
-  React.ElementRef<typeof ComboboxPrimitive.Empty>,
+  React.ComponentRef<typeof ComboboxPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Empty>
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.Empty
@@ -175,7 +175,7 @@ ComboboxEmpty.displayName = 'ComboboxEmpty';
 const ComboboxGroup = ComboboxPrimitive.Group;
 
 const ComboboxGroupLabel = React.forwardRef<
-  React.ElementRef<typeof ComboboxPrimitive.GroupLabel>,
+  React.ComponentRef<typeof ComboboxPrimitive.GroupLabel>,
   React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.GroupLabel>
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.GroupLabel

@@ -108,7 +108,7 @@ const DrawerClose = DrawerPrimitive.Close;
 const DrawerProvider = DrawerPrimitive.Provider;
 
 const DrawerBackdrop = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Backdrop>,
+  React.ComponentRef<typeof DrawerPrimitive.Backdrop>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Backdrop>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Backdrop
@@ -130,7 +130,7 @@ export interface DrawerViewportProps
 }
 
 const DrawerViewport = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Viewport>,
+  React.ComponentRef<typeof DrawerPrimitive.Viewport>,
   DrawerViewportProps
 >(({ className, side, ...props }, ref) => {
   const contextSide = React.useContext(DrawerSideContext);
@@ -152,7 +152,7 @@ export interface DrawerPopupProps
 }
 
 const DrawerPopup = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Popup>,
+  React.ComponentRef<typeof DrawerPrimitive.Popup>,
   DrawerPopupProps
 >(({ className, side, ...props }, ref) => {
   const contextSide = React.useContext(DrawerSideContext);
@@ -188,7 +188,7 @@ export interface DrawerContentProps extends DrawerPopupProps {
  * header / body / footer parts as children.
  */
 const DrawerContent = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Popup>,
+  React.ComponentRef<typeof DrawerPrimitive.Popup>,
   DrawerContentProps
 >(({ className, children, side, portal = true, portalContainer, keepMounted, ...props }, ref) => {
   const contextSide = React.useContext(DrawerSideContext);
@@ -250,7 +250,7 @@ const DrawerBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 DrawerBody.displayName = 'DrawerBody';
 
 const DrawerTitle = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Title>,
+  React.ComponentRef<typeof DrawerPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
@@ -262,7 +262,7 @@ const DrawerTitle = React.forwardRef<
 DrawerTitle.displayName = 'DrawerTitle';
 
 const DrawerDescription = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Description>,
+  React.ComponentRef<typeof DrawerPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
@@ -276,7 +276,7 @@ DrawerDescription.displayName = 'DrawerDescription';
 // Base UI's swipe-to-open gesture area, styled as a visible grab handle. Renders
 // a centered bar tinted with `border-border`.
 const DrawerSwipeArea = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.SwipeArea>,
+  React.ComponentRef<typeof DrawerPrimitive.SwipeArea>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.SwipeArea>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.SwipeArea
@@ -288,7 +288,7 @@ const DrawerSwipeArea = React.forwardRef<
 DrawerSwipeArea.displayName = 'DrawerSwipeArea';
 
 const DrawerCloseButton = React.forwardRef<
-  React.ElementRef<typeof DrawerPrimitive.Close>,
+  React.ComponentRef<typeof DrawerPrimitive.Close>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Close>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Close

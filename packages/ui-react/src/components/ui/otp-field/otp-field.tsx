@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 // slots inside it. No `--ui-otp-*` tier: each slot reuses the `--ui-input-text-*`
 // box tokens (matching InputBox) with a focus ring on the focused slot.
 const OTPField = React.forwardRef<
-  React.ElementRef<typeof OTPFieldPrimitive.Root>,
+  React.ComponentRef<typeof OTPFieldPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof OTPFieldPrimitive.Root>
 >(({ className, ...props }, ref) => (
   <OTPFieldPrimitive.Root
@@ -24,7 +24,7 @@ const OTPField = React.forwardRef<
 OTPField.displayName = 'OTPField';
 
 const OTPFieldInput = React.forwardRef<
-  React.ElementRef<typeof OTPFieldPrimitive.Input>,
+  React.ComponentRef<typeof OTPFieldPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof OTPFieldPrimitive.Input>
 >(({ className, ...props }, ref) => (
   <OTPFieldPrimitive.Input
@@ -42,7 +42,7 @@ const OTPFieldInput = React.forwardRef<
 OTPFieldInput.displayName = 'OTPFieldInput';
 
 const OTPFieldSeparator = React.forwardRef<
-  React.ElementRef<typeof OTPFieldPrimitive.Separator>,
+  React.ComponentRef<typeof OTPFieldPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof OTPFieldPrimitive.Separator>
 >(({ className, children, ...props }, ref) => (
   <OTPFieldPrimitive.Separator

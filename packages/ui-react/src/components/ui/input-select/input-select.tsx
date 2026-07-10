@@ -53,7 +53,7 @@ const InputSelectField = React.forwardRef<
 InputSelectField.displayName = 'InputSelectField';
 
 const InputSelectLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
+  React.ComponentRef<typeof SelectPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> & {
     /** Appends a required `*` after the label text. */
     required?: boolean;
@@ -81,7 +81,7 @@ const InputSelectLabel = React.forwardRef<
 InputSelectLabel.displayName = 'InputSelectLabel';
 
 const InputSelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
@@ -110,7 +110,7 @@ const InputSelectTrigger = React.forwardRef<
 InputSelectTrigger.displayName = 'InputSelectTrigger';
 
 const InputSelectValue = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Value>,
+  React.ComponentRef<typeof SelectPrimitive.Value>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Value>
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Value
@@ -126,7 +126,7 @@ const InputSelectValue = React.forwardRef<
 InputSelectValue.displayName = 'InputSelectValue';
 
 const InputSelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Popup>,
+  React.ComponentRef<typeof SelectPrimitive.Popup>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Popup> & {
     sideOffset?: number;
     align?: SelectPrimitive.Positioner.Props['align'];
@@ -203,7 +203,7 @@ InputSelectSearch.displayName = 'InputSelectSearch';
 
 /** A section (group) of items with an optional header. Divided by a top border. */
 const InputSelectSection = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Group>,
+  React.ComponentRef<typeof SelectPrimitive.Group>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Group>
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Group
@@ -218,7 +218,7 @@ const InputSelectSection = React.forwardRef<
 InputSelectSection.displayName = 'InputSelectSection';
 
 const InputSelectSectionLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.GroupLabel>,
+  React.ComponentRef<typeof SelectPrimitive.GroupLabel>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.GroupLabel>
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.GroupLabel
@@ -233,7 +233,7 @@ const InputSelectSectionLabel = React.forwardRef<
 InputSelectSectionLabel.displayName = 'InputSelectSectionLabel';
 
 const InputSelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => {
   const multiple = React.useContext(InputSelectModeContext);

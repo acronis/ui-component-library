@@ -49,7 +49,7 @@ export interface AvatarProps
  * `AvatarImage` and/or `AvatarFallback` inside; stack several in `AvatarGroup`.
  */
 const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
+  React.ComponentRef<typeof AvatarPrimitive.Root>,
   AvatarProps
 >(({ className, color, ...props }, ref) => (
   <AvatarPrimitive.Root
@@ -66,7 +66,7 @@ export type AvatarImageProps = React.ComponentPropsWithoutRef<
 
 /** The avatar image; hidden by Base UI until it loads, revealing the fallback. */
 const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
+  React.ComponentRef<typeof AvatarPrimitive.Image>,
   AvatarImageProps
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image
@@ -83,7 +83,7 @@ export type AvatarFallbackProps = React.ComponentPropsWithoutRef<
 
 /** Shown when there's no image (or it fails) — typically the user's initials. */
 const AvatarFallback = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Fallback>,
+  React.ComponentRef<typeof AvatarPrimitive.Fallback>,
   AvatarFallbackProps
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Fallback
