@@ -1,5 +1,14 @@
 # @spec-lab/ui-react
 
+## 1.2.3
+
+### Patch Changes
+
+- [#17](https://github.com/constructor-lab/facet/pull/17) [`f6fb07b`](https://github.com/constructor-lab/facet/commit/f6fb07b2d0e77c9230c40f48306adff2abb644c6) Thanks [@leonid](https://github.com/leonid)! - Bump `react-resizable-panels` 4.11.2 → 4.12.1 (the `Resizable` component's
+  runtime dependency). Part of a broader dev/tooling dependency refresh (Storybook
+  10.5, Playwright 1.61, happy-dom, vite-plugin-dts, fumadocs, next, and others)
+  that doesn't affect the published output.
+
 ## 1.2.2
 
 ### Patch Changes
