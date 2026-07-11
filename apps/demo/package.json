@@ -49,7 +49,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-syntax-highlighter": "15.5.13",
-    "@vitejs/plugin-react": "5.1.1",
+    "@vitejs/plugin-react": "6.0.3",
     "postcss": "8.5.16",
     "sass": "1.101.0",
     "tailwindcss": "catalog:",
