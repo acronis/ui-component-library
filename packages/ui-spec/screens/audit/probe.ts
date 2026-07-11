@@ -149,7 +149,7 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
 
   const nodes: SnapshotNode[] = [];
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
-  let el = walker.currentNode as Element | null;
+  let el: Element | null;
   // The TreeWalker starts on `root` itself; iterate over descendants.
   for (
     el = walker.nextNode() as Element | null;

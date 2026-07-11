@@ -50,6 +50,11 @@ export default tseslint.config(
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
+      // `preserve-caught-error` is new in ESLint 10's recommended set. Adopting it
+      // (attaching `{ cause }` to re-thrown errors) needs the ES2022 Error-cause
+      // lib in some workspaces' tsconfig — a separate follow-up. Keep it off so
+      // this stays a pure toolchain upgrade with no enforced-behavior change.
+      'preserve-caught-error': 'off',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
@@ -92,7 +97,13 @@ export default tseslint.config(
     },
     rules: {
       ...pluginReact.configs.recommended.rules,
-      ...pluginReactHooks.configs.recommended.rules,
+      // The two classic rules, listed explicitly. eslint-plugin-react-hooks 7's
+      // `recommended` config also enables the new React Compiler rules
+      // (refs-during-render, set-state-in-effect, "Compilation Skipped", …);
+      // adopting those + fixing the flagged code is a separate follow-up, so keep
+      // enforcement identical to the react-hooks 5 baseline here.
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
     },
