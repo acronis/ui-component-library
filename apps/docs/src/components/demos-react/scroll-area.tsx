@@ -12,7 +12,14 @@ const rowStyle: React.CSSProperties = {
 export function ScrollAreaDemo() {
   return (
     <ScrollArea className="h-72 w-64 rounded-md border border-border">
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: 16 }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
+          padding: 16,
+        }}
+      >
         {Array.from({ length: 20 }, (_, i) => (
           <div key={i} style={rowStyle}>
             Item {i + 1}

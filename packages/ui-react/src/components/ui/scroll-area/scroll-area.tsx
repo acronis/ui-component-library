@@ -39,8 +39,9 @@ const ScrollBar = React.forwardRef<HTMLDivElement, ScrollBarProps>(
 );
 ScrollBar.displayName = 'ScrollBar';
 
-export interface ScrollAreaProps
-  extends React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> {
+export interface ScrollAreaProps extends React.ComponentPropsWithoutRef<
+  typeof ScrollAreaPrimitive.Root
+> {
   /** Which scrollbar(s) to render. @default 'vertical' */
   orientation?: 'vertical' | 'horizontal' | 'both';
 }

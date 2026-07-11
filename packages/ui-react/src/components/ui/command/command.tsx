@@ -46,11 +46,10 @@ interface BaseGroup {
   items: CommandOption[];
 }
 
-export interface CommandProps
-  extends Omit<
-    React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Root<string>>,
-    'items' | 'open' | 'defaultOpen' | 'children' | 'onValueChange'
-  > {
+export interface CommandProps extends Omit<
+  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Root<string>>,
+  'items' | 'open' | 'defaultOpen' | 'children' | 'onValueChange'
+> {
   /** The commands, in groups. A group with no `heading` renders ungrouped. */
   commands?: CommandGroup[];
   /** Runs when a command is chosen (click or Enter on the highlighted row). */
@@ -145,7 +144,9 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>(
                       )}
                     >
                       {item.icon}
-                      <span className="min-w-0 flex-1 truncate">{item.label}</span>
+                      <span className="min-w-0 flex-1 truncate">
+                        {item.label}
+                      </span>
                       {item.shortcut != null && item.shortcut !== '' && (
                         <span
                           data-slot="command-shortcut"
@@ -176,8 +177,10 @@ Command.displayName = 'Command';
 
 type DialogRootProps = React.ComponentPropsWithoutRef<typeof Dialog>;
 
-export interface CommandDialogProps
-  extends Pick<CommandProps, 'commands' | 'onSelect' | 'placeholder' | 'emptyMessage'> {
+export interface CommandDialogProps extends Pick<
+  CommandProps,
+  'commands' | 'onSelect' | 'placeholder' | 'emptyMessage'
+> {
   /** Whether the dialog is open (controlled). */
   open?: DialogRootProps['open'];
   onOpenChange?: DialogRootProps['onOpenChange'];
@@ -185,7 +188,9 @@ export interface CommandDialogProps
   /** Accessible label for the dialog. */
   title?: string;
   /** Portal container (e.g. a shadow-root mount for isolated-style previews). */
-  portalContainer?: React.ComponentProps<typeof DialogContent>['portalContainer'];
+  portalContainer?: React.ComponentProps<
+    typeof DialogContent
+  >['portalContainer'];
 }
 
 function CommandDialog({

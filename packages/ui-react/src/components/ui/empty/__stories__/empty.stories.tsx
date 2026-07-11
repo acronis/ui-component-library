@@ -53,7 +53,9 @@ export const WithIcon: Story = {
       </EmptyIcon>
       <EmptyHeader>
         <EmptyTitle>No messages</EmptyTitle>
-        <EmptyDescription>You don&apos;t have any messages yet.</EmptyDescription>
+        <EmptyDescription>
+          You don&apos;t have any messages yet.
+        </EmptyDescription>
       </EmptyHeader>
     </Empty>
   ),

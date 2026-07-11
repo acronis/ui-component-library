@@ -7,7 +7,11 @@ import {
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
 } from '@spec-lab/ui-react';
-import { FileIcon, FolderHouseIcon, FolderIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  FileIcon,
+  FolderHouseIcon,
+  FolderIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 export function BreadcrumbIconsEllipsis() {
   return (
     <Breadcrumb>

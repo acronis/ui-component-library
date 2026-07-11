@@ -30,5 +30,7 @@ const steps = [
 ];
 
 for (const [script, args] of steps) {
-  execFileSync('node', [path.join(here, script), ...args], { stdio: 'inherit' });
+  execFileSync('node', [path.join(here, script), ...args], {
+    stdio: 'inherit',
+  });
 }

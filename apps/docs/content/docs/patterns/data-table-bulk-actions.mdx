@@ -3,8 +3,8 @@ title: Data table bulk actions
 description: Select rows in a data table and act on the selection via a contextual bulk-action bar.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { DataTableBulkActionsDemo } from "@/components/demos-react/patterns/data-table-bulk-actions";
+import { DemoReact } from '@/components/DemoReact';
+import { DataTableBulkActionsDemo } from '@/components/demos-react/patterns/data-table-bulk-actions';
 
 The approved way to offer row selection with bulk actions. A checkbox selection
 column drives a contextual bar that replaces the toolbar while rows are selected,
@@ -12,7 +12,7 @@ showing the count and the available actions (**Export**, **Delete**, **Clear**).
 
 Because the bulk bar and the row checkboxes must read the **same** selection
 state, this composes the **`Table`** primitives + **`DataTablePagination`** over a
-single `useReactTable` instance — *not* the self-contained **`DataTable`**, which
+single `useReactTable` instance — _not_ the self-contained **`DataTable`**, which
 owns its own internal state and can't share selection with external chrome.
 
 <DemoReact>

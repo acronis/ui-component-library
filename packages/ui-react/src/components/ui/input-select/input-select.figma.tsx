@@ -38,7 +38,14 @@ figma.connect(
       // interaction pseudo-state, not a prop.
       disabled: figma.enum('state', { disabled: true }),
     },
-    example: ({ label, required, placeholder, description, error, disabled }) => (
+    example: ({
+      label,
+      required,
+      placeholder,
+      description,
+      error,
+      disabled,
+    }) => (
       <InputSelect disabled={disabled}>
         <InputSelectField>
           <InputSelectLabel required={required}>{label}</InputSelectLabel>

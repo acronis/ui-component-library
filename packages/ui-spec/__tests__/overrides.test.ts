@@ -72,23 +72,36 @@ describe('matchesOverride', () => {
 
   it('does not match a different rule', () => {
     expect(
-      matchesOverride(base, { ruleId: 'accessibility/contrast', screen: 'devices', region: 'table' })
+      matchesOverride(base, {
+        ruleId: 'accessibility/contrast',
+        screen: 'devices',
+        region: 'table',
+      })
     ).toBe(false);
   });
 
   it('does not match when a scope selector differs', () => {
     expect(
-      matchesOverride(base, { ruleId: 'spacing/control-height-parity', screen: 'devices', region: 'header' })
+      matchesOverride(base, {
+        ruleId: 'spacing/control-height-parity',
+        screen: 'devices',
+        region: 'header',
+      })
     ).toBe(false);
   });
 
   it('matches a component scope case/style-insensitively', () => {
     const o: KitOverride = { ...base, scope: { component: 'ScrollArea' } };
-    expect(matchesOverride(o, { ruleId: base.rule, component: 'scroll-area' })).toBe(true);
+    expect(
+      matchesOverride(o, { ruleId: base.rule, component: 'scroll-area' })
+    ).toBe(true);
   });
 
   it('matches a file fragment for kit-lint findings', () => {
-    const o: KitOverride = { ...base, scope: { file: 'scroll-area/scroll-area.tsx' } };
+    const o: KitOverride = {
+      ...base,
+      scope: { file: 'scroll-area/scroll-area.tsx' },
+    };
     expect(
       matchesOverride(o, {
         ruleId: base.rule,
@@ -98,7 +111,9 @@ describe('matchesOverride', () => {
   });
 
   it('never matches an empty scope', () => {
-    expect(matchesOverride({ ...base, scope: {} }, { ruleId: base.rule })).toBe(false);
+    expect(matchesOverride({ ...base, scope: {} }, { ruleId: base.rule })).toBe(
+      false
+    );
   });
 
   it('does not suppress once expired', () => {
@@ -112,8 +127,16 @@ describe('matchesOverride', () => {
 describe('applyOverrides / isOverridden', () => {
   type F = { ruleId: string; screen: string; region: string };
   const findings: F[] = [
-    { ruleId: 'spacing/control-height-parity', screen: 'devices', region: 'table' },
-    { ruleId: 'spacing/control-height-parity', screen: 'devices', region: 'header' },
+    {
+      ruleId: 'spacing/control-height-parity',
+      screen: 'devices',
+      region: 'table',
+    },
+    {
+      ruleId: 'spacing/control-height-parity',
+      screen: 'devices',
+      region: 'header',
+    },
   ];
 
   it('splits suppressed from active', () => {

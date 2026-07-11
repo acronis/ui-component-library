@@ -32,7 +32,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TIERS_DIR = resolve(__dirname, '../../packages/tokens/tiers');
 
-const OLD_DEFAULT = 'acronis';   // legacy default brand key
+const OLD_DEFAULT = 'acronis'; // legacy default brand key
 const DEFAULT_BRAND = 'default'; // new canonical default brand key
 const REFERENCE_BRAND = 'deep-sky-itkontoret'; // non-default brand used as diff template
 
@@ -63,7 +63,8 @@ function writeTier(name, data) {
 
 function getBrandsFromPrimitives(primitives) {
   const branding = primitives?.palette?.branding;
-  if (!branding) throw new Error('primitives.json has no palette.branding section');
+  if (!branding)
+    throw new Error('primitives.json has no palette.branding section');
   return Object.keys(branding);
 }
 
@@ -121,11 +122,21 @@ function brandingRef(brand, path, brandPaths) {
     return null;
   }
   const token = path[3];
-  const sidebar = { primary: 'idle', 'primary-hover': 'hover', 'primary-active': 'active', 'primary-disabled': 'disabled' };
-  const button  = { secondary: 'idle', 'secondary-hover': 'hover', 'secondary-active': 'active', 'secondary-disabled': 'disabled' };
+  const sidebar = {
+    primary: 'idle',
+    'primary-hover': 'hover',
+    'primary-active': 'active',
+    'primary-disabled': 'disabled',
+  };
+  const button = {
+    secondary: 'idle',
+    'secondary-hover': 'hover',
+    'secondary-active': 'active',
+    'secondary-disabled': 'disabled',
+  };
 
   const isSidebar = Object.hasOwn(sidebar, token);
-  const isButton  = Object.hasOwn(button, token);
+  const isButton = Object.hasOwn(button, token);
   if (!isSidebar && !isButton) return null; // e.g. brand.inverse.*, brand.status.*
 
   const paths = brandPaths[brand];
@@ -175,7 +186,12 @@ function strip(node, stripRefCopies = false) {
       // For the components tier: also strip entries copied from the reference
       // brand (wrongly propagated by a previous script run). Keep the reference
       // brand itself; only strip OTHER brands whose value matches it.
-      if (stripRefCopies && brand !== REFERENCE_BRAND && ref !== undefined && eq(node.values[brand], ref)) {
+      if (
+        stripRefCopies &&
+        brand !== REFERENCE_BRAND &&
+        ref !== undefined &&
+        eq(node.values[brand], ref)
+      ) {
         delete node.values[brand];
         removed++;
       }
@@ -282,25 +298,39 @@ const allBrands = getBrandsFromPrimitives(primitives);
 const brandPaths = buildBrandPaths(primitives.palette.branding);
 
 // All non-default brands that may need entries
-const otherBrands = allBrands.filter((b) => b !== OLD_DEFAULT && b !== DEFAULT_BRAND && b !== REFERENCE_BRAND);
+const otherBrands = allBrands.filter(
+  (b) => b !== OLD_DEFAULT && b !== DEFAULT_BRAND && b !== REFERENCE_BRAND
+);
 // Brands needing entries = reference + all others (reference is the grayscale template)
 const brandsToWire = [REFERENCE_BRAND, ...otherBrands];
 
-const skipped = allBrands.filter((b) => b !== OLD_DEFAULT && b !== DEFAULT_BRAND && !brandPaths[b]);
+const skipped = allBrands.filter(
+  (b) => b !== OLD_DEFAULT && b !== DEFAULT_BRAND && !brandPaths[b]
+);
 if (skipped.length) {
-  console.log(`Brands with non-standard palette (sidebar/button tokens will use default): ${skipped.join(', ')}`);
+  console.log(
+    `Brands with non-standard palette (sidebar/button tokens will use default): ${skipped.join(', ')}`
+  );
 }
 
 for (const tierName of ['semantics', 'components']) {
   const tier = readTier(tierName);
 
   rename(tier);
-  const fixed    = fixInvalidRefs(tier, primitives);
+  const fixed = fixInvalidRefs(tier, primitives);
   const stripped = strip(tier, tierName === 'components');
-  const wired    = wire(tier, brandsToWire, brandPaths, [], tierName !== 'components');
+  const wired = wire(
+    tier,
+    brandsToWire,
+    brandPaths,
+    [],
+    tierName !== 'components'
+  );
 
   writeTier(tierName, tier);
-  console.log(`${tierName}.json  fixed ${fixed}, stripped ${stripped}, wired ${wired} value entries`);
+  console.log(
+    `${tierName}.json  fixed ${fixed}, stripped ${stripped}, wired ${wired} value entries`
+  );
 }
 
 console.log('\nNext:');

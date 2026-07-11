@@ -7,7 +7,12 @@ import {
   SidebarPrimarySection,
   Tag,
 } from '@spec-lab/ui-react';
-import { CalendarIcon, FileTextIcon, FolderHouseIcon, InboxIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CalendarIcon,
+  FileTextIcon,
+  FolderHouseIcon,
+  InboxIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 export function SidebarWithBadges() {
   return (

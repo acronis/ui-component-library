@@ -22,7 +22,10 @@ const meta = {
     onOpenChange: {
       control: false,
       description: 'Fires when the popover opens or closes.',
-      table: { type: { summary: '(open, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(open, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     children: {
       control: false,
@@ -38,7 +41,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <Popover defaultOpen>
-      <PopoverTrigger render={<Button variant="secondary">Open popover</Button>} />
+      <PopoverTrigger
+        render={<Button variant="secondary">Open popover</Button>}
+      />
       <PopoverContent>
         <div className="grid gap-2">
           <h4 className="font-medium leading-none">Dimensions</h4>

@@ -31,12 +31,21 @@ const meta = {
     external: {
       control: 'boolean',
       description: 'Append a trailing external-link icon.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'Appearance' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Appearance',
+      },
     },
     disabled: {
       control: 'boolean',
-      description: 'Render inert: disabled color, not focusable, no navigation.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'State' },
+      description:
+        'Render inert: disabled color, not focusable, no navigation.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
     },
     render: {
       control: false,

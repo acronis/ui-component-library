@@ -42,7 +42,9 @@ describe('WidgetProtectionStatus', () => {
   });
 
   it('is not focusable by default', () => {
-    render(<WidgetProtectionStatus data-testid="wps">content</WidgetProtectionStatus>);
+    render(
+      <WidgetProtectionStatus data-testid="wps">content</WidgetProtectionStatus>
+    );
     expect(screen.getByTestId('wps')).not.toHaveAttribute('tabindex');
   });
 
@@ -83,9 +85,7 @@ describe('WidgetProtectionStatus', () => {
   });
 
   it('defaults the indicator status to success', () => {
-    render(
-      <WidgetProtectionStatusIndicator data-testid="indicator" />
-    );
+    render(<WidgetProtectionStatusIndicator data-testid="indicator" />);
     const dot = screen.getByTestId('indicator').firstElementChild;
     expect(dot).toHaveClass('bg-[var(--ui-background-status-strong-success)]');
   });
@@ -96,13 +96,19 @@ describe('WidgetProtectionStatus', () => {
     ['danger', 'bg-[var(--ui-background-status-strong-danger)]'],
     ['info', 'bg-[var(--ui-background-status-strong-info)]'],
     ['neutral', 'bg-[var(--ui-background-status-strong-neutral)]'],
-  ] as const)('renders the %s status dot with its token', (status, expectedClass) => {
-    render(
-      <WidgetProtectionStatusIndicator data-testid="indicator" status={status} />
-    );
-    const dot = screen.getByTestId('indicator').firstElementChild;
-    expect(dot).toHaveClass(expectedClass);
-  });
+  ] as const)(
+    'renders the %s status dot with its token',
+    (status, expectedClass) => {
+      render(
+        <WidgetProtectionStatusIndicator
+          data-testid="indicator"
+          status={status}
+        />
+      );
+      const dot = screen.getByTestId('indicator').firstElementChild;
+      expect(dot).toHaveClass(expectedClass);
+    }
+  );
 
   it('renders indicator children alongside the dot', () => {
     render(

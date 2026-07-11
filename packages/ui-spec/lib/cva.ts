@@ -47,10 +47,7 @@ function findProperty(
   name: string
 ): ts.Expression | undefined {
   for (const prop of obj.properties) {
-    if (
-      ts.isPropertyAssignment(prop) &&
-      propertyName(prop) === name
-    ) {
+    if (ts.isPropertyAssignment(prop) && propertyName(prop) === name) {
       return prop.initializer;
     }
   }
@@ -70,7 +67,9 @@ function collectGroups(
       const group = propertyName(prop);
       if (group) {
         groups[group] = prop.initializer.properties
-          .map((p) => (ts.isPropertyAssignment(p) ? propertyName(p) : undefined))
+          .map((p) =>
+            ts.isPropertyAssignment(p) ? propertyName(p) : undefined
+          )
           .filter((k): k is string => Boolean(k));
       }
     }

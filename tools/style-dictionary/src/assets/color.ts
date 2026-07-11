@@ -13,12 +13,16 @@ import { walk, type INode } from './svg-ast';
 const PAINT_ATTRS = ['fill', 'stroke', 'stop-color'] as const;
 
 const isHardcoded = (value: string | undefined): boolean =>
-  value != null && value !== 'none' && value !== 'transparent' && !value.startsWith('url(');
+  value != null &&
+  value !== 'none' &&
+  value !== 'transparent' &&
+  !value.startsWith('url(');
 
 export function toCurrentColor(root: INode): void {
   walk(root, (node) => {
     for (const attr of PAINT_ATTRS) {
-      if (isHardcoded(node.attributes[attr])) node.attributes[attr] = 'currentColor';
+      if (isHardcoded(node.attributes[attr]))
+        node.attributes[attr] = 'currentColor';
     }
   });
 }

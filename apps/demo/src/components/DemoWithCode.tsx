@@ -3,7 +3,11 @@ import { Button } from '@spec-lab/ui-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { CheckIcon, ChevronDownIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  FilesIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 interface DemoWithCodeProps {
   title: string;
   description?: string;

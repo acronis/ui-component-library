@@ -17,20 +17,21 @@ figma.connect(
   Table,
   'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=4567-6801',
   {
-  example: () => (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead sortable>Name</TableHead>
-          <TableHead>Status</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableCell>John Smith</TableCell>
-          <TableCell>Active</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
-  ),
-});
+    example: () => (
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead sortable>Name</TableHead>
+            <TableHead>Status</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>John Smith</TableCell>
+            <TableCell>Active</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    ),
+  }
+);

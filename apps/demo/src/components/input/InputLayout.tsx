@@ -5,7 +5,10 @@ import {
   SecondaryMenuGroup,
   SecondaryMenuItem,
 } from '../secondary-menu-stub';
-import { CircleWarningIcon, EnvelopeIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CircleWarningIcon,
+  EnvelopeIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { RulerIcon } from '@/components/icons/missing-icons';
 export function InputLayout() {
   const navigate = useNavigate();

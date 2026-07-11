@@ -77,9 +77,7 @@ describe('ButtonMenu', () => {
   });
 
   it('composes with another element via the render prop', () => {
-    render(
-      <ButtonMenu render={<a href="/menu" />}>Actions</ButtonMenu>
-    );
+    render(<ButtonMenu render={<a href="/menu" />}>Actions</ButtonMenu>);
     const link = screen.getByRole('link', { name: 'Actions' });
     expect(link).toHaveAttribute('href', '/menu');
     expect(screen.queryByRole('button')).not.toBeInTheDocument();

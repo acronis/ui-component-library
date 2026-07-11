@@ -22,7 +22,9 @@ const fixture = (name) =>
 describe('emit — primitives golden', () => {
   it('PrimitivesEmitter.build() reproduces the golden from the fixture snapshot', () => {
     const snapshot = JSON.parse(fixture('figma-snapshot.json'));
-    const out = DtcgFormatter.serialize(new PrimitivesEmitter(snapshot).build());
+    const out = DtcgFormatter.serialize(
+      new PrimitivesEmitter(snapshot).build()
+    );
     expect(out).toEqual(fixture('primitives.golden.json'));
   });
 

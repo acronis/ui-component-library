@@ -1,7 +1,10 @@
 'use client';
 
 import * as React from 'react';
-import { ChevronDownIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
 import { cn } from '@/lib/utils';
@@ -84,8 +87,10 @@ const TreeLevelContext = React.createContext(0);
 
 // ── Tree (root) ──────────────────────────────────────────────────────────────
 
-export interface TreeProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultChecked'> {
+export interface TreeProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'defaultChecked'
+> {
   /** Node ids expanded on first render (uncontrolled). */
   defaultExpanded?: string[];
   /** Node id selected on first render (uncontrolled). Selection is single. */
@@ -123,7 +128,9 @@ function useTreeState(
   }: TreeStateOptions,
   treeRef: React.RefObject<HTMLDivElement | null>
 ): TreeContextValue {
-  const [expanded, setExpanded] = React.useState(() => new Set(defaultExpanded));
+  const [expanded, setExpanded] = React.useState(
+    () => new Set(defaultExpanded)
+  );
   const [selected, setSelected] = React.useState<string | null>(
     defaultSelected ?? null
   );
@@ -177,7 +184,16 @@ function useTreeState(
       setFocusedId,
       treeRef,
     }),
-    [expanded, selected, checked, focusedId, toggleExpanded, select, toggleChecked, treeRef]
+    [
+      expanded,
+      selected,
+      checked,
+      focusedId,
+      toggleExpanded,
+      select,
+      toggleChecked,
+      treeRef,
+    ]
   );
 }
 
@@ -197,7 +213,10 @@ const Tree = React.forwardRef<HTMLDivElement, TreeProps>(
     forwardedRef
   ) => {
     const innerRef = React.useRef<HTMLDivElement>(null);
-    React.useImperativeHandle(forwardedRef, () => innerRef.current as HTMLDivElement);
+    React.useImperativeHandle(
+      forwardedRef,
+      () => innerRef.current as HTMLDivElement
+    );
     const ctx = useTreeState(
       {
         defaultExpanded,
@@ -218,7 +237,9 @@ const Tree = React.forwardRef<HTMLDivElement, TreeProps>(
           className={cn('w-full', className)}
           {...props}
         >
-          <TreeLevelContext.Provider value={0}>{children}</TreeLevelContext.Provider>
+          <TreeLevelContext.Provider value={0}>
+            {children}
+          </TreeLevelContext.Provider>
         </div>
       </TreeContext.Provider>
     );
@@ -261,7 +282,15 @@ export interface TreeItemProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const TreeItem = React.forwardRef<HTMLDivElement, TreeItemProps>(
   (
-    { className, value, expandable: expandableProp, children, onKeyDown, onFocus, ...props },
+    {
+      className,
+      value,
+      expandable: expandableProp,
+      children,
+      onKeyDown,
+      onFocus,
+      ...props
+    },
     forwardedRef
   ) => {
     const tree = useTreeContext('TreeItem');
@@ -282,7 +311,14 @@ const TreeItem = React.forwardRef<HTMLDivElement, TreeItemProps>(
     const checkedState = tree.checked.has(value);
 
     const itemCtx = React.useMemo<TreeItemContextValue>(
-      () => ({ value, level, expandable, expanded, selected, checked: checkedState }),
+      () => ({
+        value,
+        level,
+        expandable,
+        expanded,
+        selected,
+        checked: checkedState,
+      }),
       [value, level, expandable, expanded, selected, checkedState]
     );
 
@@ -378,12 +414,17 @@ const TreeItemTrigger = React.forwardRef<HTMLDivElement, TreeItemTriggerProps>(
         data-slot="tree-item-trigger"
         data-selected={item.selected || undefined}
         data-expanded={item.expanded || undefined}
-        style={{ paddingLeft: item.level * INDENT_STEP + BASE_PADDING, ...style }}
+        style={{
+          paddingLeft: item.level * INDENT_STEP + BASE_PADDING,
+          ...style,
+        }}
         onClick={(e) => {
           onClick?.(e);
           if (e.defaultPrevented) return;
           // Keep keyboard focus on the owning treeitem when clicking the row.
-          (e.currentTarget.closest('[role="treeitem"]') as HTMLElement | null)?.focus();
+          (
+            e.currentTarget.closest('[role="treeitem"]') as HTMLElement | null
+          )?.focus();
           tree.select(item.value);
           if (item.expandable) tree.toggleExpanded(item.value);
         }}
@@ -409,7 +450,9 @@ const TreeItemTrigger = React.forwardRef<HTMLDivElement, TreeItemTriggerProps>(
               // Toggle only — the row's onClick still selects.
               e.stopPropagation();
               (
-                e.currentTarget.closest('[role="treeitem"]') as HTMLElement | null
+                e.currentTarget.closest(
+                  '[role="treeitem"]'
+                ) as HTMLElement | null
               )?.focus();
               tree.toggleExpanded(item.value);
             }}
@@ -491,7 +534,9 @@ const TreeItemCheckbox = React.forwardRef<
       <Checkbox
         ref={ref}
         checked={item.checked}
-        onCheckedChange={(next) => tree.toggleChecked(item.value, next === true)}
+        onCheckedChange={(next) =>
+          tree.toggleChecked(item.value, next === true)
+        }
         className={cn('shrink-0', className)}
         {...props}
       />
@@ -560,7 +605,9 @@ function rowContent(node: TreeNode, opts: RowOpts): React.ReactNode {
   return (
     <>
       {opts.showCheckbox && <TreeItemCheckbox />}
-      {opts.showIcon && node.icon != null && <TreeItemIcon>{node.icon}</TreeItemIcon>}
+      {opts.showIcon && node.icon != null && (
+        <TreeItemIcon>{node.icon}</TreeItemIcon>
+      )}
       <TreeItemLabel>{node.label}</TreeItemLabel>
       {node.tag != null && <span className="ms-auto shrink-0">{node.tag}</span>}
     </>
@@ -627,7 +674,10 @@ const VirtualTree = React.forwardRef<HTMLDivElement, VirtualTreeProps>(
     // inner role="tree" node used for keyboard navigation.
     const rootRef = React.useRef<HTMLDivElement>(null);
     const treeRef = React.useRef<HTMLDivElement>(null);
-    React.useImperativeHandle(forwardedRef, () => rootRef.current as HTMLDivElement);
+    React.useImperativeHandle(
+      forwardedRef,
+      () => rootRef.current as HTMLDivElement
+    );
     const ctx = useTreeState(
       {
         defaultExpanded,
@@ -691,7 +741,9 @@ const VirtualTree = React.forwardRef<HTMLDivElement, VirtualTreeProps>(
                 >
                   <TreeLevelContext.Provider value={level}>
                     <TreeItem value={node.id} expandable={expandable}>
-                      <TreeItemTrigger>{rowContent(node, opts)}</TreeItemTrigger>
+                      <TreeItemTrigger>
+                        {rowContent(node, opts)}
+                      </TreeItemTrigger>
                     </TreeItem>
                   </TreeLevelContext.Provider>
                 </div>
@@ -706,7 +758,16 @@ const VirtualTree = React.forwardRef<HTMLDivElement, VirtualTreeProps>(
 VirtualTree.displayName = 'VirtualTree';
 
 const TreeView = React.forwardRef<HTMLDivElement, TreeViewProps>(
-  ({ data, showCheckbox = false, showIcon = false, virtualized = false, ...props }, ref) => {
+  (
+    {
+      data,
+      showCheckbox = false,
+      showIcon = false,
+      virtualized = false,
+      ...props
+    },
+    ref
+  ) => {
     if (virtualized) {
       return (
         <VirtualTree

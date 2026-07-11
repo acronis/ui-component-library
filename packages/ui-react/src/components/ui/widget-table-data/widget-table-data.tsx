@@ -25,8 +25,7 @@ import { cn } from '@/lib/utils';
 // Reconcile with `/figma-component WidgetTableData <url> --update` once a
 // mockup lands (Figma: Charts-anatomy / Table-Data, node 826:86024).
 
-export interface WidgetTableDataProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetTableDataProps extends React.HTMLAttributes<HTMLDivElement> {
   interactive?: boolean;
 }
 

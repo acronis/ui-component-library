@@ -6,7 +6,7 @@ import {
   Input,
   ScrollArea,
 } from '@spec-lab/ui-react';
-import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono'
+import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
 import { useCyberChatStore } from '../store/useCyberChatStore';
 import { CollapsibleTree } from './CollapsibleTree';
 import { ChatListItem } from './ChatListItem';

@@ -23,7 +23,8 @@ const meta = {
   argTypes: {
     defaultValue: {
       control: 'text',
-      description: 'Uncontrolled initial value (matches an InputSelectItem `value`).',
+      description:
+        'Uncontrolled initial value (matches an InputSelectItem `value`).',
       table: { type: { summary: 'Value | null' }, category: 'Content' },
     },
     value: {
@@ -44,22 +45,37 @@ const meta = {
       control: 'boolean',
       description:
         'Allow selecting multiple items (items show a leading checkbox; the popup stays open).',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'Behavior' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Behavior',
+      },
     },
     disabled: {
       control: 'boolean',
       description: 'Disables the select and applies the disabled token set.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'State' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
     },
     defaultOpen: {
       control: 'boolean',
       description: 'Whether the popup is initially open (uncontrolled).',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'Behavior' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Behavior',
+      },
     },
     onValueChange: {
       control: false,
       description: 'Called when the selected value changes.',
-      table: { type: { summary: '(value, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(value, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     children: {
       control: false,
@@ -190,7 +206,12 @@ export const Open: Story = {
 
 export const Multiple: Story = {
   render: () => (
-    <InputSelect multiple items={fruitItems} defaultValue={['apple', 'banana']} defaultOpen>
+    <InputSelect
+      multiple
+      items={fruitItems}
+      defaultValue={['apple', 'banana']}
+      defaultOpen
+    >
       <InputSelectField>
         <InputSelectLabel>Fruit</InputSelectLabel>
         <InputSelectTrigger>

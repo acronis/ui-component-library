@@ -8,7 +8,7 @@ import {
   EmptyLinks,
 } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
+import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono';
 export function EmptyWithButtonAndLink() {
   return (
     <div className="flex min-h-[300px] items-center justify-center border rounded-lg bg-gray-50">

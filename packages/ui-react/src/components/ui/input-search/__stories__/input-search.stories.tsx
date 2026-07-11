@@ -14,7 +14,8 @@ const meta = {
     },
     required: {
       control: 'boolean',
-      description: 'Appends a required `*` after the label and sets `aria-required`.',
+      description:
+        'Appends a required `*` after the label and sets `aria-required`.',
       table: { type: { summary: 'boolean' }, category: 'State' },
     },
     placeholder: {
@@ -24,22 +25,26 @@ const meta = {
     },
     defaultValue: {
       control: 'text',
-      description: 'Uncontrolled initial value (the clear button appears once non-empty).',
+      description:
+        'Uncontrolled initial value (the clear button appears once non-empty).',
       table: { type: { summary: 'string' }, category: 'Content' },
     },
     disabled: {
       control: 'boolean',
-      description: 'Disables the field, hides the clear button, and applies the disabled tokens.',
+      description:
+        'Disables the field, hides the clear button, and applies the disabled tokens.',
       table: { type: { summary: 'boolean' }, category: 'State' },
     },
     onClear: {
       control: false,
-      description: 'Called when the clear (×) button is pressed, after the value is cleared.',
+      description:
+        'Called when the clear (×) button is pressed, after the value is cleared.',
       table: { type: { summary: '() => void' }, category: 'Events' },
     },
     onChange: {
       control: false,
-      description: 'Native change handler; also fires when the value is cleared.',
+      description:
+        'Native change handler; also fires when the value is cleared.',
       table: { type: { summary: '(event) => void' }, category: 'Events' },
     },
   },

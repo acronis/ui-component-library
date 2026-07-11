@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PlusIcon } from '@spec-lab/icons-react/stroke-mono'
+import { PlusIcon } from '@spec-lab/icons-react/stroke-mono';
 import { Button } from '@spec-lab/ui-react';
 import {
   AlertDialog,

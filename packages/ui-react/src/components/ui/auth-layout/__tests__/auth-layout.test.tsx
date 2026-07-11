@@ -19,7 +19,9 @@ describe('AuthLayout', () => {
         </AuthLayoutCard>
       </AuthLayout>
     );
-    expect(container.querySelector('[data-slot="auth-layout"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-slot="auth-layout"]')
+    ).toBeInTheDocument();
     const card = container.querySelector('[data-slot="auth-layout-card"]')!;
     expect(card.className).toContain('max-w-sm');
     expect(screen.getByText('Sign in')).toBeInTheDocument();
@@ -32,6 +34,8 @@ describe('AuthLayout', () => {
         <AuthLayoutCard className="max-w-md">x</AuthLayoutCard>
       </AuthLayout>
     );
-    expect(container.querySelector('[data-slot="auth-layout-card"]')).toHaveClass('max-w-md');
+    expect(
+      container.querySelector('[data-slot="auth-layout-card"]')
+    ).toHaveClass('max-w-md');
   });
 });

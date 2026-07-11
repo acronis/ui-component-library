@@ -37,12 +37,7 @@ import {
 import { getChartColors } from '@/lib/chart-colors';
 
 type CurveType =
-  | 'linear'
-  | 'monotone'
-  | 'natural'
-  | 'step'
-  | 'stepBefore'
-  | 'stepAfter';
+  'linear' | 'monotone' | 'natural' | 'step' | 'stepBefore' | 'stepAfter';
 type BarShapeOption = 'default' | 'rounded' | 'pill' | 'gradient' | 'pattern';
 
 // Simple rounded bar shape (used when barShape = "rounded")
@@ -398,11 +393,7 @@ export function BarChartPlayground() {
         shape?: BarShapeOption;
         showLabel?: boolean;
         labelPosition?:
-          | 'top'
-          | 'insideTop'
-          | 'insideBottom'
-          | 'insideStart'
-          | 'insideEnd';
+          'top' | 'insideTop' | 'insideBottom' | 'insideStart' | 'insideEnd';
       }
     >
   >({});

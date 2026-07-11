@@ -10,11 +10,16 @@ interface ImagesResponse {
  * Fetches the download URLs of the SVG images for the given icons from the Figma API.
  * Icon IDs are batched (200 per request) and resolved concurrently.
  */
-export async function getFigmaImages(config: FetcherConfig, icons: FigmaIcon[]): Promise<IconWithUrl[]> {
+export async function getFigmaImages(
+  config: FetcherConfig,
+  icons: FigmaIcon[]
+): Promise<IconWithUrl[]> {
   console.log('Fetching icon urls');
 
   if (!config.token) {
-    throw new Error('Token not found. Please add FIGMA_FETCHER_FIGMA_TOKEN to .env.local');
+    throw new Error(
+      'Token not found. Please add FIGMA_FETCHER_FIGMA_TOKEN to .env.local'
+    );
   }
 
   const figmaClient = figmaClientRequest(config.token);
@@ -24,13 +29,18 @@ export async function getFigmaImages(config: FetcherConfig, icons: FigmaIcon[]):
   const batchSize = 200;
   const batches: string[] = [];
   for (let i = 0; i < icons.length; i += batchSize) {
-    const batch = icons.slice(i, i + batchSize).map((icon) => icon.id).join(',');
+    const batch = icons
+      .slice(i, i + batchSize)
+      .map((icon) => icon.id)
+      .join(',');
     batches.push(batch);
   }
 
   // Create an array of Promises for each batch request
   const requests = batches.map((iconIds) =>
-    figmaClient.get<ImagesResponse>(`/images/${config.fileKey}?ids=${iconIds}&format=svg`),
+    figmaClient.get<ImagesResponse>(
+      `/images/${config.fileKey}?ids=${iconIds}&format=svg`
+    )
   );
 
   // Await all requests concurrently

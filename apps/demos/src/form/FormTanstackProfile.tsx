@@ -94,7 +94,9 @@ export function FormTanstackProfile() {
                     }
                   />
                   <FieldDescription>Your public display name.</FieldDescription>
-                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                  {errorMessage && (
+                    <FieldError match>{errorMessage}</FieldError>
+                  )}
                 </Field>
               );
             }}
@@ -129,7 +131,9 @@ export function FormTanstackProfile() {
                       />
                     }
                   />
-                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                  {errorMessage && (
+                    <FieldError match>{errorMessage}</FieldError>
+                  )}
                 </Field>
               );
             }}
@@ -167,7 +171,9 @@ export function FormTanstackProfile() {
                       <SelectItem value="viewer">Viewer</SelectItem>
                     </SelectContent>
                   </Select>
-                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                  {errorMessage && (
+                    <FieldError match>{errorMessage}</FieldError>
+                  )}
                 </Field>
               );
             }}
@@ -203,7 +209,9 @@ export function FormTanstackProfile() {
                     }
                   />
                   <FieldDescription>Up to 160 characters.</FieldDescription>
-                  {errorMessage && <FieldError match>{errorMessage}</FieldError>}
+                  {errorMessage && (
+                    <FieldError match>{errorMessage}</FieldError>
+                  )}
                 </Field>
               );
             }}

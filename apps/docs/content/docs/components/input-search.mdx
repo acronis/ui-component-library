@@ -3,8 +3,8 @@ title: InputSearch
 description: A Search box wrapped with field furniture (label, required marker).
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { InputSearchDemo } from "@/components/demos-react/input-search";
+import { DemoReact } from '@/components/DemoReact';
+import { InputSearchDemo } from '@/components/demos-react/input-search';
 
 ## Usage
 
@@ -18,7 +18,6 @@ label above the box (with a `required` marker). Every other prop — `placeholde
 visible label names the field automatically.
 
 ## Examples
-
 
 <DemoReact>
   <InputSearchDemo />
@@ -46,7 +45,7 @@ const [query, setQuery] = React.useState('');
   value={query}
   onChange={(e) => setQuery(e.target.value)}
   onClear={() => setQuery('')}
-/>
+/>;
 ```
 
 ## API Reference

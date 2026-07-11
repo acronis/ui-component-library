@@ -54,11 +54,7 @@ export function AIMessage({ message }: AIMessageProps) {
       {message.badges && message.badges.length > 0 && (
         <div className="flex gap-2 flex-wrap">
           {message.badges.map((badge, i) => (
-            <Badge
-              key={i}
-              variant="neutral"
-              className="text-xs"
-            >
+            <Badge key={i} variant="neutral" className="text-xs">
               {badge.text}
             </Badge>
           ))}

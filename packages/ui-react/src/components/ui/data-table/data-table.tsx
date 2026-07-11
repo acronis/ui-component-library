@@ -129,7 +129,10 @@ export function DataTable<TData, TValue>({
         <TableBody>
           {skeleton ? (
             Array.from({ length: skeletonRows }).map((_, rowIndex) => (
-              <TableRow key={`skeleton-${rowIndex}`} className="hover:bg-transparent">
+              <TableRow
+                key={`skeleton-${rowIndex}`}
+                className="hover:bg-transparent"
+              >
                 {table.getVisibleLeafColumns().map((column) => (
                   <TableCell key={column.id}>
                     <div className="h-4 w-full animate-pulse rounded bg-[var(--ui-background-surface-secondary)]" />

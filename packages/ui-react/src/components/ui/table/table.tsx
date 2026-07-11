@@ -76,8 +76,7 @@ const TableFooter = React.forwardRef<
 ));
 TableFooter.displayName = 'TableFooter';
 
-export interface TableRowProps
-  extends React.HTMLAttributes<HTMLTableRowElement> {
+export interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   /** Mark the row as selected — applies the active row token + `data-state`. */
   selected?: boolean;
 }
@@ -99,8 +98,7 @@ TableRow.displayName = 'TableRow';
 
 type SortDirection = 'asc' | 'desc' | false;
 
-export interface TableHeadProps
-  extends React.ThHTMLAttributes<HTMLTableCellElement> {
+export interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
   /** Render the column as sortable — adds a sort affordance and `aria-sort`. */
   sortable?: boolean;
   /** Current sort direction for this column (`false` = sortable but unsorted). */
@@ -112,16 +110,40 @@ export interface TableHeadProps
 function SortIcon({ direction }: { direction: SortDirection }) {
   const size = 'size-[var(--ui-table-header-sort-icon-size)]';
   if (direction === 'asc') {
-    return <ArrowUpIcon className={cn(size, 'text-[var(--ui-table-header-sort-icon-color-active)]')} />;
+    return (
+      <ArrowUpIcon
+        className={cn(
+          size,
+          'text-[var(--ui-table-header-sort-icon-color-active)]'
+        )}
+      />
+    );
   }
   if (direction === 'desc') {
-    return <ArrowDownIcon className={cn(size, 'text-[var(--ui-table-header-sort-icon-color-active)]')} />;
+    return (
+      <ArrowDownIcon
+        className={cn(
+          size,
+          'text-[var(--ui-table-header-sort-icon-color-active)]'
+        )}
+      />
+    );
   }
-  return <ArrowsDownUpIcon className={cn(size, 'text-[var(--ui-table-header-sort-icon-color-inactive)]')} />;
+  return (
+    <ArrowsDownUpIcon
+      className={cn(
+        size,
+        'text-[var(--ui-table-header-sort-icon-color-inactive)]'
+      )}
+    />
+  );
 }
 
 const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
-  ({ className, children, sortable, sortDirection = false, onSort, ...props }, ref) => (
+  (
+    { className, children, sortable, sortDirection = false, onSort, ...props },
+    ref
+  ) => (
     <th
       ref={ref}
       aria-sort={

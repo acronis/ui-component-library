@@ -1,5 +1,10 @@
 import { TreeView, type TreeNode } from '@spec-lab/ui-react';
-import { FileIcon, FileTextIcon, FolderIcon, RectangleImageIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  FileIcon,
+  FileTextIcon,
+  FolderIcon,
+  RectangleImageIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { MusicIcon } from '../icons/missing-icons';
 const fileSystemData: TreeNode[] = [
   {
@@ -101,5 +106,7 @@ const fileSystemData: TreeNode[] = [
 ];
 
 export function TreeWithIcons() {
-  return <TreeView data={fileSystemData} showIcon defaultExpanded={['1', '2']} />;
+  return (
+    <TreeView data={fileSystemData} showIcon defaultExpanded={['1', '2']} />
+  );
 }

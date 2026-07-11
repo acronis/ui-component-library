@@ -71,12 +71,20 @@ const meta = {
     showCheckbox: {
       control: 'boolean',
       description: 'Render a checkbox on every row.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'Appearance' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Appearance',
+      },
     },
     showIcon: {
       control: 'boolean',
       description: "Render each node's `icon`.",
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'Appearance' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Appearance',
+      },
     },
     defaultExpanded: {
       control: 'object',
@@ -222,7 +230,11 @@ export const InDropdown: StoryObj = {
 // The low-level composable parts — full control over each row's content.
 export const Composable: StoryObj = {
   render: () => (
-    <Tree aria-label="Project" defaultExpanded={['src']} defaultSelected="index">
+    <Tree
+      aria-label="Project"
+      defaultExpanded={['src']}
+      defaultSelected="index"
+    >
       <TreeItem value="src">
         <TreeItemTrigger>
           <TreeItemIcon>

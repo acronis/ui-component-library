@@ -70,7 +70,9 @@ describe('WidgetPlaceholder', () => {
 
   it('merges a custom className on parts', () => {
     render(
-      <WidgetPlaceholderTitle className="custom-x">Title</WidgetPlaceholderTitle>
+      <WidgetPlaceholderTitle className="custom-x">
+        Title
+      </WidgetPlaceholderTitle>
     );
     expect(screen.getByText('Title')).toHaveClass('custom-x', 'truncate');
   });

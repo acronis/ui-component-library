@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { BinIcon, FilesIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  BinIcon,
+  FilesIcon,
+  PencilIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 import {
   ButtonMenuDropdown,
@@ -76,7 +80,9 @@ export const WithExtras: Story = {
           <ButtonMenuDropdownItem cascade>Move to</ButtonMenuDropdownItem>
         </ButtonMenuDropdownSection>
         <ButtonMenuDropdownSection>
-          <ButtonMenuDropdownItem icon={<BinIcon />}>Delete</ButtonMenuDropdownItem>
+          <ButtonMenuDropdownItem icon={<BinIcon />}>
+            Delete
+          </ButtonMenuDropdownItem>
           <ButtonMenuDropdownItem disabled>Unavailable</ButtonMenuDropdownItem>
         </ButtonMenuDropdownSection>
       </ButtonMenuDropdownContent>

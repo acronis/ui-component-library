@@ -3,8 +3,11 @@ title: Command
 description: A command palette — a searchable, grouped list of commands.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { CommandDemo, CommandDialogDemo } from "@/components/demos-react/command";
+import { DemoReact } from '@/components/DemoReact';
+import {
+  CommandDemo,
+  CommandDialogDemo,
+} from '@/components/demos-react/command';
 
 ## Usage
 
@@ -30,17 +33,23 @@ Inline palette:
 
 ```tsx
 const commands = [
-  { heading: 'Suggestions', items: [
-    { value: 'calendar', label: 'Calendar', icon: <CalendarIcon /> },
-    { value: 'search', label: 'Search', shortcut: '⌘F' },
-  ] },
-  { heading: 'Settings', items: [
-    { value: 'profile', label: 'Profile', shortcut: '⌘P' },
-    { value: 'billing', label: 'Billing', disabled: true },
-  ] },
+  {
+    heading: 'Suggestions',
+    items: [
+      { value: 'calendar', label: 'Calendar', icon: <CalendarIcon /> },
+      { value: 'search', label: 'Search', shortcut: '⌘F' },
+    ],
+  },
+  {
+    heading: 'Settings',
+    items: [
+      { value: 'profile', label: 'Profile', shortcut: '⌘P' },
+      { value: 'billing', label: 'Billing', disabled: true },
+    ],
+  },
 ];
 
-<Command commands={commands} onSelect={(value) => run(value)} />
+<Command commands={commands} onSelect={(value) => run(value)} />;
 ```
 
 ### ⌘K overlay
@@ -63,7 +72,7 @@ const [open, setOpen] = React.useState(false);
     run(value);
     setOpen(false);
   }}
-/>
+/>;
 ```
 
 ## API Reference

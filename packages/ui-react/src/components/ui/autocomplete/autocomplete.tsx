@@ -19,11 +19,10 @@ import { cn } from '@/lib/utils';
 // preserve its flat-items / grouped-items call overloads.
 const Autocomplete = AutocompletePrimitive.Root;
 
-export interface AutocompleteInputProps
-  extends Omit<
-    React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.Input>,
-    'className'
-  > {
+export interface AutocompleteInputProps extends Omit<
+  React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.Input>,
+  'className'
+> {
   className?: string;
   /** Wrapper (box) className. */
   containerClassName?: string;
@@ -31,41 +30,43 @@ export interface AutocompleteInputProps
   clearable?: boolean;
 }
 
-const AutocompleteInput = React.forwardRef<HTMLInputElement, AutocompleteInputProps>(
-  ({ className, containerClassName, clearable, ...props }, ref) => (
-    <AutocompletePrimitive.InputGroup
+const AutocompleteInput = React.forwardRef<
+  HTMLInputElement,
+  AutocompleteInputProps
+>(({ className, containerClassName, clearable, ...props }, ref) => (
+  <AutocompletePrimitive.InputGroup
+    className={cn(
+      'group flex h-[var(--ui-input-select-global-box-height)] w-full min-w-0 items-center gap-[var(--ui-input-select-global-box-gap)] rounded-[var(--ui-input-select-global-box-border-radius)] border bg-[var(--ui-input-select-global-box-color-idle)] border-[var(--ui-input-select-normal-box-border-color-idle)] px-[var(--ui-input-select-global-box-padding-x)] text-sm leading-6 transition-colors',
+      'not-has-disabled:hover:bg-[var(--ui-input-select-global-box-color-hover)] not-has-disabled:hover:border-[var(--ui-input-select-normal-box-border-color-hover)]',
+      'has-[input:focus-visible]:border-[var(--ui-input-select-normal-box-border-color-hover)] has-[input:focus-visible]:ring-[3px] has-[input:focus-visible]:ring-[var(--ui-focus-primary)]',
+      'has-disabled:cursor-not-allowed has-disabled:border-[var(--ui-input-select-normal-box-border-color-disabled)] has-disabled:bg-[var(--ui-input-select-global-box-color-disabled)]',
+      'has-[input[aria-invalid=true]]:border-[var(--ui-input-select-error-box-border-color-idle)] has-[input[aria-invalid=true]:focus-visible]:ring-[var(--ui-focus-error)]',
+      containerClassName
+    )}
+  >
+    <AutocompletePrimitive.Input
+      ref={ref}
       className={cn(
-        'group flex h-[var(--ui-input-select-global-box-height)] w-full min-w-0 items-center gap-[var(--ui-input-select-global-box-gap)] rounded-[var(--ui-input-select-global-box-border-radius)] border bg-[var(--ui-input-select-global-box-color-idle)] border-[var(--ui-input-select-normal-box-border-color-idle)] px-[var(--ui-input-select-global-box-padding-x)] text-sm leading-6 transition-colors',
-        'not-has-disabled:hover:bg-[var(--ui-input-select-global-box-color-hover)] not-has-disabled:hover:border-[var(--ui-input-select-normal-box-border-color-hover)]',
-        'has-[input:focus-visible]:border-[var(--ui-input-select-normal-box-border-color-hover)] has-[input:focus-visible]:ring-[3px] has-[input:focus-visible]:ring-[var(--ui-focus-primary)]',
-        'has-disabled:cursor-not-allowed has-disabled:border-[var(--ui-input-select-normal-box-border-color-disabled)] has-disabled:bg-[var(--ui-input-select-global-box-color-disabled)]',
-        'has-[input[aria-invalid=true]]:border-[var(--ui-input-select-error-box-border-color-idle)] has-[input[aria-invalid=true]:focus-visible]:ring-[var(--ui-focus-error)]',
-        containerClassName
+        'min-w-0 flex-1 bg-transparent text-[var(--ui-input-select-global-value-color-idle)] outline-none placeholder:text-[var(--ui-input-select-global-placeholder-color-idle)] disabled:cursor-not-allowed disabled:text-[var(--ui-input-select-global-value-color-disabled)]',
+        className
       )}
-    >
-      <AutocompletePrimitive.Input
-        ref={ref}
-        className={cn(
-          'min-w-0 flex-1 bg-transparent text-[var(--ui-input-select-global-value-color-idle)] outline-none placeholder:text-[var(--ui-input-select-global-placeholder-color-idle)] disabled:cursor-not-allowed disabled:text-[var(--ui-input-select-global-value-color-disabled)]',
-          className
-        )}
-        {...props}
-      />
-      {clearable && (
-        <AutocompletePrimitive.Clear
-          aria-label="Clear"
-          className="flex shrink-0 cursor-pointer items-center text-[var(--ui-input-select-normal-icon-expand-color-idle)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] data-[disabled]:hidden"
-        >
-          <TimesIcon size={16} />
-        </AutocompletePrimitive.Clear>
-      )}
-    </AutocompletePrimitive.InputGroup>
-  )
-);
+      {...props}
+    />
+    {clearable && (
+      <AutocompletePrimitive.Clear
+        aria-label="Clear"
+        className="flex shrink-0 cursor-pointer items-center text-[var(--ui-input-select-normal-icon-expand-color-idle)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] data-[disabled]:hidden"
+      >
+        <TimesIcon size={16} />
+      </AutocompletePrimitive.Clear>
+    )}
+  </AutocompletePrimitive.InputGroup>
+));
 AutocompleteInput.displayName = 'AutocompleteInput';
 
-export interface AutocompleteContentProps
-  extends React.ComponentPropsWithoutRef<typeof AutocompletePrimitive.Popup> {
+export interface AutocompleteContentProps extends React.ComponentPropsWithoutRef<
+  typeof AutocompletePrimitive.Popup
+> {
   sideOffset?: number;
   align?: AutocompletePrimitive.Positioner.Props['align'];
   side?: AutocompletePrimitive.Positioner.Props['side'];
@@ -78,7 +79,15 @@ const AutocompleteContent = React.forwardRef<
   AutocompleteContentProps
 >(
   (
-    { className, children, sideOffset = 4, align = 'start', side = 'bottom', portalContainer, ...props },
+    {
+      className,
+      children,
+      sideOffset = 4,
+      align = 'start',
+      side = 'bottom',
+      portalContainer,
+      ...props
+    },
     ref
   ) => (
     <AutocompletePrimitive.Portal container={portalContainer}>

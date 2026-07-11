@@ -46,7 +46,8 @@ const alertVariants = cva(
 );
 
 export interface AlertProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof alertVariants> {}
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
@@ -143,21 +144,26 @@ AlertActions.displayName = 'AlertActions';
 const AlertClose = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ className, children, 'aria-label': ariaLabel = 'Dismiss', ...props }, ref) => (
-  <button
-    ref={ref}
-    type="button"
-    aria-label={ariaLabel}
-    data-slot="alert-close"
-    className={cn(
-      '-my-4 -me-4 flex shrink-0 items-center justify-center self-stretch rounded-e-md border-s px-4 outline-none transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-focus-primary)]',
-      className
-    )}
-    {...props}
-  >
-    {children ?? <TimesIcon size={16} />}
-  </button>
-));
+>(
+  (
+    { className, children, 'aria-label': ariaLabel = 'Dismiss', ...props },
+    ref
+  ) => (
+    <button
+      ref={ref}
+      type="button"
+      aria-label={ariaLabel}
+      data-slot="alert-close"
+      className={cn(
+        '-my-4 -me-4 flex shrink-0 items-center justify-center self-stretch rounded-e-md border-s px-4 outline-none transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-focus-primary)]',
+        className
+      )}
+      {...props}
+    >
+      {children ?? <TimesIcon size={16} />}
+    </button>
+  )
+);
 AlertClose.displayName = 'AlertClose';
 
 export {

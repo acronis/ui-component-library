@@ -49,7 +49,9 @@ describe('WidgetProtectionSummary', () => {
 
   it('is not focusable by default', () => {
     render(
-      <WidgetProtectionSummary data-testid="wps">content</WidgetProtectionSummary>
+      <WidgetProtectionSummary data-testid="wps">
+        content
+      </WidgetProtectionSummary>
     );
     expect(screen.getByTestId('wps')).not.toHaveAttribute('tabindex');
   });
@@ -76,7 +78,9 @@ describe('WidgetProtectionSummary', () => {
 
   it('forwards the ref on the root', () => {
     const ref = createRef<HTMLDivElement>();
-    render(<WidgetProtectionSummary ref={ref}>content</WidgetProtectionSummary>);
+    render(
+      <WidgetProtectionSummary ref={ref}>content</WidgetProtectionSummary>
+    );
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 
@@ -91,7 +95,9 @@ describe('WidgetProtectionSummary', () => {
   });
 
   it('omits the status dot when no status is passed', () => {
-    render(<WidgetProtectionSummaryRow data-testid="row" label="Total" value={5} />);
+    render(
+      <WidgetProtectionSummaryRow data-testid="row" label="Total" value={5} />
+    );
     const [labelWrapper] = screen.getByTestId('row').children;
     expect(labelWrapper.children).toHaveLength(1);
   });
@@ -103,18 +109,21 @@ describe('WidgetProtectionSummary', () => {
     ['danger', 'bg-[var(--ui-background-status-strong-danger)]'],
     ['info', 'bg-[var(--ui-background-status-strong-info)]'],
     ['neutral', 'bg-[var(--ui-background-status-strong-neutral)]'],
-  ] as const)('renders the %s row status dot with its token', (status, expectedClass) => {
-    render(
-      <WidgetProtectionSummaryRow
-        data-testid="row"
-        label="Total"
-        value={5}
-        status={status}
-      />
-    );
-    const [labelWrapper] = screen.getByTestId('row').children;
-    expect(labelWrapper.firstElementChild).toHaveClass(expectedClass);
-  });
+  ] as const)(
+    'renders the %s row status dot with its token',
+    (status, expectedClass) => {
+      render(
+        <WidgetProtectionSummaryRow
+          data-testid="row"
+          label="Total"
+          value={5}
+          status={status}
+        />
+      );
+      const [labelWrapper] = screen.getByTestId('row').children;
+      expect(labelWrapper.firstElementChild).toHaveClass(expectedClass);
+    }
+  );
 
   it('merges a custom className on parts', () => {
     render(

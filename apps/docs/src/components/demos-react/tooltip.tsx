@@ -13,7 +13,9 @@ export function TooltipDemo() {
   return (
     <div style={{ padding: '48px 0' }}>
       <Tooltip defaultOpen>
-        <TooltipTrigger render={<Button variant="secondary">Hover me</Button>} />
+        <TooltipTrigger
+          render={<Button variant="secondary">Hover me</Button>}
+        />
         <TooltipContent portalContainer={mount}>Helpful hint</TooltipContent>
       </Tooltip>
     </div>

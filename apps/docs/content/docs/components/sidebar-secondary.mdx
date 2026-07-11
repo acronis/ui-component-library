@@ -3,8 +3,8 @@ title: SidebarSecondary
 description: The secondary navigation panel, with collapsible sections and sub-menus.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { SidebarSecondaryDemo } from "@/components/demos-react/sidebar-secondary";
+import { DemoReact } from '@/components/DemoReact';
+import { SidebarSecondaryDemo } from '@/components/demos-react/sidebar-secondary';
 
 ## Usage
 
@@ -37,7 +37,6 @@ menu-item parts are polymorphic via the `render` prop. Themed by the
 `--ui-sidebar-secondary-*` tokens.
 
 ## Examples
-
 
 <DemoReact>
   <SidebarSecondaryDemo />
@@ -72,7 +71,9 @@ A panel with a section and a sub-menu:
             <SidebarSecondaryMenuSubItem href="#" selected>
               All backups
             </SidebarSecondaryMenuSubItem>
-            <SidebarSecondaryMenuSubItem href="#">Archived</SidebarSecondaryMenuSubItem>
+            <SidebarSecondaryMenuSubItem href="#">
+              Archived
+            </SidebarSecondaryMenuSubItem>
           </SidebarSecondaryMenuSubContent>
         </SidebarSecondaryMenuSub>
       </SidebarSecondaryMenu>

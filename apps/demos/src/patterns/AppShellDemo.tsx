@@ -6,7 +6,13 @@ import {
   AppShellSidebar,
 } from '@spec-lab/ui-react';
 
-const navItems = ['Dashboard', 'Workloads', 'Protection', 'Reports', 'Settings'];
+const navItems = [
+  'Dashboard',
+  'Workloads',
+  'Protection',
+  'Reports',
+  'Settings',
+];
 
 export function AppShellDemo() {
   return (
@@ -36,7 +42,8 @@ export function AppShellDemo() {
           <AppShellMain className="p-6">
             <h1 className="text-lg font-semibold">Current page title</h1>
             <p className="mt-2 text-sm text-[var(--ui-text-on-surface-secondary)]">
-              The main content area scrolls independently of the sidebar and header.
+              The main content area scrolls independently of the sidebar and
+              header.
             </p>
           </AppShellMain>
         </AppShellBody>

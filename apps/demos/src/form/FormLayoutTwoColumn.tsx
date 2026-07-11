@@ -2,7 +2,12 @@ import * as React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Field, FieldControl, FieldError, FieldLabel } from '@spec-lab/ui-react';
+import {
+  Field,
+  FieldControl,
+  FieldError,
+  FieldLabel,
+} from '@spec-lab/ui-react';
 import { InputBox } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 import {
@@ -57,7 +62,9 @@ export function FormLayoutTwoColumn() {
             render={({ field, fieldState }) => (
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>First name</FieldLabel>
-                <FieldControl render={<InputBox placeholder="Jane" {...field} />} />
+                <FieldControl
+                  render={<InputBox placeholder="Jane" {...field} />}
+                />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
                 )}
@@ -70,7 +77,9 @@ export function FormLayoutTwoColumn() {
             render={({ field, fieldState }) => (
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>Last name</FieldLabel>
-                <FieldControl render={<InputBox placeholder="Doe" {...field} />} />
+                <FieldControl
+                  render={<InputBox placeholder="Doe" {...field} />}
+                />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
                 )}
@@ -88,7 +97,13 @@ export function FormLayoutTwoColumn() {
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>Email</FieldLabel>
                 <FieldControl
-                  render={<InputBox type="email" placeholder="jane@example.com" {...field} />}
+                  render={
+                    <InputBox
+                      type="email"
+                      placeholder="jane@example.com"
+                      {...field}
+                    />
+                  }
                 />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
@@ -103,10 +118,18 @@ export function FormLayoutTwoColumn() {
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>
                   Phone{' '}
-                  <span className="text-muted-foreground font-normal">(optional)</span>
+                  <span className="text-muted-foreground font-normal">
+                    (optional)
+                  </span>
                 </FieldLabel>
                 <FieldControl
-                  render={<InputBox type="tel" placeholder="+1 555 000 0000" {...field} />}
+                  render={
+                    <InputBox
+                      type="tel"
+                      placeholder="+1 555 000 0000"
+                      {...field}
+                    />
+                  }
                 />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
@@ -152,9 +175,13 @@ export function FormLayoutTwoColumn() {
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>
                   City{' '}
-                  <span className="text-muted-foreground font-normal">(optional)</span>
+                  <span className="text-muted-foreground font-normal">
+                    (optional)
+                  </span>
                 </FieldLabel>
-                <FieldControl render={<InputBox placeholder="San Francisco" {...field} />} />
+                <FieldControl
+                  render={<InputBox placeholder="San Francisco" {...field} />}
+                />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
                 )}

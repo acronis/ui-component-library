@@ -108,9 +108,7 @@ describe('Tour', () => {
 
   it('supports a controlled active step', () => {
     const onActiveStepChange = vi.fn();
-    render(
-      <DemoTour activeStep={1} onActiveStepChange={onActiveStepChange} />
-    );
+    render(<DemoTour activeStep={1} onActiveStepChange={onActiveStepChange} />);
     expect(screen.getByText('2 of 3')).toBeInTheDocument();
   });
 

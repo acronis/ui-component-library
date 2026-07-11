@@ -14,20 +14,48 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const VARIANTS = ['default', 'secondary', 'ghost', 'destructive', 'ai'] as const;
+const VARIANTS = [
+  'default',
+  'secondary',
+  'ghost',
+  'destructive',
+  'ai',
+] as const;
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      {VARIANTS.map((v) => <Button key={v} variant={v}>Label</Button>)}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 12,
+        alignItems: 'center',
+      }}
+    >
+      {VARIANTS.map((v) => (
+        <Button key={v} variant={v}>
+          Label
+        </Button>
+      ))}
     </div>
   ),
 };
 
 export const Disabled: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      {VARIANTS.map((v) => <Button key={v} variant={v} disabled>Label</Button>)}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 12,
+        alignItems: 'center',
+      }}
+    >
+      {VARIANTS.map((v) => (
+        <Button key={v} variant={v} disabled>
+          Label
+        </Button>
+      ))}
     </div>
   ),
 };

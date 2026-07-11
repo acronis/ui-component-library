@@ -35,7 +35,9 @@ describe('ButtonMenuDropdown', () => {
   it('renders the open panel with its item labels', () => {
     render(<DemoMenu />);
     expect(screen.getByRole('menu')).toBeInTheDocument();
-    expect(screen.getByRole('menuitem', { name: 'Rename' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('menuitem', { name: 'Rename' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Copy/ })).toBeInTheDocument();
   });
 
@@ -110,7 +112,9 @@ describe('ButtonMenuDropdown submenu', () => {
           <ButtonMenuDropdownSection>
             <ButtonMenuDropdownItem>Rename</ButtonMenuDropdownItem>
             <ButtonMenuDropdownSubmenu open>
-              <ButtonMenuDropdownSubmenuTrigger icon={<svg data-testid="sub-icon" />}>
+              <ButtonMenuDropdownSubmenuTrigger
+                icon={<svg data-testid="sub-icon" />}
+              >
                 Move to
               </ButtonMenuDropdownSubmenuTrigger>
               <ButtonMenuDropdownSubmenuContent>
@@ -130,7 +134,9 @@ describe('ButtonMenuDropdown submenu', () => {
     const trigger = screen.getByRole('menuitem', { name: /Move to/ });
     expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
     // The nested submenu panel and its item are both mounted while open.
-    expect(screen.getByRole('menuitem', { name: 'Documents' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('menuitem', { name: 'Documents' })
+    ).toBeInTheDocument();
   });
 
   it('reflects the open submenu with the hover-token highlight', () => {

@@ -246,7 +246,9 @@ describe('SidebarSecondary', () => {
     );
     const nav = screen.getByRole('navigation', { name: 'Section navigation' });
     expect(nav).toHaveAttribute('data-state', 'expanded');
-    await userEvent.click(screen.getByRole('button', { name: 'Collapse menu' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Collapse menu' })
+    );
     expect(onExpandedChange).toHaveBeenCalledWith(false);
     expect(nav).toHaveAttribute('data-state', 'expanded');
     rerender(
@@ -338,7 +340,9 @@ describe('SidebarSecondary — expandable section', () => {
                 Policies
               </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuSub>
-                <SidebarSecondaryMenuSubTrigger>Add-ons</SidebarSecondaryMenuSubTrigger>
+                <SidebarSecondaryMenuSubTrigger>
+                  Add-ons
+                </SidebarSecondaryMenuSubTrigger>
                 <SidebarSecondaryMenuSubContent>
                   <SidebarSecondaryMenuSubItem href="/addons/a">
                     Backup
@@ -365,7 +369,9 @@ describe('SidebarSecondary — expandable section', () => {
 
     await userEvent.click(trigger);
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
-    expect(screen.queryByRole('link', { name: 'Policies' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('link', { name: 'Policies' })
+    ).not.toBeInTheDocument();
 
     await userEvent.click(trigger);
     expect(trigger).toHaveAttribute('aria-expanded', 'true');
@@ -377,7 +383,9 @@ describe('SidebarSecondary — expandable section', () => {
     render(<ExpandableSection open={false} onOpenChange={onOpenChange} />);
     const trigger = screen.getByRole('button', { name: /Configuration/ });
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
-    expect(screen.queryByRole('link', { name: 'Policies' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('link', { name: 'Policies' })
+    ).not.toBeInTheDocument();
 
     await userEvent.click(trigger);
     // Base UI calls onOpenChange with (nextOpen, eventDetails); assert the value.
@@ -403,7 +411,9 @@ describe('SidebarSecondary — expandable section', () => {
               Configuration
             </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="/policies">Policies</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="/policies">
+                Policies
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
         </SidebarSecondaryContent>
@@ -424,15 +434,21 @@ describe('SidebarSecondary — expandable section', () => {
       <SidebarSecondary>
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Overview
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="/d">Dashboard</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="/d">
+                Dashboard
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
         </SidebarSecondaryContent>
       </SidebarSecondary>
     );
-    expect(screen.queryByRole('button', { name: /Overview/ })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: /Overview/ })
+    ).not.toBeInTheDocument();
     expect(screen.getByText('Overview')).toBeInTheDocument();
   });
 });

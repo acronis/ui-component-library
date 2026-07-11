@@ -17,7 +17,10 @@ import { fileURLToPath } from 'node:url';
 import { load as parseYaml } from 'js-yaml';
 
 import { auditScreen, formatScreenReport } from '../screens/audit';
-import type { ScreenDescriptorLite, ScreenSnapshot } from '../screens/audit/types';
+import type {
+  ScreenDescriptorLite,
+  ScreenSnapshot,
+} from '../screens/audit/types';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SCREENS_DIR = resolve(HERE, '../screens');
@@ -33,9 +36,7 @@ function loadSnapshot(path: string): ScreenSnapshot {
 
 const [slug, snapshotPath] = process.argv.slice(2);
 if (!slug || !snapshotPath) {
-  process.stderr.write(
-    'usage: screen-audit <screen-slug> <snapshot.json>\n'
-  );
+  process.stderr.write('usage: screen-audit <screen-slug> <snapshot.json>\n');
   process.exit(2);
 }
 

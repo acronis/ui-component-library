@@ -260,12 +260,7 @@ const indicatorTypes = [
 ];
 
 type CurveType =
-  | 'linear'
-  | 'monotone'
-  | 'natural'
-  | 'step'
-  | 'stepBefore'
-  | 'stepAfter';
+  'linear' | 'monotone' | 'natural' | 'step' | 'stepBefore' | 'stepAfter';
 
 export function AreaChartPlayground() {
   const colors = getChartColors(4);
@@ -341,11 +336,7 @@ export function AreaChartPlayground() {
         dotSize?: number;
         showLabel?: boolean;
         labelPosition?:
-          | 'top'
-          | 'insideTop'
-          | 'insideBottom'
-          | 'insideStart'
-          | 'insideEnd';
+          'top' | 'insideTop' | 'insideBottom' | 'insideStart' | 'insideEnd';
       }
     >
   >({});

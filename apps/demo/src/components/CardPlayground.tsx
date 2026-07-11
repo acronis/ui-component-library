@@ -23,7 +23,12 @@ import {
   Progress,
   Skeleton,
 } from '@spec-lab/ui-react';
-import { CircleClockIcon, EyeIcon, ShoppingCartIcon, UsersIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CircleClockIcon,
+  EyeIcon,
+  ShoppingCartIcon,
+  UsersIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   ActivityIcon,
   ArrowDownRightIcon,
@@ -258,13 +263,7 @@ const badgeVariants: BadgeVariant[] = [
 // Legacy shadcn `Badge` had a 10-value variant set; ui-react `Badge`/`Tag` only
 // has the status set. Mechanical mapping per apps/demo/.fix-notes.md.
 type NewBadgeVariant =
-  | 'ai'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'critical'
-  | 'neutral'
-  | 'danger';
+  'ai' | 'info' | 'success' | 'warning' | 'critical' | 'neutral' | 'danger';
 
 const toNewBadgeVariant: Record<BadgeVariant, NewBadgeVariant> = {
   default: 'neutral',
@@ -652,9 +651,7 @@ export function CardPlayground() {
             </div>
           </div>
           {showBadge && (
-            <Badge variant={toNewBadgeVariant[badgeVariant]}>
-              {badgeText}
-            </Badge>
+            <Badge variant={toNewBadgeVariant[badgeVariant]}>{badgeText}</Badge>
           )}
           {iconPosition === 'right' && iconEl}
         </CardHeader>

@@ -6,7 +6,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@spec-lab/ui-react';
-import { ArrowInDownIcon, BinIcon, FilesIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ArrowInDownIcon,
+  BinIcon,
+  FilesIcon,
+  PencilIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { MoreVerticalIcon } from '../icons/missing-icons';
 export function DropdownMenuWithIcons() {
   return (

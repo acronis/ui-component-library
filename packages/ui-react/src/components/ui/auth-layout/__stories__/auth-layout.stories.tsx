@@ -28,7 +28,11 @@ export const SignIn: Story = {
             <span className="text-base font-semibold">Sign in</span>
           </AuthLayoutLogo>
           <div className="flex flex-col gap-4">
-            <InputText label="Email" type="email" placeholder="you@example.com" />
+            <InputText
+              label="Email"
+              type="email"
+              placeholder="you@example.com"
+            />
             <InputText label="Password" type="password" />
             <Button className="w-full">Sign in</Button>
           </div>

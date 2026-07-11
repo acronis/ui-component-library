@@ -15,7 +15,8 @@ const ICON_NODE_TYPES = new Set(['FRAME', 'INSTANCE', 'COMPONENT']);
 
 function isNewFrame(node: FigmaNode): boolean {
   return (node.children ?? []).some(
-    (child) => child.type === 'TEXT' && child.name.trim().toLowerCase() === NEW_LABEL,
+    (child) =>
+      child.type === 'TEXT' && child.name.trim().toLowerCase() === NEW_LABEL
   );
 }
 
@@ -25,7 +26,12 @@ function isIconLeaf(node: FigmaNode): boolean {
   }
   const name = node.name.trim();
   // `_IconGrid-24` and friends are guides; "?" marks unresolved placeholders.
-  return name !== '?' && name.toLowerCase() !== NEW_LABEL && !name.startsWith('_') && !WRAPPER_NAME.test(name);
+  return (
+    name !== '?' &&
+    name.toLowerCase() !== NEW_LABEL &&
+    !name.startsWith('_') &&
+    !WRAPPER_NAME.test(name)
+  );
 }
 
 function walk(node: FigmaNode, visit: (node: FigmaNode) => void): void {
@@ -43,8 +49,13 @@ function walk(node: FigmaNode, visit: (node: FigmaNode) => void): void {
  * skipped. The old size-suffixed icons live *outside* the New frames and are
  * therefore never picked up.
  */
-export const newFramesStrategy: SelectionStrategy = (page: FigmaPage, _config: FetcherConfig): FigmaIcon[] => {
-  const categories = (page.document.children ?? []).filter((child) => child.type === 'FRAME');
+export const newFramesStrategy: SelectionStrategy = (
+  page: FigmaPage,
+  _config: FetcherConfig
+): FigmaIcon[] => {
+  const categories = (page.document.children ?? []).filter(
+    (child) => child.type === 'FRAME'
+  );
   const icons: FigmaIcon[] = [];
 
   categories.forEach((category) => {
@@ -56,7 +67,11 @@ export const newFramesStrategy: SelectionStrategy = (page: FigmaPage, _config: F
       }
       walk(node, (candidate) => {
         if (isIconLeaf(candidate)) {
-          icons.push({ id: candidate.id, name: formatName(candidate.name), pageName });
+          icons.push({
+            id: candidate.id,
+            name: formatName(candidate.name),
+            pageName,
+          });
         }
       });
     });

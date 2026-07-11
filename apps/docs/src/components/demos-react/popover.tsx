@@ -12,7 +12,9 @@ export function PopoverDemo() {
   const mount = useShadowMount();
   return (
     <Popover defaultOpen>
-      <PopoverTrigger render={<Button variant="secondary">Open popover</Button>} />
+      <PopoverTrigger
+        render={<Button variant="secondary">Open popover</Button>}
+      />
       <PopoverContent portalContainer={mount}>
         <div className="grid gap-2">
           <h4 className="font-medium leading-none">Dimensions</h4>

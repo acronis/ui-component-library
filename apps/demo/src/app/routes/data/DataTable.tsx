@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { ArrowsDownUpIcon, ChevronLeftIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ArrowsDownUpIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { Button, ButtonIcon } from '@spec-lab/ui-react';
 import { Input } from '@spec-lab/ui-react';
 import {

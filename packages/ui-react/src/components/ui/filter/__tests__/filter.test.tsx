@@ -39,12 +39,18 @@ describe('Filter', () => {
 
   it('themes the count badge from the secondary brand tokens', () => {
     render(<Filter count={5} />);
-    expect(screen.getByText('5')).toHaveClass('bg-secondary', 'text-primary-foreground');
+    expect(screen.getByText('5')).toHaveClass(
+      'bg-secondary',
+      'text-primary-foreground'
+    );
   });
 
   it('applies the outline variant background', () => {
     render(<Filter variant="outline" />);
-    expect(screen.getByRole('button')).toHaveClass('border-border', 'bg-background');
+    expect(screen.getByRole('button')).toHaveClass(
+      'border-border',
+      'bg-background'
+    );
   });
 
   it('forwards the ref to the button element', () => {

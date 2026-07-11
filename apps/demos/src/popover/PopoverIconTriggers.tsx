@@ -1,15 +1,18 @@
 import { ButtonIcon } from '@spec-lab/ui-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/ui-react';
-import { BellIcon, CircleHelpIcon, CogIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+  BellIcon,
+  CircleHelpIcon,
+  CogIcon,
+  UserIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 export function PopoverIconTriggers() {
   return (
     <div className="flex flex-wrap justify-center gap-4 rounded-lg border p-8">
       <Popover>
-        <PopoverTrigger render={<ButtonIcon aria-label="Help" variant="ghost" />}>
+        <PopoverTrigger
+          render={<ButtonIcon aria-label="Help" variant="ghost" />}
+        >
           <CircleHelpIcon />
         </PopoverTrigger>
         <PopoverContent className="w-80">
@@ -24,7 +27,9 @@ export function PopoverIconTriggers() {
       </Popover>
 
       <Popover>
-        <PopoverTrigger render={<ButtonIcon aria-label="Settings" variant="ghost" />}>
+        <PopoverTrigger
+          render={<ButtonIcon aria-label="Settings" variant="ghost" />}
+        >
           <CogIcon />
         </PopoverTrigger>
         <PopoverContent className="w-80">
@@ -38,7 +43,9 @@ export function PopoverIconTriggers() {
       </Popover>
 
       <Popover>
-        <PopoverTrigger render={<ButtonIcon aria-label="Notifications" variant="ghost" />}>
+        <PopoverTrigger
+          render={<ButtonIcon aria-label="Notifications" variant="ghost" />}
+        >
           <BellIcon />
         </PopoverTrigger>
         <PopoverContent className="w-80">
@@ -52,7 +59,9 @@ export function PopoverIconTriggers() {
       </Popover>
 
       <Popover>
-        <PopoverTrigger render={<ButtonIcon aria-label="Profile" variant="ghost" />}>
+        <PopoverTrigger
+          render={<ButtonIcon aria-label="Profile" variant="ghost" />}
+        >
           <UserIcon />
         </PopoverTrigger>
         <PopoverContent className="w-80">

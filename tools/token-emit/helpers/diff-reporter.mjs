@@ -38,7 +38,7 @@ export class DiffReporter {
   // Print human-readable report to stdout.
   print(tierFilter = null) {
     const changes = tierFilter
-      ? this.#changes.filter(c => {
+      ? this.#changes.filter((c) => {
           if (c.tier) return c.tier === tierFilter;
           if (c.inferredTier) return c.inferredTier === tierFilter;
           return true; // no tier info — show in all views (e.g. STYLE_*)
@@ -54,7 +54,9 @@ export class DiffReporter {
     for (const type of DISPLAY_ORDER) {
       const group = byType.get(type);
       if (!group?.length) continue;
-      console.log(`\n── ${type} (${group.length}) ${'─'.repeat(Math.max(0, 60 - type.length - String(group.length).length - 7))}`);
+      console.log(
+        `\n── ${type} (${group.length}) ${'─'.repeat(Math.max(0, 60 - type.length - String(group.length).length - 7))}`
+      );
       for (const c of group) {
         console.log(this.#formatChange(c));
       }
@@ -74,8 +76,10 @@ export class DiffReporter {
     const report = {
       totalChanges: this.#changes.length,
       summary: Object.fromEntries(
-        DISPLAY_ORDER.map(t => [t, this.#changes.filter(c => c.type === t).length])
-          .filter(([, n]) => n > 0)
+        DISPLAY_ORDER.map((t) => [
+          t,
+          this.#changes.filter((c) => c.type === t).length,
+        ]).filter(([, n]) => n > 0)
       ),
       changes: this.#changes,
     };
@@ -83,7 +87,9 @@ export class DiffReporter {
     return REPORT_PATH;
   }
 
-  get reportPath() { return REPORT_PATH; }
+  get reportPath() {
+    return REPORT_PATH;
+  }
 
   #groupByType(changes) {
     const map = new Map();
@@ -127,7 +133,7 @@ export class DiffReporter {
       case ChangeType.STYLE_DELETED:
         return `  - style ${tier} ${ourPath} (${c.styleId})`;
       case ChangeType.STYLE_CHANGED:
-        return `  ~ style ${c.styleId}: ${c.changes?.map(d => `${d.field}: ${d.from} → ${d.to}`).join(', ')}`;
+        return `  ~ style ${c.styleId}: ${c.changes?.map((d) => `${d.field}: ${d.from} → ${d.to}`).join(', ')}`;
       case ChangeType.UNCLASSIFIED:
         return `  ? ${tier} ${ourPath} (${c.variableId}) — unclassified change\n    snapshot: ${JSON.stringify(c.snapshot)}\n    tiers:    ${JSON.stringify(c.tiers)}`;
       default:

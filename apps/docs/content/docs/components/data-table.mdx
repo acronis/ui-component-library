@@ -3,8 +3,8 @@ title: DataTable
 description: A data grid on TanStack react-table — sorting, filtering, selection, pagination, and row expansion.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { DataTableDemo } from "@/components/demos-react/data-table";
+import { DemoReact } from '@/components/DemoReact';
+import { DataTableDemo } from '@/components/demos-react/data-table';
 
 ## Usage
 
@@ -42,12 +42,14 @@ the toolbar's `DataTableViewOptions` menu, keeping sorting to one click.
 const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: 'email',
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Email" />
+    ),
   },
   { accessorKey: 'amount', header: 'Amount' },
 ];
 
-<DataTable columns={columns} data={payments} />
+<DataTable columns={columns} data={payments} />;
 ```
 
 For a toolbar + pagination, build the table instance yourself and pass it to the

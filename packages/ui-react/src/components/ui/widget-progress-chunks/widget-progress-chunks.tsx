@@ -36,8 +36,7 @@ export interface ProgressChunk {
   color: string;
 }
 
-export interface WidgetProgressChunksProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProgressChunksProps extends React.HTMLAttributes<HTMLDivElement> {
   interactive?: boolean;
 }
 
@@ -107,8 +106,7 @@ const WidgetProgressChunksBody = React.forwardRef<
 ));
 WidgetProgressChunksBody.displayName = 'WidgetProgressChunksBody';
 
-export interface WidgetProgressChunkRowProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProgressChunkRowProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
   value: number;
   total: number;
@@ -122,7 +120,16 @@ const WidgetProgressChunkRow = React.forwardRef<
   WidgetProgressChunkRowProps
 >(
   (
-    { className, label, value, total, color, formatValue, formatTotal, ...props },
+    {
+      className,
+      label,
+      value,
+      total,
+      color,
+      formatValue,
+      formatTotal,
+      ...props
+    },
     ref
   ) => {
     const pct = total > 0 ? (value / total) * 100 : 0;
@@ -130,7 +137,11 @@ const WidgetProgressChunkRow = React.forwardRef<
     const displayTotal = formatTotal ? formatTotal(total) : String(total);
 
     return (
-      <div ref={ref} className={cn('flex flex-col gap-1', className)} {...props}>
+      <div
+        ref={ref}
+        className={cn('flex flex-col gap-1', className)}
+        {...props}
+      >
         <div className="flex items-center justify-between text-xs">
           <span className="text-foreground">{label}</span>
           <span className="font-semibold tabular-nums">

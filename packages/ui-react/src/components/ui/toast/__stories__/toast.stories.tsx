@@ -24,7 +24,9 @@ export const Default: Story = {
     <div className="p-8">
       <Button
         onClick={() =>
-          toast('Event created', { description: 'Monday, January 3rd at 6:00 PM' })
+          toast('Event created', {
+            description: 'Monday, January 3rd at 6:00 PM',
+          })
         }
       >
         Show toast

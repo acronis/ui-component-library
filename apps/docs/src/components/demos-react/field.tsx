@@ -17,15 +17,24 @@ export function FieldDemo() {
     <div className="flex flex-col gap-8" style={{ width: 360 }}>
       <Field>
         <FieldLabel>Email</FieldLabel>
-        <FieldControl render={<InputBox type="email" placeholder="you@example.com" />} />
+        <FieldControl
+          render={<InputBox type="email" placeholder="you@example.com" />}
+        />
         <FieldDescription>We&apos;ll never share your email.</FieldDescription>
       </Field>
 
       <FieldSet>
         <FieldLegend>Notifications</FieldLegend>
         <FieldGroup style={{ gap: 12 }}>
-          <Checkbox defaultChecked label="Product updates" description="New features and improvements." />
-          <Checkbox label="Security alerts" description="Important account notices." />
+          <Checkbox
+            defaultChecked
+            label="Product updates"
+            description="New features and improvements."
+          />
+          <Checkbox
+            label="Security alerts"
+            description="Important account notices."
+          />
         </FieldGroup>
       </FieldSet>
     </div>

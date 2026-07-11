@@ -3,8 +3,8 @@ title: Intelligence panel
 description: An AI assistant panel — a scrollable message thread, a composer with a send action, suggested-prompt chips, and streaming states.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { IntelligencePanelDemo } from "@/components/demos-react/patterns/intelligence-panel";
+import { DemoReact } from '@/components/DemoReact';
+import { IntelligencePanelDemo } from '@/components/demos-react/patterns/intelligence-panel';
 
 The sanctioned way to surface an AI assistant beside the app: a **`Drawer`**
 anchored to the right edge whose body is a **`ScrollArea`** message thread (each
@@ -36,7 +36,14 @@ a bespoke chat widget.
 ## Composition
 
 ```tsx
-function IntelligencePanel({ open, onOpenChange, messages, streaming, onSend, suggestions }) {
+function IntelligencePanel({
+  open,
+  onOpenChange,
+  messages,
+  streaming,
+  onSend,
+  suggestions,
+}) {
   const [draft, setDraft] = React.useState('');
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
@@ -73,7 +80,9 @@ function IntelligencePanel({ open, onOpenChange, messages, streaming, onSend, su
         <DrawerFooter className="flex-col items-stretch gap-3">
           <div className="flex flex-wrap gap-2">
             {suggestions.map((s) => (
-              <Chip key={s} onClick={() => setDraft(s)}>{s}</Chip>
+              <Chip key={s} onClick={() => setDraft(s)}>
+                {s}
+              </Chip>
             ))}
           </div>
           <form
@@ -90,7 +99,11 @@ function IntelligencePanel({ open, onOpenChange, messages, streaming, onSend, su
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
             />
-            <ButtonIcon type="submit" aria-label="Send" disabled={!draft.trim()}>
+            <ButtonIcon
+              type="submit"
+              aria-label="Send"
+              disabled={!draft.trim()}
+            >
               <SendIcon />
             </ButtonIcon>
           </form>

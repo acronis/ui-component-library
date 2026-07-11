@@ -2,12 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  Field,
-  FieldControl,
-  FieldError,
-  FieldLabel,
-} from '../../field';
+import { Field, FieldControl, FieldError, FieldLabel } from '../../field';
 import { InputBox } from '../../input';
 import { Form } from '../index';
 
@@ -52,7 +47,10 @@ describe('Form', () => {
     render(<EmailForm onFormSubmit={onFormSubmit} />);
     await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
     expect(onFormSubmit).not.toHaveBeenCalled();
-    expect(screen.getByLabelText('Email')).toHaveAttribute('aria-invalid', 'true');
+    expect(screen.getByLabelText('Email')).toHaveAttribute(
+      'aria-invalid',
+      'true'
+    );
   });
 
   it('surfaces server errors keyed by field name', () => {

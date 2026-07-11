@@ -1,4 +1,7 @@
-import { ChevronDownIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import type { Project } from '../types';
 
 interface CollapsibleTreeProps {

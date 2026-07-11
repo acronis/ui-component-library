@@ -1,5 +1,5 @@
 import { Tag } from '@spec-lab/ui-react';
-import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
 import { TrendingDownIcon, TrendingUpIcon } from '../icons/missing-icons';
 export function TagPriority() {
   return (
@@ -7,10 +7,7 @@ export function TagPriority() {
       <Tag variant="danger" icon={<TrendingUpIcon className="h-4 w-4" />}>
         Urgent
       </Tag>
-      <Tag
-        variant="critical"
-        icon={<CircleWarningIcon className="h-4 w-4" />}
-      >
+      <Tag variant="critical" icon={<CircleWarningIcon className="h-4 w-4" />}>
         High
       </Tag>
       <Tag variant="warning" icon={<CircleWarningIcon className="h-4 w-4" />}>

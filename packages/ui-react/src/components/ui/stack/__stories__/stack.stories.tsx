@@ -16,8 +16,14 @@ const meta = {
   argTypes: {
     direction: { control: 'inline-radio', options: ['vertical', 'horizontal'] },
     gap: { control: 'select', options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'] },
-    align: { control: 'select', options: ['start', 'center', 'end', 'stretch'] },
-    justify: { control: 'select', options: ['start', 'center', 'end', 'between'] },
+    align: {
+      control: 'select',
+      options: ['start', 'center', 'end', 'stretch'],
+    },
+    justify: {
+      control: 'select',
+      options: ['start', 'center', 'end', 'between'],
+    },
     wrap: { control: 'boolean' },
   },
 } satisfies Meta<typeof Stack>;

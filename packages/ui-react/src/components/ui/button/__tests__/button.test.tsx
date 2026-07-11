@@ -21,7 +21,9 @@ describe('Button', () => {
 
   it('does not inject an icon for non-ai variants', () => {
     render(<Button>Save</Button>);
-    expect(screen.getByRole('button', { name: 'Save' }).querySelector('svg')).toBeNull();
+    expect(
+      screen.getByRole('button', { name: 'Save' }).querySelector('svg')
+    ).toBeNull();
   });
 
   it('applies the default variant and the single (32px) size classes', () => {

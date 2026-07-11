@@ -6,7 +6,13 @@ import {
   SidebarSecondaryMenuItem,
   SidebarSecondarySection,
 } from '@spec-lab/ui-react';
-import { BellIcon, CogIcon, EnvelopeIcon, FolderHouseIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  BellIcon,
+  CogIcon,
+  EnvelopeIcon,
+  FolderHouseIcon,
+  UserIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 export function SecondaryMenuWithIcons() {
   const [activeItem, setActiveItem] = useState('home');

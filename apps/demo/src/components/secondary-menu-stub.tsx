@@ -49,8 +49,10 @@ export function SecondaryMenuGroup({
   );
 }
 
-export interface SecondaryMenuItemProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+export interface SecondaryMenuItemProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'children'
+> {
   active?: boolean;
   icon?: React.ReactNode;
   tag?: React.ReactNode;
@@ -80,9 +82,7 @@ export function SecondaryMenuItem({
         {icon}
         <span className="flex-1 truncate">{children}</span>
         {tag && (
-          <span className="shrink-0 text-xs text-muted-foreground">
-            {tag}
-          </span>
+          <span className="shrink-0 text-xs text-muted-foreground">{tag}</span>
         )}
       </button>
     </li>

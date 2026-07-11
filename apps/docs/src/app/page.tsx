@@ -259,8 +259,8 @@ export default function HomePage() {
             marginBottom: '3rem',
           }}
         >
-          A production-ready component library for building Constructor Lab products —
-          accessible, themeable, and fully typed.
+          A production-ready component library for building Constructor Lab
+          products — accessible, themeable, and fully typed.
         </p>
 
         {/* CTAs */}

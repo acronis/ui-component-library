@@ -3,8 +3,8 @@ title: Form layout
 description: A full-page vertical form — a Form of labelled Fields grouped into titled sections, with a submit action.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { FormLayoutDemo } from "@/components/demos-react/patterns/form-layout";
+import { DemoReact } from '@/components/DemoReact';
+import { FormLayoutDemo } from '@/components/demos-react/patterns/form-layout';
 
 The sanctioned skeleton for a page-level form: a single **`Form`** owning a stack
 of **`Field`s**, each pairing a `FieldLabel`, a control (`InputText`,
@@ -39,17 +39,23 @@ function ProfileForm({ onSubmit }) {
         <FieldLegend>Profile</FieldLegend>
         <Field name="name">
           <FieldLabel>Full name</FieldLabel>
-          <FieldControl render={<InputText placeholder="Ada Lovelace" required />} />
+          <FieldControl
+            render={<InputText placeholder="Ada Lovelace" required />}
+          />
           <FieldError />
         </Field>
         <Field name="bio">
           <FieldLabel>Bio</FieldLabel>
-          <FieldControl render={<InputTextArea placeholder="A short introduction" />} />
+          <FieldControl
+            render={<InputTextArea placeholder="A short introduction" />}
+          />
           <FieldDescription>Shown on your public profile.</FieldDescription>
         </Field>
       </FieldSet>
       <div className="flex justify-end gap-2">
-        <Button type="button" variant="ghost">Cancel</Button>
+        <Button type="button" variant="ghost">
+          Cancel
+        </Button>
         <Button type="submit">Save changes</Button>
       </div>
     </Form>

@@ -35,12 +35,16 @@ export class AliasTranslator {
     const orphanMatch = figmaAlias.match(/^\{__library:(VariableID:[^}]+)\}$/);
     if (orphanMatch) {
       const ourPath = this.#varIdToPath.get(orphanMatch[1]);
-      if (!ourPath) throw new Error(`Orphan variableId ${orphanMatch[1]} not found in primitives — refresh primitives first.`);
+      if (!ourPath)
+        throw new Error(
+          `Orphan variableId ${orphanMatch[1]} not found in primitives — refresh primitives first.`
+        );
       return `{${ourPath}}`;
     }
 
     const match = figmaAlias.match(/^\{([^}]+)\}$/);
-    if (!match) throw new Error(`Expected alias in {…} form, got: ${figmaAlias}`);
+    if (!match)
+      throw new Error(`Expected alias in {…} form, got: ${figmaAlias}`);
 
     const parts = match[1].split('.');
     const ourParts = PaletteMapper.map(parts);

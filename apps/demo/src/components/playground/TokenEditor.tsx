@@ -1,14 +1,9 @@
 import { usePlaygroundStore } from '@/store/playground/playgroundStore';
 import { ColorToken } from '@/types/playground';
 import { TokenGroup } from './TokenGroup';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@spec-lab/ui-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono';
 
 export const TokenEditor: React.FC = () => {
   const {

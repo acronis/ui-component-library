@@ -3,8 +3,8 @@ title: Checkbox group
 description: Shared state for a set of related checkboxes, read and written as a list of names.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { CheckboxGroupDemo } from "@/components/demos-react/checkbox-group";
+import { DemoReact } from '@/components/DemoReact';
+import { CheckboxGroupDemo } from '@/components/demos-react/checkbox-group';
 
 ## Usage
 
@@ -42,7 +42,7 @@ const [value, setValue] = React.useState<string[]>(['email']);
 <CheckboxGroup value={value} onValueChange={setValue}>
   <Checkbox name="email" label="Email" />
   <Checkbox name="sms" label="SMS" />
-</CheckboxGroup>
+</CheckboxGroup>;
 ```
 
 ## API Reference

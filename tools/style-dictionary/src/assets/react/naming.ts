@@ -47,14 +47,22 @@ function styleObject(value: string): string {
       const val = decl.slice(idx + 1).trim();
       const camel = prop.startsWith('--')
         ? prop
-        : prop.split('-').map((p, i) => (i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1))).join('');
+        : prop
+            .split('-')
+            .map((p, i) =>
+              i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)
+            )
+            .join('');
       return `${JSON.stringify(camel)}: ${JSON.stringify(val)}`;
     });
   return `{{ ${entries.join(', ')} }}`;
 }
 
 /** Serialize one element node (and its children) to JSX. `skipAttrs` drops e.g. lifted `stroke-width`. */
-export function nodeToJsx(node: INode, skipAttrs: Set<string> = new Set()): string {
+export function nodeToJsx(
+  node: INode,
+  skipAttrs: Set<string> = new Set()
+): string {
   if (node.type === 'text') {
     const text = node.value.trim();
     return text ? text : '';
@@ -69,7 +77,9 @@ export function nodeToJsx(node: INode, skipAttrs: Set<string> = new Set()): stri
     });
   const attrStr = attrs.length ? ` ${attrs.join(' ')}` : '';
 
-  const childJsx = node.children.map((c) => nodeToJsx(c, skipAttrs)).filter(Boolean);
+  const childJsx = node.children
+    .map((c) => nodeToJsx(c, skipAttrs))
+    .filter(Boolean);
   if (childJsx.length === 0) return `<${node.name}${attrStr} />`;
   return `<${node.name}${attrStr}>${childJsx.join('')}</${node.name}>`;
 }

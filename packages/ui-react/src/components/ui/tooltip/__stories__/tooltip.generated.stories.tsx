@@ -18,13 +18,13 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Tooltip>
-      <TooltipTrigger>Hover me</TooltipTrigger>
-      <TooltipContent>Helpful hint</TooltipContent>
-    </Tooltip>
+        <TooltipTrigger>Hover me</TooltipTrigger>
+        <TooltipContent>Helpful hint</TooltipContent>
+      </Tooltip>
       <Tooltip disabled>
-      <TooltipTrigger>Hover me</TooltipTrigger>
-      <TooltipContent>Helpful hint</TooltipContent>
-    </Tooltip>
+        <TooltipTrigger>Hover me</TooltipTrigger>
+        <TooltipContent>Helpful hint</TooltipContent>
+      </Tooltip>
     </div>
   ),
 };

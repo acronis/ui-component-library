@@ -7,7 +7,7 @@ import {
   SelectValue,
   Button,
 } from '@spec-lab/ui-react';
-import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono';
 import {
   applyTypographySettings,
   TypographySettings,

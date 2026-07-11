@@ -22,10 +22,16 @@ import { cn } from '@/lib/utils';
 // `flex-col`, the Separator becomes a horizontal line (`aria-orientation=horizontal`),
 // and the cursor becomes `ns-resize`.
 
-function ResizablePanelGroup({ className, ...props }: ResizablePrimitive.GroupProps) {
+function ResizablePanelGroup({
+  className,
+  ...props
+}: ResizablePrimitive.GroupProps) {
   return (
     <ResizablePrimitive.Group
-      className={cn('flex h-full w-full aria-[orientation=vertical]:flex-col', className)}
+      className={cn(
+        'flex h-full w-full aria-[orientation=vertical]:flex-col',
+        className
+      )}
       {...props}
     />
   );

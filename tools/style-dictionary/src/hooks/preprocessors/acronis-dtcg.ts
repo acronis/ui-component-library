@@ -68,7 +68,8 @@ function walk(
   const ownType = typeof node['$type'] === 'string' ? node['$type'] : undefined;
   const type = ownType ?? inheritedType;
 
-  if (isToken(node)) return normalizeToken(node, type, mode, platformId, defaultMode);
+  if (isToken(node))
+    return normalizeToken(node, type, mode, platformId, defaultMode);
 
   // Group node: recurse children, carrying $type/$description through. A group
   // whose every child was omitted for this mode is itself omitted.
@@ -106,5 +107,6 @@ export function normalizeTree(
   platformId: string,
   defaultMode?: string
 ): PreprocessedTokens {
-  return (walk(root, undefined, mode, platformId, defaultMode) ?? {}) as PreprocessedTokens;
+  return (walk(root, undefined, mode, platformId, defaultMode) ??
+    {}) as PreprocessedTokens;
 }

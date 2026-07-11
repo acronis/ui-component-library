@@ -14,12 +14,14 @@ const meta = {
     },
     required: {
       control: 'boolean',
-      description: 'Appends a required `*` after the label and sets `aria-required`.',
+      description:
+        'Appends a required `*` after the label and sets `aria-required`.',
       table: { type: { summary: 'boolean' }, category: 'State' },
     },
     description: {
       control: 'text',
-      description: 'Helper text below the textarea (hidden while `error` is set).',
+      description:
+        'Helper text below the textarea (hidden while `error` is set).',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
     error: {
@@ -51,7 +53,8 @@ const meta = {
     },
     'aria-invalid': {
       control: 'boolean',
-      description: 'Marks the textarea invalid directly (alternative to `error`).',
+      description:
+        'Marks the textarea invalid directly (alternative to `error`).',
       table: { type: { summary: 'boolean' }, category: 'State' },
     },
     onChange: {

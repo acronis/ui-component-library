@@ -20,7 +20,11 @@ export function FormDemo() {
     >
       <Field name="email">
         <FieldLabel>Email</FieldLabel>
-        <FieldControl render={<InputBox type="email" placeholder="you@example.com" required />} />
+        <FieldControl
+          render={
+            <InputBox type="email" placeholder="you@example.com" required />
+          }
+        />
         <FieldDescription>We&apos;ll never share your email.</FieldDescription>
         <FieldError />
       </Field>

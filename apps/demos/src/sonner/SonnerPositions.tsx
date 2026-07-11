@@ -8,8 +8,8 @@ export function SonnerPositions() {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-muted-foreground">
-        Toasts always appear in a single stack, fixed to the bottom-right of
-        the viewport.
+        Toasts always appear in a single stack, fixed to the bottom-right of the
+        viewport.
       </p>
       <Button onClick={() => toast('This toast is always bottom-right')}>
         Show Toast

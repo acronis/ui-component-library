@@ -38,7 +38,9 @@ describe('Carousel', () => {
     expect(
       screen.getByRole('button', { name: 'Previous slide' })
     ).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Next slide' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Next slide' })
+    ).toBeInTheDocument();
     // The dot indicators live in a tablist (the mockup's pagination).
     expect(screen.getByRole('tablist', { name: 'Slides' })).toBeInTheDocument();
   });

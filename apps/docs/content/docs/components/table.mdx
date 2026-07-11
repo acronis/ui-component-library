@@ -3,8 +3,8 @@ title: Table
 description: Displays rows and columns of data, with sortable headers and selectable rows.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { TableDemo } from "@/components/demos-react/table";
+import { DemoReact } from '@/components/DemoReact';
+import { TableDemo } from '@/components/demos-react/table';
 
 ## Usage
 
@@ -31,7 +31,6 @@ TanStack-backed `DataTable` (sorting/selection/pagination logic) is planned on
 top of these primitives.
 
 ## Examples
-
 
 <DemoReact>
   <TableDemo />
@@ -84,7 +83,11 @@ cell:
 ```tsx
 <TableRow selected={checked}>
   <TableCell>
-    <Checkbox checked={checked} onCheckedChange={setChecked} aria-label="Select row" />
+    <Checkbox
+      checked={checked}
+      onCheckedChange={setChecked}
+      aria-label="Select row"
+    />
   </TableCell>
   <TableCell>web-server-01</TableCell>
 </TableRow>

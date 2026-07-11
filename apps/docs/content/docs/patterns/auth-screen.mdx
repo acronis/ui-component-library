@@ -3,8 +3,8 @@ title: Auth screen
 description: A centered authentication screen (sign-in / sign-up / reset) built on AuthLayout with a card-framed form and a footer link.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { AuthScreenDemo } from "@/components/demos-react/patterns/auth-screen";
+import { DemoReact } from '@/components/DemoReact';
+import { AuthScreenDemo } from '@/components/demos-react/patterns/auth-screen';
 
 The sanctioned way to build an authentication screen: **`AuthLayout`** centers
 the page and holds an **`AuthLayoutCard`** framing a short form of **`InputText`**
@@ -45,9 +45,16 @@ function SignInScreen({ onSubmit }) {
         <Card>
           <CardContent>
             <form className="flex flex-col gap-4" onSubmit={onSubmit}>
-              <InputText label="Email" type="email" placeholder="you@example.com" required />
+              <InputText
+                label="Email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
               <InputText label="Password" type="password" required />
-              <Button type="submit" className="w-full">Sign in</Button>
+              <Button type="submit" className="w-full">
+                Sign in
+              </Button>
             </form>
           </CardContent>
         </Card>

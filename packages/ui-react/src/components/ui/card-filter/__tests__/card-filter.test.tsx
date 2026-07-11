@@ -36,7 +36,12 @@ describe('CardFilter', () => {
 
   it('shows an em-dash and hides the icon for variant="static-empty"', () => {
     render(
-      <CardFilter variant="static-empty" label="Pending" value="9" icon={<Icon />} />
+      <CardFilter
+        variant="static-empty"
+        label="Pending"
+        value="9"
+        icon={<Icon />}
+      />
     );
     // The provided value is ignored in favor of the placeholder.
     expect(screen.queryByText('9')).not.toBeInTheDocument();
@@ -54,7 +59,12 @@ describe('CardFilter', () => {
   it('fires onClick when the clickable card is pressed', async () => {
     const onClick = vi.fn();
     render(
-      <CardFilter variant="clickable" label="Filters" value="3" onClick={onClick} />
+      <CardFilter
+        variant="clickable"
+        label="Filters"
+        value="3"
+        onClick={onClick}
+      />
     );
     await userEvent.click(screen.getByRole('button'));
     expect(onClick).toHaveBeenCalledOnce();
@@ -67,7 +77,9 @@ describe('CardFilter', () => {
 
   it('forwards the ref to the underlying element', () => {
     const ref = createRef<HTMLElement>();
-    render(<CardFilter variant="clickable" label="Filters" value="3" ref={ref} />);
+    render(
+      <CardFilter variant="clickable" label="Filters" value="3" ref={ref} />
+    );
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
 

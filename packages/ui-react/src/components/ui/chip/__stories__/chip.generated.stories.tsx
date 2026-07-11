@@ -18,8 +18,19 @@ const VARIANTS = ['removable', 'selectable', 'operational'] as const;
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      {VARIANTS.map((v) => <Chip key={v} variant={v}>Label</Chip>)}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 12,
+        alignItems: 'center',
+      }}
+    >
+      {VARIANTS.map((v) => (
+        <Chip key={v} variant={v}>
+          Label
+        </Chip>
+      ))}
     </div>
   ),
 };

@@ -31,8 +31,9 @@ const thumbClasses = cn(
   'group-data-[disabled]:bg-[var(--ui-switch-global-tick-color-disabled)]'
 );
 
-export interface SwitchProps
-  extends React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> {
+export interface SwitchProps extends React.ComponentPropsWithoutRef<
+  typeof SwitchPrimitive.Root
+> {
   /** Optional label rendered beside the toggle; names the control. */
   label?: React.ReactNode;
 }

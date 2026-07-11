@@ -40,7 +40,11 @@ export function PopoverWithForm() {
                 <div key={id} className="grid grid-cols-3 items-center gap-4">
                   <Label htmlFor={id}>{label}</Label>
                   <div className="col-span-2">
-                    <InputText id={id} defaultValue={defaultValue} className="h-8" />
+                    <InputText
+                      id={id}
+                      defaultValue={defaultValue}
+                      className="h-8"
+                    />
                   </div>
                 </div>
               ))}

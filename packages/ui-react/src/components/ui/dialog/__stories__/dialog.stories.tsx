@@ -43,7 +43,10 @@ const meta = {
     onOpenChange: {
       control: false,
       description: 'Fires when the dialog opens or closes.',
-      table: { type: { summary: '(open, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(open, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     // `size` is a `DialogContent` prop (not a Dialog root prop), so it isn't an
     // arg here — see the `Large` story and the API reference for the scale.
@@ -62,7 +65,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <Dialog defaultOpen>
-      <DialogTrigger render={<Button variant="secondary">Open dialog</Button>} />
+      <DialogTrigger
+        render={<Button variant="secondary">Open dialog</Button>}
+      />
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>

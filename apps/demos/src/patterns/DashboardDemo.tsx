@@ -11,7 +11,14 @@ import {
 } from '@spec-lab/ui-react';
 
 const nav = ['Dashboard', 'Workloads', 'Protection', 'Reports', 'Settings'];
-const widgets = ['Protected', 'Alerts', 'Storage', 'Backups', 'Devices', 'Users'];
+const widgets = [
+  'Protected',
+  'Alerts',
+  'Storage',
+  'Backups',
+  'Devices',
+  'Users',
+];
 
 const Widget = ({ title }: { title: string }) => (
   <div className="rounded-lg border border-border bg-background p-4">

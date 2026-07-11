@@ -52,7 +52,11 @@ export const Default: Story = {
 
 export const Multiple: Story = {
   render: () => (
-    <Accordion multiple defaultValue={['plan', 'support']} className="w-[420px]">
+    <Accordion
+      multiple
+      defaultValue={['plan', 'support']}
+      className="w-[420px]"
+    >
       {items.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionTrigger>{item.title}</AccordionTrigger>

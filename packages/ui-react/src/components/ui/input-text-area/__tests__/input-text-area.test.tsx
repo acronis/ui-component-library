@@ -80,7 +80,9 @@ describe('InputTextArea', () => {
   });
 
   it('switches to the error treatment when error is set', () => {
-    render(<InputTextArea label="Bio" description="hint" error="Required field" />);
+    render(
+      <InputTextArea label="Bio" description="hint" error="Required field" />
+    );
     const textarea = screen.getByLabelText('Bio');
     expect(textarea).toHaveAttribute('aria-invalid', 'true');
     // Error message replaces the description.

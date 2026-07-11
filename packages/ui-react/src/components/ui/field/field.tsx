@@ -36,7 +36,8 @@ const fieldVariants = cva(
 );
 
 export interface FieldProps
-  extends Omit<React.ComponentProps<typeof FieldPrimitive.Root>, 'className'>,
+  extends
+    Omit<React.ComponentProps<typeof FieldPrimitive.Root>, 'className'>,
     VariantProps<typeof fieldVariants> {
   className?: string;
 }
@@ -52,8 +53,10 @@ function Field({ className, orientation = 'vertical', ...props }: FieldProps) {
   );
 }
 
-export interface FieldLabelProps
-  extends Omit<React.ComponentProps<typeof FieldPrimitive.Label>, 'className'> {
+export interface FieldLabelProps extends Omit<
+  React.ComponentProps<typeof FieldPrimitive.Label>,
+  'className'
+> {
   className?: string;
 }
 
@@ -71,8 +74,10 @@ function FieldLabel({ className, ...props }: FieldLabelProps) {
   );
 }
 
-export interface FieldControlProps
-  extends Omit<React.ComponentProps<typeof FieldPrimitive.Control>, 'className'> {
+export interface FieldControlProps extends Omit<
+  React.ComponentProps<typeof FieldPrimitive.Control>,
+  'className'
+> {
   className?: string;
 }
 
@@ -89,11 +94,10 @@ function FieldControl({ className, ...props }: FieldControlProps) {
   );
 }
 
-export interface FieldDescriptionProps
-  extends Omit<
-    React.ComponentProps<typeof FieldPrimitive.Description>,
-    'className'
-  > {
+export interface FieldDescriptionProps extends Omit<
+  React.ComponentProps<typeof FieldPrimitive.Description>,
+  'className'
+> {
   className?: string;
 }
 
@@ -111,8 +115,10 @@ function FieldDescription({ className, ...props }: FieldDescriptionProps) {
   );
 }
 
-export interface FieldErrorProps
-  extends Omit<React.ComponentProps<typeof FieldPrimitive.Error>, 'className'> {
+export interface FieldErrorProps extends Omit<
+  React.ComponentProps<typeof FieldPrimitive.Error>,
+  'className'
+> {
   className?: string;
 }
 
@@ -207,7 +213,11 @@ export interface FieldSeparatorProps extends React.ComponentProps<'div'> {
   children?: React.ReactNode;
 }
 
-function FieldSeparator({ children, className, ...props }: FieldSeparatorProps) {
+function FieldSeparator({
+  children,
+  className,
+  ...props
+}: FieldSeparatorProps) {
   return (
     <div
       data-slot="field-separator"

@@ -29,8 +29,10 @@ const buttonIconMenuClasses = cn(
   '[&_svg]:pointer-events-none [&_svg]:size-[var(--ui-button-icon-global-icon-size)] [&_svg]:shrink-0'
 );
 
-export interface ButtonIconMenuProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+export interface ButtonIconMenuProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'children'
+> {
   /**
    * Whether the menu this triggers is open. Applies the open (`*-active`)
    * treatment and reflects `aria-expanded`. Keep it in sync with the menu.
@@ -52,7 +54,13 @@ export interface ButtonIconMenuProps
  */
 const ButtonIconMenu = React.forwardRef<HTMLButtonElement, ButtonIconMenuProps>(
   (
-    { className, open, render, 'aria-label': ariaLabel = 'More options', ...props },
+    {
+      className,
+      open,
+      render,
+      'aria-label': ariaLabel = 'More options',
+      ...props
+    },
     ref
   ) => {
     return useRender({

@@ -44,7 +44,9 @@ describe('Sheet', () => {
     render(<OpenSheet />);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Workload details')).toBeInTheDocument();
-    expect(screen.getByText('Inspect the selected workload.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Inspect the selected workload.')
+    ).toBeInTheDocument();
     expect(screen.getByText('Footer')).toBeInTheDocument();
   });
 
@@ -75,7 +77,10 @@ describe('Sheet', () => {
 
   it('drives the panel surface from the bridged semantic tokens', () => {
     render(<OpenSheet />);
-    expect(screen.getByRole('dialog')).toHaveClass('bg-muted', 'text-foreground');
+    expect(screen.getByRole('dialog')).toHaveClass(
+      'bg-muted',
+      'text-foreground'
+    );
   });
 
   it('exposes an accessible Close button', () => {

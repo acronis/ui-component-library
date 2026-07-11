@@ -7,7 +7,8 @@ export const accessibilityRules = [
     category: 'accessibility',
     severity: 'must',
     rule: 'Every interactive element exposes an accessible name (visible label, `aria-label`, or `aria-labelledby`).',
-    rationale: 'Without a name, the control is unusable to screen-reader users.',
+    rationale:
+      'Without a name, the control is unusable to screen-reader users.',
     checklist: 'I1',
     detector: 'screen/accessible-name',
     wcag: ['4.1.2'],
@@ -18,7 +19,8 @@ export const accessibilityRules = [
     category: 'accessibility',
     severity: 'must',
     rule: 'Modals/drawers/menus trap focus while open, return focus to the trigger on close, and close on Escape.',
-    rationale: 'Otherwise keyboard users get stuck behind or inside an overlay.',
+    rationale:
+      'Otherwise keyboard users get stuck behind or inside an overlay.',
     checklist: 'I2',
     detector: 'screen/escape-focus-trap',
     wcag: ['2.1.2', '2.4.3'],

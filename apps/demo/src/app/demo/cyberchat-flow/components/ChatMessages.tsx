@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { ScrollArea } from '@spec-lab/ui-react';
 import { ButtonIcon } from '@spec-lab/ui-react';
-import { ArrowRotationIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ArrowRotationIcon,
+  FilesIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { ThumbsUpIcon, ThumbsDownIcon } from '@/components/icons/missing-icons';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 import type { Message } from '../types';
@@ -40,7 +43,11 @@ function AIMessage({ message }: { message: Message }) {
           <ButtonIcon variant="ghost" aria-label="Dislike" className="h-8 w-8">
             <ThumbsDownIcon className="h-4 w-4" />
           </ButtonIcon>
-          <ButtonIcon variant="ghost" aria-label="Regenerate" className="h-8 w-8">
+          <ButtonIcon
+            variant="ghost"
+            aria-label="Regenerate"
+            className="h-8 w-8"
+          >
             <ArrowRotationIcon className="h-4 w-4" />
           </ButtonIcon>
         </div>

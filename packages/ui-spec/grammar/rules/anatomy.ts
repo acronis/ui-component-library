@@ -7,7 +7,8 @@ export const anatomyRules = [
     category: 'anatomy',
     severity: 'must',
     rule: 'Every focusable component uses the same focus-ring treatment: the shared focus token, width, and offset.',
-    rationale: 'Divergent focus rings make keyboard navigation feel inconsistent and look unmaintained.',
+    rationale:
+      'Divergent focus rings make keyboard navigation feel inconsistent and look unmaintained.',
     checklist: 'A1',
     detector: 'kit-lint/focus-ring',
     tokens: ['--ui-focus-brand'],
@@ -20,7 +21,8 @@ export const anatomyRules = [
     category: 'anatomy',
     severity: 'should',
     rule: 'Disabled states use the same treatment across components (a disabled token, not ad-hoc opacity).',
-    rationale: 'Inconsistent disabled styling makes equivalent states look different.',
+    rationale:
+      'Inconsistent disabled styling makes equivalent states look different.',
     checklist: 'A2',
     detector: 'screen/disabled-treatment',
   },
@@ -30,7 +32,8 @@ export const anatomyRules = [
     category: 'anatomy',
     severity: 'should',
     rule: 'Use `border-border` (or a real token), never the bare `border` utility, which renders transparent/currentColor in ui-react.',
-    rationale: 'Bare `border` silently produces an invisible or wrong-colored edge.',
+    rationale:
+      'Bare `border` silently produces an invisible or wrong-colored edge.',
     checklist: 'A3',
     detector: 'kit-lint/border-border',
     tokens: ['--ui-border-on-surface-border'],
@@ -41,7 +44,8 @@ export const anatomyRules = [
     category: 'anatomy',
     severity: 'must',
     rule: 'Every part declared in a component spec anatomy must exist in the implementation, and vice versa.',
-    rationale: 'A missing/extra part means the spec and the component have drifted.',
+    rationale:
+      'A missing/extra part means the spec and the component have drifted.',
     checklist: 'A4',
     detector: 'spec/anatomy-parts',
   },
@@ -51,7 +55,8 @@ export const anatomyRules = [
     category: 'anatomy',
     severity: 'should',
     rule: 'A component that renders data provides empty, loading, and error treatments.',
-    rationale: 'Missing states are where real apps look broken; they must be designed, not improvised.',
+    rationale:
+      'Missing states are where real apps look broken; they must be designed, not improvised.',
     checklist: 'A5',
     detector: 'spec/data-states',
   },
@@ -61,7 +66,8 @@ export const anatomyRules = [
     category: 'anatomy',
     severity: 'should',
     rule: 'Empty states and skeletons share one composition across the kit (icon + title + description + optional action; matching skeleton shimmer).',
-    rationale: 'Divergent empty/loading states are jarring when a user moves between screens.',
+    rationale:
+      'Divergent empty/loading states are jarring when a user moves between screens.',
     checklist: 'A6',
     detector: 'screen/empty-skeleton-parity',
     relatedRules: ['anatomy/data-states-present'],

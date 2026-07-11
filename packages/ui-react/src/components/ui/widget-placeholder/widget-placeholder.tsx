@@ -15,8 +15,7 @@ import { cn } from '@/lib/utils';
 // Reconcile with `/figma-component WidgetPlaceholder <url> --update` once a
 // mockup lands (Figma: Charts-anatomy / Placeholders, node 229:73962).
 
-export interface WidgetPlaceholderProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetPlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Make the whole widget focusable and clickable (hover/active surface + focus
    * ring). Wire the behavior via `onClick`.
@@ -72,10 +71,7 @@ const WidgetPlaceholderIcon = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      'flex-shrink-0 text-secondary [&>svg]:size-4',
-      className
-    )}
+    className={cn('flex-shrink-0 text-secondary [&>svg]:size-4', className)}
     {...props}
   />
 ));

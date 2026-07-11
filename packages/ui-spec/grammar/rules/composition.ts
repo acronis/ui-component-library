@@ -7,7 +7,8 @@ export const compositionRules = [
     category: 'composition',
     severity: 'should',
     rule: 'Gaps between sections/regions on a screen come from the spacing scale and repeat consistently.',
-    rationale: 'Irregular section gaps make an assembled screen feel arbitrary.',
+    rationale:
+      'Irregular section gaps make an assembled screen feel arbitrary.',
     checklist: 'C1',
     detector: 'screen/vertical-rhythm',
     relatedRules: ['spacing/on-grid'],
@@ -18,7 +19,8 @@ export const compositionRules = [
     category: 'composition',
     severity: 'should',
     rule: 'Adjacent components align on their edges and text baselines (no near-misses off by a few px).',
-    rationale: 'Sub-pixel misalignment is the subtle defect humans feel but rarely name.',
+    rationale:
+      'Sub-pixel misalignment is the subtle defect humans feel but rarely name.',
     checklist: 'C2',
     detector: 'screen/alignment-grid',
   },
@@ -28,7 +30,8 @@ export const compositionRules = [
     category: 'composition',
     severity: 'should',
     rule: 'Components on a screen snap to a shared column/alignment grid.',
-    rationale: 'A shared grid is what makes a screen read as designed rather than assembled.',
+    rationale:
+      'A shared grid is what makes a screen read as designed rather than assembled.',
     checklist: 'C3',
     detector: 'screen/shared-grid',
     relatedRules: ['composition/edge-baseline-alignment'],
@@ -39,7 +42,8 @@ export const compositionRules = [
     category: 'composition',
     severity: 'must',
     rule: 'The same role (the primary action, the destructive action, a section header…) uses the same component + variant on every screen.',
-    rationale: 'A primary action that looks different across screens erodes trust and learnability.',
+    rationale:
+      'A primary action that looks different across screens erodes trust and learnability.',
     checklist: 'C4',
     detector: 'ref/variant-parity',
     relatedRules: ['tokens/one-token-per-role'],
@@ -50,7 +54,8 @@ export const compositionRules = [
     category: 'composition',
     severity: 'must',
     rule: 'Stacking uses the defined layer scale (base/sticky/overlay/drawer/modal/popover/alert), never ad-hoc z-index.',
-    rationale: 'Ad-hoc z-index causes overlays to fight and render in the wrong order.',
+    rationale:
+      'Ad-hoc z-index causes overlays to fight and render in the wrong order.',
     checklist: 'C5',
     detector: 'kit-lint/z-index',
   },
@@ -60,7 +65,8 @@ export const compositionRules = [
     category: 'composition',
     severity: 'should',
     rule: 'A screen should not solve the same job two different ways (two filter affordances, two table styles).',
-    rationale: 'Redundant, divergent affordances confuse users and signal an unowned design.',
+    rationale:
+      'Redundant, divergent affordances confuse users and signal an unowned design.',
     checklist: 'C6',
     detector: 'ai/single-solution',
   },
@@ -80,7 +86,8 @@ export const compositionRules = [
     category: 'composition',
     severity: 'should',
     rule: 'Scroll containers and overlays must not reserve a gutter that clips full-bleed content (e.g. a scrollbar cropping a selected row).',
-    rationale: 'A real defect found this session: a native scrollbar gutter cropped the full-width selected sidebar row.',
+    rationale:
+      'A real defect found this session: a native scrollbar gutter cropped the full-width selected sidebar row.',
     checklist: 'C8',
     detector: 'screen/reserved-gutter',
   },

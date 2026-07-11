@@ -59,7 +59,11 @@ const Filter = React.forwardRef<HTMLButtonElement, FilterProps>(
       <button
         ref={ref}
         type="button"
-        className={cn(filterVariants({ variant }), active && 'font-semibold', className)}
+        className={cn(
+          filterVariants({ variant }),
+          active && 'font-semibold',
+          className
+        )}
         {...props}
       >
         {count !== undefined && count > 0 && (

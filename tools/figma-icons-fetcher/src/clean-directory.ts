@@ -8,7 +8,12 @@ export async function cleanDirectory(directory: string): Promise<void> {
   if (fs.existsSync(directory)) {
     const entries = await promises.readdir(directory);
     await Promise.all(
-      entries.map((entry) => promises.rm(path.join(directory, entry), { recursive: true, force: true })),
+      entries.map((entry) =>
+        promises.rm(path.join(directory, entry), {
+          recursive: true,
+          force: true,
+        })
+      )
     );
   }
 }

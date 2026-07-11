@@ -28,8 +28,8 @@ export function SecondaryMenuDemo() {
       <p className="demo-description mb-8 text-muted-foreground">
         A tertiary navigation menu component designed to work alongside the main
         sidebar. Can be used for sub-navigation, filtering, or organizing
-        content into categories. Based on Constructor Lab Design System specifications
-        from Figma.
+        content into categories. Based on Constructor Lab Design System
+        specifications from Figma.
       </p>
 
       <div className="space-y-8">

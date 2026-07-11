@@ -26,8 +26,12 @@ describe('PageHeader', () => {
     );
     expect(screen.getByRole('banner')).toBeInTheDocument();
     expect(screen.getByText('Reports').tagName).toBe('H1');
-    expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('navigation', { name: 'Breadcrumb' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'New' })).toBeInTheDocument();
-    expect(screen.getByText('All scheduled reports.')).toHaveClass('text-muted-foreground');
+    expect(screen.getByText('All scheduled reports.')).toHaveClass(
+      'text-muted-foreground'
+    );
   });
 });

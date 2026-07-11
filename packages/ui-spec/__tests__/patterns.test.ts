@@ -39,7 +39,9 @@ interface Pattern {
 function componentLayer(component: string): string | null {
   const idx = join(COMPONENTS_DIR, toKebab(component), 'index.yaml');
   if (!existsSync(idx)) return null;
-  return (parseYaml(readFileSync(idx, 'utf8')) as { layer?: string }).layer ?? null;
+  return (
+    (parseYaml(readFileSync(idx, 'utf8')) as { layer?: string }).layer ?? null
+  );
 }
 
 describe('every usage pattern validates and references real components', () => {

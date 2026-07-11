@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Card,
-  CardContent,
-  Input,
-  Button,
-} from '@spec-lab/ui-react';
+import { Card, CardContent, Input, Button } from '@spec-lab/ui-react';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 
 export function LoginPage() {
@@ -32,7 +27,9 @@ export function LoginPage() {
           {/* Title */}
           <div className="text-center mb-8">
             <h1 className="text-base">
-              <span className="font-semibold text-foreground">Constructor Lab </span>
+              <span className="font-semibold text-foreground">
+                Constructor Lab{' '}
+              </span>
               <span className="font-normal text-[#0D7DE5]">CyberChat</span>
             </h1>
           </div>

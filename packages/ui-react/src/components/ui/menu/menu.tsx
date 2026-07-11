@@ -38,8 +38,9 @@ const MenuSubmenu = MenuPrimitive.SubmenuRoot;
 const popupClassName =
   'z-50 flex min-w-[8rem] flex-col gap-[var(--ui-button-menu-dropdown-container-gap)] overflow-hidden rounded-[var(--ui-button-menu-dropdown-container-border-radius)] border [border-width:var(--ui-button-menu-dropdown-container-border-width)] border-[color:var(--ui-button-menu-dropdown-container-border-color)] bg-[var(--ui-button-menu-dropdown-container-color)] px-[var(--ui-button-menu-dropdown-container-padding-x)] py-[var(--ui-button-menu-dropdown-container-padding-y)] outline-none duration-200 data-[open]:animate-in data-[closed]:animate-out data-[open]:fade-in-0 data-[closed]:fade-out-0 data-[open]:zoom-in-95 data-[closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2';
 
-export interface MenuContentProps
-  extends React.ComponentPropsWithoutRef<typeof MenuPrimitive.Popup> {
+export interface MenuContentProps extends React.ComponentPropsWithoutRef<
+  typeof MenuPrimitive.Popup
+> {
   side?: MenuPrimitive.Positioner.Props['side'];
   align?: MenuPrimitive.Positioner.Props['align'];
   sideOffset?: number;
@@ -82,7 +83,10 @@ const MenuContent = React.forwardRef<
       </MenuPrimitive.Positioner>
     );
     return portal ? (
-      <MenuPrimitive.Portal container={portalContainer} keepMounted={keepMounted}>
+      <MenuPrimitive.Portal
+        container={portalContainer}
+        keepMounted={keepMounted}
+      >
         {positioner}
       </MenuPrimitive.Portal>
     ) : (
@@ -110,8 +114,9 @@ MenuSection.displayName = 'MenuSection';
 const itemClassName =
   'relative flex min-h-[var(--ui-button-menu-dropdown-item-container-height)] cursor-default select-none items-center gap-[var(--ui-button-menu-dropdown-item-container-gap)] whitespace-nowrap px-[var(--ui-button-menu-dropdown-item-container-padding-x)] py-[var(--ui-button-menu-dropdown-item-container-padding-y)] text-sm font-semibold leading-6 text-[var(--ui-button-menu-dropdown-item-label-color)] outline-none transition-colors bg-[var(--ui-button-menu-dropdown-item-container-color-idle)] data-[highlighted]:bg-[var(--ui-button-menu-dropdown-item-container-color-hover)] active:bg-[var(--ui-button-menu-dropdown-item-container-color-active)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0';
 
-export interface MenuItemProps
-  extends React.ComponentPropsWithoutRef<typeof MenuPrimitive.Item> {
+export interface MenuItemProps extends React.ComponentPropsWithoutRef<
+  typeof MenuPrimitive.Item
+> {
   /** Leading icon, rendered before the label at 16px in the item icon color. */
   icon?: React.ReactNode;
   /** Trailing keyboard-shortcut hint (e.g. `⌘C`), muted via the extras token. */
@@ -157,8 +162,9 @@ const MenuItem = React.forwardRef<
 ));
 MenuItem.displayName = 'MenuItem';
 
-export interface MenuSubmenuTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof MenuPrimitive.SubmenuTrigger> {
+export interface MenuSubmenuTriggerProps extends React.ComponentPropsWithoutRef<
+  typeof MenuPrimitive.SubmenuTrigger
+> {
   /** Leading icon, rendered before the label at 16px in the item icon color. */
   icon?: React.ReactNode;
   /** Pad the label to align with checkbox/radio items in the same panel. */

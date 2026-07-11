@@ -79,9 +79,10 @@ describe('every app descriptor validates and references real things', () => {
           .filter((slug): slug is string => Boolean(slug))
       );
       const missing = refs.filter((slug) => !screenExists(slug));
-      expect(missing, `section screens not found: ${missing.join(', ')}`).toEqual(
-        []
-      );
+      expect(
+        missing,
+        `section screens not found: ${missing.join(', ')}`
+      ).toEqual([]);
     });
   }
 });

@@ -22,17 +22,21 @@ export class DtcgFormatter {
   // elements) — used to compute the line prefix and to keep `$extensions` /
   // `values` always expanded.
   static #format(value, indent, key) {
-    if (value === null || typeof value !== 'object') return JSON.stringify(value);
+    if (value === null || typeof value !== 'object')
+      return JSON.stringify(value);
 
     const pad = '  '.repeat(indent);
     const childPad = '  '.repeat(indent + 1);
-    const prefixLen = pad.length + (key !== null ? `${JSON.stringify(key)}: `.length : 0);
+    const prefixLen =
+      pad.length + (key !== null ? `${JSON.stringify(key)}: `.length : 0);
 
     if (Array.isArray(value)) {
       if (value.length === 0) return '[]';
       const inline = DtcgFormatter.#inline(value);
       if (prefixLen + inline.length <= DtcgFormatter.PRINT_WIDTH) return inline;
-      const lines = value.map(v => `${childPad}${DtcgFormatter.#format(v, indent + 1, null)}`);
+      const lines = value.map(
+        (v) => `${childPad}${DtcgFormatter.#format(v, indent + 1, null)}`
+      );
       return `[\n${lines.join(',\n')}\n${pad}]`;
     }
 
@@ -41,13 +45,19 @@ export class DtcgFormatter {
 
     // `$extensions` / `values` always expand; any other scalar object inlines
     // when the whole line fits in PRINT_WIDTH.
-    if (indent > 0 && key !== '$extensions' && key !== 'values' && DtcgFormatter.#isScalarObject(value)) {
+    if (
+      indent > 0 &&
+      key !== '$extensions' &&
+      key !== 'values' &&
+      DtcgFormatter.#isScalarObject(value)
+    ) {
       const inline = DtcgFormatter.#inline(value);
       if (prefixLen + inline.length <= DtcgFormatter.PRINT_WIDTH) return inline;
     }
 
     const lines = keys.map(
-      k => `${childPad}${JSON.stringify(k)}: ${DtcgFormatter.#format(value[k], indent + 1, k)}`,
+      (k) =>
+        `${childPad}${JSON.stringify(k)}: ${DtcgFormatter.#format(value[k], indent + 1, k)}`
     );
     return `{\n${lines.join(',\n')}\n${pad}}`;
   }
@@ -55,18 +65,21 @@ export class DtcgFormatter {
   // True when no member is a nested plain object (arrays and primitives are fine).
   static #isScalarObject(obj) {
     return Object.values(obj).every(
-      v => v === null || typeof v !== 'object' || Array.isArray(v),
+      (v) => v === null || typeof v !== 'object' || Array.isArray(v)
     );
   }
 
   // Inline JSON with spaces: { "k": v, ... } and [a, b, c]; [] and {} stay tight.
   static #inline(value) {
-    if (value === null || typeof value !== 'object') return JSON.stringify(value);
+    if (value === null || typeof value !== 'object')
+      return JSON.stringify(value);
     if (Array.isArray(value)) {
-      return value.length === 0 ? '[]' : `[${value.map(DtcgFormatter.#inline).join(', ')}]`;
+      return value.length === 0
+        ? '[]'
+        : `[${value.map(DtcgFormatter.#inline).join(', ')}]`;
     }
     const keys = Object.keys(value);
     if (keys.length === 0) return '{}';
-    return `{ ${keys.map(k => `${JSON.stringify(k)}: ${DtcgFormatter.#inline(value[k])}`).join(', ')} }`;
+    return `{ ${keys.map((k) => `${JSON.stringify(k)}: ${DtcgFormatter.#inline(value[k])}`).join(', ')} }`;
   }
 }

@@ -24,7 +24,11 @@ function makeConfig(overrides: Partial<FetcherConfig> = {}): FetcherConfig {
 }
 
 function page(children: FigmaNode[]): FigmaPage {
-  return { id: '1:1', name: 'Actions', document: { id: '1:1', name: 'Actions', type: 'CANVAS', children } };
+  return {
+    id: '1:1',
+    name: 'Actions',
+    document: { id: '1:1', name: 'Actions', type: 'CANVAS', children },
+  };
 }
 
 describe('framesByNameStrategy', () => {
@@ -41,7 +45,7 @@ describe('framesByNameStrategy', () => {
           ],
         },
       ]),
-      makeConfig(),
+      makeConfig()
     );
 
     expect(icons).toEqual([
@@ -52,8 +56,15 @@ describe('framesByNameStrategy', () => {
 
   it('ignores frames whose name is not in frameNames', () => {
     const icons = framesByNameStrategy(
-      page([{ id: 'f1', name: 'Notes', type: 'FRAME', children: [{ id: 'c1', name: 'Search', type: 'COMPONENT' }] }]),
-      makeConfig(),
+      page([
+        {
+          id: 'f1',
+          name: 'Notes',
+          type: 'FRAME',
+          children: [{ id: 'c1', name: 'Search', type: 'COMPONENT' }],
+        },
+      ]),
+      makeConfig()
     );
 
     expect(icons).toEqual([]);
@@ -79,7 +90,7 @@ describe('framesByNameStrategy', () => {
           ],
         },
       ]),
-      makeConfig(),
+      makeConfig()
     );
 
     expect(icons).toEqual([{ id: 'c1', name: 'cog', pageName: 'Actions' }]);

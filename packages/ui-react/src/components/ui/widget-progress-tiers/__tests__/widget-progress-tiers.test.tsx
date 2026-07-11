@@ -31,7 +31,11 @@ describe('WidgetProgressTiers', () => {
         />
         <WidgetProgressTiersLegend>
           <WidgetProgressTiersLegendItem color="red" label="Open" value={30} />
-          <WidgetProgressTiersLegendItem color="green" label="Closed" value={70} />
+          <WidgetProgressTiersLegendItem
+            color="green"
+            label="Closed"
+            value={70}
+          />
         </WidgetProgressTiersLegend>
         <WidgetProgressTiersFooter>100 tickets total</WidgetProgressTiersFooter>
       </WidgetProgressTiers>
@@ -62,14 +66,19 @@ describe('WidgetProgressTiers', () => {
 
   it('uses an explicit total instead of summing tier values when provided', () => {
     const { container } = render(
-      <WidgetProgressTiersBar total={200} tiers={[{ label: 'A', value: 50, color: 'red' }]} />
+      <WidgetProgressTiersBar
+        total={200}
+        tiers={[{ label: 'A', value: 50, color: 'red' }]}
+      />
     );
     const segment = container.querySelector('[title]') as HTMLElement;
     expect(segment).toHaveStyle({ width: '25%' });
   });
 
   it('treats a zero total as 0% instead of dividing by zero', () => {
-    const { container } = render(<WidgetProgressTiersBar tiers={[]} total={0} />);
+    const { container } = render(
+      <WidgetProgressTiersBar tiers={[]} total={0} />
+    );
     expect(container.querySelectorAll('[title]')).toHaveLength(0);
   });
 
@@ -103,7 +112,9 @@ describe('WidgetProgressTiers', () => {
 
   it('merges a custom className on parts', () => {
     render(
-      <WidgetProgressTiersTitle className="custom-x">Title</WidgetProgressTiersTitle>
+      <WidgetProgressTiersTitle className="custom-x">
+        Title
+      </WidgetProgressTiersTitle>
     );
     expect(screen.getByText('Title')).toHaveClass('custom-x', 'truncate');
   });

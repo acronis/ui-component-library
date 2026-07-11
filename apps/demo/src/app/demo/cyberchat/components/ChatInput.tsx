@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { ButtonIcon } from '@spec-lab/ui-react';
-import { FileTextIcon, GlobeIcon, SendIcon, TimesIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  FileTextIcon,
+  GlobeIcon,
+  SendIcon,
+  TimesIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { BrainIcon } from '@/components/icons/missing-icons';
 import { toast } from 'sonner';
 import { useCyberChatStore } from '../store/useCyberChatStore';

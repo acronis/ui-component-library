@@ -37,9 +37,13 @@ describe('the shipped ledger', () => {
   });
 
   it('lookups work', () => {
-    expect(getLedgerEntry('scroll-area-hover-active-token')?.status).toBe('open');
+    expect(getLedgerEntry('scroll-area-hover-active-token')?.status).toBe(
+      'open'
+    );
     expect(getLedgerEntry('nope')).toBeUndefined();
-    expect(ledgerByStatus('resolved').every((e) => e.status === 'resolved')).toBe(true);
+    expect(
+      ledgerByStatus('resolved').every((e) => e.status === 'resolved')
+    ).toBe(true);
   });
 });
 
@@ -68,10 +72,12 @@ describe('validateLedger', () => {
   });
 
   it('flags an unknown rule / mismatched checklist row', () => {
-    expect(validateLedger([{ ...valid, rule: 'no/such-rule' }]).join(' ')).toMatch(/unknown rule/);
     expect(
-      validateLedger([{ ...valid, checklist: 'C8' }]).join(' ')
-    ).toMatch(/disagrees with checklist/);
+      validateLedger([{ ...valid, rule: 'no/such-rule' }]).join(' ')
+    ).toMatch(/unknown rule/);
+    expect(validateLedger([{ ...valid, checklist: 'C8' }]).join(' ')).toMatch(
+      /disagrees with checklist/
+    );
   });
 
   it('requires a resolution once resolved/accepted', () => {
@@ -83,7 +89,10 @@ describe('validateLedger', () => {
   it('checks the resolution target exists', () => {
     expect(
       validateLedger([
-        { ...valid, resolution: { kind: 'detector', detector: 'screen/not-real' } },
+        {
+          ...valid,
+          resolution: { kind: 'detector', detector: 'screen/not-real' },
+        },
       ]).join(' ')
     ).toMatch(/not a declared rule detector/);
     expect(
@@ -95,16 +104,26 @@ describe('validateLedger', () => {
 
   it('an accepted entry must point at a real override', () => {
     const errs = validateLedger([
-      { ...valid, status: 'accepted', resolution: { kind: 'override', override: 'ghost' } },
+      {
+        ...valid,
+        status: 'accepted',
+        resolution: { kind: 'override', override: 'ghost' },
+      },
     ]);
     expect(errs.join(' ')).toMatch(/override "ghost" does not exist/);
   });
 
   it('flags an invalid status / discovered date / empty source', () => {
     expect(
-      validateLedger([{ ...valid, status: 'wat' as LedgerEntry['status'] }]).join(' ')
+      validateLedger([
+        { ...valid, status: 'wat' as LedgerEntry['status'] },
+      ]).join(' ')
     ).toMatch(/invalid status/);
-    expect(validateLedger([{ ...valid, discovered: 'nope' }]).join(' ')).toMatch(/invalid discovered/);
-    expect(validateLedger([{ ...valid, source: {} }]).join(' ')).toMatch(/no source/);
+    expect(
+      validateLedger([{ ...valid, discovered: 'nope' }]).join(' ')
+    ).toMatch(/invalid discovered/);
+    expect(validateLedger([{ ...valid, source: {} }]).join(' ')).toMatch(
+      /no source/
+    );
   });
 });

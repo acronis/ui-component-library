@@ -12,7 +12,10 @@ import {
 } from '../grammar';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const CHECKLIST = readFileSync(resolve(HERE, '../grammar/CHECKLIST.md'), 'utf8');
+const CHECKLIST = readFileSync(
+  resolve(HERE, '../grammar/CHECKLIST.md'),
+  'utf8'
+);
 
 const CATEGORIES: RuleCategory[] = [
   'tokens',
@@ -55,14 +58,23 @@ describe('grammar rule registry integrity', () => {
       });
 
       it('has non-empty required fields', () => {
-        for (const field of ['title', 'rule', 'rationale', 'checklist', 'detector'] as const) {
+        for (const field of [
+          'title',
+          'rule',
+          'rationale',
+          'checklist',
+          'detector',
+        ] as const) {
           expect(rule[field], `${rule.id}.${field} is empty`).toBeTruthy();
         }
       });
 
       it('relatedRules resolve to existing rules', () => {
         for (const id of rule.relatedRules ?? []) {
-          expect(getRule(id), `${rule.id} → unknown relatedRule "${id}"`).toBeTruthy();
+          expect(
+            getRule(id),
+            `${rule.id} → unknown relatedRule "${id}"`
+          ).toBeTruthy();
         }
       });
     });
@@ -79,12 +91,18 @@ describe('CHECKLIST.md mirrors the registry 1:1', () => {
 
   it('every rule has a CHECKLIST.md row', () => {
     const missing = [...ruleRowIds].filter((id) => !checklistRowIds.has(id));
-    expect(missing, `rules without a checklist row: ${missing.join(', ')}`).toEqual([]);
+    expect(
+      missing,
+      `rules without a checklist row: ${missing.join(', ')}`
+    ).toEqual([]);
   });
 
   it('every CHECKLIST.md row has a rule', () => {
     const missing = [...checklistRowIds].filter((id) => !ruleRowIds.has(id));
-    expect(missing, `checklist rows without a rule: ${missing.join(', ')}`).toEqual([]);
+    expect(
+      missing,
+      `checklist rows without a rule: ${missing.join(', ')}`
+    ).toEqual([]);
   });
 });
 

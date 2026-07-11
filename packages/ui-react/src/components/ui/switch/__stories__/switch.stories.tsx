@@ -9,7 +9,8 @@ const meta = {
   argTypes: {
     label: {
       control: 'text',
-      description: 'Optional text label rendered beside the toggle; names the control.',
+      description:
+        'Optional text label rendered beside the toggle; names the control.',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
     defaultChecked: {
@@ -30,7 +31,10 @@ const meta = {
     onCheckedChange: {
       control: false,
       description: 'Fires with the new checked state when toggled.',
-      table: { type: { summary: '(checked: boolean) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(checked: boolean) => void' },
+        category: 'Events',
+      },
     },
   },
   args: {

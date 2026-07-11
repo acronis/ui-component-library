@@ -45,7 +45,10 @@ const meta = {
     onOpenChange: {
       control: false,
       description: 'Fires when the sheet opens or closes.',
-      table: { type: { summary: '(open, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(open, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     // `side` is a `SheetContent` prop (not a Sheet root prop) — see the per-side
     // stories and the API reference.
@@ -80,7 +83,9 @@ const PanelBody = () => (
 export const Default: Story = {
   render: () => (
     <Sheet defaultOpen>
-      <SheetTrigger render={<Button variant="secondary">Open details</Button>} />
+      <SheetTrigger
+        render={<Button variant="secondary">Open details</Button>}
+      />
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Workload details</SheetTitle>

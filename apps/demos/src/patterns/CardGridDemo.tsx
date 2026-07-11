@@ -14,10 +14,22 @@ import {
 
 const integrations = [
   { id: 'i1', name: 'Slack', summary: 'Send alerts to your team channels.' },
-  { id: 'i2', name: 'Jira', summary: 'Open tickets from incidents automatically.' },
+  {
+    id: 'i2',
+    name: 'Jira',
+    summary: 'Open tickets from incidents automatically.',
+  },
   { id: 'i3', name: 'PagerDuty', summary: 'Escalate critical alerts on-call.' },
-  { id: 'i4', name: 'GitHub', summary: 'Link deployments to protected workloads.' },
-  { id: 'i5', name: 'Datadog', summary: 'Forward backup metrics to dashboards.' },
+  {
+    id: 'i4',
+    name: 'GitHub',
+    summary: 'Link deployments to protected workloads.',
+  },
+  {
+    id: 'i5',
+    name: 'Datadog',
+    summary: 'Forward backup metrics to dashboards.',
+  },
   { id: 'i6', name: 'Okta', summary: 'Provision users with single sign-on.' },
 ];
 

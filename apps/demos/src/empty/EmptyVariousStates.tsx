@@ -7,7 +7,11 @@ import {
   EmptyActions,
 } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import { CalendarIcon, EnvelopeIcon, ShoppingCartIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CalendarIcon,
+  EnvelopeIcon,
+  ShoppingCartIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { DatabaseIcon } from '../icons/missing-icons';
 export function EmptyVariousStates() {
   return (

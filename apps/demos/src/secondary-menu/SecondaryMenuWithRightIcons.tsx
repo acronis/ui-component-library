@@ -31,7 +31,9 @@ export function SecondaryMenuWithRightIcons() {
       <SidebarSecondary>
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Navigation</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Navigation
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               {items.map((item) => (
                 <SidebarSecondaryMenuItem

@@ -14,15 +14,26 @@ const ensureDir = (dir: string): string => {
 
 export function writeSvg(dir: string, name: string, svg: string): void {
   ensureDir(dir);
-  writeFileSync(path.join(dir, `${name}.svg`), svg.endsWith('\n') ? svg : `${svg}\n`);
+  writeFileSync(
+    path.join(dir, `${name}.svg`),
+    svg.endsWith('\n') ? svg : `${svg}\n`
+  );
 }
 
-export function writeRaster(dir: string, name: string, ext: string, bytes: Buffer): void {
+export function writeRaster(
+  dir: string,
+  name: string,
+  ext: string,
+  bytes: Buffer
+): void {
   ensureDir(dir);
   writeFileSync(path.join(dir, `${name}.${ext}`), bytes);
 }
 
-export function writeReact(dir: string, components: GeneratedComponent[]): void {
+export function writeReact(
+  dir: string,
+  components: GeneratedComponent[]
+): void {
   ensureDir(dir);
   for (const c of components) {
     writeFileSync(path.join(dir, `${c.fileName}.tsx`), c.source);
@@ -32,5 +43,8 @@ export function writeReact(dir: string, components: GeneratedComponent[]): void 
 
 export function writeManifest(dir: string, data: unknown): void {
   ensureDir(dir);
-  writeFileSync(path.join(dir, 'manifest.json'), `${JSON.stringify(data, null, 2)}\n`);
+  writeFileSync(
+    path.join(dir, 'manifest.json'),
+    `${JSON.stringify(data, null, 2)}\n`
+  );
 }

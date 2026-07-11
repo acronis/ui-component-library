@@ -3,8 +3,12 @@ title: Calendar
 description: A themed date calendar for single, multiple, or range selection.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { CalendarDemo, CalendarLocalizedDemo, CalendarInInputDatePickerDemo } from "@/components/demos-react/calendar";
+import { DemoReact } from '@/components/DemoReact';
+import {
+  CalendarDemo,
+  CalendarLocalizedDemo,
+  CalendarInInputDatePickerDemo,
+} from '@/components/demos-react/calendar';
 
 ## Usage
 
@@ -30,7 +34,7 @@ Single date (controlled):
 ```tsx
 const [date, setDate] = React.useState<Date>();
 
-<Calendar mode="single" selected={date} onSelect={setDate} />
+<Calendar mode="single" selected={date} onSelect={setDate} />;
 ```
 
 Range selection with month/year dropdowns:
@@ -43,7 +47,7 @@ const [range, setRange] = React.useState<DateRange>();
   captionLayout="dropdown"
   selected={range}
   onSelect={setRange}
-/>
+/>;
 ```
 
 Disable days (e.g. weekends) and show two months:
@@ -109,7 +113,7 @@ const [date, setDate] = React.useState<Date>();
       }}
     />
   </PopoverContent>
-</Popover>
+</Popover>;
 ```
 
 ## API Reference

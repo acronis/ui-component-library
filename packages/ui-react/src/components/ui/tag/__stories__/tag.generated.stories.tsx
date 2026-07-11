@@ -13,7 +13,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const VARIANTS = ['info', 'success', 'warning', 'critical', 'danger', 'neutral', 'ai'] as const;
+const VARIANTS = [
+  'info',
+  'success',
+  'warning',
+  'critical',
+  'danger',
+  'neutral',
+  'ai',
+] as const;
 const SIZES = ['default', 'sm'] as const;
 
 export const Matrix: Story = {
@@ -36,7 +44,11 @@ export const Matrix: Story = {
         <span key={`${v}-label`} style={{ fontSize: 12, opacity: 0.6 }}>
           {v}
         </span>,
-        ...SIZES.map((s) => <Tag key={`${v}-${s}`} variant={v} size={s}>Label</Tag>),
+        ...SIZES.map((s) => (
+          <Tag key={`${v}-${s}`} variant={v} size={s}>
+            Label
+          </Tag>
+        )),
       ])}
     </div>
   ),

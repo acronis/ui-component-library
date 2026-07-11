@@ -33,7 +33,12 @@ type Payment = {
 const payments: Payment[] = [
   { id: 'p1', amount: 316, status: 'success', email: 'ken99@example.com' },
   { id: 'p2', amount: 242, status: 'success', email: 'abe45@example.com' },
-  { id: 'p3', amount: 837, status: 'processing', email: 'monserrat@example.com' },
+  {
+    id: 'p3',
+    amount: 837,
+    status: 'processing',
+    email: 'monserrat@example.com',
+  },
   { id: 'p4', amount: 874, status: 'success', email: 'silas22@example.com' },
   { id: 'p5', amount: 721, status: 'failed', email: 'carmella@example.com' },
   { id: 'p6', amount: 100, status: 'pending', email: 'test@example.com' },
@@ -69,18 +74,26 @@ const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: 'status',
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Status" />,
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Status" />
+    ),
     cell: ({ row }) => (
-      <Tag variant={STATUS_VARIANT[row.original.status]}>{row.original.status}</Tag>
+      <Tag variant={STATUS_VARIANT[row.original.status]}>
+        {row.original.status}
+      </Tag>
     ),
   },
   {
     accessorKey: 'email',
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Email" />
+    ),
   },
   {
     accessorKey: 'amount',
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Amount" />,
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Amount" />
+    ),
     cell: ({ row }) => (
       <div className="font-medium">${row.original.amount.toFixed(2)}</div>
     ),
@@ -131,7 +144,11 @@ function WithToolbarAndPagination() {
 
   return (
     <div className="flex flex-col gap-4">
-      <DataTableToolbar table={table} searchKey="email" searchPlaceholder="Filter emails…" />
+      <DataTableToolbar
+        table={table}
+        searchKey="email"
+        searchPlaceholder="Filter emails…"
+      />
       <DataTable columns={columns} data={payments} />
       <DataTablePagination table={table} />
     </div>
@@ -157,8 +174,8 @@ export const ExpandableRows: Story = {
       renderExpandedRow={(row) => (
         <div className="text-sm text-muted-foreground">
           Detailed payment information for{' '}
-          <span className="font-medium text-foreground">{row.original.id}</span> —
-          ${row.original.amount.toFixed(2)} via {row.original.email}
+          <span className="font-medium text-foreground">{row.original.id}</span>{' '}
+          — ${row.original.amount.toFixed(2)} via {row.original.email}
         </div>
       )}
     />
@@ -170,16 +187,24 @@ export const Striped: Story = {
 };
 
 export const Bordered: Story = {
-  render: () => <DataTable columns={columns} data={payments} bordered striped />,
+  render: () => (
+    <DataTable columns={columns} data={payments} bordered striped />
+  ),
 };
 
 export const Skeleton: Story = {
-  render: () => <DataTable columns={columns} data={[]} skeleton skeletonRows={5} />,
+  render: () => (
+    <DataTable columns={columns} data={[]} skeleton skeletonRows={5} />
+  ),
 };
 
 export const CurrentRow: Story = {
-  render: () => <DataTable columns={columns} data={payments} highlightCurrentRow />,
+  render: () => (
+    <DataTable columns={columns} data={payments} highlightCurrentRow />
+  ),
   play: async ({ canvasElement }) => {
-    await userEvent.click(within(canvasElement).getByText('silas22@example.com'));
+    await userEvent.click(
+      within(canvasElement).getByText('silas22@example.com')
+    );
   },
 };

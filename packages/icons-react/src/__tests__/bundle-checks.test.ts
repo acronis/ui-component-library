@@ -7,7 +7,13 @@ import { build } from 'vite';
 import { describe, expect, it } from 'vitest';
 
 const pkgRoot = resolve(__dirname, '..', '..');
-const strokeMonoEntry = resolve(pkgRoot, 'src', 'packs', 'stroke-mono', 'index.ts');
+const strokeMonoEntry = resolve(
+  pkgRoot,
+  'src',
+  'packs',
+  'stroke-mono',
+  'index.ts'
+);
 
 async function bundleBytes(importStatement: string): Promise<{
   raw: number;
@@ -55,20 +61,16 @@ async function bundleBytes(importStatement: string): Promise<{
 }
 
 describe('tree-shaking and bundle-size guards', () => {
-  it(
-    'keeps named icon imports small and avoids pulling full icon registry',
-    async () => {
-      const named = await bundleBytes(
-        `import { BoltIcon } from ${JSON.stringify(strokeMonoEntry)};\nconsole.log(BoltIcon);`
-      );
-      const registry = await bundleBytes(
-        `import { icons } from ${JSON.stringify(strokeMonoEntry)};\nconsole.log(icons);`
-      );
+  it('keeps named icon imports small and avoids pulling full icon registry', async () => {
+    const named = await bundleBytes(
+      `import { BoltIcon } from ${JSON.stringify(strokeMonoEntry)};\nconsole.log(BoltIcon);`
+    );
+    const registry = await bundleBytes(
+      `import { icons } from ${JSON.stringify(strokeMonoEntry)};\nconsole.log(icons);`
+    );
 
-      expect(named.gzip).toBeLessThan(3000);
-      expect(registry.gzip).toBeGreaterThan(named.gzip * 10);
-      expect(registry.raw).toBeGreaterThan(named.raw * 20);
-    },
-    30_000
-  );
+    expect(named.gzip).toBeLessThan(3000);
+    expect(registry.gzip).toBeGreaterThan(named.gzip * 10);
+    expect(registry.raw).toBeGreaterThan(named.raw * 20);
+  }, 30_000);
 });

@@ -27,11 +27,15 @@ const meta = {
       control: 'select',
       options: ['info', 'success', 'warning', 'danger'],
       description: 'Status color of the alert surface + border.',
-      table: { type: { summary: 'info | success | warning | danger' }, category: 'Appearance' },
+      table: {
+        type: { summary: 'info | success | warning | danger' },
+        category: 'Appearance',
+      },
     },
     interactive: {
       control: 'boolean',
-      description: 'Makes the widget focusable/clickable with hover, active, and focus states.',
+      description:
+        'Makes the widget focusable/clickable with hover, active, and focus states.',
       table: { type: { summary: 'boolean' }, category: 'Behavior' },
     },
   },

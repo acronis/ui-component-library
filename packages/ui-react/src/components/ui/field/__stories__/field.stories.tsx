@@ -111,7 +111,10 @@ export const CheckboxGroup: Story = {
           label="Product updates"
           description="New features and improvements."
         />
-        <Checkbox label="Security alerts" description="Important account notices." />
+        <Checkbox
+          label="Security alerts"
+          description="Important account notices."
+        />
         <Checkbox label="Marketing" description="Offers and newsletters." />
       </FieldGroup>
     </FieldSet>

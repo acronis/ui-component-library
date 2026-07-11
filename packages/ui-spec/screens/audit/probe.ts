@@ -130,7 +130,9 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
           (c: Element) => c.tagName === cur!.tagName
         );
         const idx = sameTag.indexOf(cur);
-        parts.unshift(sameTag.length > 1 ? `${tag}:nth-of-type(${idx + 1})` : tag);
+        parts.unshift(
+          sameTag.length > 1 ? `${tag}:nth-of-type(${idx + 1})` : tag
+        );
       } else {
         parts.unshift(tag);
       }
@@ -149,7 +151,11 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
   let el = walker.currentNode as Element | null;
   // The TreeWalker starts on `root` itself; iterate over descendants.
-  for (el = walker.nextNode() as Element | null; el; el = walker.nextNode() as Element | null) {
+  for (
+    el = walker.nextNode() as Element | null;
+    el;
+    el = walker.nextNode() as Element | null
+  ) {
     const style = getComputedStyle(el);
     if (style.display === 'none' || style.visibility === 'hidden') continue;
     const rect = el.getBoundingClientRect();
@@ -169,10 +175,8 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
     const interactive = isControl && !isDisabled;
     const disabled = isControl && isDisabled;
 
-    const borderX =
-      num(style.borderLeftWidth) + num(style.borderRightWidth);
-    const borderY =
-      num(style.borderTopWidth) + num(style.borderBottomWidth);
+    const borderX = num(style.borderLeftWidth) + num(style.borderRightWidth);
+    const borderY = num(style.borderTopWidth) + num(style.borderBottomWidth);
     const he = el as HTMLElement;
     const overflowY = style.overflowY;
     const overflowX = style.overflowX;

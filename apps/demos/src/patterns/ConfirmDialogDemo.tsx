@@ -18,7 +18,9 @@ export interface ConfirmDialogDemoProps {
   portalContainer?: HTMLElement | null;
 }
 
-export function ConfirmDialogDemo({ portalContainer }: ConfirmDialogDemoProps = {}) {
+export function ConfirmDialogDemo({
+  portalContainer,
+}: ConfirmDialogDemoProps = {}) {
   const [open, setOpen] = useState(false);
   const name = 'db-prod-01';
 
@@ -33,12 +35,14 @@ export function ConfirmDialogDemo({ portalContainer }: ConfirmDialogDemoProps = 
           <AlertDialogHeader>
             <AlertDialogTitle>Delete {name}?</AlertDialogTitle>
             <AlertDialogDescription>
-              This permanently removes {name} and its data. This action cannot be
-              undone.
+              This permanently removes {name} and its data. This action cannot
+              be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel render={<Button variant="ghost">Cancel</Button>} />
+            <AlertDialogCancel
+              render={<Button variant="ghost">Cancel</Button>}
+            />
             <AlertDialogAction
               render={<Button variant="destructive">Delete</Button>}
               onClick={() => setOpen(false)}

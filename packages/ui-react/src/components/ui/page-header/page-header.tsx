@@ -58,7 +58,10 @@ const PageHeaderTitle = React.forwardRef<
   <h1
     ref={ref}
     data-slot="page-header-title"
-    className={cn('text-lg font-semibold leading-tight tracking-tight', className)}
+    className={cn(
+      'text-lg font-semibold leading-tight tracking-tight',
+      className
+    )}
     {...props}
   />
 ));

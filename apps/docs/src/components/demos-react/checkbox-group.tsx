@@ -15,7 +15,11 @@ export function CheckboxGroupDemo() {
         label="Security alerts"
         description="Important notices about your account."
       />
-      <Checkbox name="marketing" label="Marketing" description="Tips, offers, and news." />
+      <Checkbox
+        name="marketing"
+        label="Marketing"
+        description="Tips, offers, and news."
+      />
     </CheckboxGroup>
   );
 }

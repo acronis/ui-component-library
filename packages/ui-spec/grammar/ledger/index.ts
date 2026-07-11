@@ -129,13 +129,19 @@ export function validateLedger(list: LedgerEntry[] = ledger): string[] {
       if (r.date && !DATE_RE.test(r.date))
         errors.push(`${label} has an invalid resolution date "${r.date}"`);
       if (e.status === 'accepted' && r.kind !== 'override')
-        errors.push(`${label} is "accepted" but its resolution is not an override`);
+        errors.push(
+          `${label} is "accepted" but its resolution is not an override`
+        );
       if (r.kind === 'detector' && !declaredDetectors.has(r.detector ?? ''))
-        errors.push(`${label} resolution detector "${r.detector}" is not a declared rule detector`);
+        errors.push(
+          `${label} resolution detector "${r.detector}" is not a declared rule detector`
+        );
       if (r.kind === 'new-rule' && !getRule(r.rule ?? ''))
         errors.push(`${label} resolution rule "${r.rule}" does not exist`);
       if (r.kind === 'override' && !overrides.some((o) => o.id === r.override))
-        errors.push(`${label} resolution override "${r.override}" does not exist`);
+        errors.push(
+          `${label} resolution override "${r.override}" does not exist`
+        );
     }
   }
   return errors;

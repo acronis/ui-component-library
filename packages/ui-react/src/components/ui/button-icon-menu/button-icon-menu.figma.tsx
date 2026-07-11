@@ -13,6 +13,8 @@ figma.connect(
     props: {
       open: figma.enum('state', { active: true }),
     },
-    example: ({ open }) => <ButtonIconMenu open={open} aria-label="More options" />,
+    example: ({ open }) => (
+      <ButtonIconMenu open={open} aria-label="More options" />
+    ),
   }
 );

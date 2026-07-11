@@ -14,9 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { DtcgWalker } from './utils-dtcg-walker.mjs';
 import { ColorNormalizer } from './normalize-colors.mjs';
 
-const SNAPSHOT_DIR = fileURLToPath(
-  new URL('../snapshot/', import.meta.url),
-);
+const SNAPSHOT_DIR = fileURLToPath(new URL('../snapshot/', import.meta.url));
 const SNAPSHOT_PATH = path.join(SNAPSHOT_DIR, 'figma-snapshot.json');
 
 export class SnapshotBuilder {
@@ -41,7 +39,9 @@ export class SnapshotBuilder {
     return snapshot;
   }
 
-  get outputPath() { return SNAPSHOT_PATH; }
+  get outputPath() {
+    return SNAPSHOT_PATH;
+  }
 
   #normalizeVariables() {
     const source = this.#loader.variables;
@@ -58,13 +58,15 @@ export class SnapshotBuilder {
       if (!metaEntry) {
         throw new Error(
           `No metadata for ${variableId} at path ${leafPath.join('.')}\n` +
-          `Re-pull variables-meta.json so every VariableID has a meta entry.`,
+            `Re-pull variables-meta.json so every VariableID has a meta entry.`
         );
       }
 
       // Extract multi-mode values from lastSyncedValue.
       const modes = {};
-      for (const [modeKey, modeData] of Object.entries(fcExt.lastSyncedValue ?? {})) {
+      for (const [modeKey, modeData] of Object.entries(
+        fcExt.lastSyncedValue ?? {}
+      )) {
         if ('literal' in modeData) modes[modeKey] = modeData.literal;
         else if ('reference' in modeData) modes[modeKey] = modeData.reference;
       }

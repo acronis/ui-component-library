@@ -27,8 +27,12 @@ function Basic() {
 describe('Accordion', () => {
   it('renders triggers with accessible heading semantics', () => {
     render(<Basic />);
-    expect(screen.getByRole('button', { name: 'Section A' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Section B' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Section A' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Section B' })
+    ).toBeInTheDocument();
   });
 
   it('expands a panel when its trigger is clicked', async () => {

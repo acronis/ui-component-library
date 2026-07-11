@@ -7,7 +7,10 @@ import {
 } from '@spec-lab/ui-react';
 import { Card, CardContent } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 export function CarouselWithDots() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);

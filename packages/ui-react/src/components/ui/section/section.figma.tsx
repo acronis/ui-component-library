@@ -3,7 +3,13 @@
 // 'FIGMA_NODE_URL' and flip to COMPLETE via `/figma-component Section <url> --update`.
 import figma from '@figma/code-connect';
 
-import { Section, SectionHeader, SectionTitle, SectionDescription, SectionContent } from './section';
+import {
+  Section,
+  SectionHeader,
+  SectionTitle,
+  SectionDescription,
+  SectionContent,
+} from './section';
 
 figma.connect(Section, 'FIGMA_NODE_URL', {
   example: () => (

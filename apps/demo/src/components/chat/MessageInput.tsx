@@ -6,12 +6,12 @@ import { cn } from '@spec-lab/ui-react';
 import { MessageInputProps } from '@/lib/chat/types';
 import { Button, ButtonIcon } from '@spec-lab/ui-react';
 import { Textarea } from '@spec-lab/ui-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/ui-react';
-import { EyeOffIcon, EyeIcon, SendIcon } from '@spec-lab/icons-react/stroke-mono'
+  EyeOffIcon,
+  EyeIcon,
+  SendIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { SmileIcon } from '@/components/icons/missing-icons';
 
 export function MessageInput({
@@ -111,11 +111,7 @@ export function MessageInput({
 
       <div className="flex items-center justify-between">
         <div className="flex gap-2">
-          <Button
-            variant="secondary"
-            onClick={onPreviewToggle}
-            className="h-8"
-          >
+          <Button variant="secondary" onClick={onPreviewToggle} className="h-8">
             {showPreview ? (
               <>
                 <EyeOffIcon className="h-3 w-3 mr-1" />

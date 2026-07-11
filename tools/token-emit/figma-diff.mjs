@@ -14,7 +14,7 @@ import { DiffEngine } from './helpers/diff-engine.mjs';
 import { DiffReporter } from './helpers/diff-reporter.mjs';
 
 const SNAPSHOT_PATH = fileURLToPath(
-  new URL('./snapshot/figma-snapshot.json', import.meta.url),
+  new URL('./snapshot/figma-snapshot.json', import.meta.url)
 );
 
 const args = process.argv.slice(2);

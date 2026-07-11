@@ -31,7 +31,10 @@ function fromStore(pkg, preferVersion) {
   if (!fs.existsSync(store)) return null;
   const dirs = fs.readdirSync(store).filter((d) => d.startsWith(`${pkg}@`));
   if (!dirs.length) return null;
-  const pick = (preferVersion && dirs.find((d) => d.startsWith(`${pkg}@${preferVersion}`))) || dirs.sort().pop();
+  const pick =
+    (preferVersion &&
+      dirs.find((d) => d.startsWith(`${pkg}@${preferVersion}`))) ||
+    dirs.sort().pop();
   const p = `${store}/${pick}/node_modules/${pkg}`;
   return fs.existsSync(p) ? p : null;
 }
@@ -54,11 +57,17 @@ try {
 
 const [, , figmaPath, storyPath, ...rest] = process.argv;
 if (!figmaPath || !storyPath) {
-  console.error('usage: parity-image.mjs <figma.png> <storybook.png> [--out diff.png] [--threshold 0.1]');
+  console.error(
+    'usage: parity-image.mjs <figma.png> <storybook.png> [--out diff.png] [--threshold 0.1]'
+  );
   process.exit(2);
 }
-const outPath = rest.includes('--out') ? rest[rest.indexOf('--out') + 1] : 'parity-diff.png';
-const threshold = rest.includes('--threshold') ? Number(rest[rest.indexOf('--threshold') + 1]) : 0.1;
+const outPath = rest.includes('--out')
+  ? rest[rest.indexOf('--out') + 1]
+  : 'parity-diff.png';
+const threshold = rest.includes('--threshold')
+  ? Number(rest[rest.indexOf('--threshold') + 1])
+  : 0.1;
 
 const figma = PNG.sync.read(fs.readFileSync(figmaPath));
 const story = PNG.sync.read(fs.readFileSync(storyPath));
@@ -67,10 +76,15 @@ const story = PNG.sync.read(fs.readFileSync(storyPath));
 function resize(src, w, h) {
   const out = Buffer.alloc(w * h * 4);
   for (let y = 0; y < h; y++) {
-    const sy = Math.min(src.height - 1, (y * src.height / h) | 0);
+    const sy = Math.min(src.height - 1, ((y * src.height) / h) | 0);
     for (let x = 0; x < w; x++) {
-      const sx = Math.min(src.width - 1, (x * src.width / w) | 0);
-      src.data.copy(out, (y * w + x) * 4, (sy * src.width + sx) * 4, (sy * src.width + sx) * 4 + 4);
+      const sx = Math.min(src.width - 1, ((x * src.width) / w) | 0);
+      src.data.copy(
+        out,
+        (y * w + x) * 4,
+        (sy * src.width + sx) * 4,
+        (sy * src.width + sx) * 4 + 4
+      );
     }
   }
   return out;
@@ -78,9 +92,14 @@ function resize(src, w, h) {
 
 const { width, height } = figma;
 const a = figma.data;
-const b = story.width === width && story.height === height ? story.data : resize(story, width, height);
+const b =
+  story.width === width && story.height === height
+    ? story.data
+    : resize(story, width, height);
 if (story.width !== width || story.height !== height) {
-  console.log(`note: resized storybook ${story.width}×${story.height} → ${width}×${height} (figma dims) before diff`);
+  console.log(
+    `note: resized storybook ${story.width}×${story.height} → ${width}×${height} (figma dims) before diff`
+  );
 }
 
 const diff = new PNG({ width, height });
@@ -88,7 +107,9 @@ const mismatch = pixelmatch(a, b, diff.data, width, height, { threshold });
 fs.writeFileSync(outPath, PNG.sync.write(diff));
 
 const ratio = mismatch / (width * height);
-console.log(`mismatched pixels: ${mismatch} / ${width * height}  (${(ratio * 100).toFixed(2)}%)`);
+console.log(
+  `mismatched pixels: ${mismatch} / ${width * height}  (${(ratio * 100).toFixed(2)}%)`
+);
 console.log(`diff image: ${outPath}`);
 console.log(
   ratio > 0.2

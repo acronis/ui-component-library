@@ -85,7 +85,10 @@ const AppShellFooter = React.forwardRef<
   <footer
     ref={ref}
     data-slot="app-shell-footer"
-    className={cn('shrink-0 border-t border-border bg-background px-6 py-4', className)}
+    className={cn(
+      'shrink-0 border-t border-border bg-background px-6 py-4',
+      className
+    )}
     {...props}
   />
 ));

@@ -39,7 +39,8 @@ const meta = {
     },
     onValueChange: {
       control: false,
-      description: 'Fires with the new selected value when the selection changes.',
+      description:
+        'Fires with the new selected value when the selection changes.',
       table: {
         type: { summary: '(value: unknown, event: Event) => void' },
         category: 'Events',
@@ -48,7 +49,10 @@ const meta = {
     render: {
       control: false,
       description: 'Base UI render prop for overriding the rendered element.',
-      table: { type: { summary: 'ReactElement | function' }, category: 'Composition' },
+      table: {
+        type: { summary: 'ReactElement | function' },
+        category: 'Composition',
+      },
     },
   },
 } satisfies Meta<typeof RadioGroup>;

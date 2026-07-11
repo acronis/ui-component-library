@@ -1,11 +1,6 @@
 'use client';
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@spec-lab/ui-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@spec-lab/ui-react';
 
 export function TabsDemo() {
   return (

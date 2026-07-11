@@ -23,8 +23,7 @@ import { cn } from '@/lib/utils';
 // Reconcile with `/figma-component WidgetProtectionStatus <url> --update` once
 // a mockup lands (Figma: Charts-anatomy / Protection-Status, node 533:75562).
 
-export interface WidgetProtectionStatusProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProtectionStatusProps extends React.HTMLAttributes<HTMLDivElement> {
   interactive?: boolean;
 }
 
@@ -95,12 +94,7 @@ const WidgetProtectionStatusContent = React.forwardRef<
 WidgetProtectionStatusContent.displayName = 'WidgetProtectionStatusContent';
 
 type ProtectionStatusTone =
-  | 'success'
-  | 'warning'
-  | 'critical'
-  | 'danger'
-  | 'info'
-  | 'neutral';
+  'success' | 'warning' | 'critical' | 'danger' | 'info' | 'neutral';
 
 // Solid swatch color per status — see the file-level doc comment for why this
 // is the "strong" background tier rather than Alert's border/glyph roles.

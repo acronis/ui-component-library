@@ -18,8 +18,8 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Avatar>
-      <AvatarFallback>SN</AvatarFallback>
-    </Avatar>
+        <AvatarFallback>SN</AvatarFallback>
+      </Avatar>
     </div>
   ),
 };

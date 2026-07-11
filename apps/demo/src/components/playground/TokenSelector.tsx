@@ -1,4 +1,4 @@
-import { CheckIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CheckIcon } from '@spec-lab/icons-react/stroke-mono';
 import { PaletteIcon } from '@/components/icons/missing-icons';
 import { usePlaygroundStore } from '@/store/playground/playgroundStore';
 import { Button } from '@spec-lab/ui-react';

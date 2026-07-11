@@ -37,8 +37,7 @@ export interface ProgressTier {
   color: string;
 }
 
-export interface WidgetProgressTiersProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProgressTiersProps extends React.HTMLAttributes<HTMLDivElement> {
   interactive?: boolean;
 }
 
@@ -96,8 +95,7 @@ const WidgetProgressTiersIcon = React.forwardRef<
 ));
 WidgetProgressTiersIcon.displayName = 'WidgetProgressTiersIcon';
 
-export interface WidgetProgressTiersBarProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProgressTiersBarProps extends React.HTMLAttributes<HTMLDivElement> {
   tiers: ProgressTier[];
   total?: number;
 }
@@ -147,8 +145,7 @@ const WidgetProgressTiersLegend = React.forwardRef<
 ));
 WidgetProgressTiersLegend.displayName = 'WidgetProgressTiersLegend';
 
-export interface WidgetProgressTiersLegendItemProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProgressTiersLegendItemProps extends React.HTMLAttributes<HTMLDivElement> {
   color: string;
   label: string;
   value?: string | number;

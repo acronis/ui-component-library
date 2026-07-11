@@ -19,7 +19,9 @@ export function SheetDemo() {
   const mount = useShadowMount();
   return (
     <Sheet>
-      <SheetTrigger render={<Button variant="secondary">Open details</Button>} />
+      <SheetTrigger
+        render={<Button variant="secondary">Open details</Button>}
+      />
       <SheetContent side="right" portalContainer={mount}>
         <SheetHeader>
           <SheetTitle>Workload details</SheetTitle>

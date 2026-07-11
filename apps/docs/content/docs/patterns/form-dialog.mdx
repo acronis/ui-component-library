@@ -3,8 +3,8 @@ title: Form dialog
 description: A short create/edit form inside a modal Dialog, with a titled header and a cancel / submit footer.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { FormDialogDemo } from "@/components/demos-react/patterns/form-dialog";
+import { DemoReact } from '@/components/DemoReact';
+import { FormDialogDemo } from '@/components/demos-react/patterns/form-dialog';
 
 The sanctioned way to capture a short create/edit form without leaving the page:
 a **`Dialog`** whose body holds a **`Form`** of **`Field`** + **`InputText`**
@@ -44,13 +44,17 @@ function CreateProjectDialog({ open, onOpenChange, onSubmit }) {
           <DialogBody className="flex flex-col gap-4">
             <Field name="name">
               <FieldLabel>Name</FieldLabel>
-              <FieldControl render={<InputText placeholder="Acme migration" required />} />
+              <FieldControl
+                render={<InputText placeholder="Acme migration" required />}
+              />
               <FieldError />
             </Field>
             <Field name="key">
               <FieldLabel>Key</FieldLabel>
               <FieldControl render={<InputText placeholder="ACME" />} />
-              <FieldDescription>A short identifier used in URLs.</FieldDescription>
+              <FieldDescription>
+                A short identifier used in URLs.
+              </FieldDescription>
             </Field>
           </DialogBody>
           <DialogFooter>

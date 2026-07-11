@@ -21,8 +21,9 @@ const PopoverTrigger = PopoverPrimitive.Trigger;
 
 const PopoverPortal = PopoverPrimitive.Portal;
 
-export interface PopoverContentProps
-  extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Popup> {
+export interface PopoverContentProps extends React.ComponentPropsWithoutRef<
+  typeof PopoverPrimitive.Popup
+> {
   /** Which side of the trigger to render on. */
   side?: PopoverPrimitive.Positioner.Props['side'];
   /** Alignment along the chosen side. */
@@ -81,7 +82,10 @@ const PopoverContent = React.forwardRef<
     );
 
     return portal ? (
-      <PopoverPrimitive.Portal container={portalContainer} keepMounted={keepMounted}>
+      <PopoverPrimitive.Portal
+        container={portalContainer}
+        keepMounted={keepMounted}
+      >
         {positioner}
       </PopoverPrimitive.Portal>
     ) : (

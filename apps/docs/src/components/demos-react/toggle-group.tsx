@@ -1,10 +1,6 @@
 'use client';
 
-import {
-  Toggle,
-  ToggleGroup,
-  ToggleGroupItem,
-} from '@spec-lab/ui-react';
+import { Toggle, ToggleGroup, ToggleGroupItem } from '@spec-lab/ui-react';
 import {
   LayoutGridIcon,
   LayoutTableIcon,

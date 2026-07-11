@@ -90,8 +90,12 @@ describe('Field', () => {
         </FieldGroup>
       </FieldSet>
     );
-    expect(container.querySelector('fieldset[data-slot="field-set"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('fieldset[data-slot="field-set"]')
+    ).toBeInTheDocument();
     expect(screen.getByText('Notifications').tagName).toBe('LEGEND');
-    expect(container.querySelector('[data-slot="field-group"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-slot="field-group"]')
+    ).toBeInTheDocument();
   });
 });

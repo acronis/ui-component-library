@@ -14,7 +14,8 @@ const meta = {
     },
     required: {
       control: 'boolean',
-      description: 'Appends a required `*` after the label and sets `aria-required`.',
+      description:
+        'Appends a required `*` after the label and sets `aria-required`.',
       table: { type: { summary: 'boolean' }, category: 'State' },
     },
     description: {
@@ -32,7 +33,11 @@ const meta = {
       control: 'select',
       options: ['date', 'dateRange'],
       description: 'Single date or a start–end range.',
-      table: { type: { summary: "'date' | 'dateRange'" }, defaultValue: { summary: 'date' }, category: 'Appearance' },
+      table: {
+        type: { summary: "'date' | 'dateRange'" },
+        defaultValue: { summary: 'date' },
+        category: 'Appearance',
+      },
     },
     placeholder: {
       control: 'text',
@@ -56,7 +61,8 @@ const meta = {
     },
     open: {
       control: 'boolean',
-      description: 'Whether the consumer-owned calendar is open — paints the active border.',
+      description:
+        'Whether the consumer-owned calendar is open — paints the active border.',
       table: { type: { summary: 'boolean' }, category: 'State' },
     },
     disabled: {
@@ -66,7 +72,8 @@ const meta = {
     },
     onClick: {
       control: false,
-      description: 'Fired when the trigger is activated (open your calendar here).',
+      description:
+        'Fired when the trigger is activated (open your calendar here).',
       table: { type: { summary: '(event) => void' }, category: 'Events' },
     },
   },

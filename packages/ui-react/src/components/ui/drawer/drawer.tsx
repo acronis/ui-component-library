@@ -33,7 +33,10 @@ const SIDE_TO_SWIPE_DIRECTION = {
   bottom: 'down',
   left: 'left',
   right: 'right',
-} as const satisfies Record<DrawerSide, DrawerPrimitive.Root.Props['swipeDirection']>;
+} as const satisfies Record<
+  DrawerSide,
+  DrawerPrimitive.Root.Props['swipeDirection']
+>;
 
 // The edge is a Base UI *Root* concern (`swipeDirection` lives on Root), so the
 // root wrapper is the source of truth and publishes it to the content parts.
@@ -85,7 +88,12 @@ export interface DrawerProps extends DrawerPrimitive.Root.Props {
  * Root of the drawer. Owns the open state (Base UI `Drawer.Root`) and the `side`
  * edge, which it maps to `swipeDirection` and publishes to the content parts.
  */
-function Drawer({ side = 'bottom', swipeDirection, children, ...props }: DrawerProps) {
+function Drawer({
+  side = 'bottom',
+  swipeDirection,
+  children,
+  ...props
+}: DrawerProps) {
   return (
     <DrawerSideContext.Provider value={side}>
       <DrawerPrimitive.Root
@@ -123,7 +131,8 @@ const DrawerBackdrop = React.forwardRef<
 DrawerBackdrop.displayName = 'DrawerBackdrop';
 
 export interface DrawerViewportProps
-  extends React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Viewport>,
+  extends
+    React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Viewport>,
     VariantProps<typeof drawerViewportVariants> {
   /** Edge to pin the popup to. Falls back to the root `Drawer` `side`. */
   side?: DrawerSide;
@@ -137,7 +146,10 @@ const DrawerViewport = React.forwardRef<
   return (
     <DrawerPrimitive.Viewport
       ref={ref}
-      className={cn(drawerViewportVariants({ side: side ?? contextSide }), className)}
+      className={cn(
+        drawerViewportVariants({ side: side ?? contextSide }),
+        className
+      )}
       {...props}
     />
   );
@@ -145,7 +157,8 @@ const DrawerViewport = React.forwardRef<
 DrawerViewport.displayName = 'DrawerViewport';
 
 export interface DrawerPopupProps
-  extends React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Popup>,
+  extends
+    React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Popup>,
     VariantProps<typeof drawerPopupVariants> {
   /** Edge the panel anchors to. Falls back to the root `Drawer` `side`. */
   side?: DrawerSide;
@@ -159,7 +172,10 @@ const DrawerPopup = React.forwardRef<
   return (
     <DrawerPrimitive.Popup
       ref={ref}
-      className={cn(drawerPopupVariants({ side: side ?? contextSide }), className)}
+      className={cn(
+        drawerPopupVariants({ side: side ?? contextSide }),
+        className
+      )}
       {...props}
     />
   );
@@ -190,63 +206,88 @@ export interface DrawerContentProps extends DrawerPopupProps {
 const DrawerContent = React.forwardRef<
   React.ComponentRef<typeof DrawerPrimitive.Popup>,
   DrawerContentProps
->(({ className, children, side, portal = true, portalContainer, keepMounted, ...props }, ref) => {
-  const contextSide = React.useContext(DrawerSideContext);
-  const resolvedSide = side ?? contextSide;
-  const popup = (
-    <>
-      <DrawerBackdrop />
-      <DrawerViewport side={resolvedSide}>
-        <DrawerPopup ref={ref} side={resolvedSide} className={className} {...props}>
-          {children}
-        </DrawerPopup>
-      </DrawerViewport>
-    </>
-  );
+>(
+  (
+    {
+      className,
+      children,
+      side,
+      portal = true,
+      portalContainer,
+      keepMounted,
+      ...props
+    },
+    ref
+  ) => {
+    const contextSide = React.useContext(DrawerSideContext);
+    const resolvedSide = side ?? contextSide;
+    const popup = (
+      <>
+        <DrawerBackdrop />
+        <DrawerViewport side={resolvedSide}>
+          <DrawerPopup
+            ref={ref}
+            side={resolvedSide}
+            className={className}
+            {...props}
+          >
+            {children}
+          </DrawerPopup>
+        </DrawerViewport>
+      </>
+    );
 
-  return portal ? (
-    <DrawerPortal container={portalContainer} keepMounted={keepMounted}>
-      {popup}
-    </DrawerPortal>
-  ) : (
-    popup
-  );
-});
+    return portal ? (
+      <DrawerPortal container={portalContainer} keepMounted={keepMounted}>
+        {popup}
+      </DrawerPortal>
+    ) : (
+      popup
+    );
+  }
+);
 DrawerContent.displayName = 'DrawerContent';
 
-const DrawerHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        'flex h-16 shrink-0 items-center gap-4 border-b border-border bg-background px-5 py-4',
-        className
-      )}
-      {...props}
-    />
-  )
-);
+const DrawerHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      'flex h-16 shrink-0 items-center gap-4 border-b border-border bg-background px-5 py-4',
+      className
+    )}
+    {...props}
+  />
+));
 DrawerHeader.displayName = 'DrawerHeader';
 
-const DrawerFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        'flex h-16 shrink-0 items-center justify-end gap-4 border-t border-border bg-background px-6 py-4',
-        className
-      )}
-      {...props}
-    />
-  )
-);
+const DrawerFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      'flex h-16 shrink-0 items-center justify-end gap-4 border-t border-border bg-background px-6 py-4',
+      className
+    )}
+    {...props}
+  />
+));
 DrawerFooter.displayName = 'DrawerFooter';
 
-const DrawerBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('flex-1 overflow-auto p-6', className)} {...props} />
-  )
-);
+const DrawerBody = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn('flex-1 overflow-auto p-6', className)}
+    {...props}
+  />
+));
 DrawerBody.displayName = 'DrawerBody';
 
 const DrawerTitle = React.forwardRef<
@@ -255,7 +296,10 @@ const DrawerTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
     ref={ref}
-    className={cn('flex-1 text-lg font-semibold leading-7 text-foreground', className)}
+    className={cn(
+      'flex-1 text-lg font-semibold leading-7 text-foreground',
+      className
+    )}
     {...props}
   />
 ));
@@ -281,7 +325,10 @@ const DrawerSwipeArea = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.SwipeArea
     ref={ref}
-    className={cn('mx-auto my-3 h-1 w-12 shrink-0 rounded-full bg-border', className)}
+    className={cn(
+      'mx-auto my-3 h-1 w-12 shrink-0 rounded-full bg-border',
+      className
+    )}
     {...props}
   />
 ));

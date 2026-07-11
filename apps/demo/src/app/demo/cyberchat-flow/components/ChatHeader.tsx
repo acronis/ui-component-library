@@ -1,5 +1,5 @@
 import { ButtonIcon } from '@spec-lab/ui-react';
-import { CogIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CogIcon } from '@spec-lab/icons-react/stroke-mono';
 import { Switch } from '@spec-lab/ui-react';
 
 interface ChatHeaderProps {

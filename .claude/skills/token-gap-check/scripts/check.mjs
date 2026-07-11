@@ -68,7 +68,8 @@ function toToken(name) {
 }
 
 const isColor = (v) =>
-  typeof v === 'string' && /^(#|rgb|hsl|oklch|linear-gradient|radial-gradient)/i.test(v.trim());
+  typeof v === 'string' &&
+  /^(#|rgb|hsl|oklch|linear-gradient|radial-gradient)/i.test(v.trim());
 
 const vars = JSON.parse(readFileSync(jsonPath, 'utf8'));
 
@@ -84,7 +85,11 @@ for (const [name, value] of Object.entries(vars)) {
     rows.push({ name, value, token, status: 'ok' });
   } else {
     // fuzzy: any defined token sharing the last two segments (e.g. -ai-strong)
-    const tail = token.replace(/^--ui-/, '').split('-').slice(-2).join('-');
+    const tail = token
+      .replace(/^--ui-/, '')
+      .split('-')
+      .slice(-2)
+      .join('-');
     const near = definedList.filter((t) => t.includes(tail));
     rows.push({ name, value, token, status: 'missing', near });
   }
@@ -107,14 +112,17 @@ if (missing.length) {
   console.log('MISSING — Figma colour variable with no matching --ui-* token:');
   for (const r of missing) {
     console.log(`  ✗ ${pad(r.name, 42)} → ${pad(r.token, 34)} (${r.value})`);
-    if (r.near.length) console.log(`      closest defined: ${r.near.join(', ')}`);
+    if (r.near.length)
+      console.log(`      closest defined: ${r.near.join(', ')}`);
   }
   console.log(
     '\nFix: add the missing token to packages/tokens/tiers/*.json + rebuild\n' +
       '(targeted), or run /figma-to-design-tokens for a full snapshot sync.'
   );
 } else {
-  console.log('✓ every referenced colour variable maps to a defined --ui-* token.');
+  console.log(
+    '✓ every referenced colour variable maps to a defined --ui-* token.'
+  );
 }
 if (untracked.length) {
   console.log(

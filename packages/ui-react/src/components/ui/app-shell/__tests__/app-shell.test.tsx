@@ -22,8 +22,12 @@ describe('AppShell', () => {
         </AppShellBody>
       </AppShell>
     );
-    expect(container.querySelector('[data-slot="app-shell"]')).toBeInTheDocument();
-    expect(container.querySelector('aside[data-slot="app-shell-sidebar"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-slot="app-shell"]')
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('aside[data-slot="app-shell-sidebar"]')
+    ).toBeInTheDocument();
     expect(screen.getByRole('banner')).toHaveTextContent('header');
     expect(screen.getByRole('main')).toHaveTextContent('main');
     expect(screen.getByRole('contentinfo')).toHaveTextContent('footer');

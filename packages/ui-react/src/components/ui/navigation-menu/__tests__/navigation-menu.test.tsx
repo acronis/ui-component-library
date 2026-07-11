@@ -49,7 +49,9 @@ describe('NavigationMenu', () => {
 
   it('renders the active item content via defaultValue (uncontrolled)', () => {
     render(<DemoMenu defaultValue="item-1" />);
-    expect(screen.getByRole('link', { name: 'Documentation' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Documentation' })
+    ).toBeInTheDocument();
   });
 
   it('opens the trigger content on click', async () => {

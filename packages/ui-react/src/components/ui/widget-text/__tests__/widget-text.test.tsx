@@ -35,7 +35,9 @@ describe('WidgetText', () => {
     );
     expect(screen.getByText('Total Backups')).toBeInTheDocument();
     expect(screen.getByText('1,284')).toBeInTheDocument();
-    expect(screen.getByText('Backups completed this month')).toBeInTheDocument();
+    expect(
+      screen.getByText('Backups completed this month')
+    ).toBeInTheDocument();
     expect(screen.getByText('Updated 5 min ago')).toBeInTheDocument();
     expect(screen.getByTestId('icon-svg')).toBeInTheDocument();
   });

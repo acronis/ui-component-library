@@ -6,7 +6,11 @@ import {
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
 } from '@spec-lab/ui-react';
-import { CogIcon, FolderHouseIcon, MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CogIcon,
+  FolderHouseIcon,
+  MagnifierIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { BarChartIcon } from '../icons/missing-icons';
 
 // Labeled section groups have no equivalent on SidebarPrimary (the icon rail
@@ -20,7 +24,11 @@ export function SidebarWithSections() {
           <SidebarSecondarySection>
             <SidebarSecondarySectionLabel>Main</SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#" icon={<FolderHouseIcon />} selected>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<FolderHouseIcon />}
+                selected
+              >
                 Dashboard
               </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#" icon={<MagnifierIcon />}>

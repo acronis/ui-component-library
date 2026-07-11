@@ -18,7 +18,9 @@ describe('formatFontFamily', () => {
   });
 
   it('quotes a multi-word family and uses its monospace fallback', () => {
-    expect(formatFontFamily('IBM Plex Mono')).toBe('"IBM Plex Mono", ui-monospace, monospace');
+    expect(formatFontFamily('IBM Plex Mono')).toBe(
+      '"IBM Plex Mono", ui-monospace, monospace'
+    );
   });
 
   it('uses the generic sans fallback for an unmapped family', () => {
@@ -30,7 +32,9 @@ describe('formatFontFamily', () => {
   });
 
   it('strips quotes a prior scalar pass added before mapping', () => {
-    expect(formatFontFamily('"IBM Plex Mono"')).toBe('"IBM Plex Mono", ui-monospace, monospace');
+    expect(formatFontFamily('"IBM Plex Mono"')).toBe(
+      '"IBM Plex Mono", ui-monospace, monospace'
+    );
   });
 });
 

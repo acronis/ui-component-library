@@ -11,7 +11,12 @@ import { transformTypes } from 'style-dictionary/enums';
 export const SCALAR_CSS = 'scalar/css';
 
 // Types handled by their own transform or skipped by the format, never here.
-const HANDLED_ELSEWHERE = new Set(['color', 'dimension', 'typography', 'gradient']);
+const HANDLED_ELSEWHERE = new Set([
+  'color',
+  'dimension',
+  'typography',
+  'gradient',
+]);
 
 // Generic CSS fallback families appended to a design font-family when emitting
 // CSS. The design tokens carry only the preferred family (e.g. "Inter") — that
@@ -28,7 +33,8 @@ const FONT_FAMILY_FALLBACKS: Readonly<Record<string, string>> = {
 const GENERIC_FONT_FALLBACK = 'sans-serif';
 
 // Quote a single family name only when CSS requires it (whitespace in the name).
-const quoteFamily = (name: string): string => (/\s/.test(name) ? JSON.stringify(name) : name);
+const quoteFamily = (name: string): string =>
+  /\s/.test(name) ? JSON.stringify(name) : name;
 
 /**
  * A resolved scalar (number or string) → a CSS-ready string. Whitespace-bearing

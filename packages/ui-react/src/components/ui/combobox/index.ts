@@ -8,7 +8,4 @@ export {
   ComboboxGroup,
   ComboboxGroupLabel,
 } from './combobox';
-export type {
-  ComboboxInputProps,
-  ComboboxContentProps,
-} from './combobox';
+export type { ComboboxInputProps, ComboboxContentProps } from './combobox';

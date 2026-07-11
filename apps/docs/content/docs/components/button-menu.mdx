@@ -3,8 +3,8 @@ title: ButtonMenu
 description: A button that opens a dropdown menu, with a trailing chevron.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { ButtonMenuDemo } from "@/components/demos-react/button-menu";
+import { DemoReact } from '@/components/DemoReact';
+import { ButtonMenuDemo } from '@/components/demos-react/button-menu';
 
 ## Usage
 
@@ -19,7 +19,6 @@ controls; `open` flips the chevron, applies the open (active) treatment, and
 reflects `aria-expanded`.
 
 ## Examples
-
 
 <DemoReact>
   <ButtonMenuDemo />
@@ -39,7 +38,7 @@ const [open, setOpen] = React.useState(false);
 
 <ButtonMenu open={open} onClick={() => setOpen((v) => !v)}>
   Sort by
-</ButtonMenu>
+</ButtonMenu>;
 ```
 
 Disabled state:

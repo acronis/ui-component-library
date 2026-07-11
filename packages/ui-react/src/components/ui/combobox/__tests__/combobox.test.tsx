@@ -45,20 +45,32 @@ describe('Combobox', () => {
     render(<Demo />);
     await userEvent.click(screen.getByPlaceholderText('Search framework…'));
     expect(screen.getByRole('option', { name: 'Next.js' })).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'SvelteKit' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'SvelteKit' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Astro' })).toBeInTheDocument();
   });
 
   it('filters the list by the typed text', async () => {
     render(<Demo />);
-    await userEvent.type(screen.getByPlaceholderText('Search framework…'), 'sv');
-    expect(screen.getByRole('option', { name: 'SvelteKit' })).toBeInTheDocument();
-    expect(screen.queryByRole('option', { name: 'Next.js' })).not.toBeInTheDocument();
+    await userEvent.type(
+      screen.getByPlaceholderText('Search framework…'),
+      'sv'
+    );
+    expect(
+      screen.getByRole('option', { name: 'SvelteKit' })
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('option', { name: 'Next.js' })
+    ).not.toBeInTheDocument();
   });
 
   it('shows the empty state when nothing matches', async () => {
     render(<Demo />);
-    await userEvent.type(screen.getByPlaceholderText('Search framework…'), 'zzz');
+    await userEvent.type(
+      screen.getByPlaceholderText('Search framework…'),
+      'zzz'
+    );
     expect(screen.getByText('No results.')).toBeInTheDocument();
   });
 

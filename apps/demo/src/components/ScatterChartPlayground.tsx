@@ -41,13 +41,7 @@ import {
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 type ShapeType =
-  | 'circle'
-  | 'cross'
-  | 'diamond'
-  | 'square'
-  | 'star'
-  | 'triangle'
-  | 'wye';
+  'circle' | 'cross' | 'diamond' | 'square' | 'star' | 'triangle' | 'wye';
 type LegendTypeOption =
   | 'circle'
   | 'square'

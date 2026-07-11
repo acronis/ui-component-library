@@ -1,5 +1,11 @@
 import { Tag } from '@spec-lab/ui-react';
-import { CircleCheckIcon, CircleInfoIcon, CircleSmallIcon, CircleTimesIcon, CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CircleCheckIcon,
+  CircleInfoIcon,
+  CircleSmallIcon,
+  CircleTimesIcon,
+  CircleWarningIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 export function TagSmallWithIcons() {
   return (
     <div className="flex flex-wrap gap-3">
@@ -10,7 +16,11 @@ export function TagSmallWithIcons() {
       >
         Active
       </Tag>
-      <Tag variant="info" size="sm" icon={<CircleInfoIcon className="size-3" />}>
+      <Tag
+        variant="info"
+        size="sm"
+        icon={<CircleInfoIcon className="size-3" />}
+      >
         Info
       </Tag>
       <Tag

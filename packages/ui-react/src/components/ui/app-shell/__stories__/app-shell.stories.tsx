@@ -19,11 +19,7 @@ import {
 import { AcronisIcon } from '@spec-lab/icons-react/solid-mono';
 
 import { SearchGlobal } from '../../search-global';
-import {
-  PageHeader,
-  PageHeaderRow,
-  PageHeaderTitle,
-} from '../../page-header';
+import { PageHeader, PageHeaderRow, PageHeaderTitle } from '../../page-header';
 import {
   Empty,
   EmptyDescription,
@@ -157,7 +153,11 @@ function SecondaryNav({ expanded }: { expanded?: boolean }) {
         <SidebarSecondarySection>
           <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
           <SidebarSecondaryMenu>
-            <SidebarSecondaryMenuItem href="#" icon={<LayoutGridIcon />} selected>
+            <SidebarSecondaryMenuItem
+              href="#"
+              icon={<LayoutGridIcon />}
+              selected
+            >
               Dashboard
             </SidebarSecondaryMenuItem>
             <SidebarSecondaryMenuItem href="#" icon={<ServerIcon />}>

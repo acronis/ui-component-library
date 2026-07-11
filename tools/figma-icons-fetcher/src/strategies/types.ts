@@ -29,6 +29,10 @@ export interface FigmaPage {
  * icons to download. No network, no fs. De-duplication and image-URL
  * resolution happen afterwards in the shared pipeline.
  */
-export type SelectionStrategy = (page: FigmaPage, config: FetcherConfig) => FigmaIcon[];
+export type SelectionStrategy = (
+  page: FigmaPage,
+  config: FetcherConfig
+) => FigmaIcon[];
 
-export type SelectionStrategyName = 'frames-by-name' | 'new-frames' | 'icon-packs';
+export type SelectionStrategyName =
+  'frames-by-name' | 'new-frames' | 'icon-packs';

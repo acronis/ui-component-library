@@ -12,7 +12,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
-const MAP = JSON.parse(readFileSync(process.env.MAP || '.icon-migration/iconmap.json', 'utf8'));
+const MAP = JSON.parse(
+  readFileSync(process.env.MAP || '.icon-migration/iconmap.json', 'utf8')
+);
 const FROM = process.env.FROM || '@spec-lab/shadcn-uikit';
 const TO = process.env.TO || '@spec-lab/icons-react/stroke-mono';
 
@@ -21,7 +23,11 @@ const importRe = new RegExp(
   String.raw`import\s+\{([^}]*)\}\s*from\s*['"]${esc(FROM)}['"];?`,
   'g'
 );
-const importedName = (s) => s.replace(/^type\s+/, '').split(/\s+as\s+/)[0].trim();
+const importedName = (s) =>
+  s
+    .replace(/^type\s+/, '')
+    .split(/\s+as\s+/)[0]
+    .trim();
 const oldNames = Object.keys(MAP).sort((a, b) => b.length - a.length);
 if (!oldNames.length) {
   console.error('Empty map — nothing to apply.');
@@ -42,14 +48,19 @@ for (const file of files) {
   const migrated = new Set();
 
   src = src.replace(importRe, (full, body) => {
-    const specs = body.split(',').map((s) => s.trim()).filter(Boolean);
+    const specs = body
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
     const mig = specs.filter((s) => MAP[importedName(s)]);
     if (mig.length === 0) return full;
     mig.forEach((s) => migrated.add(importedName(s)));
     const rest = specs.filter((s) => !MAP[importedName(s)]);
     const newNames = [...new Set(mig.map((s) => MAP[importedName(s)]))].sort();
     const toImport = `import { ${newNames.join(', ')} } from '${TO}'`;
-    const fromImport = rest.length ? `import { ${rest.join(', ')} } from '${FROM}'` : null;
+    const fromImport = rest.length
+      ? `import { ${rest.join(', ')} } from '${FROM}'`
+      : null;
     return [fromImport, toImport].filter(Boolean).join('\n');
   });
 

@@ -65,7 +65,10 @@ const meta = {
       control: false,
       description:
         'Replace the rendered `<nav>` with another element or component (Base UI composition). Accepts a React element or a render function.',
-      table: { type: { summary: 'useRender.RenderProp' }, category: 'Composition' },
+      table: {
+        type: { summary: 'useRender.RenderProp' },
+        category: 'Composition',
+      },
     },
     'aria-label': {
       control: 'text',
@@ -109,7 +112,11 @@ export const Default: Story = {
               Overview
             </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#" icon={<LayoutGridIcon />} selected>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<LayoutGridIcon />}
+                selected
+              >
                 Dashboard
               </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#" icon={<ServerIcon />}>
@@ -148,7 +155,9 @@ export const Default: Story = {
         />
         <SidebarSecondaryFooter>
           <SidebarSecondaryMenu>
-            <SidebarSecondaryMenuItem href="#">Settings</SidebarSecondaryMenuItem>
+            <SidebarSecondaryMenuItem href="#">
+              Settings
+            </SidebarSecondaryMenuItem>
             {/* Uncontrolled panel: the trigger toggles `expanded` via context. */}
             <SidebarSecondaryCollapseTrigger icon={<ChevronLeftIcon />}>
               Collapse menu
@@ -177,9 +186,15 @@ export const Reference: Story = {
               Section Header
             </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Menu Item</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Menu Item</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Menu Item</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Menu Item
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Menu Item
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Menu Item
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
         </SidebarSecondaryContent>
@@ -211,7 +226,11 @@ export const Collapsed: Story = {
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#" icon={<LayoutGridIcon />} selected>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<LayoutGridIcon />}
+                selected
+              >
                 Dashboard
               </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
@@ -243,7 +262,11 @@ export const Selected: Story = {
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#" icon={<LayoutGridIcon />} selected>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<LayoutGridIcon />}
+                selected
+              >
                 Selected item
               </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#" icon={<ServerIcon />}>
@@ -308,7 +331,10 @@ export const WithExtras: Story = {
             <SidebarSecondaryMenu>
               <SidebarSecondaryMenuItem href="#" icon={<BoxIcon />}>
                 Shortcut
-                <SidebarSecondaryMenuItemExtras variant="shortcut" shortcut="⌘F" />
+                <SidebarSecondaryMenuItemExtras
+                  variant="shortcut"
+                  shortcut="⌘F"
+                />
               </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#" icon={<ShoppingCartIcon />}>
                 External link
@@ -333,7 +359,11 @@ export const Controlled: Story = {
           <SidebarSecondaryContent>
             <SidebarSecondarySection>
               <SidebarSecondaryMenu>
-                <SidebarSecondaryMenuItem href="#" icon={<LayoutGridIcon />} selected>
+                <SidebarSecondaryMenuItem
+                  href="#"
+                  icon={<LayoutGridIcon />}
+                  selected
+                >
                   Dashboard
                 </SidebarSecondaryMenuItem>
                 {/* Controlled: the trigger calls toggleExpanded → onExpandedChange,
@@ -365,49 +395,83 @@ export const ExpandableSections: Story = {
         <SidebarSecondaryHeader label="Protection" />
         <SidebarSecondaryContent>
           <SidebarSecondarySection expandable>
-            <SidebarSecondarySectionLabel>Policies</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Policies
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               <SidebarSecondaryMenuItem href="#" selected>
                 Protection
               </SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Remote management</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Monitoring</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Software deployment</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Cloud application backup</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Archiving</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">SIEM forwarding</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Remote management
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Monitoring
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Software deployment
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Cloud application backup
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Archiving
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                SIEM forwarding
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable defaultOpen={false}>
             <SidebarSecondarySectionLabel>Jobs</SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Active</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">History</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Active
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                History
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable defaultOpen={false}>
-            <SidebarSecondarySectionLabel>Disaster recovery</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Disaster recovery
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               {/* A submenu (item-level disclosure) nested inside an expandable section. */}
               <SidebarSecondaryMenuSub>
-                <SidebarSecondaryMenuSubTrigger>Runbooks</SidebarSecondaryMenuSubTrigger>
+                <SidebarSecondaryMenuSubTrigger>
+                  Runbooks
+                </SidebarSecondaryMenuSubTrigger>
                 <SidebarSecondaryMenuSubContent>
-                  <SidebarSecondaryMenuSubItem href="#">Primary site</SidebarSecondaryMenuSubItem>
-                  <SidebarSecondaryMenuSubItem href="#">Secondary site</SidebarSecondaryMenuSubItem>
+                  <SidebarSecondaryMenuSubItem href="#">
+                    Primary site
+                  </SidebarSecondaryMenuSubItem>
+                  <SidebarSecondaryMenuSubItem href="#">
+                    Secondary site
+                  </SidebarSecondaryMenuSubItem>
                 </SidebarSecondaryMenuSubContent>
               </SidebarSecondaryMenuSub>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable defaultOpen={false}>
-            <SidebarSecondarySectionLabel>Email security</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Email security
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Quarantine</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Quarantine
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable defaultOpen={false}>
-            <SidebarSecondarySectionLabel>Infrastructure</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Infrastructure
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Storage</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Storage
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           {/* Header-less section: a plain top-level item. */}
@@ -452,11 +516,19 @@ export const SectionActionsAndRollup: Story = {
               <SidebarSecondaryMenuItem href="#" selected>
                 Overview
               </SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Microsoft 365 licensing</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Security</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Microsoft 365 licensing
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Security
+              </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#">RMM</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Backup</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Usage</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Backup
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Usage
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable defaultOpen={false}>
@@ -470,13 +542,19 @@ export const SectionActionsAndRollup: Story = {
               Operations
             </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Alerts</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Activities</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Alerts
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Activities
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Reports</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Reports
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
         </SidebarSecondaryContent>
@@ -515,7 +593,9 @@ export const Assets: Story = {
                   }
                 />
               </SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Managed devices</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Managed devices
+              </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#">
                 Discovered devices
                 <SidebarSecondaryMenuItemExtras
@@ -530,25 +610,43 @@ export const Assets: Story = {
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable>
-            <SidebarSecondarySectionLabel>Virtualization</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Virtualization
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">VMware</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Virtuozzo</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Cyber Frame</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Scale Computing</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                VMware
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Virtuozzo
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Cyber Frame
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Scale Computing
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable>
-            <SidebarSecondarySectionLabel>Public cloud</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Public cloud
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Microsoft Azure</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Microsoft Azure
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable>
             <SidebarSecondarySectionLabel>SaaS</SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Microsoft 365</SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Microsoft Entra ID</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Microsoft 365
+              </SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Microsoft Entra ID
+              </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#">
                 Mail servers
                 <SidebarSecondaryMenuItemExtras
@@ -560,13 +658,17 @@ export const Assets: Story = {
                   }
                 />
               </SidebarSecondaryMenuItem>
-              <SidebarSecondaryMenuItem href="#">Google Workspace</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Google Workspace
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection expandable>
             <SidebarSecondarySectionLabel>Network</SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#">Network Attached Storage</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Network Attached Storage
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
         </SidebarSecondaryContent>

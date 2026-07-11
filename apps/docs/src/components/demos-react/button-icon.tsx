@@ -1,7 +1,11 @@
 'use client';
 
 import { ButtonIcon } from '@spec-lab/ui-react';
-import { PlusIcon, PencilIcon, CogIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  PlusIcon,
+  PencilIcon,
+  CogIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 export function ButtonIconDemo() {
   return (

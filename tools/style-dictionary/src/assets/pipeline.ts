@@ -46,18 +46,36 @@ interface GroupDef {
 }
 
 const GROUPS: GroupDef[] = [
-  { name: 'icons', filter: 'pd', pack: 'icons', react: true, hasVariantAxis: true, namespaceSvgByStyle: true },
-  { name: 'illustrations', filter: 'web', pack: 'illustrations', react: false, hasVariantAxis: false, namespaceSvgByStyle: false },
+  {
+    name: 'icons',
+    filter: 'pd',
+    pack: 'icons',
+    react: true,
+    hasVariantAxis: true,
+    namespaceSvgByStyle: true,
+  },
+  {
+    name: 'illustrations',
+    filter: 'web',
+    pack: 'illustrations',
+    react: false,
+    hasVariantAxis: false,
+    namespaceSvgByStyle: false,
+  },
 ];
 
 /** Filters that have at least one deliverable group. */
-export const ASSET_FILTERS: AssetFilter[] = [...new Set(GROUPS.map((g) => g.filter))];
+export const ASSET_FILTERS: AssetFilter[] = [
+  ...new Set(GROUPS.map((g) => g.filter)),
+];
 
 const FILTER_ENUM: Record<AssetFilter, Platform> = { pd: 'PD', web: 'WEB' };
 const RASTER_EXTS = new Set(['png', 'webp']);
 
 const isFlagged = (v: VariantValue): boolean =>
-  v != null && typeof v === 'object' && (v as { default?: unknown }).default === true;
+  v != null &&
+  typeof v === 'object' &&
+  (v as { default?: unknown }).default === true;
 
 /**
  * Effective `values` for a group: the pack `values` with the group's `$values`
@@ -66,7 +84,10 @@ const isFlagged = (v: VariantValue): boolean =>
  * the patch only changes a variant's derivation — the canonical is determined
  * from these `values` (spec §canonical), so dropping the flag would orphan it.
  */
-function effectiveGroupValues(packValues: Values, patch: Values | undefined): Values {
+function effectiveGroupValues(
+  packValues: Values,
+  patch: Values | undefined
+): Values {
   if (!patch) return { ...packValues };
   const out: Values = { ...packValues };
   for (const [key, val] of Object.entries(patch)) {
@@ -74,7 +95,10 @@ function effectiveGroupValues(packValues: Values, patch: Values | undefined): Va
       delete out[key];
       continue;
     }
-    out[key] = isFlagged(packValues[key]) && !isFlagged(val) ? { ...val, default: true } : val;
+    out[key] =
+      isFlagged(packValues[key]) && !isFlagged(val)
+        ? { ...val, default: true }
+        : val;
   }
   return out;
 }
@@ -83,7 +107,12 @@ function effectiveGroupValues(packValues: Values, patch: Values | undefined): Va
 function usesColorRule(values: Values, rules: Map<string, Rule>): boolean {
   for (const val of Object.values(values)) {
     if (val == null || typeof val !== 'object' || !('$rules' in val)) continue;
-    if ((val as ComputedValue).$rules.some((id) => rules.get(id)?.kind === 'color')) return true;
+    if (
+      (val as ComputedValue).$rules.some(
+        (id) => rules.get(id)?.kind === 'color'
+      )
+    )
+      return true;
   }
   return false;
 }
@@ -97,7 +126,10 @@ interface StyleUnit {
 }
 
 /** Expand a pack into its rendering styles: one per `assetsGroups` entry, or a single flat style. */
-function expandStyles(pack: PackManifest, rules: Map<string, Rule>): StyleUnit[] {
+function expandStyles(
+  pack: PackManifest,
+  rules: Map<string, Rule>
+): StyleUnit[] {
   if (pack.assetsGroups) {
     return Object.entries(pack.assetsGroups).map(([groupId, group]) => {
       const values = effectiveGroupValues(pack.values, group.$values);
@@ -133,7 +165,12 @@ export interface BuildAssetsOptions {
   log: (msg: string) => void;
 }
 
-const relFile = (group: GroupDef, label: string, name: string, ext: string): string =>
+const relFile = (
+  group: GroupDef,
+  label: string,
+  name: string,
+  ext: string
+): string =>
   group.namespaceSvgByStyle ? `${label}/${name}.${ext}` : `${name}.${ext}`;
 
 export function buildAssetsForFilter(opts: BuildAssetsOptions): void {
@@ -163,16 +200,23 @@ export function buildAssetsForFilter(opts: BuildAssetsOptions): void {
       // reported and skipped rather than aborting the whole build. The resolver
       // itself stays strict/fail-closed (resolvePack) for the R1–R16 tests.
       const resolved: ResolvedAsset[] = [];
-      for (const [id, asset] of Object.entries(manifest.assets ?? {}) as [string, Asset][]) {
+      for (const [id, asset] of Object.entries(manifest.assets ?? {}) as [
+        string,
+        Asset,
+      ][]) {
         if (!asset.platforms.includes(platform)) continue;
         try {
           resolved.push(resolveAsset(manifest, id, asset, rules));
         } catch (error) {
-          console.warn(`  ⚠ skipped ${error instanceof Error ? error.message : String(error)}`);
+          console.warn(
+            `  ⚠ skipped ${error instanceof Error ? error.message : String(error)}`
+          );
         }
       }
       // icons namespace their SVGs by style within the deliverable; others are flat.
-      const svgDir = group.namespaceSvgByStyle ? path.join(svgDeliverable, label) : svgDeliverable;
+      const svgDir = group.namespaceSvgByStyle
+        ? path.join(svgDeliverable, label)
+        : svgDeliverable;
 
       for (const asset of resolved) {
         const reactVariants: { size: string; svg: string }[] = [];
@@ -181,21 +225,40 @@ export function buildAssetsForFilter(opts: BuildAssetsOptions): void {
         for (const variant of asset.variants) {
           const name = `${asset.id}-${variant.id}`;
           if (RASTER_EXTS.has(variant.leafExt)) {
-            writeRaster(svgDir, name, variant.leafExt, copyRaster(variant.leafFile));
-            variantManifest.push({ id: variant.id, file: relFile(group, label, name, variant.leafExt) });
+            writeRaster(
+              svgDir,
+              name,
+              variant.leafExt,
+              copyRaster(variant.leafFile)
+            );
+            variantManifest.push({
+              id: variant.id,
+              file: relFile(group, label, name, variant.leafExt),
+            });
             svgCount += 1;
             continue;
           }
-          const svg = executeSvg(readSvg(variant.leafFile), variant.rules, color);
+          const svg = executeSvg(
+            readSvg(variant.leafFile),
+            variant.rules,
+            color
+          );
           writeSvg(svgDir, name, svg);
-          variantManifest.push({ id: variant.id, file: relFile(group, label, name, 'svg') });
+          variantManifest.push({
+            id: variant.id,
+            file: relFile(group, label, name, 'svg'),
+          });
           reactVariants.push({ size: variant.id, svg });
           svgCount += 1;
         }
 
         if (group.react && reactVariants.length > 0) {
           const styleInputs = reactByAsset.get(asset.id) ?? [];
-          styleInputs.push({ style: label, canonical: asset.canonical, variants: reactVariants });
+          styleInputs.push({
+            style: label,
+            canonical: asset.canonical,
+            variants: reactVariants,
+          });
           reactByAsset.set(asset.id, styleInputs);
         }
 
@@ -213,19 +276,33 @@ export function buildAssetsForFilter(opts: BuildAssetsOptions): void {
 
     // The same manifest is written into every deliverable dir for the group — a
     // deliberate duplication so each platform dir is self-describing.
-    const manifest = { group: group.name, filter, pack: group.pack, styles: styles.map((s) => s.label), assets: manifestAssets };
+    const manifest = {
+      group: group.name,
+      filter,
+      pack: group.pack,
+      styles: styles.map((s) => s.label),
+      assets: manifestAssets,
+    };
     writeManifest(svgDeliverable, manifest);
 
     let componentCount = 0;
     if (group.react && reactByAsset.size > 0) {
       const components = [...reactByAsset.entries()]
         .sort(([a], [b]) => a.localeCompare(b))
-        .map(([id, styleInputs]) => generateComponent({ id, hasVariantAxis: group.hasVariantAxis, styles: styleInputs }));
+        .map(([id, styleInputs]) =>
+          generateComponent({
+            id,
+            hasVariantAxis: group.hasVariantAxis,
+            styles: styleInputs,
+          })
+        );
       writeReact(reactDeliverable, components);
       writeManifest(reactDeliverable, manifest);
       componentCount = components.length;
     }
 
-    log(`${deliverable}: ${svgCount} files${group.react ? ` + ${componentCount} react` : ''}`);
+    log(
+      `${deliverable}: ${svgCount} files${group.react ? ` + ${componentCount} react` : ''}`
+    );
   }
 }

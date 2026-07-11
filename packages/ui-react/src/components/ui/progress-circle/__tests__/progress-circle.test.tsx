@@ -21,25 +21,34 @@ describe('ProgressCircle', () => {
   it('honours a custom max in the percentage', () => {
     render(<ProgressCircle value={5} max={10} showValue />);
     expect(screen.getByText('50%')).toBeInTheDocument();
-    expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuemax', '10');
+    expect(screen.getByRole('progressbar')).toHaveAttribute(
+      'aria-valuemax',
+      '10'
+    );
   });
 
   it('derives the arc status color from the value', () => {
     const { container, rerender } = render(<ProgressCircle value={25} />);
     // low → danger
     expect(
-      container.querySelector('.stroke-\\[var\\(--ui-text-on-status-danger\\)\\]')
+      container.querySelector(
+        '.stroke-\\[var\\(--ui-text-on-status-danger\\)\\]'
+      )
     ).toBeTruthy();
     rerender(<ProgressCircle value={90} />);
     expect(
-      container.querySelector('.stroke-\\[var\\(--ui-text-on-status-success\\)\\]')
+      container.querySelector(
+        '.stroke-\\[var\\(--ui-text-on-status-success\\)\\]'
+      )
     ).toBeTruthy();
   });
 
   it('lets the status be overridden', () => {
     const { container } = render(<ProgressCircle value={90} status="danger" />);
     expect(
-      container.querySelector('.stroke-\\[var\\(--ui-text-on-status-danger\\)\\]')
+      container.querySelector(
+        '.stroke-\\[var\\(--ui-text-on-status-danger\\)\\]'
+      )
     ).toBeTruthy();
   });
 

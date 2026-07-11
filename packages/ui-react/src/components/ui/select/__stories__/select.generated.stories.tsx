@@ -4,7 +4,12 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent } from 'storybook/test';
-import { SelectTrigger, SelectValue, SelectContent, SelectItem } from '../select';
+import {
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from '../select';
 import { Select } from '../select';
 
 const meta = {
@@ -19,30 +24,31 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Select>
-      <SelectTrigger aria-label="Fruit">
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="apple">Apple</SelectItem>
-        <SelectItem value="banana">Banana</SelectItem>
-      </SelectContent>
-    </Select>
+        <SelectTrigger aria-label="Fruit">
+          <SelectValue placeholder="Select an option" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+        </SelectContent>
+      </Select>
       <Select disabled>
-      <SelectTrigger aria-label="Fruit">
-        <SelectValue placeholder="Select an option" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="apple">Apple</SelectItem>
-        <SelectItem value="banana">Banana</SelectItem>
-      </SelectContent>
-    </Select>
+        <SelectTrigger aria-label="Fruit">
+          <SelectValue placeholder="Select an option" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+        </SelectContent>
+      </Select>
     </div>
   ),
 };
 
 export const Hover: Story = {
   parameters: { pseudo: { hover: true } },
-  render: () => <Select>
+  render: () => (
+    <Select>
       <SelectTrigger aria-label="Fruit">
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
@@ -50,11 +56,13 @@ export const Hover: Story = {
         <SelectItem value="apple">Apple</SelectItem>
         <SelectItem value="banana">Banana</SelectItem>
       </SelectContent>
-    </Select>,
+    </Select>
+  ),
 };
 
 export const FocusVisible: Story = {
-  render: () => <Select>
+  render: () => (
+    <Select>
       <SelectTrigger aria-label="Fruit">
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
@@ -62,7 +70,8 @@ export const FocusVisible: Story = {
         <SelectItem value="apple">Apple</SelectItem>
         <SelectItem value="banana">Banana</SelectItem>
       </SelectContent>
-    </Select>,
+    </Select>
+  ),
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();
@@ -71,7 +80,8 @@ export const FocusVisible: Story = {
 
 // transition "openPopup": trigger press / Space / Enter / ArrowDown -> true [guard: not disabled]
 export const OpenPopup: Story = {
-  render: () => <Select>
+  render: () => (
+    <Select>
       <SelectTrigger aria-label="Fruit">
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
@@ -79,7 +89,8 @@ export const OpenPopup: Story = {
         <SelectItem value="apple">Apple</SelectItem>
         <SelectItem value="banana">Banana</SelectItem>
       </SelectContent>
-    </Select>,
+    </Select>
+  ),
   play: async ({ canvasElement }) => {
     const el = canvasElement.querySelector('[role="combobox"], button');
     if (el) await userEvent.click(el as HTMLElement);

@@ -37,7 +37,8 @@ const meta = {
         'ai',
         'neutral',
       ],
-      description: 'Status severity — sets the surface, text, and accent colors.',
+      description:
+        'Status severity — sets the surface, text, and accent colors.',
       table: {
         type: {
           summary:
@@ -97,8 +98,8 @@ export const ActionRightEdge: Story = {
       <AlertContent>
         <AlertTitle>Protect non-compliant devices</AlertTitle>
         <AlertDescription>
-          For all registered devices, ensure that a protection plan is applied and
-          a scan has completed successfully within the last 24 hours.
+          For all registered devices, ensure that a protection plan is applied
+          and a scan has completed successfully within the last 24 hours.
         </AlertDescription>
       </AlertContent>
       <AlertActions className="self-center">
@@ -118,8 +119,8 @@ export const ActionBelow: Story = {
       <AlertContent>
         <AlertTitle>Protect non-compliant devices</AlertTitle>
         <AlertDescription>
-          For all registered devices, ensure that a protection plan is applied and
-          a scan has completed within the last 24 hours.
+          For all registered devices, ensure that a protection plan is applied
+          and a scan has completed within the last 24 hours.
         </AlertDescription>
         <AlertActions className="mt-2">
           <Button>View devices</Button>

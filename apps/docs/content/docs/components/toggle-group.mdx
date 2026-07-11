@@ -3,8 +3,8 @@ title: ToggleGroup
 description: A set of pressable toggle buttons, plus a standalone Toggle.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { ToggleGroupDemo } from "@/components/demos-react/toggle-group";
+import { DemoReact } from '@/components/DemoReact';
+import { ToggleGroupDemo } from '@/components/demos-react/toggle-group';
 
 ## Usage
 
@@ -28,15 +28,21 @@ on/off control. Give icon-only toggles an `aria-label`.
 
 ```tsx
 <ToggleGroup defaultValue={['grid']} aria-label="View mode">
-  <ToggleGroupItem value="grid" aria-label="Grid view"><LayoutGridIcon size={16} /></ToggleGroupItem>
-  <ToggleGroupItem value="list" aria-label="List view"><ListIcon size={16} /></ToggleGroupItem>
+  <ToggleGroupItem value="grid" aria-label="Grid view">
+    <LayoutGridIcon size={16} />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="list" aria-label="List view">
+    <ListIcon size={16} />
+  </ToggleGroupItem>
 </ToggleGroup>
 ```
 
 A standalone toggle:
 
 ```tsx
-<Toggle aria-label="Favorite"><StarIcon size={16} /> Favorite</Toggle>
+<Toggle aria-label="Favorite">
+  <StarIcon size={16} /> Favorite
+</Toggle>
 ```
 
 For choosing a form value use [`RadioGroup`](/components/radio) or

@@ -100,7 +100,15 @@ import {
   YAxis,
   CartesianGrid,
 } from 'recharts';
-import { CircleCheckIcon, CircleInfoIcon, CircleTimesIcon, CircleWarningIcon, EllipsisIcon, FileTextIcon, ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CircleCheckIcon,
+  CircleInfoIcon,
+  CircleTimesIcon,
+  CircleWarningIcon,
+  EllipsisIcon,
+  FileTextIcon,
+  ShieldCheckIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { DatabaseIcon } from '../icons/missing-icons';
 // ── Sample Data ──
 

@@ -146,7 +146,12 @@ type Payment = { id: string; amount: number; status: string; email: string };
 const payments: Payment[] = [
   { id: 'p1', amount: 316, status: 'success', email: 'ken99@example.com' },
   { id: 'p2', amount: 242, status: 'success', email: 'abe45@example.com' },
-  { id: 'p3', amount: 837, status: 'processing', email: 'monserrat@example.com' },
+  {
+    id: 'p3',
+    amount: 837,
+    status: 'processing',
+    email: 'monserrat@example.com',
+  },
   { id: 'p4', amount: 874, status: 'processing', email: 'silas22@example.com' },
   { id: 'p5', amount: 721, status: 'failed', email: 'carmella@example.com' },
 ];
@@ -211,7 +216,10 @@ export const RowGroups: Story = {
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
@@ -262,7 +270,10 @@ export const VirtualScrolling: Story = {
       ? virtualizer.getTotalSize() - items[items.length - 1].end
       : 0;
     return (
-      <div ref={parentRef} className={`${wrapperClass} h-[360px] overflow-auto`}>
+      <div
+        ref={parentRef}
+        className={`${wrapperClass} h-[360px] overflow-auto`}
+      >
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((hg) => (
@@ -278,7 +289,10 @@ export const VirtualScrolling: Story = {
           <TableBody>
             {before > 0 && (
               <tr>
-                <td colSpan={virtualColumns.length} style={{ height: before }} />
+                <td
+                  colSpan={virtualColumns.length}
+                  style={{ height: before }}
+                />
               </tr>
             )}
             {items.map((vi) => {
@@ -287,7 +301,10 @@ export const VirtualScrolling: Story = {
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>

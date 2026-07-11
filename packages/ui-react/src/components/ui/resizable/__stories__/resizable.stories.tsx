@@ -1,7 +1,11 @@
 import type { CSSProperties, ReactNode } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '../resizable';
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '../resizable';
 
 const meta = {
   title: 'UI/Resizable',

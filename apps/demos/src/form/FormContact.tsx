@@ -2,7 +2,12 @@ import * as React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Field, FieldControl, FieldError, FieldLabel } from '@spec-lab/ui-react';
+import {
+  Field,
+  FieldControl,
+  FieldError,
+  FieldLabel,
+} from '@spec-lab/ui-react';
 import { InputBox, InputTextArea } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 import {
@@ -58,7 +63,9 @@ export function FormContact() {
           render={({ field, fieldState }) => (
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Name</FieldLabel>
-              <FieldControl render={<InputBox placeholder="Your name" {...field} />} />
+              <FieldControl
+                render={<InputBox placeholder="Your name" {...field} />}
+              />
               {fieldState.error && (
                 <FieldError match>{fieldState.error.message}</FieldError>
               )}
@@ -72,7 +79,13 @@ export function FormContact() {
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Email</FieldLabel>
               <FieldControl
-                render={<InputBox type="email" placeholder="your@email.com" {...field} />}
+                render={
+                  <InputBox
+                    type="email"
+                    placeholder="your@email.com"
+                    {...field}
+                  />
+                }
               />
               {fieldState.error && (
                 <FieldError match>{fieldState.error.message}</FieldError>
@@ -113,7 +126,9 @@ export function FormContact() {
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Subject</FieldLabel>
               <FieldControl
-                render={<InputBox placeholder="What is this about?" {...field} />}
+                render={
+                  <InputBox placeholder="What is this about?" {...field} />
+                }
               />
               {fieldState.error && (
                 <FieldError match>{fieldState.error.message}</FieldError>

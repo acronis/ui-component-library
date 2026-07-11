@@ -10,17 +10,30 @@ const meta = {
     placeholder: {
       control: 'text',
       description: 'Placeholder text shown in the input.',
-      table: { type: { summary: 'string' }, defaultValue: { summary: 'Search anything' }, category: 'Content' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Search anything' },
+        category: 'Content',
+      },
     },
     shortcut: {
       control: 'text',
-      description: 'Decorative keyboard-shortcut hint at the trailing edge. Pass null to hide.',
-      table: { type: { summary: 'ReactNode' }, defaultValue: { summary: '⌘K' }, category: 'Content' },
+      description:
+        'Decorative keyboard-shortcut hint at the trailing edge. Pass null to hide.',
+      table: {
+        type: { summary: 'ReactNode' },
+        defaultValue: { summary: '⌘K' },
+        category: 'Content',
+      },
     },
     'aria-label': {
       control: 'text',
       description: 'Accessible name for the input (no visible label).',
-      table: { type: { summary: 'string' }, defaultValue: { summary: 'Search' }, category: 'Accessibility' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Search' },
+        category: 'Accessibility',
+      },
     },
   },
   parameters: { layout: 'padded' },

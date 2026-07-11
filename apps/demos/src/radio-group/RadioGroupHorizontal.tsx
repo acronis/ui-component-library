@@ -1,8 +1,4 @@
-import {
-  Label,
-  RadioGroup,
-  Radio,
-} from '@spec-lab/ui-react';
+import { Label, RadioGroup, Radio } from '@spec-lab/ui-react';
 
 export function RadioGroupHorizontal() {
   return (

@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-  Label,
-  RadioGroup,
-  Radio,
-} from '@spec-lab/ui-react';
+import { Label, RadioGroup, Radio } from '@spec-lab/ui-react';
 
 export function RadioGroupControlled() {
   const [value, setValue] = React.useState('option-one');

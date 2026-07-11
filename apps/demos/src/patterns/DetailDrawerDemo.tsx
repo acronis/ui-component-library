@@ -43,7 +43,9 @@ export interface DetailDrawerDemoProps {
   portalContainer?: HTMLElement | null;
 }
 
-export function DetailDrawerDemo({ portalContainer }: DetailDrawerDemoProps = {}) {
+export function DetailDrawerDemo({
+  portalContainer,
+}: DetailDrawerDemoProps = {}) {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState<ContentState>('content');
 

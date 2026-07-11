@@ -34,7 +34,9 @@ describe('Avatar', () => {
     );
     const root = container.firstElementChild as HTMLElement;
     expect(root.className).toContain('bg-[var(--ui-avatar-color-teal)]');
-    expect(root.className).toContain('text-[var(--ui-avatar-label-color-teal)]');
+    expect(root.className).toContain(
+      'text-[var(--ui-avatar-label-color-teal)]'
+    );
   });
 
   it('applies the requested color variant', () => {
@@ -45,7 +47,9 @@ describe('Avatar', () => {
     );
     const root = container.firstElementChild as HTMLElement;
     expect(root.className).toContain('bg-[var(--ui-avatar-color-violet)]');
-    expect(root.className).toContain('text-[var(--ui-avatar-label-color-violet)]');
+    expect(root.className).toContain(
+      'text-[var(--ui-avatar-label-color-violet)]'
+    );
   });
 
   it('merges a custom className', () => {

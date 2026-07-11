@@ -23,9 +23,7 @@ describe('solid-mono pack', () => {
 
 describe('multicolor packs keep authored colors', () => {
   it('stroke-multi preserves per-path colors but takes stroke width from rules', () => {
-    const svg = svgOf(
-      render(<CircleCheckGreenIcon size={16} />).container
-    );
+    const svg = svgOf(render(<CircleCheckGreenIcon size={16} />).container);
     expect(svg).toHaveAttribute('fill', 'none');
     expect(svg).not.toHaveAttribute('stroke'); // not forced to currentColor
     expect(svg).toHaveAttribute('stroke-width', '2.4'); // rule-driven at 16px

@@ -77,7 +77,9 @@ export const WithFooter: Story = {
           color="var(--ui-glyph-on-status-danger)"
         />
       </WidgetProgressChunksBody>
-      <WidgetProgressChunksFooter>Last run: 2 hours ago</WidgetProgressChunksFooter>
+      <WidgetProgressChunksFooter>
+        Last run: 2 hours ago
+      </WidgetProgressChunksFooter>
     </WidgetProgressChunks>
   ),
 };

@@ -20,7 +20,9 @@ describe('Slider', () => {
   });
 
   it('reflects the value within a custom min / max', () => {
-    render(<Slider defaultValue={5} min={0} max={10} step={5} aria-label="Steps" />);
+    render(
+      <Slider defaultValue={5} min={0} max={10} step={5} aria-label="Steps" />
+    );
     expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '5');
   });
 

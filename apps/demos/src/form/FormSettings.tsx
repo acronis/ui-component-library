@@ -27,7 +27,12 @@ const formSchema = z.object({
   }),
 });
 
-const languageItems = { en: 'English', es: 'Spanish', fr: 'French', de: 'German' };
+const languageItems = {
+  en: 'English',
+  es: 'Spanish',
+  fr: 'French',
+  de: 'German',
+};
 
 export function FormSettings() {
   const form = useForm<z.infer<typeof formSchema>>({

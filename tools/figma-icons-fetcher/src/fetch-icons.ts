@@ -15,12 +15,18 @@ import type { CategoryStats, FetcherConfig } from './types';
 /**
  * Fetches SVG icons from Figma and saves them as optimized SVG files.
  */
-export async function fetchIcons(userConfig: Partial<FetcherConfig> = {}): Promise<void> {
+export async function fetchIcons(
+  userConfig: Partial<FetcherConfig> = {}
+): Promise<void> {
   const config: FetcherConfig = { ...getConfig(), ...userConfig };
 
   // Validate required config
   if (!config.token) {
-    console.error(chalk.red.bold('Token not found. Please add FIGMA_FETCHER_FIGMA_TOKEN to .env.local'));
+    console.error(
+      chalk.red.bold(
+        'Token not found. Please add FIGMA_FETCHER_FIGMA_TOKEN to .env.local'
+      )
+    );
     process.exit(1);
   }
 
@@ -31,7 +37,9 @@ export async function fetchIcons(userConfig: Partial<FetcherConfig> = {}): Promi
       console.log(`Additional outputs: ${config.outputDirs.join(', ')}`);
     }
     if (config.categorizeByColor) {
-      console.log(`Color categorization: ${config.monoColorDir}, ${config.multiColorDir}`);
+      console.log(
+        `Color categorization: ${config.monoColorDir}, ${config.multiColorDir}`
+      );
     }
     console.log(`Pages: ${config.pageNames.join(', ')}`);
     console.log(`Frames: ${config.frameNames.join(', ')}`);
@@ -51,11 +59,19 @@ export async function fetchIcons(userConfig: Partial<FetcherConfig> = {}): Promi
     // can opt into skipping them via FIGMA_FETCHER_SKIP_MISSING_IMAGES.
     const invalidIcons = allIconsWithUrls.filter((icon) => !icon.image);
     if (invalidIcons.length) {
-      const list = invalidIcons.map((icon) => `  - ${icon.name} (ID: ${icon.id})`).join('\n');
+      const list = invalidIcons
+        .map((icon) => `  - ${icon.name} (ID: ${icon.id})`)
+        .join('\n');
       if (!config.skipMissingImages) {
-        throw new Error(`${invalidIcons.length} icons missing image URLs:\n${list}`);
+        throw new Error(
+          `${invalidIcons.length} icons missing image URLs:\n${list}`
+        );
       }
-      console.warn(chalk.yellow(`\n⚠ Skipping ${invalidIcons.length} icons Figma could not render:\n${list}`));
+      console.warn(
+        chalk.yellow(
+          `\n⚠ Skipping ${invalidIcons.length} icons Figma could not render:\n${list}`
+        )
+      );
     }
 
     const iconsWithUrls = allIconsWithUrls.filter((icon) => icon.image);
@@ -65,7 +81,9 @@ export async function fetchIcons(userConfig: Partial<FetcherConfig> = {}): Promi
     // Read existing icons from the output dir BEFORE cleaning to track what was there
     console.log(`📋 Reading existing icons from ${config.outputDir}...`);
     const iconsBeforeDownload = await getExistingIcons(config.outputDir);
-    console.log(`  Found ${iconsBeforeDownload.size} existing icons in ${config.outputDir}`);
+    console.log(
+      `  Found ${iconsBeforeDownload.size} existing icons in ${config.outputDir}`
+    );
 
     // Clean output directories (but NOT mono/multicolor - we never delete from those)
     console.log('\n🗑️  Cleaning output directories...');
@@ -80,7 +98,9 @@ export async function fetchIcons(userConfig: Partial<FetcherConfig> = {}): Promi
 
     // Note: We NEVER clean mono/multicolor directories - only add new icons to them
     if (config.categorizeByColor) {
-      console.log(`  ℹ️  Preserving all existing icons in ${config.monoColorDir} and ${config.multiColorDir}`);
+      console.log(
+        `  ℹ️  Preserving all existing icons in ${config.monoColorDir} and ${config.multiColorDir}`
+      );
     }
 
     // Download icons
@@ -91,13 +111,26 @@ export async function fetchIcons(userConfig: Partial<FetcherConfig> = {}): Promi
     config.outputDirs.forEach((dir) => console.log(`                ${dir}`));
 
     // Add NEW icons to mono/multicolor directories (never delete existing)
-    let categoryStats: CategoryStats = { monoAdded: 0, multiAdded: 0, monoTotal: 0, multiTotal: 0 };
+    let categoryStats: CategoryStats = {
+      monoAdded: 0,
+      multiAdded: 0,
+      monoTotal: 0,
+      multiTotal: 0,
+    };
     if (config.categorizeByColor) {
-      categoryStats = await saveNewIconsToCategories(config, downloadedIcons, iconsBeforeDownload);
+      categoryStats = await saveNewIconsToCategories(
+        config,
+        downloadedIcons,
+        iconsBeforeDownload
+      );
 
       console.log(`\n📊 Category Summary:`);
-      console.log(`  Monocolor: ${categoryStats.monoAdded} added → ${categoryStats.monoTotal} total in ${config.monoColorDir}`);
-      console.log(`  Multicolor: ${categoryStats.multiAdded} added → ${categoryStats.multiTotal} total in ${config.multiColorDir}`);
+      console.log(
+        `  Monocolor: ${categoryStats.monoAdded} added → ${categoryStats.monoTotal} total in ${config.monoColorDir}`
+      );
+      console.log(
+        `  Multicolor: ${categoryStats.multiAdded} added → ${categoryStats.multiTotal} total in ${config.multiColorDir}`
+      );
     }
 
     // Generate manifests

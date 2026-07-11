@@ -3,8 +3,8 @@ title: Chart
 description: A theming layer over recharts — container, tooltip, and legend chrome.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { ChartDemo } from "@/components/demos-react/chart";
+import { DemoReact } from '@/components/DemoReact';
+import { ChartDemo } from '@/components/demos-react/chart';
 
 ## Usage
 
@@ -49,7 +49,10 @@ A bar chart with a themed tooltip and legend:
 ```tsx
 const config = {
   desktop: { label: 'Desktop', color: 'var(--ui-background-brand-secondary)' },
-  mobile: { label: 'Mobile', color: 'var(--ui-background-status-strong-danger)' },
+  mobile: {
+    label: 'Mobile',
+    color: 'var(--ui-background-status-strong-danger)',
+  },
 } satisfies ChartConfig;
 
 <ChartContainer config={config} className="h-[300px] w-[500px]">

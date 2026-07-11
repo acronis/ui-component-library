@@ -15,7 +15,9 @@ const UI_REACT_UI = resolve(PKG_ROOT, '../ui-react/src/components/ui');
 
 const ajv = new Ajv2020({ strict: false, allErrors: true });
 const validate = ajv.compile(
-  JSON.parse(readFileSync(join(PKG_ROOT, 'schema', 'screen.schema.json'), 'utf8'))
+  JSON.parse(
+    readFileSync(join(PKG_ROOT, 'schema', 'screen.schema.json'), 'utf8')
+  )
 );
 
 const toKebab = (s: string): string =>
@@ -61,7 +63,10 @@ describe('every screen descriptor validates and references real things', () => {
     ) as Screen;
 
     it(`${name}: schema + slug`, () => {
-      expect(validate(screen), ajv.errorsText(validate.errors, { separator: '\n' })).toBe(true);
+      expect(
+        validate(screen),
+        ajv.errorsText(validate.errors, { separator: '\n' })
+      ).toBe(true);
       expect(screen.name).toBe(name);
     });
 
@@ -73,15 +78,24 @@ describe('every screen descriptor validates and references real things', () => {
       const missing = [...components].filter(
         (c) => !existsSync(resolve(UI_REACT_UI, toKebab(c)))
       );
-      expect(missing, `components not found in ui-react: ${missing.join(', ')}`).toEqual([]);
+      expect(
+        missing,
+        `components not found in ui-react: ${missing.join(', ')}`
+      ).toEqual([]);
     });
 
     it(`${name}: referenced grammar rules resolve`, () => {
       const ruleIds = new Set<string>();
-      walkRegions(screen.regions, (r) => r.rules?.forEach((id) => ruleIds.add(id)));
-      screen.stateMachine.states.forEach((s) => s.rules?.forEach((id) => ruleIds.add(id)));
+      walkRegions(screen.regions, (r) =>
+        r.rules?.forEach((id) => ruleIds.add(id))
+      );
+      screen.stateMachine.states.forEach((s) =>
+        s.rules?.forEach((id) => ruleIds.add(id))
+      );
       const missing = [...ruleIds].filter((id) => !getRule(id));
-      expect(missing, `unknown grammar rules: ${missing.join(', ')}`).toEqual([]);
+      expect(missing, `unknown grammar rules: ${missing.join(', ')}`).toEqual(
+        []
+      );
     });
 
     it(`${name}: pattern reference exists (if any)`, () => {
@@ -95,12 +109,23 @@ describe('every screen descriptor validates and references real things', () => {
     it(`${name}: state machine has one initial, valid + reachable states`, () => {
       const states = screen.stateMachine.states;
       const names = new Set(states.map((s) => s.name));
-      expect(states.filter((s) => s.initial).length, 'exactly one initial state').toBe(1);
-      expect(new Set(states.map((s) => s.name)).size, 'unique state names').toBe(states.length);
+      expect(
+        states.filter((s) => s.initial).length,
+        'exactly one initial state'
+      ).toBe(1);
+      expect(
+        new Set(states.map((s) => s.name)).size,
+        'unique state names'
+      ).toBe(states.length);
 
       for (const t of screen.stateMachine.transitions) {
-        expect(names.has(t.from), `transition from unknown state "${t.from}"`).toBe(true);
-        expect(names.has(t.to), `transition to unknown state "${t.to}"`).toBe(true);
+        expect(
+          names.has(t.from),
+          `transition from unknown state "${t.from}"`
+        ).toBe(true);
+        expect(names.has(t.to), `transition to unknown state "${t.to}"`).toBe(
+          true
+        );
       }
 
       // Every non-initial state is reachable from the initial state.

@@ -1,5 +1,5 @@
 import { Tag } from '@spec-lab/ui-react';
-import { StarIcon } from '@spec-lab/icons-react/stroke-mono'
+import { StarIcon } from '@spec-lab/icons-react/stroke-mono';
 import { ZapIcon } from '../icons/missing-icons';
 export function TagFeature() {
   return (

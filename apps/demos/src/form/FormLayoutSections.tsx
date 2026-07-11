@@ -63,7 +63,9 @@ export function FormLayoutSections() {
             render={({ field, fieldState }) => (
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>Display name</FieldLabel>
-                <FieldControl render={<InputBox placeholder="Your name" {...field} />} />
+                <FieldControl
+                  render={<InputBox placeholder="Your name" {...field} />}
+                />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
                 )}
@@ -77,7 +79,13 @@ export function FormLayoutSections() {
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>Email</FieldLabel>
                 <FieldControl
-                  render={<InputBox type="email" placeholder="you@example.com" {...field} />}
+                  render={
+                    <InputBox
+                      type="email"
+                      placeholder="you@example.com"
+                      {...field}
+                    />
+                  }
                 />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
@@ -123,7 +131,10 @@ export function FormLayoutSections() {
             control={form.control}
             name="emailNotifications"
             render={({ field }) => (
-              <Field orientation="horizontal" className="justify-between rounded-lg border p-4">
+              <Field
+                orientation="horizontal"
+                className="justify-between rounded-lg border p-4"
+              >
                 <FieldLabel>
                   <FieldContent>
                     <span>Email notifications</span>
@@ -132,7 +143,10 @@ export function FormLayoutSections() {
                     </FieldDescription>
                   </FieldContent>
                 </FieldLabel>
-                <Switch checked={field.value} onCheckedChange={field.onChange} />
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
               </Field>
             )}
           />
@@ -140,7 +154,10 @@ export function FormLayoutSections() {
             control={form.control}
             name="marketingEmails"
             render={({ field }) => (
-              <Field orientation="horizontal" className="justify-between rounded-lg border p-4">
+              <Field
+                orientation="horizontal"
+                className="justify-between rounded-lg border p-4"
+              >
                 <FieldLabel>
                   <FieldContent>
                     <span>Marketing emails</span>
@@ -149,7 +166,10 @@ export function FormLayoutSections() {
                     </FieldDescription>
                   </FieldContent>
                 </FieldLabel>
-                <Switch checked={field.value} onCheckedChange={field.onChange} />
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
               </Field>
             )}
           />
@@ -172,7 +192,13 @@ export function FormLayoutSections() {
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>Current password</FieldLabel>
                 <FieldControl
-                  render={<InputBox type="password" placeholder="••••••••" {...field} />}
+                  render={
+                    <InputBox
+                      type="password"
+                      placeholder="••••••••"
+                      {...field}
+                    />
+                  }
                 />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
@@ -187,9 +213,17 @@ export function FormLayoutSections() {
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>New password</FieldLabel>
                 <FieldControl
-                  render={<InputBox type="password" placeholder="••••••••" {...field} />}
+                  render={
+                    <InputBox
+                      type="password"
+                      placeholder="••••••••"
+                      {...field}
+                    />
+                  }
                 />
-                <FieldDescription>Must be at least 8 characters.</FieldDescription>
+                <FieldDescription>
+                  Must be at least 8 characters.
+                </FieldDescription>
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
                 )}

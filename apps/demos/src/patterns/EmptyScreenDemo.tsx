@@ -37,7 +37,11 @@ export function EmptyScreenDemo() {
         </AppShellSidebar>
         <AppShellBody>
           <AppShellHeader>
-            <SearchGlobal aria-label="Search" placeholder="Search…" className="max-w-md" />
+            <SearchGlobal
+              aria-label="Search"
+              placeholder="Search…"
+              className="max-w-md"
+            />
           </AppShellHeader>
           <AppShellMain className="grid place-items-center p-6">
             <Empty>

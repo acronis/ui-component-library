@@ -5,7 +5,12 @@ import {
   SidebarPrimaryMenuItem,
   SidebarPrimarySection,
 } from '@spec-lab/ui-react';
-import { CalendarIcon, CogIcon, FolderHouseIcon, InboxIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CalendarIcon,
+  CogIcon,
+  FolderHouseIcon,
+  InboxIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 // The rail's collapsed state IS icon-only mode: `expanded={false}` keeps every
 // row's label in the DOM as `sr-only` (accessible name) while visually showing
@@ -34,9 +39,7 @@ export function SidebarIconsOnly() {
         </SidebarPrimaryContent>
       </SidebarPrimary>
       <div className="flex flex-1 items-center justify-center bg-background p-4">
-        <p className="text-sm text-muted-foreground">
-          Icon-only sidebar view
-        </p>
+        <p className="text-sm text-muted-foreground">Icon-only sidebar view</p>
       </div>
     </div>
   );

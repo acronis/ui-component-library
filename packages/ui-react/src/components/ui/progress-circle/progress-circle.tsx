@@ -25,11 +25,7 @@ import { cn } from '@/lib/utils';
 // the others are score levels. With no `status`, the level is derived from the
 // value (like the Vue ProgressRadial).
 export type ProgressCircleStatus =
-  | 'brand'
-  | 'danger'
-  | 'critical'
-  | 'warning'
-  | 'success';
+  'brand' | 'danger' | 'critical' | 'warning' | 'success';
 
 // Size → [diameter px, stroke px, center font class]. The table cell uses the
 // smaller sizes; lg suits cards/widgets.
@@ -52,7 +48,9 @@ const ARC_COLOR: Record<ProgressCircleStatus, string> = {
 
 // `brand` has no score icon — only the level statuses do.
 const ICON_BY_STATUS: Partial<Record<ProgressCircleStatus, React.ReactNode>> = {
-  danger: <CircleTimesIcon className="text-[var(--ui-text-on-status-danger)]" />,
+  danger: (
+    <CircleTimesIcon className="text-[var(--ui-text-on-status-danger)]" />
+  ),
   critical: (
     <TriangleWarningIcon className="text-[var(--ui-text-on-status-critical)]" />
   ),
@@ -84,7 +82,8 @@ const progressCircleVariants = cva(
 );
 
 export interface ProgressCircleProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>,
+  extends
+    Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>,
     VariantProps<typeof progressCircleVariants> {
   /** Current progress; clamped to `[0, max]`. */
   value?: number;

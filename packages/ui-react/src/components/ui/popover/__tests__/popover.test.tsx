@@ -3,11 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '../popover';
+import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 
 function DemoPopover(props: {
   defaultOpen?: boolean;

@@ -2,11 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '../index';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../index';
 
 describe('Collapsible', () => {
   it('toggles the panel content on trigger click', async () => {

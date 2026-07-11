@@ -3,8 +3,8 @@ title: InputTextArea
 description: A multi-line text field with label, description, and error support.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { InputTextAreaDemo } from "@/components/demos-react/input-text-area";
+import { DemoReact } from '@/components/DemoReact';
+import { InputTextAreaDemo } from '@/components/demos-react/input-text-area';
 
 ## Usage
 
@@ -19,12 +19,11 @@ message. Without a label it renders just the box. Themed by the
 
 > **`Textarea` is an alias of `InputTextArea`.** The legacy bare `Textarea` box
 > is replaced by this design-system-native field; `import { Textarea } from
-> '@spec-lab/ui-react'` re-exports `InputTextArea` — same props. Without
+'@spec-lab/ui-react'` re-exports `InputTextArea` — same props. Without
 > a `label` it's a drop-in for the bare textarea. Prefer `InputTextArea` in new
 > code.
 
 ## Examples
-
 
 <DemoReact>
   <InputTextAreaDemo />
@@ -50,11 +49,7 @@ Required and error states:
 With helper text and a row count:
 
 ```tsx
-<InputTextArea
-  label="Notes"
-  description="Markdown is supported."
-  rows={6}
-/>
+<InputTextArea label="Notes" description="Markdown is supported." rows={6} />
 ```
 
 ## API Reference

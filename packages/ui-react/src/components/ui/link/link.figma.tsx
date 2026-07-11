@@ -12,7 +12,10 @@ figma.connect(
       label: figma.string('Label'),
       external: figma.boolean('External'),
       // The Figma `background` variant (normal / inverse) selects the colour set.
-      variant: figma.enum('background', { normal: 'normal', inverse: 'inverse' }),
+      variant: figma.enum('background', {
+        normal: 'normal',
+        inverse: 'inverse',
+      }),
       // `state` (idle / hover / active / focused) is a pure interaction
       // pseudo-state; only `disabled` maps to a prop.
       disabled: figma.enum('state', { disabled: true }),

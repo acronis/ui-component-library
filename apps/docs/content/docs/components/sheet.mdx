@@ -3,15 +3,22 @@ title: Sheet
 description: A modal side panel anchored to a screen edge — for detail views and focused tasks without leaving the page.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { SheetDemo } from "@/components/demos-react/sheet";
+import { DemoReact } from '@/components/DemoReact';
+import { SheetDemo } from '@/components/demos-react/sheet';
 
 ## Usage
 
 ```tsx
 import {
-  Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle,
-  SheetCloseButton, SheetBody, SheetDescription, SheetFooter,
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetCloseButton,
+  SheetBody,
+  SheetDescription,
+  SheetFooter,
 } from '@spec-lab/ui-react';
 ```
 
@@ -25,7 +32,7 @@ design-pending v1 themed on the shared semantic tokens like the Dialog family.
 > **`Details` is an alias.** The Vue UI kit called this side panel `Details`. The
 > full part family is re-exported under `Details*` (`Details`, `DetailsContent`,
 > `DetailsHeader`, …) for a 1:1 migration — `import { Details } from
-> '@spec-lab/ui-react'`. Prefer `Sheet` in new code.
+'@spec-lab/ui-react'`. Prefer `Sheet` in new code.
 
 ## Examples
 
@@ -61,7 +68,7 @@ design-pending v1 themed on the shared semantic tokens like the Dialog family.
 ## Preset: `SheetDetails`
 
 For the common "details of the selected item" panel, use the **`SheetDetails`**
-preset — the easy path that *is* the
+preset — the easy path that _is_ the
 [sheet-detail-panel pattern](/patterns/sheet-detail-panel). It bakes the header
 (title + close), a body that switches by `contentState`
 (`loading` → Spinner, `empty`/`error` → Empty, else a property list or custom
@@ -80,7 +87,7 @@ import { SheetDetails, Button } from '@spec-lab/ui-react';
     { label: 'Owner', value: 'ken99@example.com' },
   ]}
   actions={<Button>Edit</Button>}
-/>
+/>;
 ```
 
 Reach for the composable `Sheet*` parts (above) only when you need a layout the

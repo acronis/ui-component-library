@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono';
 export function DialogLoading() {
   return (
     <Dialog>

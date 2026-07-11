@@ -37,27 +37,47 @@ const meta = {
     disabled: {
       control: 'boolean',
       description: 'Disables the select and applies the disabled token set.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'State' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
     },
     readOnly: {
       control: 'boolean',
       description: 'Prevents choosing a different option from the popup.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'State' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
     },
     required: {
       control: 'boolean',
       description: 'Requires a value before form submission.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'State' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
     },
     multiple: {
       control: 'boolean',
       description: 'Allows selecting multiple items.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'Behavior' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Behavior',
+      },
     },
     defaultOpen: {
       control: 'boolean',
       description: 'Whether the popup is initially open (uncontrolled).',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'Behavior' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Behavior',
+      },
     },
     open: {
       control: false,
@@ -66,8 +86,13 @@ const meta = {
     },
     modal: {
       control: 'boolean',
-      description: 'Whether the select enters a modal state (locks scroll, blocks outside pointer) when open.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' }, category: 'Behavior' },
+      description:
+        'Whether the select enters a modal state (locks scroll, blocks outside pointer) when open.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
+        category: 'Behavior',
+      },
     },
     name: {
       control: 'text',
@@ -77,12 +102,18 @@ const meta = {
     onValueChange: {
       control: false,
       description: 'Called when the selected value changes.',
-      table: { type: { summary: '(value, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(value, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     onOpenChange: {
       control: false,
       description: 'Called when the popup is opened or closed.',
-      table: { type: { summary: '(open, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(open, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     children: {
       control: false,

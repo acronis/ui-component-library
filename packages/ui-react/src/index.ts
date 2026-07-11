@@ -96,10 +96,7 @@ export * from './components/ui/tag';
 // `Badge` is an alias of `Tag`. The legacy generic shadcn Badge is replaced by
 // the design-system-native Tag (its own `--ui-tag-*` token tier, icon slot, and
 // sizes); Tag's variants are exactly Badge's status set. No separate component.
-export {
-  Tag as Badge,
-  type TagProps as BadgeProps,
-} from './components/ui/tag';
+export { Tag as Badge, type TagProps as BadgeProps } from './components/ui/tag';
 export * from './components/ui/widget';
 export * from './components/ui/widget-alert';
 export * from './components/ui/widget-placeholder';

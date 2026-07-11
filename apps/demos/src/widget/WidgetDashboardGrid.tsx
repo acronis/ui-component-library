@@ -10,7 +10,10 @@ import {
   WidgetLabel,
 } from '@spec-lab/ui-react';
 import { ButtonIcon } from '@spec-lab/ui-react';
-import { CircleWarningIcon, ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CircleWarningIcon,
+  ShieldCheckIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   ActivityIcon,
   BarChart3Icon,
@@ -66,7 +69,11 @@ export function WidgetDashboardGrid() {
           </WidgetIcon>
           <WidgetTitle>Backup Success Rate</WidgetTitle>
           <WidgetActions>
-            <ButtonIcon aria-label="More options" variant="ghost" className="h-6 w-6">
+            <ButtonIcon
+              aria-label="More options"
+              variant="ghost"
+              className="h-6 w-6"
+            >
               <MoreVerticalIcon className="h-4 w-4" />
             </ButtonIcon>
           </WidgetActions>

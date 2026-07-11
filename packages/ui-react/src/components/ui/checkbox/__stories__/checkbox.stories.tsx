@@ -69,7 +69,10 @@ const meta = {
     render: {
       control: false,
       description: 'Base UI render prop for overriding the rendered element.',
-      table: { type: { summary: 'ReactElement | function' }, category: 'Composition' },
+      table: {
+        type: { summary: 'ReactElement | function' },
+        category: 'Composition',
+      },
     },
   },
 } satisfies Meta<typeof Checkbox>;

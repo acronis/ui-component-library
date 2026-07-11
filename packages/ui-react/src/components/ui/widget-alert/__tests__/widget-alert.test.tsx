@@ -48,18 +48,21 @@ describe('WidgetAlert', () => {
     ['success', '--ui-background-status-success'],
     ['warning', '--ui-background-status-warning'],
     ['danger', '--ui-background-status-danger'],
-  ] as const)('applies the %s variant surface + border tokens', (variant, token) => {
-    render(
-      <WidgetAlert data-testid="wa" variant={variant}>
-        content
-      </WidgetAlert>
-    );
-    const el = screen.getByTestId('wa');
-    expect(el.className).toContain(`bg-[var(${token})]`);
-    expect(el.className).toContain(
-      `border-[var(--ui-border-on-status-${variant})]`
-    );
-  });
+  ] as const)(
+    'applies the %s variant surface + border tokens',
+    (variant, token) => {
+      render(
+        <WidgetAlert data-testid="wa" variant={variant}>
+          content
+        </WidgetAlert>
+      );
+      const el = screen.getByTestId('wa');
+      expect(el.className).toContain(`bg-[var(${token})]`);
+      expect(el.className).toContain(
+        `border-[var(--ui-border-on-status-${variant})]`
+      );
+    }
+  );
 
   it('is not focusable by default', () => {
     render(<WidgetAlert data-testid="wa">content</WidgetAlert>);

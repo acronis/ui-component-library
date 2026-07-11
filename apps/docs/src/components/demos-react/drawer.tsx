@@ -20,7 +20,9 @@ export function DrawerDemo() {
   const mount = useShadowMount();
   return (
     <Drawer defaultOpen side="bottom">
-      <DrawerTrigger render={<Button variant="secondary">Open drawer</Button>} />
+      <DrawerTrigger
+        render={<Button variant="secondary">Open drawer</Button>}
+      />
       <DrawerContent portalContainer={mount}>
         <DrawerSwipeArea />
         <DrawerHeader>

@@ -1,10 +1,6 @@
 import { useEffect, useRef } from 'react';
-import {
-  Button,
-  Switch,
-  Separator,
-} from '@spec-lab/ui-react';
-import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono'
+import { Button, Switch, Separator } from '@spec-lab/ui-react';
+import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono';
 import { useCyberChatStore } from '../store/useCyberChatStore';
 import { RadialProgress } from './RadialProgress';
 

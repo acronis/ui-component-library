@@ -36,18 +36,49 @@ const concept: PackManifest = {
   },
   assets: {
     'icon-basic': asset({ '24': { $file: F24 } }),
-    'icon-extended': asset({ '24': { $file: F24 }, '96': { $rules: ['scale-96'] } }),
-    'icon-rule-override': asset({ '24': { $file: F24 }, '16': { $rules: ['stroke-2-5', 'scale-16'] } }),
+    'icon-extended': asset({
+      '24': { $file: F24 },
+      '96': { $rules: ['scale-96'] },
+    }),
+    'icon-rule-override': asset({
+      '24': { $file: F24 },
+      '16': { $rules: ['stroke-2-5', 'scale-16'] },
+    }),
     'icon-opted-out': asset({ '24': { $file: F24 }, '32': null }),
-    'icon-file-override': asset({ '24': { $file: ALT24 }, '16': { $file: ALT16 } }),
-    'icon-multi-source': asset({ '24': { $file: ALT24 }, '16': { $file: ALT16 }, '32': { $file: ALT32 } }),
-    'image-raster': asset({ '24': { $file: './packs/icons/image-raster-24.png' }, '16': null, '32': null }, { $type: 'raster' }),
+    'icon-file-override': asset({
+      '24': { $file: ALT24 },
+      '16': { $file: ALT16 },
+    }),
+    'icon-multi-source': asset({
+      '24': { $file: ALT24 },
+      '16': { $file: ALT16 },
+      '32': { $file: ALT32 },
+    }),
+    'image-raster': asset(
+      {
+        '24': { $file: './packs/icons/image-raster-24.png' },
+        '16': null,
+        '32': null,
+      },
+      { $type: 'raster' }
+    ),
     'icon-cross-source': asset(
-      { '24': { $file: F24 }, '48': { $file: F48 }, '96': { $from: '48', $rules: ['scale-96'] } },
+      {
+        '24': { $file: F24 },
+        '48': { $file: F48 },
+        '96': { $from: '48', $rules: ['scale-96'] },
+      },
       { platforms: ['WEB', 'PD'] }
     ),
-    'icon-themed': asset({ '24': { $file: F24 }, dark: { $file: ALT24 }, '16': null, '32': null }, { platforms: ['WEB'] }),
-    'icon-special-default': asset({ '32': { $file: ALT32, default: true }, '24': null, '16': null }),
+    'icon-themed': asset(
+      { '24': { $file: F24 }, dark: { $file: ALT24 }, '16': null, '32': null },
+      { platforms: ['WEB'] }
+    ),
+    'icon-special-default': asset({
+      '32': { $file: ALT32, default: true },
+      '24': null,
+      '16': null,
+    }),
     'icon-with-extensions': asset(
       { '24': { $file: F24 } },
       {
@@ -62,9 +93,12 @@ const concept: PackManifest = {
   },
 };
 
-const resolveOne = (id: string): ResolvedAsset => resolveAsset(concept, id, concept.assets![id], rules);
-const variantIds = (a: ResolvedAsset): string[] => a.variants.map((v) => v.id).sort();
-const variant = (a: ResolvedAsset, id: string) => a.variants.find((v) => v.id === id);
+const resolveOne = (id: string): ResolvedAsset =>
+  resolveAsset(concept, id, concept.assets![id], rules);
+const variantIds = (a: ResolvedAsset): string[] =>
+  a.variants.map((v) => v.id).sort();
+const variant = (a: ResolvedAsset, id: string) =>
+  a.variants.find((v) => v.id === id);
 const base = (p: string): string => p.split('/').pop() ?? '';
 
 describe('resolver — concept-pack R-cases', () => {
@@ -85,7 +119,10 @@ describe('resolver — concept-pack R-cases', () => {
 
   it('R4: overrides a computed variant with different rules', () => {
     const a = resolveOne('icon-rule-override');
-    expect(variant(a, '16')!.rules.map((r) => r.name)).toEqual(['stroke-2-5', 'scale-16']);
+    expect(variant(a, '16')!.rules.map((r) => r.name)).toEqual([
+      'stroke-2-5',
+      'scale-16',
+    ]);
   });
 
   it('R5: opts out of a pack variant via null', () => {
@@ -100,7 +137,8 @@ describe('resolver — concept-pack R-cases', () => {
 
   it('R7: ships independent binaries at every variant', () => {
     const a = resolveOne('icon-multi-source');
-    for (const id of ['16', '24', '32']) expect(variant(a, id)!.rules).toHaveLength(0);
+    for (const id of ['16', '24', '32'])
+      expect(variant(a, id)!.rules).toHaveLength(0);
   });
 
   it('R8: raster asset fails closed on the missing upstream binary', () => {
@@ -131,18 +169,27 @@ describe('resolver — concept-pack R-cases', () => {
   });
 
   it('R13: carries per-asset platforms', () => {
-    expect(resolveOne('icon-cross-source').platforms.slice().sort()).toEqual(['PD', 'WEB']);
+    expect(resolveOne('icon-cross-source').platforms.slice().sort()).toEqual([
+      'PD',
+      'WEB',
+    ]);
   });
 
   it('R14: carries per-asset metadata', () => {
-    expect(resolveOne('icon-basic').metadata).toEqual({ category: [], tags: [], legacyNames: [] });
+    expect(resolveOne('icon-basic').metadata).toEqual({
+      category: [],
+      tags: [],
+      legacyNames: [],
+    });
   });
 
   it('R15: allows digit-first asset ids (illustrations)', () => {
     const ill = loadPack('illustrations');
     const first = Object.keys(ill.assets!)[0];
     expect(first).toMatch(/^[0-9]/);
-    expect(() => resolveAsset(ill, first, ill.assets![first], rules)).not.toThrow();
+    expect(() =>
+      resolveAsset(ill, first, ill.assets![first], rules)
+    ).not.toThrow();
   });
 
   it('R16: resolves assets carrying $extensions (ignored by resolution)', () => {
@@ -154,16 +201,22 @@ describe('resolver — concept-pack R-cases', () => {
 
 const REAL = F24;
 
-const synthetic = (assetValues: Values, $type: 'vector' | 'raster' = 'vector'): PackManifest => ({
+const synthetic = (
+  assetValues: Values,
+  $type: 'vector' | 'raster' = 'vector'
+): PackManifest => ({
   $schema: '',
   name: 'syn',
   version: '1.0.0',
   $type,
   values: { '24': { default: true } },
-  assets: { x: { values: assetValues, platforms: ['PD'], metadata: META } as Asset },
+  assets: {
+    x: { values: assetValues, platforms: ['PD'], metadata: META } as Asset,
+  },
 });
 
-const run = (pack: PackManifest): ResolvedAsset => resolveAsset(pack, 'x', pack.assets!.x, rules);
+const run = (pack: PackManifest): ResolvedAsset =>
+  resolveAsset(pack, 'x', pack.assets!.x, rules);
 
 describe('resolver — fail closed', () => {
   it('rejects two canonical markers in one asset', () => {
@@ -175,15 +228,21 @@ describe('resolver — fail closed', () => {
   });
 
   it('rejects a computed effective canonical', () => {
-    expect(() => run(synthetic({ '24': { $rules: ['scale-16'] } }))).toThrow(/canonical must resolve to a \$file/);
+    expect(() => run(synthetic({ '24': { $rules: ['scale-16'] } }))).toThrow(
+      /canonical must resolve to a \$file/
+    );
   });
 
   it('rejects an unknown rule id', () => {
-    expect(() => run(synthetic({ '24': { $file: REAL }, '16': { $rules: ['nope'] } }))).toThrow(/unknown rule/);
+    expect(() =>
+      run(synthetic({ '24': { $file: REAL }, '16': { $rules: ['nope'] } }))
+    ).toThrow(/unknown rule/);
   });
 
   it('rejects a $file missing on disk', () => {
-    expect(() => run(synthetic({ '24': { $file: './packs/icons/does-not-exist.svg' } }))).toThrow(/does not exist/);
+    expect(() =>
+      run(synthetic({ '24': { $file: './packs/icons/does-not-exist.svg' } }))
+    ).toThrow(/does not exist/);
   });
 
   it('rejects a derivation cycle', () => {
@@ -197,6 +256,8 @@ describe('resolver — fail closed', () => {
 
   it('rejects a $type / extension mismatch', () => {
     // raster asset whose canonical points at an existing .svg
-    expect(() => run(synthetic({ '24': { $file: REAL } }, 'raster'))).toThrow(/not valid for \$type "raster"/);
+    expect(() => run(synthetic({ '24': { $file: REAL } }, 'raster'))).toThrow(
+      /not valid for \$type "raster"/
+    );
   });
 });

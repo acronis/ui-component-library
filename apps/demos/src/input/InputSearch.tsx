@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Input } from '@spec-lab/ui-react';
-import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
+import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono';
 export function InputSearch() {
   const [search, setSearch] = useState('');
 

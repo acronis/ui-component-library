@@ -49,7 +49,8 @@ const meta = {
     },
     children: {
       control: 'text',
-      description: 'Tag label. Truncates with an ellipsis when it exceeds the max width.',
+      description:
+        'Tag label. Truncates with an ellipsis when it exceeds the max width.',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
     className: {
@@ -105,5 +106,9 @@ export const WithIcon: Story = {
 };
 
 export const Truncated: Story = {
-  args: { variant: 'neutral', children: 'A very long tag label that exceeds the maximum width and truncates' },
+  args: {
+    variant: 'neutral',
+    children:
+      'A very long tag label that exceeds the maximum width and truncates',
+  },
 };

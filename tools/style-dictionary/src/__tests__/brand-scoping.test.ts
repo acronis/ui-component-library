@@ -58,7 +58,10 @@ describe('collectValueKeys (data-driven brand discovery)', () => {
 });
 
 describe('diffDecls (override-only emission)', () => {
-  const decls = (vars: Record<string, string>, classes: Record<string, string> = {}): Decls => ({
+  const decls = (
+    vars: Record<string, string>,
+    classes: Record<string, string> = {}
+  ): Decls => ({
     vars: new Map(Object.entries(vars)),
     classes: new Map(Object.entries(classes)),
     skipped: [],
@@ -85,7 +88,12 @@ describe('diffDecls (override-only emission)', () => {
 
   it('diffs typography class blocks the same way', () => {
     const base = decls({}, { '.ui-typography-body': 'font-size: 14px;' });
-    const out = diffDecls(base, decls({}, { '.ui-typography-body': 'font-size: 16px;' }));
-    expect([...out.classes]).toEqual([['.ui-typography-body', 'font-size: 16px;']]);
+    const out = diffDecls(
+      base,
+      decls({}, { '.ui-typography-body': 'font-size: 16px;' })
+    );
+    expect([...out.classes]).toEqual([
+      ['.ui-typography-body', 'font-size: 16px;'],
+    ]);
   });
 });

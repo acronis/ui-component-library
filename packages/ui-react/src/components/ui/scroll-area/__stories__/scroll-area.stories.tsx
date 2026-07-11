@@ -38,10 +38,7 @@ const Rows = () => (
 export const Default: Story = {
   args: { orientation: 'vertical' },
   render: (args) => (
-    <ScrollArea
-      {...args}
-      className="h-64 w-72 rounded-md border border-border"
-    >
+    <ScrollArea {...args} className="h-64 w-72 rounded-md border border-border">
       <Rows />
     </ScrollArea>
   ),

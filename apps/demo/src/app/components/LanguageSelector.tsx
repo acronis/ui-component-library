@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CheckIcon, GlobeIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CheckIcon, GlobeIcon } from '@spec-lab/icons-react/stroke-mono';
 import {
   ButtonIcon,
   DropdownMenu,

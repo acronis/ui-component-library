@@ -90,7 +90,8 @@ function TourBeaconOverlay({
     side === 'inline-end';
   const point = vertical
     ? {
-        left: side === 'left' || side === 'inline-start' ? rect.left : rect.right,
+        left:
+          side === 'left' || side === 'inline-start' ? rect.left : rect.right,
         top: along(rect.top, rect.bottom),
       }
     : {
@@ -168,7 +169,11 @@ export function DemoOnboardingTour() {
       }}
     >
       <TourScrim />
-      <TourContent anchor={anchorEl ?? undefined} side={step.side} align={step.align}>
+      <TourContent
+        anchor={anchorEl ?? undefined}
+        side={step.side}
+        align={step.align}
+      >
         <TourClose />
         <TourHeader>
           <TourTitle>{step.title}</TourTitle>

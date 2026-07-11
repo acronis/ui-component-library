@@ -38,7 +38,9 @@ PaginationContent.displayName = 'PaginationContent';
 const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<'li'>
->(({ className, ...props }, ref) => <li ref={ref} className={className} {...props} />);
+>(({ className, ...props }, ref) => (
+  <li ref={ref} className={className} {...props} />
+));
 PaginationItem.displayName = 'PaginationItem';
 
 export interface PaginationLinkProps extends React.ComponentProps<'a'> {
@@ -68,10 +70,7 @@ const PaginationLink = ({
 );
 PaginationLink.displayName = 'PaginationLink';
 
-const PaginationPrevious = ({
-  className,
-  ...props
-}: PaginationLinkProps) => (
+const PaginationPrevious = ({ className, ...props }: PaginationLinkProps) => (
   <PaginationLink
     aria-label="Go to previous page"
     className={className}

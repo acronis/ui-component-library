@@ -14,7 +14,9 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { ComponentsEmitter } from './helpers/emit-components-builder.mjs';
 
-const SNAPSHOT_PATH = fileURLToPath(new URL('./snapshot/figma-snapshot.json', import.meta.url));
+const SNAPSHOT_PATH = fileURLToPath(
+  new URL('./snapshot/figma-snapshot.json', import.meta.url)
+);
 
 if (!fs.existsSync(SNAPSHOT_PATH)) {
   console.error(`Missing snapshot: ${SNAPSHOT_PATH}`);

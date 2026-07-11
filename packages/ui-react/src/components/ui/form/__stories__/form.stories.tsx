@@ -36,7 +36,8 @@ const meta = {
     },
     onFormSubmit: {
       control: false,
-      description: 'Called with the collected field values when all fields are valid.',
+      description:
+        'Called with the collected field values when all fields are valid.',
       table: { category: 'Events' },
     },
   },
@@ -53,7 +54,11 @@ export const Default: Story = {
     <Form {...args} onFormSubmit={() => {}} className="w-[360px]">
       <Field name="email">
         <FieldLabel>Email</FieldLabel>
-        <FieldControl render={<InputBox type="email" placeholder="you@example.com" required />} />
+        <FieldControl
+          render={
+            <InputBox type="email" placeholder="you@example.com" required />
+          }
+        />
         <FieldDescription>We&apos;ll never share your email.</FieldDescription>
       </Field>
       <Field name="password">
@@ -74,7 +79,9 @@ export const WithServerErrors: Story = {
     >
       <Field name="email">
         <FieldLabel>Email</FieldLabel>
-        <FieldControl render={<InputBox type="email" defaultValue="ada@example.com" />} />
+        <FieldControl
+          render={<InputBox type="email" defaultValue="ada@example.com" />}
+        />
         <FieldError />
       </Field>
       <Button type="submit">Create account</Button>
