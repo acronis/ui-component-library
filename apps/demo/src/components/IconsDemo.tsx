@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Input } from '@spec-lab/ui-react';
 import * as StrokeMonoIcons from '@spec-lab/icons-react/stroke-mono';
-import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
+import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono';
 
 // TODO(uikit): re-do with approved pattern. `AutoIcons` was a legacy
 // icon-catalog helper with no ui-react equivalent — browse the
@@ -21,8 +21,8 @@ export function IconsDemo() {
     <section className="demo-section">
       <h2>Icons Library</h2>
       <p className="demo-description">
-        All {iconEntries.length} auto-generated icons from the Constructor Lab design
-        system.
+        All {iconEntries.length} auto-generated icons from the Constructor Lab
+        design system.
       </p>
 
       <div className="space-y-6">

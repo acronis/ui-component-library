@@ -15,11 +15,7 @@ export interface FigmaVariableAlias {
 }
 
 export type FigmaVariableValue =
-  | number
-  | string
-  | boolean
-  | FigmaRgba
-  | FigmaVariableAlias;
+  number | string | boolean | FigmaRgba | FigmaVariableAlias;
 
 export type FigmaResolvedType = 'COLOR' | 'FLOAT' | 'STRING' | 'BOOLEAN';
 

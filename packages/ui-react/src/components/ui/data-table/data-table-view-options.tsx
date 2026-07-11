@@ -22,7 +22,10 @@ export function DataTableViewOptions<TData>({
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button variant="secondary" className="ms-auto hidden h-8 gap-2 lg:flex" />
+          <Button
+            variant="secondary"
+            className="ms-auto hidden h-8 gap-2 lg:flex"
+          />
         }
       >
         <CogIcon />

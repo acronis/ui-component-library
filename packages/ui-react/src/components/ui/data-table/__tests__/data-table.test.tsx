@@ -59,7 +59,9 @@ describe('DataTable', () => {
     expect(cellsBefore).toEqual(['100', '200', '300']);
 
     // One click sorts ascending (already ascending → flips to descending here).
-    await userEvent.click(screen.getByRole('button', { name: 'Sort by Amount' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Sort by Amount' })
+    );
     const cellsAfter = screen.getAllByRole('cell').map((c) => c.textContent);
     expect(cellsAfter).not.toEqual(cellsBefore);
   });
@@ -89,7 +91,9 @@ describe('DataTable', () => {
       />
     );
     expect(screen.queryByText('Details for r1')).not.toBeInTheDocument();
-    await userEvent.click(screen.getAllByRole('button', { name: 'Expand row' })[0]);
+    await userEvent.click(
+      screen.getAllByRole('button', { name: 'Expand row' })[0]
+    );
     expect(screen.getByText('Details for r1')).toBeInTheDocument();
   });
 });
@@ -126,7 +130,11 @@ describe('DataTable presentational features', () => {
 
   it('highlights the clicked row when highlightCurrentRow', async () => {
     render(
-      <DataTable columns={columns} data={data.slice(0, 3)} highlightCurrentRow />
+      <DataTable
+        columns={columns}
+        data={data.slice(0, 3)}
+        highlightCurrentRow
+      />
     );
     const row = screen.getByText('user2@example.com').closest('tr')!;
     // Exact class token — the primitive carries `active:bg-[…row-color-active]`
@@ -153,7 +161,11 @@ function Harness() {
   });
   return (
     <div>
-      <DataTableToolbar table={table} searchKey="email" searchPlaceholder="Filter emails…" />
+      <DataTableToolbar
+        table={table}
+        searchKey="email"
+        searchPlaceholder="Filter emails…"
+      />
       <div data-testid="page-rows">
         {table.getRowModel().rows.map((r) => (
           <span key={r.id}>{r.original.email}</span>
@@ -178,7 +190,9 @@ describe('DataTableToolbar + DataTablePagination', () => {
     render(<Harness />);
     const rows = () => within(screen.getByTestId('page-rows'));
     expect(rows().getByText('user1@example.com')).toBeInTheDocument();
-    await userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Go to next page' })
+    );
     expect(rows().queryByText('user1@example.com')).not.toBeInTheDocument();
     expect(rows().getByText('user6@example.com')).toBeInTheDocument();
   });

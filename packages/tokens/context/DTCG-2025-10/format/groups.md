@@ -75,12 +75,8 @@ Groups MAY include the following properties:
 {
   "spacing": {
     "$description": "All spacing-related design tokens organized by usage context",
-    "margin": {
-      /* tokens */
-    },
-    "padding": {
-      /* tokens */
-    },
+    "margin": {/* tokens */},
+    "padding": {/* tokens */},
   },
 }
 ```

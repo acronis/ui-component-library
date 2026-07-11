@@ -51,7 +51,8 @@ const gapClass: Record<NonNullable<GridProps['gap']>, string> = {
 };
 
 export interface GridProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof gridVariants> {
   /**
    * Size columns by the grid's own width (container queries) instead of the

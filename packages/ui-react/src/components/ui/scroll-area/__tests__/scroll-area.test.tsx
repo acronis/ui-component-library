@@ -12,7 +12,9 @@ describe('ScrollArea', () => {
 
   it('exposes the structural parts via data-slot', () => {
     const { container } = render(<ScrollArea>body</ScrollArea>);
-    expect(container.querySelector('[data-slot="scroll-area"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-slot="scroll-area"]')
+    ).toBeInTheDocument();
     expect(
       container.querySelector('[data-slot="scroll-area-viewport"]')
     ).toBeInTheDocument();
@@ -29,8 +31,12 @@ describe('ScrollArea', () => {
   });
 
   it('merges a custom className onto the root', () => {
-    const { container } = render(<ScrollArea className="h-40">body</ScrollArea>);
-    expect(container.querySelector('[data-slot="scroll-area"]')).toHaveClass('h-40');
+    const { container } = render(
+      <ScrollArea className="h-40">body</ScrollArea>
+    );
+    expect(container.querySelector('[data-slot="scroll-area"]')).toHaveClass(
+      'h-40'
+    );
   });
 
   it.each(['vertical', 'horizontal', 'both'] as const)(
@@ -39,7 +45,9 @@ describe('ScrollArea', () => {
       const { container } = render(
         <ScrollArea orientation={orientation}>body</ScrollArea>
       );
-      expect(container.querySelector('[data-slot="scroll-area"]')).toBeInTheDocument();
+      expect(
+        container.querySelector('[data-slot="scroll-area"]')
+      ).toBeInTheDocument();
     }
   );
 

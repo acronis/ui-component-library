@@ -48,7 +48,11 @@ const LEAD_CATEGORIES = [
 const DEFERRED_CATEGORIES = ['palette', 'units'];
 
 type ResolvedToken = { key: string; cssVar: string; value: string };
-type TokenGroup = { category: string; colors: ResolvedToken[]; others: ResolvedToken[] };
+type TokenGroup = {
+  category: string;
+  colors: ResolvedToken[];
+  others: ResolvedToken[];
+};
 
 const ALL_KEYS = Object.keys(tokens).sort();
 

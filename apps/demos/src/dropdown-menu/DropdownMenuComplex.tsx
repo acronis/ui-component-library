@@ -67,9 +67,15 @@ export function DropdownMenuComplex() {
             Invite Team
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            <DropdownMenuItem icon={<EnvelopeIcon />}>By Email</DropdownMenuItem>
-            <DropdownMenuItem icon={<MessagesIcon />}>By Message</DropdownMenuItem>
-            <DropdownMenuItem icon={<PlusCircleIcon />}>More Options</DropdownMenuItem>
+            <DropdownMenuItem icon={<EnvelopeIcon />}>
+              By Email
+            </DropdownMenuItem>
+            <DropdownMenuItem icon={<MessagesIcon />}>
+              By Message
+            </DropdownMenuItem>
+            <DropdownMenuItem icon={<PlusCircleIcon />}>
+              More Options
+            </DropdownMenuItem>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />

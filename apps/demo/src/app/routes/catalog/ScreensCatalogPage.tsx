@@ -31,8 +31,9 @@ export function ScreensCatalogPage() {
       <PageHeader>
         <PageHeaderTitle>Screens</PageHeaderTitle>
         <PageHeaderDescription>
-          Full product screens assembled from the kit — {specIndex.screens.length}{' '}
-          in the spec index. Live rendering arrives in a later phase.
+          Full product screens assembled from the kit —{' '}
+          {specIndex.screens.length} in the spec index. Live rendering arrives
+          in a later phase.
         </PageHeaderDescription>
       </PageHeader>
 

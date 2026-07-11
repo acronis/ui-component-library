@@ -20,7 +20,10 @@ interface ManifestIcon {
 /**
  * Generates JSON manifest files for icons grouped by page, plus a combined manifest.
  */
-export async function generateManifests(config: ManifestConfig, icons: ManifestIcon[]): Promise<void> {
+export async function generateManifests(
+  config: ManifestConfig,
+  icons: ManifestIcon[]
+): Promise<void> {
   if (!config.generateManifests) {
     return;
   }
@@ -34,14 +37,17 @@ export async function generateManifests(config: ManifestConfig, icons: ManifestI
   // that keep hand-maintained manifests in this dir leave it off).
   if (config.cleanManifests) {
     await cleanDirectory(config.manifestDir);
-    console.log(chalk.gray(`  Cleaned ${config.manifestDir} before regenerating`));
+    console.log(
+      chalk.gray(`  Cleaned ${config.manifestDir} before regenerating`)
+    );
   }
 
   // Group icons by page
   const iconsByPage = groupIconsByPage(icons);
 
   // Generate per-page manifests
-  const pageManifests: Array<{ page: string; count: number; path: string }> = [];
+  const pageManifests: Array<{ page: string; count: number; path: string }> =
+    [];
   for (const [pageName, pageIcons] of Object.entries(iconsByPage)) {
     // Group keys may contain "/" (e.g. a "Brands / logos" category) — keep the
     // manifest flat by collapsing path separators into hyphens.
@@ -51,18 +57,36 @@ export async function generateManifests(config: ManifestConfig, icons: ManifestI
     // Sort icon names alphabetically
     const iconNames = pageIcons.map((icon) => icon.name).sort();
 
-    await fs.writeFile(manifestPath, `${JSON.stringify(iconNames, null, 2)}\n`, 'utf8');
+    await fs.writeFile(
+      manifestPath,
+      `${JSON.stringify(iconNames, null, 2)}\n`,
+      'utf8'
+    );
 
-    pageManifests.push({ page: pageName, count: iconNames.length, path: manifestPath });
-    console.log(chalk.cyan(`  ✓ ${manifestFileName} (${iconNames.length} icons)`));
+    pageManifests.push({
+      page: pageName,
+      count: iconNames.length,
+      path: manifestPath,
+    });
+    console.log(
+      chalk.cyan(`  ✓ ${manifestFileName} (${iconNames.length} icons)`)
+    );
   }
 
   // Generate combined manifest (all icons)
   const allIconNames = icons.map((icon) => icon.name).sort();
   const combinedManifestPath = path.join(config.manifestDir, 'icons.json');
-  await fs.writeFile(combinedManifestPath, `${JSON.stringify(allIconNames, null, 2)}\n`, 'utf8');
-  console.log(chalk.cyan(`  ✓ icons.json (${allIconNames.length} icons - combined)`));
+  await fs.writeFile(
+    combinedManifestPath,
+    `${JSON.stringify(allIconNames, null, 2)}\n`,
+    'utf8'
+  );
+  console.log(
+    chalk.cyan(`  ✓ icons.json (${allIconNames.length} icons - combined)`)
+  );
 
-  console.log(chalk.green.bold(`\n✓ Generated ${pageManifests.length + 1} manifest files`));
+  console.log(
+    chalk.green.bold(`\n✓ Generated ${pageManifests.length + 1} manifest files`)
+  );
   console.log(`Manifest directory: ${config.manifestDir}\n`);
 }

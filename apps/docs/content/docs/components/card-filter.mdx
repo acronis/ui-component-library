@@ -3,8 +3,8 @@ title: CardFilter
 description: A compact stat or filter card with a label, optional icon, and value.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { CardFilterDemo } from "@/components/demos-react/card-filter";
+import { DemoReact } from '@/components/DemoReact';
+import { CardFilterDemo } from '@/components/demos-react/card-filter';
 
 ## Usage
 
@@ -19,7 +19,6 @@ with hover/active/focus treatments and is polymorphic via Base UI's `useRender`
 `--ui-card-filter-*` tokens.
 
 ## Examples
-
 
 <DemoReact>
   <CardFilterDemo />
@@ -42,7 +41,7 @@ import { ShieldIcon } from '@spec-lab/icons-react/stroke-mono';
   value="982"
   icon={<ShieldIcon />}
   onClick={() => applyFilter('protected')}
-/>
+/>;
 ```
 
 An empty placeholder (renders an em-dash, no icon):

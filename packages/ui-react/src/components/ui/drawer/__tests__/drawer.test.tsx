@@ -57,7 +57,10 @@ describe('Drawer', () => {
 
   it('drives the panel surface from the bridged semantic tokens', () => {
     render(<OpenDrawer />);
-    expect(screen.getByRole('dialog')).toHaveClass('bg-muted', 'text-foreground');
+    expect(screen.getByRole('dialog')).toHaveClass(
+      'bg-muted',
+      'text-foreground'
+    );
   });
 
   it('exposes an accessible Close button', () => {
@@ -88,7 +91,10 @@ describe('Drawer', () => {
         </DrawerContent>
       </Drawer>
     );
-    expect(screen.getByTestId('handle')).toHaveClass('rounded-full', 'bg-border');
+    expect(screen.getByTestId('handle')).toHaveClass(
+      'rounded-full',
+      'bg-border'
+    );
   });
 
   it('opens from the trigger and closes via onOpenChange', async () => {

@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { BrushPaintingIcon, CheckIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  BrushPaintingIcon,
+  CheckIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   ButtonIcon,
   DropdownMenu,
@@ -64,7 +67,10 @@ export function BrandSelector() {
         <BrushPaintingIcon className="h-5 w-5" />
         <span className="sr-only">Select brand</span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="max-h-96 w-56 overflow-y-auto">
+      <DropdownMenuContent
+        align="end"
+        className="max-h-96 w-56 overflow-y-auto"
+      >
         {BRANDS.map((brand) => (
           <DropdownMenuItem
             key={brand.value}

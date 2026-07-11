@@ -4,7 +4,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@spec-lab/ui-react';
-import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';
 export function TooltipWithIcon() {
   return (
     <TooltipProvider>

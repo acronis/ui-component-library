@@ -3,8 +3,8 @@ title: InputText
 description: A text input field with label, description, error, and clear support.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { InputTextDemo } from "@/components/demos-react/input-text";
+import { DemoReact } from '@/components/DemoReact';
+import { InputTextDemo } from '@/components/demos-react/input-text';
 
 ## Usage
 
@@ -18,7 +18,6 @@ and an optional clear button. Without a label it renders just the box. Themed by
 the `--ui-input-text-*` tokens.
 
 ## Examples
-
 
 <DemoReact>
   <InputTextDemo />
@@ -53,7 +52,7 @@ const [value, setValue] = React.useState('');
   value={value}
   onChange={(e) => setValue(e.target.value)}
   onClear={() => setValue('')}
-/>
+/>;
 ```
 
 ## API Reference

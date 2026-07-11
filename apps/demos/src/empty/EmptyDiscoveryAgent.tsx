@@ -8,7 +8,7 @@ import {
   EmptyLinks,
 } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
 export function EmptyDiscoveryAgent() {
   return (
     <div className="flex min-h-[350px] items-center justify-center border rounded-lg bg-gray-50">

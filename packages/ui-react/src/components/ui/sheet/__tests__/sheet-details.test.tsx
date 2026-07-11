@@ -11,7 +11,9 @@ const properties = [
 
 describe('SheetDetails', () => {
   it('renders the title and a property list in the content state', () => {
-    render(<SheetDetails open title="Workload details" properties={properties} />);
+    render(
+      <SheetDetails open title="Workload details" properties={properties} />
+    );
     expect(screen.getByText('Workload details')).toBeInTheDocument();
     expect(screen.getByText('Status')).toBeInTheDocument();
     expect(screen.getByText('Protected')).toBeInTheDocument();
@@ -19,7 +21,14 @@ describe('SheetDetails', () => {
   });
 
   it('shows a spinner in the loading state', () => {
-    render(<SheetDetails open title="Details" contentState="loading" properties={properties} />);
+    render(
+      <SheetDetails
+        open
+        title="Details"
+        contentState="loading"
+        properties={properties}
+      />
+    );
     expect(screen.getByRole('status', { name: 'Loading' })).toBeInTheDocument();
     expect(screen.queryByText('Status')).not.toBeInTheDocument();
   });

@@ -30,15 +30,21 @@ export const Default: Story = {
         <WidgetProtectionStatusIcon>
           <ShieldCheckIcon />
         </WidgetProtectionStatusIcon>
-        <WidgetProtectionStatusTitle>Protection status</WidgetProtectionStatusTitle>
+        <WidgetProtectionStatusTitle>
+          Protection status
+        </WidgetProtectionStatusTitle>
       </WidgetProtectionStatusHeader>
       <WidgetProtectionStatusContent>
         <WidgetProtectionStatusIndicator status="success">
           <WidgetProtectionStatusValue>128</WidgetProtectionStatusValue>
         </WidgetProtectionStatusIndicator>
-        <WidgetProtectionStatusLabel>devices protected</WidgetProtectionStatusLabel>
+        <WidgetProtectionStatusLabel>
+          devices protected
+        </WidgetProtectionStatusLabel>
       </WidgetProtectionStatusContent>
-      <WidgetProtectionStatusFooter>Last checked: 2 min ago</WidgetProtectionStatusFooter>
+      <WidgetProtectionStatusFooter>
+        Last checked: 2 min ago
+      </WidgetProtectionStatusFooter>
     </WidgetProtectionStatus>
   ),
 };
@@ -82,7 +88,9 @@ export const Interactive: Story = {
         <WidgetProtectionStatusIndicator status="warning">
           <WidgetProtectionStatusValue>12</WidgetProtectionStatusValue>
         </WidgetProtectionStatusIndicator>
-        <WidgetProtectionStatusLabel>devices at risk</WidgetProtectionStatusLabel>
+        <WidgetProtectionStatusLabel>
+          devices at risk
+        </WidgetProtectionStatusLabel>
       </WidgetProtectionStatusContent>
     </WidgetProtectionStatus>
   ),

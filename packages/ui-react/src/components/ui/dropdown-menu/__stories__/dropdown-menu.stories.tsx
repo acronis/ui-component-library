@@ -33,11 +33,15 @@ const meta = {
     onOpenChange: {
       control: false,
       description: 'Fires when the menu opens or closes.',
-      table: { type: { summary: '(open, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(open, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     children: {
       control: false,
-      description: 'A `DropdownMenuTrigger` and a `DropdownMenuContent` of items.',
+      description:
+        'A `DropdownMenuTrigger` and a `DropdownMenuContent` of items.',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
   },
@@ -51,7 +55,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <DropdownMenu defaultOpen>
-      <DropdownMenuTrigger render={<Button variant="secondary">Open menu</Button>} />
+      <DropdownMenuTrigger
+        render={<Button variant="secondary">Open menu</Button>}
+      />
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>My account</DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -70,7 +76,9 @@ export const CheckboxAndRadio: Story = {
     const [density, setDensity] = useState('comfortable');
     return (
       <DropdownMenu defaultOpen>
-        <DropdownMenuTrigger render={<Button variant="secondary">View</Button>} />
+        <DropdownMenuTrigger
+          render={<Button variant="secondary">View</Button>}
+        />
         <DropdownMenuContent className="w-56">
           <DropdownMenuLabel>Appearance</DropdownMenuLabel>
           <DropdownMenuCheckboxItem checked={grid} onCheckedChange={setGrid}>
@@ -82,7 +90,9 @@ export const CheckboxAndRadio: Story = {
             <DropdownMenuRadioItem value="comfortable">
               Comfortable
             </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="compact">Compact</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="compact">
+              Compact
+            </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
       </DropdownMenu>

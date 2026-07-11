@@ -63,9 +63,7 @@ describe('InputSelect', () => {
       </InputSelect>
     );
     expect(screen.getByText('*')).toBeInTheDocument();
-    expect(
-      screen.getByRole('combobox', { name: 'Fruit' })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Fruit' })).toBeInTheDocument();
   });
 
   it('opens, selects an option, and fires onValueChange', async () => {
@@ -101,7 +99,10 @@ describe('InputSelect', () => {
         </InputSelectContent>
       </InputSelect>
     );
-    expect(screen.getByRole('combobox')).toHaveAttribute('aria-invalid', 'true');
+    expect(screen.getByRole('combobox')).toHaveAttribute(
+      'aria-invalid',
+      'true'
+    );
     expect(screen.getByText('Required field')).toBeInTheDocument();
   });
 
@@ -146,11 +147,15 @@ describe('InputSelect', () => {
     );
     await userEvent.click(screen.getByRole('combobox', { name: 'Fruit' }));
     expect(screen.getByText('Citrus')).toBeInTheDocument();
-    expect(screen.getByRole('searchbox', { name: 'Filter' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('searchbox', { name: 'Filter' })
+    ).toBeInTheDocument();
   });
 
   it('renders the empty status', () => {
-    render(<InputSelectStatus variant="empty">No data found</InputSelectStatus>);
+    render(
+      <InputSelectStatus variant="empty">No data found</InputSelectStatus>
+    );
     expect(screen.getByText('No data found')).toBeInTheDocument();
   });
 

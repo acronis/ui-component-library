@@ -28,7 +28,12 @@ describe('Meter', () => {
 
   it('formats the value with the given Intl options', () => {
     render(
-      <Meter value={512} min={0} max={1024} format={{ style: 'unit', unit: 'gigabyte' }}>
+      <Meter
+        value={512}
+        min={0}
+        max={1024}
+        format={{ style: 'unit', unit: 'gigabyte' }}
+      >
         <MeterValue />
         <MeterTrack />
       </Meter>

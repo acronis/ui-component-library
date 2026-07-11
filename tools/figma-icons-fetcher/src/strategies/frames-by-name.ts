@@ -8,9 +8,12 @@ import type { FigmaNode, FigmaPage, SelectionStrategy } from './types';
  * Components whose name starts with `_` (grids, guides, internal helpers) are
  * skipped. The icon's source page name is used for manifest grouping.
  */
-export const framesByNameStrategy: SelectionStrategy = (page: FigmaPage, config: FetcherConfig): FigmaIcon[] => {
+export const framesByNameStrategy: SelectionStrategy = (
+  page: FigmaPage,
+  config: FetcherConfig
+): FigmaIcon[] => {
   const framesWithIcons = (page.document.children ?? []).filter(
-    (child) => child.type === 'FRAME' && config.frameNames.includes(child.name),
+    (child) => child.type === 'FRAME' && config.frameNames.includes(child.name)
   );
 
   const components: FigmaNode[] = [];

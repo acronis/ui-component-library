@@ -17,13 +17,39 @@ type Story = StoryObj<typeof meta>;
 export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-      <Command className="w-80 rounded-md border border-border" placeholder="Type a command…" commands={[{ heading: 'Suggestions', items: [{ value: 'calendar', label: 'Calendar' }, { value: 'search', label: 'Search', shortcut: '⌘S' }] }]} />
+      <Command
+        className="w-80 rounded-md border border-border"
+        placeholder="Type a command…"
+        commands={[
+          {
+            heading: 'Suggestions',
+            items: [
+              { value: 'calendar', label: 'Calendar' },
+              { value: 'search', label: 'Search', shortcut: '⌘S' },
+            ],
+          },
+        ]}
+      />
     </div>
   ),
 };
 
 export const FocusVisible: Story = {
-  render: () => <Command className="w-80 rounded-md border border-border" placeholder="Type a command…" commands={[{ heading: 'Suggestions', items: [{ value: 'calendar', label: 'Calendar' }, { value: 'search', label: 'Search', shortcut: '⌘S' }] }]} />,
+  render: () => (
+    <Command
+      className="w-80 rounded-md border border-border"
+      placeholder="Type a command…"
+      commands={[
+        {
+          heading: 'Suggestions',
+          items: [
+            { value: 'calendar', label: 'Calendar' },
+            { value: 'search', label: 'Search', shortcut: '⌘S' },
+          ],
+        },
+      ]}
+    />
+  ),
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();

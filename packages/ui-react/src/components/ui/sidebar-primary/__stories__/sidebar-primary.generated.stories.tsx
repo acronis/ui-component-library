@@ -4,8 +4,20 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent } from 'storybook/test';
-import { SidebarPrimaryHeader, SidebarPrimaryContent, SidebarPrimaryFooter, SidebarPrimarySection, SidebarPrimaryMenu, SidebarPrimaryMenuItem, SidebarPrimaryMenuItemExtras } from '../sidebar-primary';
-import { BoxIcon, UsersIcon, CircleHelpIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  SidebarPrimaryHeader,
+  SidebarPrimaryContent,
+  SidebarPrimaryFooter,
+  SidebarPrimarySection,
+  SidebarPrimaryMenu,
+  SidebarPrimaryMenuItem,
+  SidebarPrimaryMenuItemExtras,
+} from '../sidebar-primary';
+import {
+  BoxIcon,
+  UsersIcon,
+  CircleHelpIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { SidebarPrimary } from '../sidebar-primary';
 
 const meta = {
@@ -20,6 +32,41 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <SidebarPrimary aria-label="Primary">
+        <SidebarPrimaryHeader>
+          <svg width={24} height={24} />
+        </SidebarPrimaryHeader>
+        <SidebarPrimaryContent>
+          <SidebarPrimarySection>
+            <SidebarPrimaryMenu>
+              <SidebarPrimaryMenuItem href="#" icon={<BoxIcon />} selected>
+                Assets
+              </SidebarPrimaryMenuItem>
+              <SidebarPrimaryMenuItem href="#" icon={<UsersIcon />}>
+                Clients
+                <SidebarPrimaryMenuItemExtras
+                  variant="shortcut"
+                  shortcut="⌘K"
+                />
+              </SidebarPrimaryMenuItem>
+            </SidebarPrimaryMenu>
+          </SidebarPrimarySection>
+        </SidebarPrimaryContent>
+        <SidebarPrimaryFooter>
+          <SidebarPrimaryMenu>
+            <SidebarPrimaryMenuItem href="#" icon={<CircleHelpIcon />}>
+              Help
+            </SidebarPrimaryMenuItem>
+          </SidebarPrimaryMenu>
+        </SidebarPrimaryFooter>
+      </SidebarPrimary>
+    </div>
+  ),
+};
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: () => (
+    <SidebarPrimary aria-label="Primary">
       <SidebarPrimaryHeader>
         <svg width={24} height={24} />
       </SidebarPrimaryHeader>
@@ -44,42 +91,13 @@ export const States: Story = {
         </SidebarPrimaryMenu>
       </SidebarPrimaryFooter>
     </SidebarPrimary>
-    </div>
   ),
-};
-
-export const Hover: Story = {
-  parameters: { pseudo: { hover: true } },
-  render: () => <SidebarPrimary aria-label="Primary">
-      <SidebarPrimaryHeader>
-        <svg width={24} height={24} />
-      </SidebarPrimaryHeader>
-      <SidebarPrimaryContent>
-        <SidebarPrimarySection>
-          <SidebarPrimaryMenu>
-            <SidebarPrimaryMenuItem href="#" icon={<BoxIcon />} selected>
-              Assets
-            </SidebarPrimaryMenuItem>
-            <SidebarPrimaryMenuItem href="#" icon={<UsersIcon />}>
-              Clients
-              <SidebarPrimaryMenuItemExtras variant="shortcut" shortcut="⌘K" />
-            </SidebarPrimaryMenuItem>
-          </SidebarPrimaryMenu>
-        </SidebarPrimarySection>
-      </SidebarPrimaryContent>
-      <SidebarPrimaryFooter>
-        <SidebarPrimaryMenu>
-          <SidebarPrimaryMenuItem href="#" icon={<CircleHelpIcon />}>
-            Help
-          </SidebarPrimaryMenuItem>
-        </SidebarPrimaryMenu>
-      </SidebarPrimaryFooter>
-    </SidebarPrimary>,
 };
 
 export const Active: Story = {
   parameters: { pseudo: { active: true } },
-  render: () => <SidebarPrimary aria-label="Primary">
+  render: () => (
+    <SidebarPrimary aria-label="Primary">
       <SidebarPrimaryHeader>
         <svg width={24} height={24} />
       </SidebarPrimaryHeader>
@@ -103,11 +121,13 @@ export const Active: Story = {
           </SidebarPrimaryMenuItem>
         </SidebarPrimaryMenu>
       </SidebarPrimaryFooter>
-    </SidebarPrimary>,
+    </SidebarPrimary>
+  ),
 };
 
 export const FocusVisible: Story = {
-  render: () => <SidebarPrimary aria-label="Primary">
+  render: () => (
+    <SidebarPrimary aria-label="Primary">
       <SidebarPrimaryHeader>
         <svg width={24} height={24} />
       </SidebarPrimaryHeader>
@@ -131,7 +151,8 @@ export const FocusVisible: Story = {
           </SidebarPrimaryMenuItem>
         </SidebarPrimaryMenu>
       </SidebarPrimaryFooter>
-    </SidebarPrimary>,
+    </SidebarPrimary>
+  ),
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();

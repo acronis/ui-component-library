@@ -22,7 +22,14 @@ figma.connect(
       // (placeholder / value) are pure interaction/runtime pseudo-states, not props.
       disabled: figma.enum('state', { disabled: true }),
     },
-    example: ({ label, placeholder, required, clearable, description, error }) => (
+    example: ({
+      label,
+      placeholder,
+      required,
+      clearable,
+      description,
+      error,
+    }) => (
       <InputText
         label={label}
         placeholder={placeholder}

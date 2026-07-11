@@ -28,7 +28,14 @@ function Box({ children }: { children: ReactNode }) {
 
 export function AspectRatioDemo() {
   return (
-    <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: 16,
+        alignItems: 'flex-start',
+        flexWrap: 'wrap',
+      }}
+    >
       <div style={{ width: 160 }}>
         <AspectRatio ratio={1}>
           <Box>1 : 1</Box>

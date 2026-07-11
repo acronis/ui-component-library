@@ -1,8 +1,4 @@
-import {
-  AlertContent,
-  AlertIcon,
-  Button,
-} from '@spec-lab/ui-react';
+import { AlertContent, AlertIcon, Button } from '@spec-lab/ui-react';
 import {
   CircleCheckIcon as SuccessIcon,
   TriangleWarningIcon as WarningIcon,
@@ -21,11 +17,7 @@ import {
   CardTitle,
 } from '@spec-lab/ui-react';
 import { Badge } from '@spec-lab/ui-react';
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from '@spec-lab/ui-react';
+import { Alert, AlertDescription, AlertTitle } from '@spec-lab/ui-react';
 import { Separator } from '@spec-lab/ui-react';
 import { Switch } from '@spec-lab/ui-react';
 import { Checkbox } from '@spec-lab/ui-react';

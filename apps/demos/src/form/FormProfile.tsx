@@ -56,7 +56,9 @@ export function FormProfile() {
           render={({ field, fieldState }) => (
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Username</FieldLabel>
-              <FieldControl render={<InputBox placeholder="johndoe" {...field} />} />
+              <FieldControl
+                render={<InputBox placeholder="johndoe" {...field} />}
+              />
               <FieldDescription>
                 This is your public display name. It can be your real name or a
                 pseudonym.
@@ -74,7 +76,13 @@ export function FormProfile() {
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Email</FieldLabel>
               <FieldControl
-                render={<InputBox type="email" placeholder="john@example.com" {...field} />}
+                render={
+                  <InputBox
+                    type="email"
+                    placeholder="john@example.com"
+                    {...field}
+                  />
+                }
               />
               <FieldDescription>
                 We&apos;ll never share your email with anyone else.
@@ -100,7 +108,9 @@ export function FormProfile() {
                   />
                 }
               />
-              <FieldDescription>You can write up to 160 characters.</FieldDescription>
+              <FieldDescription>
+                You can write up to 160 characters.
+              </FieldDescription>
               {fieldState.error && (
                 <FieldError match>{fieldState.error.message}</FieldError>
               )}

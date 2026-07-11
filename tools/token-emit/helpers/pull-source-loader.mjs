@@ -6,9 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const TOKENS_DIR = fileURLToPath(
-  new URL('../snapshot/', import.meta.url),
-);
+const TOKENS_DIR = fileURLToPath(new URL('../snapshot/', import.meta.url));
 
 export class FigmaSourceLoader {
   #dir;
@@ -20,9 +18,15 @@ export class FigmaSourceLoader {
     this.#dir = dir;
   }
 
-  get variablesPath() { return path.join(this.#dir, 'variables.tokens.json'); }
-  get metaPath()      { return path.join(this.#dir, 'variables-meta.json'); }
-  get stylesPath()    { return path.join(this.#dir, 'styles.json'); }
+  get variablesPath() {
+    return path.join(this.#dir, 'variables.tokens.json');
+  }
+  get metaPath() {
+    return path.join(this.#dir, 'variables-meta.json');
+  }
+  get stylesPath() {
+    return path.join(this.#dir, 'styles.json');
+  }
 
   // Load all sources. Returns `this` for chaining.
   load() {
@@ -32,18 +36,30 @@ export class FigmaSourceLoader {
     return this;
   }
 
-  get variables() { return this.#requireLoaded(this.#variables, 'variables'); }
-  get meta()      { return this.#requireLoaded(this.#meta, 'meta'); }
-  get styles()    { return this.#requireLoaded(this.#styles, 'styles'); }
+  get variables() {
+    return this.#requireLoaded(this.#variables, 'variables');
+  }
+  get meta() {
+    return this.#requireLoaded(this.#meta, 'meta');
+  }
+  get styles() {
+    return this.#requireLoaded(this.#styles, 'styles');
+  }
 
   #requireLoaded(value, name) {
-    if (value === null) throw new Error(`FigmaSourceLoader: call load() before accessing ${name}`);
+    if (value === null)
+      throw new Error(
+        `FigmaSourceLoader: call load() before accessing ${name}`
+      );
     return value;
   }
 
   #readJson(filePath, required = false) {
     if (!fs.existsSync(filePath)) {
-      if (required) throw new Error(`Missing required file: ${filePath}\nRun the Figma pull (Phase 1) first.`);
+      if (required)
+        throw new Error(
+          `Missing required file: ${filePath}\nRun the Figma pull (Phase 1) first.`
+        );
       return null;
     }
     try {
@@ -71,16 +87,23 @@ export class FigmaSourceLoader {
   #readStyles() {
     const raw = this.#readJson(this.stylesPath, false);
     if (raw) {
-      const data = raw._mcp !== undefined && raw.result !== undefined ? raw.result : raw;
+      const data =
+        raw._mcp !== undefined && raw.result !== undefined ? raw.result : raw;
       return {
-        text:   data.text   ?? [],
-        color:  data.color  ?? [],
+        text: data.text ?? [],
+        color: data.color ?? [],
         effect: data.effect ?? [],
-        grid:   data.grid   ?? [],
+        grid: data.grid ?? [],
       };
     }
-    const split = name =>
-      this.#readJson(path.join(this.#dir, `styles-${name}.json`), false)?.styles ?? [];
-    return { text: split('text'), color: split('color'), effect: split('effect'), grid: [] };
+    const split = (name) =>
+      this.#readJson(path.join(this.#dir, `styles-${name}.json`), false)
+        ?.styles ?? [];
+    return {
+      text: split('text'),
+      color: split('color'),
+      effect: split('effect'),
+      grid: [],
+    };
   }
 }

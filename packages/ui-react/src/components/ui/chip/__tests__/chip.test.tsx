@@ -13,9 +13,7 @@ describe('Chip', () => {
 
   it('defaults to the removable variant with a remove button', () => {
     render(<Chip>Label</Chip>);
-    expect(
-      screen.getByRole('button', { name: 'Remove' })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Remove' })).toBeInTheDocument();
   });
 
   it('calls onRemove when the remove button is pressed', async () => {

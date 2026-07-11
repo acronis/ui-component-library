@@ -84,9 +84,7 @@ export function SheetDetailPanelDemo({
             ) : (
               <DescriptionList
                 className="-mx-6"
-                style={
-                  { '--description-list-label': '9rem' } as CSSProperties
-                }
+                style={{ '--description-list-label': '9rem' } as CSSProperties}
               >
                 {properties.map((p) => (
                   <DescriptionListItem key={p.label}>

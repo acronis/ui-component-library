@@ -1,5 +1,9 @@
 import { TreeView, type TreeNode } from '@spec-lab/ui-react';
-import { FolderIcon, RectangleImageIcon, VideoCameraIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  FolderIcon,
+  RectangleImageIcon,
+  VideoCameraIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { MusicIcon } from '../icons/missing-icons';
 const mixedData: TreeNode[] = [
   {

@@ -30,7 +30,12 @@ type Payment = {
 const payments: Payment[] = [
   { id: 'p1', amount: 316, status: 'success', email: 'ken99@example.com' },
   { id: 'p2', amount: 242, status: 'success', email: 'abe45@example.com' },
-  { id: 'p3', amount: 837, status: 'processing', email: 'monserrat@example.com' },
+  {
+    id: 'p3',
+    amount: 837,
+    status: 'processing',
+    email: 'monserrat@example.com',
+  },
   { id: 'p4', amount: 874, status: 'success', email: 'silas22@example.com' },
   { id: 'p5', amount: 721, status: 'failed', email: 'carmella@example.com' },
 ];
@@ -65,7 +70,9 @@ const columns: ColumnDef<Payment>[] = [
     accessorKey: 'status',
     header: 'Status',
     cell: ({ row }) => (
-      <Tag variant={STATUS_VARIANT[row.original.status]}>{row.original.status}</Tag>
+      <Tag variant={STATUS_VARIANT[row.original.status]}>
+        {row.original.status}
+      </Tag>
     ),
   },
   { accessorKey: 'email', header: 'Email' },
@@ -101,7 +108,9 @@ export function DataTableBulkActionsDemo() {
     <div className="flex w-full flex-col gap-4">
       {selected.length > 0 ? (
         <div className="flex items-center justify-between rounded-md border border-border bg-muted px-4 py-2">
-          <span className="text-sm font-medium">{selected.length} selected</span>
+          <span className="text-sm font-medium">
+            {selected.length} selected
+          </span>
           <div className="flex gap-2">
             <Button variant="ghost" onClick={() => table.resetRowSelection()}>
               Clear
@@ -111,7 +120,9 @@ export function DataTableBulkActionsDemo() {
           </div>
         </div>
       ) : (
-        <p className="text-sm text-muted-foreground">Select rows to act on them.</p>
+        <p className="text-sm text-muted-foreground">
+          Select rows to act on them.
+        </p>
       )}
 
       <div className="rounded-md border border-[var(--ui-table-global-cell-border-color)]">

@@ -1,5 +1,8 @@
 import { ButtonGroup, ButtonIcon } from '@spec-lab/ui-react';
-import { MediaPauseIcon, MediaPlayIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  MediaPauseIcon,
+  MediaPlayIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { SkipBackIcon, SkipForwardIcon } from '../icons/missing-icons';
 export function ButtonGroupMediaControls() {
   return (

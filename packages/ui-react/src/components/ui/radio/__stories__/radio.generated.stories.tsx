@@ -19,30 +19,34 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <RadioGroup aria-label="Plan">
-      <Radio value="a" aria-label="Option A" />
-      <Radio value="b" aria-label="Option B" />
-    </RadioGroup>
+        <Radio value="a" aria-label="Option A" />
+        <Radio value="b" aria-label="Option B" />
+      </RadioGroup>
       <RadioGroup aria-label="Plan" disabled>
-      <Radio value="a" aria-label="Option A" />
-      <Radio value="b" aria-label="Option B" />
-    </RadioGroup>
+        <Radio value="a" aria-label="Option A" />
+        <Radio value="b" aria-label="Option B" />
+      </RadioGroup>
     </div>
   ),
 };
 
 export const Hover: Story = {
   parameters: { pseudo: { hover: true } },
-  render: () => <RadioGroup aria-label="Plan">
+  render: () => (
+    <RadioGroup aria-label="Plan">
       <Radio value="a" aria-label="Option A" />
       <Radio value="b" aria-label="Option B" />
-    </RadioGroup>,
+    </RadioGroup>
+  ),
 };
 
 export const FocusVisible: Story = {
-  render: () => <RadioGroup aria-label="Plan">
+  render: () => (
+    <RadioGroup aria-label="Plan">
       <Radio value="a" aria-label="Option A" />
       <Radio value="b" aria-label="Option B" />
-    </RadioGroup>,
+    </RadioGroup>
+  ),
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();

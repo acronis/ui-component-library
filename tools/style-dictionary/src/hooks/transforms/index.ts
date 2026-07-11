@@ -10,9 +10,19 @@ import { DIMENSION_PX, dimensionPx } from './dimension-px';
 import { GRADIENT_CSS, gradientCss } from './gradient-css';
 import { NAME_UI, nameUi } from './name-ui';
 import { SCALAR_CSS, scalarCss } from './scalar-css';
-import { TYPOGRAPHY_CSS_CLASS, typographyCssClass } from './typography-css-class';
+import {
+  TYPOGRAPHY_CSS_CLASS,
+  typographyCssClass,
+} from './typography-css-class';
 
-export { COLOR_HSL_RGB, DIMENSION_PX, GRADIENT_CSS, NAME_UI, SCALAR_CSS, TYPOGRAPHY_CSS_CLASS };
+export {
+  COLOR_HSL_RGB,
+  DIMENSION_PX,
+  GRADIENT_CSS,
+  NAME_UI,
+  SCALAR_CSS,
+  TYPOGRAPHY_CSS_CLASS,
+};
 
 export const TRANSFORMS = [
   colorHslToRgb,

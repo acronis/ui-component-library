@@ -38,7 +38,8 @@ const linkVariants = cva(
 );
 
 export interface LinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
   /** Append a trailing external-link icon (e.g. for links that leave the app). */
   external?: boolean;
@@ -53,7 +54,16 @@ export interface LinkProps
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   (
-    { className, variant, external, disabled, href, children, render, ...props },
+    {
+      className,
+      variant,
+      external,
+      disabled,
+      href,
+      children,
+      render,
+      ...props
+    },
     ref
   ) =>
     useRender({

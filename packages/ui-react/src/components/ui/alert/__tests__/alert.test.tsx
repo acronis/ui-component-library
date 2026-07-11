@@ -23,9 +23,13 @@ describe('Alert', () => {
   it('applies the destructive variant (danger surface + border tokens)', () => {
     render(<Alert variant="destructive">Error</Alert>);
     const alert = screen.getByRole('alert');
-    expect(alert.className).toContain('bg-[var(--ui-background-status-danger)]');
+    expect(alert.className).toContain(
+      'bg-[var(--ui-background-status-danger)]'
+    );
     // The retheme uses the subtle border-on-status token, not the strong fill.
-    expect(alert.className).toContain('border-[var(--ui-border-on-status-danger)]');
+    expect(alert.className).toContain(
+      'border-[var(--ui-border-on-status-danger)]'
+    );
   });
 
   it('renders a dismiss button that fires onClick', async () => {

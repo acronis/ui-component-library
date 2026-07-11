@@ -29,38 +29,57 @@ const meta = {
   argTypes: {
     stepCount: {
       control: { type: 'number', min: 1 },
-      description: 'Total number of steps — drives the counter and last-step logic.',
+      description:
+        'Total number of steps — drives the counter and last-step logic.',
       table: { type: { summary: 'number' }, category: 'State' },
     },
     activeStep: {
       control: { type: 'number', min: 0 },
-      description: 'Controlled active step index (0-based). Pair with `onActiveStepChange`.',
+      description:
+        'Controlled active step index (0-based). Pair with `onActiveStepChange`.',
       table: { type: { summary: 'number' }, category: 'State' },
     },
     defaultActiveStep: {
       control: { type: 'number', min: 0 },
       description: 'Uncontrolled initial active step index (0-based).',
-      table: { type: { summary: 'number' }, defaultValue: { summary: '0' }, category: 'State' },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '0' },
+        category: 'State',
+      },
     },
     open: {
       control: 'boolean',
-      description: 'Controlled open state of the coach-mark. Pair with `onOpenChange`.',
+      description:
+        'Controlled open state of the coach-mark. Pair with `onOpenChange`.',
       table: { type: { summary: 'boolean' }, category: 'State' },
     },
     defaultOpen: {
       control: 'boolean',
       description: 'Open on mount, uncontrolled.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' }, category: 'State' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
     },
     onActiveStepChange: {
       control: false,
-      description: 'Fires with the next 0-based index when the active step changes.',
-      table: { type: { summary: '(step: number) => void' }, category: 'Events' },
+      description:
+        'Fires with the next 0-based index when the active step changes.',
+      table: {
+        type: { summary: '(step: number) => void' },
+        category: 'Events',
+      },
     },
     onOpenChange: {
       control: false,
-      description: 'Fires with the next open state when the coach-mark opens or closes.',
-      table: { type: { summary: '(open: boolean) => void' }, category: 'Events' },
+      description:
+        'Fires with the next open state when the coach-mark opens or closes.',
+      table: {
+        type: { summary: '(open: boolean) => void' },
+        category: 'Events',
+      },
     },
     onComplete: {
       control: false,
@@ -180,8 +199,8 @@ export const WithScrim: Story = {
         </TourHeader>
         <TourBody>
           <TourDescription>
-            Everything dims except the active area so you can focus on one step at
-            a time.
+            Everything dims except the active area so you can focus on one step
+            at a time.
           </TourDescription>
         </TourBody>
         <TourFooter>

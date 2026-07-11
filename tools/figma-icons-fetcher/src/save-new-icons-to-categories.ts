@@ -26,7 +26,7 @@ interface CategorizableIcon {
 export async function saveNewIconsToCategories(
   config: CategoryConfig,
   downloadedIcons: CategorizableIcon[],
-  iconsBeforeDownload: Set<string>,
+  iconsBeforeDownload: Set<string>
 ): Promise<CategoryStats> {
   if (!config.categorizeByColor) {
     return { monoAdded: 0, multiAdded: 0 };
@@ -44,7 +44,9 @@ export async function saveNewIconsToCategories(
   console.log(`  Existing multicolor: ${existingMultiIcons.size} icons`);
 
   // Find NEW icons = icons that were NOT in the output dir before download
-  const newIcons = downloadedIcons.filter((icon) => !iconsBeforeDownload.has(`${icon.name}.svg`));
+  const newIcons = downloadedIcons.filter(
+    (icon) => !iconsBeforeDownload.has(`${icon.name}.svg`)
+  );
 
   console.log(`\n  New icons downloaded: ${newIcons.length}`);
 
@@ -68,7 +70,11 @@ export async function saveNewIconsToCategories(
       const content = await fs.readFile(sourcePath, 'utf8');
       await fs.writeFile(destPath, content, 'utf8');
     } catch (err) {
-      console.error(chalk.yellow(`  ⚠ Failed to copy ${icon.name}.svg to monocolor: ${(err as Error).message}`));
+      console.error(
+        chalk.yellow(
+          `  ⚠ Failed to copy ${icon.name}.svg to monocolor: ${(err as Error).message}`
+        )
+      );
     }
   }
 
@@ -81,12 +87,20 @@ export async function saveNewIconsToCategories(
       const content = await fs.readFile(sourcePath, 'utf8');
       await fs.writeFile(destPath, content, 'utf8');
     } catch (err) {
-      console.error(chalk.yellow(`  ⚠ Failed to copy ${icon.name}.svg to multicolor: ${(err as Error).message}`));
+      console.error(
+        chalk.yellow(
+          `  ⚠ Failed to copy ${icon.name}.svg to multicolor: ${(err as Error).message}`
+        )
+      );
     }
   }
 
-  console.log(chalk.green(`\n  ✓ Added ${newMonoIcons.length} monocolor icons`));
-  console.log(chalk.green(`  ✓ Added ${newMultiIcons.length} multicolor icons`));
+  console.log(
+    chalk.green(`\n  ✓ Added ${newMonoIcons.length} monocolor icons`)
+  );
+  console.log(
+    chalk.green(`  ✓ Added ${newMultiIcons.length} multicolor icons`)
+  );
 
   return {
     monoAdded: newMonoIcons.length,

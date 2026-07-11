@@ -94,7 +94,9 @@ const Checkbox = React.forwardRef<
           strokeLinejoin="round"
           aria-hidden
         >
-          <path d={indeterminate ? 'M4.5 8H11.5' : 'M4 8.25L6.5 10.75L12 5.25'} />
+          <path
+            d={indeterminate ? 'M4.5 8H11.5' : 'M4 8.25L6.5 10.75L12 5.25'}
+          />
         </svg>
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>

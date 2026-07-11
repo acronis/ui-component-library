@@ -28,7 +28,9 @@ export function InputSelectDemo() {
           <InputSelectTrigger>
             <InputSelectValue placeholder="Select a region" />
           </InputSelectTrigger>
-          <InputSelectDescription>Where workloads are stored.</InputSelectDescription>
+          <InputSelectDescription>
+            Where workloads are stored.
+          </InputSelectDescription>
         </InputSelectField>
         <InputSelectContent portalContainer={mount}>
           <InputSelectItem value="us">United States</InputSelectItem>

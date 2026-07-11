@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { Button } from '@spec-lab/ui-react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/ui-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
 import { Calendar } from '@spec-lab/ui-react';
 
 export function PopoverWithCalendar() {
@@ -17,11 +13,7 @@ export function PopoverWithCalendar() {
           {date ? date.toLocaleDateString() : 'Pick a date'}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
-          <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-          />
+          <Calendar mode="single" selected={date} onSelect={setDate} />
         </PopoverContent>
       </Popover>
     </div>

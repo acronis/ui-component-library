@@ -3,8 +3,8 @@ title: Sheet detail panel
 description: Show the details of a selected item in a side Sheet — title, properties, content states, and footer actions.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { SheetDetailPanelDemo } from "@/components/demos-react/patterns/sheet-detail-panel";
+import { DemoReact } from '@/components/DemoReact';
+import { SheetDetailPanelDemo } from '@/components/demos-react/patterns/sheet-detail-panel';
 
 The approved way to present "details of the selected thing" beside its list. A
 **`Sheet`** anchored to the right edge with a header (title + close), a body that
@@ -52,7 +52,9 @@ by a `contentState`:
     </SheetHeader>
     <SheetBody>
       {contentState === 'loading' ? (
-        <div className="flex h-full items-center justify-center"><Spinner /></div>
+        <div className="flex h-full items-center justify-center">
+          <Spinner />
+        </div>
       ) : contentState === 'empty' ? (
         <Empty>
           <EmptyHeader>
@@ -64,8 +66,12 @@ by a `contentState`:
         <DescriptionList className="-mx-6">
           {item.properties.map((p) => (
             <DescriptionListItem key={p.label}>
-              <DescriptionListLabel className="text-muted-foreground">{p.label}</DescriptionListLabel>
-              <DescriptionListValue className="font-medium">{p.value}</DescriptionListValue>
+              <DescriptionListLabel className="text-muted-foreground">
+                {p.label}
+              </DescriptionListLabel>
+              <DescriptionListValue className="font-medium">
+                {p.value}
+              </DescriptionListValue>
             </DescriptionListItem>
           ))}
         </DescriptionList>

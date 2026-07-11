@@ -61,7 +61,9 @@ figma.connect(
         />
         <SidebarSecondaryFooter>
           <SidebarSecondaryMenu>
-            <SidebarSecondaryMenuItem href="#">Settings</SidebarSecondaryMenuItem>
+            <SidebarSecondaryMenuItem href="#">
+              Settings
+            </SidebarSecondaryMenuItem>
           </SidebarSecondaryMenu>
         </SidebarSecondaryFooter>
       </SidebarSecondary>
@@ -89,7 +91,9 @@ figma.connect(
       <SidebarSecondarySection expandable={expandable}>
         <SidebarSecondarySectionLabel>{label}</SidebarSecondarySectionLabel>
         <SidebarSecondaryMenu>
-          <SidebarSecondaryMenuItem href="#">Menu item</SidebarSecondaryMenuItem>
+          <SidebarSecondaryMenuItem href="#">
+            Menu item
+          </SidebarSecondaryMenuItem>
         </SidebarSecondaryMenu>
       </SidebarSecondarySection>
     ),

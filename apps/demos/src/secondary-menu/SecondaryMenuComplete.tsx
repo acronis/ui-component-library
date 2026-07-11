@@ -11,7 +11,12 @@ import {
   SidebarSecondarySectionLabel,
 } from '@spec-lab/ui-react';
 
-import { ArrowInDownIcon, ArrowOutUpIcon, FileTextIcon, RectangleImageIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ArrowInDownIcon,
+  ArrowOutUpIcon,
+  FileTextIcon,
+  RectangleImageIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 export function SecondaryMenuComplete() {
   const [activeItem, setActiveItem] = useState('recent1');
 

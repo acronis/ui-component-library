@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { BinIcon, EllipsisIcon, EyeIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  BinIcon,
+  EllipsisIcon,
+  EyeIcon,
+  PencilIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { ButtonIcon } from '@spec-lab/ui-react';
 import {
   DropdownMenu,

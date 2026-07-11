@@ -1,5 +1,27 @@
 import * as React from 'react';
-import { BinIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, CircleCheckIcon, CircleClockIcon, CircleInfoIcon, CircleSmallIcon, CircleTimesIcon, CircleWarningIcon, EnvelopeIcon, EyeIcon, MinusIcon, PencilIcon, ShieldCheckIcon, ShoppingCartIcon, SquareArrowUpRightIcon, StarIcon, TimesIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  BinIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CircleCheckIcon,
+  CircleClockIcon,
+  CircleInfoIcon,
+  CircleSmallIcon,
+  CircleTimesIcon,
+  CircleWarningIcon,
+  EnvelopeIcon,
+  EyeIcon,
+  MinusIcon,
+  PencilIcon,
+  ShieldCheckIcon,
+  ShoppingCartIcon,
+  SquareArrowUpRightIcon,
+  StarIcon,
+  TimesIcon,
+  UserIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   ActivityIcon,
   ArrowUpDownIcon,
@@ -2152,7 +2174,11 @@ export function TablePlayground() {
     // Completion with enhanced progress bar (with icon)
     if (column === 'completion' && showProgress && typeof value === 'number') {
       const Icon =
-        value >= 90 ? CircleCheckIcon : value >= 50 ? ActivityIcon : CircleClockIcon;
+        value >= 90
+          ? CircleCheckIcon
+          : value >= 50
+            ? ActivityIcon
+            : CircleClockIcon;
       const color =
         value >= 90
           ? 'text-green-500'
@@ -3018,10 +3044,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   <Button variant="destructive" onClick={bulkDelete}>
                     Delete Selected
                   </Button>
-                  <Button
-                    variant="ghost"
-                    onClick={() => setSelectedRows([])}
-                  >
+                  <Button variant="ghost" onClick={() => setSelectedRows([])}>
                     <TimesIcon className="h-4 w-4" />
                   </Button>
                 </div>
@@ -3058,7 +3081,9 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                     <Label className="text-xs font-medium">Filter Logic:</Label>
                     <div className="flex gap-1">
                       <Button
-                        variant={filterLogic === 'AND' ? 'default' : 'secondary'}
+                        variant={
+                          filterLogic === 'AND' ? 'default' : 'secondary'
+                        }
                         onClick={() => setFilterLogic('AND')}
                         className="h-7 text-xs"
                       >
@@ -3749,12 +3774,8 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                               </p>
                             </div>
                             <div className="flex gap-2">
-                              <Button variant="default">
-                                Add New Item
-                              </Button>
-                              <Button variant="secondary">
-                                Import Data
-                              </Button>
+                              <Button variant="default">Add New Item</Button>
+                              <Button variant="secondary">Import Data</Button>
                             </div>
                           </div>
                         ) : (
@@ -4595,16 +4616,10 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                       Column Visibility
                     </Label>
                     <div className="flex gap-1">
-                      <Button
-                        variant="secondary"
-                        onClick={showAllColumns}
-                      >
+                      <Button variant="secondary" onClick={showAllColumns}>
                         Show All
                       </Button>
-                      <Button
-                        variant="secondary"
-                        onClick={hideAllColumns}
-                      >
+                      <Button variant="secondary" onClick={hideAllColumns}>
                         Hide All
                       </Button>
                     </div>
@@ -4630,10 +4645,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <Label className="text-sm font-medium">Column Order</Label>
-                    <Button
-                      variant="secondary"
-                      onClick={resetColumnOrder}
-                    >
+                    <Button variant="secondary" onClick={resetColumnOrder}>
                       Reset Order
                     </Button>
                   </div>
@@ -5942,9 +5954,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                         </div>
                         <div className="flex items-center justify-between">
                           <span>Selected:</span>
-                          <Badge variant="neutral">
-                            {selectedRows.length}
-                          </Badge>
+                          <Badge variant="neutral">{selectedRows.length}</Badge>
                         </div>
                         <div className="flex items-center justify-between">
                           <span>Range Selection:</span>
@@ -6102,9 +6112,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           <>
                             <div className="flex items-center justify-between">
                               <span>Current Sort:</span>
-                              <Badge
-                                variant={sortColumn ? 'info' : 'neutral'}
-                              >
+                              <Badge variant={sortColumn ? 'info' : 'neutral'}>
                                 {sortColumn
                                   ? `${sortColumn} ${sortDirection === 'asc' ? '↑' : '↓'}`
                                   : 'None'}
@@ -6835,7 +6843,9 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                           <div className="grid grid-cols-2 gap-2">
                             <Button
                               variant={
-                                heatmapColor === 'green' ? 'default' : 'secondary'
+                                heatmapColor === 'green'
+                                  ? 'default'
+                                  : 'secondary'
                               }
                               onClick={() => setHeatmapColor('green')}
                               className="flex items-center gap-1"
@@ -6845,7 +6855,9 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             </Button>
                             <Button
                               variant={
-                                heatmapColor === 'blue' ? 'default' : 'secondary'
+                                heatmapColor === 'blue'
+                                  ? 'default'
+                                  : 'secondary'
                               }
                               onClick={() => setHeatmapColor('blue')}
                               className="flex items-center gap-1"

@@ -5,7 +5,11 @@
 // so the snippet documents real usage.
 import figma from '@figma/code-connect';
 
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from './resizable';
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from './resizable';
 
 figma.connect(
   ResizableHandle,

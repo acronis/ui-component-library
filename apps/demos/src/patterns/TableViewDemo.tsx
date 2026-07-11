@@ -24,7 +24,12 @@ const devices: Device[] = [
   { id: 'd2', name: 'web-eu-03', type: 'Server', status: 'at-risk' },
   { id: 'd3', name: 'laptop-ada', type: 'Workstation', status: 'protected' },
   { id: 'd4', name: 'nas-backup-1', type: 'Storage', status: 'offline' },
-  { id: 'd5', name: 'vm-staging-7', type: 'Virtual machine', status: 'protected' },
+  {
+    id: 'd5',
+    name: 'vm-staging-7',
+    type: 'Virtual machine',
+    status: 'protected',
+  },
 ];
 
 const STATUS_VARIANT = {
@@ -40,7 +45,9 @@ const columns: ColumnDef<Device>[] = [
     accessorKey: 'status',
     header: 'Status',
     cell: ({ row }) => (
-      <Tag variant={STATUS_VARIANT[row.original.status]}>{row.original.status}</Tag>
+      <Tag variant={STATUS_VARIANT[row.original.status]}>
+        {row.original.status}
+      </Tag>
     ),
   },
 ];

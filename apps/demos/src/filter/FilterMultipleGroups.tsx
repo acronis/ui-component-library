@@ -1,12 +1,7 @@
 import * as React from 'react';
 import { Filter } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@spec-lab/ui-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@spec-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,

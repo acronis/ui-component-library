@@ -69,11 +69,7 @@ describe('Link', () => {
   });
 
   it('renders as a custom element via the render prop', () => {
-    render(
-      <Link render={<button type="button" />}>
-        Action
-      </Link>
-    );
+    render(<Link render={<button type="button" />}>Action</Link>);
     const el = screen.getByRole('button', { name: 'Action' });
     expect(el.tagName).toBe('BUTTON');
     expect(el).toHaveClass('text-[var(--ui-link-normal-text-color-idle)]');

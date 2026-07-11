@@ -9,11 +9,13 @@ const STRATEGIES: Record<SelectionStrategyName, SelectionStrategy> = {
   'icon-packs': iconPacksStrategy,
 };
 
-export function getSelectionStrategy(name: SelectionStrategyName): SelectionStrategy {
+export function getSelectionStrategy(
+  name: SelectionStrategyName
+): SelectionStrategy {
   const strategy = STRATEGIES[name];
   if (!strategy) {
     throw new Error(
-      `Unknown selection strategy: "${name}". Available: ${Object.keys(STRATEGIES).join(', ')}`,
+      `Unknown selection strategy: "${name}". Available: ${Object.keys(STRATEGIES).join(', ')}`
     );
   }
   return strategy;

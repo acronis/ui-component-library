@@ -3,8 +3,8 @@ title: Alert
 description: A status banner with severity variants and composable parts.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { AlertDemo } from "@/components/demos-react/alert";
+import { DemoReact } from '@/components/DemoReact';
+import { AlertDemo } from '@/components/demos-react/alert';
 
 ## Usage
 
@@ -36,12 +36,16 @@ severity — `info` (default), `success`, `warning`, `critical`, `destructive`,
 import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
 
 <Alert variant="destructive">
-  <AlertIcon><CircleWarningIcon size={16} /></AlertIcon>
+  <AlertIcon>
+    <CircleWarningIcon size={16} />
+  </AlertIcon>
   <AlertContent>
     <AlertTitle>Error</AlertTitle>
-    <AlertDescription>Your session has expired. Please log in again.</AlertDescription>
+    <AlertDescription>
+      Your session has expired. Please log in again.
+    </AlertDescription>
   </AlertContent>
-</Alert>
+</Alert>;
 ```
 
 Add an action with `AlertActions`. As a direct child of `Alert` (after
@@ -50,7 +54,9 @@ Add an action with `AlertActions`. As a direct child of `Alert` (after
 
 ```tsx
 <Alert variant="info">
-  <AlertIcon><CircleInfoIcon size={16} /></AlertIcon>
+  <AlertIcon>
+    <CircleInfoIcon size={16} />
+  </AlertIcon>
   <AlertContent>
     <AlertTitle>Protect non-compliant devices</AlertTitle>
     <AlertDescription>Ensure a protection plan is applied…</AlertDescription>
@@ -80,7 +86,9 @@ the variant. Wire its `onClick` to hide the alert:
 
 ```tsx
 <Alert variant="warning">
-  <AlertIcon><CircleWarningIcon size={16} /></AlertIcon>
+  <AlertIcon>
+    <CircleWarningIcon size={16} />
+  </AlertIcon>
   <AlertContent>
     <AlertTitle>Scan completed</AlertTitle>
     <AlertDescription>All devices were scanned.</AlertDescription>

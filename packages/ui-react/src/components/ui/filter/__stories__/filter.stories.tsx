@@ -11,7 +11,10 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'outline', 'ghost'],
-      table: { type: { summary: "'default' | 'outline' | 'ghost'" }, defaultValue: { summary: 'ghost' } },
+      table: {
+        type: { summary: "'default' | 'outline' | 'ghost'" },
+        defaultValue: { summary: 'ghost' },
+      },
     },
     count: {
       control: 'number',

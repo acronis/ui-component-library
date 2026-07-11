@@ -29,7 +29,8 @@ const meta = {
     },
     children: {
       control: false,
-      description: 'The content constrained to the ratio (image, video, or any box).',
+      description:
+        'The content constrained to the ratio (image, video, or any box).',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
     className: {

@@ -1,0 +1,4 @@
+# Repo-wide Prettier 3.9 reformat — whitespace only, no behavior change.
+# Ignore this revision in `git blame` (configure once with:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs)
+73b481ea6225b8587518f738ea91ed4a9cc83608

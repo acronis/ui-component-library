@@ -77,7 +77,8 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = 'SheetOverlay';
 
 export interface SheetContentProps
-  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>,
+  extends
+    React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>,
     VariantProps<typeof sheetVariants> {
   /**
    * Edge the panel anchors to. Defaults to `right`. `top`/`bottom` are
@@ -131,7 +132,10 @@ const SheetContent = React.forwardRef<
     );
 
     return portal ? (
-      <DialogPrimitive.Portal container={portalContainer} keepMounted={keepMounted}>
+      <DialogPrimitive.Portal
+        container={portalContainer}
+        keepMounted={keepMounted}
+      >
         {popup}
       </DialogPrimitive.Portal>
     ) : (
@@ -175,7 +179,11 @@ const SheetBody = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('flex-1 overflow-auto p-6', className)} {...props} />
+  <div
+    ref={ref}
+    className={cn('flex-1 overflow-auto p-6', className)}
+    {...props}
+  />
 ));
 SheetBody.displayName = 'SheetBody';
 

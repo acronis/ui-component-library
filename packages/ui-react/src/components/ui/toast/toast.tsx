@@ -40,7 +40,11 @@ export interface ToastOptions {
   id?: string;
 }
 
-function add(title: React.ReactNode, type?: ToastType, options: ToastOptions = {}) {
+function add(
+  title: React.ReactNode,
+  type?: ToastType,
+  options: ToastOptions = {}
+) {
   const { action, ...rest } = options;
   return toastManager.add({
     title,
@@ -59,7 +63,8 @@ function add(title: React.ReactNode, type?: ToastType, options: ToastOptions = {
  * promise's lifecycle.
  */
 const toast = Object.assign(
-  (title: React.ReactNode, options?: ToastOptions) => add(title, undefined, options),
+  (title: React.ReactNode, options?: ToastOptions) =>
+    add(title, undefined, options),
   {
     success: (title: React.ReactNode, options?: ToastOptions) =>
       add(title, 'success', options),

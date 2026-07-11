@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ChartBarVerticalIcon, EllipsisIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ChartBarVerticalIcon,
+  EllipsisIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 import {
   WidgetText,
@@ -22,7 +25,8 @@ const meta = {
   argTypes: {
     interactive: {
       control: 'boolean',
-      description: 'Makes the widget focusable/clickable with hover, active, and focus states.',
+      description:
+        'Makes the widget focusable/clickable with hover, active, and focus states.',
       table: { type: { summary: 'boolean' }, category: 'Behavior' },
     },
   },

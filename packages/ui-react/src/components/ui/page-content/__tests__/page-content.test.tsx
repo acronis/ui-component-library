@@ -15,6 +15,8 @@ describe('PageContent', () => {
 
   it('merges a custom className', () => {
     const { container } = render(<PageContent className="max-w-3xl" />);
-    expect(container.querySelector('[data-slot="page-content"]')).toHaveClass('max-w-3xl');
+    expect(container.querySelector('[data-slot="page-content"]')).toHaveClass(
+      'max-w-3xl'
+    );
   });
 });

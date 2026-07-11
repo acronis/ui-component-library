@@ -93,9 +93,10 @@ describe('SidebarPrimary', () => {
 
   it('defaults to the expanded state', () => {
     render(<Rail />);
-    expect(
-      screen.getByRole('navigation', { name: 'Primary' })
-    ).toHaveAttribute('data-state', 'expanded');
+    expect(screen.getByRole('navigation', { name: 'Primary' })).toHaveAttribute(
+      'data-state',
+      'expanded'
+    );
   });
 
   it('reflects a controlled collapsed state and keeps labels accessible', () => {
@@ -145,7 +146,9 @@ describe('SidebarPrimary', () => {
     );
     const nav = screen.getByRole('navigation', { name: 'Primary' });
     expect(nav).toHaveAttribute('data-state', 'expanded');
-    await userEvent.click(screen.getByRole('button', { name: 'Collapse menu' }));
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Collapse menu' })
+    );
     // Controlled: the callback fires with the next value, but the internal state
     // does NOT change — the prop continues to drive it.
     expect(onExpandedChange).toHaveBeenCalledWith(false);

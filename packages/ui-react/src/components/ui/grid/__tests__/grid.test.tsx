@@ -13,7 +13,11 @@ describe('Grid', () => {
   });
 
   it('applies the cols and gap variants', () => {
-    render(<Grid data-testid="g" cols={4} gap="xl">x</Grid>);
+    render(
+      <Grid data-testid="g" cols={4} gap="xl">
+        x
+      </Grid>
+    );
     const c = screen.getByTestId('g').className;
     expect(c).toContain('lg:grid-cols-4');
     expect(c).toContain('gap-8');

@@ -13,7 +13,14 @@ import { optimize } from 'svgo';
 import { toCurrentColor } from './color';
 import { applyScale } from './rules/scale';
 import { applyStroke } from './rules/stroke';
-import { longerDim, parseSvg, readViewBox, serializeSvg, type INode, type ViewBox } from './svg-ast';
+import {
+  longerDim,
+  parseSvg,
+  readViewBox,
+  serializeSvg,
+  type INode,
+  type ViewBox,
+} from './svg-ast';
 import { svgoConfig, type ColorMode } from './svgo-config';
 import type { Rule } from './types';
 
@@ -25,7 +32,11 @@ function intrinsicLonger(root: INode, vb: ViewBox): number {
 }
 
 /** Apply a variant's ordered rules + color mode to its source SVG; returns optimized SVG. */
-export function executeSvg(sourceSvg: string, rules: Rule[], color: ColorMode): string {
+export function executeSvg(
+  sourceSvg: string,
+  rules: Rule[],
+  color: ColorMode
+): string {
   const root = parseSvg(sourceSvg);
   const vb = readViewBox(root);
   let renderedLonger = intrinsicLonger(root, vb);
@@ -37,14 +48,18 @@ export function executeSvg(sourceSvg: string, rules: Rule[], color: ColorMode): 
       continue;
     }
     if (rule.target.unit !== 'px') {
-      throw new Error(`unsupported rule unit "${rule.target.unit}" in rule "${rule.name}"`);
+      throw new Error(
+        `unsupported rule unit "${rule.target.unit}" in rule "${rule.name}"`
+      );
     }
     if (rule.kind === 'scale') {
       renderedLonger = applyScale(root, rule.target.value, vb);
     } else if (rule.kind === 'stroke') {
       applyStroke(root, rule.target.value, vb, renderedLonger);
     } else {
-      throw new Error(`unsupported rule kind "${(rule as Rule).kind}" in rule "${(rule as Rule).name}"`);
+      throw new Error(
+        `unsupported rule kind "${(rule as Rule).kind}" in rule "${(rule as Rule).name}"`
+      );
     }
   }
 

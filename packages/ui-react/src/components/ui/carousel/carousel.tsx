@@ -4,7 +4,10 @@ import * as React from 'react';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
-import { ArrowLeftIcon, ArrowRightIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 import { Button, type ButtonProps } from '../button';
@@ -67,7 +70,15 @@ const Carousel = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
 >(
   (
-    { orientation = 'horizontal', opts, setApi, plugins, className, children, ...props },
+    {
+      orientation = 'horizontal',
+      opts,
+      setApi,
+      plugins,
+      className,
+      children,
+      ...props
+    },
     ref
   ) => {
     const [carouselRef, api] = useEmblaCarousel(
@@ -88,7 +99,10 @@ const Carousel = React.forwardRef<
 
     const scrollPrev = React.useCallback(() => api?.scrollPrev(), [api]);
     const scrollNext = React.useCallback(() => api?.scrollNext(), [api]);
-    const scrollTo = React.useCallback((index: number) => api?.scrollTo(index), [api]);
+    const scrollTo = React.useCallback(
+      (index: number) => api?.scrollTo(index),
+      [api]
+    );
 
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -176,7 +190,11 @@ const CarouselContent = React.forwardRef<HTMLDivElement, CarouselContentProps>(
   ({ className, ...props }, ref) => {
     const { carouselRef, orientation } = useCarousel();
     return (
-      <div ref={carouselRef} className="overflow-hidden" data-slot="carousel-viewport">
+      <div
+        ref={carouselRef}
+        className="overflow-hidden"
+        data-slot="carousel-viewport"
+      >
         <div
           ref={ref}
           data-slot="carousel-content"
@@ -222,25 +240,26 @@ export interface CarouselPreviousProps extends Omit<ButtonProps, 'variant'> {
 }
 
 // "← Prev" text link (mockup). Disabled at the start unless looping.
-const CarouselPrevious = React.forwardRef<HTMLButtonElement, CarouselPreviousProps>(
-  ({ className, children = 'Prev', ...props }, ref) => {
-    const { scrollPrev, canScrollPrev } = useCarousel();
-    return (
-      <Button
-        ref={ref}
-        variant="ghost"
-        aria-label="Previous slide"
-        className={cn('gap-1', className)}
-        disabled={!canScrollPrev}
-        onClick={scrollPrev}
-        {...props}
-      >
-        <ArrowLeftIcon />
-        {children}
-      </Button>
-    );
-  }
-);
+const CarouselPrevious = React.forwardRef<
+  HTMLButtonElement,
+  CarouselPreviousProps
+>(({ className, children = 'Prev', ...props }, ref) => {
+  const { scrollPrev, canScrollPrev } = useCarousel();
+  return (
+    <Button
+      ref={ref}
+      variant="ghost"
+      aria-label="Previous slide"
+      className={cn('gap-1', className)}
+      disabled={!canScrollPrev}
+      onClick={scrollPrev}
+      {...props}
+    >
+      <ArrowLeftIcon />
+      {children}
+    </Button>
+  );
+});
 CarouselPrevious.displayName = 'CarouselPrevious';
 
 export type CarouselNextProps = CarouselPreviousProps;
@@ -311,20 +330,21 @@ CarouselDots.displayName = 'CarouselDots';
 export type CarouselNavigationProps = React.HTMLAttributes<HTMLDivElement>;
 
 // The mockup's bottom nav bar: [← Prev]  • • • •  [Next →].
-const CarouselNavigation = React.forwardRef<HTMLDivElement, CarouselNavigationProps>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      data-slot="carousel-navigation"
-      className={cn('mt-4 flex items-center justify-between gap-4', className)}
-      {...props}
-    >
-      <CarouselPrevious />
-      <CarouselDots />
-      <CarouselNext />
-    </div>
-  )
-);
+const CarouselNavigation = React.forwardRef<
+  HTMLDivElement,
+  CarouselNavigationProps
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    data-slot="carousel-navigation"
+    className={cn('mt-4 flex items-center justify-between gap-4', className)}
+    {...props}
+  >
+    <CarouselPrevious />
+    <CarouselDots />
+    <CarouselNext />
+  </div>
+));
 CarouselNavigation.displayName = 'CarouselNavigation';
 
 export {

@@ -1,7 +1,4 @@
-import {
-  ChevronDownIcon,
-  PlusIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+import { ChevronDownIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button } from '../button';
@@ -19,7 +16,8 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'secondary', 'ghost', 'destructive', 'ai'],
-      description: 'Visual style — mirrors the Figma Button `Variant` property.',
+      description:
+        'Visual style — mirrors the Figma Button `Variant` property.',
       table: {
         type: {
           summary: "'default' | 'secondary' | 'ghost' | 'destructive' | 'ai'",

@@ -3,15 +3,11 @@ import { format } from 'date-fns';
 import { cn } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 import { Calendar } from '@spec-lab/ui-react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/ui-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
 
 type DateRange = { from: Date | undefined; to?: Date | undefined };
 
-import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono';
 export function DatePickerRange() {
   const [dateRange, setDateRange] = React.useState<DateRange>({
     from: undefined,

@@ -15,7 +15,10 @@ describe('SearchGlobal', () => {
 
   it('accepts a custom placeholder and shortcut', () => {
     render(<SearchGlobal placeholder="Find anything" shortcut="/" />);
-    expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Find anything');
+    expect(screen.getByRole('searchbox')).toHaveAttribute(
+      'placeholder',
+      'Find anything'
+    );
     expect(screen.getByText('/')).toBeInTheDocument();
   });
 
@@ -40,7 +43,9 @@ describe('SearchGlobal', () => {
 
   it('honors a custom aria-label', () => {
     render(<SearchGlobal aria-label="Global search" />);
-    expect(screen.getByRole('searchbox', { name: 'Global search' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('searchbox', { name: 'Global search' })
+    ).toBeInTheDocument();
   });
 
   it('uses tokenized border/icon/placeholder/shortcut colors', () => {
@@ -54,8 +59,14 @@ describe('SearchGlobal', () => {
       'active:[--sg-border:var(--ui-search-global-border-color-active)]',
       'focus-within:ring-[var(--ui-focus-primary)]'
     );
-    expect(root.querySelector('svg')).toHaveClass('text-[var(--ui-search-global-icon-color)]');
-    expect(input).toHaveClass('placeholder:text-[var(--ui-search-global-placeholoder-color)]');
-    expect(screen.getByText('⌘K')).toHaveClass('text-[var(--ui-search-global-shortcut-color)]');
+    expect(root.querySelector('svg')).toHaveClass(
+      'text-[var(--ui-search-global-icon-color)]'
+    );
+    expect(input).toHaveClass(
+      'placeholder:text-[var(--ui-search-global-placeholoder-color)]'
+    );
+    expect(screen.getByText('⌘K')).toHaveClass(
+      'text-[var(--ui-search-global-shortcut-color)]'
+    );
   });
 });

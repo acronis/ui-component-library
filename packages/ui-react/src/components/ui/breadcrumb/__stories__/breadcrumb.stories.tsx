@@ -26,7 +26,10 @@ const meta = {
       control: false,
       description:
         'Replace the rendered `<nav>` with another element or component via Base UI composition. Accepts a React element or a render function.',
-      table: { type: { summary: 'useRender.RenderProp' }, category: 'Composition' },
+      table: {
+        type: { summary: 'useRender.RenderProp' },
+        category: 'Composition',
+      },
     },
     className: {
       control: false,

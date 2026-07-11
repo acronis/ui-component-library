@@ -23,7 +23,10 @@ const data = [
 // here referencing the shared semantic brand/status tokens.
 const config = {
   desktop: { label: 'Desktop', color: 'var(--ui-background-brand-secondary)' },
-  mobile: { label: 'Mobile', color: 'var(--ui-background-status-strong-danger)' },
+  mobile: {
+    label: 'Mobile',
+    color: 'var(--ui-background-status-strong-danger)',
+  },
 } satisfies ChartConfig;
 
 export function ChartDemo() {
@@ -34,8 +37,18 @@ export function ChartDemo() {
         <XAxis dataKey="month" tickLine={false} axisLine={false} />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} isAnimationActive={false} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} isAnimationActive={false} />
+        <Bar
+          dataKey="desktop"
+          fill="var(--color-desktop)"
+          radius={4}
+          isAnimationActive={false}
+        />
+        <Bar
+          dataKey="mobile"
+          fill="var(--color-mobile)"
+          radius={4}
+          isAnimationActive={false}
+        />
       </BarChart>
     </ChartContainer>
   );

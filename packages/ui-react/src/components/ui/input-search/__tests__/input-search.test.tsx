@@ -82,6 +82,8 @@ describe('InputSearch', () => {
     expect(screen.getByText('Find').closest('label')).toHaveClass(
       'text-[var(--ui-input-search-color-idle)]'
     );
-    expect(screen.getByText('*')).toHaveClass('text-[var(--ui-input-search-required-color)]');
+    expect(screen.getByText('*')).toHaveClass(
+      'text-[var(--ui-input-search-required-color)]'
+    );
   });
 });

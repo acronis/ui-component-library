@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from '@spec-lab/ui-react';
 import { Button, ButtonIcon } from '@spec-lab/ui-react';
-import { CogIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CogIcon } from '@spec-lab/icons-react/stroke-mono';
 
 interface SettingsDialogProps {
   trigger?: React.ReactNode;
@@ -22,7 +22,11 @@ export function SettingsDialog({ trigger }: SettingsDialogProps) {
       <DialogTrigger
         render={
           (trigger as React.ReactElement) || (
-            <ButtonIcon variant="ghost" aria-label="Settings" className="h-6 w-6" />
+            <ButtonIcon
+              variant="ghost"
+              aria-label="Settings"
+              className="h-6 w-6"
+            />
           )
         }
       >

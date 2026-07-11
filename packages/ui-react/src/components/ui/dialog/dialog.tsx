@@ -68,7 +68,8 @@ const DialogOverlay = React.forwardRef<
 DialogOverlay.displayName = 'DialogOverlay';
 
 export interface DialogContentProps
-  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>,
+  extends
+    React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>,
     VariantProps<typeof dialogContentVariants> {
   /**
    * Popup max-width. `sm` 512 · `xs` 464 · `md` 672 · `lg` 832 · `xl` 992 ·
@@ -120,7 +121,10 @@ const DialogContent = React.forwardRef<
     );
 
     return portal ? (
-      <DialogPrimitive.Portal container={portalContainer} keepMounted={keepMounted}>
+      <DialogPrimitive.Portal
+        container={portalContainer}
+        keepMounted={keepMounted}
+      >
         {popup}
       </DialogPrimitive.Portal>
     ) : (
@@ -164,7 +168,11 @@ const DialogBody = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('flex-1 overflow-auto p-6', className)} {...props} />
+  <div
+    ref={ref}
+    className={cn('flex-1 overflow-auto p-6', className)}
+    {...props}
+  />
 ));
 DialogBody.displayName = 'DialogBody';
 

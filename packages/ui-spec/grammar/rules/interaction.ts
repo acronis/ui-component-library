@@ -7,7 +7,8 @@ export const interactionRules = [
     category: 'interaction',
     severity: 'may',
     rule: 'Hover/transition durations and easings come from the shared motion scale; animate transform/opacity, not `all`.',
-    rationale: 'Mismatched timings make the kit feel uneven; animating `all` causes jank.',
+    rationale:
+      'Mismatched timings make the kit feel uneven; animating `all` causes jank.',
     checklist: 'I3',
     detector: 'kit-lint/transition-timing',
   },

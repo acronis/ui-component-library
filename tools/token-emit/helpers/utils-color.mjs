@@ -27,9 +27,14 @@ export class ColorUtils {
     const s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
     let h;
     switch (max) {
-      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
-      case g: h = ((b - r) / d + 2) / 6; break;
-      default: h = ((r - g) / d + 4) / 6;
+      case r:
+        h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+        break;
+      case g:
+        h = ((b - r) / d + 2) / 6;
+        break;
+      default:
+        h = ((r - g) / d + 4) / 6;
     }
     return {
       h: ColorUtils.round(h * 360),

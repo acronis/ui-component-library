@@ -1,4 +1,4 @@
-import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono';
 
 interface LoadingMessageProps {
   title?: string;

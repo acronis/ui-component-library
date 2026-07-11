@@ -23,10 +23,22 @@ describe('WidgetProgressChunks', () => {
           <WidgetProgressChunksTitle>Storage usage</WidgetProgressChunksTitle>
         </WidgetProgressChunksHeader>
         <WidgetProgressChunksBody>
-          <WidgetProgressChunkRow label="Photos" value={30} total={100} color="red" />
-          <WidgetProgressChunkRow label="Videos" value={50} total={100} color="blue" />
+          <WidgetProgressChunkRow
+            label="Photos"
+            value={30}
+            total={100}
+            color="red"
+          />
+          <WidgetProgressChunkRow
+            label="Videos"
+            value={50}
+            total={100}
+            color="blue"
+          />
         </WidgetProgressChunksBody>
-        <WidgetProgressChunksFooter>80 / 100 GB used</WidgetProgressChunksFooter>
+        <WidgetProgressChunksFooter>
+          80 / 100 GB used
+        </WidgetProgressChunksFooter>
       </WidgetProgressChunks>
     );
 
@@ -43,12 +55,24 @@ describe('WidgetProgressChunks', () => {
 
   it('computes the fill width from value/total and clamps to 100%', () => {
     const { container, rerender } = render(
-      <WidgetProgressChunkRow label="Over" value={30} total={40} color="green" />
+      <WidgetProgressChunkRow
+        label="Over"
+        value={30}
+        total={40}
+        color="green"
+      />
     );
     const fill = container.querySelector(fillSelector) as HTMLElement;
     expect(fill).toHaveStyle({ width: '75%', backgroundColor: 'green' });
 
-    rerender(<WidgetProgressChunkRow label="Over" value={60} total={40} color="green" />);
+    rerender(
+      <WidgetProgressChunkRow
+        label="Over"
+        value={60}
+        total={40}
+        color="green"
+      />
+    );
     const clampedFill = container.querySelector(fillSelector) as HTMLElement;
     expect(clampedFill).toHaveStyle({ width: '100%' });
   });
@@ -100,7 +124,9 @@ describe('WidgetProgressChunks', () => {
 
   it('merges a custom className on parts', () => {
     render(
-      <WidgetProgressChunksTitle className="custom-x">Title</WidgetProgressChunksTitle>
+      <WidgetProgressChunksTitle className="custom-x">
+        Title
+      </WidgetProgressChunksTitle>
     );
     expect(screen.getByText('Title')).toHaveClass('custom-x', 'truncate');
   });

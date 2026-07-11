@@ -18,16 +18,38 @@ const VARIANTS = ['normal', 'inverse'] as const;
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      {VARIANTS.map((v) => <Link href="#" key={v} variant={v}>Link</Link>)}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 12,
+        alignItems: 'center',
+      }}
+    >
+      {VARIANTS.map((v) => (
+        <Link href="#" key={v} variant={v}>
+          Link
+        </Link>
+      ))}
     </div>
   ),
 };
 
 export const Disabled: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      {VARIANTS.map((v) => <Link href="#" key={v} variant={v} disabled>Link</Link>)}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 12,
+        alignItems: 'center',
+      }}
+    >
+      {VARIANTS.map((v) => (
+        <Link href="#" key={v} variant={v} disabled>
+          Link
+        </Link>
+      ))}
     </div>
   ),
 };

@@ -36,7 +36,9 @@ const countries = [
   'Sweden',
 ];
 
-export function FormTwoColumnDemo({ portalContainer }: FormTwoColumnDemoProps = {}) {
+export function FormTwoColumnDemo({
+  portalContainer,
+}: FormTwoColumnDemoProps = {}) {
   const [saved, setSaved] = useState(false);
 
   return (
@@ -56,20 +58,26 @@ export function FormTwoColumnDemo({ portalContainer }: FormTwoColumnDemoProps = 
         </Field>
         <Field name="lastName">
           <FieldLabel>Last name</FieldLabel>
-          <FieldControl render={<InputText placeholder="Lovelace" required />} />
+          <FieldControl
+            render={<InputText placeholder="Lovelace" required />}
+          />
           <FieldError match="valueMissing">Required.</FieldError>
         </Field>
         <Field name="email">
           <FieldLabel>Email</FieldLabel>
           <FieldControl
-            render={<InputText type="email" placeholder="ada@example.com" required />}
+            render={
+              <InputText type="email" placeholder="ada@example.com" required />
+            }
           />
           <FieldError match="valueMissing">Required.</FieldError>
           <FieldError match="typeMismatch">Enter a valid email.</FieldError>
         </Field>
         <Field name="phone">
           <FieldLabel>Phone</FieldLabel>
-          <FieldControl render={<InputText type="tel" placeholder="+1 555 0100" />} />
+          <FieldControl
+            render={<InputText type="tel" placeholder="+1 555 0100" />}
+          />
         </Field>
       </Grid>
 
@@ -79,7 +87,9 @@ export function FormTwoColumnDemo({ portalContainer }: FormTwoColumnDemoProps = 
         <Autocomplete items={countries}>
           <AutocompleteInput placeholder="Start typing…" clearable />
           <AutocompleteContent portalContainer={portalContainer}>
-            <AutocompleteEmpty>No match — keep what you typed.</AutocompleteEmpty>
+            <AutocompleteEmpty>
+              No match — keep what you typed.
+            </AutocompleteEmpty>
             <AutocompleteList>
               {(item: string) => (
                 <AutocompleteItem key={item} value={item}>
@@ -97,7 +107,9 @@ export function FormTwoColumnDemo({ portalContainer }: FormTwoColumnDemoProps = 
       </Field>
 
       <div className="flex items-center justify-between gap-2">
-        <span className="text-sm text-muted-foreground">{saved ? 'Saved ✓' : ''}</span>
+        <span className="text-sm text-muted-foreground">
+          {saved ? 'Saved ✓' : ''}
+        </span>
         <Button type="submit">Save</Button>
       </div>
     </Form>

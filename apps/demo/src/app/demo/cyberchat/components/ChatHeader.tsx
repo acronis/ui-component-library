@@ -1,5 +1,5 @@
 import { Button, Switch } from '@spec-lab/ui-react';
-import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono';
 import { useCyberChatStore } from '../store/useCyberChatStore';
 import { ThemeSwitcher } from '@/components/playground/ThemeSwitcher';
 import { TokenSelector } from '@/components/playground/TokenSelector';

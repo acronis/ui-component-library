@@ -7,7 +7,15 @@ import {
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
 } from '@spec-lab/ui-react';
-import { ArrowInDownIcon, ArrowOutUpIcon, BinIcon, FileTextIcon, PencilIcon, RectangleImageIcon, VideoCameraIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ArrowInDownIcon,
+  ArrowOutUpIcon,
+  BinIcon,
+  FileTextIcon,
+  PencilIcon,
+  RectangleImageIcon,
+  VideoCameraIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { MusicIcon } from '../icons/missing-icons';
 
 export function SecondaryMenuWithGroups() {

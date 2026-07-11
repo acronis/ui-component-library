@@ -3,15 +3,19 @@ title: DescriptionList
 description: A key/value data list — rows of label → value with optional status icons, descriptions, and action links.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { DescriptionListDemo } from "@/components/demos-react/description-list";
+import { DemoReact } from '@/components/DemoReact';
+import { DescriptionListDemo } from '@/components/demos-react/description-list';
 
 ## Usage
 
 ```tsx
 import {
-  DescriptionList, DescriptionListItem, DescriptionListLabel,
-  DescriptionListValue, DescriptionListValueDescription, DescriptionListActions,
+  DescriptionList,
+  DescriptionListItem,
+  DescriptionListLabel,
+  DescriptionListValue,
+  DescriptionListValueDescription,
+  DescriptionListActions,
 } from '@spec-lab/ui-react';
 ```
 
@@ -48,7 +52,9 @@ dedicated tier. The status icon color is caller-applied via
     <DescriptionListValue>
       <CogIcon className="text-[var(--ui-text-on-status-warning)]" />
       <div>
-        <DescriptionListValueDescription>Issue description</DescriptionListValueDescription>
+        <DescriptionListValueDescription>
+          Issue description
+        </DescriptionListValueDescription>
         <DescriptionListActions className="mt-1">
           <Link href="#fix">Action to fix</Link>
           <Link href="#alert">View alert</Link>

@@ -22,7 +22,12 @@ function Field({
   disabled?: boolean;
 }) {
   return (
-    <NumberField defaultValue={defaultValue} min={min} max={max} disabled={disabled}>
+    <NumberField
+      defaultValue={defaultValue}
+      min={min}
+      max={max}
+      disabled={disabled}
+    >
       <NumberFieldGroup>
         <NumberFieldDecrement aria-label="Decrease" />
         <NumberFieldInput aria-label="Quantity" />

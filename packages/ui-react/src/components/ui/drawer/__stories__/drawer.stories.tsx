@@ -62,7 +62,10 @@ const meta = {
     onOpenChange: {
       control: false,
       description: 'Fires when the drawer opens or closes.',
-      table: { type: { summary: '(open, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(open, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     children: {
       control: false,
@@ -79,8 +82,8 @@ type Story = StoryObj<typeof meta>;
 const PanelBody = () => (
   <DrawerBody>
     <DrawerDescription>
-      Review and act on the selection without leaving the page. Swipe the panel to
-      dismiss it.
+      Review and act on the selection without leaving the page. Swipe the panel
+      to dismiss it.
     </DrawerDescription>
     <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
       <dt className="text-muted-foreground">Status</dt>
@@ -96,7 +99,9 @@ const PanelBody = () => (
 export const Default: Story = {
   render: () => (
     <Drawer defaultOpen>
-      <DrawerTrigger render={<Button variant="secondary">Open drawer</Button>} />
+      <DrawerTrigger
+        render={<Button variant="secondary">Open drawer</Button>}
+      />
       <DrawerContent>
         <DrawerSwipeArea />
         <DrawerHeader>

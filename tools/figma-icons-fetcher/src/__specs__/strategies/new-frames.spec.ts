@@ -21,7 +21,11 @@ const config: FetcherConfig = {
 };
 
 function pageOf(categories: FigmaNode[]): FigmaPage {
-  return { id: 'p', name: 'page', document: { id: 'p', name: 'page', type: 'CANVAS', children: categories } };
+  return {
+    id: 'p',
+    name: 'page',
+    document: { id: 'p', name: 'page', type: 'CANVAS', children: categories },
+  };
 }
 
 const newLabel: FigmaNode = { id: 't', name: 'New', type: 'TEXT' };
@@ -57,7 +61,7 @@ describe('newFramesStrategy', () => {
           ],
         },
       ]),
-      config,
+      config
     );
 
     expect(icons).toEqual([
@@ -98,7 +102,7 @@ describe('newFramesStrategy', () => {
           ],
         },
       ]),
-      config,
+      config
     );
 
     expect(icons).toEqual([
@@ -133,7 +137,7 @@ describe('newFramesStrategy', () => {
           ],
         },
       ]),
-      config,
+      config
     );
 
     expect(icons).toEqual([{ id: 'i1', name: 'circle', pageName: 'shapes' }]);

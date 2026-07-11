@@ -14,7 +14,13 @@ describe('Stack', () => {
 
   it('applies direction / gap / align / justify variants', () => {
     render(
-      <Stack data-testid="s" direction="horizontal" gap="lg" align="center" justify="between">
+      <Stack
+        data-testid="s"
+        direction="horizontal"
+        gap="lg"
+        align="center"
+        justify="between"
+      >
         x
       </Stack>
     );
@@ -26,7 +32,11 @@ describe('Stack', () => {
   });
 
   it('wraps when wrap is set', () => {
-    render(<Stack data-testid="s" wrap>x</Stack>);
+    render(
+      <Stack data-testid="s" wrap>
+        x
+      </Stack>
+    );
     expect(screen.getByTestId('s').className).toContain('flex-wrap');
   });
 });

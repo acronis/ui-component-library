@@ -34,13 +34,20 @@ describe('generateManifests', () => {
 
     await generateManifests(config, icons);
 
-    const exists = await fs.access(manifestDir).then(() => true).catch(() => false);
+    const exists = await fs
+      .access(manifestDir)
+      .then(() => true)
+      .catch(() => false);
     expect(exists).toBe(true);
   });
 
   it('wipes stale manifests when cleanManifests is true', async () => {
     await fs.writeFile(path.join(testDir, 'stale.json'), '["old"]\n', 'utf8');
-    const config = { generateManifests: true, manifestDir: testDir, cleanManifests: true };
+    const config = {
+      generateManifests: true,
+      manifestDir: testDir,
+      cleanManifests: true,
+    };
 
     await generateManifests(config, [{ name: 'icon1', pageName: 'Actions' }]);
 
@@ -49,7 +56,11 @@ describe('generateManifests', () => {
   });
 
   it('keeps pre-existing files when cleanManifests is off', async () => {
-    await fs.writeFile(path.join(testDir, 'hand-maintained.json'), '["keep"]\n', 'utf8');
+    await fs.writeFile(
+      path.join(testDir, 'hand-maintained.json'),
+      '["keep"]\n',
+      'utf8'
+    );
     const config = { generateManifests: true, manifestDir: testDir };
 
     await generateManifests(config, [{ name: 'icon1', pageName: 'Actions' }]);
@@ -68,8 +79,14 @@ describe('generateManifests', () => {
 
     await generateManifests(config, icons);
 
-    const actionsContent = await fs.readFile(path.join(testDir, 'actions.json'), 'utf8');
-    const arrowsContent = await fs.readFile(path.join(testDir, 'arrows.json'), 'utf8');
+    const actionsContent = await fs.readFile(
+      path.join(testDir, 'actions.json'),
+      'utf8'
+    );
+    const arrowsContent = await fs.readFile(
+      path.join(testDir, 'arrows.json'),
+      'utf8'
+    );
 
     expect(JSON.parse(actionsContent)).toEqual(['icon1', 'icon2']);
     expect(JSON.parse(arrowsContent)).toEqual(['icon3']);
@@ -85,7 +102,10 @@ describe('generateManifests', () => {
 
     await generateManifests(config, icons);
 
-    const iconsContent = await fs.readFile(path.join(testDir, 'icons.json'), 'utf8');
+    const iconsContent = await fs.readFile(
+      path.join(testDir, 'icons.json'),
+      'utf8'
+    );
     expect(JSON.parse(iconsContent)).toEqual(['icon1', 'icon2', 'icon3']);
   });
 
@@ -99,7 +119,10 @@ describe('generateManifests', () => {
 
     await generateManifests(config, icons);
 
-    const actionsContent = await fs.readFile(path.join(testDir, 'actions.json'), 'utf8');
+    const actionsContent = await fs.readFile(
+      path.join(testDir, 'actions.json'),
+      'utf8'
+    );
     expect(JSON.parse(actionsContent)).toEqual(['apple', 'banana', 'zebra']);
   });
 
@@ -127,7 +150,11 @@ describe('generateManifests', () => {
 
     const files = await fs.readdir(testDir);
     expect(files).toContain('brands-logos.json');
-    expect(JSON.parse(await fs.readFile(path.join(testDir, 'brands-logos.json'), 'utf8'))).toEqual(['microsoft365']);
+    expect(
+      JSON.parse(
+        await fs.readFile(path.join(testDir, 'brands-logos.json'), 'utf8')
+      )
+    ).toEqual(['microsoft365']);
   });
 
   it('should add newline at end of JSON files', async () => {
@@ -136,7 +163,10 @@ describe('generateManifests', () => {
 
     await generateManifests(config, icons);
 
-    const content = await fs.readFile(path.join(testDir, 'actions.json'), 'utf8');
+    const content = await fs.readFile(
+      path.join(testDir, 'actions.json'),
+      'utf8'
+    );
     expect(content.endsWith('\n')).toBe(true);
   });
 
@@ -145,7 +175,10 @@ describe('generateManifests', () => {
 
     await generateManifests(config, []);
 
-    const iconsContent = await fs.readFile(path.join(testDir, 'icons.json'), 'utf8');
+    const iconsContent = await fs.readFile(
+      path.join(testDir, 'icons.json'),
+      'utf8'
+    );
     expect(JSON.parse(iconsContent)).toEqual([]);
   });
 
@@ -158,9 +191,18 @@ describe('generateManifests', () => {
 
     await generateManifests(config, icons);
 
-    const actionsContent = await fs.readFile(path.join(testDir, 'actions.json'), 'utf8');
-    const arrowsContent = await fs.readFile(path.join(testDir, 'arrows.json'), 'utf8');
-    const iconsContent = await fs.readFile(path.join(testDir, 'icons.json'), 'utf8');
+    const actionsContent = await fs.readFile(
+      path.join(testDir, 'actions.json'),
+      'utf8'
+    );
+    const arrowsContent = await fs.readFile(
+      path.join(testDir, 'arrows.json'),
+      'utf8'
+    );
+    const iconsContent = await fs.readFile(
+      path.join(testDir, 'icons.json'),
+      'utf8'
+    );
 
     expect(JSON.parse(actionsContent)).toEqual(['icon1']);
     expect(JSON.parse(arrowsContent)).toEqual(['icon1']);

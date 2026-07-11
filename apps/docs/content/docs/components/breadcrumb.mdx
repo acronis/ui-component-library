@@ -3,8 +3,8 @@ title: Breadcrumb
 description: Shows the path to the current page within a navigation hierarchy.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { BreadcrumbDemo } from "@/components/demos-react/breadcrumb";
+import { DemoReact } from '@/components/DemoReact';
+import { BreadcrumbDemo } from '@/components/demos-react/breadcrumb';
 
 ## Usage
 
@@ -29,7 +29,6 @@ trail. `Breadcrumb` and `BreadcrumbLink` are polymorphic via Base UI's
 navigation.
 
 ## Examples
-
 
 <DemoReact>
   <BreadcrumbDemo />
@@ -80,7 +79,9 @@ Render a link as a router link with `render`:
 ```tsx
 import { Link as RouterLink } from 'react-router';
 
-<BreadcrumbLink render={<RouterLink to="/products" />}>Products</BreadcrumbLink>
+<BreadcrumbLink render={<RouterLink to="/products" />}>
+  Products
+</BreadcrumbLink>;
 ```
 
 ## API Reference

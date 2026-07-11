@@ -6,12 +6,8 @@ export function FilterInToolbar() {
     <div className="flex items-center justify-between p-4 border rounded-lg">
       <div className="flex gap-2">
         <Filter count={3}>Filters</Filter>
-        <Button variant="secondary">
-          Sort
-        </Button>
-        <Button variant="secondary">
-          Export
-        </Button>
+        <Button variant="secondary">Sort</Button>
+        <Button variant="secondary">Export</Button>
       </div>
       <div className="text-sm text-muted-foreground">
         Showing 24 of 156 items

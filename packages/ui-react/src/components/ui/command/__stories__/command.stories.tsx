@@ -15,7 +15,12 @@ const commands: CommandGroup[] = [
     heading: 'Suggestions',
     items: [
       { value: 'calendar', label: 'Calendar', icon: <CalendarIcon /> },
-      { value: 'search-file', label: 'Search file', icon: <FileIcon />, shortcut: '⌘F' },
+      {
+        value: 'search-file',
+        label: 'Search file',
+        icon: <FileIcon />,
+        shortcut: '⌘F',
+      },
       { value: 'open-folder', label: 'Open folder', icon: <FolderIcon /> },
     ],
   },
@@ -38,7 +43,8 @@ const meta = {
   argTypes: {
     commands: {
       control: false,
-      description: 'Grouped commands: `{ heading?, items: { value, label, icon?, shortcut?, disabled? }[] }[]`.',
+      description:
+        'Grouped commands: `{ heading?, items: { value, label, icon?, shortcut?, disabled? }[] }[]`.',
       table: { type: { summary: 'CommandGroup[]' }, category: 'Content' },
     },
     placeholder: {
@@ -49,7 +55,11 @@ const meta = {
     emptyMessage: {
       control: 'text',
       description: 'Shown when no command matches the query.',
-      table: { type: { summary: 'ReactNode' }, defaultValue: { summary: 'No results found.' }, category: 'Appearance' },
+      table: {
+        type: { summary: 'ReactNode' },
+        defaultValue: { summary: 'No results found.' },
+        category: 'Appearance',
+      },
     },
     onSelect: { control: false, table: { category: 'Events' } },
   },

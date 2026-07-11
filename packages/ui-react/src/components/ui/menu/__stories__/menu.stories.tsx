@@ -45,7 +45,10 @@ const meta = {
     onOpenChange: {
       control: false,
       description: 'Fired when the panel opens or closes.',
-      table: { type: { summary: '(open: boolean) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(open: boolean) => void' },
+        category: 'Events',
+      },
     },
     modal: {
       control: 'boolean',
@@ -112,7 +115,9 @@ export const CascadedSubmenu: Story = {
             Copy
           </MenuItem>
           <MenuSubmenu defaultOpen>
-            <MenuSubmenuTrigger icon={<FolderIcon />}>Move to</MenuSubmenuTrigger>
+            <MenuSubmenuTrigger icon={<FolderIcon />}>
+              Move to
+            </MenuSubmenuTrigger>
             <MenuSubmenuContent>
               <MenuSection>
                 <MenuItem>Documents</MenuItem>
@@ -190,7 +195,9 @@ export const CascadedSubmenuRTL: Story = {
               Copy
             </MenuItem>
             <MenuSubmenu defaultOpen>
-              <MenuSubmenuTrigger icon={<FolderIcon />}>Move to</MenuSubmenuTrigger>
+              <MenuSubmenuTrigger icon={<FolderIcon />}>
+                Move to
+              </MenuSubmenuTrigger>
               <MenuSubmenuContent>
                 <MenuSection>
                   <MenuItem>Documents</MenuItem>

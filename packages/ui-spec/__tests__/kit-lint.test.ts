@@ -50,13 +50,19 @@ describe('T4 tokens/state-token-wiring', () => {
 
 describe('Y1/Y2/Y3 typography', () => {
   it('flags off-scale font size', () => {
-    expect(ruleIds('className="text-[13px]"')).toContain('typography/type-scale');
+    expect(ruleIds('className="text-[13px]"')).toContain(
+      'typography/type-scale'
+    );
   });
   it('flags off-ramp line-height', () => {
-    expect(ruleIds('className="leading-[1.15]"')).toContain('typography/line-height');
+    expect(ruleIds('className="leading-[1.15]"')).toContain(
+      'typography/line-height'
+    );
   });
   it('flags arbitrary numeric font-weight', () => {
-    expect(ruleIds('className="font-[550]"')).toContain('typography/font-weight');
+    expect(ruleIds('className="font-[550]"')).toContain(
+      'typography/font-weight'
+    );
   });
   it('accepts token/utility typography', () => {
     const out = ruleIds('className="text-sm leading-6 font-medium"');

@@ -3,13 +3,9 @@ import { format } from 'date-fns';
 import { cn } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 import { Calendar } from '@spec-lab/ui-react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/ui-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
 
-import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono';
 export function DatePickerFormats() {
   const [date, setDate] = React.useState<Date>();
 
@@ -31,11 +27,7 @@ export function DatePickerFormats() {
           {date ? format(date, 'MM/dd/yyyy') : <span>MM/DD/YYYY</span>}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
-          <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-          />
+          <Calendar mode="single" selected={date} onSelect={setDate} />
         </PopoverContent>
       </Popover>
 
@@ -55,11 +47,7 @@ export function DatePickerFormats() {
           {date ? format(date, 'dd.MM.yyyy') : <span>DD.MM.YYYY</span>}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
-          <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-          />
+          <Calendar mode="single" selected={date} onSelect={setDate} />
         </PopoverContent>
       </Popover>
 
@@ -79,11 +67,7 @@ export function DatePickerFormats() {
           {date ? format(date, 'yyyy-MM-dd') : <span>YYYY-MM-DD</span>}
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
-          <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-          />
+          <Calendar mode="single" selected={date} onSelect={setDate} />
         </PopoverContent>
       </Popover>
     </div>

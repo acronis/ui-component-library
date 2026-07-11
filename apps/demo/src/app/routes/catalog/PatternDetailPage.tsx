@@ -12,7 +12,11 @@ import {
   Stack,
   Tag,
 } from '@spec-lab/ui-react';
-import { ArrowLeftIcon, CheckIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ArrowLeftIcon,
+  CheckIcon,
+  FilesIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { specIndex, statusVariant, type SpecPattern } from './spec-index';
@@ -157,7 +161,10 @@ export function PatternDetailPage() {
         ) : null}
 
         {pattern.when_not_to_use && pattern.when_not_to_use.length > 0 ? (
-          <LabeledList title="When not to use" items={pattern.when_not_to_use} />
+          <LabeledList
+            title="When not to use"
+            items={pattern.when_not_to_use}
+          />
         ) : null}
 
         {pattern.anti_patterns && pattern.anti_patterns.length > 0 ? (
@@ -184,7 +191,9 @@ export function PatternDetailPage() {
           {pattern.example ? (
             <ExampleBlock example={pattern.example} />
           ) : (
-            <p className="text-sm italic text-muted-foreground">No example yet.</p>
+            <p className="text-sm italic text-muted-foreground">
+              No example yet.
+            </p>
           )}
         </CardContent>
       </Card>

@@ -3,7 +3,12 @@
 // `:hover` / `:active` stories require a Storybook pseudo-states addon to paint.
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { DescriptionListItem, DescriptionListLabel, DescriptionListValue, DescriptionListValueDescription } from '../description-list';
+import {
+  DescriptionListItem,
+  DescriptionListLabel,
+  DescriptionListValue,
+  DescriptionListValueDescription,
+} from '../description-list';
 import { DescriptionList } from '../description-list';
 
 const meta = {
@@ -18,16 +23,18 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <DescriptionList>
-      <DescriptionListItem>
-        <DescriptionListLabel>Backup</DescriptionListLabel>
-        <DescriptionListValue>
-          <div>
-            Success
-            <DescriptionListValueDescription>150GB backed up</DescriptionListValueDescription>
-          </div>
-        </DescriptionListValue>
-      </DescriptionListItem>
-    </DescriptionList>
+        <DescriptionListItem>
+          <DescriptionListLabel>Backup</DescriptionListLabel>
+          <DescriptionListValue>
+            <div>
+              Success
+              <DescriptionListValueDescription>
+                150GB backed up
+              </DescriptionListValueDescription>
+            </div>
+          </DescriptionListValue>
+        </DescriptionListItem>
+      </DescriptionList>
     </div>
   ),
 };

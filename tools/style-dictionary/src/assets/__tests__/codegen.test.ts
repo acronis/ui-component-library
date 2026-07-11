@@ -12,7 +12,10 @@ import ts from 'typescript';
 import { generateComponent, type StyleInput } from '../react/codegen';
 
 // Tool root, so the temp file's `import 'react'` resolves via node_modules.
-const TOOL_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
+const TOOL_ROOT = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '../../..'
+);
 
 /** Real semantic type-check of a generated component against @types/react. */
 function typeCheckErrors(source: string): string[] {
@@ -58,7 +61,12 @@ describe('react codegen', () => {
     const { source } = generateComponent({
       id: 'demo',
       hasVariantAxis: false,
-      styles: [single([{ size: '24', svg: SVG24 }, { size: '16', svg: SVG16 }])],
+      styles: [
+        single([
+          { size: '24', svg: SVG24 },
+          { size: '16', svg: SVG16 },
+        ]),
+      ],
     });
     expect(source.match(/const g\d+ =/g) ?? []).toHaveLength(1);
     expect(source).toContain('size?: DemoSize');
@@ -81,8 +89,16 @@ describe('react codegen', () => {
       id: 'demo',
       hasVariantAxis: true,
       styles: [
-        { style: 'icons-solid-mono', canonical: '24', variants: [{ size: '24', svg: SOLID }] },
-        { style: 'icons-stroke-mono', canonical: '24', variants: [{ size: '24', svg: STROKE }] },
+        {
+          style: 'icons-solid-mono',
+          canonical: '24',
+          variants: [{ size: '24', svg: SOLID }],
+        },
+        {
+          style: 'icons-stroke-mono',
+          canonical: '24',
+          variants: [{ size: '24', svg: STROKE }],
+        },
       ],
     });
     expect(source).toContain("DemoVariant = 'stroke-mono' | 'solid-mono'");
@@ -95,7 +111,12 @@ describe('react codegen', () => {
     const { source } = generateComponent({
       id: 'demo',
       hasVariantAxis: false,
-      styles: [single([{ size: '24', svg: SVG24 }, { size: '16', svg: SVG16 }])],
+      styles: [
+        single([
+          { size: '24', svg: SVG24 },
+          { size: '16', svg: SVG16 },
+        ]),
+      ],
     });
     expect(typeCheckErrors(source)).toEqual([]);
   });
@@ -105,8 +126,16 @@ describe('react codegen', () => {
       id: 'demo',
       hasVariantAxis: true,
       styles: [
-        { style: 'icons-stroke-mono', canonical: '24', variants: [{ size: '24', svg: STROKE }] },
-        { style: 'icons-solid-mono', canonical: '24', variants: [{ size: '24', svg: SOLID }] },
+        {
+          style: 'icons-stroke-mono',
+          canonical: '24',
+          variants: [{ size: '24', svg: STROKE }],
+        },
+        {
+          style: 'icons-solid-mono',
+          canonical: '24',
+          variants: [{ size: '24', svg: SOLID }],
+        },
       ],
     });
     expect(typeCheckErrors(source)).toEqual([]);

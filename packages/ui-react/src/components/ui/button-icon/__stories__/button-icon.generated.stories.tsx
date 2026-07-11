@@ -19,32 +19,66 @@ const VARIANTS = ['ghost', 'secondary'] as const;
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      {VARIANTS.map((v) => <ButtonIcon aria-label="Action" key={v} variant={v}><PlusIcon /></ButtonIcon>)}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 12,
+        alignItems: 'center',
+      }}
+    >
+      {VARIANTS.map((v) => (
+        <ButtonIcon aria-label="Action" key={v} variant={v}>
+          <PlusIcon />
+        </ButtonIcon>
+      ))}
     </div>
   ),
 };
 
 export const Disabled: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      {VARIANTS.map((v) => <ButtonIcon aria-label="Action" key={v} variant={v} disabled><PlusIcon /></ButtonIcon>)}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 12,
+        alignItems: 'center',
+      }}
+    >
+      {VARIANTS.map((v) => (
+        <ButtonIcon aria-label="Action" key={v} variant={v} disabled>
+          <PlusIcon />
+        </ButtonIcon>
+      ))}
     </div>
   ),
 };
 
 export const Hover: Story = {
   parameters: { pseudo: { hover: true } },
-  render: () => <ButtonIcon aria-label="Action"><PlusIcon /></ButtonIcon>,
+  render: () => (
+    <ButtonIcon aria-label="Action">
+      <PlusIcon />
+    </ButtonIcon>
+  ),
 };
 
 export const Active: Story = {
   parameters: { pseudo: { active: true } },
-  render: () => <ButtonIcon aria-label="Action"><PlusIcon /></ButtonIcon>,
+  render: () => (
+    <ButtonIcon aria-label="Action">
+      <PlusIcon />
+    </ButtonIcon>
+  ),
 };
 
 export const FocusVisible: Story = {
-  render: () => <ButtonIcon aria-label="Action"><PlusIcon /></ButtonIcon>,
+  render: () => (
+    <ButtonIcon aria-label="Action">
+      <PlusIcon />
+    </ButtonIcon>
+  ),
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();

@@ -15,3 +15,8 @@ packages/tokens/dtcg
 # Design-token source tiers are formatted by the figma-to-design-tokens skill
 # emitters (DtcgFormatter), which own their house style. Keep Prettier out of them.
 packages/tokens/tiers
+
+# Generated (and gitignored) React icon packs, emitted by icons-react's
+# `generate` script from @spec-lab/icons-svg. Regenerated on every build/typecheck,
+# so Prettier can never keep them formatted — leave them to the generator.
+packages/icons-react/src/packs

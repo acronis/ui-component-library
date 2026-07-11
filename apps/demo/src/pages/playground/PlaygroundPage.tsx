@@ -28,7 +28,7 @@ import { AppLayout } from '@/app/layout/AppLayout.tsx';
 import { LocaleProvider } from '@/app/context/LocaleContext';
 import { AuthProvider } from '@/app/context/AuthContext';
 
-import { ArrowLeftIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ArrowLeftIcon } from '@spec-lab/icons-react/stroke-mono';
 const PlaygroundPage: React.FC = () => {
   const { theme, activeTokenSetId, tokenSets, customTokenSet } =
     usePlaygroundStore();

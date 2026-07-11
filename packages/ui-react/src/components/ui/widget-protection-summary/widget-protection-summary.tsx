@@ -26,8 +26,7 @@ import { cn } from '@/lib/utils';
 // once a mockup lands (Figma: Charts-anatomy / Protection-Summary, node
 // 538:78584).
 
-export interface WidgetProtectionSummaryProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProtectionSummaryProps extends React.HTMLAttributes<HTMLDivElement> {
   interactive?: boolean;
 }
 
@@ -98,15 +97,9 @@ const WidgetProtectionSummaryContent = React.forwardRef<
 WidgetProtectionSummaryContent.displayName = 'WidgetProtectionSummaryContent';
 
 type ProtectionStatusTone =
-  | 'success'
-  | 'warning'
-  | 'critical'
-  | 'danger'
-  | 'info'
-  | 'neutral';
+  'success' | 'warning' | 'critical' | 'danger' | 'info' | 'neutral';
 
-export interface WidgetProtectionSummaryRowProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetProtectionSummaryRowProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
   value: string | number;
   status?: ProtectionStatusTone;

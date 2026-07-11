@@ -21,7 +21,18 @@ import {
   SidebarSecondarySectionLabel,
   Tag,
 } from '@spec-lab/ui-react';
-import { CalendarIcon, CircleHelpIcon, CogIcon, FileTextIcon, FolderHouseIcon, InboxIcon, MagnifierIcon, ShieldCheckIcon, UserIcon, UsersIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CalendarIcon,
+  CircleHelpIcon,
+  CogIcon,
+  FileTextIcon,
+  FolderHouseIcon,
+  InboxIcon,
+  MagnifierIcon,
+  ShieldCheckIcon,
+  UserIcon,
+  UsersIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { BarChartIcon } from '../icons/missing-icons';
 
 // The Constructor Lab nav is genuinely two-tier: an icon rail (SidebarPrimary)
@@ -135,7 +146,9 @@ export function SidebarFull() {
       <SidebarSecondary>
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Workspace</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Workspace
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               {projectNavItems.map((item) => (
                 <SidebarSecondaryMenuSub key={item.id} defaultOpen>
@@ -167,7 +180,9 @@ export function SidebarFull() {
           </SidebarSecondarySection>
 
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Insights</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Insights
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               {analyticsNavItems.map((item) => (
                 <SidebarSecondaryMenuItem

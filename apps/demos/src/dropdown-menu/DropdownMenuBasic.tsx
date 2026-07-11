@@ -6,7 +6,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@spec-lab/ui-react';
-import { CogIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CogIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono';
 import { CreditCardIcon, LogOutIcon } from '../icons/missing-icons';
 export function DropdownMenuBasic() {
   return (

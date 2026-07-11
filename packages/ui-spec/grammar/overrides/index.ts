@@ -33,12 +33,14 @@ export function validateOverrides(
     if (!o.id) errors.push('an override is missing an id');
     else if (ids.has(o.id)) errors.push(`duplicate override id "${o.id}"`);
     if (o.id) ids.add(o.id);
-    if (!ruleExists(o.rule)) errors.push(`${label} references unknown rule "${o.rule}"`);
+    if (!ruleExists(o.rule))
+      errors.push(`${label} references unknown rule "${o.rule}"`);
     if (!o.scope || Object.keys(o.scope).length === 0)
       errors.push(`${label} has no scope (needs at least one selector)`);
     if (!o.reason?.trim()) errors.push(`${label} is missing a reason`);
     if (!o.approvedBy?.trim()) errors.push(`${label} is missing approvedBy`);
-    if (!DATE_RE.test(o.date ?? '')) errors.push(`${label} has an invalid date "${o.date}"`);
+    if (!DATE_RE.test(o.date ?? ''))
+      errors.push(`${label} has an invalid date "${o.date}"`);
     if (o.expires && !DATE_RE.test(o.expires))
       errors.push(`${label} has an invalid expires "${o.expires}"`);
   }
@@ -59,7 +61,10 @@ export function matchesOverride(
   if (!o.scope || Object.keys(o.scope).length === 0) return false;
   if (today && o.expires && o.expires < today) return false;
   const s = o.scope;
-  if (s.component && (!t.component || toKebab(s.component) !== toKebab(t.component)))
+  if (
+    s.component &&
+    (!t.component || toKebab(s.component) !== toKebab(t.component))
+  )
     return false;
   if (s.screen && s.screen !== t.screen) return false;
   if (s.region && s.region !== t.region) return false;

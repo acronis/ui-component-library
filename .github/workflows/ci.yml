@@ -136,6 +136,9 @@ jobs:
             pnpm --filter "$workspace" lint
           done
 
+      - name: Format check
+        run: pnpm format:check
+
       # Generate the fumadocs .source files needed by apps/docs typecheck.
       - name: Generate fumadocs source
         run: pnpm --filter @spec-lab/uikit-docs exec fumadocs-mdx

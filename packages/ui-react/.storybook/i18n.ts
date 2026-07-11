@@ -25,12 +25,7 @@
 import type { Locale } from './globals';
 
 export type MessageKey =
-  | 'submit'
-  | 'cancel'
-  | 'search'
-  | 'greeting'
-  | 'notifications'
-  | 'email';
+  'submit' | 'cancel' | 'search' | 'greeting' | 'notifications' | 'email';
 
 export const MESSAGES: Record<Locale, Record<MessageKey, string>> = {
   en: {

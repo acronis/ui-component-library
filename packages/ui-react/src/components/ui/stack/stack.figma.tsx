@@ -7,7 +7,10 @@ import { Stack } from './stack';
 
 figma.connect(Stack, 'FIGMA_NODE_URL', {
   props: {
-    direction: figma.enum('Direction', { vertical: 'vertical', horizontal: 'horizontal' }),
+    direction: figma.enum('Direction', {
+      vertical: 'vertical',
+      horizontal: 'horizontal',
+    }),
   },
   example: ({ direction }) => <Stack direction={direction} />,
 });

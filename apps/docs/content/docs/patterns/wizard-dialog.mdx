@@ -3,8 +3,8 @@ title: Wizard dialog
 description: A multi-step flow inside a modal Dialog — a step/progress indicator, per-step form content, and Back / Next / Finish navigation.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { WizardDialogDemo } from "@/components/demos-react/patterns/wizard-dialog";
+import { DemoReact } from '@/components/DemoReact';
+import { WizardDialogDemo } from '@/components/demos-react/patterns/wizard-dialog';
 
 The sanctioned way to run a short, guided multi-step task without leaving the
 page: a **`Dialog`** whose header carries a **`Progress`** step indicator, whose
@@ -45,7 +45,9 @@ function SetupWizard({ open, onOpenChange, onFinish, steps }) {
           <DialogTitle>{steps[step].title}</DialogTitle>
           <Progress value={((step + 1) / steps.length) * 100} />
         </DialogHeader>
-        <Form onFormSubmit={() => (isLast ? onFinish() : setStep((s) => s + 1))}>
+        <Form
+          onFormSubmit={() => (isLast ? onFinish() : setStep((s) => s + 1))}
+        >
           <DialogBody>{steps[step].content}</DialogBody>
           <DialogFooter>
             <Button

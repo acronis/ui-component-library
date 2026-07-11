@@ -8,9 +8,15 @@ import dotenv from 'dotenv';
 import type { SelectionStrategyName } from './strategies/types';
 import type { FetcherConfig } from './types';
 
-const SELECTION_STRATEGIES = new Set<SelectionStrategyName>(['frames-by-name', 'new-frames', 'icon-packs']);
+const SELECTION_STRATEGIES = new Set<SelectionStrategyName>([
+  'frames-by-name',
+  'new-frames',
+  'icon-packs',
+]);
 
-function parseSelectionStrategy(value: string | undefined): SelectionStrategyName {
+function parseSelectionStrategy(
+  value: string | undefined
+): SelectionStrategyName {
   return value && SELECTION_STRATEGIES.has(value as SelectionStrategyName)
     ? (value as SelectionStrategyName)
     : 'frames-by-name';
@@ -27,20 +33,35 @@ function parseNodeId(value: string | undefined): string | undefined {
 }
 
 export function getConfig(): FetcherConfig {
-  const envConfig = { ...getEnvConfig('.env'), ...getEnvConfig('.env.local'), ...process.env };
+  const envConfig = {
+    ...getEnvConfig('.env'),
+    ...getEnvConfig('.env.local'),
+    ...process.env,
+  };
 
   return {
     token: envConfig.FIGMA_FETCHER_FIGMA_TOKEN,
     fileKey: envConfig.FIGMA_FETCHER_FILE_KEY,
     nodeId: parseNodeId(envConfig.FIGMA_FETCHER_NODE_ID),
-    selectionStrategy: parseSelectionStrategy(envConfig.FIGMA_FETCHER_SELECTION_STRATEGY),
+    selectionStrategy: parseSelectionStrategy(
+      envConfig.FIGMA_FETCHER_SELECTION_STRATEGY
+    ),
     skipMissingImages: envConfig.FIGMA_FETCHER_SKIP_MISSING_IMAGES === 'true',
-    frameNames: envConfig.FIGMA_FETCHER_FRAME_NAMES?.split(',').map((name) => name.trim()) ?? [],
-    pageNames: envConfig.FIGMA_FETCHER_PAGE_NAMES?.split(',').map((name) => name.trim()) ?? [],
+    frameNames:
+      envConfig.FIGMA_FETCHER_FRAME_NAMES?.split(',').map((name) =>
+        name.trim()
+      ) ?? [],
+    pageNames:
+      envConfig.FIGMA_FETCHER_PAGE_NAMES?.split(',').map((name) =>
+        name.trim()
+      ) ?? [],
     className: envConfig.FIGMA_FETCHER_CLASS_NAME,
     systemColor: envConfig.FIGMA_FETCHER_SYSTEM_COLOR ?? '#181818',
     outputDir: envConfig.FIGMA_FETCHER_OUTPUT_DIR ?? './icons',
-    outputDirs: envConfig.FIGMA_FETCHER_OUTPUT_DIRS?.split(',').map((dir) => dir.trim()).filter(Boolean) ?? [],
+    outputDirs:
+      envConfig.FIGMA_FETCHER_OUTPUT_DIRS?.split(',')
+        .map((dir) => dir.trim())
+        .filter(Boolean) ?? [],
     generateManifests: envConfig.FIGMA_FETCHER_GENERATE_MANIFESTS === 'true',
     manifestDir: envConfig.FIGMA_FETCHER_MANIFEST_DIR ?? './manifests',
     cleanManifests: envConfig.FIGMA_FETCHER_CLEAN_MANIFESTS === 'true',
@@ -61,31 +82,37 @@ function getEnvConfig(file: string): Record<string, string> {
 }
 
 export function formatName(name: string): string {
-  return name
-    .trim()
-    // Insert hyphen between lowercase/digit and uppercase: "macBook" → "mac-Book"
-    .replaceAll(/([a-z\d])([A-Z])/g, '$1-$2')
-    // Insert hyphen inside uppercase runs when followed by lowercase
-    // "XMLHttp" → "XML-Http", "ESXi" → "ESX-i", "HTMLElement" → "HTML-Element"
-    .replaceAll(/[A-Z]{2,}/g, (match, offset: number, str: string) => {
-      const after = str.slice(offset + match.length);
-      if (after && /^[a-z]/.test(after)) {
-        // Followed by lowercase - check if it's a word (2+ lowercase) or single char
-        if (/^[a-z]{2,}/.test(after)) {
-          // Word follows (e.g. "ttp" after "XMLH") → split off last uppercase: "XML-H"
-          return `${match.slice(0, -1)}-${match.slice(-1)}`;
+  return (
+    name
+      .trim()
+      // Insert hyphen between lowercase/digit and uppercase: "macBook" → "mac-Book"
+      .replaceAll(/([a-z\d])([A-Z])/g, '$1-$2')
+      // Insert hyphen inside uppercase runs when followed by lowercase
+      // "XMLHttp" → "XML-Http", "ESXi" → "ESX-i", "HTMLElement" → "HTML-Element"
+      .replaceAll(/[A-Z]{2,}/g, (match, offset: number, str: string) => {
+        const after = str.slice(offset + match.length);
+        if (after && /^[a-z]/.test(after)) {
+          // Followed by lowercase - check if it's a word (2+ lowercase) or single char
+          if (/^[a-z]{2,}/.test(after)) {
+            // Word follows (e.g. "ttp" after "XMLH") → split off last uppercase: "XML-H"
+            return `${match.slice(0, -1)}-${match.slice(-1)}`;
+          }
+          // Single lowercase follows (e.g. "i" after "ESX") → keep run, add hyphen after: "ESX-"
+          return `${match}-`;
         }
-        // Single lowercase follows (e.g. "i" after "ESX") → keep run, add hyphen after: "ESX-"
-        return `${match}-`;
-      }
-      return match;
-    })
-    .toLowerCase()
-    .replaceAll(/\s*\/\s*/g, '/')
-    .replaceAll(/\s+/g, '-');
+        return match;
+      })
+      .toLowerCase()
+      .replaceAll(/\s*\/\s*/g, '/')
+      .replaceAll(/\s+/g, '-')
+  );
 }
 
-export function findDuplicates<T extends object>(propertyName: string, arr: T[], groupProperty?: string): T[] {
+export function findDuplicates<T extends object>(
+  propertyName: string,
+  arr: T[],
+  groupProperty?: string
+): T[] {
   const seen = new Set<unknown>();
 
   return arr.map((current) => {
@@ -104,7 +131,9 @@ export function findDuplicates<T extends object>(propertyName: string, arr: T[],
       }
 
       console.log(
-        chalk.bgRed.bold(`Duplicate icon name: ${value} -> ${renamed}. Please fix Figma file`),
+        chalk.bgRed.bold(
+          `Duplicate icon name: ${value} -> ${renamed}. Please fix Figma file`
+        )
       );
       value = renamed;
       record[propertyName] = value;
@@ -137,7 +166,10 @@ export function isMulticolor(svgContent: string): boolean {
   const colors = matches.map((match) => {
     const color = match[1];
     return color.length === 3
-      ? color.split('').map((c) => `${c}${c}`).join('')
+      ? color
+          .split('')
+          .map((c) => `${c}${c}`)
+          .join('')
       : color;
   });
 
@@ -148,7 +180,9 @@ export function isMulticolor(svgContent: string): boolean {
 /**
  * Groups icons by their source page name (formatted).
  */
-export function groupIconsByPage<T extends { pageName: string }>(icons: T[]): Record<string, T[]> {
+export function groupIconsByPage<T extends { pageName: string }>(
+  icons: T[]
+): Record<string, T[]> {
   return icons.reduce<Record<string, T[]>>((acc, icon) => {
     const pageName = formatName(icon.pageName);
     if (!acc[pageName]) {

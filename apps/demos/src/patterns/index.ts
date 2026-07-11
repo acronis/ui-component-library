@@ -11,16 +11,28 @@ export { SignupPattern } from './SignupPattern';
 export { AppShellDemo } from './AppShellDemo';
 export { AuthScreenDemo } from './AuthScreenDemo';
 export { CardGridDemo } from './CardGridDemo';
-export { ConfirmDialogDemo, type ConfirmDialogDemoProps } from './ConfirmDialogDemo';
+export {
+  ConfirmDialogDemo,
+  type ConfirmDialogDemoProps,
+} from './ConfirmDialogDemo';
 export { DashboardDemo } from './DashboardDemo';
 export { DataTableBulkActionsDemo } from './DataTableBulkActionsDemo';
-export { DetailDrawerDemo, type DetailDrawerDemoProps } from './DetailDrawerDemo';
+export {
+  DetailDrawerDemo,
+  type DetailDrawerDemoProps,
+} from './DetailDrawerDemo';
 export { EmptyScreenDemo } from './EmptyScreenDemo';
 export { FieldGroupDemo } from './FieldGroupDemo';
-export { FilterPopoverDemo, type FilterPopoverDemoProps } from './FilterPopoverDemo';
+export {
+  FilterPopoverDemo,
+  type FilterPopoverDemoProps,
+} from './FilterPopoverDemo';
 export { FormDialogDemo, type FormDialogDemoProps } from './FormDialogDemo';
 export { FormLayoutDemo, type FormLayoutDemoProps } from './FormLayoutDemo';
-export { FormTwoColumnDemo, type FormTwoColumnDemoProps } from './FormTwoColumnDemo';
+export {
+  FormTwoColumnDemo,
+  type FormTwoColumnDemoProps,
+} from './FormTwoColumnDemo';
 export { FormValidationDemo } from './FormValidationDemo';
 export {
   IntelligencePanelDemo,
@@ -32,4 +44,7 @@ export {
 } from './SheetDetailPanelDemo';
 export { SidebarNavigationDemo } from './SidebarNavigationDemo';
 export { TableViewDemo } from './TableViewDemo';
-export { WizardDialogDemo, type WizardDialogDemoProps } from './WizardDialogDemo';
+export {
+  WizardDialogDemo,
+  type WizardDialogDemoProps,
+} from './WizardDialogDemo';

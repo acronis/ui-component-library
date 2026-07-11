@@ -39,7 +39,8 @@ export const spacingRules = [
     category: 'spacing',
     severity: 'should',
     rule: 'Components of the same role/size use the same padding tier.',
-    rationale: 'Inconsistent internal padding makes equivalent components feel different.',
+    rationale:
+      'Inconsistent internal padding makes equivalent components feel different.',
     checklist: 'Z4',
     detector: 'screen/padding-tier',
   },
@@ -49,7 +50,8 @@ export const spacingRules = [
     category: 'spacing',
     severity: 'must',
     rule: 'Interactive elements meet the kit minimum hit area.',
-    rationale: 'Sub-minimum targets are hard to hit and fail accessibility guidance.',
+    rationale:
+      'Sub-minimum targets are hard to hit and fail accessibility guidance.',
     checklist: 'Z5',
     detector: 'kit-lint/touch-target',
     wcag: ['2.5.5'],
@@ -61,7 +63,8 @@ export const spacingRules = [
     category: 'spacing',
     severity: 'should',
     rule: 'Icons within a row/cluster share one size (e.g. all 16px), not a mix.',
-    rationale: 'A 16px icon beside a 20px icon in the same group reads as a mistake.',
+    rationale:
+      'A 16px icon beside a 20px icon in the same group reads as a mistake.',
     checklist: 'Z6',
     detector: 'screen/icon-size-parity',
   },

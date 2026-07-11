@@ -40,10 +40,14 @@ export function FormValidationDemo() {
       <Field name="email">
         <FieldLabel>Email</FieldLabel>
         <FieldControl
-          render={<InputText type="email" placeholder="you@example.com" required />}
+          render={
+            <InputText type="email" placeholder="you@example.com" required />
+          }
         />
         <FieldError match="valueMissing">Email is required.</FieldError>
-        <FieldError match="typeMismatch">Enter a valid email address.</FieldError>
+        <FieldError match="typeMismatch">
+          Enter a valid email address.
+        </FieldError>
       </Field>
 
       <Field
@@ -78,7 +82,9 @@ export function FormValidationDemo() {
       <Button type="submit">Create account</Button>
 
       {submitted && (
-        <p className="text-sm text-muted-foreground">Submitted — all fields valid ✓</p>
+        <p className="text-sm text-muted-foreground">
+          Submitted — all fields valid ✓
+        </p>
       )}
     </Form>
   );

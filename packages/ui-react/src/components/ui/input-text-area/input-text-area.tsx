@@ -16,8 +16,10 @@ import { cn } from '@/lib/utils';
 // from `--ui-input-text-area-box-*`; it grows with vertical resize. `ref` and
 // `className` target the underlying `<textarea>`, so the bare usage
 // (`<InputTextArea placeholder=… />`, no label) renders just the box.
-export interface InputTextAreaProps
-  extends Omit<React.ComponentPropsWithoutRef<'textarea'>, 'children'> {
+export interface InputTextAreaProps extends Omit<
+  React.ComponentPropsWithoutRef<'textarea'>,
+  'children'
+> {
   /** Field label, rendered above the textarea. */
   label?: React.ReactNode;
   /** Marks the field required — appends a `*` after the label. */

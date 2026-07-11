@@ -22,7 +22,9 @@ export interface FilterPopoverDemoProps {
   portalContainer?: HTMLElement | null;
 }
 
-export function FilterPopoverDemo({ portalContainer }: FilterPopoverDemoProps = {}) {
+export function FilterPopoverDemo({
+  portalContainer,
+}: FilterPopoverDemoProps = {}) {
   return (
     <Popover defaultOpen>
       <PopoverTrigger render={<Button variant="secondary">Filters</Button>} />

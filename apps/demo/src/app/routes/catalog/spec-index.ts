@@ -50,7 +50,9 @@ export interface SpecIndex {
 export const specIndex = specIndexJson as SpecIndex;
 
 /** Map a spec `status` to the closest kit Tag variant. */
-export function statusVariant(status: string): NonNullable<TagProps['variant']> {
+export function statusVariant(
+  status: string
+): NonNullable<TagProps['variant']> {
   switch (status) {
     case 'stable':
       return 'success';

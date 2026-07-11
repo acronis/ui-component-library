@@ -197,9 +197,7 @@ variable in the export lacks an entry in `variables-meta.json`
 the missing IDs and merge them in:
 
 ```javascript
-const ids = [
-  /* printed by the error */
-];
+const ids = [/* printed by the error */];
 const out = {};
 for (const id of ids) {
   const v = await figma.variables.getVariableByIdAsync(id);

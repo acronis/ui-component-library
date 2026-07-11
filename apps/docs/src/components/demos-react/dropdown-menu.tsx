@@ -15,7 +15,9 @@ export function DropdownMenuDemo() {
   const mount = useShadowMount();
   return (
     <DropdownMenu defaultOpen>
-      <DropdownMenuTrigger render={<Button variant="secondary">Open menu</Button>} />
+      <DropdownMenuTrigger
+        render={<Button variant="secondary">Open menu</Button>}
+      />
       <DropdownMenuContent portalContainer={mount} className="w-56">
         <DropdownMenuLabel>My account</DropdownMenuLabel>
         <DropdownMenuSeparator />

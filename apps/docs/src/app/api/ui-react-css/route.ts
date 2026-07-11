@@ -14,10 +14,7 @@ let css: string | null = null;
 function loadCss(): string {
   if (css === null) {
     css = readFileSync(
-      join(
-        process.cwd(),
-        'node_modules/@spec-lab/ui-react/dist/ui-react.css'
-      ),
+      join(process.cwd(), 'node_modules/@spec-lab/ui-react/dist/ui-react.css'),
       'utf-8'
     );
   }

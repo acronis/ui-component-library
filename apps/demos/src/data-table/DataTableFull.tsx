@@ -33,7 +33,7 @@ import {
   DataTableToolbar,
 } from '@spec-lab/ui-react';
 
-import { EllipsisIcon } from '@spec-lab/icons-react/stroke-mono'
+import { EllipsisIcon } from '@spec-lab/icons-react/stroke-mono';
 export type Payment = {
   id: string;
   amount: number;

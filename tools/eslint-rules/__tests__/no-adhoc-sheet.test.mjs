@@ -28,7 +28,11 @@ const bad = [
 ];
 for (const code of bad) {
   const msgs = lint(code);
-  assert.equal(msgs.length, 1, `expected 1 report for: ${code}\n${JSON.stringify(msgs)}`);
+  assert.equal(
+    msgs.length,
+    1,
+    `expected 1 report for: ${code}\n${JSON.stringify(msgs)}`
+  );
   assert.equal(msgs[0].messageId, 'adhocSheet');
 }
 
@@ -41,7 +45,13 @@ const good = [
 ];
 for (const code of good) {
   const msgs = lint(code);
-  assert.equal(msgs.length, 0, `expected 0 reports for: ${code}\n${JSON.stringify(msgs)}`);
+  assert.equal(
+    msgs.length,
+    0,
+    `expected 0 reports for: ${code}\n${JSON.stringify(msgs)}`
+  );
 }
 
-console.log('no-adhoc-sheet: all assertions passed (2 invalid flagged, 4 valid clean)');
+console.log(
+  'no-adhoc-sheet: all assertions passed (2 invalid flagged, 4 valid clean)'
+);

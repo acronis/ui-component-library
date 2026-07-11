@@ -18,18 +18,26 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <InputTextArea label="Bio" placeholder="Tell us about yourself" />
-      <InputTextArea label="Bio" placeholder="Tell us about yourself" disabled />
+      <InputTextArea
+        label="Bio"
+        placeholder="Tell us about yourself"
+        disabled
+      />
     </div>
   ),
 };
 
 export const Hover: Story = {
   parameters: { pseudo: { hover: true } },
-  render: () => <InputTextArea label="Bio" placeholder="Tell us about yourself" />,
+  render: () => (
+    <InputTextArea label="Bio" placeholder="Tell us about yourself" />
+  ),
 };
 
 export const FocusVisible: Story = {
-  render: () => <InputTextArea label="Bio" placeholder="Tell us about yourself" />,
+  render: () => (
+    <InputTextArea label="Bio" placeholder="Tell us about yourself" />
+  ),
   // Real keyboard focus — paints :focus-visible without a pseudo-states addon.
   play: async () => {
     await userEvent.tab();

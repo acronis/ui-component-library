@@ -1,5 +1,9 @@
 import { Tag } from '@spec-lab/ui-react';
-import { CircleWarningIcon, LockIcon, ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CircleWarningIcon,
+  LockIcon,
+  ShieldCheckIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { UnlockIcon } from '../icons/missing-icons';
 export function TagSecurity() {
   return (
@@ -13,10 +17,7 @@ export function TagSecurity() {
       <Tag variant="warning" icon={<UnlockIcon className="h-4 w-4" />}>
         Unlocked
       </Tag>
-      <Tag
-        variant="danger"
-        icon={<CircleWarningIcon className="h-4 w-4" />}
-      >
+      <Tag variant="danger" icon={<CircleWarningIcon className="h-4 w-4" />}>
         Vulnerable
       </Tag>
     </div>

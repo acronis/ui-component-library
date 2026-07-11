@@ -7,21 +7,21 @@ import { ColorUtils } from './utils-color.mjs';
 
 // Change type constants.
 export const ChangeType = Object.freeze({
-  TOKEN_ADDED:              'TOKEN_ADDED',
-  TOKEN_DELETED:            'TOKEN_DELETED',
-  VALUE_CHANGED:            'VALUE_CHANGED',
-  MODE_VALUE_CHANGED:       'MODE_VALUE_CHANGED',
-  TYPE_CHANGED:             'TYPE_CHANGED',
-  SCOPES_CHANGED:           'SCOPES_CHANGED',
-  HIDDEN_CHANGED:           'HIDDEN_CHANGED',
-  EXTENSION_ADDED:          'EXTENSION_ADDED',
-  EXTENSION_REMOVED:        'EXTENSION_REMOVED',
-  EXTENSION_VALUE_CHANGED:  'EXTENSION_VALUE_CHANGED',
-  STYLE_ADDED:              'STYLE_ADDED',
-  STYLE_DELETED:            'STYLE_DELETED',
-  STYLE_CHANGED:            'STYLE_CHANGED',
-  UNCLASSIFIED:             'UNCLASSIFIED',
-  FIGMA_UNTRACKED:          'FIGMA_UNTRACKED',
+  TOKEN_ADDED: 'TOKEN_ADDED',
+  TOKEN_DELETED: 'TOKEN_DELETED',
+  VALUE_CHANGED: 'VALUE_CHANGED',
+  MODE_VALUE_CHANGED: 'MODE_VALUE_CHANGED',
+  TYPE_CHANGED: 'TYPE_CHANGED',
+  SCOPES_CHANGED: 'SCOPES_CHANGED',
+  HIDDEN_CHANGED: 'HIDDEN_CHANGED',
+  EXTENSION_ADDED: 'EXTENSION_ADDED',
+  EXTENSION_REMOVED: 'EXTENSION_REMOVED',
+  EXTENSION_VALUE_CHANGED: 'EXTENSION_VALUE_CHANGED',
+  STYLE_ADDED: 'STYLE_ADDED',
+  STYLE_DELETED: 'STYLE_DELETED',
+  STYLE_CHANGED: 'STYLE_CHANGED',
+  UNCLASSIFIED: 'UNCLASSIFIED',
+  FIGMA_UNTRACKED: 'FIGMA_UNTRACKED',
 });
 
 export class DiffEngine {
@@ -41,7 +41,9 @@ export class DiffEngine {
     return this;
   }
 
-  get changes() { return this.#changes; }
+  get changes() {
+    return this.#changes;
+  }
 
   // ── Variables ────────────────────────────────────────────────────────────
 
@@ -97,7 +99,12 @@ export class DiffEngine {
 
     // $type change.
     if (snLeaf.$type && tierLeaf.$type && snLeaf.$type !== tierLeaf.$type) {
-      this.#changes.push({ ...base, type: ChangeType.TYPE_CHANGED, from: tierLeaf.$type, to: snLeaf.$type });
+      this.#changes.push({
+        ...base,
+        type: ChangeType.TYPE_CHANGED,
+        from: tierLeaf.$type,
+        to: snLeaf.$type,
+      });
       classified = true;
     }
 
@@ -109,16 +116,33 @@ export class DiffEngine {
     // scalars) compare normalized values directly.
     if (snLeaf.$value !== undefined && tierLeaf.$value !== undefined) {
       const tv = tierLeaf.$value;
-      if (tv && typeof tv === 'object' && !Array.isArray(tv) && 'value' in tv && 'unit' in tv) {
-        const round = c => (typeof c === 'number' ? ColorUtils.round(c, 4) : c);
+      if (
+        tv &&
+        typeof tv === 'object' &&
+        !Array.isArray(tv) &&
+        'value' in tv &&
+        'unit' in tv
+      ) {
+        const round = (c) =>
+          typeof c === 'number' ? ColorUtils.round(c, 4) : c;
         if (round(tv.value) !== round(snLeaf.$value)) {
-          this.#changes.push({ ...base, type: ChangeType.VALUE_CHANGED, from: tv, to: snLeaf.$value });
+          this.#changes.push({
+            ...base,
+            type: ChangeType.VALUE_CHANGED,
+            from: tv,
+            to: snLeaf.$value,
+          });
         }
       } else {
         const snVal = JSON.stringify(DiffEngine.#normalizeValue(snLeaf.$value));
         const tierVal = JSON.stringify(DiffEngine.#normalizeValue(tv));
         if (snVal !== tierVal) {
-          this.#changes.push({ ...base, type: ChangeType.VALUE_CHANGED, from: tv, to: snLeaf.$value });
+          this.#changes.push({
+            ...base,
+            type: ChangeType.VALUE_CHANGED,
+            from: tv,
+            to: snLeaf.$value,
+          });
         }
       }
       classified = true;
@@ -137,7 +161,13 @@ export class DiffEngine {
         const normSn = DiffEngine.#normalizeValue(snModeVal);
         const normTier = DiffEngine.#normalizeValue(tierModeVal);
         if (JSON.stringify(normSn) !== JSON.stringify(normTier)) {
-          this.#changes.push({ ...base, type: ChangeType.MODE_VALUE_CHANGED, mode: normalizedKey, from: tierModeVal, to: snModeVal });
+          this.#changes.push({
+            ...base,
+            type: ChangeType.MODE_VALUE_CHANGED,
+            mode: normalizedKey,
+            from: tierModeVal,
+            to: snModeVal,
+          });
           classified = true;
         }
       }
@@ -147,32 +177,63 @@ export class DiffEngine {
     const snFigmaExt = this.#figmaExtFields(snLeaf.$extensions ?? {});
     const tierFigmaExt = this.#figmaExtFields(tierLeaf.$extensions ?? {});
 
-    for (const key of new Set([...Object.keys(snFigmaExt), ...Object.keys(tierFigmaExt)])) {
+    for (const key of new Set([
+      ...Object.keys(snFigmaExt),
+      ...Object.keys(tierFigmaExt),
+    ])) {
       const inSn = key in snFigmaExt;
       const inTier = key in tierFigmaExt;
       if (key === 'com.figma.variableId') continue; // always present both sides
 
       if (inSn && !inTier) {
-        this.#changes.push({ ...base, type: ChangeType.EXTENSION_ADDED, key, value: snFigmaExt[key] });
+        this.#changes.push({
+          ...base,
+          type: ChangeType.EXTENSION_ADDED,
+          key,
+          value: snFigmaExt[key],
+        });
         classified = true;
       } else if (!inSn && inTier) {
-        this.#changes.push({ ...base, type: ChangeType.EXTENSION_REMOVED, key, value: tierFigmaExt[key] });
+        this.#changes.push({
+          ...base,
+          type: ChangeType.EXTENSION_REMOVED,
+          key,
+          value: tierFigmaExt[key],
+        });
         classified = true;
       } else if (inSn && inTier) {
         if (key === 'com.figma.scopes') {
           const snArr = [...(snFigmaExt[key] ?? [])].sort();
           const tierArr = [...(tierFigmaExt[key] ?? [])].sort();
           if (JSON.stringify(snArr) !== JSON.stringify(tierArr)) {
-            this.#changes.push({ ...base, type: ChangeType.SCOPES_CHANGED, from: tierFigmaExt[key], to: snFigmaExt[key] });
+            this.#changes.push({
+              ...base,
+              type: ChangeType.SCOPES_CHANGED,
+              from: tierFigmaExt[key],
+              to: snFigmaExt[key],
+            });
             classified = true;
           }
         } else if (key === 'com.figma.hiddenFromPublishing') {
           if (snFigmaExt[key] !== tierFigmaExt[key]) {
-            this.#changes.push({ ...base, type: ChangeType.HIDDEN_CHANGED, from: tierFigmaExt[key], to: snFigmaExt[key] });
+            this.#changes.push({
+              ...base,
+              type: ChangeType.HIDDEN_CHANGED,
+              from: tierFigmaExt[key],
+              to: snFigmaExt[key],
+            });
             classified = true;
           }
-        } else if (JSON.stringify(snFigmaExt[key]) !== JSON.stringify(tierFigmaExt[key])) {
-          this.#changes.push({ ...base, type: ChangeType.EXTENSION_VALUE_CHANGED, key, from: tierFigmaExt[key], to: snFigmaExt[key] });
+        } else if (
+          JSON.stringify(snFigmaExt[key]) !== JSON.stringify(tierFigmaExt[key])
+        ) {
+          this.#changes.push({
+            ...base,
+            type: ChangeType.EXTENSION_VALUE_CHANGED,
+            key,
+            from: tierFigmaExt[key],
+            to: snFigmaExt[key],
+          });
           classified = true;
         }
       }
@@ -185,15 +246,24 @@ export class DiffEngine {
     //   - snapshot always has $value; tiers may omit it (components only store values.acronis)
     // Include `default` in the comparison only when BOTH sides have $value.
     if (!classified) {
-      const sortedObj = o => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
-      const includeDefault = snLeaf.$value !== undefined && tierLeaf.$value !== undefined;
-      const toAllValues = ($value, modeOrValues) => sortedObj(Object.fromEntries([
-        ...(includeDefault ? [['default', DiffEngine.#normalizeValue($value)]] : []),
-        ...Object.entries(modeOrValues).map(([k, v]) => [
-          k.toLowerCase().replace(/\s+/g, '-'),
-          DiffEngine.#normalizeValue(v),
-        ]),
-      ]));
+      const sortedObj = (o) =>
+        Object.fromEntries(
+          Object.entries(o).sort(([a], [b]) => a.localeCompare(b))
+        );
+      const includeDefault =
+        snLeaf.$value !== undefined && tierLeaf.$value !== undefined;
+      const toAllValues = ($value, modeOrValues) =>
+        sortedObj(
+          Object.fromEntries([
+            ...(includeDefault
+              ? [['default', DiffEngine.#normalizeValue($value)]]
+              : []),
+            ...Object.entries(modeOrValues).map(([k, v]) => [
+              k.toLowerCase().replace(/\s+/g, '-'),
+              DiffEngine.#normalizeValue(v),
+            ]),
+          ])
+        );
       // $type is intentionally excluded: primitives/semantics tiers declare
       // $type on the group, not the leaf, so the snapshot leaf carries it inline
       // while the tier leaf does not — comparing them yields false positives.
@@ -207,7 +277,12 @@ export class DiffEngine {
         ext: sortedObj(tierFigmaExt),
       });
       if (snSig !== tierSig) {
-        this.#changes.push({ ...base, type: ChangeType.UNCLASSIFIED, snapshot: snLeaf, tiers: tierLeaf });
+        this.#changes.push({
+          ...base,
+          type: ChangeType.UNCLASSIFIED,
+          snapshot: snLeaf,
+          tiers: tierLeaf,
+        });
       }
     }
   }
@@ -224,29 +299,47 @@ export class DiffEngine {
 
   #diffStyles() {
     const snapshotStyles = [
-      ...this.#snapshot.styles.text.map(s => ({ ...s, _category: 'text' })),
-      ...this.#snapshot.styles.color.map(s => ({ ...s, _category: 'color' })),
-      ...this.#snapshot.styles.effect.map(s => ({ ...s, _category: 'effect' })),
+      ...this.#snapshot.styles.text.map((s) => ({ ...s, _category: 'text' })),
+      ...this.#snapshot.styles.color.map((s) => ({ ...s, _category: 'color' })),
+      ...this.#snapshot.styles.effect.map((s) => ({
+        ...s,
+        _category: 'effect',
+      })),
     ];
     const tiersStyleIndex = this.#tiersReader.styleIndex;
-    const snapshotStyleIndex = new Map(snapshotStyles.map(s => [s.id, s]));
+    const snapshotStyleIndex = new Map(snapshotStyles.map((s) => [s.id, s]));
 
     for (const snStyle of snapshotStyles) {
       if (!tiersStyleIndex.has(snStyle.id)) {
-        this.#changes.push({ type: ChangeType.STYLE_ADDED, styleId: snStyle.id, style: snStyle });
+        this.#changes.push({
+          type: ChangeType.STYLE_ADDED,
+          styleId: snStyle.id,
+          style: snStyle,
+        });
       } else {
         const tierEntry = tiersStyleIndex.get(snStyle.id);
         // Basic style change detection: compare name and a few key fields.
         const changed = this.#styleChanged(snStyle, tierEntry.leaf);
         if (changed) {
-          this.#changes.push({ type: ChangeType.STYLE_CHANGED, styleId: snStyle.id, tier: tierEntry.tier, ourPath: tierEntry.path, changes: changed });
+          this.#changes.push({
+            type: ChangeType.STYLE_CHANGED,
+            styleId: snStyle.id,
+            tier: tierEntry.tier,
+            ourPath: tierEntry.path,
+            changes: changed,
+          });
         }
       }
     }
 
     for (const [styleId, tierEntry] of tiersStyleIndex) {
       if (!snapshotStyleIndex.has(styleId)) {
-        this.#changes.push({ type: ChangeType.STYLE_DELETED, styleId, tier: tierEntry.tier, ourPath: tierEntry.path });
+        this.#changes.push({
+          type: ChangeType.STYLE_DELETED,
+          styleId,
+          tier: tierEntry.tier,
+          ourPath: tierEntry.path,
+        });
       }
     }
   }
@@ -255,8 +348,16 @@ export class DiffEngine {
     const diffs = [];
     // The tier stores the styleId but the actual style data lives in $value (for typography).
     // We just report the snapshot style name vs what's in tiers.
-    if (snStyle.name && tierToken._snapshotName && snStyle.name !== tierToken._snapshotName) {
-      diffs.push({ field: 'name', from: tierToken._snapshotName, to: snStyle.name });
+    if (
+      snStyle.name &&
+      tierToken._snapshotName &&
+      snStyle.name !== tierToken._snapshotName
+    ) {
+      diffs.push({
+        field: 'name',
+        from: tierToken._snapshotName,
+        to: snStyle.name,
+      });
     }
     return diffs.length > 0 ? diffs : null;
   }
@@ -270,7 +371,8 @@ export class DiffEngine {
     // JSON.stringify elsewhere, so canonicalize key order — Figma-derived and
     // emitted objects can carry the same fields in different orders. Arrays keep
     // their order ([h, s, l] is positional).
-    if (value && typeof value === 'object') return DiffEngine.#sortKeysDeep(value);
+    if (value && typeof value === 'object')
+      return DiffEngine.#sortKeysDeep(value);
     if (typeof value !== 'string' || !value.startsWith('{')) return value;
     let inner = value.slice(1, -1);
     inner = inner.replace(/^(semantics|components)\./, '');
@@ -282,7 +384,9 @@ export class DiffEngine {
     if (Array.isArray(value)) return value.map(DiffEngine.#sortKeysDeep);
     if (value && typeof value === 'object') {
       return Object.fromEntries(
-        Object.keys(value).sort().map(k => [k, DiffEngine.#sortKeysDeep(value[k])]),
+        Object.keys(value)
+          .sort()
+          .map((k) => [k, DiffEngine.#sortKeysDeep(value[k])])
       );
     }
     return value;
@@ -294,8 +398,8 @@ export class DiffEngine {
   //   ['theme', ...]               → 'primitives'
   static #inferTier(path) {
     if (path[0] === 'brand' && path[1] === 'components') return 'components';
-    if (path[0] === 'brand' && path[1] === 'semantics')  return 'semantics';
-    if (path[0] === 'theme')                              return 'primitives';
+    if (path[0] === 'brand' && path[1] === 'semantics') return 'semantics';
+    if (path[0] === 'theme') return 'primitives';
     return null;
   }
 }

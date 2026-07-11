@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
-import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
 export function DialogConfirmation() {
   return (
     <Dialog>

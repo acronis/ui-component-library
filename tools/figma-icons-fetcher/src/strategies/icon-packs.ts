@@ -23,12 +23,18 @@ function categoryLabel(frame: FigmaNode): string {
   const title = frame.children?.find(
     (child) =>
       child.type === 'TEXT' &&
-      child.name.trim().localeCompare(TITLE_NAME, undefined, { sensitivity: 'accent' }) === 0,
+      child.name
+        .trim()
+        .localeCompare(TITLE_NAME, undefined, { sensitivity: 'accent' }) === 0
   )?.characters;
   return formatName(title?.trim() || frame.name);
 }
 
-function collectIcons(node: FigmaNode, pageName: string, icons: FigmaIcon[]): void {
+function collectIcons(
+  node: FigmaNode,
+  pageName: string,
+  icons: FigmaIcon[]
+): void {
   const stack: FigmaNode[] = [node];
 
   while (stack.length > 0) {
@@ -57,8 +63,13 @@ function collectIcons(node: FigmaNode, pageName: string, icons: FigmaIcon[]): vo
  *   `stroke-mono` splits into `stroke-mono-arrows`, `stroke-mono-shapes`, … ;
  * - icons listed directly under a pack are grouped under the pack itself.
  */
-export const iconPacksStrategy: SelectionStrategy = (page: FigmaPage, _config: FetcherConfig): FigmaIcon[] => {
-  const packs = (page.document.children ?? []).filter((child) => child.type === 'FRAME');
+export const iconPacksStrategy: SelectionStrategy = (
+  page: FigmaPage,
+  _config: FetcherConfig
+): FigmaIcon[] => {
+  const packs = (page.document.children ?? []).filter(
+    (child) => child.type === 'FRAME'
+  );
   const icons: FigmaIcon[] = [];
 
   packs.forEach((pack) => {

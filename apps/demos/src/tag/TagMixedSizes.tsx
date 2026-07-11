@@ -1,5 +1,8 @@
 import { Tag } from '@spec-lab/ui-react';
-import { CircleCheckIcon, CircleClockIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CircleCheckIcon,
+  CircleClockIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 export function TagMixedSizes() {
   return (
     <div className="space-y-4">

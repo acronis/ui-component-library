@@ -15,7 +15,8 @@ export interface DtcgDimension {
 }
 
 /** A resolved dimension → its CSS string, e.g. `14px`. */
-export const formatDimension = (d: DtcgDimension): string => `${d.value}${d.unit}`;
+export const formatDimension = (d: DtcgDimension): string =>
+  `${d.value}${d.unit}`;
 
 export const dimensionPx: Transform = {
   name: DIMENSION_PX,

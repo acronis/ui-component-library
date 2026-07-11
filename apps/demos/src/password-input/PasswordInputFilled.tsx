@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Input } from '@spec-lab/ui-react';
-import { EyeOffIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono'
+import { EyeOffIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono';
 export function PasswordInputFilled() {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordValue, setPasswordValue] = useState('MyP@ssw0rd');

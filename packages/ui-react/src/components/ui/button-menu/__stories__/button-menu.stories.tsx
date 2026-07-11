@@ -10,7 +10,8 @@ const meta = {
     variant: {
       control: 'select',
       options: ['primary', 'secondary'],
-      description: 'Visual style — mirrors the Figma ButtonMenu `variant` property.',
+      description:
+        'Visual style — mirrors the Figma ButtonMenu `variant` property.',
       table: {
         type: { summary: "'primary' | 'secondary'" },
         defaultValue: { summary: 'primary' },

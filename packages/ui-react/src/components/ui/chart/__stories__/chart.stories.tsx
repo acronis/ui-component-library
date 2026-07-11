@@ -49,7 +49,10 @@ const seriesData = [
 
 const seriesConfig = {
   desktop: { label: 'Desktop', color: 'var(--ui-background-brand-secondary)' },
-  mobile: { label: 'Mobile', color: 'var(--ui-background-status-strong-danger)' },
+  mobile: {
+    label: 'Mobile',
+    color: 'var(--ui-background-status-strong-danger)',
+  },
 } satisfies ChartConfig;
 
 export const Bars: Story = {
@@ -61,8 +64,18 @@ export const Bars: Story = {
         <XAxis dataKey="month" tickLine={false} axisLine={false} />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} isAnimationActive={false} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} isAnimationActive={false} />
+        <Bar
+          dataKey="desktop"
+          fill="var(--color-desktop)"
+          radius={4}
+          isAnimationActive={false}
+        />
+        <Bar
+          dataKey="mobile"
+          fill="var(--color-mobile)"
+          radius={4}
+          isAnimationActive={false}
+        />
       </BarChart>
     </ChartContainer>
   ),
@@ -78,8 +91,22 @@ export const Lines: Story = {
         <YAxis tickLine={false} axisLine={false} />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Line type="monotone" dataKey="desktop" stroke="var(--color-desktop)" strokeWidth={2} dot={false} isAnimationActive={false} />
-        <Line type="monotone" dataKey="mobile" stroke="var(--color-mobile)" strokeWidth={2} dot={false} isAnimationActive={false} />
+        <Line
+          type="monotone"
+          dataKey="desktop"
+          stroke="var(--color-desktop)"
+          strokeWidth={2}
+          dot={false}
+          isAnimationActive={false}
+        />
+        <Line
+          type="monotone"
+          dataKey="mobile"
+          stroke="var(--color-mobile)"
+          strokeWidth={2}
+          dot={false}
+          isAnimationActive={false}
+        />
       </LineChart>
     </ChartContainer>
   ),
@@ -95,8 +122,24 @@ export const Areas: Story = {
         <YAxis tickLine={false} axisLine={false} />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Area type="monotone" dataKey="desktop" stroke="var(--color-desktop)" fill="var(--color-desktop)" fillOpacity={0.2} strokeWidth={2} isAnimationActive={false} />
-        <Area type="monotone" dataKey="mobile" stroke="var(--color-mobile)" fill="var(--color-mobile)" fillOpacity={0.2} strokeWidth={2} isAnimationActive={false} />
+        <Area
+          type="monotone"
+          dataKey="desktop"
+          stroke="var(--color-desktop)"
+          fill="var(--color-desktop)"
+          fillOpacity={0.2}
+          strokeWidth={2}
+          isAnimationActive={false}
+        />
+        <Area
+          type="monotone"
+          dataKey="mobile"
+          stroke="var(--color-mobile)"
+          fill="var(--color-mobile)"
+          fillOpacity={0.2}
+          strokeWidth={2}
+          isAnimationActive={false}
+        />
       </AreaChart>
     </ChartContainer>
   ),
@@ -111,8 +154,14 @@ const pieData = [
 
 const pieConfig = {
   Chrome: { label: 'Chrome', color: 'var(--ui-background-brand-secondary)' },
-  Firefox: { label: 'Firefox', color: 'var(--ui-background-status-strong-danger)' },
-  Safari: { label: 'Safari', color: 'var(--ui-background-status-strong-warning)' },
+  Firefox: {
+    label: 'Firefox',
+    color: 'var(--ui-background-status-strong-danger)',
+  },
+  Safari: {
+    label: 'Safari',
+    color: 'var(--ui-background-status-strong-warning)',
+  },
   Edge: { label: 'Edge', color: 'var(--ui-background-status-strong-success)' },
 } satisfies ChartConfig;
 
@@ -123,7 +172,15 @@ export const Pies: Story = {
       <PieChart>
         <ChartTooltip content={<ChartTooltipContent hideLabel />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} isAnimationActive={false}>
+        <Pie
+          data={pieData}
+          dataKey="value"
+          nameKey="name"
+          cx="50%"
+          cy="50%"
+          outerRadius={100}
+          isAnimationActive={false}
+        >
           {pieData.map((entry) => (
             <Cell key={entry.name} fill={`var(--color-${entry.name})`} />
           ))}
@@ -144,8 +201,14 @@ const stackedData = [
 
 const stackedConfig = {
   desktop: { label: 'Desktop', color: 'var(--ui-background-brand-secondary)' },
-  mobile: { label: 'Mobile', color: 'var(--ui-background-status-strong-danger)' },
-  tablet: { label: 'Tablet', color: 'var(--ui-background-status-strong-success)' },
+  mobile: {
+    label: 'Mobile',
+    color: 'var(--ui-background-status-strong-danger)',
+  },
+  tablet: {
+    label: 'Tablet',
+    color: 'var(--ui-background-status-strong-success)',
+  },
 } satisfies ChartConfig;
 
 export const StackedBars: Story = {
@@ -157,9 +220,25 @@ export const StackedBars: Story = {
         <XAxis dataKey="month" tickLine={false} axisLine={false} />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="desktop" stackId="a" fill="var(--color-desktop)" isAnimationActive={false} />
-        <Bar dataKey="mobile" stackId="a" fill="var(--color-mobile)" isAnimationActive={false} />
-        <Bar dataKey="tablet" stackId="a" fill="var(--color-tablet)" radius={[4, 4, 0, 0]} isAnimationActive={false} />
+        <Bar
+          dataKey="desktop"
+          stackId="a"
+          fill="var(--color-desktop)"
+          isAnimationActive={false}
+        />
+        <Bar
+          dataKey="mobile"
+          stackId="a"
+          fill="var(--color-mobile)"
+          isAnimationActive={false}
+        />
+        <Bar
+          dataKey="tablet"
+          stackId="a"
+          fill="var(--color-tablet)"
+          radius={[4, 4, 0, 0]}
+          isAnimationActive={false}
+        />
       </BarChart>
     </ChartContainer>
   ),

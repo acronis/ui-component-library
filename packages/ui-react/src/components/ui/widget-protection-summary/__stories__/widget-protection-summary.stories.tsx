@@ -29,15 +29,31 @@ export const Default: Story = {
         <WidgetProtectionSummaryIcon>
           <ChartPieIcon />
         </WidgetProtectionSummaryIcon>
-        <WidgetProtectionSummaryTitle>Protection summary</WidgetProtectionSummaryTitle>
+        <WidgetProtectionSummaryTitle>
+          Protection summary
+        </WidgetProtectionSummaryTitle>
       </WidgetProtectionSummaryHeader>
       <WidgetProtectionSummaryContent>
-        <WidgetProtectionSummaryRow label="Protected" value={128} status="success" />
-        <WidgetProtectionSummaryRow label="At risk" value={4} status="warning" />
-        <WidgetProtectionSummaryRow label="Unprotected" value={2} status="critical" />
+        <WidgetProtectionSummaryRow
+          label="Protected"
+          value={128}
+          status="success"
+        />
+        <WidgetProtectionSummaryRow
+          label="At risk"
+          value={4}
+          status="warning"
+        />
+        <WidgetProtectionSummaryRow
+          label="Unprotected"
+          value={2}
+          status="critical"
+        />
       </WidgetProtectionSummaryContent>
       <WidgetProtectionSummaryDivider />
-      <WidgetProtectionSummaryFooter>Updated 2 min ago</WidgetProtectionSummaryFooter>
+      <WidgetProtectionSummaryFooter>
+        Updated 2 min ago
+      </WidgetProtectionSummaryFooter>
     </WidgetProtectionSummary>
   ),
 };
@@ -46,12 +62,28 @@ export const AllStatuses: Story = {
   render: () => (
     <WidgetProtectionSummary className="w-[320px]">
       <WidgetProtectionSummaryContent>
-        <WidgetProtectionSummaryRow label="Success" value={1} status="success" />
-        <WidgetProtectionSummaryRow label="Warning" value={2} status="warning" />
-        <WidgetProtectionSummaryRow label="Critical" value={3} status="critical" />
+        <WidgetProtectionSummaryRow
+          label="Success"
+          value={1}
+          status="success"
+        />
+        <WidgetProtectionSummaryRow
+          label="Warning"
+          value={2}
+          status="warning"
+        />
+        <WidgetProtectionSummaryRow
+          label="Critical"
+          value={3}
+          status="critical"
+        />
         <WidgetProtectionSummaryRow label="Danger" value={4} status="danger" />
         <WidgetProtectionSummaryRow label="Info" value={5} status="info" />
-        <WidgetProtectionSummaryRow label="Neutral" value={6} status="neutral" />
+        <WidgetProtectionSummaryRow
+          label="Neutral"
+          value={6}
+          status="neutral"
+        />
         <WidgetProtectionSummaryRow label="No status" value={7} />
       </WidgetProtectionSummaryContent>
     </WidgetProtectionSummary>
@@ -65,11 +97,21 @@ export const Interactive: Story = {
         <WidgetProtectionSummaryIcon>
           <ChartPieIcon />
         </WidgetProtectionSummaryIcon>
-        <WidgetProtectionSummaryTitle>Click to open</WidgetProtectionSummaryTitle>
+        <WidgetProtectionSummaryTitle>
+          Click to open
+        </WidgetProtectionSummaryTitle>
       </WidgetProtectionSummaryHeader>
       <WidgetProtectionSummaryContent>
-        <WidgetProtectionSummaryRow label="Protected" value={128} status="success" />
-        <WidgetProtectionSummaryRow label="At risk" value={4} status="warning" />
+        <WidgetProtectionSummaryRow
+          label="Protected"
+          value={128}
+          status="success"
+        />
+        <WidgetProtectionSummaryRow
+          label="At risk"
+          value={4}
+          status="warning"
+        />
       </WidgetProtectionSummaryContent>
     </WidgetProtectionSummary>
   ),

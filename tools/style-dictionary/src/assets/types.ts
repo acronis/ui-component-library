@@ -77,7 +77,12 @@ export interface PackManifest {
  * executor narrows the target shape.
  */
 export type Rule =
-  | { $schema: string; name: string; kind: 'scale' | 'stroke'; target: { value: number; unit: 'px' } }
+  | {
+      $schema: string;
+      name: string;
+      kind: 'scale' | 'stroke';
+      target: { value: number; unit: 'px' };
+    }
   | { $schema: string; name: string; kind: 'color'; target: { value: string } };
 
 // ── Resolved shapes (resolver → executor / codegen) ──────────────────────────

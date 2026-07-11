@@ -17,9 +17,7 @@ const srcPacks = resolve(here, '..', 'src', 'packs');
 
 // icons-svg ships flat SVG masters (src/svg) + per-pack/category name-list
 // manifests (src/figma). Resolve its root from the package.json export.
-const nextRoot = dirname(
-  require.resolve('@spec-lab/icons-svg/package.json')
-);
+const nextRoot = dirname(require.resolve('@spec-lab/icons-svg/package.json'));
 const svgDir = resolve(nextRoot, 'src', 'svg');
 const figmaDir = resolve(nextRoot, 'src', 'figma');
 

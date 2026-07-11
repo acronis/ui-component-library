@@ -3,13 +3,9 @@ import { format } from 'date-fns';
 import { cn } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 import { Calendar } from '@spec-lab/ui-react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/ui-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
 
-import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono';
 export function DatePickerBasic() {
   const [date, setDate] = React.useState<Date>();
 
@@ -30,11 +26,7 @@ export function DatePickerBasic() {
         {date ? format(date, 'PPP') : <span>Pick a date</span>}
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-        />
+        <Calendar mode="single" selected={date} onSelect={setDate} />
       </PopoverContent>
     </Popover>
   );

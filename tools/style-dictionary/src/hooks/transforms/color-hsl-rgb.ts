@@ -57,5 +57,7 @@ export const colorHslToRgb: Transform = {
   // Fully-transparent colors are stored as the CSS keyword `transparent`
   // (see the figma-to-design-tokens transparent rule); pass it through verbatim.
   transform: (token) =>
-    token.$value === 'transparent' ? 'transparent' : hslColorToRgb(token.$value as DtcgColor),
+    token.$value === 'transparent'
+      ? 'transparent'
+      : hslColorToRgb(token.$value as DtcgColor),
 };

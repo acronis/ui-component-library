@@ -41,7 +41,11 @@ export function SidebarNavigationDemo() {
               <SidebarPrimaryMenuItem href="#" icon={<GaugeIcon />}>
                 Dashboard
               </SidebarPrimaryMenuItem>
-              <SidebarPrimaryMenuItem href="#" icon={<CloudShieldIcon />} selected>
+              <SidebarPrimaryMenuItem
+                href="#"
+                icon={<CloudShieldIcon />}
+                selected
+              >
                 Protection
               </SidebarPrimaryMenuItem>
               <SidebarPrimaryMenuItem href="#" icon={<BriefcaseIcon />}>
@@ -59,9 +63,15 @@ export function SidebarNavigationDemo() {
         <SidebarSecondaryHeader label="Protection" />
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Overview
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#" icon={<MonitorIcon />} selected>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<MonitorIcon />}
+                selected
+              >
                 Devices
               </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#" icon={<ServerIcon />}>
@@ -70,7 +80,9 @@ export function SidebarNavigationDemo() {
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Policies</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Policies
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               <SidebarSecondaryMenuSub defaultOpen>
                 <SidebarSecondaryMenuSubTrigger icon={<CloudShieldIcon />}>
@@ -88,7 +100,9 @@ export function SidebarNavigationDemo() {
                   </SidebarSecondaryMenuSubItem>
                 </SidebarSecondaryMenuSubContent>
               </SidebarSecondaryMenuSub>
-              <SidebarSecondaryMenuItem href="#">Exclusions</SidebarSecondaryMenuItem>
+              <SidebarSecondaryMenuItem href="#">
+                Exclusions
+              </SidebarSecondaryMenuItem>
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
         </SidebarSecondaryContent>

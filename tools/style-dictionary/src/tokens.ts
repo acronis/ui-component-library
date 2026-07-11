@@ -116,8 +116,7 @@ export function tailwindRoleMap(
   const map = new Map<string, string>();
   for (const tier of tiers) {
     const ext = readTokenSource(tier)['$extensions'] as
-      | Record<string, Record<string, string>>
-      | undefined;
+      Record<string, Record<string, string>> | undefined;
     const roles = ext?.['com.acronis.tailwindRoles'];
     if (roles)
       for (const [segment, namespace] of Object.entries(roles))
@@ -267,7 +266,9 @@ export function buildDtcg(filter: Filter): void {
   }
 
   for (const view of VIEWS) {
-    const isBrandTier = (BRAND_TIERS as readonly string[]).includes(view.source);
+    const isBrandTier = (BRAND_TIERS as readonly string[]).includes(
+      view.source
+    );
     const tree = normalizeTree(
       sources[view.source],
       view.mode,

@@ -3,8 +3,8 @@ title: DropdownMenu
 description: A menu of actions anchored to a trigger, opened on demand.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { DropdownMenuDemo } from "@/components/demos-react/dropdown-menu";
+import { DemoReact } from '@/components/DemoReact';
+import { DropdownMenuDemo } from '@/components/demos-react/dropdown-menu';
 
 `DropdownMenu` is now a thin alias of [`Menu`](/components/menu) — it re-exports
 the same parts and renders from the same `--ui-button-menu-dropdown-*` tokens.
@@ -39,7 +39,6 @@ submenus. This is a design-pending v1 themed from the shared semantic tokens; a
 
 ## Examples
 
-
 <DemoReact>
   <DropdownMenuDemo />
 </DemoReact>
@@ -48,7 +47,9 @@ A basic actions menu:
 
 ```tsx
 <DropdownMenu>
-  <DropdownMenuTrigger render={<Button variant="secondary">Open menu</Button>} />
+  <DropdownMenuTrigger
+    render={<Button variant="secondary">Open menu</Button>}
+  />
   <DropdownMenuContent className="w-56">
     <DropdownMenuLabel>My account</DropdownMenuLabel>
     <DropdownMenuSeparator />
@@ -71,7 +72,9 @@ Checkbox and radio items (consumer owns the values):
   </DropdownMenuCheckboxItem>
   <DropdownMenuSeparator />
   <DropdownMenuRadioGroup value={density} onValueChange={setDensity}>
-    <DropdownMenuRadioItem value="comfortable">Comfortable</DropdownMenuRadioItem>
+    <DropdownMenuRadioItem value="comfortable">
+      Comfortable
+    </DropdownMenuRadioItem>
     <DropdownMenuRadioItem value="compact">Compact</DropdownMenuRadioItem>
   </DropdownMenuRadioGroup>
 </DropdownMenuContent>

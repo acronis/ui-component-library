@@ -56,7 +56,12 @@ const AccordionContent = React.forwardRef<
     className="overflow-hidden text-sm transition-[height] duration-200 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0"
     {...props}
   >
-    <div className={cn('pb-4 pt-0 text-[var(--ui-text-on-surface-secondary)]', className)}>
+    <div
+      className={cn(
+        'pb-4 pt-0 text-[var(--ui-text-on-surface-secondary)]',
+        className
+      )}
+    >
       {children}
     </div>
   </AccordionPrimitive.Panel>

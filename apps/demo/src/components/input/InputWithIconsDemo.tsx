@@ -1,5 +1,12 @@
 import { Input } from '@spec-lab/ui-react';
-import { CalendarIcon, EnvelopeIcon, LockIcon, MagnifierIcon, PhoneIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CalendarIcon,
+  EnvelopeIcon,
+  LockIcon,
+  MagnifierIcon,
+  PhoneIcon,
+  UserIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { CreditCardIcon } from '@/components/icons/missing-icons';
 export function InputWithIconsDemo() {
   return (

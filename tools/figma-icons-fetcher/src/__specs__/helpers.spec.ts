@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
-import { escapeRegExp, findDuplicates, formatName, groupIconsByPage, isMulticolor } from '../helpers';
+import {
+  escapeRegExp,
+  findDuplicates,
+  formatName,
+  groupIconsByPage,
+  isMulticolor,
+} from '../helpers';
 
 describe('formatName', () => {
   it('should convert to lowercase', () => {
@@ -32,7 +38,9 @@ describe('formatName', () => {
 
   it('should handle real icon names with camelCase', () => {
     expect(formatName('devices-ESXi-host--24')).toBe('devices-esx-i-host--24');
-    expect(formatName('laptop-macBook-disabled-ill--96')).toBe('laptop-mac-book-disabled-ill--96');
+    expect(formatName('laptop-macBook-disabled-ill--96')).toBe(
+      'laptop-mac-book-disabled-ill--96'
+    );
     expect(formatName('devices-iOS-tvOS--24')).toBe('devices-i-os-tv-os--24');
   });
 
@@ -137,7 +145,8 @@ describe('isMulticolor', () => {
   });
 
   it('should ignore none and transparent', () => {
-    const svg = '<svg><path fill="none"/><path fill="transparent"/><path fill="#2668C5"/></svg>';
+    const svg =
+      '<svg><path fill="none"/><path fill="transparent"/><path fill="#2668C5"/></svg>';
     expect(isMulticolor(svg)).toBe(false);
   });
 
@@ -167,17 +176,20 @@ describe('isMulticolor', () => {
   });
 
   it('should return true for SVG with url() gradient fill', () => {
-    const svg = '<svg><path fill="url(#gradient1)"/><defs><linearGradient id="gradient1"><stop stop-color="#3849E0"/><stop stop-color="#FC2DF1"/></linearGradient></defs></svg>';
+    const svg =
+      '<svg><path fill="url(#gradient1)"/><defs><linearGradient id="gradient1"><stop stop-color="#3849E0"/><stop stop-color="#FC2DF1"/></linearGradient></defs></svg>';
     expect(isMulticolor(svg)).toBe(true);
   });
 
   it('should return true for SVG with url() gradient stroke', () => {
-    const svg = '<svg><path stroke="url(#gradient1)"/><defs><linearGradient id="gradient1"><stop stop-color="#3849E0"/><stop stop-color="#FC2DF1"/></linearGradient></defs></svg>';
+    const svg =
+      '<svg><path stroke="url(#gradient1)"/><defs><linearGradient id="gradient1"><stop stop-color="#3849E0"/><stop stop-color="#FC2DF1"/></linearGradient></defs></svg>';
     expect(isMulticolor(svg)).toBe(true);
   });
 
   it('should return true for SVG with only url() fills and no hex colors', () => {
-    const svg = '<svg fill="none"><path fill="url(#a)"/><path fill="url(#b)"/></svg>';
+    const svg =
+      '<svg fill="none"><path fill="url(#a)"/><path fill="url(#b)"/></svg>';
     expect(isMulticolor(svg)).toBe(true);
   });
 });
@@ -235,7 +247,15 @@ describe('groupIconsByPage', () => {
 
     const result = groupIconsByPage(icons);
 
-    expect(result.actions[0]).toEqual({ name: 'icon1', pageName: 'Actions', id: '123' });
-    expect(result.actions[1]).toEqual({ name: 'icon2', pageName: 'Actions', id: '456' });
+    expect(result.actions[0]).toEqual({
+      name: 'icon1',
+      pageName: 'Actions',
+      id: '123',
+    });
+    expect(result.actions[1]).toEqual({
+      name: 'icon2',
+      pageName: 'Actions',
+      id: '456',
+    });
   });
 });

@@ -53,7 +53,10 @@ async function fetchSvgWithRetry(url: string): Promise<string> {
  * Supports saving to multiple directories. Color categorization (mono/multi)
  * is handled separately so legacy icons are never deleted.
  */
-export async function downloadImage(config: FetcherConfig, icon: IconWithUrl): Promise<DownloadedIcon> {
+export async function downloadImage(
+  config: FetcherConfig,
+  icon: IconWithUrl
+): Promise<DownloadedIcon> {
   const url = icon.image;
   const formattedName = formatName(icon.name);
 
@@ -139,6 +142,8 @@ export async function downloadImage(config: FetcherConfig, icon: IconWithUrl): P
       savedPaths,
     };
   } catch (err) {
-    throw new Error(`Failed to download icon "${icon.name}" (ID: ${icon.id})`, { cause: err });
+    throw new Error(`Failed to download icon "${icon.name}" (ID: ${icon.id})`, {
+      cause: err,
+    });
   }
 }

@@ -15,7 +15,19 @@ import {
   Separator,
   Switch,
 } from '@spec-lab/ui-react';
-import { ArrowRotationIcon, ChevronDownIcon, CircleClockIcon, CogIcon, EllipsisIcon, FileTextIcon, FilesIcon, GlobeIcon, MagnifierIcon, PlusIcon, SendIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ArrowRotationIcon,
+  ChevronDownIcon,
+  CircleClockIcon,
+  CogIcon,
+  EllipsisIcon,
+  FileTextIcon,
+  FilesIcon,
+  GlobeIcon,
+  MagnifierIcon,
+  PlusIcon,
+  SendIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   ThumbsUpIcon,
   ThumbsDownIcon,
@@ -54,13 +66,25 @@ export const ChatComponentsShowcase: React.FC = () => {
                 Icon Buttons - Default (36x36px)
               </p>
               <div className="flex gap-3">
-                <ButtonIcon variant="secondary" aria-label="Add" className="h-9 w-9">
+                <ButtonIcon
+                  variant="secondary"
+                  aria-label="Add"
+                  className="h-9 w-9"
+                >
                   <PlusIcon className="h-5 w-5" />
                 </ButtonIcon>
-                <ButtonIcon variant="secondary" aria-label="Send" className="h-9 w-9">
+                <ButtonIcon
+                  variant="secondary"
+                  aria-label="Send"
+                  className="h-9 w-9"
+                >
                   <SendIcon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="secondary" aria-label="Settings" className="h-9 w-9">
+                <ButtonIcon
+                  variant="secondary"
+                  aria-label="Settings"
+                  className="h-9 w-9"
+                >
                   <CogIcon className="h-5 w-5" />
                 </ButtonIcon>
               </div>
@@ -71,13 +95,25 @@ export const ChatComponentsShowcase: React.FC = () => {
                 Icon Buttons - Outline (36x36px)
               </p>
               <div className="flex gap-3">
-                <ButtonIcon variant="secondary" aria-label="Browse the web" className="h-9 w-9">
+                <ButtonIcon
+                  variant="secondary"
+                  aria-label="Browse the web"
+                  className="h-9 w-9"
+                >
                   <GlobeIcon className="h-5 w-5" />
                 </ButtonIcon>
-                <ButtonIcon variant="secondary" aria-label="AI assistant" className="h-9 w-9">
+                <ButtonIcon
+                  variant="secondary"
+                  aria-label="AI assistant"
+                  className="h-9 w-9"
+                >
                   <BrainIcon className="h-5 w-5" />
                 </ButtonIcon>
-                <ButtonIcon variant="secondary" aria-label="Attach file" className="h-9 w-9">
+                <ButtonIcon
+                  variant="secondary"
+                  aria-label="Attach file"
+                  className="h-9 w-9"
+                >
                   <FileTextIcon className="h-5 w-5" />
                 </ButtonIcon>
               </div>
@@ -88,13 +124,25 @@ export const ChatComponentsShowcase: React.FC = () => {
                 Small Icon Buttons (24x24px)
               </p>
               <div className="flex gap-3">
-                <ButtonIcon variant="secondary" aria-label="Search" className="h-6 w-6">
+                <ButtonIcon
+                  variant="secondary"
+                  aria-label="Search"
+                  className="h-6 w-6"
+                >
                   <MagnifierIcon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="ghost" aria-label="Add" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="Add"
+                  className="h-6 w-6"
+                >
                   <PlusIcon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="ghost" aria-label="Settings" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="Settings"
+                  className="h-6 w-6"
+                >
                   <CogIcon className="h-4 w-4" />
                 </ButtonIcon>
               </div>
@@ -128,22 +176,46 @@ export const ChatComponentsShowcase: React.FC = () => {
                 Ghost Icon Buttons (24x24px)
               </p>
               <div className="flex gap-2">
-                <ButtonIcon variant="ghost" aria-label="Copy" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="Copy"
+                  className="h-6 w-6"
+                >
                   <FilesIcon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="ghost" aria-label="Like" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="Like"
+                  className="h-6 w-6"
+                >
                   <ThumbsUpIcon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="ghost" aria-label="Dislike" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="Dislike"
+                  className="h-6 w-6"
+                >
                   <ThumbsDownIcon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="ghost" aria-label="Share" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="Share"
+                  className="h-6 w-6"
+                >
                   <Share2Icon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="ghost" aria-label="Regenerate" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="Regenerate"
+                  className="h-6 w-6"
+                >
                   <ArrowRotationIcon className="h-4 w-4" />
                 </ButtonIcon>
-                <ButtonIcon variant="ghost" aria-label="More options" className="h-6 w-6">
+                <ButtonIcon
+                  variant="ghost"
+                  aria-label="More options"
+                  className="h-6 w-6"
+                >
                   <EllipsisIcon className="h-4 w-4" />
                 </ButtonIcon>
               </div>
@@ -202,13 +274,25 @@ export const ChatComponentsShowcase: React.FC = () => {
                 />
                 <div className="flex items-center justify-between mt-2">
                   <div className="flex items-center gap-2">
-                    <ButtonIcon variant="secondary" aria-label="Attach file" className="h-9 w-9">
+                    <ButtonIcon
+                      variant="secondary"
+                      aria-label="Attach file"
+                      className="h-9 w-9"
+                    >
                       <FileTextIcon className="h-5 w-5" />
                     </ButtonIcon>
-                    <ButtonIcon variant="secondary" aria-label="AI assistant" className="h-9 w-9">
+                    <ButtonIcon
+                      variant="secondary"
+                      aria-label="AI assistant"
+                      className="h-9 w-9"
+                    >
                       <BrainIcon className="h-5 w-5" />
                     </ButtonIcon>
-                    <ButtonIcon variant="secondary" aria-label="Browse the web" className="h-9 w-9">
+                    <ButtonIcon
+                      variant="secondary"
+                      aria-label="Browse the web"
+                      className="h-9 w-9"
+                    >
                       <GlobeIcon className="h-5 w-5" />
                     </ButtonIcon>
                   </div>
@@ -217,7 +301,11 @@ export const ChatComponentsShowcase: React.FC = () => {
                       Model: Auto
                       <ChevronDownIcon className="ml-2 h-4 w-4" />
                     </Button>
-                    <ButtonIcon variant="secondary" aria-label="Send message" className="h-9 w-9">
+                    <ButtonIcon
+                      variant="secondary"
+                      aria-label="Send message"
+                      className="h-9 w-9"
+                    >
                       <SendIcon className="h-4 w-4" />
                     </ButtonIcon>
                   </div>
@@ -455,7 +543,9 @@ export const ChatComponentsShowcase: React.FC = () => {
             <div className="flex flex-col h-[500px]">
               <div className="p-4 border-b border-border/50">
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="text-lg font-light text-primary">Constructor Lab</div>
+                  <div className="text-lg font-light text-primary">
+                    Constructor Lab
+                  </div>
                   <div className="text-lg font-light">CyberChat</div>
                 </div>
               </div>
@@ -470,7 +560,11 @@ export const ChatComponentsShowcase: React.FC = () => {
               <div className="border-b border-border/50">
                 <div className="flex items-center justify-between px-4 py-3">
                   <h4 className="text-sm font-semibold">Recent chats</h4>
-                  <ButtonIcon variant="ghost" aria-label="New chat" className="h-6 w-6">
+                  <ButtonIcon
+                    variant="ghost"
+                    aria-label="New chat"
+                    className="h-6 w-6"
+                  >
                     <PlusIcon className="h-4 w-4" />
                   </ButtonIcon>
                 </div>
@@ -526,7 +620,11 @@ export const ChatComponentsShowcase: React.FC = () => {
                       Jorge Borloni
                     </p>
                   </div>
-                  <ButtonIcon variant="ghost" aria-label="Settings" className="h-6 w-6">
+                  <ButtonIcon
+                    variant="ghost"
+                    aria-label="Settings"
+                    className="h-6 w-6"
+                  >
                     <CogIcon className="h-4 w-4" />
                   </ButtonIcon>
                 </div>

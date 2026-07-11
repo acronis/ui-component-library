@@ -5,11 +5,12 @@ import { cn } from '@/lib/utils';
 // Ported 1:1 from `@spec-lab`'s `section`. A titled content block —
 // semantic markup parts; the only color is the muted description
 // (`text-muted-foreground` → --ui-text-on-surface-secondary).
-const Section = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
-  ({ className, ...props }, ref) => (
-    <section ref={ref} className={cn('space-y-4', className)} {...props} />
-  )
-);
+const Section = React.forwardRef<
+  HTMLElement,
+  React.HTMLAttributes<HTMLElement>
+>(({ className, ...props }, ref) => (
+  <section ref={ref} className={cn('space-y-4', className)} {...props} />
+));
 Section.displayName = 'Section';
 
 const SectionHeader = React.forwardRef<
@@ -26,7 +27,10 @@ const SectionTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h2
     ref={ref}
-    className={cn('text-lg font-semibold leading-none tracking-tight', className)}
+    className={cn(
+      'text-lg font-semibold leading-none tracking-tight',
+      className
+    )}
     {...props}
   />
 ));

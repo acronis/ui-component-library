@@ -12,7 +12,8 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'secondary', 'ghost', 'destructive', 'ai'],
-      description: 'Visual style — mirrors the Figma Button `Variant` property.',
+      description:
+        'Visual style — mirrors the Figma Button `Variant` property.',
       table: {
         type: {
           summary: "'default' | 'secondary' | 'ghost' | 'destructive' | 'ai'",

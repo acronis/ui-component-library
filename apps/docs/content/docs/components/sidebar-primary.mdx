@@ -3,8 +3,8 @@ title: SidebarPrimary
 description: The primary navigation rail, with a collapsible width.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { SidebarPrimaryDemo } from "@/components/demos-react/sidebar-primary";
+import { DemoReact } from '@/components/DemoReact';
+import { SidebarPrimaryDemo } from '@/components/demos-react/sidebar-primary';
 
 ## Usage
 
@@ -31,7 +31,6 @@ polymorphic via Base UI's `useRender` (the `render` prop) — pass a router link
 for menu items. Themed by the `--ui-sidebar-primary-*` tokens.
 
 ## Examples
-
 
 <DemoReact>
   <SidebarPrimaryDemo />
@@ -69,7 +68,10 @@ A trailing affordance on a menu item with `SidebarPrimaryMenuItemExtras`:
 ```tsx
 <SidebarPrimaryMenuItem href="#" icon={<InboxIcon />}>
   My inbox
-  <SidebarPrimaryMenuItemExtras variant="tag" tag={<Tag variant="info">3</Tag>} />
+  <SidebarPrimaryMenuItemExtras
+    variant="tag"
+    tag={<Tag variant="info">3</Tag>}
+  />
 </SidebarPrimaryMenuItem>
 ```
 
@@ -80,7 +82,7 @@ const [expanded, setExpanded] = React.useState(true);
 
 <SidebarPrimary expanded={expanded} onExpandedChange={setExpanded}>
   {/* … */}
-</SidebarPrimary>
+</SidebarPrimary>;
 ```
 
 ## API Reference

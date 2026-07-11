@@ -6,12 +6,7 @@ import {
 } from '@/lib/playground/colorUtils';
 import { Input } from '@spec-lab/ui-react';
 import { Label } from '@spec-lab/ui-react';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@spec-lab/ui-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@spec-lab/ui-react';
 
 interface ColorPickerProps {
   color: ColorToken;

@@ -10,7 +10,9 @@ describe('Calendar', () => {
     const { container } = render(
       <Calendar mode="single" defaultMonth={JAN_2024} />
     );
-    expect(container.querySelector('[data-slot="calendar"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-slot="calendar"]')
+    ).toBeInTheDocument();
     expect(screen.getByRole('grid')).toBeInTheDocument();
   });
 

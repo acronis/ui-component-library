@@ -1,12 +1,20 @@
 'use client';
 
 import { CardFilter } from '@spec-lab/ui-react';
-import { ServerIcon, CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ServerIcon,
+  CircleWarningIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 export function CardFilterDemo() {
   return (
     <>
-      <CardFilter variant="static" label="Total workloads" value="128" icon={<ServerIcon />} />
+      <CardFilter
+        variant="static"
+        label="Total workloads"
+        value="128"
+        icon={<ServerIcon />}
+      />
       <CardFilter
         variant="clickable"
         label="Alerts"

@@ -150,7 +150,17 @@ const Tour = ({
   }, [onSkip, setOpen]);
 
   const value = React.useMemo<TourContextValue>(
-    () => ({ activeStep, stepCount, isFirst, isLast, next, back, skip, goTo, setOpen }),
+    () => ({
+      activeStep,
+      stepCount,
+      isFirst,
+      isLast,
+      next,
+      back,
+      skip,
+      goTo,
+      setOpen,
+    }),
     [activeStep, stepCount, isFirst, isLast, next, back, skip, goTo, setOpen]
   );
 
@@ -221,8 +231,9 @@ const TourScrim = React.forwardRef<
 ));
 TourScrim.displayName = 'TourScrim';
 
-export interface TourContentProps
-  extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Popup> {
+export interface TourContentProps extends React.ComponentPropsWithoutRef<
+  typeof PopoverPrimitive.Popup
+> {
   /** Which side of the anchor to render on. Defaults to `bottom`. */
   side?: PopoverPrimitive.Positioner.Props['side'];
   /** Alignment along the chosen side. Defaults to `center`. */
@@ -286,7 +297,10 @@ const TourContent = React.forwardRef<
     );
 
     return portal ? (
-      <PopoverPrimitive.Portal container={portalContainer} keepMounted={keepMounted}>
+      <PopoverPrimitive.Portal
+        container={portalContainer}
+        keepMounted={keepMounted}
+      >
         {positioner}
       </PopoverPrimitive.Portal>
     ) : (
@@ -355,8 +369,10 @@ const TourFooter = React.forwardRef<
 ));
 TourFooter.displayName = 'TourFooter';
 
-export interface TourStepCounterProps
-  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'children'> {
+export interface TourStepCounterProps extends Omit<
+  React.HTMLAttributes<HTMLSpanElement>,
+  'children'
+> {
   /**
    * Customize the counter text. Receives the 1-based current step and the total.
    * Defaults to `"{current} of {total}"`.
@@ -386,7 +402,11 @@ const TourActions = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('flex items-center gap-2', className)} {...props} />
+  <div
+    ref={ref}
+    className={cn('flex items-center gap-2', className)}
+    {...props}
+  />
 ));
 TourActions.displayName = 'TourActions';
 
@@ -437,7 +457,12 @@ const TourSkipButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, onClick, variant = 'ghost', ...props }, ref) => {
     const { skip } = useTour();
     return (
-      <Button ref={ref} variant={variant} onClick={composeHandler(skip, onClick)} {...props}>
+      <Button
+        ref={ref}
+        variant={variant}
+        onClick={composeHandler(skip, onClick)}
+        {...props}
+      >
         {children ?? 'Skip'}
       </Button>
     );

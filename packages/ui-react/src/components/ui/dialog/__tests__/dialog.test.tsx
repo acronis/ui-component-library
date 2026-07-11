@@ -39,7 +39,9 @@ describe('Dialog', () => {
     render(<OpenDialog />);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Delete account')).toBeInTheDocument();
-    expect(screen.getByText('This action cannot be undone.')).toBeInTheDocument();
+    expect(
+      screen.getByText('This action cannot be undone.')
+    ).toBeInTheDocument();
     expect(screen.getByText('Footer')).toBeInTheDocument();
   });
 
@@ -53,7 +55,10 @@ describe('Dialog', () => {
   it('drives the popup surface from the bridged semantic tokens', () => {
     render(<OpenDialog />);
     // No `--ui-dialog-*` tier yet — the popup body resolves to surface-secondary.
-    expect(screen.getByRole('dialog')).toHaveClass('bg-muted', 'text-foreground');
+    expect(screen.getByRole('dialog')).toHaveClass(
+      'bg-muted',
+      'text-foreground'
+    );
   });
 
   it('defaults to the sm size (max-w-lg / 512px)', () => {

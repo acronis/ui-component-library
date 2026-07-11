@@ -26,9 +26,15 @@ export function SidebarSecondaryDemo() {
         <SidebarSecondaryHeader label="Protection" />
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Overview
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
-              <SidebarSecondaryMenuItem href="#" icon={<LayoutGridIcon />} selected>
+              <SidebarSecondaryMenuItem
+                href="#"
+                icon={<LayoutGridIcon />}
+                selected
+              >
                 Dashboard
               </SidebarSecondaryMenuItem>
               <SidebarSecondaryMenuItem href="#" icon={<ServerIcon />}>
@@ -37,7 +43,9 @@ export function SidebarSecondaryDemo() {
             </SidebarSecondaryMenu>
           </SidebarSecondarySection>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Configuration</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Configuration
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               <SidebarSecondaryMenuSub defaultOpen>
                 <SidebarSecondaryMenuSubTrigger icon={<BoxIcon />}>
@@ -47,7 +55,9 @@ export function SidebarSecondaryDemo() {
                   <SidebarSecondaryMenuSubItem href="#" selected>
                     Backup
                   </SidebarSecondaryMenuSubItem>
-                  <SidebarSecondaryMenuSubItem href="#">Antivirus</SidebarSecondaryMenuSubItem>
+                  <SidebarSecondaryMenuSubItem href="#">
+                    Antivirus
+                  </SidebarSecondaryMenuSubItem>
                 </SidebarSecondaryMenuSubContent>
               </SidebarSecondaryMenuSub>
             </SidebarSecondaryMenu>

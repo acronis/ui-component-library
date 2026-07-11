@@ -27,7 +27,10 @@ export interface ViewBox {
 export function readViewBox(root: INode): ViewBox {
   const raw = root.attributes.viewBox;
   if (!raw) throw new Error('svg root has no viewBox');
-  const parts = raw.trim().split(/[\s,]+/).map(Number);
+  const parts = raw
+    .trim()
+    .split(/[\s,]+/)
+    .map(Number);
   if (parts.length !== 4 || parts.some((n) => Number.isNaN(n))) {
     throw new Error(`malformed viewBox: "${raw}"`);
   }

@@ -76,7 +76,9 @@ describe('ButtonIconMenu', () => {
   });
 
   it('composes with another element via the render prop', () => {
-    render(<ButtonIconMenu render={<a href="/menu" />} aria-label="Open menu" />);
+    render(
+      <ButtonIconMenu render={<a href="/menu" />} aria-label="Open menu" />
+    );
     const link = screen.getByRole('link', { name: 'Open menu' });
     expect(link).toHaveAttribute('href', '/menu');
     expect(screen.queryByRole('button')).not.toBeInTheDocument();

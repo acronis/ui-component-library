@@ -64,10 +64,7 @@ export function DemoApp() {
                   element={<ComponentDetailPage />}
                 />
                 <Route path="patterns" element={<PatternsCatalogPage />} />
-                <Route
-                  path="patterns/:name"
-                  element={<PatternDetailPage />}
-                />
+                <Route path="patterns/:name" element={<PatternDetailPage />} />
                 <Route path="screens" element={<ScreensCatalogPage />} />
               </Route>
               <Route path="foundations">
@@ -75,10 +72,7 @@ export function DemoApp() {
                   index
                   element={<Navigate to="design-tokens" replace />}
                 />
-                <Route
-                  path="design-tokens"
-                  element={<DesignTokensDemo />}
-                />
+                <Route path="design-tokens" element={<DesignTokensDemo />} />
                 <Route path="icons" element={<IconsDemo />} />
               </Route>
               <Route path="*" element={<Navigate to="dashboard" replace />} />

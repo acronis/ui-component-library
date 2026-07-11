@@ -9,7 +9,11 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@spec-lab/ui-react';
-import { CloudIcon, EnvelopeIcon, MessagesIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CloudIcon,
+  EnvelopeIcon,
+  MessagesIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   ExternalLinkIcon,
   LifeBuoyIcon,

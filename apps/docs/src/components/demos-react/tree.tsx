@@ -125,7 +125,11 @@ export function TreeInDropdownDemo() {
           </Button>
         }
       />
-      <PopoverContent portalContainer={mount} align="start" className="w-64 p-1">
+      <PopoverContent
+        portalContainer={mount}
+        align="start"
+        className="w-64 p-1"
+      >
         <TreeView
           data={data}
           showIcon

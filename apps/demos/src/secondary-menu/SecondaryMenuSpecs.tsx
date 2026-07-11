@@ -13,8 +13,8 @@ export function SecondaryMenuSpecs() {
         horizontal, 12px vertical
       </div>
       <div>
-        <strong className="font-semibold">Section Header Padding:</strong>{' '}
-        16px horizontal, 2px vertical
+        <strong className="font-semibold">Section Header Padding:</strong> 16px
+        horizontal, 2px vertical
       </div>
       <div>
         <strong className="font-semibold">Row:</strong> 40px min height, 16px
@@ -27,8 +27,7 @@ export function SecondaryMenuSpecs() {
         <strong className="font-semibold">Typography:</strong>
         <ul className="ml-4 mt-1 space-y-1">
           <li>
-            Menu item / section label: Inter Semi Bold, 14px, 24px
-            line-height
+            Menu item / section label: Inter Semi Bold, 14px, 24px line-height
           </li>
           <li>Header: Inter Regular, 24px, 32px line-height</li>
         </ul>
@@ -39,8 +38,8 @@ export function SecondaryMenuSpecs() {
         <code className="rounded bg-muted px-1 py-0.5 text-xs">
           --ui-sidebar-secondary-*
         </code>{' '}
-        token from <code className="text-xs">@spec-lab/tokens</code> — no
-        fixed hex values. Selected and unselected rows each wire their own
+        token from <code className="text-xs">@spec-lab/tokens</code> — no fixed
+        hex values. Selected and unselected rows each wire their own
         idle/hover/active token so brand overrides apply per state.
       </div>
     </div>

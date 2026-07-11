@@ -32,7 +32,8 @@ const meta = {
     },
     children: {
       control: false,
-      description: 'The grouped controls (Buttons, ButtonGroupText, ButtonGroupSeparator).',
+      description:
+        'The grouped controls (Buttons, ButtonGroupText, ButtonGroupSeparator).',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
     className: {

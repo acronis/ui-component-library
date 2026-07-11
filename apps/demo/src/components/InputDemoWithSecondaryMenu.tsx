@@ -7,7 +7,16 @@ import {
   SecondaryMenuGroup,
   SecondaryMenuItem,
 } from './secondary-menu-stub';
-import { CalendarIcon, EnvelopeIcon, EyeOffIcon, EyeIcon, LockIcon, MagnifierIcon, PhoneIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  CalendarIcon,
+  EnvelopeIcon,
+  EyeOffIcon,
+  EyeIcon,
+  LockIcon,
+  MagnifierIcon,
+  PhoneIcon,
+  UserIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import { CreditCardIcon } from '@/components/icons/missing-icons';
 type DemoSection =
   | 'basic'

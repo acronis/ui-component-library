@@ -19,7 +19,10 @@ import {
   MenuTrigger,
 } from '../menu';
 
-function DemoMenu(props: { contentRef?: Ref<HTMLDivElement>; onItemClick?: () => void }) {
+function DemoMenu(props: {
+  contentRef?: Ref<HTMLDivElement>;
+  onItemClick?: () => void;
+}) {
   return (
     <Menu open>
       <MenuTrigger>Actions</MenuTrigger>
@@ -41,7 +44,9 @@ describe('Menu', () => {
   it('renders the open panel with its item labels', () => {
     render(<DemoMenu />);
     expect(screen.getByRole('menu')).toBeInTheDocument();
-    expect(screen.getByRole('menuitem', { name: 'Rename' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('menuitem', { name: 'Rename' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Copy/ })).toBeInTheDocument();
   });
 
@@ -139,7 +144,9 @@ describe('Menu submenu', () => {
     expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
     expect(trigger).toHaveAttribute('data-popup-open');
     expect(trigger).toContainElement(screen.getByTestId('sub-icon'));
-    expect(screen.getByRole('menuitem', { name: 'Documents' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('menuitem', { name: 'Documents' })
+    ).toBeInTheDocument();
   });
 
   it('flips the submenu-trigger cascade chevron in RTL', () => {

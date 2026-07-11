@@ -17,7 +17,9 @@ export function DemoReact({ children, center }: DemoReactProps) {
     <div className="demo-preview my-6 overflow-hidden rounded-xl border shadow-sm">
       <ShadowDemo center={center}>{children}</ShadowDemo>
       <div className="demo-preview__footer flex items-center border-t px-4 py-2">
-        <span className="text-xs opacity-50">Live preview · @spec-lab/ui-react</span>
+        <span className="text-xs opacity-50">
+          Live preview · @spec-lab/ui-react
+        </span>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@spec-lab/ui-react';
-import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono'
+import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;

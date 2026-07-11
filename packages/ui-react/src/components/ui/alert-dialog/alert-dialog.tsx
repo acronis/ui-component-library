@@ -50,8 +50,9 @@ const AlertDialogOverlay = React.forwardRef<
 ));
 AlertDialogOverlay.displayName = 'AlertDialogOverlay';
 
-export interface AlertDialogContentProps
-  extends React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Popup> {
+export interface AlertDialogContentProps extends React.ComponentPropsWithoutRef<
+  typeof AlertDialogPrimitive.Popup
+> {
   /**
    * Render the content inside a portal (default `true`). Base UI requires the
    * Popup to sit in a Portal for correct stacking; set `false` for inline usage
@@ -87,7 +88,10 @@ const AlertDialogContent = React.forwardRef<
     );
 
     return portal ? (
-      <AlertDialogPrimitive.Portal container={portalContainer} keepMounted={keepMounted}>
+      <AlertDialogPrimitive.Portal
+        container={portalContainer}
+        keepMounted={keepMounted}
+      >
         {popup}
       </AlertDialogPrimitive.Portal>
     ) : (
@@ -102,7 +106,10 @@ const AlertDialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn('flex flex-col space-y-2 text-center sm:text-start', className)}
+    className={cn(
+      'flex flex-col space-y-2 text-center sm:text-start',
+      className
+    )}
     {...props}
   />
 );

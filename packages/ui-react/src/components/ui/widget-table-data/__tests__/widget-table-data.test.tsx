@@ -51,7 +51,9 @@ describe('WidgetTableData', () => {
     expect(
       screen.getByRole('columnheader', { name: 'Device' })
     ).toBeInTheDocument();
-    expect(screen.getByRole('cell', { name: 'Workstation-01' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('cell', { name: 'Workstation-01' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Details' })).toHaveAttribute(
       'href',
       '#'

@@ -409,7 +409,7 @@ renderer. When you remove/rename a story, delete both its baselines.
 - [ ] Changeset for `@spec-lab/ui-react`.
 - [ ] test / typecheck / lint / build all pass; `pnpm -r typecheck` clean.
 - [ ] User told this is a design-pending v1 — reconcile with `/figma-component
-    <Name> <url> --update` once a mockup exists (that adds the Code Connect + `figma:` block).
+<Name> <url> --update` once a mockup exists (that adds the Code Connect + `figma:` block).
 
 ---
 

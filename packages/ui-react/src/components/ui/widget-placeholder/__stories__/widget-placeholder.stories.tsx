@@ -84,7 +84,9 @@ export const Interactive: Story = {
         <WidgetPlaceholderImage>
           <ChartBarVerticalIcon />
         </WidgetPlaceholderImage>
-        <WidgetPlaceholderText>Click anywhere to get started</WidgetPlaceholderText>
+        <WidgetPlaceholderText>
+          Click anywhere to get started
+        </WidgetPlaceholderText>
       </WidgetPlaceholderContent>
     </WidgetPlaceholder>
   ),

@@ -1,6 +1,6 @@
 import { ButtonIcon } from '@spec-lab/ui-react';
 import { Input } from '@spec-lab/ui-react';
-import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono'
+import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
 import { ScrollArea } from '@spec-lab/ui-react';
 
 const mockChats = [
@@ -28,7 +28,11 @@ export function Sidebar() {
           <div className="p-3">
             <div className="flex items-center justify-between mb-3 px-1">
               <h3 className="text-sm font-medium">Recent chats</h3>
-              <ButtonIcon variant="ghost" aria-label="New chat" className="h-6 w-6">
+              <ButtonIcon
+                variant="ghost"
+                aria-label="New chat"
+                className="h-6 w-6"
+              >
                 <PlusIcon className="h-4 w-4" />
               </ButtonIcon>
             </div>

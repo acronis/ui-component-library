@@ -3,8 +3,8 @@ title: Form validation
 description: Inline field validation with accessible error messages — native Form/Field validity or a schema resolver.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { FormValidationDemo } from "@/components/demos-react/patterns/form-validation";
+import { DemoReact } from '@/components/DemoReact';
+import { FormValidationDemo } from '@/components/demos-react/patterns/form-validation';
 
 How the kit surfaces validation. Each **`Field`** wires its control to a
 **`FieldError`** slot; an invalid field flips `data-[invalid]` and shows the
@@ -40,13 +40,21 @@ function SignUpForm({ onSubmit }) {
     <Form onFormSubmit={onSubmit} className="max-w-sm">
       <Field name="email">
         <FieldLabel>Email</FieldLabel>
-        <FieldControl render={<InputText type="email" required placeholder="you@example.com" />} />
+        <FieldControl
+          render={
+            <InputText type="email" required placeholder="you@example.com" />
+          }
+        />
         <FieldError match="valueMissing">Email is required.</FieldError>
-        <FieldError match="typeMismatch">Enter a valid email address.</FieldError>
+        <FieldError match="typeMismatch">
+          Enter a valid email address.
+        </FieldError>
       </Field>
       <Field
         name="password"
-        validate={(value) => (String(value).length < 8 ? "Use at least 8 characters." : null)}
+        validate={(value) =>
+          String(value).length < 8 ? 'Use at least 8 characters.' : null
+        }
       >
         <FieldLabel>Password</FieldLabel>
         <FieldControl render={<InputText type="password" required />} />

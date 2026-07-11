@@ -109,7 +109,7 @@ const RENDER: Record<string, RenderHint> = {
   chip: { sample: 'Label' },
   command: {
     props:
-      'className="w-80 rounded-md border border-border" placeholder="Type a command…" commands={[{ heading: \'Suggestions\', items: [{ value: \'calendar\', label: \'Calendar\' }, { value: \'search\', label: \'Search\', shortcut: \'⌘S\' }] }]}',
+      "className=\"w-80 rounded-md border border-border\" placeholder=\"Type a command…\" commands={[{ heading: 'Suggestions', items: [{ value: 'calendar', label: 'Calendar' }, { value: 'search', label: 'Search', shortcut: '⌘S' }] }]}",
   },
   'card-filter': {
     extraImports: [
@@ -246,7 +246,7 @@ const RENDER: Record<string, RenderHint> = {
   },
   tree: {
     ariaLabel: 'Files',
-    props: "defaultExpanded={['a']} defaultSelected=\"a1\"",
+    props: 'defaultExpanded={[\'a\']} defaultSelected="a1"',
     extraImports: [
       "import { TreeItem, TreeItemGroup, TreeItemLabel, TreeItemTrigger } from '../tree';",
     ],
@@ -441,7 +441,9 @@ const RENDER: Record<string, RenderHint> = {
     ].join('\n'),
   },
   'input-text': { props: 'label="Email" placeholder="you@example.com"' },
-  'input-text-area': { props: 'label="Bio" placeholder="Tell us about yourself"' },
+  'input-text-area': {
+    props: 'label="Bio" placeholder="Tell us about yourself"',
+  },
   link: { sample: 'Link', props: 'href="#"' },
   search: { ariaLabel: 'Search' },
   tooltip: {
@@ -683,7 +685,9 @@ const RENDER: Record<string, RenderHint> = {
   resizable: {
     root: 'ResizablePanelGroup',
     ariaLabel: 'Resizable example',
-    extraImports: ["import { ResizablePanel, ResizableHandle } from '../resizable';"],
+    extraImports: [
+      "import { ResizablePanel, ResizableHandle } from '../resizable';",
+    ],
     sample: [
       '',
       '      <ResizablePanel defaultSize={50}>One</ResizablePanel>',

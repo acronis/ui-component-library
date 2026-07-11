@@ -68,7 +68,11 @@ figma.connect(
       shortcut: figma.string('labelShortcut'),
     },
     example: ({ variant, tag, shortcut }) => (
-      <SidebarPrimaryMenuItemExtras variant={variant} tag={tag} shortcut={shortcut} />
+      <SidebarPrimaryMenuItemExtras
+        variant={variant}
+        tag={tag}
+        shortcut={shortcut}
+      />
     ),
   }
 );

@@ -303,8 +303,7 @@ const InputSelectError = React.forwardRef<
 ));
 InputSelectError.displayName = 'InputSelectError';
 
-export interface InputSelectStatusProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+export interface InputSelectStatusProps extends React.ComponentPropsWithoutRef<'div'> {
   /** Which status to show. Drives the leading icon. */
   variant: 'loading' | 'empty' | 'error';
   /** Optional trailing action (e.g. a "Try again" button) — shown for `error`. */
@@ -312,29 +311,32 @@ export interface InputSelectStatusProps
 }
 
 /** Loading / empty / error status row shown instead of items inside the dropdown. */
-const InputSelectStatus = React.forwardRef<HTMLDivElement, InputSelectStatusProps>(
-  ({ className, variant, children, action, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        'flex min-h-[128px] flex-col items-center justify-center gap-[var(--ui-input-select-dropdown-container-status-gap)] border-t border-[var(--ui-input-select-dropdown-section-container-border-color)] px-[var(--ui-input-select-dropdown-container-status-padding-x)] py-[var(--ui-input-select-dropdown-container-status-padding-y)] text-center text-sm leading-6 text-[var(--ui-input-select-dropdown-item-global-label-color)]',
-        className
-      )}
-      {...props}
-    >
-      {variant === 'loading' && (
-        <span
-          aria-hidden="true"
-          className="size-6 animate-spin rounded-full border-2 border-current border-t-transparent opacity-70"
-        />
-      )}
-      {variant === 'empty' && <InboxIcon size={24} className="opacity-70" />}
-      {variant === 'error' && <CircleWarningIcon size={24} className="opacity-70" />}
-      {children}
-      {variant === 'error' && action}
-    </div>
-  )
-);
+const InputSelectStatus = React.forwardRef<
+  HTMLDivElement,
+  InputSelectStatusProps
+>(({ className, variant, children, action, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      'flex min-h-[128px] flex-col items-center justify-center gap-[var(--ui-input-select-dropdown-container-status-gap)] border-t border-[var(--ui-input-select-dropdown-section-container-border-color)] px-[var(--ui-input-select-dropdown-container-status-padding-x)] py-[var(--ui-input-select-dropdown-container-status-padding-y)] text-center text-sm leading-6 text-[var(--ui-input-select-dropdown-item-global-label-color)]',
+      className
+    )}
+    {...props}
+  >
+    {variant === 'loading' && (
+      <span
+        aria-hidden="true"
+        className="size-6 animate-spin rounded-full border-2 border-current border-t-transparent opacity-70"
+      />
+    )}
+    {variant === 'empty' && <InboxIcon size={24} className="opacity-70" />}
+    {variant === 'error' && (
+      <CircleWarningIcon size={24} className="opacity-70" />
+    )}
+    {children}
+    {variant === 'error' && action}
+  </div>
+));
 InputSelectStatus.displayName = 'InputSelectStatus';
 
 export {

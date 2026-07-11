@@ -3,8 +3,8 @@ title: Grid
 description: A responsive CSS-grid layout primitive.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { GridDemo } from "@/components/demos-react/grid";
+import { DemoReact } from '@/components/DemoReact';
+import { GridDemo } from '@/components/demos-react/grid';
 
 ## Usage
 
@@ -25,7 +25,9 @@ breakpoints, with a configurable `gap`.
 
 ```tsx
 <Grid cols={3} gap="md">
-  {items.map((i) => <Card key={i.id} {...i} />)}
+  {items.map((i) => (
+    <Card key={i.id} {...i} />
+  ))}
 </Grid>
 ```
 
@@ -37,7 +39,9 @@ instead of the viewport — ideal for widget grids inside [App Shell](/layouts/a
 whose width changes as the sidebar expands:
 
 ```tsx
-<Grid container cols={3}>{cells}</Grid>
+<Grid container cols={3}>
+  {cells}
+</Grid>
 ```
 
 ## API Reference

@@ -28,7 +28,9 @@ export function SecondaryMenuWithTags() {
       <SidebarSecondary>
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
-            <SidebarSecondarySectionLabel>Features</SidebarSecondarySectionLabel>
+            <SidebarSecondarySectionLabel>
+              Features
+            </SidebarSecondarySectionLabel>
             <SidebarSecondaryMenu>
               {items.map((item) => (
                 <SidebarSecondaryMenuItem

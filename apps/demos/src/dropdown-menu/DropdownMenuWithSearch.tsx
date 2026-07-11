@@ -7,7 +7,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@spec-lab/ui-react';
-import { ChevronDownIcon, MagnifierIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ChevronDownIcon,
+  MagnifierIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 export function DropdownMenuWithSearch() {
   const [searchQuery, setSearchQuery] = useState('');
 

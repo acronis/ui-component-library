@@ -38,20 +38,28 @@ export function FormLayoutDemo({ portalContainer }: FormLayoutDemoProps = {}) {
         <FieldLegend>Profile</FieldLegend>
         <Field name="name">
           <FieldLabel>Full name</FieldLabel>
-          <FieldControl render={<InputText placeholder="Ada Lovelace" required />} />
+          <FieldControl
+            render={<InputText placeholder="Ada Lovelace" required />}
+          />
           <FieldError match="valueMissing">Name is required.</FieldError>
         </Field>
         <Field name="email">
           <FieldLabel>Email</FieldLabel>
           <FieldControl
-            render={<InputText type="email" placeholder="ada@example.com" required />}
+            render={
+              <InputText type="email" placeholder="ada@example.com" required />
+            }
           />
           <FieldError match="valueMissing">Email is required.</FieldError>
-          <FieldError match="typeMismatch">Enter a valid email address.</FieldError>
+          <FieldError match="typeMismatch">
+            Enter a valid email address.
+          </FieldError>
         </Field>
         <Field name="bio">
           <FieldLabel>Bio</FieldLabel>
-          <FieldControl render={<InputTextArea placeholder="A short introduction" />} />
+          <FieldControl
+            render={<InputTextArea placeholder="A short introduction" />}
+          />
           <FieldDescription>Shown on your public profile.</FieldDescription>
         </Field>
       </FieldSet>
@@ -71,7 +79,9 @@ export function FormLayoutDemo({ portalContainer }: FormLayoutDemoProps = {}) {
       </FieldSet>
 
       <div className="flex items-center justify-between gap-2">
-        <span className="text-sm text-muted-foreground">{saved ? 'Saved ✓' : ''}</span>
+        <span className="text-sm text-muted-foreground">
+          {saved ? 'Saved ✓' : ''}
+        </span>
         <div className="flex gap-2">
           <Button type="button" variant="ghost">
             Cancel

@@ -35,21 +35,29 @@ describe('Autocomplete', () => {
   it('opens and lists matching suggestions as the user types', async () => {
     render(<Demo />);
     await userEvent.type(screen.getByPlaceholderText('Search country…'), 'a');
-    expect(screen.getByRole('option', { name: 'Australia' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Australia' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Canada' })).toBeInTheDocument();
   });
 
   it('filters suggestions by the typed value', async () => {
     render(<Demo />);
     await userEvent.type(screen.getByPlaceholderText('Search country…'), 'Aus');
-    expect(screen.getByRole('option', { name: 'Australia' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Australia' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Austria' })).toBeInTheDocument();
-    expect(screen.queryByRole('option', { name: 'Belgium' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('option', { name: 'Belgium' })
+    ).not.toBeInTheDocument();
   });
 
   it('keeps free text that matches no suggestion', async () => {
     render(<Demo />);
-    const input = screen.getByPlaceholderText('Search country…') as HTMLInputElement;
+    const input = screen.getByPlaceholderText(
+      'Search country…'
+    ) as HTMLInputElement;
     await userEvent.type(input, 'Narnia');
     expect(input.value).toBe('Narnia');
     expect(screen.getByText('No results.')).toBeInTheDocument();

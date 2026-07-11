@@ -62,7 +62,10 @@ describe('getExistingIcons', () => {
 
   it('should handle special characters in filenames', async () => {
     await fs.writeFile(path.join(testDir, 'icon-with-dash.svg'), '<svg></svg>');
-    await fs.writeFile(path.join(testDir, 'icon_with_underscore.svg'), '<svg></svg>');
+    await fs.writeFile(
+      path.join(testDir, 'icon_with_underscore.svg'),
+      '<svg></svg>'
+    );
     await fs.writeFile(path.join(testDir, 'icon--16.svg'), '<svg></svg>');
 
     const result = await getExistingIcons(testDir);

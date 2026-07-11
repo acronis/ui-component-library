@@ -75,7 +75,10 @@ const WidgetTextIcon = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn('flex-shrink-0 text-secondary [&>svg]:h-4 [&>svg]:w-4', className)}
+    className={cn(
+      'flex-shrink-0 text-secondary [&>svg]:h-4 [&>svg]:w-4',
+      className
+    )}
     {...props}
   />
 ));
@@ -113,8 +116,7 @@ const WidgetTextLabel = React.forwardRef<
 ));
 WidgetTextLabel.displayName = 'WidgetTextLabel';
 
-export interface WidgetTextTrendProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface WidgetTextTrendProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: 'up' | 'down' | 'neutral';
 }
 

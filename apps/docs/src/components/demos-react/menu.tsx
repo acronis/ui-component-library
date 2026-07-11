@@ -33,7 +33,9 @@ export function MenuDemo() {
             Copy
           </MenuItem>
           <MenuSubmenu>
-            <MenuSubmenuTrigger icon={<FolderIcon />}>Move to</MenuSubmenuTrigger>
+            <MenuSubmenuTrigger icon={<FolderIcon />}>
+              Move to
+            </MenuSubmenuTrigger>
             <MenuSubmenuContent portalContainer={mount}>
               <MenuSection>
                 <MenuItem>Documents</MenuItem>

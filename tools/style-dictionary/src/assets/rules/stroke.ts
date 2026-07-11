@@ -15,7 +15,12 @@ const isStroked = (node: INode): boolean => {
   return stroke != null && stroke !== 'none';
 };
 
-export function applyStroke(root: INode, targetPx: number, vb: ViewBox, renderedLonger: number): void {
+export function applyStroke(
+  root: INode,
+  targetPx: number,
+  vb: ViewBox,
+  renderedLonger: number
+): void {
   const userUnits = (targetPx * longerDim(vb)) / renderedLonger;
   walk(root, (node) => {
     if (isStroked(node)) node.attributes['stroke-width'] = numAttr(userUnits);

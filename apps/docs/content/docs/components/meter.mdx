@@ -3,8 +3,8 @@ title: Meter
 description: A static measurement within a known range — quota, usage, or a score.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { MeterDemo } from "@/components/demos-react/meter";
+import { DemoReact } from '@/components/DemoReact';
+import { MeterDemo } from '@/components/demos-react/meter';
 
 ## Usage
 
@@ -39,7 +39,12 @@ A labelled meter with a percentage value:
 With units and a custom range:
 
 ```tsx
-<Meter value={512} min={0} max={1024} format={{ style: 'unit', unit: 'gigabyte' }}>
+<Meter
+  value={512}
+  min={0}
+  max={1024}
+  format={{ style: 'unit', unit: 'gigabyte' }}
+>
   <MeterLabel>Backup quota</MeterLabel>
   <MeterValue />
   <MeterTrack />

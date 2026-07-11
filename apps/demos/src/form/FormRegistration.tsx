@@ -2,7 +2,12 @@ import * as React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Field, FieldControl, FieldError, FieldLabel } from '@spec-lab/ui-react';
+import {
+  Field,
+  FieldControl,
+  FieldError,
+  FieldLabel,
+} from '@spec-lab/ui-react';
 import { InputBox } from '@spec-lab/ui-react';
 import { Button } from '@spec-lab/ui-react';
 import { Checkbox } from '@spec-lab/ui-react';
@@ -59,7 +64,9 @@ export function FormRegistration() {
             render={({ field, fieldState }) => (
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>First Name</FieldLabel>
-                <FieldControl render={<InputBox placeholder="John" {...field} />} />
+                <FieldControl
+                  render={<InputBox placeholder="John" {...field} />}
+                />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
                 )}
@@ -72,7 +79,9 @@ export function FormRegistration() {
             render={({ field, fieldState }) => (
               <Field invalid={!!fieldState.error} name={field.name}>
                 <FieldLabel>Last Name</FieldLabel>
-                <FieldControl render={<InputBox placeholder="Doe" {...field} />} />
+                <FieldControl
+                  render={<InputBox placeholder="Doe" {...field} />}
+                />
                 {fieldState.error && (
                   <FieldError match>{fieldState.error.message}</FieldError>
                 )}
@@ -87,7 +96,13 @@ export function FormRegistration() {
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Email</FieldLabel>
               <FieldControl
-                render={<InputBox type="email" placeholder="john@example.com" {...field} />}
+                render={
+                  <InputBox
+                    type="email"
+                    placeholder="john@example.com"
+                    {...field}
+                  />
+                }
               />
               {fieldState.error && (
                 <FieldError match>{fieldState.error.message}</FieldError>
@@ -102,7 +117,13 @@ export function FormRegistration() {
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Password</FieldLabel>
               <FieldControl
-                render={<InputBox type="password" placeholder="Enter password" {...field} />}
+                render={
+                  <InputBox
+                    type="password"
+                    placeholder="Enter password"
+                    {...field}
+                  />
+                }
               />
               {fieldState.error && (
                 <FieldError match>{fieldState.error.message}</FieldError>
@@ -117,7 +138,13 @@ export function FormRegistration() {
             <Field invalid={!!fieldState.error} name={field.name}>
               <FieldLabel>Confirm Password</FieldLabel>
               <FieldControl
-                render={<InputBox type="password" placeholder="Confirm password" {...field} />}
+                render={
+                  <InputBox
+                    type="password"
+                    placeholder="Confirm password"
+                    {...field}
+                  />
+                }
               />
               {fieldState.error && (
                 <FieldError match>{fieldState.error.message}</FieldError>

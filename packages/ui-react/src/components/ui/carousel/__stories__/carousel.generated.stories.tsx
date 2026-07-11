@@ -18,17 +18,17 @@ export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Carousel className="w-64">
-      <CarouselContent>
-        {[1, 2, 3].map((n) => (
-          <CarouselItem key={n}>
-            <div className="flex aspect-square items-center justify-center rounded-md border border-border bg-muted text-4xl font-semibold text-foreground">
-              {n}
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselNavigation />
-    </Carousel>
+        <CarouselContent>
+          {[1, 2, 3].map((n) => (
+            <CarouselItem key={n}>
+              <div className="flex aspect-square items-center justify-center rounded-md border border-border bg-muted text-4xl font-semibold text-foreground">
+                {n}
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselNavigation />
+      </Carousel>
     </div>
   ),
 };

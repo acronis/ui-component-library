@@ -72,14 +72,22 @@ for (const icon of used) {
   }
   if (M.colored?.[icon]) {
     const c = M.colored[icon];
-    colored.push([icon, Object.entries(c.multi || {}).map(([k, v]) => `${k}:${v}`).join(', ')]);
+    colored.push([
+      icon,
+      Object.entries(c.multi || {})
+        .map(([k, v]) => `${k}:${v}`)
+        .join(', '),
+    ]);
     continue;
   }
   unresolved.push([icon, M.unresolved?.[icon] || 'NOT_IN_MAP']);
 }
 
 mkdirSync('.icon-migration', { recursive: true });
-writeFileSync('.icon-migration/iconmap.json', JSON.stringify(map, null, 2) + '\n');
+writeFileSync(
+  '.icon-migration/iconmap.json',
+  JSON.stringify(map, null, 2) + '\n'
+);
 console.log(
   `mapped ${Object.keys(map).length}/${used.length} → .icon-migration/iconmap.json (TARGET=${TARGET})`
 );

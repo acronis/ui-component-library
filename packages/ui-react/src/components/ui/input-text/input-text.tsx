@@ -14,8 +14,10 @@ import { InputBox } from '../input';
 // is set and the (controlled) field has a value, and calls `onClear`. Colors come
 // from the `--ui-input-text-*` tokens — label/required/description/error/clear — so
 // brand overrides are honored; the clear button uses a 3px `--ui-focus-primary` ring.
-export interface InputTextProps
-  extends Omit<React.ComponentPropsWithoutRef<'input'>, 'children'> {
+export interface InputTextProps extends Omit<
+  React.ComponentPropsWithoutRef<'input'>,
+  'children'
+> {
   /** Field label, rendered above the input. */
   label?: React.ReactNode;
   /** Marks the field required — appends a `*` after the label. */

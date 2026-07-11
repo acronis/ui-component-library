@@ -12,7 +12,12 @@ export function MeterDemo() {
         </div>
         <MeterTrack />
       </Meter>
-      <Meter value={512} min={0} max={1024} format={{ style: 'unit', unit: 'gigabyte' }}>
+      <Meter
+        value={512}
+        min={0}
+        max={1024}
+        format={{ style: 'unit', unit: 'gigabyte' }}
+      >
         <div className="flex items-center justify-between">
           <MeterLabel>Backup quota</MeterLabel>
           <MeterValue />

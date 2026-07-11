@@ -20,7 +20,12 @@ const commands: CommandGroup[] = [
     heading: 'Suggestions',
     items: [
       { value: 'calendar', label: 'Calendar', icon: <CalendarIcon /> },
-      { value: 'search-file', label: 'Search file', icon: <FileIcon />, shortcut: '⌘F' },
+      {
+        value: 'search-file',
+        label: 'Search file',
+        icon: <FileIcon />,
+        shortcut: '⌘F',
+      },
       { value: 'open-folder', label: 'Open folder', icon: <FolderIcon /> },
     ],
   },

@@ -50,7 +50,11 @@ const rule = {
         );
         if (!classAttr) return;
         const classes = String(classAttr.value.value);
-        if (/\bfixed\b/.test(classes) && EDGE.test(classes) && Z.test(classes)) {
+        if (
+          /\bfixed\b/.test(classes) &&
+          EDGE.test(classes) &&
+          Z.test(classes)
+        ) {
           context.report({
             node,
             messageId: 'adhocSheet',

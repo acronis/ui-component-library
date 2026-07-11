@@ -3,8 +3,8 @@ title: Section
 description: A titled content block with header, description, and content.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { SectionDemo } from "@/components/demos-react/section";
+import { DemoReact } from '@/components/DemoReact';
+import { SectionDemo } from '@/components/demos-react/section';
 
 ## Usage
 
@@ -34,7 +34,9 @@ an `<h2>`; the description is muted.
 <Section>
   <SectionHeader>
     <SectionTitle>Backup plans</SectionTitle>
-    <SectionDescription>Manage how your workloads are backed up.</SectionDescription>
+    <SectionDescription>
+      Manage how your workloads are backed up.
+    </SectionDescription>
   </SectionHeader>
   <SectionContent>{children}</SectionContent>
 </Section>

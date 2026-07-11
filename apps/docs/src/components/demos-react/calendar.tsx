@@ -12,7 +12,9 @@ import { arSA, de } from 'react-day-picker/locale';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 export function CalendarDemo() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date(2024, 0, 15));
+  const [date, setDate] = React.useState<Date | undefined>(
+    new Date(2024, 0, 15)
+  );
   return (
     <Calendar
       mode="single"
@@ -28,7 +30,9 @@ export function CalendarDemo() {
 // `react-day-picker/locale`) translates the labels and sets the first day of the
 // week; `dir="rtl"` mirrors the layout. German (LTR) + Arabic (RTL) shown here.
 export function CalendarLocalizedDemo() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date(2024, 0, 15));
+  const [date, setDate] = React.useState<Date | undefined>(
+    new Date(2024, 0, 15)
+  );
   return (
     <div className="flex flex-wrap gap-6">
       <Calendar
@@ -75,7 +79,11 @@ export function CalendarInInputDatePickerDemo() {
             />
           }
         />
-        <PopoverContent portalContainer={mount} align="start" className="w-auto p-0">
+        <PopoverContent
+          portalContainer={mount}
+          align="start"
+          className="w-auto p-0"
+        >
           <Calendar
             mode="single"
             selected={date}

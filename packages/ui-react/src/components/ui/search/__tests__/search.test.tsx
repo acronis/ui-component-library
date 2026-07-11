@@ -20,8 +20,10 @@ describe('SearchBox', () => {
   });
 
   it('uses "Search" as the default accessible label', () => {
-    render(<SearchBox/>);
-    expect(screen.getByRole('searchbox', { name: 'Search' })).toBeInTheDocument();
+    render(<SearchBox />);
+    expect(
+      screen.getByRole('searchbox', { name: 'Search' })
+    ).toBeInTheDocument();
   });
 
   it('shows the placeholder', () => {

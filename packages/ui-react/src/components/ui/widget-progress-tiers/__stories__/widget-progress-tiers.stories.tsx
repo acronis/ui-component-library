@@ -25,7 +25,11 @@ type Story = StoryObj<typeof meta>;
 const tiers = [
   { label: 'Protected', value: 62, color: 'var(--ui-glyph-on-status-success)' },
   { label: 'At risk', value: 23, color: 'var(--ui-glyph-on-status-warning)' },
-  { label: 'Unprotected', value: 15, color: 'var(--ui-glyph-on-status-danger)' },
+  {
+    label: 'Unprotected',
+    value: 15,
+    color: 'var(--ui-glyph-on-status-danger)',
+  },
 ];
 
 export const Default: Story = {
@@ -112,7 +116,9 @@ export const ExplicitTotal: Story = {
       </WidgetProgressTiersHeader>
       <WidgetProgressTiersBar
         total={200}
-        tiers={[{ label: 'Used', value: 80, color: 'var(--ui-glyph-on-status-info)' }]}
+        tiers={[
+          { label: 'Used', value: 80, color: 'var(--ui-glyph-on-status-info)' },
+        ]}
       />
       <WidgetProgressTiersLegend>
         <WidgetProgressTiersLegendItem

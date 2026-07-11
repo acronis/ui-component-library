@@ -1,9 +1,5 @@
 import { Button } from '@spec-lab/ui-react';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@spec-lab/ui-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
 
 export function PopoverBasic() {
   return (

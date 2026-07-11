@@ -15,8 +15,10 @@ import { cn } from '@/lib/utils';
 // This is the trigger only — the calendar popup is NOT in the Figma design or the
 // token tier yet, so the consumer renders the date `value`/range as formatted
 // strings and wires their own calendar to `open` / `onClick`.
-export interface InputDatePickerProps
-  extends Omit<React.ComponentPropsWithoutRef<'button'>, 'value'> {
+export interface InputDatePickerProps extends Omit<
+  React.ComponentPropsWithoutRef<'button'>,
+  'value'
+> {
   /** Field label, rendered above the box. */
   label?: React.ReactNode;
   /** Marks the field required — appends a `*` after the label. */
@@ -41,7 +43,10 @@ export interface InputDatePickerProps
   open?: boolean;
 }
 
-const InputDatePicker = React.forwardRef<HTMLButtonElement, InputDatePickerProps>(
+const InputDatePicker = React.forwardRef<
+  HTMLButtonElement,
+  InputDatePickerProps
+>(
   (
     {
       className,

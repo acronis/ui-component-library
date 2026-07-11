@@ -13,10 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '../dropdown-menu';
 
-function DemoMenu(props: {
-  defaultOpen?: boolean;
-  onItemClick?: () => void;
-}) {
+function DemoMenu(props: { defaultOpen?: boolean; onItemClick?: () => void }) {
   return (
     <DropdownMenu defaultOpen={props.defaultOpen}>
       <DropdownMenuTrigger>Open menu</DropdownMenuTrigger>
@@ -37,7 +34,9 @@ describe('DropdownMenu', () => {
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Open menu' }));
     expect(screen.getByRole('menu')).toBeInTheDocument();
-    expect(screen.getByRole('menuitem', { name: 'Profile' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('menuitem', { name: 'Profile' })
+    ).toBeInTheDocument();
   });
 
   it('renders open with defaultOpen, including a separator', () => {

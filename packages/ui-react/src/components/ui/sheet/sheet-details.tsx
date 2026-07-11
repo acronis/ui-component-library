@@ -6,12 +6,7 @@ import {
   DescriptionListLabel,
   DescriptionListValue,
 } from '../description-list';
-import {
-  Empty,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyTitle,
-} from '../empty';
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '../empty';
 import { Spinner } from '../spinner';
 import {
   Sheet,
@@ -38,7 +33,8 @@ export interface SheetDetailsProperty {
   value: React.ReactNode;
 }
 
-export type SheetDetailsContentState = 'content' | 'loading' | 'empty' | 'error';
+export type SheetDetailsContentState =
+  'content' | 'loading' | 'empty' | 'error';
 
 export interface SheetDetailsProps {
   /** Controlled open state. Pair with `onOpenChange`. */

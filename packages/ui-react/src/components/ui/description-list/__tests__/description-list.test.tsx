@@ -67,7 +67,9 @@ describe('DescriptionList', () => {
         </DescriptionListItem>
       </DescriptionList>
     );
-    expect(screen.getByText('150GB backed up')).toHaveClass('text-muted-foreground');
+    expect(screen.getByText('150GB backed up')).toHaveClass(
+      'text-muted-foreground'
+    );
     expect(screen.getByText('Action to fix')).toBeInTheDocument();
     expect(screen.getByText('View alert')).toBeInTheDocument();
   });

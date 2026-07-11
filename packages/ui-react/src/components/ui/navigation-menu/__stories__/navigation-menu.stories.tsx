@@ -29,7 +29,8 @@ const meta = {
     },
     children: {
       control: false,
-      description: 'Composed parts — `NavigationMenuList` wrapping `NavigationMenuItem`s.',
+      description:
+        'Composed parts — `NavigationMenuList` wrapping `NavigationMenuItem`s.',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
   },
@@ -51,7 +52,9 @@ export const Default: Story = {
                   href="#"
                   className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  <div className="text-sm font-medium leading-none">Introduction</div>
+                  <div className="text-sm font-medium leading-none">
+                    Introduction
+                  </div>
                   <p className="mt-1 line-clamp-2 text-sm leading-snug text-muted-foreground">
                     Re-usable components built with Base UI and Tailwind CSS.
                   </p>
@@ -62,7 +65,9 @@ export const Default: Story = {
                   href="#"
                   className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  <div className="text-sm font-medium leading-none">Installation</div>
+                  <div className="text-sm font-medium leading-none">
+                    Installation
+                  </div>
                   <p className="mt-1 line-clamp-2 text-sm leading-snug text-muted-foreground">
                     How to install dependencies and structure your app.
                   </p>

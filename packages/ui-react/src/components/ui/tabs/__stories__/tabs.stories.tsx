@@ -31,11 +31,15 @@ const meta = {
     onValueChange: {
       control: false,
       description: 'Fires with the newly selected tab value.',
-      table: { type: { summary: '(value, eventDetails) => void' }, category: 'Events' },
+      table: {
+        type: { summary: '(value, eventDetails) => void' },
+        category: 'Events',
+      },
     },
     children: {
       control: false,
-      description: 'A `TabsList` of `TabsTrigger`s plus matching `TabsContent` panels.',
+      description:
+        'A `TabsList` of `TabsTrigger`s plus matching `TabsContent` panels.',
       table: { type: { summary: 'ReactNode' }, category: 'Content' },
     },
   },
@@ -57,7 +61,9 @@ export const Default: Story = {
         </p>
       </TabsContent>
       <TabsContent value="password">
-        <p className="text-sm text-muted-foreground">Change your password here.</p>
+        <p className="text-sm text-muted-foreground">
+          Change your password here.
+        </p>
       </TabsContent>
     </Tabs>
   ),

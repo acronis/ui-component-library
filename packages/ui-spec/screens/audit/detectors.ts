@@ -92,11 +92,18 @@ export const DETECTORS: ScreenDetector[] = [
     scope: 'region',
     run(nodes) {
       const out: Omit<ScreenFinding, 'severity' | 'checklist'>[] = [];
-      for (const row of rows(nodes.filter((n) => n.interactive && n.rect.height > 0))) {
+      for (const row of rows(
+        nodes.filter((n) => n.interactive && n.rect.height > 0)
+      )) {
         if (row.length < 2) continue;
-        const heights = distinct(row.map((n) => n.rect.height), 2);
+        const heights = distinct(
+          row.map((n) => n.rect.height),
+          2
+        );
         if (heights.length > 1) {
-          const tallest = row.reduce((a, b) => (a.rect.height >= b.rect.height ? a : b));
+          const tallest = row.reduce((a, b) =>
+            a.rect.height >= b.rect.height ? a : b
+          );
           out.push(
             find(
               'spacing/control-height-parity',
@@ -147,7 +154,10 @@ export const DETECTORS: ScreenDetector[] = [
       );
       for (const row of rows(controls)) {
         if (row.length < 2) continue;
-        const radii = distinct(row.map((n) => n.borderRadius), 1);
+        const radii = distinct(
+          row.map((n) => n.borderRadius),
+          1
+        );
         if (radii.length > 1) {
           out.push(
             find(
@@ -221,11 +231,15 @@ export const DETECTORS: ScreenDetector[] = [
     run(nodes) {
       const out: Omit<ScreenFinding, 'severity' | 'checklist'>[] = [];
       const candidates = nodes.filter((n) => n.interactive || isHeading(n));
-      const edges = distinct(candidates.map((n) => n.rect.x), 0).sort((a, b) => a - b);
+      const edges = distinct(
+        candidates.map((n) => n.rect.x),
+        0
+      ).sort((a, b) => a - b);
       for (let i = 1; i < edges.length; i += 1) {
         const delta = edges[i] - edges[i - 1];
         if (delta >= 1 && delta <= 6) {
-          const node = candidates.find((n) => n.rect.x === edges[i]) ?? candidates[0];
+          const node =
+            candidates.find((n) => n.rect.x === edges[i]) ?? candidates[0];
           out.push(
             find(
               'composition/edge-baseline-alignment',
@@ -319,7 +333,8 @@ export const DETECTORS: ScreenDetector[] = [
         if (!n.text || !n.text.trim() || n.isIcon) continue;
         const ratio = contrastRatio(n.color, n.backgroundColor);
         if (ratio == null) continue;
-        const large = n.fontSize >= 24 || (n.fontSize >= 18.66 && n.fontWeight >= 700);
+        const large =
+          n.fontSize >= 24 || (n.fontSize >= 18.66 && n.fontWeight >= 700);
         const min = large ? 3 : 4.5;
         if (ratio < min) {
           out.push(
@@ -341,6 +356,7 @@ export function resolveFinding(
   partial: Omit<ScreenFinding, 'severity' | 'checklist'>
 ): ScreenFinding {
   const rule = getRule(partial.ruleId);
-  if (!rule) throw new Error(`screen-audit references unknown rule "${partial.ruleId}"`);
+  if (!rule)
+    throw new Error(`screen-audit references unknown rule "${partial.ruleId}"`);
   return { ...partial, severity: rule.severity, checklist: rule.checklist };
 }

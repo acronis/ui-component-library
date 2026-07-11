@@ -17,7 +17,13 @@
  * the exported `buildSpecIndex()` and deep-equals it against the committed file,
  * failing if it is stale — mirroring how the repo gates generated artifacts.
  */
-import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { load as parseYaml } from 'js-yaml';
@@ -92,7 +98,8 @@ function pick<T extends object, K extends keyof T>(
 ): Partial<Pick<T, K>> {
   const out: Partial<Pick<T, K>> = {};
   for (const key of keys) {
-    if (source[key] !== undefined && source[key] !== null) out[key] = source[key];
+    if (source[key] !== undefined && source[key] !== null)
+      out[key] = source[key];
   }
   return out;
 }
@@ -180,6 +187,9 @@ function main(): void {
 }
 
 // Only write the file when run as a script, not when imported by the drift test.
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (
+  process.argv[1] &&
+  resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+) {
   main();
 }

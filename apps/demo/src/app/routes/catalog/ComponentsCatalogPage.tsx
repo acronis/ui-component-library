@@ -83,17 +83,17 @@ function ComponentTable({ items }: { items: SpecComponent[] }) {
 }
 
 export function ComponentsCatalogPage() {
-  const byLayer = [...groupBy(specIndex.components, (c) => c.layer ?? 'other')].sort(
-    ([a], [b]) => layerRank(a) - layerRank(b)
-  );
+  const byLayer = [
+    ...groupBy(specIndex.components, (c) => c.layer ?? 'other'),
+  ].sort(([a], [b]) => layerRank(a) - layerRank(b));
 
   return (
     <Stack gap="xl">
       <PageHeader>
         <PageHeaderTitle>Components</PageHeaderTitle>
         <PageHeaderDescription>
-          Every component with a spec, grouped by layer then category — driven by
-          the {specIndex.components.length}-entry spec index.
+          Every component with a spec, grouped by layer then category — driven
+          by the {specIndex.components.length}-entry spec index.
         </PageHeaderDescription>
       </PageHeader>
 

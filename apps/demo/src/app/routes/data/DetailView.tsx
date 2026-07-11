@@ -9,7 +9,7 @@ import {
 import { Button } from '@spec-lab/ui-react';
 import { Badge } from '@spec-lab/ui-react';
 import { Separator } from '@spec-lab/ui-react';
-import { BinIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono'
+import { BinIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono';
 import { format } from 'date-fns';
 import type { DataRow } from '../../types';
 

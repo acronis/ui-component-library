@@ -1,5 +1,9 @@
 import { ButtonIcon } from '@spec-lab/ui-react';
-import { ArrowRotationIcon, EllipsisIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono'
+import {
+  ArrowRotationIcon,
+  EllipsisIcon,
+  FilesIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 import {
   ThumbsUpIcon,
   ThumbsDownIcon,

@@ -64,7 +64,10 @@ const meta = {
       control: false,
       description:
         'Replace the rendered `<nav>` with another element or component (Base UI composition). Accepts a React element or a render function.',
-      table: { type: { summary: 'useRender.RenderProp' }, category: 'Composition' },
+      table: {
+        type: { summary: 'useRender.RenderProp' },
+        category: 'Composition',
+      },
     },
     'aria-label': {
       control: 'text',
@@ -236,7 +239,10 @@ export const WithExtras: Story = {
             <SidebarPrimaryMenu>
               <SidebarPrimaryMenuItem href="#" icon={<StarIcon />}>
                 Shortcut
-                <SidebarPrimaryMenuItemExtras variant="shortcut" shortcut="⌘K" />
+                <SidebarPrimaryMenuItemExtras
+                  variant="shortcut"
+                  shortcut="⌘K"
+                />
               </SidebarPrimaryMenuItem>
               <SidebarPrimaryMenuItem href="#" icon={<LayoutGridIcon />}>
                 External link
@@ -285,7 +291,11 @@ export const Controlled: Story = {
           <SidebarPrimaryContent>
             <SidebarPrimarySection>
               <SidebarPrimaryMenu>
-                <SidebarPrimaryMenuItem href="#" icon={<MonitorIcon />} selected>
+                <SidebarPrimaryMenuItem
+                  href="#"
+                  icon={<MonitorIcon />}
+                  selected
+                >
                   Assets
                 </SidebarPrimaryMenuItem>
                 <SidebarPrimaryMenuItem href="#" icon={<ShieldCheckIcon />}>

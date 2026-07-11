@@ -5,23 +5,23 @@
 export class PaletteMapper {
   // Figma name → our code name mappings.
   static #NAME_MAP = new Map([
-    ['Blue',       'blue'],
-    ['Teal',       'teal'],
-    ['Green',      'green'],
-    ['Yellow',     'yellow'],
-    ['Orange',     'orange'],
-    ['Red',        'red'],
-    ['Violet',     'violet'],
-    ['Ink',        'ink'],
-    ['Grayscale',  'grayscale'],
-    ['Transparent','transparent'],
+    ['Blue', 'blue'],
+    ['Teal', 'teal'],
+    ['Green', 'green'],
+    ['Yellow', 'yellow'],
+    ['Orange', 'orange'],
+    ['Red', 'red'],
+    ['Violet', 'violet'],
+    ['Ink', 'ink'],
+    ['Grayscale', 'grayscale'],
+    ['Transparent', 'transparent'],
   ]);
 
   // Figma sub-group within Transparent → our sub-path.
   static #TRANSPARENT_MAP = new Map([
     ['Inverted', 'inverted'],
-    ['Dark',     'dark'],
-    ['Clear',    'clear'],
+    ['Dark', 'dark'],
+    ['Clear', 'clear'],
   ]);
 
   // Map a Figma path like "Blue.Blue-3" or "Transparent.Inverted-6" to our
@@ -32,12 +32,15 @@ export class PaletteMapper {
 
     const [group, ...rest] = parts;
     const mappedGroup = PaletteMapper.#NAME_MAP.get(group);
-    if (!mappedGroup) return parts.map(p => p.toLowerCase().replace(/\s+/g, '-'));
+    if (!mappedGroup)
+      return parts.map((p) => p.toLowerCase().replace(/\s+/g, '-'));
 
     if (mappedGroup === 'grayscale') {
       // "Grayscale/Gray-3" → ["grayscale", "3"]
       const num = rest.join('/').match(/(\d+)$/)?.[1];
-      return num ? [mappedGroup, num] : [mappedGroup, rest.join('-').toLowerCase()];
+      return num
+        ? [mappedGroup, num]
+        : [mappedGroup, rest.join('-').toLowerCase()];
     }
 
     if (mappedGroup === 'transparent') {
@@ -46,8 +49,9 @@ export class PaletteMapper {
       const subName = subParts[0];
       const subNum = subParts[subParts.length - 1];
       const mappedSub = PaletteMapper.#TRANSPARENT_MAP.get(subName);
-      if (mappedSub && /^\d+$/.test(subNum)) return [mappedGroup, mappedSub, subNum];
-      return [mappedGroup, ...subParts.map(p => p.toLowerCase())];
+      if (mappedSub && /^\d+$/.test(subNum))
+        return [mappedGroup, mappedSub, subNum];
+      return [mappedGroup, ...subParts.map((p) => p.toLowerCase())];
     }
 
     // Blue/Teal/Green/... — strip the group prefix from the number key.

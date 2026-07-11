@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@spec-lab/ui-react';
-import { ListIcon } from '@spec-lab/icons-react/stroke-mono'
+import { ListIcon } from '@spec-lab/icons-react/stroke-mono';
 import { ListOrderedIcon } from '../icons/missing-icons';
 export function ButtonGroupWithTextLabels() {
   return (

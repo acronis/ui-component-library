@@ -3,8 +3,8 @@ title: Tooltip
 description: A contextual hint shown on hover or focus.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { TooltipDemo } from "@/components/demos-react/tooltip";
+import { DemoReact } from '@/components/DemoReact';
+import { TooltipDemo } from '@/components/demos-react/tooltip';
 
 ## Usage
 
@@ -24,7 +24,6 @@ wrap any element (such as a `Button`). Wrap your app (or a subtree) in
 `TooltipProvider` to share open/close timing across tooltips.
 
 ## Examples
-
 
 <DemoReact>
   <TooltipDemo />
@@ -53,7 +52,13 @@ Share timing across many tooltips with a provider:
 ```tsx
 <TooltipProvider>
   <Tooltip>
-    <TooltipTrigger render={<ButtonIcon aria-label="Edit"><PencilIcon /></ButtonIcon>} />
+    <TooltipTrigger
+      render={
+        <ButtonIcon aria-label="Edit">
+          <PencilIcon />
+        </ButtonIcon>
+      }
+    />
     <TooltipContent>Edit</TooltipContent>
   </Tooltip>
   {/* …more tooltips… */}

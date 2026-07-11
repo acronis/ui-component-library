@@ -43,12 +43,7 @@ import {
 
 type ChartType = 'line' | 'bar' | 'area' | 'none';
 type CurveType =
-  | 'linear'
-  | 'monotone'
-  | 'natural'
-  | 'step'
-  | 'stepBefore'
-  | 'stepAfter';
+  'linear' | 'monotone' | 'natural' | 'step' | 'stepBefore' | 'stepAfter';
 
 interface DataSource {
   name: string;

@@ -3,8 +3,8 @@ title: App Shell
 description: The full-page application scaffold — sidebar, header, and main slots.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { AppShellDemo } from "@/components/demos-react/app-shell";
+import { DemoReact } from '@/components/DemoReact';
+import { AppShellDemo } from '@/components/demos-react/app-shell';
 
 ## Usage
 
@@ -54,14 +54,14 @@ For the full slot assembly with the real nav + search components, see the
 
 ## Parts
 
-| Export            | Element    | Purpose                                          |
-| ----------------- | ---------- | ------------------------------------------------ |
-| `AppShell`        | `div`      | The full-height row.                             |
-| `AppShellSidebar` | `aside`    | Left nav column (SidebarPrimary [+ Secondary]).  |
-| `AppShellBody`    | `div`      | The body column filling the rest.                |
-| `AppShellHeader`  | `header`   | Sticky top bar (global search + actions).        |
-| `AppShellMain`    | `main`     | Scrolling page content.                          |
-| `AppShellFooter`  | `footer`   | Optional bottom bar.                             |
+| Export            | Element  | Purpose                                         |
+| ----------------- | -------- | ----------------------------------------------- |
+| `AppShell`        | `div`    | The full-height row.                            |
+| `AppShellSidebar` | `aside`  | Left nav column (SidebarPrimary [+ Secondary]). |
+| `AppShellBody`    | `div`    | The body column filling the rest.               |
+| `AppShellHeader`  | `header` | Sticky top bar (global search + actions).       |
+| `AppShellMain`    | `main`   | Scrolling page content.                         |
+| `AppShellFooter`  | `footer` | Optional bottom bar.                            |
 
 All parts accept their native element attributes plus `className` (use it to size
 the sidebar, pad main, etc.).

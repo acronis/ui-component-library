@@ -33,11 +33,15 @@ const meta = {
       control: 'select',
       options: ['none', 'x', 'y', 'both'],
       description: 'Which axis the popup follows the cursor along.',
-      table: { type: { summary: "'none' | 'x' | 'y' | 'both'" }, category: 'Behavior' },
+      table: {
+        type: { summary: "'none' | 'x' | 'y' | 'both'" },
+        category: 'Behavior',
+      },
     },
     onOpenChange: {
       control: false,
-      description: 'Fires with the new open state when the tooltip opens or closes.',
+      description:
+        'Fires with the new open state when the tooltip opens or closes.',
       table: {
         type: { summary: '(open: boolean, event?: Event) => void' },
         category: 'Events',
@@ -45,7 +49,8 @@ const meta = {
     },
     children: {
       control: false,
-      description: 'The TooltipTrigger and TooltipContent that compose the tooltip.',
+      description:
+        'The TooltipTrigger and TooltipContent that compose the tooltip.',
       table: { type: { summary: 'ReactNode' }, category: 'Composition' },
     },
   },

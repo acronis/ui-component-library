@@ -3,8 +3,8 @@ title: ButtonGroup
 description: Groups adjacent buttons into a single segmented unit, horizontally or vertically.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { ButtonGroupDemo } from "@/components/demos-react/button-group";
+import { DemoReact } from '@/components/DemoReact';
+import { ButtonGroupDemo } from '@/components/demos-react/button-group';
 
 ## Usage
 
@@ -43,12 +43,19 @@ Segmented actions (horizontal is the default):
 Icon buttons — give each an `aria-label`:
 
 ```tsx
-import { ChevronLeftIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@spec-lab/icons-react/stroke-mono';
 
 <ButtonGroup>
-  <Button variant="secondary" aria-label="Previous"><ChevronLeftIcon /></Button>
-  <Button variant="secondary" aria-label="Next"><ChevronRightIcon /></Button>
-</ButtonGroup>
+  <Button variant="secondary" aria-label="Previous">
+    <ChevronLeftIcon />
+  </Button>
+  <Button variant="secondary" aria-label="Next">
+    <ChevronRightIcon />
+  </Button>
+</ButtonGroup>;
 ```
 
 With a text addon and a separator:

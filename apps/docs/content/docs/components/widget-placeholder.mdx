@@ -3,8 +3,8 @@ title: WidgetPlaceholder
 description: An empty-state placeholder for a dashboard widget — header, illustration, message, and action.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { WidgetPlaceholderDemo } from "@/components/demos-react/widget-placeholder";
+import { DemoReact } from '@/components/DemoReact';
+import { WidgetPlaceholderDemo } from '@/components/demos-react/widget-placeholder';
 
 ## Usage
 
@@ -37,11 +37,15 @@ clickable. This is a design-pending v1 on semantic tokens; a
 ```tsx
 <WidgetPlaceholder className="h-[220px] w-[320px]">
   <WidgetPlaceholderHeader>
-    <WidgetPlaceholderIcon><ChartBarVerticalIcon /></WidgetPlaceholderIcon>
+    <WidgetPlaceholderIcon>
+      <ChartBarVerticalIcon />
+    </WidgetPlaceholderIcon>
     <WidgetPlaceholderTitle>Backup statistics</WidgetPlaceholderTitle>
   </WidgetPlaceholderHeader>
   <WidgetPlaceholderContent>
-    <WidgetPlaceholderImage><ChartBarVerticalIcon /></WidgetPlaceholderImage>
+    <WidgetPlaceholderImage>
+      <ChartBarVerticalIcon />
+    </WidgetPlaceholderImage>
     <WidgetPlaceholderText>No data available yet</WidgetPlaceholderText>
     <WidgetPlaceholderAction>Set up backup plan</WidgetPlaceholderAction>
   </WidgetPlaceholderContent>
@@ -53,11 +57,15 @@ A clickable widget tile with a footer:
 ```tsx
 <WidgetPlaceholder interactive className="w-[320px]" onClick={configure}>
   <WidgetPlaceholderHeader>
-    <WidgetPlaceholderIcon><ShieldCheckIcon /></WidgetPlaceholderIcon>
+    <WidgetPlaceholderIcon>
+      <ShieldCheckIcon />
+    </WidgetPlaceholderIcon>
     <WidgetPlaceholderTitle>Protection status</WidgetPlaceholderTitle>
   </WidgetPlaceholderHeader>
   <WidgetPlaceholderContent>
-    <WidgetPlaceholderImage><ShieldCheckIcon /></WidgetPlaceholderImage>
+    <WidgetPlaceholderImage>
+      <ShieldCheckIcon />
+    </WidgetPlaceholderImage>
     <WidgetPlaceholderText>No devices protected</WidgetPlaceholderText>
   </WidgetPlaceholderContent>
   <WidgetPlaceholderFooter>Last checked: never</WidgetPlaceholderFooter>

@@ -30,7 +30,9 @@ const steps: { title: string; content: ReactNode }[] = [
     content: (
       <Field name="plan">
         <FieldLabel>Plan name</FieldLabel>
-        <FieldControl render={<InputText placeholder="Daily backup" required />} />
+        <FieldControl
+          render={<InputText placeholder="Daily backup" required />}
+        />
       </Field>
     ),
   },
@@ -52,7 +54,9 @@ export interface WizardDialogDemoProps {
   portalContainer?: HTMLElement | null;
 }
 
-export function WizardDialogDemo({ portalContainer }: WizardDialogDemoProps = {}) {
+export function WizardDialogDemo({
+  portalContainer,
+}: WizardDialogDemoProps = {}) {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
   const isLast = step === steps.length - 1;

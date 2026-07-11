@@ -3,8 +3,8 @@ title: Card grid
 description: A responsive grid of uniform cards (catalog / gallery / overview tiles) under a page header.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { CardGridDemo } from "@/components/demos-react/patterns/card-grid";
+import { DemoReact } from '@/components/DemoReact';
+import { CardGridDemo } from '@/components/demos-react/patterns/card-grid';
 
 The sanctioned layout for a set of peer items shown as tiles: a **`PageHeader`**
 over a responsive **`Grid`** of uniform **`Card`**s. `Grid`'s `cols` variant
@@ -42,7 +42,9 @@ function CatalogGrid({ items }) {
         <PageHeaderRow>
           <PageHeaderTitle>Integrations</PageHeaderTitle>
         </PageHeaderRow>
-        <PageHeaderDescription>Connect the tools your team already uses.</PageHeaderDescription>
+        <PageHeaderDescription>
+          Connect the tools your team already uses.
+        </PageHeaderDescription>
       </PageHeader>
       <Grid cols={3} gap="md">
         {items.map((item) => (

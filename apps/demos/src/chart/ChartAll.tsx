@@ -6,12 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@spec-lab/ui-react';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@spec-lab/ui-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@spec-lab/ui-react';
 import {
   ChartContainer,
   ChartTooltip,

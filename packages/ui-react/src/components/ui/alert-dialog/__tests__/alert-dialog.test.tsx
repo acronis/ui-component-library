@@ -41,9 +41,13 @@ describe('AlertDialog', () => {
     render(<OpenAlertDialog />);
     expect(screen.getByRole('alertdialog')).toBeInTheDocument();
     expect(screen.getByText('Are you absolutely sure?')).toBeInTheDocument();
-    expect(screen.getByText('This action cannot be undone.')).toBeInTheDocument();
+    expect(
+      screen.getByText('This action cannot be undone.')
+    ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Continue' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Continue' })
+    ).toBeInTheDocument();
   });
 
   it('drives the popup surface from the bridged semantic tokens', () => {

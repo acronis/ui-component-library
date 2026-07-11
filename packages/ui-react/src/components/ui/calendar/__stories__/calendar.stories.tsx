@@ -21,15 +21,23 @@ const meta = {
     mode: {
       control: 'inline-radio',
       options: ['single', 'multiple', 'range'],
-      description: 'Selection mode (from react-day-picker): one date, many dates, or a range.',
-      table: { type: { summary: "'single' | 'multiple' | 'range'" }, category: 'Behavior' },
+      description:
+        'Selection mode (from react-day-picker): one date, many dates, or a range.',
+      table: {
+        type: { summary: "'single' | 'multiple' | 'range'" },
+        category: 'Behavior',
+      },
     },
     captionLayout: {
       control: 'select',
       options: ['label', 'dropdown', 'dropdown-months', 'dropdown-years'],
-      description: 'Month/year caption: a static label or month/year dropdowns.',
+      description:
+        'Month/year caption: a static label or month/year dropdowns.',
       table: {
-        type: { summary: "'label' | 'dropdown' | 'dropdown-months' | 'dropdown-years'" },
+        type: {
+          summary:
+            "'label' | 'dropdown' | 'dropdown-months' | 'dropdown-years'",
+        },
         defaultValue: { summary: 'label' },
         category: 'Appearance',
       },
@@ -37,7 +45,11 @@ const meta = {
     showOutsideDays: {
       control: 'boolean',
       description: 'Render the trailing/leading days of adjacent months.',
-      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' }, category: 'Appearance' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
+        category: 'Appearance',
+      },
     },
     numberOfMonths: {
       control: { type: 'number', min: 1, max: 3 },
@@ -100,7 +112,9 @@ export const WithDisabledDays: Story = {
 // trigger + calendar together.
 function DatePickerField() {
   const [open, setOpen] = React.useState(true);
-  const [date, setDate] = React.useState<Date | undefined>(new Date(2024, 0, 15));
+  const [date, setDate] = React.useState<Date | undefined>(
+    new Date(2024, 0, 15)
+  );
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger

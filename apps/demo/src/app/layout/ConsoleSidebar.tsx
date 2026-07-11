@@ -62,14 +62,22 @@ interface NavItem {
 }
 
 const primaryItems: NavItem[] = [
-  { section: 'dashboard', labelKey: 'navigation.dashboard', icon: <MonitorIcon /> },
+  {
+    section: 'dashboard',
+    labelKey: 'navigation.dashboard',
+    icon: <MonitorIcon />,
+  },
   { section: 'data', labelKey: 'navigation.data', icon: <LayoutTableIcon /> },
   { section: 'chat', labelKey: 'navigation.chat', icon: <MessageIcon /> },
   { section: 'settings', labelKey: 'navigation.settings', icon: <CogIcon /> },
 ];
 
 const overviewItems: NavItem[] = [
-  { section: 'dashboard', labelKey: 'navigation.dashboard', icon: <LayoutGridIcon /> },
+  {
+    section: 'dashboard',
+    labelKey: 'navigation.dashboard',
+    icon: <LayoutGridIcon />,
+  },
   { section: 'data', labelKey: 'navigation.data', icon: <ServerIcon /> },
 ];
 
@@ -195,7 +203,11 @@ function SecondaryNav({ currentSection }: { currentSection: string }) {
   const label = (item: NavItem): string =>
     item.label ?? (item.labelKey ? t(item.labelKey) : item.section);
 
-  const renderSection = (title: string, items: NavItem[], anchorId?: string) => (
+  const renderSection = (
+    title: string,
+    items: NavItem[],
+    anchorId?: string
+  ) => (
     <SidebarSecondarySection data-tour-id={anchorId}>
       <SidebarSecondarySectionLabel>{title}</SidebarSecondarySectionLabel>
       <SidebarSecondaryMenu>

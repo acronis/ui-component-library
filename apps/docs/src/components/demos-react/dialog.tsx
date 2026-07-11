@@ -19,7 +19,9 @@ export function DialogDemo() {
   const mount = useShadowMount();
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="secondary">Open dialog</Button>} />
+      <DialogTrigger
+        render={<Button variant="secondary">Open dialog</Button>}
+      />
       <DialogContent portalContainer={mount}>
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>

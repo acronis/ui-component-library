@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Button, ButtonIcon } from '@spec-lab/ui-react';
-import { GlobeIcon } from '@spec-lab/icons-react/stroke-mono'
+import { GlobeIcon } from '@spec-lab/icons-react/stroke-mono';
 import { PaperclipIcon } from '@/components/icons/missing-icons';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 

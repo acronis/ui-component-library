@@ -3,8 +3,8 @@ title: Detail drawer
 description: Show details of a selected item in an edge-anchored Drawer — header, key/value properties, content states, and footer actions.
 ---
 
-import { DemoReact } from "@/components/DemoReact";
-import { DetailDrawerDemo } from "@/components/demos-react/patterns/detail-drawer";
+import { DemoReact } from '@/components/DemoReact';
+import { DetailDrawerDemo } from '@/components/demos-react/patterns/detail-drawer';
 
 The sanctioned way to present "details of the selected thing" in a non-blocking,
 edge-anchored **`Drawer`**: a header (title + close), a body that renders either
@@ -48,12 +48,16 @@ function DetailDrawer({ open, onOpenChange, contentState, item }) {
         </DrawerHeader>
         <DrawerBody>
           {contentState === 'loading' ? (
-            <div className="flex h-full items-center justify-center"><Spinner /></div>
+            <div className="flex h-full items-center justify-center">
+              <Spinner />
+            </div>
           ) : contentState === 'empty' ? (
             <Empty>
               <EmptyHeader>
                 <EmptyTitle>Nothing to show</EmptyTitle>
-                <EmptyDescription>This item has no details yet.</EmptyDescription>
+                <EmptyDescription>
+                  This item has no details yet.
+                </EmptyDescription>
               </EmptyHeader>
             </Empty>
           ) : (
