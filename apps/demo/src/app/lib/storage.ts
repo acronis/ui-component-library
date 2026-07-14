@@ -80,7 +80,9 @@ export function setStorage(updates: Partial<LocalStorageSchema>): void {
   } catch (error) {
     if (error instanceof Error && error.name === 'QuotaExceededError') {
       console.error('localStorage quota exceeded');
-      throw new Error('Storage quota exceeded. Please clear some data.');
+      throw new Error('Storage quota exceeded. Please clear some data.', {
+        cause: error,
+      });
     }
     console.error('Failed to save storage:', error);
     throw error;

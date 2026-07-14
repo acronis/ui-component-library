@@ -50,11 +50,6 @@ export default tseslint.config(
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
-      // `preserve-caught-error` is new in ESLint 10's recommended set. Adopting it
-      // (attaching `{ cause }` to re-thrown errors) needs the ES2022 Error-cause
-      // lib in some workspaces' tsconfig — a separate follow-up. Keep it off so
-      // this stays a pure toolchain upgrade with no enforced-behavior change.
-      'preserve-caught-error': 'off',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
