@@ -19,6 +19,7 @@ export const Default: Story = {
   render: (args) => (
     <OTPField {...args}>
       {Array.from({ length: args.length }).map((_, i) => (
+        // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length OTP slots keyed by position; the index is the stable identity
         <OTPFieldInput key={i} />
       ))}
     </OTPField>
@@ -45,6 +46,7 @@ export const Masked: Story = {
   render: () => (
     <OTPField length={4} mask defaultValue="1234">
       {Array.from({ length: 4 }).map((_, i) => (
+        // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length OTP slots keyed by position; the index is the stable identity
         <OTPFieldInput key={i} />
       ))}
     </OTPField>
@@ -56,6 +58,7 @@ export const Disabled: Story = {
   render: () => (
     <OTPField length={4} disabled defaultValue="12">
       {Array.from({ length: 4 }).map((_, i) => (
+        // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length OTP slots keyed by position; the index is the stable identity
         <OTPFieldInput key={i} />
       ))}
     </OTPField>

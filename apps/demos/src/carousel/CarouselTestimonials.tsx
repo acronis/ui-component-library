@@ -27,8 +27,8 @@ export function CarouselTestimonials() {
             author: 'Bob Johnson',
             role: 'Manager, Company C',
           },
-        ].map((testimonial, index) => (
-          <CarouselItem key={index}>
+        ].map((testimonial) => (
+          <CarouselItem key={testimonial.author}>
             <div className="p-1">
               <Card>
                 <CardContent className="flex flex-col items-center justify-center p-8 text-center min-h-[200px]">

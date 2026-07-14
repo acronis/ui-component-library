@@ -588,9 +588,9 @@ export const ChatComponentsShowcase: React.FC = () => {
                       active: false,
                       hasAlert: false,
                     },
-                  ].map((chat, i) => (
+                  ].map((chat) => (
                     <button
-                      key={i}
+                      key={chat.title}
                       className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors relative ${
                         chat.active
                           ? 'bg-accent/70 text-accent-foreground'

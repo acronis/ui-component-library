@@ -58,7 +58,7 @@ function useSidebarSecondaryContext(): SidebarSecondaryContextValue {
   // Default to expanded so parts render standalone (in isolation tests /
   // stories) without a wrapping root; the toggle is a no-op outside a root.
   return (
-    React.useContext(SidebarSecondaryContext) ?? {
+    React.use(SidebarSecondaryContext) ?? {
       expanded: true,
       toggleExpanded: () => {},
     }
@@ -157,9 +157,9 @@ const SidebarSecondary = React.forwardRef<HTMLElement, SidebarSecondaryProps>(
     });
 
     return (
-      <SidebarSecondaryContext.Provider value={context}>
+      <SidebarSecondaryContext value={context}>
         {element}
-      </SidebarSecondaryContext.Provider>
+      </SidebarSecondaryContext>
     );
   }
 );
@@ -345,18 +345,18 @@ const SidebarSecondarySection = React.forwardRef<
 
     if (!expandable) {
       return (
-        <SidebarSecondarySectionContext.Provider value={SECTION_STATIC}>
+        <SidebarSecondarySectionContext value={SECTION_STATIC}>
           <div ref={ref} className={sectionClass} {...props}>
             {children}
           </div>
-        </SidebarSecondarySectionContext.Provider>
+        </SidebarSecondarySectionContext>
       );
     }
 
     // Expandable: Base UI Collapsible owns the open state (controlled or
     // uncontrolled) + the aria-expanded/aria-controls wiring on the trigger.
     return (
-      <SidebarSecondarySectionContext.Provider value={SECTION_EXPANDABLE}>
+      <SidebarSecondarySectionContext value={SECTION_EXPANDABLE}>
         <Collapsible.Root
           ref={ref}
           open={open}
@@ -367,7 +367,7 @@ const SidebarSecondarySection = React.forwardRef<
         >
           {children}
         </Collapsible.Root>
-      </SidebarSecondarySectionContext.Provider>
+      </SidebarSecondarySectionContext>
     );
   }
 );
@@ -395,7 +395,7 @@ const SidebarSecondarySectionLabel = React.forwardRef<
   HTMLDivElement,
   SidebarSecondarySectionLabelProps
 >(({ className, actions, unreadRollup, children, ...props }, ref) => {
-  const { expandable } = React.useContext(SidebarSecondarySectionContext);
+  const { expandable } = React.use(SidebarSecondarySectionContext);
 
   if (!expandable) {
     // Static header: preserve the original markup when there are no actions so
@@ -467,7 +467,7 @@ const SidebarSecondaryMenu = React.forwardRef<
   HTMLUListElement,
   React.ComponentPropsWithoutRef<'ul'>
 >(({ className, ...props }, ref) => {
-  const { expandable } = React.useContext(SidebarSecondarySectionContext);
+  const { expandable } = React.use(SidebarSecondarySectionContext);
   const list = (
     <ul
       ref={ref}
@@ -529,6 +529,7 @@ const SidebarSecondaryMenuItem = React.forwardRef<
   // must sit at the right edge of the row, after the title — so split them out:
   // the title takes the remaining width and truncates with an ellipsis, while the
   // extras stay `shrink-0` on the right (the row's `gap` is their left margin).
+  // eslint-disable-next-line @eslint-react/no-children-to-array -- partitioning slotted children by component type needs a keyed, fragment-flattened array
   const items = React.Children.toArray(children);
   const extras = items.filter(
     (child): child is React.ReactElement =>

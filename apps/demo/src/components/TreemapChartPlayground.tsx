@@ -258,10 +258,11 @@ export function TreemapChartPlayground() {
     Record<string, CategoryConfig>
   >({});
 
-  // Reset on data source change
-  React.useEffect(() => {
+  // Reset per-category config on data source change
+  const handleDataSourceChange = (next: DataSourceKey) => {
+    setDataSource(next);
     setCategoryConfigs({});
-  }, [dataSource]);
+  };
 
   const updateCategoryConfig = (
     catName: string,
@@ -536,7 +537,9 @@ export function TreemapChartPlayground() {
                   <Label className="text-sm font-medium">Data Source</Label>
                   <Select
                     value={dataSource}
-                    onValueChange={(v) => setDataSource(v as DataSourceKey)}
+                    onValueChange={(v) =>
+                      handleDataSourceChange(v as DataSourceKey)
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />

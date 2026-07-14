@@ -95,14 +95,14 @@ function Drawer({
   ...props
 }: DrawerProps) {
   return (
-    <DrawerSideContext.Provider value={side}>
+    <DrawerSideContext value={side}>
       <DrawerPrimitive.Root
         swipeDirection={swipeDirection ?? SIDE_TO_SWIPE_DIRECTION[side]}
         {...props}
       >
         {children}
       </DrawerPrimitive.Root>
-    </DrawerSideContext.Provider>
+    </DrawerSideContext>
   );
 }
 Drawer.displayName = 'Drawer';
@@ -142,7 +142,7 @@ const DrawerViewport = React.forwardRef<
   React.ComponentRef<typeof DrawerPrimitive.Viewport>,
   DrawerViewportProps
 >(({ className, side, ...props }, ref) => {
-  const contextSide = React.useContext(DrawerSideContext);
+  const contextSide = React.use(DrawerSideContext);
   return (
     <DrawerPrimitive.Viewport
       ref={ref}
@@ -168,7 +168,7 @@ const DrawerPopup = React.forwardRef<
   React.ComponentRef<typeof DrawerPrimitive.Popup>,
   DrawerPopupProps
 >(({ className, side, ...props }, ref) => {
-  const contextSide = React.useContext(DrawerSideContext);
+  const contextSide = React.use(DrawerSideContext);
   return (
     <DrawerPrimitive.Popup
       ref={ref}
@@ -219,7 +219,7 @@ const DrawerContent = React.forwardRef<
     },
     ref
   ) => {
-    const contextSide = React.useContext(DrawerSideContext);
+    const contextSide = React.use(DrawerSideContext);
     const resolvedSide = side ?? contextSide;
     const popup = (
       <>

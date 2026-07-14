@@ -130,6 +130,7 @@ export function DataTable<TData, TValue>({
           {skeleton ? (
             Array.from({ length: skeletonRows }).map((_, rowIndex) => (
               <TableRow
+                // eslint-disable-next-line @eslint-react/no-array-index-key -- static skeleton placeholders have no data identity; row position is the only key
                 key={`skeleton-${rowIndex}`}
                 className="hover:bg-transparent"
               >

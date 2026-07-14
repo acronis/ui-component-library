@@ -17,6 +17,14 @@ import { createGenerator } from 'fumadocs-typescript';
 // MDX files can keep using <AutoTypeTable path=... name=... /> unchanged.
 const generator = createGenerator();
 
+// Hoisted (not defined inline in the MDX component map) so it's a stable
+// top-level component rather than a new function identity on every render.
+function AutoTypeTableWithGenerator(
+  props: Omit<AutoTypeTableProps, 'generator'>
+) {
+  return <AutoTypeTable {...props} generator={generator} />;
+}
+
 export default async function Page({
   params,
 }: {
@@ -38,9 +46,7 @@ export default async function Page({
         <MDX
           components={{
             ...defaultMdxComponents,
-            AutoTypeTable: (props: Omit<AutoTypeTableProps, 'generator'>) => (
-              <AutoTypeTable {...props} generator={generator} />
-            ),
+            AutoTypeTable: AutoTypeTableWithGenerator,
           }}
         />
         <EditOnGitHub href={editUrl} />

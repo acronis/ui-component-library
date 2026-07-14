@@ -17,6 +17,7 @@ export function CarouselMultiple() {
     >
       <CarouselContent>
         {Array.from({ length: 10 }).map((_, index) => (
+          // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length static demo array with no stable id
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
               <Card>

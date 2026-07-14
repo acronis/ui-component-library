@@ -5,7 +5,7 @@ export function CheckboxList() {
     <div className="space-y-1 rounded-lg border">
       {['Task 1', 'Task 2', 'Task 3', 'Task 4'].map((task, index) => (
         <div
-          key={index}
+          key={task}
           className="flex items-center space-x-2 border-b p-3 last:border-b-0 hover:bg-muted/50"
         >
           <Checkbox id={`task-${index}`} />

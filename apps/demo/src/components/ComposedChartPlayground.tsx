@@ -383,18 +383,19 @@ export function ComposedChartPlayground() {
     currentSource.yFields.slice(0, 3)
   );
 
-  // Reset on data source change
-  React.useEffect(() => {
-    const source = dataSources[dataSource];
-    setXAxisField(source.xFields[0]);
-    setEnabledYFields(source.yFields.slice(0, 3));
-    setSeriesConfigs({});
-  }, [dataSource]);
-
   // ── Per-series config ───────────────────────────────────────────────────
   const [seriesConfigs, setSeriesConfigs] = React.useState<
     Record<string, SeriesConfig>
   >({});
+
+  // Reset on data source change
+  const handleDataSourceChange = (next: DataSourceKey) => {
+    const source = dataSources[next];
+    setDataSource(next);
+    setXAxisField(source.xFields[0]);
+    setEnabledYFields(source.yFields.slice(0, 3));
+    setSeriesConfigs({});
+  };
 
   const defaultTypeForIndex = (idx: number): ChartType => {
     const cycle: ChartType[] = ['bar', 'line', 'area'];
@@ -1100,7 +1101,9 @@ export function ComposedChartPlayground() {
                   <Label className="text-sm font-medium">Data Source</Label>
                   <Select
                     value={dataSource}
-                    onValueChange={(v) => setDataSource(v as DataSourceKey)}
+                    onValueChange={(v) =>
+                      handleDataSourceChange(v as DataSourceKey)
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />

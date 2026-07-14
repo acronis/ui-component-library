@@ -32,7 +32,7 @@ export function DataTable({ data }: DataTableProps) {
             <tr>
               {data.headers.map((header, i) => (
                 <th
-                  key={i}
+                  key={header}
                   className={`text-left p-3 font-semibold ${
                     i === data.headers.length - 1 ? 'text-right' : ''
                   }`}
@@ -45,12 +45,13 @@ export function DataTable({ data }: DataTableProps) {
           <tbody>
             {data.rows.map((row, i) => (
               <tr
+                // eslint-disable-next-line @eslint-react/no-array-index-key -- static AI-response table data, rows never reorder
                 key={i}
                 className="border-t border-border/50 hover:bg-muted/30 transition-colors"
               >
                 {data.headers.map((header, j) => (
                   <td
-                    key={j}
+                    key={header}
                     className={`p-3 ${
                       j === 0
                         ? ''

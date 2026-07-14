@@ -316,8 +316,8 @@ export function WidgetAll() {
                       dataKey="value"
                       paddingAngle={2}
                     >
-                      {donutData.map((entry, index) => (
-                        <Cell key={index} fill={entry.color} />
+                      {donutData.map((entry) => (
+                        <Cell key={entry.name} fill={entry.color} />
                       ))}
                     </Pie>
                     <ChartTooltip content={<ChartTooltipContent />} />
@@ -326,8 +326,8 @@ export function WidgetAll() {
               </WidgetContent>
               <WidgetFooter>
                 <div className="flex gap-4 text-xs">
-                  {donutData.map((d, i) => (
-                    <div key={i} className="flex items-center gap-1">
+                  {donutData.map((d) => (
+                    <div key={d.name} className="flex items-center gap-1">
                       <div
                         className="h-2 w-2 rounded-sm"
                         style={{ backgroundColor: d.color }}
@@ -442,9 +442,9 @@ export function WidgetAll() {
               </WidgetProgressTiersHeader>
               <WidgetProgressTiersBar tiers={progressTiers} />
               <WidgetProgressTiersLegend>
-                {progressTiers.map((tier, i) => (
+                {progressTiers.map((tier) => (
                   <WidgetProgressTiersLegendItem
-                    key={i}
+                    key={tier.label}
                     color={tier.color}
                     label={tier.label}
                     value={`${tier.value}%`}

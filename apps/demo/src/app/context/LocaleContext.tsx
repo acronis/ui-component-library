@@ -200,13 +200,11 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     isLanguageSupported,
   };
 
-  return (
-    <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
-  );
+  return <LocaleContext value={value}>{children}</LocaleContext>;
 }
 
 export function useLocale() {
-  const context = React.useContext(LocaleContext);
+  const context = React.use(LocaleContext);
   if (!context) {
     throw new Error('useLocale must be used within LocaleProvider');
   }

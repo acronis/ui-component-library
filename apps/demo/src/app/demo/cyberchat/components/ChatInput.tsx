@@ -103,7 +103,7 @@ export function ChatInput() {
           <div className="mb-3 flex flex-wrap gap-2">
             {attachedFiles.map((file, index) => (
               <div
-                key={index}
+                key={`${file.name}-${file.lastModified}-${file.size}`}
                 className="flex items-center gap-2 px-3 py-1.5 bg-muted rounded-lg text-sm"
               >
                 <FileTextIcon className="h-4 w-4" />

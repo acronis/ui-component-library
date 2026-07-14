@@ -351,8 +351,9 @@ export function CardPlayground() {
   const [compactMode, setCompactMode] = React.useState(false);
 
   // ── Sync preset ─────────────────────────────────────────────────────────
-  React.useEffect(() => {
-    const p = kpiPresets[preset];
+  const handlePresetChange = (next: PresetKey) => {
+    setPreset(next);
+    const p = kpiPresets[next];
     setTitle(p.title);
     setValue(p.value);
     setValueFormat(p.format);
@@ -369,7 +370,7 @@ export function CardPlayground() {
     setBadgeVariant(p.badgeVariant);
     setProgressValue(p.progressValue);
     setAccentColor(p.iconColor);
-  }, [preset]);
+  };
 
   // ── Helpers ─────────────────────────────────────────────────────────────
 
@@ -751,7 +752,7 @@ export function CardPlayground() {
                   <Label className="text-sm font-medium">KPI Preset</Label>
                   <Select
                     value={preset}
-                    onValueChange={(v) => setPreset(v as PresetKey)}
+                    onValueChange={(v) => handlePresetChange(v as PresetKey)}
                   >
                     <SelectTrigger>
                       <SelectValue />

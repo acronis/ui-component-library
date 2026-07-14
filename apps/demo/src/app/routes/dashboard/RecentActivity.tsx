@@ -33,6 +33,7 @@ export function RecentActivity({
         <CardContent>
           <div className="space-y-4">
             {[...Array(5)].map((_, i) => (
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders, never reordered
               <div key={i} className="flex items-start gap-4">
                 <div className="h-2 w-2 mt-2 bg-muted animate-pulse rounded-full" />
                 <div className="flex-1 space-y-2">

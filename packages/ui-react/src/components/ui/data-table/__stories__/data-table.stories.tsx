@@ -175,7 +175,8 @@ export const ExpandableRows: Story = {
         <div className="text-sm text-muted-foreground">
           Detailed payment information for{' '}
           <span className="font-medium text-foreground">{row.original.id}</span>{' '}
-          — ${row.original.amount.toFixed(2)} via {row.original.email}
+          — {'$'}
+          {row.original.amount.toFixed(2)} via {row.original.email}
         </div>
       )}
     />

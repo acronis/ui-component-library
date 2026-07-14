@@ -45,7 +45,9 @@ const records = [
 ];
 
 export function TableExpandableRows() {
-  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(
+    () => new Set()
+  );
 
   const allExpanded = useMemo(
     () => expandedRows.size === records.length,

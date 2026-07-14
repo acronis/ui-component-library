@@ -197,15 +197,18 @@ export function RadarChartPlayground() {
     Record<string, boolean>
   >({});
 
-  React.useEffect(() => {
-    const source = radarDataSources[dataSource];
+  // Reset series selection, per-series config, and domain max on source change.
+  const handleDataSourceChange = (next: DataSourceKey) => {
+    const source = radarDataSources[next];
     const allOn: Record<string, boolean> = {};
     source.valueFields.forEach((f) => {
       allOn[f] = true;
     });
+    setDataSource(next);
     setEnabledSeries(allOn);
     setSeriesConfigs({});
-  }, [dataSource]);
+    setRadiusAxisDomainMax(source.maxValue);
+  };
 
   // ── Per-series config ───────────────────────────────────────────────────
   const [seriesConfigs, setSeriesConfigs] = React.useState<
@@ -322,11 +325,6 @@ export function RadarChartPlayground() {
   const [radiusAxisTickCount, setRadiusAxisTickCount] = React.useState(5);
   const [radiusAxisTick, setRadiusAxisTick] = React.useState(true);
   const [radiusAxisReversed, setRadiusAxisReversed] = React.useState(false);
-
-  // Update domain max on data source change
-  React.useEffect(() => {
-    setRadiusAxisDomainMax(radarDataSources[dataSource].maxValue);
-  }, [dataSource]);
 
   // ── Derived ─────────────────────────────────────────────────────────────
 
@@ -609,7 +607,9 @@ export function RadarChartPlayground() {
                   <Label className="text-sm font-medium">Data Source</Label>
                   <Select
                     value={dataSource}
-                    onValueChange={(v) => setDataSource(v as DataSourceKey)}
+                    onValueChange={(v) =>
+                      handleDataSourceChange(v as DataSourceKey)
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />

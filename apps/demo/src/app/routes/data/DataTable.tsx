@@ -52,7 +52,7 @@ export function DataTable({
   const [sortDirection, setSortDirection] =
     React.useState<SortDirection>('asc');
   const [selectedRows, setSelectedRows] = React.useState<Set<string>>(
-    new Set()
+    () => new Set()
   );
   const [currentPage, setCurrentPage] = React.useState(0);
   const [pageSize, setPageSize] = React.useState(10);

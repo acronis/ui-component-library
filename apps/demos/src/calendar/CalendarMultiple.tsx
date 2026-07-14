@@ -17,9 +17,9 @@ export function CalendarMultiple() {
         <div className="mt-4">
           <p className="text-sm font-medium text-gray-700">Selected dates:</p>
           <div className="mt-2 flex flex-wrap gap-2">
-            {multipleDate.map((d, i) => (
+            {multipleDate.map((d) => (
               <span
-                key={i}
+                key={d.toISOString()}
                 className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800"
               >
                 {d.toLocaleDateString()}

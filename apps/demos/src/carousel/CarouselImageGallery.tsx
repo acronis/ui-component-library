@@ -12,6 +12,7 @@ export function CarouselImageGallery() {
     <Carousel className="w-full max-w-lg mx-auto">
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
+          // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length static demo array with no stable id
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>

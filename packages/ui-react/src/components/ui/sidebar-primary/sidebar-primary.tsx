@@ -41,7 +41,7 @@ function useSidebarPrimaryContext(): SidebarPrimaryContextValue {
   // Default to expanded so parts render standalone (e.g. in isolation tests /
   // stories) without a wrapping root; the toggle is a no-op outside a root.
   return (
-    React.useContext(SidebarPrimaryContext) ?? {
+    React.use(SidebarPrimaryContext) ?? {
       expanded: true,
       toggleExpanded: () => {},
     }
@@ -141,9 +141,7 @@ const SidebarPrimary = React.forwardRef<HTMLElement, SidebarPrimaryProps>(
     });
 
     return (
-      <SidebarPrimaryContext.Provider value={context}>
-        {element}
-      </SidebarPrimaryContext.Provider>
+      <SidebarPrimaryContext value={context}>{element}</SidebarPrimaryContext>
     );
   }
 );
@@ -284,6 +282,7 @@ const SidebarPrimaryMenuItem = React.forwardRef<
   // belong at the right edge of the row — split them out so the title takes the
   // remaining width and truncates with an ellipsis, while the extras stay
   // `shrink-0` on the right (the row's `gap` is their left margin).
+  // eslint-disable-next-line @eslint-react/no-children-to-array -- partitioning slotted children by component type needs a keyed, fragment-flattened array
   const items = React.Children.toArray(children);
   const extras = items.filter(
     (child): child is React.ReactElement =>

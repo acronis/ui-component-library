@@ -122,6 +122,7 @@ function SheetDetailsBody({
         style={{ '--description-list-label': '9rem' } as React.CSSProperties}
       >
         {properties.map((p, i) => (
+          // eslint-disable-next-line @eslint-react/no-array-index-key -- properties have no id and label/value are arbitrary ReactNodes; the list is a fixed, order-stable prop
           <DescriptionListItem key={i}>
             <DescriptionListLabel className="text-muted-foreground">
               {p.label}

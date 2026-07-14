@@ -57,6 +57,7 @@ export function ChartsSection({
     return (
       <div className="grid gap-4 md:grid-cols-2">
         {[...Array(3)].map((_, i) => (
+          // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders, never reordered
           <Card key={i}>
             <CardHeader>
               <div className="h-5 w-32 bg-muted animate-pulse rounded" />
@@ -193,8 +194,8 @@ export function ChartsSection({
                   strokeWidth={2}
                   dataKey="value"
                 >
-                  {distributionData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  {distributionData.map((entry) => (
+                    <Cell key={entry.name} fill={entry.fill} />
                   ))}
                 </Pie>
                 <ChartTooltip content={<ChartTooltipContent />} />

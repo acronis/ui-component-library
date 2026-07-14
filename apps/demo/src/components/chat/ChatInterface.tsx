@@ -73,7 +73,7 @@ export function ChatInterface({
     onModeChange?.(mode);
   };
 
-  const [state, setState] = useState(getState());
+  const [state, setState] = useState(() => getState());
 
   // Subscribe to state changes
   useEffect(() => {

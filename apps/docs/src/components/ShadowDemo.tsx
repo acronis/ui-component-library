@@ -2,10 +2,11 @@
 
 import {
   createContext,
-  useContext,
+  use,
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type ReactNode,
 } from 'react';
 import { createPortal } from 'react-dom';
@@ -15,7 +16,7 @@ import { createPortal } from 'react-dom';
 // ui-react styles. Pass it to a component's `portalContainer` prop.
 const ShadowMountContext = createContext<HTMLElement | null>(null);
 export function useShadowMount(): HTMLElement | null {
-  return useContext(ShadowMountContext);
+  return use(ShadowMountContext);
 }
 
 // ui-react ships its styles authored for `:root,:host`, so the same stylesheet
@@ -67,6 +68,19 @@ function isDark(): boolean {
   );
 }
 
+// Subscribe to docs theme changes via a MutationObserver so the shadow wrapper
+// can mirror the current scheme. Driven through useSyncExternalStore instead of
+// an effect+setState so there's no synchronous set-state-in-effect and SSR gets
+// a stable `false` snapshot.
+function subscribeTheme(onChange: () => void): () => void {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class', 'data-theme'],
+  });
+  return () => observer.disconnect();
+}
+
 interface ShadowDemoProps {
   children: ReactNode;
   center?: boolean;
@@ -75,7 +89,7 @@ interface ShadowDemoProps {
 export function ShadowDemo({ children, center }: ShadowDemoProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [mount, setMount] = useState<HTMLElement | null>(null);
-  const [dark, setDark] = useState(false);
+  const dark = useSyncExternalStore(subscribeTheme, isDark, () => false);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -113,17 +127,6 @@ export function ShadowDemo({ children, center }: ShadowDemoProps) {
   // Mirror the docs theme onto the shadow wrapper so ui-react's `light-dark()`
   // tokens resolve to the matching scheme.
   useEffect(() => {
-    const update = () => setDark(isDark());
-    update();
-    const observer = new MutationObserver(update);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class', 'data-theme'],
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
     if (!mount) return;
     mount.setAttribute('data-theme', dark ? 'dark' : 'light');
     if (center) mount.setAttribute('data-center', 'true');
@@ -133,9 +136,7 @@ export function ShadowDemo({ children, center }: ShadowDemoProps) {
     <div ref={hostRef} className="min-h-[96px]">
       {mount &&
         createPortal(
-          <ShadowMountContext.Provider value={mount}>
-            {children}
-          </ShadowMountContext.Provider>,
+          <ShadowMountContext value={mount}>{children}</ShadowMountContext>,
           mount
         )}
     </div>

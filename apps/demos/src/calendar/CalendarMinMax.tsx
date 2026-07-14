@@ -2,7 +2,12 @@ import * as React from 'react';
 import { Calendar } from '@spec-lab/ui-react';
 
 export function CalendarMinMax() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [date, setDate] = React.useState<Date | undefined>(() => new Date());
+  const disabled = React.useMemo(() => {
+    const today = new Date();
+    const inThreeMonths = new Date(new Date().setMonth(today.getMonth() + 3));
+    return [{ before: today }, { after: inThreeMonths }];
+  }, []);
 
   return (
     <div>
@@ -11,10 +16,7 @@ export function CalendarMinMax() {
           mode="single"
           selected={date}
           onSelect={setDate}
-          disabled={[
-            { before: new Date() },
-            { after: new Date(new Date().setMonth(new Date().getMonth() + 3)) },
-          ]}
+          disabled={disabled}
         />
       </div>
       <p className="mt-4 text-sm text-gray-500">

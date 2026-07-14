@@ -34,14 +34,15 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchBoxProps>(
     forwardedRef
   ) => {
     const innerRef = React.useRef<HTMLInputElement>(null);
-    const [hasValue, setHasValue] = React.useState(
-      () => String(value ?? defaultValue ?? '').length > 0
+    const [uncontrolledHasValue, setUncontrolledHasValue] = React.useState(
+      () => String(defaultValue ?? '').length > 0
     );
 
-    // Keep the clear button in sync when the value is controlled externally.
-    React.useEffect(() => {
-      if (value !== undefined) setHasValue(String(value).length > 0);
-    }, [value]);
+    // When controlled, derive from the `value` prop during render so the clear
+    // button stays in sync without a state-syncing effect; otherwise track it
+    // locally from change/clear events.
+    const hasValue =
+      value !== undefined ? String(value).length > 0 : uncontrolledHasValue;
 
     const setRefs = React.useCallback(
       (node: HTMLInputElement | null) => {
@@ -53,7 +54,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchBoxProps>(
     );
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setHasValue(event.target.value.length > 0);
+      setUncontrolledHasValue(event.target.value.length > 0);
       onChange?.(event);
     };
 
@@ -76,7 +77,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchBoxProps>(
       else input.value = '';
 
       input.dispatchEvent(new Event('input', { bubbles: true }));
-      setHasValue(false);
+      setUncontrolledHasValue(false);
       input.focus();
       onClear?.();
     };

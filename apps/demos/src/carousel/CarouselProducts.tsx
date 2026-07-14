@@ -17,8 +17,8 @@ export function CarouselProducts() {
           { name: 'Product 2', price: '$149', emoji: '📱' },
           { name: 'Product 3', price: '$199', emoji: '⌚' },
           { name: 'Product 4', price: '$299', emoji: '🎧' },
-        ].map((product, index) => (
-          <CarouselItem key={index}>
+        ].map((product) => (
+          <CarouselItem key={product.name}>
             <div className="p-1">
               <Card>
                 <CardContent className="flex flex-col items-center justify-center p-8">

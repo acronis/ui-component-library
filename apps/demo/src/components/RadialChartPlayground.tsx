@@ -79,23 +79,32 @@ export function RadialChartPlayground() {
     {}
   );
 
-  React.useEffect(() => {
-    setNameKey(currentSource.nameKeys[0]);
-    setSelectedValueKeys([currentSource.valueKeys[0]]);
+  const computeEnabledKeys = (
+    source: (typeof radialDataSources)[keyof typeof radialDataSources],
+    key: string
+  ) => {
     const allOn: Record<string, boolean> = {};
-    currentSource.data.forEach((item) => {
-      allOn[String(item[currentSource.nameKeys[0]])] = true;
+    source.data.forEach((item) => {
+      allOn[String(item[key])] = true;
     });
-    setEnabledKeys(allOn);
-  }, [dataSource, currentSource]);
+    return allOn;
+  };
 
-  React.useEffect(() => {
-    const allOn: Record<string, boolean> = {};
-    currentSource.data.forEach((item) => {
-      allOn[String(item[nameKey])] = true;
-    });
-    setEnabledKeys(allOn);
-  }, [currentSource, nameKey]);
+  // Reset selectors and re-enable all keys when the data source changes.
+  const handleDataSourceChange = (next: keyof typeof radialDataSources) => {
+    const source = radialDataSources[next];
+    const nextNameKey = source.nameKeys[0];
+    setDataSource(next);
+    setNameKey(nextNameKey);
+    setSelectedValueKeys([source.valueKeys[0]]);
+    setEnabledKeys(computeEnabledKeys(source, nextNameKey));
+  };
+
+  // Re-enable all keys when the label key changes.
+  const handleNameKeyChange = (next: string) => {
+    setNameKey(next);
+    setEnabledKeys(computeEnabledKeys(currentSource, next));
+  };
 
   const visibleData = React.useMemo(() => {
     return currentSource.data.filter(
@@ -389,7 +398,9 @@ export function RadialChartPlayground() {
                   <Select
                     value={dataSource}
                     onValueChange={(v) =>
-                      setDataSource(v as keyof typeof radialDataSources)
+                      handleDataSourceChange(
+                        v as keyof typeof radialDataSources
+                      )
                     }
                   >
                     <SelectTrigger>
@@ -409,7 +420,7 @@ export function RadialChartPlayground() {
                   <Label className="text-sm font-medium">
                     Label field (nameKey)
                   </Label>
-                  <Select value={nameKey} onValueChange={setNameKey}>
+                  <Select value={nameKey} onValueChange={handleNameKeyChange}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>

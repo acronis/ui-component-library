@@ -27,9 +27,9 @@ function InputSelect<Value, Multiple extends boolean | undefined = false>(
   props: SelectPrimitive.Root.Props<Value, Multiple>
 ) {
   return (
-    <InputSelectModeContext.Provider value={Boolean(props.multiple)}>
+    <InputSelectModeContext value={Boolean(props.multiple)}>
       <SelectPrimitive.Root {...props} />
-    </InputSelectModeContext.Provider>
+    </InputSelectModeContext>
   );
 }
 InputSelect.displayName = 'InputSelect';
@@ -236,7 +236,7 @@ const InputSelectItem = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => {
-  const multiple = React.useContext(InputSelectModeContext);
+  const multiple = React.use(InputSelectModeContext);
   return (
     <SelectPrimitive.Item
       ref={ref}

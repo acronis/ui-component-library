@@ -757,7 +757,7 @@ export function TablePlayground() {
   const [rowBorder, setRowBorder] = React.useState<
     'all' | 'horizontal' | 'vertical' | 'none'
   >('horizontal');
-  const [hoverColor, _setHoverColor] = React.useState('default');
+  const [hoverColor] = React.useState('default');
 
   // Cell styling settings
   const [cellPadding, setCellPadding] = React.useState<
@@ -862,7 +862,7 @@ export function TablePlayground() {
   } | null>(null);
   const [editValue, setEditValue] = React.useState<string>('');
   const [expandedRows, setExpandedRows] = React.useState<Set<number>>(
-    new Set()
+    () => new Set()
   );
   const [contextMenu, setContextMenu] = React.useState<{
     x: number;
@@ -903,7 +903,7 @@ export function TablePlayground() {
   const [groupByColumn, setGroupByColumn] = React.useState<string | null>(null);
   const [showSubtotals, setShowSubtotals] = React.useState(true);
   const [collapsedGroups, setCollapsedGroups] = React.useState<Set<string>>(
-    new Set()
+    () => new Set()
   );
   const [enableTreeView, setEnableTreeView] = React.useState(false);
   const [treeParentColumn, setTreeParentColumn] = React.useState<string | null>(
@@ -913,7 +913,7 @@ export function TablePlayground() {
     null
   );
   const [expandedTreeNodes, setExpandedTreeNodes] = React.useState<Set<any>>(
-    new Set()
+    () => new Set()
   );
   const [enableVirtualScroll, setEnableVirtualScroll] = React.useState(false);
   const [virtualScrollHeight, setVirtualScrollHeight] = React.useState(500);
@@ -922,10 +922,18 @@ export function TablePlayground() {
   // Columns visibility - dynamic based on datasource
   const [visibleColumns, setVisibleColumns] = React.useState<
     Record<string, boolean>
-  >({});
+  >(() => {
+    const initial: Record<string, boolean> = {};
+    currentColumns.forEach((col) => {
+      initial[col] = col !== 'id'; // Hide ID by default
+    });
+    return initial;
+  });
 
   // Column management settings
-  const [columnOrder, setColumnOrder] = React.useState<string[]>([]);
+  const [columnOrder, setColumnOrder] = React.useState<string[]>(() => [
+    ...currentColumns,
+  ]);
   const [columnWidths, setColumnWidths] = React.useState<
     Record<string, number>
   >({});
@@ -979,21 +987,23 @@ export function TablePlayground() {
     'asc' | 'desc'
   >('asc');
 
-  // Reset when datasource changes
-  React.useEffect(() => {
+  // Reset column state when datasource changes
+  const handleDataSourceChange = (next: DataSourceKey) => {
+    const cols = dataSources[next].columns;
     const newVisibility: Record<string, boolean> = {};
-    currentColumns.forEach((col) => {
+    cols.forEach((col) => {
       newVisibility[col] = col !== 'id'; // Hide ID by default
     });
+    setDataSource(next);
     setVisibleColumns(newVisibility);
-    setColumnOrder([...currentColumns]);
+    setColumnOrder([...cols]);
     setSelectedRows([]);
     setSortColumn(null);
     setSortDirection(null);
     setCurrentPage(1);
     setFrozenColumnsLeft(0);
     setFrozenColumnsRight(0);
-  }, [dataSource]);
+  };
 
   // Get visible column list (respecting column order)
   const activeColumns = React.useMemo(() => {
@@ -1360,12 +1370,14 @@ export function TablePlayground() {
   // Reset current page when switching datasources or when total pages changes
   React.useEffect(() => {
     if (currentPage > totalPages && totalPages > 0) {
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- clamp page to range when the derived total-page count shrinks
       setCurrentPage(1);
     }
   }, [totalPages, currentPage]);
 
   // Reset loaded rows when switching pagination mode or datasource
   React.useEffect(() => {
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- reset infinite-scroll window when pagination mode / source / page size changes
     setLoadedRows(pageSize);
   }, [paginationMode, dataSource, pageSize]);
 
@@ -1570,7 +1582,9 @@ export function TablePlayground() {
       defaultSortColumn &&
       (currentColumns as readonly string[]).includes(defaultSortColumn)
     ) {
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- apply configured default sort when source / default-sort config changes
       setSortColumn(defaultSortColumn);
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- apply configured default sort when source / default-sort config changes
       setSortDirection(defaultSortDirection);
     }
   }, [dataSource, defaultSortColumn, defaultSortDirection, currentColumns]);
@@ -1579,8 +1593,10 @@ export function TablePlayground() {
   React.useEffect(() => {
     const checkMobileView = () => {
       if (enableMobileView) {
+        // eslint-disable-next-line @eslint-react/set-state-in-effect -- track window width (external) into mobile-view state on mount/resize
         setIsMobileView(window.innerWidth <= mobileBreakpoint);
       } else {
+        // eslint-disable-next-line @eslint-react/set-state-in-effect -- track window width (external) into mobile-view state on mount/resize
         setIsMobileView(false);
       }
     };
@@ -1986,8 +2002,8 @@ export function TablePlayground() {
     if (column === 'tags' && Array.isArray(value) && showTags) {
       return (
         <div className="flex flex-wrap gap-1">
-          {value.map((tag, idx) => (
-            <Badge key={idx} variant="neutral" className="text-xs">
+          {value.map((tag) => (
+            <Badge key={String(tag)} variant="neutral" className="text-xs">
               <TagIcon className="h-2.5 w-2.5 mr-1" />
               {tag}
             </Badge>
@@ -2162,6 +2178,7 @@ export function TablePlayground() {
         <div className="flex items-center gap-1">
           {[...Array(5)].map((_, i) => (
             <StarIcon
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed 5-star rating scale, positions never reorder
               key={i}
               className={`h-3 w-3 ${i < Math.floor(value) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
             />
@@ -2256,7 +2273,7 @@ export function TablePlayground() {
         <span
           className={`font-mono ${value < 0 ? 'text-red-500' : 'text-green-600'}`}
         >
-          ${Math.abs(value).toLocaleString()}
+          {`$${Math.abs(value).toLocaleString()}`}
         </span>
       );
     }
@@ -3353,7 +3370,10 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   <Label className="text-xs font-medium">Saved Presets</Label>
                   <div className="flex flex-wrap gap-2">
                     {savedFilterPresets.map((preset, index) => (
-                      <div key={index} className="flex items-center gap-1">
+                      <div
+                        key={preset.name}
+                        className="flex items-center gap-1"
+                      >
                         <Button
                           variant="secondary"
                           onClick={() => loadFilterPreset(preset.config)}
@@ -4560,7 +4580,9 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                   <Label className="text-sm font-medium">Data Source</Label>
                   <Select
                     value={dataSource}
-                    onValueChange={(v) => setDataSource(v as DataSourceKey)}
+                    onValueChange={(v) =>
+                      handleDataSourceChange(v as DataSourceKey)
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />
@@ -6623,6 +6645,7 @@ ${features.length > 0 ? `// - Enabled features: ${features.join(', ')}` : ''}`;
                             <div className="space-y-3 max-h-[300px] overflow-y-auto">
                               {conditionalRules.map((rule, ruleIndex) => (
                                 <div
+                                  // eslint-disable-next-line @eslint-react/no-array-index-key -- rules are edited/removed by index and never reordered; adding ids would change the data model
                                   key={ruleIndex}
                                   className="p-2 border rounded-md space-y-2 bg-background"
                                 >

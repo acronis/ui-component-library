@@ -203,20 +203,32 @@ export function PieChartPlayground() {
   const [legendPos, setLegendPos] = React.useState<'top' | 'bottom'>('bottom');
   const currentSource = pieDataSources[dataSource];
 
-  React.useEffect(() => {
-    // Reset selectors when source changes
-    setNameKey(currentSource.nameKeys[0]);
-    setValueKey(currentSource.valueKeys[0]);
-  }, [dataSource, currentSource.nameKeys, currentSource.valueKeys]);
-
-  React.useEffect(() => {
-    // Ensure slices are enabled when data source or label key changes
+  const computeEnabledSlices = (
+    source: (typeof pieDataSources)[keyof typeof pieDataSources],
+    key: string
+  ) => {
     const nextEnabled: Record<string, boolean> = {};
-    currentSource.data.forEach((item) => {
-      nextEnabled[String(item[nameKey])] = true;
+    source.data.forEach((item) => {
+      nextEnabled[String(item[key])] = true;
     });
-    setEnabledSlices(nextEnabled);
-  }, [currentSource.data, nameKey]);
+    return nextEnabled;
+  };
+
+  // Reset selectors and re-enable all slices when the data source changes.
+  const handleDataSourceChange = (next: keyof typeof pieDataSources) => {
+    const source = pieDataSources[next];
+    const nextNameKey = source.nameKeys[0];
+    setDataSource(next);
+    setNameKey(nextNameKey);
+    setValueKey(source.valueKeys[0]);
+    setEnabledSlices(computeEnabledSlices(source, nextNameKey));
+  };
+
+  // Re-enable all slices when the label key changes.
+  const handleNameKeyChange = (next: string) => {
+    setNameKey(next);
+    setEnabledSlices(computeEnabledSlices(currentSource, next));
+  };
 
   const getSliceColor = React.useCallback(
     (key: string, idx: number) =>
@@ -456,7 +468,7 @@ export function PieChartPlayground() {
                 >
                   {visibleData.map((entry, index) => (
                     <Cell
-                      key={`cell-${index}`}
+                      key={String(entry[nameKey])}
                       fill={getSliceColor(String(entry[nameKey]), index)}
                     />
                   ))}
@@ -489,7 +501,7 @@ export function PieChartPlayground() {
                   <Select
                     value={dataSource}
                     onValueChange={(v) =>
-                      setDataSource(v as keyof typeof pieDataSources)
+                      handleDataSourceChange(v as keyof typeof pieDataSources)
                     }
                   >
                     <SelectTrigger>
@@ -512,7 +524,7 @@ export function PieChartPlayground() {
                     <Label className="text-sm font-medium">
                       Label field (nameKey)
                     </Label>
-                    <Select value={nameKey} onValueChange={setNameKey}>
+                    <Select value={nameKey} onValueChange={handleNameKeyChange}>
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>

@@ -1,6 +1,6 @@
 import React, {
   createContext,
-  useContext,
+  use,
   useReducer,
   useEffect,
   useMemo,
@@ -55,9 +55,23 @@ interface ChatProviderProps {
 
 export function ChatProvider({ children }: ChatProviderProps) {
   const [state, dispatch] = useReducer(chatReducer, createInitialState());
-  const [botInstance, setBotInstance] = React.useState<ElizaBot | Hal9000Bot>(
-    () => hal9000Bot
-  );
+
+  // The active bot is fully derived from the current mode (and, in conversation
+  // mode, from who spoke last), so compute it during render rather than syncing
+  // it into state from an effect.
+  const botInstance = useMemo<ElizaBot | Hal9000Bot>(() => {
+    if (state.botMode === 'hal9000') {
+      return hal9000Bot;
+    }
+    if (state.botMode === 'conversation') {
+      const lastBotMessage = state.messages
+        .filter((m) => m.sender === 'bot')
+        .pop();
+      const lastBot = lastBotMessage?.metadata?.botMode;
+      return lastBot === 'hal9000' ? elizaBot : hal9000Bot;
+    }
+    return elizaBot;
+  }, [state.botMode, state.messages]);
 
   // Use refs to always have access to current values
   const stateRef = React.useRef(state);
@@ -78,9 +92,6 @@ export function ChatProvider({ children }: ChatProviderProps) {
       const savedState = ChatStorage.load();
       if (savedState) {
         dispatch({ type: 'LOAD_SESSION', payload: savedState });
-        setBotInstance(
-          savedState.botMode === 'hal9000' ? hal9000Bot : elizaBot
-        );
       }
     }
   }, []);
@@ -91,24 +102,6 @@ export function ChatProvider({ children }: ChatProviderProps) {
       ChatStorage.save(state);
     }
   }, [state]);
-
-  // Update bot instance when mode changes
-  useEffect(() => {
-    let newBotInstance;
-    if (state.botMode === 'hal9000') {
-      newBotInstance = hal9000Bot;
-    } else if (state.botMode === 'conversation') {
-      // In conversation mode, alternate between bots
-      const lastBotMessage = state.messages
-        .filter((m) => m.sender === 'bot')
-        .pop();
-      const lastBot = lastBotMessage?.metadata?.botMode;
-      newBotInstance = lastBot === 'hal9000' ? elizaBot : hal9000Bot;
-    } else {
-      newBotInstance = elizaBot;
-    }
-    setBotInstance(newBotInstance);
-  }, [state.botMode, state.messages]);
 
   const generateBotResponse = async (content: string): Promise<void> => {
     const trimmed = content.trim();
@@ -402,13 +395,11 @@ export function ChatProvider({ children }: ChatProviderProps) {
     ]
   );
 
-  return (
-    <ChatContext.Provider value={service}>{children}</ChatContext.Provider>
-  );
+  return <ChatContext value={service}>{children}</ChatContext>;
 }
 
 export function useChat(): ChatService {
-  const context = useContext(ChatContext);
+  const context = use(ChatContext);
   if (!context) {
     throw new Error('useChat must be used within a ChatProvider');
   }

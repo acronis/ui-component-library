@@ -854,8 +854,7 @@ export function ChartPlayground() {
                     />
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    strokeWidth={'{'}${strokeWidth}
-                    {'}'}
+                    {`strokeWidth={$${strokeWidth}}`}
                   </p>
                 </div>
 

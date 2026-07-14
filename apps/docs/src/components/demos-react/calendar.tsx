@@ -13,7 +13,7 @@ import { useShadowMount } from '@/components/ShadowDemo';
 
 export function CalendarDemo() {
   const [date, setDate] = React.useState<Date | undefined>(
-    new Date(2024, 0, 15)
+    () => new Date(2024, 0, 15)
   );
   return (
     <Calendar
@@ -31,7 +31,7 @@ export function CalendarDemo() {
 // week; `dir="rtl"` mirrors the layout. German (LTR) + Arabic (RTL) shown here.
 export function CalendarLocalizedDemo() {
   const [date, setDate] = React.useState<Date | undefined>(
-    new Date(2024, 0, 15)
+    () => new Date(2024, 0, 15)
   );
   return (
     <div className="flex flex-wrap gap-6">

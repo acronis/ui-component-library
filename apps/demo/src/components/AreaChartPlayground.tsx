@@ -275,11 +275,12 @@ export function AreaChartPlayground() {
     currentSource.yFields.slice(0, 3)
   );
 
-  React.useEffect(() => {
-    const source = dataSources[dataSource];
+  const handleDataSourceChange = (next: DataSourceKey) => {
+    const source = dataSources[next];
+    setDataSource(next);
     setXAxisField(source.xFields[0]);
     setEnabledYFields(source.yFields.slice(0, 3));
-  }, [dataSource]);
+  };
 
   // Chart settings state
   const [showGrid, setShowGrid] = React.useState(true);
@@ -665,7 +666,9 @@ export function AreaChartPlayground() {
                   <Label className="text-sm font-medium">Data Source</Label>
                   <Select
                     value={dataSource}
-                    onValueChange={(v) => setDataSource(v as DataSourceKey)}
+                    onValueChange={(v) =>
+                      handleDataSourceChange(v as DataSourceKey)
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />

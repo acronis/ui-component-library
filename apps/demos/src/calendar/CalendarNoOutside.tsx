@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Calendar } from '@spec-lab/ui-react';
 
 export function CalendarNoOutside() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [date, setDate] = React.useState<Date | undefined>(() => new Date());
 
   return (
     <div className="flex justify-center rounded-lg border p-4">

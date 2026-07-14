@@ -113,7 +113,7 @@ export const WithDisabledDays: Story = {
 function DatePickerField() {
   const [open, setOpen] = React.useState(true);
   const [date, setDate] = React.useState<Date | undefined>(
-    new Date(2024, 0, 15)
+    () => new Date(2024, 0, 15)
   );
   return (
     <Popover open={open} onOpenChange={setOpen}>

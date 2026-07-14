@@ -113,11 +113,11 @@ const WidgetProgressTiersBar = React.forwardRef<
       {...props}
     >
       <div className="flex h-full w-full overflow-hidden rounded border border-transparent">
-        {tiers.map((tier, index) => {
+        {tiers.map((tier) => {
           const pct = sum > 0 ? (tier.value / sum) * 100 : 0;
           return (
             <div
-              key={index}
+              key={tier.label}
               className="h-full transition-all"
               style={{
                 width: `${pct}%`,

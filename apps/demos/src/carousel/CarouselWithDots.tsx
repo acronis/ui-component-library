@@ -21,7 +21,9 @@ export function CarouselWithDots() {
       return;
     }
 
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- initial sync from the embla carousel api once it is available
     setCount(api.scrollSnapList().length);
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- initial sync from the embla carousel api once it is available
     setCurrent(api.selectedScrollSnap() + 1);
 
     api.on('select', () => {
@@ -34,6 +36,7 @@ export function CarouselWithDots() {
       <Carousel setApi={setApi}>
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
+            // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length static demo array with no stable id
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
@@ -59,6 +62,7 @@ export function CarouselWithDots() {
         <div className="flex gap-2">
           {Array.from({ length: count }).map((_, index) => (
             <button
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- dot index is the stable identity of each slide indicator
               key={index}
               onClick={() => api?.scrollTo(index)}
               className={`h-2 rounded-full transition-all ${

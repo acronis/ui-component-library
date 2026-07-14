@@ -61,9 +61,9 @@ export function MessageList({
 
             {message.type === 'question' && message.options && (
               <div className="mt-3 space-y-2">
-                {message.options.map((option, index) => (
+                {message.options.map((option) => (
                   <Button
-                    key={index}
+                    key={option}
                     variant="secondary"
                     onClick={() => handleOptionClick(option)}
                     className="w-full justify-start text-left"

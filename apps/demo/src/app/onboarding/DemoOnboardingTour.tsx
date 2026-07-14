@@ -53,14 +53,17 @@ function TourBeaconOverlay({
 
   React.useLayoutEffect(() => {
     if (!open) {
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- clearing measured DOM rect when the beacon closes
       setRect(null);
       return;
     }
     const el = resolveAnchor(anchorId);
     if (!el) {
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- clearing measured DOM rect when no anchor resolves
       setRect(null);
       return;
     }
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- syncing measured DOM geometry into state on layout/scroll/resize
     const measure = () => setRect(el.getBoundingClientRect());
     el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
     measure();
@@ -126,10 +129,10 @@ export function DemoOnboardingTour() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   // First-visit auto-open, once, on desktop only.
-  const autoStarted = React.useRef(false);
+  const autoStartedRef = React.useRef(false);
   React.useEffect(() => {
-    if (autoStarted.current) return;
-    autoStarted.current = true;
+    if (autoStartedRef.current) return;
+    autoStartedRef.current = true;
     if (hasSeenTour || typeof window === 'undefined') return;
     if (!window.matchMedia(DESKTOP_QUERY).matches) return;
     startTour();
@@ -137,10 +140,10 @@ export function DemoOnboardingTour() {
 
   // Restart from the first step whenever the tour (re-)opens — e.g. the Help
   // button re-triggers it after it was completed or skipped.
-  const prevOpen = React.useRef(false);
+  const prevOpenRef = React.useRef(false);
   React.useEffect(() => {
-    if (isTourOpen && !prevOpen.current) setActiveStep(0);
-    prevOpen.current = isTourOpen;
+    if (isTourOpen && !prevOpenRef.current) setActiveStep(0);
+    prevOpenRef.current = isTourOpen;
   }, [isTourOpen]);
 
   const step = demoOnboardingSteps[activeStep] ?? demoOnboardingSteps[0];
@@ -152,9 +155,11 @@ export function DemoOnboardingTour() {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null);
   React.useLayoutEffect(() => {
     if (!isTourOpen) {
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- clearing the resolved anchor element when the tour closes
       setAnchorEl(null);
       return;
     }
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- resolving the current step's DOM anchor element into state
     setAnchorEl(resolveAnchor(step.anchor));
   }, [step.anchor, isTourOpen]);
 

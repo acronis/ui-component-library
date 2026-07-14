@@ -14,6 +14,7 @@ function Code({
   return (
     <OTPField length={length} defaultValue={defaultValue}>
       {Array.from({ length }).map((_, i) => (
+        // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length OTP slots keyed by position; the index is the stable identity
         <OTPFieldInput key={i} />
       ))}
     </OTPField>

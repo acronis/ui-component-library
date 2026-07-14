@@ -49,7 +49,13 @@ export function CyberChatHostDemo() {
   );
 
   useEffect(() => {
-    applySelectedTheme(activeTheme, applyToContainer);
+    const extraRoots =
+      applyToContainer && containerRef.current ? [containerRef.current] : [];
+    applyBrand(activeTheme, true, extraRoots);
+    // Reflect the DOM brand attributes applied above into display-only state on mount.
+    // eslint-disable-next-line @eslint-react/set-state-in-effect -- syncing DOM attrs written by applyBrand into display state after mount
+    setDocumentClasses(getBrandAttr(document.documentElement));
+    setContainerClasses(getBrandAttr(containerRef.current));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -202,10 +202,11 @@ export function FunnelChartPlayground() {
   );
   const [gradientKey, setGradientKey] = React.useState<string>('warm');
 
-  // Reset on data source change
-  React.useEffect(() => {
+  // Reset per-stage config on data source change
+  const handleDataSourceChange = (next: DataSourceKey) => {
+    setDataSource(next);
     setStageConfigs({});
-  }, [dataSource]);
+  };
 
   const updateStageConfig = (
     stageName: string,
@@ -467,8 +468,8 @@ export function FunnelChartPlayground() {
                       stroke="none"
                     />
                   )}
-                  {dataWithColors.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  {dataWithColors.map((entry) => (
+                    <Cell key={entry.name} fill={entry.fill} />
                   ))}
                 </Funnel>
                 {showTooltip && (
@@ -515,7 +516,9 @@ export function FunnelChartPlayground() {
                   <Label className="text-sm font-medium">Data Source</Label>
                   <Select
                     value={dataSource}
-                    onValueChange={(v) => setDataSource(v as DataSourceKey)}
+                    onValueChange={(v) =>
+                      handleDataSourceChange(v as DataSourceKey)
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />
@@ -564,6 +567,7 @@ export function FunnelChartPlayground() {
                               <div className="flex">
                                 {pal.colors.slice(0, 5).map((c, i) => (
                                   <span
+                                    // eslint-disable-next-line @eslint-react/no-array-index-key -- static gradient palette swatches, fixed order
                                     key={i}
                                     className="h-4 w-3"
                                     style={{ backgroundColor: c }}

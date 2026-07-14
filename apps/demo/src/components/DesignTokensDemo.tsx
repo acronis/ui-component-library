@@ -67,11 +67,11 @@ function resolveAll(): Record<string, string> {
 }
 
 function useResolvedTokens(): Record<string, string> {
-  const [resolved, setResolved] = React.useState<Record<string, string>>({});
+  const [resolved, setResolved] =
+    React.useState<Record<string, string>>(resolveAll);
 
   React.useEffect(() => {
     const recompute = () => setResolved(resolveAll());
-    recompute();
 
     // Re-resolve the printed values when the theme/brand attributes flip so the
     // displayed values (not just the CSS-driven swatches) follow dark mode.

@@ -73,7 +73,7 @@ export function DetailView({
               <div>
                 <dt className="text-sm font-medium">Value</dt>
                 <dd className="text-sm text-muted-foreground">
-                  ${row.value.toLocaleString()}
+                  {`$${row.value.toLocaleString()}`}
                 </dd>
               </div>
               {row.description && (

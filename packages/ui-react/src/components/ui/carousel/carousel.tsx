@@ -58,7 +58,7 @@ interface CarouselContextValue extends CarouselProps {
 const CarouselContext = React.createContext<CarouselContextValue | null>(null);
 
 function useCarousel(): CarouselContextValue {
-  const context = React.useContext(CarouselContext);
+  const context = React.use(CarouselContext);
   if (!context) {
     throw new Error('useCarousel must be used within a <Carousel />.');
   }
@@ -92,9 +92,13 @@ const Carousel = React.forwardRef<
 
     const onSelect = React.useCallback((embla: CarouselApi) => {
       if (!embla) return;
+      // Syncs React state from the imperative Embla instance, which only exists
+      // after mount; also runs as Embla's 'select'/'reInit' event handler.
+      /* eslint-disable @eslint-react/set-state-in-effect */
       setCanScrollPrev(embla.canScrollPrev());
       setCanScrollNext(embla.canScrollNext());
       setSelectedIndex(embla.selectedScrollSnap());
+      /* eslint-enable @eslint-react/set-state-in-effect */
     }, []);
 
     const scrollPrev = React.useCallback(() => api?.scrollPrev(), [api]);
@@ -123,6 +127,7 @@ const Carousel = React.forwardRef<
 
     React.useEffect(() => {
       if (!api) return;
+      // eslint-disable-next-line @eslint-react/set-state-in-effect -- initial sync of snap points from the imperative Embla instance, available only after mount
       setScrollSnaps(api.scrollSnapList());
       onSelect(api);
       const onReInit = (embla: CarouselApi) => {
@@ -167,7 +172,7 @@ const Carousel = React.forwardRef<
     );
 
     return (
-      <CarouselContext.Provider value={value}>
+      <CarouselContext value={value}>
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
@@ -178,7 +183,7 @@ const Carousel = React.forwardRef<
         >
           {children}
         </div>
-      </CarouselContext.Provider>
+      </CarouselContext>
     );
   }
 );
@@ -305,6 +310,7 @@ const CarouselDots = React.forwardRef<HTMLDivElement, CarouselDotsProps>(
           const active = index === selectedIndex;
           return (
             <button
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- pagination dots map 1:1 to slides by position; the index is the stable identity
               key={index}
               type="button"
               role="tab"

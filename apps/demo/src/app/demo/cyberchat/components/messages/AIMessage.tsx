@@ -22,10 +22,12 @@ export function AIMessage({ message }: AIMessageProps) {
             if (line.includes('**')) {
               const parts = line.split(/(\*\*.*?\*\*)/);
               return (
+                // eslint-disable-next-line @eslint-react/no-array-index-key -- immutable message text split into line fragments; index is stable
                 <p key={i} className={i > 0 ? 'mt-2' : ''}>
                   {parts.map((part, j) => {
                     if (part.startsWith('**') && part.endsWith('**')) {
                       return (
+                        // eslint-disable-next-line @eslint-react/no-array-index-key -- text fragments from a single split line; index is stable
                         <span key={j} className="font-semibold">
                           {part.slice(2, -2)}
                         </span>
@@ -37,10 +39,12 @@ export function AIMessage({ message }: AIMessageProps) {
               );
             }
             return line ? (
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- immutable message text split into line fragments; index is stable
               <p key={i} className={i > 0 ? 'mt-2' : ''}>
                 {line}
               </p>
             ) : (
+              // eslint-disable-next-line @eslint-react/no-array-index-key -- blank line between immutable text fragments; index is stable
               <br key={i} />
             );
           })}
@@ -53,8 +57,8 @@ export function AIMessage({ message }: AIMessageProps) {
       {/* Badges */}
       {message.badges && message.badges.length > 0 && (
         <div className="flex gap-2 flex-wrap">
-          {message.badges.map((badge, i) => (
-            <Badge key={i} variant="neutral" className="text-xs">
+          {message.badges.map((badge) => (
+            <Badge key={badge.text} variant="neutral" className="text-xs">
               {badge.text}
             </Badge>
           ))}

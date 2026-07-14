@@ -17,17 +17,12 @@ const AuthContext = React.createContext<AuthContextValue | undefined>(
 );
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = React.useState<User | null>(null);
-  const [isLoading, setIsLoading] = React.useState(true);
-  const navigate = useNavigate();
-
-  React.useEffect(() => {
+  const [user, setUser] = React.useState<User | null>(() => {
     const storage = getStorage();
-    if (storage.auth.token && storage.auth.user) {
-      setUser(storage.auth.user);
-    }
-    setIsLoading(false);
-  }, []);
+    return storage.auth.token && storage.auth.user ? storage.auth.user : null;
+  });
+  const [isLoading, setIsLoading] = React.useState(false);
+  const navigate = useNavigate();
 
   const login = React.useCallback(
     async (email: string, password: string) => {
@@ -92,11 +87,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     [user, isLoading, login, logout, updateUser]
   );
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext value={value}>{children}</AuthContext>;
 }
 
 export function useAuth() {
-  const context = React.useContext(AuthContext);
+  const context = React.use(AuthContext);
   if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }

@@ -390,8 +390,9 @@ export function ScatterChartPlayground() {
   >({});
 
   // Reset on data source change
-  React.useEffect(() => {
-    const source = scatterDataSources[dataSource];
+  const handleDataSourceChange = (next: DataSourceKey) => {
+    const source = scatterDataSources[next];
+    setDataSource(next);
     setXField(source.numericFields[0]);
     setYField(source.numericFields[1] ?? source.numericFields[0]);
     setZField(null);
@@ -409,7 +410,7 @@ export function ScatterChartPlayground() {
       setEnabledSeries({ 'All Data': true });
     }
     setSeriesSettings({});
-  }, [dataSource]);
+  };
 
   // ── Chart tab state ─────────────────────────────────────────────────────
   const [margin, setMargin] = React.useState({
@@ -1026,7 +1027,9 @@ export function ScatterChartPlayground() {
                   <Label className="text-sm font-medium">Data Source</Label>
                   <Select
                     value={dataSource}
-                    onValueChange={(v) => setDataSource(v as DataSourceKey)}
+                    onValueChange={(v) =>
+                      handleDataSourceChange(v as DataSourceKey)
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />

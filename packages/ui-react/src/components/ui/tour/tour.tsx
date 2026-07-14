@@ -46,7 +46,7 @@ interface TourContextValue {
 const TourContext = React.createContext<TourContextValue | null>(null);
 
 function useTour(): TourContextValue {
-  const context = React.useContext(TourContext);
+  const context = React.use(TourContext);
   if (!context) {
     throw new Error('Tour parts must be used within a <Tour> root.');
   }
@@ -165,11 +165,11 @@ const Tour = ({
   );
 
   return (
-    <TourContext.Provider value={value}>
+    <TourContext value={value}>
       <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
         {children}
       </PopoverPrimitive.Root>
-    </TourContext.Provider>
+    </TourContext>
   );
 };
 Tour.displayName = 'Tour';

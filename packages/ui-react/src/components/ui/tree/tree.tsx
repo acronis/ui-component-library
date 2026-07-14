@@ -57,7 +57,7 @@ interface TreeContextValue {
 const TreeContext = React.createContext<TreeContextValue | null>(null);
 
 function useTreeContext(component: string): TreeContextValue {
-  const ctx = React.useContext(TreeContext);
+  const ctx = React.use(TreeContext);
   if (!ctx) {
     throw new Error(`<${component}> must be used within a <Tree>.`);
   }
@@ -76,7 +76,7 @@ interface TreeItemContextValue {
 const TreeItemContext = React.createContext<TreeItemContextValue | null>(null);
 
 function useTreeItemContext(component: string): TreeItemContextValue {
-  const ctx = React.useContext(TreeItemContext);
+  const ctx = React.use(TreeItemContext);
   if (!ctx) {
     throw new Error(`<${component}> must be used within a <TreeItem>.`);
   }
@@ -230,18 +230,16 @@ const Tree = React.forwardRef<HTMLDivElement, TreeProps>(
     );
 
     return (
-      <TreeContext.Provider value={ctx}>
+      <TreeContext value={ctx}>
         <div
           ref={innerRef}
           role="tree"
           className={cn('w-full', className)}
           {...props}
         >
-          <TreeLevelContext.Provider value={0}>
-            {children}
-          </TreeLevelContext.Provider>
+          <TreeLevelContext value={0}>{children}</TreeLevelContext>
         </div>
-      </TreeContext.Provider>
+      </TreeContext>
     );
   }
 );
@@ -294,11 +292,12 @@ const TreeItem = React.forwardRef<HTMLDivElement, TreeItemProps>(
     forwardedRef
   ) => {
     const tree = useTreeContext('TreeItem');
-    const level = React.useContext(TreeLevelContext);
+    const level = React.use(TreeLevelContext);
 
     // Expandable when explicitly set, else when a <TreeItemGroup> is a child.
     const detected = React.useMemo(
       () =>
+        // eslint-disable-next-line @eslint-react/no-children-to-array -- detecting a slotted child type requires iterating the polymorphic children collection
         React.Children.toArray(children).some(
           (child) => React.isValidElement(child) && child.type === TreeItemGroup
         ),
@@ -375,7 +374,7 @@ const TreeItem = React.forwardRef<HTMLDivElement, TreeItemProps>(
       tree.focusedId == null ? 0 : tree.focusedId === value ? 0 : -1;
 
     return (
-      <TreeItemContext.Provider value={itemCtx}>
+      <TreeItemContext value={itemCtx}>
         <div
           ref={forwardedRef}
           role="treeitem"
@@ -393,7 +392,7 @@ const TreeItem = React.forwardRef<HTMLDivElement, TreeItemProps>(
         >
           {children}
         </div>
-      </TreeItemContext.Provider>
+      </TreeItemContext>
     );
   }
 );
@@ -555,9 +554,7 @@ const TreeItemGroup = React.forwardRef<HTMLDivElement, TreeItemGroupProps>(
     if (!item.expanded) return null;
     return (
       <div ref={ref} role="group" className={cn(className)} {...props}>
-        <TreeLevelContext.Provider value={item.level + 1}>
-          {children}
-        </TreeLevelContext.Provider>
+        <TreeLevelContext value={item.level + 1}>{children}</TreeLevelContext>
       </div>
     );
   }
@@ -708,7 +705,7 @@ const VirtualTree = React.forwardRef<HTMLDivElement, VirtualTreeProps>(
     const opts = { showCheckbox, showIcon };
 
     return (
-      <TreeContext.Provider value={ctx}>
+      <TreeContext value={ctx}>
         <ScrollArea
           ref={rootRef}
           className={cn('w-full', className)}
@@ -739,19 +736,19 @@ const VirtualTree = React.forwardRef<HTMLDivElement, VirtualTreeProps>(
                     transform: `translateY(${vi.start}px)`,
                   }}
                 >
-                  <TreeLevelContext.Provider value={level}>
+                  <TreeLevelContext value={level}>
                     <TreeItem value={node.id} expandable={expandable}>
                       <TreeItemTrigger>
                         {rowContent(node, opts)}
                       </TreeItemTrigger>
                     </TreeItem>
-                  </TreeLevelContext.Provider>
+                  </TreeLevelContext>
                 </div>
               );
             })}
           </div>
         </ScrollArea>
-      </TreeContext.Provider>
+      </TreeContext>
     );
   }
 );
