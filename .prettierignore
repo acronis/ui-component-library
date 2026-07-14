@@ -16,6 +16,11 @@ packages/tokens/dtcg
 # emitters (DtcgFormatter), which own their house style. Keep Prettier out of them.
 packages/tokens/tiers
 
+# Emit golden fixtures are serialized DtcgFormatter output, byte-compared in the
+# token-emit tests. Prettier rewraps them into a form the formatter never emits
+# (breaking the tests), so keep Prettier out of them.
+tools/token-emit/__tests__/fixtures/*.golden.json
+
 # Generated (and gitignored) React icon packs, emitted by icons-react's
 # `generate` script from @constructor-lab/icons-svg. Regenerated on every build/typecheck,
 # so Prettier can never keep them formatted — leave them to the generator.

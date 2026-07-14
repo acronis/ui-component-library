@@ -1479,10 +1479,7 @@
               },
               "platforms": ["PD"],
               "values": {
-                "dark": {
-                  "colorSpace": "hsl",
-                  "components": [220, 4.69, 25.1]
-                },
+                "dark": { "colorSpace": "hsl", "components": [220, 4.69, 25.1] },
                 "light": {
                   "colorSpace": "hsl",
                   "components": [200, 80.49, 91.96]
@@ -2515,10 +2512,7 @@
               },
               "platforms": ["PD"],
               "values": {
-                "dark": {
-                  "colorSpace": "hsl",
-                  "components": [220, 4.69, 25.1]
-                },
+                "dark": { "colorSpace": "hsl", "components": [220, 4.69, 25.1] },
                 "light": {
                   "colorSpace": "hsl",
                   "components": [320, 72.73, 87.06]
@@ -2990,10 +2984,7 @@
               },
               "platforms": ["PD"],
               "values": {
-                "dark": {
-                  "colorSpace": "hsl",
-                  "components": [220, 4.69, 25.1]
-                },
+                "dark": { "colorSpace": "hsl", "components": [220, 4.69, 25.1] },
                 "light": {
                   "colorSpace": "hsl",
                   "components": [51.64, 95.31, 74.9]
@@ -4352,10 +4343,7 @@
             },
             "platforms": ["PD"],
             "values": {
-              "dark": {
-                "colorSpace": "hsl",
-                "components": [228, 16.67, 11.76]
-              },
+              "dark": { "colorSpace": "hsl", "components": [228, 16.67, 11.76] },
               "light": {
                 "colorSpace": "hsl",
                 "components": [228, 16.67, 11.76]
