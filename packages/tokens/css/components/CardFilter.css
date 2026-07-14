@@ -3,9 +3,9 @@
 
 :root, :host {
   --ui-card-filter-clickable-value-color: var(--ui-text-on-surface-link-idle);
-  --ui-card-filter-global-border-color-active: var(--ui-border-on-surface-border);
+  --ui-card-filter-global-border-color-active: var(--ui-border-on-surface-border-active);
   --ui-card-filter-global-border-color-focused: var(--ui-border-on-surface-border);
-  --ui-card-filter-global-border-color-hover: var(--ui-border-on-surface-border);
+  --ui-card-filter-global-border-color-hover: var(--ui-border-on-surface-border-active);
   --ui-card-filter-global-border-color-idle: var(--ui-border-on-surface-border);
   --ui-card-filter-global-container-border-radius: var(--ui-units-radius-8);
   --ui-card-filter-global-container-border-style: solid;

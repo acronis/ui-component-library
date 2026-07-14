@@ -71,8 +71,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.idle}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.idle}",
             "default": "{palette.blue.13}",
+            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.idle}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.idle}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.idle}",
             "brown": "{palette.branding.brown.sidebarprimary.idle}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.idle}",
@@ -86,10 +88,10 @@
             "purple": "{palette.branding.purple.sidebarprimary.idle}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.sidebarprimary.idle}",
             "red-fire-brick": "{palette.branding.red-fire-brick.sidebarprimary.idle}",
+            "red-home-pl": "{palette.branding.red-home-pl.sidebarprimary.idle}",
             "sand": "{palette.branding.sand.sidebarprimary.idle}",
             "telstra": "{palette.branding.telstra.sidebarprimary.background.idle}",
             "virtual-one": "{palette.branding.virtual-one.sidebarprimary.idle}",
-            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.idle}",
             "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.background.idle}"
           }
         },
@@ -104,8 +106,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.active}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.active}",
             "default": "{palette.blue.7}",
+            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.active}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.active}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.active}",
             "brown": "{palette.branding.brown.sidebarprimary.active}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.active}",
@@ -119,10 +123,10 @@
             "purple": "{palette.branding.purple.sidebarprimary.active}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.sidebarprimary.active}",
             "red-fire-brick": "{palette.branding.red-fire-brick.sidebarprimary.active}",
+            "red-home-pl": "{palette.branding.red-home-pl.sidebarprimary.active}",
             "sand": "{palette.branding.sand.sidebarprimary.active}",
             "telstra": "{palette.branding.telstra.sidebarprimary.background.active}",
             "virtual-one": "{palette.branding.virtual-one.sidebarprimary.active}",
-            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.active}",
             "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.background.active}"
           }
         },
@@ -137,8 +141,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.disabled}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.disabled}",
             "default": "{palette.blue.5}",
+            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.disabled}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.disabled}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.disabled}",
             "brown": "{palette.branding.brown.sidebarprimary.disabled}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.disabled}",
@@ -152,10 +158,10 @@
             "purple": "{palette.branding.purple.sidebarprimary.disabled}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.sidebarprimary.disabled}",
             "red-fire-brick": "{palette.branding.red-fire-brick.sidebarprimary.disabled}",
+            "red-home-pl": "{palette.branding.red-home-pl.sidebarprimary.disabled}",
             "sand": "{palette.branding.sand.sidebarprimary.disabled}",
             "telstra": "{palette.branding.telstra.sidebarprimary.background.disabled}",
             "virtual-one": "{palette.branding.virtual-one.sidebarprimary.disabled}",
-            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.disabled}",
             "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.background.disabled}"
           }
         },
@@ -170,8 +176,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.hover}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.hover}",
             "default": "{palette.blue.12}",
+            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.hover}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.hover}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.hover}",
             "brown": "{palette.branding.brown.sidebarprimary.hover}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.hover}",
@@ -185,10 +193,10 @@
             "purple": "{palette.branding.purple.sidebarprimary.hover}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.sidebarprimary.hover}",
             "red-fire-brick": "{palette.branding.red-fire-brick.sidebarprimary.hover}",
+            "red-home-pl": "{palette.branding.red-home-pl.sidebarprimary.hover}",
             "sand": "{palette.branding.sand.sidebarprimary.hover}",
             "telstra": "{palette.branding.telstra.sidebarprimary.background.hover}",
             "virtual-one": "{palette.branding.virtual-one.sidebarprimary.hover}",
-            "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.hover}",
             "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.background.hover}"
           }
         },
@@ -203,8 +211,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.idle}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.idle}",
             "default": "{palette.blue.7}",
+            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.idle}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.idle}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.idle}",
             "brown": "{palette.branding.brown.buttonprimary.idle}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.idle}",
@@ -218,10 +228,10 @@
             "purple": "{palette.branding.purple.buttonprimary.idle}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.buttonprimary.idle}",
             "red-fire-brick": "{palette.branding.red-fire-brick.buttonprimary.idle}",
+            "red-home-pl": "{palette.branding.red-home-pl.buttonprimary.idle}",
             "sand": "{palette.branding.sand.buttonprimary.idle}",
             "telstra": "{palette.branding.telstra.buttonprimary.idle}",
             "virtual-one": "{palette.branding.virtual-one.buttonprimary.idle}",
-            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.idle}",
             "yellow-1c": "{palette.branding.yellow-1c.buttonprimary.idle}"
           }
         },
@@ -236,8 +246,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.active}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.active}",
             "default": "{palette.blue.9}",
+            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.active}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.active}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.active}",
             "brown": "{palette.branding.brown.buttonprimary.active}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.active}",
@@ -251,10 +263,10 @@
             "purple": "{palette.branding.purple.buttonprimary.active}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.buttonprimary.active}",
             "red-fire-brick": "{palette.branding.red-fire-brick.buttonprimary.active}",
+            "red-home-pl": "{palette.branding.red-home-pl.buttonprimary.active}",
             "sand": "{palette.branding.sand.buttonprimary.active}",
             "telstra": "{palette.branding.telstra.buttonprimary.active}",
             "virtual-one": "{palette.branding.virtual-one.buttonprimary.active}",
-            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.active}",
             "yellow-1c": "{palette.branding.yellow-1c.buttonprimary.active}"
           }
         },
@@ -269,8 +281,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.disabled}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.disabled}",
             "default": "{palette.blue.3}",
+            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.disabled}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.disabled}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.disabled}",
             "brown": "{palette.branding.brown.buttonprimary.disabled}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.disabled}",
@@ -284,10 +298,10 @@
             "purple": "{palette.branding.purple.buttonprimary.disabled}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.buttonprimary.disabled}",
             "red-fire-brick": "{palette.branding.red-fire-brick.buttonprimary.disabled}",
+            "red-home-pl": "{palette.branding.red-home-pl.buttonprimary.disabled}",
             "sand": "{palette.branding.sand.buttonprimary.disabled}",
             "telstra": "{palette.branding.telstra.buttonprimary.disabled}",
             "virtual-one": "{palette.branding.virtual-one.buttonprimary.disabled}",
-            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.disabled}",
             "yellow-1c": "{palette.branding.yellow-1c.buttonprimary.disabled}"
           }
         },
@@ -302,8 +316,10 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.hover}",
+            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.hover}",
             "default": "{palette.blue.8}",
+            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.hover}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.hover}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.hover}",
             "brown": "{palette.branding.brown.buttonprimary.hover}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.hover}",
@@ -317,10 +333,10 @@
             "purple": "{palette.branding.purple.buttonprimary.hover}",
             "purple-fusion-media": "{palette.branding.purple-fusion-media.buttonprimary.hover}",
             "red-fire-brick": "{palette.branding.red-fire-brick.buttonprimary.hover}",
+            "red-home-pl": "{palette.branding.red-home-pl.buttonprimary.hover}",
             "sand": "{palette.branding.sand.buttonprimary.hover}",
             "telstra": "{palette.branding.telstra.buttonprimary.hover}",
             "virtual-one": "{palette.branding.virtual-one.buttonprimary.hover}",
-            "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.hover}",
             "yellow-1c": "{palette.branding.yellow-1c.buttonprimary.hover}"
           }
         }
@@ -563,27 +579,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.3}",
+            "deep_sky_itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
-            "blue-yellow-uss-signal": "{palette.grayscale.3}",
-            "brown": "{palette.grayscale.3}",
-            "dark-gray": "{palette.grayscale.3}",
-            "deep-purple": "{palette.grayscale.3}",
-            "green-also-choise-df": "{palette.grayscale.3}",
-            "ingram-micro": "{palette.grayscale.3}",
-            "light-blue-hp": "{palette.grayscale.3}",
-            "light-gray": "{palette.grayscale.3}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.3}",
-            "pinky": "{palette.grayscale.3}",
-            "purple": "{palette.grayscale.3}",
-            "purple-fusion-media": "{palette.grayscale.3}",
-            "red-fire-brick": "{palette.grayscale.3}",
-            "red-home-pl": "{palette.grayscale.3}",
-            "sand": "{palette.grayscale.3}",
-            "telstra": "{palette.grayscale.3}",
-            "virtual-one": "{palette.grayscale.3}",
-            "virtuozzo": "{palette.grayscale.3}",
-            "yellow-1c": "{palette.grayscale.3}"
+            "virtuozzo": "{palette.grayscale.3}"
           }
         },
         "on": {
@@ -951,27 +949,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.2}",
+            "deep_sky_itkontoret": "{palette.grayscale.2}",
             "default": "{palette.blue.2}",
-            "blue-yellow-uss-signal": "{palette.grayscale.2}",
-            "brown": "{palette.grayscale.2}",
-            "dark-gray": "{palette.grayscale.2}",
-            "deep-purple": "{palette.grayscale.2}",
-            "green-also-choise-df": "{palette.grayscale.2}",
-            "ingram-micro": "{palette.grayscale.2}",
-            "light-blue-hp": "{palette.grayscale.2}",
-            "light-gray": "{palette.grayscale.2}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.2}",
-            "pinky": "{palette.grayscale.2}",
-            "purple": "{palette.grayscale.2}",
-            "purple-fusion-media": "{palette.grayscale.2}",
-            "red-fire-brick": "{palette.grayscale.2}",
-            "red-home-pl": "{palette.grayscale.2}",
-            "sand": "{palette.grayscale.2}",
-            "telstra": "{palette.grayscale.2}",
-            "virtual-one": "{palette.grayscale.2}",
-            "virtuozzo": "{palette.grayscale.2}",
-            "yellow-1c": "{palette.grayscale.2}"
+            "virtuozzo": "{palette.grayscale.2}"
           }
         },
         "hover": {
@@ -985,27 +965,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.1}",
+            "deep_sky_itkontoret": "{palette.grayscale.1}",
             "default": "{palette.blue.1}",
-            "blue-yellow-uss-signal": "{palette.grayscale.1}",
-            "brown": "{palette.grayscale.1}",
-            "dark-gray": "{palette.grayscale.1}",
-            "deep-purple": "{palette.grayscale.1}",
-            "green-also-choise-df": "{palette.grayscale.1}",
-            "ingram-micro": "{palette.grayscale.1}",
-            "light-blue-hp": "{palette.grayscale.1}",
-            "light-gray": "{palette.grayscale.1}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.1}",
-            "pinky": "{palette.grayscale.1}",
-            "purple": "{palette.grayscale.1}",
-            "purple-fusion-media": "{palette.grayscale.1}",
-            "red-fire-brick": "{palette.grayscale.1}",
-            "red-home-pl": "{palette.grayscale.1}",
-            "sand": "{palette.grayscale.1}",
-            "telstra": "{palette.grayscale.1}",
-            "virtual-one": "{palette.grayscale.1}",
-            "virtuozzo": "{palette.grayscale.1}",
-            "yellow-1c": "{palette.grayscale.1}"
+            "virtuozzo": "{palette.grayscale.1}"
           }
         },
         "primary": {
@@ -1033,27 +995,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.0}",
+            "deep_sky_itkontoret": "{palette.grayscale.0}",
             "default": "{palette.blue.0}",
-            "blue-yellow-uss-signal": "{palette.grayscale.0}",
-            "brown": "{palette.grayscale.0}",
-            "dark-gray": "{palette.grayscale.0}",
-            "deep-purple": "{palette.grayscale.0}",
-            "green-also-choise-df": "{palette.grayscale.0}",
-            "ingram-micro": "{palette.grayscale.0}",
-            "light-blue-hp": "{palette.grayscale.0}",
-            "light-gray": "{palette.grayscale.0}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.0}",
-            "pinky": "{palette.grayscale.0}",
-            "purple": "{palette.grayscale.0}",
-            "purple-fusion-media": "{palette.grayscale.0}",
-            "red-fire-brick": "{palette.grayscale.0}",
-            "red-home-pl": "{palette.grayscale.0}",
-            "sand": "{palette.grayscale.0}",
-            "telstra": "{palette.grayscale.0}",
-            "virtual-one": "{palette.grayscale.0}",
-            "virtuozzo": "{palette.grayscale.0}",
-            "yellow-1c": "{palette.grayscale.0}"
+            "virtuozzo": "{palette.grayscale.0}"
           }
         },
         "transparent": {
@@ -1327,27 +1271,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.3}",
+            "deep_sky_itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
-            "blue-yellow-uss-signal": "{palette.grayscale.3}",
-            "brown": "{palette.grayscale.3}",
-            "dark-gray": "{palette.grayscale.3}",
-            "deep-purple": "{palette.grayscale.3}",
-            "green-also-choise-df": "{palette.grayscale.3}",
-            "ingram-micro": "{palette.grayscale.3}",
-            "light-blue-hp": "{palette.grayscale.3}",
-            "light-gray": "{palette.grayscale.3}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.3}",
-            "pinky": "{palette.grayscale.3}",
-            "purple": "{palette.grayscale.3}",
-            "purple-fusion-media": "{palette.grayscale.3}",
-            "red-fire-brick": "{palette.grayscale.3}",
-            "red-home-pl": "{palette.grayscale.3}",
-            "sand": "{palette.grayscale.3}",
-            "telstra": "{palette.grayscale.3}",
-            "virtual-one": "{palette.grayscale.3}",
-            "virtuozzo": "{palette.grayscale.3}",
-            "yellow-1c": "{palette.grayscale.3}"
+            "virtuozzo": "{palette.grayscale.3}"
           }
         },
         "border-active": {
@@ -1361,27 +1287,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.7}",
+            "deep_sky_itkontoret": "{palette.grayscale.7}",
             "default": "{palette.blue.7}",
-            "blue-yellow-uss-signal": "{palette.grayscale.7}",
-            "brown": "{palette.grayscale.7}",
-            "dark-gray": "{palette.grayscale.7}",
-            "deep-purple": "{palette.grayscale.7}",
-            "green-also-choise-df": "{palette.grayscale.7}",
-            "ingram-micro": "{palette.grayscale.7}",
-            "light-blue-hp": "{palette.grayscale.7}",
-            "light-gray": "{palette.grayscale.7}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.7}",
-            "pinky": "{palette.grayscale.7}",
-            "purple": "{palette.grayscale.7}",
-            "purple-fusion-media": "{palette.grayscale.7}",
-            "red-fire-brick": "{palette.grayscale.7}",
-            "red-home-pl": "{palette.grayscale.7}",
-            "sand": "{palette.grayscale.7}",
-            "telstra": "{palette.grayscale.7}",
-            "virtual-one": "{palette.grayscale.7}",
-            "virtuozzo": "{palette.grayscale.7}",
-            "yellow-1c": "{palette.grayscale.7}"
+            "virtuozzo": "{palette.grayscale.7}"
           }
         },
         "border-error": {
@@ -1409,27 +1317,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.3}",
+            "deep_sky_itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
-            "blue-yellow-uss-signal": "{palette.grayscale.3}",
-            "brown": "{palette.grayscale.3}",
-            "dark-gray": "{palette.grayscale.3}",
-            "deep-purple": "{palette.grayscale.3}",
-            "green-also-choise-df": "{palette.grayscale.3}",
-            "ingram-micro": "{palette.grayscale.3}",
-            "light-blue-hp": "{palette.grayscale.3}",
-            "light-gray": "{palette.grayscale.3}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.3}",
-            "pinky": "{palette.grayscale.3}",
-            "purple": "{palette.grayscale.3}",
-            "purple-fusion-media": "{palette.grayscale.3}",
-            "red-fire-brick": "{palette.grayscale.3}",
-            "red-home-pl": "{palette.grayscale.3}",
-            "sand": "{palette.grayscale.3}",
-            "telstra": "{palette.grayscale.3}",
-            "virtual-one": "{palette.grayscale.3}",
-            "virtuozzo": "{palette.grayscale.3}",
-            "yellow-1c": "{palette.grayscale.3}"
+            "virtuozzo": "{palette.grayscale.3}"
           }
         }
       },
@@ -1519,27 +1409,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.7}",
+            "deep_sky_itkontoret": "{palette.grayscale.7}",
             "default": "{palette.blue.7}",
-            "blue-yellow-uss-signal": "{palette.grayscale.7}",
-            "brown": "{palette.grayscale.7}",
-            "dark-gray": "{palette.grayscale.7}",
-            "deep-purple": "{palette.grayscale.7}",
-            "green-also-choise-df": "{palette.grayscale.7}",
-            "ingram-micro": "{palette.grayscale.7}",
-            "light-blue-hp": "{palette.grayscale.7}",
-            "light-gray": "{palette.grayscale.7}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.7}",
-            "pinky": "{palette.grayscale.7}",
-            "purple": "{palette.grayscale.7}",
-            "purple-fusion-media": "{palette.grayscale.7}",
-            "red-fire-brick": "{palette.grayscale.7}",
-            "red-home-pl": "{palette.grayscale.7}",
-            "sand": "{palette.grayscale.7}",
-            "telstra": "{palette.grayscale.7}",
-            "virtual-one": "{palette.grayscale.7}",
-            "virtuozzo": "{palette.grayscale.7}",
-            "yellow-1c": "{palette.grayscale.7}"
+            "virtuozzo": "{palette.grayscale.7}"
           }
         },
         "screenPrimary": {
@@ -1671,27 +1543,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.3}",
+            "deep_sky_itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
-            "blue-yellow-uss-signal": "{palette.grayscale.3}",
-            "brown": "{palette.grayscale.3}",
-            "dark-gray": "{palette.grayscale.3}",
-            "deep-purple": "{palette.grayscale.3}",
-            "green-also-choise-df": "{palette.grayscale.3}",
-            "ingram-micro": "{palette.grayscale.3}",
-            "light-blue-hp": "{palette.grayscale.3}",
-            "light-gray": "{palette.grayscale.3}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.3}",
-            "pinky": "{palette.grayscale.3}",
-            "purple": "{palette.grayscale.3}",
-            "purple-fusion-media": "{palette.grayscale.3}",
-            "red-fire-brick": "{palette.grayscale.3}",
-            "red-home-pl": "{palette.grayscale.3}",
-            "sand": "{palette.grayscale.3}",
-            "telstra": "{palette.grayscale.3}",
-            "virtual-one": "{palette.grayscale.3}",
-            "virtuozzo": "{palette.grayscale.3}",
-            "yellow-1c": "{palette.grayscale.3}"
+            "virtuozzo": "{palette.grayscale.3}"
           }
         },
         "info": {
@@ -1821,27 +1675,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.5}",
+            "deep_sky_itkontoret": "{palette.grayscale.5}",
             "default": "{palette.blue.3}",
-            "blue-yellow-uss-signal": "{palette.grayscale.5}",
-            "brown": "{palette.grayscale.5}",
-            "dark-gray": "{palette.grayscale.5}",
-            "deep-purple": "{palette.grayscale.5}",
-            "green-also-choise-df": "{palette.grayscale.5}",
-            "ingram-micro": "{palette.grayscale.5}",
-            "light-blue-hp": "{palette.grayscale.5}",
-            "light-gray": "{palette.grayscale.5}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.5}",
-            "pinky": "{palette.grayscale.5}",
-            "purple": "{palette.grayscale.5}",
-            "purple-fusion-media": "{palette.grayscale.5}",
-            "red-fire-brick": "{palette.grayscale.5}",
-            "red-home-pl": "{palette.grayscale.5}",
-            "sand": "{palette.grayscale.5}",
-            "telstra": "{palette.grayscale.5}",
-            "virtual-one": "{palette.grayscale.5}",
-            "virtuozzo": "{palette.grayscale.5}",
-            "yellow-1c": "{palette.grayscale.5}"
+            "virtuozzo": "{palette.grayscale.5}"
           }
         },
         "neutral": {
@@ -1869,27 +1705,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.10}",
+            "deep_sky_itkontoret": "{palette.grayscale.10}",
             "default": "{palette.blue.7}",
-            "blue-yellow-uss-signal": "{palette.grayscale.10}",
-            "brown": "{palette.grayscale.10}",
-            "dark-gray": "{palette.grayscale.10}",
-            "deep-purple": "{palette.grayscale.10}",
-            "green-also-choise-df": "{palette.grayscale.10}",
-            "ingram-micro": "{palette.grayscale.10}",
-            "light-blue-hp": "{palette.grayscale.10}",
-            "light-gray": "{palette.grayscale.10}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.10}",
-            "pinky": "{palette.grayscale.10}",
-            "purple": "{palette.grayscale.10}",
-            "purple-fusion-media": "{palette.grayscale.10}",
-            "red-fire-brick": "{palette.grayscale.10}",
-            "red-home-pl": "{palette.grayscale.10}",
-            "sand": "{palette.grayscale.10}",
-            "telstra": "{palette.grayscale.10}",
-            "virtual-one": "{palette.grayscale.10}",
-            "virtuozzo": "{palette.grayscale.10}",
-            "yellow-1c": "{palette.grayscale.10}"
+            "virtuozzo": "{palette.grayscale.10}"
           }
         }
       }
@@ -2135,7 +1953,7 @@
             "PD"
           ],
           "values": {
-            "default": "{palette.transparent.white.fixed.100}"
+            "default": "{palette.transparent.white.inverse.100}"
           }
         },
         "secondary": {
@@ -2519,27 +2337,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.3}",
+            "deep_sky_itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
-            "blue-yellow-uss-signal": "{palette.grayscale.3}",
-            "brown": "{palette.grayscale.3}",
-            "dark-gray": "{palette.grayscale.3}",
-            "deep-purple": "{palette.grayscale.3}",
-            "green-also-choise-df": "{palette.grayscale.3}",
-            "ingram-micro": "{palette.grayscale.3}",
-            "light-blue-hp": "{palette.grayscale.3}",
-            "light-gray": "{palette.grayscale.3}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.3}",
-            "pinky": "{palette.grayscale.3}",
-            "purple": "{palette.grayscale.3}",
-            "purple-fusion-media": "{palette.grayscale.3}",
-            "red-fire-brick": "{palette.grayscale.3}",
-            "red-home-pl": "{palette.grayscale.3}",
-            "sand": "{palette.grayscale.3}",
-            "telstra": "{palette.grayscale.3}",
-            "virtual-one": "{palette.grayscale.3}",
-            "virtuozzo": "{palette.grayscale.3}",
-            "yellow-1c": "{palette.grayscale.3}"
+            "virtuozzo": "{palette.grayscale.3}"
           }
         },
         "link-hover": {
@@ -2553,27 +2353,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.11}",
+            "deep_sky_itkontoret": "{palette.grayscale.11}",
             "default": "{palette.blue.8}",
-            "blue-yellow-uss-signal": "{palette.grayscale.11}",
-            "brown": "{palette.grayscale.11}",
-            "dark-gray": "{palette.grayscale.11}",
-            "deep-purple": "{palette.grayscale.11}",
-            "green-also-choise-df": "{palette.grayscale.11}",
-            "ingram-micro": "{palette.grayscale.11}",
-            "light-blue-hp": "{palette.grayscale.11}",
-            "light-gray": "{palette.grayscale.11}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.11}",
-            "pinky": "{palette.grayscale.11}",
-            "purple": "{palette.grayscale.11}",
-            "purple-fusion-media": "{palette.grayscale.11}",
-            "red-fire-brick": "{palette.grayscale.11}",
-            "red-home-pl": "{palette.grayscale.11}",
-            "sand": "{palette.grayscale.11}",
-            "telstra": "{palette.grayscale.11}",
-            "virtual-one": "{palette.grayscale.11}",
-            "virtuozzo": "{palette.grayscale.11}",
-            "yellow-1c": "{palette.grayscale.11}"
+            "virtuozzo": "{palette.grayscale.11}"
           }
         },
         "link-idle": {
@@ -2587,27 +2369,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.10}",
+            "deep_sky_itkontoret": "{palette.grayscale.10}",
             "default": "{palette.blue.7}",
-            "blue-yellow-uss-signal": "{palette.grayscale.10}",
-            "brown": "{palette.grayscale.10}",
-            "dark-gray": "{palette.grayscale.10}",
-            "deep-purple": "{palette.grayscale.10}",
-            "green-also-choise-df": "{palette.grayscale.10}",
-            "ingram-micro": "{palette.grayscale.10}",
-            "light-blue-hp": "{palette.grayscale.10}",
-            "light-gray": "{palette.grayscale.10}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.10}",
-            "pinky": "{palette.grayscale.10}",
-            "purple": "{palette.grayscale.10}",
-            "purple-fusion-media": "{palette.grayscale.10}",
-            "red-fire-brick": "{palette.grayscale.10}",
-            "red-home-pl": "{palette.grayscale.10}",
-            "sand": "{palette.grayscale.10}",
-            "telstra": "{palette.grayscale.10}",
-            "virtual-one": "{palette.grayscale.10}",
-            "virtuozzo": "{palette.grayscale.10}",
-            "yellow-1c": "{palette.grayscale.10}"
+            "virtuozzo": "{palette.grayscale.10}"
           }
         },
         "link-pressed": {
@@ -2621,27 +2385,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{palette.grayscale.12}",
+            "deep_sky_itkontoret": "{palette.grayscale.12}",
             "default": "{palette.blue.11}",
-            "blue-yellow-uss-signal": "{palette.grayscale.12}",
-            "brown": "{palette.grayscale.12}",
-            "dark-gray": "{palette.grayscale.12}",
-            "deep-purple": "{palette.grayscale.12}",
-            "green-also-choise-df": "{palette.grayscale.12}",
-            "ingram-micro": "{palette.grayscale.12}",
-            "light-blue-hp": "{palette.grayscale.12}",
-            "light-gray": "{palette.grayscale.12}",
-            "orange-tsukaeru-helpox": "{palette.grayscale.12}",
-            "pinky": "{palette.grayscale.12}",
-            "purple": "{palette.grayscale.12}",
-            "purple-fusion-media": "{palette.grayscale.12}",
-            "red-fire-brick": "{palette.grayscale.12}",
-            "red-home-pl": "{palette.grayscale.12}",
-            "sand": "{palette.grayscale.12}",
-            "telstra": "{palette.grayscale.12}",
-            "virtual-one": "{palette.grayscale.12}",
-            "virtuozzo": "{palette.grayscale.12}",
-            "yellow-1c": "{palette.grayscale.12}"
+            "virtuozzo": "{palette.grayscale.12}"
           }
         },
         "primary": {

@@ -289,7 +289,7 @@
             "com.figma.variableId": "VariableID:1205:160"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.3}"
+          "$value": "{palette.blue.3}"
         },
         "on": {
           "$extensions": {
@@ -553,7 +553,7 @@
             "com.figma.variableId": "VariableID:141:276"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.2}"
+          "$value": "{palette.blue.2}"
         },
         "hover": {
           "$extensions": {
@@ -563,7 +563,7 @@
             "com.figma.variableId": "VariableID:141:275"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.1}"
+          "$value": "{palette.blue.1}"
         },
         "primary": {
           "$extensions": {
@@ -583,7 +583,7 @@
             "com.figma.variableId": "VariableID:50:1427"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.0}"
+          "$value": "{palette.blue.0}"
         },
         "transparent": {
           "$extensions": {
@@ -780,7 +780,7 @@
             "com.figma.variableId": "VariableID:50:1437"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.3}"
+          "$value": "{palette.blue.3}"
         },
         "border-active": {
           "$extensions": {
@@ -790,7 +790,7 @@
             "com.figma.variableId": "VariableID:138:187"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.7}"
+          "$value": "{palette.blue.7}"
         },
         "border-error": {
           "$extensions": {
@@ -810,7 +810,7 @@
             "com.figma.variableId": "VariableID:50:1438"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.3}"
+          "$value": "{palette.blue.3}"
         }
       },
       "transparent": {
@@ -876,7 +876,7 @@
             "com.figma.variableId": "VariableID:3931:8751"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.7}"
+          "$value": "{palette.blue.7}"
         },
         "screenPrimary": {
           "$extensions": {
@@ -972,7 +972,7 @@
             "com.figma.variableId": "VariableID:151:43"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.3}"
+          "$value": "{palette.blue.3}"
         },
         "info": {
           "$extensions": {
@@ -1066,7 +1066,7 @@
             "com.figma.variableId": "VariableID:56:1581"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.5}"
+          "$value": "{palette.blue.3}"
         },
         "neutral": {
           "$extensions": {
@@ -1086,7 +1086,7 @@
             "com.figma.variableId": "VariableID:50:1436"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.10}"
+          "$value": "{palette.blue.7}"
         }
       }
     },
@@ -1264,7 +1264,7 @@
             "com.figma.variableId": "VariableID:305:127"
           },
           "$type": "color",
-          "$value": "{palette.transparent.white.fixed.100}"
+          "$value": "{palette.transparent.white.inverse.100}"
         },
         "secondary": {
           "$extensions": {
@@ -1540,7 +1540,7 @@
             "com.figma.variableId": "VariableID:139:160"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.3}"
+          "$value": "{palette.blue.3}"
         },
         "link-hover": {
           "$extensions": {
@@ -1550,7 +1550,7 @@
             "com.figma.variableId": "VariableID:139:156"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.11}"
+          "$value": "{palette.blue.8}"
         },
         "link-idle": {
           "$extensions": {
@@ -1560,7 +1560,7 @@
             "com.figma.variableId": "VariableID:139:155"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.10}"
+          "$value": "{palette.blue.7}"
         },
         "link-pressed": {
           "$extensions": {
@@ -1570,7 +1570,7 @@
             "com.figma.variableId": "VariableID:139:159"
           },
           "$type": "color",
-          "$value": "{palette.grayscale.12}"
+          "$value": "{palette.blue.11}"
         },
         "primary": {
           "$extensions": {

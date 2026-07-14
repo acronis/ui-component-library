@@ -1,5 +1,5 @@
 {
-  "name": "uikit-monorepo",
+  "name": "ui-component-library-monorepo",
   "private": true,
   "description": "The Constructor Lab UI components library with color schemes and demos",
   "type": "module",

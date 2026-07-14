@@ -14,7 +14,6 @@
   --ui-input-search-box-height: var(--ui-units-size-32);
   --ui-input-search-box-padding-x: var(--ui-units-gap-12);
   --ui-input-search-box-padding-y: var(--ui-units-gap-4);
-  --ui-input-search-clear-icon-color: var(--ui-glyph-on-surface-primary);
   --ui-input-search-color-disabled: var(--ui-text-on-surface-disabled);
   --ui-input-search-color-hover: var(--ui-text-on-surface-primary);
   --ui-input-search-color-idle: var(--ui-text-on-surface-primary);

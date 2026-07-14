@@ -1679,8 +1679,9 @@
               "PD"
             ],
             "values": {
-              "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}"
+              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "default": "{palette.electricblue.electricblue-3}",
+              "virtuozzo": "{palette.grayscale.3}"
             }
           },
           "hover": {
@@ -1712,8 +1713,9 @@
               "PD"
             ],
             "values": {
-              "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}"
+              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "default": "{palette.electricblue.electricblue-3}",
+              "virtuozzo": "{palette.grayscale.3}"
             }
           }
         },
@@ -2111,6 +2113,23 @@
             "default": "{units.gap.4}"
           }
         },
+        "paddingY": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [
+              "GAP",
+              "FONT_VARIATIONS"
+            ],
+            "com.figma.variableId": "VariableID:5288:5844"
+          },
+          "$type": "dimension",
+          "platforms": [
+            "PD"
+          ],
+          "values": {
+            "default": "{units.gap.4}"
+          }
+        },
         "width": {
           "$extensions": {
             "com.figma.hiddenFromPublishing": true,
@@ -2251,8 +2270,9 @@
               "PD"
             ],
             "values": {
-              "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}"
+              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "default": "{palette.electricblue.electricblue-3}",
+              "virtuozzo": "{palette.grayscale.3}"
             }
           },
           "hover": {
@@ -2284,8 +2304,9 @@
               "PD"
             ],
             "values": {
-              "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}"
+              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "default": "{palette.electricblue.electricblue-3}",
+              "virtuozzo": "{palette.grayscale.3}"
             }
           }
         },
@@ -2436,6 +2457,21 @@
           ],
           "values": {
             "default": "{units.gap.0}"
+          }
+        },
+        "widthMin": {
+          "$extensions": {
+            "com.figma.scopes": [
+              "WIDTH_HEIGHT"
+            ],
+            "com.figma.variableId": "VariableID:5350:919"
+          },
+          "$type": "dimension",
+          "platforms": [
+            "PD"
+          ],
+          "values": {
+            "default": "{units.size.128}"
           }
         }
       }
@@ -2656,13 +2692,14 @@
             "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:3202:1242"
           },
-          "$type": "typography",
+          "$type": "string",
           "platforms": [
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "String value",
-            "default": "{typography.body.strong}"
+            "deep_sky_itkontoret": "String value",
+            "default": "{typography.body.strong}",
+            "virtuozzo": "String value"
           }
         }
       }
@@ -2731,7 +2768,7 @@
             "PD"
           ],
           "values": {
-            "default": "{units.gap.0}"
+            "default": "{units.gap.8}"
           }
         }
       },
@@ -3027,8 +3064,9 @@
               "PD"
             ],
             "values": {
-              "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}"
+              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "default": "{palette.electricblue.electricblue-3}",
+              "virtuozzo": "{palette.grayscale.3}"
             }
           },
           "hover": {
@@ -3060,8 +3098,9 @@
               "PD"
             ],
             "values": {
-              "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}"
+              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "default": "{palette.electricblue.electricblue-3}",
+              "virtuozzo": "{palette.grayscale.3}"
             }
           }
         },
@@ -3320,7 +3359,7 @@
             "PD"
           ],
           "values": {
-            "default": "{colors.border.onSurface.border}"
+            "default": "{colors.border.onSurface.border-active}"
           }
         },
         "focused": {
@@ -3352,7 +3391,7 @@
             "PD"
           ],
           "values": {
-            "default": "{colors.border.onSurface.border}"
+            "default": "{colors.border.onSurface.border-active}"
           }
         },
         "idle": {
@@ -4446,7 +4485,7 @@
               "PD"
             ],
             "values": {
-              "default": "{palette.electricblue.electricblue-3}"
+              "default": "{colors.border.onSurface.border-active}"
             }
           },
           "hover": {
@@ -4614,6 +4653,21 @@
             "default": "{units.size.24}"
           }
         },
+        "iconSize": {
+          "$extensions": {
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.variableId": "VariableID:5357:13557"
+          },
+          "$type": "dimension",
+          "platforms": [
+            "PD"
+          ],
+          "values": {
+            "default": "{units.size.16}"
+          }
+        },
         "marginY": {
           "$extensions": {
             "com.figma.hiddenFromPublishing": true,
@@ -4663,6 +4717,23 @@
           }
         }
       },
+      "boxIcon": {
+        "size": {
+          "$extensions": {
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.variableId": "VariableID:5357:13563"
+          },
+          "$type": "dimension",
+          "platforms": [
+            "PD"
+          ],
+          "values": {
+            "default": "{units.size.16}"
+          }
+        }
+      },
       "icon": {
         "color": {
           "$extensions": {
@@ -4678,22 +4749,6 @@
           ],
           "values": {
             "default": "{colors.glyph.onSurface.primary}"
-          }
-        },
-        "size": {
-          "$extensions": {
-            "com.figma.hiddenFromPublishing": true,
-            "com.figma.scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "com.figma.variableId": "VariableID:3767:4110"
-          },
-          "$type": "dimension",
-          "platforms": [
-            "PD"
-          ],
-          "values": {
-            "default": "{units.size.16}"
           }
         }
       }
@@ -4729,8 +4784,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{typography.link.default}",
-            "default": "{typography.link.strong}"
+            "deep_sky_itkontoret": "{typography.link.default}",
+            "default": "{typography.link.strong}",
+            "virtuozzo": "{typography.link.default}"
           }
         }
       }
@@ -6294,25 +6350,6 @@
         }
       }
     },
-    "clearIcon": {
-      "color": {
-        "$extensions": {
-          "com.figma.hiddenFromPublishing": true,
-          "com.figma.scopes": [
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "com.figma.variableId": "VariableID:2605:115"
-        },
-        "$type": "color",
-        "platforms": [
-          "PD"
-        ],
-        "values": {
-          "default": "{colors.glyph.onSurface.primary}"
-        }
-      }
-    },
     "color": {
       "disabled": {
         "$extensions": {
@@ -6870,8 +6907,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{units.size.8}",
-            "default": "{units.gap.8}"
+            "deep_sky_itkontoret": "{units.size.8}",
+            "default": "{units.gap.8}",
+            "virtuozzo": "{units.size.8}"
           }
         },
         "paddingX": {
@@ -6903,8 +6941,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{units.size.16}",
-            "default": "{units.gap.16}"
+            "deep_sky_itkontoret": "{units.size.16}",
+            "default": "{units.gap.16}",
+            "virtuozzo": "{units.size.16}"
           }
         },
         "widthMin": {
@@ -7006,8 +7045,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
-            "default": "{colors.glyph.onSurface.primary}"
+            "deep_sky_itkontoret": "{colors.text.onSurface.primary}",
+            "default": "{colors.glyph.onSurface.primary}",
+            "virtuozzo": "{colors.text.onSurface.primary}"
           }
         },
         "iconCollapse": {
@@ -7023,8 +7063,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
-            "default": "{colors.glyph.onSurface.primary}"
+            "deep_sky_itkontoret": "{colors.text.onSurface.primary}",
+            "default": "{colors.glyph.onSurface.primary}",
+            "virtuozzo": "{colors.text.onSurface.primary}"
           }
         },
         "iconTenant": {
@@ -7040,8 +7081,9 @@
             "PD"
           ],
           "values": {
-            "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
-            "default": "{colors.glyph.onSurface.primary}"
+            "deep_sky_itkontoret": "{colors.text.onSurface.primary}",
+            "default": "{colors.glyph.onSurface.primary}",
+            "virtuozzo": "{colors.text.onSurface.primary}"
           }
         },
         "label": {
@@ -7220,7 +7262,7 @@
             "PD"
           ],
           "values": {
-            "default": "{units.gap.0}"
+            "default": "{units.gap.8}"
           }
         }
       },
@@ -8028,8 +8070,9 @@
               "PD"
             ],
             "values": {
-              "deep-sky-itkontoret": "{colors.text.onSurface.disabled}",
-              "default": "{colors.glyph.onSurface.disabled}"
+              "deep_sky_itkontoret": "{colors.text.onSurface.disabled}",
+              "default": "{colors.glyph.onSurface.disabled}",
+              "virtuozzo": "{colors.text.onSurface.disabled}"
             }
           },
           "hover": {
@@ -8273,25 +8316,6 @@
           ],
           "values": {
             "default": "{units.gap.4}"
-          }
-        }
-      },
-      "clearIcon": {
-        "color": {
-          "$extensions": {
-            "com.figma.hiddenFromPublishing": true,
-            "com.figma.scopes": [
-              "SHAPE_FILL",
-              "STROKE_COLOR"
-            ],
-            "com.figma.variableId": "VariableID:2624:92"
-          },
-          "$type": "color",
-          "platforms": [
-            "PD"
-          ],
-          "values": {
-            "default": "{colors.glyph.onSurface.primary}"
           }
         }
       },
@@ -8601,6 +8625,23 @@
             "values": {
               "default": "{colors.border.onSurface.border-error}"
             }
+          }
+        }
+      },
+      "buttonIcon": {
+        "color": {
+          "$extensions": {
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.variableId": "VariableID:5304:1685"
+          },
+          "$type": "color",
+          "platforms": [
+            "PD"
+          ],
+          "values": {
+            "default": "{colors.glyph.onSurface.destructive}"
           }
         }
       },
@@ -12284,8 +12325,9 @@
                 "PD"
               ],
               "values": {
-                "deep-sky-itkontoret": "{colors.background.surface.active}",
-                "default": "{colors.background.surface.hover}"
+                "deep_sky_itkontoret": "{colors.background.surface.active}",
+                "default": "{colors.background.surface.hover}",
+                "virtuozzo": "{colors.background.surface.active}"
               }
             },
             "hover": {

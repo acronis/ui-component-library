@@ -9,6 +9,7 @@
   --ui-button-menu-dropdown-container-gap: var(--ui-units-gap-0);
   --ui-button-menu-dropdown-container-padding-x: var(--ui-units-gap-0);
   --ui-button-menu-dropdown-container-padding-y: var(--ui-units-gap-0);
+  --ui-button-menu-dropdown-container-width-min: var(--ui-units-size-128);
   --ui-button-menu-dropdown-extras-cascade-icon-color: var(--ui-glyph-on-surface-primary);
   --ui-button-menu-dropdown-extras-shortcut-label-color: var(--ui-text-on-surface-secondary);
   --ui-button-menu-dropdown-item-container-color-active: var(--ui-background-surface-active);
@@ -20,10 +21,11 @@
   --ui-button-menu-dropdown-item-container-padding-y: var(--ui-units-gap-8);
   --ui-button-menu-dropdown-item-icon-color: var(--ui-glyph-on-surface-primary);
   --ui-button-menu-dropdown-item-label-color: var(--ui-text-on-surface-link-idle);
+  --ui-button-menu-dropdown-item-label-text-style: var(--ui-typography-body-strong);
   --ui-button-menu-dropdown-section-container-border-color: var(--ui-border-on-surface-border);
   --ui-button-menu-dropdown-section-container-border-width: var(--ui-units-stroke-1);
   --ui-button-menu-dropdown-section-container-padding-x: var(--ui-units-gap-0);
-  --ui-button-menu-dropdown-section-container-padding-y: var(--ui-units-gap-0);
+  --ui-button-menu-dropdown-section-container-padding-y: var(--ui-units-gap-8);
   --ui-button-menu-dropdown-section-list-gap: var(--ui-units-gap-0);
   --ui-button-menu-global-container-border-radius: var(--ui-units-radius-4);
   --ui-button-menu-global-container-gap: var(--ui-units-gap-8);
@@ -66,14 +68,6 @@
   letter-spacing: 0px;
 }
 
-.ui-button-menu-dropdown-item-label-text-style {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0px;
-}
-
 .ui-button-menu-global-label-text-style {
   font-family: Inter, system-ui, sans-serif;
   font-size: 14px;
@@ -82,7 +76,14 @@
   letter-spacing: 0px;
 }
 
-[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+[data-brand='deep_sky_itkontoret'], :host([data-brand='deep_sky_itkontoret']) {
+  --ui-button-menu-dropdown-item-label-text-style: "String value";
+  --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+  --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+}
+
+[data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+  --ui-button-menu-dropdown-item-label-text-style: "String value";
   --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
   --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }

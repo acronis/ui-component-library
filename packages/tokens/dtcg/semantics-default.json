@@ -1264,7 +1264,7 @@
             "com.figma.variableId": "VariableID:305:127"
           },
           "$type": "color",
-          "$value": "{palette.transparent.white.fixed.100}"
+          "$value": "{palette.transparent.white.inverse.100}"
         },
         "secondary": {
           "$extensions": {

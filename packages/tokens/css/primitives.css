@@ -160,10 +160,14 @@
   --ui-palette-branding-red-fire-brick-sidebarprimary-disabled: light-dark(rgb(232 155 159), rgb(85 89 94));
   --ui-palette-branding-red-fire-brick-sidebarprimary-hover: light-dark(rgb(145 8 19), rgb(61 63 67));
   --ui-palette-branding-red-fire-brick-sidebarprimary-idle: light-dark(rgb(115 6 15), rgb(12 12 14));
-  --ui-palette-branding-red-home-pl-100: light-dark(rgb(255 194 194), rgb(85 89 94));
-  --ui-palette-branding-red-home-pl-200: light-dark(rgb(225 0 0), rgb(81 157 246));
-  --ui-palette-branding-red-home-pl-300: light-dark(rgb(38 38 38), rgb(12 12 14));
-  --ui-palette-branding-red-home-pl-400: light-dark(rgb(77 77 77), rgb(61 63 67));
+  --ui-palette-branding-red-home-pl-buttonprimary-active: light-dark(rgb(48 50 54), rgb(18 77 161));
+  --ui-palette-branding-red-home-pl-buttonprimary-disabled: light-dark(rgb(215 217 219), rgb(48 50 54));
+  --ui-palette-branding-red-home-pl-buttonprimary-hover: light-dark(rgb(61 63 67), rgb(23 99 207));
+  --ui-palette-branding-red-home-pl-buttonprimary-idle: light-dark(rgb(73 76 80), rgb(81 157 246));
+  --ui-palette-branding-red-home-pl-sidebarprimary-active: light-dark(rgb(255 194 194), rgb(81 157 246));
+  --ui-palette-branding-red-home-pl-sidebarprimary-disabled: light-dark(rgb(255 235 235), rgb(85 89 94));
+  --ui-palette-branding-red-home-pl-sidebarprimary-hover: light-dark(rgb(255 20 20), rgb(61 63 67));
+  --ui-palette-branding-red-home-pl-sidebarprimary-idle: light-dark(rgb(225 0 0), rgb(12 12 14));
   --ui-palette-branding-sand-buttonprimary-active: light-dark(rgb(48 50 54), rgb(18 77 161));
   --ui-palette-branding-sand-buttonprimary-disabled: light-dark(rgb(215 217 219), rgb(48 50 54));
   --ui-palette-branding-sand-buttonprimary-hover: light-dark(rgb(61 63 67), rgb(23 99 207));

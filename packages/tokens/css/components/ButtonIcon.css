@@ -9,6 +9,7 @@
   --ui-button-icon-global-container-color-idle: var(--ui-background-surface-transparent);
   --ui-button-icon-global-container-height: var(--ui-units-size-32);
   --ui-button-icon-global-container-padding-x: var(--ui-units-gap-4);
+  --ui-button-icon-global-container-padding-y: var(--ui-units-gap-4);
   --ui-button-icon-global-container-width: var(--ui-units-size-32);
   --ui-button-icon-global-icon-color-active: var(--ui-glyph-on-surface-primary);
   --ui-button-icon-global-icon-color-disabled: var(--ui-glyph-on-surface-disabled);
@@ -23,7 +24,12 @@
   --ui-button-icon-secondary-container-border-width: var(--ui-units-stroke-1);
 }
 
-[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+[data-brand='deep_sky_itkontoret'], :host([data-brand='deep_sky_itkontoret']) {
+  --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+  --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+}
+
+[data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
   --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
   --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }
