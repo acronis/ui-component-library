@@ -128,8 +128,3 @@
   --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
   --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }
-
-[data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-  --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-  --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-}

@@ -192,7 +192,6 @@ export const tokens = {
   "ui-button-menu-dropdown-item-container-padding-y": "var(--ui-button-menu-dropdown-item-container-padding-y)",
   "ui-button-menu-dropdown-item-icon-color": "var(--ui-button-menu-dropdown-item-icon-color)",
   "ui-button-menu-dropdown-item-label-color": "var(--ui-button-menu-dropdown-item-label-color)",
-  "ui-button-menu-dropdown-item-label-text-style": "var(--ui-button-menu-dropdown-item-label-text-style)",
   "ui-button-menu-dropdown-section-container-border-color": "var(--ui-button-menu-dropdown-section-container-border-color)",
   "ui-button-menu-dropdown-section-container-border-width": "var(--ui-button-menu-dropdown-section-container-border-width)",
   "ui-button-menu-dropdown-section-container-padding-x": "var(--ui-button-menu-dropdown-section-container-padding-x)",

@@ -1886,7 +1886,7 @@
             "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:3202:1242"
           },
-          "$type": "string",
+          "$type": "typography",
           "$value": "{typography.body.strong}"
         }
       }

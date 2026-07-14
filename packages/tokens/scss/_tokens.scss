@@ -604,11 +604,6 @@
     --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
 
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
   :root, :host {
     --ui-button-icon-global-container-border-radius: var(--ui-units-radius-4);
     --ui-button-icon-global-container-color-active: var(--ui-background-surface-active);
@@ -637,11 +632,6 @@
     --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
 
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
   :root, :host {
     --ui-button-menu-dropdown-container-border-color: var(--ui-border-on-surface-border-active);
     --ui-button-menu-dropdown-container-border-radius: var(--ui-units-radius-4);
@@ -662,7 +652,6 @@
     --ui-button-menu-dropdown-item-container-padding-y: var(--ui-units-gap-8);
     --ui-button-menu-dropdown-item-icon-color: var(--ui-glyph-on-surface-primary);
     --ui-button-menu-dropdown-item-label-color: var(--ui-text-on-surface-link-idle);
-    --ui-button-menu-dropdown-item-label-text-style: var(--ui-typography-body-strong);
     --ui-button-menu-dropdown-section-container-border-color: var(--ui-border-on-surface-border);
     --ui-button-menu-dropdown-section-container-border-width: var(--ui-units-stroke-1);
     --ui-button-menu-dropdown-section-container-padding-x: var(--ui-units-gap-0);
@@ -709,6 +698,14 @@
     letter-spacing: 0px;
   }
 
+  .ui-button-menu-dropdown-item-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
   .ui-button-menu-global-label-text-style {
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
@@ -718,11 +715,6 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
-    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
     --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
     --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
@@ -873,14 +865,6 @@
   }
 
   [data-brand='deep-sky-itkontoret'] .ui-chip-operational-label-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-  }
-
-  [data-brand='virtuozzo'] .ui-chip-operational-label-text-style {
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -1228,15 +1212,6 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
-    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
-    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
-    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
-    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
-  }
-
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
     --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
     --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
     --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
@@ -1766,10 +1741,6 @@
     --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
   }
 
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
-  }
-
   :root, :host {
     --ui-switch-global-box-border-color-active: var(--ui-border-transparent);
     --ui-switch-global-box-border-color-disabled: var(--ui-border-on-surface-border);
@@ -2257,6 +2228,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-blue-yellow-uss-signal-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-blue-yellow-uss-signal-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-blue-yellow-uss-signal-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='brown'], :host([data-brand='brown']) {
@@ -2268,6 +2254,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-brown-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-brown-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-brown-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='dark-gray'], :host([data-brand='dark-gray']) {
@@ -2279,6 +2280,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-dark-gray-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-dark-gray-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-dark-gray-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='deep-purple'], :host([data-brand='deep-purple']) {
@@ -2290,6 +2306,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-deep-purple-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-deep-purple-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-deep-purple-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
@@ -2327,6 +2358,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-green-also-choise-df-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-green-also-choise-df-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-green-also-choise-df-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='ingram-micro'], :host([data-brand='ingram-micro']) {
@@ -2338,6 +2384,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-ingram-micro-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-ingram-micro-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-ingram-micro-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='light-blue-hp'], :host([data-brand='light-blue-hp']) {
@@ -2349,6 +2410,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-light-blue-hp-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-light-blue-hp-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-light-blue-hp-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='light-gray'], :host([data-brand='light-gray']) {
@@ -2360,6 +2436,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-light-gray-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-light-gray-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-light-gray-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='orange-tsukaeru-helpox'], :host([data-brand='orange-tsukaeru-helpox']) {
@@ -2371,6 +2462,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-orange-tsukaeru-helpox-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-orange-tsukaeru-helpox-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-orange-tsukaeru-helpox-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='pinky'], :host([data-brand='pinky']) {
@@ -2382,6 +2488,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-pinky-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-pinky-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-pinky-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='purple'], :host([data-brand='purple']) {
@@ -2393,6 +2514,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-purple-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-purple-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-purple-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='purple-fusion-media'], :host([data-brand='purple-fusion-media']) {
@@ -2404,6 +2540,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-purple-fusion-media-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-purple-fusion-media-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-purple-fusion-media-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='red-fire-brick'], :host([data-brand='red-fire-brick']) {
@@ -2415,6 +2566,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-red-fire-brick-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-red-fire-brick-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-red-fire-brick-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='red-home-pl'], :host([data-brand='red-home-pl']) {
@@ -2426,6 +2592,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-red-home-pl-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-red-home-pl-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-red-home-pl-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='sand'], :host([data-brand='sand']) {
@@ -2437,6 +2618,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-sand-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-sand-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-sand-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='telstra'], :host([data-brand='telstra']) {
@@ -2448,6 +2644,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-telstra-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-telstra-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-telstra-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='virtual-one'], :host([data-brand='virtual-one']) {
@@ -2459,6 +2670,21 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-virtual-one-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-virtual-one-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-virtual-one-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 
   [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
@@ -2496,5 +2722,20 @@
     --ui-background-brand-secondary-active: var(--ui-palette-branding-yellow-1c-buttonprimary-active);
     --ui-background-brand-secondary-disabled: var(--ui-palette-branding-yellow-1c-buttonprimary-disabled);
     --ui-background-brand-secondary-hover: var(--ui-palette-branding-yellow-1c-buttonprimary-hover);
+    --ui-background-status-off: var(--ui-palette-grayscale-3);
+    --ui-background-surface-active: var(--ui-palette-grayscale-2);
+    --ui-background-surface-hover: var(--ui-palette-grayscale-1);
+    --ui-background-surface-secondary: var(--ui-palette-grayscale-0);
+    --ui-border-on-surface-border: var(--ui-palette-grayscale-3);
+    --ui-border-on-surface-border-active: var(--ui-palette-grayscale-7);
+    --ui-border-on-surface-divider: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-backdrop-element-primary: var(--ui-palette-grayscale-7);
+    --ui-glyph-on-status-disabled: var(--ui-palette-grayscale-3);
+    --ui-glyph-on-surface-disabled: var(--ui-palette-grayscale-5);
+    --ui-glyph-on-surface-primary: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-disabled: var(--ui-palette-grayscale-3);
+    --ui-text-on-surface-link-hover: var(--ui-palette-grayscale-11);
+    --ui-text-on-surface-link-idle: var(--ui-palette-grayscale-10);
+    --ui-text-on-surface-link-pressed: var(--ui-palette-grayscale-12);
   }
 }

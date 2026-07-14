@@ -1680,8 +1680,7 @@
             ],
             "values": {
               "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}",
-              "virtuozzo": "{palette.grayscale.3}"
+              "default": "{palette.electricblue.electricblue-3}"
             }
           },
           "hover": {
@@ -1714,8 +1713,7 @@
             ],
             "values": {
               "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}",
-              "virtuozzo": "{palette.grayscale.3}"
+              "default": "{palette.electricblue.electricblue-3}"
             }
           }
         },
@@ -2271,8 +2269,7 @@
             ],
             "values": {
               "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}",
-              "virtuozzo": "{palette.grayscale.3}"
+              "default": "{palette.electricblue.electricblue-3}"
             }
           },
           "hover": {
@@ -2305,8 +2302,7 @@
             ],
             "values": {
               "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}",
-              "virtuozzo": "{palette.grayscale.3}"
+              "default": "{palette.electricblue.electricblue-3}"
             }
           }
         },
@@ -2692,7 +2688,7 @@
             "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:3202:1242"
           },
-          "$type": "string",
+          "$type": "typography",
           "platforms": [
             "PD"
           ],
@@ -3063,8 +3059,7 @@
             ],
             "values": {
               "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}",
-              "virtuozzo": "{palette.grayscale.3}"
+              "default": "{palette.electricblue.electricblue-3}"
             }
           },
           "hover": {
@@ -3097,8 +3092,7 @@
             ],
             "values": {
               "deep-sky-itkontoret": "{palette.grayscale.3}",
-              "default": "{palette.electricblue.electricblue-3}",
-              "virtuozzo": "{palette.grayscale.3}"
+              "default": "{palette.electricblue.electricblue-3}"
             }
           }
         },
@@ -4783,8 +4777,7 @@
           ],
           "values": {
             "deep-sky-itkontoret": "{typography.link.default}",
-            "default": "{typography.link.strong}",
-            "virtuozzo": "{typography.link.default}"
+            "default": "{typography.link.strong}"
           }
         }
       }
@@ -6906,8 +6899,7 @@
           ],
           "values": {
             "deep-sky-itkontoret": "{units.size.8}",
-            "default": "{units.gap.8}",
-            "virtuozzo": "{units.size.8}"
+            "default": "{units.gap.8}"
           }
         },
         "paddingX": {
@@ -6940,8 +6932,7 @@
           ],
           "values": {
             "deep-sky-itkontoret": "{units.size.16}",
-            "default": "{units.gap.16}",
-            "virtuozzo": "{units.size.16}"
+            "default": "{units.gap.16}"
           }
         },
         "widthMin": {
@@ -7044,8 +7035,7 @@
           ],
           "values": {
             "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
-            "default": "{colors.glyph.onSurface.primary}",
-            "virtuozzo": "{colors.text.onSurface.primary}"
+            "default": "{colors.glyph.onSurface.primary}"
           }
         },
         "iconCollapse": {
@@ -7062,8 +7052,7 @@
           ],
           "values": {
             "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
-            "default": "{colors.glyph.onSurface.primary}",
-            "virtuozzo": "{colors.text.onSurface.primary}"
+            "default": "{colors.glyph.onSurface.primary}"
           }
         },
         "iconTenant": {
@@ -7080,8 +7069,7 @@
           ],
           "values": {
             "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
-            "default": "{colors.glyph.onSurface.primary}",
-            "virtuozzo": "{colors.text.onSurface.primary}"
+            "default": "{colors.glyph.onSurface.primary}"
           }
         },
         "label": {
@@ -8069,8 +8057,7 @@
             ],
             "values": {
               "deep-sky-itkontoret": "{colors.text.onSurface.disabled}",
-              "default": "{colors.glyph.onSurface.disabled}",
-              "virtuozzo": "{colors.text.onSurface.disabled}"
+              "default": "{colors.glyph.onSurface.disabled}"
             }
           },
           "hover": {
@@ -12324,8 +12311,7 @@
               ],
               "values": {
                 "deep-sky-itkontoret": "{colors.background.surface.active}",
-                "default": "{colors.background.surface.hover}",
-                "virtuozzo": "{colors.background.surface.active}"
+                "default": "{colors.background.surface.hover}"
               }
             },
             "hover": {
