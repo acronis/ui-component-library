@@ -13,6 +13,9 @@ import {
   ButtonMenuDropdownTrigger,
 } from '../button-menu-dropdown';
 
+// react-hooks/refs false-positives here: this test helper only *forwards* a
+// Ref-typed prop (`ref={props.contentRef}`) — it never reads `.current` during render.
+/* eslint-disable react-hooks/refs */
 function DemoMenu(props: { contentRef?: Ref<HTMLDivElement> }) {
   return (
     <ButtonMenuDropdown open>

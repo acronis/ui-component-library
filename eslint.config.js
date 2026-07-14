@@ -92,11 +92,16 @@ export default tseslint.config(
       },
     },
     rules: {
-      // Classic hooks rules only. react-hooks 7's `recommended` also bundles the
-      // new React Compiler rules (refs-during-render, set-state-in-effect, …);
-      // adopting those is a separate follow-up.
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      // react-hooks 7's full recommended set — the React Compiler rules (refs,
+      // purity, immutability, set-state-in-render, static-components, use-memo, …).
+      // The codebase already complies with 14 of the 17; two are overridden below.
+      ...pluginReactHooks.configs['recommended-latest'].rules,
+      // `set-state-in-effect` is owned by @eslint-react (adopted with per-site
+      // justifications); turn off the react-hooks duplicate to avoid double-reports.
+      'react-hooks/set-state-in-effect': 'off',
+      // Advisory "React Compiler will skip memoizing this" (TanStack Table/Virtual).
+      // Informational, not a defect — and this repo doesn't run the React Compiler.
+      'react-hooks/incompatible-library': 'off',
 
       // @eslint-react's recommended-typescript rules are adopted as-is, with three
       // deliberate exceptions (the code is compliant with the rest):

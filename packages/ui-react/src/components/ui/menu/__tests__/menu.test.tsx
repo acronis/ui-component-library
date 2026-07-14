@@ -19,6 +19,10 @@ import {
   MenuTrigger,
 } from '../menu';
 
+// react-hooks/refs false-positives here: this test helper only *forwards* a
+// Ref-typed prop (`ref={props.contentRef}`) and a callback prop — it never reads
+// `.current` during render.
+/* eslint-disable react-hooks/refs */
 function DemoMenu(props: {
   contentRef?: Ref<HTMLDivElement>;
   onItemClick?: () => void;
