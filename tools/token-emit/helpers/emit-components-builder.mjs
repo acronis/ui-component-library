@@ -185,7 +185,8 @@ export class ComponentsEmitter {
     if (Object.keys(allModes).length > 0) {
       const translatedValues = {};
       for (const [modeKey, modeRef] of Object.entries(allModes)) {
-        const normalizedKey = modeKey.toLowerCase().replace(/\s+/g, '-');
+        // kebab-case per schema `Modes` pattern; fold spaces and underscores.
+        const normalizedKey = modeKey.toLowerCase().replace(/[\s_]+/g, '-');
         translatedValues[normalizedKey] = this.#translateValue(modeRef, id);
       }
       if (Object.keys(translatedValues).length > 0)

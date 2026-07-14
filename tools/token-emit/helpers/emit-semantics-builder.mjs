@@ -18,7 +18,9 @@ const PRIMITIVES_PATH = fileURLToPath(
   new URL('../../../packages/tokens/tiers/primitives.json', import.meta.url)
 );
 
-const normalizeMode = (m) => m.toLowerCase().replace(/\s+/g, '-');
+// Brand modes must be kebab-case (schema `Modes` pattern `^[a-z][a-z0-9-]*$`);
+// Figma mode names may arrive with spaces or underscores, so fold both to `-`.
+const normalizeMode = (m) => m.toLowerCase().replace(/[\s_]+/g, '-');
 const normalizeKey = (k) => k.replace(/\s+/g, '-');
 
 export class SemanticsEmitter {

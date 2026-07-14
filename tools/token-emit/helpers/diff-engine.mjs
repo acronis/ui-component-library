@@ -155,7 +155,7 @@ export class DiffEngine {
     const snModes = snLeaf.$extensions?.modes ?? {};
     const tierValues = tierLeaf.values ?? {};
     for (const [modeKey, snModeVal] of Object.entries(snModes)) {
-      const normalizedKey = modeKey.toLowerCase().replace(/\s+/g, '-');
+      const normalizedKey = modeKey.toLowerCase().replace(/[\s_]+/g, '-');
       const tierModeVal = tierValues[normalizedKey];
       if (tierModeVal !== undefined) {
         const normSn = DiffEngine.#normalizeValue(snModeVal);
@@ -259,7 +259,7 @@ export class DiffEngine {
               ? [['default', DiffEngine.#normalizeValue($value)]]
               : []),
             ...Object.entries(modeOrValues).map(([k, v]) => [
-              k.toLowerCase().replace(/\s+/g, '-'),
+              k.toLowerCase().replace(/[\s_]+/g, '-'),
               DiffEngine.#normalizeValue(v),
             ]),
           ])
