@@ -37,7 +37,12 @@ segmented-control tab group built on the Base UI Tabs primitive.
 ## Example
 
 ```tsx
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@spec-lab/ui-react';
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from '@constructor-lab/ui-react';
 
 <Tabs defaultValue="account" className="w-[400px]">
   <TabsList className="grid w-full grid-cols-2">

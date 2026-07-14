@@ -10,7 +10,7 @@
  *   4. emit-components.mjs             snapshot → tiers/components.json
  *   5. themes-import.mjs               wire sparse per-brand entries into the tiers
  *
- * (Schema validation stays in `@spec-lab/tokens` `validate`, run after this.)
+ * (Schema validation stays in `@constructor-lab/tokens` `validate`, run after this.)
  * Each step runs in its own `node` process, mirroring the previous shell chain
  * exactly — same output.
  */

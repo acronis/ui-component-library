@@ -20,7 +20,7 @@ An indeterminate loading indicator — a spinning ring in four sizes.
 ## Example
 
 ```tsx
-import { Spinner } from '@spec-lab/ui-react';
+import { Spinner } from '@constructor-lab/ui-react';
 
 <Spinner />
 <Spinner size="lg" />

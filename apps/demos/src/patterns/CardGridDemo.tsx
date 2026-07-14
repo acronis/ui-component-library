@@ -10,7 +10,7 @@ import {
   PageHeaderDescription,
   PageHeaderRow,
   PageHeaderTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const integrations = [
   { id: 'i1', name: 'Slack', summary: 'Send alerts to your team channels.' },

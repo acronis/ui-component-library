@@ -54,7 +54,7 @@ adapters:
   react:
     component: ChartContainer
     status: implemented
-    import: "import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from '@spec-lab/ui-react'"
+    import: "import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from '@constructor-lab/ui-react'"
     example: |
       <ChartContainer config={config} className="h-[300px] w-[500px]">
         <BarChart data={data}>
@@ -65,12 +65,12 @@ adapters:
   vue:
     component: AvChart
     status: planned
-    import: "import { AvChart } from '@spec-lab/ui-vue'"
+    import: "import { AvChart } from '@constructor-lab/ui-vue'"
     example: |
       <AvChart :config="config" />
   web-components:
     element: ui-chart
     status: planned
-    import: "import '@spec-lab/ui-wc/chart'"
+    import: "import '@constructor-lab/ui-wc/chart'"
     example: |
       <ui-chart></ui-chart>

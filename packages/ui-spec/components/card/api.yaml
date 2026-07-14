@@ -34,7 +34,7 @@ adapters:
     status: implemented
     import: >-
       import { Card, CardHeader, CardTitle, CardDescription, CardContent,
-      CardFooter } from '@spec-lab/ui-react'
+      CardFooter } from '@constructor-lab/ui-react'
     example: |
       <Card>
         <CardHeader>
@@ -50,7 +50,7 @@ adapters:
   vue:
     component: AvCard
     status: planned
-    import: "import { AvCard, AvCardHeader, AvCardContent } from '@spec-lab/ui-vue'"
+    import: "import { AvCard, AvCardHeader, AvCardContent } from '@constructor-lab/ui-vue'"
     example: |
       <AvCard>
         <AvCardHeader>
@@ -62,7 +62,7 @@ adapters:
   web-components:
     element: ui-card
     status: planned
-    import: "import '@spec-lab/ui-wc/card'"
+    import: "import '@constructor-lab/ui-wc/card'"
     example: |
       <ui-card>
         <ui-card-header>

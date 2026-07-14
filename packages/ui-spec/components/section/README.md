@@ -33,7 +33,7 @@ import {
   SectionTitle,
   SectionDescription,
   SectionContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Section>
   <SectionHeader>

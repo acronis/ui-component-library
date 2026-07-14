@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { AspectRatio } from '@spec-lab/ui-react';
+import { AspectRatio } from '@constructor-lab/ui-react';
 
 // Inline-styled, network-free placeholder (no remote image; token vars from the
 // adopted stylesheet, so no reliance on demo-only Tailwind classes).

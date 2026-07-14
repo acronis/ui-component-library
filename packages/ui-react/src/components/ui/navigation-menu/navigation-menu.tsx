@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavigationMenu as NavigationMenuPrimitive } from '@base-ui/react/navigation-menu';
-import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono';
+import { ChevronDownIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';

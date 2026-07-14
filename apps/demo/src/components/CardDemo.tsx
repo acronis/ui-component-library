@@ -12,7 +12,7 @@ import {
   CardInteractive,
   CardVariants,
   CardList,
-} from '@spec-lab/ui-kit-demos/card';
+} from '@constructor-lab/ui-kit-demos/card';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

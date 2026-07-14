@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: InputTextArea
 
-# References only. Values live in @spec-lab/tokens. The field furniture
+# References only. Values live in @constructor-lab/tokens. The field furniture
 # (container / label / required / description / error) and the textarea box all use
 # the dedicated `--ui-input-text-area-*` tier; the focus ring uses the shared
 # `--ui-focus-*` tokens.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Field container ──

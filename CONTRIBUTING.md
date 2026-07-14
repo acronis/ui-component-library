@@ -18,9 +18,9 @@ We welcome contributions in any form, including but not limited to the following
 
 ## Issue Reporting
 
-You can file a ticket for the bug/issue you found through [Issues](https://github.com/constructor-lab/facet/issues) under project **UI component library**.
+You can file a ticket for the bug/issue you found through [Issues](https://github.com/constructor-lab/ui-component-library/issues) under project **UI component library**.
 A clear reproduce steps will be very helpful to identify the root cause.
-For the complicated scenario, you can also create an example in the [Sandbox](https://github.com/constructor-lab/facet/sandbox/index.vue), or provide the example code in the ticket.
+For the complicated scenario, you can also create an example in the [Sandbox](https://github.com/constructor-lab/ui-component-library/sandbox/index.vue), or provide the example code in the ticket.
 
 ## Working in the monorepo
 
@@ -38,8 +38,8 @@ pnpm -r typecheck
 pnpm -r lint
 
 # Or run it for a single workspace
-pnpm --filter @spec-lab/uikit-docs dev
-pnpm --filter @spec-lab/ui-react storybook
+pnpm --filter @constructor-lab/uikit-docs dev
+pnpm --filter @constructor-lab/ui-react storybook
 ```
 
 Shared dependency versions (React, TypeScript, ESLint, Vite, react-hook-form,
@@ -55,9 +55,9 @@ Follow this guide's branching, pull request, and commit conventions when you pre
 Meanwhile, below a checklist for the items need to do before raised a pull request,
 and you can find the details for each point in the remaining part of this document:
 
-1. Fork [This repo](https://github.com/constructor-lab/facet)
+1. Fork [This repo](https://github.com/constructor-lab/ui-component-library)
 2. Enter the local project root directory and use `pnpm i` to install dependencies.
-3. Use `pnpm --filter @spec-lab/uikit-docs dev` to start the documentation app.
+3. Use `pnpm --filter @constructor-lab/uikit-docs dev` to start the documentation app.
 4. Please pull the latest code before submitting to avoid file conflicts.
 5. Commit your changes with a clear commit message, please abide by it at the same time. [Commit Standard](https://acronis.github.io/ui-component-library/guide/commitlint.html)。
 6. Ensure the code follows [Style Guide for Front-end development](Link to styleguide).
@@ -113,8 +113,8 @@ You can find more information about performance tests in the [Performance tests 
 
 ### Component documentation
 
-The documentation for each component is located at [`apps/docs`](https://github.com/constructor-lab/facet/tree/main/apps/docs) using Markdown/MDX format.
-The implementation examples are located at [`apps/demos`](https://github.com/constructor-lab/facet/tree/main/apps/demos).
+The documentation for each component is located at [`apps/docs`](https://github.com/constructor-lab/ui-component-library/tree/main/apps/docs) using Markdown/MDX format.
+The implementation examples are located at [`apps/demos`](https://github.com/constructor-lab/ui-component-library/tree/main/apps/demos).
 For internal documentation we use Next.js with Fumadocs; see the [Fumadocs documentation](https://fumadocs.dev/docs/ui) for more information.
 
 Each document consists of highlights of the API(props, slots, events) with examples and complete details of these components.
@@ -136,11 +136,11 @@ bump.
 
 Published workspaces are:
 
-- `@spec-lab/ui-react`
-- `@spec-lab/icons-react`
-- `@spec-lab/tokens`
-- `@spec-lab/tokens`
-- `@spec-lab/design-assets`
+- `@constructor-lab/ui-react`
+- `@constructor-lab/icons-react`
+- `@constructor-lab/tokens`
+- `@constructor-lab/tokens`
+- `@constructor-lab/design-assets`
 
 From the repo root:
 
@@ -166,4 +166,4 @@ driven by the changeset bump type, not the commit prefix**.
 
 ## License
 
-By contributing your code to the repository, you agree to license your contribution under the [MIT license](https://github.com/constructor-lab/facet/blob/main/LICENSE).
+By contributing your code to the repository, you agree to license your contribution under the [MIT license](https://github.com/constructor-lab/ui-component-library/blob/main/LICENSE).

@@ -56,8 +56,11 @@ import {
   SidebarSecondaryMenuSubTrigger,
   SidebarSecondaryMenuSubContent,
   SidebarSecondaryMenuSubItem,
-} from '@spec-lab/ui-react';
-import { LayoutGridIcon, BoxIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import {
+  LayoutGridIcon,
+  BoxIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 
 function ProtectionNav() {
   const [expanded, setExpanded] = useState(true);

@@ -10,7 +10,7 @@ import {
   ProgressWidths,
   ProgressInCards,
   ProgressInteractive,
-} from '@spec-lab/ui-kit-demos/progress';
+} from '@constructor-lab/ui-kit-demos/progress';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

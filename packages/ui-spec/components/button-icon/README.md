@@ -19,8 +19,8 @@ border).
 ## Example (React — implemented)
 
 ```tsx
-import { ButtonIcon } from '@spec-lab/ui-react';
-import { PlusIcon } from '@spec-lab/icons-react/stroke-mono';
+import { ButtonIcon } from '@constructor-lab/ui-react';
+import { PlusIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 <ButtonIcon aria-label="Add">
   <PlusIcon />

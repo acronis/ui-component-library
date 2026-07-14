@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { ScrollArea } from '@spec-lab/ui-react';
-import { ButtonIcon } from '@spec-lab/ui-react';
+import { ScrollArea } from '@constructor-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
 import {
   ArrowRotationIcon,
   FilesIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { ThumbsUpIcon, ThumbsDownIcon } from '@/components/icons/missing-icons';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 import type { Message } from '../types';

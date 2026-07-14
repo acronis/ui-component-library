@@ -1,4 +1,4 @@
-import { Filter } from '@spec-lab/ui-react';
+import { Filter } from '@constructor-lab/ui-react';
 
 export function FilterVariants() {
   return (

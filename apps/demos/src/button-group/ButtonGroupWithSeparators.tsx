@@ -2,8 +2,11 @@ import {
   ButtonGroup,
   ButtonGroupSeparator,
   ButtonIcon,
-} from '@spec-lab/ui-react';
-import { ClipboardIcon, FilesIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import {
+  ClipboardIcon,
+  FilesIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 import { RedoIcon, ScissorsIcon, UndoIcon } from '../icons/missing-icons';
 export function ButtonGroupWithSeparators() {
   return (

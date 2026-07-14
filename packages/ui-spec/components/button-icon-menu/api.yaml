@@ -47,18 +47,18 @@ adapters:
   react:
     component: ButtonIconMenu
     status: implemented
-    import: "import { ButtonIconMenu } from '@spec-lab/ui-react'"
+    import: "import { ButtonIconMenu } from '@constructor-lab/ui-react'"
     example: |
       <ButtonIconMenu open={open} aria-label="Row actions" onClick={toggle} />
   vue:
     element: AvButtonIconMenu
     status: planned
-    import: "import { AvButtonIconMenu } from '@spec-lab/ui-vue'"
+    import: "import { AvButtonIconMenu } from '@constructor-lab/ui-vue'"
     example: |
       <AvButtonIconMenu :open="open" aria-label="Row actions" />
   web-components:
     element: ui-button-icon-menu
     status: planned
-    import: "import '@spec-lab/ui-wc/button-icon-menu'"
+    import: "import '@constructor-lab/ui-wc/button-icon-menu'"
     example: |
       <ui-button-icon-menu aria-label="Row actions"></ui-button-icon-menu>

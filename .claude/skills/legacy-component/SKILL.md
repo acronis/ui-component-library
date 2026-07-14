@@ -152,7 +152,7 @@ This is the phase that differs most from `/figma-component`. Two translations:
 ### 2a. Tokens
 
 ui-react colors must resolve to a generated `--ui-*` token from
-`@spec-lab/tokens`. **Never** reference `--av-*` (that's the legacy
+`@constructor-lab/tokens`. **Never** reference `--av-*` (that's the legacy
 prefix) and **never** hand-author hex/hsl. Pick the token tier in this order:
 
 1. **Component-specific tier, if it already exists.** Check first:
@@ -218,7 +218,7 @@ prefix) and **never** hand-author hex/hsl. Pick the token tier in this order:
 
 3. **Don't invent a component tier.** If a port really needs per-component
    tokens that don't exist, those belong upstream in
-   `@spec-lab/tokens` → rebuild `tokens`. For a design-pending
+   `@constructor-lab/tokens` → rebuild `tokens`. For a design-pending
    v1, **prefer staying on semantic tokens** and flag to the user that the
    component-specific palette is pending a Figma/token pass — don't hand-author
    it here.
@@ -229,7 +229,7 @@ Wire **each interaction state to its own token** (`hover:` → `*-hover`,
 honor the referenced token.
 
 > **The whole token kit ships in one import.** `src/styles/index.css` does a single
-> `@import '@spec-lab/tokens/css'`, which includes every component tier
+> `@import '@constructor-lab/tokens/css'`, which includes every component tier
 > (`css/components/<Name>.css`) automatically — no per-component import to add. An
 > existing `--ui-<name>-*` tier is therefore already available.
 
@@ -256,7 +256,7 @@ Translate the legacy primitive to the ui-react convention:
 
 ### 2c. Icons
 
-Same as `/figma-component`. Use `@spec-lab/icons-react/<pack>` (usually
+Same as `/figma-component`. Use `@constructor-lab/icons-react/<pack>` (usually
 `stroke-mono`); confirm the icon exists before importing
 (`ls packages/icons-react/src/packs/stroke-mono/icons | grep -i <name>`). Names
 are `PascalCase(asset) + Icon`; pass `size={16}` for 16px icons.
@@ -323,10 +323,10 @@ Hard rules enforced by `__tests__/specs.test.ts` (unchanged):
 - For `cva` components, `api.yaml` `variant`/`size` enums must equal the actual
   `cva` keys in the ui-react source (conformance test).
 
-Validate continuously: `pnpm --filter @spec-lab/ui-spec test`.
+Validate continuously: `pnpm --filter @constructor-lab/ui-spec test`.
 
 **Generate the states story** (don't hand-write `.generated`):
-`pnpm --filter @spec-lab/ui-spec generate:stories`. A **composable /
+`pnpm --filter @constructor-lab/ui-spec generate:stories`. A **composable /
 multi-part component renders empty** (just `<Name />`) unless you give it a
 `RENDER` hint in `packages/ui-spec/scripts/generate-stories.ts` — an
 `extraImports` line importing the sub-parts and a `sample` string composing them.
@@ -377,8 +377,8 @@ pieces: a **live demo**, an **MDX page**, and a **nav entry**.
 **1. Live demo** — `apps/docs/src/components/demos-react/<name>.tsx`:
 
 - `'use client'` at the top (the demo uses ui-react's client components).
-- Import the component(s) from `@spec-lab/ui-react` (and icons from
-  `@spec-lab/icons-react/<pack>`), and `export function <Name>Demo()`
+- Import the component(s) from `@constructor-lab/ui-react` (and icons from
+  `@constructor-lab/icons-react/<pack>`), and `export function <Name>Demo()`
   rendering a representative composition — mirror the hand-written story.
 - **Network-free**, same rule as the VR stories ([[vr-stories-no-network]]): no
   remote images; data-URI/local only.
@@ -402,7 +402,7 @@ import { <Name>Demo } from "@/components/demos-react/<name>";
 ## Usage
 
 \`\`\`tsx
-import { <Name> } from '@spec-lab/ui-react';
+import { <Name> } from '@constructor-lab/ui-react';
 \`\`\`
 
 <prose: what it is, the parts, polymorphism via the `render` prop, which tokens
@@ -445,8 +445,8 @@ none fits.
 **Verify the docs build** (no test suite here — it's build-verified):
 
 ```bash
-pnpm --filter @spec-lab/uikit-docs typecheck   # demo .tsx compiles
-pnpm --filter @spec-lab/uikit-docs build       # MDX + AutoTypeTable resolve, page renders
+pnpm --filter @constructor-lab/uikit-docs typecheck   # demo .tsx compiles
+pnpm --filter @constructor-lab/uikit-docs build       # MDX + AutoTypeTable resolve, page renders
 ```
 
 A broken `AutoTypeTable` `path`/`name` or a missing demo import fails the build,
@@ -455,7 +455,7 @@ not typecheck — so run the build.
 > **Live demos need ui-react's _compiled_ CSS — already handled, but know why.**
 > `<DemoReact>` mounts the demo in a shadow root that adopts ui-react's compiled
 > `dist/ui-react.css` (served by `/api/ui-react-css`), a **gitignored** artifact.
-> `apps/docs` has `predev`/`prebuild` hooks that run `pnpm --filter @spec-lab/ui-react build`
+> `apps/docs` has `predev`/`prebuild` hooks that run `pnpm --filter @constructor-lab/ui-react build`
 > first, so `uikit-docs dev`/`build` regenerate it automatically (≈1.5s) — replicate
 > that if you ever run Next directly, or the previews render unstyled. **Corollary
 > for the demo file:** the shadow root adopts _only_ that compiled sheet, which is
@@ -471,11 +471,11 @@ not typecheck — so run the build.
 Identical to `/figma-component` Phase 5.
 
 ```bash
-pnpm --filter @spec-lab/ui-react test
-pnpm --filter @spec-lab/ui-react typecheck
-pnpm --filter @spec-lab/ui-react lint
-pnpm --filter @spec-lab/ui-react build      # confirms exports bundle, .figma.tsx excluded
-pnpm --filter @spec-lab/ui-spec test
+pnpm --filter @constructor-lab/ui-react test
+pnpm --filter @constructor-lab/ui-react typecheck
+pnpm --filter @constructor-lab/ui-react lint
+pnpm --filter @constructor-lab/ui-react build      # confirms exports bundle, .figma.tsx excluded
+pnpm --filter @constructor-lab/ui-spec test
 pnpm -r typecheck                                   # what the pre-commit hook runs
 ```
 
@@ -486,7 +486,7 @@ changeset:
 ```
 .changeset/<name>-component.md
 ---
-'@spec-lab/ui-react': minor   # or: patch (update)
+'@constructor-lab/ui-react': minor   # or: patch (update)
 ---
 Add `<Name>` (initial version ported from ui-legacy; design reconciliation pending).
 ```
@@ -496,8 +496,8 @@ matrix, so every story has **two** baselines (`<id>.png` and `<id>--dark.png`).
 Regenerate **both** in Docker and review the PNGs before committing:
 
 ```bash
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:update:all  # regenerate light + dark
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:all         # check both (what CI runs)
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:update:all  # regenerate light + dark
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:all         # check both (what CI runs)
 ```
 
 When you **remove or rename** a story, delete BOTH its baselines. Never commit
@@ -524,7 +524,7 @@ the `/figma-component` Phase 5 notes for the single-mode variants and the
 - [ ] `apps/docs`: `src/components/demos-react/<name>.tsx` (live demo) +
       `content/docs/components/<name>.mdx` (Usage / Examples / API Reference) +
       `meta.json` nav entry; `uikit-docs build` passes.
-- [ ] Changeset for `@spec-lab/ui-react`.
+- [ ] Changeset for `@constructor-lab/ui-react`.
 - [ ] test / typecheck / lint / build all pass; `pnpm -r typecheck` clean.
 - [ ] User told this is a design-pending v1 — reconcile with `/figma-component
 <Name> <url> --update` once mockups exist.

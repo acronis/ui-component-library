@@ -42,18 +42,18 @@ adapters:
   react:
     component: Slider
     status: implemented
-    import: "import { Slider } from '@spec-lab/ui-react'"
+    import: "import { Slider } from '@constructor-lab/ui-react'"
     example: |
       <Slider defaultValue={40} aria-label="Volume" />
   vue:
     component: AvSlider
     status: planned
-    import: "import { AvSlider } from '@spec-lab/ui-vue'"
+    import: "import { AvSlider } from '@constructor-lab/ui-vue'"
     example: |
       <AvSlider :default-value="40" />
   web-components:
     element: ui-slider
     status: planned
-    import: "import '@spec-lab/ui-wc/slider'"
+    import: "import '@constructor-lab/ui-wc/slider'"
     example: |
       <ui-slider></ui-slider>

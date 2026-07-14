@@ -1,6 +1,6 @@
 # AGENTS.md — `tools/figma-token-exporter`
 
-`@spec-lab/figma-token-exporter` — a **private** (unpublished) build
+`@constructor-lab/figma-token-exporter` — a **private** (unpublished) build
 tool: a small, self-hosted Figma plugin plus a local Node receiver that exports
 the design system's variables and styles into
 `packages/tokens/.tmp/figma-tokens/` — the snapshot the tokens
@@ -53,7 +53,7 @@ Two halves, no build step:
    `packages/tokens/.tmp/figma-tokens/`.
 
 ```bash
-pnpm --filter @spec-lab/figma-token-exporter receive
+pnpm --filter @constructor-lab/figma-token-exporter receive
 # then in Figma: run "Constructor Lab Token Exporter" → "Send snapshot to repo"
 # override the port (must match manifest networkAccess) with:  receive -- --port 4444
 ```
@@ -83,8 +83,8 @@ plugin folds resolved orphan IDs into `variables-meta.json`.
 
 ## Testing
 
-`pnpm --filter @spec-lab/figma-token-exporter test` runs the Vitest unit
+`pnpm --filter @constructor-lab/figma-token-exporter test` runs the Vitest unit
 specs (pure converter + snapshot writer; no Figma, no network). The end-to-end
 correctness check is the sync itself: after a real export, `pnpm --filter
-@spec-lab/tokens emit` runs and `git diff tiers/` shows only
+@constructor-lab/tokens emit` runs and `git diff tiers/` shows only
 intended changes.

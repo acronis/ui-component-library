@@ -7,17 +7,17 @@ import {
   FieldDescription,
   FieldError,
   FieldGroup,
-} from '@spec-lab/ui-react';
-import { Input } from '@spec-lab/ui-react';
-import { Textarea } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
+import { Textarea } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const schema = z.object({
   username: z

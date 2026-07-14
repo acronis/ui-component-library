@@ -1,5 +1,5 @@
 import type { Table } from '@tanstack/react-table';
-import { CogIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CogIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { Button } from '../button';
 import {

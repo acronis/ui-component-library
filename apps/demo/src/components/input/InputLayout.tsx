@@ -8,7 +8,7 @@ import {
 import {
   CircleWarningIcon,
   EnvelopeIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { RulerIcon } from '@/components/icons/missing-icons';
 export function InputLayout() {
   const navigate = useNavigate();

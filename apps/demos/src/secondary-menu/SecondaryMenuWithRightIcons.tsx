@@ -7,7 +7,7 @@ import {
   SidebarSecondaryMenuItemExtras,
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // SidebarSecondaryMenuItem only supports fixed-purpose trailing extras (tag /
 // shortcut / externalLink) — there is no generic "custom trailing icon" slot.

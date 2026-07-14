@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Toaster, toast } from '@spec-lab/ui-react';
+import { Button, Toaster, toast } from '@constructor-lab/ui-react';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 export function ToastDemo() {

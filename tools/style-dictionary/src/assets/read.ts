@@ -1,4 +1,4 @@
-// Filesystem access to `@spec-lab/design-assets`: locate the package via
+// Filesystem access to `@constructor-lab/design-assets`: locate the package via
 // its `exports`, enumerate packs, and read manifests, rules, schemas, and the
 // `$file` binaries. Everything else in the asset domain is pure and takes its
 // input from here.
@@ -10,7 +10,7 @@ import path from 'node:path';
 import type { PackManifest, Rule } from './types';
 
 /** The assets package, addressed via its `exports`. */
-const DESIGN_ASSETS_PACKAGE = '@spec-lab/design-assets';
+const DESIGN_ASSETS_PACKAGE = '@constructor-lab/design-assets';
 
 // createRequire (rather than import.meta.resolve) so package resolution works
 // identically under tsx and the vitest/vite test runtime.
@@ -22,7 +22,7 @@ function packageRoot(): string {
 }
 
 /**
- * True when `@spec-lab/design-assets` is installed. The asset pipeline is an
+ * True when `@constructor-lab/design-assets` is installed. The asset pipeline is an
  * optional stage: the package is a peer that may be absent (it is not a hard
  * dependency of this tool), in which case the asset build/tests skip. The token
  * build never touches it.

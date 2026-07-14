@@ -1,7 +1,7 @@
 # token-gap-check
 
 Detect **token gaps** for a component: Figma colour variables its node references
-that have **no matching generated `--ui-*` token** in `@spec-lab/tokens`. It's the
+that have **no matching generated `--ui-*` token** in `@constructor-lab/tokens`. It's the
 proactive version of the fix in the Alert reconcile — where the Figma
 `border/onStatus/ai` variable existed but `--ui-border-on-status-ai` was never
 emitted, so the component silently fell back to a wrong value.
@@ -79,8 +79,8 @@ the **design** references exist — the other side of the same coin.
 
 - **Targeted tier edit** (fast, when the value is known + in Figma): add the token
   to `packages/tokens/tiers/*.json` (an alias to the palette the design uses, e.g.
-  `border.onStatus.ai → {palette.violet.4}`), `pnpm --filter @spec-lab/tokens build`,
-  then reference `--ui-…` in the component. Add a `@spec-lab/tokens` changeset. The
+  `border.onStatus.ai → {palette.violet.4}`), `pnpm --filter @constructor-lab/tokens build`,
+  then reference `--ui-…` in the component. Add a `@constructor-lab/tokens` changeset. The
   next full sync backfills the `com.figma.variableId`.
 - **Full sync** (when broader drift is suspected): run
   [`/figma-to-design-tokens`](../figma-to-design-tokens/SKILL.md) — the exporter

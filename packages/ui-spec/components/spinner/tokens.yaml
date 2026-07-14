@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: Spinner
 
-# References only. Values live in @spec-lab/tokens. No `--ui-spinner-*`
+# References only. Values live in @constructor-lab/tokens. No `--ui-spinner-*`
 # tier yet; the ring color defaults to the brand action blue (bridged as
 # text-secondary, applied through border-current) and is overridable via a text
 # color class.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

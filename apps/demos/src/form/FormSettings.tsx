@@ -2,18 +2,18 @@ import * as React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Field, FieldError, FieldLabel } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { Checkbox } from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
-import { RadioGroup, Radio } from '@spec-lab/ui-react';
+import { Field, FieldError, FieldLabel } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
+import { RadioGroup, Radio } from '@constructor-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const formSchema = z.object({
   notifications: z.boolean(),

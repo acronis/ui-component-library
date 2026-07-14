@@ -1,17 +1,17 @@
-import { ButtonIcon } from '@spec-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   ArrowInDownIcon,
   BinIcon,
   FilesIcon,
   PencilIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { MoreVerticalIcon } from '../icons/missing-icons';
 export function DropdownMenuWithIcons() {
   return (

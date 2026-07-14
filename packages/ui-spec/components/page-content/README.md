@@ -20,7 +20,11 @@ nest inside `AppShellMain` (so it doesn't duplicate the `main` landmark).
 ## Example
 
 ```tsx
-import { AppShellMain, PageContent, PageHeader } from '@spec-lab/ui-react';
+import {
+  AppShellMain,
+  PageContent,
+  PageHeader,
+} from '@constructor-lab/ui-react';
 
 <AppShellMain>
   <PageContent>

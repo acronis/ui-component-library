@@ -24,7 +24,7 @@ import {
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const devices = [
   {

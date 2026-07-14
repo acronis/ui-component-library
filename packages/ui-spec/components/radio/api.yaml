@@ -48,7 +48,7 @@ adapters:
   react:
     component: RadioGroup
     status: implemented
-    import: "import { RadioGroup, Radio } from '@spec-lab/ui-react'"
+    import: "import { RadioGroup, Radio } from '@constructor-lab/ui-react'"
     example: |
       <RadioGroup value={plan} onValueChange={setPlan} aria-label="Plan">
         <label>
@@ -61,7 +61,7 @@ adapters:
   vue:
     component: AvRadioGroup
     status: planned
-    import: "import { AvRadioGroup, AvRadio } from '@spec-lab/ui-vue'"
+    import: "import { AvRadioGroup, AvRadio } from '@constructor-lab/ui-vue'"
     example: |
       <AvRadioGroup v-model="plan" aria-label="Plan">
         <AvRadio value="free">Free</AvRadio>
@@ -70,7 +70,7 @@ adapters:
   web-components:
     element: ui-radio-group
     status: planned
-    import: "import '@spec-lab/ui-wc/radio-group'"
+    import: "import '@constructor-lab/ui-wc/radio-group'"
     example: |
       <ui-radio-group aria-label="Plan">
         <ui-radio value="free">Free</ui-radio>

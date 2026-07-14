@@ -22,7 +22,7 @@ value and whose color tracks the level.
 ## Example
 
 ```tsx
-import { ProgressCircle } from '@spec-lab/ui-react';
+import { ProgressCircle } from '@constructor-lab/ui-react';
 
 <ProgressCircle value={75} size="md" showValue />
 <ProgressCircle value={25} size="sm" />           {/* arc auto-colors to danger */}

@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { Button, ButtonIcon } from '@spec-lab/ui-react';
+import { Button, ButtonIcon } from '@constructor-lab/ui-react';
 import { FileSearchIcon, BrainIcon } from '@/components/icons/missing-icons';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 

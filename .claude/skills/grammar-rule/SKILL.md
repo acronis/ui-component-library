@@ -69,8 +69,8 @@ It **proposes**; a human **ratifies severity**. Only a person may set a rule to
    `{ kind: 'new-rule', rule: '<new id>', date }` and `status: 'resolved'`; update
    the `LEDGER.md` row. `__tests__/ledger.test.ts` checks the rule exists.
 
-7. **Verify.** `pnpm --filter @spec-lab/ui-spec test` (grammar + ledger +
-   detector tests) and `pnpm --filter @spec-lab/ui-spec kit-lint`. Report
+7. **Verify.** `pnpm --filter @constructor-lab/ui-spec test` (grammar + ledger +
+   detector tests) and `pnpm --filter @constructor-lab/ui-spec kit-lint`. Report
    the new rule, its severity, the detector, and what now fires.
 
 ## Output

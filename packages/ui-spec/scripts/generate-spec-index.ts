@@ -11,7 +11,7 @@
  *   - screens/<slug>/screen.yaml      → screens[]
  *
  * Output: packages/ui-spec/spec-index.json (committed)
- * Run:    pnpm --filter @spec-lab/ui-spec generate:spec-index
+ * Run:    pnpm --filter @constructor-lab/ui-spec generate:spec-index
  *
  * The `__tests__/spec-index.test.ts` drift gate rebuilds the index in-memory via
  * the exported `buildSpecIndex()` and deep-equals it against the committed file,

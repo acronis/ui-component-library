@@ -15,10 +15,10 @@ not match the Linux renderer.
 
 ```bash
 # From the repo root (Docker must be running):
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:update
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:update
 
 # Dark mode baselines:
-STORYBOOK_COLOR_MODE=dark pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:update
+STORYBOOK_COLOR_MODE=dark pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:update
 ```
 
 Review the resulting PNGs, then commit them alongside the component change.
@@ -26,8 +26,8 @@ Review the resulting PNGs, then commit them alongside the component change.
 ## Check against baselines (what CI runs)
 
 ```bash
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker
-STORYBOOK_COLOR_MODE=dark pnpm --filter @spec-lab/ui-react storybook:test:visual:docker
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker
+STORYBOOK_COLOR_MODE=dark pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker
 ```
 
 On failure, diff images are written to `__diff_output__/` (gitignored) and, in

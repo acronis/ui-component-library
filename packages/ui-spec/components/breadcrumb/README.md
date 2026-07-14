@@ -41,7 +41,7 @@ import {
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 function PageBreadcrumb() {
   return (

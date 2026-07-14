@@ -5,7 +5,7 @@ description: The published design-data, token, and icon packages that ui-react i
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
-`@spec-lab/ui-react` does not stand alone. It sits on top of a small
+`@constructor-lab/ui-react` does not stand alone. It sits on top of a small
 ecosystem of published packages that carry the design data, generate the
 themeable CSS, and ship the icons. This section documents those building
 blocks so you can consume them directly or understand how a token or icon
@@ -16,17 +16,17 @@ flows from design into a component.
 Design data curated in Figma flows through build tooling into the consumable
 packages:
 
-- `@spec-lab/tokens` holds the DTCG source `tiers/*.json` **and** the generated,
+- `@constructor-lab/tokens` holds the DTCG source `tiers/*.json` **and** the generated,
   committed output. `tools/style-dictionary` builds the tiers into the same
   package's reference-based `css/` + `scss/` + `js/` (+ the Tailwind bridge and a
   DTCG intermediate).
-- `@spec-lab/icons-react` is generated from the `@spec-lab/icons-svg` SVG
+- `@constructor-lab/icons-react` is generated from the `@constructor-lab/icons-svg` SVG
   sources by the icon generator (tree-shakeable React components).
-- `@spec-lab/design-assets` ships icon / illustration JSON manifests + bundled
+- `@constructor-lab/design-assets` ships icon / illustration JSON manifests + bundled
   binaries (an optional data package).
 
-Finally, `@spec-lab/ui-react` consumes `@spec-lab/tokens` for theming and
-`@spec-lab/icons-react` for composed icons.
+Finally, `@constructor-lab/ui-react` consumes `@constructor-lab/tokens` for theming and
+`@constructor-lab/icons-react` for composed icons.
 
 ```
 tokens/tiers   ─►  tools/style-dictionary  ─►  tokens (css/scss/js) ─┐
@@ -36,11 +36,11 @@ icons-svg ─►  icon generator          ─►  icons-react ──────
 
 ## Published packages
 
-| Package                   | Ships                                                     | Published |
-| ------------------------- | --------------------------------------------------------- | --------- |
-| `@spec-lab/tokens`        | DTCG source tiers + generated CSS/SCSS/JS (`--ui-*` vars) | yes       |
-| `@spec-lab/icons-react`   | React icon components, per-pack subpath exports           | yes       |
-| `@spec-lab/design-assets` | Icon / illustration JSON manifests + bundled binaries     | yes       |
+| Package                          | Ships                                                     | Published |
+| -------------------------------- | --------------------------------------------------------- | --------- |
+| `@constructor-lab/tokens`        | DTCG source tiers + generated CSS/SCSS/JS (`--ui-*` vars) | yes       |
+| `@constructor-lab/icons-react`   | React icon components, per-pack subpath exports           | yes       |
+| `@constructor-lab/design-assets` | Icon / illustration JSON manifests + bundled binaries     | yes       |
 
 <Callout type="info">
   The source SVG packages (`icons-svg`, `icons-svg`), the tooling under

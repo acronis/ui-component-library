@@ -45,8 +45,8 @@ import {
   WidgetPlaceholderImage,
   WidgetPlaceholderText,
   WidgetPlaceholderAction,
-} from '@spec-lab/ui-react';
-import { ChartBarVerticalIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { ChartBarVerticalIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 <WidgetPlaceholder className="h-[220px] w-[320px]">
   <WidgetPlaceholderHeader>

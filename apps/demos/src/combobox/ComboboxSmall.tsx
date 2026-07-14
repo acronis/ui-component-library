@@ -5,7 +5,7 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 type Status = { value: string; label: string };
 

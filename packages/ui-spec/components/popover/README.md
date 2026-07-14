@@ -37,7 +37,7 @@ import {
   PopoverTrigger,
   PopoverContent,
   Button,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Popover>
   <PopoverTrigger render={<Button variant="secondary">Open</Button>} />

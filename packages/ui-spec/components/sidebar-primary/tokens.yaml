@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: SidebarPrimary
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # The token schema forbids a value/default key here — never restate values.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── root ──

@@ -1,5 +1,5 @@
 import type { Table } from '@tanstack/react-table';
-import { TimesIcon } from '@spec-lab/icons-react/stroke-mono';
+import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { Button } from '../button';
 import { InputText } from '../input-text';

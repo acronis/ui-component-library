@@ -8,14 +8,14 @@
 #   - Authenticates with a static Automation token (NPM_PUBLISH_TOKEN_2).
 #   - Publishes an explicit, fixed list of packages — safe to re-run because
 #     each package is skipped when its current version is already on npm.
-#   - Does NOT publish @spec-lab/shadcn-uikit (ui-legacy) — that
+#   - Does NOT publish @constructor-lab/shadcn-uikit (ui-legacy) — that
 #     package is handled exclusively by release.yml (OIDC path).
 #
 # Packages published by this workflow:
-#   @spec-lab/design-assets
-#   @spec-lab/tokens
-#   @spec-lab/icons-react
-#   @spec-lab/ui-react
+#   @constructor-lab/design-assets
+#   @constructor-lab/tokens
+#   @constructor-lab/icons-react
+#   @constructor-lab/ui-react
 #
 # Required secrets:
 #   NPM_PUBLISH_TOKEN_2   npm Automation token (NOT a classic Publish token —
@@ -35,7 +35,7 @@ permissions:
 
 jobs:
   release:
-    if: github.repository == 'constructor-lab/facet'
+    if: github.repository == 'constructor-lab/ui-component-library'
     runs-on: ubuntu-latest
 
     steps:
@@ -58,16 +58,16 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Validate tokens
-        run: pnpm --filter @spec-lab/tokens test
+        run: pnpm --filter @constructor-lab/tokens test
 
       - name: Build tokens
-        run: pnpm --filter @spec-lab/tokens build
+        run: pnpm --filter @constructor-lab/tokens build
 
       - name: Build icons-react
-        run: pnpm --filter @spec-lab/icons-react build
+        run: pnpm --filter @constructor-lab/icons-react build
 
       - name: Build ui-react
-        run: pnpm --filter @spec-lab/ui-react build
+        run: pnpm --filter @constructor-lab/ui-react build
 
       - name: Publish packages to npm
         run: |
@@ -85,9 +85,9 @@ jobs:
               pnpm --filter "$pkg" publish --access public --no-git-checks
             fi
           }
-          publish @spec-lab/tokens         packages/tokens
-          publish @spec-lab/icons-react    packages/icons-react
-          publish @spec-lab/ui-react       packages/ui-react
+          publish @constructor-lab/tokens         packages/tokens
+          publish @constructor-lab/icons-react    packages/icons-react
+          publish @constructor-lab/ui-react       packages/ui-react
         env:
           NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN_2 }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN_2 }}

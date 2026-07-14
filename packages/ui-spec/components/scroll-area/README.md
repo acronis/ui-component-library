@@ -27,7 +27,7 @@ scrollbars. It is hidden at rest and revealed on hover/scroll.
 ## Examples
 
 ```tsx
-import { ScrollArea } from '@spec-lab/ui-react';
+import { ScrollArea } from '@constructor-lab/ui-react';
 
 <ScrollArea className="h-72 w-64 rounded-md border border-border">
   {longList}
@@ -43,7 +43,7 @@ import { ScrollArea } from '@spec-lab/ui-react';
 
 ```tsx
 // Compose the parts directly for custom scrollbar placement
-import { ScrollArea, ScrollBar } from '@spec-lab/ui-react';
+import { ScrollArea, ScrollBar } from '@constructor-lab/ui-react';
 
 <ScrollArea orientation="horizontal">
   {row}

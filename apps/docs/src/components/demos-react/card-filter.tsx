@@ -1,10 +1,10 @@
 'use client';
 
-import { CardFilter } from '@spec-lab/ui-react';
+import { CardFilter } from '@constructor-lab/ui-react';
 import {
   ServerIcon,
   CircleWarningIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 export function CardFilterDemo() {
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { tokens } from '@spec-lab/tokens/js';
+import { tokens } from '@constructor-lab/tokens/js';
 import {
   Card,
   CardContent,
@@ -8,9 +8,9 @@ import {
   Search,
   Stack,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
-// The token gallery is DERIVED from the generated `@spec-lab/tokens/js` map
+// The token gallery is DERIVED from the generated `@constructor-lab/tokens/js` map
 // (name -> `var(--ui-*)`), so it never goes stale when tokens are added,
 // removed, or renamed. We never hand-type a token list here. Each token's live
 // value is resolved at runtime from the document so swatches and printed values
@@ -282,7 +282,7 @@ export function DesignTokensDemo() {
           <h2 className="text-3xl font-bold text-foreground">Design Tokens</h2>
           <p className="mt-2 text-muted-foreground">
             Live reference for the shipped{' '}
-            <code className="text-foreground">@spec-lab/tokens</code>{' '}
+            <code className="text-foreground">@constructor-lab/tokens</code>{' '}
             <code className="text-foreground">--ui-*</code> custom properties.
             The gallery is derived from the generated token map ({totalTokens}{' '}
             tokens) and each value is resolved from the running document, so it
@@ -358,7 +358,7 @@ export function DesignTokensDemo() {
           <p className="mb-6 text-muted-foreground">
             The shadcn-name bridge (
             <code className="text-foreground">
-              @spec-lab/tokens/css/tailwind-theme.css
+              @constructor-lab/tokens/css/tailwind-theme.css
             </code>
             ) maps a small shared vocabulary onto <code>--ui-*</code> tokens.
             These are the names that actually resolve.

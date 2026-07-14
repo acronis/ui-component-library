@@ -8,18 +8,18 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { Input } from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
-import { Textarea } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Textarea } from '@constructor-lab/ui-react';
 import { dataRowSchema } from '../../lib/validators';
 import type { DataRowFormData } from '../../lib/validators';
 

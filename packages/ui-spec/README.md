@@ -1,4 +1,4 @@
-# @spec-lab/ui-spec
+# @constructor-lab/ui-spec
 
 Framework-agnostic component specifications for the Constructor Lab UI Kit. Each spec
 describes a component's contract, anatomy, states, behavior, accessibility, and
@@ -25,11 +25,11 @@ packages/ui-spec/
 ## Use
 
 ```sh
-pnpm --filter @spec-lab/ui-spec test   # validate + conformance
+pnpm --filter @constructor-lab/ui-spec test   # validate + conformance
 ```
 
 ```ts
-import { components, loadSpec } from '@spec-lab/ui-spec';
+import { components, loadSpec } from '@constructor-lab/ui-spec';
 
 components; // [{ name: 'button', component: 'Button', status, category }, ...]
 const button = loadSpec('button'); // { index, anatomy, api, tokens }

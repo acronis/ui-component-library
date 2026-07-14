@@ -1,7 +1,7 @@
 # Assets build — design-assets → SVG + React
 
 How the `pd-assets` / `web-assets` outputs turn
-[`@spec-lab/design-assets`](../../../packages/design-assets) packs into
+[`@constructor-lab/design-assets`](../../../packages/design-assets) packs into
 optimized SVG files and React components under `dist/`. The token stages
 (`pd-dtcg`, `pd-css`) are unrelated — see [`pipeline.md`](pipeline.md).
 
@@ -137,7 +137,7 @@ jobs in `.github/workflows/ci.yml`.
   references but the package doesn't ship trips the resolver's missing-file
   invariant; the build skips that asset with a warning while `resolve.test.ts`
   asserts the strict fail-closed behavior. A genuine missing binary is fixed in
-  `@spec-lab/design-assets` (and needs a changeset).
+  `@constructor-lab/design-assets` (and needs a changeset).
 - **mono vs multi is data-driven** — a style is mono iff its effective `values`
   reference a `color`-kind rule (`usesColorRule` in `pipeline.ts`), not a hardcoded
   pack list. Authoring a mono group means adding `current-color` to its `$values`

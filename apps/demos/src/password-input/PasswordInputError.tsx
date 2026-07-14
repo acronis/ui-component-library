@@ -1,5 +1,5 @@
-import { Input } from '@spec-lab/ui-react';
-import { EyeOffIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Input } from '@constructor-lab/ui-react';
+import { EyeOffIcon } from '@constructor-lab/icons-react/stroke-mono';
 export function PasswordInputError() {
   return (
     <div className="space-y-4">

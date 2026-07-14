@@ -7,7 +7,7 @@ import {
   Radio,
   RadioGroup,
   Switch,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function FieldGroupDemo() {
   const [channels, setChannels] = useState<string[]>(['email']);

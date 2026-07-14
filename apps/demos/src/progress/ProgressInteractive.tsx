@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Progress, Button } from '@spec-lab/ui-react';
+import { Progress, Button } from '@constructor-lab/ui-react';
 
 export function ProgressInteractive() {
   const [progress, setProgress] = React.useState(75);

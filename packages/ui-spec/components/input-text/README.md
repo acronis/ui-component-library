@@ -20,7 +20,7 @@ and an optional description or error message. It composes the bare
 ## Examples
 
 ```tsx
-import { InputText } from '@spec-lab/ui-react';
+import { InputText } from '@constructor-lab/ui-react';
 
 // Basic field with helper text
 <InputText

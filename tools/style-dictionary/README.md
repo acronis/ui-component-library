@@ -1,7 +1,7 @@
-# @spec-lab/style-dictionary
+# @constructor-lab/style-dictionary
 
 A **private** build tool (not published) that translates
-[`@spec-lab/tokens`](../../packages/tokens) into per-brand
+[`@constructor-lab/tokens`](../../packages/tokens) into per-brand
 CSS custom properties, using [Style Dictionary v5](https://styledictionary.com/).
 It is the first tool in the repo's `tools/` tier.
 
@@ -10,7 +10,7 @@ It is the first tool in the repo's `tools/` tier.
 Run the build and inspect the gitignored `dist/`:
 
 ```bash
-pnpm --filter @spec-lab/style-dictionary build
+pnpm --filter @constructor-lab/style-dictionary build
 ```
 
 ```
@@ -76,7 +76,7 @@ mapping and [`context/output.md`](context/output.md) for the CSS contract:
    `light-dark()` and writing the CSS.
 
 A separate **assets** build (`pd-assets` / `web-assets`) turns
-[`@spec-lab/design-assets`](../../packages/design-assets) packs into
+[`@constructor-lab/design-assets`](../../packages/design-assets) packs into
 optimized SVG files and React components — see [`context/assets.md`](context/assets.md).
 It resolves each pack per the package's `spec.md` (the resolver), then executes
 the scale/stroke rules and a currentColor pass on the SVGs (the executor the spec

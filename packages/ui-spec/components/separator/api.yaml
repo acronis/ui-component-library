@@ -17,19 +17,19 @@ adapters:
   react:
     component: Separator
     status: implemented
-    import: "import { Separator } from '@spec-lab/ui-react'"
+    import: "import { Separator } from '@constructor-lab/ui-react'"
     example: |
       <Separator className="my-4" />
       <Separator orientation="vertical" />
   vue:
     component: AvSeparator
     status: planned
-    import: "import { AvSeparator } from '@spec-lab/ui-vue'"
+    import: "import { AvSeparator } from '@constructor-lab/ui-vue'"
     example: |
       <AvSeparator orientation="vertical" />
   web-components:
     element: ui-separator
     status: planned
-    import: "import '@spec-lab/ui-wc/separator'"
+    import: "import '@constructor-lab/ui-wc/separator'"
     example: |
       <ui-separator orientation="vertical"></ui-separator>

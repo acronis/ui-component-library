@@ -16,7 +16,7 @@ repo.
    with the local exporter plugin:
 
    ```bash
-   pnpm --filter @spec-lab/figma-token-exporter receive
+   pnpm --filter @constructor-lab/figma-token-exporter receive
    ```
 
    Then in Figma Desktop run **Constructor Lab Token Exporter** and click
@@ -29,8 +29,8 @@ repo.
    ```
 
    This executes:
-   - `pnpm --filter @spec-lab/tokens emit`
-   - `pnpm --filter @spec-lab/tokens build`
+   - `pnpm --filter @constructor-lab/tokens emit`
+   - `pnpm --filter @constructor-lab/tokens build`
 
 3. Review the diff before committing:
    - `packages/tokens/tiers/*.json`

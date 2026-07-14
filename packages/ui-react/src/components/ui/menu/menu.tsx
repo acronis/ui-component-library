@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Menu as MenuPrimitive } from '@base-ui/react/menu';
-import { CheckIcon, ChevronRightIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  CheckIcon,
+  ChevronRightIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
@@ -9,7 +12,7 @@ import { cn } from '@/lib/utils';
 // items, label, separator, shortcut) built on the Base UI Menu primitive
 // (positioning, focus management, typeahead, outside-press / Esc dismissal,
 // ARIA). It is themed from the dedicated `--ui-button-menu-dropdown-*` token
-// tier (@spec-lab/tokens): a bordered panel (container tokens) holds one or more
+// tier (@constructor-lab/tokens): a bordered panel (container tokens) holds one or more
 // sections (top divider from the section tokens on non-first sections) of items.
 // Each item wires its interaction states to its own token: idle ->
 // `*-item-container-color-idle`, `data-[highlighted]` (Base UI sets this on

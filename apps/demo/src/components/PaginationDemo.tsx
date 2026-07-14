@@ -5,7 +5,7 @@ import {
   PaginationLastPage,
   PaginationSimple,
   PaginationCompact,
-} from '@spec-lab/ui-kit-demos/pagination';
+} from '@constructor-lab/ui-kit-demos/pagination';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

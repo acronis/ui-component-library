@@ -8,7 +8,7 @@ import {
   EmptyError,
   EmptyVariousStates,
   EmptyDiscoveryAgent,
-} from '@spec-lab/ui-kit-demos/empty';
+} from '@constructor-lab/ui-kit-demos/empty';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

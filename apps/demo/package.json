@@ -1,5 +1,5 @@
 {
-  "name": "@spec-lab/ui-kit-demo",
+  "name": "@constructor-lab/ui-kit-demo",
   "version": "0.4.0",
   "private": true,
   "description": "Demo application showcasing shadcn-uikit components",
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@hookform/resolvers": "catalog:",
-    "@spec-lab/icons-react": "workspace:*",
-    "@spec-lab/tokens": "workspace:*",
-    "@spec-lab/ui-kit-demos": "workspace:*",
-    "@spec-lab/ui-react": "workspace:*",
+    "@constructor-lab/icons-react": "workspace:*",
+    "@constructor-lab/tokens": "workspace:*",
+    "@constructor-lab/ui-kit-demos": "workspace:*",
+    "@constructor-lab/ui-react": "workspace:*",
     "@tanstack/react-table": "catalog:",
     "culori": "4.0.2",
     "date-fns": "catalog:",
@@ -44,7 +44,7 @@
     "zustand": "5.0.14"
   },
   "devDependencies": {
-    "@spec-lab/ui-spec": "workspace:*",
+    "@constructor-lab/ui-spec": "workspace:*",
     "@tailwindcss/postcss": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

@@ -6,15 +6,15 @@ description: Customize the look and feel of Constructor Lab UIKit using CSS cust
 ## How themes work
 
 Constructor Lab UIKit uses generated `--ui-*` CSS custom properties from
-[`@spec-lab/tokens`](/packages/tokens). You never hand-author theme values — they
+[`@constructor-lab/tokens`](/packages/tokens). You never hand-author theme values — they
 are generated from the design system and resolved at paint time, so brand and
 light/dark switches need **no rebuild** and **no extra imports**.
 
-Everything ships in one bundle. `@spec-lab/ui-react/styles` already includes it;
+Everything ships in one bundle. `@constructor-lab/ui-react/styles` already includes it;
 to consume the tokens directly, import once:
 
 ```css
-@import '@spec-lab/tokens/css'; /* primitives + semantics + every component tier */
+@import '@constructor-lab/tokens/css'; /* primitives + semantics + every component tier */
 ```
 
 Both axes are then switched by attributes on any ancestor (typically `<html>`):

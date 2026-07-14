@@ -129,7 +129,7 @@ Phase 1 captures from code, just authored from the requirements.
 
 ### 2a. Tokens
 
-Every color must resolve to a generated `--ui-*` token from `@spec-lab/tokens`.
+Every color must resolve to a generated `--ui-*` token from `@constructor-lab/tokens`.
 **Never** hand-author hex/hsl and **never** reference the retired `--av-*`
 prefix. Pick the tier in this order:
 
@@ -142,7 +142,7 @@ prefix. Pick the tier in this order:
 
    If a `--ui-<name>-*` tier exists, prefer it — reference the tokens directly
    with arbitrary values (`bg-[var(--ui-<name>-...-idle)]`, `hover:…`) exactly
-   like Button. The whole kit ships via one `@import '@spec-lab/tokens/css'` in
+   like Button. The whole kit ships via one `@import '@constructor-lab/tokens/css'` in
    `src/styles/index.css`, so an existing tier is already available — no
    per-component import to add.
 
@@ -171,7 +171,7 @@ prefix. Pick the tier in this order:
    > genuinely shared.
 
 3. **Don't invent a component tier.** If the design genuinely needs
-   per-component tokens, those belong upstream in `@spec-lab/tokens` → rebuild
+   per-component tokens, those belong upstream in `@constructor-lab/tokens` → rebuild
    `tokens`. For a design-pending v1, **stay on semantic tokens** and flag to
    the user that a dedicated palette is pending a Figma/token pass — don't
    hand-author it here.
@@ -194,7 +194,7 @@ Pick by the interaction model from Phase 1:
 
 ### 2c. Icons
 
-Use `@spec-lab/icons-react/<pack>` (usually `stroke-mono`); confirm the icon
+Use `@constructor-lab/icons-react/<pack>` (usually `stroke-mono`); confirm the icon
 exists before importing
 (`ls packages/icons-react/src/packs/stroke-mono/icons | grep -i <name>`). Names
 are `PascalCase(asset) + Icon`; pass `size={16}` for 16px icons.
@@ -249,10 +249,10 @@ Hard rules enforced by `packages/ui-spec` `__tests__/specs.test.ts`:
 - For `cva` components, `api.yaml` `variant`/`size` enums must equal the actual
   `cva` keys in the ui-react source (conformance test).
 
-Validate continuously: `pnpm --filter @spec-lab/ui-spec test`.
+Validate continuously: `pnpm --filter @constructor-lab/ui-spec test`.
 
 **Generate the states story** (don't hand-write `.generated`):
-`pnpm --filter @spec-lab/ui-spec generate:stories`. A **composable / multi-part
+`pnpm --filter @constructor-lab/ui-spec generate:stories`. A **composable / multi-part
 component renders empty** unless you give it a `RENDER` hint in
 `packages/ui-spec/scripts/generate-stories.ts` (an `extraImports` line + a
 `sample` composing the parts) — a deliberate edit to the spec tooling, done
@@ -280,8 +280,8 @@ other ui-react page. Three pieces: a live demo, an MDX page, a nav entry.
 **1. Live demo** — `apps/docs/src/components/demos-react/<name>.tsx`:
 
 - `'use client'` at the top.
-- Import the component(s) from `@spec-lab/ui-react` (icons from
-  `@spec-lab/icons-react/<pack>`); `export function <Name>Demo()` rendering a
+- Import the component(s) from `@constructor-lab/ui-react` (icons from
+  `@constructor-lab/icons-react/<pack>`); `export function <Name>Demo()` rendering a
   representative composition — mirror the hand-written story.
 - **Network-free**: no remote images; data-URI/local only.
 - If the component has **portaled overlays**, read `useShadowMount()` and pass it
@@ -303,7 +303,7 @@ import { <Name>Demo } from "@/components/demos-react/<name>";
 ## Usage
 
 \`\`\`tsx
-import { <Name> } from '@spec-lab/ui-react';
+import { <Name> } from '@constructor-lab/ui-react';
 \`\`\`
 
 <prose: what it is, the parts, polymorphism via `render`, which tokens theme it —
@@ -340,8 +340,8 @@ divider (`Buttons & Actions`, `Inputs & Forms`, `Data Display`,
 **Verify the docs build** (build-verified, no test suite):
 
 ```bash
-pnpm --filter @spec-lab/uikit-docs typecheck   # demo .tsx compiles
-pnpm --filter @spec-lab/uikit-docs build       # MDX + AutoTypeTable resolve, page renders
+pnpm --filter @constructor-lab/uikit-docs typecheck   # demo .tsx compiles
+pnpm --filter @constructor-lab/uikit-docs build       # MDX + AutoTypeTable resolve, page renders
 ```
 
 > Live demos mount in a shadow root that adopts ui-react's **compiled**
@@ -357,11 +357,11 @@ pnpm --filter @spec-lab/uikit-docs build       # MDX + AutoTypeTable resolve, pa
 ## Phase 6 — Verify & changeset
 
 ```bash
-pnpm --filter @spec-lab/ui-react test
-pnpm --filter @spec-lab/ui-react typecheck
-pnpm --filter @spec-lab/ui-react lint
-pnpm --filter @spec-lab/ui-react build      # confirms exports bundle
-pnpm --filter @spec-lab/ui-spec test
+pnpm --filter @constructor-lab/ui-react test
+pnpm --filter @constructor-lab/ui-react typecheck
+pnpm --filter @constructor-lab/ui-react lint
+pnpm --filter @constructor-lab/ui-react build      # confirms exports bundle
+pnpm --filter @constructor-lab/ui-spec test
 pnpm -r typecheck                           # what the pre-commit hook runs
 ```
 
@@ -371,7 +371,7 @@ new component. `ui-spec` is private (0.0.0); no changeset:
 ```
 .changeset/<name>-component.md
 ---
-'@spec-lab/ui-react': minor
+'@constructor-lab/ui-react': minor
 ---
 Add `<Name>` — <one-line summary>. Initial version; design reconciliation pending.
 ```
@@ -381,8 +381,8 @@ story has two baselines (`<id>.png` and `<id>--dark.png`). Regenerate both in
 Docker and review the PNGs before committing:
 
 ```bash
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:update:all
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:all
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:update:all
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:all
 ```
 
 Never commit baselines rendered on macOS/Windows — they won't match CI's Linux
@@ -406,7 +406,7 @@ renderer. When you remove/rename a story, delete both its baselines.
       `figma:` block, `ui-spec test` green.
 - [ ] `apps/docs`: `src/components/demos-react/<name>.tsx` (live demo) +
       `content/docs/components/<name>.mdx` + `meta.json` nav entry; `uikit-docs build` passes.
-- [ ] Changeset for `@spec-lab/ui-react`.
+- [ ] Changeset for `@constructor-lab/ui-react`.
 - [ ] test / typecheck / lint / build all pass; `pnpm -r typecheck` clean.
 - [ ] User told this is a design-pending v1 — reconcile with `/figma-component
 <Name> <url> --update` once a mockup exists (that adds the Code Connect + `figma:` block).

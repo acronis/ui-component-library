@@ -23,7 +23,7 @@ adapters:
     import: >-
       import { DescriptionList, DescriptionListItem, DescriptionListLabel,
       DescriptionListValue, DescriptionListValueDescription, DescriptionListActions }
-      from '@spec-lab/ui-react'
+      from '@constructor-lab/ui-react'
     example: |
       <DescriptionList>
         <DescriptionListItem>
@@ -42,12 +42,12 @@ adapters:
   vue:
     component: AvDescriptionList
     status: planned
-    import: "import { AvDescriptionList } from '@spec-lab/ui-vue'"
+    import: "import { AvDescriptionList } from '@constructor-lab/ui-vue'"
     example: |
       <AvDescriptionList :items="items" />
   web-components:
     element: ui-description-list
     status: planned
-    import: "import '@spec-lab/ui-wc/description-list'"
+    import: "import '@constructor-lab/ui-wc/description-list'"
     example: |
       <ui-description-list></ui-description-list>

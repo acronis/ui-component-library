@@ -11,7 +11,7 @@ import {
   SpinnerColors,
   SpinnerGrid,
   SpinnerSkeleton,
-} from '@spec-lab/ui-kit-demos/spinner';
+} from '@constructor-lab/ui-kit-demos/spinner';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

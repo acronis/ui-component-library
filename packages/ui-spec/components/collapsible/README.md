@@ -28,7 +28,7 @@ import {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Collapsible>
   <CollapsibleTrigger>Show advanced settings</CollapsibleTrigger>

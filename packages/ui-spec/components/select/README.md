@@ -38,7 +38,7 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // Pass `items` so the trigger can show the selected option's label while closed.
 <Select items={{ apple: 'Apple', banana: 'Banana' }} defaultValue="apple">

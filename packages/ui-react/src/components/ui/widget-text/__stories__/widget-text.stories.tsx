@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   ChartBarVerticalIcon,
   EllipsisIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   WidgetText,

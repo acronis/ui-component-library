@@ -39,7 +39,7 @@ adapters:
   react:
     component: NumberField
     status: implemented
-    import: "import { NumberField, NumberFieldGroup, NumberFieldDecrement, NumberFieldInput, NumberFieldIncrement } from '@spec-lab/ui-react'"
+    import: "import { NumberField, NumberFieldGroup, NumberFieldDecrement, NumberFieldInput, NumberFieldIncrement } from '@constructor-lab/ui-react'"
     example: |
       <NumberField defaultValue={1} min={0} max={99}>
         <NumberFieldGroup>
@@ -51,12 +51,12 @@ adapters:
   vue:
     component: AvNumberField
     status: planned
-    import: "import { AvNumberField } from '@spec-lab/ui-vue'"
+    import: "import { AvNumberField } from '@constructor-lab/ui-vue'"
     example: |
       <AvNumberField :default-value="1" />
   web-components:
     element: ui-number-field
     status: planned
-    import: "import '@spec-lab/ui-wc/number-field'"
+    import: "import '@constructor-lab/ui-wc/number-field'"
     example: |
       <ui-number-field></ui-number-field>

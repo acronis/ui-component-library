@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const countries = [
   { code: 'af', name: 'Afghanistan' },

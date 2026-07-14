@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Input } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   SecondaryMenu,
   SecondaryMenuContent,
@@ -16,7 +16,7 @@ import {
   MagnifierIcon,
   PhoneIcon,
   UserIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { CreditCardIcon } from '@/components/icons/missing-icons';
 type DemoSection =
   | 'basic'

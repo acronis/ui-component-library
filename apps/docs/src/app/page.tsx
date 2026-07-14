@@ -56,7 +56,7 @@ const features = [
   {
     title: 'Constructor Lab Icon Set',
     description:
-      'A tree-shakeable icon set from @spec-lab/icons-react, covering enterprise and product interfaces.',
+      'A tree-shakeable icon set from @constructor-lab/icons-react, covering enterprise and product interfaces.',
     icon: (
       <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden>
         <circle
@@ -546,7 +546,7 @@ export default function HomePage() {
             >
               <code>
                 <span style={{ color: muted, userSelect: 'none' }}>$ </span>
-                {'npm install @spec-lab/ui-react react react-dom'}
+                {'npm install @constructor-lab/ui-react react react-dom'}
               </code>
             </pre>
           </div>
@@ -580,11 +580,11 @@ export default function HomePage() {
             >
               <code>
                 <span style={{ color: muted }}>{'import '}</span>
-                <span>{"'@spec-lab/ui-react/styles';\n"}</span>
+                <span>{"'@constructor-lab/ui-react/styles';\n"}</span>
                 <span style={{ color: muted }}>{'import '}</span>
                 <span>{'{ Button } '}</span>
                 <span style={{ color: muted }}>{'from '}</span>
-                <span>{"'@spec-lab/ui-react';\n\n"}</span>
+                <span>{"'@constructor-lab/ui-react';\n\n"}</span>
                 <span style={{ color: muted }}>
                   {'export default function '}
                 </span>

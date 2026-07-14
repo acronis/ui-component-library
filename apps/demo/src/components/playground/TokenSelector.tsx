@@ -1,7 +1,7 @@
-import { CheckIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CheckIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { PaletteIcon } from '@/components/icons/missing-icons';
 import { usePlaygroundStore } from '@/store/playground/playgroundStore';
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 interface TokenSelectorProps {
   className?: string;

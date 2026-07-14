@@ -4,6 +4,6 @@ component: CheckboxGroup
 # CheckboxGroup has no tokens of its own — it is a layout-only wrapper (a flex
 # column, no color). Each member is a `Checkbox`, themed by the dedicated
 # `--ui-checkbox-*` tier; see the checkbox spec's tokens.yaml.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens: []

@@ -49,7 +49,7 @@ adapters:
   react:
     component: ButtonMenu
     status: implemented
-    import: "import { ButtonMenu } from '@spec-lab/ui-react'"
+    import: "import { ButtonMenu } from '@constructor-lab/ui-react'"
     example: |
       <ButtonMenu variant="primary" open={open} onClick={toggle}>
         Actions
@@ -60,12 +60,12 @@ adapters:
   vue:
     element: AvButtonMenu
     status: planned
-    import: "import { AvButtonMenu } from '@spec-lab/ui-vue'"
+    import: "import { AvButtonMenu } from '@constructor-lab/ui-vue'"
     example: |
       <AvButtonMenu :open="open" @click="toggle">Actions</AvButtonMenu>
   web-components:
     element: ui-button-menu
     status: planned
-    import: "import '@spec-lab/ui-wc/button-menu'"
+    import: "import '@constructor-lab/ui-wc/button-menu'"
     example: |
       <ui-button-menu open>Actions</ui-button-menu>

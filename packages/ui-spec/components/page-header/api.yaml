@@ -11,7 +11,7 @@ adapters:
   react:
     component: PageHeader
     status: implemented
-    import: "import { PageHeader, PageHeaderBreadcrumb, PageHeaderRow, PageHeaderTitle, PageHeaderDescription, PageHeaderActions } from '@spec-lab/ui-react'"
+    import: "import { PageHeader, PageHeaderBreadcrumb, PageHeaderRow, PageHeaderTitle, PageHeaderDescription, PageHeaderActions } from '@constructor-lab/ui-react'"
     example: |
       <PageHeader>
         <PageHeaderRow>
@@ -22,12 +22,12 @@ adapters:
   vue:
     component: AvPageHeader
     status: planned
-    import: "import { AvPageHeader } from '@spec-lab/ui-vue'"
+    import: "import { AvPageHeader } from '@constructor-lab/ui-vue'"
     example: |
       <AvPageHeader title="Reports" />
   web-components:
     element: ui-page-header
     status: planned
-    import: "import '@spec-lab/ui-wc/page-header'"
+    import: "import '@constructor-lab/ui-wc/page-header'"
     example: |
       <ui-page-header></ui-page-header>

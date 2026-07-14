@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useCallback, useMemo, useRef } from 'react';
-import { icons as strokeMono } from '@spec-lab/icons-react/stroke-mono';
-import { icons as solidMono } from '@spec-lab/icons-react/solid-mono';
-import { icons as strokeMulti } from '@spec-lab/icons-react/stroke-multi';
-import { icons as solidMulti } from '@spec-lab/icons-react/solid-multi';
+import { icons as strokeMono } from '@constructor-lab/icons-react/stroke-mono';
+import { icons as solidMono } from '@constructor-lab/icons-react/solid-mono';
+import { icons as strokeMulti } from '@constructor-lab/icons-react/stroke-multi';
+import { icons as solidMulti } from '@constructor-lab/icons-react/solid-multi';
 
 type IconComponent = React.ComponentType<{ size?: number; className?: string }>;
 
@@ -77,7 +77,7 @@ export function IconCatalog() {
   }, [search, activePack]);
 
   const handleCopy = useCallback((entry: IconEntry) => {
-    const snippet = `import { ${entry.name} } from '@spec-lab/icons-react/${entry.pack}'`;
+    const snippet = `import { ${entry.name} } from '@constructor-lab/icons-react/${entry.pack}'`;
     const key = `${entry.pack}/${entry.slug}`;
     navigator.clipboard.writeText(snippet).then(() => {
       setCopiedKey(key);

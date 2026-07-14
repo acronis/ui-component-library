@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Checkbox
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # Checkbox uses its dedicated `--ui-checkbox-*` tier: three box state-groups
 # (unchecked / checked / indeterminate), each with per-interaction fill, border,
 # and glyph colors, plus global geometry and the label/description text.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Global geometry / layout ──

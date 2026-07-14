@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Link
 
-# References only — values live in @spec-lab/tokens. Shared bits come from
+# References only — values live in @constructor-lab/tokens. Shared bits come from
 # `--ui-link-global-*` (container gap/height, per-state text decoration). The
 # `variant` picks the color set: `normal` (`--ui-link-normal-*`) on a light
 # surface, `inverse` (`--ui-link-inverse-*`) on a dark one — each wires per-state
 # text color + external-icon color. The focus ring uses `--ui-focus-primary`.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Global (layout + text decoration, shared by both variants) ──

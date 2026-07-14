@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Button, ButtonGroup, ButtonIcon } from '@spec-lab/ui-react';
-import { ListIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Button, ButtonGroup, ButtonIcon } from '@constructor-lab/ui-react';
+import { ListIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
   AlignCenterIcon,
   AlignLeftIcon,

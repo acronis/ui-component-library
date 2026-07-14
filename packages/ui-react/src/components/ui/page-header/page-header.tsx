@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 // The page header region from the Figma (shadcn-uikit node 2850-701): an optional
 // breadcrumb, a title row (title left, actions right), and an optional description.
-// Ported from `@spec-lab`'s `page-header` and reconciled with the Figma —
+// Ported from `@constructor-lab`'s `page-header` and reconciled with the Figma —
 // the title is a moderate page title (not the legacy 2xl). Markup-only; the only
 // color is the muted breadcrumb/description (text-muted-foreground →
 // --ui-text-on-surface-secondary).

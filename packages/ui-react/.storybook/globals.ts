@@ -1,7 +1,7 @@
 /**
  * Storybook global state for the ui-react preview: brand, light/dark, text
  * direction, and locale. The apply* helpers implement the canonical switching
- * model for the `@spec-lab/tokens` delivery model:
+ * model for the `@constructor-lab/tokens` delivery model:
  *
  * - Light/dark is NOT a `.dark` class. The tokens use `light-dark()` resolved by
  *   `color-scheme`; ui-react's `dark:` variant keys off `[data-theme]`. So we set

@@ -5,7 +5,7 @@ import { Slider as SliderPrimitive } from '@base-ui/react/slider';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab`'s `slider`, on Base UI's Slider (Root / Control /
+// Ported from `@constructor-lab`'s `slider`, on Base UI's Slider (Root / Control /
 // Track / Indicator / Thumb). Supports a single value or a range (array value) —
 // the thumb count follows the value/defaultValue length. No `--ui-slider-*` tier,
 // so it uses semantic tokens: the rail is the divider gray

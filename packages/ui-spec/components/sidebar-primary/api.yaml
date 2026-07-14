@@ -89,7 +89,7 @@ adapters:
       import { SidebarPrimary, SidebarPrimaryHeader, SidebarPrimaryContent,
       SidebarPrimaryFooter, SidebarPrimarySection, SidebarPrimaryMenu,
       SidebarPrimaryMenuItem, SidebarPrimaryMenuItemExtras } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <SidebarPrimary expanded={expanded} onExpandedChange={setExpanded}>
         <SidebarPrimaryHeader>
@@ -120,7 +120,7 @@ adapters:
   vue:
     component: AvSidebarPrimary
     status: planned
-    import: "import { AvSidebarPrimary, AvSidebarPrimaryMenuItem } from '@spec-lab/ui-vue'"
+    import: "import { AvSidebarPrimary, AvSidebarPrimaryMenuItem } from '@constructor-lab/ui-vue'"
     example: |
       <AvSidebarPrimary :expanded="expanded">
         <AvSidebarPrimaryMenuItem to="/assets" selected>Assets</AvSidebarPrimaryMenuItem>
@@ -130,7 +130,7 @@ adapters:
   web-components:
     element: ui-sidebar-primary
     status: planned
-    import: "import '@spec-lab/ui-wc/sidebar-primary'"
+    import: "import '@constructor-lab/ui-wc/sidebar-primary'"
     example: |
       <ui-sidebar-primary expanded>
         <ui-sidebar-primary-menu-item href="/assets" selected>Assets</ui-sidebar-primary-menu-item>

@@ -1,12 +1,12 @@
 {
-  "name": "@spec-lab/tokens",
+  "name": "@constructor-lab/tokens",
   "version": "2.1.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/constructor-lab/facet.git",
+    "url": "git+https://github.com/constructor-lab/ui-component-library.git",
     "directory": "packages/tokens"
   },
-  "description": "Constructor Lab design tokens: the DTCG source tiers plus the generated CSS (reference-based, brand + light/dark via selectors), SCSS mixins, JS token map, and Tailwind bridge — built by @spec-lab/style-dictionary.",
+  "description": "Constructor Lab design tokens: the DTCG source tiers plus the generated CSS (reference-based, brand + light/dark via selectors), SCSS mixins, JS token map, and Tailwind bridge — built by @constructor-lab/style-dictionary.",
   "license": "MIT",
   "type": "module",
   "publishConfig": {
@@ -39,7 +39,7 @@
     "./dtcg/*": "./dtcg/*"
   },
   "scripts": {
-    "build": "pnpm --filter @spec-lab/style-dictionary build pd-css",
+    "build": "pnpm --filter @constructor-lab/style-dictionary build pd-css",
     "clean": "echo \"no clean (generated artifacts are committed; run build to regenerate)\" && exit 0",
     "dev": "echo \"no dev (generated artifacts; run build)\" && exit 0",
     "emit": "node ../../tools/token-emit/emit.mjs && pnpm run validate",
@@ -59,7 +59,7 @@
     "acronis"
   ],
   "devDependencies": {
-    "@spec-lab/style-dictionary": "workspace:*",
+    "@constructor-lab/style-dictionary": "workspace:*",
     "ajv": "catalog:",
     "ajv-cli": "catalog:",
     "ajv-formats": "catalog:"

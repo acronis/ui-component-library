@@ -8,12 +8,12 @@ import {
   WidgetFooter,
   WidgetValue,
   WidgetLabel,
-} from '@spec-lab/ui-react';
-import { ButtonIcon } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
 import {
   CircleWarningIcon,
   ShieldCheckIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import {
   ActivityIcon,
   BarChart3Icon,

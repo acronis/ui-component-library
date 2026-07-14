@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Label, RadioGroup, Radio } from '@spec-lab/ui-react';
+import { Label, RadioGroup, Radio } from '@constructor-lab/ui-react';
 
 export function RadioGroupPriority() {
   const [value, setValue] = React.useState('medium');

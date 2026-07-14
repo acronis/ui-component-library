@@ -7,7 +7,7 @@ description: >
   opens the assembled-screen Storybook story (the descriptor's `story` id) in
   light AND dark, captures a serializable snapshot with the screens/audit probe
   (geometry, computed style, a11y, scrollbar gutters), then runs the pure
-  detectors via `pnpm --filter @spec-lab/ui-spec screen-audit` — keyed to
+  detectors via `pnpm --filter @constructor-lab/ui-spec screen-audit` — keyed to
   the grammar's screen/* rules (control-height parity, accessible name, contrast,
   edge alignment, reserved-gutter clipping, icon-size parity, vertical rhythm),
   with `must` failing. Detectors first; an optional AI visual review covers the
@@ -41,7 +41,7 @@ drafted for a human to ratify.
     `ScreenSnapshot` (no DOM handles).
   - `detectors.ts` — pure detectors, one per `screen/*` grammar rule.
   - `index.ts` — `runScreenAudit(snapshot, descriptor)` + `formatScreenReport`.
-- **The CLI** — `pnpm --filter @spec-lab/ui-spec screen-audit <slug> <snapshot.json>`
+- **The CLI** — `pnpm --filter @constructor-lab/ui-spec screen-audit <slug> <snapshot.json>`
   (the Node half: detect + report + exit non-zero on `must`).
 
 The split is deliberate: **measurement** happens in the browser, **detection** is
@@ -80,7 +80,7 @@ remain deferred because a single static snapshot can't judge them
    story first).
 
 2. **Serve Storybook.** Use a running instance if one is up, else start it with
-   `pnpm --filter @spec-lab/ui-react storybook` (dev, port 6007), or build
+   `pnpm --filter @constructor-lab/ui-react storybook` (dev, port 6007), or build
    then serve `storybook:build`. The story renders in isolation at
    `http://localhost:6007/iframe.html?id=<story>&viewMode=story`.
 
@@ -99,7 +99,7 @@ remain deferred because a single static snapshot can't judge them
      `packages/ui-react/test/screen-audit/<slug>.<mode>.snapshot.json` (gitignored).
 
 4. **Run the detectors.** For each snapshot:
-   `pnpm --filter @spec-lab/ui-spec screen-audit <slug> <snapshot.json>`.
+   `pnpm --filter @constructor-lab/ui-spec screen-audit <slug> <snapshot.json>`.
    Collect the report; the command exits non-zero if any `must` finding is present.
 
 5. **(Optional) AI visual review — second pass.** Screenshot the story and, with

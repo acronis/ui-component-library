@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function TableDemo() {
   return (

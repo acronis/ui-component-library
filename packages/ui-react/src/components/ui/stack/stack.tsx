@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-// Ported 1:1 from `@spec-lab`'s `stack`. A flexbox layout primitive — no
+// Ported 1:1 from `@constructor-lab`'s `stack`. A flexbox layout primitive — no
 // color, just direction / gap / alignment utilities.
 const stackVariants = cva('flex', {
   variants: {

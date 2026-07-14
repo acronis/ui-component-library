@@ -21,7 +21,7 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   RadialBarChart,
   RadialBar,

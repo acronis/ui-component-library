@@ -1,5 +1,5 @@
 // Shared types for the asset domain: the on-disk shapes read from
-// `@spec-lab/design-assets` (pack manifests + rule declarations) and the
+// `@constructor-lab/design-assets` (pack manifests + rule declarations) and the
 // resolved shapes this tool's resolver produces for the executor / codegen.
 //
 // The manifest shapes mirror `packages/design-assets/schemas/{pack,rule}.schema.json`

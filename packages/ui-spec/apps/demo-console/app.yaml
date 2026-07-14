@@ -10,7 +10,7 @@ description: >-
   + a centered global search header), routes real product screens (Overview,
   Data, Chat, Settings), and folds the component/pattern/screen catalog and the
   design-token/icon foundations into one navigable surface. The catalog is driven
-  by @spec-lab/ui-spec's spec-index so it cannot drift from what exists.
+  by @constructor-lab/ui-spec's spec-index so it cannot drift from what exists.
 shell: app-shell
 primaryNav:
   - { id: dashboard, label: Dashboard, route: /dashboard, icon: MonitorIcon }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // token-gap-check — given the `get_variable_defs` output for a Figma node,
 // map each COLOR variable the node references to its expected `--ui-*` token and
-// report which are missing from @spec-lab/tokens (the generated css/).
+// report which are missing from @constructor-lab/tokens (the generated css/).
 //
 // Usage:
 //   node check.mjs <figma-vars.json> [--json]

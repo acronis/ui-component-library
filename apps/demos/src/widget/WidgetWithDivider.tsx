@@ -7,7 +7,7 @@ import {
   WidgetDivider,
   WidgetValue,
   WidgetLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { ActivityIcon } from '../icons/missing-icons';
 export function WidgetWithDivider() {
   return (

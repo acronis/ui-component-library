@@ -20,7 +20,7 @@ import {
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CalendarIcon,
   CircleHelpIcon,
@@ -32,7 +32,7 @@ import {
   ShieldCheckIcon,
   UserIcon,
   UsersIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { BarChartIcon } from '../icons/missing-icons';
 
 // The Constructor Lab nav is genuinely two-tier: an icon rail (SidebarPrimary)

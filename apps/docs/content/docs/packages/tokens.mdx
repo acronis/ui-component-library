@@ -5,11 +5,11 @@ description: The Constructor Lab design tokens — DTCG source plus generated, r
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
-`@spec-lab/tokens` is the single tokens package. It holds both the **DTCG source
+`@constructor-lab/tokens` is the single tokens package. It holds both the **DTCG source
 tiers** (`tiers/*.json`) and the **generated, committed output** (`css/`, `scss/`,
 `js/`, `dtcg/`) built from them by the `tools/style-dictionary` pipeline — so
 consumers (and npm) get the output with no build step. (It supersedes the former
-`@spec-lab/design-tokens` + `@spec-lab/tokens-pd` split.)
+`@constructor-lab/design-tokens` + `@constructor-lab/tokens-pd` split.)
 
 The CSS is **reference-based**: a value is stated once, at the layer that owns it,
 and everything downstream is a `var(--…)` reference — so brand and light/dark
@@ -18,11 +18,11 @@ resolve at paint with no rebuild and no value duplication.
 ## One import
 
 ```css
-@import '@spec-lab/tokens/css';
+@import '@constructor-lab/tokens/css';
 ```
 
 `css/index.css` pulls in the whole kit: `primitives.css` + `semantics.css` +
-every `components/<Component>.css`. `@spec-lab/ui-react` already imports this when
+every `components/<Component>.css`. `@constructor-lab/ui-react` already imports this when
 you load its styles entry, so most apps never import it directly.
 
 ## The three layers
@@ -56,19 +56,19 @@ on any ancestor — no per-brand imports, no class toggles:
 `css/tailwind-theme.css` is the generated Tailwind v4 `@theme inline` bridge — it
 maps shadcn-compatible color names (`bg-primary`, `text-muted-foreground`,
 `border-border`, …) onto the `--ui-*` semantic tokens as `var()` references, so
-brand/theme still resolve at paint. `@spec-lab/ui-react` imports it; a Tailwind app
+brand/theme still resolve at paint. `@constructor-lab/ui-react` imports it; a Tailwind app
 can too:
 
 ```css
-@import '@spec-lab/tokens/css';
-@import '@spec-lab/tokens/css/tailwind-theme.css';
+@import '@constructor-lab/tokens/css';
+@import '@constructor-lab/tokens/css/tailwind-theme.css';
 ```
 
 ## SCSS and JS
 
-- **SCSS** — `@spec-lab/tokens/scss/mixins` exposes `@include tokens.ui-theme;`
+- **SCSS** — `@constructor-lab/tokens/scss/mixins` exposes `@include tokens.ui-theme;`
   (the full layer as a Sass mixin).
-- **JS** — `@spec-lab/tokens/js` exports a `tokens` map of each `--ui-*` name to
+- **JS** — `@constructor-lab/tokens/js` exports a `tokens` map of each `--ui-*` name to
   its `var(--…)` reference, for CSS-in-JS / inline styles.
 
 ## The `--ui-*` naming convention

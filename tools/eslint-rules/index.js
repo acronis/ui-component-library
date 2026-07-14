@@ -1,7 +1,7 @@
 /**
  * Local ESLint plugin for Constructor Lab UI-Kit usage-pattern enforcement.
  *
- * The seed of an eventual `@spec-lab/eslint-plugin-patterns`: each rule
+ * The seed of an eventual `@constructor-lab/eslint-plugin-patterns`: each rule
  * encodes one approved-pattern anti-pattern (from `packages/ui-spec/patterns/`),
  * so AI and humans get steered to the sanctioned composition instead of
  * re-inventing it. Wired into the root `eslint.config.js`.

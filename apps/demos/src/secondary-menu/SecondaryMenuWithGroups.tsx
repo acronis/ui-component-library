@@ -6,7 +6,7 @@ import {
   SidebarSecondaryMenuItem,
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   ArrowInDownIcon,
   ArrowOutUpIcon,
@@ -15,7 +15,7 @@ import {
   PencilIcon,
   RectangleImageIcon,
   VideoCameraIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { MusicIcon } from '../icons/missing-icons';
 
 export function SecondaryMenuWithGroups() {

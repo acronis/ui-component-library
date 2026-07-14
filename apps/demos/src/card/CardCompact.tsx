@@ -1,4 +1,4 @@
-import { Card } from '@spec-lab/ui-react';
+import { Card } from '@constructor-lab/ui-react';
 
 export function CardCompact() {
   return (

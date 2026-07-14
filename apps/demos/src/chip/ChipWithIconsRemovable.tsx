@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Chip } from '@spec-lab/ui-react';
-import { CircleCheckIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Chip } from '@constructor-lab/ui-react';
+import { CircleCheckIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { TagIcon, ZapIcon } from '../icons/missing-icons';
 export function ChipWithIconsRemovable() {
   const [selectedChips, setSelectedChips] = useState([

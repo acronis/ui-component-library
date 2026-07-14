@@ -14,8 +14,8 @@ import {
   PageHeaderTitle,
   Stack,
   Tag,
-} from '@spec-lab/ui-react';
-import { ArrowLeftIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { ArrowLeftIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { layerLabel, specIndex, statusVariant } from './spec-index';
 import { componentDemos } from './component-demos';
 

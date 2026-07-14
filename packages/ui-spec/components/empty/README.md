@@ -43,8 +43,8 @@ import {
   EmptyDescription,
   EmptyActions,
   Button,
-} from '@spec-lab/ui-react';
-import { InboxIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { InboxIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 <Empty>
   <EmptyIcon>

@@ -1,6 +1,6 @@
-import { ButtonIcon } from '@spec-lab/ui-react';
-import { CogIcon } from '@spec-lab/icons-react/stroke-mono';
-import { Switch } from '@spec-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
+import { CogIcon } from '@constructor-lab/icons-react/stroke-mono';
+import { Switch } from '@constructor-lab/ui-react';
 
 interface ChatHeaderProps {
   hasMessages: boolean;

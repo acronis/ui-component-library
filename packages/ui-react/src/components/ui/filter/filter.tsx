@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BarsFilterIcon } from '@spec-lab/icons-react/stroke-mono';
+import { BarsFilterIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';

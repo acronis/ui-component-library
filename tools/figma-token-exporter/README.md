@@ -1,4 +1,4 @@
-# @spec-lab/figma-token-exporter
+# @constructor-lab/figma-token-exporter
 
 A self-hosted **Figma plugin + local receiver** that exports the design
 system's variables and styles into `packages/tokens/.tmp/figma-tokens/`
@@ -21,7 +21,7 @@ Figma — this one is ours, with no external MCP server.
 1. **Start the receiver** from the repo:
 
    ```bash
-   pnpm --filter @spec-lab/figma-token-exporter receive
+   pnpm --filter @constructor-lab/figma-token-exporter receive
    ```
 
    It listens on `http://localhost:3333` and writes into
@@ -50,7 +50,7 @@ The receiver port (`3333`) is also declared in `manifest.json` under
 **and** update the manifest (then re-import the plugin):
 
 ```bash
-pnpm --filter @spec-lab/figma-token-exporter receive -- --port 4444
+pnpm --filter @constructor-lab/figma-token-exporter receive -- --port 4444
 ```
 
 ## How it works

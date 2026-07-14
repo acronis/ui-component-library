@@ -14,7 +14,7 @@ import { useVirtualizer } from '@tanstack/react-virtual';
 import {
   ChevronDownIcon,
   ChevronRightIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   Table,

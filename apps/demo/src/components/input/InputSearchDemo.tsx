@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { Input } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   ArrowRightIcon,
   ArrowRotationIcon,
   ChevronDownIcon,
   MagnifierIcon,
   TimesIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function InputSearchDemo() {
   const [search, setSearch] = useState('');
   const [searchWithFolder, setSearchWithFolder] = useState('');

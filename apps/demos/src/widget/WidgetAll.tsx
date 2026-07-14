@@ -84,7 +84,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   BarChart,
   Bar,
@@ -108,7 +108,7 @@ import {
   EllipsisIcon,
   FileTextIcon,
   ShieldCheckIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { DatabaseIcon } from '../icons/missing-icons';
 // ── Sample Data ──
 

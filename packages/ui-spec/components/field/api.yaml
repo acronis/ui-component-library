@@ -55,7 +55,7 @@ adapters:
   react:
     component: Field
     status: implemented
-    import: "import { Field, FieldLabel, FieldControl, FieldDescription, FieldError } from '@spec-lab/ui-react'"
+    import: "import { Field, FieldLabel, FieldControl, FieldDescription, FieldError } from '@constructor-lab/ui-react'"
     example: |
       <Field>
         <FieldLabel>Email</FieldLabel>
@@ -65,12 +65,12 @@ adapters:
   vue:
     component: AvField
     status: planned
-    import: "import { AvField } from '@spec-lab/ui-vue'"
+    import: "import { AvField } from '@constructor-lab/ui-vue'"
     example: |
       <AvField label="Email" />
   web-components:
     element: ui-field
     status: planned
-    import: "import '@spec-lab/ui-wc/field'"
+    import: "import '@constructor-lab/ui-wc/field'"
     example: |
       <ui-field></ui-field>

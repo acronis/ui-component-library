@@ -7,8 +7,8 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/ui-react';
-import { Button, Input } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Button, Input } from '@constructor-lab/ui-react';
 
 export function DialogForm() {
   return (

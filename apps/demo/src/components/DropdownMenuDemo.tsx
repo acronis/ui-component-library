@@ -12,7 +12,7 @@ import {
   DropdownMenuDisabled,
   DropdownMenuAlignments,
   DropdownMenuComplex,
-} from '@spec-lab/ui-kit-demos/dropdown-menu';
+} from '@constructor-lab/ui-kit-demos/dropdown-menu';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -1,6 +1,6 @@
 # AGENTS.md — `apps/demo`
 
-`@spec-lab/ui-kit-demo` — the Vite-based demo SPA used to
+`@constructor-lab/ui-kit-demo` — the Vite-based demo SPA used to
 exercise components in realistic flows. **Private**, not published.
 
 Cross-cutting topics live in `../../context/*.md`. This file documents
@@ -19,15 +19,15 @@ only what is specific to this workspace.
 ## Running
 
 ```bash
-pnpm --filter @spec-lab/ui-kit-demo dev
+pnpm --filter @constructor-lab/ui-kit-demo dev
 ```
 
 Opens at `http://localhost:3000`. Preview the built app with
-`pnpm --filter @spec-lab/ui-kit-demo preview`.
+`pnpm --filter @constructor-lab/ui-kit-demo preview`.
 
 ## What this workspace is for
 
-- Manual verification of `@spec-lab/ui-react` changes in
+- Manual verification of `@constructor-lab/ui-react` changes in
   realistic page layouts (forms, tables, dialogs, toasts).
 - Theme switching: light/dark via the ui-react `[data-theme]` model (a local
   theme-switcher util under `src/lib/`; the legacy multi-brand themes it carried

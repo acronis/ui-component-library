@@ -33,7 +33,7 @@ adapters:
   react:
     component: Form
     status: implemented
-    import: "import { Form } from '@spec-lab/ui-react'"
+    import: "import { Form } from '@constructor-lab/ui-react'"
     example: |
       <Form onFormSubmit={(values) => save(values)} errors={serverErrors}>
         <Field name="email">
@@ -46,12 +46,12 @@ adapters:
   vue:
     component: AvForm
     status: planned
-    import: "import { AvForm } from '@spec-lab/ui-vue'"
+    import: "import { AvForm } from '@constructor-lab/ui-vue'"
     example: |
       <AvForm @submit="save" />
   web-components:
     element: ui-form
     status: planned
-    import: "import '@spec-lab/ui-wc/form'"
+    import: "import '@constructor-lab/ui-wc/form'"
     example: |
       <ui-form></ui-form>

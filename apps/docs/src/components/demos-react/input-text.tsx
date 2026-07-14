@@ -1,6 +1,6 @@
 'use client';
 
-import { InputText } from '@spec-lab/ui-react';
+import { InputText } from '@constructor-lab/ui-react';
 
 export function InputTextDemo() {
   return (

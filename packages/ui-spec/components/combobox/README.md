@@ -40,7 +40,7 @@ import {
   ComboboxEmpty,
   ComboboxList,
   ComboboxItem,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const frameworks = [
   { value: 'next', label: 'Next.js' },

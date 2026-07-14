@@ -82,7 +82,7 @@ adapters:
     import: >-
       import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle,
       DrawerCloseButton, DrawerBody, DrawerDescription, DrawerFooter,
-      DrawerSwipeArea } from '@spec-lab/ui-react'
+      DrawerSwipeArea } from '@constructor-lab/ui-react'
     example: |
       <Drawer side="bottom">
         <DrawerTrigger render={<Button variant="secondary">Open drawer</Button>} />
@@ -105,14 +105,14 @@ adapters:
   vue:
     component: AvDrawer
     status: planned
-    import: "import { AvDrawer } from '@spec-lab/ui-vue'"
+    import: "import { AvDrawer } from '@constructor-lab/ui-vue'"
     example: |
       <AvDrawer v-model:open="open" side="bottom" title="Notifications" />
 
   web-components:
     element: ui-drawer
     status: planned
-    import: "import '@spec-lab/ui-wc/drawer'"
+    import: "import '@constructor-lab/ui-wc/drawer'"
     example: |
       <ui-drawer open side="bottom">
         <ui-drawer-content>

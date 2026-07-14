@@ -15,7 +15,7 @@ adapters:
   react:
     component: Alert
     status: implemented
-    import: "import { Alert, AlertIcon, AlertContent, AlertTitle, AlertDescription } from '@spec-lab/ui-react'"
+    import: "import { Alert, AlertIcon, AlertContent, AlertTitle, AlertDescription } from '@constructor-lab/ui-react'"
     example: |
       <Alert variant="success">
         <AlertIcon><CircleCheckIcon size={16} /></AlertIcon>
@@ -27,12 +27,12 @@ adapters:
   vue:
     component: AvAlert
     status: planned
-    import: "import { AvAlert } from '@spec-lab/ui-vue'"
+    import: "import { AvAlert } from '@constructor-lab/ui-vue'"
     example: |
       <AvAlert variant="success" />
   web-components:
     element: ui-alert
     status: planned
-    import: "import '@spec-lab/ui-wc/alert'"
+    import: "import '@constructor-lab/ui-wc/alert'"
     example: |
       <ui-alert></ui-alert>

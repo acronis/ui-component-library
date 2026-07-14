@@ -21,7 +21,7 @@ adapters:
     status: implemented
     import: >-
       import { Empty, EmptyIcon, EmptyHeader, EmptyTitle, EmptyDescription,
-      EmptyActions, EmptyLinks } from '@spec-lab/ui-react'
+      EmptyActions, EmptyLinks } from '@constructor-lab/ui-react'
     example: |
       <Empty>
         <EmptyIcon>
@@ -39,7 +39,7 @@ adapters:
   vue:
     component: AvEmpty
     status: planned
-    import: "import { AvEmpty, AvEmptyTitle } from '@spec-lab/ui-vue'"
+    import: "import { AvEmpty, AvEmptyTitle } from '@constructor-lab/ui-vue'"
     example: |
       <AvEmpty>
         <AvEmptyTitle>No data</AvEmptyTitle>
@@ -48,7 +48,7 @@ adapters:
   web-components:
     element: ui-empty
     status: planned
-    import: "import '@spec-lab/ui-wc/empty'"
+    import: "import '@constructor-lab/ui-wc/empty'"
     example: |
       <ui-empty>
         <ui-empty-title>No data</ui-empty-title>

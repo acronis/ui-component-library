@@ -1,6 +1,10 @@
-import { Button } from '@spec-lab/ui-react';
-import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
-import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Button } from '@constructor-lab/ui-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@constructor-lab/ui-react';
+import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 export function PopoverWithActions() {
   return (
     <div className="flex justify-center rounded-lg border p-8">

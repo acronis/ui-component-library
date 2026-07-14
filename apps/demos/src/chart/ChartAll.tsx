@@ -5,13 +5,18 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@constructor-lab/ui-react';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   getChartColors,
   addColorsToData,

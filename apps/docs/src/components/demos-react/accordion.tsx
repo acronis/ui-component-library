@@ -5,7 +5,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function AccordionDemo() {
   return (

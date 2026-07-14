@@ -32,8 +32,8 @@ import {
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
-} from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 // Wrap your app (or a region) once to share delays:
 <TooltipProvider delay={300}>

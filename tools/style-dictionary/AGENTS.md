@@ -1,8 +1,8 @@
 # AGENTS.md — `tools/style-dictionary`
 
-`@spec-lab/style-dictionary` — a **private** (unpublished) build tool: a
+`@constructor-lab/style-dictionary` — a **private** (unpublished) build tool: a
 [Style Dictionary v5](https://styledictionary.com/) translation pipeline that
-builds the DTCG source tiers of `@spec-lab/tokens` into that same package's
+builds the DTCG source tiers of `@constructor-lab/tokens` into that same package's
 generated, committed output — **reference-based CSS** (primitives + semantics +
 per-component, brand + light/dark via selectors), a **SCSS** mirror, a **JS**
 token map, the Tailwind `@theme inline` bridge, and a DTCG intermediate. This is
@@ -18,7 +18,7 @@ only what is specific to this workspace.
 The only script that does real work. From the repo root:
 
 ```bash
-pnpm --filter @spec-lab/style-dictionary build
+pnpm --filter @constructor-lab/style-dictionary build
 ```
 
 `src/index.ts` is the single entry point. Each output is a **platform key**,
@@ -40,7 +40,7 @@ this tool's gitignored `dist/assets/`:
      (`ui-theme`) — the same layer as a Sass mixin.
    - `tokens/js/` — `tokens.js` + `.d.ts`, a name → `var(--…)` map for CSS-in-JS.
 3. `pd-assets` / `web-assets` → optimized SVG + React from
-   `@spec-lab/design-assets`, emitted under `dist/assets/<filter>-<group>-<format>/`.
+   `@constructor-lab/design-assets`, emitted under `dist/assets/<filter>-<group>-<format>/`.
    **design-assets is an optional peer**: when it isn't installed the asset stage
    skips with a warning (the token outputs never depend on it). See
    [`context/assets.md`](context/assets.md).
@@ -76,7 +76,7 @@ source coverage — `filtersFor(output)` in `index.ts` encodes this:
 
 - `dtcg`/`css` come from the token package. Every token is `["PD"]`
   today, so `FILTERS` is `['pd']`; `web` is schema-defined and coming.
-- `assets` come from `@spec-lab/design-assets`, which **already** spans
+- `assets` come from `@constructor-lab/design-assets`, which **already** spans
   both platforms — icons are `PD`, illustrations `WEB` — selected
   per-asset by each asset's own `platforms`. So the asset build runs for
   `ASSET_FILTERS` (`['pd','web']`), independent of the token `FILTERS`. The valid
@@ -155,7 +155,7 @@ not the selector — decides where it lands: an icon pack emits under `pd-assets
 pack, so the unaffected filter is a no-op. Tokens always build together (one
 schema, tightly-coupled files); assets are per-pack (a pack name is the
 `packs/<name>.json` stem). `--pack` validates against the live pack list, so the
-tool needs `@spec-lab/design-assets` as a workspace dependency.
+tool needs `@constructor-lab/design-assets` as a workspace dependency.
 
 ## Gotchas
 
@@ -164,7 +164,7 @@ tool needs `@spec-lab/design-assets` as a workspace dependency.
   into `packages/tokens/` whose generated files are **tracked** (CI fails if a
   token change isn't re-generated + committed — see the drift gate in `ci.yml`);
   the asset build still writes gitignored `dist/assets/`.
-  `@spec-lab/tokens` is the source of truth either way — never
+  `@constructor-lab/tokens` is the source of truth either way — never
   hand-edit generated output.
 - **`--ui-*` naming.** The `name/ui` transform drops a leading `colors` tier
   segment and prefixes every token with `ui` (`colors.background.surface.primary`

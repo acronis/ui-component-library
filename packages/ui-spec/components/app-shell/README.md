@@ -32,7 +32,7 @@ Mapped to the App Shell Figma (node `2782-1495`).
 ```tsx
 import {
   AppShell, AppShellSidebar, AppShellBody, AppShellHeader, AppShellMain,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <AppShell>
   <AppShellSidebar><SidebarPrimary … /></AppShellSidebar>

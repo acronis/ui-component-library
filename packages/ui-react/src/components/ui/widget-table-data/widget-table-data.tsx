@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 // tier exists yet, so this design-pending v1 themes the outer chrome from the
 // shared semantic vocabulary (same root/header/icon mapping as
 // `widget-placeholder`) and the actual `<table>` internals from the dedicated
-// `--ui-table-*` tier (`@spec-lab/tokens`) that `data-table.tsx` already uses:
+// `--ui-table-*` tier (`@constructor-lab/tokens`) that `data-table.tsx` already uses:
 //   • root      -> border-border + bg-background + text-foreground
 //   • icon/link (was --av-fixed-link) -> text-secondary (the brand action blue)
 //   • interactive hover/active -> bg-accent (surface-hover) /

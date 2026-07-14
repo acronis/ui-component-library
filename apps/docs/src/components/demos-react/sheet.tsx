@@ -12,7 +12,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 export function SheetDemo() {

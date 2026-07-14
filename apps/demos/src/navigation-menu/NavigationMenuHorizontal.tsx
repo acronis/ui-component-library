@@ -8,8 +8,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@spec-lab/ui-react';
-import { cn } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { cn } from '@constructor-lab/ui-react';
 
 const components: { title: string; href: string; description: string }[] = [
   {

@@ -37,7 +37,7 @@ adapters:
   react:
     component: CardFilter
     status: implemented
-    import: "import { CardFilter } from '@spec-lab/ui-react'"
+    import: "import { CardFilter } from '@constructor-lab/ui-react'"
     example: |
       <CardFilter variant="static" label="Total assets" value="125" icon={<CircleInfoIcon />} />
 
@@ -49,12 +49,12 @@ adapters:
   vue:
     element: AvCardFilter
     status: planned
-    import: "import { AvCardFilter } from '@spec-lab/ui-vue'"
+    import: "import { AvCardFilter } from '@constructor-lab/ui-vue'"
     example: |
       <AvCardFilter variant="clickable" label="Active filters" value="3" @click="apply" />
   web-components:
     element: ui-card-filter
     status: planned
-    import: "import '@spec-lab/ui-wc/card-filter'"
+    import: "import '@constructor-lab/ui-wc/card-filter'"
     example: |
       <ui-card-filter variant="clickable" label="Active filters" value="3"></ui-card-filter>

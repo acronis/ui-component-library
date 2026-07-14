@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: Toast
 
-# References only. Values live in @spec-lab/tokens. No `--ui-toast-*`
+# References only. Values live in @constructor-lab/tokens. No `--ui-toast-*`
 # tier yet; this design-pending v1 uses a neutral card surface
 # (bg-background + border-border + shadow) with the status conveyed by a colored
 # leading icon. Per-status surface tinting is design-pending.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-background-surface-primary

@@ -5,7 +5,7 @@ import {
   WidgetContent,
   WidgetValue,
   WidgetLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function WidgetValueDisplay() {
   return (

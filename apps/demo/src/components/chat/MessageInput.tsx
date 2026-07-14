@@ -2,16 +2,20 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import EmojiPicker, { Theme } from 'emoji-picker-react';
-import { cn } from '@spec-lab/ui-react';
+import { cn } from '@constructor-lab/ui-react';
 import { MessageInputProps } from '@/lib/chat/types';
-import { Button, ButtonIcon } from '@spec-lab/ui-react';
-import { Textarea } from '@spec-lab/ui-react';
-import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
+import { Button, ButtonIcon } from '@constructor-lab/ui-react';
+import { Textarea } from '@constructor-lab/ui-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@constructor-lab/ui-react';
 import {
   EyeOffIcon,
   EyeIcon,
   SendIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { SmileIcon } from '@/components/icons/missing-icons';
 
 export function MessageInput({

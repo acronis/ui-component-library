@@ -11,12 +11,12 @@ import {
   PageHeaderTitle,
   Stack,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   ArrowLeftIcon,
   CheckIcon,
   FilesIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { specIndex, statusVariant, type SpecPattern } from './spec-index';

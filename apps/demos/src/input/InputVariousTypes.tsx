@@ -1,9 +1,9 @@
-import { Input } from '@spec-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
 import {
   CalendarIcon,
   PhoneIcon,
   UserIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { CreditCardIcon } from '../icons/missing-icons';
 export function InputVariousTypes() {
   return (

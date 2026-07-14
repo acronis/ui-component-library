@@ -1,4 +1,4 @@
-import { CircleClockIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CircleClockIcon } from '@constructor-lab/icons-react/stroke-mono';
 import type { Chat } from '../types';
 import { formatRelativeTime } from '../utils/dateUtils';
 

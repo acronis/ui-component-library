@@ -4,7 +4,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function CardInteractive() {
   return (

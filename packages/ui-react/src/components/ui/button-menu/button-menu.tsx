@@ -4,7 +4,7 @@ import { useRender } from '@base-ui/react/use-render';
 import {
   ChevronDownIcon,
   ChevronUpIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils';
 // — the chevron flips down→up and the container takes its `*-active` colors. Each
 // interaction state wires the container fill, label, icon, and — for `secondary`
 // — the border to its own dedicated `--ui-button-menu-*` token from
-// @spec-lab/tokens. Every state is referenced explicitly (runtime
+// @constructor-lab/tokens. Every state is referenced explicitly (runtime
 // `var()` lookups: a brand override is only honored if the matching state token is
 // referenced). `primary` keeps a single label/icon color across states; only
 // `secondary` diverges them per state. Geometry — 32px height, 8px gap, 12px

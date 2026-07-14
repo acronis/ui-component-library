@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CalendarIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 

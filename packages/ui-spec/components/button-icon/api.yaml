@@ -44,7 +44,7 @@ adapters:
   react:
     component: ButtonIcon
     status: implemented
-    import: "import { ButtonIcon } from '@spec-lab/ui-react'"
+    import: "import { ButtonIcon } from '@constructor-lab/ui-react'"
     example: |
       <ButtonIcon aria-label="Add">
         <PlusIcon />
@@ -52,12 +52,12 @@ adapters:
   vue:
     element: AvButtonIcon
     status: planned
-    import: "import { AvButtonIcon } from '@spec-lab/ui-vue'"
+    import: "import { AvButtonIcon } from '@constructor-lab/ui-vue'"
     example: |
       <AvButtonIcon aria-label="Add"><PlusIcon /></AvButtonIcon>
   web-components:
     element: ui-button-icon
     status: planned
-    import: "import '@spec-lab/ui-wc/button-icon'"
+    import: "import '@constructor-lab/ui-wc/button-icon'"
     example: |
       <ui-button-icon aria-label="Add"><!-- icon --></ui-button-icon>

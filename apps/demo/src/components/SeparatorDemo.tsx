@@ -11,7 +11,7 @@ import {
   SeparatorInToolbar,
   SeparatorMultiple,
   SeparatorInGrid,
-} from '@spec-lab/ui-kit-demos/separator';
+} from '@constructor-lab/ui-kit-demos/separator';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

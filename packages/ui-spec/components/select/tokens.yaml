@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: Select
 
-# References only. Values live in @spec-lab/tokens. `Select` is an alias of
+# References only. Values live in @constructor-lab/tokens. `Select` is an alias of
 # the next-gen `InputSelect` family, so it consumes the `--ui-input-select-*` tier (it
 # previously bound the deleted `--ui-form-*` tier — issue #333). See the InputSelect
 # spec for the full part/token breakdown.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # Trigger box (the Figma "Select" states)

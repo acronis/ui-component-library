@@ -35,7 +35,7 @@ TanStack `table` instance you build with `useReactTable` — render them around 
 ## Example
 
 ```tsx
-import { DataTable, DataTableColumnHeader } from '@spec-lab/ui-react';
+import { DataTable, DataTableColumnHeader } from '@constructor-lab/ui-react';
 import type { ColumnDef } from '@tanstack/react-table';
 
 const columns: ColumnDef<Payment>[] = [

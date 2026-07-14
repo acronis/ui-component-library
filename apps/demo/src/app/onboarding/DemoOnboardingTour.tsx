@@ -15,7 +15,7 @@ import {
   TourSkipButton,
   TourStepCounter,
   TourTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { useOnboardingStore } from '@/store/onboarding/onboardingStore';
 import {
   demoOnboardingSteps,

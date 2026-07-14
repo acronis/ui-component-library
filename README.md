@@ -4,10 +4,10 @@ A pnpm monorepo for the Constructor Lab design system: a React component
 library, a design-token pipeline (Figma → JSON → CSS/Tailwind), icon
 packages, design-data packages, and supporting apps and tooling.
 
-**Architecture in brief:** The library (`@spec-lab/ui-react`) is built on
+**Architecture in brief:** The library (`@constructor-lab/ui-react`) is built on
 [Base UI](https://base-ui.com/) unstyled primitives and themed by
-`@spec-lab/tokens` (`--ui-*` CSS custom properties generated from
-`@spec-lab/tokens`). Tailwind CSS is used **internally** to
+`@constructor-lab/tokens` (`--ui-*` CSS custom properties generated from
+`@constructor-lab/tokens`). Tailwind CSS is used **internally** to
 compile styles — consumers receive fully pre-built CSS and can use any styling
 solution in their own project. No Tailwind installation required.
 
@@ -17,20 +17,20 @@ The repo is organized into four top-level directories: `context/` (shared docs),
 `apps/` (deployed apps, private), `packages/` (published libraries + data), and
 `tools/` (private build tooling).
 
-| Path                          | Package                          | Published | Role                                                                         |
-| ----------------------------- | -------------------------------- | --------- | ---------------------------------------------------------------------------- |
-| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**   | React component library on **Base UI**, themed by `tokens`.                  |
-| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**   | React icon components generated from `design-assets` (tree-shakeable).       |
-| `packages/icons-svg/`         | `@spec-lab/icons-svg`            | no        | Raw SVG sources for the next-gen icon set (source-only).                     |
-| `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
-| `packages/design-assets/`     | `@spec-lab/design-assets`        | **yes**   | Icon/illustration manifests + bundled binaries. Data only.                   |
-| `packages/tokens/`            | `@spec-lab/tokens`               | **yes**   | Generated per-brand CSS vars, per-component CSS, Tailwind presets, DTCG.     |
-| `apps/demo/`                  | `@spec-lab/ui-kit-demo`          | no        | Vite SPA showcasing components with live theme switching.                    |
-| `apps/docs/`                  | `@spec-lab/uikit-docs`           | no        | Next.js 15 + Fumadocs documentation site.                                    |
-| `apps/demos/`                 | `@spec-lab/ui-kit-demos`         | no        | Shared demo components (source-only, no build).                              |
-| `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no        | Style Dictionary v5 build: `tokens` → `tokens` CSS/presets.                  |
-| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no        | Fetches + SVGO-optimizes icons from Figma into the `icons-svg*` packages.    |
-| `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no        | Self-hosted Figma plugin + receiver that exports variables/styles to tokens. |
+| Path                          | Package                                 | Published | Role                                                                         |
+| ----------------------------- | --------------------------------------- | --------- | ---------------------------------------------------------------------------- |
+| `packages/ui-react/`          | `@constructor-lab/ui-react`             | **yes**   | React component library on **Base UI**, themed by `tokens`.                  |
+| `packages/icons-react/`       | `@constructor-lab/icons-react`          | **yes**   | React icon components generated from `design-assets` (tree-shakeable).       |
+| `packages/icons-svg/`         | `@constructor-lab/icons-svg`            | no        | Raw SVG sources for the next-gen icon set (source-only).                     |
+| `packages/tokens/`            | `@constructor-lab/tokens`               | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
+| `packages/design-assets/`     | `@constructor-lab/design-assets`        | **yes**   | Icon/illustration manifests + bundled binaries. Data only.                   |
+| `packages/tokens/`            | `@constructor-lab/tokens`               | **yes**   | Generated per-brand CSS vars, per-component CSS, Tailwind presets, DTCG.     |
+| `apps/demo/`                  | `@constructor-lab/ui-kit-demo`          | no        | Vite SPA showcasing components with live theme switching.                    |
+| `apps/docs/`                  | `@constructor-lab/uikit-docs`           | no        | Next.js 15 + Fumadocs documentation site.                                    |
+| `apps/demos/`                 | `@constructor-lab/ui-kit-demos`         | no        | Shared demo components (source-only, no build).                              |
+| `tools/style-dictionary/`     | `@constructor-lab/style-dictionary`     | no        | Style Dictionary v5 build: `tokens` → `tokens` CSS/presets.                  |
+| `tools/figma-icons-fetcher/`  | `@constructor-lab/figma-icons-fetcher`  | no        | Fetches + SVGO-optimizes icons from Figma into the `icons-svg*` packages.    |
+| `tools/figma-token-exporter/` | `@constructor-lab/figma-token-exporter` | no        | Self-hosted Figma plugin + receiver that exports variables/styles to tokens. |
 
 See [`AGENTS.md`](./AGENTS.md) for the authoritative workspace map and the
 per-workspace `AGENTS.md` files for area-specific conventions.
@@ -46,7 +46,7 @@ per-workspace `AGENTS.md` files for area-specific conventions.
 
 ```bash
 # Clone the repository
-git clone https://github.com/constructor-lab/facet.git
+git clone https://github.com/constructor-lab/ui-component-library.git
 cd uikit
 
 # Install dependencies
@@ -66,18 +66,18 @@ pnpm run dev
 
 The demo will be available at `http://localhost:3000`.
 
-## 📖 Usage (`@spec-lab/ui-react`)
+## 📖 Usage (`@constructor-lab/ui-react`)
 
-`@spec-lab/ui-react` is the Constructor Lab UI Kit's React component library.
+`@constructor-lab/ui-react` is the Constructor Lab UI Kit's React component library.
 
 ### Installation
 
 ```bash
-pnpm add @spec-lab/ui-react react react-dom
+pnpm add @constructor-lab/ui-react react react-dom
 ```
 
 `react` and `react-dom` (`^18.2.0 || ^19.0.0`) are peer dependencies. The theme
-layer (`@spec-lab/tokens`) and icons (`@spec-lab/icons-react`)
+layer (`@constructor-lab/tokens`) and icons (`@constructor-lab/icons-react`)
 ship as direct dependencies, so no extra install is needed.
 
 ### Import Styles
@@ -88,7 +88,7 @@ required:
 
 ```typescript
 // main.tsx or App.tsx
-import '@spec-lab/ui-react/styles';
+import '@constructor-lab/ui-react/styles';
 ```
 
 ### Using Components
@@ -109,7 +109,7 @@ import {
   Alert,
   AlertTitle,
   AlertDescription,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 function MyComponent() {
   return (
@@ -154,19 +154,19 @@ overlays (`Dialog`, `Sheet`, `Popover`, `Tooltip`, `DropdownMenu`), feedback
 `Avatar`, `DescriptionList`, `Accordion`, `Collapsible`). See the full export
 surface in [`packages/ui-react/src/index.ts`](./packages/ui-react/src/index.ts).
 
-Icons are provided by [`@spec-lab/icons-react`](./packages/icons-react).
+Icons are provided by [`@constructor-lab/icons-react`](./packages/icons-react).
 
 ### Package Exports
 
 ```typescript
 // Main entry — all components + the `cn` utility
-import { Button, cn } from '@spec-lab/ui-react';
+import { Button, cn } from '@constructor-lab/ui-react';
 
 // React-only entry
-import { Button } from '@spec-lab/ui-react/react';
+import { Button } from '@constructor-lab/ui-react/react';
 
 // Pre-built CSS (token layer + component styles)
-import '@spec-lab/ui-react/styles';
+import '@constructor-lab/ui-react/styles';
 ```
 
 ### TypeScript Support
@@ -174,7 +174,7 @@ import '@spec-lab/ui-react/styles';
 The library is fully typed:
 
 ```tsx
-import type { ButtonProps, CardProps } from '@spec-lab/ui-react';
+import type { ButtonProps, CardProps } from '@constructor-lab/ui-react';
 
 const MyButton: React.FC<ButtonProps> = (props) => {
   return <Button {...props} />;
@@ -184,7 +184,7 @@ const MyButton: React.FC<ButtonProps> = (props) => {
 ### Utility Functions
 
 ```typescript
-import { cn } from '@spec-lab/ui-react';
+import { cn } from '@constructor-lab/ui-react';
 
 // Merge class names
 const className = cn(
@@ -205,9 +205,9 @@ to consume the kit.
 ### Tokens (`ui-react`)
 
 The library is themed entirely by `--ui-*` CSS custom properties from
-`@spec-lab/tokens`, which are generated from
-`@spec-lab/tokens` via `@spec-lab/style-dictionary`. The
-token layer ships inside `@spec-lab/ui-react/styles`; light/dark and
+`@constructor-lab/tokens`, which are generated from
+`@constructor-lab/tokens` via `@constructor-lab/style-dictionary`. The
+token layer ships inside `@constructor-lab/ui-react/styles`; light/dark and
 per-brand values are driven by CSS variables (zero JavaScript overhead,
 SSR-compatible). Override the `--ui-*` variables to customize.
 
@@ -220,16 +220,16 @@ workspace docs for [`tokens`](./packages/tokens/AGENTS.md) and
 ```
 uikit/
 ├── apps/                       # Deployed apps (private)
-│   ├── demo/                   # Vite SPA          (@spec-lab/ui-kit-demo)
-│   ├── demos/                  # Shared demos      (@spec-lab/ui-kit-demos)
-│   └── docs/                   # Next.js + Fumadocs (@spec-lab/uikit-docs)
+│   ├── demo/                   # Vite SPA          (@constructor-lab/ui-kit-demo)
+│   ├── demos/                  # Shared demos      (@constructor-lab/ui-kit-demos)
+│   └── docs/                   # Next.js + Fumadocs (@constructor-lab/uikit-docs)
 ├── packages/                   # Published libraries + design data
-│   ├── ui-react/               # Base UI library    (@spec-lab/ui-react)
-│   ├── icons-react/            # React icons        (@spec-lab/icons-react)
-│   ├── icons-svg/              # Raw SVG sources    (@spec-lab/icons-svg)
-│   ├── tokens/          # DTCG tokens (data) (@spec-lab/tokens)
-│   ├── design-assets/          # Asset manifests    (@spec-lab/design-assets)
-│   └── tokens/              # Generated CSS/Tailwind (@spec-lab/tokens)
+│   ├── ui-react/               # Base UI library    (@constructor-lab/ui-react)
+│   ├── icons-react/            # React icons        (@constructor-lab/icons-react)
+│   ├── icons-svg/              # Raw SVG sources    (@constructor-lab/icons-svg)
+│   ├── tokens/          # DTCG tokens (data) (@constructor-lab/tokens)
+│   ├── design-assets/          # Asset manifests    (@constructor-lab/design-assets)
+│   └── tokens/              # Generated CSS/Tailwind (@constructor-lab/tokens)
 ├── tools/                      # Private build tooling
 │   ├── style-dictionary/       # tokens → tokens CSS/presets
 │   ├── figma-icons-fetcher/    # Figma → icons-svg* SVG fetcher
@@ -263,8 +263,8 @@ exposes the same vocabulary, so `pnpm -r <name>` is reliable.
 To run a single workspace, prefix with `pnpm --filter <package-name>`:
 
 ```bash
-pnpm --filter @spec-lab/uikit-docs dev
-pnpm --filter @spec-lab/ui-react storybook
+pnpm --filter @constructor-lab/uikit-docs dev
+pnpm --filter @constructor-lab/ui-react storybook
 ```
 
 The root also exposes token-pipeline shortcuts: `pnpm sd` (build all Style
@@ -293,7 +293,7 @@ deploy**. See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full flow.
 
 ```tsx
 // main.tsx
-import '@spec-lab/ui-react/styles';
+import '@constructor-lab/ui-react/styles';
 
 // App.tsx
 import {
@@ -302,7 +302,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function App() {
   return (

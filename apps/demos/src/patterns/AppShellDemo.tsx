@@ -4,7 +4,7 @@ import {
   AppShellHeader,
   AppShellMain,
   AppShellSidebar,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const navItems = [
   'Dashboard',

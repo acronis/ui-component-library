@@ -26,7 +26,7 @@ of options — including none — may be chosen.
 ### React
 
 ```tsx
-import { CheckboxGroup, Checkbox } from '@spec-lab/ui-react';
+import { CheckboxGroup, Checkbox } from '@constructor-lab/ui-react';
 
 function Channels() {
   const [value, setValue] = useState<string[]>(['email']);

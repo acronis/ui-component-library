@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Install and use @spec-lab/ui-react in your React application.
+description: Install and use @constructor-lab/ui-react in your React application.
 ---
 
 ## Installation
@@ -8,9 +8,9 @@ description: Install and use @spec-lab/ui-react in your React application.
 Install the library alongside React:
 
 ```bash
-pnpm add @spec-lab/ui-react react react-dom
+pnpm add @constructor-lab/ui-react react react-dom
 # or
-npm install @spec-lab/ui-react react react-dom
+npm install @constructor-lab/ui-react react react-dom
 ```
 
 `react` and `react-dom` are peer dependencies (React 18 or 19).
@@ -18,11 +18,11 @@ npm install @spec-lab/ui-react react react-dom
 ## Import the styles
 
 Import the stylesheet once, at your application's entry point. It bundles the
-Tailwind layer, the base `--ui-*` tokens from `@spec-lab/tokens`, and
+Tailwind layer, the base `--ui-*` tokens from `@constructor-lab/tokens`, and
 every component's token tier:
 
 ```tsx
-import '@spec-lab/ui-react/styles';
+import '@constructor-lab/ui-react/styles';
 ```
 
 ## Fonts
@@ -45,8 +45,8 @@ import '@fontsource/inter/700.css';
 ## Basic usage
 
 ```tsx
-import '@spec-lab/ui-react/styles';
-import { Button, Switch, InputText } from '@spec-lab/ui-react';
+import '@constructor-lab/ui-react/styles';
+import { Button, Switch, InputText } from '@constructor-lab/ui-react';
 
 export default function App() {
   return (
@@ -84,7 +84,7 @@ See [Theming](/theming) for the full model.
 Every component is fully typed. Import prop types directly:
 
 ```tsx
-import type { ButtonProps } from '@spec-lab/ui-react';
+import type { ButtonProps } from '@constructor-lab/ui-react';
 ```
 
 ## Next steps

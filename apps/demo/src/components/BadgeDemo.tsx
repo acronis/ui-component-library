@@ -6,7 +6,7 @@ import {
   BadgeWithIcons,
   BadgeStatusIndicators,
   BadgeNotificationCounts,
-} from '@spec-lab/ui-kit-demos/badge';
+} from '@constructor-lab/ui-kit-demos/badge';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

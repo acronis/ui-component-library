@@ -1,10 +1,10 @@
-// AUTO-GENERATED from @spec-lab/ui-spec — DO NOT EDIT.
-// Regenerate: pnpm --filter @spec-lab/ui-spec generate:stories
+// AUTO-GENERATED from @constructor-lab/ui-spec — DO NOT EDIT.
+// Regenerate: pnpm --filter @constructor-lab/ui-spec generate:stories
 // `:hover` / `:active` stories require a Storybook pseudo-states addon to paint.
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent } from 'storybook/test';
-import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { CardFilter } from '../card-filter';
 
 const meta = {

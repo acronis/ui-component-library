@@ -125,7 +125,7 @@ sync (see that skill). This is the design-side complement to Phase 0's
 `/component-readiness` (which checks the tokens the _code_ references).
 
 **Tokens.** Color/spacing must resolve to a generated `--ui-*` token from
-`@spec-lab/tokens`. Check it exists:
+`@constructor-lab/tokens`. Check it exists:
 
 ```bash
 grep -rn "<component>" packages/tokens/css --include="*.css" -i
@@ -135,9 +135,9 @@ grep -rn "<component>" packages/tokens/css --include="*.css" -i
   them directly: `text-[var(--ui-breadcrumb-link-label-color-idle)]`, `hover:…`, etc.
 - If a **shared** color is missing, add it to the generated `@theme inline`
   bridge map (`tools/style-dictionary/src/bridge/tailwind-theme.ts`) and rebuild
-  `@spec-lab/tokens` — not to `index.css`.
+  `@constructor-lab/tokens` — not to `index.css`.
 - If **component-specific** tokens are missing entirely, they belong upstream
-  in `@spec-lab/tokens` → rebuild `tokens`. **Do not
+  in `@constructor-lab/tokens` → rebuild `tokens`. **Do not
   hand-author hex values** in the component. Flag this to the user.
 
 Wire **each interaction state to its own token** (`hover:` → `*-hover`,
@@ -158,7 +158,7 @@ overrides only honor the referenced token.
 > rendered links uncolored until re-themed.)
 
 > **The whole token kit ships in one import.** `src/styles/index.css` does a single
-> `@import '@spec-lab/tokens/css'` — primitives + semantics + every component tier
+> `@import '@constructor-lab/tokens/css'` — primitives + semantics + every component tier
 > (each new `--ui-<name>-*` tier lands in `css/components/<Name>.css` and is
 > included automatically). Verify a token is defined:
 > `grep -rn "<name>" packages/tokens/css/`.
@@ -171,7 +171,7 @@ just need polymorphism (render as `<a>`, a router `Link`, etc.) use Base UI's
 `asChild`/`Slot`. If Base UI has no primitive (e.g. breadcrumb), build semantic
 HTML (`<nav><ol><li>`) + `useRender` for the polymorphic parts.
 
-**Icons.** Use `@spec-lab/icons-react/<pack>` (usually `stroke-mono`).
+**Icons.** Use `@constructor-lab/icons-react/<pack>` (usually `stroke-mono`).
 Confirm the icon exists before importing it:
 
 ```bash
@@ -186,7 +186,7 @@ today — check, don't assume.
 > a control embeds a small mark (checkbox check, radio dot, chevrons baked into a
 > component), Figma often draws it as an **inline path**, not an icon instance —
 > and that glyph is usually **smaller than the box that contains it** with its own
-> stroke weight. The general `@spec-lab/icons-react` icons are **full-bleed** (the
+> stroke weight. The general `@constructor-lab/icons-react` icons are **full-bleed** (the
 > artwork fills the frame), so rendering one at the box size (`<CheckIcon
 size={16}>` in a 16px box) paints a mark ~60% too large, and the icon's
 > size→stroke coupling means no single `size` reproduces a small-glyph-with-heavy-stroke.
@@ -232,7 +232,7 @@ example })`. Map variant enums with `figma.enum('<exactPropName>', {…})` using
 the names from `get_context_for_code_connect`. Validate:
 
 ```bash
-pnpm --filter @spec-lab/ui-react figma:connect
+pnpm --filter @constructor-lab/ui-react figma:connect
 ```
 
 ---
@@ -267,13 +267,13 @@ Hard rules enforced by `__tests__/specs.test.ts`:
 Validate continuously:
 
 ```bash
-pnpm --filter @spec-lab/ui-spec test
+pnpm --filter @constructor-lab/ui-spec test
 ```
 
 **Generate the states story** (don't hand-write the `.generated` file):
 
 ```bash
-pnpm --filter @spec-lab/ui-spec generate:stories
+pnpm --filter @constructor-lab/ui-spec generate:stories
 ```
 
 If the component isn't a simple prop-driven element, add a `RENDER` hint for it
@@ -329,11 +329,11 @@ baseline; add any new message keys to `.storybook/i18n.ts` (all six locales).
 ## Phase 5 — Verify & changeset
 
 ```bash
-pnpm --filter @spec-lab/ui-react test
-pnpm --filter @spec-lab/ui-react typecheck
-pnpm --filter @spec-lab/ui-react lint
-pnpm --filter @spec-lab/ui-react build      # confirms exports bundle, .figma.tsx excluded
-pnpm --filter @spec-lab/ui-spec test
+pnpm --filter @constructor-lab/ui-react test
+pnpm --filter @constructor-lab/ui-react typecheck
+pnpm --filter @constructor-lab/ui-react lint
+pnpm --filter @constructor-lab/ui-react build      # confirms exports bundle, .figma.tsx excluded
+pnpm --filter @constructor-lab/ui-spec test
 pnpm -r typecheck                                   # what the pre-commit hook runs
 ```
 
@@ -344,13 +344,13 @@ Add a changeset for the **published** package only (`ui-react`). Bump by intent:
 ```
 .changeset/<name>-component.md
 ---
-'@spec-lab/ui-react': minor   # or: patch (update/fix)
+'@constructor-lab/ui-react': minor   # or: patch (update/fix)
 ---
 Add `<Name>`: …
 ```
 
 Stories must be checked in light **and** dark mode in Storybook
-(`pnpm --filter @spec-lab/ui-react storybook`).
+(`pnpm --filter @constructor-lab/ui-react storybook`).
 
 **Visual parity vs Figma (required — VR does not cover this).** VR only catches
 _regressions from a committed baseline_, and its `failureThreshold` is **0.5% of
@@ -385,8 +385,8 @@ light-only baselines. Use the `:all` scripts (they run light then the
 **Linux** baselines for both modes and review the PNGs before committing:
 
 ```bash
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:update:all  # regenerate light + dark
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:all         # check both (what CI runs)
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:update:all  # regenerate light + dark
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:all         # check both (what CI runs)
 ```
 
 (For a single mode, the `:docker:update` / `:docker:update:dark` and `:docker` /
@@ -423,7 +423,7 @@ the committed baselines still pass, and commit no PNGs.
       `<id>--dark.png` committed (orphans deleted).
 - [ ] `<name>.figma.tsx` — `COMPLETE`, validated by `figma:connect`.
 - [ ] `packages/ui-spec/components/<name>/` — 7 files, `ui-spec test` green.
-- [ ] Changeset for `@spec-lab/ui-react`.
+- [ ] Changeset for `@constructor-lab/ui-react`.
 - [ ] test / typecheck / lint / build all pass; `pnpm -r typecheck` clean.
 
 ---

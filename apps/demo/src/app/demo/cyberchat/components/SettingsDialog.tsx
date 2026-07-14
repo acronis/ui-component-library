@@ -6,9 +6,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@spec-lab/ui-react';
-import { Button, ButtonIcon } from '@spec-lab/ui-react';
-import { CogIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { Button, ButtonIcon } from '@constructor-lab/ui-react';
+import { CogIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 interface SettingsDialogProps {
   trigger?: React.ReactNode;

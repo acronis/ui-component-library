@@ -1,7 +1,10 @@
-import { ButtonIcon } from '@spec-lab/ui-react';
-import { Input } from '@spec-lab/ui-react';
-import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
-import { ScrollArea } from '@spec-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
+import {
+  MagnifierIcon,
+  PlusIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
+import { ScrollArea } from '@constructor-lab/ui-react';
 
 const mockChats = [
   { id: '1', title: 'Show me what you can', active: true },

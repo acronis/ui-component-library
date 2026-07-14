@@ -13,8 +13,8 @@ import {
   MonitorIcon,
   ShieldCheckIcon,
   StarIcon,
-} from '@spec-lab/icons-react/stroke-mono';
-import { AcronisIcon } from '@spec-lab/icons-react/solid-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
+import { AcronisIcon } from '@constructor-lab/icons-react/solid-mono';
 
 import { Tag } from '../../tag';
 import {

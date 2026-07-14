@@ -1,6 +1,6 @@
 'use client';
 
-import { ButtonMenu } from '@spec-lab/ui-react';
+import { ButtonMenu } from '@constructor-lab/ui-react';
 
 export function ButtonMenuDemo() {
   return (

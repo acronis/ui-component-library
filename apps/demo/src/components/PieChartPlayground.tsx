@@ -23,7 +23,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { PieChart, Pie, Cell } from 'recharts';
 
 // Data sources

@@ -6,13 +6,13 @@ import {
   Command,
   CommandDialog,
   type CommandGroup,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CalendarIcon,
   CogIcon,
   FileIcon,
   FolderIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 const commands: CommandGroup[] = [

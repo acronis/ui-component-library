@@ -5,11 +5,11 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { Badge } from '@spec-lab/ui-react';
-import { Separator } from '@spec-lab/ui-react';
-import { BinIcon, PencilIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
+import { Separator } from '@constructor-lab/ui-react';
+import { BinIcon, PencilIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { format } from 'date-fns';
 import type { DataRow } from '../../types';
 

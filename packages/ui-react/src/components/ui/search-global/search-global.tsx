@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono';
+import { MagnifierIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 

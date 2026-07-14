@@ -7,7 +7,7 @@ import {
   SelectGroupLabel,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function GroupedSelect() {
   return (

@@ -15,7 +15,7 @@ import {
   Grid,
   InputText,
   InputTextArea,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export interface FormTwoColumnDemoProps {
   // In shadow-root hosts (docs preview) pass the shadow mount so the

@@ -23,7 +23,7 @@ adapters:
   react:
     component: WidgetPlaceholder
     status: implemented
-    import: "import { WidgetPlaceholder } from '@spec-lab/ui-react'"
+    import: "import { WidgetPlaceholder } from '@constructor-lab/ui-react'"
     example: |
       <WidgetPlaceholder>
         <WidgetPlaceholderHeader>
@@ -39,12 +39,12 @@ adapters:
   vue:
     component: AvWidgetPlaceholder
     status: planned
-    import: "import { AvWidgetPlaceholder } from '@spec-lab/ui-vue'"
+    import: "import { AvWidgetPlaceholder } from '@constructor-lab/ui-vue'"
     example: |
       <AvWidgetPlaceholder />
   web-components:
     element: ui-widget-placeholder
     status: planned
-    import: "import '@spec-lab/ui-wc/widget-placeholder'"
+    import: "import '@constructor-lab/ui-wc/widget-placeholder'"
     example: |
       <ui-widget-placeholder></ui-widget-placeholder>

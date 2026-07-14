@@ -1,6 +1,6 @@
 'use client';
 
-import { InputTextArea } from '@spec-lab/ui-react';
+import { InputTextArea } from '@constructor-lab/ui-react';
 
 export function InputTextAreaDemo() {
   return (

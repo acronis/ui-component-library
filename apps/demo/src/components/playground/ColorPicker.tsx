@@ -4,9 +4,14 @@ import {
   createColorToken,
   createColorTokenFromOklch,
 } from '@/lib/playground/colorUtils';
-import { Input } from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@spec-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@constructor-lab/ui-react';
 
 interface ColorPickerProps {
   color: ColorToken;

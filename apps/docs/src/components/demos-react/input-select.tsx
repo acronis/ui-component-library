@@ -9,7 +9,7 @@ import {
   InputSelectLabel,
   InputSelectTrigger,
   InputSelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 const regions = {

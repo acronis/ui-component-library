@@ -1,6 +1,6 @@
 'use client';
 
-import { InputDatePicker } from '@spec-lab/ui-react';
+import { InputDatePicker } from '@constructor-lab/ui-react';
 
 export function InputDatePickerDemo() {
   return (

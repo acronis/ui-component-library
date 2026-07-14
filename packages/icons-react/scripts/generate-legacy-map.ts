@@ -2,8 +2,8 @@
  * Generate the authoritative legacy-icon → icons-react name map.
  *
  * Output: `packages/icons-react/legacy-icon-map.json`, shipped with the package
- * (subpath export `@spec-lab/icons-react/legacy-map`) so any consumer —
- * every MFE migrating off `@spec-lab/shadcn-uikit` — resolves names from
+ * (subpath export `@constructor-lab/icons-react/legacy-map`) so any consumer —
+ * every MFE migrating off `@constructor-lab/shadcn-uikit` — resolves names from
  * the package itself, with no monorepo checkout.
  *
  * The map is built from three sources in this monorepo (never by guessing /
@@ -19,7 +19,7 @@
  * silently flattened. The output is deterministic (no timestamp) so re-running
  * only changes it when the icon set changes.
  *
- * Run: `pnpm --filter @spec-lab/icons-react generate:legacy-map`
+ * Run: `pnpm --filter @constructor-lab/icons-react generate:legacy-map`
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -39,7 +39,7 @@ type Variant = (typeof VARIANTS)[number];
 const MONO: Variant[] = ['stroke-mono', 'solid-mono'];
 
 // 1. legacy React name -> source svg name (strip extension)
-// ui-legacy (@spec-lab/shadcn-uikit) has been removed from this monorepo, so the
+// ui-legacy (@constructor-lab/shadcn-uikit) has been removed from this monorepo, so the
 // map can no longer be regenerated from its source. The committed
 // legacy-icon-map.json is retained as-is (MFEs still migrating off the old
 // PUBLISHED shadcn-uikit resolve names from it via the `legacy-map` export).
@@ -78,18 +78,18 @@ let pack: IconsPack = {};
 if (existsSync(ICONS_PACK)) {
   pack = JSON.parse(readFileSync(ICONS_PACK, 'utf8')) as IconsPack;
 } else if (existsSync(OUT)) {
-  // @spec-lab/design-assets (an optional peer) isn't checked out — its
+  // @constructor-lab/design-assets (an optional peer) isn't checked out — its
   // `legacyNames` bridge is the ONLY source for this map. Preserve the committed
   // map instead of clobbering it with an empty one; a real regeneration needs
   // design-assets present. This keeps a routine `build`/`typecheck` from wiping
   // the authoritative map.
   console.warn(
-    '⚠ @spec-lab/design-assets not found — preserving the existing legacy-icon-map.json (skipping regeneration).'
+    '⚠ @constructor-lab/design-assets not found — preserving the existing legacy-icon-map.json (skipping regeneration).'
   );
   process.exit(0);
 } else {
   console.warn(
-    '⚠ @spec-lab/design-assets not found and no existing map — emitting an empty legacy-icon map.'
+    '⚠ @constructor-lab/design-assets not found and no existing map — emitting an empty legacy-icon map.'
   );
 }
 const sourceToAssets = new Map<string, Set<string>>();
@@ -172,7 +172,7 @@ for (const [legacy, source] of [...legacyToSource].sort((a, b) =>
 
 const out = {
   $comment:
-    'AUTHORITATIVE legacy @spec-lab/shadcn-uikit icon name -> @spec-lab/icons-react name. Generated from the design-assets legacyNames bridge — do not hand-edit. Regenerate: pnpm --filter @spec-lab/icons-react generate:legacy-map',
+    'AUTHORITATIVE legacy @constructor-lab/shadcn-uikit icon name -> @constructor-lab/icons-react name. Generated from the design-assets legacyNames bridge — do not hand-edit. Regenerate: pnpm --filter @constructor-lab/icons-react generate:legacy-map',
   meta: {
     defaultVariant: 'stroke-mono',
     variants: VARIANTS,

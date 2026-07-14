@@ -1,4 +1,4 @@
-import { Spinner, Button } from '@spec-lab/ui-react';
+import { Spinner, Button } from '@constructor-lab/ui-react';
 
 export function SpinnerGrid() {
   return (

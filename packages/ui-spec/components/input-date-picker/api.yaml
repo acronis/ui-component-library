@@ -86,7 +86,7 @@ adapters:
   react:
     component: InputDatePicker
     status: implemented
-    import: "import { InputDatePicker } from '@spec-lab/ui-react'"
+    import: "import { InputDatePicker } from '@constructor-lab/ui-react'"
     example: |
       <InputDatePicker
         label="Due date"
@@ -107,12 +107,12 @@ adapters:
   vue:
     component: AvInputDatePicker
     status: planned
-    import: "import { AvInputDatePicker } from '@spec-lab/ui-vue'"
+    import: "import { AvInputDatePicker } from '@constructor-lab/ui-vue'"
     example: |
       <AvInputDatePicker label="Due date" v-model="date" placeholder="Pick a date" />
   web-components:
     element: ui-input-date-picker
     status: planned
-    import: "import '@spec-lab/ui-wc/input-date-picker'"
+    import: "import '@constructor-lab/ui-wc/input-date-picker'"
     example: |
       <ui-input-date-picker label="Due date" placeholder="Pick a date"></ui-input-date-picker>

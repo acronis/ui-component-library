@@ -77,7 +77,7 @@ Run script steps from `packages/tokens/`. Paths below are relative to it.
 ### 1. Pull the snapshot (figma-token-exporter)
 
 - Start the receiver (from anywhere in the repo):
-  `pnpm --filter @spec-lab/figma-token-exporter receive` — it listens on
+  `pnpm --filter @constructor-lab/figma-token-exporter receive` — it listens on
   `localhost:3333` and writes into `packages/tokens/.tmp/figma-tokens/`.
 - In Figma Desktop, open the target file, run **Constructor Lab Token Exporter**, click
   **Send snapshot to repo**. It writes `variables.tokens.json`,
@@ -87,7 +87,7 @@ Run script steps from `packages/tokens/`. Paths below are relative to it.
   `figma_execute` of `getLocalVariablesAsync()` → `variables-meta.json` + style
   pulls. See `figma-sync.md` → _Pull workflow_.
 
-> **Shortcut for steps 2–4:** `pnpm --filter @spec-lab/tokens emit`
+> **Shortcut for steps 2–4:** `pnpm --filter @constructor-lab/tokens emit`
 > runs the gate → three emitters → validate, fail-fast. Run the steps
 > individually (below) only when it fails and you need to see which stage / fix a
 > `lib/` map. (It does **not** rebuild tokens or touch consumers — steps 6–8.)
@@ -126,7 +126,7 @@ Figma group (the next-gen `brand.components` set is not emitted yet).
 ### 4. Validate
 
 ```bash
-pnpm --filter @spec-lab/tokens validate
+pnpm --filter @constructor-lab/tokens validate
 ```
 
 ### 5. Review the diff — correctness, not just schema
@@ -153,7 +153,7 @@ downstream consumers (step 7). Unexpected diffs → re-pull or investigate first
 ### 6. Rebuild tokens + drift check
 
 ```bash
-pnpm --filter @spec-lab/tokens build
+pnpm --filter @constructor-lab/tokens build
 git status --short ../tokens
 ```
 
@@ -185,7 +185,7 @@ comm -23 <(echo "$refs") <(echo "$defined")   # referenced but undefined = broke
 Then regenerate **visual-regression baselines** in Docker (see ui-react AGENTS.md):
 
 ```bash
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:update
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:update
 ```
 
 ⚠️ **Apple-Silicon caveat:** the compose has no platform pin, so on an M-series Mac

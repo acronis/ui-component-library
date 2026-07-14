@@ -14,7 +14,7 @@
 
 ## 1. Problem
 
-`@spec-lab/ui-react` ships **single-purpose primitives** (`button`, `input`,
+`@constructor-lab/ui-react` ships **single-purpose primitives** (`button`, `input`,
 `dialog`, `drawer`, `menu`) and **assembled composite components** (`card-filter`,
 `app-shell`, `auth-layout`, `sidebar-*`, the `widget-*` family, `filter`) in one
 flat `components/ui/` tree with no explicit distinction between the two. That
@@ -35,7 +35,7 @@ gallery, and agent tooling can't group or reason about the kit by altitude.
 Two non-goals, already decided:
 
 - **No separate `ui-blocks` package.** A shadcn-blocks-style package fits shadcn
-  because shadcn ships no library; we publish `@spec-lab/ui-react`, so composites
+  because shadcn ships no library; we publish `@constructor-lab/ui-react`, so composites
   are published components and recipes are `ui-spec/patterns`. A parallel package
   would duplicate those and fight the grammar/audit consistency machinery.
 - **No atomic-design jargon** (atoms/molecules/organisms). We use terms grounded

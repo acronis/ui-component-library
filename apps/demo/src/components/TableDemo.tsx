@@ -10,7 +10,7 @@ import {
   TableEmpty,
   TableScrollable,
   TableSortable,
-} from '@spec-lab/ui-kit-demos/table';
+} from '@constructor-lab/ui-kit-demos/table';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

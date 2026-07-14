@@ -1,19 +1,22 @@
-# @spec-lab/icons-react
+# @constructor-lab/icons-react
 
 React icon components, generated from
-[`@spec-lab/icons-svg`](../icons-svg). Tree-shakeable, themed
+[`@constructor-lab/icons-svg`](../icons-svg). Tree-shakeable, themed
 via `currentColor`, with the design-system size/stroke rules baked in.
 
 ## Install
 
 ```sh
-pnpm add @spec-lab/icons-react react react-dom
+pnpm add @constructor-lab/icons-react react react-dom
 ```
 
 ## Usage
 
 ```tsx
-import { BoltIcon, ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  BoltIcon,
+  ChevronDownIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 
 export function Example() {
   return (
@@ -32,7 +35,7 @@ with a 1.6px stroke, `size={32}` at 32px with 2.5px, matching the design.
 ### Dynamic lookup
 
 ```tsx
-import { icons, type IconName } from '@spec-lab/icons-react/stroke-mono';
+import { icons, type IconName } from '@constructor-lab/icons-react/stroke-mono';
 
 const Icon = icons['chevron-down'];
 ```
@@ -42,10 +45,10 @@ const Icon = icons['chevron-down'];
 ## Develop
 
 ```sh
-pnpm --filter @spec-lab/icons-react generate    # regenerate from icons-svg
-pnpm --filter @spec-lab/icons-react storybook    # browse the gallery
-pnpm --filter @spec-lab/icons-react test         # Vitest + RTL
-pnpm --filter @spec-lab/icons-react build        # generate + lib bundle
+pnpm --filter @constructor-lab/icons-react generate    # regenerate from icons-svg
+pnpm --filter @constructor-lab/icons-react storybook    # browse the gallery
+pnpm --filter @constructor-lab/icons-react test         # Vitest + RTL
+pnpm --filter @constructor-lab/icons-react build        # generate + lib bundle
 ```
 
 Generated components live under `src/packs/` and are **not** committed — see

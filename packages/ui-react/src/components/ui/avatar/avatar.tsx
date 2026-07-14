@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 // Wraps Base UI's Avatar primitive (Root / Image / Fallback), themed by the
-// dedicated next-gen `--ui-avatar-*` token tier from @spec-lab/tokens.
+// dedicated next-gen `--ui-avatar-*` token tier from @constructor-lab/tokens.
 // A 32px circle (`--ui-avatar-global-avatar-size` / `-border-border-radius`) with a 2px
 // border (`-border-border-width` / `-border-color`) — the border is what visually
 // separates avatars when they overlap in an `AvatarGroup`. When no image is set

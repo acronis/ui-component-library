@@ -1,7 +1,11 @@
 import * as React from 'react';
-import { Button } from '@spec-lab/ui-react';
-import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
-import { Calendar } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@constructor-lab/ui-react';
+import { Calendar } from '@constructor-lab/ui-react';
 
 export function PopoverWithCalendar() {
   const [date, setDate] = React.useState<Date>();

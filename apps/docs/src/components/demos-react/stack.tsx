@@ -1,6 +1,6 @@
 'use client';
 
-import { Stack } from '@spec-lab/ui-react';
+import { Stack } from '@constructor-lab/ui-react';
 
 const Box = ({ children }: { children: React.ReactNode }) => (
   <div className="rounded-md bg-[var(--ui-background-surface-secondary)] px-4 py-2 text-sm">

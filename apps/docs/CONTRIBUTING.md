@@ -1,4 +1,4 @@
-# Contributing to `@spec-lab/uikit-docs`
+# Contributing to `@constructor-lab/uikit-docs`
 
 This is the Next.js + Fumadocs documentation site. **Private**, not
 published, **no changeset needed**.
@@ -31,7 +31,7 @@ easy to get wrong.
 2. **Add a client wrapper** in `src/components/demos/<DemoName>.tsx`:
    ```tsx
    'use client';
-   export { DemoName } from '@spec-lab/ui-kit-demos/<component>';
+   export { DemoName } from '@constructor-lab/ui-kit-demos/<component>';
    ```
 3. **Create the MDX page** at `content/docs/components/<component>.mdx`.
 4. **Use `<DemoPreview>` to render** with source toggle. Its
@@ -62,10 +62,10 @@ easy to get wrong.
 ## Verification
 
 ```bash
-pnpm --filter @spec-lab/uikit-docs dev      # local dev
-pnpm --filter @spec-lab/uikit-docs build    # production build
-pnpm --filter @spec-lab/uikit-docs typecheck
-pnpm --filter @spec-lab/uikit-docs lint
+pnpm --filter @constructor-lab/uikit-docs dev      # local dev
+pnpm --filter @constructor-lab/uikit-docs build    # production build
+pnpm --filter @constructor-lab/uikit-docs typecheck
+pnpm --filter @constructor-lab/uikit-docs lint
 ```
 
 Visually verify every page you changed at `pnpm dev`.

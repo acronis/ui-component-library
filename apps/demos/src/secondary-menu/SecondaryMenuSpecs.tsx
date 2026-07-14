@@ -38,8 +38,8 @@ export function SecondaryMenuSpecs() {
         <code className="rounded bg-muted px-1 py-0.5 text-xs">
           --ui-sidebar-secondary-*
         </code>{' '}
-        token from <code className="text-xs">@spec-lab/tokens</code> — no fixed
-        hex values. Selected and unselected rows each wire their own
+        token from <code className="text-xs">@constructor-lab/tokens</code> — no
+        fixed hex values. Selected and unselected rows each wire their own
         idle/hover/active token so brand overrides apply per state.
       </div>
     </div>

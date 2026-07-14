@@ -4,7 +4,7 @@ import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
 import { cn } from '@/lib/utils';
 
 // Wraps Base UI's Checkbox primitive, themed by the dedicated next-gen
-// `--ui-checkbox-*` token tier from @spec-lab/tokens. The box has three
+// `--ui-checkbox-*` token tier from @constructor-lab/tokens. The box has three
 // logical states — `unchecked` (the base), `checked`, and `indeterminate` — each
 // with its own per-interaction (idle / hover / active / disabled) fill
 // (`*-box-color-*`), border (`*-box-border-color-*`), and glyph (`*-icon-color-*`)
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 // specificity), and `data-[disabled]:data-[<state>]` overrides those in turn. The
 // glyph (check when checked, minus when indeterminate) inherits the Root's text
 // color via the Indicator's `text-current`. It is drawn inline (not the general
-// `@spec-lab/icons-react` check, which is full-bleed and would fill the box) so it
+// `@constructor-lab/icons-react` check, which is full-bleed and would fill the box) so it
 // matches Figma's compact checkbox glyph exactly: an 8px mark centered in the 16px
 // box with a 1.6px stroke. Box geometry (16px size, 2px radius)
 // comes from `--ui-checkbox-global-box-*`; the focus ring uses `--ui-focus-primary`.

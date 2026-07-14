@@ -1,9 +1,9 @@
-import { Input } from '@spec-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
 import {
   EnvelopeIcon,
   LockIcon,
   MagnifierIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function InputWithIcons() {
   return (
     <div className="space-y-4">

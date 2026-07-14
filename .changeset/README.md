@@ -21,12 +21,12 @@ Merging that PR triggers the actual publish to npm and GitHub Packages.
 
 Published workspaces are:
 
-- `@spec-lab/ui-react`
-- `@spec-lab/icons-react`
-- `@spec-lab/icons-svg`
-- `@spec-lab/tokens`
-- `@spec-lab/tokens`
-- `@spec-lab/design-assets`
+- `@constructor-lab/ui-react`
+- `@constructor-lab/icons-react`
+- `@constructor-lab/icons-svg`
+- `@constructor-lab/tokens`
+- `@constructor-lab/tokens`
+- `@constructor-lab/design-assets`
 
 The apps in `apps/*` are listed as ignored in `config.json`, so changesets
 won't try to publish them or insist on bumps for app-only changes.

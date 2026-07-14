@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,8 +6,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
-import { CogIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { CogIcon, UserIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { CreditCardIcon, KeyboardIcon } from '../icons/missing-icons';
 export function DropdownMenuWithLabels() {
   return (

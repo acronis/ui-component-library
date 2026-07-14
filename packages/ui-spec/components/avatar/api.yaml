@@ -29,7 +29,7 @@ adapters:
   react:
     component: Avatar
     status: implemented
-    import: "import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from '@spec-lab/ui-react'"
+    import: "import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from '@constructor-lab/ui-react'"
     example: |
       <Avatar color="teal">
         <AvatarImage src="/me.png" alt="Sam N." />
@@ -43,12 +43,12 @@ adapters:
   vue:
     component: AvAvatar
     status: planned
-    import: "import { AvAvatar } from '@spec-lab/ui-vue'"
+    import: "import { AvAvatar } from '@constructor-lab/ui-vue'"
     example: |
       <AvAvatar color="teal">SN</AvAvatar>
   web-components:
     element: ui-avatar
     status: planned
-    import: "import '@spec-lab/ui-wc/avatar'"
+    import: "import '@constructor-lab/ui-wc/avatar'"
     example: |
       <ui-avatar color="teal">SN</ui-avatar>

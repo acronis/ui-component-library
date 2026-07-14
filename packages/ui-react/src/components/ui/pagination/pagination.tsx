@@ -3,11 +3,11 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   EllipsisIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab`'s `pagination`. Markup-only (no Base UI
+// Ported from `@constructor-lab`'s `pagination`. Markup-only (no Base UI
 // primitive). The page links are styled directly with semantic tokens (rather than
 // the Button cva, whose min-width tokens don't fit a compact square link): neutral
 // foreground page numbers, the active surface for the current page, and the hover

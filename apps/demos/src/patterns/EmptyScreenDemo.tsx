@@ -12,8 +12,8 @@ import {
   EmptyIcon,
   EmptyTitle,
   SearchGlobal,
-} from '@spec-lab/ui-react';
-import { InboxIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { InboxIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 const nav = ['Dashboard', 'Workloads', 'Protection', 'Reports', 'Settings'];
 

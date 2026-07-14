@@ -23,7 +23,7 @@ import {
   TabsList,
   TabsTrigger,
   Input,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   LineChart,
   Line,
@@ -376,7 +376,7 @@ type CurveType =
   | 'stepAfter'
   | 'basis';
 
-// Constructor Lab chart color palette - the @spec-lab/tokens --ui-chart-* tier.
+// Constructor Lab chart color palette - the @constructor-lab/tokens --ui-chart-* tier.
 // The swatch picker applies concrete hex values (the color <input> needs them);
 // each hex matches the resolved value of the named --ui-chart-* token.
 const colorPalette = [

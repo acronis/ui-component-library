@@ -1,4 +1,4 @@
-import { Badge } from '@spec-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
 
 export function BadgeSmall() {
   return (

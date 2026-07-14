@@ -22,13 +22,13 @@ import {
   Badge,
   Progress,
   Skeleton,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CircleClockIcon,
   EyeIcon,
   ShoppingCartIcon,
   UsersIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import {
   ActivityIcon,
   ArrowDownRightIcon,
@@ -1402,7 +1402,7 @@ export function CardPlayground() {
   Card, CardHeader, CardTitle,
   CardDescription, CardContent, CardFooter,
   Badge, Progress
-} from '@spec-lab/ui-react'
+} from '@constructor-lab/ui-react'
 <Card>
   <CardHeader className="flex flex-row items-center
     justify-between space-y-0 pb-2">

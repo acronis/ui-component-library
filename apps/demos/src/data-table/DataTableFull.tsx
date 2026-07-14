@@ -8,8 +8,8 @@ import {
   flexRender,
 } from '@tanstack/react-table';
 import { useState } from 'react';
-import { Button } from '@spec-lab/ui-react';
-import { Checkbox } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
 import {
   Table,
   TableBody,
@@ -17,7 +17,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,15 +25,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
-import { Badge } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
 import {
   DataTableColumnHeader,
   DataTablePagination,
   DataTableToolbar,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
-import { EllipsisIcon } from '@spec-lab/icons-react/stroke-mono';
+import { EllipsisIcon } from '@constructor-lab/icons-react/stroke-mono';
 export type Payment = {
   id: string;
   amount: number;

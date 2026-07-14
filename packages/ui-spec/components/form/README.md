@@ -42,7 +42,7 @@ import {
   FieldError,
   InputBox,
   Button,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Form onFormSubmit={(values) => save(values)} errors={serverErrors}>
   <Field name="email">

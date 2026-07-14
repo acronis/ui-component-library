@@ -35,18 +35,18 @@ adapters:
   react:
     component: Stack
     status: implemented
-    import: "import { Stack } from '@spec-lab/ui-react'"
+    import: "import { Stack } from '@constructor-lab/ui-react'"
     example: |
       <Stack direction="horizontal" gap="sm">{children}</Stack>
   vue:
     component: AvStack
     status: planned
-    import: "import { AvStack } from '@spec-lab/ui-vue'"
+    import: "import { AvStack } from '@constructor-lab/ui-vue'"
     example: |
       <AvStack direction="horizontal" />
   web-components:
     element: ui-stack
     status: planned
-    import: "import '@spec-lab/ui-wc/stack'"
+    import: "import '@constructor-lab/ui-wc/stack'"
     example: |
       <ui-stack></ui-stack>

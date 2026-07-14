@@ -6,7 +6,7 @@
  * This is the PROTOTYPE of pattern enforcement: the message is drawn from the
  * sheet-detail-panel pattern's #1 anti-pattern ("Hand-rolling a fixed side panel
  * instead of composing Sheet"). The same shape — one focused rule per pattern
- * anti-pattern — generalizes to a `@spec-lab/eslint-plugin-patterns`.
+ * anti-pattern — generalizes to a `@constructor-lab/eslint-plugin-patterns`.
  *
  * Heuristic, intentionally conservative (host element + literal className with
  * all three markers) to avoid false positives; it does not try to parse `cn()`.

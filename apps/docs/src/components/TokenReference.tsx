@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 /**
- * A scannable reference of every `--ui-*` custom property `@spec-lab/tokens`
+ * A scannable reference of every `--ui-*` custom property `@constructor-lab/tokens`
  * ships, read at build time. Primitives (the raw value / theme layer) live in
  * `css/primitives.css`; the semantic tier in `css/semantics.css`; each component
  * tier in `css/components/<Component>.css`. Values are shown as authored — most

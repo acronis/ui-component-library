@@ -1,4 +1,4 @@
-import { TreeView, type TreeNode } from '@spec-lab/ui-react';
+import { TreeView, type TreeNode } from '@constructor-lab/ui-react';
 
 const organizationData: TreeNode[] = [
   {

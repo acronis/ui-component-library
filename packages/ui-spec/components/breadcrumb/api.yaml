@@ -43,7 +43,7 @@ adapters:
     import: >-
       import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink,
       BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Breadcrumb>
         <BreadcrumbList>
@@ -64,7 +64,7 @@ adapters:
   vue:
     component: AvBreadcrumb
     status: planned
-    import: "import { AvBreadcrumb, AvBreadcrumbItem } from '@spec-lab/ui-vue'"
+    import: "import { AvBreadcrumb, AvBreadcrumbItem } from '@constructor-lab/ui-vue'"
     example: |
       <AvBreadcrumb>
         <AvBreadcrumbItem to="/">Home</AvBreadcrumbItem>
@@ -75,7 +75,7 @@ adapters:
   web-components:
     element: ui-breadcrumb
     status: planned
-    import: "import '@spec-lab/ui-wc/breadcrumb'"
+    import: "import '@constructor-lab/ui-wc/breadcrumb'"
     example: |
       <ui-breadcrumb>
         <ui-breadcrumb-item href="/">Home</ui-breadcrumb-item>

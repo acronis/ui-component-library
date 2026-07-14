@@ -4,7 +4,7 @@ import {
   AppShellBody,
   AppShellMain,
   AppShellSidebar,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { ConsoleHeader } from './ConsoleHeader';
 import { ConsoleSidebar } from './ConsoleSidebar';
 import { DemoOnboardingTour } from '../onboarding/DemoOnboardingTour';

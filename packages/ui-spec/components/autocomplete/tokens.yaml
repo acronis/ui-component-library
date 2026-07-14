@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: Autocomplete
 
-# References only. Values live in @spec-lab/tokens. Autocomplete has no tier of
+# References only. Values live in @constructor-lab/tokens. Autocomplete has no tier of
 # its own — it reuses the `--ui-input-select-*` tokens so its field box and
 # dropdown match InputSelect / Combobox. Listed here is a representative subset;
 # the field box, dropdown container, and items all draw from that tier.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── field box ──

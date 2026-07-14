@@ -37,8 +37,11 @@ import {
   MenuSubmenu,
   MenuSubmenuTrigger,
   MenuSubmenuContent,
-} from '@spec-lab/ui-react';
-import { PencilIcon, FolderIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import {
+  PencilIcon,
+  FolderIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 
 <Menu>
   <MenuTrigger>Actions</MenuTrigger>

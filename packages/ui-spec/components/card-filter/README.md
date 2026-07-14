@@ -27,8 +27,8 @@ chips that summarize a count.
 ## Examples
 
 ```tsx
-import { CardFilter } from '@spec-lab/ui-react';
-import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CardFilter } from '@constructor-lab/ui-react';
+import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 // Static metric
 <CardFilter label="Total assets" value="125" icon={<CircleInfoIcon />} />;

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Field, FieldLabel, FieldDescription } from '@spec-lab/ui-react';
-import { Input } from '@spec-lab/ui-react';
+import { Field, FieldLabel, FieldDescription } from '@constructor-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
 
 export function FieldBasic() {
   return (

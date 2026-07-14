@@ -35,7 +35,7 @@ import {
   AutocompleteList,
   AutocompleteItem,
   AutocompleteEmpty,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const countries = ['Australia', 'Austria', 'Belgium', 'Canada'];
 

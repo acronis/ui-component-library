@@ -7,9 +7,9 @@ import {
   FieldDescription,
   FieldError,
   FieldLabel,
-} from '@spec-lab/ui-react';
-import { InputBox } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { InputBox } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 const usernameSchema = z
   .string()

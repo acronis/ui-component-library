@@ -51,7 +51,7 @@ adapters:
     status: implemented
     import: >-
       import { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead,
-      TableCell, TableCaption } from '@spec-lab/ui-react'
+      TableCell, TableCaption } from '@constructor-lab/ui-react'
     example: |
       <Table>
         <TableHeader>
@@ -73,7 +73,7 @@ adapters:
   vue:
     component: AvTable
     status: planned
-    import: "import { AvTable, AvTableRow, AvTableCell } from '@spec-lab/ui-vue'"
+    import: "import { AvTable, AvTableRow, AvTableCell } from '@constructor-lab/ui-vue'"
     example: |
       <AvTable>
         <AvTableRow :selected="isSelected">
@@ -84,7 +84,7 @@ adapters:
   web-components:
     element: ui-table
     status: planned
-    import: "import '@spec-lab/ui-wc/table'"
+    import: "import '@constructor-lab/ui-wc/table'"
     example: |
       <ui-table>
         <ui-table-row selected>

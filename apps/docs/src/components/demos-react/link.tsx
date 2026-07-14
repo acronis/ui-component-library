@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@spec-lab/ui-react';
+import { Link } from '@constructor-lab/ui-react';
 
 export function LinkDemo() {
   return (

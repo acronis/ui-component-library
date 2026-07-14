@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Field
 
-# References only. Values live in @spec-lab/tokens. Field has no token
+# References only. Values live in @constructor-lab/tokens. Field has no token
 # tier of its own — it's layout chrome on the shared semantic vocabulary. The
 # controls it wraps (InputBox, Checkbox, …) carry their own tokens. Error/invalid
 # text uses the readable danger text token (NOT bridged `text-destructive`, which
 # resolves to the pale danger *surface*).
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-text-on-status-danger

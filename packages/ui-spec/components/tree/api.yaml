@@ -96,7 +96,7 @@ adapters:
     status: implemented
     import: >-
       import { Tree, TreeItem, TreeItemTrigger, TreeItemLabel, TreeItemGroup,
-      TreeItemCheckbox, TreeItemIcon, TreeView } from '@spec-lab/ui-react'
+      TreeItemCheckbox, TreeItemIcon, TreeView } from '@constructor-lab/ui-react'
     example: |
       <Tree defaultExpanded={['src']} defaultSelected="index">
         <TreeItem value="src">

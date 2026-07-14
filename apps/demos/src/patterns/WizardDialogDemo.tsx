@@ -13,7 +13,7 @@ import {
   Form,
   InputText,
   Progress,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const steps: { title: string; content: ReactNode }[] = [
   {

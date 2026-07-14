@@ -1,6 +1,6 @@
 'use client';
 
-import { Slider } from '@spec-lab/ui-react';
+import { Slider } from '@constructor-lab/ui-react';
 
 export function SliderDemo() {
   return (

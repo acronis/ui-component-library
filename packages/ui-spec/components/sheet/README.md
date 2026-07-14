@@ -56,7 +56,7 @@ import {
   SheetBody,
   SheetDescription,
   SheetFooter,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Sheet>
   <SheetTrigger render={<Button variant="secondary">Open details</Button>} />

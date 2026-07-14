@@ -125,7 +125,7 @@ adapters:
       import { Tour, TourTrigger, TourBeacon, TourScrim, TourContent, TourHeader,
       TourTitle, TourDescription, TourBody, TourFooter, TourStepCounter,
       TourActions, TourNextButton, TourBackButton, TourSkipButton, TourClose } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Tour stepCount={5} defaultOpen>
         <TourTrigger render={<Button variant="secondary">Protection</Button>} />
@@ -151,7 +151,7 @@ adapters:
   vue:
     component: AvTour
     status: planned
-    import: "import { AvTour } from '@spec-lab/ui-vue'"
+    import: "import { AvTour } from '@constructor-lab/ui-vue'"
     example: |
       <AvTour :step-count="5" default-open>
         <!-- coach-mark parts -->
@@ -160,7 +160,7 @@ adapters:
   web-components:
     element: ui-tour
     status: planned
-    import: "import '@spec-lab/ui-wc/tour'"
+    import: "import '@constructor-lab/ui-wc/tour'"
     example: |
       <ui-tour step-count="5" default-open>
         <!-- coach-mark parts -->

@@ -5,8 +5,11 @@ import {
   ButtonIcon,
   Input,
   ScrollArea,
-} from '@spec-lab/ui-react';
-import { MagnifierIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import {
+  MagnifierIcon,
+  PlusIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 import { useCyberChatStore } from '../store/useCyberChatStore';
 import { CollapsibleTree } from './CollapsibleTree';
 import { ChatListItem } from './ChatListItem';

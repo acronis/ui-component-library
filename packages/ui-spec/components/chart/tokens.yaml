@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: Chart
 
-# References only. Values live in @spec-lab/tokens. Chart has no token
+# References only. Values live in @constructor-lab/tokens. Chart has no token
 # tier of its own — series colors are supplied by the caller via `config` (a
 # dedicated data-viz palette is pending an upstream design pass). The chrome
 # (container, tooltip, legend) and the recharts grid/axis overrides use the
 # shared semantic vocabulary, referenced here by the bridged Tailwind names that
 # resolve to these `--ui-*` tokens.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-background-surface-primary

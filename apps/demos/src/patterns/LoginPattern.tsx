@@ -7,7 +7,7 @@ import {
   Button,
   Input,
   Label,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function LoginPattern() {
   const [loading, setLoading] = React.useState(false);

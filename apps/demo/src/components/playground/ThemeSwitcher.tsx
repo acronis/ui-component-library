@@ -6,13 +6,13 @@ import {
 } from '@/components/icons/missing-icons';
 import { usePlaygroundStore } from '@/store/playground/playgroundStore.ts';
 import { ThemeMode } from '@/types/playground/index.ts';
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 interface ThemeSwitcherProps {
   variant?: 'button' | 'dropdown';

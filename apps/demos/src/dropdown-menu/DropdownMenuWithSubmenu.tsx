@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,12 +8,12 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CloudIcon,
   EnvelopeIcon,
   MessagesIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import {
   ExternalLinkIcon,
   LifeBuoyIcon,

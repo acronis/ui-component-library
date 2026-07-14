@@ -44,12 +44,12 @@ This is a React-only monorepo (no Vue). Your code lives in:
 
 - Use **semantic Tailwind v4 color names** (`bg-primary`, `text-foreground`,
   `border-border`, …). These are bridged to generated `--ui-*` CSS custom
-  properties from `@spec-lab/tokens` via the generated `@theme inline` block
+  properties from `@constructor-lab/tokens` via the generated `@theme inline` block
   imported in `src/styles/index.css`.
 - **Never hand-author a hex/hsl/oklch value.** If a color name isn't bridged
   yet, add it to the bridge map in `tools/style-dictionary`
   (`bridge/tailwind-theme.ts`) and rebuild. Theme values change upstream in
-  `@spec-lab/tokens` — never fork values inside a component.
+  `@constructor-lab/tokens` — never fork values inside a component.
 
 ## File layout per component
 
@@ -75,10 +75,10 @@ src/components/ui/<component>/
 Prefer `pnpm --filter <package> <script>` over `cd`:
 
 ```bash
-pnpm --filter @spec-lab/ui-react test       # Vitest
-pnpm --filter @spec-lab/ui-react lint       # ESLint
-pnpm --filter @spec-lab/ui-react typecheck  # tsc --noEmit
-pnpm --filter @spec-lab/ui-react build      # library build
+pnpm --filter @constructor-lab/ui-react test       # Vitest
+pnpm --filter @constructor-lab/ui-react lint       # ESLint
+pnpm --filter @constructor-lab/ui-react typecheck  # tsc --noEmit
+pnpm --filter @constructor-lab/ui-react build      # library build
 pnpm -r typecheck                                    # all workspaces (pre-commit runs this)
 ```
 

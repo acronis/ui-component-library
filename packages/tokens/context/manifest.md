@@ -1,6 +1,6 @@
 # Manifest — token files
 
-The shape of the `@spec-lab/tokens` token files, how their token values vary by mode and platform, and how they resolve through the alias chain. For DTCG/format rules, `$extensions` namespacing, and naming see [`spec.md`](./spec.md). Vocabulary (Tier, Group, Mode, Theme, Brand, Collection) lives in [`glossary.md`](./glossary.md). The authoritative schema is [`../schemas/tier.schema.json`](../schemas/tier.schema.json).
+The shape of the `@constructor-lab/tokens` token files, how their token values vary by mode and platform, and how they resolve through the alias chain. For DTCG/format rules, `$extensions` namespacing, and naming see [`spec.md`](./spec.md). Vocabulary (Tier, Group, Mode, Theme, Brand, Collection) lives in [`glossary.md`](./glossary.md). The authoritative schema is [`../schemas/tier.schema.json`](../schemas/tier.schema.json).
 
 ## The files
 
@@ -110,7 +110,7 @@ Alias values live inside the [`values.{modeName}` dict](#modes--themes) on each 
 
 ## Platform scope
 
-> ⚠️ This enum is mirrored in `@spec-lab/design-assets`; the two MUST stay in sync — a change here requires the same change there.
+> ⚠️ This enum is mirrored in `@constructor-lab/design-assets`; the two MUST stay in sync — a change here requires the same change there.
 
 Platform scope declares which consumers a token targets so downstream tooling can route correctly. It lives at `token.platforms` — top-level on the token, sibling to `values` / `$value` / `$extensions`. No collection-level inheritance, no per-mode override, no group-level placement. Every token MUST declare `platforms`.
 

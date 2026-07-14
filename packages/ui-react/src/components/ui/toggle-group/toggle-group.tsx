@@ -6,7 +6,7 @@ import { ToggleGroup as ToggleGroupPrimitive } from '@base-ui/react/toggle-group
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab`'s `toggle-group`, on Base UI's Toggle /
+// Ported from `@constructor-lab`'s `toggle-group`, on Base UI's Toggle /
 // ToggleGroup. No `--ui-toggle-*` tier — semantic tokens. The shared item style is
 // transparent when idle, the hover surface on hover, and the active surface +
 // foreground when pressed (legacy's `bg-muted` hover is near-white in ui-react, so

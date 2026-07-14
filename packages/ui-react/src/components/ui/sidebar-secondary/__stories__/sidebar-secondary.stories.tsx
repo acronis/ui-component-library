@@ -7,7 +7,7 @@ import {
   PlusIcon,
   ServerIcon,
   ShoppingCartIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import { ButtonIcon } from '../../button-icon';
 import { Tag } from '../../tag';

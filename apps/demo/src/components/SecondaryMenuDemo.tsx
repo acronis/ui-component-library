@@ -8,7 +8,7 @@ import {
   SecondaryMenuWithDisabled,
   SecondaryMenuComplete,
   SecondaryMenuSpecs,
-} from '@spec-lab/ui-kit-demos/secondary-menu';
+} from '@constructor-lab/ui-kit-demos/secondary-menu';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

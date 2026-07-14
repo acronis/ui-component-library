@@ -32,7 +32,7 @@ import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // Horizontal split
 <ResizablePanelGroup orientation="horizontal" className="h-64 rounded border">
@@ -57,5 +57,5 @@ import {
 ## Theming
 
 Colors, sizes, and the cursor come from the `--ui-resizable-*` token tier in
-`@spec-lab/tokens` (generated from `@spec-lab/tokens`)
+`@constructor-lab/tokens` (generated from `@constructor-lab/tokens`)
 and resolve per brand/theme — see `tokens.yaml`. Don't hard-code values.

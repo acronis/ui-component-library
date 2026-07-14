@@ -28,8 +28,8 @@ import {
   ButtonMenuDropdownContent,
   ButtonMenuDropdownSection,
   ButtonMenuDropdownItem,
-} from '@spec-lab/ui-react';
-import { PencilIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { PencilIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 <ButtonMenuDropdown>
   <ButtonMenuDropdownTrigger render={<ButtonMenu>Actions</ButtonMenu>} />

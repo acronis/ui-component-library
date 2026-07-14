@@ -19,7 +19,7 @@ while the menu is open. Two visual styles — `primary` (solid) and `secondary`
 ## Example (React — implemented)
 
 ```tsx
-import { ButtonMenu } from '@spec-lab/ui-react';
+import { ButtonMenu } from '@constructor-lab/ui-react';
 
 const [open, setOpen] = useState(false);
 

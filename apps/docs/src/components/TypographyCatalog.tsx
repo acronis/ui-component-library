@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 /**
- * Typography tokens are emitted by `@spec-lab/tokens` as
+ * Typography tokens are emitted by `@constructor-lab/tokens` as
  * `.ui-typography-*` utility classes (in `css/semantics.css`), not as custom
  * properties. This RSC reads that CSS at build time, parses each class rule and
  * its declarations, and renders a live sample per style with the parsed

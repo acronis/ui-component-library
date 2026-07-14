@@ -60,7 +60,7 @@ import {
   DialogFooter,
   DialogClose,
   Button,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Dialog>
   <DialogTrigger render={<Button variant="secondary">Open dialog</Button>} />

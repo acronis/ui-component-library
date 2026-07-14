@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: Tag
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # The token schema forbids a value/default key here — never restate values.
 # Tag binds the dedicated `--ui-tag-*` component tier: per variant a container
 # fill, container border color, label color, and icon color; geometry under
 # `--ui-tag-global-*`. The `ai` border color is a gradient.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Shared geometry (root) ──

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TimesIcon } from '@spec-lab/icons-react/stroke-mono';
+import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 // `removable` (Figma `dismissable`) carries a trailing × (remove) button;
 // `selectable` toggles a selected state; `operational` is an action chip with a
 // semibold brand-blue label and no × / toggle. The container fill/border and
-// geometry come from the shared `--ui-chip-global-*` tier from @spec-lab/tokens;
+// geometry come from the shared `--ui-chip-global-*` tier from @constructor-lab/tokens;
 // the label color is per-variant (`--ui-chip-<variant>-label-color`) and the icon
 // from `--ui-chip-global-icon-*`. The Figma `state` enum (idle / hover / active /
 // focused) maps to interaction states, not props: `hover:` → the hover tokens,

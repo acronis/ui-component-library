@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Single source of truth for AI agents working in `constructor-lab/facet`.
+Single source of truth for AI agents working in `constructor-lab/ui-component-library`.
 
 This file is the **root index**. It is intentionally short (~120 lines) so
 it fits in any context window. Specifics live in:
@@ -14,7 +14,7 @@ workspace's context when you work inside that subtree.
 
 ## Repository overview
 
-`constructor-lab/facet` is a pnpm monorepo containing a React component
+`constructor-lab/ui-component-library` is a pnpm monorepo containing a React component
 library, its framework-agnostic component specs, a demo SPA, a
 documentation site, a shared demos package, a design-tokens package, an
 icon set (SVG sources + generated React components), and a build-tooling
@@ -34,36 +34,36 @@ distinct role:
 
 ## Workspaces
 
-| Path                          | Package                          | Published? | Stack                                                                                                               | Workspace docs                                    |
-| ----------------------------- | -------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `packages/ui-react/`          | `@spec-lab/ui-react`             | **yes**    | Base UI library, Vite, Storybook 10, Vitest + RTL, Tailwind v4                                                      | [AGENTS.md](packages/ui-react/AGENTS.md)          |
-| `packages/ui-spec/`           | `@spec-lab/ui-spec`              | no         | Framework-agnostic component specs (YAML/MD) + cva conformance, Vitest, ajv-validated                               | [AGENTS.md](packages/ui-spec/AGENTS.md)           |
-| `packages/icons-react/`       | `@spec-lab/icons-react`          | **yes**    | React icons generated from `icons-svg`, Vite, Storybook, Vitest                                                     | [AGENTS.md](packages/icons-react/AGENTS.md)       |
-| `packages/icons-svg/`         | `@spec-lab/icons-svg`            | no         | Raw SVG sources for the **next-gen** icon set (Figma `icon-packs` strategy)                                         | [AGENTS.md](packages/icons-svg/AGENTS.md)         |
-| `apps/demo/`                  | `@spec-lab/ui-kit-demo`          | no         | Vite SPA, React Router v7, Zustand                                                                                  | [AGENTS.md](apps/demo/AGENTS.md)                  |
-| `apps/docs/`                  | `@spec-lab/uikit-docs`           | no         | Next.js 15 + Fumadocs                                                                                               | [AGENTS.md](apps/docs/AGENTS.md)                  |
-| `apps/demos/`                 | `@spec-lab/ui-kit-demos`         | no         | source-only (no build, no dev server)                                                                               | [AGENTS.md](apps/demos/AGENTS.md)                 |
-| `packages/tokens/`            | `@spec-lab/tokens`               | **yes**    | DTCG source tiers + generated (committed) CSS/SCSS/JS + Tailwind bridge, built by the tool                          | [AGENTS.md](packages/tokens/AGENTS.md)            |
-| `tools/style-dictionary/`     | `@spec-lab/style-dictionary`     | no         | Style Dictionary v5 build: `@spec-lab/tokens` tiers → CSS/SCSS/JS                                                   | [AGENTS.md](tools/style-dictionary/AGENTS.md)     |
-| `tools/figma-icons-fetcher/`  | `@spec-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg` (tsx, Vitest)                                            | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
-| `tools/figma-token-exporter/` | `@spec-lab/figma-token-exporter` | no         | Self-hosted Figma plugin + local receiver: exports variables/styles → the `@spec-lab/tokens` snapshot (tsx, Vitest) | [AGENTS.md](tools/figma-token-exporter/AGENTS.md) |
+| Path                          | Package                                 | Published? | Stack                                                                                                                      | Workspace docs                                    |
+| ----------------------------- | --------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `packages/ui-react/`          | `@constructor-lab/ui-react`             | **yes**    | Base UI library, Vite, Storybook 10, Vitest + RTL, Tailwind v4                                                             | [AGENTS.md](packages/ui-react/AGENTS.md)          |
+| `packages/ui-spec/`           | `@constructor-lab/ui-spec`              | no         | Framework-agnostic component specs (YAML/MD) + cva conformance, Vitest, ajv-validated                                      | [AGENTS.md](packages/ui-spec/AGENTS.md)           |
+| `packages/icons-react/`       | `@constructor-lab/icons-react`          | **yes**    | React icons generated from `icons-svg`, Vite, Storybook, Vitest                                                            | [AGENTS.md](packages/icons-react/AGENTS.md)       |
+| `packages/icons-svg/`         | `@constructor-lab/icons-svg`            | no         | Raw SVG sources for the **next-gen** icon set (Figma `icon-packs` strategy)                                                | [AGENTS.md](packages/icons-svg/AGENTS.md)         |
+| `apps/demo/`                  | `@constructor-lab/ui-kit-demo`          | no         | Vite SPA, React Router v7, Zustand                                                                                         | [AGENTS.md](apps/demo/AGENTS.md)                  |
+| `apps/docs/`                  | `@constructor-lab/uikit-docs`           | no         | Next.js 15 + Fumadocs                                                                                                      | [AGENTS.md](apps/docs/AGENTS.md)                  |
+| `apps/demos/`                 | `@constructor-lab/ui-kit-demos`         | no         | source-only (no build, no dev server)                                                                                      | [AGENTS.md](apps/demos/AGENTS.md)                 |
+| `packages/tokens/`            | `@constructor-lab/tokens`               | **yes**    | DTCG source tiers + generated (committed) CSS/SCSS/JS + Tailwind bridge, built by the tool                                 | [AGENTS.md](packages/tokens/AGENTS.md)            |
+| `tools/style-dictionary/`     | `@constructor-lab/style-dictionary`     | no         | Style Dictionary v5 build: `@constructor-lab/tokens` tiers → CSS/SCSS/JS                                                   | [AGENTS.md](tools/style-dictionary/AGENTS.md)     |
+| `tools/figma-icons-fetcher/`  | `@constructor-lab/figma-icons-fetcher`  | no         | Fetches + SVGO-optimizes icons from Figma into `icons-svg` (tsx, Vitest)                                                   | [AGENTS.md](tools/figma-icons-fetcher/AGENTS.md)  |
+| `tools/figma-token-exporter/` | `@constructor-lab/figma-token-exporter` | no         | Self-hosted Figma plugin + local receiver: exports variables/styles → the `@constructor-lab/tokens` snapshot (tsx, Vitest) | [AGENTS.md](tools/figma-token-exporter/AGENTS.md) |
 
 `packages/` holds the published workspaces:
 
 - `packages/ui-react/` houses the published **Base UI**
   library (`@base-ui/react` as a direct dep), themed by
-  `@spec-lab/tokens`. New component work goes here.
+  `@constructor-lab/tokens`. New component work goes here.
 - `packages/ui-spec/` — **private** framework-agnostic component specs for
   the kit (the 7-file YAML/MD format). Validates each spec against JSON
   Schemas and checks `cva` variant/size conformance against the `ui-react`
   source. Currently a Phase 0 spike (`button`, `button-icon`, `switch`).
 - `packages/icons-react/` — published React icon components, **generated**
-  from `@spec-lab/icons-svg` (scale/stroke rules baked into a `size`
+  from `@constructor-lab/icons-svg` (scale/stroke rules baked into a `size`
   prop). Per-pack subpath exports, tree-shakeable.
 - `packages/icons-svg/` — **private, source-only** raw SVG icon sources
   (monocolor + multicolor) for the **next-gen** icon set, pulled from Figma
   with the fetcher's `icon-packs` selection strategy. No build; it is the
-  generated source for `@spec-lab/icons-react`. Synced via its `pull-icons`
+  generated source for `@constructor-lab/icons-react`. Synced via its `pull-icons`
   script or the `Fetch Figma Icons (next)` workflow.
 - `packages/tokens/` — the published tokens package (**merges the former
   `design-tokens` source + `tokens-pd` output**). It holds the DTCG source
@@ -72,12 +72,12 @@ distinct role:
   `tools/style-dictionary`. The CSS is **reference-based**: `css/primitives.css`
   is the sole raw-value/`light-dark()` theme layer; semantics and per-component
   tiers are `var(--…)` references. Brand = `[data-brand]`, light/dark =
-  `[data-theme]`; one import (`@spec-lab/tokens/css`) pulls in everything.
+  `[data-theme]`; one import (`@constructor-lab/tokens/css`) pulls in everything.
 
 `tools/` holds private (unpublished) build tooling:
 
 - `tools/style-dictionary/` — a Style Dictionary v5 translation pipeline
-  that builds `@spec-lab/tokens`'s DTCG tiers into the package's generated
+  that builds `@constructor-lab/tokens`'s DTCG tiers into the package's generated
   (committed) reference-based `css/`, `scss/`, and `js/` (+ the Tailwind bridge).
   Its real script is `build`; asset output lands in a gitignored `dist/`.
 - `tools/figma-icons-fetcher/` — fetches SVG icons from a Figma file,
@@ -99,7 +99,7 @@ distinct role:
   `no-adhoc-sheet`), wired directly into the root `eslint.config.js`. **Not a pnpm
   workspace** — it has no `package.json` and none of the standard scripts; it's a
   plain JS module imported by the flat config. The seed of an eventual
-  `@spec-lab/eslint-plugin-patterns`.
+  `@constructor-lab/eslint-plugin-patterns`.
 
 ## Scripts vocabulary
 

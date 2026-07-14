@@ -1,6 +1,10 @@
 'use client';
 
-import { OTPField, OTPFieldInput, OTPFieldSeparator } from '@spec-lab/ui-react';
+import {
+  OTPField,
+  OTPFieldInput,
+  OTPFieldSeparator,
+} from '@constructor-lab/ui-react';
 
 export function OTPFieldDemo() {
   return (

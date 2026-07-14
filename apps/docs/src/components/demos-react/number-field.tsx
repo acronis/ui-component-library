@@ -6,7 +6,7 @@ import {
   NumberFieldGroup,
   NumberFieldIncrement,
   NumberFieldInput,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function NumberFieldDemo() {
   return (

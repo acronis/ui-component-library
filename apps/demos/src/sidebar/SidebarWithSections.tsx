@@ -5,12 +5,12 @@ import {
   SidebarSecondaryMenuItem,
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CogIcon,
   FolderHouseIcon,
   MagnifierIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { BarChartIcon } from '../icons/missing-icons';
 
 // Labeled section groups have no equivalent on SidebarPrimary (the icon rail

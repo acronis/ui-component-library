@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from '@spec-lab/ui-react';
+import { Button, ButtonGroup } from '@constructor-lab/ui-react';
 
 export function ButtonGroupVertical() {
   return (

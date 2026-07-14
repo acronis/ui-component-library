@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: SearchGlobal
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # The token schema forbids a value/default key here — never restate values.
 # Note: the border-color tokens are brand *gradients*, applied via a
 # padding-box/border-box background rather than `border-color`.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

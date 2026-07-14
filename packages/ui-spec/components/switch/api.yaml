@@ -48,7 +48,7 @@ adapters:
   react:
     component: Switch
     status: implemented
-    import: "import { Switch } from '@spec-lab/ui-react'"
+    import: "import { Switch } from '@constructor-lab/ui-react'"
     example: |
       <Switch
         aria-label="Wireless"
@@ -58,12 +58,12 @@ adapters:
   vue:
     component: AvSwitch
     status: planned
-    import: "import { AvSwitch } from '@spec-lab/ui-vue'"
+    import: "import { AvSwitch } from '@constructor-lab/ui-vue'"
     example: |
       <AvSwitch v-model="enabled" aria-label="Wireless" />
   web-components:
     element: ui-switch
     status: planned
-    import: "import '@spec-lab/ui-wc/switch'"
+    import: "import '@constructor-lab/ui-wc/switch'"
     example: |
       <ui-switch aria-label="Wireless"></ui-switch>

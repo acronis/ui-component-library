@@ -1,6 +1,6 @@
 # AGENTS.md — `apps/docs`
 
-`@spec-lab/uikit-docs` — the documentation site.
+`@constructor-lab/uikit-docs` — the documentation site.
 **Private**, not published.
 
 Cross-cutting topics live in `../../context/*.md`. This file documents
@@ -17,12 +17,12 @@ only what is specific to this workspace.
 ## Running
 
 ```bash
-pnpm --filter @spec-lab/uikit-docs dev
+pnpm --filter @constructor-lab/uikit-docs dev
 ```
 
 ## What this site documents
 
-The site documents **`@spec-lab/ui-react`** (the next-gen Base UI
+The site documents **`@constructor-lab/ui-react`** (the next-gen Base UI
 library) and its ecosystem packages (tokens, icons-react, design-assets).
 
 ## Content structure
@@ -38,20 +38,20 @@ library) and its ecosystem packages (tokens, icons-react, design-assets).
 - `content/docs/packages/` — the ecosystem section (`tokens`, `icons-react`,
   `design-assets`).
 - `src/components/demos-react/` — `'use client'` demos for the **ui-react**
-  pages, importing straight from `@spec-lab/ui-react`. One
+  pages, importing straight from `@constructor-lab/ui-react`. One
   `<Name>Demo` per component, rendered through `<DemoReact>` (see below).
 - `src/components/DemoReact.tsx` + `src/components/ShadowDemo.tsx` — the
   ui-react live-preview wrapper: `ShadowDemo` mounts the demo in a **shadow
   root** that adopts ui-react's stylesheet (fetched from `/api/ui-react-css`),
   isolating it from the Fumadocs CSS on the global document.
 - `src/components/IconCatalog.tsx` — searchable catalog rendering the
-  `@spec-lab/icons-react` packs (`/docs/icons`).
+  `@constructor-lab/icons-react` packs (`/docs/icons`).
 
 ## ui-react live demos (shadow-root isolated)
 
 ui-react component pages render **live `<DemoReact>` previews**, not just static
 code blocks — but docs don't import these from the shared
-`@spec-lab/ui-kit-demos` package (the one `apps/demo` consumes). Re-exporting a
+`@constructor-lab/ui-kit-demos` package (the one `apps/demo` consumes). Re-exporting a
 `"use client"` component across that package boundary hits a Next/RSC
 limitation: bundler-aliasing/re-exporting drops it from Next's client
 manifest, so it renders as `undefined` (see `packages/ui-react/AGENTS.md`) — a
@@ -59,7 +59,7 @@ problem Storybook's webpack build doesn't have. So ui-react demos are written
 directly in this workspace instead:
 
 - write a `'use client'` demo in `src/components/demos-react/<name>.tsx` that
-  imports directly from `@spec-lab/ui-react`, and
+  imports directly from `@constructor-lab/ui-react`, and
 - render it via `<DemoReact>`, which mounts it inside a **shadow root**
   (`ShadowDemo`) that adopts ui-react's stylesheet from `/api/ui-react-css`.
 
@@ -71,12 +71,12 @@ styles. See `card-filter.tsx` / `input-select.tsx` for the pattern.
 
 > **The demos need ui-react's compiled CSS — `predev`/`prebuild` build it.** The
 > `/api/ui-react-css` route serves ui-react's **compiled** `dist/ui-react.css`
-> (`node_modules/@spec-lab/ui-react/dist/ui-react.css`), a **gitignored**
+> (`node_modules/@constructor-lab/ui-react/dist/ui-react.css`), a **gitignored**
 > build artifact. If it's missing, the shadow root adopts no stylesheet and every
 > preview shows raw unstyled markup. To prevent that, this workspace's `dev` and
 > `build` scripts have `predev`/`prebuild` hooks that run
-> `pnpm --filter @spec-lab/ui-react build` first (pnpm runs `pre*` hooks by
-> default), so a fresh `pnpm --filter @spec-lab/uikit-docs dev` just works.
+> `pnpm --filter @constructor-lab/ui-react build` first (pnpm runs `pre*` hooks by
+> default), so a fresh `pnpm --filter @constructor-lab/uikit-docs dev` just works.
 > The cost is a ~1.5s ui-react rebuild on every dev/build start. (CI is also fine
 > independently — `pnpm -r build` builds ui-react topologically.) Because the
 > served sheet is Tailwind-compiled from ui-react's own source, a demo may only

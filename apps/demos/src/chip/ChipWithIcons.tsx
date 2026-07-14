@@ -1,10 +1,10 @@
-import { Chip } from '@spec-lab/ui-react';
+import { Chip } from '@constructor-lab/ui-react';
 import {
   CircleCheckIcon,
   EnvelopeIcon,
   StarIcon,
   UserIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { HeartIcon, TagIcon } from '../icons/missing-icons';
 export function ChipWithIcons() {
   return (

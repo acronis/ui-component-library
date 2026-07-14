@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: InputDatePicker
 
-# References only — values live in @spec-lab/tokens. The field furniture
+# References only — values live in @constructor-lab/tokens. The field furniture
 # (container / label / required / description / error) and the trigger box all use
 # the `--ui-input-date-picker-*` tier; the focus ring uses the shared `--ui-focus-*`
 # tokens. NOTE: the tier covers the trigger field only — the calendar popup is not
 # designed/tokenized yet.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Field container + label ──

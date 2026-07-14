@@ -46,7 +46,7 @@ import {
   ChartLegend,
   ChartLegendContent,
   type ChartConfig,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 
 const config = {
@@ -66,5 +66,5 @@ const config = {
 </ChartContainer>;
 ```
 
-`recharts` is a peer-resolved dependency of `@spec-lab/ui-react`; import
+`recharts` is a peer-resolved dependency of `@constructor-lab/ui-react`; import
 the chart primitives (`BarChart`, `Bar`, …) directly from `recharts`.

@@ -9,8 +9,8 @@ import {
   WidgetPlaceholderImage,
   WidgetPlaceholderText,
   WidgetPlaceholderTitle,
-} from '@spec-lab/ui-react';
-import { ChartBarVerticalIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { ChartBarVerticalIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 export function WidgetPlaceholderDemo() {
   return (

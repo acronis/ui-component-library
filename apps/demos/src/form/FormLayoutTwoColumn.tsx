@@ -7,16 +7,16 @@ import {
   FieldControl,
   FieldError,
   FieldLabel,
-} from '@spec-lab/ui-react';
-import { InputBox } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { InputBox } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const formSchema = z.object({
   firstName: z.string().min(1, 'First name is required.'),

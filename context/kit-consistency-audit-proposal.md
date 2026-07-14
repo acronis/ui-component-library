@@ -241,7 +241,7 @@ defect.
 
 ## 6. Part B — Static automated checks (`kit-lint`)
 
-A new `pnpm --filter @spec-lab/ui-react kit-lint` (and a ui-spec
+A new `pnpm --filter @constructor-lab/ui-react kit-lint` (and a ui-spec
 counterpart) runs the **static** detectors over source + the **computed** token
 vocabulary. It extends, not replaces, `ui-spec test` and `audit.sh`.
 

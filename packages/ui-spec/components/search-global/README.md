@@ -27,7 +27,7 @@ keyboard-shortcut hint. It's the top-level search entry point of an app.
 ## Examples
 
 ```tsx
-import { SearchGlobal } from '@spec-lab/ui-react';
+import { SearchGlobal } from '@constructor-lab/ui-react';
 
 // Default
 <SearchGlobal onChange={(e) => setQuery(e.target.value)} />
@@ -56,7 +56,7 @@ useEffect(() => {
 ## Theming
 
 Colors, sizes, the gradient border, and typography come from the
-`--ui-search-global-*` token tier in `@spec-lab/tokens` (generated from
-`@spec-lab/tokens`) and resolve per brand/theme — see `tokens.yaml`.
+`--ui-search-global-*` token tier in `@constructor-lab/tokens` (generated from
+`@constructor-lab/tokens`) and resolve per brand/theme — see `tokens.yaml`.
 The border is a brand gradient, applied with a padding-box / border-box background
 rather than `border-color`. Don't hard-code values.

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '@spec-lab/ui-react';
+import { cn } from '@constructor-lab/ui-react';
 
 export function NavigationMenuSecondaryTab() {
   const [activeTab, setActiveTab] = React.useState('overview');

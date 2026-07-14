@@ -10,7 +10,7 @@ import {
 // Drift gate: the committed spec-index.json is a generated artifact consumed by
 // apps/demo. Regenerate it in-memory and deep-equal it against the committed
 // file — if they diverge, someone changed a spec without re-running
-// `pnpm --filter @spec-lab/ui-spec generate:spec-index`.
+// `pnpm --filter @constructor-lab/ui-spec generate:spec-index`.
 describe('spec-index.json is not stale', () => {
   it('matches a fresh build from the YAML sources', () => {
     const committed = JSON.parse(

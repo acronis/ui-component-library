@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { Button, Input } from '@spec-lab/ui-react';
+import { Button, Input } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   ChevronDownIcon,
   MagnifierIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function DropdownMenuWithSearch() {
   const [searchQuery, setSearchQuery] = useState('');
 

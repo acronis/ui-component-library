@@ -1,5 +1,8 @@
-import { TreeView, type TreeNode } from '@spec-lab/ui-react';
-import { FileTextIcon, FolderIcon } from '@spec-lab/icons-react/stroke-mono';
+import { TreeView, type TreeNode } from '@constructor-lab/ui-react';
+import {
+  FileTextIcon,
+  FolderIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 import { CodeIcon } from '../icons/missing-icons';
 const projectData: TreeNode[] = [
   {

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
-import { ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono';
+import { ChevronDownIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 

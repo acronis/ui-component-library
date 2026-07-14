@@ -12,7 +12,7 @@ adapters:
   react:
     component: Section
     status: implemented
-    import: "import { Section, SectionHeader, SectionTitle, SectionDescription, SectionContent } from '@spec-lab/ui-react'"
+    import: "import { Section, SectionHeader, SectionTitle, SectionDescription, SectionContent } from '@constructor-lab/ui-react'"
     example: |
       <Section>
         <SectionHeader>
@@ -24,12 +24,12 @@ adapters:
   vue:
     component: AvSection
     status: planned
-    import: "import { AvSection } from '@spec-lab/ui-vue'"
+    import: "import { AvSection } from '@constructor-lab/ui-vue'"
     example: |
       <AvSection />
   web-components:
     element: ui-section
     status: planned
-    import: "import '@spec-lab/ui-wc/section'"
+    import: "import '@constructor-lab/ui-wc/section'"
     example: |
       <ui-section></ui-section>

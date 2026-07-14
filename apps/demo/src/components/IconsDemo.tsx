@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Input } from '@spec-lab/ui-react';
-import * as StrokeMonoIcons from '@spec-lab/icons-react/stroke-mono';
-import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Input } from '@constructor-lab/ui-react';
+import * as StrokeMonoIcons from '@constructor-lab/icons-react/stroke-mono';
+import { MagnifierIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 // TODO(uikit): re-do with approved pattern. `AutoIcons` was a legacy
 // icon-catalog helper with no ui-react equivalent — browse the
-// `@spec-lab/icons-react/stroke-mono` pack directly instead.
+// `@constructor-lab/icons-react/stroke-mono` pack directly instead.
 export function IconsDemo() {
   const [searchQuery, setSearchQuery] = React.useState('');
 

@@ -399,7 +399,7 @@ This is the largest blast-radius phase and should be **one PR per component**
    or renaming a `--ui-*` token is **breaking**, and removing a component entry
    point (`css/<x>.css`) is breaking. This migration renames the entire component
    `--ui-*` surface and removes `chip`/`form` entry points → a **breaking** bump
-   on `@spec-lab/tokens`.
+   on `@constructor-lab/tokens`.
    Pre-1.0, that's a **minor** per the repo's convention (PR #266 uses the same
    `!`/minor framing). Use a `!`-marked conventional commit + changesets for both
    packages, with a migration note enumerating the rename map.

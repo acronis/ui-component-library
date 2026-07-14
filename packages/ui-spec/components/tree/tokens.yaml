@@ -1,7 +1,7 @@
 spec_version: '1.0'
 component: Tree
 
-# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# References only. Values live in @constructor-lab/tokens and resolve per brand/theme at
 # paint time. The token schema forbids a value/default key here.
 #
 # Tree has no dedicated `--ui-tree-*` tier yet (design-pending v1; Figma models it
@@ -9,7 +9,7 @@ component: Tree
 # vocabulary — the blue (electricblue/info) selection gamma the Figma uses.
 # Nesting indent + row gaps are geometry (not tokens). Checkbox and Tag pull their
 # own tiers via those components.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── row surface (idle transparent) ──

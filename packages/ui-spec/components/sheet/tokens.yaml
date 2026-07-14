@@ -1,14 +1,14 @@
 spec_version: '1.0'
 component: Sheet
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # Design-pending v1: no `--ui-sheet-*` component tier exists yet, so the panel
 # consumes the shared *semantic* tokens (mirroring the Dialog family) via bridged
 # Tailwind names (bg-muted / bg-background / text-foreground /
 # text-muted-foreground / border-border) plus direct var() refs for the overlay
 # and focus ring. Replace with a `--ui-sheet-*` tier if a Figma pass introduces one.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

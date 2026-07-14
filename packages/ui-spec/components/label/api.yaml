@@ -19,19 +19,19 @@ adapters:
   react:
     component: Label
     status: implemented
-    import: "import { Label } from '@spec-lab/ui-react'"
+    import: "import { Label } from '@constructor-lab/ui-react'"
     example: |
       <Label htmlFor="email">Email address</Label>
       <Input id="email" />
   vue:
     component: AvLabel
     status: planned
-    import: "import { AvLabel } from '@spec-lab/ui-vue'"
+    import: "import { AvLabel } from '@constructor-lab/ui-vue'"
     example: |
       <AvLabel for="email">Email address</AvLabel>
   web-components:
     element: ui-label
     status: planned
-    import: "import '@spec-lab/ui-wc/label'"
+    import: "import '@constructor-lab/ui-wc/label'"
     example: |
       <ui-label for="email">Email address</ui-label>

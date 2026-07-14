@@ -1,12 +1,16 @@
 'use client';
 
-import { Toggle, ToggleGroup, ToggleGroupItem } from '@spec-lab/ui-react';
+import {
+  Toggle,
+  ToggleGroup,
+  ToggleGroupItem,
+} from '@constructor-lab/ui-react';
 import {
   LayoutGridIcon,
   LayoutTableIcon,
   ListIcon,
   StarIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 export function ToggleGroupDemo() {
   return (

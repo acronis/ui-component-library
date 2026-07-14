@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Filter } from '@spec-lab/ui-react';
+import { Filter } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function FilterWithDropdown() {
   const [statusFilters, setStatusFilters] = React.useState<string[]>([]);

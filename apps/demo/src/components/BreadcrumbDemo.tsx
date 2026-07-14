@@ -4,7 +4,7 @@ import {
   BreadcrumbWithIcons,
   BreadcrumbWithEllipsis,
   BreadcrumbIconsEllipsis,
-} from '@spec-lab/ui-kit-demos/breadcrumb';
+} from '@constructor-lab/ui-kit-demos/breadcrumb';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

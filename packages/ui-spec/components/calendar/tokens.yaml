@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: Calendar
 
-# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# References only. Values live in @constructor-lab/tokens and resolve per brand/theme at
 # paint time. The token schema forbids a value/default key here.
 #
 # Calendar has no dedicated `--ui-calendar-*` tier yet (design-pending v1); it
 # binds the shared SEMANTIC vocabulary via bridged Tailwind names. Day/nav
 # geometry is a local `--cell-size` (not a token) + react-day-picker defaults.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── surface + text ──

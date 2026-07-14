@@ -1,4 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@spec-lab/ui-react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@constructor-lab/ui-react';
 
 export function CardVariants() {
   return (

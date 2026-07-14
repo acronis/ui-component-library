@@ -1,6 +1,6 @@
 # AGENTS.md — `apps/demos`
 
-`@spec-lab/ui-kit-demos` — a **source-only** workspace
+`@constructor-lab/ui-kit-demos` — a **source-only** workspace
 that houses reusable component demos consumed by `apps/demo` and
 `apps/docs`. **Private**, not published.
 

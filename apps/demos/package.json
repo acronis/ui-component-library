@@ -1,5 +1,5 @@
 {
-  "name": "@spec-lab/ui-kit-demos",
+  "name": "@constructor-lab/ui-kit-demos",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "catalog:",
-    "@spec-lab/icons-react": "workspace:*",
-    "@spec-lab/ui-react": "workspace:*",
+    "@constructor-lab/icons-react": "workspace:*",
+    "@constructor-lab/ui-react": "workspace:*",
     "@tanstack/react-form": "1.33.1",
     "@tanstack/react-table": "catalog:",
     "date-fns": "catalog:",

@@ -38,8 +38,8 @@ import {
   AlertContent,
   AlertTitle,
   AlertDescription,
-} from '@spec-lab/ui-react';
-import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { CircleWarningIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 <Alert variant="destructive">
   <AlertIcon>

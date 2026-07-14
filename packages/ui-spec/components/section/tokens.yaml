@@ -1,9 +1,9 @@
 spec_version: '1.0'
 component: Section
 
-# References only. Values live in @spec-lab/tokens. Only the description
+# References only. Values live in @constructor-lab/tokens. Only the description
 # carries color (muted secondary text); the title inherits the foreground.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-text-on-surface-secondary

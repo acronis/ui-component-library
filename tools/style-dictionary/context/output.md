@@ -17,7 +17,7 @@ everything downstream is a `var(--…)` reference.
 - `components/<component>.css` — one file per component tier (`Button.css`, …),
   each token a `var(--…)` reference onto a semantic or primitive.
 - `index.css` — the single-import manifest that `@import`s the three above
-  (consumed as `@spec-lab/tokens/css`).
+  (consumed as `@constructor-lab/tokens/css`).
 - `tailwind-theme.css` — the generated Tailwind v4 `@theme inline` bridge (below).
 
 Tokens partition into files by `token.path[0]`: the primitive roots (`palette`,

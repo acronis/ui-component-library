@@ -48,7 +48,7 @@ adapters:
   react:
     component: SearchGlobal
     status: implemented
-    import: "import { SearchGlobal } from '@spec-lab/ui-react'"
+    import: "import { SearchGlobal } from '@constructor-lab/ui-react'"
     example: |
       <SearchGlobal
         placeholder="Search anything"
@@ -59,13 +59,13 @@ adapters:
   vue:
     component: AvSearchGlobal
     status: planned
-    import: "import { AvSearchGlobal } from '@spec-lab/ui-vue'"
+    import: "import { AvSearchGlobal } from '@constructor-lab/ui-vue'"
     example: |
       <AvSearchGlobal placeholder="Search anything" shortcut="⌘K" v-model="query" />
 
   web-components:
     element: ui-search-global
     status: planned
-    import: "import '@spec-lab/ui-wc/search-global'"
+    import: "import '@constructor-lab/ui-wc/search-global'"
     example: |
       <ui-search-global placeholder="Search anything" shortcut="⌘K"></ui-search-global>

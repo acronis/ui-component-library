@@ -9,7 +9,7 @@ import {
   FieldLabel,
   Form,
   InputBox,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function FormDemo() {
   return (

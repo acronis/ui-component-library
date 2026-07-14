@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 export function ButtonDisabled() {
   return (

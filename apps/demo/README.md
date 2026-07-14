@@ -1,6 +1,6 @@
-# @spec-lab/ui-kit-demo
+# @constructor-lab/ui-kit-demo
 
-Demo application showcasing all components from the @spec-lab/shadcn-uikit library.
+Demo application showcasing all components from the @constructor-lab/shadcn-uikit library.
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ The demo app will be available at `http://localhost:3000`
 
 ## Development
 
-This demo app uses the `@spec-lab/shadcn-uikit` library as a workspace dependency, allowing you to develop and test components in real-time.
+This demo app uses the `@constructor-lab/shadcn-uikit` library as a workspace dependency, allowing you to develop and test components in real-time.
 
 ## License
 

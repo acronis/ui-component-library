@@ -66,7 +66,7 @@ Capture is driven by the [`/screen-audit`](../../../../.claude/skills/screen-aud
 skill (navigate the story → inject the probe → write a snapshot JSON), then:
 
 ```bash
-pnpm --filter @spec-lab/ui-spec screen-audit <screen-slug> <snapshot.json>
+pnpm --filter @constructor-lab/ui-spec screen-audit <screen-slug> <snapshot.json>
 ```
 
 The CLI prints findings grouped by severity and exits non-zero on any `must`.

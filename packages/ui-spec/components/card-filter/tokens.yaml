@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: CardFilter
 
-# References only — values live in @spec-lab/tokens. Geometry and the
+# References only — values live in @constructor-lab/tokens. Geometry and the
 # container fill / border come from the `--ui-card-filter-global-*` tokens; the
 # value color is the one token that varies by variant
 # (`-clickable-value-color`, `-static-value-color-*`).
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Geometry (root) ──

@@ -4,4 +4,4 @@
 // ui-react build, so useTheme() shares the same context as the docs app's
 // ThemeProvider (from Fumadocs RootProvider), and toast() calls from demos
 // reach this same Toaster instance.
-export { Toaster } from '@spec-lab/ui-react';
+export { Toaster } from '@constructor-lab/ui-react';

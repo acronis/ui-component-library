@@ -159,21 +159,21 @@ importers:
 
   apps/demo:
     dependencies:
+      '@constructor-lab/icons-react':
+        specifier: workspace:*
+        version: link:../../packages/icons-react
+      '@constructor-lab/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
+      '@constructor-lab/ui-kit-demos':
+        specifier: workspace:*
+        version: link:../demos
+      '@constructor-lab/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       '@hookform/resolvers':
         specifier: 'catalog:'
         version: 5.4.0(react-hook-form@7.81.0(react@19.2.7))
-      '@spec-lab/icons-react':
-        specifier: workspace:*
-        version: link:../../packages/icons-react
-      '@spec-lab/tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
-      '@spec-lab/ui-kit-demos':
-        specifier: workspace:*
-        version: link:../demos
-      '@spec-lab/ui-react':
-        specifier: workspace:*
-        version: link:../../packages/ui-react
       '@tanstack/react-table':
         specifier: 'catalog:'
         version: 8.21.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -238,7 +238,7 @@ importers:
         specifier: 5.0.14
         version: 5.0.14(@types/react@19.2.17)(immer@11.1.8)(react@19.2.7)(use-sync-external-store@1.6.0(react@19.2.7))
     devDependencies:
-      '@spec-lab/ui-spec':
+      '@constructor-lab/ui-spec':
         specifier: workspace:*
         version: link:../../packages/ui-spec
       '@tailwindcss/postcss':
@@ -280,15 +280,15 @@ importers:
 
   apps/demos:
     dependencies:
+      '@constructor-lab/icons-react':
+        specifier: workspace:*
+        version: link:../../packages/icons-react
+      '@constructor-lab/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       '@hookform/resolvers':
         specifier: 'catalog:'
         version: 5.4.0(react-hook-form@7.81.0(react@19.2.7))
-      '@spec-lab/icons-react':
-        specifier: workspace:*
-        version: link:../../packages/icons-react
-      '@spec-lab/ui-react':
-        specifier: workspace:*
-        version: link:../../packages/ui-react
       '@tanstack/react-form':
         specifier: 1.33.1
         version: 1.33.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -335,18 +335,18 @@ importers:
       '@base-ui/react':
         specifier: 'catalog:'
         version: 1.6.0(@date-fns/tz@1.5.0)(@types/react@19.2.17)(date-fns@4.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@constructor-lab/icons-react':
+        specifier: workspace:*
+        version: link:../../packages/icons-react
+      '@constructor-lab/ui-kit-demos':
+        specifier: workspace:*
+        version: link:../demos
+      '@constructor-lab/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       '@radix-ui/react-dialog':
         specifier: 1.1.19
         version: 1.1.19(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@spec-lab/icons-react':
-        specifier: workspace:*
-        version: link:../../packages/icons-react
-      '@spec-lab/ui-kit-demos':
-        specifier: workspace:*
-        version: link:../demos
-      '@spec-lab/ui-react':
-        specifier: workspace:*
-        version: link:../../packages/ui-react
       '@tanstack/react-table':
         specifier: 'catalog:'
         version: 8.21.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -405,7 +405,7 @@ importers:
 
   packages/icons-react:
     devDependencies:
-      '@spec-lab/icons-svg':
+      '@constructor-lab/icons-svg':
         specifier: workspace:*
         version: link:../icons-svg
       '@storybook/addon-a11y':
@@ -471,7 +471,7 @@ importers:
 
   packages/icons-svg:
     devDependencies:
-      '@spec-lab/figma-icons-fetcher':
+      '@constructor-lab/figma-icons-fetcher':
         specifier: workspace:*
         version: link:../../tools/figma-icons-fetcher
       tsx:
@@ -480,7 +480,7 @@ importers:
 
   packages/tokens:
     devDependencies:
-      '@spec-lab/style-dictionary':
+      '@constructor-lab/style-dictionary':
         specifier: workspace:*
         version: link:../../tools/style-dictionary
       ajv:
@@ -498,10 +498,10 @@ importers:
       '@base-ui/react':
         specifier: 'catalog:'
         version: 1.6.0(@date-fns/tz@1.5.0)(@types/react@19.2.17)(date-fns@4.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@spec-lab/icons-react':
+      '@constructor-lab/icons-react':
         specifier: workspace:*
         version: link:../icons-react
-      '@spec-lab/tokens':
+      '@constructor-lab/tokens':
         specifier: workspace:*
         version: link:../tokens
       '@tanstack/react-table':

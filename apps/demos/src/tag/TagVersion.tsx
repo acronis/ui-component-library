@@ -1,4 +1,4 @@
-import { Tag } from '@spec-lab/ui-react';
+import { Tag } from '@constructor-lab/ui-react';
 
 export function TagVersion() {
   return (

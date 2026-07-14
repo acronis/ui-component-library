@@ -1,6 +1,6 @@
 'use client';
 
-import { Progress } from '@spec-lab/ui-react';
+import { Progress } from '@constructor-lab/ui-react';
 
 export function ProgressDemo() {
   return (

@@ -5,8 +5,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
-import { Button, Label, Switch } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Button, Label, Switch } from '@constructor-lab/ui-react';
 
 export function CardSettings() {
   return (

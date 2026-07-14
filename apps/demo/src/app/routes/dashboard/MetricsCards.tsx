@@ -1,12 +1,17 @@
 import * as React from 'react';
-import { UsersIcon } from '@spec-lab/icons-react/stroke-mono';
+import { UsersIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
   TrendingUpIcon,
   TrendingDownIcon,
   DollarSignIcon,
   ActivityIcon,
 } from '@/components/icons/missing-icons';
-import { Card, CardContent, CardHeader, CardTitle } from '@spec-lab/ui-react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@constructor-lab/ui-react';
 import type { DashboardMetrics } from '../../types';
 
 interface MetricsCardsProps {

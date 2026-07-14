@@ -23,7 +23,7 @@ import {
   TabsList,
   TabsTrigger,
   Input,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   AreaChart,
   Area,

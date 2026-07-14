@@ -72,7 +72,7 @@ adapters:
   react:
     component: OTPField
     status: implemented
-    import: "import { OTPField, OTPFieldInput, OTPFieldSeparator } from '@spec-lab/ui-react'"
+    import: "import { OTPField, OTPFieldInput, OTPFieldSeparator } from '@constructor-lab/ui-react'"
     example: |
       <OTPField length={6} onValueComplete={verify}>
         {Array.from({ length: 6 }).map((_, i) => (
@@ -93,7 +93,7 @@ adapters:
   vue:
     component: AvOtpField
     status: planned
-    import: "import { AvOtpField, AvOtpFieldInput } from '@spec-lab/ui-vue'"
+    import: "import { AvOtpField, AvOtpFieldInput } from '@constructor-lab/ui-vue'"
     example: |
       <AvOtpField :length="6" @value-complete="verify">
         <AvOtpFieldInput v-for="i in 6" :key="i" />
@@ -101,6 +101,6 @@ adapters:
   web-components:
     element: ui-otp-field
     status: planned
-    import: "import '@spec-lab/ui-wc/otp-field'"
+    import: "import '@constructor-lab/ui-wc/otp-field'"
     example: |
       <ui-otp-field length="6"></ui-otp-field>

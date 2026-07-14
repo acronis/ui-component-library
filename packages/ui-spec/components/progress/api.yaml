@@ -27,19 +27,19 @@ adapters:
   react:
     component: Progress
     status: implemented
-    import: "import { Progress } from '@spec-lab/ui-react'"
+    import: "import { Progress } from '@constructor-lab/ui-react'"
     example: |
       <Progress value={40} />
       <Progress value={null} />
   vue:
     component: AvProgress
     status: planned
-    import: "import { AvProgress } from '@spec-lab/ui-vue'"
+    import: "import { AvProgress } from '@constructor-lab/ui-vue'"
     example: |
       <AvProgress :value="40" />
   web-components:
     element: ui-progress
     status: planned
-    import: "import '@spec-lab/ui-wc/progress'"
+    import: "import '@constructor-lab/ui-wc/progress'"
     example: |
       <ui-progress value="40"></ui-progress>

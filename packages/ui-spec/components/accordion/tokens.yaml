@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: Accordion
 
-# References only. Values live in @spec-lab/tokens. Accordion is mostly
+# References only. Values live in @constructor-lab/tokens. Accordion is mostly
 # markup; it uses the shared divider border, the muted secondary text for the
 # chevron + panel body, and the focus ring on the trigger.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-border-on-surface-border

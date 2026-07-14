@@ -8,7 +8,7 @@
  * descriptor, run the detectors, print findings keyed by checklist id +
  * severity, and exit non-zero on any `must`.
  *
- * Run:   pnpm --filter @spec-lab/ui-spec screen-audit <screen-slug> <snapshot.json>
+ * Run:   pnpm --filter @constructor-lab/ui-spec screen-audit <screen-slug> <snapshot.json>
  * Design: context/kit-consistency-audit-proposal.md §7  ·  rules: ../grammar
  */
 import { readFileSync } from 'node:fs';

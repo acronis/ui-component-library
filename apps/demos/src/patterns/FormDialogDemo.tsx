@@ -16,7 +16,7 @@ import {
   FieldLabel,
   Form,
   InputText,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export interface FormDialogDemoProps {
   // Where the dialog overlay portals to. In shadow-root hosts (docs preview)

@@ -1,4 +1,4 @@
-import { Spinner } from '@spec-lab/ui-react';
+import { Spinner } from '@constructor-lab/ui-react';
 
 export function SpinnerWithText() {
   return (

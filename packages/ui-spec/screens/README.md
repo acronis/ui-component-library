@@ -1,7 +1,7 @@
 # `screens` — product screen descriptors
 
 The **application layer**: machine-readable descriptions of real product screens,
-assembled from real `@spec-lab/ui-react` components. This is the layer
+assembled from real `@constructor-lab/ui-react` components. This is the layer
 above `components/` (one component), `patterns/` (a recipe), and `grammar/`
 (cross-component rules). A screen descriptor is the "screen spec" that the
 rendered **screen consistency audit** ([`audit/`](./audit/README.md), Phase 3)
@@ -47,7 +47,7 @@ detectors (control-height parity, accessible name, contrast, edge alignment,
 reserved-gutter clipping, icon-size parity, vertical rhythm) over the measured DOM
 — keyed to the grammar's `screen/*` rules, `must` blocks CI. Driven by the
 [`/screen-audit`](../../../.claude/skills/screen-audit/SKILL.md) skill +
-`pnpm --filter @spec-lab/ui-spec screen-audit <slug> <snapshot.json>`.
+`pnpm --filter @constructor-lab/ui-spec screen-audit <slug> <snapshot.json>`.
 
 ## Next
 

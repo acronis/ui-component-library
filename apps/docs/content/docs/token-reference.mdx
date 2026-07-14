@@ -1,15 +1,15 @@
 ---
 title: Token reference
-description: Every --ui-* design token shipped by @spec-lab/tokens, grouped by tier.
+description: Every --ui-* design token shipped by @constructor-lab/tokens, grouped by tier.
 ---
 
 import { TokenReference } from '@/components/TokenReference';
 
-[`@spec-lab/tokens`](/packages/tokens) ships design tokens as CSS custom
+[`@constructor-lab/tokens`](/packages/tokens) ships design tokens as CSS custom
 properties (`--ui-*`). The **Primitives** (`css/primitives.css`), **Semantic**
 tier (`css/semantics.css`), and each **component** tier
 (`css/components/<Component>.css`) are all pulled in by the single
-`@spec-lab/tokens/css` import (which `@spec-lab/ui-react/styles` bundles).
+`@constructor-lab/tokens/css` import (which `@constructor-lab/ui-react/styles` bundles).
 
 Values are shown for the `acronis` brand; most are `var(--…)` **references** onto
 a primitive, and the primitive resolves via [`light-dark()`](/theming), so the

@@ -1,9 +1,9 @@
 spec_version: '1.0'
 component: AuthLayout
 
-# References only. Values live in @spec-lab/tokens. The page + card use
+# References only. Values live in @constructor-lab/tokens. The page + card use
 # the primary surface, the card a border; the footer is muted.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-background-surface-primary

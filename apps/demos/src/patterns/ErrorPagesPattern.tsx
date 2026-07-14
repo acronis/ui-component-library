@@ -7,7 +7,7 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 function Error404() {
   return (

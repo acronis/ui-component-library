@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
-import { SquareArrowUpRightIcon } from '@spec-lab/icons-react/stroke-mono';
+import { SquareArrowUpRightIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';

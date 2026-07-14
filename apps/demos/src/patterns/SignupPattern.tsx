@@ -8,7 +8,7 @@ import {
   Input,
   Label,
   Progress,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const steps = ['Account', 'Profile', 'Done'];
 

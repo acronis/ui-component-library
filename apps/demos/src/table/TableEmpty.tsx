@@ -5,7 +5,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function TableEmpty() {
   return (

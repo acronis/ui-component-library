@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Table
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # Table has its own `--ui-table-*` component tier (opt-in via an @import in
 # ui-react's styles/index.css); the sort-button focus ring reuses the shared
 # semantic `--ui-focus-primary`.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

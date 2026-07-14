@@ -1,9 +1,9 @@
-import { ButtonIcon } from '@spec-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
 import {
   ArrowRotationIcon,
   EllipsisIcon,
   FilesIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import {
   ThumbsUpIcon,
   ThumbsDownIcon,

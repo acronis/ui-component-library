@@ -6,7 +6,7 @@ import {
   CircleCheckIcon,
   CircleTimesIcon,
   TriangleWarningIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';

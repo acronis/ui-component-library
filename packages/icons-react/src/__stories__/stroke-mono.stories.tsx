@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BoltIcon, icons, type IconName } from '../packs/stroke-mono';
 
 /**
- * The `stroke-mono` pack, generated from `@spec-lab/icons-svg`.
+ * The `stroke-mono` pack, generated from `@constructor-lab/icons-svg`.
  * Icons use `currentColor` (inherit text color) and apply the design size +
  * stroke rules via the `size` prop.
  */

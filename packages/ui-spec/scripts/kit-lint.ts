@@ -1,12 +1,12 @@
 /**
  * kit-lint — static cross-component consistency detectors (Phase 1).
  *
- * Scans the shipped `@spec-lab/ui-react` component source for the
+ * Scans the shipped `@constructor-lab/ui-react` component source for the
  * `kit-lint`-detectable rows of the grammar checklist and reports findings keyed
  * by rule id + severity. `must` findings are defects (the test + CLI fail on
  * them); `should`/`may` are warnings.
  *
- * Run:   pnpm --filter @spec-lab/ui-spec kit-lint
+ * Run:   pnpm --filter @constructor-lab/ui-spec kit-lint
  * Design: context/kit-consistency-audit-proposal.md  ·  rules: ../grammar
  *
  * Detectors are added over the rollout; a grammar rule whose `detector` is not
@@ -31,7 +31,7 @@ const REPO = resolve(HERE, '../../..');
 const UI_DIR = resolve(REPO, 'packages/ui-react/src/components/ui');
 const STYLES = resolve(REPO, 'packages/ui-react/src/styles/index.css');
 // The `@theme inline` bridge (shadcn color names → --ui-* tokens) is generated
-// into @spec-lab/tokens and imported by ui-react; ui-react's index.css may still
+// into @constructor-lab/tokens and imported by ui-react; ui-react's index.css may still
 // add local `--color-*`. Read both so the bridged-name set is complete.
 const TW_BRIDGE = resolve(REPO, 'packages/tokens/css/tailwind-theme.css');
 

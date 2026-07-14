@@ -58,7 +58,7 @@ adapters:
   react:
     component: InputSearch
     status: implemented
-    import: "import { InputSearch } from '@spec-lab/ui-react'"
+    import: "import { InputSearch } from '@constructor-lab/ui-react'"
     example: |
       <InputSearch label="Find" placeholder="Search table" />
 
@@ -75,12 +75,12 @@ adapters:
   vue:
     component: AvInputSearch
     status: planned
-    import: "import { AvInputSearch } from '@spec-lab/ui-vue'"
+    import: "import { AvInputSearch } from '@constructor-lab/ui-vue'"
     example: |
       <AvInputSearch label="Find" placeholder="Search table" v-model="query" />
   web-components:
     element: ui-input-search
     status: planned
-    import: "import '@spec-lab/ui-wc/input-search'"
+    import: "import '@constructor-lab/ui-wc/input-search'"
     example: |
       <ui-input-search label="Find" placeholder="Search table"></ui-input-search>

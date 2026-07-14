@@ -15,11 +15,11 @@ jobs:
       matrix:
         include:
           - name: ui-react
-            filter: '@spec-lab/ui-react'
+            filter: '@constructor-lab/ui-react'
             dir: packages/ui-react
             color_mode: light
           - name: ui-react
-            filter: '@spec-lab/ui-react'
+            filter: '@constructor-lab/ui-react'
             dir: packages/ui-react
             color_mode: dark
     name: visual-regression (${{ matrix.name }}${{ matrix.color_mode && format(', {0}', matrix.color_mode) || '' }})
@@ -87,7 +87,7 @@ jobs:
           key: storybook-${{ matrix.name }}-${{ runner.os }}-${{ hashFiles(format('{0}/src/**', matrix.dir), format('{0}/.storybook/**', matrix.dir), format('{0}/package.json', matrix.dir)) }}
           restore-keys: storybook-${{ matrix.name }}-${{ runner.os }}-
 
-      # ui-react depends on generated @spec-lab/icons-react output
+      # ui-react depends on generated @constructor-lab/icons-react output
       # (generated sources + dist/ are gitignored). Build that package (and its
       # own prerequisites) before Storybook so imports resolve. Avoid broad
       # ui-react recursive builds here: they also pull in tokens/style-dictionary,
@@ -95,7 +95,7 @@ jobs:
       # design-assets schema migrations.
       - name: Build workspace dependencies
         if: matrix.name == 'ui-react' && steps.changes.outputs[matrix.name] == 'true'
-        run: pnpm --filter @spec-lab/icons-react... run build
+        run: pnpm --filter @constructor-lab/icons-react... run build
 
       - name: Build Storybook
         if: steps.changes.outputs[matrix.name] == 'true'

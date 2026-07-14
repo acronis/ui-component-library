@@ -1,8 +1,8 @@
 {
-  "name": "@spec-lab/style-dictionary",
+  "name": "@constructor-lab/style-dictionary",
   "version": "0.1.0",
   "private": true,
-  "description": "Translation tool: builds @spec-lab/tokens into per-brand CSS custom properties via an intermediate DTCG pass.",
+  "description": "Translation tool: builds @constructor-lab/tokens into per-brand CSS custom properties via an intermediate DTCG pass.",
   "type": "module",
   "scripts": {
     "build": "tsx src/index.ts",

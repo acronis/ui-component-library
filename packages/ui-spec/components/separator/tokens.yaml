@@ -1,9 +1,9 @@
 spec_version: '1.0'
 component: Separator
 
-# References only. Values live in @spec-lab/tokens. No `--ui-separator-*`
+# References only. Values live in @constructor-lab/tokens. No `--ui-separator-*`
 # tier yet; the rule uses the shared divider token (bridged as bg-border).
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

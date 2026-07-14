@@ -4,7 +4,7 @@ import {
   NavigationMenuSecondaryTab,
   NavigationMenuSimple,
   NavigationMenuWithIcons,
-} from '@spec-lab/ui-kit-demos/navigation-menu';
+} from '@constructor-lab/ui-kit-demos/navigation-menu';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

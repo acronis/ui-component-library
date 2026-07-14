@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: ButtonMenuDropdown
 
-# References only — values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time. This component
+# References only — values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time. This component
 # has its OWN dedicated `--ui-button-menu-dropdown-*` tier (it does not reuse the
 # generic semantic tokens the design-pending DropdownMenu consumes).
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Panel container (root popup) ──

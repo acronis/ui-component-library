@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { specIndex, statusVariant } from './spec-index';
 
 // The console itself is the app-shell realization of the protection-dashboard

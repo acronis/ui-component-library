@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Spinner } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+import { Spinner } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 export function SpinnerButton() {
   const [loading, setLoading] = React.useState(false);

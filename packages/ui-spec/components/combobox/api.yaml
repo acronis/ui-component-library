@@ -53,7 +53,7 @@ adapters:
   react:
     component: Combobox
     status: implemented
-    import: "import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxEmpty } from '@spec-lab/ui-react'"
+    import: "import { Combobox, ComboboxInput, ComboboxContent, ComboboxList, ComboboxItem, ComboboxEmpty } from '@constructor-lab/ui-react'"
     example: |
       <Combobox items={frameworks}>
         <ComboboxInput placeholder="Search…" />
@@ -67,12 +67,12 @@ adapters:
   vue:
     component: AvCombobox
     status: planned
-    import: "import { AvCombobox } from '@spec-lab/ui-vue'"
+    import: "import { AvCombobox } from '@constructor-lab/ui-vue'"
     example: |
       <AvCombobox :items="frameworks" />
   web-components:
     element: ui-combobox
     status: planned
-    import: "import '@spec-lab/ui-wc/combobox'"
+    import: "import '@constructor-lab/ui-wc/combobox'"
     example: |
       <ui-combobox></ui-combobox>

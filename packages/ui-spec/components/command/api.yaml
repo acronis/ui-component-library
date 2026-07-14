@@ -59,7 +59,7 @@ adapters:
   react:
     component: Command
     status: implemented
-    import: "import { Command, CommandDialog } from '@spec-lab/ui-react'"
+    import: "import { Command, CommandDialog } from '@constructor-lab/ui-react'"
     example: |
       const commands = [
         { heading: 'Suggestions', items: [

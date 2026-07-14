@@ -10,18 +10,18 @@ adapters:
   react:
     component: PageContent
     status: implemented
-    import: "import { PageContent } from '@spec-lab/ui-react'"
+    import: "import { PageContent } from '@constructor-lab/ui-react'"
     example: |
       <AppShellMain><PageContent>{children}</PageContent></AppShellMain>
   vue:
     component: AvPageContent
     status: planned
-    import: "import { AvPageContent } from '@spec-lab/ui-vue'"
+    import: "import { AvPageContent } from '@constructor-lab/ui-vue'"
     example: |
       <AvPageContent />
   web-components:
     element: ui-page-content
     status: planned
-    import: "import '@spec-lab/ui-wc/page-content'"
+    import: "import '@constructor-lab/ui-wc/page-content'"
     example: |
       <ui-page-content></ui-page-content>

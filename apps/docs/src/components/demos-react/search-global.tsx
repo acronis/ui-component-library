@@ -1,6 +1,6 @@
 'use client';
 
-import { SearchGlobal } from '@spec-lab/ui-react';
+import { SearchGlobal } from '@constructor-lab/ui-react';
 
 export function SearchGlobalDemo() {
   return (

@@ -8,7 +8,7 @@ import {
   PageHeader,
   PageHeaderRow,
   PageHeaderTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const nav = ['Dashboard', 'Workloads', 'Protection', 'Reports', 'Settings'];
 const widgets = [

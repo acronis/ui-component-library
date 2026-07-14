@@ -152,7 +152,7 @@ adapters:
       SidebarSecondaryMenuItem, SidebarSecondaryMenuSub,
       SidebarSecondaryMenuSubTrigger, SidebarSecondaryMenuSubContent,
       SidebarSecondaryMenuSubItem, SidebarSecondaryMenuItemExtras } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <SidebarSecondary expanded={expanded} onExpandedChange={setExpanded}>
         <SidebarSecondaryHeader label="Protection" />
@@ -179,7 +179,7 @@ adapters:
   vue:
     component: AvSidebarSecondary
     status: planned
-    import: "import { AvSidebarSecondary, AvSidebarSecondaryMenuItem } from '@spec-lab/ui-vue'"
+    import: "import { AvSidebarSecondary, AvSidebarSecondaryMenuItem } from '@constructor-lab/ui-vue'"
     example: |
       <AvSidebarSecondary :expanded="expanded">
         <AvSidebarSecondaryMenuItem to="/dashboard" selected>Dashboard</AvSidebarSecondaryMenuItem>
@@ -188,7 +188,7 @@ adapters:
   web-components:
     element: ui-sidebar-secondary
     status: planned
-    import: "import '@spec-lab/ui-wc/sidebar-secondary'"
+    import: "import '@constructor-lab/ui-wc/sidebar-secondary'"
     example: |
       <ui-sidebar-secondary expanded>
         <ui-sidebar-secondary-menu-item href="/dashboard" selected>Dashboard</ui-sidebar-secondary-menu-item>

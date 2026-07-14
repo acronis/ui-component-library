@@ -1,7 +1,7 @@
 # AGENTS.md — `packages/icons-react`
 
-`@spec-lab/icons-react` — React icon components **generated from**
-[`@spec-lab/icons-svg`](../icons-svg). Published.
+`@constructor-lab/icons-react` — React icon components **generated from**
+[`@constructor-lab/icons-svg`](../icons-svg). Published.
 
 Repo-wide rules live in the repo root's `./context/`. This file documents
 only what's specific to this workspace.
@@ -44,7 +44,7 @@ The hand-written code is small:
 
 ## Public API
 
-- Per-pack subpath exports: `@spec-lab/icons-react/{stroke,solid}-{mono,multi}`.
+- Per-pack subpath exports: `@constructor-lab/icons-react/{stroke,solid}-{mono,multi}`.
 - Per-icon **named exports** (`BanIcon`, `ChevronDownIcon`) — tree-shakeable.
   Naming is `PascalCase(asset) + "Icon"`; numeric-leading asset names take an
   `Icon` prefix instead (`365-sync` → `Icon365Sync`) so the identifier stays
@@ -57,8 +57,8 @@ The hand-written code is small:
 
 All four icons-svg packs are generated (see `scripts/packs.ts`):
 `stroke-mono` (395), `solid-mono` (59), `stroke-multi` (12), `solid-multi` (1).
-Counts grow as the upstream `@spec-lab/icons-svg` set does — no
-code change needed. `@spec-lab/ui-react` depends on this package so
+Counts grow as the upstream `@constructor-lab/icons-svg` set does — no
+code change needed. `@constructor-lab/ui-react` depends on this package so
 components/stories can compose icons.
 
 The icons-svg source is a live WIP surface, so generated names can include

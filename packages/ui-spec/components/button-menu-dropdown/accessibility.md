@@ -33,6 +33,6 @@
 ## Contrast
 
 - Color pairs come from the `--ui-button-menu-dropdown-*` tier in
-  `@spec-lab/tokens` and are maintained against WCAG AA at the design-token
+  `@constructor-lab/tokens` and are maintained against WCAG AA at the design-token
   level. The disabled treatment relies on the item still resolving its label /
   icon tokens under a reduced-emphasis row.

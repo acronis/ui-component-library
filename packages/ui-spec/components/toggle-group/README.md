@@ -26,7 +26,7 @@ standalone `Toggle`. Built on Base UI's Toggle / ToggleGroup.
 ## Example
 
 ```tsx
-import { ToggleGroup, ToggleGroupItem } from '@spec-lab/ui-react';
+import { ToggleGroup, ToggleGroupItem } from '@constructor-lab/ui-react';
 
 <ToggleGroup defaultValue={['grid']} aria-label="View mode">
   <ToggleGroupItem value="grid" aria-label="Grid view">

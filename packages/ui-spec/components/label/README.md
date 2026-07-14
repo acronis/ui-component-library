@@ -20,7 +20,7 @@ A caption for a form control — small, medium-weight text tied to an input.
 ## Example
 
 ```tsx
-import { Label, Input } from '@spec-lab/ui-react';
+import { Label, Input } from '@constructor-lab/ui-react';
 
 <div className="flex flex-col gap-2">
   <Label htmlFor="email">Email address</Label>

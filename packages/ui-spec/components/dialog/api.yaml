@@ -71,7 +71,7 @@ adapters:
     import: >-
       import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle,
       DialogCloseButton, DialogBody, DialogDescription, DialogFooter } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Dialog>
         <DialogTrigger render={<Button variant="secondary">Open</Button>} />
@@ -93,7 +93,7 @@ adapters:
   vue:
     component: AvDialog
     status: planned
-    import: "import { AvDialog, AvDialogContent } from '@spec-lab/ui-vue'"
+    import: "import { AvDialog, AvDialogContent } from '@constructor-lab/ui-vue'"
     example: |
       <AvDialog v-model:open="open">
         <AvDialogContent>
@@ -104,7 +104,7 @@ adapters:
   web-components:
     element: ui-dialog
     status: planned
-    import: "import '@spec-lab/ui-wc/dialog'"
+    import: "import '@constructor-lab/ui-wc/dialog'"
     example: |
       <ui-dialog open>
         <ui-dialog-content>

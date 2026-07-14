@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { Filter } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@spec-lab/ui-react';
+import { Filter } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@constructor-lab/ui-react';
 
 export function FilterInteractive() {
   const [activeFilters, setActiveFilters] = React.useState<string[]>([]);

@@ -6,7 +6,7 @@ import {
   CircleWarningIcon,
   InboxIcon,
   MagnifierIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 

@@ -13,12 +13,12 @@ Releases in this monorepo are automated with
 
 The flow applies to every published workspace:
 
-- `@spec-lab/ui-react` — the next-generation React component library
+- `@constructor-lab/ui-react` — the next-generation React component library
   (primary)
-- `@spec-lab/shadcn-uikit` — the legacy library (`ui-legacy`)
-- `@spec-lab/icons-react`
-- `@spec-lab/tokens`
-- `@spec-lab/design-assets`
+- `@constructor-lab/shadcn-uikit` — the legacy library (`ui-legacy`)
+- `@constructor-lab/icons-react`
+- `@constructor-lab/tokens`
+- `@constructor-lab/design-assets`
 
 The `apps/` and `tools/` workspaces are private and never published (they are
 in `.changeset/config.json`'s `ignore` list).
@@ -117,8 +117,8 @@ These back the Release workflow — you rarely run them locally:
 ## Usage after publishing
 
 ```tsx
-import '@spec-lab/ui-react/styles';
-import { Button, InputText, Switch } from '@spec-lab/ui-react';
+import '@constructor-lab/ui-react/styles';
+import { Button, InputText, Switch } from '@constructor-lab/ui-react';
 
 function App() {
   return <Button>Click me</Button>;

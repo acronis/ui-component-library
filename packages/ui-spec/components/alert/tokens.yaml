@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Alert
 
-# References only. Values live in @spec-lab/tokens. Reconciled with the Figma
+# References only. Values live in @constructor-lab/tokens. Reconciled with the Figma
 # "Alert" set (node 4313-4953): a subtle status border (--ui-border-on-status-*),
 # a pale status surface (--ui-background-status-*), foreground text, and a
 # status-tinted icon / close glyph (--ui-glyph-on-status-*). The dismiss button's
 # hover surface uses --ui-background-status-*-hover. Figma's `Unknown` = neutral.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-text-on-surface-primary

@@ -1,6 +1,6 @@
 'use client';
 
-import { ScrollArea } from '@spec-lab/ui-react';
+import { ScrollArea } from '@constructor-lab/ui-react';
 
 const rowStyle: React.CSSProperties = {
   borderRadius: 6,

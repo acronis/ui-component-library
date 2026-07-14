@@ -17,17 +17,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WORKSPACES: >-
-        @spec-lab/ui-kit-demo
-        @spec-lab/ui-kit-demos
-        @spec-lab/uikit-docs
-        @spec-lab/tokens
-        @spec-lab/icons-react
-        @spec-lab/icons-svg
-        @spec-lab/ui-react
-        @spec-lab/ui-spec
-        @spec-lab/figma-icons-fetcher
-        @spec-lab/figma-token-exporter
-        @spec-lab/style-dictionary
+        @constructor-lab/ui-kit-demo
+        @constructor-lab/ui-kit-demos
+        @constructor-lab/uikit-docs
+        @constructor-lab/tokens
+        @constructor-lab/icons-react
+        @constructor-lab/icons-svg
+        @constructor-lab/ui-react
+        @constructor-lab/ui-spec
+        @constructor-lab/figma-icons-fetcher
+        @constructor-lab/figma-token-exporter
+        @constructor-lab/style-dictionary
 
     steps:
       - name: Checkout
@@ -125,9 +125,9 @@ jobs:
 
       # Apps import the libraries by package name, so their dist (incl. types)
       # must exist before `pnpm -r typecheck`. Building ui-react's graph covers
-      # @spec-lab/tokens (generated CSS), icons-react, and the design-data packages.
+      # @constructor-lab/tokens (generated CSS), icons-react, and the design-data packages.
       - name: Build library dependencies
-        run: pnpm --filter "@spec-lab/ui-react..." run build
+        run: pnpm --filter "@constructor-lab/ui-react..." run build
 
       - name: Lint (per workspace)
         run: |
@@ -141,7 +141,7 @@ jobs:
 
       # Generate the fumadocs .source files needed by apps/docs typecheck.
       - name: Generate fumadocs source
-        run: pnpm --filter @spec-lab/uikit-docs exec fumadocs-mdx
+        run: pnpm --filter @constructor-lab/uikit-docs exec fumadocs-mdx
 
       - name: Typecheck (per workspace)
         run: |
@@ -155,7 +155,7 @@ jobs:
       - name: Build
         run: pnpm -r build
 
-      # @spec-lab/tokens ships generated, committed artifacts (css/scss/js/dtcg).
+      # @constructor-lab/tokens ships generated, committed artifacts (css/scss/js/dtcg).
       # Fail the build if a token change wasn't re-generated + committed (the
       # build above is idempotent).
       - name: Verify generated tokens are committed
@@ -220,7 +220,7 @@ jobs:
       # Fail closed before building: the resolver re-asserts the schema, but the
       # package's own ajv validate is the authoritative gate.
       - name: Validate design-assets
-        run: pnpm --filter @spec-lab/design-assets validate
+        run: pnpm --filter @constructor-lab/design-assets validate
 
       - name: Build changed assets
         env:
@@ -238,7 +238,7 @@ jobs:
               exit 0
             fi
             echo "Existing packs: $packs"
-            pnpm --filter @spec-lab/style-dictionary build pd-assets web-assets --pack="$packs"
+            pnpm --filter @constructor-lab/style-dictionary build pd-assets web-assets --pack="$packs"
           else
             packs=$(printf '%s\n' $PACKS_FILES \
               | sed -nE 's#packages/design-assets/packs/([a-z0-9-]+)(\.json|/.*)#\1#p' \
@@ -254,5 +254,5 @@ jobs:
               exit 0
             fi
             echo "Changed packs: $packs"
-            pnpm --filter @spec-lab/style-dictionary build pd-assets web-assets --pack="$packs"
+            pnpm --filter @constructor-lab/style-dictionary build pd-assets web-assets --pack="$packs"
           fi

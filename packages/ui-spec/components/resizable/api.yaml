@@ -77,7 +77,7 @@ adapters:
     status: implemented
     import: >-
       import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <ResizablePanelGroup orientation="horizontal">
         <ResizablePanel defaultSize={50}>One</ResizablePanel>
@@ -90,7 +90,7 @@ adapters:
     status: planned
     import: >-
       import { AvResizablePanelGroup, AvResizablePanel, AvResizableHandle } from
-      '@spec-lab/ui-vue'
+      '@constructor-lab/ui-vue'
     example: |
       <AvResizablePanelGroup orientation="horizontal">
         <AvResizablePanel :default-size="50">One</AvResizablePanel>
@@ -101,7 +101,7 @@ adapters:
   web-components:
     element: ui-resizable-group
     status: planned
-    import: "import '@spec-lab/ui-wc/resizable'"
+    import: "import '@constructor-lab/ui-wc/resizable'"
     example: |
       <ui-resizable-group orientation="horizontal">
         <ui-resizable-panel default-size="50">One</ui-resizable-panel>

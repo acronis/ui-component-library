@@ -335,7 +335,7 @@ style-dictionary.
 ## Phase 7 — Rebuild tokens
 
 ```bash
-pnpm --filter @spec-lab/style-dictionary build
+pnpm --filter @constructor-lab/style-dictionary build
 ```
 
 ---
@@ -343,7 +343,7 @@ pnpm --filter @spec-lab/style-dictionary build
 ## Phase 8 — Validate
 
 ```bash
-pnpm --filter @spec-lab/tokens validate
+pnpm --filter @constructor-lab/tokens validate
 ```
 
 On failure, diagnose. Common causes:
@@ -368,8 +368,8 @@ Create `.changeset/<name>.md`. The changeset must include:
 
 ```markdown
 ---
-'@spec-lab/tokens': minor # or patch/major
-'@spec-lab/tokens': minor
+'@constructor-lab/tokens': minor # or patch/major
+'@constructor-lab/tokens': minor
 ---
 
 ## tokens

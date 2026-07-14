@@ -28,18 +28,18 @@ adapters:
   react:
     component: Grid
     status: implemented
-    import: "import { Grid } from '@spec-lab/ui-react'"
+    import: "import { Grid } from '@constructor-lab/ui-react'"
     example: |
       <Grid cols={4} gap="lg">{cells}</Grid>
   vue:
     component: AvGrid
     status: planned
-    import: "import { AvGrid } from '@spec-lab/ui-vue'"
+    import: "import { AvGrid } from '@constructor-lab/ui-vue'"
     example: |
       <AvGrid :cols="4" />
   web-components:
     element: ui-grid
     status: planned
-    import: "import '@spec-lab/ui-wc/grid'"
+    import: "import '@constructor-lab/ui-wc/grid'"
     example: |
       <ui-grid></ui-grid>

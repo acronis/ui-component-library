@@ -1,14 +1,14 @@
 spec_version: '1.0'
 component: Card
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # This is a design-pending v1: no `--ui-card-*` component tier exists yet, so the
 # card consumes the shared *semantic* tokens (via the bridged Tailwind names
 # bg-background / text-foreground / border-border / text-muted-foreground in
 # ui-react's styles/index.css). Replace these with a `--ui-card-*` tier if/when a
 # Figma pass introduces one.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

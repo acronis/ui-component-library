@@ -1,10 +1,10 @@
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function TooltipCustomDelay() {
   return (

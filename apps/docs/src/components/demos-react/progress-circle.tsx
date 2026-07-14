@@ -1,6 +1,6 @@
 'use client';
 
-import { ProgressCircle } from '@spec-lab/ui-react';
+import { ProgressCircle } from '@constructor-lab/ui-react';
 
 export function ProgressCircleDemo() {
   return (

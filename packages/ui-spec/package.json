@@ -1,5 +1,5 @@
 {
-  "name": "@spec-lab/ui-spec",
+  "name": "@constructor-lab/ui-spec",
   "version": "0.0.0",
   "private": true,
   "description": "Framework-agnostic component specifications for the Constructor Lab UI Kit (Phase 0 spike).",

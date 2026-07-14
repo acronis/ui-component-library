@@ -17,6 +17,6 @@ packages/tokens/dtcg
 packages/tokens/tiers
 
 # Generated (and gitignored) React icon packs, emitted by icons-react's
-# `generate` script from @spec-lab/icons-svg. Regenerated on every build/typecheck,
+# `generate` script from @constructor-lab/icons-svg. Regenerated on every build/typecheck,
 # so Prettier can never keep them formatted — leave them to the generator.
 packages/icons-react/src/packs

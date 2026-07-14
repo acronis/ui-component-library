@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
-import { CircleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { CircleWarningIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;

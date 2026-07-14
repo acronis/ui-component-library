@@ -8,7 +8,7 @@ import {
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function SecondaryMenuWithTags() {
   const [activeItem, setActiveItem] = useState('feature1');

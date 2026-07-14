@@ -68,7 +68,7 @@ jobs:
       # Storybook's static build uses relative asset paths, so it works under the
       # subpath with no base flag (same as the legacy build above).
       - name: Build ui-react storybook dependencies
-        run: pnpm --filter @spec-lab/icons-react... run build
+        run: pnpm --filter @constructor-lab/icons-react... run build
 
       - name: Build ui-react storybook
         run: pnpm --filter ./packages/ui-react run storybook:build
@@ -78,12 +78,12 @@ jobs:
           rm -rf apps/demo/dist/storybook-react
           cp -r packages/ui-react/storybook-static apps/demo/dist/storybook-react
 
-      # The docs import @spec-lab/ui-react (and icons-react) from their
+      # The docs import @constructor-lab/ui-react (and icons-react) from their
       # built dist — the ui-react Storybook build above only bundles src, it does
       # not emit the library dist — so build the ui-react library (+ its deps)
       # before the docs build, or the static export fails to resolve the package.
       - name: Build docs dependencies
-        run: pnpm --filter "@spec-lab/ui-react..." run build
+        run: pnpm --filter "@constructor-lab/ui-react..." run build
 
       - name: Build docs
         run: DOCS_STATIC_EXPORT=true DOCS_BASE_PATH=/uikit/docs pnpm --filter ./apps/docs run build

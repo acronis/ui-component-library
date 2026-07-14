@@ -79,8 +79,8 @@ export default defineConfig(({ mode }) => ({
     ],
     alias: {
       // Consume the shared demos package from source (HMR); its own imports of
-      // @spec-lab/ui-react resolve via node_modules.
-      '@spec-lab/ui-kit-demos': resolve(__dirname, '../demos/src'),
+      // @constructor-lab/ui-react resolve via node_modules.
+      '@constructor-lab/ui-kit-demos': resolve(__dirname, '../demos/src'),
     },
     extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json'],
   },

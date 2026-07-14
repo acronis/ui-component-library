@@ -21,7 +21,7 @@ gap, alignment, justification, and wrapping.
 ## Example
 
 ```tsx
-import { Stack } from '@spec-lab/ui-react';
+import { Stack } from '@constructor-lab/ui-react';
 
 <Stack direction="horizontal" gap="sm" align="center">
   <Button>Save</Button>

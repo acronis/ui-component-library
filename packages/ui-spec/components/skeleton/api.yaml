@@ -12,18 +12,18 @@ adapters:
   react:
     component: Skeleton
     status: implemented
-    import: "import { Skeleton } from '@spec-lab/ui-react'"
+    import: "import { Skeleton } from '@constructor-lab/ui-react'"
     example: |
       <Skeleton className="h-4 w-[250px]" />
   vue:
     component: AvSkeleton
     status: planned
-    import: "import { AvSkeleton } from '@spec-lab/ui-vue'"
+    import: "import { AvSkeleton } from '@constructor-lab/ui-vue'"
     example: |
       <AvSkeleton class="h-4 w-[250px]" />
   web-components:
     element: ui-skeleton
     status: planned
-    import: "import '@spec-lab/ui-wc/skeleton'"
+    import: "import '@constructor-lab/ui-wc/skeleton'"
     example: |
       <ui-skeleton></ui-skeleton>

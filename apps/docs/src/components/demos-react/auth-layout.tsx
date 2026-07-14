@@ -7,7 +7,7 @@ import {
   AuthLayoutLogo,
   Button,
   InputText,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function AuthLayoutDemo() {
   return (

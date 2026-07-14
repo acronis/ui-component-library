@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: Menu
 
-# References only — values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time. Menu has its
+# References only — values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time. Menu has its
 # OWN dedicated `--ui-button-menu-dropdown-*` tier (named for the component it
 # was first built for); `ButtonMenuDropdown` and `DropdownMenu` alias Menu and
 # so share this same tier.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Panel container (root popup) ──

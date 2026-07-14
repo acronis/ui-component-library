@@ -6,7 +6,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function BreadcrumbWithEllipsis() {
   return (

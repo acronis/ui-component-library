@@ -1,6 +1,6 @@
 'use client';
 
-import { InputText, Label } from '@spec-lab/ui-react';
+import { InputText, Label } from '@constructor-lab/ui-react';
 
 export function LabelDemo() {
   return (

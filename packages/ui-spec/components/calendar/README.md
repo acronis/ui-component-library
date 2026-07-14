@@ -30,12 +30,12 @@ dropdowns) → `grid` of `weekday` headers and `day` cells.
 - Props are `react-day-picker`'s `DayPicker` props (`CalendarProps`) — `mode`,
   `selected`, `captionLayout`, `showOutsideDays`, `numberOfMonths`, `disabled`,
   formatters, locale, etc.
-- `react-day-picker@10` is a dependency of `@spec-lab/ui-react`.
+- `react-day-picker@10` is a dependency of `@constructor-lab/ui-react`.
 
 ## Examples
 
 ```tsx
-import { Calendar } from '@spec-lab/ui-react';
+import { Calendar } from '@constructor-lab/ui-react';
 
 // Single date (controlled)
 const [date, setDate] = React.useState<Date>();

@@ -1,17 +1,17 @@
 ---
 title: Legacy → ui-react migration
-description: Migrate from @spec-lab/shadcn-uikit to @spec-lab/ui-react with component mapping and codemod recipes.
+description: Migrate from @constructor-lab/shadcn-uikit to @constructor-lab/ui-react with component mapping and codemod recipes.
 ---
 
 # Legacy → ui-react migration guide
 
 This guide helps you migrate from:
 
-- `@spec-lab/shadcn-uikit` (legacy)
+- `@constructor-lab/shadcn-uikit` (legacy)
 
 To:
 
-- `@spec-lab/ui-react` (next generation)
+- `@constructor-lab/ui-react` (next generation)
 
 ## ui-react component ladder tracking
 
@@ -35,29 +35,29 @@ corresponding page in `/docs/components/*` in the same PR.
 ## 1) Switch package + styles
 
 ```bash
-pnpm remove @spec-lab/shadcn-uikit
-pnpm add @spec-lab/ui-react
+pnpm remove @constructor-lab/shadcn-uikit
+pnpm add @constructor-lab/ui-react
 ```
 
 ```tsx
 // before
-import '@spec-lab/shadcn-uikit/styles';
+import '@constructor-lab/shadcn-uikit/styles';
 
 // after
-import '@spec-lab/ui-react/styles';
+import '@constructor-lab/ui-react/styles';
 ```
 
 ## 2) Update imports
 
-Legacy code usually imports components from `@spec-lab/shadcn-uikit/react`.
-Move migrated components to `@spec-lab/ui-react`.
+Legacy code usually imports components from `@constructor-lab/shadcn-uikit/react`.
+Move migrated components to `@constructor-lab/ui-react`.
 
 ```tsx
 // before
-import { Button, Input, Switch } from '@spec-lab/shadcn-uikit/react';
+import { Button, Input, Switch } from '@constructor-lab/shadcn-uikit/react';
 
 // after
-import { Button, Input, Switch } from '@spec-lab/ui-react';
+import { Button, Input, Switch } from '@constructor-lab/ui-react';
 ```
 
 ## 3) Component mapping
@@ -117,13 +117,13 @@ module.exports = function transformer(file, api) {
   const root = j(file.source);
 
   const fromLegacy = new Set([
-    '@spec-lab/shadcn-uikit/react',
-    '@spec-lab/shadcn-uikit',
+    '@constructor-lab/shadcn-uikit/react',
+    '@constructor-lab/shadcn-uikit',
   ]);
 
   root.find(j.ImportDeclaration).forEach((path) => {
     if (!fromLegacy.has(path.node.source.value)) return;
-    path.node.source = j.stringLiteral('@spec-lab/ui-react');
+    path.node.source = j.stringLiteral('@constructor-lab/ui-react');
   });
 
   return root.toSource({ quote: 'single' });
@@ -149,7 +149,7 @@ module.exports = function transformer(file, api) {
 
   root
     .find(j.ImportDeclaration, {
-      source: { value: '@spec-lab/ui-react' },
+      source: { value: '@constructor-lab/ui-react' },
     })
     .forEach((path) => {
       path.node.specifiers?.forEach((specifier) => {
@@ -181,25 +181,25 @@ npx jscodeshift -t ./codemods/radio-group-item-to-radio.cjs "src/**/*.{ts,tsx}" 
 - Split mixed imports when needed:
 
 ```tsx
-import { Button, Input } from '@spec-lab/ui-react';
-import { Dialog, Popover } from '@spec-lab/shadcn-uikit/react';
+import { Button, Input } from '@constructor-lab/ui-react';
+import { Dialog, Popover } from '@constructor-lab/shadcn-uikit/react';
 ```
 
 - Re-test interactive components after migration (`Select`, `RadioGroup`, sidebars).
-- Verify style import points to `@spec-lab/ui-react/styles`.
+- Verify style import points to `@constructor-lab/ui-react/styles`.
 
 ## 6) Migrating icons
 
 Icons migrate independently of components. Legacy
-`@spec-lab/shadcn-uikit` re-exports icons under Constructor Lab names
-(`EditIcon`, `CustomerIcon`, `SearchIcon`); `@spec-lab/icons-react` uses
+`@constructor-lab/shadcn-uikit` re-exports icons under Constructor Lab names
+(`EditIcon`, `CustomerIcon`, `SearchIcon`); `@constructor-lab/icons-react` uses
 descriptive names on a **different art grid** (`PencilIcon`, `BriefcaseIcon`,
 `MagnifierIcon`), so names must be resolved **authoritatively — not guessed**.
 
 ### The authoritative name map
 
 `icons-react` ships the bridge as data — the
-`@spec-lab/icons-react/legacy-map` export (`legacy-icon-map.json`),
+`@constructor-lab/icons-react/legacy-map` export (`legacy-icon-map.json`),
 generated from the design-assets `legacyNames` bridge. It maps every legacy icon
 name to its icons-react name per pack variant, classifying each as:
 
@@ -229,12 +229,12 @@ TARGET=stroke-mono node .claude/skills/migrate-icons/scripts/resolve-map.mjs
 
 # 3) Apply — rewrite imports + JSX, dedupe collisions, hold the rest on legacy
 MAP=.icon-migration/iconmap.json \
-FROM=@spec-lab/shadcn-uikit \
-TO=@spec-lab/icons-react/stroke-mono \
+FROM=@constructor-lab/shadcn-uikit \
+TO=@constructor-lab/icons-react/stroke-mono \
   node .claude/skills/migrate-icons/scripts/apply-icons.mjs
 
 # 4) Verify — types + tests, then confirm only intended holds remain
-npx tsc -b --noEmit && grep -R "@spec-lab/shadcn-uikit" src
+npx tsc -b --noEmit && grep -R "@constructor-lab/shadcn-uikit" src
 ```
 
 `IconProps` supports `size`/`className`/`style`, so `size={16}` and color
@@ -245,10 +245,10 @@ package until you decide on them — icon migration never blocks on them.
 
 ```bash
 # remaining legacy imports
-grep -R "@spec-lab/shadcn-uikit" src
+grep -R "@constructor-lab/shadcn-uikit" src
 
 # ui-react usage
-grep -R "@spec-lab/ui-react" src
+grep -R "@constructor-lab/ui-react" src
 ```
 
 A practical rollout is per feature/module: migrate files that use mapped components first, then keep the rest on legacy until their ui-react equivalents are available.

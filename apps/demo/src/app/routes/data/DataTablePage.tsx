@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { PlusIcon } from '@spec-lab/icons-react/stroke-mono';
-import { Button } from '@spec-lab/ui-react';
+import { PlusIcon } from '@constructor-lab/icons-react/stroke-mono';
+import { Button } from '@constructor-lab/ui-react';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,7 +10,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { DataTable } from './DataTable';
 import { NewRowDialog } from './NewRowDialog';
 import { DetailView } from './DetailView';

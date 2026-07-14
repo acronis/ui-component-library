@@ -4,8 +4,8 @@ import {
   FieldLabel,
   FieldDescription,
   FieldError,
-} from '@spec-lab/ui-react';
-import { Input } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
 
 export function FieldWithError() {
   return (

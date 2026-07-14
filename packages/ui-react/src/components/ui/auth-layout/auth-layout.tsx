@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 // A centered card layout for auth flows (sign-in / sign-up / forgot-password /
 // 2FA), reconciled with the Main-menu-improvements Figma (node 4906-362342).
-// Ported from `@spec-lab`'s `auth-layout`. Token fixes vs legacy: the card
+// Ported from `@constructor-lab`'s `auth-layout`. Token fixes vs legacy: the card
 // uses `bg-background` (legacy `bg-card` isn't bridged in ui-react) and a named
 // `border-border` (a bare `border` is transparent here).
 //

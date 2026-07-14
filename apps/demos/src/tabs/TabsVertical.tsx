@@ -1,5 +1,10 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@spec-lab/ui-react';
-import { Button, Input, Label } from '@spec-lab/ui-react';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@constructor-lab/ui-react';
+import { Button, Input, Label } from '@constructor-lab/ui-react';
 
 export function TabsVertical() {
   return (

@@ -5,7 +5,7 @@ import {
   ComboboxSmall,
   ComboboxForm,
   ComboboxDisabled,
-} from '@spec-lab/ui-kit-demos/combobox';
+} from '@constructor-lab/ui-kit-demos/combobox';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

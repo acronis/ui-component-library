@@ -25,7 +25,7 @@ An icon-only menu trigger: a 32×32 bordered button with a fixed ellipsis
 ## Examples
 
 ```tsx
-import { ButtonIconMenu } from '@spec-lab/ui-react';
+import { ButtonIconMenu } from '@constructor-lab/ui-react';
 
 // Presentational — keep `open` in sync with the menu you control
 <ButtonIconMenu

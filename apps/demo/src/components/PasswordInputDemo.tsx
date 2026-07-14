@@ -6,7 +6,7 @@ import {
   PasswordInputError,
   PasswordInputDisabled,
   PasswordInputSpecs,
-} from '@spec-lab/ui-kit-demos/password-input';
+} from '@constructor-lab/ui-kit-demos/password-input';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -3,7 +3,7 @@ component: Collapsible
 
 # Collapsible has no tokens of its own — it's a behavioral disclosure primitive
 # with no color. Content styling comes from the caller / the component built on it
-# (e.g. Accordion). Values live in @spec-lab/tokens.
-source: '@spec-lab/tokens'
+# (e.g. Accordion). Values live in @constructor-lab/tokens.
+source: '@constructor-lab/tokens'
 
 tokens: []

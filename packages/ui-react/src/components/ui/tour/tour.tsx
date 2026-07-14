@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Popover as PopoverPrimitive } from '@base-ui/react/popover';
-import { TimesIcon } from '@spec-lab/icons-react/stroke-mono';
+import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 import { Button, type ButtonProps } from '../button';

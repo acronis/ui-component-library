@@ -1,4 +1,4 @@
-import { Badge } from '@spec-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
 import type { Message, TableData } from '../../types';
 import { MessageActions } from './MessageActions';
 import { DataTable } from '../DataTable';

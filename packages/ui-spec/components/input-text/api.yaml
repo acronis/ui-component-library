@@ -61,7 +61,7 @@ adapters:
   react:
     component: InputText
     status: implemented
-    import: "import { InputText } from '@spec-lab/ui-react'"
+    import: "import { InputText } from '@constructor-lab/ui-react'"
     example: |
       <InputText label="Email" placeholder="you@example.com" description="We never share it" />
 
@@ -79,12 +79,12 @@ adapters:
   vue:
     element: AvInputText
     status: planned
-    import: "import { AvInputText } from '@spec-lab/ui-vue'"
+    import: "import { AvInputText } from '@constructor-lab/ui-vue'"
     example: |
       <AvInputText label="Email" placeholder="you@example.com" v-model="email" />
   web-components:
     element: ui-input-text
     status: planned
-    import: "import '@spec-lab/ui-wc/input-text'"
+    import: "import '@constructor-lab/ui-wc/input-text'"
     example: |
       <ui-input-text label="Email" placeholder="you@example.com"></ui-input-text>

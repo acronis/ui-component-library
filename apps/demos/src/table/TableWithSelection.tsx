@@ -6,8 +6,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/ui-react';
-import { Checkbox } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
 
 const users = [
   {

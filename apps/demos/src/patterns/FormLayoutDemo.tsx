@@ -16,7 +16,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export interface FormLayoutDemoProps {
   // In shadow-root hosts (docs preview) pass the shadow mount so the Select

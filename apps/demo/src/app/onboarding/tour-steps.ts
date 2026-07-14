@@ -1,4 +1,4 @@
-import type { TourContentProps } from '@spec-lab/ui-react';
+import type { TourContentProps } from '@constructor-lab/ui-react';
 
 // Stable `data-tour-id` values shared by the console landmarks (which set them)
 // and the tour step list (which anchors to them). Keeping them here means the

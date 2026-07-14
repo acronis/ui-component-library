@@ -5,7 +5,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function CollapsibleDemo() {
   return (

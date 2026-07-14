@@ -21,7 +21,7 @@ adapters:
   react:
     component: ScrollArea
     status: implemented
-    import: "import { ScrollArea, ScrollBar } from '@spec-lab/ui-react'"
+    import: "import { ScrollArea, ScrollBar } from '@constructor-lab/ui-react'"
     example: |
       <ScrollArea className="h-72">
         {longContent}
@@ -32,12 +32,12 @@ adapters:
   vue:
     component: AvScrollArea
     status: planned
-    import: "import { AvScrollArea } from '@spec-lab/ui-vue'"
+    import: "import { AvScrollArea } from '@constructor-lab/ui-vue'"
     example: |
       <AvScrollArea orientation="both" />
   web-components:
     element: ui-scroll-area
     status: planned
-    import: "import '@spec-lab/ui-wc/scroll-area'"
+    import: "import '@constructor-lab/ui-wc/scroll-area'"
     example: |
       <ui-scroll-area orientation="both"></ui-scroll-area>

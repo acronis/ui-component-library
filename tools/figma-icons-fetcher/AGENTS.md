@@ -1,6 +1,6 @@
 # AGENTS.md — `tools/figma-icons-fetcher`
 
-`@spec-lab/figma-icons-fetcher` — a **private** (unpublished) build tool
+`@constructor-lab/figma-icons-fetcher` — a **private** (unpublished) build tool
 that fetches SVG icons from a Figma file, optimizes them with SVGO, and writes
 them (plus optional JSON manifests and mono/multicolor categorization) into a
 target package. It is the engine behind `packages/icons-svg`'s `pull-icons`
@@ -18,7 +18,7 @@ directly. Consumers invoke it from **their own directory** so that relative
 output paths and `.env.local` resolve against the consumer, e.g.:
 
 ```bash
-pnpm --filter @spec-lab/icons-svg pull-icons
+pnpm --filter @constructor-lab/icons-svg pull-icons
 # → tsx ../../tools/figma-icons-fetcher/src/index.ts  (cwd = packages/icons-svg)
 ```
 
@@ -60,7 +60,7 @@ and [`README.md`](./README.md) for the full table.
 
 ## Testing
 
-`pnpm --filter @spec-lab/figma-icons-fetcher test` runs the Vitest unit
+`pnpm --filter @constructor-lab/figma-icons-fetcher test` runs the Vitest unit
 specs in `src/__specs__/` (pure helpers + fs helpers; no network). The
 `integration.spec.ts` suite is `describe.skipIf`-gated on
 `FIGMA_FETCHER_FIGMA_TOKEN` and only runs when a real token is present.

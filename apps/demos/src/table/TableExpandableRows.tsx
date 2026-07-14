@@ -1,5 +1,5 @@
 import { Fragment, useMemo, useState } from 'react';
-import { Button, ButtonIcon } from '@spec-lab/ui-react';
+import { Button, ButtonIcon } from '@constructor-lab/ui-react';
 import {
   Table,
   TableBody,
@@ -7,8 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/ui-react';
-import { MinusIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { MinusIcon, PlusIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 const records = [
   {

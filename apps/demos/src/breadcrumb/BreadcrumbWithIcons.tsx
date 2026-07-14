@@ -5,12 +5,12 @@ import {
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   FileIcon,
   FolderHouseIcon,
   FolderIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function BreadcrumbWithIcons() {
   return (
     <Breadcrumb>

@@ -1,4 +1,4 @@
-import { Button, ButtonIcon } from '@spec-lab/ui-react';
+import { Button, ButtonIcon } from '@constructor-lab/ui-react';
 
 export function ButtonSizes() {
   return (

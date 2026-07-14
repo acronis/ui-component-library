@@ -7,7 +7,7 @@ interface DemoReactProps {
   center?: boolean;
 }
 
-// Live preview wrapper for @spec-lab/ui-react components. Renders the
+// Live preview wrapper for @constructor-lab/ui-react components. Renders the
 // demo inside an isolated shadow root (ShadowDemo) so ui-react's stylesheet
 // can't collide with the Fumadocs CSS that is
 // loaded globally on the docs document. The matching code is shown in the
@@ -18,7 +18,7 @@ export function DemoReact({ children, center }: DemoReactProps) {
       <ShadowDemo center={center}>{children}</ShadowDemo>
       <div className="demo-preview__footer flex items-center border-t px-4 py-2">
         <span className="text-xs opacity-50">
-          Live preview · @spec-lab/ui-react
+          Live preview · @constructor-lab/ui-react
         </span>
       </div>
     </div>

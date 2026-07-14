@@ -9,7 +9,7 @@ import {
   DialogInfo,
   DialogWithTextarea,
   DialogScrollable,
-} from '@spec-lab/ui-kit-demos/dialog';
+} from '@constructor-lab/ui-kit-demos/dialog';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

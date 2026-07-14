@@ -8,7 +8,7 @@ import {
   PageHeaderDescription,
   PageHeaderRow,
   PageHeaderTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function PageHeaderDemo() {
   return (

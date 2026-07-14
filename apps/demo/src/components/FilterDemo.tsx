@@ -9,7 +9,7 @@ import {
   FilterMultipleGroups,
   FilterInToolbar,
   FilterDisabled,
-} from '@spec-lab/ui-kit-demos/filter';
+} from '@constructor-lab/ui-kit-demos/filter';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -7,9 +7,9 @@ import {
   WidgetContent,
   WidgetValue,
   WidgetLabel,
-} from '@spec-lab/ui-react';
-import { ButtonIcon } from '@spec-lab/ui-react';
-import { ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
+import { ShieldCheckIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { MoreVerticalIcon } from '../icons/missing-icons';
 export function WidgetWithIcon() {
   return (

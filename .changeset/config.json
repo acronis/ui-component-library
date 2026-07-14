@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "constructor-lab/facet" }
+    { "repo": "constructor-lab/ui-component-library" }
   ],
   "commit": false,
   "fixed": [],
@@ -11,8 +11,8 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@spec-lab/ui-kit-demo",
-    "@spec-lab/ui-kit-demos",
-    "@spec-lab/uikit-docs"
+    "@constructor-lab/ui-kit-demo",
+    "@constructor-lab/ui-kit-demos",
+    "@constructor-lab/uikit-docs"
   ]
 }

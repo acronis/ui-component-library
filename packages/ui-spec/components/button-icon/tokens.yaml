@@ -1,10 +1,10 @@
 spec_version: '1.0'
 component: ButtonIcon
 
-# References only — values live in @spec-lab/tokens. Container fill
+# References only — values live in @constructor-lab/tokens. Container fill
 # and icon color are shared across both variants (`--ui-button-icon-global-*`);
 # the secondary variant adds a 1px container border (`-secondary-*`).
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Geometry (root) ──

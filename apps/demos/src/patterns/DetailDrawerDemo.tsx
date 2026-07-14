@@ -19,7 +19,7 @@ import {
   EmptyTitle,
   Separator,
   Spinner,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 type ContentState = 'content' | 'loading' | 'empty';
 

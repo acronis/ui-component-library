@@ -2,7 +2,7 @@
 # packages/icons-svg and opens a pull request with any changes.
 #
 # Pull-based: this workflow asks Figma for the current icon set, runs the
-# `@spec-lab/figma-icons-fetcher` tool (via the icons-svg
+# `@constructor-lab/figma-icons-fetcher` tool (via the icons-svg
 # `pull-icons` script) using the `icon-packs` selection strategy against the
 # `icon-packs-source` section node, and — because `main` is branch-protected —
 # proposes the result as a PR instead of pushing directly.
@@ -32,7 +32,7 @@ permissions:
 jobs:
   fetch:
     # Don't run on forks — only the canonical repo holds the Figma token.
-    if: github.repository == 'constructor-lab/facet'
+    if: github.repository == 'constructor-lab/ui-component-library'
     runs-on: ubuntu-latest
 
     steps:
@@ -66,7 +66,7 @@ jobs:
           FIGMA_FETCHER_MANIFEST_DIR: './src/figma'
           FIGMA_FETCHER_CLEAN_MANIFESTS: 'true'
           FIGMA_FETCHER_CATEGORIZE_BY_COLOR: 'false'
-        run: pnpm --filter @spec-lab/icons-svg pull-icons
+        run: pnpm --filter @constructor-lab/icons-svg pull-icons
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
@@ -82,7 +82,7 @@ jobs:
             Automated next-gen icon sync from the shadcn-uikit Figma file.
 
             Pulled by the **Fetch Figma Icons (next)** workflow via
-            `@spec-lab/figma-icons-fetcher` (`icon-packs` strategy)
+            `@constructor-lab/figma-icons-fetcher` (`icon-packs` strategy)
             from the `icon-packs-source` section node.
 
             - `src/svg/` is a clean mirror of the current Figma set.

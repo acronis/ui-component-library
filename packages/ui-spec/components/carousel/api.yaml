@@ -54,7 +54,7 @@ adapters:
     status: implemented
     import: >-
       import { Carousel, CarouselContent, CarouselItem, CarouselPrevious,
-      CarouselNext } from '@spec-lab/ui-react'
+      CarouselNext } from '@constructor-lab/ui-react'
     example: |
       <Carousel opts={{ loop: true }}>
         <CarouselContent>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Checkbox } from '@spec-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
 
 export function CheckboxDemo() {
   return (

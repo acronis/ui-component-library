@@ -76,7 +76,7 @@ adapters:
     import: >-
       import { ButtonMenuDropdown, ButtonMenuDropdownTrigger,
       ButtonMenuDropdownContent, ButtonMenuDropdownSection,
-      ButtonMenuDropdownItem } from '@spec-lab/ui-react'
+      ButtonMenuDropdownItem } from '@constructor-lab/ui-react'
     example: |
       <ButtonMenuDropdown>
         <ButtonMenuDropdownTrigger render={<ButtonMenu>Actions</ButtonMenu>} />
@@ -92,7 +92,7 @@ adapters:
   vue:
     component: AvButtonMenuDropdown
     status: planned
-    import: "import { AvButtonMenuDropdown, AvButtonMenuDropdownItem } from '@spec-lab/ui-vue'"
+    import: "import { AvButtonMenuDropdown, AvButtonMenuDropdownItem } from '@constructor-lab/ui-vue'"
     example: |
       <AvButtonMenuDropdown>
         <AvButtonMenuDropdownItem>Rename</AvButtonMenuDropdownItem>
@@ -100,7 +100,7 @@ adapters:
   web-components:
     element: ui-button-menu-dropdown
     status: planned
-    import: "import '@spec-lab/ui-wc/button-menu-dropdown'"
+    import: "import '@constructor-lab/ui-wc/button-menu-dropdown'"
     example: |
       <ui-button-menu-dropdown>
         <ui-button-menu-dropdown-item>Rename</ui-button-menu-dropdown-item>

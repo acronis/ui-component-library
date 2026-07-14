@@ -7,7 +7,7 @@ import {
   WidgetFooter,
   WidgetValue,
   WidgetLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { TrendingUpIcon } from '../icons/missing-icons';
 export function WidgetInteractive() {
   return (

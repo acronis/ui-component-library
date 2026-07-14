@@ -26,7 +26,12 @@ password-strength score. It answers "how much of a whole", as a fixed reading.
 ### React
 
 ```tsx
-import { Meter, MeterLabel, MeterValue, MeterTrack } from '@spec-lab/ui-react';
+import {
+  Meter,
+  MeterLabel,
+  MeterValue,
+  MeterTrack,
+} from '@constructor-lab/ui-react';
 
 <Meter value={72}>
   <div className="flex items-center justify-between">

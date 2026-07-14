@@ -48,7 +48,7 @@ adapters:
     status: implemented
     import: >-
       import { Tabs, TabsList, TabsTrigger, TabsContent } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Tabs defaultValue="account">
         <TabsList>
@@ -62,7 +62,7 @@ adapters:
   vue:
     component: AvTabs
     status: planned
-    import: "import { AvTabs, AvTabsTrigger, AvTabsContent } from '@spec-lab/ui-vue'"
+    import: "import { AvTabs, AvTabsTrigger, AvTabsContent } from '@constructor-lab/ui-vue'"
     example: |
       <AvTabs default-value="account">
         <AvTabsTrigger value="account">Account</AvTabsTrigger>
@@ -72,7 +72,7 @@ adapters:
   web-components:
     element: ui-tabs
     status: planned
-    import: "import '@spec-lab/ui-wc/tabs'"
+    import: "import '@constructor-lab/ui-wc/tabs'"
     example: |
       <ui-tabs default-value="account">
         <ui-tab value="account">Account</ui-tab>

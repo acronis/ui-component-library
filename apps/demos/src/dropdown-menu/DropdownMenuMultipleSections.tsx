@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,12 +6,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CogIcon,
   EnvelopeIcon,
   MessagesIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { KeyboardIcon } from '../icons/missing-icons';
 export function DropdownMenuMultipleSections() {
   return (

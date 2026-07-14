@@ -82,7 +82,7 @@ All components now properly use theme tokens from `cyber-chat.scss`:
 1. **Button Component**
    - Variants: `default`, `outline`, `ghost`
    - Sizes: `sm`, `icon`
-   - All buttons use proper `@spec-lab/shadcn-uikit/react` imports
+   - All buttons use proper `@constructor-lab/shadcn-uikit/react` imports
 
 2. **Switch Component**
    - Used in ChatHeader for "Temporary chat" toggle

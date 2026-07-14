@@ -37,8 +37,8 @@ export default defineConfig({
         /^@base-ui\/react\//,
         // Sibling published packages — consumers install them separately, so
         // don't inline them into ui-react's bundle.
-        '@spec-lab/icons-react',
-        /^@spec-lab\/icons-react\//,
+        '@constructor-lab/icons-react',
+        /^@constructor-lab\/icons-react\//,
         // recharts is a heavy, opt-in charting dep — keep it out of the bundle
         // and let consumers resolve it (declared in dependencies).
         'recharts',

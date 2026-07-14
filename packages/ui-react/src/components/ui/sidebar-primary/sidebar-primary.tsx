@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
-import { SquareArrowUpRightIcon } from '@spec-lab/icons-react/stroke-mono';
+import { SquareArrowUpRightIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -11,7 +11,7 @@ import { ScrollArea } from '../scroll-area';
 // Composable SidebarPrimary primitives mirroring the Figma "SidebarPrimary"
 // component set (node 2092:4359, variant expanded|collapsed). Every color and
 // metric is wired to a next-gen `--ui-sidebar-primary-*` token from
-// @spec-lab/tokens — no hex, no invented tokens.
+// @constructor-lab/tokens — no hex, no invented tokens.
 //
 // expanded/collapsed is a width-reflow state, not a panel show/hide, so it is
 // modelled as a controlled/uncontrolled `expanded` prop (default true) that sets
@@ -262,7 +262,7 @@ export interface SidebarPrimaryMenuItemProps
     Omit<VariantProps<typeof sidebarPrimaryMenuItemVariants>, 'variant'> {
   /** Marks the current route: sets the `selected` variant + `aria-current="page"`. */
   selected?: boolean;
-  /** Leading 16px icon (from `@spec-lab/icons-react`). */
+  /** Leading 16px icon (from `@constructor-lab/icons-react`). */
   icon?: React.ReactNode;
   children?: React.ReactNode;
   /**

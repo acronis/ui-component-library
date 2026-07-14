@@ -75,7 +75,7 @@ adapters:
     status: implemented
     import: >-
       import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem,
-      SelectGroup, SelectGroupLabel } from '@spec-lab/ui-react'
+      SelectGroup, SelectGroupLabel } from '@constructor-lab/ui-react'
     example: |
       <Select items={{ apple: 'Apple', banana: 'Banana' }} value={fruit} onValueChange={setFruit}>
         <SelectTrigger aria-label="Fruit">
@@ -89,12 +89,12 @@ adapters:
   vue:
     component: AvSelect
     status: planned
-    import: "import { AvSelect } from '@spec-lab/ui-vue'"
+    import: "import { AvSelect } from '@constructor-lab/ui-vue'"
     example: |
       <AvSelect v-model="fruit" :items="items" placeholder="Select an option" />
   web-components:
     element: ui-select
     status: planned
-    import: "import '@spec-lab/ui-wc/select'"
+    import: "import '@constructor-lab/ui-wc/select'"
     example: |
       <ui-select placeholder="Select an option"></ui-select>

@@ -1,13 +1,13 @@
 ---
 title: Tree-Shaking & Performance
-description: How tree-shaking works in @spec-lab/ui-react and best practices for optimal bundle size.
+description: How tree-shaking works in @constructor-lab/ui-react and best practices for optimal bundle size.
 ---
 
 # Tree-Shaking & Performance
 
 ## Overview
 
-`@spec-lab/ui-react` is built to be **tree-shakeable**, so your
+`@constructor-lab/ui-react` is built to be **tree-shakeable**, so your
 production bundle includes only the components you actually import.
 
 ## Tree-Shaking Enabled
@@ -21,7 +21,7 @@ components you don't use.
 
 ```typescript
 // You import only what you need
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 // Your production bundle includes:
 // the Button component + its dependencies (cn utility, cva, the Base UI
@@ -75,7 +75,7 @@ precisely:
 
 ```typescript
 // When you import Button
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 // Bundler traces dependencies:
 // index.js -> components/ui/button/button.js -> lib/utils.js
@@ -84,7 +84,7 @@ import { Button } from '@spec-lab/ui-react';
 
 ### 3. Peer Dependencies Stay External
 
-`react`, `react-dom`, `@base-ui/react`, and `@spec-lab/icons-react` are
+`react`, `react-dom`, `@base-ui/react`, and `@constructor-lab/icons-react` are
 marked external in the build, so they are **not** inlined into the bundle.
 Consumers install them once, and bundlers de-duplicate them across your app and
 the library.
@@ -103,7 +103,7 @@ export default {
       output: {
         manualChunks: {
           // Optional: separate vendor chunk
-          'ui-components': ['@spec-lab/ui-react'],
+          'ui-components': ['@constructor-lab/ui-react'],
         },
       },
     },
@@ -132,7 +132,7 @@ Next.js automatically tree-shakes in production:
 
 ```typescript
 // No configuration needed
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 ```
 
 ### Rollup
@@ -156,10 +156,10 @@ Always import from the package entry:
 
 ```typescript
 // Recommended — tree-shakeable
-import { Button, Switch } from '@spec-lab/ui-react';
+import { Button, Switch } from '@constructor-lab/ui-react';
 
 // Avoid — reaches into build internals, which may change
-import { Button } from '@spec-lab/ui-react/dist/components/ui/button/button';
+import { Button } from '@constructor-lab/ui-react/dist/components/ui/button/button';
 ```
 
 ### 2. Use Named Imports
@@ -168,10 +168,10 @@ Use named imports, not namespace imports:
 
 ```typescript
 // Good — tree-shakeable
-import { Button, Switch } from '@spec-lab/ui-react';
+import { Button, Switch } from '@constructor-lab/ui-react';
 
 // Avoid — may pull in the entire module
-import * as UI from '@spec-lab/ui-react';
+import * as UI from '@constructor-lab/ui-react';
 ```
 
 ### 3. Import Styles Once
@@ -180,7 +180,7 @@ CSS is not tree-shakeable. `ui-react` ships a single compiled stylesheet;
 import it once at your app entry:
 
 ```typescript
-import '@spec-lab/ui-react/styles';
+import '@constructor-lab/ui-react/styles';
 ```
 
 ### 4. Lazy Load Heavy Composites
@@ -192,7 +192,7 @@ sidebars or `Resizable`), consider lazy loading:
 import { lazy } from 'react';
 
 const SidebarSecondary = lazy(() =>
-  import('@spec-lab/ui-react').then((mod) => ({
+  import('@constructor-lab/ui-react').then((mod) => ({
     default: mod.SidebarSecondary,
   }))
 );
@@ -262,7 +262,7 @@ Load components on demand:
 ```typescript
 // Load a component when needed
 const loadResizable = async () => {
-  const { Resizable } = await import('@spec-lab/ui-react');
+  const { Resizable } = await import('@constructor-lab/ui-react');
   return Resizable;
 };
 ```
@@ -273,7 +273,7 @@ Import the components needed for first render up front:
 
 ```typescript
 // Statically imported, available immediately
-import { Button, InputText, Switch } from '@spec-lab/ui-react';
+import { Button, InputText, Switch } from '@constructor-lab/ui-react';
 ```
 
 ## Common Issues
@@ -286,10 +286,10 @@ import { Button, InputText, Switch } from '@spec-lab/ui-react';
 
 ```typescript
 // Wrong
-import * as UI from '@spec-lab/ui-react';
+import * as UI from '@constructor-lab/ui-react';
 
 // Correct
-import { Button, Switch } from '@spec-lab/ui-react';
+import { Button, Switch } from '@constructor-lab/ui-react';
 ```
 
 ### Issue: Tree-shaking not working
@@ -314,7 +314,7 @@ import { Button, Switch } from '@spec-lab/ui-react';
 
 ## Summary
 
-`@spec-lab/ui-react` is built for production:
+`@constructor-lab/ui-react` is built for production:
 
 - **Tree-shakeable** — preserved module structure lets bundlers drop unused
   components

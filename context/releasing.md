@@ -3,10 +3,10 @@
 Releases are automated via
 [Changesets](https://github.com/changesets/changesets). The flow below
 applies to **any** published workspace in this monorepo. The published
-packages are `@spec-lab/ui-react`, `@spec-lab/icons-react`, and
-`@spec-lab/tokens`. The `apps/` workspaces are excluded via
+packages are `@constructor-lab/ui-react`, `@constructor-lab/icons-react`, and
+`@constructor-lab/tokens`. The `apps/` workspaces are excluded via
 `.changeset/config.json`'s `ignore` list; `tools/` and the private packages
-(`@spec-lab/ui-spec`, `@spec-lab/icons-svg`) are excluded via `"private": true`.
+(`@constructor-lab/ui-spec`, `@constructor-lab/icons-svg`) are excluded via `"private": true`.
 
 ## When to add a Changeset
 
@@ -68,7 +68,7 @@ Two workflows can publish to npm; both attach build provenance.
   npm**. Requirements (all in place): the job has `permissions: id-token:
 write`, npm is upgraded to a Trusted-Publishing-capable version, and each
   package declares a `repository` field (provenance validates `repository.url`
-  against `https://github.com/constructor-lab/facet` — an empty/missing one fails with
+  against `https://github.com/constructor-lab/ui-component-library` — an empty/missing one fails with
   `E422`).
 
 - **`release-token.yml` — token auth (manual; bootstrap / fallback).**
@@ -84,7 +84,7 @@ write`, npm is upgraded to a Trusted-Publishing-capable version, and each
 1. Publish its first version via `release-token.yml` (the package must exist on
    npm before OIDC will work).
 2. On npmjs.com → the package → **Settings → Trusted Publisher → GitHub
-   Actions**, set: organization `constructor-lab`, repository `facet`, workflow
+   Actions**, set: organization `constructor-lab`, repository `ui-component-library`, workflow
    filename `release.yml`, environment blank.
 3. Done — later versions publish automatically through `release.yml` on the
    Version-Packages-PR merge, no token.

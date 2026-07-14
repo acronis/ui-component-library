@@ -5,7 +5,7 @@ import {
   FileIcon,
   FolderIcon,
   CogIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import { Command, CommandDialog, type CommandGroup } from '../command';
 import { Button } from '../../button';

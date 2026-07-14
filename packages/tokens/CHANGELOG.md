@@ -1,10 +1,10 @@
-# @spec-lab/design-tokens
+# @constructor-lab/design-tokens
 
 ## 2.1.0
 
 ### Minor Changes
 
-- [`c601e91`](https://github.com/constructor-lab/facet/commit/c601e91333147da55b3f4497f885216bc972d5af) Thanks [@m231-a](https://github.com/m231-a)! - Add a chart-color palette: nine categorical series colors (`--ui-chart-1` …
+- [`c601e91`](https://github.com/constructor-lab/ui-component-library/commit/c601e91333147da55b3f4497f885216bc972d5af) Thanks [@m231-a](https://github.com/m231-a)! - Add a chart-color palette: nine categorical series colors (`--ui-chart-1` …
   `--ui-chart-9`) plus six semantic roles (`--ui-chart-success`,
   `--ui-chart-warning`, `--ui-chart-danger`, `--ui-chart-critical`,
   `--ui-chart-info`, `--ui-chart-neutral`). Additive — nothing existing changed.
@@ -21,17 +21,17 @@
 
 ### Major Changes
 
-- [`802e657`](https://github.com/constructor-lab/facet/commit/802e657f473e5a89eb28939abde7a267c438c59d) Thanks [@m231-a](https://github.com/m231-a)! - Merge `@spec-lab/design-tokens` and `@spec-lab/tokens-pd` into a single published package, `@spec-lab/tokens`, and rework token/theme delivery to be reference-based.
-  - **New package `@spec-lab/tokens`** holds the DTCG source tiers (`tiers/*.json`) **and** the generated, committed CSS/SCSS/JS. `@spec-lab/design-tokens` and `@spec-lab/tokens-pd` are removed.
+- [`802e657`](https://github.com/constructor-lab/ui-component-library/commit/802e657f473e5a89eb28939abde7a267c438c59d) Thanks [@m231-a](https://github.com/m231-a)! - Merge `@constructor-lab/design-tokens` and `@constructor-lab/tokens-pd` into a single published package, `@constructor-lab/tokens`, and rework token/theme delivery to be reference-based.
+  - **New package `@constructor-lab/tokens`** holds the DTCG source tiers (`tiers/*.json`) **and** the generated, committed CSS/SCSS/JS. `@constructor-lab/design-tokens` and `@constructor-lab/tokens-pd` are removed.
   - **Reference-based CSS, no value duplication.** `css/primitives.css` is the only layer with raw values + `light-dark()`; the semantic and per-component tiers emit `var(--…)` references onto it, so each value is stated once. Brand switches via `[data-brand]`, light/dark via `[data-theme]` — both carried in one bundle (no per-brand files, no runtime stylesheet injection).
-  - **Single import.** `@spec-lab/tokens/css` pulls in primitives + semantics + every component tier (replaces the ~24 per-component `@import`s). Adds SCSS mixins (`@spec-lab/tokens/scss/mixins`) and a JS token map (`@spec-lab/tokens/js`).
-  - **Tailwind bridge is generated** as `@spec-lab/tokens/css/tailwind-theme.css` (previously hand-maintained in ui-react). The per-brand / per-component baked Tailwind presets are dropped.
+  - **Single import.** `@constructor-lab/tokens/css` pulls in primitives + semantics + every component tier (replaces the ~24 per-component `@import`s). Adds SCSS mixins (`@constructor-lab/tokens/scss/mixins`) and a JS token map (`@constructor-lab/tokens/js`).
+  - **Tailwind bridge is generated** as `@constructor-lab/tokens/css/tailwind-theme.css` (previously hand-maintained in ui-react). The per-brand / per-component baked Tailwind presets are dropped.
 
-  Migration: replace `@spec-lab/tokens-pd` and `@spec-lab/design-tokens` with `@spec-lab/tokens`; `@import '@spec-lab/tokens/css'` once (plus `@import '@spec-lab/tokens/css/tailwind-theme.css'` for the Tailwind bridge); select a brand with `[data-brand="deep-sky"]` instead of importing a per-brand stylesheet.
+  Migration: replace `@constructor-lab/tokens-pd` and `@constructor-lab/design-tokens` with `@constructor-lab/tokens`; `@import '@constructor-lab/tokens/css'` once (plus `@import '@constructor-lab/tokens/css/tailwind-theme.css'` for the Tailwind bridge); select a brand with `[data-brand="deep-sky"]` instead of importing a per-brand stylesheet.
 
 ### Patch Changes
 
-- [`082deb3`](https://github.com/constructor-lab/facet/commit/082deb3e050b62575427acb2ed6aa079635838b4) Thanks [@m231-a](https://github.com/m231-a)! - Add the missing `--ui-border-on-status-ai` semantic token (the pale violet `{palette.violet.4}` the Figma uses; the tier previously only had the `ai-strong` gradient border), and repoint `Alert`'s ai border/divider from the `--ui-palette-violet-4` primitive stopgap to it.
+- [`082deb3`](https://github.com/constructor-lab/ui-component-library/commit/082deb3e050b62575427acb2ed6aa079635838b4) Thanks [@m231-a](https://github.com/m231-a)! - Add the missing `--ui-border-on-status-ai` semantic token (the pale violet `{palette.violet.4}` the Figma uses; the tier previously only had the `ai-strong` gradient border), and repoint `Alert`'s ai border/divider from the `--ui-palette-violet-4` primitive stopgap to it.
 
 ## 1.9.0
 
@@ -39,7 +39,7 @@
 
 - [#405](https://github.com/acronis/uikit/pull/405) [`c686666`](https://github.com/acronis/uikit/commit/c686666ff880d8adc647c7c5b47c3b01bce2c88d) Thanks [@leonid](https://github.com/leonid)! - Add the `Chips` component token tier: the design-tokens source plus the
   generated tokens-pd output (per-brand `--ui-chips-*` CSS, Tailwind presets, and
-  DTCG). Consumed by the new `Chip` component in `@spec-lab/ui-react`.
+  DTCG). Consumed by the new `Chip` component in `@constructor-lab/ui-react`.
 
 ## 1.8.0
 
@@ -511,7 +511,7 @@
 
   ***
 
-  ## `@spec-lab/design-tokens` (→ `1.0.0`)
+  ## `@constructor-lab/design-tokens` (→ `1.0.0`)
 
   ### Token value shape — native DTCG dimensions (BREAKING)
   - Dimension tokens (`$type: "dimension"` — `units.*`, `font.font-size`,
@@ -602,7 +602,7 @@
     color space are the translation tool's concern, not the token data.
   - **Out-of-scope "Delivery model".** Emitted stylesheets, override-only files,
     and `light-dark()` composition belong to
-    `@spec-lab/style-dictionary` → `@spec-lab/tokens-pd`, not to
+    `@constructor-lab/style-dictionary` → `@constructor-lab/tokens-pd`, not to
     the data package.
   - **Untrue / unmaintained roadmap content.** The "Brand override surface" table
     (keyed by `--ui-*` output variables) and "The matrix" (a speculative list of
@@ -617,9 +617,9 @@
 
   ***
 
-  ## `@spec-lab/tokens-pd` (→ `1.0.0`)
+  ## `@constructor-lab/tokens-pd` (→ `1.0.0`)
 
-  Full regeneration from `@spec-lab/design-tokens`. All generated CSS,
+  Full regeneration from `@constructor-lab/design-tokens`. All generated CSS,
   Tailwind presets, and the DTCG mirror reflect every change above.
   - **CSS custom properties**: `--ui-input-*` renamed to `--ui-input-text-*`
     (Input → InputText); new per-component artifacts for `breadcrumb`,
@@ -672,12 +672,12 @@
 
   **BREAKING (subpath exports):** the package `exports` subpaths moved with the
   directory. Update any imports:
-  - `@spec-lab/design-tokens/tokens/primitives.json` → `@spec-lab/design-tokens/tiers/primitives.json`
-  - `@spec-lab/design-tokens/tokens/semantic.json` → `@spec-lab/design-tokens/tiers/semantic.json`
-  - `@spec-lab/design-tokens/tokens/components.json` → `@spec-lab/design-tokens/tiers/components.json`
+  - `@constructor-lab/design-tokens/tokens/primitives.json` → `@constructor-lab/design-tokens/tiers/primitives.json`
+  - `@constructor-lab/design-tokens/tokens/semantic.json` → `@constructor-lab/design-tokens/tiers/semantic.json`
+  - `@constructor-lab/design-tokens/tokens/components.json` → `@constructor-lab/design-tokens/tiers/components.json`
 
   A translation tool that globs the package (e.g. Style Dictionary
-  `source: ['node_modules/@spec-lab/design-tokens/tiers/*.json']`) must
+  `source: ['node_modules/@constructor-lab/design-tokens/tiers/*.json']`) must
   point at `tiers/` and match the new path in any file-pattern parser
   (`/\/tiers\/.*\.json$/`).
 
@@ -774,10 +774,10 @@ link.strong-underline}` (5).
 
 ### Minor Changes
 
-- [#79](https://github.com/acronis/uikit/pull/79) [`40d3d53`](https://github.com/acronis/uikit/commit/40d3d535ed21da9b5c80142e7f496bc22e19dde9) Thanks [@leonid](https://github.com/leonid)! - Rename the design-data packages to disambiguate them as design-only data: `@spec-lab/tokens` → `@spec-lab/design-tokens` and `@spec-lab/assets` → `@spec-lab/design-assets`. Update your dependencies and imports to the new package names.
+- [#79](https://github.com/acronis/uikit/pull/79) [`40d3d53`](https://github.com/acronis/uikit/commit/40d3d535ed21da9b5c80142e7f496bc22e19dde9) Thanks [@leonid](https://github.com/leonid)! - Rename the design-data packages to disambiguate them as design-only data: `@constructor-lab/tokens` → `@constructor-lab/design-tokens` and `@constructor-lab/assets` → `@constructor-lab/design-assets`. Update your dependencies and imports to the new package names.
 
 ## 0.2.0
 
 ### Minor Changes
 
-- [#77](https://github.com/acronis/uikit/pull/77) [`bd04411`](https://github.com/acronis/uikit/commit/bd0441158c54f08acbd99f67648a98af025089f1) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Add the `@spec-lab/design-tokens` design-data package — DTCG-2025.10-conformant design-token JSON (primitives, semantic, components), validated with ajv against `schemas/tokens.schema.json`. Data-only (no build, no runtime API), consumed via its `exports` map.
+- [#77](https://github.com/acronis/uikit/pull/77) [`bd04411`](https://github.com/acronis/uikit/commit/bd0441158c54f08acbd99f67648a98af025089f1) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Add the `@constructor-lab/design-tokens` design-data package — DTCG-2025.10-conformant design-token JSON (primitives, semantic, components), validated with ajv against `schemas/tokens.schema.json`. Data-only (no build, no runtime API), consumed via its `exports` map.

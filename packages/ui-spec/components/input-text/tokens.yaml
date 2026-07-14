@@ -1,12 +1,12 @@
 spec_version: '1.0'
 component: InputText
 
-# References only — values live in @spec-lab/tokens. The box geometry,
+# References only — values live in @constructor-lab/tokens. The box geometry,
 # fill, and border come from `--ui-input-text-global-box-*` / `-normal-box-*` /
 # `-error-msg-box-*` (shared with the `Input` primitive); the field furniture
 # (label, required, description, error, clear) uses the remaining `--ui-input-text-*`
 # tokens.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Field container ──

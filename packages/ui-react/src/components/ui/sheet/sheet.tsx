@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
-import { TimesIcon } from '@spec-lab/icons-react/stroke-mono';
+import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';

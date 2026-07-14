@@ -7,7 +7,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function PaginationMiddlePage() {
   const [currentPage, setCurrentPage] = useState(14);

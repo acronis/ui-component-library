@@ -52,7 +52,7 @@ adapters:
     status: implemented
     import: >-
       import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Tooltip>
         <TooltipTrigger render={<Button>Save</Button>} />
@@ -61,7 +61,7 @@ adapters:
   vue:
     component: AvTooltip
     status: planned
-    import: "import { AvTooltip } from '@spec-lab/ui-vue'"
+    import: "import { AvTooltip } from '@constructor-lab/ui-vue'"
     example: |
       <AvTooltip text="Save your changes">
         <AvButton>Save</AvButton>
@@ -69,6 +69,6 @@ adapters:
   web-components:
     element: ui-tooltip
     status: planned
-    import: "import '@spec-lab/ui-wc/tooltip'"
+    import: "import '@constructor-lab/ui-wc/tooltip'"
     example: |
       <ui-tooltip text="Save your changes"><button>Save</button></ui-tooltip>

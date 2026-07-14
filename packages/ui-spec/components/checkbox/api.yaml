@@ -65,7 +65,7 @@ adapters:
   react:
     component: Checkbox
     status: implemented
-    import: "import { Checkbox } from '@spec-lab/ui-react'"
+    import: "import { Checkbox } from '@constructor-lab/ui-react'"
     example: |
       {/* Box only — name it with aria-label */}
       <Checkbox
@@ -87,12 +87,12 @@ adapters:
   vue:
     component: AvCheckbox
     status: planned
-    import: "import { AvCheckbox } from '@spec-lab/ui-vue'"
+    import: "import { AvCheckbox } from '@constructor-lab/ui-vue'"
     example: |
       <AvCheckbox v-model="accepted" label="Accept terms" />
   web-components:
     element: ui-checkbox
     status: planned
-    import: "import '@spec-lab/ui-wc/checkbox'"
+    import: "import '@constructor-lab/ui-wc/checkbox'"
     example: |
       <ui-checkbox aria-label="Accept terms"></ui-checkbox>

@@ -4,7 +4,7 @@ import * as React from 'react';
 import {
   ChevronDownIcon,
   ChevronRightIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
 import { cn } from '@/lib/utils';

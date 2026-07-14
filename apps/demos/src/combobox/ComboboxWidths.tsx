@@ -5,7 +5,7 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 type Option = { value: string; label: string };
 

@@ -7,9 +7,9 @@ import {
   FieldLegend,
   FieldGroup,
   FieldContent,
-} from '@spec-lab/ui-react';
-import { Switch } from '@spec-lab/ui-react';
-import { RadioGroup, Radio } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Switch } from '@constructor-lab/ui-react';
+import { RadioGroup, Radio } from '@constructor-lab/ui-react';
 
 export function FieldSetDemo() {
   return (

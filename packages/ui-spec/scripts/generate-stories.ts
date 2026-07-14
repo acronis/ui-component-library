@@ -12,7 +12,7 @@
  *                     state (e.g. Switch click → checked).
  *
  * Output: packages/ui-react/src/components/ui/<name>/__stories__/<name>.generated.stories.tsx
- * Run:    pnpm --filter @spec-lab/ui-spec generate:stories
+ * Run:    pnpm --filter @constructor-lab/ui-spec generate:stories
  *
  * NOTE (spike limitation): the state *axes* are spec-derived; the small
  * per-component "how to instantiate" hint below (sample content, aria-label) is
@@ -71,7 +71,7 @@ const RENDER: Record<string, RenderHint> = {
     props: 'defaultOpen',
     extraImports: [
       "import { ButtonMenuDropdownTrigger, ButtonMenuDropdownContent, ButtonMenuDropdownSection, ButtonMenuDropdownItem } from '../button-menu-dropdown';",
-      "import { PencilIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { PencilIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     sample: [
       '',
@@ -113,7 +113,7 @@ const RENDER: Record<string, RenderHint> = {
   },
   'card-filter': {
     extraImports: [
-      "import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     props: 'label="Active filters" value="125" icon={<CircleInfoIcon />}',
   },
@@ -318,7 +318,7 @@ const RENDER: Record<string, RenderHint> = {
     props: 'defaultOpen',
     extraImports: [
       "import { MenuTrigger, MenuContent, MenuSection, MenuItem } from '../menu';",
-      "import { PencilIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { PencilIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     sample: [
       '',
@@ -336,7 +336,7 @@ const RENDER: Record<string, RenderHint> = {
   empty: {
     extraImports: [
       "import { EmptyIcon, EmptyHeader, EmptyTitle, EmptyDescription } from '../empty';",
-      "import { InboxIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { InboxIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     sample: [
       '',
@@ -383,7 +383,7 @@ const RENDER: Record<string, RenderHint> = {
   'widget-placeholder': {
     extraImports: [
       "import { WidgetPlaceholderHeader, WidgetPlaceholderIcon, WidgetPlaceholderTitle, WidgetPlaceholderContent, WidgetPlaceholderImage, WidgetPlaceholderText, WidgetPlaceholderAction } from '../widget-placeholder';",
-      "import { ChartBarVerticalIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { ChartBarVerticalIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     sample: [
       '',
@@ -402,7 +402,7 @@ const RENDER: Record<string, RenderHint> = {
   'button-icon': {
     sample: '<PlusIcon />',
     extraImports: [
-      "import { PlusIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { PlusIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     ariaLabel: 'Action',
   },
@@ -478,7 +478,7 @@ const RENDER: Record<string, RenderHint> = {
     ariaLabel: 'Primary',
     extraImports: [
       "import { SidebarPrimaryHeader, SidebarPrimaryContent, SidebarPrimaryFooter, SidebarPrimarySection, SidebarPrimaryMenu, SidebarPrimaryMenuItem, SidebarPrimaryMenuItemExtras } from '../sidebar-primary';",
-      "import { BoxIcon, UsersIcon, CircleHelpIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { BoxIcon, UsersIcon, CircleHelpIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     sample: [
       '',
@@ -512,7 +512,7 @@ const RENDER: Record<string, RenderHint> = {
     ariaLabel: 'Section navigation',
     extraImports: [
       "import { SidebarSecondaryHeader, SidebarSecondaryContent, SidebarSecondaryCollapsedBreadcrumb, SidebarSecondaryFooter, SidebarSecondarySection, SidebarSecondarySectionLabel, SidebarSecondaryMenu, SidebarSecondaryMenuItem, SidebarSecondaryMenuSub, SidebarSecondaryMenuSubTrigger, SidebarSecondaryMenuSubContent, SidebarSecondaryMenuSubItem, SidebarSecondaryMenuItemExtras } from '../sidebar-secondary';",
-      "import { LayoutGridIcon, BoxIcon } from '@spec-lab/icons-react/stroke-mono';",
+      "import { LayoutGridIcon, BoxIcon } from '@constructor-lab/icons-react/stroke-mono';",
     ],
     sample: [
       '',
@@ -722,8 +722,8 @@ const RENDER: Record<string, RenderHint> = {
 };
 
 const HEADER =
-  '// AUTO-GENERATED from @spec-lab/ui-spec — DO NOT EDIT.\n' +
-  '// Regenerate: pnpm --filter @spec-lab/ui-spec generate:stories\n' +
+  '// AUTO-GENERATED from @constructor-lab/ui-spec — DO NOT EDIT.\n' +
+  '// Regenerate: pnpm --filter @constructor-lab/ui-spec generate:stories\n' +
   '// `:hover` / `:active` stories require a Storybook pseudo-states addon to paint.\n';
 
 const PSEUDO_KEY: Record<string, string> = {
@@ -894,7 +894,7 @@ export const ${cap(t.id)}: Story = {
 
 function generate(name: string): boolean {
   if (!existsSync(join(UI_REACT_UI, name))) {
-    console.warn(`skip ${name}: no @spec-lab/ui-react component`);
+    console.warn(`skip ${name}: no @constructor-lab/ui-react component`);
     return false;
   }
   const hint = RENDER[name] ?? {};

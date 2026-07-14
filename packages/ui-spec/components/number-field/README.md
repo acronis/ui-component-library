@@ -35,7 +35,7 @@ import {
   NumberFieldDecrement,
   NumberFieldInput,
   NumberFieldIncrement,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <NumberField defaultValue={3} min={0} max={99}>
   <NumberFieldGroup>

@@ -1,9 +1,9 @@
 # Figma Code Connect — `packages/ui-react`
 
-Figma Code Connect links `@spec-lab/ui-react` components to their
+Figma Code Connect links `@constructor-lab/ui-react` components to their
 Figma design counterparts. When a designer selects a component in Figma
 Dev Mode, they see the real React snippet (importing from
-`@spec-lab/ui-react`) instead of raw CSS/HTML.
+`@constructor-lab/ui-react`) instead of raw CSS/HTML.
 
 ## Prerequisites
 
@@ -33,14 +33,14 @@ src/components/ui/button/
 
 `figma.config.json` (workspace root) tells the CLI where these files live
 and rewrites local import paths to the published package specifier so the
-generated snippet reads `import { Button } from '@spec-lab/ui-react'`:
+generated snippet reads `import { Button } from '@constructor-lab/ui-react'`:
 
 ```json
 {
   "codeConnect": {
     "parser": "react",
     "include": ["src/components/**/*.figma.tsx"],
-    "importPaths": { "src/components/ui/*": "@spec-lab/ui-react" }
+    "importPaths": { "src/components/ui/*": "@constructor-lab/ui-react" }
   }
 }
 ```
@@ -68,7 +68,7 @@ Each `.figma.tsx` carries a status comment in its header:
    Names are case-sensitive — adjust the left-hand keys in each
    `figma.enum(...)` / `figma.boolean(...)` to match exactly.
 3. **Update the status** comment to `COMPLETE`.
-4. **Validate:** `pnpm --filter @spec-lab/ui-react figma:connect`.
+4. **Validate:** `pnpm --filter @constructor-lab/ui-react figma:connect`.
 
 > The Figma MCP server (`get_code_connect_suggestions`,
 > `get_code_connect_map`) can suggest the node URL and property mapping
@@ -80,13 +80,13 @@ Run from the repo root (or drop `--filter …` when inside the workspace):
 
 ```bash
 # Validate all .figma.tsx without publishing
-pnpm --filter @spec-lab/ui-react figma:connect
+pnpm --filter @constructor-lab/ui-react figma:connect
 
 # Publish connections to Figma (requires FIGMA_ACCESS_TOKEN)
-pnpm --filter @spec-lab/ui-react figma:connect:publish
+pnpm --filter @constructor-lab/ui-react figma:connect:publish
 
 # Remove all published connections
-pnpm --filter @spec-lab/ui-react figma:connect:unpublish
+pnpm --filter @constructor-lab/ui-react figma:connect:unpublish
 ```
 
 ## `figma.*` prop helpers
@@ -107,5 +107,5 @@ Figma renders in Dev Mode.
 1. Create `<name>.figma.tsx` next to the component's `.tsx` file.
 2. Import `figma` from `@figma/code-connect` and the component locally.
 3. Call `figma.connect(Component, 'FIGMA_NODE_URL', { props, example })`.
-4. Run `pnpm --filter @spec-lab/ui-react figma:connect` to validate.
+4. Run `pnpm --filter @constructor-lab/ui-react figma:connect` to validate.
 5. Run `figma:connect:publish` to make it live.

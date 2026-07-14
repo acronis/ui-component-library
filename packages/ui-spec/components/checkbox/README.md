@@ -22,7 +22,7 @@ summarizes a partially-selected group.
 ### React
 
 ```tsx
-import { Checkbox } from '@spec-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
 
 function Terms() {
   const [accepted, setAccepted] = useState(false);

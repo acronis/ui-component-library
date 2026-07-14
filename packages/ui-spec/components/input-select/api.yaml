@@ -81,7 +81,7 @@ adapters:
       import { InputSelect, InputSelectField, InputSelectLabel, InputSelectTrigger,
       InputSelectValue, InputSelectContent, InputSelectSearch, InputSelectSection,
       InputSelectSectionLabel, InputSelectItem, InputSelectDescription,
-      InputSelectError, InputSelectStatus } from '@spec-lab/ui-react'
+      InputSelectError, InputSelectStatus } from '@constructor-lab/ui-react'
     example: |
       <InputSelect items={{ apple: 'Apple', banana: 'Banana' }} value={fruit} onValueChange={setFruit}>
         <InputSelectField>
@@ -112,12 +112,12 @@ adapters:
   vue:
     component: AvInputSelect
     status: planned
-    import: "import { AvInputSelect } from '@spec-lab/ui-vue'"
+    import: "import { AvInputSelect } from '@constructor-lab/ui-vue'"
     example: |
       <AvInputSelect v-model="fruit" :items="items" label="Fruit" placeholder="Select an option" />
   web-components:
     element: ui-input-select
     status: planned
-    import: "import '@spec-lab/ui-wc/input-select'"
+    import: "import '@constructor-lab/ui-wc/input-select'"
     example: |
       <ui-input-select label="Fruit" placeholder="Select an option"></ui-input-select>

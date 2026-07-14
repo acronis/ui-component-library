@@ -52,7 +52,7 @@ adapters:
     status: implemented
     import: >-
       import { Popover, PopoverTrigger, PopoverContent } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Popover>
         <PopoverTrigger render={<Button variant="secondary">Open</Button>} />
@@ -65,7 +65,7 @@ adapters:
   vue:
     component: AvPopover
     status: planned
-    import: "import { AvPopover, AvPopoverTrigger, AvPopoverContent } from '@spec-lab/ui-vue'"
+    import: "import { AvPopover, AvPopoverTrigger, AvPopoverContent } from '@constructor-lab/ui-vue'"
     example: |
       <AvPopover>
         <AvPopoverTrigger>Open</AvPopoverTrigger>
@@ -75,7 +75,7 @@ adapters:
   web-components:
     element: ui-popover
     status: planned
-    import: "import '@spec-lab/ui-wc/popover'"
+    import: "import '@constructor-lab/ui-wc/popover'"
     example: |
       <ui-popover>
         <ui-popover-trigger>Open</ui-popover-trigger>

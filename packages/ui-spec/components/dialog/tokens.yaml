@@ -1,14 +1,14 @@
 spec_version: '1.0'
 component: Dialog
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # This is a design-pending v1: no `--ui-dialog-*` component tier exists yet, so
 # the dialog consumes the shared *semantic* tokens (via the bridged Tailwind
 # names bg-muted / bg-background / text-foreground / text-muted-foreground /
 # border-border, plus direct var() refs for the overlay and focus ring). Replace
 # these with a `--ui-dialog-*` tier if/when a Figma pass introduces one.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

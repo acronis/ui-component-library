@@ -5,8 +5,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
-import { Badge } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
 import { formatDistanceToNow } from 'date-fns';
 import type { ActivityLog } from '../../types';
 

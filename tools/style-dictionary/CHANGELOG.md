@@ -1,18 +1,18 @@
-# @spec-lab/style-dictionary
+# @constructor-lab/style-dictionary
 
 ## 0.1.0
 
 ### Minor Changes
 
-- [#93](https://github.com/acronis/uikit/pull/93) [`d7f1ceb`](https://github.com/acronis/uikit/commit/d7f1ceb06de69eae974b9e4533fb92c357a38695) Thanks [@leonid](https://github.com/leonid)! - Add `@spec-lab/style-dictionary` — the first inhabitant of the repo's
+- [#93](https://github.com/acronis/uikit/pull/93) [`d7f1ceb`](https://github.com/acronis/uikit/commit/d7f1ceb06de69eae974b9e4533fb92c357a38695) Thanks [@leonid](https://github.com/leonid)! - Add `@constructor-lab/style-dictionary` — the first inhabitant of the repo's
   `tools/` tier. A private (unpublished) [Style Dictionary v5](https://styledictionary.com/)
   translation pipeline with two build domains, driven by a single CLI
   (`src/index.ts`) keyed by `<filter>-<output>` platform keys:
-  - **Tokens → CSS.** Normalizes `@spec-lab/design-tokens` into 100%-DTCG
+  - **Tokens → CSS.** Normalizes `@constructor-lab/design-tokens` into 100%-DTCG
     JSON (`pd-dtcg`), then resolves it into per-brand CSS custom properties
     (`pd-css`: `acronis.css`, `brand-b.css`) using the modern `light-dark()` +
     `color-scheme` theming pattern and `.typography-*` utility classes.
-  - **Assets → SVG + React.** Resolves `@spec-lab/design-assets` packs
+  - **Assets → SVG + React.** Resolves `@constructor-lab/design-assets` packs
     (scale/stroke rules, `currentColor` for mono), optimizes with SVGO, and
     generates one tree-shakeable React component per asset with `size`/`variant`
     props (`pd-assets` / `web-assets`).

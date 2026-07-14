@@ -5,7 +5,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // ui-react's `InputText` is a full field wrapper (its own <div>; `className`
 // lands on the inner <input>, not the wrapper), so a bare `col-span-2` on the

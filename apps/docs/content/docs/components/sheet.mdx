@@ -19,7 +19,7 @@ import {
   SheetBody,
   SheetDescription,
   SheetFooter,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 ```
 
 `Sheet` is a modal side panel — the same Base UI Dialog primitive the `Dialog`
@@ -32,7 +32,7 @@ design-pending v1 themed on the shared semantic tokens like the Dialog family.
 > **`Details` is an alias.** The Vue UI kit called this side panel `Details`. The
 > full part family is re-exported under `Details*` (`Details`, `DetailsContent`,
 > `DetailsHeader`, …) for a 1:1 migration — `import { Details } from
-'@spec-lab/ui-react'`. Prefer `Sheet` in new code.
+'@constructor-lab/ui-react'`. Prefer `Sheet` in new code.
 
 ## Examples
 
@@ -75,7 +75,7 @@ preset — the easy path that _is_ the
 children), and an optional footer of actions:
 
 ```tsx
-import { SheetDetails, Button } from '@spec-lab/ui-react';
+import { SheetDetails, Button } from '@constructor-lab/ui-react';
 
 <SheetDetails
   open={open}

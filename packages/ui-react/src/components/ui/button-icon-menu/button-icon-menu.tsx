@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
-import { EllipsisIcon } from '@spec-lab/icons-react/stroke-mono';
+import { EllipsisIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 

@@ -4,7 +4,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const cellStyle: React.CSSProperties = {
   display: 'flex',

@@ -28,8 +28,8 @@ A compact, interactive label — a removable token, a selectable toggle, or an o
 ## Examples
 
 ```tsx
-import { Chip } from '@spec-lab/ui-react';
-import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Chip } from '@constructor-lab/ui-react';
+import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 // Removable filter token
 <Chip onRemove={() => removeFilter(id)}>Status: Active</Chip>

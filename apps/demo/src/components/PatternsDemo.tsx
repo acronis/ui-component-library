@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@spec-lab/ui-react';
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from '@constructor-lab/ui-react';
 import {
   DashboardPattern,
   SettingsPattern,
@@ -7,7 +12,7 @@ import {
   LoginPattern,
   SignupPattern,
   ErrorPagesPattern,
-} from '@spec-lab/ui-kit-demos/patterns';
+} from '@constructor-lab/ui-kit-demos/patterns';
 
 export function PatternsDemo() {
   return (

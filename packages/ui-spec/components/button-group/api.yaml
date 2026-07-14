@@ -34,7 +34,7 @@ adapters:
   react:
     component: ButtonGroup
     status: implemented
-    import: "import { ButtonGroup, ButtonGroupText, ButtonGroupSeparator } from '@spec-lab/ui-react'"
+    import: "import { ButtonGroup, ButtonGroupText, ButtonGroupSeparator } from '@constructor-lab/ui-react'"
     example: |
       <ButtonGroup>
         <Button variant="secondary">Day</Button>
@@ -49,12 +49,12 @@ adapters:
   vue:
     component: AvButtonGroup
     status: planned
-    import: "import { AvButtonGroup } from '@spec-lab/ui-vue'"
+    import: "import { AvButtonGroup } from '@constructor-lab/ui-vue'"
     example: |
       <AvButtonGroup>…</AvButtonGroup>
   web-components:
     element: ui-button-group
     status: planned
-    import: "import '@spec-lab/ui-wc/button-group'"
+    import: "import '@constructor-lab/ui-wc/button-group'"
     example: |
       <ui-button-group>…</ui-button-group>

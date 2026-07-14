@@ -21,7 +21,7 @@ steps down at smaller breakpoints, with a configurable gap.
 ## Example
 
 ```tsx
-import { Grid } from '@spec-lab/ui-react';
+import { Grid } from '@constructor-lab/ui-react';
 
 <Grid cols={3} gap="md">
   {items.map((i) => (

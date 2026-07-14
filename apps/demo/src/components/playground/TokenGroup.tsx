@@ -6,7 +6,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 interface TokenItem {
   key: string;

@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function SpinnerCard() {
   const [dataLoading, setDataLoading] = React.useState(false);

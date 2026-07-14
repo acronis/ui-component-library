@@ -40,7 +40,7 @@ import {
   InputSelectDescription,
   InputSelectError,
   InputSelectStatus,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <InputSelect
   items={{ apple: 'Apple', banana: 'Banana' }}

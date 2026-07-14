@@ -6,8 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
   Button,
-} from '@spec-lab/ui-react';
-import { ArrowRotationIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { ArrowRotationIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
   applyTypographySettings,
   TypographySettings,

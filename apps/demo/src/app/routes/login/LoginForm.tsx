@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { EyeOffIcon, EyeIcon } from '@spec-lab/icons-react/stroke-mono';
-import { Button } from '@spec-lab/ui-react';
-import { Input } from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
-import { Checkbox } from '@spec-lab/ui-react';
+import { EyeOffIcon, EyeIcon } from '@constructor-lab/icons-react/stroke-mono';
+import { Button } from '@constructor-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
 import { loginSchema } from '../../lib/validators';
 import type { LoginFormData } from '../../lib/validators';
 import { toast } from 'sonner';

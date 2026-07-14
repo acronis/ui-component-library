@@ -15,7 +15,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // TODO(uikit): re-do with approved pattern. `DashboardLayout` / `DashboardGrid`
 // have no ui-react equivalent (superseded by `app-shell` / `grid`) — stand in

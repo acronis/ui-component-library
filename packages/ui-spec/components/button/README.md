@@ -16,7 +16,7 @@ Triggers an action or event. Five styles — `default` (Primary), `secondary`,
 ## Example (React — implemented)
 
 ```tsx
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 <Button variant="default" onClick={onSave}>Save changes</Button>
 <Button variant="destructive" disabled>Delete</Button>

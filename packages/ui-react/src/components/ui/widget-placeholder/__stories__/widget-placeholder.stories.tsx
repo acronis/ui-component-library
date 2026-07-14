@@ -3,7 +3,7 @@ import {
   ChartBarVerticalIcon,
   PlusIcon,
   ShieldCheckIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   WidgetPlaceholder,

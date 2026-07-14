@@ -4,8 +4,8 @@ import {
   EllipsisIcon,
   EyeIcon,
   PencilIcon,
-} from '@spec-lab/icons-react/stroke-mono';
-import { ButtonIcon } from '@spec-lab/ui-react';
+} from '@constructor-lab/icons-react/stroke-mono';
+import { ButtonIcon } from '@constructor-lab/ui-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import type { DataRow } from '../../types';
 
 interface RowActionsProps {

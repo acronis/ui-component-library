@@ -1,10 +1,10 @@
-// AUTO-GENERATED from @spec-lab/ui-spec — DO NOT EDIT.
-// Regenerate: pnpm --filter @spec-lab/ui-spec generate:stories
+// AUTO-GENERATED from @constructor-lab/ui-spec — DO NOT EDIT.
+// Regenerate: pnpm --filter @constructor-lab/ui-spec generate:stories
 // `:hover` / `:active` stories require a Storybook pseudo-states addon to paint.
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { MenuTrigger, MenuContent, MenuSection, MenuItem } from '../menu';
-import { PencilIcon } from '@spec-lab/icons-react/stroke-mono';
+import { PencilIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { Menu } from '../menu';
 
 const meta = {

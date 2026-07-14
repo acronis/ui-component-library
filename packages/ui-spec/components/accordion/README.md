@@ -32,7 +32,7 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Accordion defaultValue={['a']}>
   <AccordionItem value="a">

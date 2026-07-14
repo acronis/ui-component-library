@@ -1,5 +1,5 @@
-import { Filter } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+import { Filter } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 export function FilterInToolbar() {
   return (

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 // The page content region — the padded gutter for a page's body. Ported from
-// `@spec-lab`'s `page-content`. Rendered as a `<div>` (not `<main>`) so it
+// `@constructor-lab`'s `page-content`. Rendered as a `<div>` (not `<main>`) so it
 // nests inside `AppShellMain` without duplicating the `main` landmark; if used
 // standalone, wrap it in your own `<main>`. Layout-only (flex-1 + page padding).
 export type PageContentProps = React.HTMLAttributes<HTMLDivElement>;

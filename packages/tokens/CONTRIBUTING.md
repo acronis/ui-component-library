@@ -1,4 +1,4 @@
-# Contributing to `@spec-lab/tokens`
+# Contributing to `@constructor-lab/tokens`
 
 There are two ways to make a change, and they answer different needs:
 

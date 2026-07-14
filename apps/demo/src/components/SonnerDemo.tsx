@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Toaster } from '@spec-lab/ui-react';
+import { Toaster } from '@constructor-lab/ui-react';
 import {
   SonnerBasic,
   SonnerWithDescription,
@@ -17,7 +17,7 @@ import {
   SonnerDismissible,
   SonnerPositions,
   SonnerRealWorld,
-} from '@spec-lab/ui-kit-demos/sonner';
+} from '@constructor-lab/ui-kit-demos/sonner';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, Input, Button } from '@spec-lab/ui-react';
+import { Card, CardContent, Input, Button } from '@constructor-lab/ui-react';
 import { useChatFlowStore } from '../store/useChatFlowStore';
 
 export function LoginPage() {

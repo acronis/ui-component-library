@@ -4,13 +4,13 @@ import {
   SidebarPrimaryMenu,
   SidebarPrimaryMenuItem,
   SidebarPrimarySection,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CalendarIcon,
   CogIcon,
   FolderHouseIcon,
   InboxIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 // The rail's collapsed state IS icon-only mode: `expanded={false}` keeps every
 // row's label in the DOM as `sr-only` (accessible name) while visually showing

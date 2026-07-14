@@ -1,4 +1,4 @@
-import { Textarea } from '@spec-lab/ui-react';
+import { Textarea } from '@constructor-lab/ui-react';
 
 export function TextareaSizes() {
   return (

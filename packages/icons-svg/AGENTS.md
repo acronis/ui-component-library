@@ -1,6 +1,6 @@
 # AGENTS.md — `packages/icons-svg`
 
-`@spec-lab/icons-svg` — **private, source-only** package of raw SVG
+`@constructor-lab/icons-svg` — **private, source-only** package of raw SVG
 icon sources for the **next-generation** icon set, fetched from the
 `shadcn-uikit` Figma file, plus per-category JSON manifests. No build step, no
 published artifact: consumers read `src/` directly through the package `exports`
@@ -8,7 +8,7 @@ map. Unlike `packages/icons-svg`, this package keeps a single flat icon set —
 there is **no monocolor/multicolor split**.
 
 It is the sibling of `packages/icons-svg` (the legacy icon source) and shares
-the same `@spec-lab/figma-icons-fetcher` engine — but uses the fetcher's
+the same `@constructor-lab/figma-icons-fetcher` engine — but uses the fetcher's
 `icon-packs` selection strategy (against a node id) instead of `frames-by-name`.
 
 Repo-wide rules (TypeScript, kebab-case filenames, Conventional Commits) live in
@@ -57,7 +57,7 @@ The `currentColor` system color for this set is `#1763CF` (the redesign stroke).
 
 ## Scripts
 
-- `pull-icons` — runs `@spec-lab/figma-icons-fetcher` from this package's
+- `pull-icons` — runs `@constructor-lab/figma-icons-fetcher` from this package's
   directory (`tsx ../../tools/figma-icons-fetcher/src/index.ts`), so the
   fetcher's relative output paths (`./src/svg`, `./src/figma`) and `.env.local`
   resolve here. Config comes from `.env.local` (copy from `.env.local.example`)

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { CheckIcon, GlobeIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CheckIcon, GlobeIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
   ButtonIcon,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
-import { cn } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { cn } from '@constructor-lab/ui-react';
 import { useLocale } from '../context/LocaleContext';
 
 export function LanguageSelector() {

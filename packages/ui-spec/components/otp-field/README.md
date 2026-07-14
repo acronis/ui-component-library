@@ -25,7 +25,7 @@ movement, paste-to-fill, character filtering, and optional masking for you.
 ### React
 
 ```tsx
-import { OTPField, OTPFieldInput } from '@spec-lab/ui-react';
+import { OTPField, OTPFieldInput } from '@constructor-lab/ui-react';
 
 function Verify({ onComplete }: { onComplete: (code: string) => void }) {
   return (

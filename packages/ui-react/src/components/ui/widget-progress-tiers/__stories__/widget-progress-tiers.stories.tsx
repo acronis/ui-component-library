@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ChartPieIcon } from '@spec-lab/icons-react/stroke-mono';
+import { ChartPieIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   WidgetProgressTiers,

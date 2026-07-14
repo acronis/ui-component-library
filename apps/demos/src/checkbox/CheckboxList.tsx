@@ -1,4 +1,4 @@
-import { Checkbox, Label } from '@spec-lab/ui-react';
+import { Checkbox, Label } from '@constructor-lab/ui-react';
 
 export function CheckboxList() {
   return (

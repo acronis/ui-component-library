@@ -5,8 +5,8 @@
 // packages/tokens/.tmp/figma-tokens/. Keeps running so you can re-export
 // without restarting; stop with Ctrl-C.
 //
-//   pnpm --filter @spec-lab/figma-token-exporter receive
-//   pnpm --filter @spec-lab/figma-token-exporter receive -- --port 4444
+//   pnpm --filter @constructor-lab/figma-token-exporter receive
+//   pnpm --filter @constructor-lab/figma-token-exporter receive -- --port 4444
 
 import {
   createServer,

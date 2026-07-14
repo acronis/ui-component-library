@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: ButtonIconMenu
 
-# References only — values live in @spec-lab/tokens. ButtonIconMenu reuses the
+# References only — values live in @constructor-lab/tokens. ButtonIconMenu reuses the
 # ButtonIcon `secondary` tier: shared geometry/fill/icon from
 # `--ui-button-icon-global-*` plus the 1px container border from
 # `--ui-button-icon-secondary-container-border-color-*`.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Geometry (root) ──

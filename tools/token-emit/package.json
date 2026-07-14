@@ -1,9 +1,9 @@
 {
-  "name": "@spec-lab/token-emit",
+  "name": "@constructor-lab/token-emit",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Emit pipeline: Figma variable/style snapshot → @spec-lab/tokens DTCG tier files (primitives/semantics/components) + brand wiring.",
+  "description": "Emit pipeline: Figma variable/style snapshot → @constructor-lab/tokens DTCG tier files (primitives/semantics/components) + brand wiring.",
   "scripts": {
     "emit": "node emit.mjs",
     "build": "echo \"no build (run emit)\" && exit 0",

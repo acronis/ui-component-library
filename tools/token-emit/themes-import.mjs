@@ -334,5 +334,5 @@ for (const tierName of ['semantics', 'components']) {
 }
 
 console.log('\nNext:');
-console.log('  pnpm --filter @spec-lab/tokens validate');
-console.log('  pnpm --filter @spec-lab/tokens build');
+console.log('  pnpm --filter @constructor-lab/tokens validate');
+console.log('  pnpm --filter @constructor-lab/tokens build');

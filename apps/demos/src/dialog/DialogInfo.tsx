@@ -7,9 +7,9 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 export function DialogInfo() {
   return (
     <Dialog>

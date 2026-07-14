@@ -1,12 +1,12 @@
 {
-  "name": "@spec-lab/ui-react",
+  "name": "@constructor-lab/ui-react",
   "version": "1.2.3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/constructor-lab/facet.git",
+    "url": "git+https://github.com/constructor-lab/ui-component-library.git",
     "directory": "packages/ui-react"
   },
-  "description": "Constructor Lab React component library — a Base UI implementation, themed by @spec-lab/tokens.",
+  "description": "Constructor Lab React component library — a Base UI implementation, themed by @constructor-lab/tokens.",
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -70,8 +70,8 @@
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
-    "@spec-lab/icons-react": "workspace:*",
-    "@spec-lab/tokens": "workspace:*",
+    "@constructor-lab/icons-react": "workspace:*",
+    "@constructor-lab/tokens": "workspace:*",
     "@tanstack/react-table": "catalog:",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",

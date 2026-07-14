@@ -11,7 +11,7 @@ import {
   CheckboxMultipleSelection,
   CheckboxList,
   CheckboxStates,
-} from '@spec-lab/ui-kit-demos/checkbox';
+} from '@constructor-lab/ui-kit-demos/checkbox';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

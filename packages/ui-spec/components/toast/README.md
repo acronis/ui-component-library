@@ -26,7 +26,7 @@ the `toast(...)` API and rendered by a single `<Toaster>` region.
 Render one `<Toaster>` near the app root, then call `toast` anywhere:
 
 ```tsx
-import { Toaster, toast } from '@spec-lab/ui-react';
+import { Toaster, toast } from '@constructor-lab/ui-react';
 
 // app root
 <Toaster />;

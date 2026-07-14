@@ -73,7 +73,7 @@ adapters:
       DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioGroup,
       DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator,
       DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubTrigger,
-      DropdownMenuSubContent } from '@spec-lab/ui-react'
+      DropdownMenuSubContent } from '@constructor-lab/ui-react'
     example: |
       <DropdownMenu>
         <DropdownMenuTrigger render={<Button variant="secondary">Open</Button>} />
@@ -90,7 +90,7 @@ adapters:
   vue:
     component: AvDropdownMenu
     status: planned
-    import: "import { AvDropdownMenu, AvDropdownMenuItem } from '@spec-lab/ui-vue'"
+    import: "import { AvDropdownMenu, AvDropdownMenuItem } from '@constructor-lab/ui-vue'"
     example: |
       <AvDropdownMenu>
         <AvDropdownMenuItem>Profile</AvDropdownMenuItem>
@@ -99,7 +99,7 @@ adapters:
   web-components:
     element: ui-dropdown-menu
     status: planned
-    import: "import '@spec-lab/ui-wc/dropdown-menu'"
+    import: "import '@constructor-lab/ui-wc/dropdown-menu'"
     example: |
       <ui-dropdown-menu>
         <ui-dropdown-menu-item>Profile</ui-dropdown-menu-item>

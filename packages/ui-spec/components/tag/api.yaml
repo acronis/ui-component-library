@@ -35,7 +35,7 @@ adapters:
   react:
     component: Tag
     status: implemented
-    import: "import { Tag } from '@spec-lab/ui-react'"
+    import: "import { Tag } from '@constructor-lab/ui-react'"
     example: |
       <Tag variant="success">Active</Tag>
       <Tag variant="info" size="sm">Beta</Tag>
@@ -43,12 +43,12 @@ adapters:
   vue:
     component: AvTag
     status: planned
-    import: "import { AvTag } from '@spec-lab/ui-vue'"
+    import: "import { AvTag } from '@constructor-lab/ui-vue'"
     example: |
       <AvTag variant="success">Active</AvTag>
   web-components:
     element: ui-tag
     status: planned
-    import: "import '@spec-lab/ui-wc/tag'"
+    import: "import '@constructor-lab/ui-wc/tag'"
     example: |
       <ui-tag variant="success">Active</ui-tag>

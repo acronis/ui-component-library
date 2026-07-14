@@ -45,7 +45,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Card className="w-[350px]">
   <CardHeader>

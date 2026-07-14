@@ -27,7 +27,7 @@ adapters:
   react:
     component: Collapsible
     status: implemented
-    import: "import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@spec-lab/ui-react'"
+    import: "import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@constructor-lab/ui-react'"
     example: |
       <Collapsible>
         <CollapsibleTrigger>Toggle</CollapsibleTrigger>
@@ -36,12 +36,12 @@ adapters:
   vue:
     component: AvCollapsible
     status: planned
-    import: "import { AvCollapsible } from '@spec-lab/ui-vue'"
+    import: "import { AvCollapsible } from '@constructor-lab/ui-vue'"
     example: |
       <AvCollapsible />
   web-components:
     element: ui-collapsible
     status: planned
-    import: "import '@spec-lab/ui-wc/collapsible'"
+    import: "import '@constructor-lab/ui-wc/collapsible'"
     example: |
       <ui-collapsible></ui-collapsible>

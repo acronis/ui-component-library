@@ -45,7 +45,7 @@ adapters:
   react:
     component: Meter
     status: implemented
-    import: "import { Meter, MeterLabel, MeterValue, MeterTrack } from '@spec-lab/ui-react'"
+    import: "import { Meter, MeterLabel, MeterValue, MeterTrack } from '@constructor-lab/ui-react'"
     example: |
       <Meter value={72}>
         <div className="flex items-center justify-between">
@@ -64,12 +64,12 @@ adapters:
   vue:
     component: AvMeter
     status: planned
-    import: "import { AvMeter } from '@spec-lab/ui-vue'"
+    import: "import { AvMeter } from '@constructor-lab/ui-vue'"
     example: |
       <AvMeter :value="72" label="Storage used" />
   web-components:
     element: ui-meter
     status: planned
-    import: "import '@spec-lab/ui-wc/meter'"
+    import: "import '@constructor-lab/ui-wc/meter'"
     example: |
       <ui-meter value="72" label="Storage used"></ui-meter>

@@ -59,7 +59,7 @@ describe('every usage pattern validates and references real components', () => {
       // The folder name is the source of truth for the slug.
       expect(data.name).toBe(name);
 
-      // Every composed component must exist in @spec-lab/ui-react.
+      // Every composed component must exist in @constructor-lab/ui-react.
       const missing = data.components.filter(
         (comp) => !existsSync(resolve(UI_REACT_UI, toKebab(comp)))
       );

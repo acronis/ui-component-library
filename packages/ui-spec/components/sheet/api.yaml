@@ -74,7 +74,7 @@ adapters:
     import: >-
       import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle,
       SheetCloseButton, SheetBody, SheetDescription, SheetFooter } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Sheet>
         <SheetTrigger render={<Button variant="secondary">Open details</Button>} />
@@ -98,14 +98,14 @@ adapters:
   vue:
     component: AvDetails
     status: planned
-    import: "import { AvDetails } from '@spec-lab/ui-vue'"
+    import: "import { AvDetails } from '@constructor-lab/ui-vue'"
     example: |
       <AvDetails v-model:open="open" title="Workload details" />
 
   web-components:
     element: ui-sheet
     status: planned
-    import: "import '@spec-lab/ui-wc/sheet'"
+    import: "import '@constructor-lab/ui-wc/sheet'"
     example: |
       <ui-sheet open side="right">
         <ui-sheet-content>

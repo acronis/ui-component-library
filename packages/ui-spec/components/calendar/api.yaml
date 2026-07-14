@@ -53,19 +53,19 @@ adapters:
   react:
     component: Calendar
     status: implemented
-    import: "import { Calendar } from '@spec-lab/ui-react'"
+    import: "import { Calendar } from '@constructor-lab/ui-react'"
     example: |
       const [date, setDate] = React.useState<Date>();
       <Calendar mode="single" selected={date} onSelect={setDate} />
   vue:
     component: AvCalendar
     status: planned
-    import: "import { AvCalendar } from '@spec-lab/ui-vue'"
+    import: "import { AvCalendar } from '@constructor-lab/ui-vue'"
     example: |
       <AvCalendar mode="single" v-model="date" />
   web-components:
     element: ui-calendar
     status: planned
-    import: "import '@spec-lab/ui-wc/calendar'"
+    import: "import '@constructor-lab/ui-wc/calendar'"
     example: |
       <ui-calendar mode="single"></ui-calendar>

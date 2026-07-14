@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { LayoutTableIcon } from '@spec-lab/icons-react/stroke-mono';
+import { LayoutTableIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   WidgetTableData,

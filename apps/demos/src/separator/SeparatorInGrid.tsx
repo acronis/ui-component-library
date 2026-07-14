@@ -1,4 +1,4 @@
-import { Separator } from '@spec-lab/ui-react';
+import { Separator } from '@constructor-lab/ui-react';
 
 export function SeparatorInGrid() {
   return (

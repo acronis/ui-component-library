@@ -9,11 +9,11 @@ import {
   FieldDescription,
   FieldError,
   FieldLabel,
-} from '@spec-lab/ui-react';
-import { InputBox, InputTextArea } from '@spec-lab/ui-react';
-import { Switch } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { Separator } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { InputBox, InputTextArea } from '@constructor-lab/ui-react';
+import { Switch } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { Separator } from '@constructor-lab/ui-react';
 
 const formSchema = z.object({
   displayName: z.string().min(2, 'Display name must be at least 2 characters.'),

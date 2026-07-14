@@ -105,7 +105,7 @@ adapters:
     import: >-
       import { Menu, MenuTrigger, MenuContent, MenuSection, MenuItem,
       MenuSubmenu, MenuSubmenuTrigger, MenuSubmenuContent } from
-      '@spec-lab/ui-react'
+      '@constructor-lab/ui-react'
     example: |
       <Menu>
         <MenuTrigger>Actions</MenuTrigger>
@@ -130,7 +130,7 @@ adapters:
   vue:
     component: AvMenu
     status: planned
-    import: "import { AvMenu, AvMenuItem } from '@spec-lab/ui-vue'"
+    import: "import { AvMenu, AvMenuItem } from '@constructor-lab/ui-vue'"
     example: |
       <AvMenu>
         <AvMenuItem>Rename</AvMenuItem>
@@ -138,7 +138,7 @@ adapters:
   web-components:
     element: ui-menu
     status: planned
-    import: "import '@spec-lab/ui-wc/menu'"
+    import: "import '@constructor-lab/ui-wc/menu'"
     example: |
       <ui-menu>
         <ui-menu-item>Rename</ui-menu-item>

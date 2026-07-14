@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
   Separator,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   Bar,
   BarChart,

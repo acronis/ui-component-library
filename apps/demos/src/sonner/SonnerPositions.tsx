@@ -1,5 +1,5 @@
-import { toast } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+import { toast } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 // ui-react's `Toaster` renders a single stack fixed to the bottom-right of
 // the viewport — there's no per-toast `position` option. This drops to the

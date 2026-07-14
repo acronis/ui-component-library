@@ -2,22 +2,22 @@ import * as React from 'react';
 import {
   BrushPaintingIcon,
   CheckIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import {
   ButtonIcon,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@spec-lab/ui-react';
-import { cn } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { cn } from '@constructor-lab/ui-react';
 import {
   applyBrand,
   getCurrentBrand,
   type BrandName,
 } from '@/lib/theme-switcher';
 
-// The 20 shipped `@spec-lab/tokens` `[data-brand]` identities, plus `'default'`
+// The 20 shipped `@constructor-lab/tokens` `[data-brand]` identities, plus `'default'`
 // (the `:root` brand). Labels title-case the slug for display.
 const BRANDS: { value: BrandName; label: string }[] = [
   { value: 'default', label: 'Default' },

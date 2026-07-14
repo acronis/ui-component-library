@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: DescriptionList
 
-# References only. Values live in @spec-lab/tokens. No
+# References only. Values live in @constructor-lab/tokens. No
 # `--ui-description-list-*` tier — it composes the shared semantic tokens. Status
 # icon colors (--ui-text-on-status-*) and action links come from the icons/Link
 # the caller composes into the value.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - name: --ui-text-on-surface-primary

@@ -31,7 +31,7 @@ error message.
 ### React
 
 ```tsx
-import { InputTextArea } from '@spec-lab/ui-react';
+import { InputTextArea } from '@constructor-lab/ui-react';
 
 function BioField() {
   const [bio, setBio] = useState('');

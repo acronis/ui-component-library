@@ -1,12 +1,12 @@
 {
-  "name": "@spec-lab/uikit-docs",
+  "name": "@constructor-lab/uikit-docs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "pnpm --filter @spec-lab/ui-react build",
+    "prebuild": "pnpm --filter @constructor-lab/ui-react build",
     "build": "next build",
     "clean": "rm -rf .next .source",
-    "predev": "pnpm --filter @spec-lab/ui-react build",
+    "predev": "pnpm --filter @constructor-lab/ui-react build",
     "dev": "next dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -18,9 +18,9 @@
   "dependencies": {
     "@base-ui/react": "catalog:",
     "@radix-ui/react-dialog": "1.1.19",
-    "@spec-lab/icons-react": "workspace:*",
-    "@spec-lab/ui-kit-demos": "workspace:*",
-    "@spec-lab/ui-react": "workspace:*",
+    "@constructor-lab/icons-react": "workspace:*",
+    "@constructor-lab/ui-kit-demos": "workspace:*",
+    "@constructor-lab/ui-react": "workspace:*",
     "@tanstack/react-table": "catalog:",
     "fumadocs-core": "16.11.2",
     "fumadocs-mdx": "15.1.0",

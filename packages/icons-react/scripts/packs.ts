@@ -1,6 +1,6 @@
 /**
  * Single source of truth for the icon packs this library generates from
- * `@spec-lab/icons-svg`, shared by the generator and the Vite lib
+ * `@constructor-lab/icons-svg`, shared by the generator and the Vite lib
  * config.
  *
  * - `name` — published subpath (the `icons-` prefix is dropped) and `src/packs`

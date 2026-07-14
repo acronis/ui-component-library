@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from '@spec-lab/ui-react';
+import { Avatar, AvatarFallback } from '@constructor-lab/ui-react';
 
 interface MessageAvatarProps {
   type: 'user' | 'ai' | 'loading';

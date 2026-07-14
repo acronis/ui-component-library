@@ -8,7 +8,7 @@ import {
   Field,
   FieldDescription,
   FieldLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 type Option = { value: string; label: string };
 

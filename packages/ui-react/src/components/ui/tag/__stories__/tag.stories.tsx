@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CircleCheckIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CircleCheckIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { Tag } from '../tag';
 

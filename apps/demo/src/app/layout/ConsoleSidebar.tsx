@@ -16,8 +16,8 @@ import {
   PuzzleIcon,
   RectangleImageIcon,
   ServerIcon,
-} from '@spec-lab/icons-react/stroke-mono';
-import { AcronisIcon } from '@spec-lab/icons-react/solid-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
+import { AcronisIcon } from '@constructor-lab/icons-react/solid-mono';
 import {
   SidebarPrimary,
   SidebarPrimaryCollapseTrigger,
@@ -37,7 +37,7 @@ import {
   SidebarSecondaryMenuItem,
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { useLocale } from '../context/LocaleContext';
 import { useOnboardingStore } from '@/store/onboarding/onboardingStore';
 import { TOUR_ANCHORS } from '../onboarding/tour-steps';

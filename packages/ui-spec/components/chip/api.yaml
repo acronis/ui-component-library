@@ -51,7 +51,7 @@ adapters:
   react:
     component: Chip
     status: implemented
-    import: "import { Chip } from '@spec-lab/ui-react'"
+    import: "import { Chip } from '@constructor-lab/ui-react'"
     example: |
       <Chip onRemove={() => remove(id)}>Filter</Chip>
       <Chip variant="selectable" selected={on} onClick={toggle}>Option</Chip>
@@ -60,12 +60,12 @@ adapters:
   vue:
     component: AvChip
     status: planned
-    import: "import { AvChip } from '@spec-lab/ui-vue'"
+    import: "import { AvChip } from '@constructor-lab/ui-vue'"
     example: |
       <AvChip @remove="remove(id)">Filter</AvChip>
   web-components:
     element: ui-chip
     status: planned
-    import: "import '@spec-lab/ui-wc/chip'"
+    import: "import '@constructor-lab/ui-wc/chip'"
     example: |
       <ui-chip>Filter</ui-chip>

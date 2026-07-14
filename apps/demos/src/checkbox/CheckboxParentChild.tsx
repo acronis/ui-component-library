@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Checkbox, Label } from '@spec-lab/ui-react';
+import { Checkbox, Label } from '@constructor-lab/ui-react';
 
 export function CheckboxParentChild() {
   const [items, setItems] = React.useState([

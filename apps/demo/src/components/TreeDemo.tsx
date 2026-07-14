@@ -10,7 +10,7 @@ import {
   TreeControlled,
   TreeDeepNesting,
   TreeMixedContent,
-} from '@spec-lab/ui-kit-demos/tree';
+} from '@constructor-lab/ui-kit-demos/tree';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

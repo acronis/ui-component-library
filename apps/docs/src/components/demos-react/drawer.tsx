@@ -13,7 +13,7 @@ import {
   DrawerSwipeArea,
   DrawerTitle,
   DrawerTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 export function DrawerDemo() {

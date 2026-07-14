@@ -36,19 +36,19 @@ const availablePacks = (): string[] =>
   designAssetsAvailable() ? listPackNames() : [];
 
 // ── Assets dispatch ──────────────────────────────────────────────────────────
-// The asset build's source is @spec-lab/design-assets (SVG packs), NOT the
+// The asset build's source is @constructor-lab/design-assets (SVG packs), NOT the
 // design tokens — its own domain (`./assets`). This wrapper resets the filter's
 // deliverables on a full build and hands off. `packs` selects a subset (CI rebuilds
 // only the packs that changed); undefined = all packs (this filter's deliverables
 // are reset).
 
 function buildAssets(filter: Filter, packs?: string[]): void {
-  // The asset stage needs `@spec-lab/design-assets` (an optional peer). When it
+  // The asset stage needs `@constructor-lab/design-assets` (an optional peer). When it
   // isn't installed, skip with a warning rather than crash — the token outputs
   // (dtcg/css) never depend on it, so `build` still produces the whole token kit.
   if (!designAssetsAvailable()) {
     console.warn(
-      '⚠ @spec-lab/design-assets is not installed — skipping the asset build (tokens are unaffected).'
+      '⚠ @constructor-lab/design-assets is not installed — skipping the asset build (tokens are unaffected).'
     );
     return;
   }

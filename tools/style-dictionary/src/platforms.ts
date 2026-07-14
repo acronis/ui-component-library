@@ -3,7 +3,7 @@
 // to import the CLI). A build target is `${filter}-${output}`: `filter` maps to
 // the `platforms` enum (PD | WEB) that both tokens and design-assets
 // declare; `output` is the artifact kind. The token outputs (dtcg, css, tailwind)
-// land inside the published `@spec-lab/tokens` package; assets stay
+// land inside the published `@constructor-lab/tokens` package; assets stay
 // under this tool's own `dist/assets/`.
 
 import path from 'node:path';
@@ -33,7 +33,7 @@ export const OUTPUTS: Output[] = ['dtcg', 'css', 'assets'];
 
 /**
  * Which filters have source data for a given output. `dtcg`/`css` come from the
- * token package (PD today). `assets` come from `@spec-lab/design-assets`,
+ * token package (PD today). `assets` come from `@constructor-lab/design-assets`,
  * which already spans both platforms — icons/concept-pack are PD, illustrations
  * WEB, selected per-asset by each asset's `platforms`. So the asset build runs for
  * `ASSET_FILTERS` (pd + web), independently of the token `FILTERS`.
@@ -60,7 +60,7 @@ export const TOKENS_PKG = path.resolve(ROOT, '..', '..', 'packages', 'tokens');
 
 /**
  * The DTCG source tiers this tool reads. Addressed by relative path (not the
- * `@spec-lab/tokens` package specifier) so this tool does NOT declare a build
+ * `@constructor-lab/tokens` package specifier) so this tool does NOT declare a build
  * dependency on the package it writes into — that edge would form a cycle with
  * `tokens`' own `build` (which invokes this tool), and pnpm resolves a cycle by
  * running both concurrently, racing on the shared `tokens/{dtcg,css}` writes.

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CircleInfoIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { CardFilter } from '../card-filter';
 

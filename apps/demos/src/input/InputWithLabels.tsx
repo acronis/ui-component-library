@@ -1,4 +1,4 @@
-import { Input } from '@spec-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
 
 export function InputWithLabels() {
   return (

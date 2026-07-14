@@ -54,18 +54,18 @@ adapters:
   react:
     component: DataTable
     status: implemented
-    import: "import { DataTable } from '@spec-lab/ui-react'"
+    import: "import { DataTable } from '@constructor-lab/ui-react'"
     example: |
       <DataTable columns={columns} data={rows} />
   vue:
     component: AvDataTable
     status: planned
-    import: "import { AvDataTable } from '@spec-lab/ui-vue'"
+    import: "import { AvDataTable } from '@constructor-lab/ui-vue'"
     example: |
       <AvDataTable :columns="columns" :data="rows" />
   web-components:
     element: ui-data-table
     status: planned
-    import: "import '@spec-lab/ui-wc/data-table'"
+    import: "import '@constructor-lab/ui-wc/data-table'"
     example: |
       <ui-data-table></ui-data-table>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, AvatarFallback, AvatarGroup } from '@spec-lab/ui-react';
+import { Avatar, AvatarFallback, AvatarGroup } from '@constructor-lab/ui-react';
 
 export function AvatarDemo() {
   return (

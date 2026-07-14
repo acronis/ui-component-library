@@ -8,7 +8,7 @@ import {
   DisabledSelect,
   FormattedValueSelect,
   ScrollableSelect,
-} from '@spec-lab/ui-kit-demos/select';
+} from '@constructor-lab/ui-kit-demos/select';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

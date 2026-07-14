@@ -21,14 +21,14 @@ import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { ChatComponentsShowcase } from '@/components/playground/ChatComponentsShowcase.tsx';
 import { ChartsShowcase } from '@/components/playground/ChartsShowcase.tsx';
 import { AppLayout } from '@/app/layout/AppLayout.tsx';
 import { LocaleProvider } from '@/app/context/LocaleContext';
 import { AuthProvider } from '@/app/context/AuthContext';
 
-import { ArrowLeftIcon } from '@spec-lab/icons-react/stroke-mono';
+import { ArrowLeftIcon } from '@constructor-lab/icons-react/stroke-mono';
 const PlaygroundPage: React.FC = () => {
   const { theme, activeTokenSetId, tokenSets, customTokenSet } =
     usePlaygroundStore();

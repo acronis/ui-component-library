@@ -26,7 +26,7 @@ adapters:
   react:
     component: AspectRatio
     status: implemented
-    import: "import { AspectRatio } from '@spec-lab/ui-react'"
+    import: "import { AspectRatio } from '@constructor-lab/ui-react'"
     example: |
       <AspectRatio ratio={16 / 9}>
         <img className="h-full w-full object-cover" src="/cover.jpg" alt="" />
@@ -34,12 +34,12 @@ adapters:
   vue:
     component: AvAspectRatio
     status: planned
-    import: "import { AvAspectRatio } from '@spec-lab/ui-vue'"
+    import: "import { AvAspectRatio } from '@constructor-lab/ui-vue'"
     example: |
       <AvAspectRatio :ratio="16 / 9">…</AvAspectRatio>
   web-components:
     element: ui-aspect-ratio
     status: planned
-    import: "import '@spec-lab/ui-wc/aspect-ratio'"
+    import: "import '@constructor-lab/ui-wc/aspect-ratio'"
     example: |
       <ui-aspect-ratio ratio="1.778">…</ui-aspect-ratio>

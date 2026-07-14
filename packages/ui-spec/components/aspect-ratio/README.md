@@ -24,7 +24,7 @@ it).
 ## Examples
 
 ```tsx
-import { AspectRatio } from '@spec-lab/ui-react';
+import { AspectRatio } from '@constructor-lab/ui-react';
 
 // 16:9 media
 <AspectRatio ratio={16 / 9}>

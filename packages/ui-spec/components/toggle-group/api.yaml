@@ -40,7 +40,7 @@ adapters:
   react:
     component: ToggleGroup
     status: implemented
-    import: "import { Toggle, ToggleGroup, ToggleGroupItem } from '@spec-lab/ui-react'"
+    import: "import { Toggle, ToggleGroup, ToggleGroupItem } from '@constructor-lab/ui-react'"
     example: |
       <ToggleGroup defaultValue={['grid']}>
         <ToggleGroupItem value="grid" aria-label="Grid">▦</ToggleGroupItem>
@@ -49,12 +49,12 @@ adapters:
   vue:
     component: AvToggleGroup
     status: planned
-    import: "import { AvToggleGroup } from '@spec-lab/ui-vue'"
+    import: "import { AvToggleGroup } from '@constructor-lab/ui-vue'"
     example: |
       <AvToggleGroup />
   web-components:
     element: ui-toggle-group
     status: planned
-    import: "import '@spec-lab/ui-wc/toggle-group'"
+    import: "import '@constructor-lab/ui-wc/toggle-group'"
     example: |
       <ui-toggle-group></ui-toggle-group>

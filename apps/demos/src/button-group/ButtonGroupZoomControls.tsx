@@ -1,9 +1,13 @@
 import * as React from 'react';
-import { ButtonGroup, ButtonGroupText, ButtonIcon } from '@spec-lab/ui-react';
+import {
+  ButtonGroup,
+  ButtonGroupText,
+  ButtonIcon,
+} from '@constructor-lab/ui-react';
 import {
   MagnifierMinusIcon,
   MagnifierPlusIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function ButtonGroupZoomControls() {
   const [zoom, setZoom] = React.useState(100);
 

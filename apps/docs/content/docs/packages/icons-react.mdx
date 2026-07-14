@@ -5,7 +5,7 @@ description: Tree-shakeable React icon components, generated from the Constructo
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
-`@spec-lab/icons-react` ships React icon components, **generated** from
+`@constructor-lab/icons-react` ships React icon components, **generated** from
 the Constructor Lab icon SVG sources. Each icon is a small component that renders one
 24px master at any size, with stroke width auto-scaled to match the design.
 
@@ -33,7 +33,10 @@ Each icon is a **named export**, so imports are tree-shakeable — bundlers drop
 everything you don't reference:
 
 ```tsx
-import { BanIcon, ChevronDownIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  BanIcon,
+  ChevronDownIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 
 export function Example() {
   return (
@@ -82,7 +85,7 @@ Each pack also exports an `icons` registry and an `IconName` type for cases
 where the icon name is only known at runtime:
 
 ```tsx
-import { icons, type IconName } from '@spec-lab/icons-react/stroke-mono';
+import { icons, type IconName } from '@constructor-lab/icons-react/stroke-mono';
 
 function DynamicIcon({ name }: { name: IconName }) {
   const Icon = icons[name];
@@ -101,7 +104,7 @@ The root `.` export ships the `SvgIcon` base component and the `IconProps` type
 for advanced or custom-icon use:
 
 ```tsx
-import { SvgIcon, type IconProps } from '@spec-lab/icons-react';
+import { SvgIcon, type IconProps } from '@constructor-lab/icons-react';
 ```
 
 Browse every available icon in the live [icon catalog](/icons).

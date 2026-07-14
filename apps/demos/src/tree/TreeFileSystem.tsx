@@ -1,10 +1,10 @@
-import { TreeView, type TreeNode } from '@spec-lab/ui-react';
+import { TreeView, type TreeNode } from '@constructor-lab/ui-react';
 import {
   FileIcon,
   FileTextIcon,
   FolderIcon,
   RectangleImageIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { MusicIcon } from '../icons/missing-icons';
 const fileSystemData: TreeNode[] = [
   {

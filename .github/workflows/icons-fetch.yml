@@ -2,7 +2,7 @@
 # opens a pull request with any changes.
 #
 # Pull-based: this workflow asks Figma for the current icon set, runs the
-# `@spec-lab/figma-icons-fetcher` tool (via the icons-svg `pull-icons`
+# `@constructor-lab/figma-icons-fetcher` tool (via the icons-svg `pull-icons`
 # script), and — because `main` is branch-protected — proposes the result as a
 # PR instead of pushing directly.
 #
@@ -31,7 +31,7 @@ permissions:
 jobs:
   fetch:
     # Don't run on forks — only the canonical repo holds the Figma token.
-    if: github.repository == 'constructor-lab/facet'
+    if: github.repository == 'constructor-lab/ui-component-library'
     runs-on: ubuntu-latest
 
     steps:
@@ -65,7 +65,7 @@ jobs:
           FIGMA_FETCHER_CATEGORIZE_BY_COLOR: 'true'
           FIGMA_FETCHER_MONOCOLOR_DIR: './src/monocolor-icons'
           FIGMA_FETCHER_MULTICOLOR_DIR: './src/multicolor-icons'
-        run: pnpm --filter @spec-lab/icons-svg pull-icons
+        run: pnpm --filter @constructor-lab/icons-svg pull-icons
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
@@ -81,7 +81,7 @@ jobs:
             Automated icon sync from the Constructor Lab Figma file.
 
             Pulled by the **Fetch Figma Icons** workflow via
-            `@spec-lab/figma-icons-fetcher`.
+            `@constructor-lab/figma-icons-fetcher`.
 
             - `src/svg/` is a clean mirror of the current Figma set.
             - `src/monocolor-icons/` and `src/multicolor-icons/` only gain new

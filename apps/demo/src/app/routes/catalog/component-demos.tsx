@@ -40,7 +40,7 @@ import { WidgetDemo } from '@/components/WidgetDemo';
 import { BasicInputDemo } from '@/components/input/BasicInputDemo';
 import { InputSearchDemo } from '@/components/input/InputSearchDemo';
 
-// Registry mapping each spec component `name` (from @spec-lab/ui-spec's
+// Registry mapping each spec component `name` (from @constructor-lab/ui-spec's
 // spec-index) to the existing demo component that showcases it. This is the
 // "full merge": the legacy component-library browser's demos are reused as-is
 // and surfaced through the spec-driven Components catalog. Multi-component demos

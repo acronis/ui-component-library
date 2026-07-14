@@ -31,7 +31,7 @@ adapters:
   react:
     component: Accordion
     status: implemented
-    import: "import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@spec-lab/ui-react'"
+    import: "import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@constructor-lab/ui-react'"
     example: |
       <Accordion>
         <AccordionItem value="a">
@@ -42,12 +42,12 @@ adapters:
   vue:
     component: AvAccordion
     status: planned
-    import: "import { AvAccordion } from '@spec-lab/ui-vue'"
+    import: "import { AvAccordion } from '@constructor-lab/ui-vue'"
     example: |
       <AvAccordion />
   web-components:
     element: ui-accordion
     status: planned
-    import: "import '@spec-lab/ui-wc/accordion'"
+    import: "import '@constructor-lab/ui-wc/accordion'"
     example: |
       <ui-accordion></ui-accordion>

@@ -3,7 +3,7 @@ import {
   ButtonVariants,
   ButtonSizes,
   ButtonDisabled,
-} from '@spec-lab/ui-kit-demos/button';
+} from '@constructor-lab/ui-kit-demos/button';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

@@ -5,8 +5,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
 
 interface User {
   id: number;

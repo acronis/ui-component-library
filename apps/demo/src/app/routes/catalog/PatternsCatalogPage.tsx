@@ -12,7 +12,7 @@ import {
   PageHeaderTitle,
   Stack,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { specIndex, statusVariant } from './spec-index';
 
 export function PatternsCatalogPage() {

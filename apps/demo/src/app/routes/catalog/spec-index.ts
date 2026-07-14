@@ -1,7 +1,7 @@
-import specIndexJson from '@spec-lab/ui-spec/spec-index.json';
-import type { TagProps } from '@spec-lab/ui-react';
+import specIndexJson from '@constructor-lab/ui-spec/spec-index.json';
+import type { TagProps } from '@constructor-lab/ui-react';
 
-// The spec-index is the drift-gated data contract emitted by @spec-lab/ui-spec
+// The spec-index is the drift-gated data contract emitted by @constructor-lab/ui-spec
 // (scripts/generate-spec-index.ts). We type it locally — the JSON is a stable
 // contract, so the catalog reads it through these shapes rather than the raw
 // inferred JSON types.

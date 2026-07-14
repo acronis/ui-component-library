@@ -4,7 +4,7 @@ import {
   AlertContent,
   AlertTitle,
   AlertDescription,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CircleCheckIcon,
   TriangleWarningIcon,
@@ -13,7 +13,7 @@ import {
   ServerIcon,
   CircleInfoIcon,
   SparklesIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 export function AlertVariants() {
   return (

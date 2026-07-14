@@ -50,7 +50,7 @@ adapters:
   react:
     component: Toaster
     status: implemented
-    import: "import { Toaster, toast } from '@spec-lab/ui-react'"
+    import: "import { Toaster, toast } from '@constructor-lab/ui-react'"
     example: |
       // once, near the app root:
       <Toaster />
@@ -64,12 +64,12 @@ adapters:
   vue:
     component: AvToaster
     status: planned
-    import: "import { AvToaster, toast } from '@spec-lab/ui-vue'"
+    import: "import { AvToaster, toast } from '@constructor-lab/ui-vue'"
     example: |
       <AvToaster />
   web-components:
     element: ui-toaster
     status: planned
-    import: "import '@spec-lab/ui-wc/toast'"
+    import: "import '@constructor-lab/ui-wc/toast'"
     example: |
       <ui-toaster></ui-toaster>

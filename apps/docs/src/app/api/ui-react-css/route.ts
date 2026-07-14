@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-// Serve @spec-lab/ui-react's compiled stylesheet so the live component
+// Serve @constructor-lab/ui-react's compiled stylesheet so the live component
 // previews can inject it into an isolated shadow root (see ShadowDemo). Reading
 // it here — rather than importing it globally — keeps ui-react's Tailwind
 // preflight + tokens out of the docs document, where they would collide with
@@ -14,7 +14,10 @@ let css: string | null = null;
 function loadCss(): string {
   if (css === null) {
     css = readFileSync(
-      join(process.cwd(), 'node_modules/@spec-lab/ui-react/dist/ui-react.css'),
+      join(
+        process.cwd(),
+        'node_modules/@constructor-lab/ui-react/dist/ui-react.css'
+      ),
       'utf-8'
     );
   }

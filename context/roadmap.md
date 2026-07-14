@@ -5,7 +5,7 @@
 > from the upstream `acronis/uikit` project** ("User Interface Kit Development"):
 > the 7 epics as issues **#102–108** and ~98 task sub-issues with Status / Phase
 > (P1–P5) / Size. That board and those issues are **not set up in
-> `constructor-lab/facet`** (which currently has no issues or project board), so
+> `constructor-lab/ui-component-library`** (which currently has no issues or project board), so
 > treat every `#nnn` in these context docs as a historical reference, not a live
 > link.
 
@@ -13,7 +13,7 @@
 
 A single, token-driven UI Kit where **design tokens → theme → components →
 icons/assets** form one pipeline, Figma is the upstream source of truth, and
-**`@spec-lab/ui-react` (Base UI) is the one component library teams
+**`@constructor-lab/ui-react` (Base UI) is the one component library teams
 build on.** `ui-legacy` (`shadcn-uikit`) has been removed from this repo;
 `ui-react` is the sole library.
 

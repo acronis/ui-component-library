@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import { NumberField as NumberFieldPrimitive } from '@base-ui/react/number-field';
-import { MinusIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
+import { MinusIcon, PlusIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// Ported from `@spec-lab`'s `number-field`, on Base UI's NumberField
+// Ported from `@constructor-lab`'s `number-field`, on Base UI's NumberField
 // (Root / Group / Decrement / Input / Increment). No `--ui-number-field-*` tier —
 // the box reuses the `--ui-input-text-*` tier (already imported) so it matches
 // InputBox / InputText; the steppers use the muted/primary surface + text tokens.

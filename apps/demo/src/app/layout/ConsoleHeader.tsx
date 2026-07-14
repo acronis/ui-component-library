@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UserIcon } from '@spec-lab/icons-react/stroke-mono';
+import { UserIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
   MoonIcon,
   SunIcon,
@@ -19,7 +19,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   SearchGlobal,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { getCurrentColorMode, toggleColorMode } from '@/lib/theme-switcher';
 import { useAuth } from '../hooks/useAuth';
 import { BrandSelector } from '../components/BrandSelector';

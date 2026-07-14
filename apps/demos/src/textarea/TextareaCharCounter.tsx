@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Textarea } from '@spec-lab/ui-react';
+import { Textarea } from '@constructor-lab/ui-react';
 
 export function TextareaCharCounter() {
   const [feedback, setFeedback] = useState('');

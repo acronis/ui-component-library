@@ -9,7 +9,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   Button,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export interface ConfirmDialogDemoProps {
   // Where the alert-dialog overlay portals to. In shadow-root hosts (docs

@@ -6,12 +6,12 @@ import {
   SidebarSecondaryMenuItem,
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   FileTextIcon,
   RectangleImageIcon,
   VideoCameraIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { MusicIcon } from '../icons/missing-icons';
 
 // SidebarSecondaryMenuItem has no built-in `disabled` prop or token — its root

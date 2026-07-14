@@ -1,7 +1,7 @@
 'use client';
 
-import { Tag } from '@spec-lab/ui-react';
-import { CircleCheckIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Tag } from '@constructor-lab/ui-react';
+import { CircleCheckIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 export function TagDemo() {
   return (

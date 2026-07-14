@@ -1,4 +1,4 @@
-# @spec-lab/figma-icons-fetcher
+# @constructor-lab/figma-icons-fetcher
 
 Private build tool. Fetches SVG icons from a Figma file, optimizes them with
 SVGO, and writes them — with optional JSON manifests and mono/multicolor
@@ -19,20 +19,20 @@ The tool reads its configuration from `FIGMA_FETCHER_*` environment variables
 output paths (`./src/svg`, …) and `.env.local` resolve there:
 
 ```bash
-pnpm --filter @spec-lab/icons-svg pull-icons
+pnpm --filter @constructor-lab/icons-svg pull-icons
 ```
 
 ### Standalone
 
 ```bash
 # from this workspace, with a local .env.local
-pnpm --filter @spec-lab/figma-icons-fetcher fetch-icons
+pnpm --filter @constructor-lab/figma-icons-fetcher fetch-icons
 ```
 
 ### Programmatically
 
 ```ts
-import { fetchIcons } from '@spec-lab/figma-icons-fetcher';
+import { fetchIcons } from '@constructor-lab/figma-icons-fetcher';
 
 await fetchIcons({
   token: '…',

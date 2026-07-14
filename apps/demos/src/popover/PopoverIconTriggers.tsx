@@ -1,11 +1,15 @@
-import { ButtonIcon } from '@spec-lab/ui-react';
-import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
+import { ButtonIcon } from '@constructor-lab/ui-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@constructor-lab/ui-react';
 import {
   BellIcon,
   CircleHelpIcon,
   CogIcon,
   UserIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function PopoverIconTriggers() {
   return (
     <div className="flex flex-wrap justify-center gap-4 rounded-lg border p-8">

@@ -4,7 +4,7 @@ import {
   SwitchWithLabel,
   SwitchControlled,
   SwitchForm,
-} from '@spec-lab/ui-kit-demos/switch';
+} from '@constructor-lab/ui-kit-demos/switch';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

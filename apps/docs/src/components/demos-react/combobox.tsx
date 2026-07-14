@@ -7,7 +7,7 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 type Framework = { value: string; label: string };

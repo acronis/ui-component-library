@@ -41,7 +41,7 @@ adapters:
   react:
     component: Button
     status: implemented
-    import: "import { Button } from '@spec-lab/ui-react'"
+    import: "import { Button } from '@constructor-lab/ui-react'"
     example: |
       <Button variant="default" onClick={onSave}>
         Save changes
@@ -53,13 +53,13 @@ adapters:
   vue:
     component: AvButton
     status: planned
-    import: "import { AvButton } from '@spec-lab/ui-vue'"
+    import: "import { AvButton } from '@constructor-lab/ui-vue'"
     example: |
       <AvButton variant="default" @click="onSave">Save changes</AvButton>
 
   web-components:
     element: ui-button
     status: planned
-    import: "import '@spec-lab/ui-wc/button'"
+    import: "import '@constructor-lab/ui-wc/button'"
     example: |
       <ui-button variant="default">Save changes</ui-button>

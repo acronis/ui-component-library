@@ -9,7 +9,7 @@ import { TagDemo } from '@/components/demos-react/tag';
 ## Usage
 
 ```tsx
-import { Tag } from '@spec-lab/ui-react';
+import { Tag } from '@constructor-lab/ui-react';
 ```
 
 `Tag` renders a `<span>` styled by the `--ui-tag-*` tokens. An optional leading
@@ -17,7 +17,7 @@ import { Tag } from '@spec-lab/ui-react';
 
 > **`Badge` is an alias of `Tag`.** The legacy generic shadcn `Badge` is replaced
 > by the design-system-native `Tag`, which carries its own token tier, icon slot,
-> and sizes. `import { Badge } from '@spec-lab/ui-react'` re-exports `Tag`
+> and sizes. `import { Badge } from '@constructor-lab/ui-react'` re-exports `Tag`
 > — same props, same variants. Prefer `Tag` in new code.
 
 ## Examples
@@ -48,7 +48,7 @@ Two sizes — `default` (24px) and `sm` (20px):
 With a leading icon:
 
 ```tsx
-import { CheckIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CheckIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 <Tag variant="success" icon={<CheckIcon />}>
   Completed

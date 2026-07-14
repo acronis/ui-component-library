@@ -1,11 +1,14 @@
-import { ChevronDownIcon, PlusIcon } from '@spec-lab/icons-react/stroke-mono';
+import {
+  ChevronDownIcon,
+  PlusIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button } from '../button';
 import { ButtonIcon } from '../../button-icon';
 
 /**
- * Buttons composed with `@spec-lab/icons-react`. The icons use
+ * Buttons composed with `@constructor-lab/icons-react`. The icons use
  * `currentColor`, so they inherit the Button's text color per variant, and the
  * Button's `[&_svg]:size-4` rule sizes them automatically.
  */

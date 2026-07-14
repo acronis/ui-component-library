@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TimesIcon } from '@spec-lab/icons-react/stroke-mono';
+import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 import { InputBox } from '../input';

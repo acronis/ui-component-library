@@ -1,4 +1,4 @@
-# @spec-lab/icons-react
+# @constructor-lab/icons-react
 
 ## 0.5.0
 
@@ -8,8 +8,8 @@
 
   Add `legacy-icon-map.json`, generated from the design-assets `legacyNames` bridge
   (ui-legacy auto-generated names → canonical asset → per-variant pack name), and
-  expose it via the `@spec-lab/icons-react/legacy-map` subpath export. This
-  lets any consumer (every MFE migrating off `@spec-lab/shadcn-uikit`)
+  expose it via the `@constructor-lab/icons-react/legacy-map` subpath export. This
+  lets any consumer (every MFE migrating off `@constructor-lab/shadcn-uikit`)
   resolve legacy icon names authoritatively — no guessing, no monorepo checkout.
 
   The map classifies each of the ~1144 legacy names as **mapped** (1:1 per variant),
@@ -21,8 +21,8 @@
 
 ### Minor Changes
 
-- [#270](https://github.com/acronis/uikit/pull/270) [`9ce1b45`](https://github.com/acronis/uikit/commit/9ce1b4585571aa96c136d200489d0939749b2ece) Thanks [@leonid](https://github.com/leonid)! - Generate icon components from `@spec-lab/icons-svg` instead of
-  `@spec-lab/design-assets`. This swaps in the redesigned next-gen icon
+- [#270](https://github.com/acronis/uikit/pull/270) [`9ce1b45`](https://github.com/acronis/uikit/commit/9ce1b4585571aa96c136d200489d0939749b2ece) Thanks [@leonid](https://github.com/leonid)! - Generate icon components from `@constructor-lab/icons-svg` instead of
+  `@constructor-lab/design-assets`. This swaps in the redesigned next-gen icon
   set, so the packs grow substantially — `stroke-mono` (395), `solid-mono` (59),
   `stroke-multi` (12), `solid-multi` (1) — and the size/stroke rule (sm/md/lg =
   16/24/32 with 1.6/2/2.5px stroke) is now a generator constant rather than read
@@ -41,14 +41,14 @@
 - [#242](https://github.com/acronis/uikit/pull/242) [`a85d629`](https://github.com/acronis/uikit/commit/a85d6291933854a99af8825b985c325bfb80725c) Thanks [@leonid](https://github.com/leonid)! - Add the `search` (magnifier) icon to the `icons-solid-mono` pack. The asset
   already existed upstream in `icons-svg` but wasn't promoted into `design-assets`,
   so no React component was generated. It now generates `SearchIcon`, exported from
-  `@spec-lab/icons-react/solid-mono`.
+  `@constructor-lab/icons-react/solid-mono`.
 
 ## 0.2.0
 
 ### Minor Changes
 
-- [#84](https://github.com/acronis/uikit/pull/84) [`3b3fe78`](https://github.com/acronis/uikit/commit/3b3fe7852bbff8c50009648fe49fccbda9526bf2) Thanks [@leonid](https://github.com/leonid)! - Add `@spec-lab/icons-react` — React icon components generated from
-  `@spec-lab/design-assets`. Ships all four packs via subpath exports
+- [#84](https://github.com/acronis/uikit/pull/84) [`3b3fe78`](https://github.com/acronis/uikit/commit/3b3fe7852bbff8c50009648fe49fccbda9526bf2) Thanks [@leonid](https://github.com/leonid)! - Add `@constructor-lab/icons-react` — React icon components generated from
+  `@constructor-lab/design-assets`. Ships all four packs via subpath exports
   (`./stroke-mono`, `./solid-mono`, `./stroke-multi`, `./solid-multi`) as
   tree-shakeable per-icon named exports plus an `icons` registry + `IconName`
   type per pack.
@@ -59,5 +59,5 @@
     single 24px master renders at any size with the designed stroke weight
     (1.6px @16, 2px @24, 2.5px @32).
 
-  `@spec-lab/ui-react` now depends on it so components and stories can
+  `@constructor-lab/ui-react` now depends on it so components and stories can
   compose icons (e.g. `<Button><PlusIcon /> Add</Button>`).

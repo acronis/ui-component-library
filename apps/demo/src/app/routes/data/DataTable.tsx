@@ -3,9 +3,9 @@ import {
   ArrowsDownUpIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-} from '@spec-lab/icons-react/stroke-mono';
-import { Button, ButtonIcon } from '@spec-lab/ui-react';
-import { Input } from '@spec-lab/ui-react';
+} from '@constructor-lab/icons-react/stroke-mono';
+import { Button, ButtonIcon } from '@constructor-lab/ui-react';
+import { Input } from '@constructor-lab/ui-react';
 import {
   Table,
   TableBody,
@@ -13,16 +13,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/ui-react';
-import { Checkbox } from '@spec-lab/ui-react';
-import { Badge } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { RowActions } from './RowActions';
 import { format } from 'date-fns';
 import type { DataRow } from '../../types';

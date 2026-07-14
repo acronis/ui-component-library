@@ -1,7 +1,7 @@
 spec_version: '1.0'
 component: ButtonGroup
 
-# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# References only. Values live in @constructor-lab/tokens and resolve per brand/theme at
 # paint time. The token schema forbids a value/default key here.
 #
 # The grouped `item`s are `Button`s — they carry their own `--ui-button-*` tokens
@@ -9,7 +9,7 @@ component: ButtonGroup
 # SEMANTIC vocabulary via bridged Tailwind names: the `text` addon (muted surface,
 # border, primary text) and the `separator` (the shared divider color). No
 # dedicated `--ui-button-group-*` tier yet (design-pending v1).
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── text addon (ButtonGroupText) ──

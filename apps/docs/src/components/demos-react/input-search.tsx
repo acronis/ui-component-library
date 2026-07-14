@@ -1,6 +1,6 @@
 'use client';
 
-import { InputSearch } from '@spec-lab/ui-react';
+import { InputSearch } from '@constructor-lab/ui-react';
 
 export function InputSearchDemo() {
   return (

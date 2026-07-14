@@ -1,26 +1,26 @@
 ---
 name: migrate-icons
-description: Migrate icon imports/usages from @spec-lab/shadcn-uikit (legacy Constructor Lab names like EditIcon, CustomerIcon, DangerIcon) to @spec-lab/icons-react (e.g. PencilIcon, BriefcaseIcon). Resolves names authoritatively from the map SHIPPED with icons-react (@spec-lab/icons-react/legacy-map) — no guessing, no monorepo checkout. Rewrites imports + JSX, dedupes collisions, and holds colored status icons that have no monochrome equivalent. Reusable in any MFE. Use when asked to migrate, swap, or update Constructor Lab icons to icons-react.
+description: Migrate icon imports/usages from @constructor-lab/shadcn-uikit (legacy Constructor Lab names like EditIcon, CustomerIcon, DangerIcon) to @constructor-lab/icons-react (e.g. PencilIcon, BriefcaseIcon). Resolves names authoritatively from the map SHIPPED with icons-react (@constructor-lab/icons-react/legacy-map) — no guessing, no monorepo checkout. Rewrites imports + JSX, dedupes collisions, and holds colored status icons that have no monochrome equivalent. Reusable in any MFE. Use when asked to migrate, swap, or update Constructor Lab icons to icons-react.
 ---
 
 # Migrate shadcn-uikit icons → icons-react (common, reusable)
 
-Legacy `@spec-lab/shadcn-uikit` exports icons under Constructor Lab names
-(`EditIcon`, `CustomerIcon`, `SearchIcon`). `@spec-lab/icons-react` uses
+Legacy `@constructor-lab/shadcn-uikit` exports icons under Constructor Lab names
+(`EditIcon`, `CustomerIcon`, `SearchIcon`). `@constructor-lab/icons-react` uses
 descriptive names (`PencilIcon`, `BriefcaseIcon`, `MagnifierIcon`) on a different
 art grid, so names must be **resolved authoritatively, not guessed** (no
 SVG-path matching — the grids differ).
 
 This is the **common solution for every MFE**: the authoritative
 `legacy → icons-react` map is **generated in the uikit monorepo and shipped with
-`@spec-lab/icons-react`** (`@spec-lab/icons-react/legacy-map`,
+`@constructor-lab/icons-react`** (`@constructor-lab/icons-react/legacy-map`,
 file `legacy-icon-map.json`). Any app resolves from its installed `icons-react` —
 no monorepo checkout, no per-MFE mapping table. To use it in a new MFE, copy this
 `migrate-icons/` skill folder into that repo's `.claude/skills/`.
 
 ## The shipped map
 
-`@spec-lab/icons-react/legacy-map` → `legacy-icon-map.json`:
+`@constructor-lab/icons-react/legacy-map` → `legacy-icon-map.json`:
 
 ```jsonc
 {
@@ -42,13 +42,13 @@ no monorepo checkout, no per-MFE mapping table. To use it in a new MFE, copy thi
   packs.
 
 Maintainers regenerate it with
-`pnpm --filter @spec-lab/icons-react generate:legacy-map` (also runs as
+`pnpm --filter @constructor-lab/icons-react generate:legacy-map` (also runs as
 part of `generate`/`build`); it's deterministic and committed.
 
 ## Procedure
 
-1. **Confirm inputs**: source module (`@spec-lab/shadcn-uikit`), target
-   pack (`stroke-mono` unless told otherwise), and that `@spec-lab/icons-react`
+1. **Confirm inputs**: source module (`@constructor-lab/shadcn-uikit`), target
+   pack (`stroke-mono` unless told otherwise), and that `@constructor-lab/icons-react`
    is installed (with the `legacy-map` export; if the app is on an older version,
    pass `MAP=<path to legacy-icon-map.json>` from a monorepo checkout).
 2. **Resolve** — build the app-specific map for the icons it actually imports:
@@ -60,7 +60,7 @@ part of `generate`/`build`); it's deterministic and committed.
 3. **Triage the leftovers** (do not auto-apply these):
    - **COLORED status/brand icons** (`DangerIcon`, `CriticalIcon`, `SuccessIcon`,
      `UnknownIcon`, …): either keep them on the multicolor pack
-     (`@spec-lab/icons-react/stroke-multi`), or map to a monochrome base
+     (`@constructor-lab/icons-react/stroke-multi`), or map to a monochrome base
      (`CircleTimesIcon`, `TriangleWarningIcon`, `CircleCheckIcon`, …) **with a
      color className**. Add the chosen entries to `.icon-migration/iconmap.json`
      by hand. Holding them (leaving them on shadcn-uikit) is valid — flag for a
@@ -76,8 +76,8 @@ part of `generate`/`build`); it's deterministic and committed.
 5. **Apply**:
    ```bash
    MAP=.icon-migration/iconmap.json \
-   FROM=@spec-lab/shadcn-uikit \
-   TO=@spec-lab/icons-react/stroke-mono \
+   FROM=@constructor-lab/shadcn-uikit \
+   TO=@constructor-lab/icons-react/stroke-mono \
      node .claude/skills/migrate-icons/scripts/apply-icons.mjs
    ```
    It rewrites each file's legacy import (splitting icons out from components that
@@ -85,7 +85,7 @@ part of `generate`/`build`); it's deterministic and committed.
    dedupes collisions, and leaves held/unmapped names on the legacy module.
 6. **Verify**: `npx tsc -b --noEmit` (icons-react `IconProps` supports
    `size`/`className`/`style`, so `size={16}` type-checks) and the app's tests.
-   Re-grep `@spec-lab/shadcn-uikit` to confirm only intended holds remain.
+   Re-grep `@constructor-lab/shadcn-uikit` to confirm only intended holds remain.
 7. **Commit** as its own step; note held/colored icons and any intentional
    collisions (e.g. `Customer`/`Customers` → `Briefcase`) in the message.
 

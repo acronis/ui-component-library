@@ -1,6 +1,6 @@
 'use client';
 
-import { PageContent } from '@spec-lab/ui-react';
+import { PageContent } from '@constructor-lab/ui-react';
 
 export function PageContentDemo() {
   return (

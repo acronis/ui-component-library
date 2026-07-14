@@ -89,11 +89,11 @@ bash .claude/skills/component-readiness/scripts/audit.sh InputTextArea
 The static pass confirms files _exist_; these confirm they _pass_:
 
 ```bash
-pnpm --filter @spec-lab/ui-react exec vitest run src/components/ui/<name>   # unit tests
-pnpm --filter @spec-lab/ui-react typecheck
-pnpm --filter @spec-lab/ui-react lint
-pnpm --filter @spec-lab/ui-spec test            # schema + cva conformance (all specs)
-pnpm --filter @spec-lab/ui-react exec figma:connect   # Code Connect validity (optional)
+pnpm --filter @constructor-lab/ui-react exec vitest run src/components/ui/<name>   # unit tests
+pnpm --filter @constructor-lab/ui-react typecheck
+pnpm --filter @constructor-lab/ui-react lint
+pnpm --filter @constructor-lab/ui-spec test            # schema + cva conformance (all specs)
+pnpm --filter @constructor-lab/ui-react exec figma:connect   # Code Connect validity (optional)
 ```
 
 ---

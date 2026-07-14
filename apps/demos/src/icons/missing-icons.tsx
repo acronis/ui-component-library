@@ -1,6 +1,6 @@
 /**
  * Inline SVG icon components for lucide icons that have no internal equivalent
- * in @spec-lab/shadcn-uikit. Uses stroke style to match lucide visuals.
+ * in @constructor-lab/shadcn-uikit. Uses stroke style to match lucide visuals.
  * SVG paths sourced from lucide-react (MIT licensed).
  */
 

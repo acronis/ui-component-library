@@ -11,7 +11,7 @@ import {
   MeterLabel,
   MeterTrack,
   MeterValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // A tiny 0–100 strength heuristic: length + character-class variety. Illustrative
 // only — real strength estimation belongs to a library like zxcvbn.

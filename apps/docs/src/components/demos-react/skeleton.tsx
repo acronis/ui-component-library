@@ -1,6 +1,6 @@
 'use client';
 
-import { Skeleton } from '@spec-lab/ui-react';
+import { Skeleton } from '@constructor-lab/ui-react';
 
 export function SkeletonDemo() {
   return (

@@ -1,4 +1,4 @@
-import { Switch, Label } from '@spec-lab/ui-react';
+import { Switch, Label } from '@constructor-lab/ui-react';
 
 export function SwitchWithLabel() {
   return (

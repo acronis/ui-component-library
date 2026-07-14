@@ -7,7 +7,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function PaginationLastPage() {
   const [currentPage, setCurrentPage] = useState(20);

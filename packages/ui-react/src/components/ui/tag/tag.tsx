@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 // A compact label for a status, category, or keyword. `variant` wires the
 // container fill, border, label, and icon to the dedicated `--ui-tag-*`
-// component tier from @spec-lab/tokens (one token per part, per
+// component tier from @constructor-lab/tokens (one token per part, per
 // variant). Geometry — radius, border width, gap, padding, max/min width, icon
 // size — comes from `--ui-tag-global-*`; `size` only changes the height (24px
 // `default` / 20px `sm`), padding is uniform. The `ai` variant paints a gradient

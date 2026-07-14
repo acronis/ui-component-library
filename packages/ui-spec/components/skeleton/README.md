@@ -23,7 +23,7 @@ caller's `className`.
 ## Example
 
 ```tsx
-import { Skeleton } from '@spec-lab/ui-react';
+import { Skeleton } from '@constructor-lab/ui-react';
 
 <div className="flex items-center gap-4">
   <Skeleton className="size-12 rounded-full" />

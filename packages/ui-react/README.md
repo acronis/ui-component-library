@@ -1,8 +1,8 @@
-# @spec-lab/ui-react
+# @constructor-lab/ui-react
 
 The next-generation Constructor Lab React component library — a **Base UI**
-implementation, themed by [`@spec-lab/tokens`](../tokens)
-(generated from [`@spec-lab/tokens`](../tokens)).
+implementation, themed by [`@constructor-lab/tokens`](../tokens)
+(generated from [`@constructor-lab/tokens`](../tokens)).
 
 > Early days: this package is being built out component by component. See
 > [`AGENTS.md`](./AGENTS.md) for conventions.
@@ -10,14 +10,14 @@ implementation, themed by [`@spec-lab/tokens`](../tokens)
 ## Install
 
 ```sh
-pnpm add @spec-lab/ui-react react react-dom
+pnpm add @constructor-lab/ui-react react react-dom
 ```
 
 ## Usage
 
 ```tsx
-import '@spec-lab/ui-react/styles';
-import { Button, Switch } from '@spec-lab/ui-react';
+import '@constructor-lab/ui-react/styles';
+import { Button, Switch } from '@constructor-lab/ui-react';
 
 export function Example() {
   return (
@@ -29,12 +29,12 @@ export function Example() {
 }
 ```
 
-`@spec-lab/ui-react/styles` loads the `acronis` token base. To switch
+`@constructor-lab/ui-react/styles` loads the `acronis` token base. To switch
 theme at runtime:
 
 ```css
 /* one import ships every brand + both themes */
-@import '@spec-lab/ui-react/styles';
+@import '@constructor-lab/ui-react/styles';
 ```
 
 ```html
@@ -67,7 +67,7 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
 
-import '@spec-lab/ui-react/styles';
+import '@constructor-lab/ui-react/styles';
 ```
 
 > The static `@fontsource/inter` registers the family as `Inter`, which matches
@@ -80,7 +80,7 @@ If you skip this step, text falls back to `system-ui` / the platform sans-serif.
 ## Develop
 
 ```sh
-pnpm --filter @spec-lab/ui-react storybook   # explore components
-pnpm --filter @spec-lab/ui-react test        # Vitest + RTL
-pnpm --filter @spec-lab/ui-react build       # library bundle + types
+pnpm --filter @constructor-lab/ui-react storybook   # explore components
+pnpm --filter @constructor-lab/ui-react test        # Vitest + RTL
+pnpm --filter @constructor-lab/ui-react build       # library bundle + types
 ```

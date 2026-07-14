@@ -1,7 +1,7 @@
 # AGENTS.md — `packages/tokens`
 
-`@spec-lab/tokens` — the **published** tokens package. It **merges** the former
-`@spec-lab/design-tokens` (DTCG source) and `@spec-lab/tokens-pd` (generated CSS)
+`@constructor-lab/tokens` — the **published** tokens package. It **merges** the former
+`@constructor-lab/design-tokens` (DTCG source) and `@constructor-lab/tokens-pd` (generated CSS)
 into one workspace:
 
 - **Source of truth**: DTCG-2025.10-conformant JSON under `tiers/` (ajv-validated
@@ -28,7 +28,7 @@ The build emits one bundle, not a per-brand/per-component fan-out:
 - Brand switches via **`[data-brand]`**, light/dark via **`[data-theme]`** — every
   brand is carried in the one bundle (the default brand under `:root`, others as
   `[data-brand='…']` override blocks). No per-brand files, no runtime injection.
-- `css/index.css` is the single import (`@spec-lab/tokens/css`) pulling in
+- `css/index.css` is the single import (`@constructor-lab/tokens/css`) pulling in
   primitives + semantics + every component. `css/tailwind-theme.css` is the
   generated Tailwind v4 `@theme inline` bridge. `scss/_mixins.scss` exposes
   `@include tokens.ui-theme`; `js/tokens.js` is a name→`var()` map.
@@ -36,7 +36,7 @@ The build emits one bundle, not a per-brand/per-component fan-out:
 ## Build
 
 ```bash
-pnpm --filter @spec-lab/tokens build    # delegates to @spec-lab/style-dictionary (pd-css)
+pnpm --filter @constructor-lab/tokens build    # delegates to @constructor-lab/style-dictionary (pd-css)
 ```
 
 Regenerates `css/`, `scss/`, `js/`, `dtcg/` from `tiers/`. Output is committed;
@@ -45,8 +45,8 @@ CI fails if a tier change isn't rebuilt + committed.
 ## Validate
 
 ```bash
-pnpm --filter @spec-lab/tokens test       # alias for validate
-pnpm --filter @spec-lab/tokens validate    # ajv-compiles the schema, validates the tier files
+pnpm --filter @constructor-lab/tokens test       # alias for validate
+pnpm --filter @constructor-lab/tokens validate    # ajv-compiles the schema, validates the tier files
 ```
 
 `--strict=false` is required for the tokens schema — a known ajv quirk from the `properties`/`patternProperties` overlap on `$extensions`. It is already baked into the `validate` script; keep it.
@@ -54,7 +54,7 @@ pnpm --filter @spec-lab/tokens validate    # ajv-compiles the schema, validates 
 ## Emit (re-emit tiers from a Figma snapshot)
 
 ```bash
-pnpm --filter @spec-lab/tokens emit
+pnpm --filter @constructor-lab/tokens emit
 ```
 
 One-command re-emit: builds the normalized snapshot from the

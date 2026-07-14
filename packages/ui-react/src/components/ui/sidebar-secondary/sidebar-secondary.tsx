@@ -6,7 +6,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
   SquareArrowUpRightIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -16,7 +16,7 @@ import { ScrollArea } from '../scroll-area';
 // Composable SidebarSecondary primitives mirroring the Figma "SidebarSecondary"
 // component set (node 2468:59502, variant expanded|collapsed). Every color and
 // metric is wired to a next-gen `--ui-sidebar-secondary-*` token from
-// @spec-lab/tokens — no hex, no invented tokens.
+// @constructor-lab/tokens — no hex, no invented tokens.
 //
 // Like SidebarPrimary, expanded/collapsed is a width-reflow state (not a panel
 // show/hide), modelled as a controlled/uncontrolled `expanded` prop (default

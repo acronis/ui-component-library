@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import { Input } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { EnvelopeIcon, LockIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Input } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import {
+  EnvelopeIcon,
+  LockIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
 export function InputFormDemo() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

@@ -45,7 +45,7 @@ adapters:
   react:
     component: Link
     status: implemented
-    import: "import { Link } from '@spec-lab/ui-react'"
+    import: "import { Link } from '@constructor-lab/ui-react'"
     example: |
       <Link href="/docs">Documentation</Link>
 
@@ -59,12 +59,12 @@ adapters:
   vue:
     component: AvLink
     status: planned
-    import: "import { AvLink } from '@spec-lab/ui-vue'"
+    import: "import { AvLink } from '@constructor-lab/ui-vue'"
     example: |
       <AvLink href="/docs">Documentation</AvLink>
   web-components:
     element: ui-link
     status: planned
-    import: "import '@spec-lab/ui-wc/link'"
+    import: "import '@constructor-lab/ui-wc/link'"
     example: |
       <ui-link href="/docs">Documentation</ui-link>

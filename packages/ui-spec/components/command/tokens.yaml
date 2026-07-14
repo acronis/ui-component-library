@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: Command
 
-# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# References only. Values live in @constructor-lab/tokens and resolve per brand/theme at
 # paint time. The token schema forbids a value/default key here.
 #
 # Command has no dedicated `--ui-command-*` tier yet (design-pending v1). It binds
 # the shared SEMANTIC vocabulary via bridged Tailwind names; the Dialog shell and
 # the item highlight reuse existing surface/text tokens.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── surface + text ──

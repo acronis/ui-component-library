@@ -2,13 +2,13 @@
  * Theme Switcher Utility
  *
  * Provides functions to programmatically switch between brands and color modes.
- * Brand is driven by the shipped `@spec-lab/tokens` `[data-brand]` model
+ * Brand is driven by the shipped `@constructor-lab/tokens` `[data-brand]` model
  * (default brand = `:root`, i.e. no attribute); light/dark is a separate axis
  * via `[data-theme]`.
  */
 
 /**
- * The brand identities shipped by `@spec-lab/tokens` as `[data-brand='…']`
+ * The brand identities shipped by `@constructor-lab/tokens` as `[data-brand='…']`
  * blocks, plus `'default'` meaning the `:root` brand (no `data-brand`).
  */
 export type BrandName =
@@ -41,7 +41,7 @@ const COLOR_MODE_STORAGE_KEY = 'av-color-mode';
 /**
  * Apply a brand to the document root element and any additional roots.
  *
- * Shipped `@spec-lab/tokens` switch brand via the `[data-brand]` attribute
+ * Shipped `@constructor-lab/tokens` switch brand via the `[data-brand]` attribute
  * (default brand = `:root`, no attribute). `'default'` therefore removes the
  * attribute; any other brand sets `data-brand="<brand>"`.
  *
@@ -137,7 +137,7 @@ export function applyColorMode(mode: ColorMode, persist = true): void {
       ? window.matchMedia('(prefers-color-scheme: dark)').matches
       : mode === 'dark';
 
-  // Shipped @spec-lab/tokens key light/dark off `[data-theme]` (not a legacy
+  // Shipped @constructor-lab/tokens key light/dark off `[data-theme]` (not a legacy
   // `.dark` class); those token blocks also set `color-scheme`, so setting the
   // attribute is all that is needed to flip the whole `--ui-*` palette.
   document.documentElement.setAttribute(

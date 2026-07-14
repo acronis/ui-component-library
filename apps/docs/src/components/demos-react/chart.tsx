@@ -7,7 +7,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 
 const data = [

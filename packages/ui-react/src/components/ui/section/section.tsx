@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-// Ported 1:1 from `@spec-lab`'s `section`. A titled content block —
+// Ported 1:1 from `@constructor-lab`'s `section`. A titled content block —
 // semantic markup parts; the only color is the muted description
 // (`text-muted-foreground` → --ui-text-on-surface-secondary).
 const Section = React.forwardRef<

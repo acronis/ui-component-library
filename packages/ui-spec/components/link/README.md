@@ -18,7 +18,7 @@ Themed by the `--ui-link-*` token tier.
 ## Examples
 
 ```tsx
-import { Link } from '@spec-lab/ui-react';
+import { Link } from '@constructor-lab/ui-react';
 
 // Internal
 <Link href="/docs">Documentation</Link>;

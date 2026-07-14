@@ -5,8 +5,8 @@
 //
 // Usage:
 //   MAP=.icon-migration/iconmap.json \
-//   FROM=@spec-lab/shadcn-uikit \
-//   TO=@spec-lab/icons-react/stroke-mono \
+//   FROM=@constructor-lab/shadcn-uikit \
+//   TO=@constructor-lab/icons-react/stroke-mono \
 //     node apply-icons.mjs
 // Review the map first; run inside a clean git tree so the diff is reviewable.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -15,8 +15,8 @@ import { execSync } from 'node:child_process';
 const MAP = JSON.parse(
   readFileSync(process.env.MAP || '.icon-migration/iconmap.json', 'utf8')
 );
-const FROM = process.env.FROM || '@spec-lab/shadcn-uikit';
-const TO = process.env.TO || '@spec-lab/icons-react/stroke-mono';
+const FROM = process.env.FROM || '@constructor-lab/shadcn-uikit';
+const TO = process.env.TO || '@constructor-lab/icons-react/stroke-mono';
 
 const esc = (s) => s.replace(/[/.\-]/g, (m) => `\\${m}`);
 const importRe = new RegExp(

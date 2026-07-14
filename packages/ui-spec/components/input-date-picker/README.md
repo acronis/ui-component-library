@@ -22,7 +22,7 @@ Themed by the `--ui-input-date-picker-*` token tier.
 ## Examples
 
 ```tsx
-import { InputDatePicker } from '@spec-lab/ui-react';
+import { InputDatePicker } from '@constructor-lab/ui-react';
 import { format } from 'date-fns';
 
 // Single date

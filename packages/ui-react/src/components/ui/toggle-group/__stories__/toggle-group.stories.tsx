@@ -4,7 +4,7 @@ import {
   LayoutTableIcon,
   ListIcon,
   StarIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import { Toggle, ToggleGroup, ToggleGroupItem } from '../toggle-group';
 

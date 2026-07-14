@@ -38,7 +38,7 @@ import {
   PaginationPrevious,
   PaginationNext,
   PaginationEllipsis,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Pagination>
   <PaginationContent>

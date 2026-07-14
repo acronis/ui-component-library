@@ -4,7 +4,7 @@ import {
   SidebarIconsOnly,
   SidebarWithBadges,
   SidebarWithSections,
-} from '@spec-lab/ui-kit-demos/sidebar';
+} from '@constructor-lab/ui-kit-demos/sidebar';
 import { DemoWithCode } from './DemoWithCode';
 
 // Import actual source code files as raw strings

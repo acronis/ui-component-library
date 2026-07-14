@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@spec-lab/ui-react';
-import { Badge } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
 
 const invoices = [
   {

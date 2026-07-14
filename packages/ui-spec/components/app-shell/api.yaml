@@ -12,7 +12,7 @@ adapters:
   react:
     component: AppShell
     status: implemented
-    import: "import { AppShell, AppShellSidebar, AppShellBody, AppShellHeader, AppShellMain, AppShellFooter } from '@spec-lab/ui-react'"
+    import: "import { AppShell, AppShellSidebar, AppShellBody, AppShellHeader, AppShellMain, AppShellFooter } from '@constructor-lab/ui-react'"
     example: |
       <AppShell>
         <AppShellSidebar><SidebarPrimary … /></AppShellSidebar>
@@ -24,12 +24,12 @@ adapters:
   vue:
     component: AvAppShell
     status: planned
-    import: "import { AvAppShell } from '@spec-lab/ui-vue'"
+    import: "import { AvAppShell } from '@constructor-lab/ui-vue'"
     example: |
       <AvAppShell />
   web-components:
     element: ui-app-shell
     status: planned
-    import: "import '@spec-lab/ui-wc/app-shell'"
+    import: "import '@constructor-lab/ui-wc/app-shell'"
     example: |
       <ui-app-shell></ui-app-shell>

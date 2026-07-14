@@ -16,8 +16,8 @@ import {
   ScrollArea,
   Separator,
   Spinner,
-} from '@spec-lab/ui-react';
-import { SendIcon } from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/ui-react';
+import { SendIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 type Message = { id: string; role: 'user' | 'assistant'; content: string };
 

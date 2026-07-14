@@ -14,7 +14,7 @@ import {
   ScrollArea,
   Separator,
   Switch,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   ArrowRotationIcon,
   ChevronDownIcon,
@@ -27,7 +27,7 @@ import {
   MagnifierIcon,
   PlusIcon,
   SendIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import {
   ThumbsUpIcon,
   ThumbsDownIcon,

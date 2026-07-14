@@ -6,7 +6,7 @@ import {
   FilesIcon,
   FolderIcon,
   PencilIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   Menu,

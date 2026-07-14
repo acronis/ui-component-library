@@ -16,7 +16,7 @@ import {
   SidebarSecondaryMenuSubTrigger,
   SidebarSecondarySection,
   SidebarSecondarySectionLabel,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   BriefcaseIcon,
   CloudShieldIcon,
@@ -24,7 +24,7 @@ import {
   LayoutGridIcon,
   MonitorIcon,
   ServerIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 export function SidebarNavigationDemo() {
   return (

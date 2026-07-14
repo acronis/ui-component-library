@@ -87,7 +87,7 @@ adapters:
   react:
     component: InputTextArea
     status: implemented
-    import: "import { InputTextArea } from '@spec-lab/ui-react'"
+    import: "import { InputTextArea } from '@constructor-lab/ui-react'"
     example: |
       <InputTextArea
         label="Bio"
@@ -102,12 +102,12 @@ adapters:
   vue:
     component: AvInputTextArea
     status: planned
-    import: "import { AvInputTextArea } from '@spec-lab/ui-vue'"
+    import: "import { AvInputTextArea } from '@constructor-lab/ui-vue'"
     example: |
       <AvInputTextArea v-model="bio" label="Bio" placeholder="Tell us about yourself" />
   web-components:
     element: ui-input-text-area
     status: planned
-    import: "import '@spec-lab/ui-wc/input-text-area'"
+    import: "import '@constructor-lab/ui-wc/input-text-area'"
     example: |
       <ui-input-text-area label="Bio" placeholder="Tell us about yourself"></ui-input-text-area>

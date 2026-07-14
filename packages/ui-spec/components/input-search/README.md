@@ -20,7 +20,7 @@ furniture.
 ## Examples
 
 ```tsx
-import { InputSearch } from '@spec-lab/ui-react';
+import { InputSearch } from '@constructor-lab/ui-react';
 
 // Basic labelled search field
 <InputSearch label="Find" placeholder="Search table" />;

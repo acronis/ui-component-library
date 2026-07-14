@@ -21,7 +21,7 @@ import {
   WidgetContent,
   Button,
   Badge,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const metrics = [
   { title: 'Total Devices', value: '2,847', change: '+12%', trend: 'up' },

@@ -5,7 +5,7 @@ import {
   SidebarSecondaryMenu,
   SidebarSecondaryMenuItem,
   SidebarSecondarySection,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function SecondaryMenuBasic() {
   const [activeItem, setActiveItem] = useState('dashboard');

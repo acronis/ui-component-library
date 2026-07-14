@@ -62,7 +62,7 @@ adapters:
     status: implemented
     import: >-
       import { Autocomplete, AutocompleteInput, AutocompleteContent,
-      AutocompleteList, AutocompleteItem, AutocompleteEmpty } from '@spec-lab/ui-react'
+      AutocompleteList, AutocompleteItem, AutocompleteEmpty } from '@constructor-lab/ui-react'
     example: |
       const countries = ['Australia', 'Austria', 'Belgium', 'Canada'];
 
@@ -82,12 +82,12 @@ adapters:
   vue:
     component: AvAutocomplete
     status: planned
-    import: "import { AvAutocomplete } from '@spec-lab/ui-vue'"
+    import: "import { AvAutocomplete } from '@constructor-lab/ui-vue'"
     example: |
       <AvAutocomplete :items="countries" v-model="query" />
   web-components:
     element: ui-autocomplete
     status: planned
-    import: "import '@spec-lab/ui-wc/autocomplete'"
+    import: "import '@constructor-lab/ui-wc/autocomplete'"
     example: |
       <ui-autocomplete placeholder="Search country…"></ui-autocomplete>

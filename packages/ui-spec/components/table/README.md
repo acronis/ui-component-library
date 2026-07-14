@@ -50,7 +50,7 @@ import {
   TableCell,
   Checkbox,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // Sortable header (consumer owns the sort logic)
 <TableHead sortable sortDirection={dir} onSort={() => setDir(next(dir))}>

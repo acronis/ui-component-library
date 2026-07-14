@@ -9,7 +9,7 @@ import {
   WidgetWithDivider,
   WidgetMinimal,
   WidgetDashboardGrid,
-} from '@spec-lab/ui-kit-demos/widget';
+} from '@constructor-lab/ui-kit-demos/widget';
 import { DemoWithCode } from './DemoWithCode';
 
 import widgetAllCode from '../../../demos/src/widget/WidgetAll.tsx?raw';

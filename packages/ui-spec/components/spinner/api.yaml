@@ -15,19 +15,19 @@ adapters:
   react:
     component: Spinner
     status: implemented
-    import: "import { Spinner } from '@spec-lab/ui-react'"
+    import: "import { Spinner } from '@constructor-lab/ui-react'"
     example: |
       <Spinner />
       <Spinner size="lg" className="text-muted-foreground" />
   vue:
     component: AvSpinner
     status: planned
-    import: "import { AvSpinner } from '@spec-lab/ui-vue'"
+    import: "import { AvSpinner } from '@constructor-lab/ui-vue'"
     example: |
       <AvSpinner size="lg" />
   web-components:
     element: ui-spinner
     status: planned
-    import: "import '@spec-lab/ui-wc/spinner'"
+    import: "import '@constructor-lab/ui-wc/spinner'"
     example: |
       <ui-spinner size="lg"></ui-spinner>

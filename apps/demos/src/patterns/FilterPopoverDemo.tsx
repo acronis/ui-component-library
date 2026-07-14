@@ -10,7 +10,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const statuses = { active: 'Active', idle: 'Idle', error: 'Error' };
 const regions = { us: 'United States', eu: 'Europe', apac: 'Asia Pacific' };

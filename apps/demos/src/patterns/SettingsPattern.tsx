@@ -24,7 +24,7 @@ import {
   Input,
   Label,
   Switch,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function SettingsPattern() {
   const [notifications, setNotifications] = React.useState(true);

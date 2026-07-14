@@ -3,8 +3,13 @@ import { useChat } from '../../lib/chat/chat-service';
 import { MessageList } from './MessageList';
 import { MessageInput } from './MessageInput';
 import { BotModeSelector } from './BotModeSelector';
-import { Card, CardContent, CardHeader, CardTitle } from '@spec-lab/ui-react';
-import { Separator } from '@spec-lab/ui-react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@constructor-lab/ui-react';
+import { Separator } from '@constructor-lab/ui-react';
 import { BotMode } from '../../lib/chat/types';
 
 interface ChatInterfaceProps {

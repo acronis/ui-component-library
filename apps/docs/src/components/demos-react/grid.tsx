@@ -1,6 +1,6 @@
 'use client';
 
-import { Grid } from '@spec-lab/ui-react';
+import { Grid } from '@constructor-lab/ui-react';
 
 const Box = ({ children }: { children: React.ReactNode }) => (
   <div className="rounded-md bg-[var(--ui-background-surface-secondary)] px-4 py-6 text-center text-sm">

@@ -1,6 +1,11 @@
 'use client';
 
-import { Meter, MeterLabel, MeterTrack, MeterValue } from '@spec-lab/ui-react';
+import {
+  Meter,
+  MeterLabel,
+  MeterTrack,
+  MeterValue,
+} from '@constructor-lab/ui-react';
 
 export function MeterDemo() {
   return (

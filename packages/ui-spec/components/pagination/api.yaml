@@ -19,7 +19,7 @@ adapters:
   react:
     component: Pagination
     status: implemented
-    import: "import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext, PaginationEllipsis } from '@spec-lab/ui-react'"
+    import: "import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext, PaginationEllipsis } from '@constructor-lab/ui-react'"
     example: |
       <Pagination>
         <PaginationContent>
@@ -31,12 +31,12 @@ adapters:
   vue:
     component: AvPagination
     status: planned
-    import: "import { AvPagination } from '@spec-lab/ui-vue'"
+    import: "import { AvPagination } from '@constructor-lab/ui-vue'"
     example: |
       <AvPagination :total="100" :page="1" />
   web-components:
     element: ui-pagination
     status: planned
-    import: "import '@spec-lab/ui-wc/pagination'"
+    import: "import '@constructor-lab/ui-wc/pagination'"
     example: |
       <ui-pagination></ui-pagination>

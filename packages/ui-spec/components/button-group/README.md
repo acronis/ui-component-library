@@ -33,7 +33,7 @@ import {
   ButtonGroupText,
   ButtonGroupSeparator,
   Button,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 // Segmented actions
 <ButtonGroup>

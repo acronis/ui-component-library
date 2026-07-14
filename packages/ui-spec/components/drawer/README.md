@@ -60,7 +60,7 @@ import {
   DrawerDescription,
   DrawerFooter,
   Button,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Drawer side="bottom">
   <DrawerTrigger render={<Button variant="secondary">Open drawer</Button>} />

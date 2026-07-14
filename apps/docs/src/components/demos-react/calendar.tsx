@@ -7,7 +7,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { arSA, de } from 'react-day-picker/locale';
 import { useShadowMount } from '@/components/ShadowDemo';
 

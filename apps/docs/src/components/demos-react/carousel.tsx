@@ -5,7 +5,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNavigation,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const Slide = ({ n }: { n: number }) => (
   <div className="flex aspect-square items-center justify-center rounded-md border border-border bg-muted text-4xl font-semibold text-foreground">

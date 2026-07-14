@@ -4,13 +4,13 @@ import {
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from '@spec-lab/ui-react';
-import { Card, CardContent } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Card, CardContent } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function CarouselFigmaStyle() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);

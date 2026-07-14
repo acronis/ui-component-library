@@ -30,7 +30,7 @@ indeterminate sliding bar when the length is unknown.
 ## Example
 
 ```tsx
-import { Progress } from '@spec-lab/ui-react';
+import { Progress } from '@constructor-lab/ui-react';
 
 <Progress value={40} />
 <Progress value={null} /> {/* indeterminate */}

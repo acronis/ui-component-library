@@ -1,13 +1,13 @@
 spec_version: '1.0'
 component: Chip
 
-# References only. Values live in @spec-lab/tokens (generated from Figma) and
+# References only. Values live in @constructor-lab/tokens (generated from Figma) and
 # resolve per brand/theme at paint time. Chip binds the dedicated `--ui-chip-*`
 # tier: shared `_global` geometry + idle/hover/active container fill & border
 # colors + icon, and a per-variant label color
 # (`--ui-chip-<operational|selectable|removable>-label-color`). The focus ring
 # reuses the shared `--ui-focus-primary`.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── Geometry (root) ──

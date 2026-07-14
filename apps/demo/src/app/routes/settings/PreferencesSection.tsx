@@ -5,17 +5,17 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
-import { Switch } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
+import { Switch } from '@constructor-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import type { UserPreferences } from '../../types';
 import { toast } from 'sonner';
 

@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: DropdownMenu
 
-# References only. Values live in @spec-lab/tokens (generated from
-# @spec-lab/tokens) and resolve per brand/theme at paint time.
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # DropdownMenu is an alias of `Menu` (see components/menu), so it renders from
 # the shared `--ui-button-menu-dropdown-*` token tier that `Menu` is styled from.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   - {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Calendar } from '@spec-lab/ui-react';
+import { Calendar } from '@constructor-lab/ui-react';
 
 type DateRange = { from: Date | undefined; to?: Date | undefined };
 

@@ -19,7 +19,7 @@ import {
   DataTablePagination,
   DataTableToolbar,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 type Payment = {
   id: string;

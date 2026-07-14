@@ -4,7 +4,7 @@
 // Additional Slot Items boolean props (and an interaction `State` that maps to
 // CSS :hover / :focus-visible / [data-selected], not to code).
 import figma from '@figma/code-connect';
-import { FileIcon } from '@spec-lab/icons-react/stroke-mono';
+import { FileIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   TreeItem,

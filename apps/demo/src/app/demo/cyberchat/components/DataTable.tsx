@@ -1,4 +1,4 @@
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import { toast } from 'sonner';
 import type { TableData } from '../types';
 import { copyToClipboard } from '../utils/helpers';

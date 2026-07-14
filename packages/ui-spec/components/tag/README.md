@@ -24,8 +24,8 @@ label / icon). `ai` paints a gradient border over a tinted fill. Two sizes:
 ## Examples
 
 ```tsx
-import { Tag } from '@spec-lab/ui-react';
-import { TriangleWarningIcon } from '@spec-lab/icons-react/stroke-mono';
+import { Tag } from '@constructor-lab/ui-react';
+import { TriangleWarningIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 <Tag variant="success">Active</Tag>
 <Tag variant="info" size="sm">Beta</Tag>

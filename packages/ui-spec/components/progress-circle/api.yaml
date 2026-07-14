@@ -44,18 +44,18 @@ adapters:
   react:
     component: ProgressCircle
     status: implemented
-    import: "import { ProgressCircle } from '@spec-lab/ui-react'"
+    import: "import { ProgressCircle } from '@constructor-lab/ui-react'"
     example: |
       <ProgressCircle value={75} max={100} size="sm" showValue />
   vue:
     component: AvProgressRadial
     status: planned
-    import: "import { AvProgressRadial } from '@spec-lab/ui-vue'"
+    import: "import { AvProgressRadial } from '@constructor-lab/ui-vue'"
     example: |
       <AvProgressRadial :current-value="75" :total-value="100" size="small" />
   web-components:
     element: ui-progress-circle
     status: planned
-    import: "import '@spec-lab/ui-wc/progress-circle'"
+    import: "import '@constructor-lab/ui-wc/progress-circle'"
     example: |
       <ui-progress-circle value="75" max="100" size="sm"></ui-progress-circle>

@@ -4,9 +4,9 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@spec-lab/ui-react';
-import { Card, CardContent } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Card, CardContent } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 export function CarouselProducts() {
   return (

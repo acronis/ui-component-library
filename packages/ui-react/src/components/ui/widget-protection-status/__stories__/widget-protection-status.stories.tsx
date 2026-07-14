@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ShieldCheckIcon } from '@spec-lab/icons-react/stroke-mono';
+import { ShieldCheckIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import {
   WidgetProtectionStatus,

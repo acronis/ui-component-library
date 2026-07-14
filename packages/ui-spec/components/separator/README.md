@@ -19,7 +19,7 @@ A thin rule that divides content, horizontally or vertically.
 ## Example
 
 ```tsx
-import { Separator } from '@spec-lab/ui-react';
+import { Separator } from '@constructor-lab/ui-react';
 
 <Separator className="my-4" />
 

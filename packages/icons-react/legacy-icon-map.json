@@ -1,5 +1,5 @@
 {
-  "$comment": "AUTHORITATIVE legacy @spec-lab/shadcn-uikit icon name -> @spec-lab/icons-react name. Generated from the design-assets legacyNames bridge — do not hand-edit. Regenerate: pnpm --filter @spec-lab/icons-react generate:legacy-map",
+  "$comment": "AUTHORITATIVE legacy @constructor-lab/shadcn-uikit icon name -> @constructor-lab/icons-react name. Generated from the design-assets legacyNames bridge — do not hand-edit. Regenerate: pnpm --filter @constructor-lab/icons-react generate:legacy-map",
   "meta": {
     "defaultVariant": "stroke-mono",
     "variants": ["stroke-mono", "solid-mono", "stroke-multi", "solid-multi"],

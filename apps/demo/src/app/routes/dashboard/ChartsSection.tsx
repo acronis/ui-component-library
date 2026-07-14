@@ -5,12 +5,12 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   LineChart,
   Line,

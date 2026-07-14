@@ -1,9 +1,9 @@
-import { Tag } from '@spec-lab/ui-react';
+import { Tag } from '@constructor-lab/ui-react';
 import {
   CircleWarningIcon,
   LockIcon,
   ShieldCheckIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { UnlockIcon } from '../icons/missing-icons';
 export function TagSecurity() {
   return (

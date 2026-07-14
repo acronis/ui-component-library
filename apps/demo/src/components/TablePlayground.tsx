@@ -21,7 +21,7 @@ import {
   StarIcon,
   TimesIcon,
   UserIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import {
   ActivityIcon,
   ArrowUpDownIcon,
@@ -77,7 +77,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 // Multiple datasources with diverse data types
 const dataSources = {
   users: {
@@ -2841,7 +2841,7 @@ import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import React from 'react'
 
-import { BinIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, CircleCheckIcon, CircleClockIcon, CircleInfoIcon, CircleSmallIcon, CircleTimesIcon, CircleWarningIcon, EnvelopeIcon, EyeIcon, PencilIcon, ShieldCheckIcon, ShoppingCartIcon, StarIcon, TimesIcon, UserIcon } from '@spec-lab/icons-react/stroke-mono'
+import { BinIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, CircleCheckIcon, CircleClockIcon, CircleInfoIcon, CircleSmallIcon, CircleTimesIcon, CircleWarningIcon, EnvelopeIcon, EyeIcon, PencilIcon, ShieldCheckIcon, ShoppingCartIcon, StarIcon, TimesIcon, UserIcon } from '@constructor-lab/icons-react/stroke-mono'
 import {
   ActivityIcon,
   ArrowUpDownIcon,

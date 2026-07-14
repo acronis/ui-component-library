@@ -1,4 +1,4 @@
-import { AlertContent, AlertIcon, Button } from '@spec-lab/ui-react';
+import { AlertContent, AlertIcon, Button } from '@constructor-lab/ui-react';
 import {
   CircleCheckIcon as SuccessIcon,
   TriangleWarningIcon as WarningIcon,
@@ -6,21 +6,21 @@ import {
   CircleWarningIcon as DangerIcon,
   CircleInfoIcon as InfoIcon,
   ServerIcon as InfrastructureIcon,
-} from '@spec-lab/icons-react/stroke-mono';
-import { Input } from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
+} from '@constructor-lab/icons-react/stroke-mono';
+import { Input } from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
-import { Badge } from '@spec-lab/ui-react';
-import { Alert, AlertDescription, AlertTitle } from '@spec-lab/ui-react';
-import { Separator } from '@spec-lab/ui-react';
-import { Switch } from '@spec-lab/ui-react';
-import { Checkbox } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
+import { Alert, AlertDescription, AlertTitle } from '@constructor-lab/ui-react';
+import { Separator } from '@constructor-lab/ui-react';
+import { Switch } from '@constructor-lab/ui-react';
+import { Checkbox } from '@constructor-lab/ui-react';
 
 export const ComponentShowcase: React.FC = () => {
   return (

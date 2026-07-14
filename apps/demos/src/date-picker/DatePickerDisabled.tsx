@@ -1,6 +1,6 @@
-import { Button } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
-import { CalendarIcon } from '@spec-lab/icons-react/stroke-mono';
+import { CalendarIcon } from '@constructor-lab/icons-react/stroke-mono';
 export function DatePickerDisabled() {
   return (
     <Button

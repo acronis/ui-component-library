@@ -14,7 +14,7 @@ A binary on/off toggle whose change takes effect immediately.
 ## Example (React — implemented)
 
 ```tsx
-import { Switch } from '@spec-lab/ui-react';
+import { Switch } from '@constructor-lab/ui-react';
 
 const [enabled, setEnabled] = useState(false);
 

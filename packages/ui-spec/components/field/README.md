@@ -52,7 +52,7 @@ import {
   FieldDescription,
   FieldError,
   InputBox,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 <Field invalid={hasError}>
   <FieldLabel>Email</FieldLabel>

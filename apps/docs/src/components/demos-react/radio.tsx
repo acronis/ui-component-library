@@ -1,6 +1,6 @@
 'use client';
 
-import { Radio, RadioGroup } from '@spec-lab/ui-react';
+import { Radio, RadioGroup } from '@constructor-lab/ui-react';
 
 export function RadioDemo() {
   return (

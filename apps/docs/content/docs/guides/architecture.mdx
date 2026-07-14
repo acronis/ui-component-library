@@ -1,16 +1,16 @@
 ---
 title: Architecture
-description: How @spec-lab/ui-react is built — Base UI primitives, CVA variants, Tailwind v4, and the design-token pipeline.
+description: How @constructor-lab/ui-react is built — Base UI primitives, CVA variants, Tailwind v4, and the design-token pipeline.
 ---
 
 # Architecture
 
 ## Overview
 
-`@spec-lab/ui-react` is a **React-only** component library built on
+`@constructor-lab/ui-react` is a **React-only** component library built on
 [Base UI](https://base-ui.com/) primitives, styled with Tailwind CSS v4 over
 design tokens generated from the Constructor Lab design system. It is the
-next-generation successor to the legacy `@spec-lab/shadcn-uikit`.
+next-generation successor to the legacy `@constructor-lab/shadcn-uikit`.
 
 ## Design philosophy
 
@@ -27,7 +27,7 @@ next-generation successor to the legacy `@spec-lab/shadcn-uikit`.
 ### Token-driven theming
 
 - Color, typography, and component metrics resolve to `--ui-*` CSS custom
-  properties from [`@spec-lab/tokens`](/packages/tokens).
+  properties from [`@constructor-lab/tokens`](/packages/tokens).
 - Values are **never** hand-authored in components. Light/dark is handled by the
   tokens' `light-dark()` + `color-scheme`, driven by the `[data-theme]`
   attribute — no rebuild to switch themes or brands.
@@ -44,25 +44,25 @@ Theming flows in one direction, from the design source to the rendered
 component:
 
 ```text
-@spec-lab/tokens
+@constructor-lab/tokens
   tiers/*.json  (DTCG JSON — source of truth)
         │  built by tools/style-dictionary
         ▼
   css/ scss/ js/  (generated, reference-based; --ui-* vars, [data-brand]/[data-theme])
-        │  @import '@spec-lab/tokens/css' + the generated @theme bridge
+        │  @import '@constructor-lab/tokens/css' + the generated @theme bridge
         ▼
-@spec-lab/ui-react   (component utilities reference the tokens)
+@constructor-lab/ui-react   (component utilities reference the tokens)
 ```
 
-Source and generated output live in the **one** `@spec-lab/tokens` package: edit a
+Source and generated output live in the **one** `@constructor-lab/tokens` package: edit a
 tier (or sync from Figma) and rebuild; every consumer follows automatically. See
 [Packages](/packages) for each tier.
 
 ## Styling: two ways to reference a token
 
 `src/styles/index.css` imports the whole token bundle in one line
-(`@import '@spec-lab/tokens/css'`) plus the **generated** Tailwind `@theme inline`
-bridge (`@spec-lab/tokens/css/tailwind-theme.css`) that maps shared semantic
+(`@import '@constructor-lab/tokens/css'`) plus the **generated** Tailwind `@theme inline`
+bridge (`@constructor-lab/tokens/css/tailwind-theme.css`) that maps shared semantic
 tokens onto Tailwind color names. Components pick one of two patterns by how shared
 the token is:
 
@@ -78,12 +78,12 @@ Stateful colors wire **each state to its own token** (`hover:` → `*-hover`,
 
 ## Monorepo structure
 
-| Path                    | Package                 | Role                                         |
-| ----------------------- | ----------------------- | -------------------------------------------- |
-| `packages/ui-react/`    | `@spec-lab/ui-react`    | The component library (this docs site)       |
-| `packages/tokens/`      | `@spec-lab/tokens`      | DTCG token source + generated CSS/SCSS/JS    |
-| `packages/icons-react/` | `@spec-lab/icons-react` | Generated React icon components              |
-| `apps/docs/`            | —                       | This documentation site (Next.js + Fumadocs) |
+| Path                    | Package                        | Role                                         |
+| ----------------------- | ------------------------------ | -------------------------------------------- |
+| `packages/ui-react/`    | `@constructor-lab/ui-react`    | The component library (this docs site)       |
+| `packages/tokens/`      | `@constructor-lab/tokens`      | DTCG token source + generated CSS/SCSS/JS    |
+| `packages/icons-react/` | `@constructor-lab/icons-react` | Generated React icon components              |
+| `apps/docs/`            | —                              | This documentation site (Next.js + Fumadocs) |
 
 ## Component file layout
 

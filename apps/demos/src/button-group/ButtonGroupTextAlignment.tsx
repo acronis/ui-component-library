@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ButtonGroup, ButtonIcon } from '@spec-lab/ui-react';
+import { ButtonGroup, ButtonIcon } from '@constructor-lab/ui-react';
 import {
   AlignCenterIcon,
   AlignLeftIcon,

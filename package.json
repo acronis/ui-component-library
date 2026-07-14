@@ -7,9 +7,9 @@
     "build": "pnpm -r build",
     "changeset": "changeset",
     "clean": "pnpm -r clean",
-    "sd": "pnpm --filter @spec-lab/style-dictionary build",
-    "sd:assets": "pnpm --filter @spec-lab/style-dictionary build pd-assets web-assets",
-    "sd:tokens": "pnpm --filter @spec-lab/style-dictionary build pd-dtcg pd-css",
+    "sd": "pnpm --filter @constructor-lab/style-dictionary build",
+    "sd:assets": "pnpm --filter @constructor-lab/style-dictionary build pd-assets web-assets",
+    "sd:tokens": "pnpm --filter @constructor-lab/style-dictionary build pd-dtcg pd-css",
     "format": "prettier --write . --ignore-unknown",
     "format:check": "prettier --check . --ignore-unknown",
     "husky": "pnpm run lint-staged && pnpm run typecheck",
@@ -20,7 +20,7 @@
     "release": "changeset publish",
     "test": "pnpm -r test",
     "test:watch": "pnpm -r test:watch",
-    "tokens:sync": "pnpm --filter @spec-lab/tokens emit && pnpm --filter @spec-lab/tokens build",
+    "tokens:sync": "pnpm --filter @constructor-lab/tokens emit && pnpm --filter @constructor-lab/tokens build",
     "typecheck": "pnpm -r typecheck",
     "version": "changeset version"
   },
@@ -35,10 +35,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/constructor-lab/facet.git"
+    "url": "git+https://github.com/constructor-lab/ui-component-library.git"
   },
   "bugs": {
-    "url": "https://github.com/constructor-lab/facet/issues"
+    "url": "https://github.com/constructor-lab/ui-component-library/issues"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.7.0",

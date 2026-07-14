@@ -1,4 +1,4 @@
-# Publishes Figma Code Connect mappings for @spec-lab/ui-react.
+# Publishes Figma Code Connect mappings for @constructor-lab/ui-react.
 #
 # Code Connect is push-based: Figma never pulls from the repo. This workflow IS
 # the "sync" — on every merge to main it runs `figma connect publish`, which
@@ -29,7 +29,7 @@ permissions:
 jobs:
   publish:
     # Don't run on forks — only the canonical repo holds the Figma token.
-    if: github.repository == 'constructor-lab/facet'
+    if: github.repository == 'constructor-lab/ui-component-library'
     runs-on: ubuntu-latest
 
     steps:
@@ -52,9 +52,9 @@ jobs:
       # upload. `figma connect publish` re-parses, but this keeps the failure
       # mode obvious (validation vs. network/auth).
       - name: Validate Code Connect
-        run: pnpm --filter @spec-lab/ui-react figma:connect
+        run: pnpm --filter @constructor-lab/ui-react figma:connect
 
       - name: Publish Code Connect to Figma
         env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
-        run: pnpm --filter @spec-lab/ui-react figma:connect:publish
+        run: pnpm --filter @constructor-lab/ui-react figma:connect:publish

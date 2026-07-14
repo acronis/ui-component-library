@@ -58,11 +58,11 @@ If the change affects the framework-agnostic component contract, update `package
 Typical checks:
 
 ```bash
-pnpm --filter @spec-lab/ui-react lint
-pnpm --filter @spec-lab/ui-react typecheck
-pnpm --filter @spec-lab/ui-react test
-pnpm --filter @spec-lab/ui-react figma:connect
-pnpm --filter @spec-lab/ui-spec test
+pnpm --filter @constructor-lab/ui-react lint
+pnpm --filter @constructor-lab/ui-react typecheck
+pnpm --filter @constructor-lab/ui-react test
+pnpm --filter @constructor-lab/ui-react figma:connect
+pnpm --filter @constructor-lab/ui-spec test
 ```
 
 Run broader repo checks when needed (`pnpm lint`, `pnpm build`, `pnpm test`) before merge.

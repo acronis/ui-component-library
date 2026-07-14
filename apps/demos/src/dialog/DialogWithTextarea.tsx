@@ -7,8 +7,8 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogTrigger,
-} from '@spec-lab/ui-react';
-import { Button, Input, Textarea } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Button, Input, Textarea } from '@constructor-lab/ui-react';
 
 export function DialogWithTextarea() {
   return (

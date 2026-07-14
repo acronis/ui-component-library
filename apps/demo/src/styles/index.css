@@ -1,7 +1,7 @@
 /**
  * Demo App Styles Entry Point (ui-react)
  *
- * Tailwind v4 + @spec-lab/tokens (--ui-* design tokens + the shadcn-name bridge).
+ * Tailwind v4 + @constructor-lab/tokens (--ui-* design tokens + the shadcn-name bridge).
  * Mirrors packages/ui-react/src/styles/index.css. Tailwind scans the app, the
  * shared demos package, and ui-react's source so their utility classes are
  * generated here.

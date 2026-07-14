@@ -1,11 +1,11 @@
-import { Tag } from '@spec-lab/ui-react';
+import { Tag } from '@constructor-lab/ui-react';
 import {
   CircleCheckIcon,
   CircleInfoIcon,
   CircleSmallIcon,
   CircleTimesIcon,
   CircleWarningIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 export function TagWithIcons() {
   return (
     <div className="flex flex-wrap gap-3">

@@ -5,7 +5,7 @@
 - **Owner:** Leonid Romanov
 - **Affects:** `apps/demo` (the build target); reads metadata from
   `packages/ui-spec` (components / patterns / screens) and renders
-  `packages/ui-react` + `@spec-lab/ui-kit-demos`. No `ui-react` / `ui-spec`
+  `packages/ui-react` + `@constructor-lab/ui-kit-demos`. No `ui-react` / `ui-spec`
   source changes beyond an optional spec-index emitter.
 - **Builds on:** `context/component-layers-proposal.md` (this is its Phase 4 —
   "templates gallery in apps/demo"), and the existing `ui-spec/screens`,
@@ -91,7 +91,7 @@ A first-visit **guided product tour** built on the kit's `Popover`:
 
 ## 5. Spec access from `apps/demo`
 
-`apps/demo` doesn't currently depend on `ui-spec`. Add `@spec-lab/ui-spec` as a
+`apps/demo` doesn't currently depend on `ui-spec`. Add `@constructor-lab/ui-spec` as a
 dev dependency and consume a **generated `spec-index.json`** (emitted by a new
 `ui-spec` script that reads the yaml) — not raw YAML at runtime. This keeps the
 demo build simple (import JSON), keeps ui-spec the source of truth, and gives a

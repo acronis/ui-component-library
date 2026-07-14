@@ -1,4 +1,4 @@
-# @spec-lab/icons-svg
+# @constructor-lab/icons-svg
 
 Next-generation raw SVG icon sources for Constructor Lab — redesigned icons fetched from
 the `shadcn-uikit` Figma file, plus per-pack JSON manifests. Private,
@@ -24,15 +24,15 @@ suffixed `-duplicate`.
 
 ```ts
 // raw SVG markup (resolved via the package "exports" map)
-import arrowUturn from '@spec-lab/icons-svg/svg/arrow-uturn.svg';
+import arrowUturn from '@constructor-lab/icons-svg/svg/arrow-uturn.svg';
 
 // a manifest (array of icon names)
-import strokeArrows from '@spec-lab/icons-svg/figma/stroke-mono-arrows.json' with { type: 'json' };
+import strokeArrows from '@constructor-lab/icons-svg/figma/stroke-mono-arrows.json' with { type: 'json' };
 ```
 
 ## Syncing icons from Figma
 
-Icons are pulled by `@spec-lab/figma-icons-fetcher` using its
+Icons are pulled by `@constructor-lab/figma-icons-fetcher` using its
 `icon-packs` selection strategy against the `icon-packs-source` section (node
 `2246:3201`, fetched directly by id). Each of the section's four top-level
 frames is a pack, and icons are the `_assetsource/<Name>` components inside it;
@@ -47,7 +47,7 @@ packs organized into `Category` frames split into per-category manifests. Only
 3. Run the sync, then commit and open a PR:
 
 ```bash
-pnpm --filter @spec-lab/icons-svg pull-icons
+pnpm --filter @constructor-lab/icons-svg pull-icons
 git checkout -b chore/figma-icons-next-sync
 git add packages/icons-svg/src
 git commit -m "chore(icons-svg): sync icons from Figma"

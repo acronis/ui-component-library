@@ -8,7 +8,7 @@ import {
   CardContent,
   InputText,
   Link,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function AuthScreenDemo() {
   return (

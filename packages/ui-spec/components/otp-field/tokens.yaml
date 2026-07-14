@@ -1,11 +1,11 @@
 spec_version: '1.0'
 component: OTPField
 
-# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# References only. Values live in @constructor-lab/tokens and resolve per brand/theme at
 # paint time. There is no dedicated `--ui-otp-*` tier: each slot reuses the
 # `--ui-input-text-*` box tokens (matching InputText / InputBox), plus the shared
 # focus ring on the focused slot.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── slot box (geometry + idle/hover/disabled fill & border) ──

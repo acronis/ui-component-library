@@ -8,16 +8,16 @@ import {
   FieldError,
   FieldGroup,
   FieldLabel,
-} from '@spec-lab/ui-react';
-import { InputBox, InputTextArea } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { InputBox, InputTextArea } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 const profileSchema = z.object({
   username: z

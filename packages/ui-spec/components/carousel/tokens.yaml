@@ -1,14 +1,14 @@
 spec_version: '1.0'
 component: Carousel
 
-# References only. Values live in @spec-lab/tokens and resolve per brand/theme at
+# References only. Values live in @constructor-lab/tokens and resolve per brand/theme at
 # paint time. The token schema forbids a value/default key here.
 #
 # Carousel has no dedicated `--ui-carousel-*` tier. The track/slides carry no
 # component color of their own (the consumer styles slide content). The chrome is
 # the navigation bar: Previous / Next are ghost `Button`s (`--ui-button-ghost-*`
 # via that component) and the dots use the shared blue (info) gamma.
-source: '@spec-lab/tokens'
+source: '@constructor-lab/tokens'
 
 tokens:
   # ── previous / next controls (ghost Button tier) ──

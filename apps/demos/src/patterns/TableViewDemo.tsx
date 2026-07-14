@@ -10,7 +10,7 @@ import {
   PageHeaderRow,
   PageHeaderTitle,
   Tag,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 type Device = {
   id: string;

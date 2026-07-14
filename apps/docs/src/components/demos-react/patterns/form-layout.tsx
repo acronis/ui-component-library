@@ -1,6 +1,6 @@
 'use client';
 
-import { FormLayoutDemo as SharedFormLayoutDemo } from '@spec-lab/ui-kit-demos/patterns';
+import { FormLayoutDemo as SharedFormLayoutDemo } from '@constructor-lab/ui-kit-demos/patterns';
 import { useShadowMount } from '@/components/ShadowDemo';
 
 // Render-wrapper around the shared demo; passes the shadow mount so the Select

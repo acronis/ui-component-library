@@ -1,6 +1,6 @@
 # AGENTS.md — `packages/ui-spec`
 
-`@spec-lab/ui-spec` — **framework-agnostic** component specifications for
+`@constructor-lab/ui-spec` — **framework-agnostic** component specifications for
 the Constructor Lab UI Kit. **Private** (not published). This is the **Phase 0 spike** of
 the proposal in
 [`context/component-specs-proposal.md`](./context/component-specs-proposal.md):
@@ -38,18 +38,18 @@ validated against JSON Schemas in `schema/`.
 
 `tokens.yaml` lists **only token names** (`--ui-button-primary-background-idle`),
 the part each affects, and a description. **It must not restate values** — those
-live in `@spec-lab/tokens` (generated from `@spec-lab/tokens`).
+live in `@constructor-lab/tokens` (generated from `@constructor-lab/tokens`).
 The token-schema forbids a `value`/`default` key to enforce this. This is the
 single-source-of-truth rule that keeps specs from drifting from the design data.
 
 ## Validation + conformance (this is the point)
 
-`pnpm --filter @spec-lab/ui-spec test` runs `__tests__/specs.test.ts`:
+`pnpm --filter @constructor-lab/ui-spec test` runs `__tests__/specs.test.ts`:
 
 1. **Schema validation** — every YAML file validates against its `schema/*.json`.
 2. **Conformance** — for components built with `cva`, the spec's `api.yaml`
    `variant`/`size` enums must match the actual `cva` keys in the
-   `@spec-lab/ui-react` source (parsed via the TypeScript AST in
+   `@constructor-lab/ui-react` source (parsed via the TypeScript AST in
    `lib/cva.ts`). This is what stops the spec from rotting into stale docs.
 
 When you add or change a component spec, run `test`. When you change a
@@ -63,7 +63,7 @@ test fails.
 agent-facing source of truth for "how to combine components" and are rendered
 for humans in the docs site's **Patterns** section. Validated by
 `__tests__/patterns.test.ts` against `schema/pattern.schema.json`, which also
-checks every referenced `components[]` entry exists in `@spec-lab/ui-react`.
+checks every referenced `components[]` entry exists in `@constructor-lab/ui-react`.
 A proven pattern can **graduate** into a published composite component; it then
 records the link via `implementedBy`, which the test resolves to a real
 `layer: composite` component (the Primitive/Composite classification added by
@@ -109,7 +109,7 @@ findings plus the scroll-area T4 mis-wiring. The
 rule from a finding; only a human may ratify `must`. See
 [`grammar/LEDGER.md`](./grammar/LEDGER.md).
 
-**Phase 1 — `kit-lint`** (`scripts/kit-lint.ts`, `pnpm --filter @spec-lab/ui-spec kit-lint`):
+**Phase 1 — `kit-lint`** (`scripts/kit-lint.ts`, `pnpm --filter @constructor-lab/ui-spec kit-lint`):
 static detectors over shipped ui-react component source for the `kit-lint` checklist
 rows. `must`: T1 no-hardcoded-color, T2 unbridged-name. `should`: T3 opacity-hack,
 T4 state-token-wiring, Z1 off-grid-spacing, Y1 type-scale, Y2 line-height, Y3
@@ -138,7 +138,7 @@ one initial + all-reachable states. First example: `screens/protection-dashboard
 the kit-consistency proposal. See [`screens/README.md`](./screens/README.md).
 
 **Phase 3 — the rendered screen audit** (`screens/audit/`,
-`pnpm --filter @spec-lab/ui-spec screen-audit <slug> <snapshot.json>`):
+`pnpm --filter @constructor-lab/ui-spec screen-audit <slug> <snapshot.json>`):
 measure a real assembled screen, then run cross-component **structural detectors**
 keyed to the grammar's `screen/*` rules. Like `kit-lint`, measurement is split
 from detection: `screens/audit/probe.ts`'s `collectScreenSnapshot` runs in the

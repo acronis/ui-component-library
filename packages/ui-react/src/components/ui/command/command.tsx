@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
-import { MagnifierIcon } from '@spec-lab/icons-react/stroke-mono';
+import { MagnifierIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent } from '../dialog';

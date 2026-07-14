@@ -1,6 +1,6 @@
-// Resolve an app's legacy @spec-lab/shadcn-uikit icon imports to
-// @spec-lab/icons-react names using the AUTHORITATIVE map shipped with
-// icons-react (`@spec-lab/icons-react/legacy-map`). No guessing, no
+// Resolve an app's legacy @constructor-lab/shadcn-uikit icon imports to
+// @constructor-lab/icons-react names using the AUTHORITATIVE map shipped with
+// icons-react (`@constructor-lab/icons-react/legacy-map`). No guessing, no
 // monorepo checkout — the map is generated from the design-assets legacyNames
 // bridge and published with the package.
 //
@@ -8,7 +8,7 @@
 //   TARGET=stroke-mono node resolve-map.mjs [used-icons.txt]
 //     - used-icons.txt: optional newline list of legacy names (e.g. EditIcon).
 //       If omitted, the script inventories `src` for icons imported from FROM.
-//   Env: TARGET (default stroke-mono) · FROM (default @spec-lab/shadcn-uikit)
+//   Env: TARGET (default stroke-mono) · FROM (default @constructor-lab/shadcn-uikit)
 //        MAP (override path to legacy-icon-map.json; default = resolved from the
 //             installed icons-react, falling back to node_modules)
 // Writes ./.icon-migration/iconmap.json and prints the triage (colored / target-
@@ -18,15 +18,15 @@ import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 
 const TARGET = process.env.TARGET || 'stroke-mono';
-const FROM = process.env.FROM || '@spec-lab/shadcn-uikit';
+const FROM = process.env.FROM || '@constructor-lab/shadcn-uikit';
 
 function findMap() {
   if (process.env.MAP) return process.env.MAP;
   const req = createRequire(process.cwd() + '/');
   try {
-    return req.resolve('@spec-lab/icons-react/legacy-map');
+    return req.resolve('@constructor-lab/icons-react/legacy-map');
   } catch {
-    return 'node_modules/@spec-lab/icons-react/legacy-icon-map.json';
+    return 'node_modules/@constructor-lab/icons-react/legacy-icon-map.json';
   }
 }
 

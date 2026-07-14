@@ -1,5 +1,5 @@
-import { toast } from '@spec-lab/ui-react';
-import { Button } from '@spec-lab/ui-react';
+import { toast } from '@constructor-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
 
 // ui-react's toast has no per-toast `dismissible` option — every toast
 // already renders its own close button, so dismissal can't be turned off.

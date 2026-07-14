@@ -1,10 +1,10 @@
-# @spec-lab/ui-react
+# @constructor-lab/ui-react
 
 ## 1.2.3
 
 ### Patch Changes
 
-- [#17](https://github.com/constructor-lab/facet/pull/17) [`f6fb07b`](https://github.com/constructor-lab/facet/commit/f6fb07b2d0e77c9230c40f48306adff2abb644c6) Thanks [@leonid](https://github.com/leonid)! - Bump `react-resizable-panels` 4.11.2 → 4.12.1 (the `Resizable` component's
+- [#17](https://github.com/constructor-lab/ui-component-library/pull/17) [`f6fb07b`](https://github.com/constructor-lab/ui-component-library/commit/f6fb07b2d0e77c9230c40f48306adff2abb644c6) Thanks [@leonid](https://github.com/leonid)! - Bump `react-resizable-panels` 4.11.2 → 4.12.1 (the `Resizable` component's
   runtime dependency). Part of a broader dev/tooling dependency refresh (Storybook
   10.5, Playwright 1.61, happy-dom, vite-plugin-dts, fumadocs, next, and others)
   that doesn't affect the published output.
@@ -13,7 +13,7 @@
 
 ### Patch Changes
 
-- [#12](https://github.com/constructor-lab/facet/pull/12) [`370f7ea`](https://github.com/constructor-lab/facet/commit/370f7ea0a395770659c99ff25b6094d4ffcc1329) Thanks [@leonid](https://github.com/leonid)! - Bump low-risk shared dependencies via the catalog. The only change to ui-react's
+- [#12](https://github.com/constructor-lab/ui-component-library/pull/12) [`370f7ea`](https://github.com/constructor-lab/ui-component-library/commit/370f7ea0a395770659c99ff25b6094d4ffcc1329) Thanks [@leonid](https://github.com/leonid)! - Bump low-risk shared dependencies via the catalog. The only change to ui-react's
   shipped surface is `recharts` 3.8.1 → 3.9.2 (a runtime dependency); the rest are
   dev/tooling bumps shared through the catalog: `vitest` 4.1.10,
   `@tanstack/react-virtual` 3.14.5, `date-fns` 4.4.0, `tailwindcss` /
@@ -30,7 +30,7 @@
 
 ### Patch Changes
 
-- [#6](https://github.com/constructor-lab/facet/pull/6) [`d1a26db`](https://github.com/constructor-lab/facet/commit/d1a26db8403321c61f6725a6a70ed04076e5ede3) Thanks [@leonid](https://github.com/leonid)! - Fix a one-frame flash when a `Sheet` closes. The overlay faded over `duration-200`
+- [#6](https://github.com/constructor-lab/ui-component-library/pull/6) [`d1a26db`](https://github.com/constructor-lab/ui-component-library/commit/d1a26db8403321c61f6725a6a70ed04076e5ede3) Thanks [@leonid](https://github.com/leonid)! - Fix a one-frame flash when a `Sheet` closes. The overlay faded over `duration-200`
   while the panel slid over `duration-300`; Base UI keeps the dialog mounted for the
   longer panel exit, so the backdrop finished early and reverted to its resting
   opacity — flashing fully opaque for the remaining ~100ms. The overlay now uses
@@ -41,7 +41,7 @@
 
 ### Minor Changes
 
-- [#5](https://github.com/constructor-lab/facet/pull/5) [`3fb91b5`](https://github.com/constructor-lab/facet/commit/3fb91b55f931d6af2b6b56e7ac040da371ac8197) Thanks [@leonid](https://github.com/leonid)! - Add four Base UI form primitives so more of the form/field surface is covered:
+- [#5](https://github.com/constructor-lab/ui-component-library/pull/5) [`3fb91b5`](https://github.com/constructor-lab/ui-component-library/commit/3fb91b55f931d6af2b6b56e7ac040da371ac8197) Thanks [@leonid](https://github.com/leonid)! - Add four Base UI form primitives so more of the form/field surface is covered:
   - `CheckboxGroup` — shared state for a set of `Checkbox`es (reads/writes a
     `string[]` of the ticked names); pairs with `Field` / `FieldSet`.
   - `OTPField` (`OTPFieldInput`, `OTPFieldSeparator`) — a segmented one-time-code
@@ -57,49 +57,49 @@
 
 ### Minor Changes
 
-- [`6c018e5`](https://github.com/constructor-lab/facet/commit/6c018e5764449e6bf7f59f03a06c5a556ce0f6b2) Thanks [@m231-a](https://github.com/m231-a)! - Add `Tour` — a composable guided-onboarding coach-mark built on Base UI
+- [`6c018e5`](https://github.com/constructor-lab/ui-component-library/commit/6c018e5764449e6bf7f59f03a06c5a556ce0f6b2) Thanks [@m231-a](https://github.com/m231-a)! - Add `Tour` — a composable guided-onboarding coach-mark built on Base UI
   `Popover`: a stepped popover with a title/body, a step counter, and Next / Back /
   Skip controls, plus a pulsing beacon ("green light") and an optional dimming
   scrim. Initial version; design reconciliation pending.
 
 ### Patch Changes
 
-- Updated dependencies [[`c601e91`](https://github.com/constructor-lab/facet/commit/c601e91333147da55b3f4497f885216bc972d5af)]:
-  - @spec-lab/tokens@2.1.0
+- Updated dependencies [[`c601e91`](https://github.com/constructor-lab/ui-component-library/commit/c601e91333147da55b3f4497f885216bc972d5af)]:
+  - @constructor-lab/tokens@2.1.0
 
 ## 1.0.0
 
 ### Major Changes
 
-- [`802e657`](https://github.com/constructor-lab/facet/commit/802e657f473e5a89eb28939abde7a267c438c59d) Thanks [@m231-a](https://github.com/m231-a)! - Merge `@spec-lab/design-tokens` and `@spec-lab/tokens-pd` into a single published package, `@spec-lab/tokens`, and rework token/theme delivery to be reference-based.
-  - **New package `@spec-lab/tokens`** holds the DTCG source tiers (`tiers/*.json`) **and** the generated, committed CSS/SCSS/JS. `@spec-lab/design-tokens` and `@spec-lab/tokens-pd` are removed.
+- [`802e657`](https://github.com/constructor-lab/ui-component-library/commit/802e657f473e5a89eb28939abde7a267c438c59d) Thanks [@m231-a](https://github.com/m231-a)! - Merge `@constructor-lab/design-tokens` and `@constructor-lab/tokens-pd` into a single published package, `@constructor-lab/tokens`, and rework token/theme delivery to be reference-based.
+  - **New package `@constructor-lab/tokens`** holds the DTCG source tiers (`tiers/*.json`) **and** the generated, committed CSS/SCSS/JS. `@constructor-lab/design-tokens` and `@constructor-lab/tokens-pd` are removed.
   - **Reference-based CSS, no value duplication.** `css/primitives.css` is the only layer with raw values + `light-dark()`; the semantic and per-component tiers emit `var(--…)` references onto it, so each value is stated once. Brand switches via `[data-brand]`, light/dark via `[data-theme]` — both carried in one bundle (no per-brand files, no runtime stylesheet injection).
-  - **Single import.** `@spec-lab/tokens/css` pulls in primitives + semantics + every component tier (replaces the ~24 per-component `@import`s). Adds SCSS mixins (`@spec-lab/tokens/scss/mixins`) and a JS token map (`@spec-lab/tokens/js`).
-  - **Tailwind bridge is generated** as `@spec-lab/tokens/css/tailwind-theme.css` (previously hand-maintained in ui-react). The per-brand / per-component baked Tailwind presets are dropped.
+  - **Single import.** `@constructor-lab/tokens/css` pulls in primitives + semantics + every component tier (replaces the ~24 per-component `@import`s). Adds SCSS mixins (`@constructor-lab/tokens/scss/mixins`) and a JS token map (`@constructor-lab/tokens/js`).
+  - **Tailwind bridge is generated** as `@constructor-lab/tokens/css/tailwind-theme.css` (previously hand-maintained in ui-react). The per-brand / per-component baked Tailwind presets are dropped.
 
-  Migration: replace `@spec-lab/tokens-pd` and `@spec-lab/design-tokens` with `@spec-lab/tokens`; `@import '@spec-lab/tokens/css'` once (plus `@import '@spec-lab/tokens/css/tailwind-theme.css'` for the Tailwind bridge); select a brand with `[data-brand="deep-sky"]` instead of importing a per-brand stylesheet.
+  Migration: replace `@constructor-lab/tokens-pd` and `@constructor-lab/design-tokens` with `@constructor-lab/tokens`; `@import '@constructor-lab/tokens/css'` once (plus `@import '@constructor-lab/tokens/css/tailwind-theme.css'` for the Tailwind bridge); select a brand with `[data-brand="deep-sky"]` instead of importing a per-brand stylesheet.
 
 ### Minor Changes
 
-- [`4f65138`](https://github.com/constructor-lab/facet/commit/4f6513821afe23bbef133abdbc2100af15649a08) Thanks [@m231-a](https://github.com/m231-a)! - Reconcile `Alert` with the Figma design and add a dismiss button. Retheme the variant border and icon to the correct status tokens (`--ui-border-on-status-*` subtle border + `--ui-glyph-on-status-*` icon) instead of the saturated `--ui-background-status-strong-*` fill, and add an optional `AlertClose` (×) part tinted by the variant. Completes the Figma Code Connect.
+- [`4f65138`](https://github.com/constructor-lab/ui-component-library/commit/4f6513821afe23bbef133abdbc2100af15649a08) Thanks [@m231-a](https://github.com/m231-a)! - Reconcile `Alert` with the Figma design and add a dismiss button. Retheme the variant border and icon to the correct status tokens (`--ui-border-on-status-*` subtle border + `--ui-glyph-on-status-*` icon) instead of the saturated `--ui-background-status-strong-*` fill, and add an optional `AlertClose` (×) part tinted by the variant. Completes the Figma Code Connect.
 
-- [`64e627d`](https://github.com/constructor-lab/facet/commit/64e627db3fdb31cdf7510f84e7960663fbce65be) Thanks [@m231-a](https://github.com/m231-a)! - Add `AspectRatio` — a layout primitive that constrains its content to a fixed width-to-height `ratio` via the native CSS `aspect-ratio` property. Initial version ported from `ui-legacy` (modernized off the padding-bottom hack); design reconciliation pending.
+- [`64e627d`](https://github.com/constructor-lab/ui-component-library/commit/64e627db3fdb31cdf7510f84e7960663fbce65be) Thanks [@m231-a](https://github.com/m231-a)! - Add `AspectRatio` — a layout primitive that constrains its content to a fixed width-to-height `ratio` via the native CSS `aspect-ratio` property. Initial version ported from `ui-legacy` (modernized off the padding-bottom hack); design reconciliation pending.
 
-- [`2bd49b0`](https://github.com/constructor-lab/facet/commit/2bd49b0d3689f728f5dadd3081cd5345b7ac151c) Thanks [@m231-a](https://github.com/m231-a)! - Button: remove the `inverted` variant. It was dropped from the Figma design (the
+- [`2bd49b0`](https://github.com/constructor-lab/ui-component-library/commit/2bd49b0d3689f728f5dadd3081cd5345b7ac151c) Thanks [@m231-a](https://github.com/m231-a)! - Button: remove the `inverted` variant. It was dropped from the Figma design (the
   current variant set is `default` / `secondary` / `ghost` / `destructive` / `ai`)
   and referenced a `--ui-button-inverted-*` token tier that no longer exists, so it
   rendered unstyled. Consumers using `variant="inverted"` should switch to
   `secondary` (the bordered style). Pre-1.0 breaking change.
 
-- [`6b72586`](https://github.com/constructor-lab/facet/commit/6b725861ca2013c9438c1ae1f66b356e518bf41c) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonGroup` (with `ButtonGroupText` and `ButtonGroupSeparator`) — a segmented container that collapses the shared inner edges of adjacent buttons, in horizontal or vertical orientation. Initial version ported from `ui-legacy`; design reconciliation pending. Radix `Slot`/`asChild` is replaced by the Base UI `render` prop, and the divider reuses `Separator`.
+- [`6b72586`](https://github.com/constructor-lab/ui-component-library/commit/6b725861ca2013c9438c1ae1f66b356e518bf41c) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonGroup` (with `ButtonGroupText` and `ButtonGroupSeparator`) — a segmented container that collapses the shared inner edges of adjacent buttons, in horizontal or vertical orientation. Initial version ported from `ui-legacy`; design reconciliation pending. Radix `Slot`/`asChild` is replaced by the Base UI `render` prop, and the divider reuses `Separator`.
 
-- [`1d02b6c`](https://github.com/constructor-lab/facet/commit/1d02b6c8ef99ed196df1c10788da3ce00e845846) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonIconMenu`: an icon-only menu trigger — a 32×32 bordered button with a
+- [`1d02b6c`](https://github.com/constructor-lab/ui-component-library/commit/1d02b6c8ef99ed196df1c10788da3ce00e845846) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonIconMenu`: an icon-only menu trigger — a 32×32 bordered button with a
   fixed ellipsis ("more") glyph. The icon-only sibling of `ButtonMenu`:
   presentational, with an `open` prop that applies the active treatment and
   reflects `aria-expanded`, composable onto a menu trigger via `render`. Reuses the
   ButtonIcon `secondary` token tier; accessible name defaults to "More options".
 
-- [`2ac43cc`](https://github.com/constructor-lab/facet/commit/2ac43cc68bca0a239cb803ebba32fb35352e85ed) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonMenuDropdown` — the themed dropdown panel a `ButtonMenu` opens. A
+- [`2ac43cc`](https://github.com/constructor-lab/ui-component-library/commit/2ac43cc68bca0a239cb803ebba32fb35352e85ed) Thanks [@m231-a](https://github.com/m231-a)! - Add `ButtonMenuDropdown` — the themed dropdown panel a `ButtonMenu` opens. A
   composable set of Base UI Menu parts (`ButtonMenuDropdown`,
   `ButtonMenuDropdownTrigger`, `ButtonMenuDropdownContent`,
   `ButtonMenuDropdownSection`, `ButtonMenuDropdownItem`) themed from the dedicated
@@ -107,20 +107,20 @@
   whose items support a leading icon, a trailing shortcut hint, and a cascade
   chevron indicator. The optional search field and live submenu are deferred.
 
-- [`cd23e63`](https://github.com/constructor-lab/facet/commit/cd23e634819f8f57d014c86f4e8ce2b4f44207b2) Thanks [@m231-a](https://github.com/m231-a)! - Add `Calendar` — a themed date calendar (single / multiple / range selection, month & dropdown captions, disabled/outside days) wrapping `react-day-picker`, styled with `--ui-*` tokens. Initial version ported from `ui-legacy`; design reconciliation pending. Adds `react-day-picker@10` as a dependency of `@spec-lab/ui-react`.
+- [`cd23e63`](https://github.com/constructor-lab/ui-component-library/commit/cd23e634819f8f57d014c86f4e8ce2b4f44207b2) Thanks [@m231-a](https://github.com/m231-a)! - Add `Calendar` — a themed date calendar (single / multiple / range selection, month & dropdown captions, disabled/outside days) wrapping `react-day-picker`, styled with `--ui-*` tokens. Initial version ported from `ui-legacy`; design reconciliation pending. Adds `react-day-picker@10` as a dependency of `@constructor-lab/ui-react`.
 
-- [`a1b9ca2`](https://github.com/constructor-lab/facet/commit/a1b9ca2bea46d11f251f5550cfb0725401e8a07a) Thanks [@m231-a](https://github.com/m231-a)! - Add `Carousel` — a slideshow built on the headless `embla-carousel-react` engine (drag, snap, loop, orientation, autoplay plugins) with composable parts (`Carousel`, `CarouselContent`, `CarouselItem`) and a `CarouselNavigation` bar (← Prev link · pagination dots · Next → link) matching the design mockup. Styled with `--ui-*` tokens. Adds `embla-carousel-react` as a dependency of `@spec-lab/ui-react`. Initial version ported from `ui-legacy`; design reconciliation pending.
+- [`a1b9ca2`](https://github.com/constructor-lab/ui-component-library/commit/a1b9ca2bea46d11f251f5550cfb0725401e8a07a) Thanks [@m231-a](https://github.com/m231-a)! - Add `Carousel` — a slideshow built on the headless `embla-carousel-react` engine (drag, snap, loop, orientation, autoplay plugins) with composable parts (`Carousel`, `CarouselContent`, `CarouselItem`) and a `CarouselNavigation` bar (← Prev link · pagination dots · Next → link) matching the design mockup. Styled with `--ui-*` tokens. Adds `embla-carousel-react` as a dependency of `@constructor-lab/ui-react`. Initial version ported from `ui-legacy`; design reconciliation pending.
 
-- [`bec9e35`](https://github.com/constructor-lab/facet/commit/bec9e35f254fae6a1cf29037a2fedb42d12bfa8b) Thanks [@m231-a](https://github.com/m231-a)! - Chip: add the `operational` action variant (semibold brand-blue action chip —
+- [`bec9e35`](https://github.com/constructor-lab/ui-component-library/commit/bec9e35f254fae6a1cf29037a2fedb42d12bfa8b) Thanks [@m231-a](https://github.com/m231-a)! - Chip: add the `operational` action variant (semibold brand-blue action chip —
   `role="button"`, keyboard-activatable, no toggle / no remove) and re-theme all
   variants onto the current `--ui-chip-*` token tier (the dead `--ui-chips-*`
   names introduced silent color fallbacks after the next-gen token sync).
 
-- [`aea1c3d`](https://github.com/constructor-lab/facet/commit/aea1c3dc3e84f887350de2c693b66cedd103b003) Thanks [@m231-a](https://github.com/m231-a)! - Add `Command` — a data-driven command palette (`Command` inline + `CommandDialog` for the ⌘K overlay) with grouped commands, per-command icons/shortcuts/disabled, filtering, and keyboard navigation. Built on the Base UI `Combobox` primitive + `Dialog` (no `cmdk` dependency), styled with `--ui-*` semantic tokens. Initial version ported from `ui-legacy`; design reconciliation pending.
+- [`aea1c3d`](https://github.com/constructor-lab/ui-component-library/commit/aea1c3dc3e84f887350de2c693b66cedd103b003) Thanks [@m231-a](https://github.com/m231-a)! - Add `Command` — a data-driven command palette (`Command` inline + `CommandDialog` for the ⌘K overlay) with grouped commands, per-command icons/shortcuts/disabled, filtering, and keyboard navigation. Built on the Base UI `Combobox` primitive + `Dialog` (no `cmdk` dependency), styled with `--ui-*` semantic tokens. Initial version ported from `ui-legacy`; design reconciliation pending.
 
-- [`085ea2e`](https://github.com/constructor-lab/facet/commit/085ea2e00ca13da9d0ad6fb055a07de4c07ff383) Thanks [@m231-a](https://github.com/m231-a)! - Add `Drawer` — a panel that slides in from a screen edge with swipe-to-dismiss gestures, wrapping Base UI's `Drawer` primitive. Composable parts (`DrawerTrigger`, `DrawerContent`, `DrawerSwipeArea`, `DrawerHeader`, `DrawerTitle`, `DrawerCloseButton`, `DrawerBody`, `DrawerDescription`, `DrawerFooter`, plus granular `DrawerPopup`/`DrawerViewport`/`DrawerBackdrop`), with a `side` prop (`top`/`bottom`/`left`/`right`) mapped to Base UI's `swipeDirection`. Standalone from `Sheet`. Initial version; design reconciliation pending.
+- [`085ea2e`](https://github.com/constructor-lab/ui-component-library/commit/085ea2e00ca13da9d0ad6fb055a07de4c07ff383) Thanks [@m231-a](https://github.com/m231-a)! - Add `Drawer` — a panel that slides in from a screen edge with swipe-to-dismiss gestures, wrapping Base UI's `Drawer` primitive. Composable parts (`DrawerTrigger`, `DrawerContent`, `DrawerSwipeArea`, `DrawerHeader`, `DrawerTitle`, `DrawerCloseButton`, `DrawerBody`, `DrawerDescription`, `DrawerFooter`, plus granular `DrawerPopup`/`DrawerViewport`/`DrawerBackdrop`), with a `side` prop (`top`/`bottom`/`left`/`right`) mapped to Base UI's `swipeDirection`. Standalone from `Sheet`. Initial version; design reconciliation pending.
 
-- [`a569e76`](https://github.com/constructor-lab/facet/commit/a569e7626c15a6fe2c237267fa0fe5e2df29a9b8) Thanks [@m231-a](https://github.com/m231-a)! - Link: add an `inverse` variant and rewire onto the restructured token tier. The
+- [`a569e76`](https://github.com/constructor-lab/ui-component-library/commit/a569e7626c15a6fe2c237267fa0fe5e2df29a9b8) Thanks [@m231-a](https://github.com/m231-a)! - Link: add an `inverse` variant and rewire onto the restructured token tier. The
   `--ui-link-*` tokens were reorganised in the next-gen sync into `--ui-link-global-*`
   (gap/height, per-state text decoration) plus `--ui-link-normal-*` / `--ui-link-inverse-*`
   color sets; the component referenced the removed flat names and rendered unstyled.
@@ -128,13 +128,13 @@
   Figma `background` property) — `inverse` is for links on a dark surface (no disabled
   state, per the design).
 
-- [`95e4e35`](https://github.com/constructor-lab/facet/commit/95e4e357ccaaf7e243ecbe29546f1535127a0e11) Thanks [@m231-a](https://github.com/m231-a)! - Add a canonical `Menu` component and make `ButtonMenuDropdown` and `DropdownMenu` aliases of it.
+- [`95e4e35`](https://github.com/constructor-lab/ui-component-library/commit/95e4e357ccaaf7e243ecbe29546f1535127a0e11) Thanks [@m231-a](https://github.com/m231-a)! - Add a canonical `Menu` component and make `ButtonMenuDropdown` and `DropdownMenu` aliases of it.
 
   `Menu` is the full Base UI Menu wrapper — `Menu`, `MenuTrigger`, `MenuPortal`, `MenuContent`, `MenuGroup`, `MenuSection`, `MenuItem` (`icon` / `shortcut` / `cascade` / `inset`), live cascaded submenus (`MenuSubmenu` / `MenuSubmenuTrigger` / `MenuSubmenuContent`), `MenuCheckboxItem`, `MenuRadioItem`, `MenuRadioGroup`, `MenuLabel`, `MenuSeparator`, `MenuShortcut` — styled from the `--ui-button-menu-dropdown-*` token tier.
   - **`ButtonMenuDropdown`** re-exports `Menu`'s parts under the existing names and now gains **live submenus** (`ButtonMenuDropdownSubmenu` / `…SubmenuTrigger` / `…SubmenuContent`); the previous submenu deferral is lifted. Renders identically to before.
   - **`DropdownMenu`** re-exports `Menu`'s parts (its full checkbox/radio/label/separator/shortcut/submenu API is preserved) and is now **restyled** from the shared `--ui-button-menu-dropdown-*` tokens instead of the generic semantic tokens — a visual change. Prefer the `shortcut` prop on `DropdownMenuItem` over a `DropdownMenuShortcut` child.
 
-- [`a6615c6`](https://github.com/constructor-lab/facet/commit/a6615c69f05bb6892eec399af492911392fcbff4) Thanks [@m231-a](https://github.com/m231-a)! - Port the components that were unique to the legacy `@spec-lab/shadcn-uikit`
+- [`a6615c6`](https://github.com/constructor-lab/ui-component-library/commit/a6615c69f05bb6892eec399af492911392fcbff4) Thanks [@m231-a](https://github.com/m231-a)! - Port the components that were unique to the legacy `@constructor-lab/shadcn-uikit`
   library into ui-react as design-pending v1s (Base UI + semantic `--ui-*`
   tokens), filling the last real component gaps:
   - **Dashboard widgets** — `Widget` (container family), `WidgetAlert`,
@@ -149,52 +149,52 @@
   `--av-*` → `--ui-*` token mapping and a `/figma-component <Name> --update`
   reconcile note for when Figma mockups land.
 
-- [`bc964df`](https://github.com/constructor-lab/facet/commit/bc964dfac4587c8240e49f445d48e5acef4adeb4) Thanks [@m231-a](https://github.com/m231-a)! - Resizable: remove the `withHandle` grab-bar grip to match the current Figma
+- [`bc964df`](https://github.com/constructor-lab/ui-component-library/commit/bc964dfac4587c8240e49f445d48e5acef4adeb4) Thanks [@m231-a](https://github.com/m231-a)! - Resizable: remove the `withHandle` grab-bar grip to match the current Figma
   design. The design dropped the grip, so the `withHandle` prop and the grip's
   `--ui-resizable-bar-*` tokens (bar color/width/height/border-radius, since
-  removed from `@spec-lab/tokens`) are gone — the handle now renders the divider
+  removed from `@constructor-lab/tokens`) are gone — the handle now renders the divider
   line only (idle gray via `--ui-border-on-surface-border`, hover/active blue).
   This also fixes the handle rendering at 0 width: it referenced the now-deleted
   `--ui-resizable-bar-width`, so the hit-area is now a literal 9px.
 
   Breaking (pre-1.0): drop `withHandle` from any `<ResizableHandle>` usage.
 
-- [`f65aba5`](https://github.com/constructor-lab/facet/commit/f65aba5d6320b524ac899a7e4404772a764a9f26) Thanks [@m231-a](https://github.com/m231-a)! - Sheet: add direction-aware `start` / `end` `side` variants. They anchor to the
+- [`f65aba5`](https://github.com/constructor-lab/ui-component-library/commit/f65aba5d6320b524ac899a7e4404772a764a9f26) Thanks [@m231-a](https://github.com/m231-a)! - Sheet: add direction-aware `start` / `end` `side` variants. They anchor to the
   inline-start / inline-end edge (using logical `start-0`/`end-0` + `border-e`/
   `border-s`) and flip side and slide direction under RTL, unlike the fixed
   physical `left` / `right`. Prefer `start`/`end` for locale-agnostic layouts.
 
-- [`410215a`](https://github.com/constructor-lab/facet/commit/410215a87ec6ded52664c7493be6d692d928590f) Thanks [@m231-a](https://github.com/m231-a)! - Add `Tree` — a hierarchical tree menu with composable parts (`Tree`, `TreeItem`, `TreeItemTrigger`, `TreeItemLabel`, `TreeItemGroup`, `TreeItemCheckbox`, `TreeItemIcon`) and a data-driven `TreeView` wrapper. Supports expand/collapse, single selection, multi-checkbox, leading icons, and trailing slots (e.g. `Tag`), with roving-tabindex keyboard navigation and full WAI-ARIA tree roles. `TreeView` can virtualize long trees (`virtualized` + `height`) so thousands of nodes stay fast. Styled with `--ui-*` semantic tokens (the blue selection gamma). Initial version ported from `ui-legacy` and reconciled against the Figma "Tree" component set; design reconciliation of a dedicated token tier is pending.
+- [`410215a`](https://github.com/constructor-lab/ui-component-library/commit/410215a87ec6ded52664c7493be6d692d928590f) Thanks [@m231-a](https://github.com/m231-a)! - Add `Tree` — a hierarchical tree menu with composable parts (`Tree`, `TreeItem`, `TreeItemTrigger`, `TreeItemLabel`, `TreeItemGroup`, `TreeItemCheckbox`, `TreeItemIcon`) and a data-driven `TreeView` wrapper. Supports expand/collapse, single selection, multi-checkbox, leading icons, and trailing slots (e.g. `Tag`), with roving-tabindex keyboard navigation and full WAI-ARIA tree roles. `TreeView` can virtualize long trees (`virtualized` + `height`) so thousands of nodes stay fast. Styled with `--ui-*` semantic tokens (the blue selection gamma). Initial version ported from `ui-legacy` and reconciled against the Figma "Tree" component set; design reconciliation of a dedicated token tier is pending.
 
 ### Patch Changes
 
-- [`082deb3`](https://github.com/constructor-lab/facet/commit/082deb3e050b62575427acb2ed6aa079635838b4) Thanks [@m231-a](https://github.com/m231-a)! - Add the missing `--ui-border-on-status-ai` semantic token (the pale violet `{palette.violet.4}` the Figma uses; the tier previously only had the `ai-strong` gradient border), and repoint `Alert`'s ai border/divider from the `--ui-palette-violet-4` primitive stopgap to it.
+- [`082deb3`](https://github.com/constructor-lab/ui-component-library/commit/082deb3e050b62575427acb2ed6aa079635838b4) Thanks [@m231-a](https://github.com/m231-a)! - Add the missing `--ui-border-on-status-ai` semantic token (the pale violet `{palette.violet.4}` the Figma uses; the tier previously only had the `ai-strong` gradient border), and repoint `Alert`'s ai border/divider from the `--ui-palette-violet-4` primitive stopgap to it.
 
-- [`383853d`](https://github.com/constructor-lab/facet/commit/383853deb4a7548068ac57de1cbfa277ef1ae413) Thanks [@m231-a](https://github.com/m231-a)! - Avatar: rewire the corner radius onto the current
+- [`383853d`](https://github.com/constructor-lab/ui-component-library/commit/383853deb4a7548068ac57de1cbfa277ef1ae413) Thanks [@m231-a](https://github.com/m231-a)! - Avatar: rewire the corner radius onto the current
   `--ui-avatar-global-avatar-border-border-radius` token. The previous
   `--ui-avatar-global-avatar-border-radius` name was moved under the border group
   in the next-gen token sync, leaving the component referencing a dead variable
   that resolved to no radius (rendering avatars as squares instead of circles).
 
-- [`41db262`](https://github.com/constructor-lab/facet/commit/41db26252ce1b734dfff6ae6ce158f4d8e7e2e88) Thanks [@m231-a](https://github.com/m231-a)! - Bump `@base-ui/react` to `1.6.0` (from the catalog). No API changes in the kit; tests, types, and the library build all pass on the new version.
+- [`41db262`](https://github.com/constructor-lab/ui-component-library/commit/41db26252ce1b734dfff6ae6ce158f4d8e7e2e88) Thanks [@m231-a](https://github.com/m231-a)! - Bump `@base-ui/react` to `1.6.0` (from the catalog). No API changes in the kit; tests, types, and the library build all pass on the new version.
 
-- [`f1b61bc`](https://github.com/constructor-lab/facet/commit/f1b61bca3aa36ddd49aa33fe23fd21f75b574b44) Thanks [@m231-a](https://github.com/m231-a)! - Checkbox: match the Figma design more faithfully.
+- [`f1b61bc`](https://github.com/constructor-lab/ui-component-library/commit/f1b61bca3aa36ddd49aa33fe23fd21f75b574b44) Thanks [@m231-a](https://github.com/m231-a)! - Checkbox: match the Figma design more faithfully.
   - Draw the check / indeterminate glyph inline at Figma's exact geometry (an 8px
     mark centered in the 16px box with a 1.6px stroke) instead of the general
-    `@spec-lab/icons-react` check rendered at box size, which was full-bleed and
+    `@constructor-lab/icons-react` check rendered at box size, which was full-bleed and
     ~65% too large.
   - Rewire the box alignment offset onto the current `--ui-checkbox-global-box-margin-y`
     token (the previous `--ui-checkbox-global-box-margin-x` name was renamed in the
     next-gen token sync, leaving the label/description layout referencing a dead
     variable that silently fell back to no offset).
 
-- [`137f664`](https://github.com/constructor-lab/facet/commit/137f66477c9fa7d5631b8aadca5a4d7625410de3) Thanks [@m231-a](https://github.com/m231-a)! - Dialog / Sheet / AlertDialog: rewire the modal overlay onto the current
+- [`137f664`](https://github.com/constructor-lab/ui-component-library/commit/137f66477c9fa7d5631b8aadca5a4d7625410de3) Thanks [@m231-a](https://github.com/m231-a)! - Dialog / Sheet / AlertDialog: rewire the modal overlay onto the current
   `--ui-background-backdrop-screen` token. The previous `--ui-background-overlay-primary`
   was renamed to the `--ui-background-backdrop-*` family in the next-gen sync,
   leaving the backdrop referencing a dead variable that resolved to transparent
   (no dim). The scrim now renders again.
 
-- [`6abe4df`](https://github.com/constructor-lab/facet/commit/6abe4dff5f3a205d971a4bc4a2ceef821fbe3e04) Thanks [@m231-a](https://github.com/m231-a)! - Replace physical CSS utilities with their logical equivalents for RTL support so
+- [`6abe4df`](https://github.com/constructor-lab/ui-component-library/commit/6abe4dff5f3a205d971a4bc4a2ceef821fbe3e04) Thanks [@m231-a](https://github.com/m231-a)! - Replace physical CSS utilities with their logical equivalents for RTL support so
   components render correctly in both LTR and RTL directions. Covers avatar,
   breadcrumb, resizable, select/input-select, sidebar-primary, sidebar-secondary,
   switch (the upstream set) plus this repo's additional components: tabs,
@@ -209,13 +209,13 @@
   Centered modals (dialog/alert-dialog), the spinner arc, `side`-prop sheets, and
   primitive-resolved popover/menu slide animations are intentionally left physical.
 
-- [`8f195fc`](https://github.com/constructor-lab/facet/commit/8f195fce1b7bce04752beac4fd594c5e9049ccc7) Thanks [@m231-a](https://github.com/m231-a)! - Fix `SidebarPrimary` layout drift from Figma: the first `SidebarPrimarySection`
+- [`8f195fc`](https://github.com/constructor-lab/ui-component-library/commit/8f195fce1b7bce04752beac4fd594c5e9049ccc7) Thanks [@m231-a](https://github.com/m231-a)! - Fix `SidebarPrimary` layout drift from Figma: the first `SidebarPrimarySection`
   no longer gets an extra top padding/divider (only bottom padding, matching
   Figma's `firstSection` split), `SidebarPrimaryFooter` no longer double-pads its
   rows on top of each item's own padding, and `SidebarPrimaryCollapseTrigger`'s
   icon now rotates 180° between the expanded and collapsed rail states.
 
-- [`a7de48b`](https://github.com/constructor-lab/facet/commit/a7de48b5a00e40258ff83931c1982c71e6c2a97a) Thanks [@m231-a](https://github.com/m231-a)! - Table / DataTable: rewire onto the restructured `--ui-table-*` token tier. The
+- [`a7de48b`](https://github.com/constructor-lab/ui-component-library/commit/a7de48b5a00e40258ff83931c1982c71e6c2a97a) Thanks [@m231-a](https://github.com/m231-a)! - Table / DataTable: rewire onto the restructured `--ui-table-*` token tier. The
   next-gen sync moved the row fill colors under `data` and the cell border under
   `row`, and merged the header cell padding into `global`:
   `--ui-table-global-row-color-*` → `--ui-table-data-row-color-*`,
@@ -223,8 +223,8 @@
   `--ui-table-header-cell-padding-x` → `--ui-table-global-cell-padding-x`. Both
   components referenced the removed names and rendered rows without their fill /
   border. Also wires the Table Figma Code Connect to its ready-for-dev node.
-- Updated dependencies [[`082deb3`](https://github.com/constructor-lab/facet/commit/082deb3e050b62575427acb2ed6aa079635838b4), [`802e657`](https://github.com/constructor-lab/facet/commit/802e657f473e5a89eb28939abde7a267c438c59d)]:
-  - @spec-lab/tokens@2.0.0
+- Updated dependencies [[`082deb3`](https://github.com/constructor-lab/ui-component-library/commit/082deb3e050b62575427acb2ed6aa079635838b4), [`802e657`](https://github.com/constructor-lab/ui-component-library/commit/802e657f473e5a89eb28939abde7a267c438c59d)]:
+  - @constructor-lab/tokens@2.0.0
 
 ## 0.54.0
 
@@ -476,7 +476,7 @@
   identical; just declared on the component instead of the cell).
 
 - Updated dependencies [[`981200c`](https://github.com/acronis/uikit/commit/981200c12a00ffea797446b2c716aef58db93123)]:
-  - @spec-lab/icons-react@0.5.0
+  - @constructor-lab/icons-react@0.5.0
 
 ## 0.43.0
 
@@ -632,7 +632,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`c686666`](https://github.com/acronis/uikit/commit/c686666ff880d8adc647c7c5b47c3b01bce2c88d)]:
-  - @spec-lab/tokens-pd@1.9.0
+  - @constructor-lab/tokens-pd@1.9.0
 
 ## 0.35.1
 
@@ -640,7 +640,7 @@
 
 - [#398](https://github.com/acronis/uikit/pull/398) [`d9dfac1`](https://github.com/acronis/uikit/commit/d9dfac1b0e4a2ef4fe229aaa17648c5604ec637f) Thanks [@leonid](https://github.com/leonid)! - Declare `"sideEffects": ["**/*.css"]` in package.json. This lets bundlers
   tree-shake unused component modules (the JS is side-effect-free) while still
-  preserving the stylesheet entry (`@spec-lab/ui-react/styles`), which
+  preserving the stylesheet entry (`@constructor-lab/ui-react/styles`), which
   must not be dropped. Consumers importing a subset of components now get a
   smaller bundle with no configuration.
 
@@ -805,14 +805,14 @@
 ### Patch Changes
 
 - Updated dependencies [[`0492758`](https://github.com/acronis/uikit/commit/04927588678c058275a3911579a476b73eba12bf)]:
-  - @spec-lab/tokens-pd@1.8.1
+  - @constructor-lab/tokens-pd@1.8.1
 
 ## 0.22.2
 
 ### Patch Changes
 
 - Updated dependencies [[`62e2a0d`](https://github.com/acronis/uikit/commit/62e2a0df33293b5efd946af2e68ad38757964e69)]:
-  - @spec-lab/tokens-pd@1.8.0
+  - @constructor-lab/tokens-pd@1.8.0
 
 ## 0.22.1
 
@@ -839,21 +839,21 @@
 ### Patch Changes
 
 - Updated dependencies [[`fc1cb92`](https://github.com/acronis/uikit/commit/fc1cb92d406186b3a422c2a2ef3118f9631c7c73)]:
-  - @spec-lab/tokens-pd@1.7.0
+  - @constructor-lab/tokens-pd@1.7.0
 
 ## 0.21.2
 
 ### Patch Changes
 
 - Updated dependencies [[`878689b`](https://github.com/acronis/uikit/commit/878689b7fe7d62ba297381857249fe1e9c4cef88)]:
-  - @spec-lab/tokens-pd@1.6.0
+  - @constructor-lab/tokens-pd@1.6.0
 
 ## 0.21.1
 
 ### Patch Changes
 
 - Updated dependencies [[`0d66857`](https://github.com/acronis/uikit/commit/0d66857127ac07df5ae5cbe95fbad6c7bc81e76d)]:
-  - @spec-lab/tokens-pd@1.5.0
+  - @constructor-lab/tokens-pd@1.5.0
 
 ## 0.21.0
 
@@ -893,7 +893,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`6d9bf1a`](https://github.com/acronis/uikit/commit/6d9bf1ae0ca447ae7ed5ee6d1e91b776edff6bde)]:
-  - @spec-lab/tokens-pd@1.4.0
+  - @constructor-lab/tokens-pd@1.4.0
 
 ## 0.20.0
 
@@ -909,7 +909,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`7782af7`](https://github.com/acronis/uikit/commit/7782af7c4ea61728edc65b6c2d6d3b19e720ec63)]:
-  - @spec-lab/tokens-pd@1.3.0
+  - @constructor-lab/tokens-pd@1.3.0
 
 ## 0.19.0
 
@@ -963,7 +963,7 @@
   renamed `--ui-button-*-color-*` tokens (the next-gen token sync added a `-color-`
   segment — e.g. `--ui-button-primary-container-idle` → `…-container-color-idle`).
   The component still referenced the old names, which no longer exist in
-  `@spec-lab/tokens-pd`, so every variant rendered with no fill/text color.
+  `@constructor-lab/tokens-pd`, so every variant rendered with no fill/text color.
   Border, geometry, and padding tokens were already correct and are unchanged.
 
 ## 0.16.3
@@ -985,7 +985,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`cfd9945`](https://github.com/acronis/uikit/commit/cfd99452a21786ebdaa54e1138f231579895ad27)]:
-  - @spec-lab/tokens-pd@1.2.1
+  - @constructor-lab/tokens-pd@1.2.1
 
 ## 0.16.1
 
@@ -994,7 +994,7 @@
 - [#289](https://github.com/acronis/uikit/pull/289) [`2488240`](https://github.com/acronis/uikit/commit/2488240bd78243d59626e45a958a34d86ef70757) Thanks [@leonid](https://github.com/leonid)! - Fix `Breadcrumb` link colors: wire link/ellipsis text to the renamed
   `--ui-breadcrumb-link-label-color-{idle,hover,active}` tokens (previously
   referenced the stale `--ui-breadcrumb-link-label-{idle,hover,active}` names,
-  which no longer exist in `@spec-lab/tokens-pd`, so links rendered with
+  which no longer exist in `@constructor-lab/tokens-pd`, so links rendered with
   no color).
 
 ## 0.16.0
@@ -1024,7 +1024,7 @@
   Polymorphic link parts use Base UI `useRender` + `mergeProps` (no Radix
   `asChild`). Tokens-only (no hardcoded colors); the focus ring reuses
   `--ui-focus-brand`. `ui-react/styles` imports the two new
-  `@spec-lab/tokens-pd/css/Sidebar{Primary,Secondary}/acronis.css` tiers.
+  `@constructor-lab/tokens-pd/css/Sidebar{Primary,Secondary}/acronis.css` tiers.
   Includes unit tests, Storybook stories (+ generated state stories), Figma Code
   Connect, ui-spec specs, and Docker visual-regression baselines.
 
@@ -1033,7 +1033,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`4e13963`](https://github.com/acronis/uikit/commit/4e139630719ebb51eedc99494b351aa657a75c78), [`4e13963`](https://github.com/acronis/uikit/commit/4e139630719ebb51eedc99494b351aa657a75c78)]:
-  - @spec-lab/tokens-pd@1.2.0
+  - @constructor-lab/tokens-pd@1.2.0
 
 ## 0.15.3
 
@@ -1058,21 +1058,21 @@
   `ui-react` (continued): re-theme `Button`, `ButtonIcon`, `Breadcrumb`, `Checkbox`, and `Input` to the next-gen component tokens — they previously referenced dead token names (the retired `componentLegacy` / `--ui-form-*` tiers) and rendered unstyled. `Button` maps `background` → `container`, keeps `label`, adds per-state `icon` colors, and now only `secondary` / `inverted` carry a container border (others are borderless); geometry is tokenized via `--ui-button-global-container-*` and per-variant `padding-x` / `width-min` (`ghost` has 0 padding-x and no min-width). `ButtonIcon` moves to the borderless `--ui-button-icon-global-*` container/icon tokens. `Breadcrumb` moves to `link-label-<state>` (now darkening on hover/active), `page-label-color`, `separator-icon-{color,size}`, and `list-gap`. `Checkbox` moves to the dedicated `--ui-checkbox-{unchecked,checked,indeterminate}-box[-border-color]-<state>` + `-icon-` tiers with `global-box-*` geometry. `Input` moves to `--ui-input-{global-box,normal-box-border-color,error-box-border-color,content-value,content-placeholder}-*`. Visual-regression baselines regenerated in Docker for all re-themed components. Still pending: `Radio`, `Search`, `Select` remain on the removed `--ui-form-*` tier (Figma has no next-gen tokens for them yet) — a design prerequisite, tracked separately.
 
 - Updated dependencies [[`1ef2702`](https://github.com/acronis/uikit/commit/1ef27023038cbc4194dac666b4f020e105670b91)]:
-  - @spec-lab/tokens-pd@1.1.0
+  - @constructor-lab/tokens-pd@1.1.0
 
 ## 0.15.2
 
 ### Patch Changes
 
 - Updated dependencies [[`d95fc1e`](https://github.com/acronis/uikit/commit/d95fc1e809f3f4fe0c62f0c92d0f48b81976765d)]:
-  - @spec-lab/tokens-pd@1.0.0
+  - @constructor-lab/tokens-pd@1.0.0
 
 ## 0.15.1
 
 ### Patch Changes
 
 - Updated dependencies [[`9ce1b45`](https://github.com/acronis/uikit/commit/9ce1b4585571aa96c136d200489d0939749b2ece)]:
-  - @spec-lab/icons-react@0.4.0
+  - @constructor-lab/icons-react@0.4.0
 
 ## 0.15.0
 
@@ -1124,7 +1124,7 @@
   opposite end showed on the left and right border edges).
 
 - Updated dependencies [[`d3541f9`](https://github.com/acronis/uikit/commit/d3541f9c40c5d12f1c464ad68bf42709b89948e5)]:
-  - @spec-lab/tokens-pd@0.7.3
+  - @constructor-lab/tokens-pd@0.7.3
 
 ## 0.11.1
 
@@ -1164,8 +1164,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`a85d629`](https://github.com/acronis/uikit/commit/a85d6291933854a99af8825b985c325bfb80725c)]:
-  - @spec-lab/design-assets@0.4.0
-  - @spec-lab/icons-react@0.3.0
+  - @constructor-lab/design-assets@0.4.0
+  - @constructor-lab/icons-react@0.3.0
 
 ## 0.9.0
 
@@ -1174,7 +1174,7 @@
 - [#240](https://github.com/acronis/uikit/pull/240) [`dbdc2fc`](https://github.com/acronis/uikit/commit/dbdc2fcb566b8aaf1f5ddb91d9d977051b65e9e7) Thanks [@leonid](https://github.com/leonid)! - Add `RadioGroup` and `Radio`: a mutually-exclusive option group wrapping Base
   UI's RadioGroup / Radio primitives. The group owns the selected value; each
   `Radio` takes a `value`. Themed by the shared `--ui-form-*` token tier from
-  `@spec-lab/tokens-pd` — the 16px circle uses idle / hover / active /
+  `@constructor-lab/tokens-pd` — the 16px circle uses idle / hover / active /
   disabled border + background, the 8px dot uses `--ui-form-circle-active` (and
   `--ui-form-circle-disabled` when disabled), and the focus ring uses
   `--ui-focus-primary`; the checked fill is scoped with `not-data-[disabled]` so
@@ -1187,7 +1187,7 @@
 ### Minor Changes
 
 - [#237](https://github.com/acronis/uikit/pull/237) [`f0f4ab6`](https://github.com/acronis/uikit/commit/f0f4ab676513d1e4ec4d1014ce15a8ae0cf0b8c6) Thanks [@leonid](https://github.com/leonid)! - Add `Input`: a single-line text input themed by the shared `--ui-form-*` token
-  tier from `@spec-lab/tokens-pd`. Each state is wired to its own token —
+  tier from `@constructor-lab/tokens-pd`. Each state is wired to its own token —
   idle / hover / focus (active border + a 3px `--ui-focus-primary` ring) /
   disabled — and the error state is driven by `aria-invalid` (red border, and a
   `--ui-focus-error` ring on focus) scoped so it wins over the hover/focus border.
@@ -1201,7 +1201,7 @@
 
 - [#235](https://github.com/acronis/uikit/pull/235) [`4fb8b2f`](https://github.com/acronis/uikit/commit/4fb8b2f3c0df84f49def85fa7cba7ee3d062ef66) Thanks [@leonid](https://github.com/leonid)! - Add `Checkbox`: a Base UI checkbox wrapper supporting checked, unchecked, and
   indeterminate states (check / minus glyphs). Colors and geometry are wired to
-  the shared `--ui-form-*` token tier from `@spec-lab/tokens-pd`, with the
+  the shared `--ui-form-*` token tier from `@constructor-lab/tokens-pd`, with the
   glyph tinted by `--ui-glyph-on-brand-primary` and the focus ring by
   `--ui-focus-primary`; the disabled state always wins over the checked /
   indeterminate fill. Includes tests, Storybook stories, visual-regression
@@ -1213,11 +1213,11 @@
 ### Patch Changes
 
 - [#233](https://github.com/acronis/uikit/pull/233) [`13fb696`](https://github.com/acronis/uikit/commit/13fb6960f699288ccb749d383e342a3dae7b62ab) Thanks [@leonid](https://github.com/leonid)! - Fix unstyled components: `src/styles/index.css` only imported the semantic
-  token tier from `@spec-lab/tokens-pd`, so the per-component token tiers
+  token tier from `@constructor-lab/tokens-pd`, so the per-component token tiers
   (opt-in) were never loaded and every `--ui-button-*` / `--ui-button-icon-*` /
   `--ui-switch-*` / `--ui-breadcrumb-*` reference resolved to nothing. Import the
   `button`, `switch`, and `breadcrumb` component tiers so the shipped library CSS
-  (`@spec-lab/ui-react/styles`) actually carries the component tokens.
+  (`@constructor-lab/ui-react/styles`) actually carries the component tokens.
 
 ## 0.6.0
 
@@ -1228,7 +1228,7 @@
   `BreadcrumbSeparator`, `BreadcrumbEllipsis`). Links are polymorphic via the
   Base UI `render` prop (e.g. a router `Link`); the current page is marked with
   `aria-current="page"`. Colors are wired to the `--ui-breadcrumb-*` tokens from
-  `@spec-lab/tokens-pd`, and the separator uses the 16px chevron-right
+  `@constructor-lab/tokens-pd`, and the separator uses the 16px chevron-right
   icon. Includes tests, Storybook stories, and a Figma Code Connect mapping.
 
 ## 0.5.1
@@ -1236,7 +1236,7 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @spec-lab/tokens-pd@0.7.2
+  - @constructor-lab/tokens-pd@0.7.2
 
 ## 0.5.0
 
@@ -1245,7 +1245,7 @@
 - [#210](https://github.com/acronis/uikit/pull/210) [`6d188d2`](https://github.com/acronis/uikit/commit/6d188d21e719a5af7ad7589f3f5227b32cfb4f53) Thanks [@leonid](https://github.com/leonid)! - Align Button with the Figma design and add a dedicated ButtonIcon component.
 
   **Button** now wires every style and interaction state directly to the
-  dedicated `--ui-button-*` component tokens (from `@spec-lab/tokens-pd`)
+  dedicated `--ui-button-*` component tokens (from `@constructor-lab/tokens-pd`)
   instead of borrowing shared semantic tokens:
   - Disabled states use the design's explicit per-variant disabled colors instead
     of a blanket `opacity-50`.
@@ -1269,27 +1269,27 @@
 ### Patch Changes
 
 - Updated dependencies [[`8a72145`](https://github.com/acronis/uikit/commit/8a721459e35a405bdf9ef11489e86f68b61a821c), [`beae4ff`](https://github.com/acronis/uikit/commit/beae4ffd3dd4cd8742300c8906e7e18cef8693ee)]:
-  - @spec-lab/tokens-pd@0.7.1
+  - @constructor-lab/tokens-pd@0.7.1
 
 ## 0.4.1
 
 ### Patch Changes
 
 - Updated dependencies [[`bd63c2a`](https://github.com/acronis/uikit/commit/bd63c2ae80bcab09acb1bc558d01951e2c38af83)]:
-  - @spec-lab/tokens-pd@0.7.0
+  - @constructor-lab/tokens-pd@0.7.0
 
 ## 0.4.0
 
 ### Minor Changes
 
-- [#198](https://github.com/acronis/uikit/pull/198) [`8cbe6cf`](https://github.com/acronis/uikit/commit/8cbe6cfb891cf59a2fe3c006a0ef8a08d06806ee) Thanks [@leonid](https://github.com/leonid)! - Rename `@spec-lab/design-theme` → `@spec-lab/tokens-pd` and rebuild it from the Style Dictionary pipeline.
+- [#198](https://github.com/acronis/uikit/pull/198) [`8cbe6cf`](https://github.com/acronis/uikit/commit/8cbe6cfb891cf59a2fe3c006a0ef8a08d06806ee) Thanks [@leonid](https://github.com/leonid)! - Rename `@constructor-lab/design-theme` → `@constructor-lab/tokens-pd` and rebuild it from the Style Dictionary pipeline.
 
-  **`@spec-lab/tokens-pd` (was `@spec-lab/design-theme`) — breaking:**
+  **`@constructor-lab/tokens-pd` (was `@constructor-lab/design-theme`) — breaking:**
   - **Package renamed.** Update the dependency and all import specifiers from
-    `@spec-lab/design-theme` to `@spec-lab/tokens-pd`.
+    `@constructor-lab/design-theme` to `@constructor-lab/tokens-pd`.
   - **Homegrown build retired.** The package no longer runs its own Style
     Dictionary script; it is now the published home for the output of
-    `@spec-lab/style-dictionary`, which is generated and committed.
+    `@constructor-lab/style-dictionary`, which is generated and committed.
   - **Exports replaced.** The `./css`, `./scss`, and `./js` exports are removed.
     Output is grouped into `css/`, `tailwind/`, and `dtcg/` dirs.
     - `./css` → `./css/acronis.css` (semantic tier, default brand) and, per
@@ -1309,8 +1309,8 @@ data-theme="dark">`) instead of a `.dark` class. Brands are bare `:root`
   - **Gradients** are now emitted (`--ui-background-ai-*`), and typography ships as
     `.ui-typography-*` utility classes.
 
-  **`@spec-lab/ui-react`:**
-  - Now themed by `@spec-lab/tokens-pd` (was `@spec-lab/design-theme`).
+  **`@constructor-lab/ui-react`:**
+  - Now themed by `@constructor-lab/tokens-pd` (was `@constructor-lab/design-theme`).
   - The `@theme inline` bridge maps onto the new `--ui-*` names; the `dark:` variant
     now keys off the `[data-theme="dark"]` attribute instead of the `.dark` class.
     Consumers that previously toggled a `.dark` class must switch to `data-theme`.
@@ -1319,14 +1319,14 @@ data-theme="dark">`) instead of a `.dark` class. Brands are bare `:root`
 ### Patch Changes
 
 - Updated dependencies [[`8cbe6cf`](https://github.com/acronis/uikit/commit/8cbe6cfb891cf59a2fe3c006a0ef8a08d06806ee)]:
-  - @spec-lab/tokens-pd@0.6.0
+  - @constructor-lab/tokens-pd@0.6.0
 
 ## 0.3.1
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @spec-lab/design-theme@0.5.1
+  - @constructor-lab/design-theme@0.5.1
 
 ## 0.3.0
 
@@ -1351,28 +1351,28 @@ data-theme="dark">`) instead of a `.dark` class. Brands are bare `:root`
 ### Patch Changes
 
 - Updated dependencies [[`9e418d6`](https://github.com/acronis/uikit/commit/9e418d6fb7e4e52182e96dc26418daf82fde8c25)]:
-  - @spec-lab/design-theme@0.5.0
+  - @constructor-lab/design-theme@0.5.0
 
 ## 0.2.3
 
 ### Patch Changes
 
 - Updated dependencies [[`61fe683`](https://github.com/acronis/uikit/commit/61fe68389b42f482fe9f7a07ab0f14ebad6c12d1)]:
-  - @spec-lab/design-theme@0.4.0
+  - @constructor-lab/design-theme@0.4.0
 
 ## 0.2.2
 
 ### Patch Changes
 
 - Updated dependencies [[`61fe683`](https://github.com/acronis/uikit/commit/61fe68389b42f482fe9f7a07ab0f14ebad6c12d1)]:
-  - @spec-lab/design-theme@0.3.0
+  - @constructor-lab/design-theme@0.3.0
 
 ## 0.2.1
 
 ### Patch Changes
 
-- [#84](https://github.com/acronis/uikit/pull/84) [`3b3fe78`](https://github.com/acronis/uikit/commit/3b3fe7852bbff8c50009648fe49fccbda9526bf2) Thanks [@leonid](https://github.com/leonid)! - Add `@spec-lab/icons-react` — React icon components generated from
-  `@spec-lab/design-assets`. Ships all four packs via subpath exports
+- [#84](https://github.com/acronis/uikit/pull/84) [`3b3fe78`](https://github.com/acronis/uikit/commit/3b3fe7852bbff8c50009648fe49fccbda9526bf2) Thanks [@leonid](https://github.com/leonid)! - Add `@constructor-lab/icons-react` — React icon components generated from
+  `@constructor-lab/design-assets`. Ships all four packs via subpath exports
   (`./stroke-mono`, `./solid-mono`, `./stroke-multi`, `./solid-multi`) as
   tree-shakeable per-icon named exports plus an `icons` registry + `IconName`
   type per pack.
@@ -1383,27 +1383,27 @@ data-theme="dark">`) instead of a `.dark` class. Brands are bare `:root`
     single 24px master renders at any size with the designed stroke weight
     (1.6px @16, 2px @24, 2.5px @32).
 
-  `@spec-lab/ui-react` now depends on it so components and stories can
+  `@constructor-lab/ui-react` now depends on it so components and stories can
   compose icons (e.g. `<Button><PlusIcon /> Add</Button>`).
 
 - Updated dependencies [[`3b3fe78`](https://github.com/acronis/uikit/commit/3b3fe7852bbff8c50009648fe49fccbda9526bf2)]:
-  - @spec-lab/icons-react@0.2.0
+  - @constructor-lab/icons-react@0.2.0
 
 ## 0.2.0
 
 ### Minor Changes
 
 - [#80](https://github.com/acronis/uikit/pull/80) [`1687cc9`](https://github.com/acronis/uikit/commit/1687cc9336de74d53521d8e6ef9097763a0a9bb0) Thanks [@leonid](https://github.com/leonid)! - Introduce two new published packages:
-  - `@spec-lab/design-theme` — generates consumable CSS / SCSS / JS theme
-    artifacts from `@spec-lab/design-tokens` via Style Dictionary, resolving
+  - `@constructor-lab/design-theme` — generates consumable CSS / SCSS / JS theme
+    artifacts from `@constructor-lab/design-tokens` via Style Dictionary, resolving
     the per-scheme (light/dark) and per-brand token matrix into `--av-*` CSS
     custom properties.
-  - `@spec-lab/ui-react` — the next-generation Constructor Lab React
+  - `@constructor-lab/ui-react` — the next-generation Constructor Lab React
     component library built on Base UI (`@base-ui/react`) and themed by
-    `@spec-lab/design-theme`. Ships `Button` and `Switch` with tests and
+    `@constructor-lab/design-theme`. Ships `Button` and `Switch` with tests and
     Storybook stories as the reference pattern.
 
 ### Patch Changes
 
 - Updated dependencies [[`1687cc9`](https://github.com/acronis/uikit/commit/1687cc9336de74d53521d8e6ef9097763a0a9bb0)]:
-  - @spec-lab/design-theme@0.2.0
+  - @constructor-lab/design-theme@0.2.0

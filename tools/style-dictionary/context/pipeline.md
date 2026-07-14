@@ -1,6 +1,6 @@
 # Pipeline — the two build stages
 
-`@spec-lab/style-dictionary` builds in two stages. Stage 1 normalizes the
+`@constructor-lab/style-dictionary` builds in two stages. Stage 1 normalizes the
 Constructor Lab design tokens into plain DTCG; stage 2 turns that into CSS. Splitting the
 work this way keeps the DTCG-conformance concern (handling the Constructor Lab
 divergences) separate from the CSS concern (resolution, formatting, theming), and

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Component readiness audit for @spec-lab/ui-react.
+# Component readiness audit for @constructor-lab/ui-react.
 #
 # Static (no-build) pre-flight checks run BEFORE /figma-component. Read-only —
 # never edits files. Prints a per-component matrix + verdict.
@@ -72,11 +72,11 @@ for c in $comps; do
   prose_stale="$(comm -23 <(printf '%s\n' "$prose_refs" | sort -u) "$defined" 2>/dev/null)"
 
   # ---- IMPORTS: the token bundle is imported in styles/index.css ----
-  # @spec-lab/tokens ships the whole kit in ONE import (@spec-lab/tokens/css) —
+  # @constructor-lab/tokens ships the whole kit in ONE import (@constructor-lab/tokens/css) —
   # primitives + semantics + every component tier — so per-component import checks
   # are obsolete: if the bundle is imported, every component's tokens are defined.
   miss_imp=""
-  if grep -qF "@spec-lab/tokens/css" "$STYLES"; then imp=PASS; else imp=FAIL; miss_imp="@spec-lab/tokens/css"; fi
+  if grep -qF "@constructor-lab/tokens/css" "$STYLES"; then imp=PASS; else imp=FAIL; miss_imp="@constructor-lab/tokens/css"; fi
 
   # ---- SPEC: 7-file set present ----
   spec_missing=""

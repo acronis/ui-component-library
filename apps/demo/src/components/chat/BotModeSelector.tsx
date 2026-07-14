@@ -1,7 +1,7 @@
 import React from 'react';
 import { BotModeSelectorProps, BotMode } from '@/lib/chat/types';
-import { Button } from '@spec-lab/ui-react';
-import { cn } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import { cn } from '@constructor-lab/ui-react';
 
 const BOT_INFO = {
   eliza: {

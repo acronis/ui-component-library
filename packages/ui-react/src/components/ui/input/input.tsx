@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 // Internal primitive: the bare single-line input box behind the public
 // `InputText` field (which is also exported as `Input`). Not exported from the
 // package; consumed by `input-text`. Themed by the dedicated next-gen `--ui-input-text-*`
-// token tier from @spec-lab/tokens. The box fill (`global-box-color-*`)
+// token tier from @constructor-lab/tokens. The box fill (`global-box-color-*`)
 // and the normal border (`normal-box-border-color-*`) are wired per state: idle /
 // hover / focus / disabled. The `normal-box-border-color-*` tier has no `-active`,
 // so focus reuses `-hover` for the border, paired with a 3px `--ui-focus-primary`

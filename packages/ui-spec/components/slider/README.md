@@ -22,7 +22,7 @@ internally). Pass an array value for a range.
 ## Example
 
 ```tsx
-import { Slider } from '@spec-lab/ui-react';
+import { Slider } from '@constructor-lab/ui-react';
 
 <Slider defaultValue={40} aria-label="Volume" />
 <Slider defaultValue={[20, 80]} aria-label="Price range" />

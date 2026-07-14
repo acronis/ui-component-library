@@ -1,8 +1,8 @@
 # AGENTS.md — `packages/ui-react`
 
-`@spec-lab/ui-react` — the next-generation Constructor Lab React component
-library: a **Base UI implementation** themed by `@spec-lab/tokens`
-(which is generated from `@spec-lab/tokens`).
+`@constructor-lab/ui-react` — the next-generation Constructor Lab React component
+library: a **Base UI implementation** themed by `@constructor-lab/tokens`
+(which is generated from `@constructor-lab/tokens`).
 
 Repo-wide rules (TypeScript, file naming, editing rules, Conventional
 Commits, Changesets) live in the repo root's `./context/` and apply on
@@ -18,13 +18,13 @@ top of this file.
   dependency** (legacy treats it as an optional peer and mixes in Radix).
   Don't add Radix here. For element composition use Base UI's `useRender`
   - `mergeProps` (the `render` prop), not Radix `Slot` / `asChild`.
-- **Theming via generated tokens.** Color comes from `@spec-lab/tokens` (`--ui-*`
+- **Theming via generated tokens.** Color comes from `@constructor-lab/tokens` (`--ui-*`
   CSS custom properties; light/dark via `light-dark()` + `[data-theme]`, brand via
   `[data-brand]`). `src/styles/index.css` imports the whole bundle in one line
-  (`@spec-lab/tokens/css`) plus the **generated** Tailwind bridge
-  (`@spec-lab/tokens/css/tailwind-theme.css`) that maps `--ui-*` onto Tailwind
+  (`@constructor-lab/tokens/css`) plus the **generated** Tailwind bridge
+  (`@constructor-lab/tokens/css/tailwind-theme.css`) that maps `--ui-*` onto Tailwind
   color names. Don't hand-author theme values here — change a tier in
-  `@spec-lab/tokens` and rebuild.
+  `@constructor-lab/tokens` and rebuild.
 
 ## Shared conventions kept from legacy
 
@@ -36,8 +36,8 @@ top of this file.
 
 ## The shared demos package
 
-The `@spec-lab/ui-kit-demos` workspace (consumed by `apps/demo`) now
-imports `@spec-lab/ui-react` **directly** — the legacy package it was named after
+The `@constructor-lab/ui-kit-demos` workspace (consumed by `apps/demo`) now
+imports `@constructor-lab/ui-react` **directly** — the legacy package it was named after
 is gone, and the old `.storybook`/tsconfig alias that remapped the legacy
 specifier to this library's `src` has been removed. This library's Storybook
 renders its own `src/components/**/__stories__/*.stories.tsx`; it does not pull
@@ -78,9 +78,9 @@ baselines rendered on macOS/Windows. After adding or changing any story:
 
 ```bash
 # regenerate + review baselines (Docker must be running)
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker:update
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:update
 # check against committed baselines (what CI runs on every PR)
-pnpm --filter @spec-lab/ui-react storybook:test:visual:docker
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker
 ```
 
 The `storybook:test:visual[:update]` scripts run the same thing without Docker

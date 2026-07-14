@@ -6,7 +6,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import { LoginForm } from './LoginForm';
 import { useAuth } from '../../hooks/useAuth';
 import type { LoginFormData } from '../../lib/validators';

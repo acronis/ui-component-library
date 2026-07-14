@@ -38,7 +38,7 @@ container (owns the selected value) and `Radio` items.
 ### React
 
 ```tsx
-import { RadioGroup, Radio } from '@spec-lab/ui-react';
+import { RadioGroup, Radio } from '@constructor-lab/ui-react';
 
 function PlanPicker() {
   const [plan, setPlan] = useState('standard');

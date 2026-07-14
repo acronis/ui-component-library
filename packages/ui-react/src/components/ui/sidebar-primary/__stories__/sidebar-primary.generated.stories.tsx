@@ -1,5 +1,5 @@
-// AUTO-GENERATED from @spec-lab/ui-spec — DO NOT EDIT.
-// Regenerate: pnpm --filter @spec-lab/ui-spec generate:stories
+// AUTO-GENERATED from @constructor-lab/ui-spec — DO NOT EDIT.
+// Regenerate: pnpm --filter @constructor-lab/ui-spec generate:stories
 // `:hover` / `:active` stories require a Storybook pseudo-states addon to paint.
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
@@ -17,7 +17,7 @@ import {
   BoxIcon,
   UsersIcon,
   CircleHelpIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 import { SidebarPrimary } from '../sidebar-primary';
 
 const meta = {

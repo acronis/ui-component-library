@@ -9,12 +9,12 @@ import {
   AlertIcon,
   AlertTitle,
   Button,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 import {
   CircleCheckIcon,
   CircleInfoIcon,
   CircleWarningIcon,
-} from '@spec-lab/icons-react/stroke-mono';
+} from '@constructor-lab/icons-react/stroke-mono';
 
 export function AlertDemo() {
   return (

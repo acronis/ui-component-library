@@ -4,8 +4,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@spec-lab/ui-react';
-import { Card, CardContent } from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
+import { Card, CardContent } from '@constructor-lab/ui-react';
 
 export function CarouselTestimonials() {
   return (

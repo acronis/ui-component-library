@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { ColorToken } from '@/types/playground';
 import { ColorPicker } from './ColorPicker';
-import { Button } from '@spec-lab/ui-react';
-import { Popover, PopoverContent, PopoverTrigger } from '@spec-lab/ui-react';
-import { Label } from '@spec-lab/ui-react';
-import { Badge } from '@spec-lab/ui-react';
+import { Button } from '@constructor-lab/ui-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@constructor-lab/ui-react';
+import { Label } from '@constructor-lab/ui-react';
+import { Badge } from '@constructor-lab/ui-react';
 import { getContrastRatio, meetsWCAGAA } from '@/lib/playground/colorUtils';
 
 interface ColorEditorProps {

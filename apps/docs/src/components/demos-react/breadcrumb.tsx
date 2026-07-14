@@ -7,7 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@spec-lab/ui-react';
+} from '@constructor-lab/ui-react';
 
 export function BreadcrumbDemo() {
   return (
