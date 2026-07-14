@@ -1679,7 +1679,7 @@
               "PD"
             ],
             "values": {
-              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "deep-sky-itkontoret": "{palette.grayscale.3}",
               "default": "{palette.electricblue.electricblue-3}",
               "virtuozzo": "{palette.grayscale.3}"
             }
@@ -1713,7 +1713,7 @@
               "PD"
             ],
             "values": {
-              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "deep-sky-itkontoret": "{palette.grayscale.3}",
               "default": "{palette.electricblue.electricblue-3}",
               "virtuozzo": "{palette.grayscale.3}"
             }
@@ -2270,7 +2270,7 @@
               "PD"
             ],
             "values": {
-              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "deep-sky-itkontoret": "{palette.grayscale.3}",
               "default": "{palette.electricblue.electricblue-3}",
               "virtuozzo": "{palette.grayscale.3}"
             }
@@ -2304,7 +2304,7 @@
               "PD"
             ],
             "values": {
-              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "deep-sky-itkontoret": "{palette.grayscale.3}",
               "default": "{palette.electricblue.electricblue-3}",
               "virtuozzo": "{palette.grayscale.3}"
             }
@@ -2697,9 +2697,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "String value",
-            "default": "{typography.body.strong}",
-            "virtuozzo": "String value"
+            "default": "{typography.body.strong}"
           }
         }
       }
@@ -3064,7 +3062,7 @@
               "PD"
             ],
             "values": {
-              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "deep-sky-itkontoret": "{palette.grayscale.3}",
               "default": "{palette.electricblue.electricblue-3}",
               "virtuozzo": "{palette.grayscale.3}"
             }
@@ -3098,7 +3096,7 @@
               "PD"
             ],
             "values": {
-              "deep_sky_itkontoret": "{palette.grayscale.3}",
+              "deep-sky-itkontoret": "{palette.grayscale.3}",
               "default": "{palette.electricblue.electricblue-3}",
               "virtuozzo": "{palette.grayscale.3}"
             }
@@ -4784,7 +4782,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{typography.link.default}",
+            "deep-sky-itkontoret": "{typography.link.default}",
             "default": "{typography.link.strong}",
             "virtuozzo": "{typography.link.default}"
           }
@@ -6907,7 +6905,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{units.size.8}",
+            "deep-sky-itkontoret": "{units.size.8}",
             "default": "{units.gap.8}",
             "virtuozzo": "{units.size.8}"
           }
@@ -6941,7 +6939,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{units.size.16}",
+            "deep-sky-itkontoret": "{units.size.16}",
             "default": "{units.gap.16}",
             "virtuozzo": "{units.size.16}"
           }
@@ -7045,7 +7043,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{colors.text.onSurface.primary}",
+            "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
             "default": "{colors.glyph.onSurface.primary}",
             "virtuozzo": "{colors.text.onSurface.primary}"
           }
@@ -7063,7 +7061,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{colors.text.onSurface.primary}",
+            "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
             "default": "{colors.glyph.onSurface.primary}",
             "virtuozzo": "{colors.text.onSurface.primary}"
           }
@@ -7081,7 +7079,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{colors.text.onSurface.primary}",
+            "deep-sky-itkontoret": "{colors.text.onSurface.primary}",
             "default": "{colors.glyph.onSurface.primary}",
             "virtuozzo": "{colors.text.onSurface.primary}"
           }
@@ -8070,7 +8068,7 @@
               "PD"
             ],
             "values": {
-              "deep_sky_itkontoret": "{colors.text.onSurface.disabled}",
+              "deep-sky-itkontoret": "{colors.text.onSurface.disabled}",
               "default": "{colors.glyph.onSurface.disabled}",
               "virtuozzo": "{colors.text.onSurface.disabled}"
             }
@@ -12325,7 +12323,7 @@
                 "PD"
               ],
               "values": {
-                "deep_sky_itkontoret": "{colors.background.surface.active}",
+                "deep-sky-itkontoret": "{colors.background.surface.active}",
                 "default": "{colors.background.surface.hover}",
                 "virtuozzo": "{colors.background.surface.active}"
               }

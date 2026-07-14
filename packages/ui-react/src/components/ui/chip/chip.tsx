@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils';
 // `active` look is the pressed state for `removable`/`operational` (`active:`) and
 // the selected state for `selectable` (`data-[selected]`, driven by `selected`).
 const chipVariants = cva(
-  'inline-flex h-[var(--ui-chip-global-box-height)] min-w-[var(--ui-chip-global-box-width-min)] items-center justify-center gap-[var(--ui-chip-global-box-gap)] rounded-[var(--ui-chip-global-border-radius)] border-[length:var(--ui-chip-global-border-width)] border-solid border-[var(--ui-chip-global-border-color-idle)] bg-[var(--ui-chip-global-box-color-idle)] px-[var(--ui-chip-global-box-padding-x)] text-sm leading-6 hover:border-[var(--ui-chip-global-border-color-hover)] hover:bg-[var(--ui-chip-global-box-color-hover)] [&_svg]:size-[var(--ui-chip-global-icon-size)] [&_svg]:shrink-0 [&_svg]:text-[var(--ui-chip-global-icon-color)]',
+  'inline-flex h-[var(--ui-chip-global-box-height)] min-w-[var(--ui-chip-global-box-width-min)] items-center justify-center gap-[var(--ui-chip-global-box-gap)] rounded-[var(--ui-chip-global-border-radius)] border-[length:var(--ui-chip-global-border-width)] border-solid border-[var(--ui-chip-global-border-color-idle)] bg-[var(--ui-chip-global-box-color-idle)] px-[var(--ui-chip-global-box-padding-x)] text-sm leading-6 hover:border-[var(--ui-chip-global-border-color-hover)] hover:bg-[var(--ui-chip-global-box-color-hover)] [&_svg]:size-[var(--ui-chip-global-box-icon-size)] [&_svg]:shrink-0 [&_svg]:text-[var(--ui-chip-global-icon-color)]',
   {
     variants: {
       variant: {

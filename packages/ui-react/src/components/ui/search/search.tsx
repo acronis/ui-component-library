@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils';
 // focused border reuses `--ui-input-search-border-color-hover` plus a 3px
 // `--ui-focus-primary` ring) / hover / disabled; the magnifier uses
 // `--ui-input-search-icon-search-color-{idle,disabled}` (via the `group`) and the
-// clear button uses `--ui-input-search-clear-icon-color`.
+// clear button uses `--ui-glyph-on-surface-primary`.
 
 export interface SearchBoxProps extends React.ComponentPropsWithoutRef<'input'> {
   /** Called when the clear (×) button is pressed, after the value is cleared. */
@@ -113,7 +113,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchBoxProps>(
             type="button"
             aria-label="Clear search"
             onClick={handleClear}
-            className="inline-flex shrink-0 cursor-pointer items-center justify-center rounded-sm text-[var(--ui-input-search-clear-icon-color)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)] [&>svg]:size-4"
+            className="inline-flex shrink-0 cursor-pointer items-center justify-center rounded-sm text-[var(--ui-glyph-on-surface-primary)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)] [&>svg]:size-4"
           >
             <TimesIcon size={16} />
           </button>

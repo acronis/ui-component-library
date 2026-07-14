@@ -139,7 +139,7 @@
   letter-spacing: 0px;
 }
 
-[data-brand='deep_sky_itkontoret'], :host([data-brand='deep_sky_itkontoret']) {
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
   --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
   --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
   --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);

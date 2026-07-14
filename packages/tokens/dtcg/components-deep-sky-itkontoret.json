@@ -1172,7 +1172,7 @@
               "com.figma.variableId": "VariableID:2468:91033"
             },
             "$type": "color",
-            "$value": "{palette.electricblue.electricblue-3}"
+            "$value": "{palette.grayscale.3}"
           },
           "hover": {
             "$extensions": {
@@ -1194,7 +1194,7 @@
               "com.figma.variableId": "VariableID:2468:91030"
             },
             "$type": "color",
-            "$value": "{palette.electricblue.electricblue-3}"
+            "$value": "{palette.grayscale.3}"
           }
         },
         "borderStyle": {
@@ -1589,7 +1589,7 @@
               "com.figma.variableId": "VariableID:2236:5671"
             },
             "$type": "color",
-            "$value": "{palette.electricblue.electricblue-3}"
+            "$value": "{palette.grayscale.3}"
           },
           "hover": {
             "$extensions": {
@@ -1611,7 +1611,7 @@
               "com.figma.variableId": "VariableID:2236:5668"
             },
             "$type": "color",
-            "$value": "{palette.electricblue.electricblue-3}"
+            "$value": "{palette.grayscale.3}"
           }
         },
         "borderStyle": {
@@ -2147,7 +2147,7 @@
               "com.figma.variableId": "VariableID:2542:219"
             },
             "$type": "color",
-            "$value": "{palette.electricblue.electricblue-3}"
+            "$value": "{palette.grayscale.3}"
           },
           "hover": {
             "$extensions": {
@@ -2169,7 +2169,7 @@
               "com.figma.variableId": "VariableID:2542:216"
             },
             "$type": "color",
-            "$value": "{palette.electricblue.electricblue-3}"
+            "$value": "{palette.grayscale.3}"
           }
         },
         "borderStyle": {
@@ -3363,7 +3363,7 @@
             "com.figma.variableId": "VariableID:4090:4825"
           },
           "$type": "typography",
-          "$value": "{typography.link.strong}"
+          "$value": "{typography.link.default}"
         }
       }
     },
@@ -4854,7 +4854,7 @@
             "com.figma.variableId": "VariableID:3202:824"
           },
           "$type": "dimension",
-          "$value": "{units.gap.8}"
+          "$value": "{units.size.8}"
         },
         "paddingX": {
           "$extensions": {
@@ -4876,7 +4876,7 @@
             "com.figma.variableId": "VariableID:3202:822"
           },
           "$type": "dimension",
-          "$value": "{units.gap.16}"
+          "$value": "{units.size.16}"
         },
         "widthMin": {
           "$extensions": {
@@ -4948,7 +4948,7 @@
             "com.figma.variableId": "VariableID:3064:21377"
           },
           "$type": "color",
-          "$value": "{colors.glyph.onSurface.primary}"
+          "$value": "{colors.text.onSurface.primary}"
         },
         "iconCollapse": {
           "$extensions": {
@@ -4959,7 +4959,7 @@
             "com.figma.variableId": "VariableID:3202:923"
           },
           "$type": "color",
-          "$value": "{colors.glyph.onSurface.primary}"
+          "$value": "{colors.text.onSurface.primary}"
         },
         "iconTenant": {
           "$extensions": {
@@ -4970,7 +4970,7 @@
             "com.figma.variableId": "VariableID:3202:917"
           },
           "$type": "color",
-          "$value": "{colors.glyph.onSurface.primary}"
+          "$value": "{colors.text.onSurface.primary}"
         },
         "label": {
           "color": {
@@ -5672,7 +5672,7 @@
               "com.figma.variableId": "VariableID:3299:8951"
             },
             "$type": "color",
-            "$value": "{colors.glyph.onSurface.disabled}"
+            "$value": "{colors.text.onSurface.disabled}"
           },
           "hover": {
             "$extensions": {
@@ -8700,7 +8700,7 @@
                 "com.figma.variableId": "VariableID:2468:145021"
               },
               "$type": "color",
-              "$value": "{colors.background.surface.hover}"
+              "$value": "{colors.background.surface.active}"
             },
             "hover": {
               "$extensions": {

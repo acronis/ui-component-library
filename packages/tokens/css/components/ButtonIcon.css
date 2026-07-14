@@ -24,7 +24,7 @@
   --ui-button-icon-secondary-container-border-width: var(--ui-units-stroke-1);
 }
 
-[data-brand='deep_sky_itkontoret'], :host([data-brand='deep_sky_itkontoret']) {
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
   --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
   --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }

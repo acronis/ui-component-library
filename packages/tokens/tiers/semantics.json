@@ -71,10 +71,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.idle}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.idle}",
             "default": "{palette.blue.13}",
             "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.idle}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.idle}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.idle}",
             "brown": "{palette.branding.brown.sidebarprimary.idle}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.idle}",
@@ -106,10 +105,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.active}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.active}",
             "default": "{palette.blue.7}",
             "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.active}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.active}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.active}",
             "brown": "{palette.branding.brown.sidebarprimary.active}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.active}",
@@ -141,10 +139,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.disabled}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.disabled}",
             "default": "{palette.blue.5}",
             "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.disabled}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.disabled}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.disabled}",
             "brown": "{palette.branding.brown.sidebarprimary.disabled}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.disabled}",
@@ -176,10 +173,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.hover}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.hover}",
             "default": "{palette.blue.12}",
             "virtuozzo": "{palette.branding.virtuozzo.sidebarprimary.hover}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.sidebarprimary.hover}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.sidebarprimary.hover}",
             "brown": "{palette.branding.brown.sidebarprimary.hover}",
             "dark-gray": "{palette.branding.dark-gray.sidebarprimary.hover}",
@@ -211,10 +207,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.idle}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.idle}",
             "default": "{palette.blue.7}",
             "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.idle}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.idle}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.idle}",
             "brown": "{palette.branding.brown.buttonprimary.idle}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.idle}",
@@ -246,10 +241,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.active}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.active}",
             "default": "{palette.blue.9}",
             "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.active}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.active}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.active}",
             "brown": "{palette.branding.brown.buttonprimary.active}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.active}",
@@ -281,10 +275,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.disabled}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.disabled}",
             "default": "{palette.blue.3}",
             "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.disabled}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.disabled}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.disabled}",
             "brown": "{palette.branding.brown.buttonprimary.disabled}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.disabled}",
@@ -316,10 +309,9 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.hover}",
+            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.hover}",
             "default": "{palette.blue.8}",
             "virtuozzo": "{palette.branding.virtuozzo.buttonprimary.hover}",
-            "deep-sky-itkontoret": "{palette.branding.deep-sky-itkontoret.buttonprimary.hover}",
             "blue-yellow-uss-signal": "{palette.branding.blue-yellow-uss-signal.buttonprimary.hover}",
             "brown": "{palette.branding.brown.buttonprimary.hover}",
             "dark-gray": "{palette.branding.dark-gray.buttonprimary.hover}",
@@ -579,7 +571,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.3}",
+            "deep-sky-itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
             "virtuozzo": "{palette.grayscale.3}"
           }
@@ -949,7 +941,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.2}",
+            "deep-sky-itkontoret": "{palette.grayscale.2}",
             "default": "{palette.blue.2}",
             "virtuozzo": "{palette.grayscale.2}"
           }
@@ -965,7 +957,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.1}",
+            "deep-sky-itkontoret": "{palette.grayscale.1}",
             "default": "{palette.blue.1}",
             "virtuozzo": "{palette.grayscale.1}"
           }
@@ -995,7 +987,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.0}",
+            "deep-sky-itkontoret": "{palette.grayscale.0}",
             "default": "{palette.blue.0}",
             "virtuozzo": "{palette.grayscale.0}"
           }
@@ -1271,7 +1263,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.3}",
+            "deep-sky-itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
             "virtuozzo": "{palette.grayscale.3}"
           }
@@ -1287,7 +1279,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.7}",
+            "deep-sky-itkontoret": "{palette.grayscale.7}",
             "default": "{palette.blue.7}",
             "virtuozzo": "{palette.grayscale.7}"
           }
@@ -1317,7 +1309,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.3}",
+            "deep-sky-itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
             "virtuozzo": "{palette.grayscale.3}"
           }
@@ -1409,7 +1401,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.7}",
+            "deep-sky-itkontoret": "{palette.grayscale.7}",
             "default": "{palette.blue.7}",
             "virtuozzo": "{palette.grayscale.7}"
           }
@@ -1543,7 +1535,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.3}",
+            "deep-sky-itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
             "virtuozzo": "{palette.grayscale.3}"
           }
@@ -1675,7 +1667,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.5}",
+            "deep-sky-itkontoret": "{palette.grayscale.5}",
             "default": "{palette.blue.3}",
             "virtuozzo": "{palette.grayscale.5}"
           }
@@ -1705,7 +1697,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.10}",
+            "deep-sky-itkontoret": "{palette.grayscale.10}",
             "default": "{palette.blue.7}",
             "virtuozzo": "{palette.grayscale.10}"
           }
@@ -2337,7 +2329,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.3}",
+            "deep-sky-itkontoret": "{palette.grayscale.3}",
             "default": "{palette.blue.3}",
             "virtuozzo": "{palette.grayscale.3}"
           }
@@ -2353,7 +2345,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.11}",
+            "deep-sky-itkontoret": "{palette.grayscale.11}",
             "default": "{palette.blue.8}",
             "virtuozzo": "{palette.grayscale.11}"
           }
@@ -2369,7 +2361,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.10}",
+            "deep-sky-itkontoret": "{palette.grayscale.10}",
             "default": "{palette.blue.7}",
             "virtuozzo": "{palette.grayscale.10}"
           }
@@ -2385,7 +2377,7 @@
             "PD"
           ],
           "values": {
-            "deep_sky_itkontoret": "{palette.grayscale.12}",
+            "deep-sky-itkontoret": "{palette.grayscale.12}",
             "default": "{palette.blue.11}",
             "virtuozzo": "{palette.grayscale.12}"
           }

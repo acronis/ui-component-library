@@ -103,7 +103,7 @@ const InputText = React.forwardRef<HTMLInputElement, InputTextProps>(
               type="button"
               onClick={onClear}
               aria-label="Clear"
-              className="absolute right-[var(--ui-input-text-global-box-padding-x)] top-1/2 flex size-4 -translate-y-1/2 items-center justify-center rounded-[var(--ui-input-text-global-box-border-radius)] text-[var(--ui-input-text-global-clear-icon-color)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] [&_svg]:size-4 [&_svg]:shrink-0"
+              className="absolute right-[var(--ui-input-text-global-box-padding-x)] top-1/2 flex size-4 -translate-y-1/2 items-center justify-center rounded-[var(--ui-input-text-global-box-border-radius)] text-[var(--ui-glyph-on-surface-primary)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] [&_svg]:size-4 [&_svg]:shrink-0"
             >
               <TimesIcon />
             </button>

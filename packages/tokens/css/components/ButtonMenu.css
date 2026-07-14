@@ -76,14 +76,12 @@
   letter-spacing: 0px;
 }
 
-[data-brand='deep_sky_itkontoret'], :host([data-brand='deep_sky_itkontoret']) {
-  --ui-button-menu-dropdown-item-label-text-style: "String value";
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
   --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
   --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }
 
 [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-  --ui-button-menu-dropdown-item-label-text-style: "String value";
   --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
   --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
 }

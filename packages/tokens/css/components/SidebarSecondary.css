@@ -99,7 +99,7 @@
   letter-spacing: 0px;
 }
 
-[data-brand='deep_sky_itkontoret'], :host([data-brand='deep_sky_itkontoret']) {
+[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
   --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
 }
 
