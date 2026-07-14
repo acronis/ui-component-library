@@ -3,7 +3,7 @@ import storybook from 'eslint-plugin-storybook';
 
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
+import eslintReact from '@eslint-react/eslint-plugin';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
@@ -76,11 +76,17 @@ export default tseslint.config(
       ],
     },
   },
-  // React files configuration
+  // React — @eslint-react. Replaces eslint-plugin-react, whose latest (7.37.5)
+  // uses APIs removed in ESLint 10 (`context.getFilename`) and has no v10 release,
+  // which was pinning eslint to 9.x. `recommended-typescript` is @eslint-react's
+  // modern React rule set for TS projects (no type-checking required).
+  {
+    ...eslintReact.configs['recommended-typescript'],
+    files: ['**/*.jsx', '**/*.tsx'],
+  },
   {
     files: ['**/*.jsx', '**/*.tsx'],
     plugins: {
-      react: pluginReact,
       'react-hooks': pluginReactHooks,
     },
     languageOptions: {
@@ -90,22 +96,30 @@ export default tseslint.config(
         },
       },
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
     rules: {
-      ...pluginReact.configs.recommended.rules,
-      // The two classic rules, listed explicitly. eslint-plugin-react-hooks 7's
-      // `recommended` config also enables the new React Compiler rules
-      // (refs-during-render, set-state-in-effect, "Compilation Skipped", …);
-      // adopting those + fixing the flagged code is a separate follow-up, so keep
-      // enforcement identical to the react-hooks 5 baseline here.
+      // Classic hooks rules only. react-hooks 7's `recommended` also bundles the
+      // new React Compiler rules (refs-during-render, set-state-in-effect, …);
+      // adopting those is a separate follow-up.
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
+
+      // @eslint-react is far stricter than the eslint-plugin-react it replaces.
+      // This PR is a plugin swap to unblock ESLint 10, not a 65-rule adoption, so
+      // silence the rules that (a) conflict with repo conventions, (b) duplicate
+      // the react-hooks plugin, or (c) are opinionated adoptions to land
+      // separately. Everything else stays on (mostly as warnings) for gradual
+      // cleanup.
+      '@eslint-react/no-forward-ref': 'off', // ui-react deliberately uses React.forwardRef
+      '@eslint-react/rules-of-hooks': 'off', // covered by react-hooks/rules-of-hooks
+      '@eslint-react/exhaustive-deps': 'off', // covered by react-hooks/exhaustive-deps
+      '@eslint-react/no-context-provider': 'off', // React 19 <Context> preference; defer
+      '@eslint-react/no-use-context': 'off', // same; defer
+      '@eslint-react/no-nested-component-definitions': 'warn', // was error; defer to warn
+      // High-volume opinionated rules (mostly noise in the demo-heavy apps);
+      // defer adoption so this stays a focused plugin swap.
+      '@eslint-react/set-state-in-effect': 'off', // also deferred on react-hooks 7
+      '@eslint-react/no-array-index-key': 'off',
+      '@eslint-react/use-state': 'off',
     },
   },
   storybook.configs['flat/recommended'],
