@@ -1,5 +1,34 @@
 # @constructor-lab/design-tokens
 
+## 3.0.0
+
+### Major Changes
+
+- [#33](https://github.com/constructor-lab/ui-component-library/pull/33) [`a30f14f`](https://github.com/constructor-lab/ui-component-library/commit/a30f14fcc92e0604848d2fd37c65bae8b5958bde) Thanks [@leonid](https://github.com/leonid)! - Rename the npm scope from `@spec-lab` to `@constructor-lab`.
+
+  This is a breaking change for consumers: every import and dependency must be
+  updated to the new scope (e.g. `@spec-lab/ui-react` → `@constructor-lab/ui-react`,
+  `@spec-lab/tokens/css` → `@constructor-lab/tokens/css`,
+  `@spec-lab/icons-react/stroke-mono` → `@constructor-lab/icons-react/stroke-mono`).
+  Package contents, subpath exports, and the token CSS API are otherwise unchanged.
+
+### Patch Changes
+
+- [`d25dd08`](https://github.com/constructor-lab/ui-component-library/commit/d25dd08f1f8a45fad98707cbbe89a97ed632f83f) Thanks [@m231-a](https://github.com/m231-a)! - Fix fallout from the latest design-token regeneration.
+
+  **tokens** — normalize the `deep-sky-itkontoret` brand slug (the regeneration
+  had duplicated it as `deep_sky_itkontoret`, which violates the tier schema's
+  kebab-case `Modes` contract and breaks with every other brand's naming), drop
+  the placeholder `"String value"` overrides on the ButtonMenu dropdown item
+  label text-style, and re-sync per-brand overrides from the current Figma
+  snapshot. No default-brand values change — only `[data-brand]` override blocks
+  are affected.
+
+  **ui-react** — repoint components at tokens renamed/removed by the
+  regeneration: Chip icon size (`--ui-chip-global-icon-size` →
+  `--ui-chip-global-box-icon-size`) and the Search / InputText clear-button icon
+  color (dropped `--ui-input-*-clear-icon-color` → `--ui-glyph-on-surface-primary`).
+
 ## 2.1.0
 
 ### Minor Changes
