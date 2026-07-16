@@ -1,0 +1,49 @@
+spec_version: '1.0'
+component: StatRow
+
+# Config-driven and presentational. Each stat is
+# { id?, label, value?, icon?, empty?, onClick?, render? }.
+contract:
+  properties:
+    - name: stats
+      type: 'StatRowStat[]'
+      required: true
+      description: >-
+        The tiles, in order. Each descriptor: `{ id?, label, value?, icon?,
+        empty?, onClick?, render? }`. `empty` renders a placeholder; `onClick` or
+        `render` makes the tile an interactive filter.
+    - name: columns
+      type: number
+      required: false
+      description: >-
+        Equal-width columns (a grid). Omit for a wrapping row of fixed-width
+        (224px) cards.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: StatRow
+    status: implemented
+    import: "import { StatRow } from '@constructor-lab/ui-react'"
+    example: |
+      <StatRow
+        stats={[
+          { label: 'Protected', value: '982', onClick: () => filter('protected') },
+          { label: 'At risk', value: '17', onClick: () => filter('at-risk') },
+          { label: 'Quarantined', value: '3' },
+          { label: 'Pending', empty: true },
+        ]}
+      />
+  vue:
+    component: AvStatRow
+    status: planned
+    import: "import { AvStatRow } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvStatRow :stats="stats" />
+  web-components:
+    element: ui-stat-row
+    status: planned
+    import: "import '@constructor-lab/ui-wc/stat-row'"
+    example: |
+      <ui-stat-row></ui-stat-row>

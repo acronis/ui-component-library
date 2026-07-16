@@ -464,6 +464,12 @@ const RENDER: Record<string, RenderHint> = {
     // useful. VR is covered by the hand-written stories.
     skip: true,
   },
+  'stat-row': {
+    // Config-driven: `stats` is required and a meaningful row needs real tiles,
+    // so a zero-arg generated render can't typecheck or render anything useful.
+    // VR is covered by the hand-written stories.
+    skip: true,
+  },
   'form-layout': {
     // Config-driven: `fields` + `values` + `onValueChange` are required and a
     // meaningful form needs real descriptors, so a zero-arg generated render

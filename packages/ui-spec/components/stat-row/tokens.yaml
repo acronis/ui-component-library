@@ -1,0 +1,22 @@
+spec_version: '1.0'
+component: StatRow
+
+# References only. Values live in @constructor-lab/tokens. StatRow adds no color of
+# its own — it composes CardFilter, whose `--ui-card-filter-*` tier themes each
+# tile. Listed below are the tokens that govern the tile appearance, by reference;
+# per-tile status icon colors are caller-provided (`--ui-glyph-on-status-*`).
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-card-filter-global-label-color
+    affects: tile
+    description: Tile caption / label color.
+  - name: --ui-card-filter-static-value-color-idle
+    affects: tile
+    description: Value color for a static tile.
+  - name: --ui-card-filter-static-value-color-disabled
+    affects: tile
+    description: Value color for an empty placeholder tile.
+  - name: --ui-card-filter-clickable-value-color
+    affects: tile
+    description: Value color for a clickable (filter) tile.

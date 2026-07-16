@@ -1,0 +1,17 @@
+spec_version: '1.0'
+component: StatRow
+name: stat-row
+status: draft
+category: data-display
+layer: composite
+description: >-
+  The config-driven KPI / stat row: `<StatRow stats={…} />`. Takes a flat stat
+  list and renders one CardFilter per stat — deriving each tile's variant from
+  the descriptor (empty → placeholder, onClick/render → clickable filter,
+  otherwise a static tile) and laying them out as a consistent wrapping row or an
+  equal-width grid — so a dashboard's stat tiles never drift apart. Built on
+  CardFilter.
+since: 2.3.0
+dependencies:
+  components:
+    - CardFilter

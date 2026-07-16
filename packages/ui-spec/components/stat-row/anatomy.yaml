@@ -1,0 +1,35 @@
+spec_version: '1.0'
+component: StatRow
+
+schematic: |
+  root: <div> — a wrapping flex row, or an equal-width grid (columns)
+    +-----------+  +-----------+  +-----------+  +-----------+
+    | tile      |  | tile      |  | tile      |  | tile      |
+    |  label    |  |  label    |  |  label    |  |  label    |
+    |  [ic] val |  |  [ic] val |  |  val      |  |  –        |  (empty)
+    +-----------+  +-----------+  +-----------+  +-----------+
+       clickable      clickable      static         empty
+
+root:
+  element: div
+  description: >-
+    The row container. Lays the tiles out as a wrapping flex row of fixed-width
+    (224px) cards, or — when `columns` is set — an equal-width grid.
+
+parts:
+  - id: tile
+    element: div
+    description: >-
+      One stat card (CardFilter). Its variant is derived from the stat: `empty`
+      → a `static-empty` placeholder (em-dash), `onClick`/`render` → a
+      `clickable` filter (renders a `<button>`), otherwise a `static` tile.
+
+# StatRow is presentational and controlled by `stats` — no internal state. The
+# per-tile interactive state (hover/active/focus) lives in the clickable
+# CardFilter tiles, not StatRow.
+states:
+  - id: grid
+    trigger: 'columns is set'
+    kind: prop
+    prop: columns
+    affects: [root, tile]

@@ -1,0 +1,67 @@
+---
+title: StatRow
+description: The config-driven KPI / stat row — a flat stat list rendered as consistent CardFilter tiles, static or clickable, in a wrapping row or an equal-width grid.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { StatRowDemo } from '@/components/demos-react/stat-row';
+
+## Usage
+
+```tsx
+import { StatRow } from '@constructor-lab/ui-react';
+```
+
+`StatRow` is the **config-driven** KPI / stat row: `<StatRow stats={…} />`. It
+takes a flat stat list and renders one [`CardFilter`](/components/card-filter)
+tile per stat — deriving each tile's variant from the descriptor (`empty` → a
+placeholder, `onClick`/`render` → a clickable filter, otherwise a static tile) —
+laid out as a consistent wrapping row or an equal-width grid, so a dashboard's
+stat tiles never drift apart.
+
+It's an opinionated composite: it trades flexibility for consistency. For a
+one-off card, use `CardFilter` directly — flexibility lives one layer down.
+
+<Callout type="info">
+  Design-pending v1 — built from requirements, not a Figma mockup.
+</Callout>
+
+## Examples
+
+A wrapping row of stat tiles — clickable filters, static tiles, and an empty
+placeholder, with status icons:
+
+<DemoReact>
+  <StatRowDemo />
+</DemoReact>
+
+```tsx
+<StatRow
+  stats={[
+    { label: 'Protected', value: '982', onClick: () => filter('protected') },
+    { label: 'At risk', value: '17', onClick: () => filter('at-risk') },
+    { label: 'Quarantined', value: '3' },
+    { label: 'Pending', empty: true },
+  ]}
+/>
+```
+
+An equal-width grid via `columns`:
+
+```tsx
+<StatRow columns={4} stats={stats} />
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/stat-row/stat-row.docs.ts"
+  name="StatRowProps"
+/>
+
+### Stat descriptor
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/stat-row/stat-row.docs.ts"
+  name="StatRowStat"
+/>
