@@ -1,0 +1,56 @@
+spec_version: '1.0'
+component: DetailList
+
+# Config-driven and presentational. Each item is
+# { id?, label, value, description?, icon?, actions? }.
+contract:
+  properties:
+    - name: items
+      type: 'DetailListItem[]'
+      required: true
+      description: >-
+        The rows, in order. Each descriptor: `{ id?, label, value, description?,
+        icon?, actions? }` — `icon` is a leading glyph, `description` a muted line,
+        `actions` inline links under the value.
+    - name: columns
+      type: '1 | 2'
+      required: false
+      default: '1'
+      description: Column count. `2` uses a responsive grid that collapses to one column.
+    - name: labelWidth
+      type: string
+      required: false
+      description: >-
+        Width of the label column (any CSS length). Defaults to 14rem in one
+        column, 8rem in two.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: DetailList
+    status: implemented
+    import: "import { DetailList } from '@constructor-lab/ui-react'"
+    example: |
+      <DetailList
+        items={[
+          { label: 'Status', value: 'Operational', icon: <CircleCheckIcon /> },
+          { label: 'Owner', value: 'Ada Lovelace', description: 'ada@example.com' },
+          { label: 'Region', value: 'EU (Frankfurt)' },
+        ]}
+      />
+
+      {/* Two-column detail grid */}
+      <DetailList columns={2} items={items} />
+  vue:
+    component: AvDetailList
+    status: planned
+    import: "import { AvDetailList } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvDetailList :items="items" />
+  web-components:
+    element: ui-detail-list
+    status: planned
+    import: "import '@constructor-lab/ui-wc/detail-list'"
+    example: |
+      <ui-detail-list></ui-detail-list>

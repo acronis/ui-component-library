@@ -27,6 +27,7 @@ export * from './components/ui/confirm-dialog';
 export * from './components/ui/data-grid';
 export * from './components/ui/data-table';
 export * from './components/ui/description-list';
+export * from './components/ui/detail-list';
 export * from './components/ui/dialog';
 export * from './components/ui/drawer';
 export * from './components/ui/dropdown-menu';

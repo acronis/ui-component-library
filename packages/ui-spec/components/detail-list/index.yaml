@@ -1,0 +1,17 @@
+spec_version: '1.0'
+component: DetailList
+name: detail-list
+status: draft
+category: data-display
+layer: composite
+description: >-
+  The config-driven label/value list: `<DetailList items={…} />`. Takes a flat
+  item list (label, value, optional icon / description / actions) and renders the
+  approved key/value shape over the DescriptionList primitive, in one or two
+  responsive columns — so every "details of the selected thing" panel reads the
+  same way. Built on DescriptionList.
+since: 2.3.0
+dependencies:
+  components:
+    - DescriptionList
+    - Link

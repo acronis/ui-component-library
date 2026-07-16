@@ -233,6 +233,14 @@
       "since": "0.43.0"
     },
     {
+      "name": "detail-list",
+      "component": "DetailList",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "composite",
+      "since": "2.3.0"
+    },
+    {
       "name": "dialog",
       "component": "Dialog",
       "category": "overlays",

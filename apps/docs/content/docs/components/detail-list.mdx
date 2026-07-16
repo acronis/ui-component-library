@@ -1,0 +1,69 @@
+---
+title: DetailList
+description: The config-driven label/value list — a flat item list rendered as a key/value details panel, in one or two responsive columns.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { DetailListDemo } from '@/components/demos-react/detail-list';
+
+## Usage
+
+```tsx
+import { DetailList } from '@constructor-lab/ui-react';
+```
+
+`DetailList` is the **config-driven** label/value list:
+`<DetailList items={…} />`. Where
+[`DescriptionList`](/components/description-list) is a compositional part set,
+`DetailList` takes a flat item list and renders the approved key/value shape —
+label, value, an optional leading icon, a muted description, and inline actions —
+in one or two responsive columns. It's the properties panel behind the
+`detail-drawer` / `sheet-detail-panel` patterns.
+
+It's an opinionated composite: it trades flexibility for consistency. If you need
+a bespoke row layout, drop to the `DescriptionList` parts — flexibility lives one
+layer down.
+
+<Callout type="info">
+  Design-pending v1 — built from requirements, not a Figma mockup.
+</Callout>
+
+## Examples
+
+A single-column properties panel with status icons, descriptions, and actions:
+
+<DemoReact>
+  <DetailListDemo />
+</DemoReact>
+
+```tsx
+import { CircleCheckIcon } from '@constructor-lab/icons-react/stroke-mono';
+
+<DetailList
+  items={[
+    { label: 'Status', value: 'Operational', icon: <CircleCheckIcon /> },
+    { label: 'Owner', value: 'Ada Lovelace', description: 'ada@example.com' },
+    { label: 'Region', value: 'EU (Frankfurt)' },
+  ]}
+/>;
+```
+
+A responsive two-column detail grid:
+
+```tsx
+<DetailList columns={2} items={items} />
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/detail-list/detail-list.docs.ts"
+  name="DetailListProps"
+/>
+
+### Item descriptor
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/detail-list/detail-list.docs.ts"
+  name="DetailListItem"
+/>

@@ -1,0 +1,20 @@
+spec_version: '1.0'
+component: DetailList
+
+# References only. Values live in @constructor-lab/tokens. DetailList adds no color
+# of its own — it composes DescriptionList, which themes from the shared semantic
+# tokens (via their bridged Tailwind names). Listed below are the tokens that
+# govern its appearance, by reference. Status icon colors are caller-provided
+# (`--ui-glyph-on-status-*`) via each item's `icon`.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-text-on-surface-primary
+    affects: value
+    description: Label + value text (text-foreground).
+  - name: --ui-text-on-surface-secondary
+    affects: description
+    description: Muted description line (text-muted-foreground).
+  - name: --ui-border-on-surface-border
+    affects: item
+    description: Row divider between items (border-border).

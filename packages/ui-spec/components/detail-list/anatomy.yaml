@@ -1,0 +1,51 @@
+spec_version: '1.0'
+component: DetailList
+
+schematic: |
+  root: <dl>  (one column, or a responsive 2-column grid)
+    item: <div> row — grid of [ label | value ]
+      label:        <dt> the property name (fixed-width column)
+      value:        <dd> the property value
+        icon        optional leading glyph (16px)
+        description optional muted line under the value
+        actions     optional inline links under the value
+
+root:
+  element: dl
+  description: >-
+    The description list. Renders one `item` row per entry, stacked (one column)
+    or in a responsive two-column grid.
+
+parts:
+  - id: item
+    element: div
+    description: A single label/value row (DescriptionListItem) — a fixed label column beside the value.
+  - id: label
+    element: dt
+    description: The property name (DescriptionListLabel).
+  - id: value
+    element: dd
+    description: The property value (DescriptionListValue); holds the optional icon, description, and actions.
+  - id: icon
+    element: svg
+    description: Optional leading glyph beside the value, sized to 16px (e.g. a status glyph).
+    optional: true
+    visible_when: the item has an icon
+  - id: description
+    element: p
+    description: Optional muted line under the value (DescriptionListValueDescription).
+    optional: true
+    visible_when: the item has a description
+  - id: actions
+    element: div
+    description: Optional inline actions under the value (DescriptionListActions), e.g. Link elements.
+    optional: true
+    visible_when: the item has actions
+
+# DetailList is presentational and controlled by `items` — no internal state.
+states:
+  - id: two-column
+    trigger: 'columns === 2'
+    kind: prop
+    prop: columns
+    affects: [root, item]

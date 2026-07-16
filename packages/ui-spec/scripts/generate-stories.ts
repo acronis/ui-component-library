@@ -458,6 +458,12 @@ const RENDER: Record<string, RenderHint> = {
     ].join('\n'),
   },
   tag: { sample: 'Label' },
+  'detail-list': {
+    // Config-driven: `items` is required and a meaningful list needs real
+    // entries, so a zero-arg generated render can't typecheck or render anything
+    // useful. VR is covered by the hand-written stories.
+    skip: true,
+  },
   'form-layout': {
     // Config-driven: `fields` + `values` + `onValueChange` are required and a
     // meaningful form needs real descriptors, so a zero-arg generated render
