@@ -458,6 +458,12 @@ const RENDER: Record<string, RenderHint> = {
     ].join('\n'),
   },
   tag: { sample: 'Label' },
+  'confirm-dialog': {
+    // Config-driven with a required `title` and open/portal behavior a zero-arg
+    // render can't meaningfully exercise. VR is covered by the hand-written
+    // stories (Default / Destructive / WithTrigger).
+    skip: true,
+  },
   'data-grid': {
     // Config-driven: `columns` + `rows` are required and a meaningful grid needs
     // real data, so a zero-arg generated render can't typecheck or render

@@ -1,0 +1,90 @@
+spec_version: '1.0'
+component: ConfirmDialog
+
+# ConfirmDialog is config-driven: title / description / labels / destructive, plus
+# controlled or uncontrolled open state. It composes AlertDialog + Button; drop to
+# those parts for anything the fixed shape can't express.
+contract:
+  properties:
+    - name: title
+      type: ReactNode
+      required: true
+      description: The question / headline. A confirmation always has a title.
+    - name: description
+      type: ReactNode
+      required: false
+      description: A short line naming the consequence (e.g. "This cannot be undone").
+    - name: confirmLabel
+      type: ReactNode
+      required: false
+      default: "'Confirm'"
+      description: Confirm action label.
+    - name: cancelLabel
+      type: ReactNode
+      required: false
+      default: "'Cancel'"
+      description: Cancel action label.
+    - name: destructive
+      type: boolean
+      required: false
+      default: 'false'
+      description: Style the confirm action as destructive (irreversible actions).
+    - name: open
+      type: boolean
+      required: false
+      description: Controlled open state. Pair with onOpenChange.
+    - name: defaultOpen
+      type: boolean
+      required: false
+      default: 'false'
+      description: Open on mount (uncontrolled).
+    - name: onOpenChange
+      type: '(open: boolean) => void'
+      required: false
+      description: Fires when the dialog opens or closes.
+    - name: onConfirm
+      type: '() => void'
+      required: false
+      description: Called when the confirm action is activated (before the dialog closes).
+    - name: onCancel
+      type: '() => void'
+      required: false
+      description: Called when the cancel action is activated (before the dialog closes).
+    - name: trigger
+      type: ReactElement
+      required: false
+      description: Optional element that opens the dialog. Omit when driving open yourself.
+    - name: portalContainer
+      type: HTMLElement | null
+      required: false
+      description: Portal container. Pass a shadow-root mount for isolated-style previews.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: ConfirmDialog
+    status: implemented
+    import: "import { ConfirmDialog } from '@constructor-lab/ui-react'"
+    example: |
+      <ConfirmDialog
+        open={open}
+        onOpenChange={setOpen}
+        title="Delete project?"
+        description="This permanently removes the project. This action cannot be undone."
+        confirmLabel="Delete"
+        destructive
+        onConfirm={handleDelete}
+      />
+  vue:
+    component: AvConfirmDialog
+    status: planned
+    import: "import { AvConfirmDialog } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvConfirmDialog v-model:open="open" title="Delete project?" destructive @confirm="handleDelete" />
+  web-components:
+    element: ui-confirm-dialog
+    status: planned
+    import: "import '@constructor-lab/ui-wc/confirm-dialog'"
+    example: |
+      <ui-confirm-dialog title="Delete project?" destructive></ui-confirm-dialog>

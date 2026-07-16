@@ -23,6 +23,7 @@ export * from './components/ui/collapsible';
 export * from './components/ui/combobox';
 export * from './components/ui/autocomplete';
 export * from './components/ui/command';
+export * from './components/ui/confirm-dialog';
 export * from './components/ui/data-grid';
 export * from './components/ui/data-table';
 export * from './components/ui/description-list';

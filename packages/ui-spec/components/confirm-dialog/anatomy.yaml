@@ -1,0 +1,68 @@
+spec_version: '1.0'
+component: ConfirmDialog
+
+schematic: |
+  trigger: optional element that opens the dialog (omit when driving `open`)
+
+  ── modal (role="alertdialog", over a scrim) ──────────────
+    title:        the question / headline
+    description:  optional consequence line
+    ──────────────────────────────────────────────
+                              [ cancel ]  [ confirm ]
+    (footer: Cancel is secondary + focused first; confirm is
+     default, or destructive when `destructive`)
+
+root:
+  element: div
+  role: alertdialog
+  description: >-
+    The AlertDialog modal — a focus-trapped popup over a scrim that does not
+    dismiss on outside click. Owns open/close (controlled via `open`, or
+    uncontrolled via `defaultOpen`).
+
+parts:
+  - id: trigger
+    element: button
+    description: Optional element that opens the dialog. Omit when driving `open` yourself.
+    optional: true
+    visible_when: a trigger is provided
+  - id: title
+    element: h2
+    description: The question / headline (AlertDialogTitle). Required.
+  - id: description
+    element: p
+    description: Optional line naming the consequence (AlertDialogDescription).
+    optional: true
+    visible_when: description is provided
+  - id: cancel
+    element: button
+    description: >-
+      The safe action (AlertDialogCancel — a secondary Button). Focused first by
+      AlertDialog; closes without confirming and calls `onCancel`.
+  - id: confirm
+    element: button
+    description: >-
+      The confirming action (AlertDialogAction — a default Button, or destructive
+      when `destructive`). Calls `onConfirm`, then closes.
+
+# ConfirmDialog owns the open/close state (AlertDialog manages it). It is
+# controllable via `open` and seeded by `defaultOpen`.
+internal_state:
+  - id: open
+    type: boolean
+    initial: false
+    controllable_via: [open]
+    controlled_default: defaultOpen
+    changed_by: the trigger opens it; Cancel / Confirm / Escape close it
+    description: Whether the dialog is shown.
+
+states:
+  - id: open
+    trigger: the dialog is open
+    kind: internal
+    affects: [title, description, cancel, confirm]
+  - id: destructive
+    trigger: destructive is set
+    kind: prop
+    prop: destructive
+    affects: [confirm]

@@ -7,6 +7,7 @@
     "auth-layout",
     "card-filter",
     "command",
+    "confirm-dialog",
     "data-grid",
     "data-table",
     "page-header",

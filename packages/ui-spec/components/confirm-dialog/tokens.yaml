@@ -1,0 +1,25 @@
+spec_version: '1.0'
+component: ConfirmDialog
+
+# References only. Values live in @constructor-lab/tokens. ConfirmDialog adds no
+# color of its own — it composes AlertDialog (the scrim + popup surface) and
+# Button (the two footer actions), each already themed. Listed below are the
+# tokens that most directly govern its appearance, by reference.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-background-backdrop-screen
+    affects: root
+    description: The modal scrim behind the popup (from AlertDialog).
+  - name: --ui-button-secondary-container-color-idle
+    affects: cancel
+    description: Cancel action background (secondary Button).
+  - name: --ui-button-secondary-container-border-color-idle
+    affects: cancel
+    description: Cancel action border (secondary Button).
+  - name: --ui-button-primary-container-color-idle
+    affects: confirm
+    description: Confirm action background when not destructive (default Button).
+  - name: --ui-button-destructive-container-color-idle
+    affects: confirm
+    description: Confirm action background when `destructive` (destructive Button).

@@ -201,6 +201,14 @@
       "since": "0.55.0"
     },
     {
+      "name": "confirm-dialog",
+      "component": "ConfirmDialog",
+      "category": "overlays",
+      "status": "draft",
+      "layer": "composite",
+      "since": "2.2.0"
+    },
+    {
       "name": "data-grid",
       "component": "DataGrid",
       "category": "data-display",

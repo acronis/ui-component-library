@@ -1,0 +1,19 @@
+spec_version: '1.0'
+component: ConfirmDialog
+name: confirm-dialog
+status: draft
+category: overlays
+layer: composite
+description: >-
+  A modal confirmation for a single, often destructive action: `<ConfirmDialog
+  title description confirmLabel destructive onConfirm />`. A config-driven
+  composite over the AlertDialog primitive that bakes in the approved
+  confirmation shape — a title, an optional consequence line, and exactly two
+  footer actions (a secondary Cancel + a default/destructive Confirm) — so every
+  "are you sure?" reads the same way. Traps focus, defaults focus to Cancel, and
+  cannot be dismissed by clicking outside.
+since: 2.2.0
+dependencies:
+  components:
+    - AlertDialog
+    - Button

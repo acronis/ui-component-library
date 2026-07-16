@@ -1,0 +1,70 @@
+---
+title: ConfirmDialog
+description: A modal confirmation for a single, often destructive action — a fixed title + consequence + Cancel/Confirm shape over AlertDialog.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { ConfirmDialogDemo } from '@/components/demos-react/confirm-dialog';
+
+## Usage
+
+```tsx
+import { ConfirmDialog } from '@constructor-lab/ui-react';
+```
+
+`ConfirmDialog` is the **config-driven** confirmation composite:
+`<ConfirmDialog title description confirmLabel destructive onConfirm />`. Where
+[`AlertDialog`](/components/alert-dialog) is a compositional part set, ConfirmDialog
+bakes in the _approved_ shape — a title, an optional consequence line, and exactly
+two footer actions (a secondary Cancel + a default/destructive Confirm) — so every
+"are you sure?" reads the same way and can't drift into three-button footers, a
+dismissible `Dialog`, or a destructive-by-default focus.
+
+It builds on `AlertDialog`, so it traps focus, defaults focus to **Cancel** (the
+safe choice), and cannot be dismissed by clicking outside. If you need a shape this
+doesn't cover, drop to the `AlertDialog` parts — flexibility lives one layer down.
+
+<Callout type="info">
+  Design-pending v1 — built from requirements, not a Figma mockup.
+</Callout>
+
+## Examples
+
+<DemoReact>
+  <ConfirmDialogDemo />
+</DemoReact>
+
+Controlled — you own the open state:
+
+```tsx
+const [open, setOpen] = useState(false);
+
+<ConfirmDialog
+  open={open}
+  onOpenChange={setOpen}
+  title="Delete project?"
+  description="This permanently removes the project. This action cannot be undone."
+  confirmLabel="Delete"
+  destructive
+  onConfirm={handleDelete}
+/>;
+```
+
+Uncontrolled — opened from a trigger:
+
+```tsx
+<ConfirmDialog
+  title="Delete account?"
+  confirmLabel="Delete"
+  destructive
+  trigger={<Button variant="destructive">Delete account</Button>}
+  onConfirm={handleDelete}
+/>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/confirm-dialog/confirm-dialog.docs.ts"
+  name="ConfirmDialogProps"
+/>
