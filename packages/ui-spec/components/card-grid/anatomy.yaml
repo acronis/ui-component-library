@@ -1,0 +1,39 @@
+spec_version: '1.0'
+component: CardGrid
+
+schematic: |
+  root: <div> — a responsive Grid (cols) or an auto-filling track (minColumnWidth)
+    +-----------+  +-----------+  +-----------+
+    | card      |  | card      |  | card      |
+    |  (item)   |  |  (item)   |  |  (item)   |   uniform tiles, reflow responsively
+    +-----------+  +-----------+  +-----------+
+    +-----------+  +-----------+  +-----------+
+    | card      |  | card      |  | card      |
+    +-----------+  +-----------+  +-----------+
+
+root:
+  element: div
+  description: >-
+    The grid container (a Grid). Lays the cards out in a fixed responsive column
+    count (`cols`) or an auto-filling track sized by `minColumnWidth`.
+
+parts:
+  - id: card
+    element: div
+    description: >-
+      One uniform tile (Card) per item. Its inner content (header / content /
+      footer) comes from `renderItem`; CardGrid provides the Card shell so every
+      tile matches.
+
+# CardGrid is presentational and controlled by `items` — no internal state.
+states:
+  - id: auto-fill
+    trigger: 'minColumnWidth is set'
+    kind: prop
+    prop: minColumnWidth
+    affects: [root]
+  - id: columns
+    trigger: 'cols (when minColumnWidth is not set)'
+    kind: prop
+    prop: cols
+    affects: [root]

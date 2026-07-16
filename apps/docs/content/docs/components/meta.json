@@ -6,6 +6,7 @@
     "app-shell",
     "auth-layout",
     "card-filter",
+    "card-grid",
     "command",
     "confirm-dialog",
     "data-grid",

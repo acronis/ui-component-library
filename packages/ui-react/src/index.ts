@@ -14,6 +14,7 @@ export * from './components/ui/button-menu-dropdown';
 export * from './components/ui/calendar';
 export * from './components/ui/card';
 export * from './components/ui/card-filter';
+export * from './components/ui/card-grid';
 export * from './components/ui/carousel';
 export * from './components/ui/chart';
 export * from './components/ui/checkbox';

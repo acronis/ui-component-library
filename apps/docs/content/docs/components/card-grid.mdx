@@ -1,0 +1,68 @@
+---
+title: CardGrid
+description: The config-driven card grid — a list of items laid out as uniform Cards in a responsive grid, by fixed columns or an auto-filling track.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { CardGridDemo } from '@/components/demos-react/card-grid';
+
+## Usage
+
+```tsx
+import { CardGrid } from '@constructor-lab/ui-react';
+```
+
+`CardGrid` is the **config-driven** card grid: `<CardGrid items renderItem />`.
+It lays a list of peer items out as uniform [`Card`](/components/card)s in a
+responsive [`Grid`](/components/grid) — a fixed responsive column count (`cols`)
+or an auto-filling track sized by `minColumnWidth` — wrapping each item's content
+in a Card shell so a catalog / gallery / picker's tiles always align and reflow
+consistently. It's the layout behind the `card-grid` pattern.
+
+`renderItem` returns the content _inside_ each Card (header / content / footer);
+CardGrid provides the Card shell and the grid. It's an opinionated composite: for
+a bespoke, non-uniform layout, compose `Grid` + `Card` directly — flexibility
+lives one layer down.
+
+<Callout type="info">
+  Design-pending v1 — built from requirements, not a Figma mockup.
+</Callout>
+
+## Examples
+
+A responsive grid of uniform integration cards:
+
+<DemoReact>
+  <CardGridDemo />
+</DemoReact>
+
+```tsx
+<CardGrid
+  items={integrations}
+  getKey={(i) => i.id}
+  renderItem={(i) => (
+    <>
+      <CardHeader>
+        <CardTitle>{i.name}</CardTitle>
+        <CardDescription>{i.summary}</CardDescription>
+      </CardHeader>
+      <CardFooter>
+        <Button variant="secondary">Connect</Button>
+      </CardFooter>
+    </>
+  )}
+/>
+```
+
+Auto-fill columns at least 16rem wide (instead of a fixed count):
+
+```tsx
+<CardGrid items={items} minColumnWidth="16rem" renderItem={renderItem} />
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/card-grid/card-grid.docs.ts"
+  name="CardGridProps"
+/>

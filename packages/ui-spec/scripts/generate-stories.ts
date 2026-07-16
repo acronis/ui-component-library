@@ -117,6 +117,12 @@ const RENDER: Record<string, RenderHint> = {
     ],
     props: 'label="Active filters" value="125" icon={<CircleInfoIcon />}',
   },
+  'card-grid': {
+    // Config-driven: `items` + `renderItem` are required and a meaningful grid
+    // needs real items, so a zero-arg generated render can't typecheck or render
+    // anything useful. VR is covered by the hand-written stories.
+    skip: true,
+  },
   sheet: {
     props: 'defaultOpen',
     extraImports: [

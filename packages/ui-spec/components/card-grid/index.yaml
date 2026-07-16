@@ -1,0 +1,17 @@
+spec_version: '1.0'
+component: CardGrid
+name: card-grid
+status: draft
+category: data-display
+layer: composite
+description: >-
+  The config-driven card grid: `<CardGrid items renderItem />`. Lays a list of
+  peer items out as uniform Cards in a responsive Grid — a fixed responsive
+  column count (`cols`) or an auto-filling track (`minColumnWidth`) — wrapping
+  each item's content in a Card shell so a catalog / gallery / picker's tiles
+  always align and reflow consistently. Built on Grid + Card.
+since: 2.3.0
+dependencies:
+  components:
+    - Grid
+    - Card

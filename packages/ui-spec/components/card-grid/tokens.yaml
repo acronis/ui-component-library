@@ -1,0 +1,19 @@
+spec_version: '1.0'
+component: CardGrid
+
+# References only. Values live in @constructor-lab/tokens. CardGrid adds no color of
+# its own — it composes Grid (layout only) and Card, whose surface / border / text
+# resolve from the shared semantic tokens (via their bridged Tailwind names).
+# Listed below are the Card-shell tokens that govern each tile, by reference.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-background-surface-primary
+    affects: card
+    description: Card surface background (bg-background).
+  - name: --ui-border-on-surface-border
+    affects: card
+    description: Card border (border-border).
+  - name: --ui-text-on-surface-primary
+    affects: card
+    description: Card text color (text-foreground).

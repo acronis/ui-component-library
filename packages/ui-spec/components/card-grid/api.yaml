@@ -1,0 +1,71 @@
+spec_version: '1.0'
+component: CardGrid
+
+# Config-driven and presentational. `renderItem` returns the content inside each
+# item's Card; CardGrid provides the Card shell + the responsive grid.
+contract:
+  properties:
+    - name: items
+      type: 'T[]'
+      required: true
+      description: The items to render as cards.
+    - name: renderItem
+      type: '(item: T, index: number) => ReactNode'
+      required: true
+      description: Renders the content inside each item's Card (header / content / footer).
+    - name: getKey
+      type: '(item: T, index: number) => Key'
+      required: false
+      description: Stable key for each card (falls back to the index).
+    - name: cols
+      type: '1 | 2 | 3 | 4 | 6 | 12'
+      required: false
+      default: '3'
+      description: Responsive column count (Grid's `cols`). Ignored when `minColumnWidth` is set.
+    - name: gap
+      type: "'none' | 'sm' | 'md' | 'lg' | 'xl'"
+      required: false
+      default: "'md'"
+      description: Gap between cards (Grid's `gap`).
+    - name: minColumnWidth
+      type: string
+      required: false
+      description: >-
+        Auto-fill columns at least this wide (any CSS length) instead of a fixed
+        `cols` count — the grid fits as many columns as the width allows.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: CardGrid
+    status: implemented
+    import: "import { CardGrid } from '@constructor-lab/ui-react'"
+    example: |
+      <CardGrid
+        items={integrations}
+        getKey={(i) => i.id}
+        renderItem={(i) => (
+          <>
+            <CardHeader>
+              <CardTitle>{i.name}</CardTitle>
+              <CardDescription>{i.summary}</CardDescription>
+            </CardHeader>
+            <CardFooter>
+              <Button variant="secondary">Connect</Button>
+            </CardFooter>
+          </>
+        )}
+      />
+  vue:
+    component: AvCardGrid
+    status: planned
+    import: "import { AvCardGrid } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvCardGrid :items="items"><template #item="{ item }">…</template></AvCardGrid>
+  web-components:
+    element: ui-card-grid
+    status: planned
+    import: "import '@constructor-lab/ui-wc/card-grid'"
+    example: |
+      <ui-card-grid></ui-card-grid>

@@ -137,6 +137,14 @@
       "since": "0.26.0"
     },
     {
+      "name": "card-grid",
+      "component": "CardGrid",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "composite",
+      "since": "2.3.0"
+    },
+    {
       "name": "carousel",
       "component": "Carousel",
       "category": "data-display",
