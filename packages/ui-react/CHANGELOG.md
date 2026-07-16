@@ -1,5 +1,11 @@
 # @constructor-lab/ui-react
 
+## 2.1.0
+
+### Minor Changes
+
+- [#35](https://github.com/constructor-lab/ui-component-library/pull/35) [`691fd84`](https://github.com/constructor-lab/ui-component-library/commit/691fd84c84ed78a7a6df31ab386c6bbfa280f15d) Thanks [@leonid](https://github.com/leonid)! - Add `TruncatedText` — text that truncates with an ellipsis and reveals its full value in a tooltip only when it's actually clipped, with single-line and multi-line (`lines`) clamping. Initial version; design reconciliation pending.
+
 ## 2.0.0
 
 ### Major Changes
