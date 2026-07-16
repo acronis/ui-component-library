@@ -1,5 +1,11 @@
 # @constructor-lab/ui-react
 
+## 2.2.0
+
+### Minor Changes
+
+- [#37](https://github.com/constructor-lab/ui-component-library/pull/37) [`4949493`](https://github.com/constructor-lab/ui-component-library/commit/494949346e0d5640a000a50d895ec1500439ac3e) Thanks [@leonid](https://github.com/leonid)! - Add `DataGrid` — the batteries-included, config-driven data grid (`<DataGrid columns rows />`). Built on the `Table` primitive and the `DataTable*` parts, it assembles the whole approved grid layout in one component: an optional toolbar (search + column visibility), a selection column, loading/empty states, and pagination. The first opinionated composite (see the opinionated-composites proposal). Initial version; design reconciliation pending.
+
 ## 2.1.0
 
 ### Minor Changes
