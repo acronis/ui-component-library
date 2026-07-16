@@ -51,7 +51,7 @@ tokens:
   # ── Icon (leading icon + remove glyph) ──
   - name: --ui-chip-global-icon-color
     affects: icon
-  - name: --ui-chip-global-icon-size
+  - name: --ui-chip-global-box-icon-size
     affects: icon
 
   # ── Focus ring (shared) ──

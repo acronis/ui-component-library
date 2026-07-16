@@ -41,9 +41,6 @@ tokens:
   - { name: --ui-input-text-normal-box-border-color-disabled, affects: input }
   - { name: --ui-input-text-error-msg-box-border-color-idle, affects: input }
 
-  # ── Clear button ──
-  - { name: --ui-input-text-global-clear-icon-color, affects: clear }
-
   # ── Description + error message ──
   - {
       name: --ui-input-text-normal-description-color-idle,

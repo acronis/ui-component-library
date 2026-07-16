@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: TruncatedText
+name: truncated-text
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  Text that truncates with an ellipsis and reveals its full value in a tooltip
+  only when it is actually clipped — single-line ellipsis by default, or a
+  multi-line clamp via `lines`. Ideal for table cells and other width-constrained
+  labels.
+since: 1.3.0
+dependencies:
+  components:
+    - Tooltip

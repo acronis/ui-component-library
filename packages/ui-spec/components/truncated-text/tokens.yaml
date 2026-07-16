@@ -1,0 +1,35 @@
+spec_version: '1.0'
+component: TruncatedText
+
+# References only. Values live in @constructor-lab/tokens (generated from
+# @constructor-lab/tokens) and resolve per brand/theme at paint time.
+# The token schema forbids a value/default key here — never restate values.
+#
+# The text element (root) carries no color of its own — it inherits the
+# surrounding text color and only clips overflow. The only themed surface is the
+# revealed tooltip, which composes the Tooltip component and therefore consumes
+# the `--ui-tooltip-*` tier.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-tooltip-container-color
+    affects: tooltip
+    description: Tooltip bubble background color
+  - name: --ui-tooltip-label-color
+    affects: tooltip
+    description: Tooltip label text color
+  - name: --ui-tooltip-container-border-radius
+    affects: tooltip
+    description: Tooltip bubble corner radius
+  - name: --ui-tooltip-container-padding-x
+    affects: tooltip
+    description: Tooltip horizontal padding
+  - name: --ui-tooltip-container-padding-y
+    affects: tooltip
+    description: Tooltip vertical padding
+  - name: --ui-tooltip-container-width-min
+    affects: tooltip
+    description: Tooltip minimum width
+  - name: --ui-tooltip-container-width-max
+    affects: tooltip
+    description: Tooltip maximum width

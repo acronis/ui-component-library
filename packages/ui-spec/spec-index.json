@@ -593,6 +593,14 @@
       "since": "0.55.0"
     },
     {
+      "name": "truncated-text",
+      "component": "TruncatedText",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "1.3.0"
+    },
+    {
       "name": "widget-placeholder",
       "component": "WidgetPlaceholder",
       "category": "data-display",

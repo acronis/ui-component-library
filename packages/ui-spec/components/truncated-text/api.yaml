@@ -1,0 +1,79 @@
+spec_version: '1.0'
+component: TruncatedText
+
+# Framework-agnostic contract. Property names are neutral; see `adapters` for
+# the per-framework syntax. Native span attributes (title, id, data-*, …) pass
+# through to the text element in every framework.
+contract:
+  properties:
+    - name: lines
+      type: number
+      required: false
+      default: 1
+      description: >-
+        Max lines before truncating. `1` (default) is a single-line ellipsis;
+        `> 1` switches to a multi-line clamp (ellipsis on the last line). The
+        tooltip appears only when the text is actually clipped.
+    - name: side
+      type: "'top' | 'bottom' | 'left' | 'right'"
+      required: false
+      default: "'top'"
+      description: Which side the tooltip opens on when the text is truncated.
+    - name: defaultOpen
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Force the tooltip open on mount (only has effect when the text is
+        truncated). Mainly for stories / visual review; normal usage reveals it
+        on hover / focus.
+    - name: portalContainer
+      type: HTMLElement | null
+      required: false
+      default: undefined
+      description: >-
+        Container the tooltip popup portals into. Pass a shadow root (e.g. a
+        micro-frontend mount point) so the popup inherits the kit's styles;
+        defaults to the document body.
+    - name: className
+      type: string
+      required: false
+      default: undefined
+      description: Extra classes merged onto the text span.
+
+  events: []
+
+  content:
+    - name: default
+      description: >-
+        The text to display, passed as children (a plain string). Also used
+        verbatim as the tooltip body when the text is clipped.
+
+  methods: []
+
+adapters:
+  react:
+    component: TruncatedText
+    status: implemented
+    import: "import { TruncatedText } from '@constructor-lab/ui-react'"
+    example: |
+      <TruncatedText>Acme Corporation International Holdings</TruncatedText>
+
+      {/* Multi-line clamp */}
+      <TruncatedText lines={2} side="bottom">
+        A long description that clamps after two lines and reveals the rest on hover.
+      </TruncatedText>
+
+  vue:
+    component: AvTruncatedText
+    status: planned
+    import: "import { AvTruncatedText } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvTruncatedText :lines="2">Acme Corporation International Holdings</AvTruncatedText>
+
+  web-components:
+    element: ui-truncated-text
+    status: planned
+    import: "import '@constructor-lab/ui-wc/truncated-text'"
+    example: |
+      <ui-truncated-text lines="2">Acme Corporation International Holdings</ui-truncated-text>

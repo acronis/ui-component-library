@@ -48,9 +48,6 @@ tokens:
   - { name: --ui-input-search-icon-search-color-hover, affects: icon }
   - { name: --ui-input-search-icon-search-color-disabled, affects: icon }
 
-  # ── Clear button ──
-  - { name: --ui-input-search-clear-icon-color, affects: clear }
-
   # ── Focus ring ──
   - {
       name: --ui-focus-primary,

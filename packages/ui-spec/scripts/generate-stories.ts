@@ -458,6 +458,14 @@ const RENDER: Record<string, RenderHint> = {
     ].join('\n'),
   },
   tag: { sample: 'Label' },
+  'truncated-text': {
+    // Truncation is only observable inside a width-constrained box, so a
+    // zero-arg render never actually clips (it just shows plain text) and can't
+    // exercise the tooltip. VR is covered by the hand-written stories (Fits /
+    // Truncated / MultiLineClamp / TooltipVisible). `children` is also a
+    // required string, which a render-only generated story can't satisfy.
+    skip: true,
+  },
   select: {
     extraImports: [
       "import { SelectTrigger, SelectValue, SelectContent, SelectItem } from '../select';",

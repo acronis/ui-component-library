@@ -1,0 +1,68 @@
+spec_version: '1.0'
+component: TruncatedText
+
+schematic: |
+  root: <span> (the text)
+  +-----------------------------------------+
+  |  Acme Corporation International Hold…    |   clipped with an ellipsis
+  +-----------------------------------------+
+                    │  hover / focus (only when truncated)
+                    ▼
+        +---------------------------------+
+        | tooltip: full value             |   revealed only when clipped
+        +---------------------------------+
+
+  fits  → plain <span>, no tooltip attached
+  clips → <span> becomes a TooltipTrigger; tooltip holds the full text
+
+root:
+  element: span
+  description: >-
+    The text element. A block `<span>` that clips its overflow — `truncate`
+    (single-line ellipsis) by default, or a `-webkit-box` line-clamp when
+    `lines > 1`. Owns the ref used to measure overflow. When the text is clipped
+    it also becomes the tooltip trigger.
+
+parts:
+  - id: tooltip
+    description: >-
+      The revealed popup carrying the full, untruncated text. Rendered only when
+      the text is actually clipped, and shown on hover / focus of the root (Base
+      UI Tooltip; themed by the `--ui-tooltip-*` tier). Its side is set by
+      `side`; it portals into `portalContainer`.
+    element: div
+    optional: true
+    visible_when: the text is truncated and the root is hovered or focused
+
+layout:
+  type: block
+  direction: row
+
+# TruncatedText owns one piece of internal state, `truncated`, derived from
+# measuring the element's overflow (scroll vs client size) on mount and on every
+# resize (ResizeObserver). It is not controllable and not user-toggled — it is a
+# pure consequence of layout — so it has no transitions.
+internal_state:
+  - id: truncated
+    type: boolean
+    values: [false, true]
+    initial: false
+    changed_by: >-
+      layout measurement — set true when scrollWidth > clientWidth (single line)
+      or scrollHeight > clientHeight (multi-line clamp); re-evaluated on resize
+      via a ResizeObserver.
+    description: >-
+      Whether the text is currently clipped. Gates the tooltip: when false the
+      root renders as plain text with no tooltip; when true the root becomes a
+      tooltip trigger revealing the full value.
+
+states:
+  - id: truncated
+    trigger: 'internal truncated === true (text is clipped)'
+    kind: internal
+    affects: [root, tooltip]
+  - id: multiline
+    trigger: 'lines > 1 (line-clamp instead of single-line ellipsis)'
+    kind: prop
+    prop: lines
+    affects: [root]

@@ -1,0 +1,70 @@
+---
+title: TruncatedText
+description: Text that truncates with an ellipsis and reveals its full value in a tooltip only when it's actually clipped.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { TruncatedTextDemo } from '@/components/demos-react/truncated-text';
+
+## Usage
+
+```tsx
+import { TruncatedText } from '@constructor-lab/ui-react';
+```
+
+`TruncatedText` clips overflowing text with an ellipsis and reveals the full
+value in a **Tooltip** — but only when the text is _actually_ clipped, so short
+labels don't get a pointless hover target. It defaults to a single-line ellipsis
+and switches to a multi-line clamp when you pass `lines`. Truncation is measured
+from the element's overflow (scroll vs. client size) and re-checked on resize
+(via a `ResizeObserver`), so it stays correct as columns and the viewport change.
+It's ideal for table cells and other width-constrained labels.
+
+`children` is a plain string — the same value is shown (possibly clipped) and
+used verbatim as the tooltip body. The tooltip opens on the `side` you choose and
+portals into `portalContainer` (pass a shadow root in a micro-frontend so the
+popup inherits the kit's styles). The revealed tooltip is themed by the
+`--ui-tooltip-*` token tier; the text element itself inherits the surrounding
+text color.
+
+<Callout type="info">
+  This is a **design-pending v1** built from requirements — there's no Figma
+  mockup yet. It will be reconciled with the design once one lands.
+</Callout>
+
+## Examples
+
+<DemoReact>
+  <TruncatedTextDemo />
+</DemoReact>
+
+Single-line ellipsis (the default). The tooltip appears on hover / focus only if
+the text overflows its container:
+
+```tsx
+<TruncatedText>
+  Acme Corporation International Holdings & Subsidiaries
+</TruncatedText>
+```
+
+Multi-line clamp — truncate after two lines, open the tooltip below:
+
+```tsx
+<TruncatedText lines={2} side="bottom">
+  A long description that clamps after two lines and reveals the rest on hover.
+</TruncatedText>
+```
+
+In a micro-frontend, portal the tooltip into the shadow-root mount so it inherits
+the kit's styles:
+
+```tsx
+<TruncatedText portalContainer={mount}>{customer.name}</TruncatedText>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/truncated-text/truncated-text.tsx"
+  name="TruncatedTextProps"
+/>
