@@ -1,5 +1,19 @@
 # @constructor-lab/ui-react
 
+## 2.3.0
+
+### Minor Changes
+
+- [#44](https://github.com/constructor-lab/ui-component-library/pull/44) [`e4b7a70`](https://github.com/constructor-lab/ui-component-library/commit/e4b7a7055739c2606e33e4c1ae7230221678ef32) Thanks [@leonid](https://github.com/leonid)! - Add `CardGrid` — a config-driven card grid composite (`<CardGrid items renderItem />`) over the `Grid` + `Card` primitives. It lays a list of peer items out as uniform Cards in a responsive grid — a fixed responsive column count (`cols`) or an auto-filling track (`minColumnWidth`) — wrapping each item's content in a Card shell so catalog / gallery / picker tiles align and reflow consistently. An opinionated composite (see the opinionated-composites proposal). Initial version; design reconciliation pending.
+
+- [#39](https://github.com/constructor-lab/ui-component-library/pull/39) [`11716a7`](https://github.com/constructor-lab/ui-component-library/commit/11716a7159809d21896379f8d5d3eb1b644a66b1) Thanks [@leonid](https://github.com/leonid)! - Add `ConfirmDialog` — a config-driven confirmation composite (`<ConfirmDialog title description confirmLabel destructive onConfirm />`) over the `AlertDialog` primitive. It bakes in the approved confirmation shape (title + consequence + a secondary Cancel and a default/destructive Confirm), traps focus, defaults focus to Cancel, and can't be dismissed by clicking outside. Supports controlled/uncontrolled open and an optional trigger. An opinionated composite (see the opinionated-composites proposal). Initial version; design reconciliation pending.
+
+- [#42](https://github.com/constructor-lab/ui-component-library/pull/42) [`4a4fb5f`](https://github.com/constructor-lab/ui-component-library/commit/4a4fb5fccfaef1bacd87aa143cf8341fa4036143) Thanks [@leonid](https://github.com/leonid)! - Add `DetailList` — a config-driven label/value list composite (`<DetailList items={…} />`) over the `DescriptionList` primitive. It renders a flat item list (label, value, optional icon/description/actions) as the approved key/value details panel, in one or two responsive columns — the properties panel behind the detail-drawer / sheet-detail-panel patterns. An opinionated composite (see the opinionated-composites proposal). Initial version; design reconciliation pending.
+
+- [#41](https://github.com/constructor-lab/ui-component-library/pull/41) [`a416fe0`](https://github.com/constructor-lab/ui-component-library/commit/a416fe0f28ce6e8a167210a79955bb46f96c3790) Thanks [@leonid](https://github.com/leonid)! - Add `FormLayout` — a config-driven form composite (`<FormLayout fields={…} values onValueChange />`) over the `Form` / `Field` / `Grid` primitives. It maps a flat field-descriptor list onto the right control (text/email/password/textarea/select/number/checkbox/switch/radio), normalizes each control's differing change convention behind one uniform `onValueChange(name, value)`, and lays fields out in one or two responsive columns with required markers and per-field errors. An opinionated composite (see the opinionated-composites proposal). Initial version; design reconciliation pending.
+
+- [#43](https://github.com/constructor-lab/ui-component-library/pull/43) [`69be886`](https://github.com/constructor-lab/ui-component-library/commit/69be886ec40e6cf53f781da0c16af8b50db22e3a) Thanks [@leonid](https://github.com/leonid)! - Add `StatRow` — a config-driven KPI / stat row composite (`<StatRow stats={…} />`) over the `CardFilter` primitive. It renders a flat stat list as consistent tiles, deriving each tile's variant from the descriptor (empty placeholder, clickable filter, or static), in a wrapping row or an equal-width grid — so a dashboard's stat tiles stay uniform. An opinionated composite (see the opinionated-composites proposal). Initial version; design reconciliation pending.
+
 ## 2.2.0
 
 ### Minor Changes
