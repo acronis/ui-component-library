@@ -1,0 +1,107 @@
+spec_version: '1.0'
+component: DataGrid
+
+# DataGrid is config-driven: it takes `columns` + `rows` and owns all table
+# state internally. Cell/header rendering is supplied through the TanStack
+# ColumnDef (the escape hatch), so the contract stays small.
+contract:
+  properties:
+    - name: columns
+      type: 'ColumnDef<TData, TValue>[]'
+      required: true
+      description: TanStack column definitions (header / cell renderers, accessors).
+    - name: rows
+      type: 'TData[]'
+      required: true
+      description: The row data.
+    - name: state
+      type: "'loading' | 'empty' | 'loaded'"
+      required: false
+      default: "'loaded'"
+      description: >-
+        Data state. `loaded` renders the rows; `loading` renders skeleton rows;
+        `empty` forces the empty message. When `loaded` but `rows` is empty, the
+        empty message shows anyway.
+    - name: selectable
+      type: boolean
+      required: false
+      default: 'false'
+      description: Prepend a selection checkbox column and enable row selection.
+    - name: toolbar
+      type: boolean
+      required: false
+      default: 'false'
+      description: Render the built-in toolbar (search + column visibility).
+    - name: searchKey
+      type: string
+      required: false
+      description: Column id the toolbar search box filters (client-side). Implies `toolbar`.
+    - name: searchPlaceholder
+      type: string
+      required: false
+      description: Placeholder for the toolbar search box.
+    - name: pagination
+      type: boolean
+      required: false
+      default: 'false'
+      description: Render the built-in pagination footer.
+    - name: pageSize
+      type: number
+      required: false
+      default: '10'
+      description: Initial page size when `pagination` is set.
+    - name: pageSizeOptions
+      type: 'number[]'
+      required: false
+      description: Page-size options offered in the pagination footer.
+    - name: onRowClick
+      type: '(row: TData) => void'
+      required: false
+      description: Called with the row's original data when a body row is clicked.
+    - name: emptyMessage
+      type: ReactNode
+      required: false
+      default: "'No results.'"
+      description: Message shown in the empty state.
+    - name: skeletonRows
+      type: number
+      required: false
+      default: '5'
+      description: Number of skeleton rows rendered while `state="loading"`.
+    - name: striped
+      type: boolean
+      required: false
+      default: 'false'
+      description: Alternating row backgrounds.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: DataGrid
+    status: implemented
+    import: "import { DataGrid } from '@constructor-lab/ui-react'"
+    example: |
+      <DataGrid columns={columns} rows={rows} />
+
+      {/* Batteries-included */}
+      <DataGrid
+        columns={columns}
+        rows={rows}
+        selectable
+        toolbar
+        searchKey="email"
+        pagination
+      />
+  vue:
+    component: AvDataGrid
+    status: planned
+    import: "import { AvDataGrid } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvDataGrid :columns="columns" :rows="rows" />
+  web-components:
+    element: ui-data-grid
+    status: planned
+    import: "import '@constructor-lab/ui-wc/data-grid'"
+    example: |
+      <ui-data-grid></ui-data-grid>

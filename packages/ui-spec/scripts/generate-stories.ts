@@ -458,6 +458,12 @@ const RENDER: Record<string, RenderHint> = {
     ].join('\n'),
   },
   tag: { sample: 'Label' },
+  'data-grid': {
+    // Config-driven: `columns` + `rows` are required and a meaningful grid needs
+    // real data, so a zero-arg generated render can't typecheck or render
+    // anything useful. VR is covered by the hand-written stories.
+    skip: true,
+  },
   'truncated-text': {
     // Truncation is only observable inside a width-constrained box, so a
     // zero-arg render never actually clips (it just shows plain text) and can't

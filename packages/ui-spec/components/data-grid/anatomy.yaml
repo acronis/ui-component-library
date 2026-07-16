@@ -1,0 +1,98 @@
+spec_version: '1.0'
+component: DataGrid
+
+schematic: |
+  toolbar:   [ search input ] [ Reset ✕ ]            [ ⚙ View ▾ ]   (optional)
+  table: <div> rounded border wrapper
+    row (header):  column titles (sort affordance comes from the column defs)
+    selection-column: leading checkbox column (optional; select-all in header)
+    row:           data row (selectable → tinted; clickable when onRowClick set)
+    skeleton:      placeholder rows while state="loading"
+    empty-state:   emptyMessage row when there are no rows
+  pagination: "N of M selected"  [Rows per page ▾]  Page X of Y  ⏮ ◀ ▶ ⏭  (optional)
+
+root:
+  element: div
+  description: >-
+    The grid container (a vertical flex stack). Owns a TanStack table instance
+    internally and manages sorting / filtering / column-visibility / row-selection
+    state, then renders the toolbar, the bordered table, and the pagination footer
+    around it.
+
+parts:
+  - id: toolbar
+    element: div
+    description: >-
+      Optional DataTableToolbar — a client-side search box (wired to `searchKey`),
+      a Reset button when filtered, and the column-visibility view-options menu.
+      Rendered when `toolbar` or `searchKey` is set.
+    optional: true
+    visible_when: toolbar or searchKey is set
+  - id: table
+    element: table
+    description: The table grid (Table / TableHeader / TableBody / rows / cells).
+  - id: selection-column
+    element: td
+    description: >-
+      Optional leading checkbox column. The header checkbox selects/clears the
+      whole page (indeterminate when partially selected); each row checkbox
+      toggles that row.
+    optional: true
+    visible_when: selectable is set
+  - id: row
+    element: tr
+    description: A data row; selectable (tinted when selected) and clickable when `onRowClick` is set.
+  - id: skeleton
+    element: tr
+    description: Placeholder rows rendered while `state="loading"`.
+    optional: true
+    visible_when: state is "loading"
+  - id: empty-state
+    element: tr
+    description: A single row showing `emptyMessage` when there are no rows.
+    optional: true
+    visible_when: no rows (or state is "empty")
+  - id: pagination
+    element: div
+    description: >-
+      Optional DataTablePagination — selection count, rows-per-page select, the
+      page indicator, and first / prev / next / last controls. Rendered when
+      `pagination` is set.
+    optional: true
+    visible_when: pagination is set
+
+# DataGrid owns the client-side table state (sorting, filtering, column
+# visibility, row selection). The visible internal state is row selection, driven
+# by the selection column; the rest surface through the column defs / toolbar.
+internal_state:
+  - id: rowSelection
+    type: 'Record<string, boolean>'
+    initial: '{}'
+    changed_by: toggling the header select-all or a row's selection checkbox
+    description: Which rows are selected; drives the selected-row tint and the pagination count.
+
+states:
+  - id: loading
+    trigger: 'state === "loading"'
+    kind: prop
+    prop: state
+    affects: [skeleton]
+  - id: empty
+    trigger: 'state === "empty", or rows is empty'
+    kind: prop
+    prop: state
+    affects: [empty-state]
+  - id: selectable
+    trigger: selectable is set
+    kind: prop
+    prop: selectable
+    affects: [selection-column, row]
+  - id: striped
+    trigger: striped is set
+    kind: prop
+    prop: striped
+    affects: [row]
+  - id: selected
+    trigger: a row's selection checkbox is checked
+    kind: internal
+    affects: [row, selection-column]

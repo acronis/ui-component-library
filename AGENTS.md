@@ -174,6 +174,15 @@ that workspace**, never here.
   mechanism (a `layer` field on each `ui-spec` `index.yaml`, non-breaking), the
   pattern→composite graduation pipeline, and the future templates gallery in
   `apps/demo`. Proposed; not yet adopted.
+- `context/opinionated-composites-proposal.md` — extends the layers work: an
+  **opinionated, config-driven composite** layer (`<DataGrid columns rows/>`-style
+  components that trade flexibility for consistency) over the flexible primitives,
+  a **config-driven vs compositional** API decision rule, a prioritized slate of
+  candidate composites anchored to existing `ui-spec/patterns` (DataGrid,
+  ConfirmDialog, FormLayout, DetailList, …), how to **insist on their use** by
+  growing the `acronis-patterns` ESLint plugin into
+  `@constructor-lab/eslint-plugin-patterns`, and why there is **no separate package**
+  (a `ui-react/composites` subpath instead). Proposed; not yet adopted.
 - `context/demo-console-portal-proposal.md` — Phase 4 of the layers work: turn
   `apps/demo` into one **console portal** (an `AppShell` realizing the
   `protection-dashboard` screen, routes from root) that surfaces

@@ -1,0 +1,24 @@
+spec_version: '1.0'
+component: DataGrid
+name: data-grid
+status: draft
+category: data-display
+layer: composite
+description: >-
+  The batteries-included data grid: `<DataGrid columns rows />`. A config-driven
+  composite over TanStack react-table v8 that assembles the whole approved grid
+  layout — an optional toolbar (search + column visibility), the table, an
+  optional selection column, loading / empty states, and optional pagination —
+  in one component, so every grid in the app reads the same way. Built on the
+  Table primitive and the DataTable companion parts; drop down to those for
+  anything it cannot express.
+since: 2.1.0
+dependencies:
+  components:
+    - Table
+    - Checkbox
+    - Button
+    - ButtonIcon
+    - InputText
+    - Select
+    - DataTable

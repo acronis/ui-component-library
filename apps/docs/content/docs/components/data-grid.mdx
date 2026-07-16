@@ -1,0 +1,79 @@
+---
+title: DataGrid
+description: The batteries-included data grid — columns + rows, with a toolbar, selection, loading/empty states, and pagination wired in.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { DataGridDemo } from '@/components/demos-react/data-grid';
+
+## Usage
+
+```tsx
+import { DataGrid } from '@constructor-lab/ui-react';
+import type { ColumnDef } from '@tanstack/react-table';
+```
+
+`DataGrid` is the **config-driven** data grid: `<DataGrid columns={…} rows={…} />`.
+Where the [`Table`](/components/table) primitive is maximally compositional and
+[`DataTable`](/components/data-table) renders just the grid (leaving the toolbar
+and pagination as separate parts you wire), `DataGrid` owns its own
+[TanStack react-table](https://tanstack.com/table) instance and assembles the
+**whole approved layout** — an optional toolbar (search + column visibility), the
+table, an optional selection column, loading / empty states, and optional
+pagination — so every grid in the app reads the same way.
+
+It is the Phase-1 pilot of the **opinionated composites** direction: it trades
+flexibility for consistency. Flexibility isn't lost — it lives one layer down. If
+you need something `DataGrid` can't express, drop to `DataTable` + the
+`DataTable*` parts it's built on.
+
+<Callout type="info">
+  Design-pending v1 — built from requirements, not a Figma mockup. It reuses the
+  `Table` component's `--ui-table-*` tokens (the wrapper border matches the cell
+  borders).
+</Callout>
+
+## Examples
+
+<DemoReact>
+  <DataGridDemo />
+</DemoReact>
+
+The plain grid — just `columns` + `rows`:
+
+```tsx
+const columns: ColumnDef<Payment>[] = [
+  { accessorKey: 'email', header: 'Email' },
+  { accessorKey: 'amount', header: 'Amount' },
+];
+
+<DataGrid columns={columns} rows={payments} />;
+```
+
+Batteries-included — selection, a search toolbar, and pagination:
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={payments}
+  selectable
+  toolbar
+  searchKey="email"
+  pagination
+  onRowClick={(row) => open(row)}
+/>
+```
+
+Loading and empty states are driven by one `state` prop:
+
+```tsx
+<DataGrid columns={columns} rows={[]} state="loading" />
+<DataGrid columns={columns} rows={[]} emptyMessage="No payments yet." />
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/data-grid/data-grid.docs.ts"
+  name="DataGridProps"
+/>

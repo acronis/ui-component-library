@@ -201,6 +201,14 @@
       "since": "0.55.0"
     },
     {
+      "name": "data-grid",
+      "component": "DataGrid",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "composite",
+      "since": "2.1.0"
+    },
+    {
       "name": "data-table",
       "component": "DataTable",
       "category": "data-display",
