@@ -281,6 +281,14 @@
       "since": "0.48.0"
     },
     {
+      "name": "form-layout",
+      "component": "FormLayout",
+      "category": "forms",
+      "status": "draft",
+      "layer": "composite",
+      "since": "2.3.0"
+    },
+    {
       "name": "grid",
       "component": "Grid",
       "category": "layout",

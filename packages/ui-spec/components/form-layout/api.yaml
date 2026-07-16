@@ -1,0 +1,95 @@
+spec_version: '1.0'
+component: FormLayout
+
+# Config-driven and controlled: `fields` describes the form, `values` +
+# `onValueChange` drive it. Each field descriptor is
+# { name, label, type?, description?, placeholder?, required?, disabled?,
+#   options?, min?, max?, step?, fullWidth? }.
+contract:
+  properties:
+    - name: fields
+      type: 'FormLayoutField[]'
+      required: true
+      description: >-
+        The fields, in order. Each descriptor's `type` selects the control
+        (text/email/password/textarea/select/number/checkbox/switch/radio).
+    - name: values
+      type: 'Record<string, unknown>'
+      required: true
+      description: Current values, keyed by field name.
+    - name: onValueChange
+      type: '(name: string, value: unknown) => void'
+      required: true
+      description: >-
+        Called with the changed field's name and next value — the single
+        normalized change handler across all control types.
+    - name: onSubmit
+      type: '(values: Record<string, unknown>) => void'
+      required: false
+      description: Called with the full values object when the form is submitted.
+    - name: errors
+      type: 'Record<string, string>'
+      required: false
+      description: Per-field error messages, keyed by field name.
+    - name: columns
+      type: '1 | 2'
+      required: false
+      default: '1'
+      description: Column count. `2` uses a responsive grid that collapses to one column.
+    - name: disabled
+      type: boolean
+      required: false
+      default: 'false'
+      description: Disable the whole form.
+    - name: submitLabel
+      type: ReactNode
+      required: false
+      default: "'Save'"
+      description: Submit button label.
+    - name: cancelLabel
+      type: ReactNode
+      required: false
+      default: "'Cancel'"
+      description: Cancel button label (shown only when onCancel is set).
+    - name: onCancel
+      type: '() => void'
+      required: false
+      description: Called when the cancel button is activated. Its presence renders the cancel button.
+    - name: portalContainer
+      type: HTMLElement | null
+      required: false
+      description: Portal container for popup controls (Select). Pass a shadow-root mount.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: FormLayout
+    status: implemented
+    import: "import { FormLayout } from '@constructor-lab/ui-react'"
+    example: |
+      <FormLayout
+        columns={2}
+        fields={[
+          { name: 'firstName', label: 'First name', required: true },
+          { name: 'lastName', label: 'Last name', required: true },
+          { name: 'role', label: 'Role', type: 'select', options: roles },
+          { name: 'bio', label: 'Bio', type: 'textarea' },
+          { name: 'notify', label: 'Email notifications', type: 'switch' },
+        ]}
+        values={values}
+        onValueChange={(name, value) => setValues((v) => ({ ...v, [name]: value }))}
+        onSubmit={save}
+      />
+  vue:
+    component: AvFormLayout
+    status: planned
+    import: "import { AvFormLayout } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvFormLayout :fields="fields" v-model="values" @submit="save" />
+  web-components:
+    element: ui-form-layout
+    status: planned
+    import: "import '@constructor-lab/ui-wc/form-layout'"
+    example: |
+      <ui-form-layout></ui-form-layout>

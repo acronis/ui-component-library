@@ -1,0 +1,85 @@
+---
+title: FormLayout
+description: The config-driven form — a field-descriptor list mapped to the right controls, with one normalized change handler, responsive columns, and per-field errors.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { FormLayoutDemo } from '@/components/demos-react/form-layout';
+
+## Usage
+
+```tsx
+import { FormLayout, type FormLayoutField } from '@constructor-lab/ui-react';
+```
+
+`FormLayout` is the **config-driven** form composite:
+`<FormLayout fields={…} values onValueChange />`. You describe the form as a flat
+list of field descriptors and it maps each one to the right ui-react control —
+`text`/`email`/`password`, `textarea`, `select`, `number`, `checkbox`, `switch`,
+`radio` — laying them out with the shared [`Form`](/components/form) rhythm or a
+responsive two-column [`Grid`](/components/grid).
+
+Its key job is **normalizing change handling**: the underlying controls disagree
+(a text input fires a native `onChange`, a select fires `onValueChange`, a switch
+fires `onCheckedChange`), and FormLayout hides that behind **one**
+`onValueChange(name, value)`. Required markers and per-field `errors` are built in.
+
+It's an opinionated composite: it trades flexibility for consistency. If you need
+a bespoke field or layout, drop to `Form` / `Field` / `Grid` + the controls —
+flexibility lives one layer down.
+
+<Callout type="info">
+  Design-pending v1 — built from requirements, not a Figma mockup.
+</Callout>
+
+## Examples
+
+A responsive two-column form across many field types:
+
+<DemoReact>
+  <FormLayoutDemo />
+</DemoReact>
+
+```tsx
+const [values, setValues] = useState({});
+
+<FormLayout
+  columns={2}
+  fields={[
+    { name: 'firstName', label: 'First name', required: true },
+    { name: 'lastName', label: 'Last name', required: true },
+    { name: 'role', label: 'Role', type: 'select', options: roles },
+    { name: 'seats', label: 'Seats', type: 'number', min: 1 },
+    { name: 'bio', label: 'Bio', type: 'textarea' },
+    { name: 'notify', label: 'Email notifications', type: 'switch' },
+  ]}
+  values={values}
+  onValueChange={(name, value) => setValues((v) => ({ ...v, [name]: value }))}
+  onSubmit={save}
+/>;
+```
+
+Per-field errors, keyed by field name:
+
+```tsx
+<FormLayout
+  fields={fields}
+  values={values}
+  onValueChange={onValueChange}
+  errors={{ email: 'Enter a valid email address.' }}
+/>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/form-layout/form-layout.docs.ts"
+  name="FormLayoutProps"
+/>
+
+### Field descriptor
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/form-layout/form-layout.docs.ts"
+  name="FormLayoutField"
+/>

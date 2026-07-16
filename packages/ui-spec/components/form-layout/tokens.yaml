@@ -1,0 +1,14 @@
+spec_version: '1.0'
+component: FormLayout
+
+# References only. Values live in @constructor-lab/tokens. FormLayout adds almost
+# no color of its own — it composes already-themed components (Form, Field, the
+# controls, Button). Its one direct token is the per-field error message color;
+# everything else (labels, controls, focus, spacing) comes from the composed
+# components' tiers.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-text-on-status-danger
+    affects: error
+    description: Per-field error message text (danger color; matches Field's invalid state).

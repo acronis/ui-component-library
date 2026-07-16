@@ -1,0 +1,28 @@
+spec_version: '1.0'
+component: FormLayout
+name: form-layout
+status: draft
+category: forms
+layer: composite
+description: >-
+  The config-driven form: `<FormLayout fields={…} values onValueChange />`. Maps
+  a flat field-descriptor list onto the right ui-react control
+  (text/email/password/textarea/select/number/checkbox/switch/radio),
+  normalizing each control's differing change convention behind one uniform
+  `onValueChange(name, value)`, and lays fields out with the shared Form rhythm or
+  a responsive two-column Grid — with required markers and per-field errors — so
+  every form reads the same way. Built on Form / Field / Grid + the bare controls.
+since: 2.3.0
+dependencies:
+  components:
+    - Form
+    - Field
+    - Grid
+    - Button
+    - InputBox
+    - InputTextArea
+    - Select
+    - NumberField
+    - Checkbox
+    - Switch
+    - RadioGroup

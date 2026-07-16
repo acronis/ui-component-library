@@ -1,0 +1,74 @@
+spec_version: '1.0'
+component: FormLayout
+
+schematic: |
+  form (vertical stack, gap-6) ─ or a responsive Grid when columns=2
+    field:
+      label            (+ " *" required marker)
+      control          (text | textarea | select | number | radio; or an inline
+                        checkbox/switch that carries its own label)
+      description       (helper text) — or:
+      error             (per-field message, danger color)
+    … more fields …
+    footer:  [ cancel ]  [ submit ]   (cancel only when onCancel is set)
+
+root:
+  element: form
+  description: >-
+    The form container (ui-react Form). Holds the fields (stacked, or in a
+    responsive two-column Grid) and the footer. On submit it calls `onSubmit`
+    with the current values.
+
+parts:
+  - id: field
+    element: div
+    description: >-
+      One field row — a Field wrapping a label, the mapped control, and a
+      description or error. Checkbox / switch fields render their own inline label
+      instead of the Field label furniture.
+  - id: label
+    element: label
+    description: The field label (FieldLabel), with a trailing " *" when required.
+  - id: control
+    element: input
+    description: >-
+      The mapped control for the field's `type` — InputBox (text/email/password),
+      InputTextArea, Select, NumberField, RadioGroup, Checkbox, or Switch. Its
+      value/change is normalized to `onValueChange(name, value)`.
+  - id: description
+    element: p
+    description: Helper text under the control (FieldDescription). Hidden when an error shows.
+    optional: true
+    visible_when: the field has a description and no error
+  - id: error
+    element: p
+    description: Per-field error message, in the danger color. Shown when `errors[name]` is set.
+    optional: true
+    visible_when: errors[name] is set
+  - id: submit
+    element: button
+    description: The submit action (a default Button, type=submit).
+  - id: cancel
+    element: button
+    description: Optional cancel action (a ghost Button). Rendered only when `onCancel` is set.
+    optional: true
+    visible_when: onCancel is set
+
+# FormLayout is controlled — its values live in the `values` prop, so it owns no
+# internal state. Every visual state is a pure function of its props.
+states:
+  - id: two-column
+    trigger: 'columns === 2'
+    kind: prop
+    prop: columns
+    affects: [field]
+  - id: disabled
+    trigger: disabled is set
+    kind: prop
+    prop: disabled
+    affects: [control, submit, cancel]
+  - id: invalid
+    trigger: errors[name] is set for a field
+    kind: prop
+    prop: errors
+    affects: [field, error]

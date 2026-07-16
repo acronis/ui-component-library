@@ -458,6 +458,13 @@ const RENDER: Record<string, RenderHint> = {
     ].join('\n'),
   },
   tag: { sample: 'Label' },
+  'form-layout': {
+    // Config-driven: `fields` + `values` + `onValueChange` are required and a
+    // meaningful form needs real descriptors, so a zero-arg generated render
+    // can't typecheck or render anything useful. VR is covered by the
+    // hand-written stories.
+    skip: true,
+  },
   'confirm-dialog': {
     // Config-driven with a required `title` and open/portal behavior a zero-arg
     // render can't meaningfully exercise. VR is covered by the hand-written
