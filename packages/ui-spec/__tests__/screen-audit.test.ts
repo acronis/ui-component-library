@@ -27,6 +27,9 @@ function node(partial: Partial<SnapshotNode>): SnapshotNode {
     region: partial.region ?? null,
     regionChild: partial.regionChild ?? false,
     text: partial.text ?? '',
+    // A leaf paints its own text, so ownText mirrors text unless a test sets it
+    // explicitly (e.g. a container: text present, ownText empty).
+    ownText: partial.ownText ?? partial.text ?? '',
     accessibleName: partial.accessibleName ?? null,
     interactive: partial.interactive ?? false,
     disabled: partial.disabled ?? false,
@@ -463,6 +466,22 @@ describe('I5 contrast (screen scope)', () => {
         text: 'Readable',
         color: 'rgb(20, 20, 20)',
         backgroundColor: 'rgb(255, 255, 255)',
+        fontSize: 14,
+      }),
+    ]);
+    expect(ids(snap, noRules)).not.toContain('accessibility/contrast');
+  });
+
+  it('ignores container nodes that only wrap (do not paint) text', () => {
+    // A layout container on a dark rail: inherited black `color`, low contrast,
+    // but its text is painted by descendant leaves — it must not be flagged.
+    const snap = snapshot([
+      node({
+        tag: 'ul',
+        text: 'AssetsClientsBilling',
+        ownText: '',
+        color: 'rgb(0, 0, 0)',
+        backgroundColor: 'rgb(0, 32, 77)',
         fontSize: 14,
       }),
     ]);

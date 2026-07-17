@@ -330,7 +330,9 @@ export const DETECTORS: ScreenDetector[] = [
     run(nodes) {
       const out: Omit<ScreenFinding, 'severity' | 'checklist'>[] = [];
       for (const n of nodes) {
-        if (!n.text || !n.text.trim() || n.isIcon) continue;
+        // Only score elements that paint their own text — a container's
+        // inherited `color` must not be measured against a descendant's text.
+        if (!n.ownText || !n.ownText.trim() || n.isIcon) continue;
         const ratio = contrastRatio(n.color, n.backgroundColor);
         if (ratio == null) continue;
         const large =

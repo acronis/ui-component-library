@@ -75,6 +75,23 @@ export const ledger: LedgerEntry[] = [
       note: 'The new T4 detector surfaces it as a should-warning. Awaiting a dedicated -hover border token, a code fix, or an approved override — the loop working as intended.',
     },
   },
+  {
+    id: 'contrast-detector-flags-nonpainting-containers',
+    title:
+      'Contrast detector flagged nav container nodes (inherited black) that never paint their own text',
+    checklist: 'I5',
+    rule: 'accessibility/contrast',
+    severity: 'must',
+    source: { screen: 'protection-dashboard', ref: 'sidebar' },
+    discovered: '2026-07-17',
+    status: 'resolved',
+    resolution: {
+      kind: 'detector',
+      detector: 'screen/contrast',
+      note: 'The detector scored any node with non-empty textContent, so layout containers (nav/div/ul) with an inherited black color were flagged 11× on a correct screen even though their text is painted by white leaf descendants. Fixed by capturing `ownText` (direct text-node children only) in the probe and measuring contrast only on elements that paint their own text. Surfaced by the generate→lint→audit prototype.',
+      date: '2026-07-17',
+    },
+  },
 ];
 
 const declaredDetectors = new Set(allRules.map((r) => r.detector));

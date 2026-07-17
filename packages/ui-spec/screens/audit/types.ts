@@ -35,8 +35,16 @@ export interface SnapshotNode {
   region: string | null;
   /** True when this element is a direct child of its region's landmark element. */
   regionChild: boolean;
-  /** Trimmed, truncated text content. */
+  /** Trimmed, truncated text content (this element and all descendants). */
   text: string;
+  /**
+   * Text this element paints *itself* — the concatenation of its direct child
+   * text nodes only, not descendants. Empty for layout containers that merely
+   * wrap text-bearing children. Contrast is scored against this so a
+   * container's inherited `color` is never measured against text a descendant
+   * actually paints.
+   */
+  ownText: string;
   /** Computed accessible name (aria-label / labelledby / alt / title / text). */
   accessibleName: string | null;
   /** An enabled control the user operates (button, link, input, select, …). */

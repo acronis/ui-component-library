@@ -142,6 +142,16 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
     return parts.join(' > ') || el.tagName.toLowerCase();
   };
 
+  // Text painted by `el` itself (direct text-node children), not its subtree —
+  // so a container that only wraps text-bearing children reports "".
+  const directText = (el: Element): string => {
+    let s = '';
+    el.childNodes.forEach((n) => {
+      if (n.nodeType === 3) s += n.textContent ?? '';
+    });
+    return s;
+  };
+
   const num = (v: string): number => {
     const n = parseFloat(v);
     return Number.isFinite(n) ? n : 0;
@@ -200,6 +210,7 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
       region: lm?.role ?? null,
       regionChild: lm ? el.parentElement === lm.el : false,
       text: (el.textContent ?? '').trim().slice(0, maxText),
+      ownText: directText(el).trim().slice(0, maxText),
       accessibleName:
         interactive || disabled || el.tagName === 'IMG'
           ? accessibleName(el)
