@@ -193,6 +193,17 @@ that workspace**, never here.
   like pattern→composite), plus a dedicated **coach-mark tour component**
   (stepped `Popover` + beacon "green light" + spotlight). Hand-built 4a; generic
   `screen.yaml` renderer + generator deferred to 4b. Proposed; not yet adopted.
+- `context/uikitless-workflow-proposal.md` — the **"uikitless" (rules-over-components)**
+  question: can consistent UIs be delivered from tokens + patterns + grammar
+  rules + AI generation instead of a large maintained component surface? Reframes
+  it as **presentation vs behavior** (the presentational/layout/screen-assembly
+  layers fit a rules workflow; the interactive ~20% stays component-shaped),
+  argues the **verification loop — not the prompt — is load-bearing**, and reports
+  a **generate → lint → audit prototype** (`prototypes/generate-lint-audit/`) on
+  `protection-dashboard` that both caught injected drift and surfaced a real
+  `screen-audit` false-positive (fixed + laddered into the grammar ledger).
+  Proposes a layered delivery contract on top of the existing grammar / kit-lint /
+  screen-audit / ledger machinery. Proposed; not yet adopted.
 
 ## Tooling preconditions
 
