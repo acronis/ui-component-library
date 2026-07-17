@@ -68,4 +68,16 @@ export const spacingRules = [
     checklist: 'Z6',
     detector: 'screen/icon-size-parity',
   },
+  {
+    id: 'spacing/field-width-parity',
+    title: 'Stacked form fields share width',
+    category: 'spacing',
+    severity: 'should',
+    rule: 'Form fields stacked on the same left edge use a single width; a field narrower/wider than its column-mates must be intentional.',
+    rationale:
+      'A form whose inputs are different widths reads as unfinished; one column width is the baseline of a tidy form.',
+    checklist: 'Z7',
+    detector: 'screen/field-width-parity',
+    relatedRules: ['spacing/control-height-parity'],
+  },
 ] satisfies KitRule[];

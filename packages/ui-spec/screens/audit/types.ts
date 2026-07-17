@@ -53,6 +53,19 @@ export interface SnapshotNode {
   disabled: boolean;
   /** An icon glyph (svg / `[data-slot="icon"]`). */
   isIcon: boolean;
+  /**
+   * Effectively invisible — a ≤2px / offscreen node such as the AT-only proxy
+   * `<input>` a headless switch/checkbox/radio renders behind its visible
+   * control. Detectors skip these: their geometry, radius, and accessible name
+   * belong to the visible composite, not the proxy.
+   */
+  visuallyHidden: boolean;
+  /**
+   * True when this node or an ancestor is `disabled` / `aria-disabled` — i.e. it
+   * sits inside a disabled control. Contrast is exempt here (WCAG 1.4.3 places no
+   * contrast requirement on inactive components).
+   */
+  disabledContext: boolean;
   rect: NodeRect;
   /** Computed opacity (0–1) — used to tell apart disabled treatments. */
   opacity: number;

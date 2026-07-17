@@ -42,9 +42,14 @@ export function collectScreenFindings(
   const regions = flattenRegions(descriptor.regions);
   const findings: ScreenFinding[] = [];
 
+  // Effectively-invisible nodes (≤2px / offscreen AT-only proxies behind headless
+  // switch/checkbox/radio) are not part of the visual composition — exclude them
+  // from every detector so their geometry/name doesn't produce false positives.
+  const visible = snapshot.nodes.filter((n) => !n.visuallyHidden);
+
   for (const detector of DETECTORS) {
     if (detector.scope === 'screen') {
-      for (const partial of detector.run(snapshot.nodes)) {
+      for (const partial of detector.run(visible)) {
         findings.push(resolveFinding(partial));
       }
       continue;
@@ -53,8 +58,8 @@ export function collectScreenFindings(
     for (const region of regions) {
       if (!region.rules?.includes(detector.ruleId)) continue;
       const nodes: SnapshotNode[] = region.ariaRole
-        ? snapshot.nodes.filter((n) => n.region === region.ariaRole)
-        : snapshot.nodes;
+        ? visible.filter((n) => n.region === region.ariaRole)
+        : visible;
       for (const partial of detector.run(nodes)) {
         // Stamp the descriptor regionId (more meaningful than the landmark role).
         findings.push(resolveFinding({ ...partial, region: region.regionId }));

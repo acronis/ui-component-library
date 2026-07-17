@@ -38,6 +38,7 @@ registry are seeded first (Phase 0).
 | Z4  | Padding-tier drift (same role, different padding)           | screen   | should |
 | Z5  | Touch target below the kit minimum                          | kit-lint | must   |
 | Z6  | Icon-size drift within a row/cluster                        | screen   | should |
+| Z7  | Form-field width drift (stacked fields on one left edge)    | screen   | should |
 
 ## Typography
 

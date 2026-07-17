@@ -1227,6 +1227,13 @@
       "route": "/protection/dashboard",
       "story": "ui-appshell--with-secondary",
       "pattern": "app-shell"
+    },
+    {
+      "name": "settings-form",
+      "title": "Settings form (audit spike)",
+      "status": "draft",
+      "category": "console",
+      "story": "components-formlayout--default"
     }
   ]
 }

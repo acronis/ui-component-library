@@ -142,6 +142,21 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
     return parts.join(' > ') || el.tagName.toLowerCase();
   };
 
+  // True when `el` or any ancestor is disabled — used to exempt inactive
+  // components from the contrast check (WCAG 1.4.3).
+  const inDisabledTree = (el: Element): boolean => {
+    let cur: Element | null = el;
+    while (cur) {
+      if (
+        cur.hasAttribute('disabled') ||
+        cur.getAttribute('aria-disabled') === 'true'
+      )
+        return true;
+      cur = cur.parentElement;
+    }
+    return false;
+  };
+
   // Text painted by `el` itself (direct text-node children), not its subtree —
   // so a container that only wraps text-bearing children reports "".
   const directText = (el: Element): string => {
@@ -211,6 +226,12 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
       regionChild: lm ? el.parentElement === lm.el : false,
       text: (el.textContent ?? '').trim().slice(0, maxText),
       ownText: directText(el).trim().slice(0, maxText),
+      visuallyHidden:
+        rect.width <= 2 ||
+        rect.height <= 2 ||
+        rect.x + rect.width <= 0 ||
+        rect.y + rect.height <= 0,
+      disabledContext: inDisabledTree(el),
       accessibleName:
         interactive || disabled || el.tagName === 'IMG'
           ? accessibleName(el)

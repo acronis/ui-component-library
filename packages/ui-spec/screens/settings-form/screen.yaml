@@ -1,0 +1,41 @@
+spec_version: '1.0'
+name: settings-form
+title: Settings form (audit spike)
+status: draft
+category: console
+description: >-
+  Form-heavy target for the second screen-audit spike. The FormLayout composite
+  rendered as one assembled <form> — 8 mixed labeled controls (text, email,
+  select, number, radio, textarea, switch, checkbox) plus a save/cancel button
+  row. Used to probe what the presentational/layout detectors catch vs. miss on
+  forms. Captured from the FormLayout Default story.
+story: components-formlayout--default
+
+regions:
+  # No ariaRole: the story renders inside #storybook-root with no landmark
+  # ancestors, so measured nodes carry region=null. Omitting ariaRole makes the
+  # audit run these region detectors over every node (see screens/audit/index.ts).
+  - regionId: form
+    label: Settings form
+    layout: { type: flex-fill, scroll: independent }
+    rules:
+      - spacing/control-height-parity
+      - spacing/radius-parity
+      - spacing/icon-size-parity
+      - spacing/field-width-parity
+      - composition/edge-baseline-alignment
+      - composition/vertical-rhythm
+      - accessibility/tab-order
+      - composition/no-clipping
+
+stateMachine:
+  states:
+    - name: idle
+      description: Before the form is interactive.
+      initial: true
+      category: idle
+    - name: ready
+      description: Form is editable.
+      category: loaded
+  transitions:
+    - { from: idle, to: ready, trigger: mount }

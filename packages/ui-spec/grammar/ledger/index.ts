@@ -92,6 +92,72 @@ export const ledger: LedgerEntry[] = [
       date: '2026-07-17',
     },
   },
+  {
+    id: 'screen-audit-hidden-proxy-controls',
+    title:
+      'Geometry/name detectors measured the AT-only proxy <input> behind headless switch/checkbox/radio',
+    checklist: 'I1',
+    rule: 'accessibility/accessible-name',
+    severity: 'must',
+    source: { screen: 'settings-form', ref: 'form' },
+    discovered: '2026-07-17',
+    status: 'resolved',
+    resolution: {
+      kind: 'detector',
+      detector: 'screen/accessible-name',
+      note: 'Base UI renders a 1px/offscreen proxy <input> behind switch/checkbox/radio; the visible button/span is the real control. The probe now marks such nodes `visuallyHidden` (≤2px/offscreen) and the audit excludes them from every detector — clearing false positives across accessible-name (I1, 6×), control-height-parity (Z2), radius-parity (Z3), and tab-order (I4) on the FormLayout screen. Surfaced by the second (form-heavy) screen-audit spike.',
+      date: '2026-07-17',
+    },
+  },
+  {
+    id: 'screen-audit-disabled-contrast-exemption',
+    title:
+      'Contrast detector flagged disabled controls, which WCAG 1.4.3 exempts',
+    checklist: 'I5',
+    rule: 'accessibility/contrast',
+    severity: 'must',
+    source: { screen: 'settings-form', ref: 'form' },
+    discovered: '2026-07-17',
+    status: 'resolved',
+    resolution: {
+      kind: 'detector',
+      detector: 'screen/contrast',
+      note: 'The FormLayout Disabled story reported 3 must contrast findings on disabled controls, which have no contrast requirement (WCAG 1.4.3, inactive components). The probe now records `disabledContext` (self-or-ancestor disabled) and the contrast detector skips it. Surfaced by the second screen-audit spike.',
+      date: '2026-07-17',
+    },
+  },
+  {
+    id: 'form-field-width-parity',
+    title:
+      'Forms with stacked fields of inconsistent width had no detector (a narrow field slips through)',
+    checklist: 'Z7',
+    rule: 'spacing/field-width-parity',
+    severity: 'should',
+    source: { screen: 'settings-form', ref: 'form' },
+    discovered: '2026-07-17',
+    status: 'resolved',
+    resolution: {
+      kind: 'new-rule',
+      rule: 'spacing/field-width-parity',
+      note: 'New should-rule Z7 + detector `screen/field-width-parity`: fields sharing a left edge must share one width. Groups fields into left-aligned columns (so an intentionally-indented number stepper is not compared to the main column). Surfaced by the second screen-audit spike (an injected 120px field slipped past every existing detector).',
+      date: '2026-07-17',
+    },
+  },
+  {
+    id: 'form-vertical-rhythm-gap',
+    title:
+      'Vertical-rhythm (C1) cannot run on a landmark-less form; flat-snapshot pitch is also rounding-noisy',
+    checklist: 'C1',
+    rule: 'composition/vertical-rhythm',
+    severity: 'should',
+    source: { screen: 'settings-form', ref: 'form' },
+    discovered: '2026-07-17',
+    status: 'open',
+    resolution: {
+      kind: 'detector',
+      note: 'C1 only measures children of a landmark element, so a form (not a landmark) yields no findings even with off-grid pitches. A naive form-field rhythm check is unreliable from a single flat snapshot — interleaved non-field rows (radio/switch clusters) and sub-pixel rounding produce false positives. Deferred pending a section/wrapper model in the probe. Surfaced by the second screen-audit spike.',
+    },
+  },
 ];
 
 const declaredDetectors = new Set(allRules.map((r) => r.detector));

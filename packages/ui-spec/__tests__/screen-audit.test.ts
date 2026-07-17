@@ -34,6 +34,8 @@ function node(partial: Partial<SnapshotNode>): SnapshotNode {
     interactive: partial.interactive ?? false,
     disabled: partial.disabled ?? false,
     isIcon: partial.isIcon ?? false,
+    visuallyHidden: partial.visuallyHidden ?? false,
+    disabledContext: partial.disabledContext ?? false,
     rect: partial.rect ?? { x: 0, y: 0, width: 100, height: 32 },
     opacity: partial.opacity ?? 1,
     color: partial.color ?? 'rgb(20, 20, 20)',
@@ -73,6 +75,7 @@ const everyRule: ScreenDescriptorLite = {
         'spacing/control-height-parity',
         'spacing/icon-size-parity',
         'spacing/radius-parity',
+        'spacing/field-width-parity',
         'accessibility/tab-order',
         'composition/edge-baseline-alignment',
         'composition/vertical-rhythm',
@@ -243,6 +246,98 @@ describe('Z3 radius-parity', () => {
       }),
     ]);
     expect(ids(snap, everyRule)).not.toContain('spacing/radius-parity');
+  });
+});
+
+describe('Z7 field-width-parity', () => {
+  it('flags stacked fields on one left edge with mismatched widths', () => {
+    const snap = snapshot([
+      node({
+        region: 'banner',
+        interactive: true,
+        tag: 'input',
+        accessibleName: 'a',
+        rect: { x: 16, y: 10, width: 420, height: 32 },
+      }),
+      node({
+        region: 'banner',
+        interactive: true,
+        tag: 'input',
+        accessibleName: 'b',
+        rect: { x: 16, y: 60, width: 200, height: 32 },
+      }),
+    ]);
+    expect(ids(snap, everyRule)).toContain('spacing/field-width-parity');
+  });
+
+  it('passes a uniform-width column, and ignores a differently-indented field', () => {
+    const snap = snapshot([
+      node({
+        region: 'banner',
+        interactive: true,
+        tag: 'input',
+        accessibleName: 'a',
+        rect: { x: 16, y: 10, width: 420, height: 32 },
+      }),
+      node({
+        region: 'banner',
+        interactive: true,
+        tag: 'input',
+        accessibleName: 'b',
+        rect: { x: 16, y: 60, width: 420, height: 32 },
+      }),
+      // A separate left edge (its own column) — not compared to the x=16 column.
+      node({
+        region: 'banner',
+        interactive: true,
+        tag: 'input',
+        accessibleName: 'c',
+        rect: { x: 53, y: 110, width: 200, height: 30 },
+      }),
+    ]);
+    expect(ids(snap, everyRule)).not.toContain('spacing/field-width-parity');
+  });
+});
+
+describe('visually-hidden proxy controls are ignored', () => {
+  const noRules: ScreenDescriptorLite = {
+    name: 'test',
+    regions: [{ regionId: 'x', ariaRole: 'main' }],
+  };
+
+  it('does not flag a 1px AT-only proxy input for a missing accessible name', () => {
+    const snap = snapshot([
+      node({
+        interactive: true,
+        tag: 'input',
+        accessibleName: null,
+        visuallyHidden: true,
+        rect: { x: 0, y: -1, width: 1, height: 1 },
+      }),
+    ]);
+    expect(ids(snap, noRules)).not.toContain('accessibility/accessible-name');
+  });
+
+  it('excludes a hidden proxy from control-height parity in a row', () => {
+    const snap = snapshot([
+      node({
+        region: 'banner',
+        interactive: true,
+        tag: 'span',
+        role: 'switch',
+        accessibleName: 'Notify',
+        rect: { x: 0, y: 10, width: 32, height: 16 },
+      }),
+      node({
+        region: 'banner',
+        interactive: true,
+        tag: 'input',
+        accessibleName: null,
+        visuallyHidden: true,
+        rect: { x: 0, y: 4, width: 1, height: 1 },
+      }),
+    ]);
+    expect(ids(snap, everyRule)).not.toContain('spacing/control-height-parity');
   });
 });
 
@@ -483,6 +578,20 @@ describe('I5 contrast (screen scope)', () => {
         color: 'rgb(0, 0, 0)',
         backgroundColor: 'rgb(0, 32, 77)',
         fontSize: 14,
+      }),
+    ]);
+    expect(ids(snap, noRules)).not.toContain('accessibility/contrast');
+  });
+
+  it('exempts disabled controls (WCAG 1.4.3 inactive-component exception)', () => {
+    const snap = snapshot([
+      node({
+        text: 'Save',
+        ownText: 'Save',
+        color: 'rgb(255, 255, 255)',
+        backgroundColor: 'rgb(214, 228, 245)', // ~1.3:1, but disabled
+        fontSize: 14,
+        disabledContext: true,
       }),
     ]);
     expect(ids(snap, noRules)).not.toContain('accessibility/contrast');

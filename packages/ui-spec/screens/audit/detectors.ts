@@ -172,6 +172,48 @@ export const DETECTORS: ScreenDetector[] = [
     },
   },
 
+  // Z7 — stacked form fields sharing a left edge share one width. A field far
+  // narrower/wider than its column-mates reads as an accidental override.
+  {
+    ruleId: 'spacing/field-width-parity',
+    scope: 'region',
+    run(nodes) {
+      const out: Omit<ScreenFinding, 'severity' | 'checklist'>[] = [];
+      const fields = nodes.filter(
+        (n) =>
+          (n.tag === 'input' || n.tag === 'select' || n.tag === 'textarea') &&
+          n.rect.height > 2
+      );
+      // Group fields into left-aligned columns (shared left edge, ±4px).
+      const columns: SnapshotNode[][] = [];
+      for (const n of [...fields].sort((a, b) => a.rect.x - b.rect.x)) {
+        const col = columns.find((c) => Math.abs(c[0].rect.x - n.rect.x) <= 4);
+        if (col) col.push(n);
+        else columns.push([n]);
+      }
+      for (const col of columns) {
+        if (col.length < 2) continue;
+        const widths = distinct(
+          col.map((n) => n.rect.width),
+          4
+        );
+        if (widths.length > 1) {
+          const widest = col.reduce((a, b) =>
+            a.rect.width >= b.rect.width ? a : b
+          );
+          out.push(
+            find(
+              'spacing/field-width-parity',
+              widest,
+              `stacked fields on one left edge use ${widths.length} widths (${widths.join('/')}px) — give a form's fields one width`
+            )
+          );
+        }
+      }
+      return out;
+    },
+  },
+
   // A2 — disabled controls across the screen use ONE treatment, not a mix
   // (some dimmed via opacity, some via a token color).
   {
@@ -331,8 +373,11 @@ export const DETECTORS: ScreenDetector[] = [
       const out: Omit<ScreenFinding, 'severity' | 'checklist'>[] = [];
       for (const n of nodes) {
         // Only score elements that paint their own text — a container's
-        // inherited `color` must not be measured against a descendant's text.
-        if (!n.ownText || !n.ownText.trim() || n.isIcon) continue;
+        // inherited `color` must not be measured against a descendant's text —
+        // and exempt disabled controls (WCAG 1.4.3 has no contrast requirement
+        // for inactive components).
+        if (!n.ownText || !n.ownText.trim() || n.isIcon || n.disabledContext)
+          continue;
         const ratio = contrastRatio(n.color, n.backgroundColor);
         if (ratio == null) continue;
         const large =
