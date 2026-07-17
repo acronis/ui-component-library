@@ -259,6 +259,7 @@ export function DataTable({
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-1 items-center gap-2">
           <InputText
+            aria-label="Search records"
             placeholder="Search by name, category, or status..."
             value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
             onChange={(event) =>

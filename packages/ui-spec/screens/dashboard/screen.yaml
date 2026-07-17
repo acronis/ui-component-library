@@ -7,6 +7,11 @@ description: >-
   The console dashboard inside the App Shell: KPI stat tiles, a grid of charts,
   and a recent-activity feed. Pattern-first pilot for the /dashboard demo route
   (apps/demo). Every region resolves to an approved pattern.
+
+  Note: region-scoped audit rules are declared only on landmark regions
+  (navigation / main); the rendered audit can only scope region detectors by
+  landmark, and screen-scoped detectors (accessible-name, contrast) cover the
+  rest. Nested content patterns are documented via `pattern` + `components`.
 route: /
 pattern: app-shell
 
@@ -98,7 +103,8 @@ stateMachine:
       category: empty
       rules: [anatomy/empty-skeleton-parity]
     - name: error
-      description: Fetch failed. Acceptance — an error with a retry action is shown.
+      description: >-
+        Fetch failed. Acceptance — an error with a retry action is shown.
       category: error
   transitions:
     - { from: idle, to: loading, trigger: mount }

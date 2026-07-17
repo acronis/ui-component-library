@@ -7,6 +7,10 @@ description: >-
   The settings screen inside the App Shell: tabbed sections (Profile,
   Preferences, Account), each a config-driven form with per-section save and
   validation. Pattern-first pilot for the /settings demo route.
+
+  Note: region-scoped audit rules are declared only on landmark regions; the form
+  sections are documented via `pattern` + `components`, and screen-scoped
+  detectors (accessible-name, contrast) cover them.
 route: /settings
 pattern: app-shell
 
@@ -88,10 +92,12 @@ stateMachine:
         surface inline validation on submit.
       category: loaded
     - name: saving
-      description: Persisting the section. Acceptance — the submit control shows progress.
+      description: >-
+        Persisting the section. Acceptance — the submit control shows progress.
       category: loading
     - name: saved
-      description: Save succeeded. Acceptance — a success confirmation is shown.
+      description: >-
+        Save succeeded. Acceptance — a success confirmation is shown.
       category: loaded
     - name: error
       description: >-

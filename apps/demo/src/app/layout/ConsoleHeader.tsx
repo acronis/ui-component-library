@@ -74,6 +74,7 @@ export function ConsoleHeader() {
               render={
                 <Button
                   variant="ghost"
+                  aria-label="Account menu"
                   className="relative h-9 w-9 rounded-full"
                 />
               }

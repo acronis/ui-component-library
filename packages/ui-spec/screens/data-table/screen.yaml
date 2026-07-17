@@ -8,6 +8,10 @@ description: >-
   filtering, and pagination; a row-detail sheet; a create/edit dialog; and bulk
   operations with a destructive confirm. Pattern-first pilot for the /data demo
   route — the richest screen, exercising the most patterns.
+
+  Note: region-scoped audit rules are declared only on landmark regions; nested
+  content patterns are documented via `pattern` + `components`, and screen-scoped
+  detectors (accessible-name, contrast) cover them.
 route: /data
 pattern: app-shell
 
@@ -122,7 +126,8 @@ stateMachine:
       category: empty
       rules: [anatomy/empty-skeleton-parity]
     - name: error
-      description: Fetch failed. Acceptance — an error with retry is shown.
+      description: >-
+        Fetch failed. Acceptance — an error with retry is shown.
       category: error
     - name: confirming-delete
       description: >-

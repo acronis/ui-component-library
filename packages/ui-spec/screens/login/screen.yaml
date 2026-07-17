@@ -6,7 +6,9 @@ category: auth
 description: >-
   The unauthenticated login screen — an auth-layout frame (brand + centered card)
   wrapping a config-driven credentials form with validation. No App Shell.
-  Pattern-first pilot for the /login demo route.
+  Pattern-first pilot for the /login demo route. The screen has no landmark
+  sub-regions, so it is governed by the screen-scoped detectors (accessible-name,
+  contrast).
 route: /login
 pattern: auth-screen
 
@@ -47,7 +49,8 @@ stateMachine:
         and/or a rejection toast show; the form stays editable.
       category: error
     - name: authenticated
-      description: Auth succeeded. Acceptance — the app redirects to /dashboard.
+      description: >-
+        Auth succeeded. Acceptance — the app redirects to /dashboard.
       category: loaded
   transitions:
     - { from: idle, to: submitting, trigger: submit, guard: valid }
