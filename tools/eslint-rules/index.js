@@ -7,10 +7,16 @@
  * re-inventing it. Wired into the root `eslint.config.js`.
  */
 import noAdhocSheet from './no-adhoc-sheet.js';
+import preferConfirmDialog from './prefer-confirm-dialog.js';
+import preferStatRow from './prefer-stat-row.js';
 
 export default {
   meta: { name: 'acronis-patterns' },
   rules: {
     'no-adhoc-sheet': noAdhocSheet,
+    // "prefer-*" rules steer hand-composed shapes to the opinionated composites
+    // (context/opinionated-composites-proposal.md §6). Warn-first.
+    'prefer-confirm-dialog': preferConfirmDialog,
+    'prefer-stat-row': preferStatRow,
   },
 };

@@ -119,6 +119,11 @@ export default tseslint.config(
     plugins: { 'acronis-patterns': acronisPatterns },
     rules: {
       'acronis-patterns/no-adhoc-sheet': 'error',
+      // "prefer-*" composite rules are warn-first: they steer toward the
+      // opinionated composites without blocking, with the ledger/overrides as
+      // the pressure valve (proposal §6).
+      'acronis-patterns/prefer-confirm-dialog': 'warn',
+      'acronis-patterns/prefer-stat-row': 'warn',
     },
   }
 );
