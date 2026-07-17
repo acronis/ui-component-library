@@ -1,0 +1,110 @@
+spec_version: '1.0'
+name: dashboard
+title: Dashboard
+status: draft
+category: console
+description: >-
+  The console dashboard inside the App Shell: KPI stat tiles, a grid of charts,
+  and a recent-activity feed. Pattern-first pilot for the /dashboard demo route
+  (apps/demo). Every region resolves to an approved pattern.
+route: /
+pattern: app-shell
+
+regions:
+  - regionId: sidebar
+    label: Navigation rail
+    ariaRole: navigation
+    pattern: sidebar-navigation
+    layout: { type: fixed-width, position: left, scroll: none }
+    rules:
+      - composition/no-clipping
+    components:
+      - { instanceId: primary-nav, component: SidebarPrimary }
+      - { instanceId: secondary-nav, component: SidebarSecondary }
+
+  - regionId: header
+    label: Top bar
+    ariaRole: banner
+    layout: { type: sticky, position: top, scroll: none }
+    rules:
+      - spacing/control-height-parity
+      - accessibility/accessible-name
+    components:
+      - { instanceId: global-search, component: SearchGlobal }
+
+  - regionId: main
+    label: Content area
+    ariaRole: main
+    pattern: dashboard
+    layout: { type: flex-fill, scroll: independent }
+    rules:
+      - composition/vertical-rhythm
+    children:
+      - regionId: page-heading
+        label: Page header
+        layout: { type: flex-fill }
+        components:
+          - { instanceId: heading, component: PageHeader }
+
+      - regionId: kpis
+        label: KPI tiles
+        pattern: card-grid
+        layout: { type: flex-fill }
+        rules:
+          - spacing/control-height-parity
+          - spacing/field-width-parity
+        components:
+          - { instanceId: stats, component: StatRow }
+
+      - regionId: charts
+        label: Charts
+        pattern: card-grid
+        layout: { type: flex-fill }
+        rules:
+          - composition/edge-baseline-alignment
+        components:
+          - { instanceId: chart-grid, component: Grid }
+          - { instanceId: charts, component: Chart }
+
+      - regionId: activity
+        label: Recent activity
+        layout: { type: flex-fill }
+        rules:
+          - accessibility/contrast
+        components:
+          - { instanceId: activity-list, component: DetailList }
+
+stateMachine:
+  states:
+    - name: idle
+      description: Before the dashboard requests data.
+      initial: true
+      category: idle
+    - name: loading
+      description: >-
+        Fetching dashboard data. Acceptance: every KPI tile and chart shows a
+        skeleton; no partial data flashes.
+      category: loading
+      rules: [anatomy/data-states-present]
+    - name: loaded
+      description: >-
+        Dashboard populated. Acceptance: KPI values, all charts, and the activity
+        feed render; the range action reflects the active window.
+      category: loaded
+    - name: empty
+      description: >-
+        No data for the current scope. Acceptance: the empty-screen pattern shows
+        in place of tiles/charts, not blank space.
+      category: empty
+      rules: [anatomy/empty-skeleton-parity]
+    - name: error
+      description: Fetch failed. Acceptance — an error with a retry action is shown.
+      category: error
+  transitions:
+    - { from: idle, to: loading, trigger: mount }
+    - { from: loading, to: loaded, trigger: data-success, guard: 'count > 0' }
+    - { from: loading, to: empty, trigger: data-success, guard: 'count === 0' }
+    - { from: loading, to: error, trigger: data-error }
+    - { from: error, to: loading, trigger: retry }
+    - { from: loaded, to: loading, trigger: refresh }
+    - { from: empty, to: loading, trigger: refresh }

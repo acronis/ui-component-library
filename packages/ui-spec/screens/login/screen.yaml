@@ -1,0 +1,57 @@
+spec_version: '1.0'
+name: login
+title: Login
+status: draft
+category: auth
+description: >-
+  The unauthenticated login screen — an auth-layout frame (brand + centered card)
+  wrapping a config-driven credentials form with validation. No App Shell.
+  Pattern-first pilot for the /login demo route.
+route: /login
+pattern: auth-screen
+
+regions:
+  - regionId: auth
+    label: Auth panel
+    pattern: auth-screen
+    layout: { type: flex-fill }
+    rules:
+      - composition/edge-baseline-alignment
+    children:
+      - regionId: card
+        label: Credentials card
+        layout: { type: flex-fill }
+        rules:
+          - spacing/field-width-parity
+          - accessibility/accessible-name
+        components:
+          - { instanceId: frame, component: AuthLayout }
+          - { instanceId: form, component: FormLayout }
+
+stateMachine:
+  states:
+    - name: idle
+      description: >-
+        The empty credentials form. Acceptance: email + password fields and a
+        Sign in action are shown; Sign in is enabled.
+      initial: true
+      category: idle
+    - name: submitting
+      description: >-
+        Credentials are being verified. Acceptance: the submit control shows
+        progress and is disabled.
+      category: loading
+    - name: error
+      description: >-
+        Validation failed or auth was rejected. Acceptance: inline field errors
+        and/or a rejection toast show; the form stays editable.
+      category: error
+    - name: authenticated
+      description: Auth succeeded. Acceptance — the app redirects to /dashboard.
+      category: loaded
+  transitions:
+    - { from: idle, to: submitting, trigger: submit, guard: valid }
+    - { from: idle, to: error, trigger: submit, guard: invalid }
+    - { from: submitting, to: authenticated, trigger: auth-success }
+    - { from: submitting, to: error, trigger: auth-error }
+    - { from: error, to: submitting, trigger: submit, guard: valid }

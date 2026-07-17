@@ -1,0 +1,142 @@
+spec_version: '1.0'
+name: data-table
+title: Data table
+status: draft
+category: console
+description: >-
+  The data-management screen inside the App Shell: a data table with selection,
+  filtering, and pagination; a row-detail sheet; a create/edit dialog; and bulk
+  operations with a destructive confirm. Pattern-first pilot for the /data demo
+  route — the richest screen, exercising the most patterns.
+route: /data
+pattern: app-shell
+
+regions:
+  - regionId: sidebar
+    label: Navigation rail
+    ariaRole: navigation
+    pattern: sidebar-navigation
+    layout: { type: fixed-width, position: left, scroll: none }
+    rules:
+      - composition/no-clipping
+    components:
+      - { instanceId: primary-nav, component: SidebarPrimary }
+      - { instanceId: secondary-nav, component: SidebarSecondary }
+
+  - regionId: header
+    label: Top bar
+    ariaRole: banner
+    layout: { type: sticky, position: top, scroll: none }
+    rules:
+      - spacing/control-height-parity
+    components:
+      - { instanceId: global-search, component: SearchGlobal }
+
+  - regionId: main
+    label: Content area
+    ariaRole: main
+    pattern: table-view
+    layout: { type: flex-fill, scroll: independent }
+    rules:
+      - composition/vertical-rhythm
+    children:
+      - regionId: page-heading
+        label: Page header
+        layout: { type: flex-fill }
+        rules:
+          - spacing/control-height-parity
+        components:
+          - { instanceId: heading, component: PageHeader }
+
+      - regionId: toolbar
+        label: Filters and bulk actions
+        pattern: filter-popover
+        layout: { type: flex-fill }
+        rules:
+          - spacing/control-height-parity
+          - accessibility/accessible-name
+        components:
+          - { instanceId: filter, component: Filter }
+
+      - regionId: table
+        label: Records table
+        pattern: data-table-bulk-actions
+        layout: { type: flex-fill, scroll: independent }
+        rules:
+          - composition/no-clipping
+        components:
+          - { instanceId: grid, component: DataTable }
+          - { instanceId: empty-state, component: Empty }
+
+  - regionId: detail
+    label: Row detail
+    pattern: sheet-detail-panel
+    ariaRole: complementary
+    visibleWhen: row-selected
+    layout: { type: overlay, position: right }
+    rules:
+      - accessibility/accessible-name
+    components:
+      - { instanceId: sheet, component: Sheet }
+      - { instanceId: properties, component: DetailList }
+
+  - regionId: editor
+    label: Create / edit dialog
+    pattern: form-dialog
+    visibleWhen: editing
+    layout: { type: overlay }
+    rules:
+      - accessibility/accessible-name
+    components:
+      - { instanceId: form, component: FormLayout }
+
+  - regionId: delete-confirm
+    label: Delete confirmation
+    pattern: confirm-dialog
+    visibleWhen: confirming-delete
+    layout: { type: overlay }
+    components:
+      - { instanceId: confirm, component: ConfirmDialog }
+
+stateMachine:
+  states:
+    - name: idle
+      description: Before the table requests data.
+      initial: true
+      category: idle
+    - name: loading
+      description: >-
+        Fetching rows. Acceptance: the table shows a skeleton; toolbar controls
+        are present but inert.
+      category: loading
+      rules: [anatomy/data-states-present]
+    - name: loaded
+      description: >-
+        Rows shown. Acceptance: sort, filter, pagination and selection work; a
+        row opens the detail sheet; New item opens the form dialog.
+      category: loaded
+    - name: empty
+      description: >-
+        No records. Acceptance: the empty-screen pattern shows a New item action
+        (not a blank table body).
+      category: empty
+      rules: [anatomy/empty-skeleton-parity]
+    - name: error
+      description: Fetch failed. Acceptance — an error with retry is shown.
+      category: error
+    - name: confirming-delete
+      description: >-
+        A destructive delete (single or bulk) awaits confirmation. Acceptance:
+        the confirm dialog is focus-trapped and defaults focus to Cancel.
+      category: loaded
+  transitions:
+    - { from: idle, to: loading, trigger: mount }
+    - { from: loading, to: loaded, trigger: data-success, guard: 'count > 0' }
+    - { from: loading, to: empty, trigger: data-success, guard: 'count === 0' }
+    - { from: loading, to: error, trigger: data-error }
+    - { from: error, to: loading, trigger: retry }
+    - { from: loaded, to: confirming-delete, trigger: request-delete }
+    - { from: confirming-delete, to: loading, trigger: confirm-delete }
+    - { from: confirming-delete, to: loaded, trigger: cancel-delete }
+    - { from: loaded, to: loading, trigger: mutate }
+    - { from: empty, to: loading, trigger: create-first }

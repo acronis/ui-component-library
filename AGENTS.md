@@ -223,8 +223,10 @@ that workspace**, never here.
   with a `screen.yaml`), so the demo becomes the reviewable, correctable reference
   corpus that exercises ~15 of the 19 patterns. Maps each screen to concrete
   patterns/composites, per-screen region tree + state machine (D1/D3), and the
-  files it replaces. **The screens are built** on `feat/pattern-first-demo`;
-  `screen.yaml` specs land next. Proposed; not yet adopted.
+  files it replaces. **The screens are built and specced** — pattern-composed
+  routes in `apps/demo` plus a `screen.yaml` each in
+  `ui-spec/screens/{dashboard,data-table,settings,login}`. Proposed; not yet
+  adopted.
 
 ## Tooling preconditions
 

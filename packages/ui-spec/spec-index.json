@@ -1220,12 +1220,44 @@
   ],
   "screens": [
     {
+      "name": "dashboard",
+      "title": "Dashboard",
+      "status": "draft",
+      "category": "console",
+      "route": "/",
+      "pattern": "app-shell"
+    },
+    {
+      "name": "data-table",
+      "title": "Data table",
+      "status": "draft",
+      "category": "console",
+      "route": "/data",
+      "pattern": "app-shell"
+    },
+    {
+      "name": "login",
+      "title": "Login",
+      "status": "draft",
+      "category": "auth",
+      "route": "/login",
+      "pattern": "auth-screen"
+    },
+    {
       "name": "protection-dashboard",
       "title": "Protection Dashboard",
       "status": "draft",
       "category": "console",
       "route": "/protection/dashboard",
       "story": "ui-appshell--with-secondary",
+      "pattern": "app-shell"
+    },
+    {
+      "name": "settings",
+      "title": "Settings",
+      "status": "draft",
+      "category": "console",
+      "route": "/settings",
       "pattern": "app-shell"
     },
     {

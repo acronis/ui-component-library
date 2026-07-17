@@ -1,0 +1,108 @@
+spec_version: '1.0'
+name: settings
+title: Settings
+status: draft
+category: console
+description: >-
+  The settings screen inside the App Shell: tabbed sections (Profile,
+  Preferences, Account), each a config-driven form with per-section save and
+  validation. Pattern-first pilot for the /settings demo route.
+route: /settings
+pattern: app-shell
+
+regions:
+  - regionId: sidebar
+    label: Navigation rail
+    ariaRole: navigation
+    pattern: sidebar-navigation
+    layout: { type: fixed-width, position: left, scroll: none }
+    rules:
+      - composition/no-clipping
+    components:
+      - { instanceId: primary-nav, component: SidebarPrimary }
+      - { instanceId: secondary-nav, component: SidebarSecondary }
+
+  - regionId: header
+    label: Top bar
+    ariaRole: banner
+    layout: { type: sticky, position: top, scroll: none }
+    rules:
+      - spacing/control-height-parity
+    components:
+      - { instanceId: global-search, component: SearchGlobal }
+
+  - regionId: main
+    label: Content area
+    ariaRole: main
+    pattern: form-layout
+    layout: { type: flex-fill, scroll: independent }
+    rules:
+      - composition/vertical-rhythm
+    children:
+      - regionId: page-heading
+        label: Page header
+        layout: { type: flex-fill }
+        components:
+          - { instanceId: heading, component: PageHeader }
+
+      - regionId: profile-form
+        label: Profile section
+        pattern: form-layout
+        layout: { type: flex-fill }
+        rules:
+          - spacing/field-width-parity
+          - accessibility/accessible-name
+        components:
+          - { instanceId: profile, component: FormLayout }
+
+      - regionId: preferences-form
+        label: Preferences section
+        pattern: form-layout
+        layout: { type: flex-fill }
+        rules:
+          - spacing/field-width-parity
+        components:
+          - { instanceId: preferences, component: FormLayout }
+
+      - regionId: account-form
+        label: Account section
+        pattern: form-validation
+        layout: { type: flex-fill }
+        rules:
+          - spacing/field-width-parity
+          - accessibility/accessible-name
+        components:
+          - { instanceId: account, component: FormLayout }
+
+stateMachine:
+  states:
+    - name: ready
+      description: >-
+        The active section's form is populated and editable. Acceptance: fields
+        reflect current values; Save is disabled until the form is dirty.
+      initial: true
+      category: loaded
+    - name: editing
+      description: >-
+        The user has changed a field. Acceptance: Save enables; invalid fields
+        surface inline validation on submit.
+      category: loaded
+    - name: saving
+      description: Persisting the section. Acceptance — the submit control shows progress.
+      category: loading
+    - name: saved
+      description: Save succeeded. Acceptance — a success confirmation is shown.
+      category: loaded
+    - name: error
+      description: >-
+        Save failed or validation blocked submit. Acceptance: an error is shown
+        and the form stays editable.
+      category: error
+  transitions:
+    - { from: ready, to: editing, trigger: field-change }
+    - { from: editing, to: saving, trigger: submit, guard: valid }
+    - { from: editing, to: error, trigger: submit, guard: invalid }
+    - { from: saving, to: saved, trigger: save-success }
+    - { from: saving, to: error, trigger: save-error }
+    - { from: saved, to: editing, trigger: field-change }
+    - { from: error, to: editing, trigger: field-change }
