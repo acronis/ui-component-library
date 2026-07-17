@@ -204,6 +204,19 @@ that workspace**, never here.
   `screen-audit` false-positive (fixed + laddered into the grammar ledger).
   Proposes a layered delivery contract on top of the existing grammar / kit-lint /
   screen-audit / ledger machinery. Proposed; not yet adopted.
+- `context/pattern-first-screens-proposal.md` — the next step of the uikitless
+  line: build/update **whole screens from patterns, never from primitives**. The
+  **pattern becomes the mandatory unit** of screen construction (schema requires
+  `regions[].pattern`; a `require-pattern` ESLint rule + a
+  `composition/pattern-conformance` audit detector enforce it; a `patternless`
+  escape hatch feeds graduation). PMs describe intent + logic (PRD →
+  `screen.yaml` `stateMachine`); a `/screen-from-spec` skill decouples that into a
+  pattern-composed spec and generates a rule-true implementation via the
+  generate→lint→audit loop, so every interface shares one visual representation by
+  construction. Reframes **Figma as a weak/discovery source, not the authority** —
+  the implementation can be _rule-truer than the mockup_ — with a
+  `mockup-vs-pattern` skill that classifies each divergence (correct / graduate /
+  override). Includes a questions-and-solutions section. Proposed; not yet adopted.
 
 ## Tooling preconditions
 
