@@ -1,14 +1,23 @@
-import * as React from 'react';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
+  DetailList,
+  type DetailListItem,
+  Badge,
+  type BadgeProps,
+  Skeleton,
+  Empty,
+  EmptyHeader,
+  EmptyIcon,
+  EmptyTitle,
+  EmptyDescription,
 } from '@constructor-lab/ui-react';
-import { Badge } from '@constructor-lab/ui-react';
+import { InboxIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { formatDistanceToNow } from 'date-fns';
-import type { ActivityLog } from '../../types';
+import type { ActivityLog, ActivityLogEntry } from '../../types';
 
 interface RecentActivityProps {
   activities: ActivityLog;
@@ -16,13 +25,26 @@ interface RecentActivityProps {
   isLoading?: boolean;
 }
 
+// Maps an entry's status onto the shared Badge status palette so the type chip
+// also encodes success / warning / error at a glance.
+const statusVariant: Record<
+  NonNullable<ActivityLogEntry['status']>,
+  BadgeProps['variant']
+> = {
+  success: 'success',
+  warning: 'warning',
+  error: 'danger',
+};
+
+// The activity feed composed from a Card + the DetailList composite: each entry
+// becomes a label/value row (relative time → message), with the user as the muted
+// description and a status-colored Badge as the row action. When there are no
+// entries the shared Empty parts render instead.
 export function RecentActivity({
   activities,
   maxItems = 5,
   isLoading = false,
 }: RecentActivityProps) {
-  const displayedActivities = activities.slice(0, maxItems);
-
   if (isLoading) {
     return (
       <Card>
@@ -32,13 +54,13 @@ export function RecentActivity({
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {[...Array(5)].map((_, i) => (
+            {[...Array(maxItems)].map((_, i) => (
               // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders, never reordered
               <div key={i} className="flex items-start gap-4">
-                <div className="h-2 w-2 mt-2 bg-muted animate-pulse rounded-full" />
+                <Skeleton className="mt-2 h-2 w-2 rounded-full" />
                 <div className="flex-1 space-y-2">
-                  <div className="h-4 w-3/4 bg-muted animate-pulse rounded" />
-                  <div className="h-3 w-1/2 bg-muted animate-pulse rounded" />
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-3 w-1/2" />
                 </div>
               </div>
             ))}
@@ -48,6 +70,23 @@ export function RecentActivity({
     );
   }
 
+  const displayedActivities = activities.slice(0, maxItems);
+
+  const items: DetailListItem[] = displayedActivities.map((activity) => ({
+    id: activity.id,
+    label: formatDistanceToNow(activity.timestamp, { addSuffix: true }),
+    value: activity.message,
+    description: activity.user,
+    actions: (
+      <Badge
+        variant={activity.status ? statusVariant[activity.status] : 'neutral'}
+        size="sm"
+      >
+        {activity.type}
+      </Badge>
+    ),
+  }));
+
   return (
     <Card>
       <CardHeader>
@@ -55,43 +94,21 @@ export function RecentActivity({
         <CardDescription>Latest actions and events</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          {displayedActivities.map((activity) => (
-            <div key={activity.id} className="flex items-start gap-4">
-              <div
-                className={`h-2 w-2 mt-2 rounded-full ${
-                  activity.status === 'success'
-                    ? 'bg-green-500'
-                    : activity.status === 'warning'
-                      ? 'bg-yellow-500'
-                      : activity.status === 'error'
-                        ? 'bg-red-500'
-                        : 'bg-blue-500'
-                }`}
-              />
-              <div className="flex-1 space-y-1">
-                <p className="text-sm font-medium leading-none">
-                  {activity.message}
-                </p>
-                <div className="flex items-center gap-2">
-                  {activity.user && (
-                    <span className="text-xs text-muted-foreground">
-                      {activity.user}
-                    </span>
-                  )}
-                  <span className="text-xs text-muted-foreground">
-                    {formatDistanceToNow(activity.timestamp, {
-                      addSuffix: true,
-                    })}
-                  </span>
-                  <Badge variant="neutral" className="text-xs">
-                    {activity.type}
-                  </Badge>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {items.length === 0 ? (
+          <Empty className="mx-auto py-8">
+            <EmptyHeader>
+              <EmptyIcon>
+                <InboxIcon />
+              </EmptyIcon>
+              <EmptyTitle>No recent activity</EmptyTitle>
+              <EmptyDescription>
+                Actions and events will appear here as they happen.
+              </EmptyDescription>
+            </EmptyHeader>
+          </Empty>
+        ) : (
+          <DetailList items={items} labelWidth="9rem" />
+        )}
       </CardContent>
     </Card>
   );

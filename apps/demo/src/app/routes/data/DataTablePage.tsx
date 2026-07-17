@@ -1,15 +1,22 @@
 import * as React from 'react';
-import { PlusIcon } from '@constructor-lab/icons-react/stroke-mono';
-import { Button } from '@constructor-lab/ui-react';
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
+  BoxDashedIcon,
+  PlusIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
+import {
+  Button,
+  ConfirmDialog,
+  Empty,
+  EmptyActions,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyIcon,
+  EmptyTitle,
+  PageHeader,
+  PageHeaderActions,
+  PageHeaderDescription,
+  PageHeaderRow,
+  PageHeaderTitle,
 } from '@constructor-lab/ui-react';
 import { DataTable } from './DataTable';
 import { NewRowDialog } from './NewRowDialog';
@@ -18,15 +25,18 @@ import { useTableData } from '../../hooks/useTableData';
 import { useLocale } from '../../context/LocaleContext';
 import type { DataRow, DataRowFormData } from '../../types';
 
+type PendingDelete =
+  { kind: 'single'; id: string } | { kind: 'bulk'; ids: string[] };
+
 export function DataTablePage() {
   const { t } = useLocale();
   const { data, isLoading, addRow, updateRow, deleteRow, deleteRows } =
     useTableData();
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [detailOpen, setDetailOpen] = React.useState(false);
-  const [deleteDialogOpen, setDeleteDialogOpen] = React.useState(false);
   const [selectedRow, setSelectedRow] = React.useState<DataRow | null>(null);
-  const [rowToDelete, setRowToDelete] = React.useState<string | null>(null);
+  const [pendingDelete, setPendingDelete] =
+    React.useState<PendingDelete | null>(null);
   const [dialogMode, setDialogMode] = React.useState<'create' | 'edit'>(
     'create'
   );
@@ -49,20 +59,23 @@ export function DataTablePage() {
   };
 
   const handleDelete = (id: string) => {
-    setRowToDelete(id);
-    setDeleteDialogOpen(true);
+    setPendingDelete({ kind: 'single', id });
   };
 
-  const confirmDelete = async () => {
-    if (rowToDelete) {
-      await deleteRow(rowToDelete);
-      setRowToDelete(null);
-      setDeleteDialogOpen(false);
+  const handleBulkDelete = (ids: string[]) => {
+    if (ids.length > 0) {
+      setPendingDelete({ kind: 'bulk', ids });
     }
   };
 
-  const handleBulkDelete = async (ids: string[]) => {
-    await deleteRows(ids);
+  const confirmDelete = async () => {
+    if (!pendingDelete) return;
+    if (pendingDelete.kind === 'single') {
+      await deleteRow(pendingDelete.id);
+    } else {
+      await deleteRows(pendingDelete.ids);
+    }
+    setPendingDelete(null);
   };
 
   const handleSubmit = async (formData: DataRowFormData) => {
@@ -73,29 +86,55 @@ export function DataTablePage() {
     }
   };
 
+  const deleteCount =
+    pendingDelete?.kind === 'bulk' ? pendingDelete.ids.length : 1;
+  const isEmpty = !isLoading && data.length === 0;
+
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            {t('navigation.data')}
-          </h1>
-          <p className="text-muted-foreground">{t('messages.noData')}</p>
-        </div>
-        <Button onClick={handleCreate}>
-          <PlusIcon className="mr-2 h-4 w-4" />
-          {t('actions.create')}
-        </Button>
-      </div>
+      <PageHeader>
+        <PageHeaderRow>
+          <PageHeaderTitle>{t('navigation.data')}</PageHeaderTitle>
+          <PageHeaderActions>
+            <Button onClick={handleCreate}>
+              <PlusIcon className="mr-2 h-4 w-4" />
+              New item
+            </Button>
+          </PageHeaderActions>
+        </PageHeaderRow>
+        <PageHeaderDescription>
+          Browse, filter, and manage your data records.
+        </PageHeaderDescription>
+      </PageHeader>
 
-      <DataTable
-        data={data}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-        onView={handleView}
-        onBulkDelete={handleBulkDelete}
-        isLoading={isLoading}
-      />
+      {isEmpty ? (
+        <Empty className="mx-auto py-16">
+          <EmptyHeader>
+            <EmptyIcon>
+              <BoxDashedIcon />
+            </EmptyIcon>
+            <EmptyTitle>No data yet</EmptyTitle>
+            <EmptyDescription>
+              Get started by creating your first data record.
+            </EmptyDescription>
+          </EmptyHeader>
+          <EmptyActions>
+            <Button onClick={handleCreate}>
+              <PlusIcon className="mr-2 h-4 w-4" />
+              New item
+            </Button>
+          </EmptyActions>
+        </Empty>
+      ) : (
+        <DataTable
+          data={data}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          onView={handleView}
+          onBulkDelete={handleBulkDelete}
+          isLoading={isLoading}
+        />
+      )}
 
       <NewRowDialog
         open={dialogOpen}
@@ -127,22 +166,19 @@ export function DataTablePage() {
         onDelete={handleDelete}
       />
 
-      <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{t('actions.delete')}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {t('messages.deleted')}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>{t('actions.cancel')}</AlertDialogCancel>
-            <AlertDialogAction onClick={confirmDelete}>
-              {t('actions.delete')}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <ConfirmDialog
+        open={pendingDelete !== null}
+        onOpenChange={(open) => {
+          if (!open) setPendingDelete(null);
+        }}
+        title={
+          deleteCount > 1 ? `Delete ${deleteCount} items?` : 'Delete item?'
+        }
+        description="This action cannot be undone."
+        destructive
+        confirmLabel="Delete"
+        onConfirm={confirmDelete}
+      />
     </div>
   );
 }

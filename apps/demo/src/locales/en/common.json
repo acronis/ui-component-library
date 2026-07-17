@@ -22,7 +22,9 @@
     "profile": "Profile",
     "email": "Email",
     "password": "Password",
-    "username": "Username"
+    "username": "Username",
+    "preferences": "Preferences",
+    "account": "Account"
   },
   "messages": {
     "welcome": "Welcome, {{username}}!",

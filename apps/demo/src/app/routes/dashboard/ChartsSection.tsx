@@ -5,12 +5,20 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  Grid,
+  Skeleton,
+  Empty,
+  EmptyHeader,
+  EmptyIcon,
+  EmptyTitle,
+  EmptyDescription,
 } from '@constructor-lab/ui-react';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '@constructor-lab/ui-react';
+import { ChartTrendIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
   LineChart,
   Line,
@@ -47,6 +55,53 @@ const chartConfig = {
   },
 };
 
+// A single chart tile: a Card whose body holds either the recharts chart (kept as
+// the ui-react ChartContainer theming wrapper) or, when there is no data, the
+// shared Empty parts so every tile's empty state reads identically.
+function ChartCard({
+  title,
+  description,
+  isEmpty,
+  children,
+}: {
+  title: string;
+  description: string;
+  isEmpty: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {isEmpty ? (
+          <div className="flex h-[300px] items-center justify-center">
+            <Empty>
+              <EmptyHeader>
+                <EmptyIcon>
+                  <ChartTrendIcon />
+                </EmptyIcon>
+                <EmptyTitle>No data yet</EmptyTitle>
+                <EmptyDescription>
+                  There is nothing to chart for this range.
+                </EmptyDescription>
+              </EmptyHeader>
+            </Empty>
+          </div>
+        ) : (
+          <ChartContainer config={chartConfig} className="h-[300px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              {children as React.ReactElement}
+            </ResponsiveContainer>
+          </ChartContainer>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
 export function ChartsSection({
   timeSeriesData,
   categoryData,
@@ -55,155 +110,127 @@ export function ChartsSection({
 }: ChartsSectionProps) {
   if (isLoading) {
     return (
-      <div className="grid gap-4 md:grid-cols-2">
-        {[...Array(3)].map((_, i) => (
+      <Grid cols={2}>
+        {[...Array(4)].map((_, i) => (
           // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders, never reordered
           <Card key={i}>
             <CardHeader>
-              <div className="h-5 w-32 bg-muted animate-pulse rounded" />
+              <Skeleton className="h-5 w-32" />
             </CardHeader>
             <CardContent>
-              <div className="h-[300px] bg-muted animate-pulse rounded" />
+              <Skeleton className="h-[300px] w-full" />
             </CardContent>
           </Card>
         ))}
-      </div>
+      </Grid>
     );
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-2">
-      <Card className="col-span-2 md:col-span-1">
-        <CardHeader>
-          <CardTitle>User Activity</CardTitle>
-          <CardDescription>
-            Daily active users over the last 30 days
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={timeSeriesData}>
-                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis
-                  dataKey="date"
-                  tickFormatter={(value) =>
-                    new Date(value).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                    })
-                  }
-                  className="text-xs"
-                />
-                <YAxis className="text-xs" />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <Line
-                  type="monotone"
-                  dataKey="value"
-                  stroke={CHART_COLORS_SEMANTIC.success}
-                  strokeWidth={2}
-                  dot={false}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </ChartContainer>
-        </CardContent>
-      </Card>
+    <Grid cols={2}>
+      <ChartCard
+        title="User Activity"
+        description="Daily active users over the last 30 days"
+        isEmpty={timeSeriesData.length === 0}
+      >
+        <LineChart data={timeSeriesData}>
+          <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+          <XAxis
+            dataKey="date"
+            tickFormatter={(value) =>
+              new Date(value).toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+              })
+            }
+            className="text-xs"
+          />
+          <YAxis className="text-xs" />
+          <ChartTooltip content={<ChartTooltipContent />} />
+          <Line
+            type="monotone"
+            dataKey="value"
+            stroke={CHART_COLORS_SEMANTIC.success}
+            strokeWidth={2}
+            dot={false}
+          />
+        </LineChart>
+      </ChartCard>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Sales by Category</CardTitle>
-          <CardDescription>
-            Revenue breakdown by product category
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={categoryData}>
-                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis dataKey="category" className="text-xs" />
-                <YAxis className="text-xs" />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <Bar
-                  dataKey="value"
-                  fill={CHART_COLORS_SEMANTIC.danger}
-                  radius={[4, 4, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </ChartContainer>
-        </CardContent>
-      </Card>
+      <ChartCard
+        title="Sales by Category"
+        description="Revenue breakdown by product category"
+        isEmpty={categoryData.length === 0}
+      >
+        <BarChart data={categoryData}>
+          <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+          <XAxis dataKey="category" className="text-xs" />
+          <YAxis className="text-xs" />
+          <ChartTooltip content={<ChartTooltipContent />} />
+          <Bar
+            dataKey="value"
+            fill={CHART_COLORS_SEMANTIC.danger}
+            radius={[4, 4, 0, 0]}
+          />
+        </BarChart>
+      </ChartCard>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Revenue Trend</CardTitle>
-          <CardDescription>Cumulative revenue over time</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={timeSeriesData}>
-                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis
-                  dataKey="date"
-                  tickFormatter={(value) =>
-                    new Date(value).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                    })
-                  }
-                  className="text-xs"
-                />
-                <YAxis className="text-xs" />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <Area
-                  type="monotone"
-                  dataKey="value"
-                  stroke={CHART_COLORS_SEMANTIC.primary}
-                  fill={CHART_COLORS_SEMANTIC.primary}
-                  fillOpacity={0.2}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </ChartContainer>
-        </CardContent>
-      </Card>
+      <ChartCard
+        title="Revenue Trend"
+        description="Cumulative revenue over time"
+        isEmpty={timeSeriesData.length === 0}
+      >
+        <AreaChart data={timeSeriesData}>
+          <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+          <XAxis
+            dataKey="date"
+            tickFormatter={(value) =>
+              new Date(value).toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+              })
+            }
+            className="text-xs"
+          />
+          <YAxis className="text-xs" />
+          <ChartTooltip content={<ChartTooltipContent />} />
+          <Area
+            type="monotone"
+            dataKey="value"
+            stroke={CHART_COLORS_SEMANTIC.primary}
+            fill={CHART_COLORS_SEMANTIC.primary}
+            fillOpacity={0.2}
+          />
+        </AreaChart>
+      </ChartCard>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>User Distribution</CardTitle>
-          <CardDescription>Users by subscription tier</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={distributionData as any}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name, percent }) =>
-                    `${name} ${(percent * 100).toFixed(0)}%`
-                  }
-                  outerRadius={80}
-                  fill={CHART_COLORS_SEMANTIC.success}
-                  stroke={CHART_COLORS_SEMANTIC.primary}
-                  strokeWidth={2}
-                  dataKey="value"
-                >
-                  {distributionData.map((entry) => (
-                    <Cell key={entry.name} fill={entry.fill} />
-                  ))}
-                </Pie>
-                <ChartTooltip content={<ChartTooltipContent />} />
-              </PieChart>
-            </ResponsiveContainer>
-          </ChartContainer>
-        </CardContent>
-      </Card>
-    </div>
+      <ChartCard
+        title="User Distribution"
+        description="Users by subscription tier"
+        isEmpty={distributionData.length === 0}
+      >
+        <PieChart>
+          <Pie
+            data={distributionData as any}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            label={({ name, percent }) =>
+              `${name} ${(percent * 100).toFixed(0)}%`
+            }
+            outerRadius={80}
+            fill={CHART_COLORS_SEMANTIC.success}
+            stroke={CHART_COLORS_SEMANTIC.primary}
+            strokeWidth={2}
+            dataKey="value"
+          >
+            {distributionData.map((entry) => (
+              <Cell key={entry.name} fill={entry.fill} />
+            ))}
+          </Pie>
+          <ChartTooltip content={<ChartTooltipContent />} />
+        </PieChart>
+      </ChartCard>
+    </Grid>
   );
 }

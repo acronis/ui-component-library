@@ -1,11 +1,9 @@
-import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+  AuthLayout,
+  AuthLayoutCard,
+  AuthLayoutFooter,
+  AuthLayoutLogo,
 } from '@constructor-lab/ui-react';
 import { LoginForm } from './LoginForm';
 import { useAuth } from '../../hooks/useAuth';
@@ -13,35 +11,33 @@ import type { LoginFormData } from '../../lib/validators';
 
 export function LoginPage() {
   const { login, isLoading, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
 
-  React.useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/dashboard');
-    }
-  }, [isAuthenticated, navigate]);
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" replace />;
+  }
 
   const handleLogin = async (data: LoginFormData) => {
     await login(data.email, data.password);
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/40 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
-          <CardDescription>
+    <AuthLayout>
+      <AuthLayoutCard>
+        <AuthLayoutLogo>
+          <span className="text-xl font-bold">Constructor Lab</span>
+        </AuthLayoutLogo>
+        <div className="mb-6 space-y-1 text-center">
+          <h1 className="text-2xl font-bold">Welcome back</h1>
+          <p className="text-sm text-muted-foreground">
             Enter any email and password to sign in to the demo
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <LoginForm onSubmit={handleLogin} isLoading={isLoading} />
-          <div className="mt-4 text-center text-sm text-muted-foreground">
-            <p>This is a demo with mock authentication.</p>
-            <p className="mt-1">Any credentials will work!</p>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+          </p>
+        </div>
+        <LoginForm onSubmit={handleLogin} isLoading={isLoading} />
+        <AuthLayoutFooter>
+          <p>This is a demo with mock authentication.</p>
+          <p className="mt-1">Any credentials will work!</p>
+        </AuthLayoutFooter>
+      </AuthLayoutCard>
+    </AuthLayout>
   );
 }

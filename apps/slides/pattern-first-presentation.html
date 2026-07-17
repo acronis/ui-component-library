@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constructor Lab — Pattern-First Screens</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --bg-2: #121a33;
+        --panel: #16203d;
+        --panel-2: #1c2950;
+        --ink: #eef2ff;
+        --ink-dim: #aab4d4;
+        --ink-faint: #7f8bb3;
+        --accent: #6ea8fe;
+        --accent-2: #8b7bff;
+        --good: #4ade80;
+        --warn: #fbbf24;
+        --line: #2a3766;
+        --radius: 14px;
+        --mono:
+          ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+        --sans:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+          Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: var(--sans);
+        background:
+          radial-gradient(
+            1200px 800px at 80% -10%,
+            #1b2a55 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            1000px 700px at -10% 110%,
+            #241a4d 0%,
+            transparent 55%
+          ),
+          var(--bg);
+        color: var(--ink);
+        overflow: hidden;
+      }
+
+      /* Deck */
+      .deck {
+        position: fixed;
+        inset: 0;
+      }
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: none;
+        flex-direction: column;
+        padding: 6vh 8vw 9vh;
+        animation: fade 0.35s ease;
+      }
+      .slide.active {
+        display: flex;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .eyebrow {
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+      }
+      h1 {
+        font-size: 3.4rem;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.3rem;
+      }
+      .sub {
+        color: var(--ink-dim);
+        font-size: 1.05rem;
+        margin-top: 0.9rem;
+        max-width: 60ch;
+      }
+      .slide > .lead {
+        color: var(--ink-dim);
+        font-size: 1.1rem;
+        margin: 0.2rem 0 1.6rem;
+        max-width: 70ch;
+      }
+
+      /* Title slide */
+      .title {
+        justify-content: center;
+      }
+      .title h1 {
+        font-size: 4rem;
+        max-width: 18ch;
+      }
+      .title .gradient {
+        background: linear-gradient(100deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .meta-row {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 2.6rem;
+        flex-wrap: wrap;
+      }
+      .meta-row .k {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--ink-faint);
+      }
+      .meta-row .v {
+        font-size: 1.05rem;
+        color: var(--ink);
+        margin-top: 0.25rem;
+        font-weight: 600;
+      }
+
+      /* Layout helpers */
+      .grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .cols-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .fill {
+        flex: 1;
+        min-height: 0;
+      }
+
+      .card {
+        background: linear-gradient(180deg, var(--panel), var(--bg-2));
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.1rem 1.2rem;
+      }
+      .card h3 {
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+      .card p {
+        color: var(--ink-dim);
+        font-size: 0.9rem;
+        margin-top: 0.45rem;
+        line-height: 1.5;
+      }
+      .card .tag {
+        font-size: 0.68rem;
+        color: var(--accent);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .dot {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: var(--accent);
+        display: inline-block;
+      }
+
+      ul.clean {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      ul.clean li {
+        display: flex;
+        gap: 0.7rem;
+        align-items: flex-start;
+        color: var(--ink-dim);
+        font-size: 1rem;
+        line-height: 1.45;
+      }
+      ul.clean li b {
+        color: var(--ink);
+        font-weight: 650;
+      }
+      ul.clean li::before {
+        content: '▸';
+        color: var(--accent);
+        font-weight: 700;
+        flex: none;
+        line-height: 1.4;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+      .pill.pub {
+        background: rgba(74, 222, 128, 0.14);
+        color: var(--good);
+        border: 1px solid rgba(74, 222, 128, 0.3);
+      }
+      .pill.priv {
+        background: rgba(127, 139, 179, 0.14);
+        color: var(--ink-faint);
+        border: 1px solid var(--line);
+      }
+
+      /* Table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 0.5rem 0.6rem;
+        border-bottom: 1px solid var(--line);
+      }
+      th {
+        color: var(--ink-faint);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+      }
+      td {
+        color: var(--ink-dim);
+      }
+      td b,
+      td code {
+        color: var(--ink);
+      }
+      code {
+        font-family: var(--mono);
+        font-size: 0.82em;
+        background: rgba(110, 168, 254, 0.1);
+        padding: 0.08em 0.35em;
+        border-radius: 5px;
+        color: var(--accent);
+      }
+
+      /* Pipeline / flow */
+      .flow {
+        display: flex;
+        align-items: stretch;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .flow .step {
+        flex: 1;
+        min-width: 130px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0.9rem;
+      }
+      .flow .step .n {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .flow .step .t {
+        font-weight: 700;
+        margin: 0.3rem 0;
+      }
+      .flow .step .d {
+        font-size: 0.8rem;
+        color: var(--ink-dim);
+      }
+      .arrow {
+        align-self: center;
+        color: var(--accent);
+        font-size: 1.4rem;
+      }
+
+      /* Timeline */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+      .tl-row {
+        display: grid;
+        grid-template-columns: 130px 110px 1fr;
+        gap: 1rem;
+        align-items: center;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 0.65rem 0.9rem;
+      }
+      .tl-row .phase {
+        font-weight: 700;
+      }
+      .tl-row .when {
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .tl-row .what {
+        color: var(--ink-dim);
+        font-size: 0.88rem;
+      }
+      .tl-row.gate {
+        border-color: rgba(139, 123, 255, 0.5);
+        background: linear-gradient(
+          90deg,
+          rgba(139, 123, 255, 0.12),
+          var(--panel)
+        );
+      }
+      .tl-row.gate .phase {
+        color: var(--accent-2);
+      }
+
+      /* Epics */
+      .epic {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--accent);
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+      }
+      .epic .id {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--accent);
+      }
+      .epic h3 {
+        font-size: 0.98rem;
+        margin: 0.15rem 0 0.35rem;
+      }
+      .epic p {
+        font-size: 0.82rem;
+        color: var(--ink-dim);
+        line-height: 1.4;
+      }
+
+      .stat {
+        text-align: center;
+      }
+      .stat .num {
+        font-size: 2.6rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        background: linear-gradient(120deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .stat .lbl {
+        color: var(--ink-dim);
+        font-size: 0.82rem;
+        margin-top: 0.2rem;
+      }
+
+      .note {
+        font-size: 0.82rem;
+        color: var(--ink-faint);
+        margin-top: 1rem;
+      }
+      .kbd {
+        font-family: var(--mono);
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 0.1em 0.45em;
+        font-size: 0.8em;
+        color: var(--ink);
+      }
+
+      /* Chrome */
+      .progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        transition: width 0.3s ease;
+        z-index: 50;
+      }
+      .counter {
+        position: fixed;
+        bottom: 1.4rem;
+        right: 1.8rem;
+        font-size: 0.8rem;
+        color: var(--ink-faint);
+        font-family: var(--mono);
+        z-index: 50;
+      }
+      .brand-tag {
+        position: fixed;
+        bottom: 1.4rem;
+        left: 1.8rem;
+        font-size: 0.8rem;
+        color: var(--ink-faint);
+        z-index: 50;
+        letter-spacing: 0.04em;
+      }
+      .nav-hint {
+        position: fixed;
+        bottom: 1.4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        color: var(--ink-faint);
+        z-index: 50;
+      }
+      .navbtn {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 50;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        color: var(--ink);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        opacity: 0.35;
+        transition: opacity 0.2s;
+      }
+      .navbtn:hover {
+        opacity: 1;
+      }
+      .navbtn.prev {
+        left: 1.2rem;
+      }
+      .navbtn.next {
+        right: 1.2rem;
+      }
+
+      @media (max-width: 820px) {
+        .cols-2,
+        .cols-3,
+        .cols-4 {
+          grid-template-columns: 1fr;
+        }
+        h1,
+        .title h1 {
+          font-size: 2.4rem;
+        }
+        .slide {
+          padding: 5vh 6vw 8vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+    <div class="deck" id="deck">
+      <!-- 1 — TITLE -->
+      <section class="slide title active">
+        <div class="eyebrow">Constructor Lab Platform · Design System</div>
+        <h1>
+          <span class="gradient">Pattern-First</span> Screens<br />Interfaces
+          built from patterns, not primitives
+        </h1>
+        <p class="sub">
+          One cyber ecosystem where tokens → components → patterns → screens →
+          apps form a single pipeline — and every screen is composed from
+          approved patterns, so consistency is guaranteed by construction.
+        </p>
+        <div class="meta-row">
+          <div>
+            <div class="k">Unit of construction</div>
+            <div class="v">the pattern</div>
+          </div>
+          <div>
+            <div class="k">Authored by</div>
+            <div class="v">PM intent · AI skill</div>
+          </div>
+          <div>
+            <div class="k">Guaranteed by</div>
+            <div class="v">generate → lint → audit</div>
+          </div>
+          <div>
+            <div class="k">Source of truth</div>
+            <div class="v">the spec, not the mockup</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 — THE PROBLEM -->
+      <section class="slide">
+        <div class="eyebrow">The problem</div>
+        <h2>Consistency stops at the component</h2>
+        <p class="lead">
+          The kit spent its consistency budget on components — tokens,
+          primitives, composites, a rendered audit. But interfaces are still
+          assembled the old way: an engineer opens a screen and
+          <b>hand-wires primitives</b> to match a mockup.
+        </p>
+        <div class="grid cols-3 fill">
+          <div class="card">
+            <span class="tag">every screen</span>
+            <h3>🎲 A fresh act of composition</h3>
+            <p>
+              Each screen is a new chance to drift — mismatched control heights,
+              two components for one job, off-grid layout, ad-hoc panels.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">optional</span>
+            <h3>🤷 Patterns aren't enforced</h3>
+            <p>
+              Composites and patterns exist, but their use is a matter of author
+              discipline — and discipline doesn't scale across teams and time.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">instructions</span>
+            <h3>🌫️ Prompts drift</h3>
+            <p>
+              "Good enough AI instructions" are unbounded and probabilistic; a
+              component is bounded and deterministic. Prose guidance degrades.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          The unfinished half of the uikitless line: close the
+          <b>generation</b> half and make the pattern the enforced unit.
+        </p>
+      </section>
+
+      <!-- 3 — THE THESIS / LAYERS -->
+      <section class="slide">
+        <div class="eyebrow">The thesis</div>
+        <h2>Screens are patterns, all the way down</h2>
+        <p class="lead">
+          Screen and app code may not reach for primitives directly. The
+          <b>pattern is the mandatory unit</b> of screen construction — the same
+          move composites made over primitives, lifted one tier.
+        </p>
+        <div class="flow fill" style="align-items: center">
+          <div class="step">
+            <div class="n">KIT-INTERNAL</div>
+            <div class="t">primitives</div>
+            <div class="d">Base UI + <code>--ui-*</code> tokens</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">BLOCKS</div>
+            <div class="t">composites</div>
+            <div class="d">config-driven, opinionated</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">THE UNIT</div>
+            <div class="t">patterns</div>
+            <div class="d">approved multi-composite recipes</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">DECLARED</div>
+            <div class="t">screens</div>
+            <div class="d"><code>screen.yaml</code>: regions → patterns</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">ASSEMBLED</div>
+            <div class="t">app</div>
+            <div class="d"><code>app.yaml</code>: routes + state</div>
+          </div>
+        </div>
+        <p class="note">
+          A screen becomes a <b>declaration</b>: "this region is
+          <code>table-view</code>, this one <code>form-layout</code>." Every
+          screen renders the <i>same</i> patterns — not a hand-rebuilt
+          lookalike.
+        </p>
+      </section>
+
+      <!-- 4 — WHO AUTHORS WHAT -->
+      <section class="slide">
+        <div class="eyebrow">Separation of concerns</div>
+        <h2>Four roles, one artifact chain</h2>
+        <div class="grid cols-4 fill">
+          <div class="card">
+            <span class="tag">PM</span>
+            <h3>🎯 Intent &amp; behavior</h3>
+            <p>
+              Requirements, states, data, rules of the flow → the
+              <code>screen.yaml</code> state machine + data bindings.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">Designer</span>
+            <h3>🎨 Intent &amp; discovery</h3>
+            <p>
+              Hierarchy and <b>pattern discovery</b> in Figma — a
+              reference/discovery input, not the structural authority.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">AI skill</span>
+            <h3>🤖 Decouple &amp; generate</h3>
+            <p>
+              <code>/screen-from-spec</code> turns the PRD into a
+              pattern-composed spec and generates the implementation.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">Kit</span>
+            <h3>🧱 Catalog &amp; grammar</h3>
+            <p>
+              Owns the pattern/composite catalog and the grammar that guarantees
+              the look.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          The PM writes logic once, in prose; the AI turns it into a spec; the
+          kit guarantees the look. <b>No one hand-masters primitives.</b>
+        </p>
+      </section>
+
+      <!-- 5 — THE LOOP -->
+      <section class="slide">
+        <div class="eyebrow">How it works</div>
+        <h2>generate → lint → audit → regenerate</h2>
+        <p class="lead">
+          The verification loop — not the prompt — is what makes rules-driven
+          consistency real. Generation is allowed to be imperfect because the
+          gates hold the line.
+        </p>
+        <div class="flow fill" style="align-items: center">
+          <div class="step">
+            <div class="n">1 · DECOUPLE</div>
+            <div class="t">PRD → screen.yaml</div>
+            <div class="d">
+              regions bound to approved patterns + a state machine
+            </div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">2 · GENERATE</div>
+            <div class="t">spec → screen</div>
+            <div class="d">rendered from patterns/composites only</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">3 · LINT</div>
+            <div class="t">require-pattern</div>
+            <div class="d">rejects hand-wired primitives (ESLint)</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">4 · AUDIT</div>
+            <div class="t">screen-audit</div>
+            <div class="d">rendered pattern-conformance + grammar</div>
+          </div>
+        </div>
+        <p class="note">
+          Already prototyped and shown to hold the line on
+          <code>protection-dashboard</code> and <code>settings-form</code> — it
+          even caught bugs in its own detectors (contrast, hidden proxies).
+        </p>
+      </section>
+
+      <!-- 6 — ENFORCEMENT -->
+      <section class="slide">
+        <div class="eyebrow">Enforcement, not etiquette</div>
+        <h2>Three gates + one escape hatch</h2>
+        <div class="grid cols-3 fill">
+          <div class="card">
+            <span class="tag">schema</span>
+            <h3>📐 Required pattern</h3>
+            <p>
+              A region declares a primary <code>pattern</code> (and may nest
+              child patterns). The slug must resolve in the catalog.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">static</span>
+            <h3>🚫 require-pattern</h3>
+            <p>
+              ESLint on app code: assembling primitives into a region that
+              matches a known pattern is an error that names the pattern to use.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">rendered</span>
+            <h3>🔎 pattern-conformance</h3>
+            <p>
+              A screen-audit detector: every region must structurally match its
+              declared pattern's anatomy.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          <b>Escape hatch → graduation:</b> no pattern fits?
+          <code>patternless: {reason}</code> is a tracked, ledgered deviation
+          that feeds the graduation pipeline. Escapes are finite, not a
+          loophole.
+        </p>
+      </section>
+
+      <!-- 7 — FIGMA IS A WEAK SOURCE -->
+      <section class="slide">
+        <div class="eyebrow">Design ↔ code</div>
+        <h2>The implementation can be rule-truer than the mockup</h2>
+        <p class="lead">
+          Mockups are human-authored and improvise. Treating the mockup as the
+          source of truth re-imports that drift into code. So we
+          <b>invert the authority</b>: the spec (patterns) is truth; the mockup
+          is a discovery input.
+        </p>
+        <div class="grid cols-3 fill">
+          <div class="card">
+            <span class="tag">improvisation</span>
+            <h3>✅ Correct it</h3>
+            <p>
+              Snap the improvised layout onto the nearest approved pattern. The
+              shipped screen is more consistent than the drawing.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">new structure</span>
+            <h3>🎓 Graduate it</h3>
+            <p>
+              A genuinely new shape becomes a pattern candidate — designer
+              proposes, kit ratifies.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">intended</span>
+            <h3>📝 Override it</h3>
+            <p>
+              A real exception is a scoped, dated grammar override — auditable,
+              never silent.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          Figma becomes what it's good at — a place to <i>discover</i> patterns
+          — without ever silently dictating a screen's anatomy.
+        </p>
+      </section>
+
+      <!-- 8 — DECISIONS -->
+      <section class="slide">
+        <div class="eyebrow">Ratified decisions</div>
+        <h2>The rules of the model</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Decision</th>
+              <th>Chosen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>D1</b></td>
+              <td>Region granularity</td>
+              <td>Nested patterns — a region tree, not one-per-region</td>
+            </tr>
+            <tr>
+              <td><b>D2</b></td>
+              <td>Enforcement rollout</td>
+              <td>
+                New screens error; existing hand-built grandfathered as warnings
+              </td>
+            </tr>
+            <tr>
+              <td><b>D3</b></td>
+              <td>PRD → spec contract</td>
+              <td>
+                Entities + states + data + actions +
+                <b>per-state acceptance criteria</b> (the audit oracles)
+              </td>
+            </tr>
+            <tr>
+              <td><b>D4</b></td>
+              <td>Pattern ownership</td>
+              <td>Joint — designer proposes, kit maintainer ratifies</td>
+            </tr>
+            <tr>
+              <td><b>D5</b></td>
+              <td>Logic location</td>
+              <td>
+                Screen-local in <code>stateMachine</code>; cross-screen in
+                <code>app.yaml</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 9 — THE DEMO AS EVIDENCE -->
+      <section class="slide">
+        <div class="eyebrow">Proof · apps/demo</div>
+        <h2>Four screens, composed from patterns</h2>
+        <p class="lead">
+          The demo is the living, reviewable corpus: click a real screen,
+          correct the <b>spec</b> (not the markup), regenerate. Together they
+          exercise ~15 of the 19 patterns.
+        </p>
+        <div class="grid cols-4 fill">
+          <div class="card">
+            <span class="tag">/</span>
+            <h3>📊 Dashboard</h3>
+            <p>
+              <code>dashboard</code> › <code>card-grid</code> — KPI
+              <code>stat-row</code>, <code>widget-*</code>, <code>chart</code>.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">/data</span>
+            <h3>🗂️ Data table</h3>
+            <p>
+              <code>table-view</code> + <code>bulk-actions</code> +
+              <code>filter-popover</code> + <code>sheet-detail-panel</code> +
+              <code>form-dialog</code> + <code>confirm-dialog</code>.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">/settings</span>
+            <h3>⚙️ Settings</h3>
+            <p>
+              <code>form-layout</code> + <code>field-group</code> +
+              <code>form-validation</code> sections.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">/login</span>
+            <h3>🔐 Login</h3>
+            <p>
+              <code>auth-screen</code> + <code>form-layout</code> — plus a
+              shared <code>empty-screen</code> state.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          Each screen ships three artifacts: a <code>screen.yaml</code> (the
+          contract), a route (pattern-composed), and an audit fixture.
+        </p>
+      </section>
+
+      <!-- 10 — ONE CYBER ECOSYSTEM -->
+      <section class="slide">
+        <div class="eyebrow">The bigger picture</div>
+        <h2>One cyber ecosystem</h2>
+        <p class="lead">
+          Pattern-first screens are the top of a single pipeline. A change flows
+          in one direction and every surface stays consistent by construction.
+        </p>
+        <div class="flow fill" style="align-items: center">
+          <div class="step">
+            <div class="n">FIGMA</div>
+            <div class="t">tokens + discovery</div>
+            <div class="d">variables, styles, pattern candidates</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">TOKENS</div>
+            <div class="t">--ui-*</div>
+            <div class="d">brand/theme at paint time</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">COMPONENTS</div>
+            <div class="t">ui-react</div>
+            <div class="d">primitives + composites</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">PATTERNS</div>
+            <div class="t">ui-spec</div>
+            <div class="d">the enforced screen vocabulary</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="n">SCREENS/APPS</div>
+            <div class="t">Cyber Platform</div>
+            <div class="d">consoles composed from patterns</div>
+          </div>
+        </div>
+        <p class="note">
+          Change a token, a component, or a pattern once — every console in the
+          ecosystem follows, without touching a screen.
+        </p>
+      </section>
+
+      <!-- 11 — ROADMAP -->
+      <section class="slide">
+        <div class="eyebrow">Next</div>
+        <h2>How it lands — incrementally, behind the gates</h2>
+        <div class="grid cols-3 fill">
+          <div class="card">
+            <span class="tag">phase 1</span>
+            <h3>Schema + conformance</h3>
+            <p>
+              Required <code>pattern</code>, the
+              <code>pattern-conformance</code> detector, and
+              <code>require-pattern</code> ESLint.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">phase 2</span>
+            <h3>The skills</h3>
+            <p>
+              <code>/screen-from-spec</code> (PRD → spec → screen) and
+              <code>mockup-vs-pattern</code> (classify divergences).
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">phase 3</span>
+            <h3>The demo corpus</h3>
+            <p>
+              Ship the four pattern-composed screens as the reviewable pilot and
+              templates gallery.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          Not a flag day: new screens are gated; existing ones migrate. Not
+          removing primitives, the flexible API, or Figma from the workflow.
+        </p>
+      </section>
+
+      <!-- 12 — CLOSING -->
+      <section class="slide title">
+        <div class="eyebrow">In one line</div>
+        <h1>
+          Make the <span class="gradient">pattern</span> the unit —<br />and the
+          screen builds itself
+        </h1>
+        <p class="sub">
+          PMs describe intent and logic; an AI skill decouples it into a
+          pattern-composed spec; the kit generates a rule-true implementation —
+          so every interface in the cyber ecosystem shares one visual
+          representation, and the shipped screen can be better than the mockup.
+        </p>
+        <p class="note">
+          Proposals: <code>context/pattern-first-screens-proposal.md</code> ·
+          <code>context/demo-pattern-screens-proposal.md</code> ·
+          <code>context/uikitless-workflow-proposal.md</code>
+        </p>
+      </section>
+    </div>
+
+    <button class="navbtn prev" id="prev" aria-label="Previous">‹</button>
+    <button class="navbtn next" id="next" aria-label="Next">›</button>
+    <div class="counter" id="counter">1 / 14</div>
+    <div class="brand-tag">Constructor Lab UI Kit</div>
+    <div class="nav-hint">
+      Use <span class="kbd">←</span> <span class="kbd">→</span> ·
+      <span class="kbd">F</span> fullscreen
+    </div>
+
+    <script>
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const total = slides.length;
+      let i = 0;
+      const progress = document.getElementById('progress');
+      const counter = document.getElementById('counter');
+
+      function show(n) {
+        i = Math.max(0, Math.min(total - 1, n));
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+        progress.style.width = ((i + 1) / total) * 100 + '%';
+        counter.textContent = i + 1 + ' / ' + total;
+        location.hash = i + 1;
+      }
+      function next() {
+        show(i + 1);
+      }
+      function prev() {
+        show(i - 1);
+      }
+
+      document.getElementById('next').onclick = next;
+      document.getElementById('prev').onclick = prev;
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+          e.preventDefault();
+          next();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          prev();
+        } else if (e.key === 'Home') show(0);
+        else if (e.key === 'End') show(total - 1);
+        else if (e.key.toLowerCase() === 'f') {
+          if (!document.fullscreenElement)
+            document.documentElement.requestFullscreen();
+          else document.exitFullscreen();
+        }
+      });
+
+      // swipe
+      let tx = 0;
+      document.addEventListener(
+        'touchstart',
+        (e) => (tx = e.changedTouches[0].clientX),
+        { passive: true }
+      );
+      document.addEventListener(
+        'touchend',
+        (e) => {
+          const dx = e.changedTouches[0].clientX - tx;
+          if (Math.abs(dx) > 50) (dx < 0 ? next : prev)();
+        },
+        { passive: true }
+      );
+
+      const start = parseInt(location.hash.slice(1)) - 1;
+      show(Number.isInteger(start) && start >= 0 ? start : 0);
+    </script>
+  </body>
+</html>

@@ -1,12 +1,32 @@
 import * as React from 'react';
 import {
-  ArrowsDownUpIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@constructor-lab/icons-react/stroke-mono';
-import { Button, ButtonIcon } from '@constructor-lab/ui-react';
-import { Input } from '@constructor-lab/ui-react';
+  type ColumnDef,
+  type ColumnFiltersState,
+  type RowSelectionState,
+  type SortingState,
+  type VisibilityState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
+import { format } from 'date-fns';
+import { BinIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
+  Badge,
+  type BadgeProps,
+  Button,
+  Checkbox,
+  DataTableColumnHeader,
+  DataTablePagination,
+  DataTableViewOptions,
+  Filter,
+  InputText,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
   Table,
   TableBody,
   TableCell,
@@ -14,17 +34,7 @@ import {
   TableHeader,
   TableRow,
 } from '@constructor-lab/ui-react';
-import { Checkbox } from '@constructor-lab/ui-react';
-import { Badge } from '@constructor-lab/ui-react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@constructor-lab/ui-react';
 import { RowActions } from './RowActions';
-import { format } from 'date-fns';
 import type { DataRow } from '../../types';
 
 interface DataTableProps {
@@ -36,9 +46,24 @@ interface DataTableProps {
   isLoading?: boolean;
 }
 
-type SortField = keyof DataRow | null;
-type SortDirection = 'asc' | 'desc';
+const STATUS_OPTIONS: DataRow['status'][] = ['active', 'inactive', 'pending'];
 
+const statusVariant: Record<DataRow['status'], BadgeProps['variant']> = {
+  active: 'success',
+  inactive: 'neutral',
+  pending: 'warning',
+};
+
+const capitalize = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1);
+
+// The table view — the `table-view` + `data-table-bulk-actions` +
+// `filter-popover` patterns composed over the kit's DataTable sub-parts. We lift
+// `useReactTable` here (rather than the self-contained `DataTable` composite)
+// because the composite manages sorting/filter/selection/pagination internally
+// and exposes no `table` instance — and we need that instance to drive the
+// toolbar search, the filter popover, the bulk-delete bar, and pagination off a
+// single source of truth.
 export function DataTable({
   data,
   onEdit,
@@ -47,101 +72,183 @@ export function DataTable({
   onBulkDelete,
   isLoading = false,
 }: DataTableProps) {
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const [sortField, setSortField] = React.useState<SortField>('name');
-  const [sortDirection, setSortDirection] =
-    React.useState<SortDirection>('asc');
-  const [selectedRows, setSelectedRows] = React.useState<Set<string>>(
-    () => new Set()
+  const [sorting, setSorting] = React.useState<SortingState>([
+    { id: 'name', desc: false },
+  ]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
   );
-  const [currentPage, setCurrentPage] = React.useState(0);
-  const [pageSize, setPageSize] = React.useState(10);
+  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
 
-  const filteredData = React.useMemo(() => {
-    return data.filter((row) => {
-      const query = searchQuery.toLowerCase();
-      return (
-        row.name.toLowerCase().includes(query) ||
-        row.category.toLowerCase().includes(query) ||
-        row.status.toLowerCase().includes(query) ||
-        row.description?.toLowerCase().includes(query)
-      );
-    });
-  }, [data, searchQuery]);
+  const columns = React.useMemo<ColumnDef<DataRow>[]>(
+    () => [
+      {
+        id: 'select',
+        enableSorting: false,
+        enableHiding: false,
+        header: ({ table }) => (
+          <Checkbox
+            checked={table.getIsAllPageRowsSelected()}
+            indeterminate={
+              table.getIsSomePageRowsSelected() &&
+              !table.getIsAllPageRowsSelected()
+            }
+            onCheckedChange={(checked) =>
+              table.toggleAllPageRowsSelected(Boolean(checked))
+            }
+            aria-label="Select all"
+          />
+        ),
+        cell: ({ row }) => (
+          <Checkbox
+            checked={row.getIsSelected()}
+            onCheckedChange={(checked) => row.toggleSelected(Boolean(checked))}
+            aria-label="Select row"
+          />
+        ),
+      },
+      {
+        accessorKey: 'name',
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Name" />
+        ),
+        cell: ({ row }) => (
+          <span className="font-medium">{row.getValue('name')}</span>
+        ),
+        // The search box wires to this column, but the match spans several
+        // fields — preserving the original multi-field search behavior.
+        filterFn: (row, _columnId, filterValue) => {
+          const query = String(filterValue).toLowerCase();
+          const r = row.original;
+          return (
+            r.name.toLowerCase().includes(query) ||
+            r.category.toLowerCase().includes(query) ||
+            r.status.toLowerCase().includes(query) ||
+            (r.description?.toLowerCase().includes(query) ?? false)
+          );
+        },
+      },
+      {
+        accessorKey: 'status',
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Status" />
+        ),
+        cell: ({ row }) => {
+          const status = row.getValue<DataRow['status']>('status');
+          return (
+            <Badge variant={statusVariant[status]} className="capitalize">
+              {status}
+            </Badge>
+          );
+        },
+        filterFn: (row, columnId, filterValue: string[]) =>
+          filterValue.length === 0 ||
+          filterValue.includes(row.getValue(columnId)),
+      },
+      {
+        accessorKey: 'category',
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Category" />
+        ),
+        filterFn: (row, columnId, filterValue: string[]) =>
+          filterValue.length === 0 ||
+          filterValue.includes(row.getValue(columnId)),
+      },
+      {
+        accessorKey: 'value',
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Value" />
+        ),
+        cell: ({ row }) => `$${row.getValue<number>('value').toLocaleString()}`,
+      },
+      {
+        accessorKey: 'updatedAt',
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Updated" />
+        ),
+        cell: ({ row }) => (
+          <span className="text-muted-foreground">
+            {format(row.getValue<Date>('updatedAt'), 'MMM d, yyyy')}
+          </span>
+        ),
+      },
+      {
+        id: 'actions',
+        enableSorting: false,
+        enableHiding: false,
+        cell: ({ row }) => (
+          <RowActions
+            row={row.original}
+            onEdit={() => onEdit(row.original)}
+            onDelete={() => onDelete(row.original.id)}
+            onView={() => onView(row.original)}
+          />
+        ),
+      },
+    ],
+    [onEdit, onDelete, onView]
+  );
 
-  const sortedData = React.useMemo(() => {
-    if (!sortField) return filteredData;
+  const table = useReactTable({
+    data,
+    columns,
+    getRowId: (row) => row.id,
+    state: { sorting, columnFilters, rowSelection, columnVisibility },
+    initialState: { pagination: { pageSize: 10 } },
+    enableRowSelection: true,
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    onRowSelectionChange: setRowSelection,
+    onColumnVisibilityChange: setColumnVisibility,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+  });
 
-    return [...filteredData].sort((a, b) => {
-      const aValue = a[sortField];
-      const bValue = b[sortField];
+  const categoryOptions = React.useMemo(
+    () => Array.from(new Set(data.map((row) => row.category))).sort(),
+    [data]
+  );
 
-      if (aValue === undefined || bValue === undefined) return 0;
+  const statusFilter =
+    (table.getColumn('status')?.getFilterValue() as string[] | undefined) ?? [];
+  const categoryFilter =
+    (table.getColumn('category')?.getFilterValue() as string[] | undefined) ??
+    [];
+  const activeFilterCount = statusFilter.length + categoryFilter.length;
 
-      let comparison = 0;
-      if (typeof aValue === 'string' && typeof bValue === 'string') {
-        comparison = aValue.localeCompare(bValue);
-      } else if (typeof aValue === 'number' && typeof bValue === 'number') {
-        comparison = aValue - bValue;
-      } else if (aValue instanceof Date && bValue instanceof Date) {
-        comparison = aValue.getTime() - bValue.getTime();
-      }
-
-      return sortDirection === 'asc' ? comparison : -comparison;
-    });
-  }, [filteredData, sortField, sortDirection]);
-
-  const paginatedData = React.useMemo(() => {
-    const start = currentPage * pageSize;
-    return sortedData.slice(start, start + pageSize);
-  }, [sortedData, currentPage, pageSize]);
-
-  const totalPages = Math.ceil(sortedData.length / pageSize);
-
-  const handleSort = (field: SortField) => {
-    if (sortField === field) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortField(field);
-      setSortDirection('asc');
-    }
+  const toggleFilter = (
+    columnId: 'status' | 'category',
+    current: string[],
+    value: string
+  ) => {
+    const next = current.includes(value)
+      ? current.filter((entry) => entry !== value)
+      : [...current, value];
+    table.getColumn(columnId)?.setFilterValue(next.length ? next : undefined);
   };
 
-  const handleSelectAll = (checked: boolean) => {
-    if (checked) {
-      setSelectedRows(new Set(paginatedData.map((row) => row.id)));
-    } else {
-      setSelectedRows(new Set());
-    }
+  const clearFilters = () => {
+    table.getColumn('status')?.setFilterValue(undefined);
+    table.getColumn('category')?.setFilterValue(undefined);
   };
 
-  const handleSelectRow = (id: string, checked: boolean) => {
-    const newSelected = new Set(selectedRows);
-    if (checked) {
-      newSelected.add(id);
-    } else {
-      newSelected.delete(id);
-    }
-    setSelectedRows(newSelected);
-  };
+  const selectedRows = table.getFilteredSelectedRowModel().rows;
+  const selectedCount = selectedRows.length;
 
   const handleBulkDelete = () => {
-    onBulkDelete(Array.from(selectedRows));
-    setSelectedRows(new Set());
-  };
-
-  const statusColors = {
-    active: 'bg-green-500',
-    inactive: 'bg-gray-500',
-    pending: 'bg-yellow-500',
+    onBulkDelete(selectedRows.map((row) => row.original.id));
   };
 
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <div className="h-10 w-64 bg-muted animate-pulse rounded" />
-        <div className="border rounded-lg">
-          <div className="h-[400px] bg-muted animate-pulse" />
+        <div className="h-10 w-64 animate-pulse rounded bg-muted" />
+        <div className="rounded-lg border border-border">
+          <div className="h-[400px] animate-pulse bg-muted" />
         </div>
       </div>
     );
@@ -149,132 +256,126 @@ export function DataTable({
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between gap-4">
-        <Input
-          placeholder="Search by name, category, or status..."
-          value={searchQuery}
-          onChange={(e) => {
-            setSearchQuery(e.target.value);
-            setCurrentPage(0);
-          }}
-          className="max-w-sm"
-        />
-        {selectedRows.size > 0 && (
-          <Button variant="destructive" onClick={handleBulkDelete}>
-            Delete {selectedRows.size} selected
-          </Button>
-        )}
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-1 items-center gap-2">
+          <InputText
+            placeholder="Search by name, category, or status..."
+            value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
+            onChange={(event) =>
+              table.getColumn('name')?.setFilterValue(event.target.value)
+            }
+            className="h-8 w-full max-w-sm"
+          />
+          <Popover>
+            <PopoverTrigger render={<Filter count={activeFilterCount} />}>
+              Filter
+            </PopoverTrigger>
+            <PopoverContent align="start" className="w-56">
+              <div className="space-y-4">
+                <div>
+                  <p className="mb-2 text-sm font-medium">Status</p>
+                  <div className="space-y-2">
+                    {STATUS_OPTIONS.map((status) => (
+                      <Checkbox
+                        key={status}
+                        label={capitalize(status)}
+                        checked={statusFilter.includes(status)}
+                        onCheckedChange={() =>
+                          toggleFilter('status', statusFilter, status)
+                        }
+                      />
+                    ))}
+                  </div>
+                </div>
+                {categoryOptions.length > 0 && (
+                  <div>
+                    <p className="mb-2 text-sm font-medium">Category</p>
+                    <div className="space-y-2">
+                      {categoryOptions.map((category) => (
+                        <Checkbox
+                          key={category}
+                          label={category}
+                          checked={categoryFilter.includes(category)}
+                          onCheckedChange={() =>
+                            toggleFilter('category', categoryFilter, category)
+                          }
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {activeFilterCount > 0 && (
+                  <Button
+                    variant="ghost"
+                    onClick={clearFilters}
+                    className="h-8 w-full"
+                  >
+                    Clear filters
+                  </Button>
+                )}
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
+        <div className="flex items-center gap-2">
+          {selectedCount > 0 && (
+            <>
+              <span className="text-sm text-muted-foreground">
+                {selectedCount} selected
+              </span>
+              <Button
+                variant="destructive"
+                onClick={handleBulkDelete}
+                className="h-8 gap-2"
+              >
+                <BinIcon className="h-4 w-4" />
+                Delete selected
+              </Button>
+            </>
+          )}
+          <DataTableViewOptions table={table} />
+        </div>
       </div>
 
-      <div className="border rounded-lg">
+      <div className="rounded-md border border-border">
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead className="w-12">
-                <Checkbox
-                  checked={
-                    paginatedData.length > 0 &&
-                    paginatedData.every((row) => selectedRows.has(row.id))
-                  }
-                  onCheckedChange={handleSelectAll}
-                />
-              </TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  onClick={() => handleSort('name')}
-                  className="h-8 px-2"
-                >
-                  Name
-                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  onClick={() => handleSort('status')}
-                  className="h-8 px-2"
-                >
-                  Status
-                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  onClick={() => handleSort('category')}
-                  className="h-8 px-2"
-                >
-                  Category
-                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  onClick={() => handleSort('value')}
-                  className="h-8 px-2"
-                >
-                  Value
-                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  onClick={() => handleSort('updatedAt')}
-                  className="h-8 px-2"
-                >
-                  Updated
-                  <ArrowsDownUpIcon className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-              <TableHead className="w-12">Actions</TableHead>
-            </TableRow>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
           </TableHeader>
           <TableBody>
-            {paginatedData.length === 0 ? (
+            {table.getRowModel().rows.length === 0 ? (
               <TableRow>
                 <TableCell
-                  colSpan={7}
-                  className="text-center text-muted-foreground py-8"
+                  colSpan={columns.length}
+                  className="h-24 text-center text-muted-foreground"
                 >
-                  No data found
+                  No results.
                 </TableCell>
               </TableRow>
             ) : (
-              paginatedData.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell>
-                    <Checkbox
-                      checked={selectedRows.has(row.id)}
-                      onCheckedChange={(checked) =>
-                        handleSelectRow(row.id, checked as boolean)
-                      }
-                    />
-                  </TableCell>
-                  <TableCell className="font-medium">{row.name}</TableCell>
-                  <TableCell>
-                    <Badge variant="neutral" className="capitalize">
-                      <span
-                        className={`mr-2 h-2 w-2 rounded-full ${statusColors[row.status]}`}
-                      />
-                      {row.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{row.category}</TableCell>
-                  <TableCell>${row.value.toLocaleString()}</TableCell>
-                  <TableCell className="text-muted-foreground">
-                    {format(row.updatedAt, 'MMM d, yyyy')}
-                  </TableCell>
-                  <TableCell>
-                    <RowActions
-                      row={row}
-                      onEdit={() => onEdit(row)}
-                      onDelete={() => onDelete(row.id)}
-                      onView={() => onView(row)}
-                    />
-                  </TableCell>
+              table.getRowModel().rows.map((row) => (
+                <TableRow key={row.id} selected={row.getIsSelected()}>
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
                 </TableRow>
               ))
             )}
@@ -282,53 +383,7 @@ export function DataTable({
         </Table>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Rows per page:</span>
-          <Select
-            value={pageSize.toString()}
-            onValueChange={(value) => {
-              setPageSize(Number(value));
-              setCurrentPage(0);
-            }}
-          >
-            <SelectTrigger className="w-20">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="10">10</SelectItem>
-              <SelectItem value="25">25</SelectItem>
-              <SelectItem value="50">50</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">
-            Page {currentPage + 1} of {totalPages || 1}
-          </span>
-          <div className="flex gap-1">
-            <ButtonIcon
-              variant="secondary"
-              onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
-              disabled={currentPage === 0}
-              aria-label="Previous page"
-            >
-              <ChevronLeftIcon className="h-4 w-4" />
-            </ButtonIcon>
-            <ButtonIcon
-              variant="secondary"
-              onClick={() =>
-                setCurrentPage(Math.min(totalPages - 1, currentPage + 1))
-              }
-              disabled={currentPage >= totalPages - 1}
-              aria-label="Next page"
-            >
-              <ChevronRightIcon className="h-4 w-4" />
-            </ButtonIcon>
-          </div>
-        </div>
-      </div>
+      <DataTablePagination table={table} pageSizeOptions={[10, 25, 50]} />
     </div>
   );
 }

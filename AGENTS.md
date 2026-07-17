@@ -217,6 +217,14 @@ that workspace**, never here.
   the implementation can be _rule-truer than the mockup_ — with a
   `mockup-vs-pattern` skill that classifies each divergence (correct / graduate /
   override). Includes a questions-and-solutions section. Proposed; not yet adopted.
+- `context/demo-pattern-screens-proposal.md` — the pattern-first **pilot** in
+  `apps/demo`: rebuild the demo's Dashboard, Data-table (+ detail sheet, filters,
+  new-item, bulk ops), Settings, and Login as **pattern-composed screens** (each
+  with a `screen.yaml`), so the demo becomes the reviewable, correctable reference
+  corpus that exercises ~15 of the 19 patterns. Maps each screen to concrete
+  patterns/composites, per-screen region tree + state machine (D1/D3), and the
+  files it replaces. **The screens are built** on `feat/pattern-first-demo`;
+  `screen.yaml` specs land next. Proposed; not yet adopted.
 
 ## Tooling preconditions
 

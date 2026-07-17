@@ -5,17 +5,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  FormLayout,
 } from '@constructor-lab/ui-react';
-import { Button } from '@constructor-lab/ui-react';
-import { Label } from '@constructor-lab/ui-react';
-import { Switch } from '@constructor-lab/ui-react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@constructor-lab/ui-react';
+import type { FormLayoutField } from '@constructor-lab/ui-react';
 import type { UserPreferences } from '../../types';
 import { toast } from 'sonner';
 
@@ -25,18 +17,99 @@ interface PreferencesSectionProps {
   isLoading?: boolean;
 }
 
+const fields: FormLayoutField[] = [
+  {
+    name: 'theme',
+    label: 'Theme',
+    type: 'select',
+    options: [
+      { value: 'light', label: 'Light' },
+      { value: 'dark', label: 'Dark' },
+      { value: 'system', label: 'System' },
+    ],
+  },
+  {
+    name: 'language',
+    label: 'Language',
+    type: 'select',
+    options: [
+      { value: 'en', label: 'English' },
+      { value: 'es', label: 'Spanish' },
+      { value: 'fr', label: 'French' },
+      { value: 'de', label: 'German' },
+    ],
+  },
+  {
+    name: 'density',
+    label: 'Display Density',
+    type: 'select',
+    options: [
+      { value: 'comfortable', label: 'Comfortable' },
+      { value: 'compact', label: 'Compact' },
+    ],
+  },
+  {
+    name: 'emailNotifications',
+    label: 'Email Notifications',
+    type: 'switch',
+    description: 'Receive notifications via email',
+  },
+  {
+    name: 'pushNotifications',
+    label: 'Push Notifications',
+    type: 'switch',
+    description: 'Receive push notifications in browser',
+  },
+  {
+    name: 'frequency',
+    label: 'Notification Frequency',
+    type: 'select',
+    options: [
+      { value: 'realtime', label: 'Real-time' },
+      { value: 'daily', label: 'Daily Digest' },
+      { value: 'weekly', label: 'Weekly Summary' },
+    ],
+  },
+];
+
 export function PreferencesSection({
   preferences,
   onUpdate,
   isLoading = false,
 }: PreferencesSectionProps) {
-  const [localPreferences, setLocalPreferences] = React.useState(preferences);
+  const [values, setValues] = React.useState<Record<string, unknown>>(() => ({
+    theme: preferences.theme,
+    language: preferences.language,
+    density: preferences.display.density,
+    emailNotifications: preferences.notifications.email,
+    pushNotifications: preferences.notifications.push,
+    frequency: preferences.notifications.frequency,
+  }));
   const [isSaving, setIsSaving] = React.useState(false);
 
-  const handleSave = async () => {
+  const handleValueChange = (name: string, value: unknown) => {
+    setValues((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async () => {
+    const updates: Partial<UserPreferences> = {
+      theme: values.theme as UserPreferences['theme'],
+      language: values.language as string,
+      notifications: {
+        email: Boolean(values.emailNotifications),
+        push: Boolean(values.pushNotifications),
+        frequency:
+          values.frequency as UserPreferences['notifications']['frequency'],
+      },
+      display: {
+        density: values.density as UserPreferences['display']['density'],
+        sidebarCollapsed: preferences.display.sidebarCollapsed,
+      },
+    };
+
     setIsSaving(true);
     try {
-      await onUpdate(localPreferences);
+      await onUpdate(updates);
       toast.success('Preferences updated successfully');
     } catch {
       toast.error('Failed to update preferences');
@@ -53,159 +126,15 @@ export function PreferencesSection({
           Customize your application experience and notification settings
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-sm font-medium mb-3">Theme</h3>
-            <Select
-              value={localPreferences.theme}
-              onValueChange={(value) =>
-                setLocalPreferences({
-                  ...localPreferences,
-                  theme: value as 'light' | 'dark' | 'system',
-                })
-              }
-              disabled={isLoading || isSaving}
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium mb-3">Language</h3>
-            <Select
-              value={localPreferences.language}
-              onValueChange={(value) =>
-                setLocalPreferences({ ...localPreferences, language: value })
-              }
-              disabled={isLoading || isSaving}
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="es">Spanish</SelectItem>
-                <SelectItem value="fr">French</SelectItem>
-                <SelectItem value="de">German</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium mb-3">Display Density</h3>
-            <Select
-              value={localPreferences.display.density}
-              onValueChange={(value) =>
-                setLocalPreferences({
-                  ...localPreferences,
-                  display: {
-                    ...localPreferences.display,
-                    density: value as 'comfortable' | 'compact',
-                  },
-                })
-              }
-              disabled={isLoading || isSaving}
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="comfortable">Comfortable</SelectItem>
-                <SelectItem value="compact">Compact</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-sm font-medium">Notifications</h3>
-
-          <div className="flex items-center justify-between">
-            <div className="space-y-0.5">
-              <Label htmlFor="email-notifications">Email Notifications</Label>
-              <p className="text-sm text-muted-foreground">
-                Receive notifications via email
-              </p>
-            </div>
-            <Switch
-              id="email-notifications"
-              checked={localPreferences.notifications.email}
-              onCheckedChange={(checked) =>
-                setLocalPreferences({
-                  ...localPreferences,
-                  notifications: {
-                    ...localPreferences.notifications,
-                    email: checked,
-                  },
-                })
-              }
-              disabled={isLoading || isSaving}
-            />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="space-y-0.5">
-              <Label htmlFor="push-notifications">Push Notifications</Label>
-              <p className="text-sm text-muted-foreground">
-                Receive push notifications in browser
-              </p>
-            </div>
-            <Switch
-              id="push-notifications"
-              checked={localPreferences.notifications.push}
-              onCheckedChange={(checked) =>
-                setLocalPreferences({
-                  ...localPreferences,
-                  notifications: {
-                    ...localPreferences.notifications,
-                    push: checked,
-                  },
-                })
-              }
-              disabled={isLoading || isSaving}
-            />
-          </div>
-
-          <div>
-            <Label htmlFor="notification-frequency">
-              Notification Frequency
-            </Label>
-            <Select
-              value={localPreferences.notifications.frequency}
-              onValueChange={(value) =>
-                setLocalPreferences({
-                  ...localPreferences,
-                  notifications: {
-                    ...localPreferences.notifications,
-                    frequency: value as 'realtime' | 'daily' | 'weekly',
-                  },
-                })
-              }
-              disabled={isLoading || isSaving}
-            >
-              <SelectTrigger className="w-full mt-2">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="realtime">Real-time</SelectItem>
-                <SelectItem value="daily">Daily Digest</SelectItem>
-                <SelectItem value="weekly">Weekly Summary</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        <Button onClick={handleSave} disabled={isLoading || isSaving}>
-          {isSaving ? 'Saving...' : 'Save Preferences'}
-        </Button>
+      <CardContent>
+        <FormLayout
+          fields={fields}
+          values={values}
+          onValueChange={handleValueChange}
+          onSubmit={handleSubmit}
+          disabled={isSaving || isLoading}
+          submitLabel={isSaving ? 'Saving...' : 'Save Preferences'}
+        />
       </CardContent>
     </Card>
   );

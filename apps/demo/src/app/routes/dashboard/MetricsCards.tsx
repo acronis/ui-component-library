@@ -1,105 +1,80 @@
-import * as React from 'react';
-import { UsersIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
-  TrendingUpIcon,
-  TrendingDownIcon,
-  DollarSignIcon,
-  ActivityIcon,
-} from '@/components/icons/missing-icons';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@constructor-lab/ui-react';
+  ArrowTrendUpIcon,
+  ArrowTrendDownIcon,
+} from '@constructor-lab/icons-react/stroke-mono';
+import { StatRow, type StatRowStat, Skeleton } from '@constructor-lab/ui-react';
 import type { DashboardMetrics } from '../../types';
 
 interface MetricsCardsProps {
-  metrics: DashboardMetrics;
+  metrics?: DashboardMetrics;
   isLoading?: boolean;
 }
 
+// KPI row composed from the StatRow composite (a config-driven row of CardFilter
+// tiles). Each metric maps to a StatRowStat whose leading icon signals the trend
+// direction; when metrics are missing every tile renders as an `empty`
+// placeholder so the loaded / empty states read consistently.
 export function MetricsCards({
   metrics,
   isLoading = false,
 }: MetricsCardsProps) {
-  const cards = [
-    {
-      title: 'Total Users',
-      value: metrics.totalUsers.toLocaleString(),
-      icon: UsersIcon,
-      trend: metrics.growth > 0 ? 'up' : 'down',
-      trendValue: `${Math.abs(metrics.growth).toFixed(1)}%`,
-    },
-    {
-      title: 'Revenue',
-      value: `$${metrics.revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-      icon: DollarSignIcon,
-      trend: metrics.growth > 0 ? 'up' : 'down',
-      trendValue: `${Math.abs(metrics.growth).toFixed(1)}%`,
-    },
-    {
-      title: 'Active Sessions',
-      value: metrics.activeSessions.toLocaleString(),
-      icon: ActivityIcon,
-      trend: 'up',
-      trendValue: 'Live',
-    },
-    {
-      title: 'Growth',
-      value: `${metrics.growth.toFixed(1)}%`,
-      icon: metrics.growth > 0 ? TrendingUpIcon : TrendingDownIcon,
-      trend: metrics.growth > 0 ? 'up' : 'down',
-      trendValue: 'vs last month',
-    },
-  ];
-
   if (isLoading) {
     return (
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-4 gap-4">
         {[...Array(4)].map((_, i) => (
-          // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders, never reordered
-          <Card key={i}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <div className="h-4 w-24 bg-muted animate-pulse rounded" />
-              <div className="h-4 w-4 bg-muted animate-pulse rounded" />
-            </CardHeader>
-            <CardContent>
-              <div className="h-8 w-32 bg-muted animate-pulse rounded mb-2" />
-              <div className="h-3 w-20 bg-muted animate-pulse rounded" />
-            </CardContent>
-          </Card>
+          <Skeleton
+            // eslint-disable-next-line @eslint-react/no-array-index-key -- fixed-length skeleton placeholders, never reordered
+            key={i}
+            className="h-16 rounded-[var(--ui-card-filter-global-container-border-radius)]"
+          />
         ))}
       </div>
     );
   }
 
-  return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      {cards.map((card) => {
-        const Icon = card.icon;
-        return (
-          <Card key={card.title}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                {card.title}
-              </CardTitle>
-              <Icon className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{card.value}</div>
-              <div className="flex items-center text-xs text-muted-foreground mt-1">
-                {card.trend === 'up' ? (
-                  <TrendingUpIcon className="mr-1 h-3 w-3 text-green-500" />
-                ) : (
-                  <TrendingDownIcon className="mr-1 h-3 w-3 text-red-500" />
-                )}
-                <span>{card.trendValue}</span>
-              </div>
-            </CardContent>
-          </Card>
-        );
-      })}
-    </div>
-  );
+  const trendIcon =
+    metrics && metrics.growth > 0 ? (
+      <ArrowTrendUpIcon />
+    ) : (
+      <ArrowTrendDownIcon />
+    );
+
+  const stats: StatRowStat[] = metrics
+    ? [
+        {
+          id: 'total-users',
+          label: 'Total Users',
+          value: metrics.totalUsers.toLocaleString(),
+          icon: trendIcon,
+        },
+        {
+          id: 'revenue',
+          label: 'Revenue',
+          value: `$${metrics.revenue.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}`,
+          icon: trendIcon,
+        },
+        {
+          id: 'active-sessions',
+          label: 'Active Sessions',
+          value: metrics.activeSessions.toLocaleString(),
+          icon: <ArrowTrendUpIcon />,
+        },
+        {
+          id: 'growth',
+          label: 'Growth',
+          value: `${metrics.growth.toFixed(1)}%`,
+          icon: trendIcon,
+        },
+      ]
+    : [
+        { id: 'total-users', label: 'Total Users', empty: true },
+        { id: 'revenue', label: 'Revenue', empty: true },
+        { id: 'active-sessions', label: 'Active Sessions', empty: true },
+        { id: 'growth', label: 'Growth', empty: true },
+      ];
+
+  return <StatRow stats={stats} columns={4} />;
 }

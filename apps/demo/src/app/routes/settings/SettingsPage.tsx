@@ -1,5 +1,9 @@
 import * as React from 'react';
 import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderRow,
+  PageHeaderTitle,
   Tabs,
   TabsContent,
   TabsList,
@@ -61,18 +65,22 @@ export function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">
-          {t('navigation.settings')}
-        </h1>
-        <p className="text-muted-foreground">{t('messages.saved')}</p>
-      </div>
+      <PageHeader>
+        <PageHeaderRow>
+          <PageHeaderTitle>{t('navigation.settings')}</PageHeaderTitle>
+        </PageHeaderRow>
+        <PageHeaderDescription>
+          Manage your profile, preferences, and account security.
+        </PageHeaderDescription>
+      </PageHeader>
 
       <Tabs defaultValue="profile" className="space-y-6">
         <TabsList>
           <TabsTrigger value="profile">{t('labels.profile')}</TabsTrigger>
-          <TabsTrigger value="preferences">{t('labels.theme')}</TabsTrigger>
-          <TabsTrigger value="account">{t('labels.email')}</TabsTrigger>
+          <TabsTrigger value="preferences">
+            {t('labels.preferences')}
+          </TabsTrigger>
+          <TabsTrigger value="account">{t('labels.account')}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile" className="space-y-6">

@@ -1,16 +1,13 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
+  FormLayout,
 } from '@constructor-lab/ui-react';
-import { Button } from '@constructor-lab/ui-react';
-import { Input } from '@constructor-lab/ui-react';
-import { Label } from '@constructor-lab/ui-react';
+import type { FormLayoutField } from '@constructor-lab/ui-react';
 import { passwordChangeSchema } from '../../lib/validators';
 import type { PasswordChangeFormData } from '../../lib/validators';
 import { toast } from 'sonner';
@@ -20,31 +17,74 @@ interface AccountSectionProps {
   isLoading?: boolean;
 }
 
+const emptyValues: Record<string, unknown> = {
+  currentPassword: '',
+  newPassword: '',
+  confirmPassword: '',
+};
+
+const fields: FormLayoutField[] = [
+  {
+    name: 'currentPassword',
+    label: 'Current Password',
+    type: 'password',
+    placeholder: 'Enter current password',
+    required: true,
+  },
+  {
+    name: 'newPassword',
+    label: 'New Password',
+    type: 'password',
+    placeholder: 'Enter new password',
+    required: true,
+    description: 'Password must be at least 6 characters long',
+  },
+  {
+    name: 'confirmPassword',
+    label: 'Confirm New Password',
+    type: 'password',
+    placeholder: 'Confirm new password',
+    required: true,
+  },
+];
+
 export function AccountSection({
   onPasswordChange,
   isLoading = false,
 }: AccountSectionProps) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-  } = useForm<PasswordChangeFormData>({
-    resolver: zodResolver(passwordChangeSchema),
-    defaultValues: {
-      currentPassword: '',
-      newPassword: '',
-      confirmPassword: '',
-    },
-  });
+  const [values, setValues] =
+    React.useState<Record<string, unknown>>(emptyValues);
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
+  const [isSaving, setIsSaving] = React.useState(false);
 
-  const onFormSubmit = async (data: PasswordChangeFormData) => {
+  const handleValueChange = (name: string, value: unknown) => {
+    setValues((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async () => {
+    const result = passwordChangeSchema.safeParse(values);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      for (const issue of result.error.issues) {
+        const key = issue.path[0];
+        if (typeof key === 'string' && !fieldErrors[key]) {
+          fieldErrors[key] = issue.message;
+        }
+      }
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setErrors({});
+    setIsSaving(true);
     try {
-      await onPasswordChange(data);
+      await onPasswordChange(result.data);
       toast.success('Password changed successfully');
-      reset();
+      setValues(emptyValues);
     } catch {
       toast.error('Failed to change password');
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -57,64 +97,17 @@ export function AccountSection({
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="currentPassword">Current Password *</Label>
-            <Input
-              id="currentPassword"
-              type="password"
-              placeholder="Enter current password"
-              {...register('currentPassword')}
-              disabled={isSubmitting || isLoading}
-            />
-            {errors.currentPassword && (
-              <p className="text-sm text-destructive">
-                {errors.currentPassword.message}
-              </p>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="newPassword">New Password *</Label>
-            <Input
-              id="newPassword"
-              type="password"
-              placeholder="Enter new password"
-              {...register('newPassword')}
-              disabled={isSubmitting || isLoading}
-            />
-            {errors.newPassword && (
-              <p className="text-sm text-destructive">
-                {errors.newPassword.message}
-              </p>
-            )}
-            <p className="text-xs text-muted-foreground">
-              Password must be at least 6 characters long
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="confirmPassword">Confirm New Password *</Label>
-            <Input
-              id="confirmPassword"
-              type="password"
-              placeholder="Confirm new password"
-              {...register('confirmPassword')}
-              disabled={isSubmitting || isLoading}
-            />
-            {errors.confirmPassword && (
-              <p className="text-sm text-destructive">
-                {errors.confirmPassword.message}
-              </p>
-            )}
-          </div>
-
-          <Button type="submit" disabled={isSubmitting || isLoading}>
-            {isSubmitting || isLoading
-              ? 'Changing Password...'
-              : 'Change Password'}
-          </Button>
-        </form>
+        <FormLayout
+          fields={fields}
+          values={values}
+          onValueChange={handleValueChange}
+          onSubmit={handleSubmit}
+          errors={errors}
+          disabled={isSaving || isLoading}
+          submitLabel={
+            isSaving || isLoading ? 'Changing Password...' : 'Change Password'
+          }
+        />
       </CardContent>
     </Card>
   );

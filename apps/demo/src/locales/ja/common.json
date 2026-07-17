@@ -22,7 +22,9 @@
     "profile": "プロフィール",
     "email": "メール",
     "password": "パスワード",
-    "username": "ユーザー名"
+    "username": "ユーザー名",
+    "preferences": "環境設定",
+    "account": "アカウント"
   },
   "messages": {
     "welcome": "ようこそ、{{username}}さん！",

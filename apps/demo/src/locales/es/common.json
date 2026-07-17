@@ -22,7 +22,9 @@
     "profile": "Perfil",
     "email": "Correo electrónico",
     "password": "Contraseña",
-    "username": "Nombre de usuario"
+    "username": "Nombre de usuario",
+    "preferences": "Preferencias",
+    "account": "Cuenta"
   },
   "messages": {
     "welcome": "¡Bienvenido, {{username}}!",

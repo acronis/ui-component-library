@@ -1,25 +1,13 @@
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
+  FormLayout,
+  type FormLayoutField,
 } from '@constructor-lab/ui-react';
-import { Button } from '@constructor-lab/ui-react';
-import { Input } from '@constructor-lab/ui-react';
-import { Label } from '@constructor-lab/ui-react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@constructor-lab/ui-react';
-import { Textarea } from '@constructor-lab/ui-react';
 import { dataRowSchema } from '../../lib/validators';
 import type { DataRowFormData } from '../../lib/validators';
 
@@ -31,6 +19,56 @@ interface NewRowDialogProps {
   mode?: 'create' | 'edit';
 }
 
+const FIELDS: FormLayoutField[] = [
+  {
+    name: 'name',
+    label: 'Name',
+    type: 'text',
+    required: true,
+    placeholder: 'Enter name',
+  },
+  {
+    name: 'status',
+    label: 'Status',
+    type: 'select',
+    required: true,
+    placeholder: 'Select status',
+    options: [
+      { value: 'active', label: 'Active' },
+      { value: 'inactive', label: 'Inactive' },
+      { value: 'pending', label: 'Pending' },
+    ],
+  },
+  {
+    name: 'category',
+    label: 'Category',
+    type: 'text',
+    required: true,
+    placeholder: 'Enter category',
+  },
+  { name: 'value', label: 'Value', type: 'number', required: true, min: 0 },
+  {
+    name: 'description',
+    label: 'Description',
+    type: 'textarea',
+    placeholder: 'Enter description (optional)',
+  },
+];
+
+const defaultValues = (
+  initialData?: Partial<DataRowFormData>
+): Record<string, unknown> => ({
+  name: initialData?.name ?? '',
+  status: initialData?.status ?? 'active',
+  category: initialData?.category ?? '',
+  value: initialData?.value ?? 0,
+  description: initialData?.description ?? '',
+});
+
+// The create/edit form — the `form-dialog` pattern: the config-driven
+// `FormLayout` composite inside a `Dialog`. FormLayout maps the flat field
+// descriptors onto the right controls and drives them through one controlled
+// `onValueChange`; we validate on submit with the shared `dataRowSchema`.
 export function NewRowDialog({
   open,
   onOpenChange,
@@ -38,37 +76,40 @@ export function NewRowDialog({
   initialData,
   mode = 'create',
 }: NewRowDialogProps) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-    setValue,
-    watch,
-  } = useForm<DataRowFormData>({
-    resolver: zodResolver(dataRowSchema),
-    defaultValues: initialData || {
-      name: '',
-      status: 'active',
-      category: '',
-      value: 0,
-      description: '',
-      tags: [],
-    },
-  });
-
-  const status = watch('status');
+  const [values, setValues] = React.useState<Record<string, unknown>>(() =>
+    defaultValues(initialData)
+  );
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
 
   React.useEffect(() => {
-    if (initialData) {
-      reset(initialData);
+    if (open) {
+      setValues(defaultValues(initialData));
+      setErrors({});
     }
-  }, [initialData, reset]);
+  }, [open, initialData]);
 
-  const handleFormSubmit = async (data: DataRowFormData) => {
-    await onSubmit(data);
-    reset();
-    onOpenChange(false);
+  const handleValueChange = (name: string, value: unknown) => {
+    setValues((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (nextValues: Record<string, unknown>) => {
+    const result = dataRowSchema.safeParse(nextValues);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      for (const issue of result.error.issues) {
+        const key = issue.path[0];
+        if (typeof key === 'string' && !fieldErrors[key]) {
+          fieldErrors[key] = issue.message;
+        }
+      }
+      setErrors(fieldErrors);
+      return;
+    }
+    setErrors({});
+    void (async () => {
+      await onSubmit(result.data);
+      onOpenChange(false);
+    })();
   };
 
   return (
@@ -84,114 +125,15 @@ export function NewRowDialog({
               : 'Update the data row information.'}
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4">
-          <div className="p-6">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name *</Label>
-              <Input
-                id="name"
-                placeholder="Enter name"
-                {...register('name')}
-                disabled={isSubmitting}
-              />
-              {errors.name && (
-                <p className="text-sm text-destructive">
-                  {errors.name.message}
-                </p>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="status">Status *</Label>
-              <Select
-                value={status}
-                onValueChange={(value) =>
-                  setValue('status', value as 'active' | 'inactive' | 'pending')
-                }
-                disabled={isSubmitting}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="inactive">Inactive</SelectItem>
-                  <SelectItem value="pending">Pending</SelectItem>
-                </SelectContent>
-              </Select>
-              {errors.status && (
-                <p className="text-sm text-destructive">
-                  {errors.status.message}
-                </p>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="category">Category *</Label>
-              <Input
-                id="category"
-                placeholder="Enter category"
-                {...register('category')}
-                disabled={isSubmitting}
-              />
-              {errors.category && (
-                <p className="text-sm text-destructive">
-                  {errors.category.message}
-                </p>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="value">Value *</Label>
-              <Input
-                id="value"
-                type="number"
-                placeholder="Enter value"
-                {...register('value', { valueAsNumber: true })}
-                disabled={isSubmitting}
-              />
-              {errors.value && (
-                <p className="text-sm text-destructive">
-                  {errors.value.message}
-                </p>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="description">Description</Label>
-              <Textarea
-                id="description"
-                placeholder="Enter description (optional)"
-                {...register('description')}
-                disabled={isSubmitting}
-                rows={3}
-              />
-              {errors.description && (
-                <p className="text-sm text-destructive">
-                  {errors.description.message}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <DialogFooter>
-            <Button
-              type="button"
-              variant="secondary"
-              onClick={() => onOpenChange(false)}
-              disabled={isSubmitting}
-            >
-              Cancel
-            </Button>
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting
-                ? 'Saving...'
-                : mode === 'create'
-                  ? 'Create'
-                  : 'Save Changes'}
-            </Button>
-          </DialogFooter>
-        </form>
+        <FormLayout
+          fields={FIELDS}
+          values={values}
+          onValueChange={handleValueChange}
+          onSubmit={handleSubmit}
+          errors={errors}
+          submitLabel={mode === 'create' ? 'Create' : 'Save Changes'}
+          onCancel={() => onOpenChange(false)}
+        />
       </DialogContent>
     </Dialog>
   );

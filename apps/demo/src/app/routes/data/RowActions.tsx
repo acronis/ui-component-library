@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   BinIcon,
   EllipsisIcon,
@@ -23,6 +22,9 @@ interface RowActionsProps {
   onView: () => void;
 }
 
+// Per-row action menu (View / Edit / Delete). The trigger is a `ButtonIcon`
+// rendered through Base UI's `render` prop so the DropdownMenu owns its a11y and
+// state; each item calls back into the page's row handlers.
 export function RowActions({ onEdit, onDelete, onView }: RowActionsProps) {
   return (
     <DropdownMenu>
