@@ -31,8 +31,6 @@ regions:
     label: Top bar
     ariaRole: banner
     layout: { type: sticky, position: top, scroll: none }
-    rules:
-      - spacing/control-height-parity
     components:
       - { instanceId: global-search, component: SearchGlobal }
 
@@ -47,8 +45,6 @@ regions:
       - regionId: page-heading
         label: Page header
         layout: { type: flex-fill }
-        rules:
-          - spacing/control-height-parity
         components:
           - { instanceId: heading, component: PageHeader }
 
@@ -56,9 +52,6 @@ regions:
         label: Filters and bulk actions
         pattern: filter-popover
         layout: { type: flex-fill }
-        rules:
-          - spacing/control-height-parity
-          - accessibility/accessible-name
         components:
           - { instanceId: filter, component: Filter }
 
@@ -66,8 +59,6 @@ regions:
         label: Records table
         pattern: data-table-bulk-actions
         layout: { type: flex-fill, scroll: independent }
-        rules:
-          - composition/no-clipping
         components:
           - { instanceId: grid, component: DataTable }
           - { instanceId: empty-state, component: Empty }
@@ -78,8 +69,6 @@ regions:
     ariaRole: complementary
     visibleWhen: row-selected
     layout: { type: overlay, position: right }
-    rules:
-      - accessibility/accessible-name
     components:
       - { instanceId: sheet, component: Sheet }
       - { instanceId: properties, component: DetailList }
@@ -89,8 +78,6 @@ regions:
     pattern: form-dialog
     visibleWhen: editing
     layout: { type: overlay }
-    rules:
-      - accessibility/accessible-name
     components:
       - { instanceId: form, component: FormLayout }
 

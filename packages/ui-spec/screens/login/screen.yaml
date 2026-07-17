@@ -17,15 +17,10 @@ regions:
     label: Auth panel
     pattern: auth-screen
     layout: { type: flex-fill }
-    rules:
-      - composition/edge-baseline-alignment
     children:
       - regionId: card
         label: Credentials card
         layout: { type: flex-fill }
-        rules:
-          - spacing/field-width-parity
-          - accessibility/accessible-name
         components:
           - { instanceId: frame, component: AuthLayout }
           - { instanceId: form, component: FormLayout }

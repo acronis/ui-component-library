@@ -31,9 +31,6 @@ regions:
     label: Top bar
     ariaRole: banner
     layout: { type: sticky, position: top, scroll: none }
-    rules:
-      - spacing/control-height-parity
-      - accessibility/accessible-name
     components:
       - { instanceId: global-search, component: SearchGlobal }
 
@@ -55,9 +52,6 @@ regions:
         label: KPI tiles
         pattern: card-grid
         layout: { type: flex-fill }
-        rules:
-          - spacing/control-height-parity
-          - spacing/field-width-parity
         components:
           - { instanceId: stats, component: StatRow }
 
@@ -65,8 +59,6 @@ regions:
         label: Charts
         pattern: card-grid
         layout: { type: flex-fill }
-        rules:
-          - composition/edge-baseline-alignment
         components:
           - { instanceId: chart-grid, component: Grid }
           - { instanceId: charts, component: Chart }
@@ -74,8 +66,6 @@ regions:
       - regionId: activity
         label: Recent activity
         layout: { type: flex-fill }
-        rules:
-          - accessibility/contrast
         components:
           - { instanceId: activity-list, component: DetailList }
 

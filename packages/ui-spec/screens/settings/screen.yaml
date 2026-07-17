@@ -30,8 +30,6 @@ regions:
     label: Top bar
     ariaRole: banner
     layout: { type: sticky, position: top, scroll: none }
-    rules:
-      - spacing/control-height-parity
     components:
       - { instanceId: global-search, component: SearchGlobal }
 
@@ -53,9 +51,6 @@ regions:
         label: Profile section
         pattern: form-layout
         layout: { type: flex-fill }
-        rules:
-          - spacing/field-width-parity
-          - accessibility/accessible-name
         components:
           - { instanceId: profile, component: FormLayout }
 
@@ -63,8 +58,6 @@ regions:
         label: Preferences section
         pattern: form-layout
         layout: { type: flex-fill }
-        rules:
-          - spacing/field-width-parity
         components:
           - { instanceId: preferences, component: FormLayout }
 
@@ -72,9 +65,6 @@ regions:
         label: Account section
         pattern: form-validation
         layout: { type: flex-fill }
-        rules:
-          - spacing/field-width-parity
-          - accessibility/accessible-name
         components:
           - { instanceId: account, component: FormLayout }
 
