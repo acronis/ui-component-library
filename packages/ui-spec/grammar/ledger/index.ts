@@ -158,6 +158,22 @@ export const ledger: LedgerEntry[] = [
       note: 'C1 only measures children of a landmark element, so a form (not a landmark) yields no findings even with off-grid pitches. A naive form-field rhythm check is unreliable from a single flat snapshot — interleaved non-field rows (radio/switch clusters) and sub-pixel rounding produce false positives. Deferred pending a section/wrapper model in the probe. Surfaced by the second screen-audit spike.',
     },
   },
+  {
+    id: 'page-header-double-banner-landmark',
+    title:
+      'PageHeader sets role="banner", creating a second banner landmark alongside the app header',
+    severity: 'should',
+    source: {
+      component: 'page-header',
+      file: 'packages/ui-react/src/components/ui/page-header/page-header.tsx',
+    },
+    discovered: '2026-07-18',
+    status: 'open',
+    resolution: {
+      kind: 'new-rule',
+      note: 'A page should expose exactly one banner landmark (the app header). PageHeader claiming role="banner" adds a second banner on every console screen — an ARIA landmark-uniqueness smell — which also makes the rendered screen-audit conflate the two headers (e.g. control-height across the app header and an unrelated page-title toolbar). Resolution: add a landmark-uniqueness grammar rule (one banner per screen) and drop role="banner" from PageHeader (use a plain <header> or role="region"/group with an accessible name). A human owns whether this is `must`. Surfaced by the demo screen-audit fixtures.',
+    },
+  },
 ];
 
 const declaredDetectors = new Set(allRules.map((r) => r.detector));
