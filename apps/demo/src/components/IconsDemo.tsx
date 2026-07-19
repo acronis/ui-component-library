@@ -81,26 +81,26 @@ export function IconsDemo() {
           <div className="space-y-4">
             <div>
               <h4 className="text-sm font-medium mb-2">
-                Import specific icon:
+                Import specific icons:
               </h4>
               <pre className="bg-background p-4 rounded-md overflow-x-auto">
                 <code className="text-sm">
-                  {`import { SuccessIcon, DangerIcon } from '@/components/icons/auto-generated'
+                  {`import { MagnifierIcon, BellIcon } from '@constructor-lab/icons-react/stroke-mono'
 
-<SuccessIcon className="w-6 h-6" />
-<DangerIcon className="w-6 h-6 text-red-500" />`}
+<MagnifierIcon />
+<BellIcon size={16} className="text-primary" />`}
                 </code>
               </pre>
             </div>
 
             <div>
-              <h4 className="text-sm font-medium mb-2">Import all icons:</h4>
+              <h4 className="text-sm font-medium mb-2">Sizing:</h4>
               <pre className="bg-background p-4 rounded-md overflow-x-auto">
                 <code className="text-sm">
-                  {`import { AutoIcons } from '@/components/icons/auto-generated'
-
-const IconComponent = AutoIcons['success']
-<IconComponent className="w-6 h-6" />`}
+                  {`// Icons default to 24px; the \`size\` prop keeps the
+// stroke width correct at any rendered size.
+<MagnifierIcon size={16} />
+<MagnifierIcon size={32} />`}
                 </code>
               </pre>
             </div>
@@ -111,12 +111,12 @@ const IconComponent = AutoIcons['success']
               </h4>
               <pre className="bg-background p-4 rounded-md overflow-x-auto">
                 <code className="text-sm">
-                  {`import { AutoIcons } from '@/components/icons/auto-generated'
+                  {`import { icons, type IconName } from '@constructor-lab/icons-react/stroke-mono'
 
-const iconName = 'success'
-const Icon = AutoIcons[iconName]
+const name: IconName = 'magnifier'
+const Icon = icons[name]
 
-{Icon && <Icon className="w-6 h-6" />}`}
+<Icon size={20} />`}
                 </code>
               </pre>
             </div>
