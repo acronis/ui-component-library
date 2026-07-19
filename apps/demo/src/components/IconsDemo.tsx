@@ -9,9 +9,11 @@ import { MagnifierIcon } from '@constructor-lab/icons-react/stroke-mono';
 export function IconsDemo() {
   const [searchQuery, setSearchQuery] = React.useState('');
 
-  const iconEntries = Object.entries(StrokeMonoIcons) as Array<
-    [string, React.ComponentType<{ className?: string }>]
-  >;
+  // The pack namespace also exports a non-component `icons` registry object,
+  // so keep only the function components before rendering them as JSX.
+  const iconEntries = Object.entries(StrokeMonoIcons).filter(
+    ([, value]) => typeof value === 'function'
+  ) as Array<[string, React.ComponentType<{ className?: string }>]>;
 
   const filteredIcons = iconEntries.filter(([name]) =>
     name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -30,6 +32,8 @@ export function IconsDemo() {
           <div className="relative max-w-md">
             <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
+              id="icon-search"
+              name="icon-search"
               placeholder="Search icons..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

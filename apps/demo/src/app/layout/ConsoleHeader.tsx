@@ -44,6 +44,8 @@ export function ConsoleHeader() {
       <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-4">
         <span aria-hidden="true" />
         <SearchGlobal
+          id="global-search"
+          name="global-search"
           aria-label="Search"
           placeholder="Search…"
           className="w-[28rem] justify-self-center"
