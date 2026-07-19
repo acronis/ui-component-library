@@ -4,7 +4,6 @@
 :root, :host {
   --ui-dialog-body-gap: var(--ui-units-gap-12);
   --ui-dialog-body-height-min: var(--ui-units-size-72);
-  --ui-dialog-body-padding-x: var(--ui-units-gap-16);
   --ui-dialog-body-padding-y: var(--ui-units-gap-16);
   --ui-dialog-container-border-radius: var(--ui-units-radius-8);
   --ui-dialog-container-color: var(--ui-background-surface-secondary);
@@ -12,14 +11,6 @@
   --ui-dialog-container-size-md: var(--ui-units-size-632);
   --ui-dialog-container-size-sm: var(--ui-units-size-512);
   --ui-dialog-container-width-min: var(--ui-units-size-256);
-  --ui-dialog-footer-border-color: var(--ui-border-on-surface-divider);
-  --ui-dialog-footer-border-style: solid;
-  --ui-dialog-footer-border-width: var(--ui-units-stroke-1);
-  --ui-dialog-footer-color: var(--ui-background-surface-primary);
-  --ui-dialog-footer-description-color: var(--ui-text-on-surface-primary);
-  --ui-dialog-footer-gap: var(--ui-units-gap-16);
-  --ui-dialog-footer-height: var(--ui-units-size-64);
-  --ui-dialog-footer-padding-x: var(--ui-units-gap-16);
   --ui-dialog-header-border-color: var(--ui-border-on-surface-divider);
   --ui-dialog-header-border-style: solid;
   --ui-dialog-header-border-width: var(--ui-units-stroke-1);
@@ -28,14 +19,6 @@
   --ui-dialog-header-height: var(--ui-units-size-64);
   --ui-dialog-header-padding-x: var(--ui-units-gap-16);
   --ui-dialog-header-title-color: var(--ui-text-on-surface-primary);
-}
-
-.ui-dialog-footer-description-text-style {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
 }
 
 .ui-dialog-header-title-text-style {

@@ -6279,6 +6279,20 @@
           "value": 72
         }
       },
+      "76": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT",
+            "FONT_VARIATIONS"
+          ],
+          "com.figma.variableId": "VariableID:6327:19743"
+        },
+        "$type": "dimension",
+        "$value": {
+          "unit": "px",
+          "value": 76
+        }
+      },
       "96": {
         "$extensions": {
           "com.figma.scopes": [

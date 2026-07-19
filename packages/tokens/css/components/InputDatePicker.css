@@ -21,6 +21,7 @@
   --ui-input-date-picker-global-container-gap: var(--ui-units-gap-4);
   --ui-input-date-picker-global-container-label-gap: var(--ui-units-gap-4);
   --ui-input-date-picker-global-container-width-min: var(--ui-units-size-128);
+  --ui-input-date-picker-global-icon-box-size: var(--ui-units-size-20);
   --ui-input-date-picker-global-label-color-disabled: var(--ui-text-on-surface-disabled);
   --ui-input-date-picker-global-label-color-hover: var(--ui-text-on-surface-primary);
   --ui-input-date-picker-global-label-color-idle: var(--ui-text-on-surface-primary);

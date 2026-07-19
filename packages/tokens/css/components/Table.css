@@ -2,6 +2,9 @@
 /* Source: @constructor-lab/tokens • tier: Table */
 
 :root, :host {
+  --ui-table-data-cell-color-active: var(--ui-background-surface-active);
+  --ui-table-data-cell-color-hover: var(--ui-background-surface-hover);
+  --ui-table-data-cell-color-idle: transparent;
   --ui-table-data-gap: var(--ui-units-gap-8);
   --ui-table-data-row-color-active: var(--ui-background-surface-hover);
   --ui-table-data-row-color-hover: var(--ui-background-surface-hover);

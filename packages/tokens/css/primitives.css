@@ -29,7 +29,7 @@
   --ui-palette-base: light-dark(rgb(255 255 255), rgb(31 32 34));
   --ui-palette-blue-0: light-dark(rgb(248 250 252), rgb(24 25 27));
   --ui-palette-blue-1: light-dark(rgb(238 242 247), rgb(46 47 50));
-  --ui-palette-blue-10: light-dark(rgb(11 66 142), rgb(255 165 0));
+  --ui-palette-blue-10: light-dark(rgb(11 66 142), rgb(117 174 240));
   --ui-palette-blue-11: light-dark(rgb(6 54 121), rgb(190 215 244));
   --ui-palette-blue-12: light-dark(rgb(3 43 99), rgb(61 63 67));
   --ui-palette-blue-13: light-dark(rgb(0 32 77), rgb(12 12 14));
@@ -395,6 +395,7 @@
   --ui-units-size-64: 64px;
   --ui-units-size-7: 7px;
   --ui-units-size-72: 72px;
+  --ui-units-size-76: 76px;
   --ui-units-size-8: 8px;
   --ui-units-size-96: 96px;
   --ui-units-stroke-1: 1px;

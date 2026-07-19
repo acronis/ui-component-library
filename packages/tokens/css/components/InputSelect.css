@@ -59,6 +59,7 @@
   --ui-input-select-global-container-gap: var(--ui-units-gap-4);
   --ui-input-select-global-container-label-gap: var(--ui-units-gap-4);
   --ui-input-select-global-container-width-min: var(--ui-units-size-128);
+  --ui-input-select-global-icon-box-size: var(--ui-units-size-20);
   --ui-input-select-global-label-color-disabled: var(--ui-text-on-surface-disabled);
   --ui-input-select-global-label-color-hover: var(--ui-text-on-surface-primary);
   --ui-input-select-global-label-color-idle: var(--ui-text-on-surface-primary);

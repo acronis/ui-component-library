@@ -30,7 +30,7 @@
     --ui-palette-base: light-dark(rgb(255 255 255), rgb(31 32 34));
     --ui-palette-blue-0: light-dark(rgb(248 250 252), rgb(24 25 27));
     --ui-palette-blue-1: light-dark(rgb(238 242 247), rgb(46 47 50));
-    --ui-palette-blue-10: light-dark(rgb(11 66 142), rgb(255 165 0));
+    --ui-palette-blue-10: light-dark(rgb(11 66 142), rgb(117 174 240));
     --ui-palette-blue-11: light-dark(rgb(6 54 121), rgb(190 215 244));
     --ui-palette-blue-12: light-dark(rgb(3 43 99), rgb(61 63 67));
     --ui-palette-blue-13: light-dark(rgb(0 32 77), rgb(12 12 14));
@@ -396,6 +396,7 @@
     --ui-units-size-64: 64px;
     --ui-units-size-7: 7px;
     --ui-units-size-72: 72px;
+    --ui-units-size-76: 76px;
     --ui-units-size-8: 8px;
     --ui-units-size-96: 96px;
     --ui-units-stroke-1: 1px;
@@ -875,7 +876,6 @@
   :root, :host {
     --ui-dialog-body-gap: var(--ui-units-gap-12);
     --ui-dialog-body-height-min: var(--ui-units-size-72);
-    --ui-dialog-body-padding-x: var(--ui-units-gap-16);
     --ui-dialog-body-padding-y: var(--ui-units-gap-16);
     --ui-dialog-container-border-radius: var(--ui-units-radius-8);
     --ui-dialog-container-color: var(--ui-background-surface-secondary);
@@ -883,14 +883,6 @@
     --ui-dialog-container-size-md: var(--ui-units-size-632);
     --ui-dialog-container-size-sm: var(--ui-units-size-512);
     --ui-dialog-container-width-min: var(--ui-units-size-256);
-    --ui-dialog-footer-border-color: var(--ui-border-on-surface-divider);
-    --ui-dialog-footer-border-style: solid;
-    --ui-dialog-footer-border-width: var(--ui-units-stroke-1);
-    --ui-dialog-footer-color: var(--ui-background-surface-primary);
-    --ui-dialog-footer-description-color: var(--ui-text-on-surface-primary);
-    --ui-dialog-footer-gap: var(--ui-units-gap-16);
-    --ui-dialog-footer-height: var(--ui-units-size-64);
-    --ui-dialog-footer-padding-x: var(--ui-units-gap-16);
     --ui-dialog-header-border-color: var(--ui-border-on-surface-divider);
     --ui-dialog-header-border-style: solid;
     --ui-dialog-header-border-width: var(--ui-units-stroke-1);
@@ -899,14 +891,6 @@
     --ui-dialog-header-height: var(--ui-units-size-64);
     --ui-dialog-header-padding-x: var(--ui-units-gap-16);
     --ui-dialog-header-title-color: var(--ui-text-on-surface-primary);
-  }
-
-  .ui-dialog-footer-description-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
   }
 
   .ui-dialog-header-title-text-style {
@@ -937,6 +921,7 @@
     --ui-input-date-picker-global-container-gap: var(--ui-units-gap-4);
     --ui-input-date-picker-global-container-label-gap: var(--ui-units-gap-4);
     --ui-input-date-picker-global-container-width-min: var(--ui-units-size-128);
+    --ui-input-date-picker-global-icon-box-size: var(--ui-units-size-20);
     --ui-input-date-picker-global-label-color-disabled: var(--ui-text-on-surface-disabled);
     --ui-input-date-picker-global-label-color-hover: var(--ui-text-on-surface-primary);
     --ui-input-date-picker-global-label-color-idle: var(--ui-text-on-surface-primary);
@@ -1131,6 +1116,7 @@
     --ui-input-select-global-container-gap: var(--ui-units-gap-4);
     --ui-input-select-global-container-label-gap: var(--ui-units-gap-4);
     --ui-input-select-global-container-width-min: var(--ui-units-size-128);
+    --ui-input-select-global-icon-box-size: var(--ui-units-size-20);
     --ui-input-select-global-label-color-disabled: var(--ui-text-on-surface-disabled);
     --ui-input-select-global-label-color-hover: var(--ui-text-on-surface-primary);
     --ui-input-select-global-label-color-idle: var(--ui-text-on-surface-primary);
@@ -1223,7 +1209,6 @@
   :root, :host {
     --ui-input-text-error-msg-box-border-color-hover: var(--ui-border-on-surface-border-error);
     --ui-input-text-error-msg-box-border-color-idle: var(--ui-border-on-surface-border-error);
-    --ui-input-text-error-msg-button-icon-color: var(--ui-glyph-on-surface-destructive);
     --ui-input-text-error-msg-error-color: var(--ui-text-on-surface-destructive);
     --ui-input-text-global-box-border-radius: var(--ui-units-radius-4);
     --ui-input-text-global-box-border-width: var(--ui-units-stroke-1);
@@ -1780,6 +1765,9 @@
   }
 
   :root, :host {
+    --ui-table-data-cell-color-active: var(--ui-background-surface-active);
+    --ui-table-data-cell-color-hover: var(--ui-background-surface-hover);
+    --ui-table-data-cell-color-idle: transparent;
     --ui-table-data-gap: var(--ui-units-gap-8);
     --ui-table-data-row-color-active: var(--ui-background-surface-hover);
     --ui-table-data-row-color-hover: var(--ui-background-surface-hover);
@@ -2140,6 +2128,14 @@
   }
 
   .ui-typography-headings-display {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0px;
+  }
+
+  .ui-typography-headings-display-numeric {
     font-family: Inter, system-ui, sans-serif;
     font-size: 32px;
     font-weight: 400;

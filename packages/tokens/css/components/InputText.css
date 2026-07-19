@@ -4,7 +4,6 @@
 :root, :host {
   --ui-input-text-error-msg-box-border-color-hover: var(--ui-border-on-surface-border-error);
   --ui-input-text-error-msg-box-border-color-idle: var(--ui-border-on-surface-border-error);
-  --ui-input-text-error-msg-button-icon-color: var(--ui-glyph-on-surface-destructive);
   --ui-input-text-error-msg-error-color: var(--ui-text-on-surface-destructive);
   --ui-input-text-global-box-border-radius: var(--ui-units-radius-4);
   --ui-input-text-global-box-border-width: var(--ui-units-stroke-1);
