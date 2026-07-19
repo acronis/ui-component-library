@@ -166,12 +166,22 @@ export const ComponentShowcase: React.FC = () => {
           <CardContent className="pt-6 space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="Enter your email" />
+              <Input
+                id="email"
+                type="email"
+                autoComplete="email"
+                placeholder="Enter your email"
+              />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" type="text" placeholder="Enter your name" />
+              <Input
+                id="name"
+                type="text"
+                autoComplete="name"
+                placeholder="Enter your name"
+              />
             </div>
 
             <div className="flex items-center space-x-2">

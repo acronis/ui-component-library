@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useId, useState, useEffect } from 'react';
 import {
   Select,
   SelectContent,
@@ -143,6 +143,11 @@ export const TypographyEditor: React.FC = () => {
   const isCustom =
     JSON.stringify(settings) !== JSON.stringify(DEFAULT_SETTINGS);
 
+  const fontFamilyId = useId();
+  const fontSizeId = useId();
+  const lineHeightId = useId();
+  const letterSpacingId = useId();
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -164,7 +169,9 @@ export const TypographyEditor: React.FC = () => {
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <label className="text-sm font-medium">Font Family</label>
+          <label htmlFor={fontFamilyId} className="text-sm font-medium">
+            Font Family
+          </label>
           <Select
             value={settings.fontFamily}
             onValueChange={(value) => {
@@ -178,7 +185,7 @@ export const TypographyEditor: React.FC = () => {
               }
             }}
           >
-            <SelectTrigger>
+            <SelectTrigger id={fontFamilyId}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -195,14 +202,16 @@ export const TypographyEditor: React.FC = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Base Font Size</label>
+          <label htmlFor={fontSizeId} className="text-sm font-medium">
+            Base Font Size
+          </label>
           <Select
             value={settings.fontSize}
             onValueChange={(value) =>
               setSettings({ ...settings, fontSize: value })
             }
           >
-            <SelectTrigger>
+            <SelectTrigger id={fontSizeId}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -219,14 +228,16 @@ export const TypographyEditor: React.FC = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Line Height</label>
+          <label htmlFor={lineHeightId} className="text-sm font-medium">
+            Line Height
+          </label>
           <Select
             value={settings.lineHeight}
             onValueChange={(value) =>
               setSettings({ ...settings, lineHeight: value })
             }
           >
-            <SelectTrigger>
+            <SelectTrigger id={lineHeightId}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -243,14 +254,16 @@ export const TypographyEditor: React.FC = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Letter Spacing</label>
+          <label htmlFor={letterSpacingId} className="text-sm font-medium">
+            Letter Spacing
+          </label>
           <Select
             value={settings.letterSpacing}
             onValueChange={(value) =>
               setSettings({ ...settings, letterSpacing: value })
             }
           >
-            <SelectTrigger>
+            <SelectTrigger id={letterSpacingId}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

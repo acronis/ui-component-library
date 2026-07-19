@@ -257,7 +257,11 @@ export const ChatComponentsShowcase: React.FC = () => {
               <p className="text-xs text-muted-foreground mb-2">Search Input</p>
               <div className="relative">
                 <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input placeholder="Search..." className="pl-9 h-9" />
+                <Input
+                  aria-label="Search"
+                  placeholder="Search..."
+                  className="pl-9 h-9"
+                />
               </div>
             </div>
 
@@ -269,6 +273,7 @@ export const ChatComponentsShowcase: React.FC = () => {
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  aria-label="Message"
                   placeholder="Ask anything"
                   className="w-full min-h-[64px] resize-none bg-transparent text-sm focus:outline-none"
                 />
@@ -553,7 +558,11 @@ export const ChatComponentsShowcase: React.FC = () => {
               <div className="p-3 border-b border-border/50">
                 <div className="relative">
                   <MagnifierIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input placeholder="Search..." className="pl-9 h-9" />
+                  <Input
+                    aria-label="Search chats"
+                    placeholder="Search..."
+                    className="pl-9 h-9"
+                  />
                 </div>
               </div>
 

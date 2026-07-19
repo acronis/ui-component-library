@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { HslColorPicker } from 'react-colorful';
 import { ColorToken } from '@/types/playground';
 import {
@@ -108,6 +109,19 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
   const displayOklch =
     color.oklch || createColorToken(color.h, color.s, color.l).oklch;
 
+  // Unique per instance so multiple pickers don't collide on duplicate ids
+  // (which would break every label→input association after the first).
+  const uid = useId();
+  const ids = {
+    h: `${uid}-h`,
+    s: `${uid}-s`,
+    l: `${uid}-l`,
+    hex: `${uid}-hex`,
+    oklchL: `${uid}-oklch-l`,
+    oklchC: `${uid}-oklch-c`,
+    oklchH: `${uid}-oklch-h`,
+  };
+
   return (
     <div className={`space-y-4 ${className}`}>
       {label && <Label className="text-sm font-medium">{label}</Label>}
@@ -128,14 +142,11 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
           <TabsContent value="hsl" className="space-y-3 mt-3">
             <div className="grid grid-cols-4 gap-2">
               <div className="space-y-1">
-                <Label
-                  htmlFor="h-input"
-                  className="text-xs text-muted-foreground"
-                >
+                <Label htmlFor={ids.h} className="text-xs text-muted-foreground">
                   H
                 </Label>
                 <Input
-                  id="h-input"
+                  id={ids.h}
                   type="number"
                   min="0"
                   max="360"
@@ -145,14 +156,11 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                 />
               </div>
               <div className="space-y-1">
-                <Label
-                  htmlFor="s-input"
-                  className="text-xs text-muted-foreground"
-                >
+                <Label htmlFor={ids.s} className="text-xs text-muted-foreground">
                   S
                 </Label>
                 <Input
-                  id="s-input"
+                  id={ids.s}
                   type="number"
                   min="0"
                   max="100"
@@ -162,14 +170,11 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                 />
               </div>
               <div className="space-y-1">
-                <Label
-                  htmlFor="l-input"
-                  className="text-xs text-muted-foreground"
-                >
+                <Label htmlFor={ids.l} className="text-xs text-muted-foreground">
                   L
                 </Label>
                 <Input
-                  id="l-input"
+                  id={ids.l}
                   type="number"
                   min="0"
                   max="100"
@@ -180,13 +185,13 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
               </div>
               <div className="space-y-1">
                 <Label
-                  htmlFor="hex-input"
+                  htmlFor={ids.hex}
                   className="text-xs text-muted-foreground"
                 >
                   HEX
                 </Label>
                 <Input
-                  id="hex-input"
+                  id={ids.hex}
                   type="text"
                   value={color.hex}
                   onChange={(e) => handleHexChange(e.target.value)}
@@ -205,13 +210,13 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                 <div className="grid grid-cols-3 gap-2">
                   <div className="space-y-1">
                     <Label
-                      htmlFor="oklch-l-input"
+                      htmlFor={ids.oklchL}
                       className="text-xs text-muted-foreground"
                     >
                       L
                     </Label>
                     <Input
-                      id="oklch-l-input"
+                      id={ids.oklchL}
                       type="number"
                       min="0"
                       max="1"
@@ -225,13 +230,13 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                   </div>
                   <div className="space-y-1">
                     <Label
-                      htmlFor="oklch-c-input"
+                      htmlFor={ids.oklchC}
                       className="text-xs text-muted-foreground"
                     >
                       C
                     </Label>
                     <Input
-                      id="oklch-c-input"
+                      id={ids.oklchC}
                       type="number"
                       min="0"
                       max="0.4"
@@ -245,13 +250,13 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                   </div>
                   <div className="space-y-1">
                     <Label
-                      htmlFor="oklch-h-input"
+                      htmlFor={ids.oklchH}
                       className="text-xs text-muted-foreground"
                     >
                       H
                     </Label>
                     <Input
-                      id="oklch-h-input"
+                      id={ids.oklchH}
                       type="number"
                       min="0"
                       max="360"
