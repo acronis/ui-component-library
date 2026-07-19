@@ -29,12 +29,16 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { brandConfig } from './brand-config.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TIERS_DIR = resolve(__dirname, '../../packages/tokens/tiers');
 
-const OLD_DEFAULT = 'acronis'; // legacy default brand key
-const DEFAULT_BRAND = 'default'; // new canonical default brand key
-const REFERENCE_BRAND = 'deep-sky-itkontoret'; // non-default brand used as diff template
+// Load-bearing brand identifiers — configured in brand-config.mjs so a Figma
+// rename is a one-line edit there (and is validated below), never a silent break.
+const OLD_DEFAULT = brandConfig.legacyDefaultBrand; // legacy default brand key
+const DEFAULT_BRAND = brandConfig.defaultBrand; // canonical default brand key
+const REFERENCE_BRAND = brandConfig.referenceBrand; // non-default diff template
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -81,6 +85,13 @@ const isLeaf = (node) =>
   !Array.isArray(node.values);
 
 const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+// True if any brand-keyed leaf in the tree carries `brand` in its `values` map.
+const anyLeafHasBrand = (node, brand) => {
+  if (!node || typeof node !== 'object') return false;
+  if (isLeaf(node)) return brand in node.values;
+  return Object.values(node).some((child) => anyLeafHasBrand(child, brand));
+};
 
 /**
  * Inspect each brand's primitive palette and return a map of
@@ -295,6 +306,18 @@ if (DRY_RUN) console.log('--- DRY RUN (no files written) ---\n');
 
 const primitives = readTier('primitives');
 const allBrands = getBrandsFromPrimitives(primitives);
+
+// Fail loudly if the configured reference brand no longer exists — e.g. renamed
+// in Figma without updating brand-config.mjs. Without this, the grayscale diff
+// template would silently be `undefined` and brand overrides would be mis-wired.
+if (!allBrands.includes(REFERENCE_BRAND)) {
+  throw new Error(
+    `themes-import: referenceBrand "${REFERENCE_BRAND}" is not in ` +
+      `primitives.palette.branding [${allBrands.join(', ')}]. If it was renamed ` +
+      `in Figma, update referenceBrand in tools/token-emit/brand-config.mjs.`
+  );
+}
+
 const brandPaths = buildBrandPaths(primitives.palette.branding);
 
 // All non-default brands that may need entries
@@ -317,6 +340,17 @@ for (const tierName of ['semantics', 'components']) {
   const tier = readTier(tierName);
 
   rename(tier);
+  // After the rename pass every brand-keyed tier must expose the default brand;
+  // if it doesn't, the default was renamed in Figma out of sync with the config,
+  // and the strip/wire passes would silently no-op against a phantom default.
+  if (!anyLeafHasBrand(tier, DEFAULT_BRAND)) {
+    throw new Error(
+      `themes-import: no "${DEFAULT_BRAND}" brand entries in ${tierName}.json ` +
+        `after rename (legacy key "${OLD_DEFAULT}"). If the default brand was ` +
+        `renamed in Figma, update defaultBrand/legacyDefaultBrand in ` +
+        `tools/token-emit/brand-config.mjs.`
+    );
+  }
   const fixed = fixInvalidRefs(tier, primitives);
   const stripped = strip(tier, tierName === 'components');
   const wired = wire(
