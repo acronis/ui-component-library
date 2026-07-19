@@ -124,7 +124,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
 
   return (
     <div className={`space-y-4 ${className}`}>
-      {label && <Label className="text-sm font-medium">{label}</Label>}
+      {label && <span className="block text-sm font-medium">{label}</span>}
 
       <div className="space-y-4">
         <HslColorPicker

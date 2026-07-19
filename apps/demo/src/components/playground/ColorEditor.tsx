@@ -7,7 +7,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@constructor-lab/ui-react';
-import { Label } from '@constructor-lab/ui-react';
 import { Badge } from '@constructor-lab/ui-react';
 import { getContrastRatio, meetsWCAGAA } from '@/lib/playground/colorUtils';
 
@@ -39,7 +38,9 @@ export const ColorEditor: React.FC<ColorEditorProps> = ({
     <div className={`space-y-2 ${className}`}>
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <Label className="text-sm font-medium">{label}</Label>
+          {/* Caption for the swatch button below, not a form field — a <label>
+              here would be an orphan (no associated control). */}
+          <span className="block text-sm font-medium">{label}</span>
           {description && (
             <p className="text-xs text-muted-foreground">{description}</p>
           )}
