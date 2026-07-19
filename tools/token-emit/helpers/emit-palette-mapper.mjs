@@ -33,7 +33,12 @@ export class PaletteMapper {
     const [group, ...rest] = parts;
     const mappedGroup = PaletteMapper.#NAME_MAP.get(group);
     if (!mappedGroup)
-      return parts.map((p) => p.toLowerCase().replace(/\s+/g, '-'));
+      // Fold spaces AND underscores to `-` so brand slugs under `branding/*`
+      // (e.g. Figma mode/variable name `deep_sky_itkontoret`) canonicalize to
+      // kebab-case — matching semantics' `normalizeMode`. Otherwise underscore
+      // brand keys leak into primitives.palette.branding and, via themes-import,
+      // duplicate the semantics brand entries (deep-sky-itkontoret + deep_sky…).
+      return parts.map((p) => p.toLowerCase().replace(/[\s_]+/g, '-'));
 
     if (mappedGroup === 'grayscale') {
       // "Grayscale/Gray-3" → ["grayscale", "3"]
@@ -60,6 +65,6 @@ export class PaletteMapper {
     const stripped = raw.replace(new RegExp(`^${group}-?`, 'i'), '');
     const num = stripped.match(/^(\d+)/)?.[1];
     if (num) return [mappedGroup, num];
-    return [mappedGroup, stripped.toLowerCase().replace(/\s+/g, '-')];
+    return [mappedGroup, stripped.toLowerCase().replace(/[\s_]+/g, '-')];
   }
 }
