@@ -65,7 +65,9 @@ export class FigmaSourceLoader {
     try {
       return JSON.parse(fs.readFileSync(filePath, 'utf8'));
     } catch (e) {
-      throw new Error(`Failed to parse ${filePath}: ${e.message}`);
+      throw new Error(`Failed to parse ${filePath}: ${e.message}`, {
+        cause: e,
+      });
     }
   }
 

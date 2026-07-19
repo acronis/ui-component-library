@@ -152,11 +152,7 @@ export class ComponentsEmitter {
   }
 
   #buildLeaf(leaf) {
-    const variableId =
-      leaf.$extensions?.['figma-console-mcp']?.variableId ??
-      leaf.$extensions?.['com.figma.variableId'];
-
-    const value = this.#translateValue(leaf.$value, variableId);
+    const value = this.#translateValue(leaf.$value);
 
     const token = {};
     if (leaf.$type) token.$type = leaf.$type;
@@ -187,7 +183,7 @@ export class ComponentsEmitter {
       for (const [modeKey, modeRef] of Object.entries(allModes)) {
         // kebab-case per schema `Modes` pattern; fold spaces and underscores.
         const normalizedKey = modeKey.toLowerCase().replace(/[\s_]+/g, '-');
-        translatedValues[normalizedKey] = this.#translateValue(modeRef, id);
+        translatedValues[normalizedKey] = this.#translateValue(modeRef);
       }
       if (Object.keys(translatedValues).length > 0)
         token.values = translatedValues;
@@ -218,13 +214,13 @@ export class ComponentsEmitter {
   //   "{Base}" / "{Blue.Blue-3}"                   → palette ref (via AliasTranslator)
   //   "typography.link.default" / "body.accent"    → "{typography.link.default}" / "{typography.body.accent}"
   //   "underline" / "none" / "solid"               → kept verbatim (enum literal)
-  #translateValue(value, variableId) {
+  #translateValue(value) {
     // Transparent rule: a fully-transparent literal color (alpha 0) becomes the
     // CSS keyword `transparent` — its RGB channels are meaningless.
     if (value && typeof value === 'object' && value.alpha === 0)
       return 'transparent';
     if (typeof value !== 'string') return value;
-    if (value.startsWith('{')) return this.#translateAlias(value, variableId);
+    if (value.startsWith('{')) return this.#translateAlias(value);
     // A bare dotted string is a typography reference; a bare word is an enum literal.
     if (value.includes('.')) {
       if (value.startsWith('typography.')) {
@@ -260,7 +256,7 @@ export class ComponentsEmitter {
     }
   }
 
-  #translateAlias(alias, variableId) {
+  #translateAlias(alias) {
     // Semantic / component self references: strip the redundant tier prefix.
     const prefixed = alias.match(
       /^\{(?:brand\.)?(semantics|components)\.(.+)\}$/

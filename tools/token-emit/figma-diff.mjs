@@ -7,7 +7,6 @@
 //   node tools/token-emit/figma-diff.mjs --tier components
 
 import fs from 'node:fs';
-import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TiersReader } from './helpers/diff-tiers-reader.mjs';
 import { DiffEngine } from './helpers/diff-engine.mjs';

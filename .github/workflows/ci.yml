@@ -28,6 +28,7 @@ jobs:
         @constructor-lab/figma-icons-fetcher
         @constructor-lab/figma-token-exporter
         @constructor-lab/style-dictionary
+        @constructor-lab/token-emit
 
     steps:
       - name: Checkout
