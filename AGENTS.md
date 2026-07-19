@@ -142,6 +142,14 @@ that workspace**, never here.
 
 ## Cross-cutting context (read on demand)
 
+- `context/ecosystem-vision/` — **north-star vision & governance** for the whole
+  Cyber ecosystem: the 8-layer model (`Console → App → Screen → Template →
+Pattern → Composite → Primitive` over ambient Tokens + Icons, sourced from
+  Figma), the per-layer schema/validation contract, the new **Template** layer
+  (the `common-template` generalization), the PM/designer/dev authoring workflow,
+  and the **RFC discussion board** (`rfcs/`). Unifies the layer/pattern/screen
+  proposals below into one picture; draft, nothing adopted. Start at its
+  `README.md`.
 - `context/releasing.md` — Changesets workflow that applies to any
   published workspace in the monorepo.
 - `context/roadmap.md` — product roadmap (epics, phases, v1 scope/timeline).
