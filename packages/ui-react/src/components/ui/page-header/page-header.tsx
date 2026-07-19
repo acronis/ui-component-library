@@ -16,7 +16,6 @@ const PageHeader = React.forwardRef<
   <div
     ref={ref}
     data-slot="page-header"
-    role="banner"
     className={cn('flex flex-col gap-2 pb-4', className)}
     {...props}
   />

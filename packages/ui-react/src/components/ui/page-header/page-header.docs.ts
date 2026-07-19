@@ -9,7 +9,8 @@ import type * as React from 'react';
 // `PageHeaderDescription`, `PageHeaderActions`) takes the standard attributes of
 // the element it renders.
 
-/** Props for `PageHeader` — the page header region root (`role="banner"`). */
+/** Props for `PageHeader` — the page header block root (a non-landmark `<div>`;
+ * the page's `banner` landmark is the app header, not the page title block). */
 export interface PageHeaderProps {
   /** Extra classes merged onto the root `<div>`. */
   className?: string;

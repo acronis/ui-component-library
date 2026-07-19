@@ -3782,7 +3782,7 @@
       "role": null,
       "region": null,
       "regionChild": false,
-      "text": "⌘KSelect brandSelect languageDashboardWelcome, User!Last 30 daysTotal Users1,248",
+      "text": "⌘KSelect brandSelect languageDashboardWelcome, User!Last 30 daysTotal Users1,253",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -4478,7 +4478,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "DashboardWelcome, User!Last 30 daysTotal Users1,248Revenue$45,431.04Active Sessi",
+      "text": "DashboardWelcome, User!Last 30 daysTotal Users1,253Revenue$44,822.67Active Sessi",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -4507,7 +4507,7 @@
       "role": null,
       "region": "main",
       "regionChild": true,
-      "text": "DashboardWelcome, User!Last 30 daysTotal Users1,248Revenue$45,431.04Active Sessi",
+      "text": "DashboardWelcome, User!Last 30 daysTotal Users1,253Revenue$44,822.67Active Sessi",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -4533,8 +4533,8 @@
     {
       "ref": "div:nth-of-type(1) > main > div > div:nth-of-type(1)",
       "tag": "div",
-      "role": "banner",
-      "region": "banner",
+      "role": null,
+      "region": "main",
       "regionChild": false,
       "text": "DashboardWelcome, User!Last 30 days",
       "ownText": "",
@@ -4563,8 +4563,8 @@
       "ref": "main > div > div:nth-of-type(1) > div",
       "tag": "div",
       "role": null,
-      "region": "banner",
-      "regionChild": true,
+      "region": "main",
+      "regionChild": false,
       "text": "DashboardWelcome, User!Last 30 days",
       "ownText": "",
       "visuallyHidden": false,
@@ -4592,7 +4592,7 @@
       "ref": "div > div:nth-of-type(1) > div > div:nth-of-type(1)",
       "tag": "div",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "DashboardWelcome, User!",
       "ownText": "",
@@ -4621,7 +4621,7 @@
       "ref": "div:nth-of-type(1) > div > div:nth-of-type(1) > h1",
       "tag": "h1",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "Dashboard",
       "ownText": "Dashboard",
@@ -4650,7 +4650,7 @@
       "ref": "div:nth-of-type(1) > div > div:nth-of-type(1) > p",
       "tag": "p",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "Welcome, User!",
       "ownText": "Welcome, User!",
@@ -4679,7 +4679,7 @@
       "ref": "div > div:nth-of-type(1) > div > div:nth-of-type(2)",
       "tag": "div",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "Last 30 days",
       "ownText": "",
@@ -4708,7 +4708,7 @@
       "ref": "div:nth-of-type(1) > div > div:nth-of-type(2) > span",
       "tag": "span",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "Last 30 days",
       "ownText": "",
@@ -4737,7 +4737,7 @@
       "ref": "div > div:nth-of-type(2) > span > span",
       "tag": "span",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "Last 30 days",
       "ownText": "Last 30 days",
@@ -4766,7 +4766,7 @@
       "ref": "div:nth-of-type(2) > span > span > svg",
       "tag": "svg",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "",
       "ownText": "",
@@ -4795,7 +4795,7 @@
       "ref": "span > span > svg > path:nth-of-type(1)",
       "tag": "path",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "",
       "ownText": "",
@@ -4824,7 +4824,7 @@
       "ref": "span > span > svg > path:nth-of-type(2)",
       "tag": "path",
       "role": null,
-      "region": "banner",
+      "region": "main",
       "regionChild": false,
       "text": "",
       "ownText": "",
@@ -4855,7 +4855,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Total Users1,248Revenue$45,431.04Active Sessions89Growth11.5%",
+      "text": "Total Users1,253Revenue$44,822.67Active Sessions88Growth12.7%",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -4884,7 +4884,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Total Users1,248",
+      "text": "Total Users1,253",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -4942,7 +4942,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "1,248",
+      "text": "1,253",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -4953,7 +4953,7 @@
       "rect": {
         "x": 345,
         "y": 188,
-        "width": 86,
+        "width": 85,
         "height": 32
       },
       "opacity": 1,
@@ -5029,8 +5029,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "1,248",
-      "ownText": "1,248",
+      "text": "1,253",
+      "ownText": "1,253",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -5040,7 +5040,7 @@
       "rect": {
         "x": 369,
         "y": 188,
-        "width": 62,
+        "width": 61,
         "height": 32
       },
       "opacity": 1,
@@ -5058,7 +5058,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Revenue$45,431.04",
+      "text": "Revenue$44,822.67",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5116,7 +5116,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "$45,431.04",
+      "text": "$44,822.67",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5127,7 +5127,7 @@
       "rect": {
         "x": 621,
         "y": 188,
-        "width": 154,
+        "width": 155,
         "height": 32
       },
       "opacity": 1,
@@ -5203,8 +5203,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "$45,431.04",
-      "ownText": "$45,431.04",
+      "text": "$44,822.67",
+      "ownText": "$44,822.67",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -5214,7 +5214,7 @@
       "rect": {
         "x": 645,
         "y": 188,
-        "width": 130,
+        "width": 131,
         "height": 32
       },
       "opacity": 1,
@@ -5232,7 +5232,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Active Sessions89",
+      "text": "Active Sessions88",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5290,7 +5290,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "89",
+      "text": "88",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5377,8 +5377,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "89",
-      "ownText": "89",
+      "text": "88",
+      "ownText": "88",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -5406,7 +5406,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Growth11.5%",
+      "text": "Growth12.7%",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5464,7 +5464,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "11.5%",
+      "text": "12.7%",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5475,7 +5475,7 @@
       "rect": {
         "x": 1173,
         "y": 188,
-        "width": 89,
+        "width": 90,
         "height": 32
       },
       "opacity": 1,
@@ -5551,8 +5551,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "11.5%",
-      "ownText": "11.5%",
+      "text": "12.7%",
+      "ownText": "12.7%",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -5562,7 +5562,7 @@
       "rect": {
         "x": 1197,
         "y": 188,
-        "width": 65,
+        "width": 66,
         "height": 32
       },
       "opacity": 1,
@@ -5783,7 +5783,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5812,7 +5812,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -5841,7 +5841,7 @@
       "role": "application",
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -6140,7 +6140,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 447,
+        "x": 432,
         "y": 357,
         "width": 0,
         "height": 260
@@ -6169,7 +6169,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 504,
+        "x": 490,
         "y": 357,
         "width": 0,
         "height": 260
@@ -6198,7 +6198,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 561,
+        "x": 547,
         "y": 357,
         "width": 0,
         "height": 260
@@ -6227,7 +6227,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 619,
+        "x": 604,
         "y": 357,
         "width": 0,
         "height": 260
@@ -6256,7 +6256,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 662,
+        "x": 648,
         "y": 357,
         "width": 0,
         "height": 260
@@ -6402,9 +6402,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 378,
+        "y": 381,
         "width": 416,
-        "height": 101
+        "height": 100
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -6431,9 +6431,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 378,
+        "y": 381,
         "width": 416,
-        "height": 101
+        "height": 100
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -6460,9 +6460,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 378,
+        "y": 381,
         "width": 416,
-        "height": 101
+        "height": 100
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -6489,9 +6489,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 378,
+        "y": 381,
         "width": 416,
-        "height": 101
+        "height": 100
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -6604,9 +6604,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 617,
-        "width": 416,
+        "width": 387,
         "height": 6
       },
       "opacity": 1,
@@ -6633,9 +6633,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 617,
-        "width": 416,
+        "width": 387,
         "height": 6
       },
       "opacity": 1,
@@ -6662,7 +6662,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6691,7 +6691,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6720,7 +6720,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 461,
+        "x": 504,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6749,7 +6749,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 461,
+        "x": 504,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6778,7 +6778,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 504,
+        "x": 561,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6807,7 +6807,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 504,
+        "x": 561,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6836,7 +6836,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 561,
+        "x": 604,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6865,7 +6865,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 561,
+        "x": 604,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6894,7 +6894,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 604,
+        "x": 648,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6923,7 +6923,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 604,
+        "x": 648,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6952,7 +6952,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 648,
+        "x": 691,
         "y": 617,
         "width": 0,
         "height": 6
@@ -6981,7 +6981,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 648,
+        "x": 691,
         "y": 617,
         "width": 0,
         "height": 6
@@ -7010,7 +7010,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 691,
+        "x": 734,
         "y": 617,
         "width": 0,
         "height": 6
@@ -7039,7 +7039,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 691,
+        "x": 734,
         "y": 617,
         "width": 0,
         "height": 6
@@ -7068,7 +7068,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 734,
+        "x": 777,
         "y": 617,
         "width": 0,
         "height": 6
@@ -7097,7 +7097,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 734,
+        "x": 777,
         "y": 617,
         "width": 0,
         "height": 6
@@ -7126,64 +7126,6 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 777,
-        "y": 617,
-        "width": 0,
-        "height": 6
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g > g > g:nth-of-type(9) > line",
-      "tag": "line",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "",
-      "ownText": "",
-      "visuallyHidden": true,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 777,
-        "y": 617,
-        "width": 0,
-        "height": 6
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g:nth-of-type(1) > g > g > g:nth-of-type(10)",
-      "tag": "g",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "",
-      "ownText": "",
-      "visuallyHidden": true,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
         "x": 834,
         "y": 617,
         "width": 0,
@@ -7199,7 +7141,7 @@
       "gutterY": 0
     },
     {
-      "ref": "g > g > g:nth-of-type(10) > line",
+      "ref": "g > g > g:nth-of-type(9) > line",
       "tag": "line",
       "role": null,
       "region": "main",
@@ -7639,7 +7581,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7668,7 +7610,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 17",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 19",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7677,9 +7619,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 621,
-        "width": 440,
+        "width": 411,
         "height": 15
       },
       "opacity": 1,
@@ -7697,7 +7639,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18",
+      "text": "Jun 22",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7706,9 +7648,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 621,
-        "width": 37,
+        "width": 38,
         "height": 15
       },
       "opacity": 1,
@@ -7726,7 +7668,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18",
+      "text": "Jun 22",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7735,9 +7677,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 621,
-        "width": 37,
+        "width": 38,
         "height": 15
       },
       "opacity": 1,
@@ -7755,8 +7697,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18",
-      "ownText": "Jun 18",
+      "text": "Jun 22",
+      "ownText": "Jun 22",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -7764,9 +7706,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 621,
-        "width": 37,
+        "width": 38,
         "height": 15
       },
       "opacity": 1,
@@ -7784,7 +7726,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 21",
+      "text": "Jun 26",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7793,9 +7735,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 443,
+        "x": 485,
         "y": 621,
-        "width": 37,
+        "width": 39,
         "height": 15
       },
       "opacity": 1,
@@ -7813,7 +7755,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 21",
+      "text": "Jun 26",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7822,9 +7764,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 443,
+        "x": 485,
         "y": 621,
-        "width": 37,
+        "width": 39,
         "height": 15
       },
       "opacity": 1,
@@ -7842,8 +7784,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 21",
-      "ownText": "Jun 21",
+      "text": "Jun 26",
+      "ownText": "Jun 26",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -7851,9 +7793,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 443,
+        "x": 485,
         "y": 621,
-        "width": 37,
+        "width": 39,
         "height": 15
       },
       "opacity": 1,
@@ -7871,7 +7813,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 24",
+      "text": "Jun 30",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7880,7 +7822,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 485,
+        "x": 542,
         "y": 621,
         "width": 39,
         "height": 15
@@ -7900,7 +7842,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 24",
+      "text": "Jun 30",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7909,7 +7851,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 485,
+        "x": 542,
         "y": 621,
         "width": 39,
         "height": 15
@@ -7929,8 +7871,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 24",
-      "ownText": "Jun 24",
+      "text": "Jun 30",
+      "ownText": "Jun 30",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -7938,7 +7880,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 485,
+        "x": 542,
         "y": 621,
         "width": 39,
         "height": 15
@@ -7958,7 +7900,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 28",
+      "text": "Jul 3",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7967,9 +7909,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 542,
+        "x": 591,
         "y": 621,
-        "width": 39,
+        "width": 27,
         "height": 15
       },
       "opacity": 1,
@@ -7987,7 +7929,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 28",
+      "text": "Jul 3",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -7996,9 +7938,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 542,
+        "x": 591,
         "y": 621,
-        "width": 39,
+        "width": 27,
         "height": 15
       },
       "opacity": 1,
@@ -8016,8 +7958,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 28",
-      "ownText": "Jun 28",
+      "text": "Jul 3",
+      "ownText": "Jul 3",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -8025,9 +7967,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 542,
+        "x": 591,
         "y": 621,
-        "width": 39,
+        "width": 27,
         "height": 15
       },
       "opacity": 1,
@@ -8045,7 +7987,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 1",
+      "text": "Jul 6",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8054,9 +7996,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 592,
+        "x": 634,
         "y": 621,
-        "width": 25,
+        "width": 28,
         "height": 15
       },
       "opacity": 1,
@@ -8074,7 +8016,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 1",
+      "text": "Jul 6",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8083,9 +8025,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 592,
+        "x": 634,
         "y": 621,
-        "width": 25,
+        "width": 28,
         "height": 15
       },
       "opacity": 1,
@@ -8103,8 +8045,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 1",
-      "ownText": "Jul 1",
+      "text": "Jul 6",
+      "ownText": "Jul 6",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -8112,9 +8054,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 592,
+        "x": 634,
         "y": 621,
-        "width": 25,
+        "width": 28,
         "height": 15
       },
       "opacity": 1,
@@ -8132,7 +8074,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 4",
+      "text": "Jul 9",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8141,7 +8083,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 634,
+        "x": 677,
         "y": 621,
         "width": 28,
         "height": 15
@@ -8161,7 +8103,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 4",
+      "text": "Jul 9",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8170,7 +8112,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 634,
+        "x": 677,
         "y": 621,
         "width": 28,
         "height": 15
@@ -8190,8 +8132,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 4",
-      "ownText": "Jul 4",
+      "text": "Jul 9",
+      "ownText": "Jul 9",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -8199,7 +8141,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 634,
+        "x": 677,
         "y": 621,
         "width": 28,
         "height": 15
@@ -8219,7 +8161,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 7",
+      "text": "Jul 12",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8228,9 +8170,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 677,
+        "x": 717,
         "y": 621,
-        "width": 27,
+        "width": 33,
         "height": 15
       },
       "opacity": 1,
@@ -8248,7 +8190,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 7",
+      "text": "Jul 12",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8257,9 +8199,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 677,
+        "x": 717,
         "y": 621,
-        "width": 27,
+        "width": 33,
         "height": 15
       },
       "opacity": 1,
@@ -8277,8 +8219,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 7",
-      "ownText": "Jul 7",
+      "text": "Jul 12",
+      "ownText": "Jul 12",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -8286,9 +8228,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 677,
+        "x": 717,
         "y": 621,
-        "width": 27,
+        "width": 33,
         "height": 15
       },
       "opacity": 1,
@@ -8306,7 +8248,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 10",
+      "text": "Jul 15",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8315,7 +8257,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 717,
+        "x": 760,
         "y": 621,
         "width": 33,
         "height": 15
@@ -8335,7 +8277,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 10",
+      "text": "Jul 15",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8344,7 +8286,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 717,
+        "x": 760,
         "y": 621,
         "width": 33,
         "height": 15
@@ -8364,8 +8306,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 10",
-      "ownText": "Jul 10",
+      "text": "Jul 15",
+      "ownText": "Jul 15",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -8373,7 +8315,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 717,
+        "x": 760,
         "y": 621,
         "width": 33,
         "height": 15
@@ -8393,7 +8335,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 13",
+      "text": "Jul 19",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8402,7 +8344,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 760,
+        "x": 806,
         "y": 621,
         "width": 33,
         "height": 15
@@ -8422,7 +8364,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 13",
+      "text": "Jul 19",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -8431,7 +8373,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 760,
+        "x": 806,
         "y": 621,
         "width": 33,
         "height": 15
@@ -8451,8 +8393,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 13",
-      "ownText": "Jul 13",
+      "text": "Jul 19",
+      "ownText": "Jul 19",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -8460,96 +8402,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 760,
+        "x": 806,
         "y": 621,
         "width": 33,
-        "height": 15
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "svg > g:nth-of-type(12) > g:nth-of-type(1) > g:nth-of-type(10)",
-      "tag": "g",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "Jul 17",
-      "ownText": "",
-      "visuallyHidden": false,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 807,
-        "y": 621,
-        "width": 32,
-        "height": 15
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g:nth-of-type(12) > g:nth-of-type(1) > g:nth-of-type(10) > text",
-      "tag": "text",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "Jul 17",
-      "ownText": "",
-      "visuallyHidden": false,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 807,
-        "y": 621,
-        "width": 32,
-        "height": 15
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g:nth-of-type(1) > g:nth-of-type(10) > text > tspan",
-      "tag": "tspan",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "Jul 17",
-      "ownText": "Jul 17",
-      "visuallyHidden": false,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 807,
-        "y": 621,
-        "width": 32,
         "height": 15
       },
       "opacity": 1,
@@ -9737,9 +9592,9 @@
       "isIcon": false,
       "rect": {
         "x": 978,
-        "y": 388,
+        "y": 391,
         "width": 400,
-        "height": 228
+        "height": 225
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9766,9 +9621,9 @@
       "isIcon": false,
       "rect": {
         "x": 978,
-        "y": 388,
+        "y": 391,
         "width": 400,
-        "height": 228
+        "height": 225
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9795,9 +9650,9 @@
       "isIcon": false,
       "rect": {
         "x": 978,
-        "y": 388,
+        "y": 391,
         "width": 400,
-        "height": 228
+        "height": 225
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9824,9 +9679,9 @@
       "isIcon": false,
       "rect": {
         "x": 978,
-        "y": 388,
+        "y": 391,
         "width": 400,
-        "height": 228
+        "height": 225
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9853,9 +9708,9 @@
       "isIcon": false,
       "rect": {
         "x": 978,
-        "y": 388,
+        "y": 391,
         "width": 67,
-        "height": 228
+        "height": 225
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9882,9 +9737,9 @@
       "isIcon": false,
       "rect": {
         "x": 978,
-        "y": 388,
+        "y": 391,
         "width": 67,
-        "height": 228
+        "height": 225
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9911,9 +9766,9 @@
       "isIcon": false,
       "rect": {
         "x": 978,
-        "y": 388,
+        "y": 391,
         "width": 67,
-        "height": 228
+        "height": 225
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9940,9 +9795,9 @@
       "isIcon": false,
       "rect": {
         "x": 1062,
-        "y": 466,
+        "y": 461,
         "width": 67,
-        "height": 150
+        "height": 155
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9969,9 +9824,9 @@
       "isIcon": false,
       "rect": {
         "x": 1062,
-        "y": 466,
+        "y": 461,
         "width": 67,
-        "height": 150
+        "height": 155
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -9998,9 +9853,9 @@
       "isIcon": false,
       "rect": {
         "x": 1062,
-        "y": 466,
+        "y": 461,
         "width": 67,
-        "height": 150
+        "height": 155
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10027,9 +9882,9 @@
       "isIcon": false,
       "rect": {
         "x": 1145,
-        "y": 487,
+        "y": 491,
         "width": 67,
-        "height": 129
+        "height": 125
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10056,9 +9911,9 @@
       "isIcon": false,
       "rect": {
         "x": 1145,
-        "y": 487,
+        "y": 491,
         "width": 67,
-        "height": 129
+        "height": 125
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10085,9 +9940,9 @@
       "isIcon": false,
       "rect": {
         "x": 1145,
-        "y": 487,
+        "y": 491,
         "width": 67,
-        "height": 129
+        "height": 125
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10114,9 +9969,9 @@
       "isIcon": false,
       "rect": {
         "x": 1228,
-        "y": 519,
+        "y": 529,
         "width": 67,
-        "height": 98
+        "height": 88
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10143,9 +9998,9 @@
       "isIcon": false,
       "rect": {
         "x": 1228,
-        "y": 519,
+        "y": 529,
         "width": 67,
-        "height": 98
+        "height": 88
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10172,9 +10027,9 @@
       "isIcon": false,
       "rect": {
         "x": 1228,
-        "y": 519,
+        "y": 529,
         "width": 67,
-        "height": 98
+        "height": 88
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10201,9 +10056,9 @@
       "isIcon": false,
       "rect": {
         "x": 1311,
-        "y": 547,
+        "y": 546,
         "width": 67,
-        "height": 70
+        "height": 71
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10230,9 +10085,9 @@
       "isIcon": false,
       "rect": {
         "x": 1311,
-        "y": 547,
+        "y": 546,
         "width": 67,
-        "height": 70
+        "height": 71
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -10259,9 +10114,9 @@
       "isIcon": false,
       "rect": {
         "x": 1311,
-        "y": 547,
+        "y": 546,
         "width": 67,
-        "height": 70
+        "height": 71
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -12250,7 +12105,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -12279,7 +12134,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -12308,7 +12163,7 @@
       "role": "application",
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -12607,7 +12462,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 447,
+        "x": 432,
         "y": 797,
         "width": 0,
         "height": 260
@@ -12636,7 +12491,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 504,
+        "x": 490,
         "y": 797,
         "width": 0,
         "height": 260
@@ -12665,7 +12520,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 561,
+        "x": 547,
         "y": 797,
         "width": 0,
         "height": 260
@@ -12694,7 +12549,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 619,
+        "x": 604,
         "y": 797,
         "width": 0,
         "height": 260
@@ -12723,7 +12578,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 662,
+        "x": 648,
         "y": 797,
         "width": 0,
         "height": 260
@@ -12869,9 +12724,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 238
+        "height": 235
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -12898,9 +12753,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 238
+        "height": 235
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -12927,9 +12782,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 238
+        "height": 235
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -12956,9 +12811,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 238
+        "height": 235
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -12985,9 +12840,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 238
+        "height": 235
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -13014,9 +12869,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 238
+        "height": 235
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -13043,9 +12898,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 238
+        "height": 235
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -13072,9 +12927,9 @@
       "isIcon": false,
       "rect": {
         "x": 418,
-        "y": 818,
+        "y": 821,
         "width": 416,
-        "height": 101
+        "height": 100
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -13187,9 +13042,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 1057,
-        "width": 416,
+        "width": 387,
         "height": 6
       },
       "opacity": 1,
@@ -13216,9 +13071,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 1057,
-        "width": 416,
+        "width": 387,
         "height": 6
       },
       "opacity": 1,
@@ -13245,7 +13100,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13274,7 +13129,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 418,
+        "x": 447,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13303,7 +13158,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 461,
+        "x": 504,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13332,7 +13187,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 461,
+        "x": 504,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13361,7 +13216,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 504,
+        "x": 561,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13390,7 +13245,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 504,
+        "x": 561,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13419,7 +13274,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 561,
+        "x": 604,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13448,7 +13303,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 561,
+        "x": 604,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13477,7 +13332,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 604,
+        "x": 648,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13506,7 +13361,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 604,
+        "x": 648,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13535,7 +13390,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 648,
+        "x": 691,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13564,7 +13419,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 648,
+        "x": 691,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13593,7 +13448,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 691,
+        "x": 734,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13622,7 +13477,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 691,
+        "x": 734,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13651,7 +13506,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 734,
+        "x": 777,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13680,7 +13535,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 734,
+        "x": 777,
         "y": 1057,
         "width": 0,
         "height": 6
@@ -13709,64 +13564,6 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 777,
-        "y": 1057,
-        "width": 0,
-        "height": 6
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g > g > g:nth-of-type(9) > line",
-      "tag": "line",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "",
-      "ownText": "",
-      "visuallyHidden": true,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 777,
-        "y": 1057,
-        "width": 0,
-        "height": 6
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g:nth-of-type(1) > g > g > g:nth-of-type(10)",
-      "tag": "g",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "",
-      "ownText": "",
-      "visuallyHidden": true,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
         "x": 834,
         "y": 1057,
         "width": 0,
@@ -13782,7 +13579,7 @@
       "gutterY": 0
     },
     {
-      "ref": "g > g > g:nth-of-type(10) > line",
+      "ref": "g > g > g:nth-of-type(9) > line",
       "tag": "line",
       "role": null,
       "region": "main",
@@ -14222,7 +14019,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 1704590135180",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 1904590135180",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14251,7 +14048,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18Jun 21Jun 24Jun 28Jul 1Jul 4Jul 7Jul 10Jul 13Jul 17",
+      "text": "Jun 22Jun 26Jun 30Jul 3Jul 6Jul 9Jul 12Jul 15Jul 19",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14260,9 +14057,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 1061,
-        "width": 440,
+        "width": 411,
         "height": 15
       },
       "opacity": 1,
@@ -14280,7 +14077,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18",
+      "text": "Jun 22",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14289,9 +14086,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 1061,
-        "width": 37,
+        "width": 38,
         "height": 15
       },
       "opacity": 1,
@@ -14309,7 +14106,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18",
+      "text": "Jun 22",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14318,9 +14115,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 1061,
-        "width": 37,
+        "width": 38,
         "height": 15
       },
       "opacity": 1,
@@ -14338,8 +14135,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 18",
-      "ownText": "Jun 18",
+      "text": "Jun 22",
+      "ownText": "Jun 22",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14347,9 +14144,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 399,
+        "x": 428,
         "y": 1061,
-        "width": 37,
+        "width": 38,
         "height": 15
       },
       "opacity": 1,
@@ -14367,7 +14164,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 21",
+      "text": "Jun 26",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14376,9 +14173,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 443,
+        "x": 485,
         "y": 1061,
-        "width": 37,
+        "width": 39,
         "height": 15
       },
       "opacity": 1,
@@ -14396,7 +14193,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 21",
+      "text": "Jun 26",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14405,9 +14202,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 443,
+        "x": 485,
         "y": 1061,
-        "width": 37,
+        "width": 39,
         "height": 15
       },
       "opacity": 1,
@@ -14425,8 +14222,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 21",
-      "ownText": "Jun 21",
+      "text": "Jun 26",
+      "ownText": "Jun 26",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14434,9 +14231,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 443,
+        "x": 485,
         "y": 1061,
-        "width": 37,
+        "width": 39,
         "height": 15
       },
       "opacity": 1,
@@ -14454,7 +14251,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 24",
+      "text": "Jun 30",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14463,7 +14260,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 485,
+        "x": 542,
         "y": 1061,
         "width": 39,
         "height": 15
@@ -14483,7 +14280,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 24",
+      "text": "Jun 30",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14492,7 +14289,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 485,
+        "x": 542,
         "y": 1061,
         "width": 39,
         "height": 15
@@ -14512,8 +14309,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 24",
-      "ownText": "Jun 24",
+      "text": "Jun 30",
+      "ownText": "Jun 30",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14521,7 +14318,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 485,
+        "x": 542,
         "y": 1061,
         "width": 39,
         "height": 15
@@ -14541,7 +14338,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 28",
+      "text": "Jul 3",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14550,9 +14347,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 542,
+        "x": 591,
         "y": 1061,
-        "width": 39,
+        "width": 27,
         "height": 15
       },
       "opacity": 1,
@@ -14570,7 +14367,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 28",
+      "text": "Jul 3",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14579,9 +14376,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 542,
+        "x": 591,
         "y": 1061,
-        "width": 39,
+        "width": 27,
         "height": 15
       },
       "opacity": 1,
@@ -14599,8 +14396,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jun 28",
-      "ownText": "Jun 28",
+      "text": "Jul 3",
+      "ownText": "Jul 3",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14608,9 +14405,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 542,
+        "x": 591,
         "y": 1061,
-        "width": 39,
+        "width": 27,
         "height": 15
       },
       "opacity": 1,
@@ -14628,7 +14425,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 1",
+      "text": "Jul 6",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14637,9 +14434,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 592,
+        "x": 634,
         "y": 1061,
-        "width": 25,
+        "width": 28,
         "height": 15
       },
       "opacity": 1,
@@ -14657,7 +14454,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 1",
+      "text": "Jul 6",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14666,9 +14463,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 592,
+        "x": 634,
         "y": 1061,
-        "width": 25,
+        "width": 28,
         "height": 15
       },
       "opacity": 1,
@@ -14686,8 +14483,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 1",
-      "ownText": "Jul 1",
+      "text": "Jul 6",
+      "ownText": "Jul 6",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14695,9 +14492,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 592,
+        "x": 634,
         "y": 1061,
-        "width": 25,
+        "width": 28,
         "height": 15
       },
       "opacity": 1,
@@ -14715,7 +14512,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 4",
+      "text": "Jul 9",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14724,7 +14521,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 634,
+        "x": 677,
         "y": 1061,
         "width": 28,
         "height": 15
@@ -14744,7 +14541,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 4",
+      "text": "Jul 9",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14753,7 +14550,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 634,
+        "x": 677,
         "y": 1061,
         "width": 28,
         "height": 15
@@ -14773,8 +14570,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 4",
-      "ownText": "Jul 4",
+      "text": "Jul 9",
+      "ownText": "Jul 9",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14782,7 +14579,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 634,
+        "x": 677,
         "y": 1061,
         "width": 28,
         "height": 15
@@ -14802,7 +14599,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 7",
+      "text": "Jul 12",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14811,9 +14608,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 677,
+        "x": 717,
         "y": 1061,
-        "width": 27,
+        "width": 33,
         "height": 15
       },
       "opacity": 1,
@@ -14831,7 +14628,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 7",
+      "text": "Jul 12",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14840,9 +14637,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 677,
+        "x": 717,
         "y": 1061,
-        "width": 27,
+        "width": 33,
         "height": 15
       },
       "opacity": 1,
@@ -14860,8 +14657,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 7",
-      "ownText": "Jul 7",
+      "text": "Jul 12",
+      "ownText": "Jul 12",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14869,9 +14666,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 677,
+        "x": 717,
         "y": 1061,
-        "width": 27,
+        "width": 33,
         "height": 15
       },
       "opacity": 1,
@@ -14889,7 +14686,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 10",
+      "text": "Jul 15",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14898,7 +14695,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 717,
+        "x": 760,
         "y": 1061,
         "width": 33,
         "height": 15
@@ -14918,7 +14715,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 10",
+      "text": "Jul 15",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14927,7 +14724,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 717,
+        "x": 760,
         "y": 1061,
         "width": 33,
         "height": 15
@@ -14947,8 +14744,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 10",
-      "ownText": "Jul 10",
+      "text": "Jul 15",
+      "ownText": "Jul 15",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -14956,7 +14753,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 717,
+        "x": 760,
         "y": 1061,
         "width": 33,
         "height": 15
@@ -14976,7 +14773,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 13",
+      "text": "Jul 19",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -14985,7 +14782,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 760,
+        "x": 806,
         "y": 1061,
         "width": 33,
         "height": 15
@@ -15005,7 +14802,7 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 13",
+      "text": "Jul 19",
       "ownText": "",
       "visuallyHidden": false,
       "disabledContext": false,
@@ -15014,7 +14811,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 760,
+        "x": 806,
         "y": 1061,
         "width": 33,
         "height": 15
@@ -15034,8 +14831,8 @@
       "role": null,
       "region": "main",
       "regionChild": false,
-      "text": "Jul 13",
-      "ownText": "Jul 13",
+      "text": "Jul 19",
+      "ownText": "Jul 19",
       "visuallyHidden": false,
       "disabledContext": false,
       "accessibleName": null,
@@ -15043,96 +14840,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 760,
+        "x": 806,
         "y": 1061,
         "width": 33,
-        "height": 15
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "svg > g:nth-of-type(12) > g:nth-of-type(1) > g:nth-of-type(10)",
-      "tag": "g",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "Jul 17",
-      "ownText": "",
-      "visuallyHidden": false,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 807,
-        "y": 1061,
-        "width": 32,
-        "height": 15
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g:nth-of-type(12) > g:nth-of-type(1) > g:nth-of-type(10) > text",
-      "tag": "text",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "Jul 17",
-      "ownText": "",
-      "visuallyHidden": false,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 807,
-        "y": 1061,
-        "width": 32,
-        "height": 15
-      },
-      "opacity": 1,
-      "color": "rgb(24, 25, 27)",
-      "backgroundColor": "rgb(255, 255, 255)",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "borderRadius": 0,
-      "gutterX": 0,
-      "gutterY": 0
-    },
-    {
-      "ref": "g:nth-of-type(1) > g:nth-of-type(10) > text > tspan",
-      "tag": "tspan",
-      "role": null,
-      "region": "main",
-      "regionChild": false,
-      "text": "Jul 17",
-      "ownText": "Jul 17",
-      "visuallyHidden": false,
-      "disabledContext": false,
-      "accessibleName": null,
-      "interactive": false,
-      "disabled": false,
-      "isIcon": false,
-      "rect": {
-        "x": 807,
-        "y": 1061,
-        "width": 32,
         "height": 15
       },
       "opacity": 1,
@@ -15971,9 +15681,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 1084,
+        "x": 1085,
         "y": 862,
-        "width": 144,
+        "width": 143,
         "height": 80
       },
       "opacity": 1,
@@ -16000,9 +15710,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 1084,
+        "x": 1085,
         "y": 862,
-        "width": 144,
+        "width": 143,
         "height": 80
       },
       "opacity": 1,
@@ -16029,9 +15739,9 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 1084,
+        "x": 1085,
         "y": 862,
-        "width": 144,
+        "width": 143,
         "height": 80
       },
       "opacity": 1,
@@ -16061,7 +15771,7 @@
         "x": 1068,
         "y": 893,
         "width": 80,
-        "height": 110
+        "height": 114
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -16090,7 +15800,7 @@
         "x": 1068,
         "y": 893,
         "width": 80,
-        "height": 110
+        "height": 114
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -16119,7 +15829,7 @@
         "x": 1068,
         "y": 893,
         "width": 80,
-        "height": 110
+        "height": 114
       },
       "opacity": 1,
       "color": "rgb(24, 25, 27)",
@@ -16145,7 +15855,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 1097,
+        "x": 1101,
         "y": 942,
         "width": 80,
         "height": 80
@@ -16174,7 +15884,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 1097,
+        "x": 1101,
         "y": 942,
         "width": 80,
         "height": 80
@@ -16203,7 +15913,7 @@
       "disabled": false,
       "isIcon": false,
       "rect": {
-        "x": 1097,
+        "x": 1101,
         "y": 942,
         "width": 80,
         "height": 80

@@ -11,8 +11,8 @@ import {
 } from '../index';
 
 describe('PageHeader', () => {
-  it('renders the banner with title, description, breadcrumb and actions', () => {
-    render(
+  it('renders the header block with title, description, breadcrumb and actions', () => {
+    const { container } = render(
       <PageHeader>
         <PageHeaderBreadcrumb>Home / Reports</PageHeaderBreadcrumb>
         <PageHeaderRow>
@@ -24,7 +24,11 @@ describe('PageHeader', () => {
         <PageHeaderDescription>All scheduled reports.</PageHeaderDescription>
       </PageHeader>
     );
-    expect(screen.getByRole('banner')).toBeInTheDocument();
+    // PageHeader is a non-landmark block (no role="banner") — the app header is
+    // the page's sole banner; assert the block by its data-slot.
+    expect(
+      container.querySelector('[data-slot="page-header"]')
+    ).toBeInTheDocument();
     expect(screen.getByText('Reports').tagName).toBe('H1');
     expect(
       screen.getByRole('navigation', { name: 'Breadcrumb' })

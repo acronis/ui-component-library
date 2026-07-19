@@ -164,7 +164,7 @@ export const ledger: LedgerEntry[] = [
       'PageHeader sets role="banner", creating a second banner landmark alongside the app header',
     checklist: 'I6',
     rule: 'accessibility/landmark-uniqueness',
-    severity: 'should',
+    severity: 'must',
     source: {
       component: 'page-header',
       file: 'packages/ui-react/src/components/ui/page-header/page-header.tsx',
@@ -174,7 +174,7 @@ export const ledger: LedgerEntry[] = [
     resolution: {
       kind: 'new-rule',
       rule: 'accessibility/landmark-uniqueness',
-      note: 'Graduated into the accessibility/landmark-uniqueness rule (I6, detector screen/landmark-uniqueness): a screen exposes at most one banner/main/contentinfo landmark. The detector now flags the PageHeader role="banner" as a should on every console screen. Follow-up fix: drop role="banner" from PageHeader (a plain <header> or role="region"/group with an accessible name). Surfaced by the demo screen-audit fixtures.',
+      note: 'Graduated into the accessibility/landmark-uniqueness rule (I6, detector screen/landmark-uniqueness): a screen exposes at most one banner/main/contentinfo landmark. Ratified to must (human), and the violation fixed — PageHeader no longer sets role="banner" (now a non-landmark block), so the app header is the sole banner. Fixtures re-captured; all demo screens audit clean under the must rule. Surfaced by the demo screen-audit fixtures.',
       date: '2026-07-18',
     },
   },

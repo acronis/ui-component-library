@@ -51,7 +51,7 @@ export const accessibilityRules = [
     id: 'accessibility/landmark-uniqueness',
     title: 'Top-level landmarks are unique',
     category: 'accessibility',
-    severity: 'should',
+    severity: 'must',
     rule: 'A screen exposes at most one banner, one main, and one contentinfo landmark; components that are not the page chrome must not claim these roles.',
     rationale:
       'Duplicate top-level landmarks (e.g. a page-title block also using role="banner") break assistive-tech landmark navigation and make structural audits conflate unrelated regions.',

@@ -69,7 +69,7 @@ registry are seeded first (Phase 0).
 | I3  | Hover/transition timing drift                   | kit-lint | may    |
 | I4  | Tab order ≠ visual order                        | screen   | should |
 | I5  | Contrast below WCAG                             | screen   | must   |
-| I6  | Duplicate top-level landmark (e.g. two banners) | screen   | should |
+| I6  | Duplicate top-level landmark (e.g. two banners) | screen   | must   |
 
 ## Composition (screen-level)
 
