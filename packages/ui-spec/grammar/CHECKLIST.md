@@ -62,13 +62,14 @@ registry are seeded first (Phase 0).
 
 ## Interaction & accessibility
 
-| #   | Inconsistency                                | Detect   | Sev    |
-| --- | -------------------------------------------- | -------- | ------ |
-| I1  | Interactive element with no accessible name  | screen   | must   |
-| I2  | Escape-close / focus-trap missing on overlay | screen   | must   |
-| I3  | Hover/transition timing drift                | kit-lint | may    |
-| I4  | Tab order ≠ visual order                     | screen   | should |
-| I5  | Contrast below WCAG                          | screen   | must   |
+| #   | Inconsistency                                   | Detect   | Sev    |
+| --- | ----------------------------------------------- | -------- | ------ |
+| I1  | Interactive element with no accessible name     | screen   | must   |
+| I2  | Escape-close / focus-trap missing on overlay    | screen   | must   |
+| I3  | Hover/transition timing drift                   | kit-lint | may    |
+| I4  | Tab order ≠ visual order                        | screen   | should |
+| I5  | Contrast below WCAG                             | screen   | must   |
+| I6  | Duplicate top-level landmark (e.g. two banners) | screen   | should |
 
 ## Composition (screen-level)
 

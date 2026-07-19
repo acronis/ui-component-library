@@ -611,6 +611,31 @@ describe('I5 contrast (screen scope)', () => {
   });
 });
 
+describe('I6 landmark-uniqueness (screen scope)', () => {
+  const noRules: ScreenDescriptorLite = {
+    name: 'test',
+    regions: [{ regionId: 'x', ariaRole: 'main' }],
+  };
+
+  it('flags two banner landmarks on one screen', () => {
+    const snap = snapshot([
+      node({ tag: 'header' }), // implicit banner
+      node({ tag: 'div', role: 'banner' }), // explicit second banner
+    ]);
+    expect(ids(snap, noRules)).toContain('accessibility/landmark-uniqueness');
+  });
+
+  it('passes a single banner alongside a single main', () => {
+    const snap = snapshot([
+      node({ tag: 'header' }),
+      node({ tag: 'main', role: 'main' }),
+    ]);
+    expect(ids(snap, noRules)).not.toContain(
+      'accessibility/landmark-uniqueness'
+    );
+  });
+});
+
 // ── findings carry registry severity + checklist ─────────────────────────────
 describe('findings resolve against the registry', () => {
   it('every finding mirrors its rule severity + checklist row', () => {

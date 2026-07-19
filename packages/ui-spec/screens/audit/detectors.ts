@@ -396,6 +396,37 @@ export const DETECTORS: ScreenDetector[] = [
       return out;
     },
   },
+
+  // I6 — top-level landmark roles (banner, main, contentinfo) appear at most once.
+  {
+    ruleId: 'accessibility/landmark-uniqueness',
+    scope: 'screen',
+    run(nodes) {
+      const UNIQUE: Record<string, string> = {
+        banner: 'header',
+        main: 'main',
+        contentinfo: 'footer',
+      };
+      const out: Omit<ScreenFinding, 'severity' | 'checklist'>[] = [];
+      for (const [role, tag] of Object.entries(UNIQUE)) {
+        // A landmark root is an explicit role, or the semantic tag with no
+        // overriding role. More than one on a screen breaks landmark navigation.
+        const roots = nodes.filter(
+          (n) => n.role === role || (n.tag === tag && n.role == null)
+        );
+        if (roots.length > 1) {
+          out.push(
+            find(
+              'accessibility/landmark-uniqueness',
+              roots[1],
+              `${roots.length} "${role}" landmarks on one screen — expose at most one; only the page chrome should use role="${role}"`
+            )
+          );
+        }
+      }
+      return out;
+    },
+  },
 ];
 
 /** Resolve severity + checklist row for a detector finding from the registry. */

@@ -162,16 +162,20 @@ export const ledger: LedgerEntry[] = [
     id: 'page-header-double-banner-landmark',
     title:
       'PageHeader sets role="banner", creating a second banner landmark alongside the app header',
+    checklist: 'I6',
+    rule: 'accessibility/landmark-uniqueness',
     severity: 'should',
     source: {
       component: 'page-header',
       file: 'packages/ui-react/src/components/ui/page-header/page-header.tsx',
     },
     discovered: '2026-07-18',
-    status: 'open',
+    status: 'resolved',
     resolution: {
       kind: 'new-rule',
-      note: 'A page should expose exactly one banner landmark (the app header). PageHeader claiming role="banner" adds a second banner on every console screen — an ARIA landmark-uniqueness smell — which also makes the rendered screen-audit conflate the two headers (e.g. control-height across the app header and an unrelated page-title toolbar). Resolution: add a landmark-uniqueness grammar rule (one banner per screen) and drop role="banner" from PageHeader (use a plain <header> or role="region"/group with an accessible name). A human owns whether this is `must`. Surfaced by the demo screen-audit fixtures.',
+      rule: 'accessibility/landmark-uniqueness',
+      note: 'Graduated into the accessibility/landmark-uniqueness rule (I6, detector screen/landmark-uniqueness): a screen exposes at most one banner/main/contentinfo landmark. The detector now flags the PageHeader role="banner" as a should on every console screen. Follow-up fix: drop role="banner" from PageHeader (a plain <header> or role="region"/group with an accessible name). Surfaced by the demo screen-audit fixtures.',
+      date: '2026-07-18',
     },
   },
 ];

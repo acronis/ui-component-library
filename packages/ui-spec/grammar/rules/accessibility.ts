@@ -47,4 +47,17 @@ export const accessibilityRules = [
     detector: 'screen/contrast',
     wcag: ['1.4.3', '1.4.11'],
   },
+  {
+    id: 'accessibility/landmark-uniqueness',
+    title: 'Top-level landmarks are unique',
+    category: 'accessibility',
+    severity: 'should',
+    rule: 'A screen exposes at most one banner, one main, and one contentinfo landmark; components that are not the page chrome must not claim these roles.',
+    rationale:
+      'Duplicate top-level landmarks (e.g. a page-title block also using role="banner") break assistive-tech landmark navigation and make structural audits conflate unrelated regions.',
+    checklist: 'I6',
+    detector: 'screen/landmark-uniqueness',
+    wcag: ['1.3.1'],
+    relatedRules: ['accessibility/accessible-name'],
+  },
 ] satisfies KitRule[];
