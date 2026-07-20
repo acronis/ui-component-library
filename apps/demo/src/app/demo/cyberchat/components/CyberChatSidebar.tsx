@@ -51,7 +51,7 @@ export function CyberChatSidebar() {
       {/* Logo */}
       <div className="p-4 border-b border-border/50">
         <div className="flex items-center gap-2">
-          <div className="text-xl font-light text-primary">Constructor Lab</div>
+          <div className="text-xl font-light text-primary">Acronis</div>
           <div className="text-xl font-light text-foreground">CyberChat</div>
         </div>
       </div>

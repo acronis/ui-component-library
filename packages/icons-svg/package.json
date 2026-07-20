@@ -2,7 +2,7 @@
   "name": "@constructor-lab/icons-svg",
   "version": "0.2.0",
   "private": true,
-  "description": "Next-gen raw SVG icon sources for Constructor Lab — redesigned icons fetched from the shadcn-uikit Figma file, plus per-category JSON manifests.",
+  "description": "Next-gen raw SVG icon sources for UI Components library — redesigned icons fetched from the shadcn-uikit Figma file, plus per-category JSON manifests.",
   "type": "module",
   "exports": {
     "./package.json": "./package.json",

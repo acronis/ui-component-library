@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://acronis.local/schemas/tier.schema.json",
-  "title": "Constructor Lab Design Tokens",
+  "title": "UI Components library Design Tokens",
   "description": "DTCG-conformant token files with a small structural divergence: per-mode `values` and `platforms` live at the token level, not under `$extensions`. The public DTCG schema (declared as the file's $schema) covers the surrounding shape; this schema enforces the on-token keys plus the com.acronis.* / com.figma.* keys still inside $extensions. See ../context/spec.md.",
   "$ref": "#/$defs/RootNode",
   "$defs": {
@@ -104,11 +104,11 @@
       },
       "properties": {
         "com.acronis.tailwindRoles": {
-          "$ref": "#/$defs/Constructor LabTailwindRoles"
+          "$ref": "#/$defs/AcronisTailwindRoles"
         },
-        "com.acronis.textCase": { "$ref": "#/$defs/Constructor LabTextCase" },
+        "com.acronis.textCase": { "$ref": "#/$defs/AcronisTextCase" },
         "com.acronis.textDecoration": {
-          "$ref": "#/$defs/Constructor LabTextDecoration"
+          "$ref": "#/$defs/AcronisTextDecoration"
         },
         "com.figma.variableId": { "$ref": "#/$defs/FigmaVariableId" },
         "com.figma.styleId": { "$ref": "#/$defs/FigmaStyleId" },
@@ -122,7 +122,7 @@
         "required": ["com.figma.variableId", "com.figma.styleId"]
       }
     },
-    "Constructor LabTailwindRoles": {
+    "AcronisTailwindRoles": {
       "description": "Maps a token path segment (role/part name) to the Tailwind theme namespace the style-dictionary build routes it into. Read at build time; not part of any token's value.",
       "type": "object",
       "additionalProperties": {
@@ -136,11 +136,11 @@
         ]
       }
     },
-    "Constructor LabTextCase": {
+    "AcronisTextCase": {
       "description": "Figma Text Style case override, when non-default.",
       "enum": ["UPPER"]
     },
-    "Constructor LabTextDecoration": {
+    "AcronisTextDecoration": {
       "description": "Figma Text Style decoration, when present.",
       "enum": ["UNDERLINE"]
     },

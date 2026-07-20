@@ -38,7 +38,7 @@ Every emitted token file MUST start with:
 "$schema": "../schemas/tier.schema.json"
 ```
 
-The file's `$schema` points at the repo's [`../schemas/tier.schema.json`](../schemas/tier.schema.json) — the canonical description of the Constructor Lab shape (DTCG-conformant with the divergences above). It doubles as the discriminator: a generic DTCG consumer that opens the file sees a non-DTCG `$schema` and should route it through an Constructor Lab-aware parser rather than treat it as a plain DTCG file.
+The file's `$schema` points at the repo's [`../schemas/tier.schema.json`](../schemas/tier.schema.json) — the canonical description of the UI Components library shape (DTCG-conformant with the divergences above). It doubles as the discriminator: a generic DTCG consumer that opens the file sees a non-DTCG `$schema` and should route it through an UI Components library-aware parser rather than treat it as a plain DTCG file.
 
 **Discriminator.** Every token carries **exactly one** of:
 
@@ -88,7 +88,7 @@ carried at the top of `semantics.json` and `components.json`.
 This is a **build-time hint consumed by [`tools/style-dictionary`](../../../tools/style-dictionary/AGENTS.md)** (its `tailwind.ts` reads the
 key to route colors/gradients into the right Tailwind namespace), **not part of
 any token's value** — it carries no design data and never appears on a token's
-`$value`. It is validated by the `Constructor LabTailwindRoles` `$def` in
+`$value`. It is validated by the `AcronisTailwindRoles` `$def` in
 [`../schemas/tier.schema.json`](../schemas/tier.schema.json).
 
 ### Adding a new key (3-step rule)

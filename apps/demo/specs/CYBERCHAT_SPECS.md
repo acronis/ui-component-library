@@ -31,9 +31,9 @@
 #### 1.1 Logo Section
 
 - **Height**: 60px (16px padding top/bottom, 44px content)
-- **Content**: "Constructor Lab" (with icon) + "CyberChat" text
-- **Font**: Constructor Lab Cyber Light, 22px for "CyberChat"
-- **Colors**: "Constructor Lab" in primary (#0285FF), "CyberChat" in navy (#00204D)
+- **Content**: "UI Components library" (with icon) + "CyberChat" text
+- **Font**: Acronis Cyber Light, 22px for "CyberChat"
+- **Colors**: "Acronis" in primary (#0285FF), "CyberChat" in navy (#00204D)
 
 #### 1.2 Search Input
 

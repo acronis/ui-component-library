@@ -142,7 +142,7 @@ function LogoMark() {
     <span className="flex items-center gap-2">
       <AcronisIcon aria-hidden="true" />
       <span className="leading-[1.15] group-data-[state=collapsed]/sidebar:hidden">
-        <span className="block text-base font-semibold">Constructor Lab</span>
+        <span className="block text-base font-semibold">Acronis</span>
         <span className="block text-sm">Console</span>
       </span>
     </span>

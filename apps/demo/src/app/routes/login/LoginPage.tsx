@@ -24,7 +24,7 @@ export function LoginPage() {
     <AuthLayout>
       <AuthLayoutCard>
         <AuthLayoutLogo>
-          <span className="text-xl font-bold">Constructor Lab</span>
+          <span className="text-xl font-bold">Acronis</span>
         </AuthLayoutLogo>
         <div className="mb-6 space-y-1 text-center">
           <h1 className="text-2xl font-bold">Welcome back</h1>

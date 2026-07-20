@@ -32,4 +32,4 @@ This demo app uses the `@constructor-lab/shadcn-uikit` library as a workspace de
 
 ## License
 
-MIT © Constructor Lab
+MIT © UI Components library

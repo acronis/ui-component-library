@@ -20,7 +20,7 @@ export function EmptyDiscoveryAgent() {
           <EmptyTitle>Discovery agent</EmptyTitle>
           <EmptyDescription>
             The discovery agent will locate the Hyper-V addresses for using
-            NetBIOS discovery, and Service Discovery (SRVS), and Constructor Lab
+            NetBIOS discovery, and Service Discovery (SRVS), and UI Components library
             Resource Protocol (ARP) table.
           </EmptyDescription>
         </EmptyHeader>

@@ -54,7 +54,7 @@ const features = [
     ),
   },
   {
-    title: 'Constructor Lab Icon Set',
+    title: 'UI Components library Icon Set',
     description:
       'A tree-shakeable icon set from @constructor-lab/icons-react, covering enterprise and product interfaces.',
     icon: (
@@ -183,7 +183,7 @@ const siteRoot = (process.env.NEXT_PUBLIC_DOCS_BASE_PATH ?? '').replace(
 export default function HomePage() {
   return (
     <HomeLayout
-      nav={{ title: 'Constructor Lab UIKit', transparentMode: 'top' }}
+      nav={{ title: 'UI Components library', transparentMode: 'top' }}
       githubUrl="https://github.com/acronis/uikit"
       links={[
         { type: 'main', text: 'Documentation', url: '/getting-started' },
@@ -245,7 +245,7 @@ export default function HomePage() {
             maxWidth: '44rem',
           }}
         >
-          Constructor Lab <span style={{ color: primary }}>UIKit</span>
+          Acronis <span style={{ color: primary }}>UIKit</span>
         </h1>
 
         {/* Subheadline */}
@@ -259,7 +259,7 @@ export default function HomePage() {
             marginBottom: '3rem',
           }}
         >
-          A production-ready component library for building Constructor Lab
+          A production-ready component library for building Acronis
           products — accessible, themeable, and fully typed.
         </p>
 
@@ -650,7 +650,7 @@ export default function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Constructor Lab
+          Acronis
         </a>
         {'  ·  '}
         <a

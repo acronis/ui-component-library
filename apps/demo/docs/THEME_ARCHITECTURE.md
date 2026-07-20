@@ -190,7 +190,7 @@ The current **primitives → semantic → Tailwind** order is **excellent** and 
 
 The UI package currently has:
 
-- ❌ Only one color scheme (Constructor Lab brand colors)
+- ❌ Only one color scheme (UI Components library brand colors)
 - ❌ Dark mode defined inline in `semantic.scss`
 - ❌ No easy way for consumers to apply different themes
 
@@ -236,7 +236,7 @@ Create separate CSS files for each color scheme that can be applied via classes:
 ```
 packages/ui-legacy/src/styles/themes/
 ├── index.scss           # Export all themes
-├── acronis-default.scss # Current Constructor Lab theme
+├── acronis-default.scss # Current UI Components library theme
 ├── acronis-ocean.scss   # Alternative blue theme
 └── _template.scss       # Template for custom themes
 ```
@@ -294,7 +294,7 @@ applyColorMode('dark');
 **For UI Package (Production):**
 
 - Use CSS class-based themes (2-3 pre-built schemes)
-- Ship with Constructor Lab default + 1-2 alternatives
+- Ship with UI Components library default + 1-2 alternatives
 - Provide template for custom themes
 - Document how to create custom themes
 

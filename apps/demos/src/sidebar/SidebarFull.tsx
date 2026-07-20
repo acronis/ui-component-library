@@ -35,7 +35,7 @@ import {
 } from '@constructor-lab/icons-react/stroke-mono';
 import { BarChartIcon } from '../icons/missing-icons';
 
-// The Constructor Lab nav is genuinely two-tier: an icon rail (SidebarPrimary)
+// The UI Components library nav is genuinely two-tier: an icon rail (SidebarPrimary)
 // paired with a labeled panel (SidebarSecondary) that carries the grouped,
 // sub-item-bearing navigation the rail alone can't express (no section labels
 // or disclosures on Primary — see sidebar-primary.tsx).
@@ -95,7 +95,7 @@ export function SidebarFull() {
           <span className="flex items-center gap-2">
             <FolderHouseIcon aria-hidden="true" />
             <span className="text-sm font-semibold group-data-[state=collapsed]/sidebar:hidden">
-              Constructor Lab
+              UI Components library
             </span>
           </span>
         </SidebarPrimaryHeader>

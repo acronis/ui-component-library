@@ -14,7 +14,7 @@ Figma — this one is ours, with no external MCP server.
 1. **Import the plugin into Figma Desktop** (required — local/dev plugins don't
    run in the browser): _Plugins → Development → Import plugin from manifest…_ →
    select `tools/figma-token-exporter/manifest.json`. It now appears under
-   _Plugins → Development → Constructor Lab Token Exporter_.
+   _Plugins → Development → UI Components library Token Exporter_.
 
 ## Each export
 
@@ -27,7 +27,7 @@ Figma — this one is ours, with no external MCP server.
    It listens on `http://localhost:3333` and writes into
    `packages/tokens/.tmp/figma-tokens/`. Leave it running.
 
-2. **Open the target Figma file** in Figma Desktop and run **Constructor Lab Token
+2. **Open the target Figma file** in Figma Desktop and run **UI Components library Token
    Exporter**. It reads variables/collections/styles and shows a summary.
 
 3. Click **“Send snapshot to repo.”** The receiver logs the files it wrote.

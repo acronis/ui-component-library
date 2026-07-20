@@ -1,4 +1,4 @@
-// Constructor Lab Token Exporter — Figma plugin (main thread).
+// UI Components library Token Exporter — Figma plugin (main thread).
 //
 // Reads local variables, collections, and text/paint/effect styles via the
 // Plugin API, resolves any cross-library alias targets (so the meta sidecar

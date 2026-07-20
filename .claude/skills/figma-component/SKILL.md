@@ -1,7 +1,7 @@
 ---
 name: figma-component
 description: >
-  Bring a "ready for dev" component from Figma into the Constructor Lab UI Kit, or
+  Bring a "ready for dev" component from Figma into the UI Components library, or
   update an existing one. Drives the full recipe: read the Figma node, map it
   to Base UI + --ui-* tokens, implement in packages/ui-react (component, tests,
   stories, Figma Code Connect), and write/refresh its framework-agnostic spec in

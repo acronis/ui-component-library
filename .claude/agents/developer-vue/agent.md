@@ -14,7 +14,7 @@ This file adds only what is specific to Vue 3. Always defer to the host
 project's `CLAUDE.md` / `AGENTS.md` for concrete conventions, file locations,
 and commands; they override anything here.
 
-> Note: the current Constructor Lab UI Kit repo is **React-only** — there are no `.vue`
+> Note: the current UI Components library repo is **React-only** — there are no `.vue`
 > files here. This overlay exists for reuse in Vue projects and for any future
 > Vue surface. For work in _this_ repo, use `developer-react`.
 

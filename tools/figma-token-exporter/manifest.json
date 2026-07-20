@@ -1,5 +1,5 @@
 {
-  "name": "Constructor Lab Token Exporter",
+  "name": "UI Components library Token Exporter",
   "api": "1.0.0",
   "main": "plugin/code.js",
   "ui": "plugin/ui.html",

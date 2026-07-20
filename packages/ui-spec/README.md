@@ -1,6 +1,6 @@
 # @constructor-lab/ui-spec
 
-Framework-agnostic component specifications for the Constructor Lab UI Kit. Each spec
+Framework-agnostic component specifications for the UI Components library. Each spec
 describes a component's contract, anatomy, states, behavior, accessibility, and
 the design tokens it consumes — independent of any rendering framework, so a
 single definition can drive the React implementation today and Vue / Web

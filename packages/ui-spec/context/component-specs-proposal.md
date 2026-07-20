@@ -29,7 +29,7 @@ Two consequences:
    prose, not a queryable contract. Docs, story scaffolds, and conformance
    checks can't be generated from a source that doesn't exist.
 
-A precedent exists: the Constructor Lab **Vue** UI Kit (`@uikit/ui-kit`, a separate
+A precedent exists: the Acronis **Vue** UI Kit (`@uikit/ui-kit`, a separate
 repo) ships two packages — `grammar` and `specs` — that solve exactly this. This
 proposal evaluates adopting an **adapted** version here.
 

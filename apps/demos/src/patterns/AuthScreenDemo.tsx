@@ -16,7 +16,7 @@ export function AuthScreenDemo() {
       <AuthLayout>
         <AuthLayoutCard>
           <AuthLayoutLogo>
-            <span className="text-base font-semibold">Constructor Lab</span>
+            <span className="text-base font-semibold">UI Components library</span>
           </AuthLayoutLogo>
           <Card>
             <CardContent>

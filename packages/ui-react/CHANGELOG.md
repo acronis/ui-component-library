@@ -1457,8 +1457,8 @@ data-theme="dark">`) instead of a `.dark` class. Brands are bare `:root`
     artifacts from `@constructor-lab/design-tokens` via Style Dictionary, resolving
     the per-scheme (light/dark) and per-brand token matrix into `--av-*` CSS
     custom properties.
-  - `@constructor-lab/ui-react` — the next-generation Constructor Lab React
-    component library built on Base UI (`@base-ui/react`) and themed by
+  - `@constructor-lab/ui-react` — the next-generation React
+    UI Components library built on Base UI (`@base-ui/react`) and themed by
     `@constructor-lab/design-theme`. Ships `Button` and `Switch` with tests and
     Storybook stories as the reference pattern.
 

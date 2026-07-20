@@ -1,5 +1,5 @@
 // Name transform `name/ui`: derive a token's CSS name from its path with the
-// Constructor Lab `ui` convention — drop a leading `colors` tier segment, prefix every
+// UI Components library `ui` convention — drop a leading `colors` tier segment, prefix every
 // token with `ui`, kebab-join the rest. So `colors.background.surface.primary` →
 // `ui-background-surface-primary`, `button._global.radius` → `ui-button-global-radius`,
 // and the typography composite `typography.body.default` → `ui-typography-body-default`

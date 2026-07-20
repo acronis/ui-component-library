@@ -32,7 +32,7 @@ export function SidebarNavigationDemo() {
       <SidebarPrimary>
         <SidebarPrimaryHeader>
           <span className="text-base font-semibold group-data-[state=collapsed]/sidebar:hidden">
-            Constructor Lab
+            Acronis
           </span>
         </SidebarPrimaryHeader>
         <SidebarPrimaryContent>

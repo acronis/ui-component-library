@@ -549,7 +549,7 @@ export const ChatComponentsShowcase: React.FC = () => {
               <div className="p-4 border-b border-border/50">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="text-lg font-light text-primary">
-                    Constructor Lab
+                    UI Components library
                   </div>
                   <div className="text-lg font-light">CyberChat</div>
                 </div>

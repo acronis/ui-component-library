@@ -1,4 +1,4 @@
-# Constructor Lab UI Kit — Roadmap
+# UI Components library — Roadmap
 
 > Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-07-05
 > The roadmap substance below is current, but its GitHub tracking is **inherited
@@ -138,7 +138,7 @@ Grouped; **★ = recommended must-have for v1**, others trimmable if capacity is
 - **Feedback & status:** ★Empty ✅ _(Skeleton/Spinner/Alert/Chip/Tag/Progress/
   Toast live in Tier 2)_
 - **Form composition:** ★Form ✅ · Filter ✅ (Card Filter)
-- **Constructor Lab dashboard widgets:** Widget Placeholder ✅ · Widget (base) · Widget Alert ·
+- **UI Components library dashboard widgets:** Widget Placeholder ✅ · Widget (base) · Widget Alert ·
   Widget Text · Widget Progress (chunks / tiers) · Widget Protection Status ·
   Widget Protection Summary · Widget Table Data — _widget family still the main
   remaining Tier-3 work._

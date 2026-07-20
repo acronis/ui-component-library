@@ -1,6 +1,6 @@
 # @constructor-lab/ui-react
 
-The next-generation Constructor Lab React component library — a **Base UI**
+The next-generation React UI Components library — a **Base UI**
 implementation, themed by [`@constructor-lab/tokens`](../tokens)
 (generated from [`@constructor-lab/tokens`](../tokens)).
 

@@ -3,7 +3,7 @@
 // CSS. `index.ts` (the CLI) dispatches here; the SD hooks these stages share live
 // in `hooks/`.
 //
-//   1. buildDtcg (`<filter>-dtcg`) — read the Constructor Lab token files and emit six
+//   1. buildDtcg (`<filter>-dtcg`) — read the UI Components library token files and emit six
 //      per-mode, 100%-DTCG JSON files into `tokens/dtcg/`. Serialized from
 //      `normalizeTree` directly, NOT via an SD format: SD's init normalization
 //      relocates `$type`, which would break the intermediate's "every token

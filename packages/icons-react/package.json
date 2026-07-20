@@ -6,7 +6,7 @@
     "url": "git+https://github.com/constructor-lab/ui-component-library.git",
     "directory": "packages/icons-react"
   },
-  "description": "Constructor Lab React icon components, generated from @constructor-lab/icons-svg.",
+  "description": "UI Components library React icon components, generated from @constructor-lab/icons-svg.",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -97,7 +97,7 @@
     "svg",
     "acronis"
   ],
-  "author": "Constructor Lab International GmbH",
+  "author": "Acronis International GmbH",
   "license": "MIT",
   "publishConfig": {
     "provenance": true,

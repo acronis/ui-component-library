@@ -1,4 +1,4 @@
-// Local receiver for the Constructor Lab Token Exporter Figma plugin.
+// Local receiver for the UI Components library Token Exporter Figma plugin.
 //
 // Listens on http://localhost:3333 and accepts a POSTed ExportPayload from the
 // plugin's UI iframe, then writes the tokens snapshot into
@@ -134,11 +134,11 @@ const server = createServer(async (req, res) => {
 
 server.listen(PORT, '127.0.0.1', () => {
   console.log(
-    `Constructor Lab Token Exporter receiver listening on http://localhost:${PORT}`
+    `UI Components library Token Exporter receiver listening on http://localhost:${PORT}`
   );
   console.log(`Writes into: ${DEFAULT_OUT_DIR}`);
   console.log(
-    'In Figma: run the "Constructor Lab Token Exporter" plugin, then click "Send snapshot to repo".'
+    'In Figma: run the "UI Components library Token Exporter" plugin, then click "Send snapshot to repo".'
   );
   console.log('Leave this running; Ctrl-C to stop.\n');
 });

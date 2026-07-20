@@ -1,8 +1,8 @@
 # Pipeline — the two build stages
 
 `@constructor-lab/style-dictionary` builds in two stages. Stage 1 normalizes the
-Constructor Lab design tokens into plain DTCG; stage 2 turns that into CSS. Splitting the
-work this way keeps the DTCG-conformance concern (handling the Constructor Lab
+UI Components library design tokens into plain DTCG; stage 2 turns that into CSS. Splitting the
+work this way keeps the DTCG-conformance concern (handling the UI Components library
 divergences) separate from the CSS concern (resolution, formatting, theming), and
 leaves a clean intermediate that generic DTCG tooling could also consume.
 

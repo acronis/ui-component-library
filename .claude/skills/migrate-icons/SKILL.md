@@ -1,11 +1,11 @@
 ---
 name: migrate-icons
-description: Migrate icon imports/usages from @constructor-lab/shadcn-uikit (legacy Constructor Lab names like EditIcon, CustomerIcon, DangerIcon) to @constructor-lab/icons-react (e.g. PencilIcon, BriefcaseIcon). Resolves names authoritatively from the map SHIPPED with icons-react (@constructor-lab/icons-react/legacy-map) — no guessing, no monorepo checkout. Rewrites imports + JSX, dedupes collisions, and holds colored status icons that have no monochrome equivalent. Reusable in any MFE. Use when asked to migrate, swap, or update Constructor Lab icons to icons-react.
+description: Migrate icon imports/usages from @constructor-lab/shadcn-uikit (legacy names like EditIcon, CustomerIcon, DangerIcon) to @constructor-lab/icons-react (e.g. PencilIcon, BriefcaseIcon). Resolves names authoritatively from the map SHIPPED with icons-react (@constructor-lab/icons-react/legacy-map) — no guessing, no monorepo checkout. Rewrites imports + JSX, dedupes collisions, and holds colored status icons that have no monochrome equivalent. Reusable in any MFE. Use when asked to migrate, swap, or update UI Components library icons to icons-react.
 ---
 
 # Migrate shadcn-uikit icons → icons-react (common, reusable)
 
-Legacy `@constructor-lab/shadcn-uikit` exports icons under Constructor Lab names
+Legacy `@constructor-lab/shadcn-uikit` exports icons under UI Components library names
 (`EditIcon`, `CustomerIcon`, `SearchIcon`). `@constructor-lab/icons-react` uses
 descriptive names (`PencilIcon`, `BriefcaseIcon`, `MagnifierIcon`) on a different
 art grid, so names must be **resolved authoritatively, not guessed** (no

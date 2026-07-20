@@ -5,11 +5,12 @@ status: ready
 category: layout
 layer: composite
 description: >-
-  The full-page application scaffold — a sidebar column (primary nav, optionally a
-  secondary menu) beside a body column of a sticky header (with global search) over
-  the scrolling main content. A slot-based layout: drop SidebarPrimary /
-  SidebarSecondary / SearchGlobal and your page content into its slots.
+  The full-page application scaffold — a sidebar column (primary nav, optionally one
+  or two secondary menus) beside a body column of a sticky header (page title /
+  breadcrumbs + actions) over the scrolling main content, and an optional right-hand
+  AI/chat panel. A slot-based layout: drop SidebarPrimary / SidebarSecondary, a page
+  header, the chat panel, and your page content into its slots.
 since: 0.52.0
 figma:
-  node: 'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=2782-1495'
+  node: 'https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react?node-id=6226-24149'
   codeConnect: packages/ui-react/src/components/ui/app-shell/app-shell.figma.tsx

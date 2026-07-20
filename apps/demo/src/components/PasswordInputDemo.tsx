@@ -23,7 +23,7 @@ export function PasswordInputDemo() {
       <h2>Password Input Component</h2>
       <p className="demo-description mb-8 text-muted-foreground">
         Password input component with visibility toggle, error states, hint
-        messages, and disabled states. Based on Constructor Lab Design System
+        messages, and disabled states. Based on UI Components library Design System
         specifications from Figma.
       </p>
 

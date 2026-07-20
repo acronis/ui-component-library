@@ -90,12 +90,12 @@ function hslToHex(h: number, s: number, l: number, opacity?: number): string {
 }
 
 /**
- * Default token set (Shadcn original)
+ * Default token set (Acronis original)
  */
 export const DEFAULT_TOKEN_SET: TokenSet = {
   id: 'default',
   name: 'Default',
-  description: 'Original Shadcn UI theme',
+  description: 'Original Acronis theme',
   light: {
     background: createToken(0, 0, 100),
     foreground: createToken(222.2, 84, 4.9),
@@ -150,12 +150,12 @@ export const DEFAULT_TOKEN_SET: TokenSet = {
 };
 
 /**
- * Constructor Lab Electric token set
+ * UI Components library Electric token set
  */
 export const ACRONIS_ELECTRIC_TOKEN_SET: TokenSet = {
   id: 'electric',
-  name: 'Constructor Lab Electric',
-  description: 'Constructor Lab Electric UI theme',
+  name: 'UI Components library Electric',
+  description: 'UI Components library Electric UI theme',
   light: {
     background: createToken(0, 0, 100),
     foreground: createToken(0, 0, 4),
@@ -516,12 +516,12 @@ export const MONOCHROME_TOKEN_SET: TokenSet = {
 };
 
 /**
- * Constructor Lab theme (Cyan/Blue brand colors)
+ * UI Components library theme (Cyan/Blue brand colors)
  */
 export const ACRONIS_TOKEN_SET: TokenSet = {
   id: 'acronis',
-  name: 'Constructor Lab',
-  description: 'Official Constructor Lab brand theme',
+  name: 'Acronis',
+  description: 'Official Acronis brand theme',
   light: {
     background: createToken(0, 0, 100),
     foreground: createToken(222, 47, 11),
@@ -576,7 +576,7 @@ export const ACRONIS_TOKEN_SET: TokenSet = {
 };
 
 /**
- * Constructor Lab White Label theme (neutral slate)
+ * UI Components library White Label theme (neutral slate)
  */
 export const WHITE_LABEL_TOKEN_SET: TokenSet = {
   id: 'white-label',

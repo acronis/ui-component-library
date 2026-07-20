@@ -110,7 +110,7 @@ the executable steps of the loop:
 | `figma-component`                        | Figma node → ui-react component + 7-file spec + Code Connect.  |
 | `legacy-component` / `react-component`   | component from legacy source / from description.               |
 | `component-readiness`                    | Pre-flight audit before building a component.                  |
-| `migrate-icons`                          | legacy Constructor Lab icons → `icons-react`.                  |
+| `migrate-icons`                          | legacy Acronis icons → `icons-react`.                          |
 | `grammar-rule`                           | Curate a new grammar rule from a ledger finding.               |
 | `kit-lint` / `screen-audit`              | Static + rendered consistency gates.                           |
 | `figma-screen-drafts`                    | Figma file → draft `screen.yaml`s (design-first).              |

@@ -19,11 +19,23 @@ import { cn } from '@/lib/utils';
 // `-placeholoder-color` (the token tier keeps Figma's "placeholoder" spelling);
 // the shortcut is `--ui-search-global-shortcut-color`.
 
+/**
+ * @deprecated The global search field is retired — it no longer appears in the
+ * app-shell layouts (Figma nodes 6226-24149 / 6226-24150). Don't use it in new
+ * work; existing usages should move to their surface's own search affordance.
+ * Slated for removal.
+ */
 export interface SearchGlobalProps extends React.ComponentPropsWithoutRef<'input'> {
   /** Keyboard-shortcut hint shown at the trailing edge (decorative). Pass `null` to hide. */
   shortcut?: React.ReactNode;
 }
 
+/**
+ * @deprecated The global search field is retired — it no longer appears in the
+ * app-shell layouts (Figma nodes 6226-24149 / 6226-24150). Don't use it in new
+ * work; existing usages should move to their surface's own search affordance.
+ * Slated for removal.
+ */
 const SearchGlobal = React.forwardRef<HTMLInputElement, SearchGlobalProps>(
   (
     {

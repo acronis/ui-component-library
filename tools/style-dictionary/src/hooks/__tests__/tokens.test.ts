@@ -16,7 +16,7 @@ import { normalizeTree } from '../preprocessors/acronis-dtcg';
 
 // ── normalizeTree (stage 1) ──────────────────────────────────────────────────
 
-// A fixture in the Constructor Lab source shape: per-mode `values`, a native DTCG
+// A fixture in the UI Components library source shape: per-mode `values`, a native DTCG
 // dimension `$value` { value, unit }, plain fontWeight/fontFamily scalar
 // `$value`s, a `$value` composite, and a token scoped to a different platform.
 const SOURCE = {

@@ -6,7 +6,7 @@
     "url": "git+https://github.com/constructor-lab/ui-component-library.git",
     "directory": "packages/ui-react"
   },
-  "description": "Constructor Lab React component library — a Base UI implementation, themed by @constructor-lab/tokens.",
+  "description": "UI Components library, React component library — a Base UI implementation, themed by @constructor-lab/tokens.",
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -122,7 +122,7 @@
     "uikit",
     "acronis"
   ],
-  "author": "Constructor Lab International GmbH",
+  "author": "Acronis International GmbH",
   "license": "MIT",
   "publishConfig": {
     "provenance": true,

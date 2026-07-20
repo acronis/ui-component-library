@@ -1,7 +1,7 @@
 # AppShell — behavior
 
 AppShell is a presentational layout. It defines the slots; the caller drops the
-nav, search, and page content in.
+nav, header, page content, and optional chat panel in.
 
 ```gherkin
 Scenario: Page scaffold

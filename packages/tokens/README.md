@@ -1,6 +1,6 @@
 # @constructor-lab/tokens
 
-Contains **design data only**. The colors, sizes, typography, and per-component values that define how Constructor Lab products look, stored as plain JSON.
+Contains **design data only**. The colors, sizes, typography, and per-component values that define how Acronis products look, stored as plain JSON.
 
 There are no components, no build step, and nothing to run: just the values.
 

@@ -19,7 +19,7 @@ repo.
    pnpm --filter @constructor-lab/figma-token-exporter receive
    ```
 
-   Then in Figma Desktop run **Constructor Lab Token Exporter** and click
+   Then in Figma Desktop run **UI Components library Token Exporter** and click
    **Send snapshot to repo**.
 
 2. Run the post-export sync pipeline:

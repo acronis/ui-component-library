@@ -127,7 +127,7 @@ export const CascadedSubmenu: Story = {
                   <MenuSubmenuContent>
                     <MenuSection>
                       <MenuItem>Facet</MenuItem>
-                      <MenuItem>Constructor Lab</MenuItem>
+                      <MenuItem>Acronis</MenuItem>
                     </MenuSection>
                   </MenuSubmenuContent>
                 </MenuSubmenu>

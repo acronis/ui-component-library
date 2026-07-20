@@ -30,7 +30,7 @@ import { Link } from '@constructor-lab/ui-react';
   target="_blank"
   rel="noopener noreferrer"
 >
-  Constructor Lab
+  Acronis
 </Link>;
 
 // Polymorphic — render a router link, keep the Link styling

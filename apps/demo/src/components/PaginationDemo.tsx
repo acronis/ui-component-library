@@ -34,7 +34,7 @@ export function PaginationDemo() {
           <li>Keyboard navigation support</li>
           <li>ARIA labels for accessibility</li>
           <li>Customizable page ranges and visibility</li>
-          <li>Follows Constructor Lab brand design tokens</li>
+          <li>Follows UI Components library brand design tokens</li>
         </ul>
       </div>
 

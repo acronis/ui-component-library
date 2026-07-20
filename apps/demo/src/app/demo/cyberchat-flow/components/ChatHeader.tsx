@@ -18,7 +18,7 @@ export function ChatHeader({ hasMessages }: ChatHeaderProps) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <h2 className="text-base">
-            <span className="font-semibold">Constructor Lab</span>{' '}
+            <span className="font-semibold">Acronis</span>{' '}
             <span className="font-normal text-muted-foreground">CyberChat</span>
           </h2>
         </div>

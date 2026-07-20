@@ -59,7 +59,7 @@ change the steps.
 
 ## Preconditions (stop if unmet)
 
-1. **Figma Desktop** with the **Constructor Lab Token Exporter** plugin imported
+1. **Figma Desktop** with the **UI Components library Token Exporter** plugin imported
    (`tools/figma-token-exporter/manifest.json` via Plugins → Development → Import
    plugin from manifest). Required to run a local plugin.
 2. **`FIGMA_ACCESS_TOKEN_ACRONIS`** in the environment (the plugin reads variables
@@ -79,7 +79,7 @@ Run script steps from `packages/tokens/`. Paths below are relative to it.
 - Start the receiver (from anywhere in the repo):
   `pnpm --filter @constructor-lab/figma-token-exporter receive` — it listens on
   `localhost:3333` and writes into `packages/tokens/.tmp/figma-tokens/`.
-- In Figma Desktop, open the target file, run **Constructor Lab Token Exporter**, click
+- In Figma Desktop, open the target file, run **UI Components library Token Exporter**, click
   **Send snapshot to repo**. It writes `variables.tokens.json`,
   `variables-meta.json`, and `styles-{text,color,effect}.json`.
 - **Fallback (figma-console MCP):** `figma_export_tokens` (`format: dtcg`,

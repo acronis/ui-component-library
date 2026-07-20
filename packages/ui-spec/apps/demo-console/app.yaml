@@ -2,9 +2,9 @@ spec_version: '1.0'
 app: DemoConsole
 name: demo-console
 kind: spa
-title: Constructor Lab Console
+title: UI Components library Console
 description: >-
-  The spec-driven reference console for the Constructor Lab UI Kit: a believable
+  The spec-driven reference console for the UI Components library: a believable
   single-product admin console built entirely from the kit. It realizes the
   app-shell pattern as its frame (collapsed primary rail + secondary section nav
   + a centered global search header), routes real product screens (Overview,

@@ -2,8 +2,8 @@ spec_version: '1.0'
 component: AppShell
 
 # References only. Values live in @constructor-lab/tokens. The scaffold itself
-# is just surfaces + a header/footer divider; the sidebar/search bring their own
-# tokens.
+# is just surfaces + a header/footer divider; the sidebar / header content bring
+# their own tokens.
 source: '@constructor-lab/tokens'
 
 tokens:

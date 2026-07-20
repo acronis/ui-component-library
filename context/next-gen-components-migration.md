@@ -17,7 +17,7 @@
 (generated) and `packages/ui-react` (consumers).
 **Date:** 2026-06-12.
 
-This plan describes how the Constructor Lab UI Kit adopts the Figma **next-gen component
+This plan describes how the UI Components library adopts the Figma **next-gen component
 token tier** (`brand.components`, PascalCase, 447 leaves) and retires the
 flattened legacy tier (`brand.componentLegacy`, now 27 leaves: `icon`, `tree`).
 It is grounded in the live snapshot at
@@ -262,7 +262,7 @@ ghost, destructive, inverted, ai`).
 
 ### Modes
 
-The snapshot has **only `Constructor Lab`** in `brand.components` (verified — no Brand B
+The snapshot has **only `Acronis`** in `brand.components` (verified — no Brand B
 in the next-gen tier yet). The data-driven mode loop (line 135) already iterates
 whatever modes exist, so this needs no code change, but it means **next-gen
 component tokens will have no `brand-b` override** until Figma adds the Brand B

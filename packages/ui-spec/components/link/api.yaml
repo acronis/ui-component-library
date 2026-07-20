@@ -51,7 +51,7 @@ adapters:
 
       {/* External */}
       <Link href="https://acronis.com" external target="_blank" rel="noreferrer">
-        Constructor Lab
+        Acronis
       </Link>
 
       {/* Polymorphic — render a router link */}

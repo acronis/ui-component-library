@@ -1,6 +1,6 @@
-# Constructor Lab UI Kit
+# UI Components library
 
-A pnpm monorepo for the Constructor Lab design system: a React component
+A pnpm monorepo for the Acronis design system: a React component
 library, a design-token pipeline (Figma → JSON → CSS/Tailwind), icon
 packages, design-data packages, and supporting apps and tooling.
 
@@ -68,7 +68,7 @@ The demo will be available at `http://localhost:3000`.
 
 ## 📖 Usage (`@constructor-lab/ui-react`)
 
-`@constructor-lab/ui-react` is the Constructor Lab UI Kit's React component library.
+`@constructor-lab/ui-react` is the UI Components library's React component library.
 
 ### Installation
 
@@ -327,7 +327,7 @@ export function App() {
 
 ## 📝 License
 
-MIT License — Copyright (c) 2026 Constructor Lab International GmbH
+MIT License — Copyright (c) 2026 Acronis International GmbH
 
 See [LICENSE](./LICENSE) for more details.
 

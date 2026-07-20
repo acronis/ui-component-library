@@ -13,7 +13,7 @@ describe('AuthLayout', () => {
     const { container } = render(
       <AuthLayout>
         <AuthLayoutCard>
-          <AuthLayoutLogo>Constructor Lab</AuthLayoutLogo>
+          <AuthLayoutLogo>Acronis</AuthLayoutLogo>
           <h1>Sign in</h1>
           <AuthLayoutFooter>Need help?</AuthLayoutFooter>
         </AuthLayoutCard>

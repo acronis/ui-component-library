@@ -1,6 +1,6 @@
-# Constructor Lab UI Component Library Contributing Guide
+# UI Components Library Contributing Guide
 
-We appreciate your contributions to Constructor Lab UI Component Library.
+We appreciate your contributions to UI Components library.
 Before submitting your contribution, please make sure to take a moment to read through the following guidelines.
 
 ## Forms of contribution
@@ -49,8 +49,8 @@ happen in exactly one place.
 
 ## Pull Request for Feature request/Bug Fixing/Improvements
 
-Pull requests are welcomed for bug fixing/improvement in Constructor Lab UI Component Library.
-You can find setup and structure information about the Constructor Lab UI Component Library in the [README.md](README.md).
+Pull requests are welcomed for bug fixing/improvement in UI Components library.
+You can find setup and structure information about the UI Components library in the [README.md](README.md).
 Follow this guide's branching, pull request, and commit conventions when you prepare a pull request.
 Meanwhile, below a checklist for the items need to do before raised a pull request,
 and you can find the details for each point in the remaining part of this document:
@@ -123,7 +123,7 @@ Meanwhile, it will be convenient for QA to check if an example of the function i
 
 ### Component types for TypeScript support
 
-As Constructor Lab UI Component Library is being used in many TypeScript projects, when there is new API or API updates in the pull request,
+As UI Components library is being used in many TypeScript projects, when there is new API or API updates in the pull request,
 we will also need to update the declaration file for the UI Component Library.
 The files located at `types` folder. You can find more information about TypeScript declaration file at [Link](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html).
 

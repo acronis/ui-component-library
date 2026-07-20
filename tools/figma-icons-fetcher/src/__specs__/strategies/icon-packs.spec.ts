@@ -73,7 +73,7 @@ describe('iconPacksStrategy', () => {
           name: 'solid-mono',
           type: 'FRAME',
           // icons listed directly under the pack → grouped under the pack
-          children: [icon('i3', '_assetsource/Constructor Lab')],
+          children: [icon('i3', '_assetsource/Acronis')],
         },
       ]),
       config

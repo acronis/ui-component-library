@@ -26,7 +26,7 @@ export function InputSearchDemo() {
       <h2>Search Input Component</h2>
       <p className="demo-description">
         Search input component with various states including loading, filled,
-        folder search, and path input. Based on Constructor Lab Design System
+        folder search, and path input. Based on UI Components library Design System
         specifications from Figma.
       </p>
 

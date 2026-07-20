@@ -107,7 +107,7 @@ src/
   scss.ts, js.ts        emitScss / emitJs — SCSS mixin + JS token map from the model.
   bridge/tailwind-theme.ts  emitTailwindTheme — the generated `@theme inline` bridge.
   hooks/                Style Dictionary hooks — the token pipeline's extension points.
-    preprocessors/      acronis-dtcg — Constructor Lab source → per-mode DTCG. `normalizeTree`
+    preprocessors/      acronis-dtcg — UI Components library source → per-mode DTCG. `normalizeTree`
                         is what stage 1 calls directly (deliberately not an SD
                         preprocessor — see the stage-1 gotcha above).
     transforms/         color/hsl-to-rgb, gradient/css, dimension/px, scalar/css,
@@ -231,7 +231,7 @@ Before non-trivial work, read the matching file(s) in full.
 | The CSS contract — `light-dark()`, `rgb()` colors, `--ui-*` names, tier split, brand override diff, typography, gradients, Tailwind presets | [`context/output.md`](context/output.md)     |
 | The assets build — resolver/executor split, scale/stroke execution, currentColor, SVGO, React dedup + size/variant                          | [`context/assets.md`](context/assets.md)     |
 
-To understand the **input** shape (the Constructor Lab token divergences this tool
+To understand the **input** shape (the UI Components library token divergences this tool
 consumes), read
 [`../../packages/tokens/context/manifest.md`](../../packages/tokens/context/manifest.md).
 

@@ -1,6 +1,6 @@
 # @constructor-lab/icons-svg
 
-Next-generation raw SVG icon sources for Constructor Lab — redesigned icons fetched from
+Next-generation raw SVG icon sources for UI Components library — redesigned icons fetched from
 the `shadcn-uikit` Figma file, plus per-pack JSON manifests. Private,
 source-only: it ships no build artifact and is consumed in-repo directly from
 `src/`. Unlike [`packages/icons-svg`](../icons-svg), it keeps a single flat icon

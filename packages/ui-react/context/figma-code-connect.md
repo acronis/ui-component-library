@@ -61,7 +61,7 @@ Each `.figma.tsx` carries a status comment in its header:
 
 ## Completing a connection
 
-1. **Get the Figma node URL.** Open the Constructor Lab Design System in Figma,
+1. **Get the Figma node URL.** Open the UI Components library Design System in Figma,
    select the **component set** (purple diamond holding all variants),
    right-click → **Copy link to selection**, and replace `'FIGMA_NODE_URL'`.
 2. **Verify property names.** Open the component's **Properties** panel.

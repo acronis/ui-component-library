@@ -6,7 +6,7 @@
     "url": "git+https://github.com/constructor-lab/ui-component-library.git",
     "directory": "packages/tokens"
   },
-  "description": "Constructor Lab design tokens: the DTCG source tiers plus the generated CSS (reference-based, brand + light/dark via selectors), SCSS mixins, JS token map, and Tailwind bridge — built by @constructor-lab/style-dictionary.",
+  "description": "UI Components library design tokens: the DTCG source tiers plus the generated CSS (reference-based, brand + light/dark via selectors), SCSS mixins, JS token map, and Tailwind bridge — built by @constructor-lab/style-dictionary.",
   "license": "MIT",
   "type": "module",
   "publishConfig": {

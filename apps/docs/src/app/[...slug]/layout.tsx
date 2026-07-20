@@ -4,7 +4,10 @@ import { source } from '@/lib/source';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <DocsLayout tree={source.pageTree} nav={{ title: 'Constructor Lab UIKit' }}>
+    <DocsLayout
+      tree={source.pageTree}
+      nav={{ title: 'UI Components library' }}
+    >
       {children}
     </DocsLayout>
   );

@@ -1,6 +1,6 @@
 # How big is a token change?
 
-These token files are the master source for how Constructor Lab looks — change one, and
+These token files are the master source for how UI Components library looks — change one, and
 every product eventually uses the new value. So before you record a change, size
 it: **how much could it disrupt the people building with these tokens?**
 

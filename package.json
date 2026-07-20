@@ -1,7 +1,7 @@
 {
   "name": "ui-component-library-monorepo",
   "private": true,
-  "description": "The Constructor Lab UI components library with color schemes and demos",
+  "description": "The UI Components library with color schemes and demos",
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
@@ -31,7 +31,7 @@
     "react",
     "tailwind"
   ],
-  "author": "Constructor Lab International GmbH",
+  "author": "Acronis International GmbH",
   "license": "MIT",
   "repository": {
     "type": "git",

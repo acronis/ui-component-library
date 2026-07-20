@@ -1,7 +1,7 @@
 ---
 name: ui-kit-pipeline
 description: >
-  Full development pipeline for Constructor Lab UI Kit work. Orchestrates the
+  Full development pipeline for UI Components library work. Orchestrates the
   specialized agent team through a phase-gated workflow: Design → Plan →
   Development → QA → Review → Audit. Use for any non-trivial component
   work, new components, Web Component fixes, or feature additions. For
@@ -11,7 +11,7 @@ description: >
 
 # UI Kit Pipeline
 
-Team orchestration skill for the Constructor Lab UI Kit. Drives a 6-phase
+Team orchestration skill for the UI Components library. Drives a 6-phase
 gated workflow using the specialized agents in `.claude/agents/`.
 
 Consult [CLAUDE.md](../../../CLAUDE.md) for tech stack and conventions.

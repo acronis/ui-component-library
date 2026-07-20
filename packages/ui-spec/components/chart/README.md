@@ -14,7 +14,7 @@ composed by the caller from recharts primitives.
 ## When to use
 
 - Visualizing quantitative data — trends, comparisons, distributions.
-- You want recharts' flexibility but the Constructor Lab tooltip/legend/axis styling.
+- You want recharts' flexibility but the UI Components library tooltip/legend/axis styling.
 
 ## When not to use
 

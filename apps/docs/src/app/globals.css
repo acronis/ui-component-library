@@ -7,9 +7,9 @@
 /* Scan landing page source so spacing utilities are generated */
 @source "./page.tsx";
 
-/* ─── Fumadocs color overrides to match Constructor Lab brand ─────────────────────── */
+/* ─── Fumadocs color overrides to match Acronis brand ─────────────────────── */
 :root {
-  /* Constructor Lab primary blue (213 94% 51%) */
+  /* Acronis primary blue (213 94% 51%) */
   --color-fd-primary: hsl(213, 94%, 51%);
   --color-fd-primary-foreground: hsl(0, 0%, 100%);
   --color-fd-ring: hsl(213, 94%, 51%);
@@ -17,7 +17,7 @@
 
 /* `html.dark` (0,1,1) outranks Fumadocs' own `.dark` (0,1,0), which is loaded
    after globals.css and otherwise resets --color-fd-primary to near-white in
-   dark — dropping the Constructor Lab blue accent everywhere in dark mode. */
+   dark — dropping the Acronis blue accent everywhere in dark mode. */
 html.dark {
   --color-fd-primary: hsl(213, 94%, 65%);
   --color-fd-primary-foreground: hsl(0, 0%, 9%);

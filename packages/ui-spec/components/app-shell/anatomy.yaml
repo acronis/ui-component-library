@@ -3,18 +3,22 @@ component: AppShell
 
 schematic: |
   app-shell: <div> full-height flex row
-    app-shell-sidebar: <aside> left column (SidebarPrimary [+ SidebarSecondary])
+    app-shell-sidebar: <aside> left column (SidebarPrimary [+ one or two SidebarSecondary])
     app-shell-body: <div> flex column (fills the rest)
-      app-shell-header: <header> sticky top bar (global search + actions)
+      app-shell-header: <header> sticky top bar (page title / breadcrumbs + actions)
       app-shell-main:   <main> scrolling page content
       app-shell-footer: <footer> optional bottom bar
+    app-shell-panel: <aside> optional right column (the "Acronis AI" chat rail)
+      app-shell-panel-content:   full-size chat content (docked/full)
+      app-shell-panel-collapsed: icon rail (collapsed)
+      app-shell-panel-trigger:   <button> switches the panel state
 
 root:
   element: div
   description: >-
     The page scaffold — a full-height flex row of the sidebar column and the body
-    column. Surfaces use the shared --ui-* tokens; the rich nav/search come from
-    the components dropped into the slots.
+    column. Surfaces use the shared --ui-* tokens; the rich nav/header/chat come
+    from the components dropped into the slots.
 
 parts:
   - id: app-shell-sidebar
@@ -25,12 +29,51 @@ parts:
     description: The flex-column filling the remaining width (header + main + footer).
   - id: app-shell-header
     element: header
-    description: Sticky top bar slot — typically the global search plus actions.
+    description: Sticky top bar slot — typically the page title / breadcrumbs plus actions.
   - id: app-shell-main
     element: main
     description: The scrolling main content area.
   - id: app-shell-footer
     element: footer
     description: Optional bottom bar.
+  - id: app-shell-panel
+    element: aside
+    description: >-
+      Optional right-hand rail column — the "Acronis AI" chat panel. Its width is
+      driven by the shell's panel state (`data-state`): docked (fixed rail),
+      collapsed (~48px icon rail), or full (grows to fill the body, which hides).
+  - id: app-shell-panel-content
+    element: div
+    description: >-
+      The panel's full-size content (chat header / transcript / composer). Shown
+      when docked or full; hidden in the collapsed rail.
+  - id: app-shell-panel-collapsed
+    element: div
+    description: >-
+      The collapsed icon rail (e.g. an "open Acronis AI" button). Shown only when
+      the panel is collapsed.
+  - id: app-shell-panel-trigger
+    element: button
+    description: >-
+      A control that switches the panel to a target state (`to`) on click; the
+      `useAppShell()` hook is the imperative equivalent.
 
-states: []
+states:
+  - id: panel-docked
+    trigger: panelState is 'docked' (default) — the chat panel is a fixed-width rail
+    kind: prop
+    prop: panel-state
+    affects: [app-shell-panel]
+    exclusive_with: [panel-collapsed, panel-full]
+  - id: panel-collapsed
+    trigger: panelState is 'collapsed' — the chat panel is a ~48px icon rail
+    kind: prop
+    prop: panel-state
+    affects: [app-shell-panel]
+    exclusive_with: [panel-docked, panel-full]
+  - id: panel-full
+    trigger: panelState is 'full' — the chat panel fills the body, which hides
+    kind: prop
+    prop: panel-state
+    affects: [app-shell-panel, app-shell-body]
+    exclusive_with: [panel-docked, panel-collapsed]

@@ -1,4 +1,4 @@
-# Fetches all icon SVGs from the Constructor Lab Figma file into packages/icons-svg and
+# Fetches all icon SVGs from the UI Components library Figma file into packages/icons-svg and
 # opens a pull request with any changes.
 #
 # Pull-based: this workflow asks Figma for the current icon set, runs the
@@ -78,7 +78,7 @@ jobs:
           commit-message: 'chore(icons-svg): sync icons from Figma'
           title: 'chore(icons-svg): sync icons from Figma'
           body: |
-            Automated icon sync from the Constructor Lab Figma file.
+            Automated icon sync from the UI Components library Figma file.
 
             Pulled by the **Fetch Figma Icons** workflow via
             `@constructor-lab/figma-icons-fetcher`.

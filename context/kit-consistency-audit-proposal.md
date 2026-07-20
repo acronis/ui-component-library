@@ -11,7 +11,7 @@
   the `ui-kit-pipeline` workflow, and the AI skill set.
 - **Builds on:** `packages/ui-spec/context/component-specs-proposal.md`
   (the framework-agnostic specs + grammar proposal already on file).
-- **Reference implementations:** the Constructor Lab Vue kit `@uikit/ui-kit` packages
+- **Reference implementations:** the Acronis Vue kit `@uikit/ui-kit` packages
   `grammar` and `screens` (separate repo) — we borrow their shapes, not their code.
 
 ---

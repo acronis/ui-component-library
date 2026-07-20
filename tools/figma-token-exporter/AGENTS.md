@@ -54,7 +54,7 @@ Two halves, no build step:
 
 ```bash
 pnpm --filter @constructor-lab/figma-token-exporter receive
-# then in Figma: run "Constructor Lab Token Exporter" → "Send snapshot to repo"
+# then in Figma: run "UI Components library Token Exporter" → "Send snapshot to repo"
 # override the port (must match manifest networkAccess) with:  receive -- --port 4444
 ```
 

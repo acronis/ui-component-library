@@ -26,7 +26,7 @@ export function LoginPattern() {
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
               A
             </div>
-            <span className="text-lg font-semibold">Constructor Lab</span>
+            <span className="text-lg font-semibold">UI Components library</span>
           </div>
         </AuthLayoutLogo>
 

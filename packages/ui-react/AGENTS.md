@@ -1,6 +1,6 @@
 # AGENTS.md — `packages/ui-react`
 
-`@constructor-lab/ui-react` — the next-generation Constructor Lab React component
+`@constructor-lab/ui-react` — the next-generation React UI Components
 library: a **Base UI implementation** themed by `@constructor-lab/tokens`
 (which is generated from `@constructor-lab/tokens`).
 

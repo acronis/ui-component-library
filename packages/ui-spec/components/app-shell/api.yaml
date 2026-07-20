@@ -2,24 +2,40 @@ spec_version: '1.0'
 component: AppShell
 
 # A layout scaffold; the parts take only native element attributes (className for
-# slot sizing). No component-specific props.
+# slot sizing). The one component-specific prop is the root's controllable
+# right-panel (AI/chat rail) state, shared to the panel + body via context.
 contract:
-  properties: []
-  events: []
+  properties:
+    - name: panel-state
+      type: "'docked' | 'collapsed' | 'full'"
+      required: false
+      description: >-
+        Controlled state of the right-hand AI/chat panel — docked (fixed rail),
+        collapsed (icon rail), or full (fills the body, which hides).
+    - name: default-panel-state
+      type: "'docked' | 'collapsed' | 'full'"
+      required: false
+      default: docked
+      description: Initial panel state when uncontrolled.
+  events:
+    - name: panel-state-change
+      payload: "'docked' | 'collapsed' | 'full'"
+      description: Fires with the next panel state when a trigger flips it.
   methods: []
 
 adapters:
   react:
     component: AppShell
     status: implemented
-    import: "import { AppShell, AppShellSidebar, AppShellBody, AppShellHeader, AppShellMain, AppShellFooter } from '@constructor-lab/ui-react'"
+    import: "import { AppShell, AppShellSidebar, AppShellBody, AppShellHeader, AppShellMain, AppShellFooter, AppShellPanel } from '@constructor-lab/ui-react'"
     example: |
       <AppShell>
         <AppShellSidebar><SidebarPrimary … /></AppShellSidebar>
         <AppShellBody>
-          <AppShellHeader><SearchGlobal … /></AppShellHeader>
+          <AppShellHeader><PageHeader … /></AppShellHeader>
           <AppShellMain>{children}</AppShellMain>
         </AppShellBody>
+        <AppShellPanel aria-label="Acronis AI">{chat}</AppShellPanel>
       </AppShell>
   vue:
     component: AvAppShell

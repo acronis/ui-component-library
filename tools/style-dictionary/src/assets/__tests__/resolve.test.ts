@@ -13,9 +13,9 @@ const rules = loadAllRules();
 const META = { category: [], tags: [], legacyNames: [] };
 // Real, distinct binaries shipped by the `icons` pack — used purely as resolvable
 // $file targets; their pixel content is irrelevant to resolution.
-const F24 = './packs/icons/Constructor Lab.svg';
+const F24 = './packs/icons/Acronis.svg';
 const F48 = './packs/icons/AppWindow.svg';
-const ALT16 = './packs/icons/Constructor LabCloud.svg';
+const ALT16 = './packs/icons/AcronisCloud.svg';
 const ALT24 = './packs/icons/Apple.svg';
 const ALT32 = './packs/icons/AppWindow.svg';
 
@@ -108,7 +108,7 @@ describe('resolver — concept-pack R-cases', () => {
     expect(variantIds(a)).toEqual(['16', '24', '32']);
     expect(variant(a, '24')!.rules).toHaveLength(0);
     expect(variant(a, '16')!.rules.map((r) => r.name)).toEqual(['scale-16']);
-    expect(base(variant(a, '16')!.leafFile)).toBe('Constructor Lab.svg');
+    expect(base(variant(a, '16')!.leafFile)).toBe('Acronis.svg');
   });
 
   it('R3: extends with a new 96 variant computed from the canonical', () => {
@@ -132,7 +132,7 @@ describe('resolver — concept-pack R-cases', () => {
   it('R6: replaces a computed variant with its own binary (leaf, no rules)', () => {
     const a = resolveOne('icon-file-override');
     expect(variant(a, '16')!.rules).toHaveLength(0);
-    expect(base(variant(a, '16')!.leafFile)).toBe('Constructor LabCloud.svg');
+    expect(base(variant(a, '16')!.leafFile)).toBe('AcronisCloud.svg');
   });
 
   it('R7: ships independent binaries at every variant', () => {

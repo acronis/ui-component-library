@@ -90,8 +90,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// The Constructor Lab Cyber Platform brand lockup from the Figma primary example: the
-// Constructor Lab A-mark (`AcronisIcon`, sized by the Header's logo-height token) + the
+// The Acronis Cyber Platform brand lockup from the Figma primary example: the
+// Acronis A-mark (`AcronisIcon`, sized by the Header's logo-height token) + the
 // wordmark, which the rail hides when collapsed. Both inherit
 // `--ui-sidebar-primary-global-logo-color`, so the lockup adapts per brand/theme
 // exactly like the design.
@@ -100,7 +100,7 @@ function LogoMark() {
     <span className="flex items-center gap-2">
       <AcronisIcon aria-hidden="true" />
       <span className="leading-[1.15] group-data-[state=collapsed]/sidebar:hidden">
-        <span className="block text-base font-semibold">Constructor Lab</span>
+        <span className="block text-base font-semibold">Acronis</span>
         <span className="block text-sm">Cyber Platform</span>
       </span>
     </span>
@@ -113,7 +113,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   return <div style={{ height: 620, display: 'flex' }}>{children}</div>;
 }
 
-// The Constructor Lab Cyber Platform nav from the Figma example: a primary section of
+// The Acronis Cyber Platform nav from the Figma example: a primary section of
 // product areas plus a secondary section (inbox / favorites).
 function PrimaryNav() {
   return (

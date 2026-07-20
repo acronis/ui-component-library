@@ -103,7 +103,7 @@ export function DataManagementPattern() {
       </AppShellSidebar>
       <AppShellBody>
         <AppShellHeader>
-          <span className="font-semibold">Constructor Lab Cyber Protect</span>
+          <span className="font-semibold">Acronis Cyber Protect</span>
         </AppShellHeader>
         <AppShellMain>
           <PageContent>

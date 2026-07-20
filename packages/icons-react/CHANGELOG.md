@@ -42,7 +42,7 @@
   gradient-id namespacing, and per-pack subpath exports are unchanged.
 
   Note: the icon set changed wholesale, so some previously exported names are gone
-  (e.g. `BanIcon`, `ArrowSquareUpRightIcon`, `Constructor LabAIcon`) and many new ones are
+  (e.g. `BanIcon`, `ArrowSquareUpRightIcon`, `AcronisAIcon`) and many new ones are
   added. A few names still reflect work-in-progress Figma source (`*-duplicate`,
   `agent-qnap--32`) until that source is cleaned up.
 

@@ -5,4 +5,12 @@ export {
   AppShellHeader,
   AppShellMain,
   AppShellFooter,
+  AppShellPanel,
+  AppShellPanelContent,
+  AppShellPanelCollapsed,
+  AppShellPanelTrigger,
+  useAppShell,
+  type AppShellPanelState,
+  type AppShellProps,
+  type AppShellPanelTriggerProps,
 } from './app-shell';

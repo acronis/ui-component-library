@@ -1,7 +1,7 @@
 // The value transforms and the transform group the CSS builder applies. The
 // group resolves DTCG values to CSS strings (color → rgb, gradient →
 // linear-gradient, dimension → px, remaining scalars → string, typography → a
-// utility-class declaration block) and names tokens with the Constructor Lab `ui`
+// utility-class declaration block) and names tokens with the UI Components library `ui`
 // convention (`name/ui`: drop the `colors` tier root, prefix `ui`). Order
 // matters: value transforms run before the name transform.
 

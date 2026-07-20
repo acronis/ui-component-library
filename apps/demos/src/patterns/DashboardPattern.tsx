@@ -81,7 +81,7 @@ export function DashboardPattern() {
       </AppShellSidebar>
       <AppShellBody>
         <AppShellHeader>
-          <span className="font-semibold">Constructor Lab Cyber Protect</span>
+          <span className="font-semibold">Acronis Cyber Protect</span>
           <div className="ml-auto flex items-center gap-2">
             <Badge variant="neutral">Admin</Badge>
             <Button variant="secondary">Logout</Button>

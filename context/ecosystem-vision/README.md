@@ -4,7 +4,7 @@
 - **Date:** 2026-07-19
 - **Owner:** Leonid Romanov
 - **Audience:** PMs, developers, designers building Cyber Console and its
-  microfrontends on the Constructor Lab UI kit.
+  microfrontends on the Acronis UI kit.
 
 > **This is the north-star document set.** It describes the _target_ Cyber
 > ecosystem: one strict, schema-validated chain from a design in Figma all the

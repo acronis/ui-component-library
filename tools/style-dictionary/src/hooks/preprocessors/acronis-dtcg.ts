@@ -1,10 +1,10 @@
-// Normalize a Constructor Lab token tree into a per-mode, DTCG-conformant tree.
+// Normalize a UI Components library token tree into a per-mode, DTCG-conformant tree.
 // This is stage 1's real work; `normalizeTree` is called directly by the token
 // builder (see tokens.ts), not registered as a Style Dictionary preprocessor —
 // SD's own init normalization would relocate `$type` and break the DTCG artifact.
 // See context/pipeline.md.
 //
-// Constructor Lab tokens diverge from DTCG in two ways this pass resolves:
+// UI Components library tokens diverge from DTCG in two ways this pass resolves:
 //   - per-mode `values` dict          → a single `$value` for the requested mode
 //   - top-level `platforms` array     → filtered on, then dropped (non-DTCG)
 //
