@@ -13,13 +13,13 @@ import { cn } from '@/lib/utils';
 //   • icon/link (was --av-fixed-link) -> text-secondary (the brand action blue)
 //   • interactive hover/active -> bg-accent (surface-hover) /
 //     surface-active; focus -> the standard 3px --ui-focus-primary ring
-//   • thead border (was --av-brand-accent) -> --ui-table-global-cell-border-color
+//   • thead border (was --av-brand-accent) -> --ui-table-global-row-border-color
 //   • thead tint (was --av-brand-lightest, "Colored-Background") -> bg-muted
 //     (--ui-background-surface-secondary — same tint DataTable's `striped` uses)
 //   • th label color -> --ui-table-header-label-color
 //   • row divider / footer border (was --av-brand-accent) ->
-//     --ui-table-global-cell-border-color
-//   • row hover -> --ui-table-global-row-color-hover
+//     --ui-table-global-row-border-color
+//   • row hover -> --ui-table-data-row-color-hover
 //   • footer caption -> text-muted-foreground (matches widget-placeholder's
 //     footer, a deliberate de-emphasis not present in the legacy source)
 // Reconcile with `/figma-component WidgetTableData <url> --update` once a
@@ -105,7 +105,7 @@ const WidgetTableDataThead = React.forwardRef<
   <thead
     ref={ref}
     className={cn(
-      'border-b border-[var(--ui-table-global-cell-border-color)] bg-muted',
+      'border-b border-[var(--ui-table-global-row-border-color)] bg-muted',
       className
     )}
     {...props}
@@ -135,7 +135,7 @@ const WidgetTableDataTbody = React.forwardRef<
   <tbody
     ref={ref}
     className={cn(
-      '[&>tr]:border-b [&>tr]:border-[var(--ui-table-global-cell-border-color)]',
+      '[&>tr]:border-b [&>tr]:border-[var(--ui-table-global-row-border-color)]',
       className
     )}
     {...props}
@@ -150,7 +150,7 @@ const WidgetTableDataTr = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      'transition-colors hover:bg-[var(--ui-table-global-row-color-hover)]',
+      'transition-colors hover:bg-[var(--ui-table-data-row-color-hover)]',
       className
     )}
     {...props}
@@ -185,7 +185,7 @@ const WidgetTableDataFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'flex items-center justify-between border-t border-[var(--ui-table-global-cell-border-color)] px-6 py-2 text-xs text-muted-foreground',
+      'flex items-center justify-between border-t border-[var(--ui-table-global-row-border-color)] px-6 py-2 text-xs text-muted-foreground',
       className
     )}
     {...props}

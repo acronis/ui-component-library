@@ -25,7 +25,7 @@ import { cn } from '@/lib/utils';
 // Adaptations from legacy:
 // - The day + nav cells are styled as plain neutral buttons via `--ui-*` tokens
 //   rather than the ui-react `Button` — ui-react's `ghost` variant is a *link*
-//   style (`--ui-text-on-surface-link`, blue), which is wrong for day numbers,
+//   style (`--ui-text-on-surface-link-idle`, blue), which is wrong for day numbers,
 //   and its Button has no `size` prop. The today marker uses an underline; hover
 //   uses the surface-hover token (`bg-accent`).
 // - Selection uses the **blue (electricblue/info) gamma**, not the acronis brand
