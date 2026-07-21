@@ -106,6 +106,7 @@
   --ui-glyph-on-surface-destructive: var(--ui-palette-red-7);
   --ui-glyph-on-surface-disabled: var(--ui-palette-blue-3);
   --ui-glyph-on-surface-neutral: var(--ui-palette-grayscale-4);
+  --ui-glyph-on-surface-neutral-dark: var(--ui-palette-grayscale-10);
   --ui-glyph-on-surface-primary: var(--ui-palette-blue-7);
   --ui-gradients-ai-active: linear-gradient(90deg, rgb(43 54 155) 20%, rgb(118 21 113) 100%);
   --ui-gradients-ai-disabled: linear-gradient(90deg, rgb(223 226 255) 20%, rgb(255 218 253) 100%);

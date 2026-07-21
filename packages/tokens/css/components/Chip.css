@@ -13,11 +13,11 @@
   --ui-chip-global-box-color-idle: var(--ui-background-surface-secondary);
   --ui-chip-global-box-gap: var(--ui-units-gap-4);
   --ui-chip-global-box-height: var(--ui-units-size-24);
-  --ui-chip-global-box-icon-size: var(--ui-units-size-16);
   --ui-chip-global-box-margin-y: var(--ui-units-gap-4);
   --ui-chip-global-box-padding-x: var(--ui-units-gap-8);
   --ui-chip-global-box-width-min: var(--ui-units-size-48);
   --ui-chip-global-icon-color: var(--ui-glyph-on-surface-primary);
+  --ui-chip-global-icon-size: var(--ui-units-size-16);
   --ui-chip-operational-label-color: var(--ui-text-on-surface-link-idle);
   --ui-chip-removable-label-color: var(--ui-text-on-surface-primary);
   --ui-chip-selectable-label-color: var(--ui-text-on-surface-primary);

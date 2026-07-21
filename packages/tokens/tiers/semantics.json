@@ -1866,6 +1866,20 @@
             "default": "{palette.grayscale.4}"
           }
         },
+        "neutral-dark": {
+          "$extensions": {
+            "com.figma.scopes": [
+              "SHAPE_FILL"
+            ],
+            "com.figma.variableId": "VariableID:6540:20828"
+          },
+          "platforms": [
+            "PD"
+          ],
+          "values": {
+            "default": "{palette.grayscale.10}"
+          }
+        },
         "primary": {
           "$extensions": {
             "com.figma.scopes": [

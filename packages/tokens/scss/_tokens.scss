@@ -388,6 +388,7 @@
     --ui-units-size-24: 24px;
     --ui-units-size-256: 256px;
     --ui-units-size-32: 32px;
+    --ui-units-size-320: 320px;
     --ui-units-size-40: 40px;
     --ui-units-size-48: 48px;
     --ui-units-size-512: 512px;
@@ -831,11 +832,11 @@
     --ui-chip-global-box-color-idle: var(--ui-background-surface-secondary);
     --ui-chip-global-box-gap: var(--ui-units-gap-4);
     --ui-chip-global-box-height: var(--ui-units-size-24);
-    --ui-chip-global-box-icon-size: var(--ui-units-size-16);
     --ui-chip-global-box-margin-y: var(--ui-units-gap-4);
     --ui-chip-global-box-padding-x: var(--ui-units-gap-8);
     --ui-chip-global-box-width-min: var(--ui-units-size-48);
     --ui-chip-global-icon-color: var(--ui-glyph-on-surface-primary);
+    --ui-chip-global-icon-size: var(--ui-units-size-16);
     --ui-chip-operational-label-color: var(--ui-text-on-surface-link-idle);
     --ui-chip-removable-label-color: var(--ui-text-on-surface-primary);
     --ui-chip-selectable-label-color: var(--ui-text-on-surface-primary);
@@ -1999,6 +2000,7 @@
     --ui-glyph-on-surface-destructive: var(--ui-palette-red-7);
     --ui-glyph-on-surface-disabled: var(--ui-palette-blue-3);
     --ui-glyph-on-surface-neutral: var(--ui-palette-grayscale-4);
+    --ui-glyph-on-surface-neutral-dark: var(--ui-palette-grayscale-10);
     --ui-glyph-on-surface-primary: var(--ui-palette-blue-7);
     --ui-gradients-ai-active: linear-gradient(90deg, rgb(43 54 155) 20%, rgb(118 21 113) 100%);
     --ui-gradients-ai-disabled: linear-gradient(90deg, rgb(223 226 255) 20%, rgb(255 218 253) 100%);

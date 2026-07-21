@@ -6349,6 +6349,20 @@
           "value": 256
         }
       },
+      "320": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT",
+            "FONT_VARIATIONS"
+          ],
+          "com.figma.variableId": "VariableID:6364:18086"
+        },
+        "$type": "dimension",
+        "$value": {
+          "unit": "px",
+          "value": 320
+        }
+      },
       "512": {
         "$extensions": {
           "com.figma.scopes": [
