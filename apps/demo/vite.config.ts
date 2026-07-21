@@ -86,6 +86,10 @@ export default defineConfig(({ mode }) => ({
   },
   server: {
     port: 3000,
+    // Fail loudly if 3000 is taken instead of hopping to 3001+ — otherwise the
+    // demo silently steals the docs' port (docs runs on 3001) and opening it
+    // shows the demo. See apps/docs/AGENTS.md.
+    strictPort: true,
     open: true,
   },
   optimizeDeps: {

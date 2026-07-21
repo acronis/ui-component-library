@@ -33,9 +33,6 @@ const config = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   // Static export for GitHub Pages deployment (set DOCS_STATIC_EXPORT=true)
   ...(isStaticExport && {
     output: 'export',
