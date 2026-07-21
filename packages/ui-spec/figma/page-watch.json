@@ -1,0 +1,437 @@
+{
+  "$comment": "State + config for the /figma-page-watch skill. Each page is a Figma canvas page that hosts one component family; `components` are the ui-react/ui-spec components it governs (curate freely). `signal` is the last-seen change fingerprint/version (null = needs a baseline); the skill diffs the live signal against it to find drift, then updates it on `record`. PARTIAL SEED — only the pages that were loaded when this was created; run `node .claude/skills/figma-page-watch/scripts/page-watch.mjs sync --fetch` (Figma REST, needs a token) to add the rest (~40 total), then curate each new page's components. Do NOT use get_metadata(fileKey) to enumerate — it lists only loaded pages and undercounts.",
+  "fileKey": "lrU3ydIyvPYQNE6ixdsKtJ",
+  "fileUrl": "https://www.figma.com/design/lrU3ydIyvPYQNE6ixdsKtJ/ui-react",
+  "pages": [
+    {
+      "id": "419:1493",
+      "name": "Index",
+      "components": [],
+      "signal": "cecc398bfd0d3599",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z",
+      "note": "Cover / overview page — not a component."
+    },
+    {
+      "id": "2862:13287",
+      "name": "Button",
+      "components": [
+        "button",
+        "button-icon",
+        "button-group",
+        "button-menu",
+        "button-icon-menu",
+        "button-menu-dropdown"
+      ],
+      "signal": "edcb8a11996e72e9",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "6325:9382",
+      "name": "Dropdown",
+      "components": [
+        "dropdown-menu",
+        "menu",
+        "select",
+        "combobox",
+        "autocomplete"
+      ],
+      "signal": "7392fe06450cac14",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "6353:5335",
+      "name": "Footer",
+      "components": [],
+      "signal": "770a747dd213c14b",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z",
+      "note": "No primitive mapped yet — curate (app-shell footer / page-content?)."
+    },
+    {
+      "id": "1072:1963",
+      "name": "Input",
+      "components": [
+        "input-text",
+        "input-search",
+        "input-select",
+        "input-text-area",
+        "input-date-picker",
+        "number-field",
+        "otp-field",
+        "field",
+        "label"
+      ],
+      "signal": "2089b6787e229c9e",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "4324:4814",
+      "name": "Loading",
+      "components": ["spinner", "progress", "progress-circle", "skeleton"],
+      "signal": "ea399bc41f3db9fb",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "684:1711",
+      "name": "Tag",
+      "components": ["tag", "chip"],
+      "signal": "9fdc798e81e8a1de",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2092:2492",
+      "name": "Tree",
+      "components": ["tree"],
+      "signal": "cfd39b19cfdce204",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2948:2413",
+      "name": "Dialog",
+      "components": ["dialog", "confirm-dialog"],
+      "signal": "d7dd0d97abc1a056",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "70:1743",
+      "name": "Tokens",
+      "components": [],
+      "signal": "0a5c9145f2981c1b",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3886:2800",
+      "name": "Typography",
+      "components": [],
+      "signal": "8333b21cb6c995c8",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "787:14936",
+      "name": "Miscellaneous",
+      "components": [],
+      "signal": "6e9304411a0f6fb6",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "5181:6800",
+      "name": "Accordion",
+      "components": ["accordion"],
+      "signal": "df4756b67004ad0a",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "4313:4781",
+      "name": "Alert",
+      "components": ["alert"],
+      "signal": "983e9c59fbb19dba",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3106:3543",
+      "name": "Avatar",
+      "components": ["avatar"],
+      "signal": "55e2717da50f7aea",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "1017:2852",
+      "name": "Breadcrumb",
+      "components": ["breadcrumb"],
+      "signal": "a7cb7378a1f4f10f",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3697:326",
+      "name": "ButtonGroup",
+      "components": ["button-group"],
+      "signal": "df7a671d1e5c1335",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2948:2391",
+      "name": "Cards",
+      "components": ["card"],
+      "signal": "21dacde9a01d1b8f",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "6343:60195",
+      "name": "Carousel",
+      "components": ["carousel"],
+      "signal": "19513835c94415bf",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "725:2773",
+      "name": "Checkbox",
+      "components": ["checkbox"],
+      "signal": "9c0119282f78c128",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "907:257436",
+      "name": "Chip",
+      "components": ["chip"],
+      "signal": "b5b1b2419b9f44da",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2948:2415",
+      "name": "Link",
+      "components": ["link"],
+      "signal": "513a298b80a1e4f0",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "6364:17885",
+      "name": "Popover",
+      "components": ["popover"],
+      "signal": "bcda459eb1fab77d",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "848:11",
+      "name": "Radio",
+      "components": ["radio"],
+      "signal": "b315e1e1b7a5fa5b",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3459:3700",
+      "name": "Resizable",
+      "components": ["resizable"],
+      "signal": "9dd7fb959b38278a",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3291:8431",
+      "name": "SegmentControl",
+      "components": ["toggle-group"],
+      "signal": "d0e713a912eff82b",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2862:13116",
+      "name": "Sidebar",
+      "components": ["sidebar-primary", "sidebar-secondary"],
+      "signal": "f540417febcfc250",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "901:46",
+      "name": "Switch",
+      "components": ["switch"],
+      "signal": "351d4d1bd444ec64",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2948:2416",
+      "name": "Table",
+      "components": ["table"],
+      "signal": "72a07b18e250cbe3",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3291:8407",
+      "name": "Tabs",
+      "components": ["tabs"],
+      "signal": "01385c1233a6f9a8",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "6025:24403",
+      "name": "Timeline",
+      "components": [],
+      "signal": "256bc206d1792a49",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "5144:27572",
+      "name": "TagIcon",
+      "components": [],
+      "signal": "1e59fd872f3cf0d0",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "1009:671",
+      "name": "Tooltip",
+      "components": ["tooltip"],
+      "signal": "44be91a982a9552d",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "6504:16316",
+      "name": "AI Chat",
+      "components": [],
+      "signal": "f5ff51221563e559",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3297:7411",
+      "name": "FilterCards",
+      "components": [],
+      "signal": "f4193b7f1ace62d5",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "1846:2189",
+      "name": "FilterSearch",
+      "components": [],
+      "signal": "d5a55e202f2387d1",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3897:6980",
+      "name": "FilterChips",
+      "components": [],
+      "signal": "7995bd84cd6bab28",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2782:1495",
+      "name": "Layout",
+      "components": ["app-shell"],
+      "signal": "68e5dbf562800932",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "3897:1284",
+      "name": "PageBreadcrumbs",
+      "components": [],
+      "signal": "024e48541c72660b",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2850:701",
+      "name": "PageHeader",
+      "components": ["page-header"],
+      "signal": "e75419822f120fa0",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "5357:26413",
+      "name": "SidebarGroup",
+      "components": [],
+      "signal": "e49eecc41252ed23",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2984:2922",
+      "name": "Toolbar",
+      "components": ["toolbar"],
+      "signal": "90ff8c0b227272bc",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2212:11608",
+      "name": "Menu item",
+      "components": ["menu"],
+      "signal": "c1927b944c44eb79",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2999:115",
+      "name": "SearchGlobal",
+      "components": ["search-global"],
+      "signal": "ff4dea11b3ef0bfe",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    },
+    {
+      "id": "2948:2414",
+      "name": "PageSearch",
+      "components": ["search-global"],
+      "signal": "9b848d1e0ccfa35a",
+      "version": null,
+      "changedAt": null,
+      "checkedAt": "2026-07-21T13:00:58.397Z"
+    }
+  ]
+}
