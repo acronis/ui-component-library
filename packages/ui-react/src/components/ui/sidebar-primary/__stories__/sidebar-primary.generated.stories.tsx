@@ -21,7 +21,7 @@ import {
 import { SidebarPrimary } from '../sidebar-primary';
 
 const meta = {
-  title: 'UI/SidebarPrimary/All States (generated)',
+  title: 'Components/SidebarPrimary/All States (generated)',
   component: SidebarPrimary,
 } satisfies Meta<typeof SidebarPrimary>;
 

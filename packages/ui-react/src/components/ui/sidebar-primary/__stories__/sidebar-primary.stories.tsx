@@ -30,7 +30,7 @@ import {
 } from '../sidebar-primary';
 
 const meta = {
-  title: 'UI/SidebarPrimary',
+  title: 'Components/SidebarPrimary',
   component: SidebarPrimary,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

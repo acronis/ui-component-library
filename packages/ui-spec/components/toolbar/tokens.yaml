@@ -1,0 +1,35 @@
+spec_version: '1.0'
+component: Toolbar
+
+# References only. Values live in @constructor-lab/tokens and resolve per
+# brand/theme at paint time. The token schema forbids a value/default key here.
+# Toolbar owns no token tier — the actions reuse the Button `ghost` tokens, and
+# the status/separator use shared semantic tokens.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - {
+      name: --ui-button-ghost-label-color-idle,
+      affects: toolbar-button,
+      description: Action label color — idle (reused Button ghost token),
+    }
+  - {
+      name: --ui-button-ghost-label-color-disabled,
+      affects: toolbar-button,
+      description: Action label color — disabled toolbar (wired via data-disabled),
+    }
+  - {
+      name: --ui-button-ghost-icon-color-disabled,
+      affects: toolbar-button,
+      description: Action icon color — disabled toolbar (wired via data-disabled),
+    }
+  - {
+      name: --ui-text-on-surface-secondary,
+      affects: toolbar-status,
+      description: Status / item-count label color (secondary text),
+    }
+  - {
+      name: --ui-border-on-surface-border,
+      affects: toolbar-separator,
+      description: Divider line color,
+    }

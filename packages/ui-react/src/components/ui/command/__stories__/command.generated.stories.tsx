@@ -7,7 +7,7 @@ import { userEvent } from 'storybook/test';
 import { Command } from '../command';
 
 const meta = {
-  title: 'UI/Command/All States (generated)',
+  title: 'Components/Command/All States (generated)',
   component: Command,
 } satisfies Meta<typeof Command>;
 

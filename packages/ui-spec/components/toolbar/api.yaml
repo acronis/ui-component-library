@@ -1,0 +1,66 @@
+spec_version: '1.0'
+component: Toolbar
+
+# Toolbar is a composition of Base UI Toolbar parts; the root is not a cva
+# component, so it exposes no variant/size. Props below are the root's.
+contract:
+  properties:
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Disables every action in the toolbar (the Figma `disabled` state). Items
+        stay focusable via `aria-disabled` for discoverability.
+    - name: orientation
+      type: "'horizontal' | 'vertical'"
+      required: false
+      default: horizontal
+      description: Layout axis; also sets the arrow-key navigation direction.
+    - name: loopFocus
+      type: boolean
+      required: false
+      default: true
+      description: >-
+        Wrap keyboard focus to the other end when navigating past the first/last
+        item.
+    - name: render
+      type: RenderProp
+      required: false
+      description: Replace the rendered root element (Base UI composition).
+  events: []
+  content:
+    - name: children
+      description: >-
+        Composed parts — ToolbarGroup, ToolbarButton, ToolbarLink,
+        ToolbarSeparator, ToolbarStatus.
+  methods: []
+
+adapters:
+  react:
+    component: Toolbar
+    status: implemented
+    import: "import { Toolbar, ToolbarGroup, ToolbarButton, ToolbarLink, ToolbarSeparator, ToolbarStatus } from '@constructor-lab/ui-react'"
+    example: |
+      <Toolbar aria-label="Selection actions" disabled={selection.length === 0}>
+        <ToolbarGroup>
+          <ToolbarButton onClick={onEdit}>Edit</ToolbarButton>
+          <ToolbarButton onClick={onExport}>Export</ToolbarButton>
+        </ToolbarGroup>
+        <ToolbarGroup className="ms-auto">
+          <ToolbarStatus>{selection.length} items selected:</ToolbarStatus>
+          <ToolbarButton onClick={onDeselect}>Deselect</ToolbarButton>
+        </ToolbarGroup>
+      </Toolbar>
+  vue:
+    component: AvToolbar
+    status: planned
+    import: "import { AvToolbar } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvToolbar />
+  web-components:
+    element: ui-toolbar
+    status: planned
+    import: "import '@constructor-lab/ui-wc/toolbar'"
+    example: |
+      <ui-toolbar></ui-toolbar>

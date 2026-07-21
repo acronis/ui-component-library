@@ -86,7 +86,7 @@ import {
 // expanded/collapsed, one or two secondary panels, the chat rail docked /
 // collapsed / full / absent, and the inner-page breadcrumb variants).
 const meta = {
-  title: 'UI/AppShell',
+  title: 'Components/AppShell',
   component: AppShell,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

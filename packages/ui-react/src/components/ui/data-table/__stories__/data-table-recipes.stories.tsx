@@ -31,7 +31,7 @@ import { DataTable, type DataTableProps } from '../data-table';
 // instance). Each is a copy-paste example for a capability that's intentionally
 // NOT a DataTable prop — keeping the published component lean.
 const meta = {
-  title: 'UI/DataTable/Recipes',
+  title: 'Components/DataTable/Recipes',
   component: DataTable,
   parameters: { layout: 'padded' },
   // These recipes compose their own table via `render`; satisfy DataTable's

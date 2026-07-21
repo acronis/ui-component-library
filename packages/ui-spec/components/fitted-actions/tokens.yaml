@@ -1,0 +1,24 @@
+spec_version: '1.0'
+component: FittedActions
+
+# References only. Values live in @constructor-lab/tokens. FittedActions owns no
+# token tier — inline actions reuse the Button `ghost` tokens, the overflow menu
+# is themed by ButtonMenuDropdown, and a divided item borrows the shared border.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - {
+      name: --ui-button-ghost-label-color-idle,
+      affects: action,
+      description: Inline action label color — idle (reused Button ghost token),
+    }
+  - {
+      name: --ui-button-ghost-label-color-disabled,
+      affects: action,
+      description: Inline action label color — disabled,
+    }
+  - {
+      name: --ui-border-on-surface-border,
+      affects: overflow-menu,
+      description: Divider above a `divided` overflow item,
+    }

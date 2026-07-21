@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SearchGlobal } from '../search-global';
 
 const meta = {
-  title: 'UI/SearchGlobal',
+  title: 'Components/SearchGlobal',
   component: SearchGlobal,
   tags: ['autodocs'],
   argTypes: {

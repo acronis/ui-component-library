@@ -16,7 +16,7 @@ import { ChartBarVerticalIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { WidgetPlaceholder } from '../widget-placeholder';
 
 const meta = {
-  title: 'UI/WidgetPlaceholder/All States (generated)',
+  title: 'Components/WidgetPlaceholder/All States (generated)',
   component: WidgetPlaceholder,
 } satisfies Meta<typeof WidgetPlaceholder>;
 

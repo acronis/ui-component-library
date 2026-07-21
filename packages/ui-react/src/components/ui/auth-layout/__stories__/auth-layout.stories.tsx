@@ -10,7 +10,7 @@ import {
 } from '../auth-layout';
 
 const meta = {
-  title: 'UI/AuthLayout',
+  title: 'Components/AuthLayout',
   component: AuthLayout,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

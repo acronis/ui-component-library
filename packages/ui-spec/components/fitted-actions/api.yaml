@@ -1,0 +1,72 @@
+spec_version: '1.0'
+component: FittedActions
+
+# Config-driven; not a cva component (no variant/size). Each action is a
+# FittedAction: { id, label, icon?, isDisplayed?, divided?, disabled?, onSelect? }.
+contract:
+  properties:
+    - name: actions
+      type: FittedAction[]
+      required: false
+      default: '[]'
+      description: >-
+        Ordered actions. Trailing items overflow into the "More" menu first. An
+        action with `isDisplayed: false` is omitted entirely.
+    - name: showDropdown
+      type: boolean
+      required: false
+      default: true
+      description: >-
+        Collapse overflowing actions into a "More" menu. When false, all actions
+        render inline (no overflow handling).
+    - name: moreLabel
+      type: ReactNode
+      required: false
+      default: More
+      description: Label for the overflow trigger.
+    - name: gap
+      type: number
+      required: false
+      default: 8
+      description: Inter-item gap in px, also reserved when measuring.
+    - name: renderAction
+      type: (action, api) => ReactNode
+      required: false
+      description: Customize the inline action element (default a ghost Button).
+    - name: renderTrigger
+      type: (api) => ReactElement
+      required: false
+      description: Customize the overflow trigger (default a ghost Button).
+  events:
+    - name: action
+      payload: FittedAction
+      description: >-
+        Fired (via `onAction`) when any action is chosen — inline click or menu
+        select — after the action's own `onSelect`.
+  methods: []
+
+adapters:
+  react:
+    component: FittedActions
+    status: implemented
+    import: "import { FittedActions } from '@constructor-lab/ui-react'"
+    example: |
+      <FittedActions
+        actions={[
+          { id: 'edit', label: 'Edit', onSelect: onEdit },
+          { id: 'tag', label: 'Tag', onSelect: onTag },
+          { id: 'delete', label: 'Delete', divided: true, onSelect: onDelete },
+        ]}
+      />
+  vue:
+    component: AvFittedActions
+    status: implemented
+    import: "import { AvFittedActions } from '@acronis-platform/ui-kit-vue'"
+    example: |
+      <AvFittedActions :actions="actions" :item="item" @action="onAction" />
+  web-components:
+    element: ui-fitted-actions
+    status: planned
+    import: "import '@constructor-lab/ui-wc/fitted-actions'"
+    example: |
+      <ui-fitted-actions></ui-fitted-actions>

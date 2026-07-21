@@ -1,0 +1,64 @@
+spec_version: '1.0'
+component: FittedActions
+
+schematic: |
+  fitted-actions: <div> horizontal flex row (measures its own width)
+  +--------------------------------------------------------------+
+  |  action  action  action        [ more-trigger ▾ ]           |
+  |    (as many inline as fit)      (overflow → overflow-menu)   |
+  +--------------------------------------------------------------+
+  tracing-layer: off-screen clone of every action + trigger (widths only)
+     action        -> ghost button; --ui-button-ghost-*
+     more-trigger  -> opens the overflow-menu of actions that didn't fit
+     overflow-menu  -> ButtonMenuDropdown items (divided items add a top border)
+
+root:
+  element: div
+  description: >-
+    The measured container. Renders the leading actions that fit plus the overflow
+    trigger; recomputes the split on resize via a ResizeObserver.
+
+parts:
+  - id: action
+    element: button
+    description: >-
+      An inline action. Default is a ghost `Button` (icon + label); override with
+      `renderAction` (e.g. a Toolbar's roving `ToolbarButton`).
+  - id: more-trigger
+    element: button
+    description: >-
+      The overflow trigger (shown only when actions overflow and `showDropdown`).
+      Default a ghost `Button`; override with `renderTrigger`.
+  - id: overflow-menu
+    element: div
+    description: >-
+      The `ButtonMenuDropdown` surface listing the actions that didn't fit. An
+      action with `divided` gets a top border.
+  - id: tracing-layer
+    element: div
+    description: >-
+      Off-screen, aria-hidden clone of every action (at ghost-button footprint)
+      plus the trigger, read for intrinsic widths. Not in the focus or a11y tree.
+
+layout:
+  type: flex
+  direction: row
+  align: center
+  order: [action, more-trigger]
+
+# The overflow split is component-owned state derived from measured widths; the
+# only prop that changes it structurally is `showDropdown`.
+states:
+  - id: overflowing
+    trigger: the actions don't all fit the container width (and showDropdown)
+    kind: internal
+
+internal_state:
+  - id: overflowing
+    type: boolean
+    initial: false
+    controllable_via: [showDropdown]
+    changed_by: the container resizing so fewer/more actions fit
+    description: >-
+      Whether any actions have collapsed into the overflow menu. Derived from the
+      measured action widths vs. the container width.

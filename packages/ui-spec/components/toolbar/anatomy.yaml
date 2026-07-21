@@ -1,0 +1,78 @@
+spec_version: '1.0'
+component: Toolbar
+
+schematic: |
+  toolbar: <div role="toolbar"> horizontal flex row
+  +---------------------------------------------------------------------+
+  |  toolbar-group (left)                       toolbar-group (ms-auto) |
+  |   +-------------+ +-------------+            +-----------+ +-------+ |
+  |   |toolbar-     | |toolbar-     | toolbar-   |toolbar-   | |toolbar| |
+  |   | button      | | link        | separator |  status   | |-button| |
+  |   +-------------+ +-------------+            +-----------+ +-------+ |
+  +---------------------------------------------------------------------+
+     toolbar-actions -> width-aware action list; overflow → "More actions" menu
+     toolbar-button -> ghost action; --ui-button-ghost-* ; roving tabindex
+     toolbar-link   -> ghost action rendered as <a>
+     toolbar-separator -> vertical divider (--ui-border-on-surface-border)
+     toolbar-status -> non-interactive label (--ui-text-on-surface-secondary)
+
+root:
+  element: div
+  role: toolbar
+  description: >-
+    The `role="toolbar"` container (Base UI Toolbar.Root) — a horizontal flex row
+    of groups/items with roving-tabindex arrow-key navigation. Polymorphic via the
+    `render` prop.
+
+parts:
+  - id: toolbar-group
+    element: div
+    description: >-
+      Clusters related items (Base UI Toolbar.Group). Push a group to the trailing
+      edge with `className="ms-auto"`.
+  - id: toolbar-actions
+    element: div
+    description: >-
+      A width-aware, config-driven action list (backed by FittedActions). Renders
+      as many leading actions as fit its slot and moves the trailing overflow into
+      a "More actions" menu (Figma breakpoints node 6262-28276), recomputing on
+      resize. Optional — plain ToolbarButton children work when overflow isn't
+      needed.
+    optional: true
+  - id: toolbar-button
+    element: button
+    description: >-
+      A ghost action button with roving-tabindex focus (Base UI Toolbar.Button).
+      Reuses the Button `ghost` tokens; accepts a leading icon.
+  - id: toolbar-link
+    element: a
+    description: >-
+      An anchor action styled like a ghost button (Base UI Toolbar.Link), in the
+      roving focus order.
+  - id: toolbar-separator
+    element: div
+    description: >-
+      Optional divider between groups (Base UI Toolbar.Separator). Vertical 1px
+      line tinted with the shared border token.
+    optional: true
+  - id: toolbar-status
+    element: span
+    description: >-
+      A non-interactive status/count label ("N items selected:", "X of Y items
+      loaded"). Secondary text; not in the roving focus order.
+
+layout:
+  type: flex
+  direction: row
+  align: center
+  order: [toolbar-group]
+
+# The only component-owned visual state is `disabled` (a prop that greys + disables
+# every action). Per-item hover/active/focus are CSS pseudo-classes on the ghost
+# buttons (documented on Button).
+states:
+  - id: disabled
+    trigger: the disabled prop is set
+    kind: prop
+    prop: disabled
+    affects: [toolbar-button, toolbar-link]

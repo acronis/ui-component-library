@@ -1,0 +1,23 @@
+spec_version: '1.0'
+component: Toolbar
+name: toolbar
+status: ready
+category: actions
+layer: composite
+description: >-
+  A horizontal action bar for a selection / list context. A set of composable
+  parts (root, group, button, link, separator, status): a left cluster of ghost
+  actions sits opposite a right cluster carrying a status label ("6 items
+  selected:" / "25 of 1250 items loaded") and optional trailing actions. Built on
+  the Base UI Toolbar primitive — `role="toolbar"` with roving-tabindex arrow-key
+  navigation. The `disabled` state greys and disables every action.
+since: 2.4.0
+dependencies:
+  components:
+    - button
+    - button-menu
+    - button-menu-dropdown
+    - fitted-actions
+figma:
+  node: '3897-7199'
+  codeConnect: packages/ui-react/src/components/ui/toolbar/toolbar.figma.tsx

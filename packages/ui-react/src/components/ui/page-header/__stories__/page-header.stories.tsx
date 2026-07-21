@@ -11,7 +11,7 @@ import {
 } from '../page-header';
 
 const meta = {
-  title: 'UI/PageHeader',
+  title: 'Components/PageHeader',
   component: PageHeader,
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

@@ -101,7 +101,7 @@ const columns: ColumnDef<Payment>[] = [
 ];
 
 const meta = {
-  title: 'UI/DataTable',
+  title: 'Components/DataTable',
   component: DataTable,
   parameters: { layout: 'padded' },
   tags: ['autodocs'],

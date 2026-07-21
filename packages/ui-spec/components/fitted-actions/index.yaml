@@ -1,0 +1,18 @@
+spec_version: '1.0'
+component: FittedActions
+name: fitted-actions
+status: draft
+category: actions
+layer: composite
+description: >-
+  A responsive action row with automatic overflow. Actions render inline in
+  priority order; when they don't fit the available width, the trailing ones
+  collapse into a "More" dropdown menu, recomputed on resize. Config-driven
+  (`actions` array) with optional render overrides — used standalone (e.g. a table
+  row's actions) and as the responsive engine behind the Toolbar's
+  `ToolbarActions`. React reimplementation of the ui-kit Vue `AvFittedActions`.
+since: 2.4.0
+dependencies:
+  components:
+    - button
+    - button-menu-dropdown

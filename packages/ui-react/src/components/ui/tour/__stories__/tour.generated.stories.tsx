@@ -22,7 +22,7 @@ import {
 import { Tour } from '../tour';
 
 const meta = {
-  title: 'UI/Tour/All States (generated)',
+  title: 'Components/Tour/All States (generated)',
   component: Tour,
 } satisfies Meta<typeof Tour>;
 

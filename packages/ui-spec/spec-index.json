@@ -289,6 +289,14 @@
       "since": "0.47.0"
     },
     {
+      "name": "fitted-actions",
+      "component": "FittedActions",
+      "category": "actions",
+      "status": "draft",
+      "layer": "composite",
+      "since": "2.4.0"
+    },
+    {
       "name": "form",
       "component": "Form",
       "category": "forms",
@@ -615,6 +623,14 @@
       "status": "draft",
       "layer": "primitive",
       "since": "0.51.0"
+    },
+    {
+      "name": "toolbar",
+      "component": "Toolbar",
+      "category": "actions",
+      "status": "ready",
+      "layer": "composite",
+      "since": "2.4.0"
     },
     {
       "name": "tooltip",
@@ -1249,7 +1265,7 @@
       "status": "draft",
       "category": "console",
       "route": "/protection/dashboard",
-      "story": "ui-appshell--with-secondary",
+      "story": "components-appshell--with-secondary",
       "pattern": "app-shell"
     },
     {

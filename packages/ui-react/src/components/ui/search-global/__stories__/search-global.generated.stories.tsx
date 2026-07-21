@@ -7,7 +7,7 @@ import { userEvent } from 'storybook/test';
 import { SearchGlobal } from '../search-global';
 
 const meta = {
-  title: 'UI/SearchGlobal/All States (generated)',
+  title: 'Components/SearchGlobal/All States (generated)',
   component: SearchGlobal,
 } satisfies Meta<typeof SearchGlobal>;
 

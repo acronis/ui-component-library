@@ -1,0 +1,47 @@
+---
+title: FittedActions
+description: A responsive action row that collapses overflowing actions into a "More" dropdown menu.
+---
+
+import { DemoReact } from "@/components/DemoReact";
+import { FittedActionsDemo } from "@/components/demos-react/fitted-actions";
+
+## Usage
+
+```tsx
+import { FittedActions } from '@constructor-lab/ui-react';
+```
+
+`FittedActions` renders a row of actions in priority order and measures its own
+width. When the actions don't all fit, the trailing ones collapse into a "More"
+dropdown menu; it recomputes on resize. It's **config-driven** — pass an `actions`
+array of `{ id, label, icon?, disabled?, divided?, onSelect? }` — and themed from
+the Button `ghost` tokens. Set `showDropdown={false}` to keep every action inline,
+or customize rendering with `renderAction` / `renderTrigger` (the way the
+`Toolbar` plugs in its roving `ToolbarButton`s). This is a **design-pending v1** —
+a React reimplementation of the ui-kit Vue `AvFittedActions`.
+
+## Examples
+
+<DemoReact>
+  <FittedActionsDemo />
+</DemoReact>
+
+```tsx
+<FittedActions
+  actions={[
+    { id: 'edit', label: 'Edit', onSelect: onEdit },
+    { id: 'tag', label: 'Tag', onSelect: onTag },
+    { id: 'export', label: 'Export', onSelect: onExport },
+    { id: 'delete', label: 'Delete', divided: true, onSelect: onDelete },
+  ]}
+  onAction={(action) => console.log('chose', action.id)}
+/>
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/fitted-actions/fitted-actions.tsx"
+  name="FittedActionsProps"
+/>

@@ -8,7 +8,7 @@ import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { CardFilter } from '../card-filter';
 
 const meta = {
-  title: 'UI/CardFilter/All States (generated)',
+  title: 'Components/CardFilter/All States (generated)',
   component: CardFilter,
 } satisfies Meta<typeof CardFilter>;
 

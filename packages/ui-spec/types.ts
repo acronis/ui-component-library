@@ -8,6 +8,7 @@ export interface IndexSpec {
   name: string;
   status: ComponentStatus;
   category: string;
+  layer?: 'primitive' | 'composite';
   description: string;
   since?: string;
   dependencies?: { components?: string[] };

@@ -4,7 +4,7 @@ import { CircleInfoIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { CardFilter } from '../card-filter';
 
 const meta = {
-  title: 'UI/CardFilter',
+  title: 'Components/CardFilter',
   component: CardFilter,
   tags: ['autodocs'],
   argTypes: {

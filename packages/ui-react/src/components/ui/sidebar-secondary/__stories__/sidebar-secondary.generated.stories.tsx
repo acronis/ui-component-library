@@ -26,7 +26,7 @@ import {
 import { SidebarSecondary } from '../sidebar-secondary';
 
 const meta = {
-  title: 'UI/SidebarSecondary/All States (generated)',
+  title: 'Components/SidebarSecondary/All States (generated)',
   component: SidebarSecondary,
 } satisfies Meta<typeof SidebarSecondary>;
 

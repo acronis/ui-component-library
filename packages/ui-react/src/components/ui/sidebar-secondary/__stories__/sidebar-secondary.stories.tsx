@@ -31,7 +31,7 @@ import {
 } from '../sidebar-secondary';
 
 const meta = {
-  title: 'UI/SidebarSecondary',
+  title: 'Components/SidebarSecondary',
   component: SidebarSecondary,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

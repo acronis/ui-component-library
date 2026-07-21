@@ -22,7 +22,7 @@ import {
 } from '../tour';
 
 const meta = {
-  title: 'UI/Tour',
+  title: 'Components/Tour',
   component: Tour,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

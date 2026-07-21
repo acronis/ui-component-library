@@ -18,7 +18,7 @@ import {
 } from '../widget-placeholder';
 
 const meta = {
-  title: 'UI/WidgetPlaceholder',
+  title: 'Components/WidgetPlaceholder',
   component: WidgetPlaceholder,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

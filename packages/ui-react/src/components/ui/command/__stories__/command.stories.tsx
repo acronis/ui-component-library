@@ -35,7 +35,7 @@ const commands: CommandGroup[] = [
 ];
 
 const meta = {
-  title: 'UI/Command',
+  title: 'Components/Command',
   component: Command,
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

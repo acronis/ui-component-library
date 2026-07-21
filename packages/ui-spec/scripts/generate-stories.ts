@@ -764,6 +764,28 @@ const RENDER: Record<string, RenderHint> = {
       '    ',
     ].join('\n'),
   },
+  'fitted-actions': {
+    props:
+      "actions={[{ id: 'edit', label: 'Edit' }, { id: 'tag', label: 'Tag' }, { id: 'export', label: 'Export' }]}",
+  },
+  toolbar: {
+    ariaLabel: 'Selection actions',
+    extraImports: [
+      "import { ToolbarGroup, ToolbarButton, ToolbarStatus } from '../toolbar';",
+    ],
+    sample: [
+      '',
+      '      <ToolbarGroup>',
+      '        <ToolbarButton>First action</ToolbarButton>',
+      '        <ToolbarButton>Second action</ToolbarButton>',
+      '      </ToolbarGroup>',
+      '      <ToolbarGroup className="ms-auto">',
+      '        <ToolbarStatus>6 items selected:</ToolbarStatus>',
+      '        <ToolbarButton>Deselect</ToolbarButton>',
+      '      </ToolbarGroup>',
+      '    ',
+    ].join('\n'),
+  },
 };
 
 const HEADER =
@@ -962,7 +984,7 @@ function generate(name: string): boolean {
 ${imports}
 
 const meta = {
-  title: 'UI/${index.component}/All States (generated)',
+  title: '${index.layer === 'composite' ? 'Components' : 'UI'}/${index.component}/All States (generated)',
   component: ${comp},
 } satisfies Meta<typeof ${comp}>;
 
