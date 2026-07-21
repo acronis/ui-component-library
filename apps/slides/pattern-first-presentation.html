@@ -25,6 +25,35 @@
           -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
           Arial, sans-serif;
       }
+      /* Light theme — set data-theme="light" on <html> (toggle with the button or `T`). */
+      [data-theme='light'] {
+        --bg: #f4f6fb;
+        --bg-2: #ffffff;
+        --panel: #ffffff;
+        --panel-2: #eef2f9;
+        --ink: #0b1020;
+        --ink-dim: #45506e;
+        --ink-faint: #6b7590;
+        --accent: #2563eb;
+        --accent-2: #6d28d9;
+        --good: #15803d;
+        --warn: #b45309;
+        --line: #dce3f0;
+      }
+      [data-theme='light'] body {
+        background:
+          radial-gradient(
+            1200px 800px at 80% -10%,
+            #dbe6ff 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            1000px 700px at -10% 110%,
+            #ece6ff 0%,
+            transparent 55%
+          ),
+          var(--bg);
+      }
       * {
         box-sizing: border-box;
         margin: 0;
@@ -609,6 +638,110 @@
         </p>
       </section>
 
+      <!-- 3b — TWO DIRECTIONS -->
+      <section class="slide">
+        <div class="eyebrow">The workflow</div>
+        <h2>Two directions, one system</h2>
+        <p class="lead">
+          You build a visual interface from <b>big parts first</b>, descending
+          only as far as you must. Design comes the other way — up from
+          primitives. The win is making them <b>meet in the middle</b>.
+        </p>
+        <div class="grid cols-2 fill">
+          <div class="card">
+            <span class="tag">Frontend · top-down</span>
+            <h3>⬇️ Start at the screen</h3>
+            <p style="font-family: var(--mono); font-size: 13px; line-height: 1.9">
+              App → Screen → Template → Pattern → Composite →
+              <b style="color: var(--warn)">Primitive*</b>
+            </p>
+            <p>
+              Fill regions with approved patterns. <b>*Reaching a primitive is
+              the last resort</b> — it means a pattern is missing, and it buys
+              messier templates, more code, and a more random result.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">Design · bottom-up</span>
+            <h3>⬆️ Start at the primitive</h3>
+            <p style="font-family: var(--mono); font-size: 13px; line-height: 1.9">
+              Primitive → Composite → Template → Screen
+            </p>
+            <p>
+              Mockups start from Figma versions of primitive components and now
+              compose the same way — primitives into composites into templates
+              into whole screens.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          <b>The meeting point:</b> design delivers <b>screens made of
+          templates</b>; frontend builds from <b>patterns and large
+          composites, almost never primitives</b>. Same big parts on both sides
+          → fewer discrepancies, less cognitive overload, no reinvented wheels —
+          <b>consistent by construction</b>, not by review.
+        </p>
+      </section>
+
+      <!-- 3c — COMPOSE FROM BIG PARTS -->
+      <section class="slide">
+        <div class="eyebrow">Reuse as a system</div>
+        <h2>Compose from big parts — visuals and behavior</h2>
+        <p class="lead">
+          Decouple the app into layers; each layer knows only the one below it.
+          The code tree and the Figma tree are two views of the <i>same</i>
+          named parts.
+        </p>
+        <div class="grid cols-2 fill">
+          <div class="card">
+            <span class="tag">in code</span>
+            <pre style="font-family: var(--mono); font-size: 12.5px; line-height: 1.55; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; color: var(--ink-dim); overflow: auto; white-space: pre; margin: 0">
+&lt;AppShell&gt;                        <span style="color: var(--ink-faint)">// App</span>
+  &lt;AssetsScreen /&gt;               <span style="color: var(--ink-faint)">// Screen</span>
+&lt;/AppShell&gt;
+
+function AssetsScreen() {         <span style="color: var(--ink-faint)">// Template + Patterns</span>
+  return (
+    &lt;ListDetailTemplate
+      toolbar={&lt;BulkActionToolbar/&gt;}   <span style="color: var(--accent)">// Pattern</span>
+      body={&lt;DataTableBulkActions/&gt;}   <span style="color: var(--accent)">// Pattern→Composite</span>
+      detail={&lt;SheetDetailPanel/&gt;} /&gt;  <span style="color: var(--accent)">// Pattern</span>
+  )
+}
+<span style="color: var(--warn)">// reached a Primitive? → a pattern is missing.</span></pre>
+          </div>
+          <div class="card">
+            <span class="tag">in design</span>
+            <pre style="font-family: var(--mono); font-size: 12.5px; line-height: 1.6; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; color: var(--ink-dim); overflow: auto; white-space: pre; margin: 0">
+Screen: Assets            <span style="color: var(--ink-faint)">← from Design</span>
+└ Template: List + Detail
+  ├ Pattern: Page header
+  ├ Pattern: Bulk toolbar
+  │  └ <span style="color: var(--accent)">Composite: DataTable</span>
+  │       <span style="color: var(--ink-faint)">(= Button, Checkbox, Tag…)</span>
+  └ Pattern: Detail sheet
+     └ <span style="color: var(--accent)">Composite: Description list</span></pre>
+            <p style="margin-top: 10px">
+              A designer's "detail sheet" and an engineer's
+              <code>&lt;SheetDetailPanel&gt;</code> are the same brick.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          <b>An interface is not only visual.</b> Composing big parts also reuses
+          the <b>hidden half</b> — logic, behavior, state, data bindings,
+          permissions — so it isn't re-derived per screen. Behavior gets a home
+          at the same altitude as the visual it belongs to:
+          <span style="font-family: var(--mono); color: var(--ink-dim)"
+            >stateMachine: idle → selecting → bulkEditing</span
+          >
+          ·
+          <span style="font-family: var(--mono); color: var(--ink-dim)"
+            >bindings: rows ← GET /assets</span
+          >.
+        </p>
+      </section>
+
       <!-- 4 — WHO AUTHORS WHAT -->
       <section class="slide">
         <div class="eyebrow">Separation of concerns</div>
@@ -983,9 +1116,31 @@
     <button class="navbtn next" id="next" aria-label="Next">›</button>
     <div class="counter" id="counter">1 / 14</div>
     <div class="brand-tag">UI Components library</div>
+    <button
+      id="theme"
+      aria-label="Toggle light / dark theme"
+      title="Toggle theme (T)"
+      style="
+        position: fixed;
+        top: 18px;
+        right: 20px;
+        z-index: 30;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+      "
+    >
+      ☾
+    </button>
     <div class="nav-hint">
       Use <span class="kbd">←</span> <span class="kbd">→</span> ·
-      <span class="kbd">F</span> fullscreen
+      <span class="kbd">F</span> fullscreen · <span class="kbd">T</span> theme
     </div>
 
     <script>
@@ -1025,8 +1180,31 @@
           if (!document.fullscreenElement)
             document.documentElement.requestFullscreen();
           else document.exitFullscreen();
-        }
+        } else if (e.key.toLowerCase() === 't') toggleTheme();
       });
+
+      // theme (light / dark)
+      const themeBtn = document.getElementById('theme');
+      function applyTheme(t) {
+        document.documentElement.setAttribute('data-theme', t);
+        themeBtn.textContent = t === 'light' ? '☀︎' : '☾';
+      }
+      function toggleTheme() {
+        const nextT =
+          document.documentElement.getAttribute('data-theme') === 'light'
+            ? 'dark'
+            : 'light';
+        try {
+          localStorage.setItem('pf-theme', nextT);
+        } catch {}
+        applyTheme(nextT);
+      }
+      themeBtn.onclick = toggleTheme;
+      let savedTheme = 'dark';
+      try {
+        savedTheme = localStorage.getItem('pf-theme') || 'dark';
+      } catch {}
+      applyTheme(savedTheme);
 
       // swipe
       let tx = 0;

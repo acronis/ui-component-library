@@ -20,6 +20,11 @@ only what is specific to this workspace.
 pnpm --filter @constructor-lab/uikit-docs dev
 ```
 
+Opens at **`http://localhost:3001`**. The port is pinned (`next dev -p 3001`,
+`next start -p 3001`) because `apps/demo` hardcodes `3000` in its Vite config —
+without the pin, whichever starts first grabs `3000` and Next silently bumps the
+docs to `3001`, so opening `3000` shows the demo, not Fumadocs.
+
 ## What this site documents
 
 The site documents **`@constructor-lab/ui-react`** (the next-gen Base UI

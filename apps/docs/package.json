@@ -7,10 +7,10 @@
     "build": "next build",
     "clean": "rm -rf .next .source",
     "predev": "pnpm --filter @constructor-lab/ui-react build",
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "start": "next start",
+    "start": "next start -p 3001",
     "test": "echo \"no tests in this workspace\" && exit 0",
     "test:watch": "echo \"no tests in this workspace\" && exit 0",
     "typecheck": "tsc --noEmit"

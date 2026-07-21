@@ -12,6 +12,140 @@ Use a pattern as the starting point instead of assembling one from scratch, so
 the same problem is solved the same way across the product (and so AI assistants
 reuse an approved recipe rather than reinventing one).
 
+## Build from the top down
+
+A good interface is built from **big parts first**, not from a pile of small
+ones. The layers, largest to smallest:
+
+```
+Console → App → Screen → Template → Pattern → Composite → Primitive
+                                                   ⌊ Tokens · Icons (ambient) ⌋
+```
+
+Development should start at the top and only descend as far as it must:
+
+1. **App / Screen** — pick the frame and the screen template.
+2. **Template / Pattern** — fill regions with approved patterns (a bulk-action
+   toolbar, a detail sheet, a form layout).
+3. **Composite** — a pattern is made of composites (a `DataTable`, a `Toolbar`)
+   that already bundle many primitives.
+4. **Primitive** — a `Button`, an `Input`. **This is the last resort.**
+
+The lower you have to reach, the worse it gets. Dropping to primitives means
+hand-wiring layout, spacing, states and a11y again — messier templates, more
+code, more decisions, and a **more random final result**. Every screen ends up a
+little different. Reaching for a primitive is a signal that a pattern is
+_missing_, not that you should assemble one inline.
+
+## Two directions, one system
+
+Design and frontend approach the same interface from opposite ends:
+
+| | Starts from | Works toward |
+| --- | --- | --- |
+| **Design** | product mockups drawn with Figma versions of **primitive** components | Primitive → Composite → Template → Screen |
+| **Frontend** | the **App / Screen** it has to ship | Screen → Template → Pattern → Composite → (rarely) Primitive |
+
+Historically these drifted apart — designers pushed pixels up from primitives,
+engineers wired primitives up from scratch, and the two never quite matched. The
+fix is to make them **meet in the middle**:
+
+> Design delivers **screens assembled from templates**. Frontend builds from
+> **patterns and large composites, and almost never from primitives**.
+
+When both sides trade in the same big parts, the discrepancies, cognitive
+overload, and reinventing-the-wheel that plague complex projects largely
+disappear — the product is **consistent by construction** rather than by review.
+
+## Composing an app from big parts
+
+Decouple the application into layers and reuse them as a system. Each layer only
+knows about the layer just below it:
+
+```tsx
+// App layer — the console frame + routing. Knows only about Screens.
+function ProtectionApp() {
+  return (
+    <AppShell>
+      <Route path="/assets" element={<AssetsScreen />} />
+      <Route path="/clients" element={<ClientsScreen />} />
+    </AppShell>
+  );
+}
+
+// Screen layer — a Template with regions filled by Patterns. No primitives here.
+function AssetsScreen() {
+  return (
+    <ListDetailTemplate
+      header={<PageHeader title="Assets" />}
+      toolbar={<BulkActionToolbar actions={assetActions} />}   // Pattern
+      body={<DataTableBulkActions rows={assets} columns={cols} />} // Pattern → Composite
+      detail={<SheetDetailPanel item={selected} />}            // Pattern
+    />
+  );
+}
+```
+
+Contrast the fallback when no pattern or template matches — primitives wired by
+hand. It works, but it is the expensive path, and it drifts:
+
+```tsx
+// Anti-pattern: primitive soup. Re-decided on every screen → inconsistent.
+<div className="flex flex-col gap-4 p-6">
+  <div className="flex items-center justify-between">
+    <h1 className="text-lg font-semibold">Assets</h1>
+    <input placeholder="Search…" />
+    <button>Export</button>
+  </div>
+  <table>{/* hand-rolled selection, sorting, empty state, a11y… */}</table>
+  <aside>{/* a detail panel rebuilt from scratch */}</aside>
+</div>
+```
+
+## The same shape in design
+
+The Figma file mirrors the code tree — a screen is a stack of instances of the
+same big parts, not a canvas of loose rectangles:
+
+```
+Screen: Assets                      (delivered by Design)
+└─ Template: List + Detail
+   ├─ Pattern: Page header
+   ├─ Pattern: Bulk-action toolbar
+   │  └─ Composite: DataTable        (= Primitives: Button, Checkbox, Tag…)
+   └─ Pattern: Detail sheet
+      └─ Composite: Description list
+```
+
+Because both trees are built from the **same named parts**, a screen in Figma and
+its implementation are two views of one system — a designer's "detail sheet" and
+an engineer's `<SheetDetailPanel>` are the same brick.
+
+## Interfaces are not only visual
+
+A pattern is not just a layout. Composing from big parts also encapsulates the
+**hidden parts** — logic, behavior, state, data binding, permissions — so those
+are reused too, not re-derived per screen. A screen spec carries them alongside
+its regions:
+
+```yaml
+# screen: assets — the visible composition AND the behavior behind it
+regions:
+  toolbar: bulk-action-toolbar
+  body: data-table-bulk-actions
+  detail: sheet-detail-panel
+stateMachine: # logic lives with the pattern, not scattered in the view
+  idle → selecting → bulkEditing → confirming → idle
+bindings:
+  rows: GET /assets
+  onDelete: DELETE /assets/:id
+  visibleWhen: user.can('assets:read')
+```
+
+Always leave room for this layer: the goal is not to hide behavior behind
+visuals, but to give behavior a **home** at the same altitude as the visual part
+it belongs to.
+
 Each pattern has a machine-readable definition in
 `@constructor-lab/ui-spec` (`patterns/<name>/pattern.yaml`) — the source of
 truth — and is rendered + explained here.
