@@ -1,87 +1,64 @@
 spec_version: '1.0'
 component: Alert
 
-# References only. Values live in @constructor-lab/tokens. Reconciled with the Figma
-# "Alert" set (node 4313-4953): a subtle status border (--ui-border-on-status-*),
-# a pale status surface (--ui-background-status-*), foreground text, and a
-# status-tinted icon / close glyph (--ui-glyph-on-status-*). The dismiss button's
-# hover surface uses --ui-background-status-*-hover. Figma's `Unknown` = neutral.
+# References only. Values live in @constructor-lab/tokens. Reconciled with the
+# redesigned Figma "Alert" set (node 6768-67288): a white surface
+# (--ui-background-surface-primary, bridged bg-background) with a STRONG status
+# border (--ui-border-on-status-*-strong) and a 6px left accent bar in the strong
+# status background (--ui-background-status-strong-*). Title/description use
+# foreground text; the status icon is a variant-driven full-color icon (no token
+# — it carries its own colors). The compact dismiss button uses the neutral glyph
+# (text-muted-foreground → text-foreground on hover) over the surface-hover
+# background. `ai` has no solid `-strong` pair — it uses the pale
+# --ui-border-on-status-ai border and the ai gradient (--ui-border-on-status-ai-strong)
+# for the accent bar.
 source: '@constructor-lab/tokens'
 
 tokens:
+  - name: --ui-background-surface-primary
+    affects: alert
+    description: Alert surface fill (bridged as `bg-background`).
   - name: --ui-text-on-surface-primary
     affects: alert
-    description: Title / description text (text-foreground) — all variants.
+    description: Title / description text (bridged as `text-foreground`).
+  - name: --ui-text-on-surface-secondary
+    affects: alert-close
+    description: Idle dismiss-glyph color (bridged as `text-muted-foreground`).
+  - name: --ui-background-surface-hover
+    affects: alert-close
+    description: Dismiss-button hover surface (bridged as `bg-accent`).
   - name: --ui-focus-primary
     affects: alert-close
     description: Focus ring on the dismiss button.
 
-  # ── info ──
-  - name: --ui-background-status-info
+  # ── border (strong) + accent bar (strong bg), per variant ──
+  - name: --ui-border-on-status-info-strong
     affects: alert
-  - name: --ui-border-on-status-info
+  - name: --ui-background-status-strong-info
+    affects: alert-accent
+  - name: --ui-border-on-status-success-strong
     affects: alert
-  - name: --ui-glyph-on-status-info
-    affects: alert-icon
-  - name: --ui-background-status-info-hover
-    affects: alert-close
+  - name: --ui-background-status-strong-success
+    affects: alert-accent
+  - name: --ui-border-on-status-warning-strong
+    affects: alert
+  - name: --ui-background-status-strong-warning
+    affects: alert-accent
+  - name: --ui-border-on-status-critical-strong
+    affects: alert
+  - name: --ui-background-status-strong-critical
+    affects: alert-accent
+  - name: --ui-border-on-status-danger-strong
+    affects: alert
+  - name: --ui-background-status-strong-danger
+    affects: alert-accent
+  - name: --ui-border-on-status-neutral-strong
+    affects: alert
+  - name: --ui-background-status-strong-neutral
+    affects: alert-accent
 
-  # ── success ──
-  - name: --ui-background-status-success
-    affects: alert
-  - name: --ui-border-on-status-success
-    affects: alert
-  - name: --ui-glyph-on-status-success
-    affects: alert-icon
-  - name: --ui-background-status-success-hover
-    affects: alert-close
-
-  # ── warning ──
-  - name: --ui-background-status-warning
-    affects: alert
-  - name: --ui-border-on-status-warning
-    affects: alert
-  - name: --ui-glyph-on-status-warning
-    affects: alert-icon
-  - name: --ui-background-status-warning-hover
-    affects: alert-close
-
-  # ── critical ──
-  - name: --ui-background-status-critical
-    affects: alert
-  - name: --ui-border-on-status-critical
-    affects: alert
-  - name: --ui-glyph-on-status-critical
-    affects: alert-icon
-  - name: --ui-background-status-critical-hover
-    affects: alert-close
-
-  # ── destructive (danger) ──
-  - name: --ui-background-status-danger
-    affects: alert
-  - name: --ui-border-on-status-danger
-    affects: alert
-  - name: --ui-glyph-on-status-danger
-    affects: alert-icon
-  - name: --ui-background-status-danger-hover
-    affects: alert-close
-
-  # ── neutral (Figma "Unknown") ──
-  - name: --ui-background-status-neutral
-    affects: alert
-  - name: --ui-border-on-status-neutral
-    affects: alert
-  - name: --ui-glyph-on-status-neutral
-    affects: alert-icon
-  - name: --ui-background-status-neutral-hover
-    affects: alert-close
-
-  # ── ai ──
-  - name: --ui-background-status-ai
-    affects: alert
+  # ── ai (no solid -strong pair: pale border + gradient accent bar) ──
   - name: --ui-border-on-status-ai
     affects: alert
-  - name: --ui-glyph-on-status-ai
-    affects: alert-icon
-  - name: --ui-background-status-ai-hover
-    affects: alert-close
+  - name: --ui-border-on-status-ai-strong
+    affects: alert-accent

@@ -10,19 +10,12 @@ import {
   AlertTitle,
   Button,
 } from '@constructor-lab/ui-react';
-import {
-  CircleCheckIcon,
-  CircleInfoIcon,
-  CircleWarningIcon,
-} from '@constructor-lab/icons-react/stroke-mono';
 
 export function AlertDemo() {
   return (
     <div className="flex flex-col gap-3" style={{ width: 420 }}>
       <Alert variant="info">
-        <AlertIcon>
-          <CircleInfoIcon size={16} />
-        </AlertIcon>
+        <AlertIcon />
         <AlertContent>
           <AlertTitle>Heads up!</AlertTitle>
           <AlertDescription>
@@ -31,18 +24,14 @@ export function AlertDemo() {
         </AlertContent>
       </Alert>
       <Alert variant="success">
-        <AlertIcon>
-          <CircleCheckIcon size={16} />
-        </AlertIcon>
+        <AlertIcon />
         <AlertContent>
           <AlertTitle>Saved</AlertTitle>
           <AlertDescription>Your changes were saved.</AlertDescription>
         </AlertContent>
       </Alert>
       <Alert variant="destructive">
-        <AlertIcon>
-          <CircleWarningIcon size={16} />
-        </AlertIcon>
+        <AlertIcon />
         <AlertContent>
           <AlertTitle>Error</AlertTitle>
           <AlertDescription>
@@ -51,24 +40,20 @@ export function AlertDemo() {
         </AlertContent>
       </Alert>
       <Alert variant="info">
-        <AlertIcon>
-          <CircleInfoIcon size={16} />
-        </AlertIcon>
+        <AlertIcon />
         <AlertContent>
           <AlertTitle>Protect non-compliant devices</AlertTitle>
           <AlertDescription>
             Ensure a protection plan is applied and a scan has completed within
             the last 24 hours.
           </AlertDescription>
+          <AlertActions className="mt-2">
+            <Button>View devices</Button>
+          </AlertActions>
         </AlertContent>
-        <AlertActions className="self-center">
-          <Button>View devices</Button>
-        </AlertActions>
       </Alert>
       <Alert variant="warning">
-        <AlertIcon>
-          <CircleWarningIcon size={16} />
-        </AlertIcon>
+        <AlertIcon />
         <AlertContent>
           <AlertTitle>Dismissible</AlertTitle>
           <AlertDescription>This alert can be closed.</AlertDescription>

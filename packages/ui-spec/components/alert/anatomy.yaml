@@ -2,31 +2,43 @@ spec_version: '1.0'
 component: Alert
 
 schematic: |
-  alert: <div role="alert"> — rounded, subtle status border, pale status surface
-    alert-icon:     leading status-tinted icon
+  alert: <div role="alert"> — white surface, strong status border, rounded
+    alert-accent:   6px full-height left bar in the strong status color
+    alert-icon:     leading variant-driven full-color status icon
     alert-content:  text column
       alert-title:        short heading
       alert-description:  supporting text
       alert-actions:      (optional) action buttons under the description
     alert-actions:  (optional) action buttons at the right edge
-    alert-close:    (optional) dismiss (×) button at the right edge
+    alert-close:    (optional) compact dismiss (×) button
 
 root:
   element: div
   role: alert
   description: >-
-    The banner container — rounded, with a subtle border in the status color
-    (--ui-border-on-status-*) and a pale status surface; the text is the normal
-    foreground and the icon (and dismiss glyph) are tinted with the status color.
-    role="alert" so assistive tech announces it.
+    The banner container — a white surface (bg-background), rounded, with a strong
+    status border (--ui-border-on-status-*-strong) and a 6px left accent bar in
+    the strong status background. Title/description use the normal foreground; the
+    leading icon is a variant-driven full-color status glyph. role="alert" so
+    assistive tech announces it.
 
 parts:
   - id: alert
     element: div
-    description: The banner root (role=alert); the variant drives its colors.
+    description: The banner root (role=alert); the variant drives its border, accent bar, and default icon.
+  - id: alert-accent
+    element: span
+    description: >-
+      The 6px full-height left bar in the strong status background
+      (--ui-background-status-strong-*); decorative (aria-hidden).
   - id: alert-icon
     element: div
-    description: Leading slot for a status icon.
+    description: >-
+      Leading status-icon slot. Empty, it renders the variant's default full-color
+      icon (info → CircleInfoBlue, success → CircleCheckGreen, warning →
+      TriangleWarningYellow, critical → CircleWarningOrange, destructive →
+      DiamondWarningRed, neutral → CircleMinusGray, ai → AcronisAiMulti); pass
+      children to override.
   - id: alert-content
     element: div
     description: The text column beside the icon (title + description).
@@ -45,9 +57,8 @@ parts:
   - id: alert-close
     element: button
     description: >-
-      Optional dismiss (×) button (the design's `Dismissable`) — a full-height
-      cell at the right edge with a left-border divider and a centered ×. Its
-      divider, glyph, and hover surface are tinted by the variant; wire its
+      Optional dismiss (×) button (the design's `Dismissable`) — a compact 32px
+      ButtonIcon with a neutral glyph, a hover surface, and a focus ring; wire its
       onClick to hide the alert.
 
 states:

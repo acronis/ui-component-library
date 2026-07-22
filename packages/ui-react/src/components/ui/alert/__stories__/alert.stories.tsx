@@ -1,13 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  CircleCheckIcon,
-  CircleInfoIcon,
-  CircleWarningIcon,
-  SparkleIcon,
-  TriangleWarningIcon,
-} from '@constructor-lab/icons-react/stroke-mono';
 
 import { Button } from '../../button';
+import { Chip } from '../../chip';
 import {
   Alert,
   AlertActions,
@@ -38,7 +32,7 @@ const meta = {
         'neutral',
       ],
       description:
-        'Status severity — sets the surface, text, and accent colors.',
+        'Status severity — sets the strong border, the left accent bar, and the default full-color icon.',
       table: {
         type: {
           summary:
@@ -54,13 +48,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// The icon is variant-driven — an empty `<AlertIcon />` renders the variant's
+// default full-color status glyph. Pass children to override it.
 export const Default: Story = {
   args: { variant: 'info' },
   render: (args) => (
     <Alert {...args} className="w-[400px]">
-      <AlertIcon>
-        <CircleInfoIcon size={16} />
-      </AlertIcon>
+      <AlertIcon />
       <AlertContent>
         <AlertTitle>Heads up!</AlertTitle>
         <AlertDescription>
@@ -74,9 +68,7 @@ export const Default: Story = {
 export const Destructive: Story = {
   render: () => (
     <Alert variant="destructive" className="w-[400px]">
-      <AlertIcon>
-        <CircleWarningIcon size={16} />
-      </AlertIcon>
+      <AlertIcon />
       <AlertContent>
         <AlertTitle>Error</AlertTitle>
         <AlertDescription>
@@ -87,35 +79,11 @@ export const Destructive: Story = {
   ),
 };
 
-// An action at the right edge — AlertContent is flex-1, so AlertActions sits at
-// the right; `self-center` centers it vertically against the text block.
-export const ActionRightEdge: Story = {
-  render: () => (
-    <Alert className="w-[560px]">
-      <AlertIcon>
-        <CircleInfoIcon size={16} />
-      </AlertIcon>
-      <AlertContent>
-        <AlertTitle>Protect non-compliant devices</AlertTitle>
-        <AlertDescription>
-          For all registered devices, ensure that a protection plan is applied
-          and a scan has completed successfully within the last 24 hours.
-        </AlertDescription>
-      </AlertContent>
-      <AlertActions className="self-center">
-        <Button>View devices</Button>
-      </AlertActions>
-    </Alert>
-  ),
-};
-
 // An action under the description — AlertActions sits inside AlertContent.
 export const ActionBelow: Story = {
   render: () => (
     <Alert className="w-[420px]">
-      <AlertIcon>
-        <CircleInfoIcon size={16} />
-      </AlertIcon>
+      <AlertIcon />
       <AlertContent>
         <AlertTitle>Protect non-compliant devices</AlertTitle>
         <AlertDescription>
@@ -131,14 +99,33 @@ export const ActionBelow: Story = {
   ),
 };
 
-// Dismissible — the optional close (×) button sits at the right edge, tinted by
-// the variant (the design's `Dismissable`).
+// Additional content — status chips below the description (the design's
+// `additionalContent`).
+export const AdditionalContent: Story = {
+  render: () => (
+    <Alert variant="critical" className="w-[480px]">
+      <AlertIcon />
+      <AlertContent>
+        <AlertTitle>Backup failed</AlertTitle>
+        <AlertDescription>
+          The last backup did not complete. Likely root causes:
+        </AlertDescription>
+        <AlertActions className="mt-2 flex-wrap">
+          <Chip variant="operational">Incorrect system configuration</Chip>
+          <Chip variant="operational">Insufficient storage</Chip>
+          <Chip variant="operational">Network timeout</Chip>
+        </AlertActions>
+      </AlertContent>
+    </Alert>
+  ),
+};
+
+// Dismissible — the optional compact close (×) button sits at the top-right (the
+// design's `Dismissable`).
 export const Dismissible: Story = {
   render: () => (
     <Alert className="w-[560px]">
-      <AlertIcon>
-        <CircleInfoIcon size={16} />
-      </AlertIcon>
+      <AlertIcon />
       <AlertContent>
         <AlertTitle>Scan completed</AlertTitle>
         <AlertDescription>
@@ -151,23 +138,21 @@ export const Dismissible: Story = {
 };
 
 const VARIANTS = [
-  { variant: 'info', Icon: CircleInfoIcon, title: 'Information' },
-  { variant: 'success', Icon: CircleCheckIcon, title: 'Success' },
-  { variant: 'warning', Icon: CircleWarningIcon, title: 'Warning' },
-  { variant: 'critical', Icon: TriangleWarningIcon, title: 'Critical' },
-  { variant: 'destructive', Icon: CircleWarningIcon, title: 'Error' },
-  { variant: 'ai', Icon: SparkleIcon, title: 'AI' },
-  { variant: 'neutral', Icon: CircleInfoIcon, title: 'Neutral' },
+  { variant: 'info', title: 'Information' },
+  { variant: 'success', title: 'Success' },
+  { variant: 'warning', title: 'Warning' },
+  { variant: 'critical', title: 'Critical' },
+  { variant: 'destructive', title: 'Error' },
+  { variant: 'ai', title: 'AI' },
+  { variant: 'neutral', title: 'Neutral' },
 ] as const;
 
 export const AllVariants: Story = {
   render: () => (
     <div className="flex w-[400px] flex-col gap-3">
-      {VARIANTS.map(({ variant, Icon, title }) => (
+      {VARIANTS.map(({ variant, title }) => (
         <Alert key={variant} variant={variant}>
-          <AlertIcon>
-            <Icon size={16} />
-          </AlertIcon>
+          <AlertIcon />
           <AlertContent>
             <AlertTitle>{title}</AlertTitle>
             <AlertDescription>The {variant} status banner.</AlertDescription>

@@ -1,42 +1,41 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import {
+  CircleCheckGreenIcon,
+  CircleInfoBlueIcon,
+  CircleMinusGrayIcon,
+  CircleWarningOrangeIcon,
+  DiamondWarningRedIcon,
+  TriangleWarningYellowIcon,
+} from '@constructor-lab/icons-react/stroke-multi';
+import { AcronisAiMultiIcon } from '@constructor-lab/icons-react/solid-multi';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// Ported from the legacy shadcn UI kit's `alert` and reconciled with the Figma
-// "Alert" set (node 4313-4953): a rounded banner with a subtle status border, a
-// pale status surface, foreground text, a status-tinted icon, and an optional
-// dismiss (×) button. No Base UI primitive — semantic markup with `role="alert"`.
-// Each variant maps to the `--ui-*` status tokens by role (matching the design's
-// variables):
-//   • border  -> --ui-border-on-status-*      (pastel, subtle)
-//   • surface -> --ui-background-status-*      (pale fill)
-//   • icon / close glyph -> --ui-glyph-on-status-*
-//   • close hover surface -> --ui-background-status-*-hover
-// `destructive` uses the `danger` tokens; Figma's `Unknown` type is `neutral`.
-// (This retheme fixes drift: the border/icon previously used the saturated
-// `--ui-background-status-strong-*` fill instead of the border/glyph roles.)
+// Reconciled with the redesigned Figma "Alert" set (node 6768-67288): a white
+// surface (bg-background) with a strong status border, a full-height 6px left
+// accent bar in the strong status color, a variant-driven full-color status
+// icon, foreground text, and an optional compact dismiss button. No Base UI
+// primitive — semantic markup with `role="alert"`.
+//
+// The `variant` drives the root border (--ui-border-on-status-*-strong) and the
+// accent bar / default icon. `ai` has no solid `-strong` border or background —
+// it uses the pale --ui-border-on-status-ai for the border and the ai gradient
+// (--ui-border-on-status-ai-strong) for the accent bar.
 const alertVariants = cva(
-  'relative flex w-full items-start gap-3 rounded-md border p-4 text-foreground',
+  'relative flex w-full items-stretch overflow-hidden rounded-lg border border-solid bg-background text-foreground',
   {
     variants: {
       variant: {
-        info: 'border-[var(--ui-border-on-status-info)] bg-[var(--ui-background-status-info)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-info)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-info)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-info)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-info-hover)]',
-        success:
-          'border-[var(--ui-border-on-status-success)] bg-[var(--ui-background-status-success)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-success)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-success)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-success)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-success-hover)]',
-        warning:
-          'border-[var(--ui-border-on-status-warning)] bg-[var(--ui-background-status-warning)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-warning)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-warning)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-warning)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-warning-hover)]',
-        critical:
-          'border-[var(--ui-border-on-status-critical)] bg-[var(--ui-background-status-critical)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-critical)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-critical)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-critical)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-critical-hover)]',
-        destructive:
-          'border-[var(--ui-border-on-status-danger)] bg-[var(--ui-background-status-danger)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-danger)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-danger)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-danger)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-danger-hover)]',
-        neutral:
-          'border-[var(--ui-border-on-status-neutral)] bg-[var(--ui-background-status-neutral)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-neutral)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-neutral)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-neutral)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-neutral-hover)]',
-        // ai border is the pale violet --ui-border-on-status-ai (= palette
-        // violet-4, #e4cced); note --ui-border-on-status-ai-strong is the ai
-        // *gradient*, not a border color.
-        ai: 'border-[var(--ui-border-on-status-ai)] bg-[var(--ui-background-status-ai)] [&_[data-slot=alert-icon]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:border-[var(--ui-border-on-status-ai)] [&_[data-slot=alert-close]]:text-[var(--ui-glyph-on-status-ai)] [&_[data-slot=alert-close]]:hover:bg-[var(--ui-background-status-ai-hover)]',
+        info: 'border-[var(--ui-border-on-status-info-strong)]',
+        success: 'border-[var(--ui-border-on-status-success-strong)]',
+        warning: 'border-[var(--ui-border-on-status-warning-strong)]',
+        critical: 'border-[var(--ui-border-on-status-critical-strong)]',
+        destructive: 'border-[var(--ui-border-on-status-danger-strong)]',
+        neutral: 'border-[var(--ui-border-on-status-neutral-strong)]',
+        // ai has no solid strong border — use the pale one.
+        ai: 'border-[var(--ui-border-on-status-ai)]',
       },
     },
     defaultVariants: {
@@ -45,38 +44,90 @@ const alertVariants = cva(
   }
 );
 
+type AlertVariant = NonNullable<VariantProps<typeof alertVariants>['variant']>;
+
+// The full-height 6px left accent bar, colored by the strong status background.
+const ACCENT_BAR: Record<AlertVariant, string> = {
+  info: 'bg-[var(--ui-background-status-strong-info)]',
+  success: 'bg-[var(--ui-background-status-strong-success)]',
+  warning: 'bg-[var(--ui-background-status-strong-warning)]',
+  critical: 'bg-[var(--ui-background-status-strong-critical)]',
+  destructive: 'bg-[var(--ui-background-status-strong-danger)]',
+  neutral: 'bg-[var(--ui-background-status-strong-neutral)]',
+  // ai gradient — there is no --ui-background-status-strong-ai.
+  ai: 'bg-[var(--ui-border-on-status-ai-strong)]',
+};
+
+// The full-color status icon rendered by default for each variant. The AlertIcon
+// slot can still override it via children.
+const VARIANT_ICON: Record<AlertVariant, React.ReactNode> = {
+  info: <CircleInfoBlueIcon size={16} />,
+  success: <CircleCheckGreenIcon size={16} />,
+  warning: <TriangleWarningYellowIcon size={16} />,
+  critical: <CircleWarningOrangeIcon size={16} />,
+  destructive: <DiamondWarningRedIcon size={16} />,
+  neutral: <CircleMinusGrayIcon size={16} />,
+  ai: <AcronisAiMultiIcon size={16} />,
+};
+
+const AlertVariantContext = React.createContext<AlertVariant>('info');
+
 export interface AlertProps
   extends
     React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof alertVariants> {}
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ className, variant, ...props }, ref) => (
-    <div
-      ref={ref}
-      role="alert"
-      data-slot="alert"
-      className={cn(alertVariants({ variant }), className)}
-      {...props}
-    />
-  )
+  ({ className, variant, children, ...props }, ref) => {
+    const resolved: AlertVariant = variant ?? 'info';
+    return (
+      <AlertVariantContext value={resolved}>
+        <div
+          ref={ref}
+          role="alert"
+          data-slot="alert"
+          className={cn(alertVariants({ variant }), className)}
+          {...props}
+        >
+          <span
+            aria-hidden
+            data-slot="alert-accent"
+            className={cn('w-1.5 shrink-0 self-stretch', ACCENT_BAR[resolved])}
+          />
+          <div
+            data-slot="alert-body"
+            className="flex min-w-0 flex-1 items-start gap-3 p-4"
+          >
+            {children}
+          </div>
+        </div>
+      </AlertVariantContext>
+    );
+  }
 );
 Alert.displayName = 'Alert';
 
+// Leading status-icon slot. When empty it renders the variant's default
+// full-color icon (read from context); pass children to override it. The icon
+// sits in a line-height-matched box (h-6 = leading-6) so it optically aligns
+// with the first line of the title/description. Full-color icons — no text-color
+// class here.
 const AlertIcon = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  // Color is set by the Alert variant (targets [data-slot=alert-icon]). The icon
-  // sits in a line-height-matched box (h-6 = leading-6) and is centered in it, so
-  // it optically aligns with the first line of the title/description.
-  <div
-    ref={ref}
-    data-slot="alert-icon"
-    className={cn('flex h-6 shrink-0 items-center', className)}
-    {...props}
-  />
-));
+>(({ className, children, ...props }, ref) => {
+  const variant = React.use(AlertVariantContext);
+  return (
+    <div
+      ref={ref}
+      data-slot="alert-icon"
+      className={cn('flex h-6 shrink-0 items-center [&_svg]:size-4', className)}
+      {...props}
+    >
+      {children ?? VARIANT_ICON[variant]}
+    </div>
+  );
+});
 AlertIcon.displayName = 'AlertIcon';
 
 const AlertContent = React.forwardRef<
@@ -135,12 +186,10 @@ const AlertActions = React.forwardRef<
 ));
 AlertActions.displayName = 'AlertActions';
 
-// Optional dismiss button (the design's `Dismissable`). A full-height cell at the
-// right edge with a left-border divider and a centered × — its divider, glyph,
-// and hover surface are tinted by the Alert variant (targets
-// [data-slot=alert-close]). The negative `-my-4 -mr-4` cancel the Alert's `p-4`
-// so the cell spans edge-to-edge; wire onClick to hide the alert. Defaults to a
-// 16px × icon and an accessible label ("Dismiss").
+// Optional dismiss button (the design's `Dismissable`) — a compact 32px
+// ButtonIcon with a neutral glyph, a hover surface, and a focus ring. Wire its
+// onClick to hide the alert. Defaults to a 16px × icon and an accessible label
+// ("Dismiss").
 const AlertClose = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -155,7 +204,7 @@ const AlertClose = React.forwardRef<
       aria-label={ariaLabel}
       data-slot="alert-close"
       className={cn(
-        '-my-4 -me-4 flex shrink-0 items-center justify-center self-stretch rounded-e-md border-s px-4 outline-none transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-focus-primary)]',
+        'flex size-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)]',
         className
       )}
       {...props}
@@ -174,4 +223,5 @@ export {
   AlertDescription,
   AlertActions,
   AlertClose,
+  alertVariants,
 };

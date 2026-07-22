@@ -13,26 +13,34 @@ import {
 } from '../index';
 
 describe('Alert', () => {
-  it('renders with role="alert" and the default info variant', () => {
+  it('renders role="alert", the default info strong border, and an accent bar', () => {
     render(<Alert>Heads up</Alert>);
     const alert = screen.getByRole('alert');
     expect(alert).toHaveTextContent('Heads up');
-    expect(alert.className).toContain('bg-[var(--ui-background-status-info)]');
+    expect(alert.className).toContain(
+      'border-[var(--ui-border-on-status-info-strong)]'
+    );
+    expect(alert.className).toContain('bg-background');
+    const accent = alert.querySelector('[data-slot="alert-accent"]');
+    expect(accent).not.toBeNull();
+    expect(accent?.className).toContain(
+      'bg-[var(--ui-background-status-strong-info)]'
+    );
   });
 
-  it('applies the destructive variant (danger surface + border tokens)', () => {
+  it('applies the destructive variant (strong danger border + accent bar)', () => {
     render(<Alert variant="destructive">Error</Alert>);
     const alert = screen.getByRole('alert');
     expect(alert.className).toContain(
-      'bg-[var(--ui-background-status-danger)]'
+      'border-[var(--ui-border-on-status-danger-strong)]'
     );
-    // The retheme uses the subtle border-on-status token, not the strong fill.
-    expect(alert.className).toContain(
-      'border-[var(--ui-border-on-status-danger)]'
+    const accent = alert.querySelector('[data-slot="alert-accent"]');
+    expect(accent?.className).toContain(
+      'bg-[var(--ui-background-status-strong-danger)]'
     );
   });
 
-  it('renders a dismiss button that fires onClick', async () => {
+  it('renders a compact dismiss button that fires onClick', async () => {
     const user = userEvent.setup();
     const onDismiss = vi.fn();
     render(
@@ -45,23 +53,46 @@ describe('Alert', () => {
     );
     const close = screen.getByRole('button', { name: 'Dismiss' });
     expect(close).toHaveAttribute('data-slot', 'alert-close');
+    expect(close.className).toContain('size-8');
     await user.click(close);
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 
-  it('renders the icon / content / title / description parts', () => {
+  it('renders the variant-driven default icon and honors an override', () => {
+    const { rerender } = render(
+      <Alert variant="success">
+        <AlertIcon />
+        <AlertContent>
+          <AlertTitle>Done</AlertTitle>
+        </AlertContent>
+      </Alert>
+    );
+    const iconSlot = document.querySelector('[data-slot="alert-icon"]');
+    expect(iconSlot?.querySelector('svg')).not.toBeNull();
+
+    rerender(
+      <Alert variant="success">
+        <AlertIcon>
+          <svg data-testid="custom-icon" />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Done</AlertTitle>
+        </AlertContent>
+      </Alert>
+    );
+    expect(screen.getByTestId('custom-icon')).toBeInTheDocument();
+  });
+
+  it('renders title (h5) and description', () => {
     render(
       <Alert>
-        <AlertIcon>
-          <svg data-testid="icon" />
-        </AlertIcon>
+        <AlertIcon />
         <AlertContent>
           <AlertTitle>Heads up!</AlertTitle>
           <AlertDescription>You can add components.</AlertDescription>
         </AlertContent>
       </Alert>
     );
-    expect(screen.getByTestId('icon')).toBeInTheDocument();
     expect(screen.getByText('Heads up!').tagName).toBe('H5');
     expect(screen.getByText('You can add components.')).toBeInTheDocument();
   });
