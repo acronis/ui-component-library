@@ -135,10 +135,12 @@ Cross-workspace context is intentionally minimal. Anything specific to
 how a particular workspace is built, tested, or styled lives **inside
 that workspace**, never here.
 
-## Always-loaded cross-cutting context
+## Required cross-cutting context
 
-@context/conventions.md
-@context/commits.md
+Before doing any work in this repository, read both of these files:
+
+- `context/conventions.md` — coding and editing conventions
+- `context/commits.md` — commit and pull-request conventions
 
 ## Cross-cutting context (read on demand)
 
