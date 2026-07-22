@@ -9,6 +9,8 @@ import {
   toast as toastFromComponentIndex,
 } from '../index';
 import {
+  Notification,
+  notification,
   Toaster as ToasterFromRootIndex,
   toast as toastFromRootIndex,
 } from '@/index';
@@ -26,7 +28,7 @@ afterEach(async () => {
     toast.dismiss();
   });
   await waitFor(() => {
-    expect(document.body.querySelectorAll('[class*="shadow-md"]')).toHaveLength(
+    expect(document.body.querySelectorAll('[class*="shadow-lg"]')).toHaveLength(
       0
     );
   });
@@ -40,6 +42,11 @@ describe('Toast', () => {
     expect(toastFromRootIndex).toBe(toast);
     expect(ToasterFromReactEntry).toBe(Toaster);
     expect(toastFromReactEntry).toBe(toast);
+  });
+
+  it('exposes the Notification alias (= Toaster / toast)', () => {
+    expect(Notification).toBe(Toaster);
+    expect(notification).toBe(toast);
   });
 
   it('renders no toast until one is added', () => {
@@ -74,7 +81,7 @@ describe('Toast', () => {
     const title = await screen.findByText('Dismiss me');
     // The visible toast's controls are aria-hidden (Base UI announces via an
     // offscreen copy), so they have no accessible name — query by attribute.
-    const root = title.closest('[class*="shadow-md"]') as HTMLElement;
+    const root = title.closest('[class*="shadow-lg"]') as HTMLElement;
     const close = root.querySelector(
       'button[aria-label="Close"]'
     ) as HTMLElement;
@@ -93,7 +100,7 @@ describe('Toast', () => {
       });
     });
     const title = await screen.findByText('Event created');
-    const root = title.closest('[class*="shadow-md"]') as HTMLElement;
+    const root = title.closest('[class*="shadow-lg"]') as HTMLElement;
     await userEvent.click(within(root).getByText('Undo'));
     expect(onClick).toHaveBeenCalledOnce();
   });

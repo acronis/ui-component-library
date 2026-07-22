@@ -95,6 +95,16 @@ export * from './components/ui/switch';
 export * from './components/ui/table';
 export * from './components/ui/tabs';
 export * from './components/ui/toast';
+// `Notification` / `notification` alias the toast surface — the Figma design of
+// this component is named "Notification", and toasts are this kit's notification
+// pattern. `Notification` renders the region (= `Toaster`); `notification(...)`
+// triggers one (= `toast`, with `.success`/`.error`/… helpers). No separate
+// component.
+export {
+  Toaster as Notification,
+  toast as notification,
+  type ToasterProps as NotificationProps,
+} from './components/ui/toast';
 export * from './components/ui/toggle-group';
 export * from './components/ui/toolbar';
 export * from './components/ui/tooltip';

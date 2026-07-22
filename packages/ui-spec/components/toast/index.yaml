@@ -9,4 +9,10 @@ description: >-
   status icon, optional action, and a close button. Triggered imperatively via
   the `toast(...)` API and rendered by a single `<Toaster>` region. Ported from
   the legacy shadcn-uikit `sonner` wrapper; rebuilt on the Base UI toast manager.
+  Reconciled with the redesigned Figma "Notification" set: a white surface with a
+  strong status border, a 6px left accent bar, a full-color status icon, and a
+  floating shadow. Aliased as `Notification` / `notification`.
 since: 0.41.0
+figma:
+  node: '6946-25164'
+  codeConnect: packages/ui-react/src/components/ui/toast/toast.figma.tsx

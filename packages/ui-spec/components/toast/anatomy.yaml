@@ -3,12 +3,13 @@ component: Toast
 
 schematic: |
   root: <div role="region" aria-label="Notifications"> fixed bottom-right stack
-    toast: <div> card (border, surface, shadow), one per notification
-      icon:        leading status glyph (success/info/warning/error) or spinner
+    toast: <div> card (strong status border, white surface, shadow), one per notification
+      toast-accent: 6px left bar in the strong status color (status types only)
+      icon:        leading full-color status glyph (success/info/warning/error) or spinner
       title:       bold first line
-      description: muted secondary line
+      description: secondary line
       action:      optional inline button (e.g. Undo)
-      close:       trailing dismiss (✕) button
+      close:       trailing compact dismiss (✕) button
 
 root:
   element: div
@@ -21,18 +22,27 @@ root:
 parts:
   - id: toast
     element: div
-    description: A single notification card (border + surface + shadow).
+    description: >-
+      A single notification card — white surface, strong status border, floating
+      shadow (`loading`/untyped stay neutral with a plain border).
+  - id: toast-accent
+    element: span
+    description: >-
+      The 6px left bar in the strong status background
+      (--ui-background-status-strong-*), shown for the colored status types;
+      decorative (aria-hidden).
   - id: icon
     element: span
     description: >-
-      Leading status glyph — check (success), info, warning triangle, or error
-      (✕) tinted by `--ui-text-on-status-*`; a Spinner for the loading type.
+      Leading full-color status glyph — CircleCheckGreen (success), CircleInfoBlue
+      (info), TriangleWarningYellow (warning), DiamondWarningRed (error); a Spinner
+      for the loading type.
   - id: title
     element: div
     description: The bold first line.
   - id: description
     element: div
-    description: Optional muted secondary line.
+    description: Optional secondary line (foreground text).
   - id: action
     element: button
     description: Optional inline action button (e.g. Undo).

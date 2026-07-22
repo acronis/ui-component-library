@@ -2,25 +2,30 @@
 
 import * as React from 'react';
 import { Toast as ToastPrimitive } from '@base-ui/react/toast';
+import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
-  CircleCheckIcon,
-  CircleInfoIcon,
-  CircleTimesIcon,
-  TimesIcon,
-  TriangleWarningIcon,
-} from '@constructor-lab/icons-react/stroke-mono';
+  CircleCheckGreenIcon,
+  CircleInfoBlueIcon,
+  DiamondWarningRedIcon,
+  TriangleWarningYellowIcon,
+} from '@constructor-lab/icons-react/stroke-multi';
 
 import { cn } from '@/lib/utils';
 import { Spinner } from '../spinner';
 
-// Ported from the legacy shadcn UI kit's `sonner`, which wrapped the Sonner
-// library. Rebuilt on the Base UI toast primitive (the ui-react convention), so
-// no Sonner dependency. The contract is preserved: drop a single `<Toaster />`
-// at the app root and call the imperative `toast(...)` / `toast.success(...)`
-// API from anywhere. No `--ui-toast-*` tier yet, so this design-pending v1 is a
-// neutral surface (bg-background + border-border + shadow) with the status
-// conveyed by a colored leading icon (`--ui-text-on-status-*`); per-status
-// surface tinting is design-pending. Auto-dismiss after `timeout` (default
+// Ported from the legacy shadcn UI kit's `sonner`, rebuilt on the Base UI toast
+// primitive (no Sonner dependency). The contract is preserved: drop a single
+// `<Toaster />` at the app root and call the imperative `toast(...)` /
+// `toast.success(...)` API from anywhere.
+//
+// Reconciled with the redesigned Figma "Notification" set (node 6946-25164) —
+// which shares the redesigned Alert's visual language: a white surface
+// (bg-background) with a strong status border (--ui-border-on-status-*-strong), a
+// 6px left accent bar in the strong status background
+// (--ui-background-status-strong-*), and a variant-driven full-color status icon;
+// a toast adds a floating drop shadow. Status maps: success/info/warning →
+// same; `error` → the danger tokens; `loading` and the untyped default stay
+// neutral (border-border, no accent). Auto-dismiss after `timeout` (default
 // 5000ms); `loading` toasts persist until updated or dismissed.
 
 // A module-level manager so `toast(...)` works outside React (like Sonner's
@@ -81,50 +86,87 @@ const toast = Object.assign(
   }
 );
 
-const ICON_BY_TYPE: Record<ToastType, React.ReactNode> = {
-  success: (
-    <CircleCheckIcon className="size-4 text-[var(--ui-text-on-status-success)]" />
-  ),
-  info: (
-    <CircleInfoIcon className="size-4 text-[var(--ui-text-on-status-info)]" />
-  ),
-  warning: (
-    <TriangleWarningIcon className="size-4 text-[var(--ui-text-on-status-warning)]" />
-  ),
-  error: (
-    <CircleTimesIcon className="size-4 text-[var(--ui-text-on-status-danger)]" />
-  ),
-  loading: <Spinner size="sm" className="size-4" />,
+// The four colored status types → strong border + accent-bar tokens + a
+// full-color status icon (matching the design). `loading` and the untyped
+// default stay neutral (no accent, a plain border-border card).
+type ToastStatus = 'success' | 'info' | 'warning' | 'error';
+const TOAST_STYLE: Record<
+  ToastStatus,
+  { border: string; accent: string; icon: React.ReactNode }
+> = {
+  success: {
+    border: 'border-[var(--ui-border-on-status-success-strong)]',
+    accent: 'bg-[var(--ui-background-status-strong-success)]',
+    icon: <CircleCheckGreenIcon className="size-4" />,
+  },
+  info: {
+    border: 'border-[var(--ui-border-on-status-info-strong)]',
+    accent: 'bg-[var(--ui-background-status-strong-info)]',
+    icon: <CircleInfoBlueIcon className="size-4" />,
+  },
+  warning: {
+    border: 'border-[var(--ui-border-on-status-warning-strong)]',
+    accent: 'bg-[var(--ui-background-status-strong-warning)]',
+    icon: <TriangleWarningYellowIcon className="size-4" />,
+  },
+  error: {
+    border: 'border-[var(--ui-border-on-status-danger-strong)]',
+    accent: 'bg-[var(--ui-background-status-strong-danger)]',
+    icon: <DiamondWarningRedIcon className="size-4" />,
+  },
 };
 
 function ToastList() {
   const { toasts } = ToastPrimitive.useToastManager();
   return toasts.map((item) => {
-    const icon = ICON_BY_TYPE[item.type as ToastType];
+    const type = item.type as ToastType | undefined;
+    const style =
+      type && type in TOAST_STYLE ? TOAST_STYLE[type as ToastStatus] : undefined;
+    const icon =
+      type === 'loading' ? (
+        <Spinner size="sm" className="size-4" />
+      ) : (
+        style?.icon
+      );
     return (
       <ToastPrimitive.Root
         key={item.id}
         toast={item}
         className={cn(
-          'relative flex w-full items-start gap-3 rounded border border-border bg-background p-4 shadow-md',
+          'relative flex w-full items-stretch overflow-hidden rounded-lg border border-solid bg-background shadow-lg',
+          style?.border ?? 'border-border',
           'transition-all data-[ending-style]:opacity-0 data-[starting-style]:opacity-0',
           'ltr:data-[starting-style]:translate-x-4 rtl:data-[starting-style]:-translate-x-4 ltr:data-[ending-style]:translate-x-4 rtl:data-[ending-style]:-translate-x-4'
         )}
       >
-        {icon ? <span className="mt-0.5 shrink-0">{icon}</span> : null}
-        <div className="flex min-w-0 flex-1 flex-col gap-1">
-          <ToastPrimitive.Title className="text-sm font-semibold leading-5 text-foreground" />
-          <ToastPrimitive.Description className="text-sm leading-5 text-muted-foreground" />
+        {style ? (
+          <span
+            aria-hidden
+            className={cn('w-1.5 shrink-0 self-stretch', style.accent)}
+          />
+        ) : null}
+        <div className="flex min-w-0 flex-1 flex-col py-2">
+          <div className="flex items-start gap-2 pl-4 pr-2">
+            {icon ? (
+              <span className="flex h-6 shrink-0 items-center py-1 [&_svg]:size-4">
+                {icon}
+              </span>
+            ) : null}
+            <ToastPrimitive.Title className="flex-1 py-1 text-sm font-semibold leading-6 text-foreground" />
+            <ToastPrimitive.Close
+              aria-label="Close"
+              className="flex size-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)]"
+            >
+              <TimesIcon className="size-4" />
+            </ToastPrimitive.Close>
+          </div>
+          <ToastPrimitive.Description className="pb-1 pl-10 pr-4 text-sm leading-6 text-foreground" />
           {item.actionProps ? (
-            <ToastPrimitive.Action className="mt-1 self-start text-sm font-semibold text-secondary hover:underline" />
+            <div className="pb-1 pl-10 pr-4">
+              <ToastPrimitive.Action className="text-sm font-semibold text-secondary hover:underline" />
+            </div>
           ) : null}
         </div>
-        <ToastPrimitive.Close
-          aria-label="Close"
-          className="shrink-0 rounded text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-focus-primary)]"
-        >
-          <TimesIcon className="size-4" />
-        </ToastPrimitive.Close>
       </ToastPrimitive.Root>
     );
   });
