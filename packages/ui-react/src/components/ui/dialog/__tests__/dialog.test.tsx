@@ -52,18 +52,19 @@ describe('Dialog', () => {
     expect(close).toHaveClass('text-muted-foreground');
   });
 
-  it('drives the popup surface from the bridged semantic tokens', () => {
+  it('drives the popup surface from the `--ui-dialog-*` container tier', () => {
     render(<OpenDialog />);
-    // No `--ui-dialog-*` tier yet — the popup body resolves to surface-secondary.
     expect(screen.getByRole('dialog')).toHaveClass(
-      'bg-muted',
+      'bg-[var(--ui-dialog-container-color)]',
       'text-foreground'
     );
   });
 
-  it('defaults to the sm size (max-w-lg / 512px)', () => {
+  it('defaults to the sm size (token-backed --ui-dialog-container-size-sm / 512px)', () => {
     render(<OpenDialog />);
-    expect(screen.getByRole('dialog')).toHaveClass('max-w-lg');
+    expect(screen.getByRole('dialog')).toHaveClass(
+      'max-w-[var(--ui-dialog-container-size-sm)]'
+    );
   });
 
   it('applies a larger max-width via the size prop', () => {

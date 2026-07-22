@@ -18,8 +18,9 @@ schematic: |
   |   | footer:                    [Cancel] [Confirm]       | |
   |   +-----------------------------------------------------+ |
   +===========================================================+
-     root    -> bg-muted (surface-secondary) body + shadow, rounded
-     header / footer -> bg-background (surface-primary) bars, border-border
+     root    -> --ui-dialog-container-{color,border-radius} + shadow
+     header  -> --ui-dialog-header-{color,border-color} bar; title -> --ui-dialog-header-title-color
+     footer  -> bg-background (surface-primary) bar, border-border divider
      overlay -> var(--ui-background-backdrop-screen)
      close   -> times icon, text-muted-foreground → hover text-foreground
 
@@ -46,13 +47,13 @@ parts:
   - id: header
     description: >-
       Top bar holding the title and close button. White surface
-      (`bg-background`) with a bottom divider.
+      (`--ui-dialog-header-color`) with a bottom divider.
     element: div
     optional: true
   - id: title
     description: >-
       The dialog's accessible name (Base UI `Dialog.Title`), wired to
-      `aria-labelledby`. Uses `text-foreground`.
+      `aria-labelledby`. Uses `--ui-dialog-header-title-color`.
     element: h2
   - id: close
     description: >-

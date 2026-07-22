@@ -1,46 +1,124 @@
 spec_version: '1.0'
 component: Dialog
 
-# References only. Values live in @constructor-lab/tokens (generated from
-# @constructor-lab/tokens) and resolve per brand/theme at paint time.
-# This is a design-pending v1: no `--ui-dialog-*` component tier exists yet, so
-# the dialog consumes the shared *semantic* tokens (via the bridged Tailwind
-# names bg-muted / bg-background / text-foreground / text-muted-foreground /
-# border-border, plus direct var() refs for the overlay and focus ring). Replace
-# these with a `--ui-dialog-*` tier if/when a Figma pass introduces one.
+# References only. Values live in @constructor-lab/tokens (generated from the
+# DTCG tiers) and resolve per brand/theme at paint time. Reconciled against Figma
+# (node 6343:58898): the container, header, title, and body consume the dedicated
+# `--ui-dialog-*` tier. The footer and close still use the shared *semantic*
+# vocabulary (bridged Tailwind names bg-background / border-border /
+# text-muted-foreground / text-foreground) — Figma's separate Footer tier has no
+# `--ui-footer-*` counterpart in tokens yet.
 source: '@constructor-lab/tokens'
 
 tokens:
+  # ── Overlay ──
   - {
       name: --ui-background-backdrop-screen,
       affects: overlay,
       description: Scrim color behind the popup (direct var ref),
     }
+  # ── Container (popup) ──
   - {
-      name: --ui-background-surface-secondary,
+      name: --ui-dialog-container-color,
       affects: root,
-      description: Popup body surface (bridged as `bg-muted`),
+      description: Popup surface fill,
     }
   - {
-      name: --ui-background-surface-primary,
+      name: --ui-dialog-container-border-radius,
+      affects: root,
+      description: Popup corner radius,
+    }
+  - {
+      name: --ui-dialog-container-width-min,
+      affects: root,
+      description: Popup minimum width,
+    }
+  - {
+      name: --ui-dialog-container-size-sm,
+      affects: root,
+      description: 'Max-width of the `sm` (default) size',
+    }
+  - {
+      name: --ui-dialog-container-size-md,
+      affects: root,
+      description: 'Max-width of the `md` size',
+    }
+  # ── Header ──
+  - {
+      name: --ui-dialog-header-color,
       affects: header,
-      description: Header / footer bar surface (bridged as `bg-background`),
+      description: Header bar surface,
+    }
+  - {
+      name: --ui-dialog-header-border-color,
+      affects: header,
+      description: Header bottom divider color,
+    }
+  - {
+      name: --ui-dialog-header-border-width,
+      affects: header,
+      description: Header bottom divider width,
+    }
+  - {
+      name: --ui-dialog-header-gap,
+      affects: header,
+      description: Gap between title and close,
+    }
+  - {
+      name: --ui-dialog-header-height,
+      affects: header,
+      description: Header bar height,
+    }
+  - {
+      name: --ui-dialog-header-padding-x,
+      affects: header,
+      description: Header horizontal padding,
+    }
+  # ── Title ──
+  - {
+      name: --ui-dialog-header-title-color,
+      affects: title,
+      description: Title text color,
+    }
+  # ── Body ──
+  - {
+      name: --ui-dialog-body-gap,
+      affects: body,
+      description: Gap between stacked body children,
+    }
+  - {
+      name: --ui-dialog-body-padding-y,
+      affects: body,
+      description: Body vertical padding,
+    }
+  - {
+      name: --ui-dialog-body-height-min,
+      affects: body,
+      description: Body minimum height,
     }
   - {
       name: --ui-text-on-surface-primary,
-      affects: title,
-      description: Title / default text color (bridged as `text-foreground`),
+      affects: body,
+      description: 'Body content + close-hover text color (bridged as text-foreground)',
     }
+  # ── Footer (semantic; no --ui-footer-* tier yet) ──
+  - {
+      name: --ui-background-surface-primary,
+      affects: footer,
+      description: Footer bar surface (bridged as `bg-background`),
+    }
+  - {
+      name: --ui-border-on-surface-border,
+      affects: footer,
+      description: Footer top divider (bridged as `border-border`),
+    }
+  # ── Description + close (idle) ──
   - {
       name: --ui-text-on-surface-secondary,
       affects: description,
       description: 'Description + idle close-icon color (bridged as text-muted-foreground)',
     }
-  - {
-      name: --ui-border-on-surface-border,
-      affects: header,
-      description: Header bottom / footer top divider (bridged as `border-border`),
-    }
+  # ── Focus ring ──
   - {
       name: --ui-focus-primary,
       affects: close,

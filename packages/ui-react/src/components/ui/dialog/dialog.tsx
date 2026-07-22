@@ -5,34 +5,42 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-// Initial version ported from the legacy shadcn UI kit's `dialog`. A modal
-// overlay built on the Base UI Dialog primitive (keyboard, focus trap, scroll
-// lock, ARIA come from Base UI). No `--ui-dialog-*` token tier exists yet, so
-// this design-
-// pending v1 themes from the shared semantic tokens via bridged Tailwind names:
-//   • overlay  -> var(--ui-background-backdrop-screen)   (legacy `bg-black/80`)
-//   • popup    -> bg-muted        = --ui-background-surface-secondary
-//   • header / footer -> bg-background = --ui-background-surface-primary (white
-//     bars over the muted body), divided by border-border
-//   • title    -> text-foreground / description -> text-muted-foreground
-//   • close    -> text-muted-foreground → hover text-foreground (replaces the
-//     legacy opacity hack), focus ring var(--ui-focus-primary)
+// A modal overlay built on the Base UI Dialog primitive (keyboard, focus trap,
+// scroll lock, ARIA come from Base UI). Reconciled against Figma (node
+// 6343:58898) — themed from the dedicated `--ui-dialog-*` tier
+// (`@constructor-lab/tokens`):
+//   • overlay   -> var(--ui-background-backdrop-screen)
+//   • container -> --ui-dialog-container-{color,border-radius,width-min}
+//     (surface-secondary fill, 8px radius, 256px min-width)
+//   • header    -> --ui-dialog-header-{color,border-color,border-width,gap,
+//     height,padding-x} (white bar, divider border, 64px tall, 16px pad-x);
+//     title -> --ui-dialog-header-title-color
+//   • body      -> --ui-dialog-body-{gap,padding-y,height-min} (72px min-height,
+//     16px vertical pad, 12px gap, content vertically centered)
+//   • close     -> text-muted-foreground → hover text-foreground, focus ring
+//     var(--ui-focus-primary)
+// The footer keeps the shared semantic vocabulary (bg-background + border-border,
+// same white/divider values) — Figma's separate Footer tier has no
+// `--ui-footer-*` counterpart in `tokens` yet.
+// The Figma component set also enumerates content recipes (rename / discard-
+// changes / save-changes / reset-password / accept / read-only) and a loading
+// overlay; those are compositions over these parts (see the `confirm-dialog`
+// composite and the dialog patterns), not props on this primitive.
 // Enter/exit animations use `tw-animate-css` (imported in styles/index.css),
 // keyed to Base UI's data-[open] / data-[closed] state attributes — overlay
-// fades, popup fades + zooms. The `size` scale (max-width) mirrors the reference
-// design's six widths; until a `--ui-dialog-*` tier defines them, they are plain
-// max-width utilities. Reconcile against the real design with
-// `/figma-component Dialog <url> --update` once a mockup lands.
+// fades, popup fades + zooms.
 
-// Popup width scale. `sm` (512px) is the default and matches the pre-size width.
+// Popup width scale. `sm` (512) and `md` (632) are token-backed by the design
+// (`--ui-dialog-container-size-{sm,md}`); `xs`/`lg`/`xl`/`2xl` remain plain
+// max-widths pending token definitions. `sm` is the default.
 const dialogContentVariants = cva(
-  'fixed left-1/2 top-1/2 z-50 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-lg bg-muted text-foreground shadow-lg duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[open]:zoom-in-95 data-[closed]:animate-out data-[closed]:fade-out-0 data-[closed]:zoom-out-95',
+  'fixed left-1/2 top-1/2 z-50 flex w-full min-w-[var(--ui-dialog-container-width-min)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-[var(--ui-dialog-container-border-radius)] bg-[var(--ui-dialog-container-color)] text-foreground shadow-lg duration-200 data-[open]:animate-in data-[open]:fade-in-0 data-[open]:zoom-in-95 data-[closed]:animate-out data-[closed]:fade-out-0 data-[closed]:zoom-out-95',
   {
     variants: {
       size: {
         xs: 'max-w-[464px]',
-        sm: 'max-w-lg',
-        md: 'max-w-2xl',
+        sm: 'max-w-[var(--ui-dialog-container-size-sm)]',
+        md: 'max-w-[var(--ui-dialog-container-size-md)]',
         lg: 'max-w-[832px]',
         xl: 'max-w-[992px]',
         '2xl': 'max-w-[1136px]',
@@ -72,7 +80,7 @@ export interface DialogContentProps
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>,
     VariantProps<typeof dialogContentVariants> {
   /**
-   * Popup max-width. `sm` 512 · `xs` 464 · `md` 672 · `lg` 832 · `xl` 992 ·
+   * Popup max-width. `sm` 512 · `xs` 464 · `md` 632 · `lg` 832 · `xl` 992 ·
    * `2xl` 1136 (px). Defaults to `sm`.
    */
   size?: VariantProps<typeof dialogContentVariants>['size'];
@@ -141,7 +149,7 @@ const DialogHeader = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'flex h-16 items-center gap-4 border-b border-border bg-background px-5 py-4',
+      'flex h-[var(--ui-dialog-header-height)] items-center gap-[var(--ui-dialog-header-gap)] border-b-[length:var(--ui-dialog-header-border-width)] border-solid border-[var(--ui-dialog-header-border-color)] bg-[var(--ui-dialog-header-color)] px-[var(--ui-dialog-header-padding-x)]',
       className
     )}
     {...props}
@@ -156,7 +164,7 @@ const DialogFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'flex h-16 items-center justify-end gap-4 border-t border-border bg-background px-6 py-4',
+      'flex h-16 items-center justify-end gap-4 border-t border-border bg-background px-4',
       className
     )}
     {...props}
@@ -170,7 +178,10 @@ const DialogBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn('flex-1 overflow-auto p-6', className)}
+    className={cn(
+      'flex min-h-[var(--ui-dialog-body-height-min)] flex-1 flex-col justify-center gap-[var(--ui-dialog-body-gap)] overflow-auto px-4 py-[var(--ui-dialog-body-padding-y)]',
+      className
+    )}
     {...props}
   />
 ));
@@ -183,7 +194,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      'flex-1 text-2xl font-normal leading-8 text-foreground',
+      'flex-1 text-2xl font-normal leading-8 text-[var(--ui-dialog-header-title-color)]',
       className
     )}
     {...props}
