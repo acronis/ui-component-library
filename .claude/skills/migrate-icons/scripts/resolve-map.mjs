@@ -1,8 +1,8 @@
 // Resolve an app's legacy @constructor-lab/shadcn-uikit icon imports to
 // @constructor-lab/icons-react names using the AUTHORITATIVE map shipped with
 // icons-react (`@constructor-lab/icons-react/legacy-map`). No guessing, no
-// monorepo checkout — the map is generated from the design-assets legacyNames
-// bridge and published with the package.
+// monorepo checkout — the map is a committed artifact published with the
+// package.
 //
 // Usage:
 //   TARGET=stroke-mono node resolve-map.mjs [used-icons.txt]

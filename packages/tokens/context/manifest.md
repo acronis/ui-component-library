@@ -110,8 +110,6 @@ Alias values live inside the [`values.{modeName}` dict](#modes--themes) on each 
 
 ## Platform scope
 
-> ⚠️ This enum is mirrored in `@constructor-lab/design-assets`; the two MUST stay in sync — a change here requires the same change there.
-
 Platform scope declares which consumers a token targets so downstream tooling can route correctly. It lives at `token.platforms` — top-level on the token, sibling to `values` / `$value` / `$extensions`. No collection-level inheritance, no per-mode override, no group-level placement. Every token MUST declare `platforms`.
 
 **Shape:** `("WEB" | "PD")[]` — closed enum, `uniqueItems`, `minItems: 1`.

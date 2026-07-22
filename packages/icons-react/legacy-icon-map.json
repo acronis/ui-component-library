@@ -1,5 +1,5 @@
 {
-  "$comment": "AUTHORITATIVE legacy @constructor-lab/shadcn-uikit icon name -> @constructor-lab/icons-react name. Generated from the design-assets legacyNames bridge — do not hand-edit. Regenerate: pnpm --filter @constructor-lab/icons-react generate:legacy-map",
+  "$comment": "AUTHORITATIVE legacy @constructor-lab/shadcn-uikit icon name -> @constructor-lab/icons-react name, shipped via the @constructor-lab/icons-react/legacy-map export. Committed static artifact: its generator was removed along with its now-absent upstream sources (ui-legacy + design-assets); maintain by hand if the icon set changes.",
   "meta": {
     "defaultVariant": "stroke-mono",
     "variants": ["stroke-mono", "solid-mono", "stroke-multi", "solid-multi"],

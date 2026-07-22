@@ -139,8 +139,6 @@ Published workspaces are:
 - `@constructor-lab/ui-react`
 - `@constructor-lab/icons-react`
 - `@constructor-lab/tokens`
-- `@constructor-lab/tokens`
-- `@constructor-lab/design-assets`
 
 From the repo root:
 

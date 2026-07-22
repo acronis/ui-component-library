@@ -28,7 +28,7 @@ docs to `3001`, so opening `3000` shows the demo, not Fumadocs.
 ## What this site documents
 
 The site documents **`@constructor-lab/ui-react`** (the next-gen Base UI
-library) and its ecosystem packages (tokens, icons-react, design-assets).
+library) and its ecosystem packages (tokens, icons-react).
 
 ## Content structure
 
@@ -40,8 +40,7 @@ library) and its ecosystem packages (tokens, icons-react, design-assets).
   pairs usage + code-snippet examples + `<AutoTypeTable>` with a **live
   `<DemoReact>`** preview (shadow-root isolated) — see "ui-react live demos"
   below.
-- `content/docs/packages/` — the ecosystem section (`tokens`, `icons-react`,
-  `design-assets`).
+- `content/docs/packages/` — the ecosystem section (`tokens`, `icons-react`).
 - `src/components/demos-react/` — `'use client'` demos for the **ui-react**
   pages, importing straight from `@constructor-lab/ui-react`. One
   `<Name>Demo` per component, rendered through `<DemoReact>` (see below).

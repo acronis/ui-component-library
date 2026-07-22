@@ -12,7 +12,6 @@
 #     package is handled exclusively by release.yml (OIDC path).
 #
 # Packages published by this workflow:
-#   @constructor-lab/design-assets
 #   @constructor-lab/tokens
 #   @constructor-lab/icons-react
 #   @constructor-lab/ui-react

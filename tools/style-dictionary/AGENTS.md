@@ -24,8 +24,7 @@ pnpm --filter @constructor-lab/style-dictionary build
 `src/index.ts` is the single entry point. Each output is a **platform key**,
 `<filter>-<output>` — the SD-style name that is also the CLI selector. It builds
 them in dependency order. The **token** outputs are written into the published
-`packages/tokens/` package (committed, not gitignored); **assets** stay under
-this tool's gitignored `dist/assets/`:
+`packages/tokens/` package (committed, not gitignored):
 
 1. `pd-dtcg` → `tokens/dtcg/` — six per-mode, 100%-DTCG JSON files.
 2. `pd-css` → the whole stylesheet family from one resolve (they share it):
@@ -39,69 +38,56 @@ this tool's gitignored `dist/assets/`:
    - `tokens/scss/` — `_tokens.scss` (`@mixin ui-tokens`) + `_mixins.scss`
      (`ui-theme`) — the same layer as a Sass mixin.
    - `tokens/js/` — `tokens.js` + `.d.ts`, a name → `var(--…)` map for CSS-in-JS.
-3. `pd-assets` / `web-assets` → optimized SVG + React from
-   `@constructor-lab/design-assets`, emitted under `dist/assets/<filter>-<group>-<format>/`.
-   **design-assets is an optional peer**: when it isn't installed the asset stage
-   skips with a warning (the token outputs never depend on it). See
-   [`context/assets.md`](context/assets.md).
 
 Usage:
 
 ```bash
 tsx src/index.ts                                # all filters, all outputs
 tsx src/index.ts pd-css                         # css/scss/js (runs its pd-dtcg dependency first)
-tsx src/index.ts pd-assets web-assets --pack=icons   # one asset pack only
-tsx src/index.ts --filter=web                   # restrict to one filter (web-assets only)
+tsx src/index.ts --filter=web                   # restrict to one filter
 ```
 
 `pd-css` consumes the DTCG files `pd-dtcg` writes, so requesting it runs `pd-dtcg`
 first; the default builds everything. `dev` is a no-op; `clean` removes `dist/`
-(assets only — the token output lives in `tokens` and is cleaned per-build before
+(the token output lives in `tokens` and is cleaned per-build before
 regenerating); `lint`/`typecheck` run eslint/tsc; `test` runs the vitest suite
-(the token normalization + CSS rendering units, plus — when design-assets is
-present — resolver R1–R16, executor, codegen, SVGO).
+(the token normalization + CSS rendering units).
 
 ## Platforms
 
 A platform key is `<filter>-<output>`. Both halves are real axes:
 
 - **`filter`** (`pd` | `web`) maps to the `platforms` enum (`PD` | `WEB`) — a
-  closed enum mirrored by tokens and design-assets. The same sources produce
-  a **different** bundle per filter.
-- **`output`** (`dtcg` | `css` | `assets`) is the artifact kind. `css` emits the
-  whole stylesheet family (css + scss + js + the Tailwind bridge) from one resolve.
+  closed enum mirrored by the tokens. The same sources produce a **different**
+  bundle per filter.
+- **`output`** (`dtcg` | `css`) is the artifact kind. `css` emits the whole
+  stylesheet family (css + scss + js + the Tailwind bridge) from one resolve.
 
-The valid filters differ **per output**, because tokens and assets have different
-source coverage — `filtersFor(output)` in `index.ts` encodes this:
+`filtersFor(output)` in `platforms.ts` encodes which filters have source data:
 
 - `dtcg`/`css` come from the token package. Every token is `["PD"]`
-  today, so `FILTERS` is `['pd']`; `web` is schema-defined and coming.
-- `assets` come from `@constructor-lab/design-assets`, which **already** spans
-  both platforms — icons are `PD`, illustrations `WEB` — selected
-  per-asset by each asset's own `platforms`. So the asset build runs for
-  `ASSET_FILTERS` (`['pd','web']`), independent of the token `FILTERS`. The valid
-  platform keys are therefore `pd-{dtcg,css,assets}` + `web-assets`.
+  today, so `FILTERS` is `['pd']`; `web` is schema-defined and coming. The valid
+  platform keys are therefore `pd-dtcg` + `pd-css`.
 - Adding WEB tokens = add `'web'` to `FILTERS`. No hook changes — the stages take a
-  `filter` and derive their keys / dist dirs from it.
+  `filter` and derive their keys from it.
 
 ## Source layout
 
-`index.ts` is the **CLI home only** — it parses keys/filters/packs and dispatches
-to the build domains. `tokens.ts` is the Style Dictionary token build (its SD
-hooks live in `hooks/`); `scss.ts` / `js.ts` / `bridge/tailwind-theme.ts` render
-the SCSS, JS, and Tailwind-bridge artifacts from the same resolved model; `assets/`
-is the design-assets → SVG/React build (no SD instance — its own resolver +
-executor + codegen). The shared platform-key axes + output locations they all agree
-on live in `platforms.ts`, so no domain has to import the CLI.
+`index.ts` is the **CLI home only** — it parses keys/filters and dispatches to the
+token build. `tokens.ts` is the Style Dictionary token build (its SD hooks live in
+`hooks/`); `scss.ts` / `js.ts` / `bridge/tailwind-theme.ts` render the SCSS, JS,
+and Tailwind-bridge artifacts from the same resolved model. The shared platform-key
+axes + output locations they all agree on live in `platforms.ts`, so no domain has
+to import the CLI.
 
 ```
 src/
-  index.ts              CLI home: parseArgs/parseKey/main, dispatch to tokens + assets.
+  index.ts              CLI home: parseArgs/parseKey/main, dispatch to the token build.
   platforms.ts          Shared axes: Filter/Output/PlatformKey, FILTERS, OUTPUTS,
                         filtersFor, ALL_FILTERS, FILTER_ENUM; the tokens output
                         paths (TOKENS_PKG, dtcgDir, cssDir, primitivesCssFile,
                         semanticsCssFile, componentCssFile, indexCssFile,
-                        tailwindThemeCssFile, scssDir, jsDir, …), DIST/ASSETS_DIST, rel.
+                        tailwindThemeCssFile, scssDir, jsDir, …), rel.
   tokens.ts             The two SD stages (buildDtcg, buildCss) + TOKEN_SOURCES, VIEWS,
                         BRANDS, the makeSd factory; buildModel + resolveAllTokens.
   scss.ts, js.ts        emitScss / emitJs — SCSS mixin + JS token map from the model.
@@ -117,55 +103,33 @@ src/
     formats/            css/light-dark — collectDecls + serializeSlice render the CSS
                         (reference-based; brand via [data-brand]).
     index.ts            STATIC_HOOKS — the registry every instance shares.
-  assets/               The design-assets → SVG/React domain (see context/assets.md):
-    read.ts             load packs / rules / binaries from the package.
-    resolve.ts          the resolver — spec §a–g + runtime invariants (fail closed).
-    executor.ts         the executor — apply scale/stroke rules to an SVG.
-    rules/, color.ts    scale (lossless resize), stroke (width formula), currentColor.
-    svgo-config.ts      conservative SVGO (mono | preserve).
-    react/              codegen + naming (one .tsx per asset, size/variant props, dedup).
-    emit.ts, pipeline.ts  write the dist layout; orchestrate per filter.
-    index.ts            barrel — buildAssetsForFilter, ASSET_FILTERS, listPackNames.
-    __tests__/          vitest specs.
 ```
 
-`tokens.ts` + `hooks/` are the SD token build; `assets/` is the independent SVG
-pipeline; `index.ts` just wires them to the CLI. Adding a token output is a new
-build function in `tokens.ts` + a CLI branch; new token logic goes in a hook under
-`hooks/`. A new source package gets a reader (like `readTokenSource` in `tokens.ts`
-/ `assets/read.ts`).
+`tokens.ts` + `hooks/` are the SD token build; `index.ts` just wires it to the
+CLI. Adding a token output is a new build function in `tokens.ts` + a CLI branch;
+new token logic goes in a hook under `hooks/`. A new source package gets a reader
+(like `readTokenSource` in `tokens.ts`).
 
 ## CI integration
 
 Change-detection and validation-gating live in **CI**, not this tool — the tool is
 a pure, granular builder. CI detects changed paths, runs each package's existing
-`validate` (ajv), and on success calls the tool with the right selector. The
-contract, implemented by the `assets-detect` / `assets-build` jobs in
-`.github/workflows/ci.yml`:
+`validate` (ajv), and on success calls the tool with the right selector:
 
-| Changed path                                     | Build invocation                                        |
-| ------------------------------------------------ | ------------------------------------------------------- |
-| `tokens/tiers/**` or its schema                  | `build` (token build: `pd-dtcg`+`pd-css`+`pd-tailwind`) |
-| `design-assets/packs/<name>.json` or `<name>/**` | `build pd-assets web-assets --pack=<name>`              |
-| `design-assets/rules/**` or `pack.schema.json`   | `build pd-assets web-assets` (all packs — shared input) |
+| Changed path                    | Build invocation                                        |
+| ------------------------------- | ------------------------------------------------------- |
+| `tokens/tiers/**` or its schema | `build` (token build: `pd-dtcg`+`pd-css`+`pd-tailwind`) |
 
-Both asset filters (`pd-assets web-assets`) are passed because a pack's platform —
-not the selector — decides where it lands: an icon pack emits under `pd-assets`,
-`illustrations` under `web-assets`. The tool drops keys whose group has no selected
-pack, so the unaffected filter is a no-op. Tokens always build together (one
-schema, tightly-coupled files); assets are per-pack (a pack name is the
-`packs/<name>.json` stem). `--pack` validates against the live pack list, so the
-tool needs `@constructor-lab/design-assets` as a workspace dependency.
+Tokens always build together (one schema, tightly-coupled files).
 
 ## Gotchas
 
 - **Node ≥ 22** — Style Dictionary v5 requires it (the repo is already on 22).
-- **Token output is committed, assets are gitignored.** The token builds write
-  into `packages/tokens/` whose generated files are **tracked** (CI fails if a
-  token change isn't re-generated + committed — see the drift gate in `ci.yml`);
-  the asset build still writes gitignored `dist/assets/`.
-  `@constructor-lab/tokens` is the source of truth either way — never
-  hand-edit generated output.
+- **Token output is committed.** The token builds write into `packages/tokens/`
+  whose generated files are **tracked** (CI fails if a token change isn't
+  re-generated + committed — see the drift gate in `ci.yml`).
+  `@constructor-lab/tokens` is the source of truth — never hand-edit generated
+  output.
 - **`--ui-*` naming.** The `name/ui` transform drops a leading `colors` tier
   segment and prefixes every token with `ui` (`colors.background.surface.primary`
   → `--ui-background-surface-primary`). Tokens partition into output files by
@@ -210,16 +174,6 @@ tool needs `@constructor-lab/design-assets` as a workspace dependency.
   properties (theme-invariant, not zipped into `light-dark()`) in the root semantic
   CSS, and route into the base Tailwind preset's `backgroundImage` — the routing is
   driven by the source `com.acronis.tailwindRoles` extension, not hardcoded.
-- **Assets: lossless resize + data-driven currentColor.** `scale` sets
-  width/height and preserves the viewBox; `stroke` sizes to target px via
-  `S·viewBoxLonger/renderedLonger`; `currentColor` is applied to **mono** styles
-  only — a style is mono when its effective `values` reference a `color`-kind rule
-  (`current-color`), not a hardcoded pack list (multi + illustrations keep exact
-  colors). The `icons` pack ships its styles as `assetsGroups`; the pipeline
-  expands each group into a flat manifest and resolves it. SVGO keeps the viewBox
-  and ids. The asset **build** skips a broken asset with a warning (so one upstream
-  defect doesn't sink it) while the **resolver** stays strict for tests — full
-  reasoning and the React dedup are in [`context/assets.md`](context/assets.md).
 
 ## Loading context
 
@@ -229,7 +183,6 @@ Before non-trivial work, read the matching file(s) in full.
 | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
 | The two stages, the source→mode mapping, the PD filter, how aliases are kept vs flattened                                                   | [`context/pipeline.md`](context/pipeline.md) |
 | The CSS contract — `light-dark()`, `rgb()` colors, `--ui-*` names, tier split, brand override diff, typography, gradients, Tailwind presets | [`context/output.md`](context/output.md)     |
-| The assets build — resolver/executor split, scale/stroke execution, currentColor, SVGO, React dedup + size/variant                          | [`context/assets.md`](context/assets.md)     |
 
 To understand the **input** shape (the UI Components library token divergences this tool
 consumes), read

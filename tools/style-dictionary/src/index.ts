@@ -1,72 +1,22 @@
-// CLI home. Parses the requested platform keys / filters / packs and dispatches to
-// the two build domains — tokens (`./tokens`) and assets (`./assets`) — in
-// dependency order (css reads dtcg). The shared platform-key axes and output
-// locations live in `./platforms`; all translation logic lives in those domains,
-// not here.
+// CLI home. Parses the requested platform keys / filters and dispatches to the
+// token build domain (`./tokens`) in dependency order (css reads dtcg). The
+// shared platform-key axes and output locations live in `./platforms`; all
+// translation logic lives in that domain, not here.
 //
 // A platform key is `${filter}-${output}`, the CLI selector. Usage:
-//   tsx src/index.ts                                                all filters, all outputs
-//   tsx src/index.ts pd-css                                         one platform (runs its dtcg dep first)
-//   tsx src/index.ts pd-assets web-assets --pack=icons-stroke-mono  one asset pack only
-//   tsx src/index.ts --filter=web                                   restrict to one filter
+//   tsx src/index.ts                 all filters, all outputs
+//   tsx src/index.ts pd-css          one platform (runs its dtcg dep first)
+//   tsx src/index.ts --filter=web    restrict to one filter
 
-import { existsSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
-import path from 'node:path';
-
-import {
-  type AssetFilter,
-  buildAssetsForFilter,
-  designAssetsAvailable,
-  listPackNames,
-} from './assets';
 import {
   ALL_FILTERS,
-  ASSETS_DIST,
   type Filter,
   filtersFor,
   type Output,
   OUTPUTS,
   type PlatformKey,
-  rel,
 } from './platforms';
 import { buildCss, buildDtcg } from './tokens';
-
-/** Enumerate the asset pack names (`packs/*.json` stems, = each pack's `name`). */
-const availablePacks = (): string[] =>
-  designAssetsAvailable() ? listPackNames() : [];
-
-// ── Assets dispatch ──────────────────────────────────────────────────────────
-// The asset build's source is @constructor-lab/design-assets (SVG packs), NOT the
-// design tokens — its own domain (`./assets`). This wrapper resets the filter's
-// deliverables on a full build and hands off. `packs` selects a subset (CI rebuilds
-// only the packs that changed); undefined = all packs (this filter's deliverables
-// are reset).
-
-function buildAssets(filter: Filter, packs?: string[]): void {
-  // The asset stage needs `@constructor-lab/design-assets` (an optional peer). When it
-  // isn't installed, skip with a warning rather than crash — the token outputs
-  // (dtcg/css) never depend on it, so `build` still produces the whole token kit.
-  if (!designAssetsAvailable()) {
-    console.warn(
-      '⚠ @constructor-lab/design-assets is not installed — skipping the asset build (tokens are unaffected).'
-    );
-    return;
-  }
-  if (!packs && existsSync(ASSETS_DIST)) {
-    for (const entry of readdirSync(ASSETS_DIST)) {
-      if (entry.startsWith(`${filter}-`)) {
-        rmSync(path.join(ASSETS_DIST, entry), { recursive: true, force: true });
-      }
-    }
-  }
-  mkdirSync(ASSETS_DIST, { recursive: true });
-  buildAssetsForFilter({
-    filter: filter as AssetFilter,
-    packs,
-    outDir: ASSETS_DIST,
-    log: (msg) => console.log(`✓ ${rel(ASSETS_DIST)}/${msg}`),
-  });
-}
 
 // ── CLI ────────────────────────────────────────────────────────────────────────
 
@@ -77,8 +27,8 @@ const validKeys = (): PlatformKey[] =>
   OUTPUTS.flatMap((o) => filtersFor(o).map((f): PlatformKey => `${f}-${o}`));
 
 function parseKey(key: string): Pair {
-  // Neither a filter (pd/web) nor an output (dtcg/css/assets) contains a dash,
-  // so the last dash is always the boundary between them.
+  // Neither a filter (pd/web) nor an output (dtcg/css) contains a dash, so the
+  // last dash is always the boundary between them.
   const dash = key.lastIndexOf('-');
   if (dash <= 0 || dash === key.length - 1) {
     throw new Error(
@@ -96,11 +46,10 @@ function parseKey(key: string): Pair {
 }
 
 interface ParsedArgs {
-  packs: string[] | undefined;
   pairs: Pair[];
 }
 
-/** Turn `process.argv` into the packs and build pairs to run. */
+/** Turn `process.argv` into the build pairs to run. */
 function parseArgs(args: string[]): ParsedArgs {
   const filterArg = args
     .find((a) => a.startsWith('--filter='))
@@ -112,22 +61,6 @@ function parseArgs(args: string[]): ParsedArgs {
   }
   const filters = filterArg ? [filterArg] : ALL_FILTERS;
 
-  const packArgs = args
-    .filter((a) => a.startsWith('--pack='))
-    .flatMap((a) => a.slice('--pack='.length).split(','))
-    .map((s) => s.trim())
-    .filter(Boolean);
-  const packs = packArgs.length ? packArgs : undefined;
-  if (packs) {
-    const known = availablePacks();
-    const unknown = packs.filter((p) => !known.includes(p));
-    if (unknown.length) {
-      throw new Error(
-        `Unknown pack(s): ${unknown.join(', ')}. Known: ${known.join(', ')}.`
-      );
-    }
-  }
-
   const requestedKeys = args.filter((a) => !a.startsWith('-'));
   const pairs = requestedKeys.length
     ? requestedKeys.map(parseKey).filter((p) => filters.includes(p.filter))
@@ -137,11 +70,11 @@ function parseArgs(args: string[]): ParsedArgs {
           .map((f): Pair => ({ filter: f, output: o }))
       );
 
-  return { packs, pairs };
+  return { pairs };
 }
 
 async function main(): Promise<void> {
-  const { packs, pairs } = parseArgs(process.argv.slice(2));
+  const { pairs } = parseArgs(process.argv.slice(2));
 
   // css reads the dtcg files, so build dtcg first for any filter needing it.
   const dtcgFilters = new Set<Filter>();
@@ -151,8 +84,6 @@ async function main(): Promise<void> {
   for (const filter of dtcgFilters) buildDtcg(filter);
   for (const { filter, output } of pairs)
     if (output === 'css') await buildCss(filter);
-  for (const { filter, output } of pairs)
-    if (output === 'assets') buildAssets(filter, packs);
 }
 
 main().catch((error: unknown) => {

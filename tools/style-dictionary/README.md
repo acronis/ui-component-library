@@ -15,27 +15,18 @@ pnpm --filter @constructor-lab/style-dictionary build
 
 ```
 dist/
-├── tokens/
-│   ├── pd-dtcg/                  # stage 1: 100%-DTCG JSON, one file per mode
-│   │   ├── primitives-light.json #   (Theme axis)
-│   │   ├── primitives-dark.json
-│   │   ├── semantic-acronis.json #   (Brand axis; aliases kept, not flattened)
-│   │   ├── semantic-brand-b.json
-│   │   ├── components-acronis.json
-│   │   └── components-brand-b.json
-│   └── pd-css/                   # stage 2: per-brand CSS custom properties
-│       ├── acronis.css
-│       └── brand-b.css
-└── assets/                       # design-assets → optimized SVG + React, one dir per deliverable
-    ├── pd-concept-pack-svg/      #   <asset>-<size>.svg            + manifest.json
-    ├── pd-concept-pack-react/    #   <asset>.tsx + index.ts        + manifest.json
-    ├── pd-icons-svg/             #   <style>/<asset>-<size>.svg    + manifest.json   (4 icon packs merged)
-    ├── pd-icons-react/           #   <asset>.tsx + index.ts        + manifest.json   (variant = style)
-    └── web-illustrations-svg/    #   <asset>-<size>.svg            + manifest.json   (SVG-only)
+└── tokens/
+    ├── pd-dtcg/                  # stage 1: 100%-DTCG JSON, one file per mode
+    │   ├── primitives-light.json #   (Theme axis)
+    │   ├── primitives-dark.json
+    │   ├── semantic-acronis.json #   (Brand axis; aliases kept, not flattened)
+    │   ├── semantic-brand-b.json
+    │   ├── components-acronis.json
+    │   └── components-brand-b.json
+    └── pd-css/                   # stage 2: per-brand CSS custom properties
+        ├── acronis.css
+        └── brand-b.css
 ```
-
-Each deliverable is a self-contained platform directory (`<filter>-<group>-<format>`);
-the group manifest is duplicated into each so every dir stands alone.
 
 Each CSS file is a single `:root` block using the modern `light-dark()` +
 `color-scheme` pattern, with path-derived variable names (no prefix), `rgb()`
@@ -75,40 +66,25 @@ mapping and [`context/output.md`](context/output.md) for the CSS contract:
 2. **Resolve & format** each brand against both themes, zipping colors into
    `light-dark()` and writing the CSS.
 
-A separate **assets** build (`pd-assets` / `web-assets`) turns
-[`@constructor-lab/design-assets`](../../packages/design-assets) packs into
-optimized SVG files and React components — see [`context/assets.md`](context/assets.md).
-It resolves each pack per the package's `spec.md` (the resolver), then executes
-the scale/stroke rules and a currentColor pass on the SVGs (the executor the spec
-leaves open), optimizes with SVGO, and generates one React component per asset
-(`variant` = style for the merged icons, `size` = the manifest sizes). Mono icons
-become `currentColor`; multi-color icons and illustrations keep their exact colors.
-
 ## Scripts
 
-| Script                | Does                                                                 |
-| --------------------- | -------------------------------------------------------------------- |
-| `build`               | all platforms: `pd-dtcg` → `pd-css`, plus `pd-assets` / `web-assets` |
-| `clean`               | remove `dist/`                                                       |
-| `lint` / `typecheck`  | eslint / `tsc --noEmit`                                              |
-| `test` / `test:watch` | `vitest` — resolver (R1–R16), executor, codegen, and SVGO specs      |
-| `dev`                 | no-op (run `build`)                                                  |
+| Script                | Does                                                 |
+| --------------------- | ---------------------------------------------------- |
+| `build`               | all platforms: `pd-dtcg` → `pd-css`                  |
+| `clean`               | remove `dist/`                                       |
+| `lint` / `typecheck`  | eslint / `tsc --noEmit`                              |
+| `test` / `test:watch` | `vitest` — token normalization + CSS rendering specs |
+| `dev`                 | no-op (run `build`)                                  |
 
 ### Targeted builds
 
 Each output is a platform key, `<filter>-<output>`. `filter` maps to the
-`platforms` enum: tokens are `pd` today; assets span `pd` (icons, concept-pack)
-and `web` (illustrations). Pass keys to build a subset:
+`platforms` enum: tokens are `pd` today. Pass keys to build a subset:
 
 ```bash
 pnpm build                                       # everything (default)
 pnpm build pd-css                                # just pd-css (runs its pd-dtcg dependency first)
-pnpm build pd-assets web-assets --pack=icons-stroke-mono   # only that pack's assets
-pnpm build -- --filter=web                       # restrict to one filter (web-assets only)
+pnpm build -- --filter=pd                        # restrict to one filter
 ```
 
-The `--pack` selector exists so CI can rebuild only the asset packs that changed
-(a pack emits if it belongs to a requested platform key); tokens always build
-together. A full asset build (no `--pack`) resets the filter's dist dir.
-
-Requires **Node ≥ 22** (Style Dictionary v5).
+Tokens always build together. Requires **Node ≥ 22** (Style Dictionary v5).

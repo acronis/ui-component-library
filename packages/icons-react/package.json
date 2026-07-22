@@ -43,8 +43,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "generate": "tsx scripts/generate-icons.ts && tsx scripts/generate-legacy-map.ts",
-    "generate:legacy-map": "tsx scripts/generate-legacy-map.ts",
+    "generate": "tsx scripts/generate-icons.ts",
     "build": "pnpm run generate && vite build -c vite.lib.config.ts",
     "dev": "pnpm run generate && vite build -c vite.lib.config.ts --watch",
     "clean": "rm -rf dist storybook-static node_modules/.vite src/packs *.tsbuildinfo",

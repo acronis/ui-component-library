@@ -91,8 +91,7 @@ jobs:
       # (generated sources + dist/ are gitignored). Build that package (and its
       # own prerequisites) before Storybook so imports resolve. Avoid broad
       # ui-react recursive builds here: they also pull in tokens/style-dictionary,
-      # which is unrelated to visual snapshots and can fail on in-flight
-      # design-assets schema migrations.
+      # which is unrelated to visual snapshots.
       - name: Build workspace dependencies
         if: matrix.name == 'ui-react' && steps.changes.outputs[matrix.name] == 'true'
         run: pnpm --filter @constructor-lab/icons-react... run build

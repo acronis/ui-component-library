@@ -17,20 +17,18 @@ The repo is organized into four top-level directories: `context/` (shared docs),
 `apps/` (deployed apps, private), `packages/` (published libraries + data), and
 `tools/` (private build tooling).
 
-| Path                          | Package                                 | Published | Role                                                                         |
-| ----------------------------- | --------------------------------------- | --------- | ---------------------------------------------------------------------------- |
-| `packages/ui-react/`          | `@constructor-lab/ui-react`             | **yes**   | React component library on **Base UI**, themed by `tokens`.                  |
-| `packages/icons-react/`       | `@constructor-lab/icons-react`          | **yes**   | React icon components generated from `design-assets` (tree-shakeable).       |
-| `packages/icons-svg/`         | `@constructor-lab/icons-svg`            | no        | Raw SVG sources for the next-gen icon set (source-only).                     |
-| `packages/tokens/`            | `@constructor-lab/tokens`               | **yes**   | DTCG-2025.10 design tokens (primitives / semantics / components). Data only. |
-| `packages/design-assets/`     | `@constructor-lab/design-assets`        | **yes**   | Icon/illustration manifests + bundled binaries. Data only.                   |
-| `packages/tokens/`            | `@constructor-lab/tokens`               | **yes**   | Generated per-brand CSS vars, per-component CSS, Tailwind presets, DTCG.     |
-| `apps/demo/`                  | `@constructor-lab/ui-kit-demo`          | no        | Vite SPA showcasing components with live theme switching.                    |
-| `apps/docs/`                  | `@constructor-lab/uikit-docs`           | no        | Next.js 15 + Fumadocs documentation site.                                    |
-| `apps/demos/`                 | `@constructor-lab/ui-kit-demos`         | no        | Shared demo components (source-only, no build).                              |
-| `tools/style-dictionary/`     | `@constructor-lab/style-dictionary`     | no        | Style Dictionary v5 build: `tokens` → `tokens` CSS/presets.                  |
-| `tools/figma-icons-fetcher/`  | `@constructor-lab/figma-icons-fetcher`  | no        | Fetches + SVGO-optimizes icons from Figma into the `icons-svg*` packages.    |
-| `tools/figma-token-exporter/` | `@constructor-lab/figma-token-exporter` | no        | Self-hosted Figma plugin + receiver that exports variables/styles to tokens. |
+| Path                          | Package                                 | Published | Role                                                                                |
+| ----------------------------- | --------------------------------------- | --------- | ----------------------------------------------------------------------------------- |
+| `packages/ui-react/`          | `@constructor-lab/ui-react`             | **yes**   | React component library on **Base UI**, themed by `tokens`.                         |
+| `packages/icons-react/`       | `@constructor-lab/icons-react`          | **yes**   | React icon components generated from `@constructor-lab/icons-svg` (tree-shakeable). |
+| `packages/icons-svg/`         | `@constructor-lab/icons-svg`            | no        | Raw SVG sources for the next-gen icon set (source-only).                            |
+| `packages/tokens/`            | `@constructor-lab/tokens`               | **yes**   | DTCG-2025.10 source tiers + generated (committed) CSS/SCSS/JS + Tailwind bridge.    |
+| `apps/demo/`                  | `@constructor-lab/ui-kit-demo`          | no        | Vite SPA showcasing components with live theme switching.                           |
+| `apps/docs/`                  | `@constructor-lab/uikit-docs`           | no        | Next.js 15 + Fumadocs documentation site.                                           |
+| `apps/demos/`                 | `@constructor-lab/ui-kit-demos`         | no        | Shared demo components (source-only, no build).                                     |
+| `tools/style-dictionary/`     | `@constructor-lab/style-dictionary`     | no        | Style Dictionary v5 build: `tokens` → `tokens` CSS/presets.                         |
+| `tools/figma-icons-fetcher/`  | `@constructor-lab/figma-icons-fetcher`  | no        | Fetches + SVGO-optimizes icons from Figma into the `icons-svg*` packages.           |
+| `tools/figma-token-exporter/` | `@constructor-lab/figma-token-exporter` | no        | Self-hosted Figma plugin + receiver that exports variables/styles to tokens.        |
 
 See [`AGENTS.md`](./AGENTS.md) for the authoritative workspace map and the
 per-workspace `AGENTS.md` files for area-specific conventions.
@@ -227,9 +225,7 @@ uikit/
 │   ├── ui-react/               # Base UI library    (@constructor-lab/ui-react)
 │   ├── icons-react/            # React icons        (@constructor-lab/icons-react)
 │   ├── icons-svg/              # Raw SVG sources    (@constructor-lab/icons-svg)
-│   ├── tokens/          # DTCG tokens (data) (@constructor-lab/tokens)
-│   ├── design-assets/          # Asset manifests    (@constructor-lab/design-assets)
-│   └── tokens/              # Generated CSS/Tailwind (@constructor-lab/tokens)
+│   └── tokens/                 # Design tokens      (@constructor-lab/tokens)
 ├── tools/                      # Private build tooling
 │   ├── style-dictionary/       # tokens → tokens CSS/presets
 │   ├── figma-icons-fetcher/    # Figma → icons-svg* SVG fetcher

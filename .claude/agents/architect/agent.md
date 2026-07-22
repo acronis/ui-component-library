@@ -23,8 +23,8 @@ Tailwind v4. Monorepo managed with pnpm workspaces + Changesets. No Vue.
 **Workspace boundaries** (a frequent design axis here):
 
 - `packages/ui-react` — **Base UI** implementation, the library. No Radix.
-- `packages/icons-react` — **generated** from `design-assets`; design the
-  generator, not the output.
+- `packages/icons-react` — **generated** from `@constructor-lab/icons-svg`; design
+  the generator, not the output.
 - `packages/tokens` → consuming libraries — the theming pipeline. Token
   decisions belong upstream, not in components.
 

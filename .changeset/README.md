@@ -23,10 +23,7 @@ Published workspaces are:
 
 - `@constructor-lab/ui-react`
 - `@constructor-lab/icons-react`
-- `@constructor-lab/icons-svg`
 - `@constructor-lab/tokens`
-- `@constructor-lab/tokens`
-- `@constructor-lab/design-assets`
 
 The apps in `apps/*` are listed as ignored in `config.json`, so changesets
 won't try to publish them or insist on bumps for app-only changes.

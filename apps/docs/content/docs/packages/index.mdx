@@ -22,8 +22,6 @@ packages:
   DTCG intermediate).
 - `@constructor-lab/icons-react` is generated from the `@constructor-lab/icons-svg` SVG
   sources by the icon generator (tree-shakeable React components).
-- `@constructor-lab/design-assets` ships icon / illustration JSON manifests + bundled
-  binaries (an optional data package).
 
 Finally, `@constructor-lab/ui-react` consumes `@constructor-lab/tokens` for theming and
 `@constructor-lab/icons-react` for composed icons.
@@ -40,7 +38,6 @@ icons-svg ─►  icon generator          ─►  icons-react ──────
 | -------------------------------- | --------------------------------------------------------- | --------- |
 | `@constructor-lab/tokens`        | DTCG source tiers + generated CSS/SCSS/JS (`--ui-*` vars) | yes       |
 | `@constructor-lab/icons-react`   | React icon components, per-pack subpath exports           | yes       |
-| `@constructor-lab/design-assets` | Icon / illustration JSON manifests + bundled binaries     | yes       |
 
 <Callout type="info">
   The source SVG packages (`icons-svg`, `icons-svg`), the tooling under
