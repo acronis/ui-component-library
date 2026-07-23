@@ -20,6 +20,7 @@ dist
 **/.claude/settings.local.json
 **/.claude/plans/
 .playwright-mcp
+.pnpm-store
 
 # Debug
 npm-debug.log*
