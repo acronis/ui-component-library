@@ -1,13 +1,6 @@
 {
   "name": "ui-kit",
   "version": "1.0.0",
-  "workspaces": [
-    "packages/configs",
-    "packages/documentation",
-    "packages/icons",
-    "packages/ui",
-    "packages/utils"
-  ],
   "description": "The Acronis UI Component Library is a UI component library for Web applications and Web-based Desktop applications based on Vue.js v3",
   "scripts": {
     "husky": "pnpm run lint-staged && pnpm run lint:ts",
@@ -17,8 +10,12 @@
     "lint:ts": "pnpm run -r lint:ts",
     "prepare": "husky",
     "build": "pnpm -r build",
-    "test": "pnpm -r test -- --watch=false",
-    "release": "pnpm run release --workspaces"
+    "test": "pnpm -r test -- --watch=false"
+  },
+  "lint-staged": {
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   },
   "engines": {
     "node": ">=22.0.0"
@@ -34,6 +31,7 @@
     "config": "3.3.11",
     "husky": "9.0.11",
     "lint-staged": "13.2.3",
+    "prettier": "3.2.5",
     "vite": "5.4.21",
     "vite-plugin-dts": "3.8.3"
   },

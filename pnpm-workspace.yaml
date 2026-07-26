@@ -1,2 +1,19 @@
 packages:
+  # Active component libraries. Vue 3 lives in packages/ui-vue today; the React
+  # library will sit alongside it under the same glob.
   - 'packages/*'
+
+  # Shared build/lint infrastructure that the active packages depend on via
+  # workspace:*. It was swept under legacy/ during the restructure, but it is
+  # not dead code — omitting it makes `pnpm install` unresolvable. Follow-up:
+  # graduate these back into packages/ (or tools/) so both the Vue and React
+  # libraries consume them from a non-legacy path.
+  - 'legacy/browserslist-config'
+  - 'legacy/configs'
+  - 'legacy/figma-fetcher'
+  - 'legacy/icons'
+
+  # Deliberately NOT globbed as legacy/*: documentation, examples, dev-server,
+  # figma-tokens and figma-ds-vue-plugin are parked. Keeping them out of the
+  # workspace avoids installing their stale dependency trees and keeps
+  # `pnpm -r <script>` scoped to code we still ship.
