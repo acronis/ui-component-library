@@ -30,3 +30,4 @@ yarn-error.log*
 # ENV
 .env.local
 /packages/configs/.env
+.env
