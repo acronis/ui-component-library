@@ -1,0 +1,13 @@
+spec_version: '1.0'
+component: Histogram
+name: histogram
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  A typed histogram over the shared `Chart` primitives. Buckets a flat numeric
+  distribution (`data`) into equal-width bins and plots the count per bin as
+  touching bars. No variant axes — its expressiveness is the binning (`bins`) and
+  the data. The single count series binds to the theme-invariant `--ui-chart-*`
+  palette; the axes/grid/tooltip are semantic.
+since: 2.4.0

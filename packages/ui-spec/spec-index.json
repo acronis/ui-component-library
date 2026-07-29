@@ -361,6 +361,14 @@
       "since": "0.51.0"
     },
     {
+      "name": "histogram",
+      "component": "Histogram",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "input-date-picker",
       "component": "InputDatePicker",
       "category": "forms",

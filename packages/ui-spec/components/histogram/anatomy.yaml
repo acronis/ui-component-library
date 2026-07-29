@@ -1,0 +1,55 @@
+spec_version: '1.0'
+component: Histogram
+
+schematic: |
+  root: <div>                                        (sizing wrapper)
+    container: <ChartContainer>                      (themed, sized, responsive)
+      plot: recharts <BarChart> over the binned data
+        grid:  <CartesianGrid>                       (horizontal rules, when showGrid)
+        xAxis: <XAxis dataKey="bin">                 (the bucket range labels)
+        yAxis: <YAxis>                               (the count axis)
+        bars:  <Bar dataKey=seriesKey>               (touching count bars)
+        tooltip: <ChartTooltip> → tooltip-content    (hover card of the bucket)
+
+root:
+  element: div
+  description: >-
+    The sizing wrapper. Histogram has no variant axis — it buckets the `data`
+    distribution into equal-width bins and renders the shared `ChartContainer`
+    around a recharts `BarChart` of the per-bucket counts.
+
+parts:
+  - id: container
+    element: div
+    description: >-
+      The shared `ChartContainer` — supplies the `--color-<seriesKey>` custom
+      property from `config` and themes recharts' internals.
+  - id: plot
+    element: svg
+    description: The recharts `BarChart` holding the count bars and their chrome.
+  - id: grid
+    element: g
+    description: Horizontal `CartesianGrid` rules. Rendered when `showGrid`.
+  - id: bars
+    element: g
+    description: >-
+      One `Bar` per bucket (touching, `barCategoryGap=0`), filled from the
+      series' `--color-<seriesKey>` var — a histogram reads as a continuous
+      distribution, so the bars abut.
+  - id: tooltip-content
+    element: div
+    description: >-
+      `ChartTooltipContent` — hover card with the hovered bucket's range and
+      count. Rendered when `showTooltip`.
+
+states:
+  - id: binning
+    trigger: the bins prop sets how many equal-width buckets the data is split into
+    kind: prop
+    prop: bins
+    affects: [bars]
+  - id: grid
+    trigger: the showGrid prop toggles the horizontal grid rules
+    kind: prop
+    prop: showGrid
+    affects: [grid]

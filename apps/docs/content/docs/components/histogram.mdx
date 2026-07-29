@@ -1,0 +1,83 @@
+---
+title: Histogram
+description: A typed histogram for showing the shape of a numeric distribution.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { HistogramDemo } from '@/components/demos-react/histogram';
+
+## Usage
+
+```tsx
+import { Histogram } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`Histogram` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it a flat numeric `data` distribution, a single-series `config`,
+and a bucket count (`bins`) — it buckets the values into equal-width bins and
+renders a themed recharts bar chart of the per-bin counts (touching bars, axes,
+and tooltip included), so you don't bin the data or hand-compose recharts
+children.
+
+> **Design-pending v1.** The example color binds to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant. The chrome is
+> reconciled with Figma later.
+
+## Examples
+
+<DemoReact>
+  <HistogramDemo />
+</DemoReact>
+
+A distribution of response times bucketed into 10 bins:
+
+```tsx
+const values = [12, 18, 22, 25, 28, 31, 34, 36, 38, 40, 42, 45, 50, 58, 72, 95];
+
+const config = {
+  count: { label: 'Requests', color: 'var(--ui-chart-1)' },
+} satisfies ChartConfig;
+
+<Histogram
+  config={config}
+  data={values}
+  bins={10}
+  className="h-[340px] w-[520px]"
+/>;
+```
+
+`Histogram` has no variant axis — its expressiveness is the binning. Use fewer,
+wider buckets with `bins`, name the axes with `xAxisLabel` / `yAxisLabel`, and
+toggle the chrome with `showGrid` / `showTooltip`:
+
+```tsx
+<Histogram config={config} data={values} bins={5} yAxisLabel="Requests" />;
+```
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { Histogram, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<Histogram
+  config={config}
+  data={values}
+  tooltipContent={
+    <ChartTooltipContent
+      labelFormatter={(label) => `${label} ms`}
+      formatter={(value) => `${value} requests`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/histogram/histogram.tsx"
+  name="HistogramProps"
+/>

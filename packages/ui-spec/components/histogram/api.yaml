@@ -1,0 +1,88 @@
+spec_version: '1.0'
+component: Histogram
+
+# Framework-agnostic contract. Histogram has NO cva variant axis — its
+# expressiveness is the binning + the data, so there is nothing for the cva
+# conformance check to compare. `data` is a flat numeric distribution; `config`
+# colors the single count series; the rest tune the binning and chrome.
+contract:
+  properties:
+    - name: data
+      type: ReadonlyArray<number>
+      required: true
+      description: The flat numeric distribution to bucket.
+    - name: config
+      type: ChartConfig
+      required: true
+      description: >-
+        Single-series map of label / color, keyed by `seriesKey` (from the
+        shared Chart primitives). Turned into a `--color-<seriesKey>` custom
+        property. The color is caller-supplied.
+    - name: seriesKey
+      type: string
+      required: false
+      default: "'count'"
+      description: Config key naming the count series (drives the bar color + tooltip).
+    - name: bins
+      type: number
+      required: false
+      default: '10'
+      description: Number of equal-width buckets.
+    - name: xAxisLabel
+      type: string
+      required: false
+      description: Title rendered beneath the X axis.
+    - name: yAxisLabel
+      type: string
+      required: false
+      description: Title rendered beside the Y (count) axis.
+    - name: barRadius
+      type: number
+      required: false
+      default: '2'
+      description: Corner radius on the top of each bar.
+    - name: showGrid
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the horizontal grid rules.
+    - name: showTooltip
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the hover tooltip.
+    - name: tooltipContent
+      type: 'ReactElement | ((props) => ReactNode)'
+      required: false
+      description: >-
+        Replace the default tooltip. Pass a configured ChartTooltipContent (from
+        this library) — e.g. with a formatter / labelFormatter — to customize the
+        tooltip content without composing recharts. Ignored when showTooltip is
+        false.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: Histogram
+    status: implemented
+    import: "import { Histogram } from '@constructor-lab/ui-react'"
+    example: |
+      <Histogram
+        config={config}
+        data={values}
+        bins={10}
+        className="h-[340px] w-[520px]"
+      />
+  vue:
+    component: AvHistogram
+    status: planned
+    import: "import { AvHistogram } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvHistogram :config="config" :data="values" :bins="10" />
+  web-components:
+    element: ui-histogram
+    status: planned
+    import: "import '@constructor-lab/ui-wc/histogram'"
+    example: |
+      <ui-histogram></ui-histogram>

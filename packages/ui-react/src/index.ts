@@ -60,6 +60,7 @@ export * from './components/ui/grid';
 export * from './components/ui/form';
 export * from './components/ui/form-layout';
 export * from './components/ui/funnel-chart';
+export * from './components/ui/histogram';
 export * from './components/ui/radar-chart';
 export * from './components/ui/radial-bar-chart';
 export * from './components/ui/radio';
