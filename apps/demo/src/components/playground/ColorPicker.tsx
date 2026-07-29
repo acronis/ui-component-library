@@ -142,7 +142,10 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
           <TabsContent value="hsl" className="space-y-3 mt-3">
             <div className="grid grid-cols-4 gap-2">
               <div className="space-y-1">
-                <Label htmlFor={ids.h} className="text-xs text-muted-foreground">
+                <Label
+                  htmlFor={ids.h}
+                  className="text-xs text-muted-foreground"
+                >
                   H
                 </Label>
                 <Input
@@ -156,7 +159,10 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                 />
               </div>
               <div className="space-y-1">
-                <Label htmlFor={ids.s} className="text-xs text-muted-foreground">
+                <Label
+                  htmlFor={ids.s}
+                  className="text-xs text-muted-foreground"
+                >
                   S
                 </Label>
                 <Input
@@ -170,7 +176,10 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                 />
               </div>
               <div className="space-y-1">
-                <Label htmlFor={ids.l} className="text-xs text-muted-foreground">
+                <Label
+                  htmlFor={ids.l}
+                  className="text-xs text-muted-foreground"
+                >
                   L
                 </Label>
                 <Input

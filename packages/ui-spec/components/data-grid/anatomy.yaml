@@ -2,32 +2,59 @@ spec_version: '1.0'
 component: DataGrid
 
 schematic: |
-  toolbar:   [ search input ] [ Reset ✕ ]            [ ⚙ View ▾ ]   (optional)
-  table: <div> rounded border wrapper
+  DataGrid (grouped configs normalize to one DataTable controller)
+  toolbar: Toolbar + InputSearch / Filter controls + ButtonGroup actions
+    column-settings: Menu/Popover controls for visibility, pin, size, order
+    bulk-actions: contextual ButtonGroup for selected rows
+  table: DataTableView
     row (header):  column titles (sort affordance comes from the column defs)
-    selection-column: leading checkbox column (optional; select-all in header)
-    row:           data row (selectable → tinted; clickable when onRowClick set)
-    skeleton:      placeholder rows while state="loading"
-    empty-state:   emptyMessage row when there are no rows
-  pagination: "N of M selected"  [Rows per page ▾]  Page X of Y  ⏮ ◀ ▶ ⏭  (optional)
+    selection-column: leading checkbox; detail and actions are the other system columns
+    # Not an order — `actions` placement is a runtime config. The tree disclosure is
+    # NOT a system column: it is in-cell on the tree column, because indentation and
+    # disclosure must move together and a fixed leading column cannot indent.
+    data rows: flat / detail / tree / group / virtual presentation
+    skeleton: initial loading placeholders
+    empty-state: successful zero rows
+    error-state: request failure and retry
+    detail-expander: controls detail-row
+    detail-row: projected detail content
+    tree-expander: controls tree-children
+    tree-children: descendant data rows
+    group-row: grouped header / aggregate
+    footer: summaries
+    row-actions: Button/ButtonIcon/Menu controls
+  pagination: Pagination + Select controls
+  live-region: composed announcement surface
 
 root:
   element: div
   description: >-
-    The grid container (a vertical flex stack). Owns a TanStack table instance
-    internally and manages sorting / filtering / column-visibility / row-selection
-    state, then renders the toolbar, the bordered table, and the pagination footer
-    around it.
+    The grid normalizes configs into one DataTable controller, consumes its
+    render contexts, and composes standard UI from existing UIKit primitives.
+    It never creates a second state engine or exposes private chrome as public
+    DataTable companions.
 
 parts:
   - id: toolbar
     element: div
     description: >-
-      Optional DataTableToolbar — a client-side search box (wired to `searchKey`),
-      a Reset button when filtered, and the column-visibility view-options menu.
-      Rendered when `toolbar` or `searchKey` is set.
+      DataGrid-owned standard Toolbar composed from Toolbar, InputSearch,
+      Filter/Input*/Select/Combobox, Chip, Popover, Button and ButtonGroup.
+      It consumes DataTable state/actions but is not a public DataTable companion.
     optional: true
-    visible_when: toolbar or searchKey is set
+    visible_when: built-in chrome and an enabled toolbar member
+  - id: column-settings
+    element: div
+    description: >-
+      DataGrid-owned Menu/Popover UI for visibility, pinning, sizing, reordering
+      and reset; consumes DataTable column state/actions.
+    optional: true
+  - id: bulk-actions
+    element: div
+    description: >-
+      Contextual ButtonGroup configured by toolbar.bulkActions; requires
+      multiple selection and consumes the shared selection model.
+    optional: true
   - id: table
     element: table
     description: The table grid (Table / TableHeader / TableBody / rows / cells).
@@ -35,8 +62,8 @@ parts:
     element: td
     description: >-
       Optional leading checkbox column. The header checkbox selects/clears the
-      whole page (indeterminate when partially selected); each row checkbox
-      toggles that row.
+      configured eligible scope (indeterminate when partially selected); each
+      row Checkbox toggles that row.
     optional: true
     visible_when: selectable is set
   - id: row
@@ -44,55 +71,124 @@ parts:
     description: A data row; selectable (tinted when selected) and clickable when `onRowClick` is set.
   - id: skeleton
     element: tr
-    description: Placeholder rows rendered while `state="loading"`.
+    description: DataGrid-owned Skeleton/Spinner presentation for loading metadata.
     optional: true
     visible_when: state is "loading"
   - id: empty-state
     element: tr
-    description: A single row showing `emptyMessage` when there are no rows.
+    description: DataGrid-owned Empty presentation for successful zero-row metadata.
     optional: true
     visible_when: no rows (or state is "empty")
   - id: pagination
     element: div
     description: >-
-      Optional DataTablePagination — selection count, rows-per-page select, the
-      page indicator, and first / prev / next / last controls. Rendered when
-      `pagination` is set.
+      DataGrid-owned Pagination, Select and Button/ButtonIcon controls consuming
+      DataTable pagination state/actions.
     optional: true
     visible_when: pagination is set
+  - id: error-state
+    element: tr
+    description: DataGrid-owned Alert plus Button retry UI for error metadata/action intent.
+    optional: true
+  - id: detail-expander
+    element: button
+    description: >-
+      DataGrid-owned ButtonIcon/Collapsible detail disclosure. `aria-expanded` reflects only
+      state.detailExpanded. While mounted, `aria-controls` is
+      `${tableId}--detail--${base64url(utf8(rowId))}`; otherwise it is omitted.
+    optional: true
+  - id: detail-row
+    element: tr
+    description: >-
+      Target P1 projected detail content beneath its owning record. It has the
+      `${tableId}--detail--${base64url(utf8(rowId))}` target referenced by the
+      detail-expander and is not a tree child.
+    optional: true
+  - id: tree-expander
+    element: button
+    description: >-
+      DataGrid-owned ButtonIcon/Collapsible disclosure with Spinner/Alert retry.
+      `aria-expanded` reflects only state.treeExpanded, including lazy loading.
+      No `aria-controls`: a tree parent discloses a VARIABLE set of sibling rows,
+      and several <tr> elements cannot share one id. Detail expansion differs —
+      it controls exactly one projected row, so it does emit `aria-controls`.
+      Rendered IN-CELL on the tree column, not in a column of its own.
+    optional: true
+  - id: tree-children
+    element: tr
+    description: >-
+      Target P1 descendant data rows for one tree parent. They are ordinary record
+      rows at depth > 0, NOT a single addressable region — which is why the
+      tree-expander emits no `aria-controls`. Not detail content.
+    optional: true
+  - id: group-row
+    element: tr
+    description: Target P1 collapsible/sticky group header and aggregate.
+    optional: true
+  - id: footer
+    element: tfoot
+    description: Target P1 summary values or custom renderer.
+    optional: true
+  - id: row-actions
+    element: div
+    description: >-
+      DataGrid-owned Button/ButtonIcon/Menu action controls; async/destructive
+      overlays use Dialog/Popover as configured and stop row propagation.
+    optional: true
+  - id: live-region
+    element: div
+    description: >-
+      DataGrid-owned polite announcements for query/data state, selection,
+      lazy load, sort priority and column movement.
+    optional: true
 
-# DataGrid owns the client-side table state (sorting, filtering, column
-# visibility, row selection). The visible internal state is row selection, driven
-# by the selection column; the rest surface through the column defs / toolbar.
+# Target state lives exclusively in the normalized DataTable controller.
 internal_state:
-  - id: rowSelection
-    type: 'Record<string, boolean>'
-    initial: '{}'
-    changed_by: toggling the header select-all or a row's selection checkbox
-    description: Which rows are selected; drives the selected-row tint and the pagination count.
+  - id: dataTableController
+    type: 'DataTableController<Row, RowId>'
+    initial: normalized grouped configs and controlled/default values
+    changed_by: DataTable actions or controlled owner updates
+    description: >-
+      Target P0/P1 single source for every enabled state slice. Current React
+      DataGrid has a smaller private instance until the P0 rebuild lands.
 
 states:
   - id: loading
-    trigger: 'state === "loading"'
+    trigger: 'dataState.status === "loading" (target P0)'
     kind: prop
-    prop: state
+    prop: dataState
     affects: [skeleton]
   - id: empty
-    trigger: 'state === "empty", or rows is empty'
+    trigger: 'dataState.status === "empty" (target P0)'
     kind: prop
-    prop: state
+    prop: dataState
     affects: [empty-state]
   - id: selectable
-    trigger: selectable is set
+    trigger: selection is configured
     kind: prop
-    prop: selectable
+    prop: selection
     affects: [selection-column, row]
   - id: striped
-    trigger: striped is set
+    trigger: appearance.striped is true
     kind: prop
-    prop: striped
+    prop: appearance
     affects: [row]
   - id: selected
     trigger: a row's selection checkbox is checked
     kind: internal
     affects: [row, selection-column]
+  - id: error
+    trigger: 'dataState.status === "error" (target P0)'
+    kind: prop
+    prop: dataState
+    affects: [error-state]
+  - id: detail-expanded
+    trigger: detailExpansion is enabled and state.detailExpanded contains the row ID (target P1)
+    kind: prop
+    prop: detailExpansion
+    affects: [detail-expander, detail-row, row]
+  - id: tree-expanded
+    trigger: tree is enabled and state.treeExpanded contains the row ID (target P1)
+    kind: prop
+    prop: tree
+    affects: [tree-expander, tree-children, row]

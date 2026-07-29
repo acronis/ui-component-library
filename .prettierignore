@@ -25,3 +25,31 @@ tools/token-emit/__tests__/fixtures/*.golden.json
 # `generate` script from @constructor-lab/icons-svg. Regenerated on every build/typecheck,
 # so Prettier can never keep them formatted — leave them to the generator.
 packages/icons-react/src/packs
+
+# Team records, tracked deliberately as OTHER PEOPLE'S WORK — several by operators who
+# have since left the branch. `5c4bc461` force-added them "verbatim and unedited", and
+# `.ai/.../F3-baseline-predictions.md` is the visual-regression gate's own instrument:
+# a prediction is only worth anything if it is provably the one that was registered
+# before the run.
+#
+# Prettier must not touch them. `pnpm format` was observed rewriting the registry
+# during the format-debt sweep, which would have committed a formatter's edits to
+# another operator's record under this operator's name — the same silent-attribution
+# problem as the two commit incidents, arriving through a tool nobody suspects.
+#
+# An entry rather than a habit because the habit has to hold for every operator on
+# every run, and the cost of one miss is a rewritten record that reads as authored.
+.ai
+
+# `@ts-expect-error` is LINE-SCOPED, so line breaks in this file are load-bearing.
+# Every directive in it is an assertion in both directions (the file says so at its
+# head): it fails the build if its line stops erroring, so it cannot rot into a
+# comment. Prettier re-wraps the single-line JSX into a multi-line element, which
+# moves the offending prop several lines away from the directive above it — one
+# assertion broke loudly (`TS2322` on `selection={{ mode: 'multiple' }}`), and the
+# rest are one re-wrap away from silently suppressing a DIFFERENT error than the one
+# they name, which no test would catch.
+#
+# Same class as the golden fixtures above: the tool's output is correct and the
+# file's meaning still depends on its layout.
+packages/ui-react/src/components/ui/data-grid/__tests__/props-identity-rule.types.test.tsx

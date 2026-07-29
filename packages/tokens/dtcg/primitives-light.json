@@ -5280,9 +5280,9 @@
         "$value": {
           "colorSpace": "hsl",
           "components": [
-            0,
-            0,
-            100
+            300,
+            80,
+            98.04
           ]
         }
       },
@@ -6111,7 +6111,7 @@
       }
     },
     "size": {
-      "7": {
+      "6": {
         "$extensions": {
           "com.figma.scopes": [
             "WIDTH_HEIGHT",
@@ -6122,7 +6122,7 @@
         "$type": "dimension",
         "$value": {
           "unit": "px",
-          "value": 7
+          "value": 6
         }
       },
       "8": {
@@ -6361,6 +6361,20 @@
         "$value": {
           "unit": "px",
           "value": 320
+        }
+      },
+      "384": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT",
+            "FONT_VARIATIONS"
+          ],
+          "com.figma.variableId": "VariableID:7329:25279"
+        },
+        "$type": "dimension",
+        "$value": {
+          "unit": "px",
+          "value": 384
         }
       },
       "512": {

@@ -5,20 +5,37 @@ status: draft
 category: data-display
 layer: composite
 description: >-
-  The batteries-included data grid: `<DataGrid columns rows />`. A config-driven
-  composite over TanStack react-table v8 that assembles the whole approved grid
-  layout — an optional toolbar (search + column visibility), the table, an
-  optional selection column, loading / empty states, and optional pagination —
-  in one component, so every grid in the app reads the same way. Built on the
-  Table primitive and the DataTable companion parts; drop down to those for
-  anything it cannot express.
+  The sole batteries-included table composite. It normalizes its simple grouped
+  config into one DataTable controller, then exclusively composes standard
+  toolbar/search/filter, selection, column settings, data states, actions,
+  menus/overlays, expansion/group controls, tooltips, live regions and
+  pagination from existing UIKit primitives. DataTable remains its headless
+  engine and Table its semantic presentation base; no parallel public
+  DataTable companion-chrome suite is part of the target architecture.
 since: 2.1.0
 dependencies:
   components:
     - Table
+    - DataTable
+    - Toolbar
     - Checkbox
     - Button
     - ButtonIcon
+    - ButtonGroup
+    - InputSearch
     - InputText
+    - InputSelect
     - Select
-    - DataTable
+    - Combobox
+    - Chip
+    - Popover
+    - Tooltip
+    - Menu
+    - Dialog
+    - Empty
+    - Alert
+    - Skeleton
+    - Spinner
+    - Collapsible
+    - Pagination
+    - ScrollArea

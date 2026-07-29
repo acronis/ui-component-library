@@ -82,7 +82,7 @@ describe('iconPacksStrategy', () => {
     expect(icons).toEqual([
       { id: 'i1', name: 'arrow-down', pageName: 'stroke-mono/arrows' },
       { id: 'i2', name: 'circle', pageName: 'stroke-mono/shapes' },
-      { id: 'i3', name: 'constructor-lab', pageName: 'solid-mono' },
+      { id: 'i3', name: 'acronis', pageName: 'solid-mono' },
     ]);
   });
 

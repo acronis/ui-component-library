@@ -107,6 +107,12 @@ const catalogItems: NavItem[] = [
     label: 'Screens',
     icon: <LayoutIcon />,
   },
+  {
+    section: 'examples',
+    to: 'catalog/examples',
+    label: 'Examples',
+    icon: <LayoutGridIcon />,
+  },
 ];
 
 // Design-token + icon foundations, plus the full-screen theme playground (an

@@ -1,81 +1,59 @@
 import {
-  Table,
+  ScrollArea,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@constructor-lab/ui-react';
+import { scrollColumns, scrollRows } from './scroll-data';
 
-const users = [
-  {
-    id: 1,
-    name: 'John Doe',
-    email: 'john@example.com',
-    role: 'Admin',
-    status: 'Active',
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    role: 'User',
-    status: 'Active',
-  },
-  {
-    id: 3,
-    name: 'Bob Johnson',
-    email: 'bob@example.com',
-    role: 'User',
-    status: 'Inactive',
-  },
-  {
-    id: 4,
-    name: 'Alice Williams',
-    email: 'alice@example.com',
-    role: 'Editor',
-    status: 'Active',
-  },
-  {
-    id: 5,
-    name: 'Charlie Brown',
-    email: 'charlie@example.com',
-    role: 'User',
-    status: 'Active',
-  },
-];
+// A table that overflows both axes inside a bounded viewport. The `Table`
+// primitive's built-in `overflow-auto` wrapper only shows a native (macOS:
+// hidden-at-rest) bar, so this demo drives a single `ScrollArea` — its overlay
+// scrollbars appear on hover/scroll in both directions — and composes the table
+// parts into a raw `<table>` inside it. Give it a fixed height + wide columns
+// and 30 rows so both scrollbars are actually exercised.
 
 export function TableScrollable() {
   return (
-    <div className="rounded-md border">
-      <Table>
+    <ScrollArea
+      orientation="both"
+      className="h-[360px] w-full rounded-md border"
+    >
+      <table className="w-full caption-bottom border-collapse text-sm text-[var(--ui-table-data-value-color-idle)]">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead className="min-w-[150px]">Name</TableHead>
-            <TableHead className="min-w-[200px]">Email</TableHead>
-            <TableHead className="min-w-[100px]">Role</TableHead>
-            <TableHead className="min-w-[100px]">Status</TableHead>
-            <TableHead className="min-w-[150px]">Department</TableHead>
-            <TableHead className="min-w-[150px]">Location</TableHead>
-            <TableHead className="min-w-[150px]">Phone</TableHead>
+            {scrollColumns.map((column) => (
+              <TableHead
+                key={column.key}
+                className="whitespace-nowrap"
+                style={{ minWidth: column.minWidth }}
+              >
+                {column.label}
+              </TableHead>
+            ))}
           </TableRow>
         </TableHeader>
         <TableBody>
-          {users.map((user) => (
-            <TableRow key={user.id}>
-              <TableCell>{user.id}</TableCell>
-              <TableCell className="font-medium">{user.name}</TableCell>
-              <TableCell>{user.email}</TableCell>
-              <TableCell>{user.role}</TableCell>
-              <TableCell>{user.status}</TableCell>
-              <TableCell>Engineering</TableCell>
-              <TableCell>San Francisco</TableCell>
-              <TableCell>+1 (555) 123-4567</TableCell>
+          {scrollRows.map((row) => (
+            <TableRow key={row.id}>
+              {scrollColumns.map((column) => (
+                <TableCell
+                  key={column.key}
+                  className={
+                    column.key === 'hostname'
+                      ? 'whitespace-nowrap font-medium'
+                      : 'whitespace-nowrap'
+                  }
+                >
+                  {row[column.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>
-      </Table>
-    </div>
+      </table>
+    </ScrollArea>
   );
 }

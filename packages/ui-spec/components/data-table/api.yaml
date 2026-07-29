@@ -1,62 +1,351 @@
 spec_version: '1.0'
 component: DataTable
 
-# DataTable takes columns/data (it owns table state). The companion parts
-# (DataTableToolbar / DataTablePagination / DataTableColumnHeader /
-# DataTableViewOptions) take a TanStack `table` instance — see README.
+# Availability is carried in each description. "Current" means the React
+# adapter ships it now. "Target P0/P1" is accepted by the parity design but must
+# not be treated as implemented until the matching release gate lands.
 contract:
   properties:
     - name: columns
-      type: 'ColumnDef<TData, TValue>[]'
+      type: 'readonly ColumnDefinition<Row>[]'
       required: true
-      description: TanStack column definitions (header / cell renderers, accessors).
+      description: Neutral column definitions and render metadata.
     - name: data
-      type: 'TData[]'
+      type: 'readonly Row[]'
       required: true
-      description: The row data.
-    - name: getRowCanExpand
-      type: '(row: Row<TData>) => boolean'
+      description: Current. Row data supplied to the engine.
+    - name: row-id
+      type: 'RowIdResolver<Row>'
       required: false
-      description: Enables row expansion for rows that return true. Pair with renderExpandedRow.
-    - name: renderExpandedRow
-      type: '(row: Row<TData>) => ReactNode'
+      description: >-
+        Target P0, conditionally required. It may be omitted only when selection,
+        detail/tree expansion, lazy loading, current row, row actions, row-state
+        persistence, server replacement, and row-targeting actions are all off.
+        `rowInteraction.current` specifically (not row interaction as a whole —
+        the `onClick`/`onHover`/`onActivate` handlers receive the row object and
+        need no identity), tree/getSubRows, actions, server, and
+        identity-bearing state select the identity branch; column-only
+        persistence does not. The new adapter shape rejects identity features
+        without it; deprecated identity-free calls may use the index fallback.
+    - name: table
+      type: 'DataTableController<Row, RowId>'
       required: false
-      description: Renders the detail content for an expanded row.
-    - name: striped
-      type: boolean
+      description: >-
+        Target P0 controller supplied by DataTableRoot to DataTableView render
+        contexts. It is the only engine instance.
+    - name: state
+      type: 'Partial<DataTableState<RowId>>'
       required: false
-      default: 'false'
-      description: Alternating row backgrounds (borrowed from the Vue AvTable).
-    - name: bordered
-      type: boolean
+      description: >-
+        Target P0. Controlled state slices: sorting, filters/global filter,
+        visibility/order/sizing/pinning, selection, distinct detail-expanded
+        and tree-expanded ID sets, grouping, pagination, and current row.
+    - name: defaultState
+      type: 'Partial<DataTableState<RowId>>'
       required: false
-      default: 'false'
-      description: Vertical borders between columns (rows already have horizontal borders).
-    - name: highlightCurrentRow
-      type: boolean
+      description: >-
+        Target P0. One-time defaults for uncontrolled slices. Duplicate
+        controlled/default slices are invalid in development; controlled wins
+        deterministically in production.
+    - name: engineOptions
+      type: 'DataTableEngineOptions<Row>'
       required: false
-      default: 'false'
-      description: Highlight the row the user last clicked (the "current" row).
+      description: >-
+        Target P0 React-only Partial<Pick<TableOptions<Row>, ...>> whose exact
+        all-optional allowlist is debugAll, debugCells, debugColumns,
+        debugHeaders, debugRows, debugTable, and renderFallbackValue. Every
+        other TanStack TableOptions key, including `_features`, `mergeOptions`,
+        `meta`, nested `plugins`, state, callbacks, models, faceting, identity,
+        manual flags, and policy, rejects before construction in every
+        environment. A committed exhaustive keyof TableOptions classification
+        and safe-key equality assertion force deliberate review on upgrades.
+    - name: plugins
+      type: 'readonly DataTableEnginePlugin<Row>[]'
+      required: false
+      description: >-
+        Target P0 React-only descriptor list, never raw TanStack TableFeature.
+        Each descriptor requires id, exact `${id}.actions` and `${id}.metadata`
+        namespaces, a complete six-array manifest (options, state, callbacks,
+        rowModels, actions, metadata), fully qualified
+        `${id}.<surface>.<name>` keys, and registrar-only setup. Descriptor,
+        recording-registration, and runtime surfaces must match exactly.
+        Plugin option values live in a private adapter registry and are never
+        merged into TanStack TableOptions.
+        Undeclared, missing, unnamespaced, duplicate, owned, cross-plugin, or
+        reserved-prefix collisions reject deterministically in every environment.
+    - name: sorting
+      type: 'false | SortingConfig'
+      required: false
+      default: false
+      description: >-
+        Target P0. Every member is optional. Single/multiple sorting, custom comparator, and sort cycle.
+        Multiple sorting is accepted proposed-only behavior.
+    - name: filtering
+      type: 'false | FiltersConfig'
+      required: false
+      default: false
+      description: >-
+        Target P0. Every member is optional. Global and typed AND column filters: equality, comparisons,
+        contains, in-set, and accepted proposed-only isEmpty/isNotEmpty.
+        Shipped-parity faceted metadata (legacy filterStats): a set-membership
+        filter may request distinct-value or min-max facets computed from the
+        pre-filter row model and exposed through the filter render context as
+        values/counts. DataTable exposes the metadata only; DataGrid renders the
+        option control.
+    - name: selection
+      type: 'false | SelectionConfig<Row>'
+      required: false
+      default: false
+      description: >-
+        Target P0/P1. Every member is optional. Single/multiple selection, disabled rows, page/all-loaded
+        scope, reserve/prune replacement policy, optional cascade/group policy,
+        and P1 proposed-only Shift range/Ctrl-Cmd additive selection.
+    - name: detailExpansion
+      type: 'false | DetailExpansionConfig<Row>'
+      required: false
+      default: false
+      description: >-
+        Target P1. render is required; other members are optional. Shipped detail expansion plus proposed-only accordion mode.
+        Uses detailExpanded state and onDetailExpansionChange only.
+    - name: tree
+      type: 'false | TreeConfig<Row>'
+      required: false
+      default: false
+      description: >-
+        Target P1 shipped parity. getChildren is required; other members are optional. Owns get-children/lazy loading, indentation,
+        treeExpanded state and onTreeExpansionChange. Lazy runtime metadata is
+        keyed by row ID as idle, loading(requestKey), loaded, or
+        error(error,requestKey), never stored in either expansion slice.
+    - name: grouping
+      type: 'false | GroupingConfig<Row>'
+      required: false
+      default: false
+      description: >-
+        Target P1 shipped parity. allowedColumns is required; other members are optional. Group keys/aggregates, collapse, sticky group
+        rows, renderers, and disabled-aware leaf selection.
+    - name: columnsFeatures
+      type: 'false | ColumnsFeaturesConfig'
+      required: false
+      default: false
+      description: >-
+        Target P0/P1. Every member is optional. Visibility at P0; grouped headers, pinning, constraints,
+        fit, pointer/keyboard resize, keyboard/drag reorder, overflow treatment,
+        and locked system columns at P1.
+    - name: pagination
+      type: 'false | PaginationConfig'
+      required: false
+      default: false
+      description: >-
+        Target P0. Every member is optional. unknownTotal defaults false and
+        requires manual/server previous/next capabilities when true. When false,
+        no pagination row model is installed and every processed row renders.
+    - name: manual
+      type: ManualProcessingConfig
+      required: false
+      description: >-
+        Target P0. Independently manual sorting, filtering, grouping, and
+        pagination; disables the matching client transform.
+    - name: rowCount
+      type: number
+      required: false
+      description: Target P0 known server total for manual pagination.
+    - name: pageCount
+      type: number
+      required: false
+      description: Target P0 known server page count alternative.
+    - name: pageCapabilities
+      type: '{ hasNextPage: boolean; hasPreviousPage: boolean }'
+      required: false
+      description: >-
+        Target P0 unknown-total server pagination; prevents a fabricated count.
+    - name: dataState
+      type: DataStateConfig
+      required: false
+      description: >-
+        Target P0/P1 status metadata and action intents for render contexts.
+        DataTable does not compose Skeleton, Spinner, Empty, Alert or retry UI;
+        standard presentation belongs to DataGrid. The deprecated React
+        convenience skeleton path is the sole temporary exception during the
+        first controller minor and must reuse the UIKit Skeleton primitive.
+    - name: virtualization
+      type: 'false | VirtualizationConfig'
+      required: false
+      default: false
+      description: >-
+        Target P1 shipped-parity; every member is optional. Render adapter over the final row model;
+        supports estimated/measured height, overscan, and scroll actions.
+    - name: persistence
+      type: 'false | PersistenceConfig'
+      required: false
+      default: false
+      description: >-
+        Target P1. key, version, and storage are required; other members are optional. Legacy shipped parity is hidden-column and width restoration.
+        Versioned storage, migration, validation, order/pinning inclusion, and
+        controlled-slice protection are new React hardening.
+    - name: rowInteraction
+      type: RowInteractionConfig<Row>
+      required: false
+      description: >-
+        Target P0/P1. Every member is optional. Current row, row hover/click/activate/scroll events and row
+        tooltip. Column metadata owns cell hover/click, tooltip/overflow tooltip,
+        feature icons, comparator, filter, sizing, and pin/reorder permissions.
     - name: skeleton
       type: boolean
       required: false
-      default: 'false'
-      description: Render placeholder skeleton rows instead of data (loading state).
+      description: >-
+        React compatibility only, deprecated and frozen for the first controller
+        minor. Preserves the current convenience-view loading trigger exactly
+        and reuses UIKit Skeleton as DataTable's sole temporary primitive-rendering
+        exception. Migrate to DataGrid dataState or a custom state render context.
+        Removed next major.
     - name: skeletonRows
       type: number
       required: false
-      default: '5'
-      description: Number of skeleton rows when skeleton is set.
-  events: []
-  methods: []
+      description: >-
+        React compatibility only, deprecated and frozen for the first controller
+        minor. Preserves the current skeleton row-count behavior exactly and has
+        no effect outside the deprecated skeleton path. Migrate to DataGrid
+        dataState or a custom state render context. Removed next major.
+    - name: striped
+      type: boolean
+      required: false
+      description: >-
+        React compatibility only, deprecated and frozen for the first controller
+        minor. Preserves current alternating-row presentation exactly. Migrate
+        standard records screens to DataGrid appearance.striped or custom
+        semantic markup to Table. Removed next major.
+    - name: bordered
+      type: boolean
+      required: false
+      description: >-
+        React compatibility only, deprecated and frozen for the first controller
+        minor. Preserves current table border presentation exactly. Migrate to
+        DataGrid appearance.borders or compose Table presentation. Removed next major.
+    - name: highlightCurrentRow
+      type: boolean
+      required: false
+      description: >-
+        React compatibility only, deprecated and frozen for the first controller
+        minor. Preserves current-row highlighting exactly. Migrate to DataGrid
+        rowInteraction/current-row presentation or a custom DataTable row render
+        context. Removed next major.
+  events:
+    - name: state-change
+      payload: 'DataTableChangeEvent<Slice, Value, RowId>'
+      description: >-
+        Target P0 one enriched event per atomic transition: slice, resolved
+        value, pointer/keyboard/api/data-reconcile/restore/reset cause, complete
+        next state/query, and canonical requestKey.
+    - name: query-change
+      payload: DataTableQueryChangeEvent
+      description: >-
+        Target P0 previous/query/cause/requestKey event. requestKey equals the
+        canonical serialization of the post-reset version-1 query.
+    - name: detail-expansion-change
+      payload: 'DataTableChangeEvent<detail-expanded, readonly RowId[]>'
+      description: Target P1 detail-only change; never mutates tree expansion.
+    - name: tree-expansion-change
+      payload: 'DataTableChangeEvent<tree-expanded, readonly RowId[]>'
+      description: Target P1 tree-only change; never mutates detail expansion.
+    - name: tree-load
+      payload: 'TreeLoadEvent<Row, RowId>'
+      description: >-
+        Target P1 lazy request plus per-row requestKey and load metadata changes.
+  content:
+    - name: root
+      description: Target P0 DataTableRoot around one controller and custom render composition.
+    - name: view
+      description: Target P0 DataTableView rendering headers/body/footer through Table.
+    - name: render-contexts
+      description: >-
+        Typed header, cell, row, detail, tree, group, footer and state contexts
+        expose values, metadata and commands. They contain no preassembled
+        toolbar/filter/selection/menu/pagination/overlay/data-state controls.
+  methods:
+    - name: reset
+      signature: 'reset(slice?: keyof DataTableState): void'
+      description: Target controller action; explicitly clears one or all uncontrolled slices.
+    - name: toggle
+      signature: 'toggle(action: DataTableToggleAction): void'
+      description: Target equivalent for supported legacy imperative toggle methods.
+    - name: scrollToRow
+      signature: 'scrollToRow(rowId: string, options?: ScrollOptions): void'
+      description: Target P1 virtual/nonvirtual row scroll action.
+    - name: measureLayout
+      signature: 'measureLayout(): void'
+      description: >-
+        Target P1 escape hatch for external font/container changes; automatic
+        observation replaces legacy doLayout for normal changes.
 
 adapters:
   react:
     component: DataTable
     status: implemented
-    import: "import { DataTable } from '@constructor-lab/ui-react'"
+    import: >-
+      import { DataTable, useDataTable, DataTableRoot, DataTableView } from
+      '@constructor-lab/ui-react'
     example: |
+      // Current shipped convenience path
       <DataTable columns={columns} data={rows} />
+      // skeleton/skeletonRows, striped, bordered, and highlightCurrentRow are
+      // frozen deprecated compatibility inputs for the first controller minor
+      // and are removed next major. Target visual/data-state UI moves to
+      // DataGrid, Table, or DataTable render contexts. The deprecated skeleton
+      // path is the sole temporary exception and reuses UIKit Skeleton.
+
+      // Current deprecated expansion aliases, preserved for one minor line:
+      <DataTable
+        columns={columns}
+        data={rows}
+        getRowCanExpand={(row) => row.original.hasDetails}
+        renderExpandedRow={(row) => <Details record={row.original} />}
+      />
+      // React normalization maps getRowCanExpand to
+      // detailExpansion.isExpandable and renderExpandedRow to
+      // detailExpansion.render. Either alias plus detailExpansion is invalid in
+      // development; detailExpansion wins in production.
+
+      // Accepted P0 target; useDataTable/DataTableRoot/DataTableView are planned
+      // Neutral ColumnDefinition/Row concepts map to TanStack types here.
+      const auditPlugin = {
+        id: 'audit',
+        actionNamespace: 'audit.actions',
+        metadataNamespace: 'audit.metadata',
+        manifest: {
+          options: [],
+          state: [],
+          callbacks: [],
+          rowModels: [],
+          actions: ['audit.actions.refresh'],
+          metadata: ['audit.metadata.status'],
+        },
+        setup(registrar) {
+          registrar.action('refresh', createRefreshAction);
+          registrar.metadata('status', createStatusMetadata);
+        },
+      } satisfies DataTableEnginePlugin<Row>;
+
+      const table = useDataTable({
+        columns,
+        data: rows,
+        getRowId: (row) => row.id,
+        pagination: {},
+        engineOptions: { debugTable: true },
+        plugins: [auditPlugin],
+      });
+      <DataTableRoot table={table}>
+        <DataTableView
+          renderHeader={(context) => customHeader(context)}
+          renderCell={(context) => customCell(context)}
+          renderState={(context) => customStateProjection(context)}
+        />
+      </DataTableRoot>
+
+      // React defines DataTableEngineOptions<Row> as exactly six debug flags
+      // plus renderFallbackValue; every other TableOptions key is rejected.
+      // Plugins are analyzable descriptors, not TableFeature input. Only after
+      // descriptor and recording-registrar preflight succeeds does the adapter
+      // derive internal TableFeature entries and supply its owned `_features`.
   vue:
     component: AvDataTable
     status: planned

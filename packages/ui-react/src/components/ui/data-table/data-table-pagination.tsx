@@ -28,8 +28,24 @@ export function DataTablePagination<TData>({
   return (
     <div className="flex items-center justify-between px-2">
       <div className="flex-1 text-sm text-muted-foreground">
+        {/* The NUMERATOR is deliberately left on the engine (#94). The defect that
+            forced `DataGridPagination`'s `selectedCount` prop is a *server*
+            selection token, and DataTable has no server-selection path at all —
+            `data-table-engine-options.ts` rejects the options that would create
+            one. A prop with no producer is a wider surface guarding nothing; the
+            day DataTable gains a controlled selection, this is where it lands.
+
+            The DENOMINATOR is a different story and is fixed here, because it is
+            reachable today: `manualPagination` + `rowCount` are supported
+            controller options (`data-table-controller.ts`) and this component is a
+            public export, so `getFilteredRowModel().rows.length` announced one
+            loaded window as the whole result set — the same defect measured on the
+            grid, where a 4-row window over `rowCount: 4821` rendered "of 4"
+            beside its own "Page 1 of 483". `getRowCount()` is
+            `options.rowCount ?? prePaginationRowModel.rows.length`, so it is the
+            client total when the owner supplies none. */}
         {table.getFilteredSelectedRowModel().rows.length} of{' '}
-        {table.getFilteredRowModel().rows.length} row(s) selected.
+        {table.getRowCount()} row(s) selected.
       </div>
       <div className="flex items-center gap-6 lg:gap-8">
         <div className="flex items-center gap-2">

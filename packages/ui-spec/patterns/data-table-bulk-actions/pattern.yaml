@@ -9,58 +9,84 @@ description: >-
   The sanctioned way to offer row selection with bulk actions (delete, export,
   …): a checkbox selection column drives a contextual bar that replaces the
   toolbar while rows are selected, showing the count and the available actions.
-  Because the bulk bar and the row checkboxes must read the SAME selection state,
-  this composes the Table primitives + DataTablePagination over a single
-  `useReactTable` instance — not the self-contained `DataTable` (which owns its
-  own internal state and can't share selection with external chrome).
+  The default path is DataGrid `selection` + `toolbar.bulkActions`, and it is
+  shipped — prefer it. When custom composition is required, one `useDataTable`
+  controller feeds DataTableRoot, toolbar/bulk actions, view, and pagination.
+  Never combine the self-contained DataTable with a second caller-created
+  instance.
 
 when_to_use:
   - A table where users pick several rows and apply one action to all of them.
   - Destructive or batch operations (delete, export, assign) on multiple rows.
 when_not_to_use:
-  - A read-only or single-select table — use `DataTable` directly.
+  - A read-only standard records table — use the `table-view` DataGrid recipe.
   - One action per row — put a row action (menu / button) in a cell instead.
 
 anti_patterns:
-  - Using the self-contained `DataTable` and a separate `useReactTable` for the bar — their selection states diverge.
+  - Using the self-contained DataTable and a separate table instance for the bar.
   - Leaving the bulk bar always visible — show it only while rows are selected.
   - Hiding the selection count — always show "N selected" so the scope is clear.
 
 components:
-  - Table
   - Checkbox
   - Button
+  - Toolbar
+  - InputSearch
+  - Pagination
   - DataTable
+  - DataGrid
 
 demo: apps/demos/src/patterns/DataTableBulkActionsDemo.tsx
 docs: apps/docs/content/docs/patterns/data-table-bulk-actions.mdx
 
-# Approved starting point. One `useReactTable` instance feeds the checkbox column,
-# the bulk bar (via getSelectedRowModel), and DataTablePagination. The bar swaps
-# in only while a row is selected; Clear calls table.resetRowSelection().
+# Shipped. Prefer DataGrid when its bulk-action config suffices; the custom
+# branch still uses exactly one DataTable controller. Bulk actions require
+# multiple selection, and a `confirm` routes the action through ConfirmDialog.
 example: |
-  const table = useReactTable({
-    data,
-    columns, // includes a checkbox 'select' column
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    enableRowSelection: true,
-    onRowSelectionChange: setRowSelection,
-    state: { rowSelection },
-  });
-  const selected = table.getSelectedRowModel().rows;
+  <DataGrid
+    columns={columns}
+    rows={rows}
+    getRowId={(row) => row.id}
+    selection={{
+      mode: 'multiple',
+      isRowSelectable: (row) => !row.locked,
+    }}
+    toolbar={{
+      bulkActions: [
+        { id: 'export', label: 'Export', onAction: exportRows },
+        {
+          id: 'delete',
+          label: 'Delete',
+          destructive: true,
+          confirm: { title: 'Delete selected records?', confirmLabel: 'Delete' },
+          onAction: deleteRows,
+        },
+      ],
+    }}
+    pagination={{ pageSize: 25, pageSizeOptions: [25, 50] }}
+    callbacks={{ onSelectionChange: (event) => setSelected(event.value) }}
+  />
 
-  {selected.length > 0 ? (
-    <div className="flex items-center justify-between rounded-md border border-border bg-muted px-4 py-2">
-      <span className="text-sm font-medium">{selected.length} selected</span>
-      <div className="flex gap-2">
-        <Button variant="ghost" onClick={() => table.resetRowSelection()}>Clear</Button>
-        <Button variant="secondary">Export</Button>
-        <Button variant="destructive">Delete</Button>
-      </div>
-    </div>
-  ) : (
-    <DataTableToolbar table={table} searchKey="email" />
-  )}
-  <Table>{/* render table.getHeaderGroups() / getRowModel() */}</Table>
-  <DataTablePagination table={table} />
+  // Custom composition:
+  const table = useDataTable({
+    columns,
+    data: rows,
+    getRowId,
+    selection: {},
+    defaultState: { pagination: { pageIndex: 0, pageSize: 25 } },
+    pagination: { pageSizeOptions: [25, 50] },
+  });
+  <DataTableRoot table={table}>
+    <Toolbar>
+      {table.getSelectedRowModel().rows.length > 0 ? (
+        <CustomBulkBar table={table} />
+      ) : (
+        <InputSearch value={table.getState().globalFilter} onChange={table.actions.setGlobalFilter} />
+      )}
+    </Toolbar>
+    <DataTableView renderHeader={renderHeader} renderCell={renderCell} />
+    <Pagination
+      page={table.getState().pagination.pageIndex + 1}
+      onPageChange={table.actions.setPage}
+    />
+  </DataTableRoot>

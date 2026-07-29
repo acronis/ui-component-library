@@ -13,6 +13,8 @@ import { ComponentDetailPage } from './routes/catalog/ComponentDetailPage';
 import { PatternsCatalogPage } from './routes/catalog/PatternsCatalogPage';
 import { PatternDetailPage } from './routes/catalog/PatternDetailPage';
 import { ScreensCatalogPage } from './routes/catalog/ScreensCatalogPage';
+import { ExamplesCatalogPage } from './routes/examples/ExamplesCatalogPage';
+import { ExampleDetailPage } from './routes/examples/ExampleDetailPage';
 import ChatRoute from './demo/chat/route';
 import CyberChatRoute from './demo/cyberchat/route';
 import { CyberChatHostDemo } from './demo/cyberchat/CyberChatHostDemo';
@@ -66,6 +68,8 @@ export function DemoApp() {
                 <Route path="patterns" element={<PatternsCatalogPage />} />
                 <Route path="patterns/:name" element={<PatternDetailPage />} />
                 <Route path="screens" element={<ScreensCatalogPage />} />
+                <Route path="examples" element={<ExamplesCatalogPage />} />
+                <Route path="examples/:name" element={<ExampleDetailPage />} />
               </Route>
               <Route path="foundations">
                 <Route

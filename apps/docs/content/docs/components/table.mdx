@@ -26,9 +26,14 @@ column-header rows of `TableHead`; `TableBody` holds data rows of `TableCell`;
 `TableFooter` and `TableCaption` are optional. `TableHead` can be `sortable`
 (renders a sort affordance + `aria-sort`), and `TableRow` takes a `selected`
 flag. Themed by the `--ui-table-*` token tier. Cell content — checkboxes, tags,
-links, numbers — is your own composition. This is a design-pending v1; a
-TanStack-backed `DataTable` (sorting/selection/pagination logic) is planned on
-top of these primitives.
+links, numbers — is your own composition. The TanStack-backed
+[`DataTable`](/components/data-table) (and its shared `useDataTable` controller)
+is built on top of these primitives, and [`DataGrid`](/components/data-grid)
+composes the whole standard grid over them.
+
+See [Table component responsibilities](/guides/table-responsibilities) for the
+current and target boundaries between `Table`, `DataTable`, `DataGrid`, and
+table-based patterns.
 
 ## Examples
 

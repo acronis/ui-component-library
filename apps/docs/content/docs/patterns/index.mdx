@@ -41,10 +41,10 @@ _missing_, not that you should assemble one inline.
 
 Design and frontend approach the same interface from opposite ends:
 
-| | Starts from | Works toward |
-| --- | --- | --- |
-| **Design** | product mockups drawn with Figma versions of **primitive** components | Primitive → Composite → Template → Screen |
-| **Frontend** | the **App / Screen** it has to ship | Screen → Template → Pattern → Composite → (rarely) Primitive |
+|              | Starts from                                                           | Works toward                                                 |
+| ------------ | --------------------------------------------------------------------- | ------------------------------------------------------------ |
+| **Design**   | product mockups drawn with Figma versions of **primitive** components | Primitive → Composite → Template → Screen                    |
+| **Frontend** | the **App / Screen** it has to ship                                   | Screen → Template → Pattern → Composite → (rarely) Primitive |
 
 Historically these drifted apart — designers pushed pixels up from primitives,
 engineers wired primitives up from scratch, and the two never quite matched. The
@@ -78,9 +78,9 @@ function AssetsScreen() {
   return (
     <ListDetailTemplate
       header={<PageHeader title="Assets" />}
-      toolbar={<BulkActionToolbar actions={assetActions} />}   // Pattern
+      toolbar={<BulkActionToolbar actions={assetActions} />} // Pattern
       body={<DataTableBulkActions rows={assets} columns={cols} />} // Pattern → Composite
-      detail={<SheetDetailPanel item={selected} />}            // Pattern
+      detail={<SheetDetailPanel item={selected} />} // Pattern
     />
   );
 }

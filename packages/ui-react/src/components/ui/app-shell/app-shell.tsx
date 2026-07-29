@@ -87,11 +87,12 @@ const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(
     },
     ref
   ) => {
-    const [panelState, setPanelState] = useControllableState<AppShellPanelState>(
-      panelStateProp,
-      defaultPanelState,
-      onPanelStateChange
-    );
+    const [panelState, setPanelState] =
+      useControllableState<AppShellPanelState>(
+        panelStateProp,
+        defaultPanelState,
+        onPanelStateChange
+      );
     const context = React.useMemo<AppShellContextValue>(
       () => ({ panelState, setPanelState }),
       [panelState, setPanelState]
@@ -256,8 +257,7 @@ const AppShellPanelCollapsed = React.forwardRef<
 ));
 AppShellPanelCollapsed.displayName = 'AppShellPanelCollapsed';
 
-export interface AppShellPanelTriggerProps
-  extends React.ComponentPropsWithoutRef<'button'> {
+export interface AppShellPanelTriggerProps extends React.ComponentPropsWithoutRef<'button'> {
   /** The panel state to switch to when the trigger is activated. */
   to: AppShellPanelState;
   /**

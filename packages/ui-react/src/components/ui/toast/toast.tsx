@@ -121,7 +121,9 @@ function ToastList() {
   return toasts.map((item) => {
     const type = item.type as ToastType | undefined;
     const style =
-      type && type in TOAST_STYLE ? TOAST_STYLE[type as ToastStatus] : undefined;
+      type && type in TOAST_STYLE
+        ? TOAST_STYLE[type as ToastStatus]
+        : undefined;
     const icon =
       type === 'loading' ? (
         <Spinner size="sm" className="size-4" />

@@ -1,23 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import {
-  type ColumnDef,
-  type ColumnFiltersState,
-  type SortingState,
-  type VisibilityState,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { type ColumnDef } from '@tanstack/react-table';
 import {
   Checkbox,
   DataTable,
   DataTableColumnHeader,
-  DataTablePagination,
-  DataTableToolbar,
   Tag,
 } from '@constructor-lab/ui-react';
 
@@ -98,35 +85,5 @@ const columns: ColumnDef<Payment>[] = [
 ];
 
 export function DataTableDemo() {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = useState({});
-
-  const table = useReactTable({
-    data: payments,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel(),
-    onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    initialState: { pagination: { pageSize: 5 } },
-    state: { sorting, columnFilters, columnVisibility, rowSelection },
-  });
-
-  return (
-    <div className="flex w-full flex-col gap-4">
-      <DataTableToolbar
-        table={table}
-        searchKey="email"
-        searchPlaceholder="Filter emails…"
-      />
-      <DataTable columns={columns} data={payments} />
-      <DataTablePagination table={table} />
-    </div>
-  );
+  return <DataTable columns={columns} data={payments} />;
 }

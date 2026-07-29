@@ -160,9 +160,9 @@ const features = [
 ];
 
 const stats = [
-  { value: '24', label: 'Components' },
-  { value: '470+', label: 'Icons' },
-  { value: '2', label: 'Brands' },
+  { value: '70+', label: 'Components' },
+  { value: '480+', label: 'Icons' },
+  { value: '20+', label: 'Brands' },
   { value: '100%', label: 'TypeScript' },
 ];
 
@@ -245,7 +245,7 @@ export default function HomePage() {
             maxWidth: '44rem',
           }}
         >
-          Acronis <span style={{ color: primary }}>UIKit</span>
+          Acronis <span style={{ color: primary }}>UI Components library</span>
         </h1>
 
         {/* Subheadline */}
@@ -259,8 +259,8 @@ export default function HomePage() {
             marginBottom: '3rem',
           }}
         >
-          A production-ready component library for building Acronis
-          products — accessible, themeable, and fully typed.
+          A production-ready component library for building Acronis products —
+          accessible, themeable, and fully typed.
         </p>
 
         {/* CTAs */}

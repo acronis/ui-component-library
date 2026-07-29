@@ -17,9 +17,13 @@ figma.connect(
   {
     example: () => (
       <AppShell>
-        <AppShellSidebar>{/* SidebarPrimary [+ SidebarSecondary] */}</AppShellSidebar>
+        <AppShellSidebar>
+          {/* SidebarPrimary [+ SidebarSecondary] */}
+        </AppShellSidebar>
         <AppShellBody>
-          <AppShellHeader>{/* PageHeader (title / breadcrumbs) + actions */}</AppShellHeader>
+          <AppShellHeader>
+            {/* PageHeader (title / breadcrumbs) + actions */}
+          </AppShellHeader>
           <AppShellMain>{/* page content */}</AppShellMain>
         </AppShellBody>
         <AppShellPanel>{/* Acronis AI chat rail */}</AppShellPanel>

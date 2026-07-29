@@ -33,8 +33,8 @@ should keep the hint in sync with whatever it binds.
 
 ## Contrast
 
-- The magnifier and placeholder use the AI-purple `--ui-search-global-icon-color`
-  / `-placeholoder-color`; the shortcut uses `--ui-search-global-shortcut-color`.
+- The magnifier and placeholder use the AI-purple `--ui-glyph-on-status-ai`
+  / `--ui-text-on-status-ai`; the shortcut uses `--ui-text-on-surface-secondary`.
   All resolve per brand/theme and must stay legible against the
-  `--ui-search-global-box-color` fill in light and dark. Because the placeholder
+  `--ui-background-surface-primary` fill in light and dark. Because the placeholder
   is purely a hint, the real query text uses the higher-contrast foreground.

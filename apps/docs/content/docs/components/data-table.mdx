@@ -9,28 +9,42 @@ import { DataTableDemo } from '@/components/demos-react/data-table';
 ## Usage
 
 ```tsx
-import {
-  DataTable,
-  DataTableColumnHeader,
-  DataTableToolbar,
-  DataTablePagination,
-  DataTableViewOptions,
-} from '@constructor-lab/ui-react';
+import { DataTable, DataTableColumnHeader } from '@constructor-lab/ui-react';
 import type { ColumnDef } from '@tanstack/react-table';
 ```
 
 `DataTable` is a data grid built on [TanStack react-table](https://tanstack.com/table)
-v8, composed over the `Table` primitives. It manages sorting, filtering, column
-visibility, row selection, pagination, and optional row expansion. The companion
-parts — `DataTableColumnHeader`, `DataTableToolbar`, `DataTablePagination`,
-`DataTableViewOptions` — operate on a TanStack `table` instance you build with
-`useReactTable`. This is a design-pending v1; it reuses the `Table` component's
-`--ui-table-*` tokens (the wrapper border matches the cell borders).
+v8, composed over the `Table` primitives. It comes in two forms:
+
+- **`<DataTable columns={…} data={…} />`** — a convenience view for the common
+  case, with optional row expansion. It reuses the `Table` component's
+  `--ui-table-*` tokens (the wrapper border matches the cell borders).
+- **`useDataTable` + `DataTableRoot` + `DataTableView`** — the **shared
+  controller** composition. One controller owns the normalized state and the
+  single TanStack instance; `DataTableRoot` provides it and `DataTableView`
+  projects it through `Table`. Every control you compose around it reads and
+  mutates the same engine, so there is one source of truth.
+
+<Callout type="info">
+  For a standard product grid, prefer [`DataGrid`](/components/data-grid) — it
+  assembles the toolbar, filters, selection, actions, states, and pagination for
+  you on top of this same controller. Drop to `useDataTable` only when you need
+  a deliberately custom composition the `DataGrid` config cannot express.
+</Callout>
+
+The shared controller also exposes framework-neutral **render contexts**
+(`createHeaderContext`, `createRowContext`, `createCellContext`,
+`createStateContext`), a serializable **state/query contract**, and React-only
+engine escape hatches (a TanStack option allowlist via `engineOptions` and an
+analyzable `plugins` surface) for advanced composition.
 
 A `DataTableColumnHeader` sorts in a **single click**: the trailing arrow toggles
 ascending → descending and shows the direction with an up/down arrow in the brand
-blue, or a muted up/down arrow when the column is unsorted. Column hiding lives in
-the toolbar's `DataTableViewOptions` menu, keeping sorting to one click.
+blue, or a muted up/down arrow when the column is unsorted.
+
+See [Table component responsibilities](/guides/table-responsibilities) for why
+TanStack remains the headless engine and why UIKit primitives own visible
+controls.
 
 ## Examples
 
@@ -52,20 +66,62 @@ const columns: ColumnDef<Payment>[] = [
 <DataTable columns={columns} data={payments} />;
 ```
 
-For a toolbar + pagination, build the table instance yourself and pass it to the
-companion parts:
+### Shared controller composition
+
+For a custom composition, create one controller with `useDataTable`, provide it
+through `DataTableRoot`, and project the body with `DataTableView`. Because every
+piece reads the same controller, a search box, view options, and pagination stay
+in sync with the body:
 
 ```tsx
-const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel(), /* … */ });
+import {
+  DataTablePagination,
+  DataTableRoot,
+  DataTableToolbar,
+  DataTableView,
+  useDataTable,
+} from '@constructor-lab/ui-react';
 
-<DataTableToolbar table={table} searchKey="email" />
-<DataTable columns={columns} data={data} />
-<DataTablePagination table={table} />
+function PaymentsTable() {
+  const controller = useDataTable({
+    data: payments,
+    columns,
+    getRowId: (row) => row.id,
+    selection: {},
+    sorting: true,
+    filtering: true,
+    pagination: true,
+    defaultState: { pagination: { pageIndex: 0, pageSize: 5 } },
+  });
+
+  return (
+    <DataTableRoot table={controller}>
+      <div className="flex flex-col gap-4">
+        <DataTableToolbar
+          table={controller.table}
+          searchKey="email"
+          searchPlaceholder="Filter emails…"
+        />
+        <DataTableView<Payment> sortable />
+        <DataTablePagination table={controller.table} />
+      </div>
+    </DataTableRoot>
+  );
+}
 ```
 
-### Presentational flags
+`useDataTable` accepts the feature configs (`selection`, `sorting`, `filtering`,
+`pagination`, `tree`, `detailExpansion`, `rowInteraction`), controlled/uncontrolled
+state (`state` / `defaultState`), manual server modes (`manualSorting`,
+`manualFiltering`, `manualPagination`, `manualGrouping` + `rowCount`/`pageCount`),
+and change events (`onStateChange`, `onQueryChange`, `onSliceChange`). The
+returned `controller` exposes `table`, `getState()`, `getQuery()`, `requestChange`,
+`reset`, and `toggle` for imperative operations.
 
-Borrowed from the Vue `AvTable`, these are pure visual props on `DataTable`:
+### Deprecated compatibility inputs
+
+These inputs remain available for current consumers, but all are deprecated,
+frozen compatibility inputs with no planned feature growth:
 
 ```tsx
 <DataTable columns={columns} data={rows} striped />
@@ -74,21 +130,42 @@ Borrowed from the Vue `AvTable`, these are pure visual props on `DataTable`:
 <DataTable columns={columns} data={[]} skeleton skeletonRows={5} /> {/* loading */}
 ```
 
+- `striped` and `bordered` are visual inputs. Migrate to DataGrid
+  `appearance.striped` / `appearance.borders`, or `Table`/`DataTableView`
+  presentation.
+- `highlightCurrentRow` is not purely visual: it owns click interaction and
+  current-row state. Migrate to DataGrid `rowInteraction.current`, or the shared
+  controller's `rowInteraction` config with `DataTableView`.
+- `skeleton` and `skeletonRows` replace normal row projection with loading
+  placeholders. Migrate to DataGrid `dataState`, or `DataTableView`'s
+  `renderState` from a state render context.
+
+The compatibility adapter is frozen and will be removed in the next major
+release — its DataGrid, Table, and controller render-context destinations have
+shipped.
+
 ### Advanced recipes
 
-The heavier behaviors stay out of `DataTable` (to keep it lean) and are shown as
-**copy-paste recipes** that compose the `Table` primitives + TanStack directly —
-see the `UI/DataTable/Recipes` stories in Storybook.
+`DataTable` owns advanced **headless models** such as grouping, tree expansion,
+virtualization, and column ordering. Their standard visible controls stay out of
+this layer: `DataGrid` supplies them with UIKit primitives, while expert
+consumers compose their own primitives around the shared `useDataTable`
+controller.
 
-- **Tree mode** — pass `getSubRows: (row) => row.children` + `getExpandedRowModel()`
-  and indent the name cell by `row.depth`.
-- **Row groups** — `state.grouping` + `getGroupedRowModel()` + `getExpandedRowModel()`;
-  render a header row for `row.getIsGrouped()`.
+The controller enables tree/grouping/manual modes through its own options
+(`getSubRows`, `tree`, `detailExpansion`, `manualGrouping`, …); for the rare case
+that needs a raw TanStack option, use the `engineOptions` allowlist or the
+`plugins` surface rather than a second table instance:
+
+- **Tree mode** — `getSubRows: (row) => row.children` + `tree: {}` and indent the
+  name cell by `row.depth`.
+- **Row groups** — set `grouping` state and `manualGrouping` as needed; render a
+  header row for grouped rows.
 - **Virtual scrolling** — `useVirtualizer` from `@tanstack/react-virtual` over a
   fixed-height scroll container, with spacer rows above/below the visible window
   (keeps the column layout intact). Add `@tanstack/react-virtual` yourself.
-- **Column reorder** — `state.columnOrder` + `onColumnOrderChange`, with native
-  HTML5 `draggable` headers (no extra DnD dependency).
+- **Column reorder** — drive `columnOrder` state, with native HTML5 `draggable`
+  headers (no extra DnD dependency).
 
 ## API Reference
 

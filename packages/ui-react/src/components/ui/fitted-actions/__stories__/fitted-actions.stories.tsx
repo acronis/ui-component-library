@@ -26,7 +26,8 @@ const meta = {
   argTypes: {
     actions: {
       control: false,
-      description: 'Ordered actions; trailing items overflow into the menu first.',
+      description:
+        'Ordered actions; trailing items overflow into the menu first.',
       table: { type: { summary: 'FittedAction[]' }, category: 'Content' },
     },
     showDropdown: {
@@ -64,13 +65,20 @@ const meta = {
     },
     renderAction: {
       control: false,
-      description: 'Customize the inline action element (default: a ghost Button).',
-      table: { type: { summary: '(action, api) => ReactNode' }, category: 'Composition' },
+      description:
+        'Customize the inline action element (default: a ghost Button).',
+      table: {
+        type: { summary: '(action, api) => ReactNode' },
+        category: 'Composition',
+      },
     },
     renderTrigger: {
       control: false,
       description: 'Customize the overflow trigger (default: a ghost Button).',
-      table: { type: { summary: '(api) => ReactElement' }, category: 'Composition' },
+      table: {
+        type: { summary: '(api) => ReactElement' },
+        category: 'Composition',
+      },
     },
   },
   args: { actions, showDropdown: true, moreLabel: 'More', gap: 8 },

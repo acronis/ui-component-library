@@ -47,10 +47,9 @@ describe('Toolbar', () => {
 
   it('uses roving tabindex — only the first item is in the tab order', () => {
     render(<Sample />);
-    expect(screen.getByRole('button', { name: 'First action' })).toHaveAttribute(
-      'tabindex',
-      '0'
-    );
+    expect(
+      screen.getByRole('button', { name: 'First action' })
+    ).toHaveAttribute('tabindex', '0');
     expect(
       screen.getByRole('button', { name: 'Second action' })
     ).toHaveAttribute('tabindex', '-1');

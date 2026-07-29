@@ -118,7 +118,13 @@ type Story = StoryObj<typeof meta>;
 
 // Every field type in one vertical form: text, email, select, number, radio,
 // textarea, switch, checkbox.
+//
+// A single column of every field type is taller than the 720px capture viewport, so
+// without `fullPage` the baseline ends on the terms checkbox and the submit row is
+// outside the frame entirely — a form baseline that cannot see its own submit button
+// (#89). `TwoColumn` below is short enough to fit and deliberately does NOT opt in.
 export const Default: Story = {
+  parameters: { snapshot: { fullPage: true } },
   render: () => <Example columns={1} submitLabel="Save profile" withCancel />,
 };
 
@@ -129,6 +135,7 @@ export const TwoColumn: Story = {
 
 // Per-field error messages, keyed by field name.
 export const WithErrors: Story = {
+  parameters: { snapshot: { fullPage: true } },
   render: () => (
     <Example
       columns={1}
@@ -142,5 +149,6 @@ export const WithErrors: Story = {
 
 // Whole-form disabled state.
 export const Disabled: Story = {
+  parameters: { snapshot: { fullPage: true } },
   render: () => <Example columns={1} disabled />,
 };

@@ -5,12 +5,7 @@
 // by the parts dropped into the groups below.
 import figma from '@figma/code-connect';
 
-import {
-  Toolbar,
-  ToolbarButton,
-  ToolbarGroup,
-  ToolbarStatus,
-} from './toolbar';
+import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarStatus } from './toolbar';
 
 figma.connect(
   Toolbar,

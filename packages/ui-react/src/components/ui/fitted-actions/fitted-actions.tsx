@@ -72,8 +72,10 @@ export interface FittedAction {
   onSelect?: () => void;
 }
 
-export interface FittedActionsProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
+export interface FittedActionsProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onSelect'
+> {
   /** Ordered actions; trailing items overflow into the menu first. Defaults to `[]`. */
   actions?: FittedAction[];
   /** Collapse overflow into a "More" menu (Vue `showDropdown`). Default true. */

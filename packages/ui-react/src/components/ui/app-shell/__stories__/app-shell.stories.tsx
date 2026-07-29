@@ -186,7 +186,11 @@ function SecondaryNav({
         <SidebarSecondarySection>
           <SidebarSecondarySectionLabel>Overview</SidebarSecondarySectionLabel>
           <SidebarSecondaryMenu>
-            <SidebarSecondaryMenuItem href="#" icon={<LayoutGridIcon />} selected>
+            <SidebarSecondaryMenuItem
+              href="#"
+              icon={<LayoutGridIcon />}
+              selected
+            >
               Dashboard
             </SidebarSecondaryMenuItem>
             <SidebarSecondaryMenuItem href="#" icon={<ServerIcon />}>
@@ -270,7 +274,9 @@ function InnerPageNav() {
       <SidebarSecondaryContent>
         <SidebarSecondarySection>
           <SidebarSecondaryMenu>
-            <SidebarSecondaryMenuItem href="#">Overview</SidebarSecondaryMenuItem>
+            <SidebarSecondaryMenuItem href="#">
+              Overview
+            </SidebarSecondaryMenuItem>
             <SidebarSecondaryMenuItem href="#" selected>
               Profile
             </SidebarSecondaryMenuItem>
@@ -280,11 +286,15 @@ function InnerPageNav() {
           <SidebarSecondarySectionLabel>Services</SidebarSecondarySectionLabel>
           <SidebarSecondaryMenu>
             <SidebarSecondaryMenuItem href="#">Backup</SidebarSecondaryMenuItem>
-            <SidebarSecondaryMenuItem href="#">Recovery</SidebarSecondaryMenuItem>
+            <SidebarSecondaryMenuItem href="#">
+              Recovery
+            </SidebarSecondaryMenuItem>
           </SidebarSecondaryMenu>
         </SidebarSecondarySection>
         <SidebarSecondarySection expandable>
-          <SidebarSecondarySectionLabel>Management</SidebarSecondarySectionLabel>
+          <SidebarSecondarySectionLabel>
+            Management
+          </SidebarSecondarySectionLabel>
           <SidebarSecondaryMenu>
             <SidebarSecondaryMenuItem href="#">Users</SidebarSecondaryMenuItem>
             <SidebarSecondaryMenuItem href="#">Roles</SidebarSecondaryMenuItem>
@@ -292,7 +302,9 @@ function InnerPageNav() {
         </SidebarSecondarySection>
         <SidebarSecondarySection>
           <SidebarSecondaryMenu>
-            <SidebarSecondaryMenuItem href="#">Settings</SidebarSecondaryMenuItem>
+            <SidebarSecondaryMenuItem href="#">
+              Settings
+            </SidebarSecondaryMenuItem>
           </SidebarSecondaryMenu>
         </SidebarSecondarySection>
       </SidebarSecondaryContent>
@@ -359,7 +371,11 @@ function PageBody({
 }) {
   return (
     <AppShellBody>
-      <TopBar title={title} breadcrumb={breadcrumb} showOpenChat={showOpenChat} />
+      <TopBar
+        title={title}
+        breadcrumb={breadcrumb}
+        showOpenChat={showOpenChat}
+      />
       <AppShellMain className="p-6">
         {children ?? <ContentPlaceholder />}
       </AppShellMain>
@@ -622,7 +638,10 @@ export const InnerPageWithoutNav: Story = {
       <AppShellSidebar>
         <PrimaryNav expanded={false} />
       </AppShellSidebar>
-      <PageBody title="ID-1002 / Ticket name" breadcrumb={serviceDeskBreadcrumb}>
+      <PageBody
+        title="ID-1002 / Ticket name"
+        breadcrumb={serviceDeskBreadcrumb}
+      >
         <div className="grid h-full grid-cols-[16rem_1fr] gap-4">
           <ContentPlaceholder />
           <ContentPlaceholder />

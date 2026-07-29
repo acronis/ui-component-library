@@ -518,7 +518,9 @@
     <div class="deck" id="deck">
       <!-- 1 — TITLE -->
       <section class="slide title active">
-        <div class="eyebrow">UI Components library Platform · Design System</div>
+        <div class="eyebrow">
+          UI Components library Platform · Design System
+        </div>
         <h1>
           <span class="gradient">Pattern-First</span> Screens<br />Interfaces
           built from patterns, not primitives
@@ -651,20 +653,33 @@
           <div class="card">
             <span class="tag">Frontend · top-down</span>
             <h3>⬇️ Start at the screen</h3>
-            <p style="font-family: var(--mono); font-size: 13px; line-height: 1.9">
+            <p
+              style="
+                font-family: var(--mono);
+                font-size: 13px;
+                line-height: 1.9;
+              "
+            >
               App → Screen → Template → Pattern → Composite →
               <b style="color: var(--warn)">Primitive*</b>
             </p>
             <p>
-              Fill regions with approved patterns. <b>*Reaching a primitive is
-              the last resort</b> — it means a pattern is missing, and it buys
-              messier templates, more code, and a more random result.
+              Fill regions with approved patterns.
+              <b>*Reaching a primitive is the last resort</b> — it means a
+              pattern is missing, and it buys messier templates, more code, and
+              a more random result.
             </p>
           </div>
           <div class="card">
             <span class="tag">Design · bottom-up</span>
             <h3>⬆️ Start at the primitive</h3>
-            <p style="font-family: var(--mono); font-size: 13px; line-height: 1.9">
+            <p
+              style="
+                font-family: var(--mono);
+                font-size: 13px;
+                line-height: 1.9;
+              "
+            >
               Primitive → Composite → Template → Screen
             </p>
             <p>
@@ -675,11 +690,12 @@
           </div>
         </div>
         <p class="note">
-          <b>The meeting point:</b> design delivers <b>screens made of
-          templates</b>; frontend builds from <b>patterns and large
-          composites, almost never primitives</b>. Same big parts on both sides
-          → fewer discrepancies, less cognitive overload, no reinvented wheels —
-          <b>consistent by construction</b>, not by review.
+          <b>The meeting point:</b> design delivers
+          <b>screens made of templates</b>; frontend builds from
+          <b>patterns and large composites, almost never primitives</b>. Same
+          big parts on both sides → fewer discrepancies, less cognitive
+          overload, no reinvented wheels — <b>consistent by construction</b>,
+          not by review.
         </p>
       </section>
 
@@ -695,7 +711,21 @@
         <div class="grid cols-2 fill">
           <div class="card">
             <span class="tag">in code</span>
-            <pre style="font-family: var(--mono); font-size: 12.5px; line-height: 1.55; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; color: var(--ink-dim); overflow: auto; white-space: pre; margin: 0">
+            <pre
+              style="
+                font-family: var(--mono);
+                font-size: 12.5px;
+                line-height: 1.55;
+                background: var(--bg-2);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 12px 14px;
+                color: var(--ink-dim);
+                overflow: auto;
+                white-space: pre;
+                margin: 0;
+              "
+            >
 &lt;AppShell&gt;                        <span style="color: var(--ink-faint)">// App</span>
   &lt;AssetsScreen /&gt;               <span style="color: var(--ink-faint)">// Screen</span>
 &lt;/AppShell&gt;
@@ -712,7 +742,21 @@ function AssetsScreen() {         <span style="color: var(--ink-faint)">// Templ
           </div>
           <div class="card">
             <span class="tag">in design</span>
-            <pre style="font-family: var(--mono); font-size: 12.5px; line-height: 1.6; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; color: var(--ink-dim); overflow: auto; white-space: pre; margin: 0">
+            <pre
+              style="
+                font-family: var(--mono);
+                font-size: 12.5px;
+                line-height: 1.6;
+                background: var(--bg-2);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 12px 14px;
+                color: var(--ink-dim);
+                overflow: auto;
+                white-space: pre;
+                margin: 0;
+              "
+            >
 Screen: Assets            <span style="color: var(--ink-faint)">← from Design</span>
 └ Template: List + Detail
   ├ Pattern: Page header
@@ -728,8 +772,8 @@ Screen: Assets            <span style="color: var(--ink-faint)">← from Design<
           </div>
         </div>
         <p class="note">
-          <b>An interface is not only visual.</b> Composing big parts also reuses
-          the <b>hidden half</b> — logic, behavior, state, data bindings,
+          <b>An interface is not only visual.</b> Composing big parts also
+          reuses the <b>hidden half</b> — logic, behavior, state, data bindings,
           permissions — so it isn't re-derived per screen. Behavior gets a home
           at the same altitude as the visual it belongs to:
           <span style="font-family: var(--mono); color: var(--ink-dim)"

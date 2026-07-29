@@ -2,6 +2,7 @@
   "title": "Guides",
   "pages": [
     "architecture",
+    "table-responsibilities",
     "design-to-code",
     "migration",
     "tree-shaking",

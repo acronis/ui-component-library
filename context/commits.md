@@ -32,13 +32,16 @@ component as the scope:
 
 ## Pre-commit hook
 
-`pnpm husky` runs on every commit (configured via `prepare`):
+`.husky/pre-commit` runs on every commit: `pnpm run lint-staged`, which runs
+`eslint --fix` on staged `.ts`/`.tsx`/`.js`/`.jsx` files under `apps/**` and
+`packages/**`, and `prettier --write` on staged `.json`/`.md`/`.yml`/`.yaml`
+files. **That is the hook's only step — it does not typecheck.**
 
-1. **lint-staged** — runs `eslint --fix` on staged `.ts`/`.tsx`/`.js`/`.jsx`
-   files under `apps/**` and `packages/**`, and `prettier --write` on
-   staged `.json`/`.md`/`.yml`/`.yaml` files.
-2. **typecheck** — `pnpm -r typecheck` runs TypeScript across every
-   workspace.
+A commit can therefore land with type errors. In a shared checkout that is
+useful, not just a gap: one person's broken typecheck cannot block another
+person's unrelated commit, so nobody needs `--no-verify` to work around a
+teammate. It does mean running the workspace typecheck (`pnpm -r typecheck`)
+before committing is on the author, not the tooling.
 
 If the hook fails:
 

@@ -6,14 +6,22 @@ description: Select rows in a data table and act on the selection via a contextu
 import { DemoReact } from '@/components/DemoReact';
 import { DataTableBulkActionsDemo } from '@/components/demos-react/patterns/data-table-bulk-actions';
 
-The approved way to offer row selection with bulk actions. A checkbox selection
-column drives a contextual bar that replaces the toolbar while rows are selected,
-showing the count and the available actions (**Export**, **Delete**, **Clear**).
+The approved target for row selection with bulk actions is one **`DataGrid`**
+configured with selection and bulk actions. DataGrid owns the checkbox column,
+selected count, contextual action bar, action overflow, and confirmations so
+the body and controls always share one state engine.
 
-Because the bulk bar and the row checkboxes must read the **same** selection
-state, this composes the **`Table`** primitives + **`DataTablePagination`** over a
-single `useReactTable` instance — _not_ the self-contained **`DataTable`**, which
-owns its own internal state and can't share selection with external chrome.
+<Callout type="warn">
+  `DataGrid`'s selection + bulk-action config has shipped (and `useDataTable`
+  lets a body and external chrome share one controller), but the demo below
+  still renders `Table` primitives and pagination over one direct
+  `useReactTable` instance. This is a transitional workaround pending migration,
+  not the approved target.
+</Callout>
+
+See
+[Table component responsibilities](/guides/table-responsibilities#data-table-bulk-actions)
+for the transitional workaround and the target `DataGrid`-first boundary.
 
 <DemoReact>
   <DataTableBulkActionsDemo />
@@ -26,17 +34,25 @@ owns its own internal state and can't share selection with external chrome.
 
 ## When not to use
 
-- A read-only or single-select table — use `DataTable` directly.
+- A standard read-only or single-select records grid — configure `DataGrid`
+  without bulk actions.
 - One action per row — put a row action (menu / button) in a cell instead.
 
 ## Anti-patterns
 
 - Using the self-contained `DataTable` **and** a separate `useReactTable` for the
-  bar — their selection states diverge. Build one table instance and feed both.
+  bar — their selection states diverge.
+- Rebuilding selection checkboxes and the bulk toolbar around `DataGrid` — use
+  the composite's built-in `selection` + `toolbar.bulkActions` controls.
 - Leaving the bulk bar always visible — show it only while rows are selected.
 - Hiding the selection count — always show "N selected" so the scope is clear.
 
-## How it works
+## Current workaround
+
+This code explains the existing demo. The `DataGrid` composite API has shipped;
+prefer it for new work. This one-direct-instance approach remains valid only for
+a specialized workflow the config cannot express — do not combine it with the
+convenience `DataTable`, and do not treat it as the default:
 
 ```tsx
 const [rowSelection, setRowSelection] = useState({});
@@ -54,4 +70,6 @@ const selected = table.getSelectedRowModel().rows;
 
 Render the bulk bar only while `selected.length > 0`, wire **Clear** to
 `table.resetRowSelection()`, render the grid from `table.getHeaderGroups()` /
-`getRowModel()`, and pass the same `table` to `DataTablePagination`.
+`getRowModel()`, and pass the same `table` to the current pagination companion.
+For standard grids, replace this composition with `DataGrid` selection +
+`toolbar.bulkActions` configuration.

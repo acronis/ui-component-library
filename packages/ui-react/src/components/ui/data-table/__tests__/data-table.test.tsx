@@ -9,7 +9,7 @@ import {
 } from '@tanstack/react-table';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   DataTable,
@@ -37,6 +37,7 @@ describe('DataTable', () => {
     expect(screen.getByText('Email')).toBeInTheDocument();
     expect(screen.getByText('user1@example.com')).toBeInTheDocument();
     expect(screen.getByText('user3@example.com')).toBeInTheDocument();
+    expect(screen.getAllByRole('row')).toHaveLength(4);
   });
 
   it('shows an empty state with no data', () => {
@@ -96,6 +97,69 @@ describe('DataTable', () => {
     );
     expect(screen.getByText('Details for r1')).toBeInTheDocument();
   });
+
+  it('preserves getRowCanExpand-only legacy state without projecting content', async () => {
+    const expandable: ColumnDef<Row>[] = [
+      {
+        id: 'expand',
+        cell: ({ row }) => (
+          <button
+            onClick={row.getToggleExpandedHandler()}
+            aria-label={row.getIsExpanded() ? 'Collapse row' : 'Expand row'}
+          >
+            Toggle
+          </button>
+        ),
+      },
+      { accessorKey: 'email', header: 'Email' },
+    ];
+    render(
+      <DataTable
+        columns={expandable}
+        data={data.slice(0, 1)}
+        getRowCanExpand={() => true}
+      />
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Expand row' }));
+
+    expect(
+      screen.getByRole('button', { name: 'Collapse row' })
+    ).toBeInTheDocument();
+    expect(screen.getAllByRole('row')).toHaveLength(2);
+  });
+
+  it('preserves renderExpandedRow-only legacy projection without adding expandability', async () => {
+    const imperativeExpansion: ColumnDef<Row>[] = [
+      {
+        id: 'expand',
+        cell: ({ row }) => (
+          <button onClick={() => row.toggleExpanded()}>
+            Force detail state
+          </button>
+        ),
+      },
+      { accessorKey: 'email', header: 'Email' },
+    ];
+    render(
+      <DataTable
+        columns={imperativeExpansion}
+        data={data.slice(0, 1)}
+        renderExpandedRow={(row) => (
+          <span>Forced details for {row.original.id}</span>
+        )}
+      />
+    );
+
+    expect(
+      screen.getByRole('button', { name: 'Force detail state' }).closest('tr')
+    ).toHaveTextContent('user1@example.com');
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Force detail state' })
+    );
+
+    expect(screen.getByText('Forced details for r1')).toBeInTheDocument();
+  });
 });
 
 describe('DataTable presentational features', () => {
@@ -124,6 +188,8 @@ describe('DataTable presentational features', () => {
       <DataTable columns={columns} data={data} skeleton skeletonRows={3} />
     );
     expect(screen.queryByText('user1@example.com')).not.toBeInTheDocument();
+    expect(screen.getByRole('columnheader', { name: 'Email' })).toBeVisible();
+    expect(screen.getAllByRole('row')).toHaveLength(4);
     // 3 rows × 2 columns of pulse bars
     expect(container.querySelectorAll('.animate-pulse')).toHaveLength(6);
   });
@@ -171,6 +237,12 @@ function Harness() {
           <span key={r.id}>{r.original.email}</span>
         ))}
       </div>
+      <output data-testid="visible-columns">
+        {table
+          .getVisibleLeafColumns()
+          .map((column) => column.id)
+          .join(',')}
+      </output>
       <DataTablePagination table={table} />
     </div>
   );
@@ -186,6 +258,27 @@ describe('DataTableToolbar + DataTablePagination', () => {
     expect(rows.queryByText('user1@example.com')).not.toBeInTheDocument();
   });
 
+  it('resets caller-owned filtering from the toolbar', async () => {
+    const user = userEvent.setup();
+    render(<Harness />);
+    await user.type(screen.getByPlaceholderText('Filter emails…'), 'user11');
+    await user.click(screen.getByRole('button', { name: /Reset/ }));
+    const rows = within(screen.getByTestId('page-rows'));
+    expect(rows.getByText('user1@example.com')).toBeInTheDocument();
+    expect(rows.queryByText('user11@example.com')).not.toBeInTheDocument();
+  });
+
+  it('changes caller-owned column visibility from view options', async () => {
+    const user = userEvent.setup();
+    render(<Harness />);
+    expect(screen.getByTestId('visible-columns')).toHaveTextContent(
+      'email,amount'
+    );
+    await user.click(screen.getByRole('button', { name: /View/ }));
+    await user.click(screen.getByRole('menuitemcheckbox', { name: 'amount' }));
+    expect(screen.getByTestId('visible-columns')).toHaveTextContent('email');
+  });
+
   it('paginates to the next page', async () => {
     render(<Harness />);
     const rows = () => within(screen.getByTestId('page-rows'));
@@ -195,5 +288,57 @@ describe('DataTableToolbar + DataTablePagination', () => {
     );
     expect(rows().queryByText('user1@example.com')).not.toBeInTheDocument();
     expect(rows().getByText('user6@example.com')).toBeInTheDocument();
+  });
+});
+
+describe('DataTable frozen compatibility props', () => {
+  it('warns once for each supplied frozen prop with its migration destination', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    try {
+      render(
+        <DataTable
+          columns={columns}
+          data={data}
+          striped
+          bordered
+          highlightCurrentRow
+          skeleton
+          skeletonRows={3}
+        />
+      );
+
+      const messages = warn.mock.calls.map((call) => String(call[0]));
+      const cases = [
+        ['striped', 'appearance.striped'],
+        ['bordered', 'appearance.borders'],
+        ['highlightCurrentRow', 'rowInteraction.current'],
+        ['skeleton', 'dataState'],
+        ['skeletonRows', 'dataState.skeletonRows'],
+      ] as const;
+
+      for (const [prop, destination] of cases) {
+        const matches = messages.filter(
+          (message) =>
+            message.includes(`"${prop}"`) &&
+            message.includes('deprecated') &&
+            message.includes(destination)
+        );
+        expect(matches).toHaveLength(1);
+      }
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('does not warn when no frozen prop is supplied', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    try {
+      render(<DataTable columns={columns} data={data} />);
+      expect(warn).not.toHaveBeenCalled();
+    } finally {
+      warn.mockRestore();
+    }
   });
 });

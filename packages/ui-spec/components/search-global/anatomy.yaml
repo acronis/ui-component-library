@@ -6,12 +6,12 @@ schematic: |
   +-------------------------------------------------------------+
   | [icon]  input (placeholder)                       [shortcut]|
   +-------------------------------------------------------------+
-     box      -> the pill container; gradient border via --ui-search-global-border-color-*
+     box      -> the pill container; gradient border via --ui-gradients-ai-*
                  (idle/hover/active) + box fill / radius / size
-     icon     -> leading magnifier, --ui-search-global-icon-color (AI purple)
+     icon     -> leading magnifier, --ui-glyph-on-status-ai (AI purple)
      input    -> borderless native search input; placeholder uses
-                 --ui-search-global-placeholoder-color
-     shortcut -> trailing keyboard-shortcut hint (⌘K), --ui-search-global-shortcut-color
+                 --ui-text-on-status-ai
+     shortcut -> trailing keyboard-shortcut hint (⌘K), --ui-text-on-surface-secondary
 
 root:
   element: div
@@ -25,19 +25,19 @@ parts:
     description: >-
       Pill container (48px tall, 24px radius). Paints the gradient border with the
       padding-box / border-box technique (box fill in padding-box, the
-      `--ui-search-global-border-color-*` gradient in border-box).
+      `--ui-gradients-ai-*` gradient in border-box).
     element: div
   - id: icon
-    description: Leading magnifier (16px), `--ui-search-global-icon-color`.
+    description: Leading magnifier (16px), `--ui-glyph-on-status-ai`.
     element: svg
   - id: input
     description: >-
       Borderless native `<input type="search">` that fills the row. Placeholder
-      uses `--ui-search-global-placeholoder-color`; typed text uses the foreground.
+      uses `--ui-text-on-status-ai`; typed text uses the foreground.
     element: input
   - id: shortcut
     description: >-
-      Trailing keyboard-shortcut hint (⌘K by default), `--ui-search-global-shortcut-color`.
+      Trailing keyboard-shortcut hint (⌘K by default), `--ui-text-on-surface-secondary`.
       Decorative (`aria-hidden`); hidden when the `shortcut` prop is null.
     element: span
     optional: true

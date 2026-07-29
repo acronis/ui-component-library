@@ -47,9 +47,7 @@ describe('AppShell', () => {
         </AppShellPanel>
       </AppShell>
     );
-    const panel = container.querySelector(
-      'aside[data-slot="app-shell-panel"]'
-    );
+    const panel = container.querySelector('aside[data-slot="app-shell-panel"]');
     expect(panel).toBeInTheDocument();
     expect(panel).toHaveClass('w-96');
     expect(panel).toHaveAttribute('aria-label', 'Acronis AI');
@@ -73,16 +71,17 @@ describe('AppShell', () => {
         <AppShellPanel aria-label="Acronis AI">chat</AppShellPanel>
       </AppShell>
     );
-    expect(
-      container.querySelector('[data-slot="app-shell"]')
-    ).toHaveAttribute('data-panel-state', 'full');
+    expect(container.querySelector('[data-slot="app-shell"]')).toHaveAttribute(
+      'data-panel-state',
+      'full'
+    );
     expect(
       container.querySelector('[data-slot="app-shell-panel"]')
     ).toHaveAttribute('data-state', 'full');
     // The body yields the content area to the full panel.
-    expect(
-      container.querySelector('[data-slot="app-shell-body"]')
-    ).toHaveClass('hidden');
+    expect(container.querySelector('[data-slot="app-shell-body"]')).toHaveClass(
+      'hidden'
+    );
   });
 
   it('AppShellPanelTrigger switches the panel state (uncontrolled)', async () => {
@@ -113,8 +112,9 @@ describe('AppShell', () => {
     await user.click(screen.getByRole('button', { name: 'collapse' }));
     expect(onPanelStateChange).toHaveBeenCalledWith('collapsed');
     // Controlled: state stays until the prop changes.
-    expect(
-      container.querySelector('[data-slot="app-shell"]')
-    ).toHaveAttribute('data-panel-state', 'docked');
+    expect(container.querySelector('[data-slot="app-shell"]')).toHaveAttribute(
+      'data-panel-state',
+      'docked'
+    );
   });
 });

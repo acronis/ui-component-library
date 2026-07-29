@@ -1,243 +1,287 @@
-import { type ReactNode, useMemo, useState } from 'react';
-import {
-  type ColumnDef,
-  type ColumnFiltersState,
-  type RowSelectionState,
-  type SortingState,
-  type TableOptions,
-  type VisibilityState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { Fragment, useEffect, useMemo, useState } from 'react';
+import type { ColumnDef } from '@tanstack/react-table';
 
-import { cn } from '@/lib/utils';
-import { Checkbox } from '../checkbox';
-import { DataTablePagination, DataTableToolbar } from '../data-table';
+import { DataTableRoot, DataTableView, useDataTable } from '../data-table';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../table';
+  applyPresets,
+  buildGroupedConfigAliases,
+  composeColumns,
+  composeControllerOptions,
+  composeViewProps,
+  renderChromeSlot,
+  resolveDataGridConfig,
+  DATA_GRID_CONFIG_MODULES,
+  DATA_GRID_CONFIG_PROP_KEYS,
+  type DataGridChromeSlot,
+  type DataGridProps,
+  type ResolvedDataGrid,
+} from './data-grid-config';
 
 // PROTOTYPE (see context/opinionated-composites-proposal.md, Phase 1).
 //
 // DataGrid is the batteries-included, config-driven composite the proposal calls
 // for: `<DataGrid columns={…} rows={…} />`. Where the `Table` primitive is
-// maximally compositional and `DataTable` renders just the grid (leaving toolbar
-// and pagination as detached parts the consumer must wire), DataGrid owns its own
-// TanStack instance and assembles the *whole* approved layout — toolbar (search +
-// column visibility), the grid, an optional selection column, loading/empty
-// states, and pagination — so every grid in the app reads the same way.
+// maximally compositional and `DataTable` is the flexible engine + composition
+// layer, DataGrid assembles the *whole* approved layout — bulk-action bar,
+// toolbar (search + column visibility), the grid, an optional selection column,
+// sortable headers, column filters, row actions, loading/empty states, and
+// pagination — so every grid in the app reads the same way.
 //
-// Flexibility lives one layer down: DataGrid is built on the `Table` primitive and
-// the `DataTable*` parts, so anything it can't express drops down to those.
+// It builds on the ONE shared DataTable controller (`useDataTable`): a single
+// TanStack instance owns the normalized state, so every control reads and
+// mutates the same engine. See context/table-feature-parity-design.md §1, §4.1.
+//
+// ── Where the behavior lives ────────────────────────────────────────────────
+//
+// Almost none of it is in this file. Every behavior group is a module under
+// `./data-grid-config/`, and this component is only the wiring between them:
+// resolve → columns → controller → view props → chrome slots. The grouped-config
+// type, the deprecated-alias record, and the resolved shape are all *derived*
+// from that registry (ADR-0002), so adding a group is one new module file plus
+// one line in `data-grid-config/index.ts` — never an edit here.
 
-export interface DataGridProps<TData, TValue> {
-  /** TanStack column definitions (the same `ColumnDef[]` DataTable accepts). */
-  columns: ColumnDef<TData, TValue>[];
-  /** Row data. */
-  rows: TData[];
-  /**
-   * Data state. `loaded` (default) renders the rows; `loading` renders skeleton
-   * rows; `empty` forces the empty message. When `loaded` but `rows` is empty,
-   * the empty message shows anyway.
-   */
-  state?: 'loading' | 'empty' | 'loaded';
-  /** Prepend a selection checkbox column and enable row selection. */
-  selectable?: boolean;
-  /** Render the built-in toolbar (search + column visibility). */
-  toolbar?: boolean;
-  /** Column id the toolbar search box filters (client-side). Implies `toolbar`. */
-  searchKey?: string;
-  searchPlaceholder?: string;
-  /** Render the built-in pagination footer. */
-  pagination?: boolean;
-  /** Initial page size when `pagination` is set. */
-  pageSize?: number;
-  /** Page-size options offered in the pagination footer. */
-  pageSizeOptions?: number[];
-  /** Called with the row's original data when a body row is clicked. */
-  onRowClick?: (row: TData) => void;
-  /** Message shown in the empty state. */
-  emptyMessage?: ReactNode;
-  /** Number of skeleton rows rendered while `state="loading"`. */
-  skeletonRows?: number;
-  /** Alternating row backgrounds. */
-  striped?: boolean;
+// Public surface. The behavior groups own their own config types, and this
+// block is what keeps `data-grid/index.ts` (a manifest file) unchanged when a
+// group moves or a new one lands.
+export type {
+  DataGridAppearanceConfig,
+  DataGridChrome,
+  DataGridChromeContext,
+  DataGridChromeSlot,
+  DataGridColumnFilterDef,
+  DataGridColumnsFeaturesConfig,
+  DataGridDataStateConfig,
+  DataGridDataStatus,
+  DataGridDetailExpansionConfig,
+  DataGridFacetSource,
+  DataGridFiltersConfig,
+  DataGridFooterConfig,
+  DataGridGroupedConfig,
+  DataGridGroupingConfig,
+  DataGridPaginationConfig,
+  DataGridPersistenceConfig,
+  DataGridPreset,
+  DataGridPresetsInput,
+  DataGridProps,
+  DataGridRowInteractionConfig,
+  DataGridSelectionConfig,
+  DataGridServerConfig,
+  DataGridServerSelection,
+  DataGridServerSelectionChangeEvent,
+  DataGridSortingConfig,
+  DataGridSummary,
+  DataGridSummaryPresentation,
+  DataGridToolbarConfig,
+  DataGridTreeConfig,
+  DataGridVirtualizationConfig,
+  IdentityFreeDataGridState,
+} from './data-grid-config';
+
+/**
+ * The grouped-config keys a preset may set, each mapped to the deprecated flat
+ * aliases that normalize into it. A preset never overrides a group the caller
+ * touched — by grouped prop *or* by alias — so explicit input always wins and a
+ * preset can't manufacture a spurious grouped-vs-alias duplicate warning.
+ *
+ * Derived from the registry: a group is preset-addressable precisely because its
+ * module declares `kind: 'grouped'`.
+ */
+const GROUPED_CONFIG_ALIASES = buildGroupedConfigAliases(
+  DATA_GRID_CONFIG_MODULES
+);
+
+const EMPTY_PRESET_IDS: readonly string[] = [];
+
+declare const process: {
+  readonly env: { readonly NODE_ENV?: string };
+};
+
+function defaultRowId(_row: unknown, index: number): string {
+  return String(index);
 }
 
-export function DataGrid<TData, TValue>({
-  columns,
-  rows,
-  state = 'loaded',
-  selectable = false,
-  toolbar = false,
-  searchKey,
-  searchPlaceholder,
-  pagination = false,
-  pageSize = 10,
-  pageSizeOptions,
-  onRowClick,
-  emptyMessage = 'No results.',
-  skeletonRows = 5,
-  striped = false,
-}: DataGridProps<TData, TValue>) {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
-
-  // Prepend a selection column when `selectable`; memoized so the identity is
-  // stable across renders (TanStack re-derives on a new columns array).
-  const resolvedColumns = useMemo<ColumnDef<TData, TValue>[]>(() => {
-    if (!selectable) return columns;
-    const selectionColumn = {
-      id: '__select__',
-      enableSorting: false,
-      enableHiding: false,
-      header: ({ table }) => (
-        <Checkbox
-          aria-label="Select all rows"
-          checked={table.getIsAllPageRowsSelected()}
-          indeterminate={
-            table.getIsSomePageRowsSelected() &&
-            !table.getIsAllPageRowsSelected()
-          }
-          onCheckedChange={(checked) =>
-            table.toggleAllPageRowsSelected(Boolean(checked))
-          }
-        />
-      ),
-      cell: ({ row }) => (
-        <Checkbox
-          aria-label="Select row"
-          checked={row.getIsSelected()}
-          disabled={!row.getCanSelect()}
-          onCheckedChange={(checked) => row.toggleSelected(Boolean(checked))}
-        />
-      ),
-    } satisfies ColumnDef<TData, TValue>;
-    return [selectionColumn, ...columns];
-  }, [columns, selectable]);
-
-  const options: TableOptions<TData> = {
-    data: rows,
-    columns: resolvedColumns,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    onColumnVisibilityChange: setColumnVisibility,
-    enableRowSelection: selectable,
-    onRowSelectionChange: setRowSelection,
-    state: { sorting, columnFilters, columnVisibility, rowSelection },
-  };
-  if (pagination) {
-    options.getPaginationRowModel = getPaginationRowModel();
-    options.initialState = { pagination: { pageIndex: 0, pageSize } };
+function resolveColumnId(
+  column: ColumnDef<unknown, unknown>
+): string | undefined {
+  if (column.id !== undefined) {
+    return column.id;
   }
+  if ('accessorKey' in column && column.accessorKey !== undefined) {
+    return String(column.accessorKey);
+  }
+  return undefined;
+}
 
-  const table = useReactTable(options);
+/** Development-only validation of invalid DataGrid config combinations. */
+function useDataGridValidation(input: {
+  externalChrome: boolean;
+  hasToolbar: boolean;
+  hasBulkActions: boolean;
+  multipleSelection: boolean;
+  warnings: readonly string[];
+}): void {
+  const { externalChrome, hasToolbar, hasBulkActions, multipleSelection } =
+    input;
+  // Join so the effect re-runs only when the set of messages actually changes.
+  const warningKey = input.warnings.join('\n');
 
-  const isLoading = state === 'loading';
-  const isEmpty = !isLoading && (state === 'empty' || rows.length === 0);
-  const bodyRows = table.getRowModel().rows;
-  const colSpan = resolvedColumns.length;
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      return;
+    }
+    for (const warning of warningKey === '' ? [] : warningKey.split('\n')) {
+      console.error(warning);
+    }
+    if (externalChrome && hasToolbar) {
+      console.error(
+        'DataGrid: `chrome.mode="external"` cannot be combined with `toolbar`/`searchKey`; the external renderer owns toolbar composition.'
+      );
+    }
+    if (hasBulkActions && !multipleSelection) {
+      console.error(
+        'DataGrid: bulk actions require multiple selection (`selectable` with `selectionMode="multiple"`).'
+      );
+    }
+  }, [
+    externalChrome,
+    hasToolbar,
+    hasBulkActions,
+    multipleSelection,
+    warningKey,
+  ]);
+}
+
+export function DataGrid<TData, TValue>(props: DataGridProps<TData, TValue>) {
+  const { columns, rows, getRowId = defaultRowId, chrome, callbacks } = props;
+
+  // Feature detection runs exactly once per grid, against the initial columns
+  // and rows — it must never observe mutable state (design §5.2).
+  const [detectedPresetIds] = useState<readonly string[]>(
+    () => props.presets?.detect?.({ columns, rows }) ?? EMPTY_PRESET_IDS
+  );
+
+  // Presets fill in the groups the caller left alone; the config modules then
+  // normalize the grouped configs and their deprecated flat aliases into one
+  // effective value set.
+  //
+  // The dependency list is the exact set of props the registry reads — every
+  // group key, every alias, and every declared extra `reads` entry — because
+  // depending on the whole `props` object would recompute on every render (React
+  // allocates a fresh props object each time) and take the column set's
+  // referential stability with it. That stability is load-bearing: a new
+  // `columns` array invalidates TanStack's memoized row model, so churning it
+  // rebuilds the row model on every render of every grid.
+  const configDeps = DATA_GRID_CONFIG_PROP_KEYS.map(
+    (key) => (props as unknown as Record<string, unknown>)[key]
+  );
+  const { resolved, warnings } = useMemo(
+    () => {
+      const preset = applyPresets(
+        props,
+        detectedPresetIds,
+        GROUPED_CONFIG_ALIASES
+      );
+      const result = resolveDataGridConfig(
+        preset.props,
+        DATA_GRID_CONFIG_MODULES
+      );
+      return {
+        resolved: result.resolved,
+        warnings: [...preset.warnings, ...result.warnings],
+      };
+    },
+    // The rule below wants a literal, because a dependency list that changes
+    // *length* between renders breaks React. This one cannot: the key list is
+    // derived from the module manifest and frozen at module load, so the length
+    // is always `DATA_GRID_CONFIG_PROP_KEYS.length + 2`. Spelling the list out
+    // literally is the hand-listed dependency F4 exists to remove — it would put
+    // one contended line back in front of every unit that adds a group.
+    // `props` is intentionally absent for the same reason: the registry declares
+    // exactly which of its members resolution reads, and depending on the object
+    // would defeat the memo entirely.
+    // eslint-disable-next-line react-hooks/use-memo, react-hooks/exhaustive-deps
+    [detectedPresetIds, props.presets, ...configDeps]
+  );
+
+  // Assemble the final column set. Memoized because a new columns array
+  // invalidates TanStack's memoized row model; every input is stable when the
+  // caller's props are.
+  const resolvedColumns = useMemo(
+    () =>
+      composeColumns(columns, DATA_GRID_CONFIG_MODULES, {
+        resolved,
+        callbacks,
+        resolveColumnId: resolveColumnId as (
+          column: ColumnDef<TData, unknown>
+        ) => string | undefined,
+      }),
+    [columns, resolved, callbacks]
+  );
+
+  const engineColumns = resolvedColumns as ColumnDef<TData, unknown>[];
+  const { data, ...controllerOptions } = composeControllerOptions(
+    DATA_GRID_CONFIG_MODULES,
+    { resolved, callbacks, rows, columns: engineColumns }
+  );
+
+  const controller = useDataTable<TData>({
+    columns: engineColumns,
+    data: (data ?? rows) as TData[],
+    getRowId,
+    ...controllerOptions,
+  });
+
+  const externalChrome = chrome?.mode === 'external';
+  useDataGridValidation({
+    externalChrome,
+    hasToolbar: resolved.toolbar.enabled,
+    hasBulkActions: Boolean(
+      resolved.toolbar.bulkActions && resolved.toolbar.bulkActions.length > 0
+    ),
+    multipleSelection:
+      resolved.selection.enabled && resolved.selection.mode === 'multiple',
+    warnings,
+  });
+
+  const viewProps = composeViewProps(DATA_GRID_CONFIG_MODULES, {
+    resolved,
+    callbacks,
+    columnCount: resolvedColumns.length,
+  });
+
+  // External chrome suppresses every built-in control but keeps the grid body,
+  // data-state rows, and footer.
+  const slot = (name: DataGridChromeSlot) =>
+    externalChrome
+      ? null
+      : renderChromeSlot(name, DATA_GRID_CONFIG_MODULES, {
+          controller,
+          resolved: resolved as ResolvedDataGrid<TData>,
+          callbacks,
+        }).map(({ key, node }) => <Fragment key={key}>{node}</Fragment>);
 
   return (
     <div className="flex flex-col gap-4">
-      {(toolbar || searchKey) && (
-        <DataTableToolbar
-          table={table}
-          searchKey={searchKey}
-          searchPlaceholder={searchPlaceholder}
-        />
-      )}
+      {externalChrome
+        ? chrome.render({
+            controller,
+            selectedRows: controller.table
+              .getSelectedRowModel()
+              .rows.map((row) => row.original),
+            query: controller.getQuery(),
+            state: controller.getState(),
+          })
+        : null}
 
-      <div className="rounded-md border border-[var(--ui-table-global-row-border-color)]">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {isLoading ? (
-              Array.from({ length: skeletonRows }).map((_, rowIndex) => (
-                <TableRow
-                  // eslint-disable-next-line @eslint-react/no-array-index-key -- skeleton placeholders have no data identity; position is the only key
-                  key={`skeleton-${rowIndex}`}
-                  className="hover:bg-transparent"
-                >
-                  {table.getVisibleLeafColumns().map((column) => (
-                    <TableCell key={column.id}>
-                      <div className="h-4 w-full animate-pulse rounded bg-[var(--ui-background-surface-secondary)]" />
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : isEmpty ? (
-              <TableRow>
-                <TableCell
-                  colSpan={colSpan}
-                  className="h-24 text-center text-[var(--ui-table-data-value-color-disabled)]"
-                >
-                  {emptyMessage}
-                </TableCell>
-              </TableRow>
-            ) : (
-              bodyRows.map((row, rowIndex) => (
-                <TableRow
-                  key={row.id}
-                  selected={row.getIsSelected()}
-                  onClick={
-                    onRowClick ? () => onRowClick(row.original) : undefined
-                  }
-                  className={cn(
-                    onRowClick && 'cursor-pointer',
-                    striped &&
-                      rowIndex % 2 === 1 &&
-                      !row.getIsSelected() &&
-                      'bg-[var(--ui-background-surface-secondary)]'
-                  )}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
-      </div>
+      {slot('top')}
+      {slot('toolbar')}
+      {slot('under-toolbar')}
 
-      {pagination && (
-        <DataTablePagination table={table} pageSizeOptions={pageSizeOptions} />
-      )}
+      <DataTableRoot table={controller}>
+        <DataTableView<TData> {...viewProps} />
+      </DataTableRoot>
+
+      {slot('bottom')}
     </div>
   );
 }

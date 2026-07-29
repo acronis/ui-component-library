@@ -1,79 +1,264 @@
 spec_version: '1.0'
 component: DataGrid
 
-# DataGrid is config-driven: it takes `columns` + `rows` and owns all table
-# state internally. Cell/header rendering is supplied through the TanStack
-# ColumnDef (the escape hatch), so the contract stays small.
+# The contract is framework-neutral. Adapter-specific names and deprecated React
+# aliases live in adapters.react. Target P0/P1 entries are accepted, not shipped.
 contract:
   properties:
     - name: columns
-      type: 'ColumnDef<TData, TValue>[]'
+      type: 'readonly ColumnDefinition<Row>[]'
       required: true
-      description: TanStack column definitions (header / cell renderers, accessors).
+      description: Neutral columns, cell/header render metadata, events, icons, sizing, and operators.
     - name: rows
-      type: 'TData[]'
+      type: 'readonly Row[]'
       required: true
-      description: The row data.
-    - name: state
-      type: "'loading' | 'empty' | 'loaded'"
-      required: false
-      default: "'loaded'"
+      description: Row data.
+    - name: row-id
+      type: 'RowIdResolver<Row>'
+      required: true
       description: >-
-        Data state. `loaded` renders the rows; `loading` renders skeleton rows;
-        `empty` forces the empty message. When `loaded` but `rows` is empty, the
-        empty message shows anyway.
-    - name: selectable
-      type: boolean
+        Shipped, conditionally required per the identity rule. Required as soon
+        as an identity-bearing feature is enabled — selection, actions, current
+        row, server mode, or a controlled selection/current-row/detail-expanded/
+        tree-expanded slice — and optional only while all of them are disabled.
+        Sorting, filters, pagination, appearance and the toolbar need no row
+        identity and do not require it. Row click/hover/activate handlers receive
+        the row object rather than an id and do not require it either; only the
+        current row does. The React adapter enforces this with a discriminated
+        props union, so omitting it is a compile error. The deprecated flat
+        aliases stay source-compatible for one minor line: they warn that
+        identity falls back to the row index and cannot survive a data change.
+    - name: state
+      type: 'Partial<DataTableState<RowId>>'
       required: false
-      default: 'false'
-      description: Prepend a selection checkbox column and enable row selection.
-    - name: toolbar
-      type: boolean
+      description: Controlled slice values; wins over defaultState and config defaults.
+    - name: defaultState
+      type: 'Partial<DataTableState<RowId>>'
       required: false
-      default: 'false'
-      description: Render the built-in toolbar (search + column visibility).
-    - name: searchKey
-      type: string
+      description: Initial uncontrolled slice values; wins over config defaults.
+    - name: chrome
+      type: 'DataGridChrome<Row>'
       required: false
-      description: Column id the toolbar search box filters (client-side). Implies `toolbar`.
-    - name: searchPlaceholder
-      type: string
+      default: "{ mode: 'built-in' }"
+      description: >-
+        Target P0. Built-in mode renders configured toolbar and pagination.
+        External mode requires render(context), retains their engine state,
+        suppresses those controls, and rejects toolbar config. Data-state rows
+        and footer content remain inside the table.
+    - name: selection
+      type: 'false | SelectionConfig<Row>'
       required: false
-      description: Placeholder for the toolbar search box.
+      default: false
+      description: >-
+        Target P0/P1. Every member is optional. mode=multiple; selectAll defaults to page when paginated
+        and loaded otherwise; select-all shown; reserve/range false; tree cascade none; group scope
+        visible leaves. all-results requires controlled server selection.
+        Shipped-parity `selectByRow` toggles selection on a body-row click,
+        `selectAllOnIndeterminate` picks the indeterminate header action
+        (select-all vs clear), and `showSelectAll` toggles the header control.
+    - name: sorting
+      type: 'false | SortingConfig'
+      required: false
+      default: false
+      description: >-
+        Target P0. Every member is optional. Single by default; cycle asc/desc/none; optional maxColumns.
+        Proposed multi-sort preserves descriptor priority.
+    - name: filters
+      type: 'false | FiltersConfig'
+      required: false
+      default: false
+      description: >-
+        Target P0. Every member is optional. Global/columns default absent. Logic
+        is deterministically AND; server descriptors must be serializable. Each
+        column definition may opt into a shipped-parity `facet`
+        (unique values / min-max / fixed list) so DataGrid renders the option
+        list, chips, and counts for set-membership controls.
     - name: pagination
-      type: boolean
+      type: 'false | PaginationConfig'
       required: false
-      default: 'false'
-      description: Render the built-in pagination footer.
-    - name: pageSize
-      type: number
+      default: false
+      description: >-
+        Target P0. Every member is optional. Defaults [10,20,30,40,50],
+        page-size and first/last visible, unknownTotal=false. unknownTotal=true
+        requires server previous/next capabilities and hides first/last.
+    - name: detailExpansion
+      type: 'false | DetailExpansionConfig<Row>'
       required: false
-      default: '10'
-      description: Initial page size when `pagination` is set.
-    - name: pageSizeOptions
-      type: 'number[]'
+      default: false
+      description: >-
+        Target P1. render is required; other members are optional. Defaults multiple and reserve=false.
+        detailExpanded state/callback/reset are independent from tree.
+    - name: tree
+      type: 'false | TreeConfig<Row>'
       required: false
-      description: Page-size options offered in the pagination footer.
-    - name: onRowClick
-      type: '(row: TData) => void'
+      default: false
+      description: >-
+        Target P1. getChildren is required; other members are optional. indent
+        default 20, and load-error renderer. Duplicate child IDs are invalid.
+        Lazy metadata is separate from treeExpanded state. `column` names which
+        column carries the in-cell disclosure and indentation, defaulting to the
+        first DECLARED data column — which is not necessarily the leftmost
+        RENDERED one, because columnsFeatures' columnOrder and visibility can
+        reorder or hide it after this resolves. `column` is the explicit escape
+        when they differ; hiding the tree column removes the disclosure entirely,
+        so the tree becomes unexpandable rather than merely un-indented.
+    - name: grouping
+      type: 'false | GroupingConfig<Row>'
       required: false
-      description: Called with the row's original data when a body row is clicked.
-    - name: emptyMessage
-      type: ReactNode
+      default: false
+      description: >-
+        Target P1. allowedColumns is required; other members are optional. Renderer, collapse/sticky, selection scope,
+        and ungrouped policy; default ungrouped is visible, named "Ungrouped",
+        and last. Only roots group; descendant trees remain attached.
+    - name: virtualization
+      type: 'false | VirtualizationConfig'
       required: false
-      default: "'No results.'"
-      description: Message shown in the empty state.
-    - name: skeletonRows
-      type: number
+      default: false
+      description: >-
+        Target P1. Every member is optional; defaults 40px/fixed/overscan 8. Requires appearance.height or
+        maxHeight and renders only after the final row model.
+    - name: columnsFeatures
+      type: 'false | ColumnsFeaturesConfig'
       required: false
-      default: '5'
-      description: Number of skeleton rows rendered while `state="loading"`.
-    - name: striped
-      type: boolean
+      default: false
+      description: >-
+        Target P0/P1. Every member is optional. Visibility and system-column locking default true; pin,
+        resize, reorder, fit and overflow tooltip default false. Container fit
+        requires bounded width.
+    - name: persistence
+      type: 'false | PersistenceConfig'
       required: false
-      default: 'false'
-      description: Alternating row backgrounds.
-  events: []
+      default: false
+      description: >-
+        Target P1. key, version, and storage are required; other members are optional.
+        Legacy parity restores hidden columns and widths. Versioned
+        storage/migration/validation, order/pinning inclusion, and
+        controlled-slice protection are new React hardening.
+    - name: toolbar
+      type: 'false | ToolbarConfig<Row>'
+      required: false
+      default: false
+      description: >-
+        Target P0. Every member is optional: globalSearch=false,
+        columnFilters=false, viewOptions=true, bulkActions empty, and no
+        leading/trailing content. Bulk actions require multiple selection.
+    - name: actions
+      type: 'false | ActionsConfig<Row>'
+      required: false
+      default: false
+      description: >-
+        Target P0. Exactly one of items/render and onAction are required;
+        placement is optional and defaults end. Item ids must be unique.
+        Controls stop row propagation, including a custom render's own controls.
+    - name: appearance
+      type: 'AppearanceConfig<Row>'
+      required: false
+      description: >-
+        Target P0/P1. Every member is optional, with inert defaults: medium, unstriped, auto width, unbounded
+        height, transparent background, header shown, non-sticky, all borders
+        false. Supports independent top/bottom/horizontal/vertical border
+        strength, shipped-parity surface `background`
+        (transparent/accent/subtle/surface) and `showHeader`, and normalized
+        row/cell/header class/style callbacks.
+    - name: dataState
+      type: DataStateConfig
+      required: false
+      description: >-
+        status is optional only for loaded and defaults loaded; loading/empty/error
+        variants require status, and error requires content. Legacy parity covers loading/empty/skeleton and P1
+        append/loading-more. Initial error/retry is a React target; append
+        error/retry is proposed-only.
+    - name: footer
+      type: FooterConfig<Row>
+      required: false
+      description: >-
+        Target P1. Summary-branch members are optional; the custom branch
+        requires render. Branches are mutually exclusive; sticky defaults false.
+    - name: rowInteraction
+      type: RowInteractionConfig<Row>
+      required: false
+      description: >-
+        Target P0/P1. Every member is optional, with inert defaults. Current row, Enter/double-click activation,
+        row tooltip, hover/click/activate and scroll callbacks. Cell events and
+        tooltip live in column metadata.
+    - name: server
+      type: 'false | ServerConfig<RowId>'
+      required: false
+      default: false
+      description: >-
+        Target P0 all-manual query/totals/capabilities and optional controlled
+        explicit/all-results selection. The application issues an all-results
+        token scoped to query.requestKey; DataGrid never invents one.
+    - name: presets
+      type: 'DataGridPresetsInput<Row>'
+      required: false
+      description: >-
+        Target P1 shipped parity. Precedence rises with explicitness: detected
+        presets first, then the apply list left-to-right (later writes win), then
+        any grouped config — or deprecated alias — the caller supplied. Detection
+        runs once from initial columns/rows and never observes mutable state.
+        Presets cannot contain state, defaultState, server, rows, or callbacks.
+    - name: callbacks
+      type: 'DataGridCallbacks<Row, RowId>'
+      required: false
+      description: >-
+        Named screen callbacks carrying enriched events (cause, complete next
+        state, query, request key). Every member is optional. A config-level
+        handler owns the behavior and runs first; the named callback observes
+        afterwards — server.onQueryChange before callbacks.onQueryChange,
+        rowInteraction.on* before onRow*, actions.onAction before onRowAction,
+        dataState.onRetry before onDataStateAction. Slice-derived events reuse the
+        controller's change-event shape; the four column slices fan into one
+        onColumnStateChange. The detail/tree/grouping/scroll callbacks land with
+        the P1 features that emit them.
+  events:
+    - name: state-change
+      payload: 'DataTableChangeEvent<Slice, Value, RowId>'
+      description: Target slice/value/cause/next-state/query/requestKey event.
+    - name: query-change
+      payload: DataTableQueryChangeEvent
+      description: >-
+        Target previous/query/cause/requestKey event. server.onQueryChange is
+        authoritative; the top-level callback only observes the same event.
+    - name: sorting-change
+      payload: SortingChangeEvent
+      description: >-
+        Target named sorting event carrying the ordered sort descriptors, cause,
+        complete next state/query, and requestKey.
+    - name: selection-change
+      payload: 'SelectionChangeEvent<RowId> | ServerSelectionChangeEvent<RowId>'
+      description: Target explicit/all-results selection event with query and requestKey.
+    - name: current-row-change
+      payload: 'CurrentRowChangeEvent<RowId>'
+      description: Target named current-record event.
+    - name: row-activate
+      payload: 'RowActivationEvent<Row, RowId>'
+      description: Target keyboard/pointer activation event.
+    - name: detail-expansion-change
+      payload: 'DetailExpansionChangeEvent<RowId>'
+      description: Target detail-only change event.
+    - name: tree-expansion-change
+      payload: 'TreeExpansionChangeEvent<RowId>'
+      description: Target tree-only change event.
+    - name: tree-load
+      payload: 'TreeLoadEvent<Row, RowId>'
+      description: Target lazy request/load-metadata event.
+    - name: column-state-change
+      payload: ColumnStateChangeEvent
+      description: Target visibility/order/size/pin event.
+    - name: pagination-change
+      payload: PaginationChangeEvent
+      description: Target named page event.
+    - name: data-state-action
+      payload: "{ action: 'retry' | 'append-retry' }"
+      description: Target distinct initial/append retry event.
+  content:
+    - name: columns
+      description: Neutral column definitions own typed header/cell content.
+    - name: render-hooks
+      description: >-
+        Toolbar/state/footer/action/group/detail hooks replace named Vue slots;
+        arbitrary layout drops to DataTable or Table.
   methods: []
 
 adapters:
@@ -82,23 +267,29 @@ adapters:
     status: implemented
     import: "import { DataGrid } from '@constructor-lab/ui-react'"
     example: |
-      <DataGrid columns={columns} rows={rows} />
+      // Current deprecated overload
+      <DataGrid columns={columns} rows={rows} selectable toolbar pagination />
 
-      {/* Batteries-included */}
+      // Accepted grouped target; ColumnDefinition maps to TanStack ColumnDef
       <DataGrid
         columns={columns}
         rows={rows}
-        selectable
-        toolbar
-        searchKey="email"
-        pagination
+        getRowId={(row) => row.id}
+        selection={{}}
+        sorting={{ mode: 'multiple' }}
+        filters={{ columns: filterDefinitions }}
+        pagination={{ pageSizeOptions: [25, 50, 100] }}
+        toolbar={{ globalSearch: true, columnFilters: true }}
       />
+      // Advanced engineOptions/plugins belong to the DataTable custom-composition
+      // escape hatch. DataGrid intentionally keeps its batteries-included API
+      // limited to supported grouped outcomes.
   vue:
     component: AvDataGrid
     status: planned
     import: "import { AvDataGrid } from '@constructor-lab/ui-vue'"
     example: |
-      <AvDataGrid :columns="columns" :rows="rows" />
+      <AvDataGrid :columns="columns" :rows="rows" :row-id="row => row.id" />
   web-components:
     element: ui-data-grid
     status: planned

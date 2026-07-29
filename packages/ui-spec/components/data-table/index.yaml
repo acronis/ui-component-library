@@ -5,18 +5,21 @@ status: draft
 category: data-display
 layer: composite
 description: >-
-  A data grid built on TanStack react-table v8, composed over the Table
-  primitives — sorting, filtering, column visibility, row selection, pagination,
-  and optional row expansion. Ships with companion parts (column header,
-  toolbar, pagination, view options). Ported from the legacy shadcn-uikit
-  `data-table`.
+  The flexible React/TanStack engine and custom-composition layer for tabular
+  data. One controller owns normalized state, plugins, row models, metadata,
+  actions, queries, and typed render contexts; its view projects those models
+  through Table. DataTable supplies no batteries-included toolbar, filters,
+  selection controls, menus, pagination controls, overlays, or data-state UI.
+  Existing public companion exports are migration liabilities, not the target
+  contract; standard UIKit-composed chrome belongs exclusively to DataGrid.
+  The first controller minor freezes deprecated React skeleton/skeletonRows,
+  striped, bordered, and highlightCurrentRow behavior; the skeleton path is the
+  sole temporary primitive-rendering exception and all five inputs leave in the
+  next major. React engineOptions is an exact seven-key diagnostic/render
+  fallback allowlist with an exhaustive TanStack-upgrade guard; plugins are
+  fully namespaced, preflighted descriptors backed by a private adapter registry.
 since: 0.42.0
 dependencies:
   components:
     - Table
-    - Button
-    - ButtonIcon
-    - Checkbox
-    - DropdownMenu
-    - InputSelect
-    - InputText
+    - Skeleton

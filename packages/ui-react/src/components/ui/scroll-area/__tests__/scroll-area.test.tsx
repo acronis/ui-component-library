@@ -51,6 +51,67 @@ describe('ScrollArea', () => {
     }
   );
 
+  // The root's `ref` reaches an element that never scrolls (`overflow: hidden`),
+  // so anything that measures or scrolls the region needs the viewport instead.
+  it('forwards viewportRef to the element that actually scrolls', () => {
+    const root = createRef<HTMLDivElement>();
+    const viewport = createRef<HTMLDivElement>();
+    render(
+      <ScrollArea ref={root} viewportRef={viewport}>
+        body
+      </ScrollArea>
+    );
+    expect(viewport.current).toHaveAttribute(
+      'data-slot',
+      'scroll-area-viewport'
+    );
+    expect(viewport.current).not.toBe(root.current);
+    expect(root.current).toContainElement(viewport.current);
+  });
+
+  it('puts viewportProps on the viewport, not the root', () => {
+    const { container } = render(
+      <ScrollArea
+        viewportProps={{
+          'data-bounded': 'true',
+          tabIndex: 0,
+          className: 'scroll-smooth',
+        }}
+      >
+        body
+      </ScrollArea>
+    );
+    const viewport = container.querySelector(
+      '[data-slot="scroll-area-viewport"]'
+    );
+    expect(viewport).toHaveAttribute('data-bounded', 'true');
+    expect(viewport).toHaveAttribute('tabindex', '0');
+    // Merged, not replaced — the component's own viewport classes survive.
+    expect(viewport).toHaveClass('scroll-smooth', 'size-full');
+    expect(
+      container.querySelector('[data-slot="scroll-area"]')
+    ).not.toHaveAttribute('data-bounded');
+  });
+
+  it('isolates its stacking order and keeps the scrollbar above content', () => {
+    const { container } = render(
+      <ScrollArea>
+        <ScrollBar keepMounted />
+      </ScrollArea>
+    );
+    // `isolate` contains any z-index set on scrolled content, so the scrollbar
+    // only has to outrank content inside this scroll area — and content inside
+    // cannot outrank overlays outside it. Deliberately `isolation` rather than
+    // `contain`/`transform`, which would create a containing block and break
+    // `position: sticky` in the viewport.
+    expect(container.querySelector('[data-slot="scroll-area"]')).toHaveClass(
+      'isolate'
+    );
+    expect(
+      container.querySelector('[data-slot="scroll-area-scrollbar"]')
+    ).toHaveClass('z-[60]');
+  });
+
   it('renders a standalone ScrollBar with the requested orientation', () => {
     const { container } = render(
       <ScrollArea orientation="vertical">

@@ -4551,7 +4551,7 @@
         "platforms": ["PD"],
         "values": {
           "dark": { "colorSpace": "hsl", "components": [300, 50.82, 11.96] },
-          "light": { "colorSpace": "hsl", "components": [0, 0, 100] }
+          "light": { "colorSpace": "hsl", "components": [300, 80, 98.04] }
         }
       },
       "1": {
@@ -5113,12 +5113,12 @@
       }
     },
     "size": {
-      "7": {
+      "6": {
         "$extensions": {
           "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
           "com.figma.variableId": "VariableID:3459:3714"
         },
-        "$value": { "unit": "px", "value": 7 },
+        "$value": { "unit": "px", "value": 6 },
         "platforms": ["PD"]
       },
       "8": {
@@ -5255,6 +5255,14 @@
           "com.figma.variableId": "VariableID:6364:18086"
         },
         "$value": { "unit": "px", "value": 320 },
+        "platforms": ["PD"]
+      },
+      "384": {
+        "$extensions": {
+          "com.figma.scopes": ["WIDTH_HEIGHT", "FONT_VARIATIONS"],
+          "com.figma.variableId": "VariableID:7329:25279"
+        },
+        "$value": { "unit": "px", "value": 384 },
         "platforms": ["PD"]
       },
       "512": {

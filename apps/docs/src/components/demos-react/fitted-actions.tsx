@@ -21,7 +21,10 @@ export function FittedActionsDemo() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       {[520, 240].map((width) => (
-        <div key={width} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <div
+          key={width}
+          style={{ display: 'flex', flexDirection: 'column', gap: 4 }}
+        >
           <span style={{ fontSize: 12, opacity: 0.6 }}>{width}px</span>
           <div style={{ width }}>
             <FittedActions actions={actions} />

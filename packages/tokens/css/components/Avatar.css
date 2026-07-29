@@ -2,6 +2,9 @@
 /* Source: @constructor-lab/tokens • tier: Avatar */
 
 :root, :host {
+  --ui-avatar-color-blue: var(--ui-palette-blue-3);
+  --ui-avatar-color-gray: var(--ui-palette-grayscale-3);
+  --ui-avatar-color-green: var(--ui-palette-green-3);
   --ui-avatar-color-orange: var(--ui-palette-orange-3);
   --ui-avatar-color-red: var(--ui-palette-red-3);
   --ui-avatar-color-teal: var(--ui-palette-teal-3);
@@ -15,6 +18,9 @@
   --ui-avatar-global-avatar-size: var(--ui-units-size-32);
   --ui-avatar-global-container-gap: var(--ui-units-gap-8);
   --ui-avatar-global-text-color: var(--ui-text-on-surface-primary);
+  --ui-avatar-label-color-blue: var(--ui-palette-blue-11);
+  --ui-avatar-label-color-gray: var(--ui-palette-grayscale-11);
+  --ui-avatar-label-color-green: var(--ui-palette-green-11);
   --ui-avatar-label-color-orange: var(--ui-palette-orange-11);
   --ui-avatar-label-color-red: var(--ui-palette-red-11);
   --ui-avatar-label-color-teal: var(--ui-palette-teal-11);

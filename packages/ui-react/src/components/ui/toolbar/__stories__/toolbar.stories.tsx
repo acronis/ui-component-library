@@ -29,7 +29,8 @@ const meta = {
     orientation: {
       control: 'select',
       options: ['horizontal', 'vertical'],
-      description: 'Layout axis; also flips the arrow-key navigation direction.',
+      description:
+        'Layout axis; also flips the arrow-key navigation direction.',
       table: {
         type: { summary: "'horizontal' | 'vertical'" },
         defaultValue: { summary: 'horizontal' },
@@ -88,7 +89,9 @@ function ToolbarVariant({
         <ToolbarButton>Third action</ToolbarButton>
         <ToolbarButton>Fourth action</ToolbarButton>
         <ToolbarButton>Fifth action</ToolbarButton>
-        {moreActions && <ButtonMenu variant="secondary">More actions</ButtonMenu>}
+        {moreActions && (
+          <ButtonMenu variant="secondary">More actions</ButtonMenu>
+        )}
       </ToolbarGroup>
       {counter && (
         <ToolbarGroup className="ms-auto">
@@ -122,7 +125,9 @@ function DisabledToolbarVariant({
         )}
       </ToolbarGroup>
       {counter && (
-        <ToolbarStatus className="ms-auto">25 of 1250 items loaded</ToolbarStatus>
+        <ToolbarStatus className="ms-auto">
+          25 of 1250 items loaded
+        </ToolbarStatus>
       )}
     </Toolbar>
   );

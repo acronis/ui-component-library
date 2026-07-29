@@ -15,14 +15,14 @@ export interface DataTableProps {
   getRowCanExpand?: (row: unknown) => boolean;
   /** Renders the detail content for an expanded row. */
   renderExpandedRow?: (row: unknown) => ReactNode;
-  /** Alternating row backgrounds. */
+  /** @deprecated Frozen compatibility prop; use DataGrid `appearance.striped`. Alternating row backgrounds. */
   striped?: boolean;
-  /** Vertical borders between columns (rows already have horizontal borders). */
+  /** @deprecated Frozen compatibility prop; use DataGrid `appearance.borders`. Vertical borders between columns. */
   bordered?: boolean;
-  /** Highlight the row the user last clicked (the "current" row). */
+  /** @deprecated Frozen compatibility prop; use DataGrid `rowInteraction.current`. Highlight the last-clicked row. */
   highlightCurrentRow?: boolean;
-  /** Render placeholder skeleton rows instead of data (loading state). */
+  /** @deprecated Frozen compatibility prop; use DataGrid `dataState`. Render placeholder skeleton rows. */
   skeleton?: boolean;
-  /** Number of skeleton rows to render when `skeleton` is set (default 5). */
+  /** @deprecated Frozen compatibility prop; use DataGrid `dataState.skeletonRows`. */
   skeletonRows?: number;
 }

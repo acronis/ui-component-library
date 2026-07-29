@@ -84,3 +84,65 @@ tokens:
       affects: head,
       description: Focus-visible ring on the sort button,
     }
+
+  # Presentation cluster (size / background / borders / sticky). The
+  # `--ui-table-*` tier defines one set of cell metrics and no surface or
+  # border-strength members, so these reach for the shared semantic and unit
+  # tiers. `background` is bridged where a Tailwind name exists (`subtle` ->
+  # muted, `surface` -> background); the other two reference their token
+  # directly — see the note in table.tsx.
+  - {
+      name: --ui-background-surface-transparent,
+      affects: root,
+      description: Background surface — transparent variant,
+    }
+  - {
+      name: --ui-background-surface-active,
+      affects: root,
+      description: Background surface — accent variant (and its sticky surface),
+    }
+  - {
+      name: --ui-background-surface-secondary,
+      affects: root,
+      description: Background surface — subtle variant (and its sticky surface),
+    }
+  - {
+      name: --ui-background-surface-primary,
+      affects: root,
+      description: Background surface — surface variant; also the fallback sticky surface,
+    }
+  - {
+      name: --ui-border-on-surface-divider,
+      affects: root,
+      description: Border dimension — subtle strength,
+    }
+  - {
+      name: --ui-border-on-surface-border-active,
+      affects: root,
+      description: Border dimension — strong strength; also the current-row marker,
+    }
+  - {
+      name: --ui-units-size-32,
+      affects: cell,
+      description: Cell min height — small density,
+    }
+  - {
+      name: --ui-units-size-48,
+      affects: cell,
+      description: Cell min height — large density,
+    }
+  - {
+      name: --ui-units-size-8,
+      affects: cell,
+      description: Cell horizontal padding — small density,
+    }
+  - {
+      name: --ui-units-gap-4,
+      affects: cell,
+      description: Cell vertical padding — small density,
+    }
+  - {
+      name: --ui-units-gap-12,
+      affects: cell,
+      description: Cell vertical padding — large density,
+    }

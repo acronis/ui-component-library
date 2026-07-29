@@ -13,6 +13,26 @@ contract:
       default: false
       description: >-
         On a row — marks it selected (active row token + `data-state="selected"`).
+        Shipped.
+    - name: current
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        On a row — distinguishes the current/active record from selection and
+        exposes native `aria-current` plus `data-current`. Never emits
+        `aria-selected`, so a row may be current, selected, both, or neither.
+        Presented as a layout-neutral leading marker.
+    - name: expanded
+      type: boolean
+      required: false
+      description: >-
+        On a row — reflects expansion as a data attribute for styling. Table
+        does not render, load, or toggle the child content, and selection wins
+        over expansion when both apply. It deliberately does **not** put
+        `aria-expanded` on the row: that attribute is only valid on a treegrid
+        row, and it belongs on the disclosure control together with
+        `aria-controls` (see the expander parts in anatomy).
     - name: sortable
       type: boolean
       required: false
@@ -27,6 +47,156 @@ contract:
       description: >-
         On a sortable column header — the current sort direction (`false` =
         sortable but unsorted). Drives the sort icon and `aria-sort`.
+    - name: sort-priority
+      type: 'positive integer | undefined'
+      required: false
+      description: >-
+        Accepted P0 proposed-only multi-sort presentation. Shows the visible
+        priority and contributes direction/priority to the accessible
+        description; it does not own sorting state.
+    - name: scope
+      type: "'col' | 'colgroup' | 'row' | 'rowgroup'"
+      required: false
+      description: >-
+        Native header-cell scope, passed straight through to the element. `col`
+        is the simple-column target; grouped column headers use `colgroup`, and
+        row-group headers use `rowgroup`. Table never infers it — the owning
+        renderer sets the correct value.
+    - name: sticky
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        On the header, the footer, or a group row — pins the section to the top
+        (header, group row) or bottom (footer) of the scroll container.
+        Requires a bounded container (`height` or `max-height`). Group rows
+        stack below a sticky header; a pinned column stays above its unpinned
+        siblings while the middle columns scroll under it.
+    - name: sticky-offset
+      type: number | string
+      required: false
+      default: 0
+      description: >-
+        On a `sticky` row — distance from the top of the scroll container, so a
+        group header clears a sticky column header. The owner supplies it;
+        Table holds no column model and does not measure the header.
+    - name: pinned
+      type: "'start' | 'end' | false"
+      required: false
+      default: false
+      description: >-
+        On a header or data cell — pins the column to the start or end edge of
+        the scroll container and exposes `data-pinned`. Table presents the pin;
+        the owner decides which columns are pinned.
+    - name: pin-offset
+      type: number | string
+      required: false
+      default: 0
+      description: >-
+        On a `pinned` cell — distance from the pinned edge, i.e. the
+        accumulated size of the columns pinned before it. Supplied by the owner
+        (DataTable's column model), never computed by Table.
+    - name: trailing
+      type: Content
+      required: false
+      description: >-
+        On a column header — content rendered inside the header cell but outside
+        the sort control, for anything focusable or clickable (a resize handle, a
+        reorder grip). A sortable header wraps its label in a button, so a
+        control supplied as label content would nest inside interactive content,
+        where activating it also sorts and the sort control's accessible name
+        absorbs its label. Non-interactive decoration of the label may stay with
+        the label; only controls must not nest.
+    - name: container-ref
+      type: ElementRef
+      required: false
+      description: >-
+        Reference to the scroll container — the element an owner scrolls,
+        observes, or measures. Together with `container-class-name`,
+        `container-props`, and the box properties below, this is how DataTable
+        coordinates sticky content and virtualization without moving data logic
+        into Table. React: `containerRef`.
+    - name: container-class-name
+      type: string
+      required: false
+      description: >-
+        Extra classes for the scroll container. The root's own class property
+        targets the table element. React: `containerClassName`.
+    - name: container-props
+      type: ElementAttributes
+      required: false
+      description: >-
+        Escape hatch for the scroll container — scroll handler, tab index, data
+        attributes. React: `containerProps`.
+    - name: size
+      type: "'small' | 'medium' | 'large'"
+      required: false
+      default: medium
+      description: >-
+        Cell density, applied from the root so every header and data cell
+        follows. `medium` is the shipped metric set; DataGrid drives it through
+        `appearance.size`.
+    - name: width
+      type: number | string
+      required: false
+      description: >-
+        Width of the scroll container. A bare number is pixels. DataGrid drives
+        it through `appearance.width`.
+    - name: height
+      type: number | string
+      required: false
+      description: >-
+        Height of the scroll container. A bare number is pixels. Bounding the
+        container is the precondition for sticky sections and for
+        windowed/virtual rendering; the container exposes `data-bounded` when
+        `height` or `max-height` is set. DataGrid drives it through
+        `appearance.height`.
+    - name: max-height
+      type: number | string
+      required: false
+      description: >-
+        Maximum height of the scroll container. A bare number is pixels. Bounds
+        the container exactly as `height` does — for any **definite** length.
+        DataGrid drives it through `appearance.maxHeight`.
+
+        Implementation note, because getting this wrong is invisible: both
+        constraints must land on the element that *scrolls*, not on a box around
+        it. A maximum height on an outer box leaves the scrolling element free to
+        grow to its content — it then reports itself bounded, clips its overflow,
+        and never scrolls. `height` survives that mistake because it is a definite
+        length the inner element can inherit; `max-height` does not.
+
+        The corollary, and the one restriction on the equivalence above: **a
+        percentage bounds neither member.** Once the constraint sits on the
+        scrolling element, a percentage resolves against that element's containing
+        block, whose height is `auto` — so it computes as none and the element grows
+        to its content. Measured for both `height` and `max-height`. An
+        implementation should require a definite length and say so at the value; a
+        percentage that appears to work is sizing an outer box and clipping, not
+        scrolling.
+    - name: borders
+      type: BorderConfig
+      required: false
+      description: >-
+        Independent top, bottom, horizontal, and vertical border dimensions,
+        each `false | true | 'subtle' | 'default' | 'strong'`. Each resolves on
+        its own — enabling one never implies another. Only `horizontal` is on
+        by default (the shipped row divider). Turning `horizontal` off also
+        removes the hairline a sticky header/footer draws in place of the
+        collapsed border. Table applies the supplied presentation and owns no
+        column/data decisions.
+    - name: background
+      type: "'transparent' | 'accent' | 'subtle' | 'surface'"
+      required: false
+      default: transparent
+      description: >-
+        Shipped-parity presentational surface on the Table wrapper. Legacy
+        `backgroundColor` (transparent, solid-brand-accent,
+        solid-brand-lightest, fixed-white) normalizes to these neutral,
+        token-resolved variants. The variant also publishes the surface a
+        sticky or pinned cell paints over the scrolling content. Table applies
+        the surface only and owns no data decisions; DataGrid drives it through
+        `appearance.background`.
 
   events:
     - name: sort
@@ -53,18 +223,30 @@ adapters:
       import { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead,
       TableCell, TableCaption } from '@constructor-lab/ui-react'
     example: |
-      <Table>
-        <TableHeader>
+      <Table
+        size="small"
+        background="surface"
+        maxHeight={320}
+        borders={{ top: true, bottom: true, vertical: 'subtle' }}
+        containerRef={scrollRef}
+      >
+        <TableHeader sticky>
           <TableRow>
-            <TableHead sortable sortDirection={dir} onSort={toggleSort}>
+            <TableHead
+              scope="col"
+              pinned="start"
+              sortable
+              sortDirection={dir}
+              onSort={toggleSort}
+            >
               Name
             </TableHead>
-            <TableHead>Status</TableHead>
+            <TableHead scope="col">Status</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow selected={isSelected}>
-            <TableCell>web-server-01</TableCell>
+          <TableRow selected={isSelected} current={isCurrent}>
+            <TableCell pinned="start">web-server-01</TableCell>
             <TableCell><Tag>Protected</Tag></TableCell>
           </TableRow>
         </TableBody>

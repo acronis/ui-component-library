@@ -12,8 +12,14 @@ the navigation and decide the active page.
 
 ## When not to use
 
-- Inside a `DataTable` — use its built-in `DataTablePagination`.
 - Continuous loading — use infinite scroll / a "Load more" button.
+
+## Table composition
+
+`Pagination` remains a standalone primitive. `DataGrid` composes it privately
+for its batteries-included paging UI; it is not a public `DataTablePagination`
+companion. A custom `DataTable` composition may render `Pagination` directly,
+wiring it to the shared controller's pagination state and actions.
 
 ## Parts
 

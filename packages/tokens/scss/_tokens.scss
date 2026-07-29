@@ -325,7 +325,7 @@
     --ui-palette-transparent-white-fixed-60: light-dark(rgb(255 255 255 / 0.6), rgb(255 255 255 / 0.6));
     --ui-palette-transparent-white-inverse-100: light-dark(rgb(255 255 255), rgb(24 25 27));
     --ui-palette-transparent-white-inverse-95: light-dark(rgb(255 255 255 / 0.949), rgb(48 50 54 / 0.949));
-    --ui-palette-violet-0: light-dark(rgb(255 255 255), rgb(46 15 46));
+    --ui-palette-violet-0: light-dark(rgb(254 246 254), rgb(46 15 46));
     --ui-palette-violet-1: light-dark(rgb(249 245 251), rgb(62 15 62));
     --ui-palette-violet-10: light-dark(rgb(152 27 152), rgb(247 186 247));
     --ui-palette-violet-11: light-dark(rgb(130 23 130), rgb(250 209 250));
@@ -389,13 +389,14 @@
     --ui-units-size-256: 256px;
     --ui-units-size-32: 32px;
     --ui-units-size-320: 320px;
+    --ui-units-size-384: 384px;
     --ui-units-size-40: 40px;
     --ui-units-size-48: 48px;
     --ui-units-size-512: 512px;
     --ui-units-size-56: 56px;
+    --ui-units-size-6: 6px;
     --ui-units-size-632: 632px;
     --ui-units-size-64: 64px;
-    --ui-units-size-7: 7px;
     --ui-units-size-72: 72px;
     --ui-units-size-76: 76px;
     --ui-units-size-8: 8px;
@@ -416,6 +417,9 @@
   }
 
   :root, :host {
+    --ui-avatar-color-blue: var(--ui-palette-blue-3);
+    --ui-avatar-color-gray: var(--ui-palette-grayscale-3);
+    --ui-avatar-color-green: var(--ui-palette-green-3);
     --ui-avatar-color-orange: var(--ui-palette-orange-3);
     --ui-avatar-color-red: var(--ui-palette-red-3);
     --ui-avatar-color-teal: var(--ui-palette-teal-3);
@@ -429,6 +433,9 @@
     --ui-avatar-global-avatar-size: var(--ui-units-size-32);
     --ui-avatar-global-container-gap: var(--ui-units-gap-8);
     --ui-avatar-global-text-color: var(--ui-text-on-surface-primary);
+    --ui-avatar-label-color-blue: var(--ui-palette-blue-11);
+    --ui-avatar-label-color-gray: var(--ui-palette-grayscale-11);
+    --ui-avatar-label-color-green: var(--ui-palette-green-11);
     --ui-avatar-label-color-orange: var(--ui-palette-orange-11);
     --ui-avatar-label-color-red: var(--ui-palette-red-11);
     --ui-avatar-label-color-teal: var(--ui-palette-teal-11);
@@ -1522,42 +1529,6 @@
     --ui-resizable-border-style: solid;
     --ui-resizable-border-width: var(--ui-units-stroke-1);
     --ui-resizable-cursor: ew-resize;
-  }
-
-  :root, :host {
-    --ui-search-global-border-color-active: var(--ui-gradients-ai-active);
-    --ui-search-global-border-color-hover: var(--ui-gradients-ai-hover);
-    --ui-search-global-border-color-idle: var(--ui-gradients-ai-idle);
-    --ui-search-global-box-border-radius: var(--ui-units-radius-24);
-    --ui-search-global-box-border-style: solid;
-    --ui-search-global-box-border-width: var(--ui-units-stroke-2);
-    --ui-search-global-box-color: var(--ui-background-surface-primary);
-    --ui-search-global-box-gap: var(--ui-units-gap-8);
-    --ui-search-global-box-height: var(--ui-units-size-48);
-    --ui-search-global-box-padding-x: var(--ui-units-gap-16);
-    --ui-search-global-box-width: var(--ui-units-size-512);
-    --ui-search-global-box-width-max: var(--ui-units-size-512);
-    --ui-search-global-box-width-min: var(--ui-units-size-256);
-    --ui-search-global-icon-color: var(--ui-glyph-on-status-ai);
-    --ui-search-global-icon-size: var(--ui-units-size-16);
-    --ui-search-global-placeholoder-color: var(--ui-text-on-status-ai);
-    --ui-search-global-shortcut-color: var(--ui-text-on-surface-secondary);
-  }
-
-  .ui-search-global-placeholoder-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-  }
-
-  .ui-search-global-shortcut-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
   }
 
   :root, :host {

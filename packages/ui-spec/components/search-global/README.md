@@ -55,8 +55,10 @@ useEffect(() => {
 
 ## Theming
 
-Colors, sizes, the gradient border, and typography come from the
-`--ui-search-global-*` token tier in `@constructor-lab/tokens` (generated from
-`@constructor-lab/tokens`) and resolve per brand/theme — see `tokens.yaml`.
+Colors, sizes, and the gradient border come from shared `@constructor-lab/tokens`
+tokens (the AI gradients, `--ui-units-*` sizes, and AI-purple glyph/text
+semantics) and resolve per brand/theme — see `tokens.yaml`. This component is
+retired, and its dedicated `--ui-search-global-*` tier has been removed from the
+tokens package; don't reintroduce one.
 The border is a brand gradient, applied with a padding-box / border-box background
 rather than `border-color`. Don't hard-code values.

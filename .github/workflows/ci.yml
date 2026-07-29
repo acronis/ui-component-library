@@ -168,3 +168,18 @@ jobs:
           for workspace in $WORKSPACES; do
             pnpm --filter "$workspace" test
           done
+
+      # `test` no longer runs ui-react's vitest `typecheck` block — it made every
+      # `vitest run` also run `tsc` per test file, at 5–10× the cost, and a check
+      # too slow to run is a check that cannot fail. Moving it costs no coverage:
+      # the type-test files are inside the tsconfig `include`, so the per-workspace
+      # `typecheck` step above already reports every `expectTypeOf` failure as an
+      # ordinary type error (measured — a false assertion surfaces as `TS2344`).
+      # This step adds what `tsc` cannot: per-file and per-test-name attribution.
+      #
+      # ui-react only, because it is the only workspace with the block, and
+      # `pnpm --filter` fails outright on a package with no such script.
+      # `src/__tests__/typecheck-gate.test.ts` asserts the coupling that keeps the
+      # redundancy true.
+      - name: Type tests (ui-react)
+        run: pnpm --filter @constructor-lab/ui-react test:types

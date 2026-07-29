@@ -1,17 +1,6 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent, within } from 'storybook/test';
-import {
-  type ColumnDef,
-  type ColumnFiltersState,
-  type SortingState,
-  type VisibilityState,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { type ColumnDef } from '@tanstack/react-table';
 
 import { Checkbox } from '../../checkbox';
 import { Tag } from '../../tag';
@@ -22,6 +11,9 @@ import {
   type DataTableProps,
   DataTableToolbar,
 } from '../index';
+import { useDataTable } from '../data-table-controller';
+import { DataTableRoot } from '../data-table-root';
+import { DataTableView } from '../data-table-view';
 
 type Payment = {
   id: string;
@@ -122,36 +114,29 @@ export const Empty: Story = {
 };
 
 function WithToolbarAndPagination() {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = useState({});
-
-  const table = useReactTable({
+  const controller = useDataTable({
     data: payments,
     columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel(),
-    onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    initialState: { pagination: { pageSize: 5 } },
-    state: { sorting, columnFilters, columnVisibility, rowSelection },
+    getRowId: (row) => row.id,
+    selection: {},
+    sorting: true,
+    filtering: true,
+    pagination: true,
+    defaultState: { pagination: { pageIndex: 0, pageSize: 5 } },
   });
 
   return (
-    <div className="flex flex-col gap-4">
-      <DataTableToolbar
-        table={table}
-        searchKey="email"
-        searchPlaceholder="Filter emails…"
-      />
-      <DataTable columns={columns} data={payments} />
-      <DataTablePagination table={table} />
-    </div>
+    <DataTableRoot table={controller}>
+      <div className="flex flex-col gap-4">
+        <DataTableToolbar
+          table={controller.table}
+          searchKey="email"
+          searchPlaceholder="Filter emails…"
+        />
+        <DataTableView<Payment> />
+        <DataTablePagination table={controller.table} />
+      </div>
+    </DataTableRoot>
   );
 }
 

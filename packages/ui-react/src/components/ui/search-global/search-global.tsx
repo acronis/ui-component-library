@@ -3,21 +3,26 @@ import { MagnifierIcon } from '@constructor-lab/icons-react/stroke-mono';
 
 import { cn } from '@/lib/utils';
 
-// A global ("search anything") field: a 48px pill with a gradient border (the
-// dedicated `--ui-search-global-*` token tier), a leading magnifier, a borderless
-// native input, and a trailing keyboard-shortcut hint (⌘K by default).
+// A global ("search anything") field: a 48px pill with a gradient border, a
+// leading magnifier, a borderless native input, and a trailing keyboard-shortcut
+// hint (⌘K by default).
+//
+// This component is retired (see the deprecation note below) and its dedicated
+// `--ui-search-global-*` token tier has been removed from @constructor-lab/tokens.
+// Every reference below is therefore the shared token that tier used to alias —
+// the AI gradients, the `--ui-units-*` sizes, and the AI-purple glyph/text
+// semantics — so the field still resolves through generated tokens and renders
+// unchanged. Do not reintroduce a component tier for it.
 //
 // The border is a brand gradient, not a flat color, so it can't go through
 // `border-color`. Instead a private `--sg-border` custom property holds the
 // active gradient and the box paints it with the standard padding-box/border-box
 // double-background trick (box fill in padding-box, gradient in border-box over a
-// transparent border). State swaps only the gradient: idle
-// (`--ui-search-global-border-color-idle`) / hover / active (`:active`, the
-// darkest). Focus reuses the idle gradient plus a 3px `--ui-focus-primary` ring
-// via `focus-within`, mirroring the Figma focused state. The magnifier +
-// placeholder take the AI-purple `--ui-search-global-icon-color` /
-// `-placeholoder-color` (the token tier keeps Figma's "placeholoder" spelling);
-// the shortcut is `--ui-search-global-shortcut-color`.
+// transparent border). State swaps only the gradient: idle / hover / active
+// (`:active`, the darkest). Focus reuses the idle gradient plus a 3px
+// `--ui-focus-primary` ring via `focus-within`, mirroring the Figma focused
+// state. The typography was two generated `.ui-search-global-*-text-style`
+// classes (14px/400/24px), now the equivalent utilities.
 
 /**
  * @deprecated The global search field is retired — it no longer appears in the
@@ -50,31 +55,31 @@ const SearchGlobal = React.forwardRef<HTMLInputElement, SearchGlobalProps>(
   ) => (
     <div
       className={cn(
-        'inline-flex h-[var(--ui-search-global-box-height)] w-[var(--ui-search-global-box-width)] min-w-[var(--ui-search-global-box-width-min)] max-w-[var(--ui-search-global-box-width-max)] items-center gap-[var(--ui-search-global-box-gap)]',
-        'rounded-[var(--ui-search-global-box-border-radius)] border-[length:var(--ui-search-global-box-border-width)] border-solid border-transparent px-[var(--ui-search-global-box-padding-x)]',
+        'inline-flex h-[var(--ui-units-size-48)] w-[var(--ui-units-size-512)] min-w-[var(--ui-units-size-256)] max-w-[var(--ui-units-size-512)] items-center gap-[var(--ui-units-gap-8)]',
+        'rounded-[var(--ui-units-radius-24)] border-[length:var(--ui-units-stroke-2)] border-solid border-transparent px-[var(--ui-units-gap-16)]',
         // Gradient border via padding-box (box fill) + border-box (the `--sg-border` gradient).
-        '[--sg-border:var(--ui-search-global-border-color-idle)] hover:[--sg-border:var(--ui-search-global-border-color-hover)] active:[--sg-border:var(--ui-search-global-border-color-active)]',
-        '[background:linear-gradient(var(--ui-search-global-box-color),var(--ui-search-global-box-color))_padding-box,var(--sg-border)_border-box]',
+        '[--sg-border:var(--ui-gradients-ai-idle)] hover:[--sg-border:var(--ui-gradients-ai-hover)] active:[--sg-border:var(--ui-gradients-ai-active)]',
+        '[background:linear-gradient(var(--ui-background-surface-primary),var(--ui-background-surface-primary))_padding-box,var(--sg-border)_border-box]',
         'transition-[background] focus-within:ring-[3px] focus-within:ring-[var(--ui-focus-primary)]',
         className
       )}
     >
       <MagnifierIcon
         size={16}
-        className="shrink-0 text-[var(--ui-search-global-icon-color)]"
+        className="shrink-0 text-[var(--ui-glyph-on-status-ai)]"
       />
       <input
         ref={ref}
         type={type}
         placeholder={placeholder}
         aria-label={ariaLabel}
-        className="ui-search-global-placeholoder-text-style h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-foreground outline-none placeholder:text-[var(--ui-search-global-placeholoder-color)] [&::-webkit-search-cancel-button]:appearance-none"
+        className="h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-sm font-normal leading-6 text-foreground outline-none placeholder:text-[var(--ui-text-on-status-ai)] [&::-webkit-search-cancel-button]:appearance-none"
         {...props}
       />
       {shortcut != null && (
         <span
           aria-hidden
-          className="ui-search-global-shortcut-text-style shrink-0 whitespace-nowrap text-[var(--ui-search-global-shortcut-color)]"
+          className="shrink-0 whitespace-nowrap text-sm font-normal leading-6 text-[var(--ui-text-on-surface-secondary)]"
         >
           {shortcut}
         </span>

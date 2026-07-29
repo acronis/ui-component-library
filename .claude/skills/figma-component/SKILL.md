@@ -273,7 +273,7 @@ pnpm --filter @constructor-lab/ui-spec test
 **Generate the states story** (don't hand-write the `.generated` file):
 
 ```bash
-pnpm --filter @constructor-lab/ui-spec generate:stories
+pnpm --filter @constructor-lab/ui-spec generate:stories <component>
 ```
 
 If the component isn't a simple prop-driven element, add a `RENDER` hint for it

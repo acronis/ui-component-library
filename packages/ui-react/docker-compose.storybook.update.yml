@@ -7,4 +7,11 @@
 #     up --abort-on-container-exit --exit-code-from test-runner
 services:
   test-runner:
-    command: pnpm exec test-storybook --url http://storybook:6006 --updateSnapshot --maxWorkers=4
+    # Mirrors the base service's command with `--updateSnapshot` added. Kept in
+    # the same `sh -c` shape so `$$VISUAL_TEST_ARGS` behaves identically in update
+    # runs — a divergence here would mean the two variants silently ran with
+    # different arguments. See the base file for why no `--testTimeout` is set.
+    command:
+      - sh
+      - -c
+      - pnpm exec test-storybook --url http://storybook:6006 --updateSnapshot --maxWorkers=4 $$VISUAL_TEST_ARGS

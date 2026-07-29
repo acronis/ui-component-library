@@ -27,9 +27,7 @@ export function LoginPage() {
           {/* Title */}
           <div className="text-center mb-8">
             <h1 className="text-base">
-              <span className="font-semibold text-foreground">
-                Acronis{' '}
-              </span>
+              <span className="font-semibold text-foreground">Acronis </span>
               <span className="font-normal text-[#0D7DE5]">CyberChat</span>
             </h1>
           </div>

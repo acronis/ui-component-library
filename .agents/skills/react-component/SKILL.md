@@ -252,16 +252,18 @@ Hard rules enforced by `packages/ui-spec` `__tests__/specs.test.ts`:
 Validate continuously: `pnpm --filter @constructor-lab/ui-spec test`.
 
 **Generate the states story** (don't hand-write `.generated`):
-`pnpm --filter @constructor-lab/ui-spec generate:stories`. A **composable / multi-part
-component renders empty** unless you give it a `RENDER` hint in
-`packages/ui-spec/scripts/generate-stories.ts` (an `extraImports` line + a
-`sample` composing the parts) — a deliberate edit to the spec tooling, done
+`pnpm --filter @constructor-lab/ui-spec generate:stories <component>`. A
+**composable / multi-part component renders empty** unless you give it a `RENDER`
+hint in `packages/ui-spec/scripts/generate-stories.ts` (an `extraImports` line +
+a `sample` composing the parts) — a deliberate edit to the spec tooling, done
 before generating (worked examples: `breadcrumb`, `card`).
 
-> `generate:stories` rewrites **every** component's `.generated.stories.tsx` in
-> raw JSX. After running: `prettier --write` your new generated file (or let the
-> pre-commit hook format it), and `git checkout --` the unrelated siblings the
-> run touched — don't sweep their whitespace churn into your change.
+> **Name your component.** The generator writes into `packages/ui-react`, which
+> several people edit at once, so it has no write-everything mode: a bare run
+> only reports drift. Naming your component is also what authorizes creating its
+> file for the first time. Output is Prettier-formatted, and a file is only
+> written when its content actually changes — so there is no sibling churn to
+> clean up.
 
 Hand-write `<name>.stories.tsx` for the rich demos, mirroring `button.stories.tsx`.
 **Wide `argTypes` (required):** expose a control for **every meaningful prop**

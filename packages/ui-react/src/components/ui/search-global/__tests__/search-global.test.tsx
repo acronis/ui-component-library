@@ -53,20 +53,20 @@ describe('SearchGlobal', () => {
     const root = container.firstElementChild as HTMLElement;
     const input = screen.getByRole('searchbox', { name: 'Search' });
 
+    // The retired `--ui-search-global-*` tier is gone; each reference is now the
+    // shared token that tier aliased.
     expect(root).toHaveClass(
-      '[--sg-border:var(--ui-search-global-border-color-idle)]',
-      'hover:[--sg-border:var(--ui-search-global-border-color-hover)]',
-      'active:[--sg-border:var(--ui-search-global-border-color-active)]',
+      '[--sg-border:var(--ui-gradients-ai-idle)]',
+      'hover:[--sg-border:var(--ui-gradients-ai-hover)]',
+      'active:[--sg-border:var(--ui-gradients-ai-active)]',
       'focus-within:ring-[var(--ui-focus-primary)]'
     );
     expect(root.querySelector('svg')).toHaveClass(
-      'text-[var(--ui-search-global-icon-color)]'
+      'text-[var(--ui-glyph-on-status-ai)]'
     );
-    expect(input).toHaveClass(
-      'placeholder:text-[var(--ui-search-global-placeholoder-color)]'
-    );
+    expect(input).toHaveClass('placeholder:text-[var(--ui-text-on-status-ai)]');
     expect(screen.getByText('⌘K')).toHaveClass(
-      'text-[var(--ui-search-global-shortcut-color)]'
+      'text-[var(--ui-text-on-surface-secondary)]'
     );
   });
 });

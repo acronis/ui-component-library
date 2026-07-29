@@ -16,27 +16,45 @@ describe('computeFittedVisibleCount', () => {
 
   it('fits every action when they all cost less than the width', () => {
     expect(
-      computeFittedVisibleCount({ containerWidth: 400, itemWidths: widths, dropdownWidth: 0 })
+      computeFittedVisibleCount({
+        containerWidth: 400,
+        itemWidths: widths,
+        dropdownWidth: 0,
+      })
     ).toBe(3);
   });
 
   it('accounts for the gap between items', () => {
     // 100 + 8 + 100 = 208 <= 210; +8+100 = 316 > 210 → 2 fit.
     expect(
-      computeFittedVisibleCount({ containerWidth: 210, itemWidths: widths, dropdownWidth: 0, gap: 8 })
+      computeFittedVisibleCount({
+        containerWidth: 210,
+        itemWidths: widths,
+        dropdownWidth: 0,
+        gap: 8,
+      })
     ).toBe(2);
   });
 
   it('reserves the dropdown width', () => {
     // available = 250 - 80 = 170 → 100 fits, +8+100=208 > 170 → 1.
     expect(
-      computeFittedVisibleCount({ containerWidth: 250, itemWidths: widths, dropdownWidth: 80, gap: 8 })
+      computeFittedVisibleCount({
+        containerWidth: 250,
+        itemWidths: widths,
+        dropdownWidth: 80,
+        gap: 8,
+      })
     ).toBe(1);
   });
 
   it('returns 0 for no items', () => {
     expect(
-      computeFittedVisibleCount({ containerWidth: 500, itemWidths: [], dropdownWidth: 80 })
+      computeFittedVisibleCount({
+        containerWidth: 500,
+        itemWidths: [],
+        dropdownWidth: 80,
+      })
     ).toBe(0);
   });
 });

@@ -141,8 +141,10 @@ ToolbarStatus.displayName = 'ToolbarStatus';
 // An action item for ToolbarActions (the FittedActions shape).
 export type ToolbarActionItem = FittedAction;
 
-export interface ToolbarActionsProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
+export interface ToolbarActionsProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onSelect'
+> {
   /** The ordered action list. Trailing items collapse into the menu first. */
   actions: ToolbarActionItem[];
   /** Label for the overflow trigger. Defaults to "More actions". */

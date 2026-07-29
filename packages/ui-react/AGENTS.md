@@ -66,6 +66,49 @@ Components can be linked to their Figma counterparts via co-located
 - React 19, TypeScript, Vite 6 (library build via `vite.lib.config.ts`),
   Vitest 4 + React Testing Library (happy-dom), Storybook 10, Tailwind v4.
 
+## Which command carries which guarantee
+
+Three commands overlap here and it is not obvious which one would catch a given
+mistake, so:
+
+| Command           | Runs                                   | Catches                                                                  |
+| ----------------- | -------------------------------------- | ------------------------------------------------------------------------ |
+| `pnpm test`       | runtime suites only — **no** typecheck | anything a rendered assertion can see. Fast; use it while iterating.     |
+| `pnpm typecheck`  | `tsc --noEmit` over the whole package  | **every type error, including every `expectTypeOf` failure.** ~18 s.     |
+| `pnpm test:types` | the vitest `typecheck` block, only     | the same failures as above, with per-file and per-test-name attribution. |
+
+**`pnpm test` does not typecheck, and that is deliberate.** The vitest `typecheck`
+block matches every test file, so leaving it on made each `vitest run` also run
+`tsc` per test file — 5–10× slower, and under concurrent load a ~2 s single-file run
+took over four minutes and produced 5000 ms timeouts that read as logic errors. A
+check too slow to run is a check that cannot fail.
+
+**Nothing is unguarded by that split.** `tsconfig.json` includes `src`, so the
+type-test files are already in the type program, and an `expectTypeOf` failure is an
+ordinary type error — verified by injecting a false assertion and watching plain
+`tsc` report it as `TS2344`. So **`pnpm typecheck` is the detection gate** and
+`test:types` is the nicer report of the same thing.
+
+**If you touch a `*.types.test.ts` or any type assertion, run `pnpm typecheck`** —
+`pnpm test` will not tell you. `src/__tests__/typecheck-gate.test.ts` asserts the
+coupling this rests on (that the test files stay inside the tsconfig type program),
+because excluding `__tests__` to speed `typecheck` up would silently invert the
+redundancy and leave `test:types` as the only gate.
+
+**And run it after an `as never` / `as any` on an options object, even though you
+touched no type assertion of your own.** A cast applied to an object literal strips
+that literal's contextual type, and contextual typing is what gives every callback
+_inside the same literal_ its parameter types — so casting a config to test a
+JS-caller path silently widens unrelated siblings like `getRowId: (row) => row.id`
+to implicit `any`/`unknown`. `pnpm test` stays green because it does not typecheck.
+This has caught two operators; the fix is to cast **only the one deliberately
+invalid value**, not the object around it.
+
+`test:types` is a deliberate deviation from the repo-wide "every workspace exposes
+the same script names" rule (root `AGENTS.md`): this is the only workspace with the
+vitest typecheck block, and `pnpm --filter` fails outright on a package that has no
+such script, so it is intentionally **not** wired into any `pnpm -r` run.
+
 ## Visual regression
 
 Storybook stories double as visual regression cases, run by

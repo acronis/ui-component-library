@@ -816,22 +816,30 @@
       "status": "draft",
       "category": "data-display",
       "intent": "Select rows in a data table and act on the selection via a contextual bulk-action bar.",
-      "description": "The sanctioned way to offer row selection with bulk actions (delete, export, …): a checkbox selection column drives a contextual bar that replaces the toolbar while rows are selected, showing the count and the available actions. Because the bulk bar and the row checkboxes must read the SAME selection state, this composes the Table primitives + DataTablePagination over a single `useReactTable` instance — not the self-contained `DataTable` (which owns its own internal state and can't share selection with external chrome).",
+      "description": "The sanctioned way to offer row selection with bulk actions (delete, export, …): a checkbox selection column drives a contextual bar that replaces the toolbar while rows are selected, showing the count and the available actions. The default path is DataGrid `selection` + `toolbar.bulkActions`, and it is shipped — prefer it. When custom composition is required, one `useDataTable` controller feeds DataTableRoot, toolbar/bulk actions, view, and pagination. Never combine the self-contained DataTable with a second caller-created instance.",
       "when_to_use": [
         "A table where users pick several rows and apply one action to all of them.",
         "Destructive or batch operations (delete, export, assign) on multiple rows."
       ],
       "when_not_to_use": [
-        "A read-only or single-select table — use `DataTable` directly.",
+        "A read-only standard records table — use the `table-view` DataGrid recipe.",
         "One action per row — put a row action (menu / button) in a cell instead."
       ],
       "anti_patterns": [
-        "Using the self-contained `DataTable` and a separate `useReactTable` for the bar — their selection states diverge.",
+        "Using the self-contained DataTable and a separate table instance for the bar.",
         "Leaving the bulk bar always visible — show it only while rows are selected.",
         "Hiding the selection count — always show \"N selected\" so the scope is clear."
       ],
-      "example": "const table = useReactTable({\n  data,\n  columns, // includes a checkbox 'select' column\n  getCoreRowModel: getCoreRowModel(),\n  getPaginationRowModel: getPaginationRowModel(),\n  enableRowSelection: true,\n  onRowSelectionChange: setRowSelection,\n  state: { rowSelection },\n});\nconst selected = table.getSelectedRowModel().rows;\n\n{selected.length > 0 ? (\n  <div className=\"flex items-center justify-between rounded-md border border-border bg-muted px-4 py-2\">\n    <span className=\"text-sm font-medium\">{selected.length} selected</span>\n    <div className=\"flex gap-2\">\n      <Button variant=\"ghost\" onClick={() => table.resetRowSelection()}>Clear</Button>\n      <Button variant=\"secondary\">Export</Button>\n      <Button variant=\"destructive\">Delete</Button>\n    </div>\n  </div>\n) : (\n  <DataTableToolbar table={table} searchKey=\"email\" />\n)}\n<Table>{/* render table.getHeaderGroups() / getRowModel() */}</Table>\n<DataTablePagination table={table} />\n",
-      "components": ["Table", "Checkbox", "Button", "DataTable"],
+      "example": "<DataGrid\n  columns={columns}\n  rows={rows}\n  getRowId={(row) => row.id}\n  selection={{\n    mode: 'multiple',\n    isRowSelectable: (row) => !row.locked,\n  }}\n  toolbar={{\n    bulkActions: [\n      { id: 'export', label: 'Export', onAction: exportRows },\n      {\n        id: 'delete',\n        label: 'Delete',\n        destructive: true,\n        confirm: { title: 'Delete selected records?', confirmLabel: 'Delete' },\n        onAction: deleteRows,\n      },\n    ],\n  }}\n  pagination={{ pageSize: 25, pageSizeOptions: [25, 50] }}\n  callbacks={{ onSelectionChange: (event) => setSelected(event.value) }}\n/>\n\n// Custom composition:\nconst table = useDataTable({\n  columns,\n  data: rows,\n  getRowId,\n  selection: {},\n  defaultState: { pagination: { pageIndex: 0, pageSize: 25 } },\n  pagination: { pageSizeOptions: [25, 50] },\n});\n<DataTableRoot table={table}>\n  <Toolbar>\n    {table.getSelectedRowModel().rows.length > 0 ? (\n      <CustomBulkBar table={table} />\n    ) : (\n      <InputSearch value={table.getState().globalFilter} onChange={table.actions.setGlobalFilter} />\n    )}\n  </Toolbar>\n  <DataTableView renderHeader={renderHeader} renderCell={renderCell} />\n  <Pagination\n    page={table.getState().pagination.pageIndex + 1}\n    onPageChange={table.actions.setPage}\n  />\n</DataTableRoot>\n",
+      "components": [
+        "Checkbox",
+        "Button",
+        "Toolbar",
+        "InputSearch",
+        "Pagination",
+        "DataTable",
+        "DataGrid"
+      ],
       "demo": "apps/demos/src/patterns/DataTableBulkActionsDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/data-table-bulk-actions.mdx"
     },
@@ -1176,32 +1184,26 @@
       "pattern": "TableView",
       "status": "draft",
       "category": "layout",
-      "intent": "A full list/table screen — a page header, a search + filter toolbar, and a paginated DataTable of records.",
-      "description": "The sanctioned shape for a records screen: a `PageHeader` (title + primary action), a toolbar pairing an `InputSearch` for free-text with `Filter` triggers for discrete criteria, and a `DataTable` rendering the rows with its built-in `DataTablePagination`. This is the canonical \"list of things\" layout — compose it rather than assembling a bespoke table page. For row selection with a contextual action bar, see `data-table-bulk-actions`, which layers selection onto this same table.",
+      "intent": "A full records screen — a page header and a DataGrid with approved search, filters, sorting, and pagination.",
+      "description": "The sanctioned shape for a records screen: a `PageHeader` (title + primary action) and a `DataGrid` whose grouped filters/toolbar/pagination configs own the standard records experience through one DataTable controller. This is the canonical \"list of things\" layout. The grouped DataGrid API is shipped — use it directly; the example below uses only members that exist today. Discrete (faceted) column filter options and an initial sort via `defaultState` are still P1, so a screen needing either keeps its own filter composition for now. For uncommon composition or selectively manual processing, use one DataTable controller. For contextual selection, follow `data-table-bulk-actions`.",
       "when_to_use": [
         "A primary screen listing records the user browses, searches, filters, and paginates.",
-        "A table that needs both free-text search (InputSearch) and discrete filters (Filter).",
+        "A table that needs global search plus typed discrete column filters.",
         "Any place the app shows \"all the Xs\" as the main content of a route."
       ],
       "when_not_to_use": [
-        "Rows that need multi-select plus a bulk-action bar — use `data-table-bulk-actions`.",
+        "Uncommon layout or selective manual processing — compose one DataTable controller.",
         "A small, fixed set of rows with no search/filter/pagination — a plain `Table` is enough.",
         "Card-based catalog/gallery tiles rather than tabular rows — use `card-grid`."
       ],
       "anti_patterns": [
-        "Reimplementing sorting/pagination by hand instead of using `DataTable` + `DataTablePagination`.",
-        "Using `InputSearch` for discrete-value filtering (status, type) — those belong in `Filter`, not free-text.",
+        "Reimplementing sorting, filtering, or pagination outside DataGrid/DataTable.",
+        "Treating a global text search as a substitute for typed status/type filters.",
         "Omitting the `PageHeader` so the screen has no title or home for its primary action.",
         "Placing per-row selection checkboxes here without the bulk-action bar — if you need selection, adopt `data-table-bulk-actions`."
       ],
-      "example": "function DevicesView({ columns, rows, onSearch, onCreate }) {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <PageHeader>\n        <PageHeaderRow>\n          <PageHeaderTitle>Devices</PageHeaderTitle>\n          <PageHeaderActions>\n            <Button onClick={onCreate}>Add device</Button>\n          </PageHeaderActions>\n        </PageHeaderRow>\n      </PageHeader>\n      <div className=\"flex items-center gap-2\">\n        <InputSearch\n          className=\"max-w-xs\"\n          placeholder=\"Search devices…\"\n          onChange={(e) => onSearch(e.target.value)}\n        />\n        <Filter count={2}>Status</Filter>\n        <Filter>Type</Filter>\n      </div>\n      <DataTable columns={columns} data={rows} />\n    </div>\n  );\n}\n",
-      "components": [
-        "PageHeader",
-        "DataTable",
-        "InputSearch",
-        "Filter",
-        "Button"
-      ],
+      "example": "function DevicesView({ columns, rows, query, rowCount, dataState, onQueryChange, onCreate }) {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <PageHeader>\n        <PageHeaderRow>\n          <PageHeaderTitle>Devices</PageHeaderTitle>\n          <PageHeaderActions>\n            <Button onClick={onCreate}>Add device</Button>\n          </PageHeaderActions>\n        </PageHeaderRow>\n      </PageHeader>\n      <DataGrid\n        columns={columns}\n        rows={rows}\n        getRowId={(row) => row.id}\n        dataState={dataState}\n        filters={{\n          global: { columnId: 'name', placeholder: 'Search devices…' },\n          columns: deviceFilterDefinitions,\n        }}\n        sorting={{ mode: 'single' }}\n        pagination={{ pageSize: 25, pageSizeOptions: [25, 50, 100] }}\n        toolbar={{ globalSearch: true }}\n        server={{ query, rowCount, onQueryChange }}\n        callbacks={{ onQueryChange: syncUrl, onColumnStateChange: persist }}\n      />\n    </div>\n  );\n}\n",
+      "components": ["PageHeader", "DataGrid", "Button"],
       "demo": "apps/demos/src/patterns/TableViewDemo.tsx",
       "docs": "apps/docs/content/docs/patterns/table-view.mdx"
     },

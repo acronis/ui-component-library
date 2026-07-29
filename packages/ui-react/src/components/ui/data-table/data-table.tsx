@@ -1,42 +1,46 @@
-import { Fragment, type ReactNode, useState } from 'react';
-import {
-  type ColumnDef,
-  type ColumnFiltersState,
-  type ExpandedState,
-  type Row,
-  type SortingState,
-  type VisibilityState,
-  flexRender,
-  getCoreRowModel,
-  getExpandedRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { useEffect, useRef, type ReactNode } from 'react';
+import type { ColumnDef, Row } from '@tanstack/react-table';
 
-import { cn } from '@/lib/utils';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../table';
+  useDataTable,
+  type DeprecatedDataTableControllerOptions,
+} from './data-table-controller';
+import { DataTableRoot } from './data-table-root';
+import { DataTableView } from './data-table-view';
 
-// Ported from the legacy shadcn UI kit's `data-table`. A TanStack-react-table
-// v8 data grid composed over the ui-react Table primitives — sorting, filtering,
-// column visibility, row selection, pagination, and optional row expansion. The
-// presentational flags (`striped`, `bordered`, `skeleton`, `highlightCurrentRow`)
-// are borrowed from the Vue `AvTable`; behavioral features come from TanStack.
-// Pair with DataTableToolbar / DataTablePagination / DataTableColumnHeader, which
-// take the `table` instance returned to column cells via TanStack context.
-// The grid cells/rows/headers are themed by the Table primitives' `--ui-table-*`
-// tier; DataTable's own chrome reuses that tier too — the wrapper border matches
-// the cell borders (`--ui-table-global-row-border-color`), the empty-state uses
-// the muted table-value color, the current row the active-row color, and stripes
-// the secondary surface.
+// Ported from the legacy shadcn UI kit's `data-table`. The public convenience
+// path remains intentionally narrow while its rendering now projects the same
+// private controller and TanStack instance used by composed DataTable views.
+//
+// FROZEN COMPATIBILITY ADAPTER. `striped`, `bordered`, `highlightCurrentRow`,
+// `skeleton`, and `skeletonRows` are deprecated inputs preserved for one minor
+// line after the controller landed. This adapter translates ONLY those current
+// props to DataTableView presentation and preserves their output exactly — it
+// adds no new states, variants, or customization. It is the sole temporary
+// exception to the rule that standard composed UI belongs to DataGrid; DataGrid
+// does not use it, and all five inputs are removed in the next major. Migrate to
+// the destinations named in `FROZEN_DATA_TABLE_PROP_DESTINATIONS`.
+
+declare const process: {
+  readonly env: { readonly NODE_ENV?: string };
+};
+
+/** Frozen deprecated prop -> its supported migration destination. */
+const FROZEN_DATA_TABLE_PROP_DESTINATIONS = {
+  striped: 'DataGrid appearance.striped (or Table presentation)',
+  bordered: 'DataGrid appearance.borders (or Table presentation)',
+  highlightCurrentRow:
+    'DataGrid rowInteraction.current / current-row presentation',
+  skeleton:
+    'DataGrid dataState (status: "loading") or a custom state render context',
+  skeletonRows: 'DataGrid dataState.skeletonRows',
+} as const satisfies Record<string, string>;
+
+type FrozenDataTableProp = keyof typeof FROZEN_DATA_TABLE_PROP_DESTINATIONS;
+
+const FROZEN_DATA_TABLE_PROPS = Object.keys(
+  FROZEN_DATA_TABLE_PROP_DESTINATIONS
+) as FrozenDataTableProp[];
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -48,158 +52,110 @@ export interface DataTableProps<TData, TValue> {
    * `getRowCanExpand`.
    */
   renderExpandedRow?: (row: Row<TData>) => ReactNode;
-  /** Alternating row backgrounds. */
+  /**
+   * Alternating row backgrounds.
+   * @deprecated Frozen compatibility prop; removed next major. Migrate to
+   * DataGrid `appearance.striped` (or compose Table presentation).
+   */
   striped?: boolean;
-  /** Vertical borders between columns (rows already have horizontal borders). */
+  /**
+   * Vertical borders between columns (rows already have horizontal borders).
+   * @deprecated Frozen compatibility prop; removed next major. Migrate to
+   * DataGrid `appearance.borders` (or compose Table presentation).
+   */
   bordered?: boolean;
-  /** Highlight the row the user last clicked (the "current" row). */
+  /**
+   * Highlight the row the user last clicked (the "current" row).
+   * @deprecated Frozen compatibility prop; removed next major. Migrate to
+   * DataGrid `rowInteraction.current` / current-row presentation.
+   */
   highlightCurrentRow?: boolean;
-  /** Render placeholder skeleton rows instead of data (loading state). */
+  /**
+   * Render placeholder skeleton rows instead of data (loading state).
+   * @deprecated Frozen compatibility prop; removed next major. Migrate to
+   * DataGrid `dataState` (status "loading") or a custom state render context.
+   */
   skeleton?: boolean;
-  /** Number of skeleton rows to render when `skeleton` is set. */
+  /**
+   * Number of skeleton rows to render when `skeleton` is set.
+   * @deprecated Frozen compatibility prop; removed next major. Migrate to
+   * DataGrid `dataState.skeletonRows`.
+   */
   skeletonRows?: number;
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-  getRowCanExpand,
-  renderExpandedRow,
-  striped = false,
-  bordered = false,
-  highlightCurrentRow = false,
-  skeleton = false,
-  skeletonRows = 5,
-}: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = useState({});
-  const [expanded, setExpanded] = useState<ExpandedState>({});
-  const [currentRowId, setCurrentRowId] = useState<string>();
+function hasOwn(value: object, key: PropertyKey): boolean {
+  return Object.prototype.hasOwnProperty.call(value, key);
+}
 
-  const table = useReactTable({
-    data,
+/**
+ * Emits a one-time development deprecation warning for each supplied frozen
+ * compatibility prop. Production is silent; the warning fires once per mounted
+ * DataTable instance (StrictMode's double invocation is guarded).
+ */
+function useFrozenDataTablePropWarnings(presentKey: string): void {
+  const warnedRef = useRef(false);
+
+  useEffect(() => {
+    if (
+      process.env.NODE_ENV === 'production' ||
+      presentKey === '' ||
+      warnedRef.current
+    ) {
+      return;
+    }
+
+    warnedRef.current = true;
+
+    for (const prop of presentKey.split(',') as FrozenDataTableProp[]) {
+      console.warn(
+        `DataTable prop "${prop}" is a deprecated, frozen compatibility input and will be removed in the next major. Migrate to ${FROZEN_DATA_TABLE_PROP_DESTINATIONS[prop]}.`
+      );
+    }
+  }, [presentKey]);
+}
+
+export function DataTable<TData, TValue>(props: DataTableProps<TData, TValue>) {
+  const {
     columns,
-    getCoreRowModel: getCoreRowModel(),
-    getExpandedRowModel: getExpandedRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getRowCanExpand,
-    onExpandedChange: setExpanded,
-    onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel(),
-    onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    state: { sorting, columnFilters, columnVisibility, rowSelection, expanded },
-  });
+    data,
+    renderExpandedRow,
+    striped = false,
+    bordered = false,
+    highlightCurrentRow = false,
+    skeleton = false,
+    skeletonRows = 5,
+  } = props;
 
-  const rows = table.getRowModel().rows;
-  // Vertical borders are opt-in; a trailing border on the last cell would
-  // double up with the wrapper, so suppress it.
-  const borderedClass = bordered
-    ? '[&_th:not(:last-child)]:border-e [&_td:not(:last-child)]:border-e [&_th]:border-[var(--ui-table-global-row-border-color)] [&_td]:border-[var(--ui-table-global-row-border-color)]'
-    : undefined;
+  useFrozenDataTablePropWarnings(
+    FROZEN_DATA_TABLE_PROPS.filter((prop) => hasOwn(props, prop)).join(',')
+  );
+
+  const controllerOptions: DeprecatedDataTableControllerOptions<TData> = {
+    columns: columns as ColumnDef<TData, unknown>[],
+    data,
+    sorting: true,
+    filtering: true,
+    ...(hasOwn(props, 'getRowCanExpand')
+      ? { getRowCanExpand: props.getRowCanExpand }
+      : {}),
+    ...(hasOwn(props, 'renderExpandedRow')
+      ? { renderExpandedRow: props.renderExpandedRow }
+      : {}),
+  };
+  const controller = useDataTable(controllerOptions);
 
   return (
-    <div
-      className={cn(
-        'rounded-md border border-[var(--ui-table-global-row-border-color)]',
-        borderedClass
-      )}
-    >
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableHead key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {skeleton ? (
-            Array.from({ length: skeletonRows }).map((_, rowIndex) => (
-              <TableRow
-                // eslint-disable-next-line @eslint-react/no-array-index-key -- static skeleton placeholders have no data identity; row position is the only key
-                key={`skeleton-${rowIndex}`}
-                className="hover:bg-transparent"
-              >
-                {table.getVisibleLeafColumns().map((column) => (
-                  <TableCell key={column.id}>
-                    <div className="h-4 w-full animate-pulse rounded bg-[var(--ui-background-surface-secondary)]" />
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))
-          ) : rows?.length ? (
-            rows.map((row, rowIndex) => {
-              const isSelected = row.getIsSelected();
-              const isCurrent = highlightCurrentRow && currentRowId === row.id;
-              return (
-                <Fragment key={row.id}>
-                  <TableRow
-                    selected={isSelected}
-                    onClick={
-                      highlightCurrentRow
-                        ? () => setCurrentRowId(row.id)
-                        : undefined
-                    }
-                    className={cn(
-                      highlightCurrentRow && 'cursor-pointer',
-                      striped &&
-                        rowIndex % 2 === 1 &&
-                        !isSelected &&
-                        !isCurrent &&
-                        'bg-[var(--ui-background-surface-secondary)]',
-                      isCurrent &&
-                        !isSelected &&
-                        'bg-[var(--ui-table-data-row-color-active)]'
-                    )}
-                  >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                  {renderExpandedRow && row.getIsExpanded() && (
-                    <TableRow className="hover:bg-transparent">
-                      <TableCell
-                        className="h-auto py-3"
-                        colSpan={row.getVisibleCells().length}
-                      >
-                        {renderExpandedRow(row)}
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </Fragment>
-              );
-            })
-          ) : (
-            <TableRow>
-              <TableCell
-                colSpan={columns.length}
-                className="h-24 text-center text-[var(--ui-table-data-value-color-disabled)]"
-              >
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </div>
+    <DataTableRoot table={controller}>
+      <DataTableView
+        renderExpandedRow={renderExpandedRow}
+        striped={striped}
+        bordered={bordered}
+        highlightCurrentRow={highlightCurrentRow}
+        skeleton={skeleton}
+        skeletonRows={skeletonRows}
+        emptyColSpan={columns.length}
+      />
+    </DataTableRoot>
   );
 }

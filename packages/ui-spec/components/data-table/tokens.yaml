@@ -1,42 +1,9 @@
 spec_version: '1.0'
 component: DataTable
 
-# References only. Values live in @constructor-lab/tokens. DataTable adds no
-# color of its own — it composes already-themed components (Table, Button,
-# DropdownMenu, InputSelect, …). Its own chrome reuses the Table component's
-# `--ui-table-*` tier so the wrapper border matches the cell borders and the
-# empty-state matches muted table text. The pagination/toolbar meta text (outside
-# the grid) uses the shared `text-muted-foreground`.
+# DataTable is an engine/render-context layer and owns no visual tokens. Its view
+# projects through Table, which owns the table-shaped presentation tokens.
+# UIKit-composed controls and their tokens belong to DataGrid.
 source: '@constructor-lab/tokens'
 
-tokens:
-  - name: --ui-table-global-row-border-color
-    affects: table
-    description: Wrapper border — matches the Table cell borders.
-  - name: --ui-table-data-value-color-disabled
-    affects: empty-state
-    description: Muted "No results." text — matches disabled table values.
-  - name: --ui-text-on-surface-secondary
-    affects: pagination
-    description: Muted pagination / toolbar meta text (text-muted-foreground).
-  - name: --ui-background-surface-secondary
-    affects: row
-    description: Striped row background + skeleton placeholder bars.
-  - name: --ui-table-data-row-color-active
-    affects: row
-    description: Current (last-clicked) row highlight — the active-row color.
-  - name: --ui-table-header-cell-color-hover
-    affects: column-header
-    description: Hover background of the single-click sort toggle.
-  - name: --ui-table-header-sort-icon-size
-    affects: column-header
-    description: Size of the sort-direction arrow in the column header.
-  - name: --ui-table-header-sort-icon-color-active
-    affects: column-header
-    description: Active (sorted) arrow color — the brand blue, ascending or descending.
-  - name: --ui-table-header-sort-icon-color-inactive
-    affects: column-header
-    description: Muted up/down arrow shown when the column is unsorted.
-  - name: --ui-focus-primary
-    affects: column-header
-    description: Focus ring of the keyboard-focused sort toggle.
+tokens: []

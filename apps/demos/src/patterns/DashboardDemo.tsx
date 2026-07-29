@@ -32,7 +32,9 @@ export function DashboardDemo() {
     <div className="h-[480px] overflow-hidden rounded-md border border-border">
       <AppShell className="h-full min-h-0">
         <AppShellSidebar className="w-52 flex-col gap-1 bg-[var(--ui-background-brand-primary)] p-3 text-[var(--ui-glyph-on-brand-primary)]">
-          <div className="px-2 pb-3 text-sm font-semibold">UI Components library</div>
+          <div className="px-2 pb-3 text-sm font-semibold">
+            UI Components library
+          </div>
           {nav.map((item, i) => (
             <div
               key={item}

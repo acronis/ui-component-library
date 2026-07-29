@@ -1,48 +1,25 @@
 # DataGrid
 
-The batteries-included data grid: **`<DataGrid columns={…} rows={…} />`**. A
-config-driven composite over TanStack react-table v8 that assembles the whole
-approved grid layout in one component — an optional toolbar (search + column
-visibility), the table, an optional selection column, loading / empty states, and
-optional pagination — so every grid in the app reads the same way.
+The opinionated, config-driven table composite. It gives standard record screens
+one small grouped API, normalizes every behavior into DataTable, and exclusively
+composes the visible product UI from existing UIKit primitives.
 
-> **Opinionated composite (design-pending v1).** This is the Phase-1 pilot of
-> `context/opinionated-composites-proposal.md`: it trades flexibility for
-> consistency. Built from requirements, not a Figma mockup — reconcile with the
-> design once one lands.
+> **Availability.** The current React adapter ships a smaller boolean-prop
+> facade and its own internal TanStack setup. The grouped config API and the
+> rebuild exclusively on `useDataTable` are accepted P0/P1 target work. Examples
+> are labelled so planned behavior is not mistaken for shipped support.
 
-## When to use
+## Choose the layer
 
-- A records screen where you want a consistent, wired grid without hand-assembling
-  the table, toolbar, selection, and pagination each time.
-- Any "list of things" whose look and interactions should match every other grid.
+| Layer       | Use it for                                                    |
+| ----------- | ------------------------------------------------------------- |
+| `Table`     | Native custom markup; the application owns all behavior.      |
+| `DataTable` | Flexible engine, controlled/manual state, custom composition. |
+| `DataGrid`  | Standard records screen with approved feature configs.        |
 
-## When not to use
-
-- A small, fixed table with no search / selection / pagination — use the `Table`
-  primitive directly.
-- A grid needing behavior DataGrid does not expose — drop down to `DataTable` +
-  the `DataTable*` parts (DataGrid is built on them). This is the escape hatch;
-  flexibility lives one layer down, on purpose.
-- Card / gallery tiles rather than tabular rows.
-
-## Relationship to `Table` and `DataTable`
-
-| Layer          | What it is                            | API                                                                    |
-| -------------- | ------------------------------------- | ---------------------------------------------------------------------- |
-| `Table`        | Primitive — native table parts        | Compositional (`TableRow`, `TableCell`, …)                             |
-| `DataTable`    | Composite — the grid only             | `columns` + `data`; toolbar / pagination are separate parts you wire   |
-| **`DataGrid`** | **Composite — the whole grid layout** | **`columns` + `rows` + `toolbar` / `pagination` / `selectable` flags** |
-
-## Example (React — implemented)
+## Current React API
 
 ```tsx
-import { DataGrid } from '@constructor-lab/ui-react';
-
-// Plain grid
-<DataGrid columns={columns} rows={rows} />
-
-// Batteries-included
 <DataGrid
   columns={columns}
   rows={rows}
@@ -50,11 +27,114 @@ import { DataGrid } from '@constructor-lab/ui-react';
   toolbar
   searchKey="email"
   pagination
-  onRowClick={(row) => open(row)}
+  pageSize={25}
+  striped
 />
 ```
 
-`columns` are TanStack `ColumnDef`s — the same defs `DataTable` accepts — so
-cell/header rendering (the escape hatch) lives in the column def. Vue and Web
-Component implementations are planned and target the same contract — see
-`api.yaml` `adapters`.
+## Accepted grouped API (planned)
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={rows}
+  getRowId={(row) => row.id}
+  dataState={{ status: 'loaded' }}
+  selection={{
+    reserve: true,
+    isRowSelectable: (row) => !row.locked,
+  }}
+  sorting={{ mode: 'multiple' }}
+  filters={{
+    global: { placeholder: 'Search devices' },
+    columns: filterDefs,
+  }}
+  defaultState={{ pagination: { pageIndex: 0, pageSize: 25 } }}
+  pagination={{ pageSizeOptions: [25, 50, 100] }}
+  columnsFeatures={{
+    reordering: true,
+    resizing: true,
+    pinning: true,
+    overflowTooltip: true,
+  }}
+  toolbar={{
+    globalSearch: true,
+    columnFilters: true,
+    bulkActions,
+  }}
+  appearance={{
+    striped: true,
+    stickyHeader: true,
+    height: 480,
+    borders: { horizontal: true, vertical: true },
+  }}
+  persistence={{ key: 'devices-grid', version: 2, storage }}
+/>
+```
+
+Accepted groups are `selection`, `sorting`, `filters`, `pagination`,
+`detailExpansion`, `tree`, `grouping`, `virtualization`, `columnsFeatures`,
+`persistence`, `toolbar`, `actions`, `appearance`, `dataState`, `footer`, and
+`rowInteraction`. `chrome`, `state`, `defaultState`, `server`, `presets`, and
+`callbacks` are top-level ownership/normalization inputs rather than behavior
+groups.
+
+## UIKit composition ownership
+
+DataGrid is the only batteries-included layer:
+
+- `Toolbar`, `InputSearch`, `Button`, and `ButtonGroup` for standard chrome.
+- `Checkbox` for selection.
+- `Filter`, `Input*`, `Select`/`Combobox`, `Chip`, `Popover`, and `Menu` for
+  filtering and column settings.
+- `Pagination` plus `Select`/`ButtonIcon` for paging.
+- `Skeleton`/`Spinner`, `Empty`, and `Alert` for data states.
+- `ButtonIcon`, `Collapsible`, `Tooltip`, `Menu`, `Popover`, and `Dialog` for
+  expansion, grouping, actions, help and overlays.
+- `Table` and `ScrollArea` for semantic table and bounded scrolling surfaces.
+
+These are DataGrid-owned private chrome implementations, not public
+`DataTable*` companions. DataTable supplies only engine contexts and commands.
+
+Every config member with a default is optional. Required members are limited to
+content/identity the component cannot infer: detail `render`, tree
+`getChildren`, grouping `allowedColumns`, persistence `key`/`version`/`storage`,
+and the selected actions/footer union branch.
+
+`chrome` defaults to built-in. Use
+`chrome={{ mode: 'external', render: (context) => <CustomChrome {...context} /> }}`
+to retain toolbar/pagination state while suppressing their built-in controls.
+External chrome rejects `toolbar`; loading/empty/error rows and footer summaries
+remain table content. Direct DataTable composition needs no chrome flag.
+
+## Server records screen (planned P0)
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={rows}
+  getRowId={(row) => row.id}
+  server={{ query, rowCount, onQueryChange }}
+  dataState={dataState}
+/>
+```
+
+The server facade makes sorting, filtering, grouping, and pagination manual
+together. Use DataTable when only selected stages are manual.
+
+## Migration
+
+For one minor line after the rebuild, current aliases normalize immediately:
+
+- `selectable` → `selection`
+- `searchKey`/`searchPlaceholder` → `filters`/`toolbar`
+- `pagination`/`pageSize`/`pageSizeOptions` → `pagination` config
+- `state`/`emptyMessage`/`skeletonRows` → `dataState`
+- `striped` → `appearance.striped`
+
+DataGrid keeps typed cell/header renderers in column definitions and offers
+approved typed render escape hatches for toolbar, state, footer, actions,
+groups, and expanded content. These remain DataGrid configuration surfaces,
+not public DataTable companion components. For arbitrary composition or
+selective manual processing, drop to DataTable; for fully custom markup, drop
+to Table.

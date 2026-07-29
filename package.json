@@ -63,13 +63,16 @@
   },
   "lint-staged": {
     "apps/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
-    "packages/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix"
+    "packages/**/*.{js,jsx,mjs,cjs,ts,tsx,vue}": [
+      "eslint --fix",
+      "prettier --write"
     ],
     "tools/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "**/*.{json,md,yml,yaml}": [
       "prettier --write"

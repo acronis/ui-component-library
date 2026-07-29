@@ -5,12 +5,13 @@ status: ready
 category: data-display
 layer: primitive
 description: >-
-  Displays rows and columns of data. A set of composable parts (header, body,
-  footer, row, column header, cell, caption) with sortable column headers and a
-  selected row state. Ported from the legacy shadcn-uikit `Table` and informed by
-  the pre-release Table design; themed by the `--ui-table-*` token tier. A
-  TanStack-backed data grid (`DataTable`) over these primitives is a planned
-  follow-up.
+  The semantic, presentational primitive for tabular content: native header,
+  body, footer, row, column-header, cell, and caption parts plus visual row
+  states, sort affordances, and overflow. Table deliberately owns no data or
+  feature state. DataTable renders its shared-state engine through these parts,
+  and DataGrid is the opinionated facade over DataTable. The React primitive is
+  shipped; the additional current/expanded row affordances and complex-header
+  scope contract are accepted P0/P1 target behavior.
 since: 0.10.0
 figma:
   node: '4567-6801'

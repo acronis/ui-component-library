@@ -37,7 +37,10 @@ const COMPONENTS_DIR = join(ROOT, 'packages/ui-spec/components');
 // (or at the repo root) — no dotenv dependency. First file wins.
 function loadEnvLocal() {
   const env = {};
-  for (const file of [join(SKILL_DIR, '.env.local'), join(ROOT, '.env.local')]) {
+  for (const file of [
+    join(SKILL_DIR, '.env.local'),
+    join(ROOT, '.env.local'),
+  ]) {
     if (!existsSync(file)) continue;
     for (const line of readFileSync(file, 'utf8').split('\n')) {
       const mm = line.match(/^\s*([A-Za-z0-9_]+)\s*=\s*(.*?)\s*$/);
@@ -81,7 +84,8 @@ async function fetchSignals(m, tok) {
       `https://api.figma.com/v1/files/${m.fileKey}/nodes?ids=${encodeURIComponent(chunk.join(','))}&depth=${FETCH_DEPTH}`,
       { headers: { 'X-Figma-Token': tok } }
     );
-    if (!res.ok) die(`Figma REST ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    if (!res.ok)
+      die(`Figma REST ${res.status}: ${(await res.text()).slice(0, 200)}`);
     const j = await res.json();
     for (const id of chunk) {
       const node = j.nodes?.[id]?.document;
@@ -137,7 +141,10 @@ function parsePages(text) {
     const arr = Array.isArray(j)
       ? j.map((p) => ({ id: p.id, name: p.name }))
       : Object.entries(j).map(([id, name]) => ({ id, name }));
-    return arr.map((p) => ({ id: String(p.id).replace('-', ':'), name: String(p.name) }));
+    return arr.map((p) => ({
+      id: String(p.id).replace('-', ':'),
+      name: String(p.name),
+    }));
   }
   const out = [];
   for (const line of text.split('\n')) {
@@ -194,13 +201,15 @@ if (cmd === 'sync') {
       `https://api.figma.com/v1/files/${m.fileKey}?depth=1`,
       { headers: { 'X-Figma-Token': tok } }
     );
-    if (!res.ok) die(`Figma REST ${res.status}: ${(await res.text()).slice(0, 300)}`);
+    if (!res.ok)
+      die(`Figma REST ${res.status}: ${(await res.text()).slice(0, 300)}`);
     const doc = await res.json();
     src = JSON.stringify(
       (doc.document?.children ?? []).map((p) => ({ id: p.id, name: p.name }))
     );
   } else {
-    src = !arg || arg === '-' ? readFileSync(0, 'utf8') : readFileSync(arg, 'utf8');
+    src =
+      !arg || arg === '-' ? readFileSync(0, 'utf8') : readFileSync(arg, 'utf8');
   }
   const live = parsePages(src);
   if (!live.length)
@@ -292,7 +301,9 @@ if (cmd === 'plan' || cmd === 'record') {
     if (changed.length) {
       console.log(`\n⚠  ${changed.length} page(s) CHANGED since last check:`);
       changed.forEach((p) => console.log(line(p)));
-      console.log('\n  Plan — reconcile each mapped component against its page:');
+      console.log(
+        '\n  Plan — reconcile each mapped component against its page:'
+      );
       for (const p of changed)
         for (const c of p.components)
           console.log(
@@ -339,7 +350,9 @@ if (cmd === 'plan' || cmd === 'record') {
     wrote += 1;
   }
   saveManifest(m);
-  console.log(`recorded ${wrote} page signal(s) → ${MANIFEST.replace(ROOT + '/', '')}`);
+  console.log(
+    `recorded ${wrote} page signal(s) → ${MANIFEST.replace(ROOT + '/', '')}`
+  );
   process.exit(0);
 }
 

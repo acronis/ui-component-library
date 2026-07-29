@@ -2,35 +2,56 @@ spec_version: '1.0'
 component: Table
 
 schematic: |
-  root: <table> (in a horizontally scrollable container)
-  +-----------------------------------------------------------------+
-  | header: <thead>                                                 |
-  |   row: <tr>                                                     |
-  |     head: <th> Name ⇅   | head: <th> Status | head ▸ sortable  |
-  +-----------------------------------------------------------------+
-  | body: <tbody>                                                   |
-  |   row: <tr> (idle / hover / selected)                           |
-  |     cell: <td> John Smith | cell: <td> Active                   |
-  +-----------------------------------------------------------------+
-  | footer: <tfoot>                                                 |
-  |   row > cell: Total ............................. $750.00       |
-  +-----------------------------------------------------------------+
-  caption: <caption> (optional, below the table)
+  container: <div> — scroll container (overflow auto; bounded by height/max-height)
+  +=================================================================+
+  | root: <table>                                                   |
+  | +-------------------------------------------------------------+ |
+  | | header: <thead>            (sticky -> pinned to the top)     | |
+  | |   row: <tr>                                                  | |
+  | |     head: <th> Name ⇅  | head: <th> Status | head ▸ sortable | |
+  | +-------------------------------------------------------------+ |
+  | | body: <tbody>                                                | |
+  | |   row: <tr> (idle / hover / selected / current / expanded;   | |
+  | |              sticky -> a pinned group header)                | |
+  | |     cell: <td> John Smith | cell: <td> Active                | |
+  | +-------------------------------------------------------------+ |
+  | | footer: <tfoot>            (sticky -> pinned to the bottom)  | |
+  | |   row > cell: Total ............................. $750.00    | |
+  | +-------------------------------------------------------------+ |
+  | caption: <caption> (optional, below the table)                  |
+  +=================================================================+
+     container -> width / height / max-height; data-bounded when bounded
+     root    -> size (density) + background surface + border dimensions
      head    -> --ui-table-header-label-color, hover --ui-table-header-cell-color-hover
      sortable head -> sort icon (--ui-table-header-sort-icon-color-*) + aria-sort
      row     -> idle/hover/active (selected) via --ui-table-data-row-color-*
      cell    -> --ui-table-global-cell-{padding-x,padding-y,border-color}
+     head/cell ▸ pinned -> stuck to the start/end edge at pin-offset
 
 root:
   element: table
   role: table
   description: >-
-    The `<table>` (wrapped in a `overflow-auto` container for horizontal scroll).
-    Text color comes from `--ui-table-data-value-color-idle`.
+    The `<table>`. Text color comes from `--ui-table-data-value-color-idle`. It
+    carries the presentation applied from the root — `size` density,
+    `background` surface, and the four `borders` dimensions — as rules over its
+    own rows and cells, so the parts keep their default metrics until the root
+    overrides them.
 
 parts:
+  - id: container
+    description: >-
+      The scroll container the `<table>` is rendered into (`overflow: auto`).
+      Takes `width` / `height` / `max-height`, exposes `data-bounded` once a
+      height is set, and is reachable via `container-ref` /
+      `container-class-name` / `container-props`. Bounding it is what makes
+      sticky sections and windowed rendering possible.
+    element: div
   - id: header
-    description: Column-header section (`<thead>`).
+    description: >-
+      Column-header section (`<thead>`). When `sticky`, its cells pin to the top
+      of the scroll container and draw a hairline in the row-divider token in
+      place of the collapsed border, which would otherwise scroll away.
     element: thead
     optional: true
   - id: body
@@ -38,21 +59,34 @@ parts:
     element: tbody
     optional: true
   - id: footer
-    description: Summary section (`<tfoot>`) with a top divider.
+    description: >-
+      Summary section (`<tfoot>`) with a top divider. When `sticky`, its cells
+      pin to the bottom of the scroll container and the divider becomes the
+      same hairline the sticky header uses.
     element: tfoot
     optional: true
   - id: row
     description: >-
       A table row (`<tr>`). Idle/hover come from `--ui-table-data-row-color-*`;
-      `selected` applies the active token + `data-state="selected"`.
+      `selected` applies the active token + `data-state="selected"`. `current`
+      adds `aria-current` + `data-current` and a layout-neutral leading marker;
+      `expanded` adds `data-expanded` (styling only — `aria-expanded` belongs on the
+      disclosure control, not the row). A `sticky` row pins to
+      the top of the scroll container at `sticky-offset` (group headers). Table
+      only presents state supplied by its owner.
     element: tr
   - id: head
     description: >-
       A column header cell (`<th>`). When `sortable`, it renders a focusable sort
-      button with a sort icon and sets `aria-sort`.
+      button with a sort icon and sets `aria-sort`. Native `scope` and span
+      attributes support simple, grouped-column, row, and row-group headers.
+      `pinned` sticks it to the start/end edge at `pin-offset` and marks it
+      `data-pinned`, which is what lifts it above the header cells that follow.
     element: th
   - id: cell
-    description: A data cell (`<td>`) — padding/border from the cell tokens.
+    description: >-
+      A data cell (`<td>`) — padding/border from the cell tokens. Takes the same
+      `pinned` / `pin-offset` hook as the header cell.
     element: td
   - id: caption
     description: Optional table caption (`<caption>`), muted, below the table.
@@ -77,6 +111,41 @@ states:
       kind: prop,
       prop: sort-direction,
       affects: [head],
+    }
+  - {
+      id: current,
+      trigger: 'current === true on a row',
+      kind: prop,
+      prop: current,
+      affects: [row],
+    }
+  - {
+      id: expanded,
+      trigger: 'expanded is boolean on a row',
+      kind: prop,
+      prop: expanded,
+      affects: [row],
+    }
+  - {
+      id: sticky,
+      trigger: 'sticky === true on the header, the footer, or a group row',
+      kind: prop,
+      prop: sticky,
+      affects: [header, footer, row],
+    }
+  - {
+      id: pinned,
+      trigger: "pinned is 'start' or 'end' on a header or data cell",
+      kind: prop,
+      prop: pinned,
+      affects: [head, cell],
+    }
+  - {
+      id: bounded,
+      trigger: 'height or max-height is set on the scroll container',
+      kind: prop,
+      prop: max-height,
+      affects: [container],
     }
   - {
       id: header-hover,

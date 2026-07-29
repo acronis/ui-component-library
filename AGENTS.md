@@ -114,7 +114,8 @@ Root-only scripts (from the repo root):
 
 - `format`, `format:check` — Prettier across the tree
 - `changeset`, `version`, `release` — Changesets CLI passthroughs
-- `husky` — runs lint-staged + typecheck (used by the pre-commit hook)
+- `husky` — runs lint-staged + typecheck (the pre-commit hook calls
+  lint-staged directly, not this script — see `context/commits.md`)
 
 `apps/demos` is intentionally source-only: its `dev`/`build` scripts are
 no-ops because the package is consumed via source-file exports. Tools
@@ -249,7 +250,9 @@ Pattern → Composite → Primitive` over ambient Tokens + Icons, sourced from
   Respect intentional drift noted in catalog comments.
 - Use `pnpm --filter <package> <script>` over `cd <workspace> && pnpm <script>`.
 - **Never** use `--no-verify` to bypass commit hooks; fix the underlying
-  issue. The pre-commit hook runs `lint-staged` + `typecheck`.
+  issue. The pre-commit hook runs **`lint-staged` only** — it does not
+  typecheck, so run `pnpm -r typecheck` yourself (see `context/commits.md`
+  and the note at `husky` above).
 
 ## What this repo does NOT have
 

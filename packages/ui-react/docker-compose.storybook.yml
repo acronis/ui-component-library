@@ -33,15 +33,46 @@ services:
       retries: 30
       start_period: 60s
 
+  # ── THE PER-TEST TIMEOUT IS *NOT* CONFIGURED HERE, AND THAT IS DELIBERATE ────
+  # `UI/Radio` and `UI/Toast` intermittently fail this runner with
+  # `Exceeded timeout of 15000 ms` — 3 tests × 15 s ≈ the 46.8 s those suites
+  # reported — while the same run records ZERO snapshot failures. Under the old
+  # `light && dark` chain that unrelated flake silently cancelled the whole dark
+  # half of the corpus (#111).
+  #
+  # `--testTimeout=<n>` was tried here and REMOVED because it is INERT. In
+  # `@storybook/test-runner@0.24.4` the flag exists only as a commander
+  # declaration in `dist/test-storybook.js` — parsed and never forwarded to jest.
+  # Measured, not inferred: a run at `--testTimeout=1000` passed all 4 tests of
+  # `ui-label` and jest never mentioned 1000 ms. Do not re-add it; it silently
+  # does nothing, which is worse than leaving the default visible.
+  #
+  # The supported route is a jest config (`test-storybook --eject` writes
+  # `test-runner-jest.config.js`, where `testTimeout` IS honoured). Not taken yet:
+  # the failure is CONTENTION-dependent, not intrinsic. Running those two suites
+  # alone at the 15 s limit passes 9/9 with zero timeouts — they only blow the
+  # limit under the full ~163-suite corpus at `--maxWorkers=4` on emulated CPU. So
+  # `maxWorkers` may be the better lever than the ceiling, and neither can be
+  # validated without reproducing a probabilistic flake. Left measured and
+  # unfixed rather than papered over.
   test-runner:
     build:
       context: ../..
       dockerfile: packages/ui-react/Dockerfile.storybook
     image: ui-react-storybook
     platform: linux/amd64
-    command: pnpm exec test-storybook --url http://storybook:6006 --maxWorkers=4
+    # `sh -c` so `$$VISUAL_TEST_ARGS` expands *inside* the container (the `$$`
+    # escapes Compose's own interpolation). Unquoted on purpose: it must
+    # word-split into separate argv entries.
+    command:
+      - sh
+      - -c
+      - pnpm exec test-storybook --url http://storybook:6006 --maxWorkers=4 $$VISUAL_TEST_ARGS
     environment:
       - STORYBOOK_COLOR_MODE=${STORYBOOK_COLOR_MODE:-light}
+      # Extra args forwarded by scripts/visual-capture.mjs (e.g. a jest
+      # test-path pattern to capture a single story). Empty in normal runs.
+      - VISUAL_TEST_ARGS=${VISUAL_TEST_ARGS:-}
     depends_on:
       storybook:
         condition: service_healthy

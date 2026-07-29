@@ -12,21 +12,69 @@
  *                     state (e.g. Switch click → checked).
  *
  * Output: packages/ui-react/src/components/ui/<name>/__stories__/<name>.generated.stories.tsx
- * Run:    pnpm --filter @constructor-lab/ui-spec generate:stories
+ *
+ * Run:    pnpm --filter @constructor-lab/ui-spec generate:stories <component>
+ *         …  --all           every component that already has a generated story
+ *         …  --all --new     ...and create the ones that have none
+ *         …  --check         write nothing; exit 1 if anything would change
+ *         …  --list          which components have a generated story
+ *         …  (no arguments)  same as --check --all
+ *
+ * This writes into packages/ui-react, which several people edit at once, so
+ * there is deliberately no bare write-everything mode: an unfiltered write
+ * regenerates every component from whatever spec happens to be on disk and
+ * silently pulls a colleague's in-flight spec change into your working tree.
+ * Name your component. `--check` exists because nothing else in the repo
+ * notices when a spec change leaves a generated story behind.
  *
  * NOTE (spike limitation): the state *axes* are spec-derived; the small
  * per-component "how to instantiate" hint below (sample content, aria-label) is
  * not yet in the spec — a future `story` hint in api.yaml would remove it.
  */
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import { format, resolveConfig } from 'prettier';
 
 import { listComponentNames, loadSpec } from '../lib/load';
 import type { AnatomySpec, ApiSpec } from '../types';
 
 const PKG_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const UI_REACT_UI = resolve(PKG_ROOT, '../ui-react/src/components/ui');
+
+// The committed generated stories are Prettier-formatted, so the generator has
+// to format too. Otherwise every regeneration produces a large formatting-only
+// diff, which makes real drift indistinguishable from noise and defeats the
+// write-only-when-changed rule in `reconcile`.
+//
+// Formatting also doubles as a syntax gate: source that composes malformed JSX
+// used to be written out unnoticed and only broke the Storybook build later.
+// Prettier refuses to parse it, so `InvalidSourceError` surfaces it here instead.
+let prettierConfig: Awaited<ReturnType<typeof resolveConfig>> | undefined;
+
+class InvalidSourceError extends Error {}
+
+async function formatSource(source: string, filepath: string): Promise<string> {
+  if (prettierConfig === undefined)
+    prettierConfig = await resolveConfig(filepath);
+  try {
+    return await format(source, { ...prettierConfig, filepath });
+  } catch (error) {
+    // Prettier syntax errors carry a full code frame plus a minified stack from
+    // its bundled TypeScript. Keep the first line, and quote the offending
+    // generated line — the file is never written, so it is the only way to see it.
+    const raw = error instanceof Error ? error.message : String(error);
+    const line = (error as { loc?: { start?: { line?: number } } }).loc?.start
+      ?.line;
+    const offending = line ? source.split('\n')[line - 1]?.trim() : undefined;
+    throw new InvalidSourceError(
+      raw.split('\n')[0] +
+        (line ? ` (generated line ${line})` : '') +
+        (offending ? `\n    > ${offending}` : '')
+    );
+  }
+}
 
 interface RenderHint {
   sample?: string;
@@ -45,6 +93,18 @@ interface RenderHint {
   skip?: boolean;
 }
 
+// Four components have a spec but no committed generated story, and each is
+// blocked on a hint rather than on the tooling (`--list` shows them; `--new`
+// would create them). Diagnosed 2026-07-27, none of them fixed here because the
+// content belongs to whoever owns the component:
+//   • meter      — needs `props: 'value={…}'`; Meter requires `value`, so the
+//                  generated story does not typecheck without it.
+//   • otp-field  — needs `props: 'length={…}'` plus a `sample` of that many
+//                  `OTPFieldInput`s; `length` is required.
+//   • autocomplete, checkbox-group — typecheck, but are composable roots whose
+//                  parts are all children, so they render an empty box. They
+//                  need a `sample` or they are blank VR baselines.
+// Until then their hand-written `<name>.stories.tsx` carries the VR coverage.
 const RENDER: Record<string, RenderHint> = {
   avatar: {
     extraImports: ["import { AvatarFallback } from '../avatar';"],
@@ -811,7 +871,18 @@ const hasProp = (api: ApiSpec, name: string): boolean =>
 const arr = (values: string[]): string =>
   `[${values.map((v) => `'${v}'`).join(', ')}] as const`;
 
-const cap = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
+/**
+ * Spec id → a story export name. Transition ids are kebab-case
+ * (`enter-character`), and story exports are JS identifiers, so the separators
+ * have to fold away rather than survive: `Enter-character` is a syntax error and
+ * used to be written out unnoticed.
+ */
+const cap = (s: string): string =>
+  s
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
 
 function buildStories(
   comp: string,
@@ -959,16 +1030,19 @@ export const ${cap(t.id)}: Story = {
   return { body: parts.join('\n\n'), needsPlay };
 }
 
-function generate(name: string): boolean {
-  if (!existsSync(join(UI_REACT_UI, name))) {
-    console.warn(`skip ${name}: no @constructor-lab/ui-react component`);
-    return false;
-  }
+/** Absolute path of a component's generated story file. */
+function storyPath(name: string): string {
+  return join(
+    UI_REACT_UI,
+    name,
+    '__stories__',
+    `${name}.generated.stories.tsx`
+  );
+}
+
+/** Render the file contents for one component, formatted as the repo commits it. */
+async function render(name: string): Promise<string> {
   const hint = RENDER[name] ?? {};
-  if (hint.skip) {
-    console.log(`skip ${name}: imperative component (no generated story)`);
-    return false;
-  }
   const { index, api, anatomy } = loadSpec(name);
   const comp = hint.root ?? index.component;
   const { body, needsPlay } = buildStories(comp, api, anatomy, hint);
@@ -993,14 +1067,200 @@ type Story = StoryObj<typeof meta>;
 
 ${body}
 `;
-
-  const dir = join(UI_REACT_UI, name, '__stories__');
-  mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, `${name}.generated.stories.tsx`), file);
-  console.log(`generated ${name}.generated.stories.tsx`);
-  return true;
+  return formatSource(file, storyPath(name));
 }
 
-let count = 0;
-for (const name of listComponentNames()) if (generate(name)) count += 1;
-console.log(`\n${count} story file(s) generated.`);
+type Outcome =
+  | { kind: 'written'; created: boolean }
+  | { kind: 'unchanged' }
+  | { kind: 'drift'; created: boolean }
+  | { kind: 'invalid'; reason: string }
+  | { kind: 'skipped'; reason: string };
+
+/**
+ * Reconcile one component's generated story.
+ *
+ * `write: false` reports what would change without touching the file, and a
+ * component whose file does not exist yet is only created when the caller opted
+ * in (by naming it, or with `--new`).
+ */
+async function reconcile(
+  name: string,
+  opts: { write: boolean; allowCreate: boolean }
+): Promise<Outcome> {
+  if (!existsSync(join(UI_REACT_UI, name)))
+    return {
+      kind: 'skipped',
+      reason: 'no @constructor-lab/ui-react component',
+    };
+  if (RENDER[name]?.skip)
+    return {
+      kind: 'skipped',
+      reason: 'imperative component (no generated story)',
+    };
+
+  const target = storyPath(name);
+  const existing = existsSync(target) ? readFileSync(target, 'utf8') : null;
+  if (existing === null && !opts.allowCreate)
+    return {
+      kind: 'skipped',
+      reason:
+        'no committed generated story — name it explicitly, or pass --new, to create one',
+    };
+
+  let next: string;
+  try {
+    next = await render(name);
+  } catch (error) {
+    if (!(error instanceof InvalidSourceError)) throw error;
+    // Never write source that does not parse — it would break the Storybook build.
+    return { kind: 'invalid', reason: error.message };
+  }
+  if (existing === next) return { kind: 'unchanged' };
+
+  const created = existing === null;
+  if (!opts.write) return { kind: 'drift', created };
+
+  mkdirSync(dirname(target), { recursive: true });
+  writeFileSync(target, next);
+  return { kind: 'written', created };
+}
+
+const USAGE = `Generate Storybook "All States" stories from component specs.
+
+Usage
+  generate:stories <component>...        write exactly these (creates the file if absent)
+  generate:stories --all                write every component that already has one
+  generate:stories --all --new          ...and create the ones that have none
+  generate:stories --check [<component>...|--all]
+                                        write nothing; exit 1 if anything would change
+  generate:stories --list               show which components have a generated story
+  generate:stories                      same as --check --all
+
+Why there is no bare write-everything mode: this script writes into
+packages/ui-react, which several people edit at once. An unfiltered write
+regenerates every component from whatever spec is currently on disk, so it
+silently commits a colleague's in-flight spec change into your working tree.
+Name your component.`;
+
+async function main(argv: string[]): Promise<number> {
+  const flags = new Set(argv.filter((a) => a.startsWith('--')));
+  const names = argv.filter((a) => !a.startsWith('--'));
+  const known = listComponentNames();
+
+  for (const flag of flags) {
+    if (!['--all', '--new', '--check', '--list', '--help'].includes(flag)) {
+      console.error(`unknown flag "${flag}"\n\n${USAGE}`);
+      return 1;
+    }
+  }
+  if (flags.has('--help')) {
+    console.log(USAGE);
+    return 0;
+  }
+
+  if (flags.has('--list')) {
+    for (const name of known) {
+      const state = RENDER[name]?.skip
+        ? 'skipped (imperative)'
+        : !existsSync(join(UI_REACT_UI, name))
+          ? 'skipped (no ui-react component)'
+          : existsSync(storyPath(name))
+            ? 'has a generated story'
+            : 'NO generated story';
+      console.log(`  ${name.padEnd(28)} ${state}`);
+    }
+    return 0;
+  }
+
+  const unknown = names.filter((n) => !known.includes(n));
+  if (unknown.length) {
+    console.error(
+      `unknown component(s): ${unknown.join(', ')}\n` +
+        `run with --list to see the ${known.length} known names.`
+    );
+    return 1;
+  }
+  if (names.length && flags.has('--all')) {
+    console.error('pass either component names or --all, not both.');
+    return 1;
+  }
+
+  // No arguments at all is the safe default: check everything, write nothing.
+  const bare = names.length === 0 && !flags.has('--all');
+  const check = flags.has('--check') || bare;
+  const targets = names.length ? names : known;
+  // Naming a component is the deliberate act that authorizes creating its file.
+  const allowCreate = names.length > 0 || flags.has('--new');
+
+  const results = new Map<string, Outcome>();
+  for (const name of targets) {
+    results.set(name, await reconcile(name, { write: !check, allowCreate }));
+  }
+
+  const of = (kind: Outcome['kind']) =>
+    [...results].filter(([, o]) => o.kind === kind).map(([n]) => n);
+  const created = [...results].filter(
+    ([, o]) => (o.kind === 'written' || o.kind === 'drift') && o.created
+  );
+  const changed = [...of('written'), ...of('drift')];
+  const missing = [...results].filter(
+    ([, o]) => o.kind === 'skipped' && o.reason.startsWith('no committed')
+  );
+
+  for (const [name, o] of results) {
+    if (o.kind === 'written')
+      console.log(
+        `${o.created ? 'created' : 'updated'} ${name}.generated.stories.tsx`
+      );
+    else if (o.kind === 'drift')
+      console.log(
+        `would ${o.created ? 'create' : 'update'} ${name}.generated.stories.tsx`
+      );
+  }
+
+  const invalid = of('invalid');
+  console.log(
+    `\n${changed.length} ${check ? 'would change' : 'written'}` +
+      ` · ${of('unchanged').length} already up to date` +
+      ` · ${of('skipped').length} skipped` +
+      (created.length ? ` · ${created.length} new` : '') +
+      (invalid.length ? ` · ${invalid.length} INVALID` : '')
+  );
+
+  if (invalid.length) {
+    console.error(
+      `\n${invalid.length} component(s) generate source that does not parse — nothing was written for them:`
+    );
+    for (const [name, o] of results)
+      if (o.kind === 'invalid') console.error(`  ${name}: ${o.reason}`);
+    console.error(
+      "Fix the component's RENDER hint in this script so its `sample` composes valid JSX."
+    );
+  }
+
+  if (missing.length) {
+    console.log(
+      `\n${missing.length} component(s) have a spec but no committed generated story:\n` +
+        `  ${missing.map(([n]) => n).join(', ')}\n` +
+        'They were left alone: creating them adds new visual-regression baselines, ' +
+        'which should be a deliberate act.\n' +
+        `Create them with: generate:stories ${missing.map(([n]) => n).join(' ')}`
+    );
+  }
+
+  if (bare) {
+    console.log(
+      `\nNothing was written — a bare run only reports drift.\n` +
+        'Regenerate one component with: generate:stories <component>'
+    );
+  }
+
+  // --check is a gate: stale generated stories are a real defect, since nothing
+  // else in the repo notices when a spec change leaves them behind. Source that
+  // does not parse always fails, written or not.
+  if (invalid.length) return 1;
+  return check && changed.length ? 1 : 0;
+}
+
+process.exitCode = await main(process.argv.slice(2));

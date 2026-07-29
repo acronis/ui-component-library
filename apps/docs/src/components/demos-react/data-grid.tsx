@@ -46,11 +46,12 @@ export function DataGridDemo() {
     <DataGrid
       columns={columns}
       rows={payments}
-      selectable
-      toolbar
-      searchKey="email"
-      searchPlaceholder="Filter emails…"
-      pagination
+      getRowId={(row) => row.id}
+      selection={{ mode: 'multiple' }}
+      sorting={{ mode: 'multiple' }}
+      toolbar={{ globalSearch: true }}
+      filters={{ global: { columnId: 'email', placeholder: 'Filter emails…' } }}
+      pagination={{ pageSize: 3, pageSizeOptions: [3, 5] }}
     />
   );
 }

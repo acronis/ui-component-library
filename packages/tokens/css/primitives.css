@@ -324,7 +324,7 @@
   --ui-palette-transparent-white-fixed-60: light-dark(rgb(255 255 255 / 0.6), rgb(255 255 255 / 0.6));
   --ui-palette-transparent-white-inverse-100: light-dark(rgb(255 255 255), rgb(24 25 27));
   --ui-palette-transparent-white-inverse-95: light-dark(rgb(255 255 255 / 0.949), rgb(48 50 54 / 0.949));
-  --ui-palette-violet-0: light-dark(rgb(255 255 255), rgb(46 15 46));
+  --ui-palette-violet-0: light-dark(rgb(254 246 254), rgb(46 15 46));
   --ui-palette-violet-1: light-dark(rgb(249 245 251), rgb(62 15 62));
   --ui-palette-violet-10: light-dark(rgb(152 27 152), rgb(247 186 247));
   --ui-palette-violet-11: light-dark(rgb(130 23 130), rgb(250 209 250));
@@ -388,13 +388,14 @@
   --ui-units-size-256: 256px;
   --ui-units-size-32: 32px;
   --ui-units-size-320: 320px;
+  --ui-units-size-384: 384px;
   --ui-units-size-40: 40px;
   --ui-units-size-48: 48px;
   --ui-units-size-512: 512px;
   --ui-units-size-56: 56px;
+  --ui-units-size-6: 6px;
   --ui-units-size-632: 632px;
   --ui-units-size-64: 64px;
-  --ui-units-size-7: 7px;
   --ui-units-size-72: 72px;
   --ui-units-size-76: 76px;
   --ui-units-size-8: 8px;

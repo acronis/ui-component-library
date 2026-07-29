@@ -326,23 +326,22 @@ Hard rules enforced by `__tests__/specs.test.ts` (unchanged):
 Validate continuously: `pnpm --filter @constructor-lab/ui-spec test`.
 
 **Generate the states story** (don't hand-write `.generated`):
-`pnpm --filter @constructor-lab/ui-spec generate:stories`. A **composable /
-multi-part component renders empty** (just `<Name />`) unless you give it a
-`RENDER` hint in `packages/ui-spec/scripts/generate-stories.ts` — an
+`pnpm --filter @constructor-lab/ui-spec generate:stories <component>`. A
+**composable / multi-part component renders empty** (just `<Name />`) unless you
+give it a `RENDER` hint in `packages/ui-spec/scripts/generate-stories.ts` — an
 `extraImports` line importing the sub-parts and a `sample` string composing them.
 This is a deliberate edit to the **spec tooling**, outside the component dir; do
 it before generating. (Worked examples: the `breadcrumb` and `card` entries — a
 component with no `variant`/`size`/`checked`/`disabled` lands in the generator's
 final `States` branch and just wraps your `sample` in `<Name>…</Name>`.)
 
-> **`generate:stories` rewrites _every_ component's `.generated.stories.tsx` in
-> raw, unformatted JSX** — and the committed copies were Prettier-formatted by
-> lint-staged on their original commit. So a run leaves the whole set looking
-> "modified" with whitespace-only diffs. Two cleanups: **(1)** `prettier --write`
-> your new component's generated file (or just let the pre-commit hook format it),
-> and **(2)** `git checkout --` the unrelated siblings the run touched — don't
-> sweep their formatting churn into your change. Confirm with
-> `git status packages/ui-react/src/components/ui/*/__stories__/*.generated.stories.tsx`.
+> **Name your component.** The generator writes into `packages/ui-react`, which
+> several people edit at once, so it has no write-everything mode: a bare run
+> only reports drift, and an unfiltered write would pull a colleague's in-flight
+> spec change into your tree. Naming your component is also what authorizes
+> creating its file for the first time. Output is Prettier-formatted and only
+> written when the content actually changes, so there is no sibling churn to
+> clean up.
 
 Hand-write `<name>.stories.tsx`
 for the rich demo stories, mirroring `button.stories.tsx` and the legacy stories

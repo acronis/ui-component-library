@@ -12,6 +12,17 @@ description: >-
   Note: region-scoped audit rules are declared only on landmark regions; nested
   content patterns are documented via `pattern` + `components`, and screen-scoped
   detectors (accessible-name, contrast) cover them.
+
+  Ownership: the records region uses the table-view pattern's DataGrid, which
+  normalizes grouped features into one DataTable controller. The grouped facade
+  and its named `callbacks` are shipped; the props and events marked P1 below
+  land with the feature groups that back them.
+
+  The /data route implementation still composes its own table because two of its
+  filters are discrete option facets (status from a fixed list, category derived
+  from the data) and it opens on a name sort — `filters.columns[].facet` and
+  `defaultState` are both P1, so migrating today would downgrade those filters and
+  drop the initial sort.
 route: /data
 pattern: app-shell
 
@@ -48,26 +59,52 @@ regions:
         components:
           - { instanceId: heading, component: PageHeader }
 
-      - regionId: toolbar
-        label: Filters and bulk actions
-        pattern: filter-popover
-        layout: { type: flex-fill }
-        components:
-          - { instanceId: filter, component: Filter }
-
       - regionId: table
         label: Records table
         pattern: data-table-bulk-actions
         layout: { type: flex-fill, scroll: independent }
         components:
-          - { instanceId: grid, component: DataTable }
-          - { instanceId: empty-state, component: Empty }
+          - instanceId: grid
+            component: DataGrid
+            props:
+              rows: { $bind: data.rows }
+              columns: { $bind: data.columns }
+              getRowId: { $bind: data.getRowId }
+              dataState: { $bind: data.dataState }
+              selection: { $bind: data.selection }
+              sorting: { $bind: data.sorting }
+              filters: { $bind: data.filters }
+              pagination: { $bind: data.pagination }
+              toolbar: { $bind: data.toolbar }
+              actions: { $bind: data.actions }
+              rowInteraction: { $bind: data.rowInteraction }
+              server: { $bind: data.server }
+              # P1 — land with their feature groups.
+              detailExpansion: { $bind: data.detailExpansion }
+              tree: { $bind: data.tree }
+              grouping: { $bind: data.grouping }
+              columnsFeatures: { $bind: data.columnsFeatures }
+              persistence: { $bind: data.persistence }
+            # Bound through the shipped `callbacks` prop. Each named callback
+            # observes; the config-level handler owns the behavior and runs first.
+            events:
+              onQueryChange: query-change
+              onSelectionChange: selection-change
+              onCurrentRowChange: current-row-change
+              onRowActivate: activate-row
+              onRowAction: run-row-action
+              onColumnStateChange: column-state-change
+              onPaginationChange: pagination-change
+              onDataStateAction: data-state-action
+              # P1 — land with their feature groups.
+              onDetailExpansionChange: detail-expansion-change
+              onTreeExpansionChange: tree-expansion-change
 
   - regionId: detail
     label: Row detail
     pattern: sheet-detail-panel
     ariaRole: complementary
-    visibleWhen: row-selected
+    visibleWhen: detail-open
     layout: { type: overlay, position: right }
     components:
       - { instanceId: sheet, component: Sheet }
@@ -103,18 +140,54 @@ stateMachine:
       rules: [anatomy/data-states-present]
     - name: loaded
       description: >-
-        Rows shown. Acceptance: sort, filter, pagination and selection work; a
-        row opens the detail sheet; New item opens the form dialog.
+        Rows shown. Target P0 acceptance: sort, filter, pagination, current row,
+        selection and row actions share one controller; a row opens detail.
       category: loaded
     - name: empty
       description: >-
-        No records. Acceptance: the empty-screen pattern shows a New item action
-        (not a blank table body).
+        No records. Acceptance: DataGrid's owned empty treatment shows a New
+        item action rather than rendering duplicate external Empty chrome.
       category: empty
       rules: [anatomy/empty-skeleton-parity]
     - name: error
       description: >-
         Fetch failed. Acceptance — an error with retry is shown.
+      category: error
+    - name: refreshing-query
+      description: >-
+        Target P0 server query is in flight after sort/filter/group/page change.
+        Existing rows may remain visible; the emitted query already includes any
+        page reset and stale responses cannot replace newer results.
+      category: loading
+    - name: selection-active
+      description: >-
+        Target P0 one or more eligible rows are selected. Contextual bulk actions
+        replace the ordinary toolbar, show an exact count, and share grid state.
+      category: custom
+    - name: detail-open
+      description: >-
+        Target P0 current row detail is open. Row action controls do not also
+        select or activate the row; closing returns focus to the owning row.
+      category: custom
+    - name: row-action-pending
+      description: >-
+        Target P0 async row action is pending. Busy/disabled state belongs to the
+        action and does not alter the selection model.
+      category: loading
+    - name: restoring-preferences
+      description: >-
+        Target P1 versioned column preferences are restoring. Unknown columns
+        are pruned and controlled state is not overwritten.
+      category: loading
+    - name: expansion-loading
+      description: >-
+        Target P1 a lazy tree row is loading children while existing rows remain
+        interactive.
+      category: loading
+    - name: expansion-error
+      description: >-
+        Target P1 lazy children failed. The affected row exposes a named retry
+        without collapsing unrelated detail/tree state.
       category: error
     - name: confirming-delete
       description: >-
@@ -127,6 +200,73 @@ stateMachine:
     - { from: loading, to: empty, trigger: data-success, guard: 'count === 0' }
     - { from: loading, to: error, trigger: data-error }
     - { from: error, to: loading, trigger: retry }
+    - { from: error, to: loading, trigger: data-state-action }
+    - { from: loaded, to: refreshing-query, trigger: query-change }
+    - {
+        from: refreshing-query,
+        to: loaded,
+        trigger: data-success,
+        guard: 'count > 0',
+      }
+    - {
+        from: refreshing-query,
+        to: empty,
+        trigger: data-success,
+        guard: 'count === 0',
+      }
+    - { from: refreshing-query, to: error, trigger: data-error }
+    - {
+        from: loaded,
+        to: selection-active,
+        trigger: selection-change,
+        guard: 'count > 0',
+      }
+    - {
+        from: selection-active,
+        to: loaded,
+        trigger: selection-change,
+        guard: 'count === 0',
+      }
+    - { from: selection-active, to: confirming-delete, trigger: request-delete }
+    - { from: loaded, to: detail-open, trigger: activate-row }
+    - {
+        from: loaded,
+        to: detail-open,
+        trigger: detail-expansion-change,
+        guard: 'detail is open',
+      }
+    - { from: detail-open, to: loaded, trigger: close-detail }
+    - {
+        from: detail-open,
+        to: loaded,
+        trigger: detail-expansion-change,
+        guard: 'detail is closed',
+      }
+    - { from: loaded, to: loaded, trigger: current-row-change }
+    - { from: loaded, to: row-action-pending, trigger: run-row-action }
+    - { from: row-action-pending, to: loaded, trigger: action-success }
+    - { from: row-action-pending, to: loaded, trigger: action-error }
+    - { from: loaded, to: restoring-preferences, trigger: restore-preferences }
+    - { from: restoring-preferences, to: loaded, trigger: preferences-restored }
+    - { from: restoring-preferences, to: loaded, trigger: preferences-error }
+    - {
+        from: loaded,
+        to: expansion-loading,
+        trigger: tree-expansion-change,
+        guard: 'lazy load required',
+      }
+    - {
+        from: loaded,
+        to: loaded,
+        trigger: tree-expansion-change,
+        guard: 'local expansion',
+      }
+    - { from: expansion-loading, to: loaded, trigger: children-success }
+    - { from: expansion-loading, to: expansion-error, trigger: children-error }
+    - { from: expansion-error, to: expansion-loading, trigger: retry-children }
+    - { from: expansion-error, to: loaded, trigger: collapse-row }
+    - { from: loaded, to: loaded, trigger: column-state-change }
+    - { from: loaded, to: loaded, trigger: pagination-change }
     - { from: loaded, to: confirming-delete, trigger: request-delete }
     - { from: confirming-delete, to: loading, trigger: confirm-delete }
     - { from: confirming-delete, to: loaded, trigger: cancel-delete }

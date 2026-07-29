@@ -1,42 +1,40 @@
 # Table
 
-Displays rows and columns of data. Composable from native table parts, with
-sortable column headers and a selected row state.
+The semantic, presentational base of the table family. It composes native table
+parts, sortable-header affordances, row visual states, and overflow without
+owning data or feature state.
 
-> **Status: draft (design-pending v1).** Ported from the legacy
-> the legacy shadcn UI kit `Table` and informed by the pre-release Table
-> design (shadcn-uikit Figma, node 2948-2416). Themed by the existing
-> `--ui-table-*` token tier. A **TanStack-backed `DataTable`** (sorting,
-> selection, pagination over these primitives) is a planned follow-up — these
-> parts are the presentational base it will compose. Reconcile with
-> `/figma-component Table <url> --update` once the design is ready for dev.
+> **Availability.** The native parts, sortable header, selected styling, and
+> horizontal overflow are implemented. `current`/programmatic selected state is
+> an accepted P0 target; expanded state, grouped-header defaults, and an explicit
+> coordinated scroll-container contract are accepted P1 targets. The target
+> scenarios do not claim those additions are shipped.
 
 ## When to use
 
 - Showing structured, comparable data in rows and columns (lists of workloads,
   invoices, devices, …).
-- When you need sortable columns and/or row selection on top of native table
-  semantics.
+- Fully custom tabular markup where the application owns every behavior.
 
 ## When not to use
 
-- For a full data grid with built-in sorting/filtering/pagination state — that's
-  the planned `DataTable`; until then, wire TanStack (or your own logic) around
-  these primitives.
+- For a flexible data engine or shared-state composition — use `DataTable`.
+- For a standard records screen with approved chrome and a small grouped config
+  API — use `DataGrid`.
 - For non-tabular layout — use CSS grid/flex, not a table.
 
 ## Parts
 
-| Part           | Element   | Purpose                                                 |
-| -------------- | --------- | ------------------------------------------------------- |
-| `Table`        | `table`   | The table, in a horizontally scrollable container.      |
-| `TableHeader`  | `thead`   | Column-header section.                                  |
-| `TableBody`    | `tbody`   | Data rows section.                                      |
-| `TableFooter`  | `tfoot`   | Summary section with a top divider.                     |
-| `TableRow`     | `tr`      | A row; `selected` applies the active state.             |
-| `TableHead`    | `th`      | Column header; `sortable` + `sortDirection` + `onSort`. |
-| `TableCell`    | `td`      | A data cell.                                            |
-| `TableCaption` | `caption` | Optional caption below the table.                       |
+| Part           | Element   | Purpose                                                    |
+| -------------- | --------- | ---------------------------------------------------------- |
+| `Table`        | `table`   | The table, in a horizontally scrollable container.         |
+| `TableHeader`  | `thead`   | Column-header section.                                     |
+| `TableBody`    | `tbody`   | Data rows section.                                         |
+| `TableFooter`  | `tfoot`   | Summary section with a top divider.                        |
+| `TableRow`     | `tr`      | A row; selected ships, current/expanded are target states. |
+| `TableHead`    | `th`      | Column header; `sortable` + `sortDirection` + `onSort`.    |
+| `TableCell`    | `td`      | A data cell.                                               |
+| `TableCaption` | `caption` | Optional caption below the table.                          |
 
 ## Examples
 
@@ -66,3 +64,7 @@ import {
   <TableCell><Tag>Protected</Tag></TableCell>
 </TableRow>;
 ```
+
+Table must not acquire `rows`, `columns`, filtering, selection logic,
+pagination, virtualization, persistence, or fetching props. Those contracts
+belong to the layers above it.

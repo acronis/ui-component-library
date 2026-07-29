@@ -2,85 +2,83 @@ spec_version: '1.0'
 component: DataTable
 
 schematic: |
-  toolbar:   [ search input ] [ Reset ✕ ]            [ ⚙ View ▾ ]   (view-options)
-  table: <div> rounded border wrapper
-    column-header: per-column header — title + single-click sort toggle (↑/↓/↕)
-    row:           data row (selectable; selected → tinted)
-    expanded-row:  optional detail row under an expanded row
-    empty-state:   "No results." row when there is no data
-  pagination: "N of M selected"   [Rows per page ▾]  Page X of Y   ⏮ ◀ ▶ ⏭
+  root: DataTableRoot (one shared controller)
+    view: DataTableView projects engine models through Table
+      table: semantic Table primitive
+      header-context: header state, commands, metadata, render values
+      row-context: row state, commands, metadata, render values
+      cell-context: cell state, commands, metadata, render values
+      detail-context: detail-expanded state and projection context
+      tree-context: tree/lazy state and projection context
+      group-context: grouped-root state and projection context
+      footer-context: summary model and projection context
+      state-context: loading/empty/error/append metadata and action intents
 
 root:
   element: div
   description: >-
-    The bordered table wrapper. Renders a TanStack table over the Table
-    primitives. Manages sorting / filtering / visibility / selection /
-    pagination / expansion state internally (DataTable), or accepts a caller-built
-    `table` instance for the companion parts.
+    DataTableRoot provides one controller. DataTableView projects its models
+    through the semantic Table primitive. Render contexts expose state,
+    commands, metadata and values; they never contain preassembled UIKit
+    controls or batteries-included product chrome. During the first controller
+    minor only, the deprecated React convenience projection preserves
+    skeleton/skeletonRows, striped, bordered and highlightCurrentRow exactly;
+    its skeleton path reuses UIKit Skeleton as the sole temporary exception.
 
 parts:
+  - id: view
+    element: div
+    description: Headless-to-Table projection owned by DataTableView.
   - id: table
     element: table
-    description: The table grid (Table / TableHeader / TableBody / rows / cells).
-  - id: column-header
-    element: button
+    description: Semantic Table projection for engine headers, rows and cells.
+  - id: header-context
+    description: Sort/filter/column metadata and commands for a caller renderer.
+  - id: row-context
+    description: Selection/current/action metadata and commands for a caller renderer.
+  - id: cell-context
+    description: Cell value, events, tooltip metadata and render commands.
+  - id: detail-context
+    description: Independent detail-expanded metadata, commands and projection content.
+    optional: true
+  - id: tree-context
+    description: Independent tree-expanded/lazy metadata, commands and child projection.
+    optional: true
+  - id: group-context
+    description: Grouped-root metadata, commands and aggregate projection.
+    optional: true
+  - id: footer-context
+    description: Summary model and footer render context; no formatted standard UI.
+    optional: true
+  - id: state-context
     description: >-
-      Sortable column header (DataTableColumnHeader) — a single-click toggle: the
-      title plus a trailing arrow (up = ascending, down = descending, both in the
-      active blue; a muted up/down arrow when unsorted). One click cycles the sort
-      direction. Column hiding lives in the toolbar's view-options menu, not here.
-  - id: row
-    element: tr
-    description: A data row; selectable, tinted when selected.
-  - id: expanded-row
-    element: tr
-    description: Optional detail row rendered under an expanded row.
-  - id: empty-state
-    element: tr
-    description: A single "No results." row shown when there is no data.
-  - id: toolbar
-    element: div
-    description: >-
-      DataTableToolbar — a column search box, a Reset button (when filtered), and
-      the view-options menu.
-  - id: view-options
-    element: div
-    description: >-
-      DataTableViewOptions — a menu of checkboxes toggling column visibility.
-  - id: pagination
-    element: div
-    description: >-
-      DataTablePagination — selection count, rows-per-page select, page indicator,
-      and first / prev / next / last controls.
+      Loading/loaded/empty/error/append metadata and action intents. DataGrid or
+      an application renderer chooses Skeleton, Empty, Alert, retry and live-region UI.
+    optional: true
 
 states:
-  - id: empty
-    trigger: data is empty
+  - id: detail-model
+    trigger: detailExpansion is enabled
     kind: prop
-    prop: data
-    affects: [empty-state]
-  - id: expandable
-    trigger: getRowCanExpand is provided
+    prop: detailExpansion
+    affects: [detail-context, row-context]
+  - id: tree-model
+    trigger: tree is enabled
     kind: prop
-    prop: getRowCanExpand
-    affects: [row, expanded-row]
-  - id: striped
-    trigger: striped is set
+    prop: tree
+    affects: [tree-context, row-context]
+  - id: grouped-model
+    trigger: grouping is enabled
     kind: prop
-    prop: striped
-    affects: [row]
-  - id: bordered
-    trigger: bordered is set
+    prop: grouping
+    affects: [group-context, row-context]
+  - id: data-state-model
+    trigger: dataState metadata is supplied
     kind: prop
-    prop: bordered
-    affects: [table]
-  - id: current
-    trigger: highlightCurrentRow is set and a row is clicked
+    prop: dataState
+    affects: [state-context]
+  - id: virtual-model
+    trigger: virtualization is enabled
     kind: prop
-    prop: highlightCurrentRow
-    affects: [row]
-  - id: skeleton
-    trigger: skeleton is set
-    kind: prop
-    prop: skeleton
-    affects: [row, cell]
+    prop: virtualization
+    affects: [view, row-context]

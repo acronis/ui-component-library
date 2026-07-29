@@ -4,93 +4,67 @@ component: SearchGlobal
 # References only. Values live in @constructor-lab/tokens (generated from
 # @constructor-lab/tokens) and resolve per brand/theme at paint time.
 # The token schema forbids a value/default key here — never restate values.
-# Note: the border-color tokens are brand *gradients*, applied via a
+#
+# SearchGlobal is retired and its dedicated `--ui-search-global-*` component tier
+# has been removed from the tokens package. The references below are the shared
+# tokens that tier used to alias, so the rendered result is unchanged. Do not
+# reintroduce a component tier for this component.
+# Note: the AI gradient tokens are brand *gradients*, applied via a
 # padding-box/border-box background rather than `border-color`.
 source: '@constructor-lab/tokens'
 
 tokens:
   - {
-      name: --ui-search-global-box-color,
+      name: --ui-background-surface-primary,
       affects: box,
       description: Box fill (padding-box),
     }
+  - { name: --ui-units-size-48, affects: box, description: Box height }
   - {
-      name: --ui-search-global-box-height,
+      name: --ui-units-size-512,
       affects: box,
-      description: Box height (48px),
+      description: Box width and maximum width,
+    }
+  - { name: --ui-units-size-256, affects: box, description: Minimum box width }
+  - { name: --ui-units-gap-16, affects: box, description: Horizontal padding }
+  - {
+      name: --ui-units-gap-8,
+      affects: box,
+      description: Gap between icon / input / shortcut,
     }
   - {
-      name: --ui-search-global-box-width,
+      name: --ui-units-radius-24,
       affects: box,
-      description: Box width (512px),
+      description: Corner radius (pill),
+    }
+  - { name: --ui-units-stroke-2, affects: box, description: Border thickness }
+  - {
+      name: --ui-gradients-ai-idle,
+      affects: box,
+      description: Gradient border — idle (also reused under focus-within),
     }
   - {
-      name: --ui-search-global-box-width-min,
-      affects: box,
-      description: Minimum box width (256px),
-    }
-  - {
-      name: --ui-search-global-box-width-max,
-      affects: box,
-      description: Maximum box width (512px),
-    }
-  - {
-      name: --ui-search-global-box-padding-x,
-      affects: box,
-      description: Horizontal padding (16px),
-    }
-  - {
-      name: --ui-search-global-box-gap,
-      affects: box,
-      description: Gap between icon / input / shortcut (8px),
-    }
-  - {
-      name: --ui-search-global-box-border-radius,
-      affects: box,
-      description: Corner radius (24px pill),
-    }
-  - {
-      name: --ui-search-global-box-border-width,
-      affects: box,
-      description: Border thickness (2px),
-    }
-  - {
-      name: --ui-search-global-box-border-style,
-      affects: box,
-      description: Border style (solid),
-    }
-  - {
-      name: --ui-search-global-border-color-idle,
-      affects: box,
-      description: Gradient border — idle,
-    }
-  - {
-      name: --ui-search-global-border-color-hover,
+      name: --ui-gradients-ai-hover,
       affects: box,
       description: Gradient border — hover,
     }
   - {
-      name: --ui-search-global-border-color-active,
+      name: --ui-gradients-ai-active,
       affects: box,
       description: Gradient border — active,
     }
   - {
-      name: --ui-search-global-icon-color,
+      name: --ui-glyph-on-status-ai,
       affects: icon,
       description: Magnifier color,
     }
   - {
-      name: --ui-search-global-icon-size,
-      affects: icon,
-      description: Magnifier size (16px),
-    }
-  - {
-      name: --ui-search-global-placeholoder-color,
+      name: --ui-text-on-status-ai,
       affects: input,
-      description: Placeholder text color (Figma spelling),
+      description: Placeholder text color,
     }
   - {
-      name: --ui-search-global-shortcut-color,
+      name: --ui-text-on-surface-secondary,
       affects: shortcut,
       description: Shortcut hint color,
     }

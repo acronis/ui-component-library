@@ -23,8 +23,8 @@ export function IconsDemo() {
     <section className="demo-section">
       <h2>Icons Library</h2>
       <p className="demo-description">
-        All {iconEntries.length} auto-generated icons from the UI Components library
-        design system.
+        All {iconEntries.length} auto-generated icons from the UI Components
+        library design system.
       </p>
 
       <div className="space-y-6">

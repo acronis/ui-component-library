@@ -1,5 +1,6 @@
 export {
   Table,
+  tableVariants,
   TableHeader,
   TableBody,
   TableFooter,
@@ -7,6 +8,14 @@ export {
   TableRow,
   TableCell,
   TableCaption,
+  type TableProps,
+  type TableHeaderProps,
+  type TableFooterProps,
   type TableRowProps,
   type TableHeadProps,
+  type TableCellProps,
+  type TableBorders,
+  type TableBorderValue,
+  type TableBorderStrength,
+  type TableColumnPin,
 } from './table';

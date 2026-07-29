@@ -15,22 +15,35 @@ import type { ColumnDef } from '@tanstack/react-table';
 
 `DataGrid` is the **config-driven** data grid: `<DataGrid columns={…} rows={…} />`.
 Where the [`Table`](/components/table) primitive is maximally compositional and
-[`DataTable`](/components/data-table) renders just the grid (leaving the toolbar
-and pagination as separate parts you wire), `DataGrid` owns its own
-[TanStack react-table](https://tanstack.com/table) instance and assembles the
-**whole approved layout** — an optional toolbar (search + column visibility), the
-table, an optional selection column, loading / empty states, and optional
-pagination — so every grid in the app reads the same way.
+[`DataTable`](/components/data-table) owns the flexible headless models,
+`DataGrid` assembles the standard visible experience. It builds on the **one
+shared `DataTable` controller** ([TanStack react-table](https://tanstack.com/table)
+v8), so every control reads and mutates the same engine, and composes the
+approved UIKit primitives for its toolbar, search, column filters, selection,
+row/bulk actions, loading/empty/error states, and pagination.
+
+The API is a set of **grouped configs** — one object per feature (`selection`,
+`sorting`, `filters`, `pagination`, `toolbar`, `actions`, `appearance`,
+`dataState`, `rowInteraction`). Each object enables one feature and carries its
+behavior. The old flat boolean props (`selectable`, `sortable`, `toolbar`,
+`searchKey`, `state`, `striped`, …) are **deprecated aliases** that normalize
+into these groups and are removed in the next major.
 
 It is the Phase-1 pilot of the **opinionated composites** direction: it trades
 flexibility for consistency. Flexibility isn't lost — it lives one layer down. If
-you need something `DataGrid` can't express, drop to `DataTable` + the
-`DataTable*` parts it's built on.
+you need something the `DataGrid` config cannot express, use one
+[`DataTable`](/components/data-table) controller (`useDataTable`) and compose the
+necessary UIKit primitives in the application, or hand the grid a custom
+`chrome`. Do not build the fallback from the frozen `DataTable*` companion
+controls.
+
+See [Table component responsibilities](/guides/table-responsibilities) for the
+`Table`/`DataTable`/`DataGrid` boundary.
 
 <Callout type="info">
   Design-pending v1 — built from requirements, not a Figma mockup. It reuses the
-  `Table` component's `--ui-table-*` tokens (the wrapper border matches the cell
-  borders).
+  `Table` component's `--ui-table-*` tokens and remains a protected composite:
+  it does not expose raw TanStack options or a general plugin API.
 </Callout>
 
 ## Examples
@@ -50,25 +63,203 @@ const columns: ColumnDef<Payment>[] = [
 <DataGrid columns={columns} rows={payments} />;
 ```
 
-Batteries-included — selection, a search toolbar, and pagination:
+Batteries-included with the grouped-config API — selection, sorting, a search
+toolbar, and pagination. Supply `getRowId` so selection and actions stay stable
+across data changes:
 
 ```tsx
 <DataGrid
   columns={columns}
   rows={payments}
-  selectable
-  toolbar
-  searchKey="email"
-  pagination
-  onRowClick={(row) => open(row)}
+  getRowId={(row) => row.id}
+  selection={{ mode: 'multiple' }}
+  sorting={{ mode: 'multiple' }}
+  toolbar={{ globalSearch: true }}
+  filters={{ global: { columnId: 'email', placeholder: 'Search emails…' } }}
+  pagination={{ pageSize: 10, pageSizeOptions: [10, 25, 50] }}
+  rowInteraction={{ onClick: (row) => open(row) }}
 />
 ```
 
-Loading and empty states are driven by one `state` prop:
+Data state (loading / empty / error) is driven by one `dataState` config:
 
 ```tsx
-<DataGrid columns={columns} rows={[]} state="loading" />
-<DataGrid columns={columns} rows={[]} emptyMessage="No payments yet." />
+<DataGrid columns={columns} rows={[]} dataState={{ status: 'loading' }} />
+<DataGrid columns={columns} rows={[]} dataState={{ empty: 'No payments yet.' }} />
+<DataGrid
+  columns={columns}
+  rows={[]}
+  dataState={{ status: 'error', error: 'Could not load payments.', onRetry: refetch }}
+/>
+```
+
+Row and bulk actions. A row `actions` config renders an overflow menu (or a
+custom cell via `render`); `toolbar.bulkActions` render in the selection toolbar.
+Destructive actions with a `confirm` route through a `ConfirmDialog`:
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={payments}
+  getRowId={(row) => row.id}
+  selection={{ mode: 'multiple' }}
+  actions={{
+    items: [
+      { id: 'view', label: 'View details' },
+      {
+        id: 'delete',
+        label: 'Delete',
+        destructive: true,
+        confirm: { title: 'Delete payment?', confirmLabel: 'Delete' },
+      },
+    ],
+    onAction: (id, row) => run(id, row),
+  }}
+  toolbar={{
+    bulkActions: [
+      { id: 'export', label: 'Export', onAction: (rows) => exportRows(rows) },
+    ],
+  }}
+/>
+```
+
+Operator-driven column filters — pass a `filters.columns` array (or a bare
+`DataGridColumnFilterDef[]`) to render per-column filter controls with applied
+chips:
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={payments}
+  filters={{
+    columns: [
+      {
+        columnId: 'email',
+        label: 'Email',
+        operators: ['contains', 'startsWith', 'equals'],
+      },
+      {
+        columnId: 'amount',
+        label: 'Amount',
+        operators: ['greaterThan', 'lessThan', 'equals'],
+      },
+    ],
+  }}
+/>
+```
+
+### Presets
+
+`presets` are named grouped-config bundles. `apply` composes them left-to-right;
+`detect` runs once against the initial columns/rows and infers ids from the data.
+Precedence rises with explicitness: detected, then `apply`, then any config the
+caller passes directly.
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={payments}
+  getRowId={(row) => row.id}
+  presets={{
+    definitions: [
+      {
+        id: 'reviewable',
+        config: {
+          selection: { mode: 'multiple' },
+          toolbar: { globalSearch: true },
+        },
+      },
+      { id: 'paged', config: { pagination: { pageSize: 10 } } },
+    ],
+    apply: ['reviewable'],
+    detect: ({ rows }) => (rows.length > 25 ? ['paged'] : []),
+  }}
+/>
+```
+
+### Named callbacks
+
+`callbacks` is the surface a screen binds to. Each one carries the enriched event
+— the `cause`, the complete next `state`, the `query`, and its `requestKey` —
+rather than a bare value, so a screen can persist preferences or sync a URL from
+one handler:
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={payments}
+  getRowId={(row) => row.id}
+  selection={{ mode: 'multiple' }}
+  callbacks={{
+    onSelectionChange: (event) => setSelected(event.value),
+    onQueryChange: (event) => syncUrl(event.query),
+    onColumnStateChange: (event) => persist(event.slice, event.value),
+    onRowAction: ({ actionId, row }) => run(actionId, row),
+  }}
+/>
+```
+
+The rule is **a config handler owns the behavior and runs first; the named
+callback observes afterwards**. That applies to `server.onQueryChange` before
+`callbacks.onQueryChange` (the server handler refetches; the callback must not
+start a second request), `rowInteraction.on*` before `onRow*`, `actions.onAction`
+before `onRowAction`, and `dataState.onRetry` before `onDataStateAction`.
+
+Column visibility, order, sizing, and pinning all arrive as `onColumnStateChange`
+discriminated by `event.slice`, so persisting column preferences is one handler
+rather than four. `onStateChange` sees every slice transition if you'd rather
+subscribe once.
+
+<Callout type="info">
+  The detail-expansion, tree, grouping, and scroll callbacks land with the P1
+  feature groups that emit them — they aren't exposed as callbacks that can
+  never fire.
+</Callout>
+
+### Server mode
+
+`server` is all-manual mode: you own the query and the rows. `DataGrid` tracks
+sort/filter/page state and emits `onQueryChange` on every atomic transition —
+but never sorts, filters, or slices client rows.
+
+```tsx
+const [query, setQuery] = useState(() =>
+  createDataTableQuery(
+    createDefaultDataTableState({ pagination: { pageIndex: 0, pageSize } })
+  )
+);
+
+<DataGrid
+  columns={columns}
+  rows={pageRows}
+  getRowId={(row) => row.id}
+  sorting
+  server={{
+    query,
+    pageCount: Math.ceil(total / pageSize),
+    onQueryChange: (event) => setQuery(event.query),
+  }}
+/>;
+```
+
+### External chrome
+
+When the standard chrome does not fit, `chrome: { mode: 'external', render }`
+keeps the shared controller but suppresses the built-in toolbar/filters/bulk
+bar/pagination and hands the controller, selection, query, and state to your
+renderer:
+
+```tsx
+<DataGrid
+  columns={columns}
+  rows={payments}
+  getRowId={(row) => row.id}
+  selection={{ mode: 'multiple' }}
+  chrome={{
+    mode: 'external',
+    render: ({ selectedRows }) => <MyToolbar count={selectedRows.length} />,
+  }}
+/>
 ```
 
 ## API Reference

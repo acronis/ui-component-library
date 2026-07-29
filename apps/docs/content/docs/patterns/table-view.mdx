@@ -1,18 +1,25 @@
 ---
 title: Table view
-description: A full list/table screen — a page header, a search + filter toolbar, and a paginated DataTable of records.
+description: A full records screen built from a page header and one config-driven DataGrid.
 ---
 
 import { DemoReact } from '@/components/DemoReact';
 import { TableViewDemo } from '@/components/demos-react/patterns/table-view';
 
-The sanctioned shape for a records screen: a **`PageHeader`** (title + primary
-action), a toolbar pairing an **`InputSearch`** for free-text with **`Filter`**
-triggers for discrete criteria, and a **`DataTable`** rendering the rows with
-its built-in **`DataTablePagination`**. This is the canonical "list of things"
-layout — compose it rather than assembling a bespoke table page. For row
-selection with a contextual action bar, see `data-table-bulk-actions`, which
-layers selection onto this same table.
+The approved target shape for a records screen is a **`PageHeader`** (title +
+primary action) plus one **`DataGrid`**. DataGrid owns the standard search,
+filters, data states, and pagination; the pattern supplies domain columns,
+data, configuration, and callbacks. Do not wrap it in duplicate table chrome.
+
+<Callout type="warn">
+  `DataGrid`'s grouped-config API has shipped, but the demo below still
+  hand-composes an external toolbar with `DataTable` — a transitional workaround
+  pending migration. It is not the approved target for new records screens;
+  build those from one `DataGrid`.
+</Callout>
+
+See [Table component responsibilities](/guides/table-responsibilities#table-view)
+for this pattern's current and target ownership boundaries.
 
 <DemoReact>
   <TableViewDemo />
@@ -34,7 +41,11 @@ layers selection onto this same table.
   is enough.
 - Card-based catalog/gallery tiles rather than tabular rows — use `card-grid`.
 
-## Composition
+## Current demo composition
+
+This code mirrors the current demo only. Migrate it to `PageHeader` plus one
+`DataGrid` (using its `toolbar`/`filters` config) — the grouped search/filter
+configuration has shipped.
 
 ```tsx
 function DevicesView({ columns, rows, onSearch, onCreate }) {
@@ -65,10 +76,9 @@ function DevicesView({ columns, rows, onSearch, onCreate }) {
 
 ## Guidelines
 
-- Use `DataTable` + `DataTablePagination` rather than reimplementing sorting and
-  pagination by hand.
-- Put discrete-value filtering (status, type) in `Filter`, not `InputSearch` —
-  free-text search and filters are different affordances.
+- Target one `DataGrid`; do not create separate engines for its body and chrome.
+- Configure free-text search and discrete filters through DataGrid's
+  `toolbar`/`filters` config; do not add a duplicate external toolbar.
 - Keep the `PageHeader` so the screen has a title and a home for its primary
   action.
 - If you need per-row selection, adopt `data-table-bulk-actions` — don't add

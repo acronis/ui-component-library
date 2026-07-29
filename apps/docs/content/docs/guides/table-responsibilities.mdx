@@ -1,0 +1,278 @@
+---
+title: Table component responsibilities
+description: How Table, DataTable, DataGrid, and table-based patterns divide semantics, state, controls, and screen composition.
+---
+
+# Table component responsibilities
+
+The table family uses two complementary foundations:
+
+- **TanStack Table** is the headless state and row-model engine inside
+  `DataTable`.
+- **UIKit primitives** render every visible control and surface. `Table`
+  provides the native table structure; controls such as `Checkbox`,
+  `InputSearch`, `Pagination`, `Popover`, and `ConfirmDialog` are composed by
+  `DataGrid` or by an application building a custom `DataTable` experience.
+
+These are not competing approaches. Replacing TanStack Table with UIKit
+primitives would mean rebuilding sorting, filtering, selection, expansion,
+grouping, pagination, and controlled-state coordination. Primitives solve
+presentation and interaction; TanStack solves the data model behind them.
+
+<Callout type="info">
+  The core of this architecture has shipped: the shared `DataTable` controller
+  (`useDataTable` / `DataTableRoot` / `DataTableView`), its render contexts and
+  state/query contract, and `DataGrid`'s grouped-config API. A few advanced
+  models and the pattern demos are still being migrated onto it — those spots
+  are called out inline below.
+</Callout>
+
+## Quick chooser
+
+| Need                                                                 | Choose                                                         | Why                                                                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Native table markup with custom cells and application-owned behavior | [`Table`](/components/table)                                   | It owns semantics, layout, and table visuals only.                                                               |
+| An advanced row model or deliberately custom controls                | [`DataTable`](/components/data-table)                          | It is the flexible React/TanStack engine and composition layer.                                                  |
+| A standard records grid with integrated controls and states          | [`DataGrid`](/components/data-grid)                            | It provides a simple config API and composes the approved UIKit primitives.                                      |
+| A complete records route with title and primary action               | [`Table view`](/patterns/table-view)                           | The pattern composes page-level intent around one `DataGrid`.                                                    |
+| Standard multi-select and bulk operations                            | [`Data table bulk actions`](/patterns/data-table-bulk-actions) | The pattern configures `DataGrid` bulk actions; exceptional workflows drop to one custom `DataTable` controller. |
+
+Start with `DataGrid` for product screens. Drop to `DataTable` only when the
+standard grid cannot express a real requirement. Use `Table` when the
+application owns the data behavior or does not need one.
+
+## Architecture flow
+
+```text
+Standard records screen
+  table-based pattern
+    └─ DataGrid                         product configuration + standard chrome
+         ├─ UIKit primitives            search, filters, checkboxes, menus,
+         │                              states, pagination, dialogs, tooltips
+         └─ DataTable / TanStack Table  state + row-model engine
+              └─ Table                  semantic HTML + table presentation
+                   └─ table/thead/tbody/tr/th/td
+
+Exceptional custom screen
+  application-owned UIKit composition
+    └─ one DataTable / TanStack controller
+         └─ Table
+
+Simple semantic content
+  Table
+```
+
+The invariant is **one TanStack engine per rendered grid**. The body and every
+control that reads or changes grid state must use the same controller.
+
+## Why TanStack Table stays in DataTable
+
+TanStack Table is headless: it does not choose visual components, styles, or
+product layout. That makes it a good fit for the flexible middle layer.
+
+It provides the difficult, interdependent mechanics that should not be
+reimplemented in visual primitives:
+
+- typed columns, rows, cells, stable identity, and derived row models;
+- controlled and uncontrolled state updates;
+- sorting, filtering, selection, pagination, grouping, and expansion models;
+- client and manual/server processing modes;
+- consistent composition of several features over the same row pipeline.
+
+UIKit remains authoritative for everything users see and operate:
+
+- `Table` parts provide native table semantics and token-driven presentation;
+- `Checkbox`, `InputSearch`, input/select primitives, `Pagination`, `Menu`,
+  `Popover`, `Tooltip`, `Empty`, `Alert`, `Skeleton`, `Spinner`, and dialogs
+  provide standard interaction and appearance;
+- `DataGrid` assembles those primitives into the approved records-grid
+  experience.
+
+This split keeps the engine replaceable behind `DataTable` while avoiding a
+second, UIKit-specific implementation of table state.
+
+## Responsibility matrix
+
+| Area                                                                                            | `Table`         | `DataTable`                                                  | `DataGrid`                                | Table-based pattern                         |
+| ----------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------ | ----------------------------------------- | ------------------------------------------- |
+| Native table elements and semantics                                                             | Owns            | Renders through `Table`                                      | Inherits                                  | Does not alter                              |
+| Density, borders, sticky/overflow surfaces, row/header visual states                            | Owns            | Projects engine state into `Table`                           | Chooses supported defaults                | Does not recreate                           |
+| Columns, row/cell models, and stable row identity                                               | Does not own    | Owns                                                         | Configures                                | Supplies domain data/config                 |
+| Sorting, filtering, selection, pagination, grouping, expansion, and virtualization state        | Does not own    | Owns the headless models and actions                         | Enables through grouped config            | Binds product intent and callbacks          |
+| Client/manual query coordination                                                                | Does not own    | Owns                                                         | Exposes a coherent simple server config   | Owns fetching and route/application effects |
+| Search, filter fields, selection checkboxes, menus, dialogs, tooltips, pagination, and state UI | Does not supply | Exposes state/actions/render contexts, not standard controls | Exclusively owns the standard composed UI | Must not duplicate built-in chrome          |
+| Page title, primary action, route layout, and workflow                                          | Does not own    | Does not own                                                 | Does not own                              | Owns                                        |
+
+### `Table`: semantic and presentational
+
+`Table` owns:
+
+- `table`, `thead`, `tbody`, `tfoot`, `tr`, `th`, `td`, and `caption` parts;
+- table layout, tokens, borders, density, overflow, and table-shaped visual
+  states;
+- small semantic affordances such as header scope and sort direction
+  presentation.
+
+It does not accept row data, derive models, fetch data, or own feature state.
+Rendering a `Checkbox` in a cell is consumer composition; it does not make
+selection a `Table` responsibility.
+
+### `DataTable`: headless React engine and composition layer
+
+`DataTable` owns one TanStack-backed controller and projects its header, row,
+cell, and footer models through `Table`. The target layer exposes state,
+actions, metadata, and typed render contexts for advanced composition.
+
+It may model complex behavior, including server queries, grouping, tree/detail
+expansion, virtualization, persistence, and column operations. It does **not**
+ship a parallel batteries-included suite of toolbar, filter, selection,
+pagination, menu, overlay, tooltip, or data-state controls.
+
+An expert consumer may compose UIKit primitives around the same `DataTable`
+controller, or use TanStack directly with the supported table projection when
+an uncommon engine integration is essential. That is an application-owned
+custom experience, not another standard DataTable chrome API.
+
+<Callout type="info">
+  The custom plugin/manifest extension surface (`plugins`,
+  `prepareDataTableExtensions`, `inspectDataTablePluginTopology`) and the
+  TanStack option allowlist (`engineOptions`, `normalizeDataTableEngineOptions`)
+  are exported as **advanced, still-evolving** escape hatches. Whether the
+  plugin framework stays is informed by concrete consumer needs and its
+  complexity. For most cases, direct composition with one `useDataTable`
+  controller is the baseline expert escape hatch.
+</Callout>
+
+### `DataGrid`: protected opinionated composite
+
+`DataGrid` is the standard product choice. It maps a simple, grouped feature
+configuration onto `DataTable`, then renders the approved UI with existing
+UIKit primitives.
+
+It owns the standard toolbar, search and filter controls, column settings,
+selection controls, bulk and row actions, loading/empty/error states,
+pagination, menus, popovers, dialogs, tooltips, and announcements. These
+internal feature components are implementation details, not a new public
+`DataTable*` companion suite.
+
+`DataGrid` remains protected: it does not expose raw TanStack options, custom
+TanStack features, or a general plugin API. When its supported configuration is
+insufficient, use `DataTable` composition instead of opening an engine escape
+hatch in every grid.
+
+## Capability ownership
+
+| Capability                                           | Model/state owner                             | Standard visible UI owner                                                             |
+| ---------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Sort and multi-sort                                  | `DataTable`                                   | `DataGrid` sortable headers using `TableHead` and UIKit icons/controls                |
+| Global and column filtering                          | `DataTable`                                   | `DataGrid` using search, input, select/combobox, chip, filter, and popover primitives |
+| Row selection and select-all                         | `DataTable`                                   | `DataGrid` using `Checkbox`                                                           |
+| Bulk and row actions                                 | `DataTable` exposes selected rows and actions | `DataGrid` using button, menu, and confirmation-dialog primitives                     |
+| Pagination and totals                                | `DataTable`                                   | `DataGrid` using `Pagination` and select/combobox primitives                          |
+| Loading, empty, error, append, and retry state       | `DataTable` exposes status/query metadata     | `DataGrid` using `Skeleton`, `Spinner`, `Empty`, `Alert`, and `Button`                |
+| Detail/tree expansion and grouping                   | `DataTable`                                   | `DataGrid` using button, collapsible, spinner, alert, and menu primitives             |
+| Column visibility, pinning, resizing, and reordering | `DataTable`                                   | `DataGrid` using menu/popover, checkbox, resizable, button, and tooltip primitives    |
+| Custom cell, header, and footer content              | Consumer column/render definitions            | Consumer content inside `DataTable` or `DataGrid` slots supported by the contract     |
+
+The phrase “DataTable owns a feature” means it owns the state and row-model
+behavior. It does not imply that `DataTable` supplies that feature's standard
+visible controls.
+
+## Pattern boundaries
+
+Patterns own screen intent and composition. They do not create a second table
+engine, fork selection state, or reproduce controls already supplied by
+`DataGrid`.
+
+### Table view
+
+The target [`table-view`](/patterns/table-view) pattern is:
+
+- a `PageHeader` with the route title and primary action;
+- one `DataGrid` with built-in search, filters, data states, and pagination;
+- domain-specific columns, data, configuration, and callback bindings.
+
+The pattern does not manually add a second toolbar, filter row, pagination
+footer, or empty state around that grid.
+
+**Current status:** the shared controller and `DataGrid` grouped-config API have
+shipped, but the existing pattern demo still hand-composes a toolbar and
+`DataTable`. It is a transitional example pending migration onto one `DataGrid`.
+
+### Data table bulk actions
+
+The target [`data-table-bulk-actions`](/patterns/data-table-bulk-actions)
+pattern uses `DataGrid` selection and bulk-action configuration by default. The
+grid owns checkboxes, the selected count, action overflow, confirmation, and
+the transition between the normal and selection toolbars.
+
+When a specialized workflow cannot fit the standard configuration, it may use
+one `DataTable` controller with application-owned UIKit controls. Both the body
+and bulk toolbar must read the same selection state.
+
+**Current status:** `DataGrid` now supports selection + bulk-action config, and
+`useDataTable` lets a body and external chrome share one controller. The existing
+pattern demo still uses one direct `useReactTable` instance with `Table` parts —
+a transitional workaround pending migration, not the default.
+
+## Accessibility ownership
+
+| Layer       | Accessibility responsibility                                                                                                                                                                                         |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Table`     | Preserve native table structure; expose captions, header scope, `aria-sort`, and presentational state attributes without replacing semantics with generic grids.                                                     |
+| `DataTable` | Keep row identity and state deterministic; expose header/cell relationships, selection/expansion metadata, focus actions, and state transitions to renderers.                                                        |
+| `DataGrid`  | Give every control an accessible name; associate controls with columns/rows; manage focus and keyboard operation; announce sort priority, selection, column changes, loading/errors, and virtualized focus movement. |
+| Pattern     | Provide the page heading, coherent landmark and focus order, primary action, workflow confirmations, and recovery/navigation behavior.                                                                               |
+| Consumer    | Supply domain-specific labels, meaningful column headings, action names, and server-result/error content.                                                                                                            |
+
+Using an accessible primitive does not complete grid accessibility by itself.
+`DataGrid` still owns the relationships and announcements created by combining
+those primitives with table state.
+
+## Rules
+
+1. Create exactly one engine/controller for each rendered grid.
+2. Let `Table` own semantic markup and table presentation only.
+3. Let `DataTable` own headless models, state, queries, and render contexts,
+   without standard product chrome.
+4. Let `DataGrid` own standard visible table controls, built from UIKit
+   primitives.
+5. Keep raw TanStack options and custom features out of the `DataGrid` API.
+6. Prefer `DataGrid` in table-based patterns; drop to `DataTable` only for a
+   documented exceptional requirement.
+7. Keep page layout and workflow in patterns, not in table components.
+
+## Anti-patterns
+
+- Creating one TanStack instance for the body and another for the toolbar or
+  pagination.
+- Adding standard `DataTableToolbar`, `DataTablePagination`,
+  `DataTableBulkActions`, or similar public product-chrome APIs.
+- Wrapping `DataGrid` with duplicate search, filters, pagination, or data-state
+  UI.
+- Moving sorting, filtering, selection, or pagination state into the
+  presentational `Table` primitive.
+- Reimplementing the TanStack row pipeline with UIKit primitives.
+- Exposing raw TanStack options or plugin registration through `DataGrid`.
+- Depending on the advanced plugin/manifest framework as a stable API before its
+  planning decision is settled.
+- Letting a pattern own low-level row-model state instead of binding
+  domain-level configuration and callbacks.
+
+## Current availability
+
+| Layer       | Available now                                                                                                                                                                                                                                             | Target change                                                                                                                      |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `Table`     | Native compound parts, overflow, selected-row styling, and sortable-header presentation                                                                                                                                                                   | Keep it presentational; add only approved table-shaped semantics and visuals.                                                      |
+| `DataTable` | The shared `useDataTable` controller (`DataTableRoot` / `DataTableView`) with sorting, filtering, visibility, selection, pagination, expansion, render contexts, and a serializable state/query contract — plus the frozen `<DataTable>` convenience view | Keep growing advanced models (grouping, tree, virtualization) on the controller; retire the frozen compatibility props next major. |
+| `DataGrid`  | The grouped-config composite: toolbar/search, column filters, selection modes, row/bulk actions, sorting/multi-sort, loading/empty/error states, pagination, presets, server mode, and external chrome — on the shared controller                         | Continue reconciling with Figma once a design lands; keep the API protected (no raw TanStack options).                             |
+| Patterns    | Working demos, some still on the pre-controller composition                                                                                                                                                                                               | Migrate the remaining demos onto one `DataGrid` / the shared controller.                                                           |
+
+## Related
+
+- [`Table`](/components/table)
+- [`DataTable`](/components/data-table)
+- [`DataGrid`](/components/data-grid)
+- [`Table view` pattern](/patterns/table-view)
+- [`Data table bulk actions` pattern](/patterns/data-table-bulk-actions)
+- [Library architecture](/guides/architecture)

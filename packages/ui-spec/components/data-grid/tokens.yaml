@@ -2,10 +2,10 @@ spec_version: '1.0'
 component: DataGrid
 
 # References only. Values live in @constructor-lab/tokens. DataGrid adds no color
-# of its own — it composes already-themed components (Table, Checkbox,
-# DataTableToolbar, DataTablePagination), each carrying its own tier. DataGrid's
-# own chrome reuses the Table component's `--ui-table-*` tier so the wrapper
-# border matches the cell borders and the empty state matches muted table text.
+# of its own — its private chrome composes themed UIKit primitives such as Table,
+# Toolbar, InputSearch, Checkbox, Menu, Pagination, Empty, Alert and Skeleton.
+# Each primitive keeps ownership of its token tier; these references cover only
+# the DataGrid assembly surfaces that coordinate with Table presentation.
 source: '@constructor-lab/tokens'
 
 tokens:
