@@ -1,0 +1,31 @@
+spec_version: '1.0'
+component: BarChart
+
+# References only. Values live in @constructor-lab/tokens. BarChart has no token
+# tier of its own — series colors are caller-supplied via `config`, bound to the
+# theme-invariant `--ui-chart-*` data-viz palette (`--ui-chart-1`…`--ui-chart-9`
+# + semantic `--ui-chart-{success,warning,danger,info,critical,neutral}`). The
+# chrome (tooltip, legend, axes, grid) is inherited from the shared Chart
+# primitives; the reference-line annotation uses the muted text token below.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-background-surface-primary
+    affects: tooltip-content
+    description: Tooltip surface (bg-background).
+  - name: --ui-text-on-surface-primary
+    affects: tooltip-content
+    description: Tooltip value text and axis titles (text-foreground / fill-foreground).
+  - name: --ui-text-on-surface-secondary
+    affects: series
+    description: >-
+      Muted tooltip/legend label text, axis tick labels, and the dashed
+      reference-line stroke + caption (text-muted-foreground / stroke).
+  - name: --ui-border-on-surface-border
+    affects: grid
+    description: >-
+      Tooltip border and the recharts grid / cursor lines
+      (border-border / stroke-border).
+  - name: --ui-background-surface-secondary
+    affects: series
+    description: Recharts muted fills — tooltip cursor rectangle behind a hovered bar (fill-muted).

@@ -1,0 +1,127 @@
+spec_version: '1.0'
+component: BarChart
+
+# Framework-agnostic contract. `orientation` and `layout` are the CVA variant
+# axes (conformance-checked against the ui-react cva keys). `data` / `config` /
+# `dataKeys` / `xKey` are the data contract; the rest toggle chrome.
+contract:
+  properties:
+    - name: orientation
+      type: "'vertical' | 'horizontal'"
+      required: false
+      default: "'vertical'"
+      description: >-
+        Direction the bars grow. `vertical` = bars rise (category on the x-axis);
+        `horizontal` = bars extend rightward (category on the y-axis).
+    - name: layout
+      type: "'grouped' | 'stacked'"
+      required: false
+      default: "'grouped'"
+      description: >-
+        How multiple series are arranged. `grouped` = side-by-side bars;
+        `stacked` = segments summed on a shared `stackId`.
+    - name: data
+      type: ReadonlyArray<Record<string, string | number>>
+      required: true
+      description: Row-per-category data — each row holds `xKey` plus one numeric field per series.
+    - name: config
+      type: ChartConfig
+      required: true
+      description: >-
+        Per-series map of label / color (from the shared Chart primitives).
+        Turned into `--color-<key>` custom properties. Colors are caller-supplied.
+    - name: dataKeys
+      type: string[]
+      required: true
+      description: Series to plot — one bar per key. Each must exist in `config` and every data row.
+    - name: xKey
+      type: string
+      required: true
+      description: The category dimension key shared across rows.
+    - name: referenceLine
+      type: 'Line | Line[]  where Line = { value?: number; average?: boolean | string; label?: string }'
+      required: false
+      description: >-
+        One or more dashed reference/average lines on the value axis (Y for
+        vertical bars, X for horizontal). Pass a single object or an array. Per
+        line, a fixed `value` wins; otherwise the mean of one series
+        (`average: '<key>'`) or of every plotted series (`average: true`). An
+        optional `label` captions each.
+    - name: xAxisLabel
+      type: string
+      required: false
+      description: Title rendered beneath the horizontal (X) axis.
+    - name: yAxisLabel
+      type: string
+      required: false
+      description: Title rendered beside the vertical (Y) axis (rotated).
+    - name: xUnit
+      type: string
+      required: false
+      description: >-
+        Unit suffix appended to X-axis tick values (recharts `unit`); applies
+        when the X axis is numeric (horizontal orientation).
+    - name: yUnit
+      type: string
+      required: false
+      description: >-
+        Unit suffix appended to Y-axis tick values (recharts `unit`); applies
+        when the Y axis is numeric (vertical orientation).
+    - name: barRadius
+      type: number
+      required: false
+      default: '4'
+      description: Corner radius on the growing end of each bar (0 for square corners).
+    - name: showGrid
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the CartesianGrid.
+    - name: showTooltip
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the hover tooltip.
+    - name: showLegend
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the legend.
+    - name: tooltipContent
+      type: 'ReactElement | ((props) => ReactNode)'
+      required: false
+      description: >-
+        Replace the default tooltip. Pass a configured ChartTooltipContent (from
+        this library) — e.g. with a formatter / labelFormatter — to customize the
+        tooltip content without composing recharts. Ignored when showTooltip is
+        false.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: BarChart
+    status: implemented
+    import: "import { BarChart } from '@constructor-lab/ui-react'"
+    example: |
+      <BarChart
+        config={config}
+        data={data}
+        dataKeys={['desktop', 'mobile']}
+        xKey="month"
+        orientation="vertical"
+        layout="grouped"
+        className="h-[320px] w-[560px]"
+      />
+  vue:
+    component: AvBarChart
+    status: planned
+    import: "import { AvBarChart } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvBarChart :config="config" :data="data" :data-keys="['desktop']" x-key="month" />
+  web-components:
+    element: ui-bar-chart
+    status: planned
+    import: "import '@constructor-lab/ui-wc/bar-chart'"
+    example: |
+      <ui-bar-chart></ui-bar-chart>

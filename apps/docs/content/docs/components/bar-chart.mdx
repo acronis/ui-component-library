@@ -1,0 +1,152 @@
+---
+title: BarChart
+description: A typed bar chart — grouped or stacked, vertical or horizontal.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { BarChartDemo } from '@/components/demos-react/bar-chart';
+
+## Usage
+
+```tsx
+import { BarChart } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`BarChart` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it `data`, a per-series `config`, the series to plot
+(`dataKeys`), and the category key (`xKey`) — it renders a themed recharts bar
+chart (tooltip, legend, axes, grid included), so you don't hand-compose recharts
+children.
+
+Series colors are supplied by the caller through `config`: each entry maps a data
+key to a `label` and a `color`. `BarChart` turns those into the `--color-<key>`
+custom properties its bars fill from.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant, so each
+> series keeps its identity across light and dark. The chrome is reconciled with
+> Figma later.
+
+## Examples
+
+<DemoReact>
+  <BarChartDemo />
+</DemoReact>
+
+A vertical, grouped bar chart with a themed tooltip and legend:
+
+```tsx
+const data = [
+  { month: 'Jan', desktop: 186, mobile: 80 },
+  { month: 'Feb', desktop: 305, mobile: 200 },
+  { month: 'Mar', desktop: 237, mobile: 120 },
+];
+
+const config = {
+  desktop: { label: 'Desktop', color: 'var(--ui-chart-1)' },
+  mobile: { label: 'Mobile', color: 'var(--ui-chart-2)' },
+} satisfies ChartConfig;
+
+<BarChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  className="h-[320px] w-[560px]"
+/>;
+```
+
+Stack the series by setting `layout="stacked"`:
+
+```tsx
+<BarChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" layout="stacked" />
+```
+
+Lay the bars on their side with `orientation="horizontal"` (the category moves to
+the y-axis):
+
+```tsx
+<BarChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" orientation="horizontal" />
+```
+
+Toggle the chrome and corner rounding with `showGrid` / `showTooltip` /
+`showLegend` / `barRadius`:
+
+```tsx
+<BarChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  showLegend={false}
+  barRadius={0}
+/>
+```
+
+Overlay a dashed reference line on the value axis with `referenceLine` — either a
+fixed target `value`, or a computed `average` (the mean of one series by key, or
+of every plotted series when `true`). An optional `label` captions it. Pass an
+**array** to draw several at once:
+
+```tsx
+// Fixed target
+<BarChart config={config} data={data} dataKeys={['desktop']} xKey="month"
+  referenceLine={{ value: 250, label: 'Target' }} />
+
+// Mean of the plotted series
+<BarChart config={config} data={data} dataKeys={['desktop']} xKey="month"
+  referenceLine={{ average: true, label: 'Average' }} />
+
+// Several lines at once
+<BarChart config={config} data={data} dataKeys={['desktop']} xKey="month"
+  referenceLine={[{ value: 300, label: 'Target' }, { average: true, label: 'Average' }]} />
+```
+
+Add axis titles and a unit suffix with `xAxisLabel` / `yAxisLabel` / `yUnit`
+(`xUnit` also applies in `orientation="horizontal"`, where the x-axis is
+numeric). The titles inherit the theme token, so they stay legible in both
+modes:
+
+```tsx
+<BarChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  xAxisLabel="Month"
+  yAxisLabel="Sessions"
+  yUnit="k"
+/>
+```
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself. Its `formatter` renders
+each row and `labelFormatter` the header, giving you custom formatting, per-series
+content, and extra fields:
+
+```tsx
+import { BarChart, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<BarChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  tooltipContent={
+    <ChartTooltipContent
+      labelFormatter={(label) => `${label} · fiscal Q3`}
+      formatter={(value, name) => `${name}: ${value.toLocaleString()}k`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/bar-chart/bar-chart.tsx"
+  name="BarChartProps"
+/>
