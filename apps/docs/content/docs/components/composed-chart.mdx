@@ -1,0 +1,109 @@
+---
+title: ComposedChart
+description: A typed composed (mixed) chart — bars, lines, and areas on one axis.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { ComposedChartDemo } from '@/components/demos-react/composed-chart';
+
+## Usage
+
+```tsx
+import { ComposedChart } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`ComposedChart` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it `data`, a per-series `config`, and a `series` list where each
+entry picks its own render `type` (`bar` / `line` / `area`) — it renders a themed
+recharts composed chart (tooltip, legend, axes, grid included), so you don't
+hand-compose recharts children.
+
+Series render in the order you list them: recharts paints children back-to-front,
+so later entries sit on top — order them so a thin line comes after the bars or
+areas it should overlay.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant, so each
+> series keeps its identity across light and dark. The chrome is reconciled with
+> Figma later.
+
+## Examples
+
+<DemoReact>
+  <ComposedChartDemo />
+</DemoReact>
+
+The classic combo — bars for a quantity plus a line for a related trend:
+
+```tsx
+const data = [
+  { month: 'Jan', revenue: 2400, profit: 1600 },
+  { month: 'Feb', revenue: 1398, profit: 1200 },
+  { month: 'Mar', revenue: 9800, profit: 4800 },
+];
+
+const config = {
+  revenue: { label: 'Revenue', color: 'var(--ui-chart-1)' },
+  profit: { label: 'Profit', color: 'var(--ui-chart-3)' },
+} satisfies ChartConfig;
+
+<ComposedChart
+  config={config}
+  data={data}
+  series={[
+    { key: 'revenue', type: 'bar' },
+    { key: 'profit', type: 'line' },
+  ]}
+  xKey="month"
+  className="h-[320px] w-[560px]"
+/>;
+```
+
+Mix all three render types — bars behind, an area over them, a line on top:
+
+```tsx
+<ComposedChart
+  config={config}
+  data={data}
+  series={[
+    { key: 'revenue', type: 'bar' },
+    { key: 'forecast', type: 'area' },
+    { key: 'profit', type: 'line' },
+  ]}
+  xKey="month"
+/>
+```
+
+Tune the shared knobs — `curve` (line/area interpolation), `barRadius`,
+`fillOpacity` — and toggle the chrome with `showGrid` / `showTooltip` /
+`showLegend`. Add axis titles + a Y unit with `xAxisLabel` / `yAxisLabel` /
+`yUnit`.
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { ComposedChart, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<ComposedChart
+  config={config}
+  data={data}
+  series={[{ key: 'revenue', type: 'bar' }, { key: 'profit', type: 'line' }]}
+  xKey="month"
+  tooltipContent={
+    <ChartTooltipContent
+      formatter={(value, name) => `${name}: $${Number(value).toLocaleString()}`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/composed-chart/composed-chart.tsx"
+  name="ComposedChartProps"
+/>

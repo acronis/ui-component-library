@@ -233,6 +233,14 @@
       "since": "0.55.0"
     },
     {
+      "name": "composed-chart",
+      "component": "ComposedChart",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "confirm-dialog",
       "component": "ConfirmDialog",
       "category": "overlays",
