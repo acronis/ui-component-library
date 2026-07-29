@@ -57,6 +57,7 @@
     "chart",
     "chart-state",
     "bar-chart",
+    "line-chart",
     "description-list",
     "alert",
     "empty",

@@ -1,0 +1,138 @@
+spec_version: '1.0'
+component: LineChart
+
+# Framework-agnostic contract. `curve` and `lineStyle` are the CVA variant axes
+# (conformance-checked against the ui-react cva keys). `data` / `config` /
+# `dataKeys` / `xKey` are the data contract; the rest toggle chrome and stroke
+# detail. Single vs multi line is not a variant — it is driven by how many
+# `dataKeys` are plotted.
+contract:
+  properties:
+    - name: curve
+      type: "'linear' | 'monotone' | 'step'"
+      required: false
+      default: "'monotone'"
+      description: >-
+        How each line interpolates between points. `linear` = straight segments;
+        `monotone` = a smoothed curve; `step` = stepped (right-angle) segments.
+    - name: lineStyle
+      type: "'solid' | 'dashed'"
+      required: false
+      default: "'solid'"
+      description: Stroke style of every line — solid or dashed.
+    - name: data
+      type: ReadonlyArray<Record<string, string | number | null>>
+      required: true
+      description: >-
+        Row-per-point data — each row holds `xKey` plus one numeric field per
+        series. A `null` breaks the line at that point unless `connectNulls`.
+    - name: config
+      type: ChartConfig
+      required: true
+      description: >-
+        Per-series map of label / color (from the shared Chart primitives).
+        Turned into `--color-<key>` custom properties. Colors are caller-supplied.
+    - name: dataKeys
+      type: string[]
+      required: true
+      description: Series to plot — one line per key. Each must exist in `config` and every data row.
+    - name: xKey
+      type: string
+      required: true
+      description: The category dimension key shared across rows.
+    - name: comparisonKeys
+      type: string[]
+      required: false
+      description: >-
+        Subset of `dataKeys` rendered as comparison/trend overlays (e.g. a
+        previous quarter or year) — dashed, dimmed, and dot-less, keeping each
+        series' own `config` color.
+    - name: deltaBands
+      type: '[string, string][]'
+      required: false
+      description: >-
+        Pairs `[current, comparison]` to shade a delta band between — a dimmed
+        area filling the gap between the two series at each point (the QoQ/YoY
+        difference), tinted with the first key's `config` color.
+    - name: xAxisLabel
+      type: string
+      required: false
+      description: Title rendered beneath the horizontal (X) axis.
+    - name: yAxisLabel
+      type: string
+      required: false
+      description: Title rendered beside the vertical (Y) axis (rotated).
+    - name: yUnit
+      type: string
+      required: false
+      description: >-
+        Unit suffix appended to Y-axis tick values (recharts `unit`); the X axis
+        is categorical.
+    - name: strokeWidth
+      type: number
+      required: false
+      default: '2'
+      description: Stroke width of each line.
+    - name: showDots
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render a dot at each data point.
+    - name: connectNulls
+      type: boolean
+      required: false
+      default: 'false'
+      description: Bridge `null` gaps in the data instead of breaking the line.
+    - name: showGrid
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the CartesianGrid.
+    - name: showTooltip
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the hover tooltip.
+    - name: showLegend
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the legend.
+    - name: tooltipContent
+      type: 'ReactElement | ((props) => ReactNode)'
+      required: false
+      description: >-
+        Replace the default tooltip. Pass a configured ChartTooltipContent (from
+        this library) — e.g. with a formatter / labelFormatter — to customize the
+        tooltip content without composing recharts. Ignored when showTooltip is
+        false.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: LineChart
+    status: implemented
+    import: "import { LineChart } from '@constructor-lab/ui-react'"
+    example: |
+      <LineChart
+        config={config}
+        data={data}
+        dataKeys={['desktop', 'mobile']}
+        xKey="month"
+        curve="monotone"
+        lineStyle="solid"
+        className="h-[320px] w-[560px]"
+      />
+  vue:
+    component: AvLineChart
+    status: planned
+    import: "import { AvLineChart } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvLineChart :config="config" :data="data" :data-keys="['desktop']" x-key="month" />
+  web-components:
+    element: ui-line-chart
+    status: planned
+    import: "import '@constructor-lab/ui-wc/line-chart'"
+    example: |
+      <ui-line-chart></ui-line-chart>

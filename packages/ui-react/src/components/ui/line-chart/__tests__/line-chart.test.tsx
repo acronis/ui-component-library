@@ -1,0 +1,213 @@
+import * as React from 'react';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+
+import {
+  LineChart,
+  createBandStrippedTooltip,
+  dropBandSeries,
+} from '../line-chart';
+import { ChartTooltipContent, type ChartConfig } from '../../chart';
+
+const data = [
+  { month: 'Jan', desktop: 186, mobile: 80 },
+  { month: 'Feb', desktop: 305, mobile: 200 },
+  { month: 'Mar', desktop: 237, mobile: 120 },
+];
+
+const config = {
+  desktop: { label: 'Desktop', color: 'rgb(23 99 207)' },
+  mobile: { label: 'Mobile', color: 'rgb(220 53 69)' },
+} satisfies ChartConfig;
+
+function renderChart(
+  props: Partial<React.ComponentProps<typeof LineChart>> = {}
+) {
+  return render(
+    <LineChart
+      config={config}
+      data={data}
+      dataKeys={['desktop', 'mobile']}
+      xKey="month"
+      {...props}
+    />
+  );
+}
+
+describe('LineChart', () => {
+  it('renders the shared chart wrapper', () => {
+    const { container } = renderChart();
+    expect(container.querySelector('[data-slot="chart"]')).toBeInTheDocument();
+  });
+
+  it('wires each series color from config into a --color-* custom property', () => {
+    const { container } = renderChart();
+    const style = container.querySelector('style')?.innerHTML ?? '';
+    expect(style).toContain('--color-desktop: rgb(23 99 207)');
+    expect(style).toContain('--color-mobile: rgb(220 53 69)');
+  });
+
+  it('defaults to a monotone, solid curve/line-style', () => {
+    const { container } = renderChart();
+    const root = container.firstElementChild;
+    expect(root).toHaveAttribute('data-curve', 'monotone');
+    expect(root).toHaveAttribute('data-line-style', 'solid');
+  });
+
+  it('reflects the curve and lineStyle variants on the root', () => {
+    const { container } = renderChart({ curve: 'step', lineStyle: 'dashed' });
+    const root = container.firstElementChild;
+    expect(root).toHaveAttribute('data-curve', 'step');
+    expect(root).toHaveAttribute('data-line-style', 'dashed');
+  });
+
+  // recharts only paints its SVG once the ResponsiveContainer has real
+  // dimensions, which happy-dom never gives it — so the grid/tooltip/legend
+  // toggles can't be asserted on the rendered chrome here. This exercises the
+  // toggle + stroke/dot prop paths (guarding against a plumbing/crash
+  // regression); the visual effect of the chrome toggles is covered by the
+  // `NoChrome` VR story.
+  it('renders with all chrome toggles off, dots off, and dashed strokes', () => {
+    const { container } = renderChart({
+      showGrid: false,
+      showTooltip: false,
+      showLegend: false,
+      showDots: false,
+      lineStyle: 'dashed',
+      connectNulls: true,
+    });
+    expect(container.querySelector('[data-slot="chart"]')).toBeInTheDocument();
+  });
+
+  it('renders without crashing on empty data', () => {
+    const { container } = renderChart({ data: [] });
+    expect(container.querySelector('[data-slot="chart"]')).toBeInTheDocument();
+  });
+
+  // The dashed/dimmed comparison styling is SVG that happy-dom won't paint, so
+  // it's covered by the ComparisonTrend VR story; this guards the prop path
+  // (a comparison overlay renders without crashing).
+  it('renders with a comparison overlay series', () => {
+    const { container } = renderChart({ comparisonKeys: ['mobile'] });
+    expect(container.querySelector('[data-slot="chart"]')).toBeInTheDocument();
+  });
+
+  it('renders with a delta band between two series', () => {
+    const { container } = renderChart({
+      comparisonKeys: ['mobile'],
+      deltaBands: [['desktop', 'mobile']],
+    });
+    expect(container.querySelector('[data-slot="chart"]')).toBeInTheDocument();
+  });
+
+  // Axis titles/unit forward to recharts' XAxis/YAxis `label`/`unit`; happy-dom
+  // doesn't paint the SVG, so this only guards the prop path (the rendered titles
+  // are covered by the `AxisLabels` VR story).
+  it('renders with axis titles + a Y unit', () => {
+    const { container } = renderChart({
+      xAxisLabel: 'Month',
+      yAxisLabel: 'Sessions',
+      yUnit: 'k',
+    });
+    expect(container.querySelector('[data-slot="chart"]')).toBeInTheDocument();
+  });
+
+  // The delta-band tooltip/legend content callbacks route their payload through
+  // dropBandSeries to hide the synthetic `__band_*` range series. recharts won't
+  // paint that content in happy-dom, so the filter is guarded here directly — an
+  // inverted predicate would otherwise ship silently.
+  describe('dropBandSeries', () => {
+    const real = [{ dataKey: 'thisYear' }, { dataKey: 'lastYear' }];
+
+    it('drops synthetic band series while keeping real series in order', () => {
+      const payload = [real[0], { dataKey: '__band_0' }, real[1]];
+      expect(dropBandSeries(payload)).toEqual(real);
+    });
+
+    it('keeps every series when none is a band series', () => {
+      expect(dropBandSeries(real)).toEqual(real);
+    });
+
+    it('handles a numeric or missing dataKey without dropping it', () => {
+      const payload = [{ dataKey: 0 }, { dataKey: undefined }];
+      expect(dropBandSeries(payload)).toEqual(payload);
+    });
+
+    it('returns undefined for an undefined payload', () => {
+      expect(dropBandSeries(undefined)).toBeUndefined();
+    });
+  });
+
+  // The prop path in the component is a wrapper (createBandStrippedTooltip) that
+  // strips the bands, then mounts the caller's tooltip exactly as recharts would
+  // — a function via createElement, an element via cloneElement. Exercised
+  // directly here because recharts doesn't paint the tooltip in happy-dom; an
+  // inverted predicate would leak a `__band_*` row into the caller's tooltip.
+  describe('createBandStrippedTooltip', () => {
+    const payload = [
+      { dataKey: 'thisYear', name: 'This year', value: 305 },
+      { dataKey: '__band_0', name: 'band', value: [200, 305] },
+      { dataKey: 'lastYear', name: 'Last year', value: 200 },
+    ];
+
+    function Probe({
+      payload: p,
+    }: {
+      payload?: ReadonlyArray<{ dataKey?: unknown }>;
+    }) {
+      return (
+        <div data-testid="keys">
+          {(p ?? []).map((item) => String(item.dataKey)).join(',')}
+        </div>
+      );
+    }
+
+    function renderWrapped(
+      content: Parameters<typeof createBandStrippedTooltip>[0]
+    ) {
+      const Wrapped = createBandStrippedTooltip(
+        content
+      ) as unknown as React.FC<{
+        payload: typeof payload;
+        active: boolean;
+      }>;
+      render(<Wrapped payload={payload} active />);
+      return screen.getByTestId('keys').textContent;
+    }
+
+    it('strips band series before a function-form tooltip renders', () => {
+      expect(renderWrapped((p) => <Probe payload={p.payload} />)).toBe(
+        'thisYear,lastYear'
+      );
+    });
+
+    it('strips band series before an element-form tooltip renders', () => {
+      expect(renderWrapped(<Probe />)).toBe('thisYear,lastYear');
+    });
+  });
+
+  it('forwards a ref to the root element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    renderChart({ ref });
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
+  });
+
+  it('merges a caller className onto the root', () => {
+    const { container } = renderChart({ className: 'h-[300px] w-[500px]' });
+    expect(container.firstElementChild).toHaveClass('h-[300px]', 'w-[500px]');
+  });
+
+  // The `tooltipContent` prop forwards a custom (library-owned) ChartTooltipContent
+  // to recharts' Tooltip; happy-dom doesn't paint the tooltip, so this only guards
+  // the prop path — consumers customize the tooltip without importing recharts.
+  it('accepts a custom tooltipContent', () => {
+    const { container } = renderChart({
+      tooltipContent: (
+        <ChartTooltipContent
+          formatter={(value) => <span>{String(value)}</span>}
+        />
+      ),
+    });
+    expect(container.querySelector('[data-slot="chart"]')).toBeInTheDocument();
+  });
+});
