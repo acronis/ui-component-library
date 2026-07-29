@@ -241,6 +241,14 @@
       "since": "2.4.0"
     },
     {
+      "name": "confidence-cone",
+      "component": "ConfidenceCone",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "confirm-dialog",
       "component": "ConfirmDialog",
       "category": "overlays",

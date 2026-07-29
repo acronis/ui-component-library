@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: ConfidenceCone
+name: confidence-cone
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  A typed confidence-cone chart over the shared `Chart` primitives. Plots a
+  central estimate as a line inside a shaded band between a lower and upper
+  bound — the widening cone of a forecast/projection — with an optional dashed
+  divider at the point the projection begins. No variant axes — its
+  expressiveness is the data mapping (which fields are the estimate and the
+  bounds) and the `forecastStart` divider. The line + band bind to the
+  theme-invariant `--ui-chart-*` palette.
+since: 2.4.0

@@ -44,6 +44,7 @@ export * from './components/ui/combobox';
 export * from './components/ui/autocomplete';
 export * from './components/ui/command';
 export * from './components/ui/composed-chart';
+export * from './components/ui/confidence-cone';
 export * from './components/ui/confirm-dialog';
 export * from './components/ui/data-grid';
 export * from './components/ui/data-table';

@@ -1,0 +1,25 @@
+spec_version: '1.0'
+component: ConfidenceCone
+
+# References only. Values live in @constructor-lab/tokens. ConfidenceCone has no
+# token tier of its own — the line + band colors are caller-supplied via
+# `config`, bound to the theme-invariant `--ui-chart-*` data-viz palette. The
+# forecast divider, axes, grid, and chrome (tooltip, legend) resolve to the
+# semantic tokens below.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-text-on-surface-secondary
+    affects: divider
+    description: >-
+      The dashed forecast divider and its caption, plus axis-tick and muted
+      tooltip-label text (text-muted-foreground).
+  - name: --ui-background-surface-primary
+    affects: tooltip-content
+    description: Tooltip surface (bg-background).
+  - name: --ui-text-on-surface-primary
+    affects: tooltip-content
+    description: Tooltip value text and axis titles (text-foreground / .recharts-label fill).
+  - name: --ui-border-on-surface-border
+    affects: tooltip-content
+    description: Tooltip border and grid rules (border-border).

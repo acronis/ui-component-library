@@ -1,0 +1,70 @@
+spec_version: '1.0'
+component: ConfidenceCone
+
+schematic: |
+  root: <div>                                        (sizing wrapper)
+    container: <ChartContainer>                      (themed, sized, responsive)
+      plot: recharts <ComposedChart>
+        grid:   <CartesianGrid>                      (horizontal rules, when showGrid)
+        xAxis:  <XAxis dataKey=xKey>
+        yAxis:  <YAxis>
+        band:   <Area dataKey=bandKey>               (ribbon fed a [lower, upper] tuple)
+        line:   <Line dataKey=valueKey>              (the central estimate, on top)
+        divider: <ReferenceLine x=forecastStart>     (dashed, when forecastStart set)
+        tooltip: <ChartTooltip> → tooltip-content
+        legend:  <ChartLegend> → legend-content
+
+root:
+  element: div
+  description: >-
+    The sizing wrapper. ConfidenceCone has no variant axis — it stamps a
+    `[lower, upper]` band tuple per row and renders the shared `ChartContainer`
+    around a recharts `ComposedChart` of the band `Area` + estimate `Line`.
+
+parts:
+  - id: container
+    element: div
+    description: >-
+      The shared `ChartContainer` — supplies the `--color-<valueKey>` and
+      `--color-<bandKey>` custom properties from `config` and themes recharts'
+      internals.
+  - id: plot
+    element: svg
+    description: The recharts `ComposedChart` holding the band, line, and chrome.
+  - id: band
+    element: g
+    description: >-
+      The confidence band — a range `Area` fed a `[lower, upper]` tuple, filled
+      from the band series' `--color-<bandKey>` var at a translucent opacity.
+      Painted first so the estimate line sits on top.
+  - id: line
+    element: g
+    description: The central estimate `Line`, stroked from `--color-<valueKey>`.
+  - id: divider
+    element: line
+    description: >-
+      A dashed `ReferenceLine` at `forecastStart` marking where the projection
+      begins. Rendered when `forecastStart` is set; carries `forecastLabel` when
+      provided.
+  - id: tooltip-content
+    element: div
+    description: >-
+      `ChartTooltipContent` — hover card with the hovered point's estimate and
+      band. Rendered when `showTooltip`.
+  - id: legend-content
+    element: div
+    description: >-
+      `ChartLegendContent` — the estimate + band series with color swatches.
+      Rendered when `showLegend`.
+
+states:
+  - id: forecast-divider
+    trigger: the forecastStart prop draws a dashed divider where the projection begins
+    kind: prop
+    prop: forecastStart
+    affects: [divider]
+  - id: grid
+    trigger: the showGrid prop toggles the horizontal grid rules
+    kind: prop
+    prop: showGrid
+    affects: [grid]

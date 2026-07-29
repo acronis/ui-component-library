@@ -1,0 +1,92 @@
+---
+title: ConfidenceCone
+description: A typed confidence-cone chart for forecasts with an uncertainty band.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { ConfidenceConeDemo } from '@/components/demos-react/confidence-cone';
+
+## Usage
+
+```tsx
+import { ConfidenceCone } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`ConfidenceCone` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it `data` (one row per point) with an estimate field and
+lower/upper bound fields, a per-series `config`, and the field names (`xKey` /
+`valueKey` / `lowerKey` / `upperKey`) — it renders a themed recharts composition
+(a shaded band between the bounds with the estimate line on top, plus an optional
+forecast divider, tooltip, and legend), so you don't hand-compose the band `Area`
++ `Line` yourself.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant. The chrome is
+> reconciled with Figma later.
+
+## Examples
+
+<DemoReact>
+  <ConfidenceConeDemo />
+</DemoReact>
+
+A projection whose confidence band widens into a cone past the forecast divider:
+
+```tsx
+const data = [
+  { month: 'Jan', estimate: 100, lower: 100, upper: 100 },
+  { month: 'Feb', estimate: 106, lower: 106, upper: 106 },
+  { month: 'Mar', estimate: 118, lower: 110, upper: 126 },
+  { month: 'Apr', estimate: 124, lower: 112, upper: 138 },
+];
+
+const config = {
+  estimate: { label: 'Estimate', color: 'var(--ui-chart-1)' },
+  band: { label: 'Confidence', color: 'var(--ui-chart-1)' },
+} satisfies ChartConfig;
+
+<ConfidenceCone
+  config={config}
+  data={data}
+  xKey="month"
+  valueKey="estimate"
+  lowerKey="lower"
+  upperKey="upper"
+  forecastStart="Mar"
+  forecastLabel="Forecast"
+  className="h-[360px] w-[560px]"
+/>;
+```
+
+`ConfidenceCone` has no variant axis — its expressiveness is the data mapping.
+Tune the band with `bandOpacity`, the interpolation with `curve`, and toggle the
+chrome with `showGrid` / `showTooltip` / `showLegend`.
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { ConfidenceCone, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<ConfidenceCone
+  config={config}
+  data={data}
+  xKey="month"
+  valueKey="estimate"
+  lowerKey="lower"
+  upperKey="upper"
+  tooltipContent={
+    <ChartTooltipContent labelFormatter={(label) => `Month: ${label}`} />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/confidence-cone/confidence-cone.tsx"
+  name="ConfidenceConeProps"
+/>

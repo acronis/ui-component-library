@@ -1,0 +1,131 @@
+spec_version: '1.0'
+component: ConfidenceCone
+
+# Framework-agnostic contract. ConfidenceCone has NO cva variant axis — its
+# expressiveness is the data mapping + the forecast divider, so there is nothing
+# for the cva conformance check to compare. `data` / `config` / `xKey` /
+# `valueKey` / `lowerKey` / `upperKey` are the data contract; the rest tune the
+# cone and chrome.
+contract:
+  properties:
+    - name: data
+      type: ReadonlyArray<Record<string, string | number | null>>
+      required: true
+      description: Row-per-point data — each row holds the x key, the estimate, and the lower/upper bound fields.
+    - name: config
+      type: ChartConfig
+      required: true
+      description: >-
+        Per-series map of label / color (from the shared Chart primitives),
+        keyed by `valueKey` (the line) and `bandKey` (the band fill). Turned into
+        `--color-<name>` custom properties. Colors are caller-supplied.
+    - name: xKey
+      type: string
+      required: true
+      description: Category axis key (the shared dimension across rows, e.g. "month").
+    - name: valueKey
+      type: string
+      required: true
+      description: Numeric field holding the central estimate (the line).
+    - name: lowerKey
+      type: string
+      required: true
+      description: Numeric field holding the lower bound of the band.
+    - name: upperKey
+      type: string
+      required: true
+      description: Numeric field holding the upper bound of the band.
+    - name: bandKey
+      type: string
+      required: false
+      default: "'band'"
+      description: Config key naming the band series (drives its fill color + legend/tooltip entry).
+    - name: forecastStart
+      type: string | number
+      required: false
+      description: Draw a dashed vertical divider at this x value to mark where the projection begins.
+    - name: forecastLabel
+      type: string
+      required: false
+      description: Caption rendered alongside the forecast divider.
+    - name: bandOpacity
+      type: number
+      required: false
+      default: '0.2'
+      description: Translucent fill opacity of the band.
+    - name: curve
+      type: "'linear' | 'monotone' | 'step'"
+      required: false
+      default: "'monotone'"
+      description: Interpolation between points.
+    - name: strokeWidth
+      type: number
+      required: false
+      default: '2'
+      description: Stroke width of the estimate line.
+    - name: xAxisLabel
+      type: string
+      required: false
+      description: Title rendered beneath the X axis.
+    - name: yAxisLabel
+      type: string
+      required: false
+      description: Title rendered beside the Y axis.
+    - name: yUnit
+      type: string
+      required: false
+      description: Unit suffix appended to Y-axis tick values.
+    - name: showGrid
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the horizontal grid rules.
+    - name: showTooltip
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the hover tooltip.
+    - name: showLegend
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the legend.
+    - name: tooltipContent
+      type: 'ReactElement | ((props) => ReactNode)'
+      required: false
+      description: >-
+        Replace the default tooltip. Pass a configured ChartTooltipContent (from
+        this library) — e.g. with a formatter / labelFormatter — to customize the
+        tooltip content without composing recharts. Ignored when showTooltip is
+        false.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: ConfidenceCone
+    status: implemented
+    import: "import { ConfidenceCone } from '@constructor-lab/ui-react'"
+    example: |
+      <ConfidenceCone
+        config={config}
+        data={data}
+        xKey="month"
+        valueKey="estimate"
+        lowerKey="lower"
+        upperKey="upper"
+        forecastStart="Apr"
+        className="h-[360px] w-[560px]"
+      />
+  vue:
+    component: AvConfidenceCone
+    status: planned
+    import: "import { AvConfidenceCone } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvConfidenceCone :config="config" :data="data" x-key="month" value-key="estimate" lower-key="lower" upper-key="upper" />
+  web-components:
+    element: ui-confidence-cone
+    status: planned
+    import: "import '@constructor-lab/ui-wc/confidence-cone'"
+    example: |
+      <ui-confidence-cone></ui-confidence-cone>
