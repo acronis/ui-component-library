@@ -65,3 +65,25 @@ The determinant is colored-area proportion per story (multi-avatar
 imperceptible. Left as-is deliberately: forcing avatar to 0-drift would make it
 inconsistent with the rest of the corpus (the next 0.5% capture wouldn't hold
 it).
+
+**Known residual — PR-2 parity batches (#118 clear buttons, #123 resizable
+divider).** Same #101 case: real render changes that land under 0.5%, so
+`--update` left the committed baselines on the old render. Measured at threshold
+0 (`VISUAL_FAILURE_THRESHOLD=0 … storybook:test:visual:docker:all -- <id>`), max
+across light/dark:
+
+- `#118` clear-button resize (`size-4`→`size-5 p-0.5`, icon stays `size-4` so
+  the glyph shifts ~2px + idle-color token swap): `ui-inputtext--clearable`
+  0.040%; `ui-inputsearch--with-value` 0.071% (the valueless input-search
+  stories sit at the ~0.023% pristine-noise floor — no clear button to move).
+- `#123` resizable divider (`width`+`bg` → logical `border-inline-start`,
+  pixel-snapped; focus ring `ring` → `box-shadow` on the line): every
+  `ui-resizable--*` story drifts 0.052%–**0.483%**. `ui-resizable--vertical`
+  (dark) is the thinnest margin at **0.483%** — 0.017% under the gate.
+
+Consequence for `#123`: because all divider stories stayed sub-0.5%, **no
+committed baseline reflects the new pixel-snapped divider** — the gate can't
+capture the rewrite. The coverage for the new mechanism is therefore the unit
+test's border-class assertions
+(`resizable/__tests__/resizable.test.tsx`), not a baseline. Deliberate, for the
+same corpus-consistency reason as avatar.
