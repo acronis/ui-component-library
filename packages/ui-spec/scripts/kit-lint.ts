@@ -325,6 +325,34 @@ const DETECTORS: Detector[] = [
     });
     return out;
   },
+
+  // I7 — an interactive base class must declare a cursor. A `cva()` base that
+  // carries a `hover:` state is always-interactive; native <button> resets the
+  // pointer cursor via the UA stylesheet, so a missing `cursor-*` is invisible
+  // in review and wrong in the browser. We inspect the base region — from
+  // `cva(` to the config `{` — so a hover: on a variant (after the `{`) does not
+  // trip it, and `cursor-` must live on the base, not a subset of variants.
+  // Scope limit (honest): variable-extracted bases (`cva(myBase, {…})`) and
+  // plain cn() class strings are outside this static check.
+  ({ file, lines }) => {
+    const out: Finding[] = [];
+    const text = lines.join('\n');
+    for (const m of text.matchAll(/\bcva\(([\s\S]*?)\{/g)) {
+      const base = m[1];
+      if (/\bhover:/.test(base) && !/\bcursor-/.test(base)) {
+        const line = text.slice(0, m.index).split('\n').length;
+        out.push(
+          finding(
+            'interaction/interactive-cursor',
+            file,
+            line,
+            'cva() base class has a hover: state but no cursor-* utility — declare cursor-pointer on the base, not per-variant.'
+          )
+        );
+      }
+    }
+    return out;
+  },
 ];
 
 /** Run every detector over one source string. Exposed for focused tests. */

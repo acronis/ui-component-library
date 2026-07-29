@@ -72,6 +72,35 @@ describe('Y1/Y2/Y3 typography', () => {
   });
 });
 
+describe('I7 interaction/interactive-cursor', () => {
+  it('flags a cva() base with a hover: state but no cursor', () => {
+    expect(
+      ruleIds(
+        "const v = cva('flex items-center hover:bg-x', { variants: {} });"
+      )
+    ).toContain('interaction/interactive-cursor');
+  });
+  it('accepts a cva() base that declares cursor-pointer', () => {
+    expect(
+      ruleIds(
+        "const v = cva('flex items-center cursor-pointer hover:bg-x', { variants: {} });"
+      )
+    ).not.toContain('interaction/interactive-cursor');
+  });
+  it('requires the cursor on the base — a cursor on a variant does not satisfy it', () => {
+    expect(
+      ruleIds(
+        "const v = cva('flex items-center hover:bg-x', { variants: { a: 'cursor-pointer' } });"
+      )
+    ).toContain('interaction/interactive-cursor');
+  });
+  it('ignores a non-interactive cva base (no hover state)', () => {
+    expect(
+      ruleIds("const v = cva('flex items-center', { variants: {} });")
+    ).not.toContain('interaction/interactive-cursor');
+  });
+});
+
 describe('I3 interaction/timing-parity', () => {
   it('flags an arbitrary transition duration', () => {
     expect(ruleIds('className="duration-[120ms]"')).toContain(

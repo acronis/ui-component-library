@@ -438,7 +438,7 @@ const SidebarSecondarySectionLabel = React.forwardRef<
     >
       <Collapsible.Trigger
         className={cn(
-          'group/section flex min-w-0 flex-1 items-center gap-[var(--ui-sidebar-secondary-section-container-header-gap)] text-start',
+          'group/section flex min-w-0 flex-1 cursor-pointer items-center gap-[var(--ui-sidebar-secondary-section-container-header-gap)] text-start',
           sectionLabelTextClass,
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-brand)] focus-visible:ring-inset'
         )}
@@ -490,7 +490,7 @@ SidebarSecondaryMenu.displayName = 'SidebarSecondaryMenu';
 // value is unchanged (runtime var() references honor brand overrides only on the
 // referenced token).
 const sidebarSecondaryRowClasses =
-  'group/row flex w-full items-center gap-[var(--ui-sidebar-secondary-menu-item-global-container-gap)] min-h-[var(--ui-sidebar-secondary-menu-item-global-container-height-min)] px-[var(--ui-sidebar-secondary-menu-item-global-container-padding-x)] py-[var(--ui-sidebar-secondary-menu-item-global-container-padding-y)] no-underline ui-sidebar-secondary-menu-item-global-label-text-style transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-brand)] focus-visible:ring-inset text-[var(--ui-sidebar-secondary-menu-item-global-label-color-color)] [&_svg]:shrink-0 [&_svg]:size-[var(--ui-sidebar-secondary-menu-item-global-icon-size)] [&_svg]:text-[var(--ui-sidebar-secondary-menu-item-global-icon-color-color)]';
+  'group/row flex w-full cursor-pointer items-center gap-[var(--ui-sidebar-secondary-menu-item-global-container-gap)] min-h-[var(--ui-sidebar-secondary-menu-item-global-container-height-min)] px-[var(--ui-sidebar-secondary-menu-item-global-container-padding-x)] py-[var(--ui-sidebar-secondary-menu-item-global-container-padding-y)] no-underline ui-sidebar-secondary-menu-item-global-label-text-style transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-brand)] focus-visible:ring-inset text-[var(--ui-sidebar-secondary-menu-item-global-label-color-color)] [&_svg]:shrink-0 [&_svg]:size-[var(--ui-sidebar-secondary-menu-item-global-icon-size)] [&_svg]:text-[var(--ui-sidebar-secondary-menu-item-global-icon-color-color)]';
 
 const sidebarSecondaryMenuItemVariants = cva(sidebarSecondaryRowClasses, {
   variants: {

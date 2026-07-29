@@ -25,7 +25,7 @@ import { cn } from '@/lib/utils';
 // Reconcile with `/figma-component Filter <url> --update` once a mockup lands.
 
 const filterVariants = cva(
-  'inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 text-sm font-semibold leading-6 text-secondary transition-colors hover:bg-transparent hover:text-secondary focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex h-10 cursor-pointer items-center gap-2 whitespace-nowrap rounded-md px-4 text-sm font-semibold leading-6 text-secondary transition-colors hover:bg-transparent hover:text-secondary focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {

@@ -70,6 +70,7 @@ registry are seeded first (Phase 0).
 | I4  | Tab order ≠ visual order                        | screen   | should |
 | I5  | Contrast below WCAG                             | screen   | must   |
 | I6  | Duplicate top-level landmark (e.g. two banners) | screen   | must   |
+| I7  | Interactive base class (hover) lacks a cursor   | kit-lint | should |
 
 ## Composition (screen-level)
 
