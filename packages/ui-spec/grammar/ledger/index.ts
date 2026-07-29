@@ -197,6 +197,37 @@ export const ledger: LedgerEntry[] = [
       date: '2026-07-29',
     },
   },
+  {
+    id: 'trend-and-value-surface-duplication',
+    title:
+      'Four surfaces now cover two roles: "how a metric changed" (TrendIndicator vs widget-text WidgetTextTrend) and "labelled value tile" (Metric vs widget WidgetValue/WidgetLabel vs stat-row StatRow/StatRowStat)',
+    severity: 'should',
+    source: {
+      ref: 'ui-react: trend-indicator + widget-text (WidgetTextTrend); metric + widget (WidgetValue/WidgetLabel) + stat-row (StatRow/StatRowStat)',
+    },
+    discovered: '2026-07-29',
+    status: 'open',
+    // Deliberately logged, not resolved. The overlap was known before
+    // TrendIndicator/Metric landed (Track 4): the widget surfaces have live
+    // consumers, tests, stories and VR baselines, so folding them in would have
+    // made a feature PR a breaking change with baseline churn. Recording the debt
+    // is what keeps the next author from adding a fifth surface instead.
+    //
+    // Proposed direction: `WidgetTextTrend` becomes a thin wrapper delegating to
+    // `TrendIndicator` (both already colour from
+    // --ui-text-on-status-success/-danger/-neutral, so it should be VR-neutral —
+    // that is the gate for taking it). The value-tile trio needs a decision
+    // first: whether `Metric` is the single primitive with `StatRow` as its
+    // config-driven row and `WidgetValue`/`WidgetLabel` deprecated, or whether
+    // the widget family keeps its own chrome-scoped parts.
+    //
+    // No checklist row or rule fits yet: T5 is one *token* rendering a role
+    // differently, whereas this is several *components* owning one role. A
+    // `structure/one-component-per-role` rule is the candidate; it needs a role
+    // taxonomy before a detector could be anything but a hand-maintained list,
+    // which is why this stays `open` rather than claiming a guard it does not
+    // have. Each new component's README cross-links the others in the meantime.
+  },
 ];
 
 const declaredDetectors = new Set(allRules.map((r) => r.detector));
