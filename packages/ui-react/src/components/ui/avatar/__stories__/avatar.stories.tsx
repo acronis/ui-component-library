@@ -10,11 +10,23 @@ const meta = {
   argTypes: {
     color: {
       control: 'select',
-      options: ['teal', 'violet', 'red', 'yellow', 'orange'],
+      options: [
+        'teal',
+        'violet',
+        'red',
+        'yellow',
+        'orange',
+        'blue',
+        'gray',
+        'green',
+      ],
       description:
-        'Color scheme that tints the fallback background and the initials. Maps to the `--ui-avatar-color-<scheme>` / `--ui-avatar-label-color-<scheme>` token pair.',
+        'Color scheme that tints the fallback background and the initials. Maps to the `--ui-avatar-color-<scheme>` / `--ui-avatar-label-color-<scheme>` token pair — all eight schemes the tier emits.',
       table: {
-        type: { summary: "'teal' | 'violet' | 'red' | 'yellow' | 'orange'" },
+        type: {
+          summary:
+            "'teal' | 'violet' | 'red' | 'yellow' | 'orange' | 'blue' | 'gray' | 'green'",
+        },
         defaultValue: { summary: 'teal' },
         category: 'Appearance',
       },
@@ -36,7 +48,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const COLORS = ['teal', 'violet', 'red', 'yellow', 'orange'] as const;
+// All eight schemes the `--ui-avatar-*` tier emits. `blue` / `gray` / `green`
+// were emitted but unreachable until the cva enum was widened, so they are
+// exercised here to keep them from going dead again.
+const COLORS = [
+  { color: 'teal', initials: 'TL' },
+  { color: 'violet', initials: 'VI' },
+  { color: 'red', initials: 'RD' },
+  { color: 'yellow', initials: 'YL' },
+  { color: 'orange', initials: 'OR' },
+  { color: 'blue', initials: 'BL' },
+  { color: 'gray', initials: 'GY' },
+  { color: 'green', initials: 'GN' },
+] as const;
 
 export const Default: Story = {
   render: (args) => (
@@ -49,9 +73,9 @@ export const Default: Story = {
 export const Colors: Story = {
   render: () => (
     <div className="flex items-center gap-3">
-      {COLORS.map((color) => (
+      {COLORS.map(({ color, initials }) => (
         <Avatar key={color} color={color}>
-          <AvatarFallback>{color.slice(0, 2).toUpperCase()}</AvatarFallback>
+          <AvatarFallback>{initials}</AvatarFallback>
         </Avatar>
       ))}
     </div>

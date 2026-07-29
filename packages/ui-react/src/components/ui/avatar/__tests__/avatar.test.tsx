@@ -52,6 +52,35 @@ describe('Avatar', () => {
     );
   });
 
+  // The `--ui-avatar-*` tier emits eight colour schemes; the cva enum must
+  // expose all eight or the unexposed tokens are dead (emitted, referenced by
+  // nothing). `blue` / `gray` / `green` were exactly that until the enum was
+  // widened — this pins every scheme so it can't silently narrow again.
+  it.each([
+    'teal',
+    'violet',
+    'red',
+    'yellow',
+    'orange',
+    'blue',
+    'gray',
+    'green',
+  ] as const)(
+    'wires the %s scheme to its background + label token pair',
+    (color) => {
+      const { container } = render(
+        <Avatar color={color}>
+          <AvatarFallback>XX</AvatarFallback>
+        </Avatar>
+      );
+      const root = container.firstElementChild as HTMLElement;
+      expect(root.className).toContain(`bg-[var(--ui-avatar-color-${color})]`);
+      expect(root.className).toContain(
+        `text-[var(--ui-avatar-label-color-${color})]`
+      );
+    }
+  );
+
   it('draws its 2px separator as an outset ring (box-shadow), not an inset border', () => {
     // A border-box CSS border would eat 4px off the 32px box (Figma strokeAlign
     // is OUTSIDE), rendering avatars at 28px. Assert the spread-only ring and the

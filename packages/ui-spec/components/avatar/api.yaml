@@ -2,18 +2,20 @@ spec_version: '1.0'
 component: Avatar
 
 # `color` is the only cva axis (its enum matches the cva keys in the ui-react
-# source). Image and fallback are composed as child parts (AvatarImage /
-# AvatarFallback); AvatarGroup is a sibling layout component.
+# source — all eight schemes the `--ui-avatar-*` tier emits). Image and fallback
+# are composed as child parts (AvatarImage / AvatarFallback); AvatarGroup is a
+# sibling layout component.
 contract:
   properties:
     - name: color
-      type: "'teal' | 'violet' | 'red' | 'yellow' | 'orange'"
+      type: "'teal' | 'violet' | 'red' | 'yellow' | 'orange' | 'blue' | 'gray' | 'green'"
       required: false
       default: teal
       description: >-
         Color scheme for the fallback. Maps to `--ui-avatar-color-<scheme>`
         (background) and `--ui-avatar-label-color-<scheme>` (initials). Ignored
-        once an image is shown.
+        once an image is shown. All eight schemes emitted by the
+        `--ui-avatar-*` tier are exposed.
 
   events: []
 
