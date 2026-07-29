@@ -14,11 +14,18 @@ tokens:
     description: >-
       The gutter (stroke) between tiles and the tooltip surface (bg-background) —
       so tiles separate cleanly in light and dark.
-  - name: --ui-text-on-brand-primary
+  - name: --ui-palette-transparent-white-fixed-100
     affects: label
     description: >-
-      On-tile label text — the on-color text token (same light text a primary
-      button uses), since labels sit on the theme-invariant category color.
+      On-tile label glyph fill (fixed white). Legibility on any tile is carried
+      by the halo below, not by this fill — see the accessibility notes.
+  - name: --ui-palette-transparent-dark-fixed-100
+    affects: label
+    description: >-
+      On-tile label halo — an opaque fixed-dark outline painted under the glyph
+      via `paint-order: stroke`, so the label reads on any `--ui-chart-*` tile
+      regardless of the tile's luminance. The `-100` (opaque) stop is required:
+      the glyph's contrast is against the halo, not the tile.
   - name: --ui-text-on-surface-primary
     affects: tooltip-content
     description: Tooltip value text (text-foreground).

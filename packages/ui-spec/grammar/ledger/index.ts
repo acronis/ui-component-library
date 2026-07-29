@@ -198,6 +198,24 @@ export const ledger: LedgerEntry[] = [
     },
   },
   {
+    id: 'chart-on-fill-text-contrast',
+    title:
+      'Text drawn on a series-colored (--ui-chart-*) fill cannot meet contrast with any fixed color; no on-chart text token can exist',
+    severity: 'should',
+    source: {
+      component: 'treemap',
+      ref: 'ui-react chart family — any text rendered over a series mark',
+    },
+    discovered: '2026-07-29',
+    status: 'open',
+    resolution: {
+      kind: 'new-rule',
+      rule: 'charts/on-fill-text-halo',
+      note: 'Root cause: the --ui-chart-* palette is theme-invariant and spans 1.63:1–5.70:1 against white (chart-7 yellow 1.72:1, chart-1 4.85, chart-6 5.70; 13/15 colors fail white text at 4.5:1). A single fixed on-chart text token therefore CANNOT exist across nine luminances — this is why there is no --ui-text-on-chart-*, and adding one would be a false fix. Adopted convention for ANY text over a series fill: a white glyph fill (--ui-palette-transparent-white-fixed-100) + an opaque dark halo (--ui-palette-transparent-dark-fixed-100) painted under it via `paint-order: stroke`; the glyph carries its own contrast against the halo, not the tile, so it is legible on any tile and any caller color. Applied to treemap tile labels. Family audit (funnel/pie/bar/radial-bar/radar/scatter/composed/line/area/histogram/confidence-cone) found NO other on-fill text — funnel labels render position="right" on the surface (fill-foreground), pie labels are the donut-center on the surface, and the rest draw only axis titles/captions/tooltips/legends on the surface. NOT YET ENFORCED: a kit-lint detector (SVG text with a fill=var(--color-*) or on a series mark lacking paint-order:stroke) would ratchet it; deferred to /grammar-rule. Proposed should; a human owns whether a contrast finding warrants must.',
+      date: '2026-07-29',
+    },
+  },
+  {
     id: 'interactive-base-cursor-missing',
     title:
       'cursor-pointer missing from the BASE class of always-interactive components; only some variants carried it, and a native <button> UA cursor reset hid the gap in review',

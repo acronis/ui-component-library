@@ -36,8 +36,10 @@ parts:
     element: text
     description: >-
       The node's `nameKey` label, centered on leaf tiles large enough to hold it.
-      Rendered when `showLabels`; uses the on-color text token since it sits on
-      the theme-invariant category color.
+      Rendered when `showLabels`. A white glyph over an opaque dark halo
+      (`paint-order: stroke`) so it stays legible on any `--ui-chart-*` tile —
+      no fixed label color can meet contrast across the palette's luminance
+      range, and there is no on-chart text token.
   - id: tooltip-content
     element: div
     description: >-

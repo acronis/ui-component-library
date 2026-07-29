@@ -9,12 +9,16 @@
 - Keep `showLabels` on so tiles are named in text, not by color/position alone —
   and remember small tiles are unlabeled (too small for text), so the text
   alternative must carry the full set.
-- The gutter, the on-tile labels, and the chrome (tooltip) resolve to semantic
-  `--ui-*` tokens. On-tile labels use the on-color text token, which is designed
-  to meet contrast against a colored fill. **Category colors are caller-supplied**
-  via `config` — the `--ui-chart-*` palette provides distinguishable,
-  theme-stable defaults; if you supply your own, pick values that keep the
-  label legible and stay distinguishable between adjacent categories.
+- On-tile labels are drawn as a **white glyph over an opaque dark halo**
+  (`paint-order: stroke`), so they stay legible on any tile. This is deliberate:
+  the `--ui-chart-*` palette spans 1.63:1–5.70:1 against white, so **no single
+  fixed label color can meet contrast on every tile** (and there is no on-chart
+  text token — one cannot exist across nine luminances). The halo carries the
+  contrast — the glyph's effective contrast is against the halo, not the tile —
+  so it survives caller-supplied colors too. **Category colors are
+  caller-supplied** via `config` — the `--ui-chart-*` palette provides
+  distinguishable, theme-stable defaults; if you supply your own, keep adjacent
+  categories distinguishable (the label stays legible regardless).
 - Watch recharts issue [#4809](https://github.com/recharts/recharts/issues/4809)
   on the a11y layer for heavily-customized charts.
 

@@ -86,9 +86,23 @@ function TreemapCell({
           y={y + height / 2}
           textAnchor="middle"
           dominantBaseline="middle"
-          // Labels sit on the theme-invariant category color, so they use the
-          // on-color text token (the same light text a primary button uses).
-          fill="var(--ui-text-on-brand-primary)"
+          // Labels sit on the theme-invariant `--ui-chart-*` tiles, whose
+          // luminance spans 1.63:1–5.70:1 against white — so NO single fixed
+          // label color can meet contrast on every tile, and there is no
+          // on-chart text token (one cannot exist; see the ui-spec grammar
+          // ledger `charts/on-fill-text-halo`). Instead the glyph carries its
+          // own contrast: a white fill with an opaque dark halo painted
+          // underneath via `paint-order: stroke`, legible on any tile without
+          // resolving its color. The halo MUST stay the opaque `-100` stop:
+          // the glyph's effective contrast is against the halo, not the tile,
+          // so a lighter/translucent stop silently reintroduces the failure.
+          // `paint-order` on <text> is universally supported (Chrome 35+,
+          // Firefox 60+, Safari 8+); the VR chromium renders it.
+          fill="var(--ui-palette-transparent-white-fixed-100)"
+          stroke="var(--ui-palette-transparent-dark-fixed-100)"
+          strokeWidth={3}
+          strokeLinejoin="round"
+          paintOrder="stroke"
           fontSize={11}
         >
           {name || value}
