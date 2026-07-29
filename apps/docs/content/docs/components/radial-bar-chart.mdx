@@ -1,0 +1,104 @@
+---
+title: RadialBarChart
+description: A typed radial-bar chart for compact categorical comparison and gauges.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { RadialBarChartDemo } from '@/components/demos-react/radial-bar-chart';
+
+## Usage
+
+```tsx
+import { RadialBarChart } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`RadialBarChart` is a typed composition over the shared [`Chart`](/components/chart)
+primitives — a polar chart type. Give it `data` (one row per arc), a per-arc
+`config`, the value field (`dataKey`), and the label field (`nameKey`) — it
+renders a themed recharts radial-bar chart (arcs, background track, tooltip, and
+legend included), so you don't hand-compose recharts children.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant. The chrome is
+> reconciled with Figma later.
+
+## Examples
+
+<DemoReact>
+  <RadialBarChartDemo />
+</DemoReact>
+
+Concentric arcs, one per category:
+
+```tsx
+const data = [
+  { browser: 'Chrome', value: 65 },
+  { browser: 'Safari', value: 50 },
+  { browser: 'Firefox', value: 35 },
+  { browser: 'Edge', value: 25 },
+];
+
+const config = {
+  Chrome: { label: 'Chrome', color: 'var(--ui-chart-1)' },
+  Safari: { label: 'Safari', color: 'var(--ui-chart-2)' },
+  Firefox: { label: 'Firefox', color: 'var(--ui-chart-3)' },
+  Edge: { label: 'Edge', color: 'var(--ui-chart-4)' },
+} satisfies ChartConfig;
+
+<RadialBarChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="browser"
+  className="h-[360px] w-[360px]"
+/>;
+```
+
+`RadialBarChart` has no variant axis — its expressiveness is geometry. Sweep a
+half-circle gauge with `startAngle` / `endAngle`, size the band with
+`innerRadius` / `outerRadius`, and toggle the chrome with `showBackground` /
+`showTooltip` / `showLegend`:
+
+```tsx
+<RadialBarChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="browser"
+  startAngle={180}
+  endAngle={0}
+  innerRadius={40}
+  outerRadius={130}
+/>;
+```
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { RadialBarChart, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<RadialBarChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="browser"
+  tooltipContent={
+    <ChartTooltipContent
+      nameKey="browser"
+      hideLabel
+      formatter={(value, name) => `${name}: ${value}`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/radial-bar-chart/radial-bar-chart.tsx"
+  name="RadialBarChartProps"
+/>

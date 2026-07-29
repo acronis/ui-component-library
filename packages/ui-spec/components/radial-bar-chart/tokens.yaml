@@ -1,0 +1,23 @@
+spec_version: '1.0'
+component: RadialBarChart
+
+# References only. Values live in @constructor-lab/tokens. RadialBarChart has no
+# token tier of its own — arc colors are caller-supplied via `config`, bound to
+# the theme-invariant `--ui-chart-*` data-viz palette. The chrome (tooltip,
+# legend) and the background track are inherited from / themed by the shared
+# Chart primitives and the semantic tokens below.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-background-surface-primary
+    affects: tooltip-content
+    description: Tooltip surface (bg-background).
+  - name: --ui-text-on-surface-primary
+    affects: tooltip-content
+    description: Tooltip value text (text-foreground).
+  - name: --ui-text-on-surface-secondary
+    affects: legend-content
+    description: Muted tooltip label and legend text (text-muted-foreground).
+  - name: --ui-border-on-surface-border
+    affects: tooltip-content
+    description: Tooltip border (border-border).

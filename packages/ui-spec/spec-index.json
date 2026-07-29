@@ -529,6 +529,14 @@
       "since": "2.4.0"
     },
     {
+      "name": "radial-bar-chart",
+      "component": "RadialBarChart",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "radio",
       "component": "RadioGroup",
       "category": "forms",

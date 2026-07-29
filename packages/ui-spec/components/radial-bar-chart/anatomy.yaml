@@ -1,0 +1,59 @@
+spec_version: '1.0'
+component: RadialBarChart
+
+schematic: |
+  root: <div>                                        (sizing wrapper)
+    container: <ChartContainer>                      (themed, sized, responsive)
+      plot: recharts <RadialBarChart startAngle endAngle>
+        bars:  <RadialBar dataKey background cornerRadius>
+          cells:  one <Cell> per row (filled from --color-<name>)
+        tooltip: <ChartTooltip> → tooltip-content    (hover card of the arc)
+        legend:  <ChartLegend> → legend-content       (arc names + swatches)
+
+root:
+  element: div
+  description: >-
+    The sizing wrapper. RadialBarChart has no variant axis — it renders the
+    shared `ChartContainer` around the recharts `RadialBarChart`; geometry
+    (`startAngle` / `endAngle` / radii) and the data mapping are plain props.
+
+parts:
+  - id: container
+    element: div
+    description: >-
+      The shared `ChartContainer` — supplies the per-arc `--color-<name>` custom
+      properties from `config` and themes recharts' internals.
+  - id: plot
+    element: svg
+    description: >-
+      The recharts `RadialBarChart` holding the arcs and their chrome. Its
+      `startAngle` / `endAngle` set the sweep (a full ring or a half-circle
+      gauge).
+  - id: bars
+    element: g
+    description: >-
+      The `RadialBar` — one `Cell` per data row, each a concentric arc sized by
+      `dataKey` and filled from its `--color-<name>` var. `showBackground` draws
+      the muted track behind each arc; `cornerRadius` rounds the arc caps.
+  - id: tooltip-content
+    element: div
+    description: >-
+      `ChartTooltipContent` — hover card with the hovered arc's name and value.
+      Rendered when `showTooltip`.
+  - id: legend-content
+    element: div
+    description: >-
+      `ChartLegendContent` — the arc names with color swatches. Rendered when
+      `showLegend`.
+
+states:
+  - id: gauge
+    trigger: the startAngle / endAngle props set a partial sweep (e.g. 180 → 0)
+    kind: prop
+    prop: startAngle
+    affects: [plot, bars]
+  - id: background-track
+    trigger: the showBackground prop draws the muted track behind each arc
+    kind: prop
+    prop: showBackground
+    affects: [bars]

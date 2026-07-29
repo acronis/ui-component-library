@@ -61,6 +61,7 @@ export * from './components/ui/form';
 export * from './components/ui/form-layout';
 export * from './components/ui/funnel-chart';
 export * from './components/ui/radar-chart';
+export * from './components/ui/radial-bar-chart';
 export * from './components/ui/radio';
 export * from './components/ui/input';
 export * from './components/ui/input-date-picker';
