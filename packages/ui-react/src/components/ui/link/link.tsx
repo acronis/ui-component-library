@@ -23,7 +23,7 @@ import { cn } from '@/lib/utils';
 // (`--ui-link-global-container-height`); it is intentionally NOT applied here so
 // the link flows inline within prose.
 const linkVariants = cva(
-  'inline-flex cursor-pointer items-center gap-[var(--ui-link-global-container-gap)] rounded-sm text-sm font-semibold leading-6 outline-none transition-colors [text-decoration:var(--ui-link-global-text-decoration-idle)] hover:[text-decoration:var(--ui-link-global-text-decoration-hover)] active:[text-decoration:var(--ui-link-global-text-decoration-active)] focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] aria-disabled:pointer-events-none aria-disabled:[text-decoration:var(--ui-link-global-text-decoration-disabled)] [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex cursor-pointer items-center gap-[var(--ui-link-global-container-gap)] rounded-sm text-sm font-semibold leading-6 outline-none transition-colors [text-underline-position:from-font] [text-decoration:var(--ui-link-global-text-decoration-idle)] hover:[text-decoration:var(--ui-link-global-text-decoration-hover)] active:[text-decoration:var(--ui-link-global-text-decoration-active)] focus-visible:ring-[3px] focus-visible:ring-[var(--ui-focus-primary)] aria-disabled:pointer-events-none aria-disabled:[text-decoration:var(--ui-link-global-text-decoration-disabled)] [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
