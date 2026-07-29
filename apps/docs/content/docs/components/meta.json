@@ -60,6 +60,7 @@
     "line-chart",
     "area-chart",
     "pie-chart",
+    "scatter-chart",
     "description-list",
     "alert",
     "empty",

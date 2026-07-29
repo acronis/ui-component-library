@@ -1,0 +1,106 @@
+---
+title: ScatterChart
+description: A typed scatter / bubble chart for two-to-three numeric dimensions.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { ScatterChartDemo } from '@/components/demos-react/scatter-chart';
+
+## Usage
+
+```tsx
+import { ScatterChart } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`ScatterChart` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it a `series` list (each `{ key, data }`), a per-series
+`config`, and the numeric axis fields (`xKey` / `yKey`) — it renders a themed
+recharts scatter chart (tooltip, legend, axes, grid included), so you don't
+hand-compose recharts children.
+
+Unlike the cartesian charts, each series carries **its own point array** (points
+aren't columns of a shared row), so the API takes a `series` list rather than
+`dataKeys`. Add a `zKey` to size points by a third field — a bubble chart.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant, so each
+> series keeps its identity across light and dark. The chrome is reconciled with
+> Figma later.
+
+## Examples
+
+<DemoReact>
+  <ScatterChartDemo />
+</DemoReact>
+
+Two groups plotted on shared numeric axes:
+
+```tsx
+const series = [
+  { key: 'classA', data: [{ hours: 2, score: 55 }, { hours: 6, score: 78 }] },
+  { key: 'classB', data: [{ hours: 1, score: 70 }, { hours: 9, score: 95 }] },
+];
+
+const config = {
+  classA: { label: 'Class A', color: 'var(--ui-chart-1)' },
+  classB: { label: 'Class B', color: 'var(--ui-chart-2)' },
+} satisfies ChartConfig;
+
+<ScatterChart config={config} series={series} xKey="hours" yKey="score" className="h-[360px] w-[520px]" />;
+```
+
+Size points by a third field with `zKey` (a bubble chart), tuning the size range
+with `zRange`:
+
+```tsx
+<ScatterChart config={config} series={series} xKey="hours" yKey="score" zKey="weight" zRange={[60, 500]} />
+```
+
+Change the marker with `shape` (`circle` · `square` · `triangle` · `diamond` ·
+`star` · `cross` · `wye`), and add axis titles + unit suffixes:
+
+```tsx
+<ScatterChart
+  config={config}
+  series={series}
+  xKey="hours"
+  yKey="score"
+  shape="triangle"
+  xAxisLabel="Spend"
+  yAxisLabel="Conversions"
+  xUnit="$"
+  yUnit="%"
+/>
+```
+
+Toggle the chrome with `showGrid` / `showTooltip` / `showLegend`.
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { ScatterChart, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<ScatterChart
+  config={config}
+  series={series}
+  xKey="hours"
+  yKey="score"
+  tooltipContent={
+    <ChartTooltipContent
+      hideLabel
+      formatter={(value, name) => `${name}: ${Number(value).toLocaleString()}`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/scatter-chart/scatter-chart.tsx"
+  name="ScatterChartProps"
+/>

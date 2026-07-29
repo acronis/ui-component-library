@@ -521,6 +521,14 @@
       "since": "0.23.0"
     },
     {
+      "name": "scatter-chart",
+      "component": "ScatterChart",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "scroll-area",
       "component": "ScrollArea",
       "category": "layout",
