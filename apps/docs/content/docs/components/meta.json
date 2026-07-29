@@ -59,6 +59,7 @@
     "bar-chart",
     "line-chart",
     "area-chart",
+    "pie-chart",
     "description-list",
     "alert",
     "empty",

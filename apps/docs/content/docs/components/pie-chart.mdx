@@ -1,0 +1,130 @@
+---
+title: PieChart
+description: A typed pie or donut chart for part-to-whole proportions.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { PieChartDemo } from '@/components/demos-react/pie-chart';
+
+## Usage
+
+```tsx
+import { PieChart } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`PieChart` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it `data`, a per-slice `config`, the value field (`dataKey`),
+and the label field (`nameKey`) — it renders a themed recharts pie chart (tooltip
+and legend included), so you don't hand-compose recharts children.
+
+Unlike the cartesian charts, a pie plots a **single** `dataKey` across rows and
+names each slice by `nameKey`. Slice colors are supplied by the caller through
+`config`, **keyed by each slice's `nameKey` value**: `PieChart` turns those into
+the `--color-<name>` custom properties its slices fill from.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant, so each slice
+> keeps its identity across light and dark. The chrome is reconciled with Figma
+> later.
+
+## Examples
+
+<DemoReact>
+  <PieChartDemo />
+</DemoReact>
+
+A donut chart with a themed tooltip and legend:
+
+```tsx
+const data = [
+  { browser: 'Chrome', value: 275 },
+  { browser: 'Safari', value: 200 },
+  { browser: 'Firefox', value: 187 },
+  { browser: 'Edge', value: 173 },
+];
+
+const config = {
+  Chrome: { label: 'Chrome', color: 'var(--ui-chart-1)' },
+  Safari: { label: 'Safari', color: 'var(--ui-chart-2)' },
+  Firefox: { label: 'Firefox', color: 'var(--ui-chart-3)' },
+  Edge: { label: 'Edge', color: 'var(--ui-chart-4)' },
+} satisfies ChartConfig;
+
+<PieChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="browser"
+  shape="donut"
+  className="h-[360px] w-[360px]"
+/>;
+```
+
+Use a filled pie with `shape="pie"` (the default):
+
+```tsx
+<PieChart config={config} data={data} dataKey="value" nameKey="browser" />
+```
+
+Separate the slices with `paddingAngle`, and tune the donut hole with
+`innerRadius`:
+
+```tsx
+<PieChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="browser"
+  shape="donut"
+  innerRadius={80}
+  paddingAngle={2}
+/>
+```
+
+Fill the donut hole with a headline metric via `centerLabel` — a `value` and an
+optional `label`, centered in the hole (donut only). Compute the value from your
+data, e.g. the total:
+
+```tsx
+<PieChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="browser"
+  shape="donut"
+  centerLabel={{ value: '835', label: 'Visitors' }}
+/>
+```
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself. Its `formatter` renders
+each row and `labelFormatter` the header, giving you custom formatting, per-series
+content, and extra fields:
+
+```tsx
+import { PieChart, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<PieChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="browser"
+  tooltipContent={
+    <ChartTooltipContent
+      nameKey="browser"
+      hideLabel
+      formatter={(value, name) => `${name}: ${value.toLocaleString()} users`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/pie-chart/pie-chart.tsx"
+  name="PieChartProps"
+/>

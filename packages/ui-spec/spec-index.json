@@ -465,6 +465,14 @@
       "since": "0.51.0"
     },
     {
+      "name": "pie-chart",
+      "component": "PieChart",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "popover",
       "component": "Popover",
       "category": "overlays",
