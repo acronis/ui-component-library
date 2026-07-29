@@ -66,10 +66,31 @@ describe('Resizable', () => {
     render(<Group />);
     const handle = screen.getByRole('separator');
     expect(handle).toHaveClass(
-      'after:bg-[var(--ui-border-on-surface-border)]',
-      'hover:after:bg-[var(--ui-resizable-border-color-hover)]',
-      'active:after:bg-[var(--ui-resizable-border-color-active)]',
-      'focus-visible:ring-[var(--ui-focus-primary)]'
+      'after:[border-color:var(--ui-border-on-surface-border)]',
+      'hover:after:[border-color:var(--ui-resizable-border-color-hover)]',
+      'active:after:[border-color:var(--ui-resizable-border-color-active)]',
+      'focus-visible:after:[border-color:var(--ui-resizable-border-color-active)]',
+      'focus-visible:after:[box-shadow:0_0_0_3px_var(--ui-focus-primary)]'
+    );
+  });
+
+  it('draws the vertical divider with the inline-start border', () => {
+    render(<Group />);
+    // Zero-width box painted by its inline-start border → the browser pixel-snaps
+    // the 1px line instead of translating a background across a fractional edge.
+    expect(screen.getByRole('separator')).toHaveClass(
+      'after:w-0',
+      'after:[border-inline-start-width:var(--ui-resizable-border-width)]'
+    );
+  });
+
+  it('draws the stacked divider with the block-start (top) border', () => {
+    render(<Group />);
+    // orientation=horizontal resets the inline-start border and paints the
+    // block-start (top) border so the full-width line renders.
+    expect(screen.getByRole('separator')).toHaveClass(
+      'aria-[orientation=horizontal]:after:[border-inline-start-width:0]',
+      'aria-[orientation=horizontal]:after:[border-block-start-width:var(--ui-resizable-border-width)]'
     );
   });
 });
