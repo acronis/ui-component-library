@@ -1,0 +1,14 @@
+spec_version: '1.0'
+component: ChartState
+name: chart-state
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  A shared loading / empty / error placeholder for the chart types, rendered in
+  place of the chart inside the same sized slot. A compact status block — a
+  leading glyph (spinner / inbox / warning) over a centered label, with an
+  optional retry action for the error state. Themes from the status/text
+  semantic tokens (not the `--ui-chart-*` data-viz palette — a state placeholder
+  carries status meaning, not series identity).
+since: 2.4.0

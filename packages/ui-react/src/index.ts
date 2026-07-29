@@ -33,6 +33,7 @@ export * from './components/ui/card-filter';
 export * from './components/ui/card-grid';
 export * from './components/ui/carousel';
 export * from './components/ui/chart';
+export * from './components/ui/chart-state';
 export * from './components/ui/checkbox';
 export * from './components/ui/checkbox-group';
 export * from './components/ui/chip';

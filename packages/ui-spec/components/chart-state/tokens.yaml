@@ -1,0 +1,25 @@
+spec_version: '1.0'
+component: ChartState
+
+# References only. Values live in @constructor-lab/tokens. ChartState themes from
+# the status/text semantic tokens, not the `--ui-chart-*` data-viz palette: a
+# state placeholder carries status meaning (info/warning), not series identity,
+# so the categorical chart palette is the wrong vocabulary here. The loading
+# glyph is the shared Spinner, which owns its own color token.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-text-on-surface-primary
+    affects: label
+    description: The state label text (bridged as `text-foreground`).
+  - name: --ui-glyph-on-status-info
+    affects: glyph
+    description: Empty-state inbox glyph color.
+  - name: --ui-glyph-on-status-warning
+    affects: glyph
+    description: Error-state warning glyph color.
+  - name: --ui-background-brand-secondary
+    affects: glyph
+    description: >-
+      Loading-state spinner ring color — inherited from the shared `Spinner`
+      (via `text-secondary`), listed here for completeness.

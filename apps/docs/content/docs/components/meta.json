@@ -55,6 +55,7 @@
     "table",
     "truncated-text",
     "chart",
+    "chart-state",
     "description-list",
     "alert",
     "empty",
