@@ -43,7 +43,9 @@ try {
   const fromRunner = createRequire(require.resolve('@playwright/test'));
   ({ chromium } = fromRunner('playwright'));
 } catch (error) {
-  console.error(`Cannot load playwright: ${String(error.message).split('\n')[0]}`);
+  console.error(
+    `Cannot load playwright: ${String(error.message).split('\n')[0]}`
+  );
   console.error('Run from packages/ui-react with dependencies installed.');
   process.exit(2);
 }
@@ -74,7 +76,9 @@ const wedged = [];
 const unmatched = [];
 
 for (const id of ids) {
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const page = await browser.newPage({
+    viewport: { width: 1280, height: 900 },
+  });
   try {
     await page.goto(`${BASE}/iframe.html?id=${id}&viewMode=story`, {
       waitUntil: 'load',
@@ -110,10 +114,14 @@ for (const id of ids) {
     const groupRows = await root.locator('[data-slot="group-row"]').count();
     const spacers = await root.locator('[data-slot="group-static"]').count();
     if (total === 0 && groupRows > 0 && spacers === 0) {
-      unmatched.push(`${id} (${groupRows} group rows, no spacer, 0 controls matched)`);
+      unmatched.push(
+        `${id} (${groupRows} group rows, no spacer, 0 controls matched)`
+      );
     }
     if (total === 0 && spacers > 0) {
-      console.log(`  ${id}: no disclosure by design (collapsible: false, ${spacers} spacers)`);
+      console.log(
+        `  ${id}: no disclosure by design (collapsible: false, ${spacers} spacers)`
+      );
     }
 
     for (let i = 0; i < total; i++) {
@@ -123,7 +131,9 @@ for (const id of ids) {
       // `el.click()` does not reproduce the defect.
       const outcome = await Promise.race([
         target.click({ timeout: CLICK_BUDGET_MS }).then(() => 'returned'),
-        new Promise((r) => setTimeout(() => r('wedged'), CLICK_BUDGET_MS + 500)),
+        new Promise((r) =>
+          setTimeout(() => r('wedged'), CLICK_BUDGET_MS + 500)
+        ),
       ]).catch(() => 'wedged');
       if (outcome === 'wedged') {
         wedged.push(`${id} (toggle ${i})`);
@@ -141,15 +151,21 @@ for (const id of ids) {
 
 await browser.close();
 
-console.log(`\nstories visited: ${visited}/${ids.length}   toggles clicked: ${clicks}`);
+console.log(
+  `\nstories visited: ${visited}/${ids.length}   toggles clicked: ${clicks}`
+);
 if (clicks === 0) {
-  console.error('NO TOGGLE WAS CLICKED — this run proves nothing. Check the selectors.');
+  console.error(
+    'NO TOGGLE WAS CLICKED — this run proves nothing. Check the selectors.'
+  );
   process.exit(2);
 }
 if (unmatched.length) {
   // A story that HAS group rows and matched no control was not exercised. Reporting
   // this as a pass is the failure shape this whole file exists to avoid.
-  console.error(`SELECTOR MISSED (${unmatched.length}) — these stories were NOT exercised:`);
+  console.error(
+    `SELECTOR MISSED (${unmatched.length}) — these stories were NOT exercised:`
+  );
   for (const u of unmatched) console.error(`  ${u}`);
   process.exit(2);
 }
