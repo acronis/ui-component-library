@@ -1,0 +1,66 @@
+spec_version: '1.0'
+component: Timeline
+
+# References only. Values live in @constructor-lab/tokens and resolve per
+# brand/theme at paint time; never restate values here. Timeline has no dedicated
+# token tier: every colour the Figma design references resolves to an existing
+# shared semantic token (verified against node 7615:7791's variables — the
+# connector's own vector is stroked #D6E4F5, i.e. exactly
+# --ui-border-on-surface-border). Geometry (16/8px padding, 8px radius, 32px
+# marker, 16px gaps) uses the Tailwind scale.
+#
+# The status pairing (`*-pressed` background + `text-on-status-*` glyph) is the
+# same one Metric's icon badge uses, so the two badges agree across the kit.
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-background-surface-primary
+    affects: card
+    description: The event card's surface (bg-background).
+  - name: --ui-border-on-surface-border
+    affects: card
+    description: >-
+      The event card's border and the connector rail's fill (border-border /
+      bg-border) — one token for both, as in the design.
+  - name: --ui-text-on-surface-primary
+    affects: title
+    description: Title and body text color (text-foreground).
+  - name: --ui-text-on-surface-secondary
+    affects: timestamp
+    description: Timestamp color (text-muted-foreground).
+  - name: --ui-background-status-neutral-pressed
+    affects: marker
+    description: Marker fill for status="neutral".
+  - name: --ui-text-on-status-neutral
+    affects: marker
+    description: Marker glyph/dot color for status="neutral".
+  - name: --ui-background-status-info-pressed
+    affects: marker
+    description: Marker fill for status="info".
+  - name: --ui-text-on-status-info
+    affects: marker
+    description: Marker glyph/dot color for status="info".
+  - name: --ui-background-status-success-pressed
+    affects: marker
+    description: Marker fill for status="success".
+  - name: --ui-text-on-status-success
+    affects: marker
+    description: Marker glyph/dot color for status="success".
+  - name: --ui-background-status-warning-pressed
+    affects: marker
+    description: Marker fill for status="warning".
+  - name: --ui-text-on-status-warning
+    affects: marker
+    description: Marker glyph/dot color for status="warning".
+  - name: --ui-background-status-danger-pressed
+    affects: marker
+    description: Marker fill for status="danger".
+  - name: --ui-text-on-status-danger
+    affects: marker
+    description: Marker glyph/dot color for status="danger".
+  - name: --ui-background-status-critical-pressed
+    affects: marker
+    description: Marker fill for status="critical".
+  - name: --ui-text-on-status-critical
+    affects: marker
+    description: Marker glyph/dot color for status="critical".

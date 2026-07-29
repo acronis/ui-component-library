@@ -394,4 +394,41 @@ describe('cva ↔ contract conformance', () => {
     expect(Object.keys(groups)).toEqual(['color']);
     expect(groups.color.sort()).toEqual(enumMembers(api, 'color'));
   });
+
+  it('TrendIndicator: api.yaml sentiment/size/variant enums match the cva keys in ui-react', () => {
+    const source = readFileSync(
+      resolve(
+        HERE,
+        '../../ui-react/src/components/ui/trend-indicator/trend-indicator.tsx'
+      ),
+      'utf8'
+    );
+    const groups = extractCvaGroups(source);
+    const api = loadSpec('trend-indicator').api;
+
+    // `direction` is deliberately NOT a cva axis — it selects the glyph, not a
+    // style — so it must not appear here even though it is an api.yaml enum.
+    expect(Object.keys(groups).sort()).toEqual([
+      'sentiment',
+      'size',
+      'variant',
+    ]);
+    for (const axis of ['sentiment', 'size', 'variant']) {
+      expect(groups[axis].sort(), axis).toEqual(enumMembers(api, axis));
+    }
+  });
+
+  it('Metric: api.yaml size/status enums match the cva keys in ui-react', () => {
+    const source = readFileSync(
+      resolve(HERE, '../../ui-react/src/components/ui/metric/metric.tsx'),
+      'utf8'
+    );
+    const groups = extractCvaGroups(source);
+    const api = loadSpec('metric').api;
+
+    expect(Object.keys(groups).sort()).toEqual(['size', 'status']);
+    for (const axis of ['size', 'status']) {
+      expect(groups[axis].sort(), axis).toEqual(enumMembers(api, axis));
+    }
+  });
 });

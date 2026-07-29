@@ -425,6 +425,14 @@
       "since": "1.1.0"
     },
     {
+      "name": "metric",
+      "component": "Metric",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "number-field",
       "component": "NumberField",
       "category": "forms",
@@ -649,6 +657,14 @@
       "since": "0.12.0"
     },
     {
+      "name": "timeline",
+      "component": "Timeline",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "toast",
       "component": "Toast",
       "category": "feedback",
@@ -695,6 +711,14 @@
       "status": "draft",
       "layer": "primitive",
       "since": "0.55.0"
+    },
+    {
+      "name": "trend-indicator",
+      "component": "TrendIndicator",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
     },
     {
       "name": "truncated-text",

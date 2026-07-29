@@ -1,0 +1,21 @@
+spec_version: '1.0'
+component: Timeline
+name: timeline
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  A chronological event list for activity feeds, audit logs and status history —
+  a semantic `<ol>`/`<li>` with a 32px status marker, a connector rail, and a
+  bordered content card holding a header (title + optional inline tag ·
+  right-aligned timestamp) over a free-form content slot, plus an optional
+  footer-actions row. Derived from the Figma `TimelineItem` component. Never
+  sorts, groups, fetches, formats a date, or ships domain event types.
+since: 2.4.0
+dependencies:
+  components:
+    - Avatar
+    - Tag
+figma:
+  node: '7615-7791'
+  codeConnect: packages/ui-react/src/components/ui/timeline/timeline.figma.tsx

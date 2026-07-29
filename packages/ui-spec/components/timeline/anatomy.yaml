@@ -1,0 +1,148 @@
+spec_version: '1.0'
+component: Timeline
+
+schematic: |
+  root: <ol>                                          (gap 16)
+   |
+   +-- item: <li>  flex, gap 16, items-start
+   |    (o) marker            +----------------------------------------+
+   |     |                    | title  [tag]              timestamp    |  header
+   |  connector               |----------------------------------------|
+   |     |                    | content  (description / Alert /        |  content
+   |     |                    |           properties / nested list)    |
+   |     |                    |----------------------------------------|
+   |     |                    | actions                                |  actions
+   |     |                    +----------------------------------------+
+   |     |                       ^ card (border + surface + radius 8)
+   +-- item: <li>  ...
+
+  marker    -> 32px status circle (or a slot: an Avatar)
+  connector -> 1px rail from the marker's bottom into the gap; hidden on the last item
+  status    -> marker tint only
+
+root:
+  element: ol
+  role: list
+  description: >-
+    The list — a semantic `<ol>`, so assistive tech announces the item count and
+    each item's position. Items are stacked with a 16px gap in the caller's
+    order; the kit never sorts or groups.
+
+parts:
+  - id: item
+    element: li
+    description: >-
+      One event. Lays out the marker, the connector rail, and the content card in
+      a row (16px gap, top-aligned). Mirrors the resolved `status` onto
+      `data-status`.
+  - id: marker
+    element: span
+    description: >-
+      The 32px mark beside the event. By default a status-tinted circle holding
+      the `icon` (or a centred dot), `aria-hidden` because it is decorative. The
+      `marker` prop replaces it wholesale — the design's own marker is an
+      `Avatar` instance.
+  - id: connector
+    element: span
+    description: >-
+      The 1px rail joining consecutive markers. Runs from the marker's bottom
+      edge, centred under it (a logical inset, so it follows the marker under
+      RTL), down through the 16px inter-item gap. Hidden on the last item.
+    optional: true
+    visible_when: the item is not the last in its list
+  - id: card
+    element: div
+    description: >-
+      The event's bordered surface (border, 8px radius, 16/8px padding) holding
+      the header, the content and the actions row.
+  - id: header
+    description: >-
+      Title (+ optional inline tag) on the leading edge, timestamp on the
+      trailing edge. Omitted entirely when the item has no title, tag or
+      timestamp.
+    optional: true
+    visible_when: a `title`, `tag` or `timestamp` is provided
+  - id: title
+    description: The event headline. Truncates when narrow.
+    optional: true
+    visible_when: a `title` is provided
+  - id: tag
+    description: Optional inline qualifier beside the title — e.g. a Tag.
+    optional: true
+    visible_when: a `tag` is provided
+  - id: timestamp
+    description: >-
+      When it happened, already formatted — right-aligned, muted, never wrapped.
+    optional: true
+    visible_when: a `timestamp` is provided
+  - id: content
+    description: >-
+      The event body (`children`) — a description and anything else the event
+      needs (an Alert, a DescriptionList, a Collapsible, a nested Timeline).
+    optional: true
+    visible_when: '`children` are provided'
+  - id: actions
+    description: >-
+      Footer-actions row under the content — links or ghost buttons.
+    optional: true
+    visible_when: an `actions` node is provided
+
+layout:
+  type: flex
+  direction: column
+  align: stretch
+  order: [item]
+
+# A pure function of its props: `status` is the only styling axis, and it only
+# reaches the marker. There is no `size`, `density` or `current` state — the
+# Figma component has no variant set, so nothing backs them.
+states:
+  - {
+      id: neutral,
+      trigger: "status === 'neutral'",
+      kind: prop,
+      prop: status,
+      affects: [marker],
+    }
+  - {
+      id: info,
+      trigger: "status === 'info'",
+      kind: prop,
+      prop: status,
+      affects: [marker],
+    }
+  - {
+      id: success,
+      trigger: "status === 'success'",
+      kind: prop,
+      prop: status,
+      affects: [marker],
+    }
+  - {
+      id: warning,
+      trigger: "status === 'warning'",
+      kind: prop,
+      prop: status,
+      affects: [marker],
+    }
+  - {
+      id: danger,
+      trigger: "status === 'danger'",
+      kind: prop,
+      prop: status,
+      affects: [marker],
+    }
+  - {
+      id: critical,
+      trigger: "status === 'critical'",
+      kind: prop,
+      prop: status,
+      affects: [marker],
+    }
+  - {
+      id: last-item,
+      trigger: 'the item is the last child of its list',
+      kind: pseudo,
+      pseudo: ':last-child',
+      affects: [connector],
+    }

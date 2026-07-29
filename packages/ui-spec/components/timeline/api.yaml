@@ -1,0 +1,112 @@
+spec_version: '1.0'
+component: Timeline
+
+# Two components: `Timeline` (the <ol>) and `TimelineItem` (the <li>), plus
+# `TimelineMarker` (the built-in status mark, also usable standalone). The
+# properties below are TimelineItem's — Timeline itself takes only children.
+#
+# `status` is the single cva axis (on the marker, where the tint is actually
+# applied); its enum matches the cva keys in the ui-react source.
+#
+# NOT in this contract, deliberately: `size`, `density`, and a `current` state.
+# The Figma `TimelineItem` (7615:7791) is a single symbol with **no variant set**,
+# so nothing on page 6025:24403 gives them design authority. Add them when Figma
+# introduces them — an unbacked variant axis is spec + VR surface with no design
+# behind it.
+contract:
+  properties:
+    - name: title
+      type: ReactNode
+      required: false
+      description: >-
+        Headline for the event — a person's name, an action, a state change.
+        Truncates when the row is narrow.
+    - name: timestamp
+      type: ReactNode
+      required: false
+      description: >-
+        When the event happened, already formatted — a moment
+        (`"Dec 22, 08:30 AM"`) or a range (`"01:54 AM – 03:54 AM (2 hrs)"`). The
+        kit never formats or localizes dates.
+    - name: tag
+      type: ReactNode
+      required: false
+      description: Inline qualifier beside the title — e.g. a `Tag` ("Internal note").
+    - name: marker
+      type: ReactNode
+      required: false
+      description: >-
+        Replaces the built-in status mark — e.g. an `Avatar` with initials, which
+        is what the design uses for person-authored events. When set, `status`
+        and `icon` no longer affect the mark.
+    - name: icon
+      type: ReactNode
+      required: false
+      description: >-
+        Icon rendered inside the built-in status mark. Without it the mark shows
+        a centred dot.
+    - name: status
+      type: "'neutral' | 'info' | 'success' | 'warning' | 'danger' | 'critical'"
+      required: false
+      default: neutral
+      description: >-
+        Semantic status — tints the marker only, pairing
+        `--ui-background-status-<s>-pressed` with `--ui-text-on-status-<s>` (the
+        same pairing Metric's icon badge uses). Never fills the content card.
+    - name: actions
+      type: ReactNode
+      required: false
+      description: >-
+        Footer-actions row below the content — e.g. `Link`s or ghost `Button`s
+        (the design's `FooterActions` slot).
+
+  content:
+    - name: default
+      description: >-
+        `Timeline`'s children are its `TimelineItem`s, in the caller's order.
+        `TimelineItem`'s children are the event body — a description, and
+        anything the event needs: an `Alert`, a `DescriptionList` of properties,
+        a `Collapsible`, even a nested `Timeline`.
+
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: Timeline
+    status: implemented
+    import: "import { Timeline, TimelineItem, TimelineMarker } from '@constructor-lab/ui-react'"
+    example: |
+      <Timeline>
+        <TimelineItem
+          marker={<Avatar color="green"><AvatarFallback>SJ</AvatarFallback></Avatar>}
+          title="Sarah Johnson"
+          timestamp="Dec 22, 08:30 AM"
+          tag={<Tag variant="success" size="sm">To customer</Tag>}
+        >
+          Confirmed the storage outage with the hosting provider.
+        </TimelineItem>
+        <TimelineItem
+          status="critical"
+          icon={<DiamondWarningIcon size={16} />}
+          title="Error — Protection plan failed"
+          timestamp="01:54 AM – 03:54 AM (2 hrs 0 min)"
+          actions={<Link href="/support">Get support</Link>}
+        >
+          The cloud storage is temporarily unavailable.
+        </TimelineItem>
+      </Timeline>
+  vue:
+    component: AvTimeline
+    status: planned
+    import: "import { AvTimeline, AvTimelineItem } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvTimeline>
+        <AvTimelineItem title="Ticket created" timestamp="Dec 22, 08:30 AM" />
+      </AvTimeline>
+  web-components:
+    element: ui-timeline
+    status: planned
+    import: "import '@constructor-lab/ui-wc/timeline'"
+    example: |
+      <ui-timeline><ui-timeline-item title="Ticket created"></ui-timeline-item></ui-timeline>

@@ -1,0 +1,107 @@
+---
+title: Metric
+description: A dashboard metric card — value, trend, status, and a composable body.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { MetricDemo } from '@/components/demos-react/metric';
+
+## Usage
+
+```tsx
+import { Metric } from '@constructor-lab/ui-react';
+```
+
+`Metric` is a presentational metric card: a label (+ optional caption) over a
+primary value — with an optional status-tinted icon badge, unit, and trend — plus
+an optional body for a chart, breakdown, or insight. It is purely presentational:
+the consumer passes a ready-formatted `value` and a resolved `status`; the kit
+never computes or formats the value, converts units, or decides whether a value
+is good or bad.
+
+> **Design-pending v1.** There is no Figma node for a metric card, so there is no
+> `--ui-metric-*` token tier: the composed [Card](/components/card) supplies the
+> surface and the shared semantic `--ui-*` vocabulary supplies the rest.
+
+## Examples
+
+<DemoReact>
+  <MetricDemo />
+</DemoReact>
+
+A simple metric with a unit, status, and a composed `TrendIndicator`:
+
+```tsx
+<Metric
+  label="Endpoint coverage"
+  value="94"
+  unit="%"
+  status="success"
+  icon={<ChartPieIcon />}
+  supportingText="Target: 98%"
+  trend={
+    <TrendIndicator
+      direction="up"
+      sentiment="positive"
+      value="2%"
+      size="small"
+    />
+  }
+/>
+```
+
+Metric is a Card, so drop a chart, a [`Meter`](/components/meter) breakdown, a
+`Separator`, or an insight line into its `children` to build a full dashboard
+tile:
+
+```tsx
+<Metric
+  label="At-risk customers"
+  status="critical"
+  icon={<ChartPieIcon />}
+  caption={<Tag>Now</Tag>}
+  value="3"
+  trend={
+    <TrendIndicator
+      direction="up"
+      sentiment="negative"
+      value="1"
+      size="small"
+    />
+  }
+>
+  <Meter value={46} max={54} className="gap-1">
+    <div className="flex items-center justify-between">
+      <MeterLabel className="text-xs font-normal">Healthy</MeterLabel>
+      <MeterValue className="text-xs" />
+    </div>
+    <MeterTrack className="h-1.5">
+      <MeterIndicator
+        style={{ background: 'var(--ui-background-status-strong-success)' }}
+      />
+    </MeterTrack>
+  </Meter>
+  <Separator className="my-3" />
+  <p>+3 customers predicted at-risk within 30 days.</p>
+</Metric>
+```
+
+`status` (`neutral`, `info`, `success`, `warning`, `danger`, `critical`) tints
+the **icon badge** only — the `--ui-background-status-<status>-pressed` fill with
+the `--ui-text-on-status-<status>` icon color — a subtle cue, never a full color
+fill, so many metrics read calmly together. [Timeline](/components/timeline)'s
+status marker uses the same pairing. No data is `value="—"`, not `0`.
+
+## Related
+
+- [TrendIndicator](/components/trend-indicator) — goes in the `trend` slot.
+- `WidgetValue` / `WidgetLabel` (in `widget`) and
+  [StatRow](/components/stat-row) cover adjacent ground and are kept for their
+  existing consumers. Don't add a fourth value-tile surface.
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/metric/metric.tsx"
+  name="MetricProps"
+/>

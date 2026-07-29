@@ -1,0 +1,21 @@
+spec_version: '1.0'
+component: Metric
+name: metric
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  A metric card built on `Card`: a label (+ optional info tooltip and top-right
+  caption) over a primary value (with an optional status-tinted icon badge, unit,
+  metadata badge and a composed `TrendIndicator`), optional supporting text, and
+  a composable `children` body. `size` scales the typography; `status` tints
+  **only** the icon badge, never a full fill; `loading` swaps the value for a
+  skeleton. Design-pending v1 (no Figma node for a metric card), so it reuses the
+  shared semantic tokens rather than owning a tier.
+since: 2.4.0
+dependencies:
+  components:
+    - Card
+    - Skeleton
+    - Tooltip
+    - TrendIndicator

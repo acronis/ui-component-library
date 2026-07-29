@@ -1,0 +1,100 @@
+---
+title: Timeline
+description: A chronological event list — activity feeds, audit logs, status history.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { TimelineDemo } from '@/components/demos-react/timeline';
+
+## Usage
+
+```tsx
+import {
+  Timeline,
+  TimelineItem,
+  TimelineMarker,
+} from '@constructor-lab/ui-react';
+```
+
+`Timeline` is a semantic `<ol>` of events. Each `TimelineItem` is an `<li>` laying
+out a 32px marker, a 1px connector rail, and a bordered content card holding a
+header (title + optional inline tag · right-aligned timestamp) over a free-form
+body, with an optional footer-actions row.
+
+It is purely presentational: it **never sorts, groups, paginates, fetches, or
+formats a date**. "Newest first" is the caller's decision, and `timestamp` arrives
+ready to render.
+
+## Examples
+
+<DemoReact>
+  <TimelineDemo />
+</DemoReact>
+
+```tsx
+<Timeline>
+  <TimelineItem
+    marker={
+      <Avatar color="green">
+        <AvatarFallback>SJ</AvatarFallback>
+      </Avatar>
+    }
+    title="Sarah Johnson"
+    timestamp="Dec 22, 08:30 AM"
+    tag={
+      <Tag variant="success" size="sm">
+        To customer
+      </Tag>
+    }
+  >
+    Confirmed the storage outage with the hosting provider.
+  </TimelineItem>
+
+  <TimelineItem
+    status="critical"
+    icon={<DiamondWarningIcon size={16} />}
+    title="Error — Protection plan failed"
+    timestamp="01:54 AM – 03:54 AM (2 hrs 0 min)"
+    actions={<Link href="/support">Get support</Link>}
+  >
+    <p>The cloud storage is temporarily unavailable.</p>
+    <DescriptionList>…</DescriptionList>
+  </TimelineItem>
+</Timeline>
+```
+
+### The marker is a slot
+
+In the design the marker is an [`Avatar`](/components/avatar) instance — initials
+for a person-authored event, or a type/status icon on a tinted circle. So `marker`
+is a slot: pass whatever mark the event deserves.
+
+Omit it and you get the built-in `TimelineMarker`: a status-tinted circle holding
+`icon`, or a centred dot. `status` (`neutral`, `info`, `success`, `warning`,
+`danger`, `critical`) tints **only** that marker — the
+`--ui-background-status-<status>-pressed` fill with the
+`--ui-text-on-status-<status>` glyph, the same pairing
+[Metric](/components/metric)'s icon badge uses. The content card keeps the plain
+surface, so a long feed of mixed statuses stays readable.
+
+### The body is free-form
+
+`children` is the event body. Beyond a description it takes an
+[`Alert`](/components/alert), a
+[`DescriptionList`](/components/description-list) of properties, a
+[`Collapsible`](/components/collapsible), or a **nested `Timeline`** for a run
+with sub-events — no extra props needed.
+
+### Deliberately absent from v1
+
+**No `size`, no `density`, no `current` state.** The Figma `TimelineItem` is a
+single symbol with no variant set, so nothing in the design gives those axes
+authority. They will arrive when Figma introduces them — their absence is a
+decision, not an oversight.
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/timeline/timeline.tsx"
+  name="TimelineItemProps"
+/>

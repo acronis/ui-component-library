@@ -70,6 +70,7 @@ export * from './components/ui/line-chart';
 export * from './components/ui/link';
 export * from './components/ui/menu';
 export * from './components/ui/meter';
+export * from './components/ui/metric';
 export * from './components/ui/navigation-menu';
 export * from './components/ui/number-field';
 export * from './components/ui/otp-field';
@@ -126,11 +127,13 @@ export {
   toast as notification,
   type ToasterProps as NotificationProps,
 } from './components/ui/toast';
+export * from './components/ui/timeline';
 export * from './components/ui/toggle-group';
 export * from './components/ui/toolbar';
 export * from './components/ui/tooltip';
 export * from './components/ui/tour';
 export * from './components/ui/tree';
+export * from './components/ui/trend-indicator';
 export * from './components/ui/truncated-text';
 export * from './components/ui/tag';
 // `Badge` is an alias of `Tag`. The legacy generic shadcn Badge is replaced by
