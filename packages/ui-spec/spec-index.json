@@ -25,6 +25,14 @@
       "since": "0.52.0"
     },
     {
+      "name": "area-chart",
+      "component": "AreaChart",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "aspect-ratio",
       "component": "AspectRatio",
       "category": "layout",
