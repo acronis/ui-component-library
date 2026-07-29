@@ -60,14 +60,26 @@ const config = {
 Stack the series by setting `layout="stacked"`:
 
 ```tsx
-<BarChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" layout="stacked" />
+<BarChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  layout="stacked"
+/>
 ```
 
 Lay the bars on their side with `orientation="horizontal"` (the category moves to
 the y-axis):
 
 ```tsx
-<BarChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" orientation="horizontal" />
+<BarChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  orientation="horizontal"
+/>
 ```
 
 Toggle the chrome and corner rounding with `showGrid` / `showTooltip` /

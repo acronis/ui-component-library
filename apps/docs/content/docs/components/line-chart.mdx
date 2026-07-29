@@ -67,13 +67,25 @@ Plot a single series by passing one `dataKey`:
 Change the interpolation with `curve` (`linear`, `monotone`, or `step`):
 
 ```tsx
-<LineChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" curve="step" />
+<LineChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  curve="step"
+/>
 ```
 
 Dash the strokes with `lineStyle="dashed"`:
 
 ```tsx
-<LineChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" lineStyle="dashed" />
+<LineChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  lineStyle="dashed"
+/>
 ```
 
 Toggle the chrome and per-point dots with `showGrid` / `showTooltip` /

@@ -62,14 +62,27 @@ const config = {
 Stack the series into one band with `layout="stacked"`:
 
 ```tsx
-<AreaChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" layout="stacked" />
+<AreaChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  layout="stacked"
+/>
 ```
 
 Use a flat translucent fill instead of the gradient with `fill="solid"` (tune it
 with `fillOpacity`):
 
 ```tsx
-<AreaChart config={config} data={data} dataKeys={['desktop', 'mobile']} xKey="month" fill="solid" fillOpacity={0.3} />
+<AreaChart
+  config={config}
+  data={data}
+  dataKeys={['desktop', 'mobile']}
+  xKey="month"
+  fill="solid"
+  fillOpacity={0.3}
+/>
 ```
 
 Change the interpolation with `curve` (`linear`, `monotone`, or `step`), and
