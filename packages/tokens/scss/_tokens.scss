@@ -642,6 +642,31 @@
   }
 
   :root, :host {
+    --ui-button-icon-input-error-container-color-active: var(--ui-background-status-danger-pressed);
+    --ui-button-icon-input-error-container-color-disabled: var(--ui-background-surface-transparent);
+    --ui-button-icon-input-error-container-color-hover: var(--ui-background-status-danger);
+    --ui-button-icon-input-error-container-color-idle: var(--ui-background-surface-transparent);
+    --ui-button-icon-input-error-icon-color-active: var(--ui-glyph-on-surface-destructive);
+    --ui-button-icon-input-error-icon-color-hover: var(--ui-glyph-on-surface-destructive);
+    --ui-button-icon-input-error-icon-color-idle: var(--ui-glyph-on-surface-destructive);
+    --ui-button-icon-input-error-icon-size: var(--ui-units-size-16);
+    --ui-button-icon-input-global-container-border-radius: var(--ui-units-radius-4);
+    --ui-button-icon-input-global-container-height: var(--ui-units-size-20);
+    --ui-button-icon-input-global-container-padding-x: var(--ui-units-gap-2);
+    --ui-button-icon-input-global-container-padding-y: var(--ui-units-gap-2);
+    --ui-button-icon-input-global-container-width: var(--ui-units-size-20);
+    --ui-button-icon-input-normal-container-color-active: var(--ui-background-surface-active);
+    --ui-button-icon-input-normal-container-color-disabled: var(--ui-background-surface-transparent);
+    --ui-button-icon-input-normal-container-color-hover: var(--ui-background-surface-hover);
+    --ui-button-icon-input-normal-container-color-idle: var(--ui-background-surface-transparent);
+    --ui-button-icon-input-normal-icon-color-active: var(--ui-glyph-on-surface-primary);
+    --ui-button-icon-input-normal-icon-color-disabled: var(--ui-glyph-on-surface-disabled);
+    --ui-button-icon-input-normal-icon-color-hover: var(--ui-glyph-on-surface-primary);
+    --ui-button-icon-input-normal-icon-color-idle: var(--ui-glyph-on-surface-primary);
+    --ui-button-icon-input-normal-icon-size: var(--ui-units-size-16);
+  }
+
+  :root, :host {
     --ui-button-menu-dropdown-container-border-color: var(--ui-border-on-surface-border-active);
     --ui-button-menu-dropdown-container-border-radius: var(--ui-units-radius-4);
     --ui-button-menu-dropdown-container-border-width: var(--ui-units-stroke-1);
@@ -910,6 +935,17 @@
   }
 
   :root, :host {
+    --ui-footer-carousel-color: transparent;
+    --ui-footer-default-border-color: var(--ui-border-on-surface-divider);
+    --ui-footer-default-border-style: solid;
+    --ui-footer-default-border-width: var(--ui-units-stroke-1);
+    --ui-footer-default-color: var(--ui-background-surface-primary);
+    --ui-footer-global-gap: var(--ui-units-gap-16);
+    --ui-footer-global-height: var(--ui-units-size-64);
+    --ui-footer-global-padding-x: var(--ui-units-gap-16);
+  }
+
+  :root, :host {
     --ui-input-date-picker-error-box-border-color-active: var(--ui-border-on-surface-border-error);
     --ui-input-date-picker-error-box-border-color-hover: var(--ui-border-on-surface-border-error);
     --ui-input-date-picker-error-box-border-color-idle: var(--ui-border-on-surface-border-error);
@@ -1004,6 +1040,80 @@
   }
 
   .ui-input-date-picker-normal-description-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+  }
+
+  :root, :host {
+    --ui-input-password-error-msg-box-border-color-hover: var(--ui-border-on-surface-border-error);
+    --ui-input-password-error-msg-box-border-color-idle: var(--ui-border-on-surface-border-error);
+    --ui-input-password-error-msg-error-color: var(--ui-text-on-surface-destructive);
+    --ui-input-password-global-box-border-radius: var(--ui-units-radius-4);
+    --ui-input-password-global-box-border-width: var(--ui-units-stroke-1);
+    --ui-input-password-global-box-color-disabled: var(--ui-background-surface-secondary);
+    --ui-input-password-global-box-color-hover: var(--ui-background-surface-primary);
+    --ui-input-password-global-box-color-idle: var(--ui-background-surface-primary);
+    --ui-input-password-global-box-gap: var(--ui-units-gap-12);
+    --ui-input-password-global-box-height: var(--ui-units-size-32);
+    --ui-input-password-global-box-padding-x: var(--ui-units-gap-12);
+    --ui-input-password-global-box-padding-y: var(--ui-units-gap-4);
+    --ui-input-password-global-container-gap: var(--ui-units-gap-4);
+    --ui-input-password-global-container-label-gap: var(--ui-units-gap-4);
+    --ui-input-password-global-container-width-min: var(--ui-units-size-128);
+    --ui-input-password-global-label-color-disabled: var(--ui-text-on-surface-disabled);
+    --ui-input-password-global-label-color-hover: var(--ui-text-on-surface-primary);
+    --ui-input-password-global-label-color-idle: var(--ui-text-on-surface-primary);
+    --ui-input-password-global-placeholder-color-disabled: var(--ui-text-on-surface-disabled);
+    --ui-input-password-global-placeholder-color-hover: var(--ui-text-on-surface-secondary);
+    --ui-input-password-global-placeholder-color-idle: var(--ui-text-on-surface-secondary);
+    --ui-input-password-global-required-color: var(--ui-text-on-surface-destructive);
+    --ui-input-password-global-value-color-disabled: var(--ui-text-on-surface-disabled);
+    --ui-input-password-global-value-color-hover: var(--ui-text-on-surface-primary);
+    --ui-input-password-global-value-color-idle: var(--ui-text-on-surface-primary);
+    --ui-input-password-normal-box-border-color-disabled: var(--ui-border-on-surface-border);
+    --ui-input-password-normal-box-border-color-hover: var(--ui-border-on-surface-border-active);
+    --ui-input-password-normal-box-border-color-idle: var(--ui-border-on-surface-border);
+    --ui-input-password-normal-description-color-disabled: var(--ui-text-on-surface-disabled);
+    --ui-input-password-normal-description-color-hover: var(--ui-text-on-surface-secondary);
+    --ui-input-password-normal-description-color-idle: var(--ui-text-on-surface-secondary);
+  }
+
+  .ui-input-password-error-msg-error-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+  }
+
+  .ui-input-password-global-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+  }
+
+  .ui-input-password-global-required-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-input-password-global-value-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-input-password-normal-description-text-style {
     font-family: Inter, system-ui, sans-serif;
     font-size: 12px;
     font-weight: 400;
@@ -1471,6 +1581,18 @@
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0px;
+  }
+
+  :root, :host {
+    --ui-popover-body-gap: var(--ui-units-gap-12);
+    --ui-popover-body-padding-y: var(--ui-units-gap-16);
+    --ui-popover-container-border-color: var(--ui-border-on-surface-border-active);
+    --ui-popover-container-border-radius: var(--ui-units-radius-4);
+    --ui-popover-container-border-style: solid;
+    --ui-popover-container-border-width: var(--ui-units-stroke-1);
+    --ui-popover-container-color: var(--ui-background-surface-primary);
+    --ui-popover-container-max-width: var(--ui-units-size-512);
+    --ui-popover-container-min-width: var(--ui-units-size-320);
   }
 
   :root, :host {
