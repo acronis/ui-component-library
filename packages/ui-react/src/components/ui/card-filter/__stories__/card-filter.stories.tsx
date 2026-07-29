@@ -59,6 +59,10 @@ export const Clickable: Story = {
   args: { variant: 'clickable' },
 };
 
+export const Selected: Story = {
+  args: { variant: 'clickable', selected: true },
+};
+
 export const Empty: Story = {
   args: { variant: 'static-empty', label: 'Pending' },
 };

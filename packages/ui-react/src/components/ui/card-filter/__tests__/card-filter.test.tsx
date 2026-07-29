@@ -95,5 +95,37 @@ describe('CardFilter', () => {
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', '/alerts');
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    // The `type` attribute is gated on `!render`, so it is NOT stamped onto the
+    // composed anchor (an invalid attribute for <a>).
+    expect(link).not.toHaveAttribute('type');
+  });
+
+  it('stamps type="button" only on the default clickable <button>', () => {
+    render(<CardFilter variant="clickable" label="Filters" value="3" />);
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+  });
+
+  it('reflects the controlled selected state via aria-pressed + data-selected', () => {
+    const { rerender } = render(
+      <CardFilter
+        variant="clickable"
+        label="Filters"
+        value="3"
+        selected={false}
+      />
+    );
+    const btn = screen.getByRole('button');
+    expect(btn).toHaveAttribute('aria-pressed', 'false');
+    expect(btn).not.toHaveAttribute('data-selected');
+    rerender(
+      <CardFilter variant="clickable" label="Filters" value="3" selected />
+    );
+    expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button')).toHaveAttribute('data-selected', 'true');
+  });
+
+  it('omits aria-pressed for a non-toggle clickable card (selected undefined)', () => {
+    render(<CardFilter variant="clickable" label="Filters" value="3" />);
+    expect(screen.getByRole('button')).not.toHaveAttribute('aria-pressed');
   });
 });
