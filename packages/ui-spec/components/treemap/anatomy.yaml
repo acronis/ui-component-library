@@ -1,0 +1,57 @@
+spec_version: '1.0'
+component: Treemap
+
+schematic: |
+  root: <div>                                        (sizing wrapper)
+    container: <ChartContainer>                      (themed, sized, responsive)
+      plot: recharts <Treemap dataKey nameKey aspectRatio>
+        tiles:  one <g> per node (custom content renderer)
+          rect:  the tile, filled from --color-<category>, gutter = surface
+          label: <text> the node name (leaf tiles large enough)
+        tooltip: <ChartTooltip> → tooltip-content    (hover card of the tile)
+
+root:
+  element: div
+  description: >-
+    The sizing wrapper. Treemap has no variant axis — it renders the shared
+    `ChartContainer` around the recharts `Treemap`; the hierarchy, `aspectRatio`,
+    and the data mapping are plain props.
+
+parts:
+  - id: container
+    element: div
+    description: >-
+      The shared `ChartContainer` — supplies the per-category `--color-<name>`
+      custom properties from `config` and themes recharts' internals.
+  - id: plot
+    element: svg
+    description: The recharts `Treemap` holding the tiles and their chrome.
+  - id: tiles
+    element: g
+    description: >-
+      One node per rectangle, drawn by a custom content renderer. Each tile fills
+      from its top-level category's `--color-<name>` var; the gutter between tiles
+      is painted with the surface so tiles separate cleanly in light and dark.
+  - id: label
+    element: text
+    description: >-
+      The node's `nameKey` label, centered on leaf tiles large enough to hold it.
+      Rendered when `showLabels`; uses the on-color text token since it sits on
+      the theme-invariant category color.
+  - id: tooltip-content
+    element: div
+    description: >-
+      `ChartTooltipContent` — hover card with the hovered tile's name and value.
+      Rendered when `showTooltip`.
+
+states:
+  - id: aspect-ratio
+    trigger: the aspectRatio prop sets the preferred tile width/height ratio
+    kind: prop
+    prop: aspectRatio
+    affects: [tiles]
+  - id: labels
+    trigger: the showLabels prop draws the node name on tiles large enough
+    kind: prop
+    prop: showLabels
+    affects: [label]

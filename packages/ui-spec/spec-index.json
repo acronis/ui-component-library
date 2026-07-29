@@ -753,6 +753,14 @@
       "since": "0.55.0"
     },
     {
+      "name": "treemap",
+      "component": "Treemap",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "trend-indicator",
       "component": "TrendIndicator",
       "category": "data-display",

@@ -1,0 +1,13 @@
+spec_version: '1.0'
+component: Treemap
+name: treemap
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  A typed treemap over the shared `Chart` primitives. Packs a hierarchy into
+  nested rectangles sized by `dataKey`; each top-level category owns a color and
+  its leaves inherit it, separated by a surface-colored gutter. No variant axes —
+  its expressiveness is the hierarchy and the tile `aspectRatio`, plus the data
+  mapping. Category colors bind to the theme-invariant `--ui-chart-*` palette.
+since: 2.4.0

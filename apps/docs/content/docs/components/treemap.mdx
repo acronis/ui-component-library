@@ -1,0 +1,104 @@
+---
+title: Treemap
+description: A typed treemap for hierarchical part-to-whole comparison.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { TreemapDemo } from '@/components/demos-react/treemap';
+
+## Usage
+
+```tsx
+import { Treemap } from '@constructor-lab/ui-react';
+import type { ChartConfig, TreemapDatum } from '@constructor-lab/ui-react';
+```
+
+`Treemap` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it a hierarchical `data` array (top-level categories, each with
+`children`), a per-category `config`, the value field (`dataKey`), and the label
+field (`nameKey`) — it renders a themed recharts treemap (tiles, on-tile labels,
+and tooltip included), so you don't hand-compose recharts children or write the
+custom tile renderer.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant. The chrome is
+> reconciled with Figma later.
+
+## Examples
+
+<DemoReact>
+  <TreemapDemo />
+</DemoReact>
+
+A two-level hierarchy, each category a color and its leaves the same color
+separated by a surface gutter:
+
+```tsx
+const data: TreemapDatum[] = [
+  {
+    name: 'Frontend',
+    children: [
+      { name: 'React', size: 3000 },
+      { name: 'Vue', size: 2000 },
+    ],
+  },
+  {
+    name: 'Backend',
+    children: [
+      { name: 'Node.js', size: 2500 },
+      { name: 'Python', size: 2200 },
+    ],
+  },
+];
+
+const config = {
+  Frontend: { label: 'Frontend', color: 'var(--ui-chart-1)' },
+  Backend: { label: 'Backend', color: 'var(--ui-chart-2)' },
+} satisfies ChartConfig;
+
+<Treemap
+  config={config}
+  data={data}
+  dataKey="size"
+  nameKey="name"
+  className="h-[400px] w-full"
+/>;
+```
+
+`Treemap` has no variant axis — its expressiveness is the hierarchy and the
+tiling. Favor squarer tiles with `aspectRatio`, and toggle the chrome with
+`showLabels` / `showTooltip`:
+
+```tsx
+<Treemap config={config} data={data} dataKey="size" nameKey="name" aspectRatio={1} />;
+```
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { Treemap, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<Treemap
+  config={config}
+  data={data}
+  dataKey="size"
+  nameKey="name"
+  tooltipContent={
+    <ChartTooltipContent
+      nameKey="name"
+      hideLabel
+      formatter={(value, name) => `${name}: ${value}`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/treemap/treemap.tsx"
+  name="TreemapProps"
+/>

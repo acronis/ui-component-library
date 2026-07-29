@@ -138,6 +138,7 @@ export * from './components/ui/toolbar';
 export * from './components/ui/tooltip';
 export * from './components/ui/tour';
 export * from './components/ui/tree';
+export * from './components/ui/treemap';
 export * from './components/ui/trend-indicator';
 export * from './components/ui/truncated-text';
 export * from './components/ui/tag';

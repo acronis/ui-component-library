@@ -1,0 +1,88 @@
+spec_version: '1.0'
+component: Treemap
+
+# Framework-agnostic contract. Treemap has NO cva variant axis — its
+# expressiveness is the hierarchy + the tile aspectRatio + the data mapping, so
+# there is nothing for the cva conformance check to compare. `data` / `config` /
+# `dataKey` / `nameKey` are the data contract; the rest tune the tiling and
+# chrome.
+contract:
+  properties:
+    - name: data
+      type: ReadonlyArray<TreemapDatum>
+      required: true
+      description: >-
+        Hierarchical data. Top-level entries are the color categories; their
+        `children` are the leaves. Each leaf holds a `dataKey` numeric value;
+        each node holds a `nameKey` label.
+    - name: config
+      type: ChartConfig
+      required: true
+      description: >-
+        Per-category map of label / color, keyed by the top-level entry's
+        `nameKey` value (from the shared Chart primitives). Turned into
+        `--color-<name>` custom properties. Colors are caller-supplied.
+    - name: dataKey
+      type: string
+      required: true
+      description: The numeric field that sizes each tile.
+    - name: nameKey
+      type: string
+      required: false
+      default: "'name'"
+      description: >-
+        The label field that names each node (drives the on-tile label, the
+        tooltip, and the top-level `--color-<name>` lookup). Top-level values
+        should be unique and CSS-safe — they become part of a custom-property
+        name.
+    - name: aspectRatio
+      type: number
+      required: false
+      default: '1.3333'
+      description: Preferred width/height ratio of the tiles (default 4/3).
+    - name: showLabels
+      type: boolean
+      required: false
+      default: 'true'
+      description: Draw the node name on tiles large enough to hold it.
+    - name: showTooltip
+      type: boolean
+      required: false
+      default: 'true'
+      description: Render the hover tooltip.
+    - name: tooltipContent
+      type: 'ReactElement | ((props) => ReactNode)'
+      required: false
+      description: >-
+        Replace the default tooltip. Pass a configured ChartTooltipContent (from
+        this library) — e.g. with a formatter / labelFormatter — to customize the
+        tooltip content without composing recharts. Ignored when showTooltip is
+        false.
+  events: []
+  methods: []
+
+adapters:
+  react:
+    component: Treemap
+    status: implemented
+    import: "import { Treemap } from '@constructor-lab/ui-react'"
+    example: |
+      <Treemap
+        config={config}
+        data={data}
+        dataKey="size"
+        nameKey="name"
+        className="h-[400px] w-full"
+      />
+  vue:
+    component: AvTreemap
+    status: planned
+    import: "import { AvTreemap } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvTreemap :config="config" :data="data" data-key="size" name-key="name" />
+  web-components:
+    element: ui-treemap
+    status: planned
+    import: "import '@constructor-lab/ui-wc/treemap'"
+    example: |
+      <ui-treemap></ui-treemap>
