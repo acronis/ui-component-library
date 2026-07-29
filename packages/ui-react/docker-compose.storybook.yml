@@ -47,9 +47,15 @@ services:
   # config; `test-runner-jest.config.js` at the package root sets
   # `testTimeout: 60_000`, which jest honours. The failure is CONTENTION-dependent
   # (those suites pass 9/9 alone at 15 s; they only blow the limit under the full
-  # ~163-suite corpus at `--maxWorkers=4` on emulated CPU), so a generous ceiling
-  # clears it without touching `maxWorkers` and without slowing the run — only a
-  # test that would otherwise time out takes longer.
+  # ~163-suite corpus on emulated CPU — and worse under memory pressure: the
+  # `linux/amd64` image on an `arm64` host can hit Docker's RAM ceiling and
+  # thrash, which is what scattered 196–253 s timeouts across UNRELATED suites
+  # like tour/calendar/checkbox point to). Worker count is the `VISUAL_MAX_WORKERS`
+  # knob below (default 4 for CI, which has neither emulation nor that pressure);
+  # lowering it on an emulated host — e.g. 2 — gives MORE headroom per suite, so
+  # this 60s ceiling gets more comfortable, not less. The generous ceiling clears
+  # the timeout regardless of worker count; only a test that would otherwise time
+  # out takes longer.
   test-runner:
     build:
       context: ../..
@@ -59,10 +65,15 @@ services:
     # `sh -c` so `$$VISUAL_TEST_ARGS` expands *inside* the container (the `$$`
     # escapes Compose's own interpolation). Unquoted on purpose: it must
     # word-split into separate argv entries.
+    # `${VISUAL_MAX_WORKERS:-4}` (single `$`) is the opposite: Compose interpolates
+    # it from the host env at parse time — default 4 (unchanged for CI), lower it
+    # (e.g. VISUAL_MAX_WORKERS=2) on an emulated/RAM-constrained host. `:-` also
+    # covers an EMPTY value, falling back to 4 rather than emitting a bare
+    # `--maxWorkers=` (same empty-string guard as VISUAL_FAILURE_THRESHOLD below).
     command:
       - sh
       - -c
-      - pnpm exec test-storybook --url http://storybook:6006 --maxWorkers=4 $$VISUAL_TEST_ARGS
+      - pnpm exec test-storybook --url http://storybook:6006 --maxWorkers=${VISUAL_MAX_WORKERS:-4} $$VISUAL_TEST_ARGS
     environment:
       - STORYBOOK_COLOR_MODE=${STORYBOOK_COLOR_MODE:-light}
       # Extra args forwarded by scripts/visual-capture.mjs (e.g. a jest
