@@ -101,7 +101,8 @@ export function createBandStrippedTooltip(tooltipContent: TooltipContentType) {
           tooltipContent as React.FunctionComponent<TooltipRenderProps>,
           merged
         )
-      : React.cloneElement(tooltipContent, merged);
+      : // eslint-disable-next-line @eslint-react/no-clone-element -- deliberate: mirrors recharts' own element-form mount (cloneElement) so a caller's element tooltip keeps identity/state, exactly as passing `content` straight to recharts would.
+        React.cloneElement(tooltipContent, merged);
   };
 }
 

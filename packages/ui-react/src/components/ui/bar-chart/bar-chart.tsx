@@ -275,6 +275,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               if (value === undefined) return null;
               return (
                 <ReferenceLine
+                  // eslint-disable-next-line @eslint-react/no-array-index-key -- reference lines have no stable id and labels may repeat/be absent, so the index disambiguates the key.
                   key={`${line.label ?? 'ref'}-${index}`}
                   // Draw on the value axis: Y for vertical bars, X for horizontal.
                   {...(orientation === 'horizontal'

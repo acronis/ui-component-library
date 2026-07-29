@@ -147,6 +147,7 @@ const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
                 // Keyed by index, not the name: two rows may share a nameKey
                 // value, which would collide as a React key. Same-named rows
                 // intentionally share a color/config entry via `--color-<name>`.
+                // eslint-disable-next-line @eslint-react/no-array-index-key -- see above: nameKey is not guaranteed unique, index is the only collision-free key here.
                 <Cell key={index} fill={`var(--color-${entry[nameKey]})`} />
               ))}
               {shape === 'donut' && centerLabel && (
