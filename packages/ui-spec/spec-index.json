@@ -521,6 +521,14 @@
       "since": "0.43.0"
     },
     {
+      "name": "radar-chart",
+      "component": "RadarChart",
+      "category": "data-display",
+      "status": "draft",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "radio",
       "component": "RadioGroup",
       "category": "forms",

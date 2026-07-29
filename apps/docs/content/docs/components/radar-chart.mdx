@@ -1,0 +1,91 @@
+---
+title: RadarChart
+description: A typed radar (spider) chart for multi-axis profile comparison.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { RadarChartDemo } from '@/components/demos-react/radar-chart';
+
+## Usage
+
+```tsx
+import { RadarChart } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`RadarChart` is a typed composition over the shared [`Chart`](/components/chart)
+primitives — the kit's first polar chart type. Give it `data` (one row per axis),
+a per-series `config`, the series to plot (`dataKeys`), and the categorical axis
+key (`angleKey`) — it renders a themed recharts radar (web, spokes, tooltip, and
+legend included), so you don't hand-compose recharts children.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant. The chrome is
+> reconciled with Figma later.
+
+## Examples
+
+<DemoReact>
+  <RadarChartDemo />
+</DemoReact>
+
+Two profiles across the same set of axes:
+
+```tsx
+const data = [
+  { subject: 'Math', alice: 120, bob: 110 },
+  { subject: 'English', alice: 86, bob: 130 },
+  { subject: 'Physics', alice: 85, bob: 90 },
+  { subject: 'History', alice: 65, bob: 85 },
+];
+
+const config = {
+  alice: { label: 'Alice', color: 'var(--ui-chart-1)' },
+  bob: { label: 'Bob', color: 'var(--ui-chart-2)' },
+} satisfies ChartConfig;
+
+<RadarChart
+  config={config}
+  data={data}
+  dataKeys={['alice', 'bob']}
+  angleKey="subject"
+  className="h-[380px] w-[420px]"
+/>;
+```
+
+Switch the web to concentric circles with `gridType="circle"`, tune the marks
+with `fillOpacity` / `strokeWidth` / `showDots`, and toggle the chrome with
+`showGrid` / `showTooltip` / `showLegend`:
+
+```tsx
+<RadarChart config={config} data={data} dataKeys={['alice', 'bob']} angleKey="subject" gridType="circle" showDots />
+```
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { RadarChart, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<RadarChart
+  config={config}
+  data={data}
+  dataKeys={['alice', 'bob']}
+  angleKey="subject"
+  tooltipContent={
+    <ChartTooltipContent
+      labelFormatter={(label) => `${label} · score`}
+      formatter={(value, name) => `${name}: ${value}`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/radar-chart/radar-chart.tsx"
+  name="RadarChartProps"
+/>

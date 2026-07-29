@@ -1,0 +1,13 @@
+spec_version: '1.0'
+component: RadarChart
+name: radar-chart
+status: draft
+category: data-display
+layer: primitive
+description: >-
+  A typed radar (spider) chart over the shared `Chart` primitives — the first
+  polar chart type. Plots one `<Radar>` per `dataKeys` entry around a categorical
+  `angleKey` web, inside a `ChartContainer` with tooltip and legend chrome. One
+  variant axis: `gridType` (straight-edged `polygon` rings vs smooth `circle`
+  rings). Series colors bind to the theme-invariant `--ui-chart-*` palette.
+since: 2.4.0

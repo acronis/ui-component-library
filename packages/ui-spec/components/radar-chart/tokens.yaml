@@ -1,0 +1,25 @@
+spec_version: '1.0'
+component: RadarChart
+
+# References only. Values live in @constructor-lab/tokens. RadarChart has no token
+# tier of its own — series colors are caller-supplied via `config`, bound to the
+# theme-invariant `--ui-chart-*` data-viz palette. The chrome (tooltip, legend,
+# grid) is inherited from the shared Chart primitives; the polar spoke labels are
+# scoped to the muted-foreground token locally (a Chart-primitives gap).
+source: '@constructor-lab/tokens'
+
+tokens:
+  - name: --ui-background-surface-primary
+    affects: tooltip-content
+    description: Tooltip surface (bg-background).
+  - name: --ui-text-on-surface-primary
+    affects: tooltip-content
+    description: Tooltip value text (text-foreground).
+  - name: --ui-text-on-surface-secondary
+    affects: angle-axis
+    description: >-
+      Muted tooltip/legend label text and the polar spoke labels
+      (text-muted-foreground / fill-muted-foreground).
+  - name: --ui-border-on-surface-border
+    affects: grid
+    description: Tooltip border and the polar web lines (border-border / stroke-border).
