@@ -1,6 +1,6 @@
 # UI Components library — Roadmap
 
-> Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-07-05
+> Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-07-29
 > The roadmap substance below is current, but its GitHub tracking is **inherited
 > from the upstream `acronis/uikit` project** ("User Interface Kit Development"):
 > the 7 epics as issues **#102–108** and ~98 task sub-issues with Status / Phase
@@ -56,21 +56,83 @@ build on.** `ui-legacy` (`shadcn-uikit`) has been removed from this repo;
 
 ## Current state (baseline)
 
-| Area            | Package                                      | Version | Maturity                                              |
-| --------------- | -------------------------------------------- | ------- | ----------------------------------------------------- |
-| **Library**     | `ui-react`                                   | 0.54.0  | **~79 components in tree** (Tier 1–3 broadly covered) |
-| Tokens          | `tokens`                                     | 1.9.0   | DTCG JSON, Figma-synced, ajv-validated                |
-| Token artifacts | `tokens` (built by `tools/style-dictionary`) | 1.9.0   | Per-brand CSS + Tailwind presets                      |
-| Icons           | `icons-react`                                | 0.5.0   | Generated from `icons-svg`                            |
-| Apps            | demo · docs · demos                          | 0.1–0.4 | Scaffolded showcases                                  |
+| Area            | Package                                      | Version | Maturity                                                                                                         |
+| --------------- | -------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Library**     | `ui-react`                                   | 2.3.0   | **105 components in tree** (Tier 1–3 covered; charts + dashboard primitives added by the upstream borrow, below) |
+| Tokens          | `tokens`                                     | 3.0.0   | DTCG JSON, Figma-synced, ajv-validated                                                                           |
+| Token artifacts | `tokens` (built by `tools/style-dictionary`) | 3.0.0   | Per-brand CSS + Tailwind bridge                                                                                  |
+| Icons           | `icons-react`                                | 0.5.0   | Generated from `icons-svg`                                                                                       |
+| Apps            | demo · docs · demos                          | 0.1–0.4 | Scaffolded showcases                                                                                             |
 
-**Where the plan now stands:** ui-react has grown from 2 to **~79 components**
-(virtually all have a Vitest test and a Storybook story; ~66 carry Figma Code
+**Where the plan now stands:** ui-react has grown from 2 to **105 components**
+(virtually all have a Vitest test and a Storybook story; most carry Figma Code
 Connect). Tier 1 (form/overlay) and Tier 2 (composites) are in tree, and most of
 Tier 3 (layout/shell/design-system) has landed. The complex set
-(Calendar · Tree · Carousel · Command) has shipped. The remaining roadmap work is
+(Calendar · Tree · Carousel · Command) has shipped, and the upstream harvest below
+added the chart family and the dashboard primitives. The remaining roadmap work is
 **depth/polish per component to the full DoD and the v1 hardening pass** (a11y,
 visual regression, docs) — not greenfield primitives.
+
+One caveat that now shapes the hardening pass: **visual-regression capture is not
+reliably runnable on an arm64 dev machine** (amd64 emulation plus an 8 GB Docker
+ceiling), so VR belongs on CI. Four consecutive local capture attempts failed for
+four _different_ environmental reasons and none was a code defect — see the
+outstanding-work notes below.
+
+---
+
+## Upstream harvest from `acronis/uikit` (2026-07-29)
+
+**Why:** `acronis/uikit` is an actively-developed sibling that **renders from the same
+Figma file** (`lrU3ydIyvPYQNE6ixdsKtJ`). It merged ~37 PRs in a month while this repo
+spent that month on the DataTable/DataGrid cluster (#74). Because the design source is
+shared, a divergence they corrected is a **candidate defect here** — which is what made
+their small per-component "sync with Figma" fixes the highest value-per-line thing to
+mine. Full plan and audit addendum: `.ai/explorations/upstream-borrow-audit.md`.
+
+### Landed on `main`
+
+|                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Cross-cutting** (#76)        | A first-ever `@layer base` reset (font-smoothing, global `text-underline-offset`, shadow-root-safe `font-family`) · a pinned `--ui-breakpoint-*` scale published as CSS **and** JS constants, with a drift-guard test across all three representations · `PortalContainerProvider` + `usePortalContainer` wired into 13 portalling components (explicit prop still wins) · the RTL residue sweep                                                                                                                                                                  |
+| **Design parity** (#78)        | Six confirmed Figma divergences, plus a **systemic** fix: `cursor-pointer` was missing from the base class of eight interactive surfaces. Fixed at the base and guarded by a new grammar rule `interaction/interactive-cursor` (checklist I7, severity `should`), whose detector immediately found three more cases beyond the audit's list. Also card-filter's invalid `type` on a render-prop anchor, clear-button hover states, the chart tooltip rewired to the Tooltip tier, a menu focus ring, and the resizable divider pixel-snapped via a logical border |
+| **Charts 2a** (#78)            | `ChartState` · `BarChart` · `LineChart` · `AreaChart` · `PieChart` — typed recharts compositions consuming the existing `chart/` primitives unchanged, with series marks bound to our `--ui-chart-*` palette (upstream has no such palette)                                                                                                                                                                                                                                                                                                                       |
+| **Dashboard primitives** (#79) | `TrendIndicator` · `Metric` · `Timeline` (the last derived from Figma node `7615:7791`, not ported) plus the `Avatar` fix that exposed three colour schemes whose tokens were already emitted but unreachable                                                                                                                                                                                                                                                                                                                                                     |
+| **Release gate** (#76)         | `release.yml`'s "Validate design packages" step matched **no package** and silently exited 0 — every release reported a validation it never ran                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+### Outstanding
+
+- **PR #80 — charts 2b** (`scatter` · `composed` · `funnel` · `radar` · `radialBar` ·
+  `treemap` · `histogram` · `confidenceCone`). Source complete and green; **must not merge
+  until 36 missing dark baselines land** — six of eight types are light-only, so dark-mode
+  regressions in them are invisible to CI. See the tracked task for the root cause (four
+  capture attempts, four distinct environmental causes) and the one-line fix.
+- **PR #81** — prettier fix for three chart `.mdx` pages the #78 squash carried in
+  unformatted.
+- **Track 3** — the four token tiers (`ButtonIconInput`, `InputPassword`, `Footer`,
+  `Popover`) are emitted and gate-verified additions-only; the two components are unbuilt.
+  `Footer` and `Popover` unblock Popover's Figma sync and Dialog's footer tier.
+- **`Loading`** — approved. Its token tier emits 20 values, **all dead**, plus 5 backdrop
+  semantics dead beneath it (25 total). Invisible to both existing guards because the tier
+  is named `Loading` while the shipped component is `spinner`.
+- **Deferred with decisions recorded** — the sidebar label-overflow mechanism; the
+  kit-wide Figma-stroke-vs-CSS-border convention (two alignments, one CSS mechanism, no
+  translation rule); a reverse-direction token guard; the `release.yml` → `ci.yml`
+  dependency (approved, but landing it while Actions billing is unpaid would freeze
+  releases).
+
+### What the audits found, beyond the components
+
+- **369 emitted-but-unconsumed `--ui-*` tokens**, and no guard for that direction at all:
+  component→token is covered (grammar T6 `no-dangling-var`, `must`), Figma→token is covered
+  (`/token-gap-check`), **token→any consumer is not**. A dangling `var()` fails silently; an
+  unconsumed token fails _invisibly_, and in two confirmed cases it capped a component's
+  public API below its own design.
+- **An accessibility defect no test could see.** Treemap tile labels were white on
+  `--ui-chart-*` fills — failing WCAG on **13 of 15** palette colours (worst 1.63:1 against
+  the yellow). A fixed on-chart text token cannot exist, because the palette spans 1.63:1 to
+  5.70:1 against white; the adopted convention is a `paint-order: stroke` halo, recorded in
+  the grammar ledger. An audit of all 13 chart types confirmed treemap was the only instance.
 
 ---
 
@@ -222,8 +284,8 @@ Ratified v1.0 criteria (#191):
 | **P4 — Data/Table**                      | **Aug–Sep**   | E3 Table cluster (#44–49, #86); complex components already shipped        | Table: sticky/resizable/sort + Data Table    |
 | **🎯 v1 GA**                             | **end Sep**   | E7 1.0 criteria + visual regression                                       | ui-react v1 released                         |
 
-> **Reality check (updated 2026-07-05).** ui-react has reached **~79 components in
-> tree** — the breadth target for v1 is largely met, well ahead of the original
+> **Reality check (updated 2026-07-29).** ui-react has reached **105 components in
+> tree** — the breadth target for v1 is comfortably met, well ahead of the original
 > "2/82" baseline. The complex set (Calendar · Tree · Carousel · Command) has
 > shipped. The remaining risk has shifted from _breadth_ to _depth_: bringing each
 > component to the full DoD, finishing the Table cluster (#44/#46/#48), and the
