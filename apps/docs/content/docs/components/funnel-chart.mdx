@@ -1,0 +1,97 @@
+---
+title: FunnelChart
+description: A typed funnel chart for stage progression and drop-off.
+---
+
+import { DemoReact } from '@/components/DemoReact';
+import { FunnelChartDemo } from '@/components/demos-react/funnel-chart';
+
+## Usage
+
+```tsx
+import { FunnelChart } from '@constructor-lab/ui-react';
+import type { ChartConfig } from '@constructor-lab/ui-react';
+```
+
+`FunnelChart` is a typed composition over the shared [`Chart`](/components/chart)
+primitives. Give it `data` (one row per stage), a per-stage `config`, the value
+field (`dataKey`), and the label field (`nameKey`) — it renders a themed recharts
+funnel (tooltip and on-chart labels included), so you don't hand-compose recharts
+children.
+
+Each stage's `config` entry (keyed by its `nameKey` value) supplies the color via
+the `--color-<name>` mechanism.
+
+> **Design-pending v1.** The example colors bind to the `--ui-chart-*` data-viz
+> palette — a categorical set that is deliberately theme-invariant. The chrome is
+> reconciled with Figma later.
+
+## Examples
+
+<DemoReact>
+  <FunnelChartDemo />
+</DemoReact>
+
+A conversion funnel narrowing to a point:
+
+```tsx
+const data = [
+  { stage: 'Visits', value: 5000 },
+  { stage: 'Signups', value: 2600 },
+  { stage: 'Trials', value: 1400 },
+  { stage: 'Purchases', value: 620 },
+];
+
+const config = {
+  Visits: { label: 'Visits', color: 'var(--ui-chart-1)' },
+  Signups: { label: 'Signups', color: 'var(--ui-chart-2)' },
+  Trials: { label: 'Trials', color: 'var(--ui-chart-3)' },
+  Purchases: { label: 'Purchases', color: 'var(--ui-chart-4)' },
+} satisfies ChartConfig;
+
+<FunnelChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="stage"
+  className="h-[380px] w-[460px]"
+/>;
+```
+
+End the funnel flat with `lastShape="rectangle"`, flip the taper with `reversed`,
+and toggle the on-chart labels / tooltip with `showLabels` / `showTooltip`:
+
+```tsx
+<FunnelChart config={config} data={data} dataKey="value" nameKey="stage" lastShape="rectangle" />
+<FunnelChart config={config} data={data} dataKey="value" nameKey="stage" reversed />
+```
+
+## Custom tooltip
+
+Replace the tooltip with a configured `ChartTooltipContent` — imported from the
+same library, so you never compose recharts yourself:
+
+```tsx
+import { FunnelChart, ChartTooltipContent } from '@constructor-lab/ui-react';
+
+<FunnelChart
+  config={config}
+  data={data}
+  dataKey="value"
+  nameKey="stage"
+  tooltipContent={
+    <ChartTooltipContent
+      nameKey="stage"
+      hideLabel
+      formatter={(value, name) => `${name}: ${Number(value).toLocaleString()}`}
+    />
+  }
+/>;
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="../../packages/ui-react/src/components/ui/funnel-chart/funnel-chart.tsx"
+  name="FunnelChartProps"
+/>

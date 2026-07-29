@@ -1,0 +1,56 @@
+spec_version: '1.0'
+component: FunnelChart
+
+schematic: |
+  root: <div data-last-shape>                       (variant wrapper)
+    container: <ChartContainer>                     (themed, sized, responsive)
+      plot: recharts <FunnelChart>
+        funnel:  <Funnel dataKey nameKey lastShapeType reversed>
+          cells:  one <Cell> per stage (filled from --color-<name>)
+          labels: <LabelList> stage names beside each segment (when showLabels)
+        tooltip: <ChartTooltip> → tooltip-content   (hover card of the stage)
+
+root:
+  element: div
+  description: >-
+    The variant wrapper. Carries the CVA `lastShape` class and mirrors the
+    resolved value onto `data-last-shape`, then renders the shared
+    `ChartContainer` around the recharts `FunnelChart`.
+
+parts:
+  - id: container
+    element: div
+    description: >-
+      The shared `ChartContainer` — supplies the per-stage `--color-<name>`
+      custom properties from `config` and themes recharts' internals.
+  - id: plot
+    element: svg
+    description: The recharts `FunnelChart` holding the funnel and its chrome.
+  - id: funnel
+    element: g
+    description: >-
+      The `Funnel` — one `Cell` per data row, each a trapezoid sized by `dataKey`
+      and filled from its `--color-<name>` var. `lastShape` sets the final
+      segment (`triangle` point vs flat `rectangle`); `reversed` flips the taper.
+  - id: labels
+    element: g
+    description: >-
+      `LabelList` — each stage's `nameKey` label beside its segment. Rendered
+      when `showLabels`.
+  - id: tooltip-content
+    element: div
+    description: >-
+      `ChartTooltipContent` — hover card with the hovered stage's name and value.
+      Rendered when `showTooltip`.
+
+states:
+  - id: last-shape-variant
+    trigger: the lastShape prop selects a triangle point or a flat rectangle end
+    kind: prop
+    prop: lastShape
+    affects: [funnel]
+  - id: reversed
+    trigger: the reversed prop flips the funnel to widen toward the bottom
+    kind: prop
+    prop: reversed
+    affects: [funnel]
