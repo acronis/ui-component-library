@@ -81,6 +81,36 @@ export const Bars: Story = {
   ),
 };
 
+// The tooltip is hover-only, so the default static stories never render it and a
+// visual-regression snapshot can't see its themed surface (radius / padding /
+// shadow tokens). `defaultIndex` forces recharts to open it at a data point on
+// mount so the snapshot captures it. animationDelay lets it settle.
+export const TooltipOpen: Story = {
+  parameters: { snapshot: { animationDelay: 400 } },
+  args: { config: seriesConfig, children: <span /> },
+  render: () => (
+    <ChartContainer config={seriesConfig} className="h-[300px] w-[500px]">
+      <BarChart data={seriesData}>
+        <CartesianGrid vertical={false} />
+        <XAxis dataKey="month" tickLine={false} axisLine={false} />
+        <ChartTooltip defaultIndex={1} content={<ChartTooltipContent />} />
+        <Bar
+          dataKey="desktop"
+          fill="var(--color-desktop)"
+          radius={4}
+          isAnimationActive={false}
+        />
+        <Bar
+          dataKey="mobile"
+          fill="var(--color-mobile)"
+          radius={4}
+          isAnimationActive={false}
+        />
+      </BarChart>
+    </ChartContainer>
+  ),
+};
+
 export const Lines: Story = {
   args: { config: seriesConfig, children: <span /> },
   render: () => (

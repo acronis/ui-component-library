@@ -54,6 +54,14 @@ describe('Menu', () => {
     expect(screen.getByRole('menuitem', { name: /Copy/ })).toBeInTheDocument();
   });
 
+  it('gives menu items a 3px inset keyboard-only focus ring', () => {
+    // focus-visible isn't captured by the static VR snapshot, so assert the class.
+    render(<DemoMenu />);
+    expect(
+      screen.getByRole('menuitem', { name: 'Rename' }).className
+    ).toContain('[&:focus-visible:not(:hover)]:ring-[3px]');
+  });
+
   it('themes the panel from the container tokens', () => {
     render(<DemoMenu />);
     expect(screen.getByRole('menu')).toHaveClass(
