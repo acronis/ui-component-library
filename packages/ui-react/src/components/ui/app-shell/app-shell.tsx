@@ -211,7 +211,7 @@ const AppShellPanel = React.forwardRef<
       data-slot="app-shell-panel"
       data-state={panelState}
       className={cn(
-        'group/panel flex shrink-0 flex-col border-l border-border bg-background transition-[width]',
+        'group/panel flex shrink-0 flex-col border-s border-border bg-background transition-[width]',
         'w-12 data-[state=docked]:w-80 data-[state=full]:w-auto data-[state=full]:grow',
         className
       )}

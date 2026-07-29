@@ -28,8 +28,12 @@ COPY apps/demos/package.json ./apps/demos/
 RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 
-# Copy only the Storybook/test-runner config — not the full source tree
+# Copy only the Storybook/test-runner config — not the full source tree.
+# `test-runner-jest.config.js` must sit at the package root: `test-storybook`
+# auto-detects it by globbing `test-runner-jest*` in its working directory
+# (`/app/packages/ui-react`), and it carries the per-test `testTimeout` override.
 COPY packages/ui-react/.storybook ./packages/ui-react/.storybook
+COPY packages/ui-react/test-runner-jest.config.js ./packages/ui-react/
 
 WORKDIR /app/packages/ui-react
 

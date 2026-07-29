@@ -107,7 +107,7 @@ function FieldDescription({ className, ...props }: FieldDescriptionProps) {
       data-slot="field-description"
       className={cn(
         'text-sm font-normal leading-normal text-muted-foreground',
-        '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-[var(--ui-background-brand-secondary)]',
+        '[&>a]:underline [&>a:hover]:text-[var(--ui-background-brand-secondary)]',
         className
       )}
       {...props}

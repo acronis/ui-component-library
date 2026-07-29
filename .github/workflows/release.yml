@@ -66,8 +66,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Validates the design-token tiers against their JSON Schema before a
+      # publish. The previous `./packages/design-*` glob was inherited from the
+      # upstream sibling's layout and matched no package here, so pnpm printed
+      # "No projects matched the filters" and exited 0 — a silent pass. The
+      # design-token package in this repo is @constructor-lab/tokens; its `test`
+      # script runs the ajv `validate` of tiers/*.json and exits non-zero on a
+      # schema violation, so this step now actually gates the release.
       - name: Validate design packages
-        run: pnpm --filter "./packages/design-*" test
+        run: pnpm --filter @constructor-lab/tokens test
 
       - name: Create release PR or publish to npm
         id: changesets

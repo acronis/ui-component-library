@@ -33,28 +33,23 @@ services:
       retries: 30
       start_period: 60s
 
-  # ── THE PER-TEST TIMEOUT IS *NOT* CONFIGURED HERE, AND THAT IS DELIBERATE ────
-  # `UI/Radio` and `UI/Toast` intermittently fail this runner with
-  # `Exceeded timeout of 15000 ms` — 3 tests × 15 s ≈ the 46.8 s those suites
-  # reported — while the same run records ZERO snapshot failures. Under the old
-  # `light && dark` chain that unrelated flake silently cancelled the whole dark
-  # half of the corpus (#111).
+  # ── THE PER-TEST TIMEOUT IS SET IN `test-runner-jest.config.js`, NOT HERE ────
+  # Heavy suites (`datagrid-virtualization`, `dropdownmenu`, `popover`; formerly
+  # `UI/Radio` / `UI/Toast`) intermittently fail with `Exceeded timeout of 15000
+  # ms` while the same run records ZERO snapshot failures — a single such timeout
+  # makes the container exit non-zero and `scripts/visual-capture.mjs` reports the
+  # whole mode as FAILED, masking the real snapshot verdict.
   #
-  # `--testTimeout=<n>` was tried here and REMOVED because it is INERT. In
-  # `@storybook/test-runner@0.24.4` the flag exists only as a commander
-  # declaration in `dist/test-storybook.js` — parsed and never forwarded to jest.
-  # Measured, not inferred: a run at `--testTimeout=1000` passed all 4 tests of
-  # `ui-label` and jest never mentioned 1000 ms. Do not re-add it; it silently
-  # does nothing, which is worse than leaving the default visible.
-  #
-  # The supported route is a jest config (`test-storybook --eject` writes
-  # `test-runner-jest.config.js`, where `testTimeout` IS honoured). Not taken yet:
-  # the failure is CONTENTION-dependent, not intrinsic. Running those two suites
-  # alone at the 15 s limit passes 9/9 with zero timeouts — they only blow the
-  # limit under the full ~163-suite corpus at `--maxWorkers=4` on emulated CPU. So
-  # `maxWorkers` may be the better lever than the ceiling, and neither can be
-  # validated without reproducing a probabilistic flake. Left measured and
-  # unfixed rather than papered over.
+  # `--testTimeout=<n>` is INERT here: in `@storybook/test-runner@0.24.4` the flag
+  # is a commander declaration in `dist/test-storybook.js`, parsed and never
+  # forwarded to jest (measured: `--testTimeout=1000` left jest at its default).
+  # Do not re-add it. The supported route — and the one now taken — is a jest
+  # config; `test-runner-jest.config.js` at the package root sets
+  # `testTimeout: 60_000`, which jest honours. The failure is CONTENTION-dependent
+  # (those suites pass 9/9 alone at 15 s; they only blow the limit under the full
+  # ~163-suite corpus at `--maxWorkers=4` on emulated CPU), so a generous ceiling
+  # clears it without touching `maxWorkers` and without slowing the run — only a
+  # test that would otherwise time out takes longer.
   test-runner:
     build:
       context: ../..
@@ -73,6 +68,12 @@ services:
       # Extra args forwarded by scripts/visual-capture.mjs (e.g. a jest
       # test-path pattern to capture a single story). Empty in normal runs.
       - VISUAL_TEST_ARGS=${VISUAL_TEST_ARGS:-}
+      # Per-story image-diff gate. Empty → the runner's 0.5% default (CI + normal
+      # captures). Set to 0 for a diagnostic that exposes sub-0.5% diffs (#101),
+      # e.g. VISUAL_FAILURE_THRESHOLD=0 … -- ui-avatar. Propagated from the host
+      # env through scripts/visual-capture.mjs (which spawns compose with the
+      # full process env).
+      - VISUAL_FAILURE_THRESHOLD=${VISUAL_FAILURE_THRESHOLD:-}
     depends_on:
       storybook:
         condition: service_healthy

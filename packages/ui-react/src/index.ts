@@ -1,4 +1,20 @@
 export { cn } from './lib/utils';
+// Cross-cutting library utilities (Track 1). Kept as one contiguous block so
+// component barrels below stay easy to extend without conflict.
+export {
+  ROOT_FONT_SIZE_PX,
+  BREAKPOINT_LG,
+  BREAKPOINT_XL,
+  BREAKPOINT_2XL,
+  BREAKPOINT_3XL,
+  BREAKPOINT_4XL,
+  getViewportWidth,
+} from './lib/breakpoints';
+export {
+  PortalContainerProvider,
+  usePortalContainer,
+  type PortalContainerProviderProps,
+} from './lib/portal-container';
 export * from './components/ui/accordion';
 export * from './components/ui/alert';
 export * from './components/ui/alert-dialog';

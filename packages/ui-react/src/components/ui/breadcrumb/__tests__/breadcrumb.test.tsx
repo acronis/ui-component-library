@@ -58,6 +58,21 @@ describe('Breadcrumb', () => {
     );
   });
 
+  it('underlines links on hover only, with a 3px primary focus ring and no offset', () => {
+    render(<Trail />);
+    const link = screen.getByRole('link', { name: 'Home' });
+    expect(link).toHaveClass(
+      'hover:underline',
+      'focus-visible:ring-[3px]',
+      'focus-visible:ring-[var(--ui-focus-primary)]'
+    );
+    // Design: underline is hover-only (not focus), the ring is flush (no offset),
+    // and it uses the primary focus token rather than the brand one.
+    expect(link.className).not.toContain('focus-visible:underline');
+    expect(link.className).not.toContain('ring-offset');
+    expect(link.className).not.toContain('--ui-focus-brand');
+  });
+
   it('marks the current page with aria-current and the value token color', () => {
     render(<Trail />);
     const page = screen.getByText('Settings');

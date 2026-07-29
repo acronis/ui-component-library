@@ -202,7 +202,17 @@ const config: TestRunnerConfig = {
     expect(image).toMatchImageSnapshot({
       customSnapshotsDir: `${process.cwd()}/test/__snapshots__`,
       customSnapshotIdentifier: getSnapshotIdentifier(context.id, colorMode),
-      failureThreshold: 0.005,
+      // The gate is 0.5% by default (CI and normal captures). `VISUAL_FAILURE_THRESHOLD`
+      // overrides it for diagnostics — set it to 0 to expose the true per-story diff a
+      // 0.5% gate is blind to (#101), e.g. `VISUAL_FAILURE_THRESHOLD=0 … -- ui-avatar`.
+      // Never lower it for CI; a sub-0.5% render change that must be baked in should be
+      // captured with a scoped `VISUAL_FAILURE_THRESHOLD=0 …:update`, not a global drop.
+      // NB: docker-compose passes this as an EMPTY string when the host env is unset
+      // (`${VISUAL_FAILURE_THRESHOLD:-}`), and `Number('')` is 0 — so guard empty/unset
+      // explicitly rather than with `??`, or every normal run would gate at 0%.
+      failureThreshold: process.env.VISUAL_FAILURE_THRESHOLD
+        ? Number(process.env.VISUAL_FAILURE_THRESHOLD)
+        : 0.005,
       failureThresholdType: 'percent',
     });
   },

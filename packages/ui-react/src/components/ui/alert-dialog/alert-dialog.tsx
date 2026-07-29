@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 
@@ -73,6 +74,8 @@ const AlertDialogContent = React.forwardRef<
     { className, portal = true, portalContainer, keepMounted, ...props },
     ref
   ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
     const popup = (
       <>
         <AlertDialogOverlay />
@@ -89,7 +92,7 @@ const AlertDialogContent = React.forwardRef<
 
     return portal ? (
       <AlertDialogPrimitive.Portal
-        container={portalContainer}
+        container={resolvedContainer}
         keepMounted={keepMounted}
       >
         {popup}

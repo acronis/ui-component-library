@@ -12,6 +12,32 @@
    generated alongside the css — replaces the block this file used to hand-maintain. */
 @import '@constructor-lab/tokens/css/tailwind-theme.css';
 
+/* Cross-cutting base reset. `@layer base` so component utilities always win.
+   - Font smoothing is on `*, *::before, *::after` (not just `body`) so
+     shadow-root / micro-frontend content is covered too.
+   - `text-underline-offset: 3px` is the single global underline offset; it
+     retires the ad-hoc `underline-offset-*` utilities components used to sprinkle.
+   - `font-family` is set on `:root, :host` — the exact selector our generated
+     tokens use (packages/tokens/css/primitives.css) — so an isolated shadow-DOM
+     mount gets Inter instead of Tailwind preflight's generic stack. The stack is
+     the one the generated `.ui-typography-*` classes use (semantics.css:
+     `Inter, system-ui, sans-serif`), so text inside and outside those classes
+     agrees. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-underline-offset: 3px;
+  }
+
+  :root,
+  :host {
+    font-family: Inter, system-ui, sans-serif;
+  }
+}
+
 /* Theme switches via the `[data-theme]` attribute (set by the consumer /
    next-themes), which drives the tokens' `light-dark()` + `color-scheme` — mirror
    that for the `dark:` variant. */
@@ -24,6 +50,41 @@
   --animate-indeterminate-progress: indeterminate-progress 1.5s ease-in-out
     infinite;
 }
+
+/* Viewport breakpoints pinned to the design team's px ranges (sm/md unset, so
+   they fall through to Tailwind's 640px/768px defaults):
+     lg   1024px   xl  1280px   2xl 1440px   3xl 1680px   4xl 1920px
+   lg/xl equal Tailwind v4's own defaults; 2xl/3xl/4xl deviate from them.
+
+   THREE REPRESENTATIONS — kept in sync by a test, not just this comment:
+     1. this `@theme` block (compile-time — Tailwind inlines these into `@media`;
+        they are NOT readable at runtime),
+     2. the `:root, :host { --ui-breakpoint-* }` block below (runtime custom
+        properties for `getComputedStyle`), and
+     3. `src/lib/breakpoints.ts` (JS constants for `window.innerWidth` math).
+   `src/lib/__tests__/breakpoints.test.ts` parses this file and asserts both CSS
+   blocks agree with the TS constants, so a value changed in one place without
+   the others fails CI.
+*/
+@theme {
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 90rem;
+  --breakpoint-3xl: 105rem;
+  --breakpoint-4xl: 120rem;
+}
+
+/* Runtime-readable mirror of the `@theme` breakpoints above (Tailwind's are
+   compile-time-only). Same values; see the KEEP IN SYNC note. */
+:root,
+:host {
+  --ui-breakpoint-lg: 64rem;
+  --ui-breakpoint-xl: 80rem;
+  --ui-breakpoint-2xl: 90rem;
+  --ui-breakpoint-3xl: 105rem;
+  --ui-breakpoint-4xl: 120rem;
+}
+
 @keyframes indeterminate-progress {
   0% {
     transform: translateX(-100%);

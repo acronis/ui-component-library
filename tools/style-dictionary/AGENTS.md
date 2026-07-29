@@ -26,7 +26,9 @@ pnpm --filter @constructor-lab/style-dictionary build
 them in dependency order. The **token** outputs are written into the published
 `packages/tokens/` package (committed, not gitignored):
 
-1. `pd-dtcg` → `tokens/dtcg/` — six per-mode, 100%-DTCG JSON files.
+1. `pd-dtcg` → `tokens/dtcg/` — the per-mode 100%-DTCG JSON files:
+   `primitives-{light,dark}`, one `semantics-<brand>` + `components-<brand>` per
+   discovered brand, and the mode-invariant `charts` (see the `charts` gotcha).
 2. `pd-css` → the whole stylesheet family from one resolve (they share it):
    - `tokens/css/` — **reference-based** CSS: `primitives.css` (the sole raw-value
      - `light-dark()` theme layer), `semantics.css` + `components/<component>.css`
@@ -116,9 +118,9 @@ Change-detection and validation-gating live in **CI**, not this tool — the too
 a pure, granular builder. CI detects changed paths, runs each package's existing
 `validate` (ajv), and on success calls the tool with the right selector:
 
-| Changed path                    | Build invocation                                        |
-| ------------------------------- | ------------------------------------------------------- |
-| `tokens/tiers/**` or its schema | `build` (token build: `pd-dtcg`+`pd-css`+`pd-tailwind`) |
+| Changed path                    | Build invocation                                           |
+| ------------------------------- | ---------------------------------------------------------- |
+| `tokens/tiers/**` or its schema | `build pd-css` (which runs its `pd-dtcg` dependency first) |
 
 Tokens always build together (one schema, tightly-coupled files).
 
@@ -136,8 +138,12 @@ Tokens always build together (one schema, tightly-coupled files).
   `token.path[0]`: the **data-driven** semantic roots (`colors`/`gradients`/
   `typography`) → the semantic root file, every other root → its own component
   dir. The semantic roots are derived from the top-level keys of `semantics.json`
-  via the shared `semanticRoots()` helper, not a hardcoded set. Non-default brands
-  are diffed against the default (`acronis`) and emit override-only files.
+  via the shared `semanticRoots()` helper, not a hardcoded set. The brand set
+  itself is also data-driven — `discoverBrands()` in `tokens.ts` derives it from
+  the `values` keys present in `semantics.json`/`components.json` (today:
+  `default` plus over a dozen named brands, e.g. `telstra`, `virtuozzo`, `sand`).
+  Non-default brands are diffed against the default (`default`) and emit
+  override-only files.
 - **Platform filter** — the `normalizeTree` pass keeps only tokens whose
   `platforms` array includes the build's filter enum value (PD today), then strips
   the (non-DTCG) `platforms` key; `$extensions` is retained for traceability. The
@@ -171,18 +177,38 @@ Tokens always build together (one schema, tightly-coupled files).
   `gradients.*` root (color-stop arrays + a Figma transform matrix) into
   `linear-gradient(...)` strings (angle from `com.figma.gradientTransform`).
   `gradients` is a semantic root, so they emit as plain `--ui-gradients-*` custom
-  properties (theme-invariant, not zipped into `light-dark()`) in the root semantic
-  CSS, and route into the base Tailwind preset's `backgroundImage` — the routing is
-  driven by the source `com.acronis.tailwindRoles` extension, not hardcoded.
+  properties (theme-invariant, not zipped into `light-dark()`) in the root
+  semantic CSS. (The former per-brand/per-component baked Tailwind presets that
+  once consumed a `backgroundImage` route are removed — nothing consumes them
+  today.)
+- **The Tailwind color bridge is a hardcoded map, not `com.acronis.tailwindRoles`-driven.**
+  `bridge/tailwind-theme.ts`'s `@theme inline` output (the shadcn-compatible
+  `--color-*` names ui-react consumes) comes from a curated `BRIDGE` object
+  literal in that file. `tokens.ts` does export a `tailwindRoleMap()` reader
+  over the source tiers' `com.acronis.tailwindRoles` `$extensions` (present in
+  `tiers/semantics.json` and `tiers/components.json`), but nothing in the
+  build calls it — it has zero callers today. Extending Tailwind namespace
+  coverage means editing the `BRIDGE` map by hand, not adding a
+  `tailwindRoles` entry.
+- **The `charts` tier is repo-authored, not Figma-sourced.** `tiers/charts.json`
+  is a **fourth** token tier (a data-viz series palette) alongside
+  primitives/semantics/components — a `TOKEN_SOURCES` entry in `tokens.ts` with
+  its own `VIEWS` view. The Figma re-emit pipeline never touches it: it carries no
+  `com.figma.*` ids by design and lives in its own file so `emit-*` can't clobber
+  it. It builds like the rest — `dtcg/charts.json` + `css/components/chart.css` (a
+  `chart` component-dir slice, since `chart` isn't a semantic root). Because it's
+  **mode-invariant** (a single `$value`, no light/dark, one `default` view), it is
+  easy to forget it exists, but it is a real emitted tier (and the tokens package's
+  `validate` checks it).
 
 ## Loading context
 
 Before non-trivial work, read the matching file(s) in full.
 
-| When the task involves…                                                                                                                     | Load                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| The two stages, the source→mode mapping, the PD filter, how aliases are kept vs flattened                                                   | [`context/pipeline.md`](context/pipeline.md) |
-| The CSS contract — `light-dark()`, `rgb()` colors, `--ui-*` names, tier split, brand override diff, typography, gradients, Tailwind presets | [`context/output.md`](context/output.md)     |
+| When the task involves…                                                                                                                        | Load                                         |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| The two stages, the source→mode mapping, the PD filter, how aliases are kept vs flattened                                                      | [`context/pipeline.md`](context/pipeline.md) |
+| The CSS contract — `light-dark()`, `rgb()` colors, `--ui-*` names, tier split, brand override diff, typography, gradients, the Tailwind bridge | [`context/output.md`](context/output.md)     |
 
 To understand the **input** shape (the UI Components library token divergences this tool
 consumes), read

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Popover as PopoverPrimitive } from '@base-ui/react/popover';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 import { Button, type ButtonProps } from '../button';
 
@@ -275,6 +276,8 @@ const TourContent = React.forwardRef<
     },
     ref
   ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
     const positioner = (
       <PopoverPrimitive.Positioner
         side={side}
@@ -298,7 +301,7 @@ const TourContent = React.forwardRef<
 
     return portal ? (
       <PopoverPrimitive.Portal
-        container={portalContainer}
+        container={resolvedContainer}
         keepMounted={keepMounted}
       >
         {positioner}
@@ -478,7 +481,7 @@ const TourClose = React.forwardRef<
   <PopoverPrimitive.Close
     ref={ref}
     className={cn(
-      'absolute right-4 top-4 rounded p-1 text-[var(--ui-text-on-brand-link-idle)] transition-colors hover:text-[var(--ui-text-on-brand-link-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)] disabled:pointer-events-none',
+      'absolute end-4 top-4 rounded p-1 text-[var(--ui-text-on-brand-link-idle)] transition-colors hover:text-[var(--ui-text-on-brand-link-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)] disabled:pointer-events-none',
       className
     )}
     {...props}

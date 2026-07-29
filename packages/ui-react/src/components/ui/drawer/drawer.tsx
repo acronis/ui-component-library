@@ -3,6 +3,7 @@ import { Drawer as DrawerPrimitive } from '@base-ui/react/drawer';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // Design-pending v1 wrapping Base UI's `Drawer` primitive — a panel that slides
@@ -221,6 +222,8 @@ const DrawerContent = React.forwardRef<
   ) => {
     const contextSide = React.use(DrawerSideContext);
     const resolvedSide = side ?? contextSide;
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
     const popup = (
       <>
         <DrawerBackdrop />
@@ -238,7 +241,7 @@ const DrawerContent = React.forwardRef<
     );
 
     return portal ? (
-      <DrawerPortal container={portalContainer} keepMounted={keepMounted}>
+      <DrawerPortal container={resolvedContainer} keepMounted={keepMounted}>
         {popup}
       </DrawerPortal>
     ) : (

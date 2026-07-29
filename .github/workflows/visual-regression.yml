@@ -40,6 +40,7 @@ jobs:
               - 'packages/ui-react/src/**'
               - 'packages/ui-react/.storybook/**'
               - 'packages/ui-react/package.json'
+              - 'packages/ui-react/test-runner-jest.config.js'
               - 'packages/ui-react/Dockerfile.storybook'
               - 'packages/ui-react/docker-compose.storybook*.yml'
               - 'packages/tokens/**'

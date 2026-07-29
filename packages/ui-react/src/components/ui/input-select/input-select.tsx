@@ -8,6 +8,7 @@ import {
   MagnifierIcon,
 } from '@constructor-lab/icons-react/stroke-mono';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // The next-gen select, themed by the dedicated `--ui-input-select-*` tier (global /
@@ -150,28 +151,33 @@ const InputSelectContent = React.forwardRef<
       ...props
     },
     ref
-  ) => (
-    <SelectPrimitive.Portal container={portalContainer}>
-      <SelectPrimitive.Positioner
-        sideOffset={sideOffset}
-        align={align}
-        side={side}
-        alignItemWithTrigger={false}
-        className="z-50 outline-none"
-      >
-        <SelectPrimitive.Popup
-          ref={ref}
-          className={cn(
-            'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
-            className
-          )}
-          {...props}
+  ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
+
+    return (
+      <SelectPrimitive.Portal container={resolvedContainer}>
+        <SelectPrimitive.Positioner
+          sideOffset={sideOffset}
+          align={align}
+          side={side}
+          alignItemWithTrigger={false}
+          className="z-50 outline-none"
         >
-          {children}
-        </SelectPrimitive.Popup>
-      </SelectPrimitive.Positioner>
-    </SelectPrimitive.Portal>
-  )
+          <SelectPrimitive.Popup
+            ref={ref}
+            className={cn(
+              'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
+              className
+            )}
+            {...props}
+          >
+            {children}
+          </SelectPrimitive.Popup>
+        </SelectPrimitive.Positioner>
+      </SelectPrimitive.Portal>
+    );
+  }
 );
 InputSelectContent.displayName = 'InputSelectContent';
 

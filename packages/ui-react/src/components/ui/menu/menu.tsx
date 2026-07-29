@@ -5,6 +5,7 @@ import {
   ChevronRightIcon,
 } from '@constructor-lab/icons-react/stroke-mono';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // The canonical Base UI Menu wrapper for the kit: a composable set of parts
@@ -71,6 +72,8 @@ const MenuContent = React.forwardRef<
     },
     ref
   ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
     const positioner = (
       <MenuPrimitive.Positioner
         side={side}
@@ -87,7 +90,7 @@ const MenuContent = React.forwardRef<
     );
     return portal ? (
       <MenuPrimitive.Portal
-        container={portalContainer}
+        container={resolvedContainer}
         keepMounted={keepMounted}
       >
         {positioner}

@@ -21,6 +21,14 @@ describe('Checkbox', () => {
     );
   });
 
+  it('uses a 3px focus ring flush to the box (Figma), not ring-2', () => {
+    // VR can't capture focus-visible, so assert the class directly.
+    render(<Checkbox aria-label="Accept" />);
+    const checkbox = screen.getByRole('checkbox', { name: 'Accept' });
+    expect(checkbox).toHaveClass('focus-visible:ring-[3px]');
+    expect(checkbox.className).not.toContain('focus-visible:ring-2');
+  });
+
   it('toggles checked state on click', async () => {
     const onCheckedChange = vi.fn();
     render(<Checkbox aria-label="Accept" onCheckedChange={onCheckedChange} />);

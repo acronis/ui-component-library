@@ -12,19 +12,31 @@ The source tokens carry two independent mode axes (see
 [`tokens/context/manifest.md`](../../../packages/tokens/context/manifest.md)):
 
 - **Theme** (`light` / `dark`) lives on `primitives.palette`.
-- **Brand** (`acronis` / `brand-b`) lives on `semantics.colors` and `components.*`.
+- **Brand** lives on `semantics.colors` and `components.*`. The brand set is
+  **data-driven**, not a fixed pair: `discoverBrands()` (in `tokens.ts`) reads
+  the union of `values` keys across `semantics.json`/`components.json`. Today
+  that's `default` (`DEFAULT_BRAND`, emitted in full) plus over a dozen named
+  brands (e.g. `telstra`, `virtuozzo`, `sand`) — adding a brand mode to the
+  source tiers adds an output brand here with no code change.
 
 So stage 1 splits **primitives by theme** but **semantics/components by brand**.
-The semantics tier carries `colors`, `gradients`, and `typography`:
+The semantics tier carries `colors`, `gradients`, and `typography`. One view
+pair (`semantics-<brand>` / `components-<brand>`) is emitted per discovered
+brand; the table below shows two representative brands, not the full set. A
+**fourth** tier, `charts`, is **repo-authored** (not Figma-sourced) and
+**mode-invariant** — it emits once as `charts.json`, outside the theme/brand
+split:
 
-| Output (`tokens/dtcg/`)   | Source file       | Mode key picked from `values` |
-| ------------------------- | ----------------- | ----------------------------- |
-| `primitives-light.json`   | `primitives.json` | `light`                       |
-| `primitives-dark.json`    | `primitives.json` | `dark`                        |
-| `semantics-acronis.json`  | `semantics.json`  | `acronis`                     |
-| `semantics-brand-b.json`  | `semantics.json`  | `brand-b`                     |
-| `components-acronis.json` | `components.json` | `acronis`                     |
-| `components-brand-b.json` | `components.json` | `brand-b`                     |
+| Output (`tokens/dtcg/`)           | Source file       | Mode key picked from `values` |
+| --------------------------------- | ----------------- | ----------------------------- |
+| `primitives-light.json`           | `primitives.json` | `light`                       |
+| `primitives-dark.json`            | `primitives.json` | `dark`                        |
+| `charts.json`                     | `charts.json`     | _(mode-invariant)_            |
+| `semantics-default.json`          | `semantics.json`  | `default`                     |
+| `semantics-telstra.json`          | `semantics.json`  | `telstra`                     |
+| `components-default.json`         | `components.json` | `default`                     |
+| `components-telstra.json`         | `components.json` | `telstra`                     |
+| … one pair per discovered brand … |
 
 Because semantics/component files are **not** split by theme, their values **keep
 their `{group.token}` aliases** (e.g. `"{palette.base}"`). Stage 2 preserves that
@@ -32,13 +44,14 @@ alias chain: a token whose original value is a single `{alias}` is emitted as a
 `var(--<referenced>)` **reference**, not a flattened literal. So light/dark is
 owned solely by the primitive theme layer (`light-dark()` on the palette), and
 semantics/components inherit it transitively through their `var()` refs — no
-`semantics-acronis-dark.json`, and no re-baked per-component color literals. Only
+`semantics-default-dark.json`, and no re-baked per-component color literals. Only
 the primitive palette needs the light-vs-dark resolve pass; a non-aliased brand
 literal (rare) is emitted concretely and is theme-invariant.
 
 ## Stage 1 — `buildDtcg` (in `tokens.ts`)
 
-`buildDtcg` (in `tokens.ts`) reads the three token files through the
+`buildDtcg` (in `tokens.ts`) reads the four token files (primitives, semantics,
+components, charts) through the
 `readTokenSource` reader (also in `tokens.ts`, a typed reader over the package's
 `exports`) and, for each view above, normalizes the tree for that view's mode and
 the build's `filter` enum value (`normalizeTree` in

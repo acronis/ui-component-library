@@ -8,6 +8,7 @@ import {
   TimesIcon,
 } from '@constructor-lab/icons-react/stroke-mono';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // A searchable single/multi-select built on Base UI's Combobox primitive. The
@@ -105,27 +106,32 @@ const ComboboxContent = React.forwardRef<
       ...props
     },
     ref
-  ) => (
-    <ComboboxPrimitive.Portal container={portalContainer}>
-      <ComboboxPrimitive.Positioner
-        sideOffset={sideOffset}
-        align={align}
-        side={side}
-        className="z-50 outline-none"
-      >
-        <ComboboxPrimitive.Popup
-          ref={ref}
-          className={cn(
-            'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
-            className
-          )}
-          {...props}
+  ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
+
+    return (
+      <ComboboxPrimitive.Portal container={resolvedContainer}>
+        <ComboboxPrimitive.Positioner
+          sideOffset={sideOffset}
+          align={align}
+          side={side}
+          className="z-50 outline-none"
         >
-          {children}
-        </ComboboxPrimitive.Popup>
-      </ComboboxPrimitive.Positioner>
-    </ComboboxPrimitive.Portal>
-  )
+          <ComboboxPrimitive.Popup
+            ref={ref}
+            className={cn(
+              'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
+              className
+            )}
+            {...props}
+          >
+            {children}
+          </ComboboxPrimitive.Popup>
+        </ComboboxPrimitive.Positioner>
+      </ComboboxPrimitive.Portal>
+    );
+  }
 );
 ComboboxContent.displayName = 'ComboboxContent';
 

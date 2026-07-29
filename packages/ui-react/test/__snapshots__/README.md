@@ -32,3 +32,36 @@ STORYBOOK_COLOR_MODE=dark pnpm --filter @constructor-lab/ui-react storybook:test
 
 On failure, diff images are written to `__diff_output__/` (gitignored) and, in
 CI, uploaded as `visual-regression-diffs-ui-react-{light|dark}` artifacts.
+
+## The 0.5% gate and sub-threshold residuals (#101)
+
+The gate is `failureThreshold: 0.005` (0.5%), and in `--update` mode
+`jest-image-snapshot` treats a sub-0.5% diff as a **match** — so it does **not**
+rewrite a baseline whose render drifted by less than 0.5%. "Baseline unchanged"
+therefore means "within 0.5% of the old render", not "byte-identical". This is
+task #101; the whole corpus lives with this floor.
+
+To expose the true per-story diff the gate hides, set
+`VISUAL_FAILURE_THRESHOLD=0` (read by `../../.storybook/test-runner.ts`):
+
+```bash
+VISUAL_FAILURE_THRESHOLD=0 pnpm --filter @constructor-lab/ui-react \
+  storybook:test:visual:docker -- ui-avatar   # threshold-0 check, avatar only
+```
+
+**Known residual — Avatar (upstream #543 inset-border → outset-ring, 32px fill).**
+The 32px painted-fill fix lands under 0.5% on the single-/few-avatar stories, so
+their committed baselines keep the old 28px-fill render. Measured at threshold 0
+(current code vs committed baseline):
+
+- light: `ui-avatar--default` 0.08%, `--colors` 0.40%, `--group` 0.36%,
+  `--group-with-text` 0.18%, `-all-states-generated` 0.08%
+- dark: `ui-avatar--default` 0.27%, `--group-with-text` 0.49%,
+  `-all-states-generated` 0.27%
+
+The determinant is colored-area proportion per story (multi-avatar
+`colors`/`group` cross 0.5% and **were** rewritten in dark; single-avatar
+`default` never does), not theme. The residual is a ≤2px ring annulus — real but
+imperceptible. Left as-is deliberately: forcing avatar to 0-drift would make it
+inconsistent with the rest of the corpus (the next 0.5% capture wouldn't hold
+it).

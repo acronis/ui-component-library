@@ -262,3 +262,7 @@ To prevent agents inventing things from outdated knowledge:
 - **No VitePress**. Docs are Next.js + Fumadocs at `apps/docs/`.
 - **No `packages/documentation/` or `packages/examples/`**. Those paths
   never existed in this repo.
+- **No `.agents/skills/` mirror**. `.claude/skills/` is the **sole home** for
+  skills. A stale, unreferenced `.agents/` snapshot was removed (it had drifted
+  from `.claude/skills/`); do not recreate a second copy — maintain skills only
+  under `.claude/skills/`.

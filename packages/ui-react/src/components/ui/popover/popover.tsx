@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Popover as PopoverPrimitive } from '@base-ui/react/popover';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // Ported from the legacy shadcn UI kit's `popover`. A floating panel anchored
@@ -61,6 +62,8 @@ const PopoverContent = React.forwardRef<
     },
     ref
   ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
     const positioner = (
       <PopoverPrimitive.Positioner
         side={side}
@@ -83,7 +86,7 @@ const PopoverContent = React.forwardRef<
 
     return portal ? (
       <PopoverPrimitive.Portal
-        container={portalContainer}
+        container={resolvedContainer}
         keepMounted={keepMounted}
       >
         {positioner}

@@ -7,9 +7,12 @@ import { cn } from '@/lib/utils';
 // Wraps Base UI's Avatar primitive (Root / Image / Fallback), themed by the
 // dedicated next-gen `--ui-avatar-*` token tier from @constructor-lab/tokens.
 // A 32px circle (`--ui-avatar-global-avatar-size` / `-border-border-radius`) with a 2px
-// border (`-border-border-width` / `-border-color`) — the border is what visually
-// separates avatars when they overlap in an `AvatarGroup`. When no image is set
-// (or it fails to load) the `AvatarFallback` shows initials.
+// ring (`-border-border-width` / `-border-color`) rendered as an OUTSET box-shadow, not
+// a CSS border: Figma's stroke is `strokeAlign: OUTSIDE`, so a border-box border would
+// eat 4px of the 32px box and render every avatar at 28px (and throw `AvatarGroup`'s
+// overlap step off by the same 4px). The spread-only ring sits outside the box and is
+// what visually separates avatars when they overlap in an `AvatarGroup`. When no image
+// is set (or it fails to load) the `AvatarFallback` shows initials.
 //
 // `color` selects one of the five Figma color schemes; it tints the fallback
 // background (`--ui-avatar-color-<scheme>`) and the initials
@@ -18,7 +21,10 @@ import { cn } from '@/lib/utils';
 const avatarVariants = cva(
   'relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden ' +
     'size-[var(--ui-avatar-global-avatar-size)] rounded-[var(--ui-avatar-global-avatar-border-border-radius)] ' +
-    'border-[length:var(--ui-avatar-global-avatar-border-border-width)] border-solid border-[var(--ui-avatar-global-avatar-border-color)] ' +
+    // Outset ring (see the note above). Raw `box-shadow` arbitrary property, NOT
+    // Tailwind's `shadow-[…]`, which routes through `--tw-shadow-color` and resolves
+    // inconsistently for spread-only rings across engine versions.
+    '[box-shadow:0_0_0_var(--ui-avatar-global-avatar-border-border-width)_var(--ui-avatar-global-avatar-border-color)] ' +
     'text-xs font-semibold leading-4',
   {
     variants: {
@@ -97,9 +103,10 @@ AvatarFallback.displayName = 'AvatarFallback';
 export type AvatarGroupProps = React.HTMLAttributes<HTMLDivElement>;
 
 /**
- * Overlapping stack of avatars. Each avatar after the first is pulled left by
- * `--ui-avatar-global-avatar-group-gap` (a negative offset), so their 2px
- * borders form the layered look; later avatars render above earlier ones.
+ * Overlapping stack of avatars. Each avatar after the first is pulled toward the
+ * inline start by `--ui-avatar-global-avatar-group-gap` (a negative offset), so
+ * their 2px outset rings form the layered look; later avatars render above
+ * earlier ones.
  */
 const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
   ({ className, ...props }, ref) => (

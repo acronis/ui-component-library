@@ -3,6 +3,7 @@ import { NavigationMenu as NavigationMenuPrimitive } from '@base-ui/react/naviga
 import { ChevronDownIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva } from 'class-variance-authority';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // Ported from the legacy shadcn UI kit's `navigation-menu`, which used
@@ -45,8 +46,15 @@ import { cn } from '@/lib/utils';
 
 const NavigationMenu = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
->(({ className, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> & {
+    /**
+     * Portal container for the floating menu surface. Defaults to the container
+     * from `PortalContainerProvider` (or `document.body`); pass a shadow-root
+     * mount for isolated-style previews.
+     */
+    portalContainer?: NavigationMenuPrimitive.Portal.Props['container'];
+  }
+>(({ className, children, portalContainer, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
@@ -56,7 +64,7 @@ const NavigationMenu = React.forwardRef<
     {...props}
   >
     {children}
-    <NavigationMenuViewport />
+    <NavigationMenuViewport portalContainer={portalContainer} />
   </NavigationMenuPrimitive.Root>
 ));
 NavigationMenu.displayName = 'NavigationMenu';
@@ -92,7 +100,7 @@ const NavigationMenuTrigger = React.forwardRef<
     {...props}
   >
     {children}
-    <NavigationMenuPrimitive.Icon className="relative top-px ml-1 transition-transform duration-200 data-[popup-open]:rotate-180">
+    <NavigationMenuPrimitive.Icon className="relative top-px ms-1 transition-transform duration-200 data-[popup-open]:rotate-180">
       <ChevronDownIcon size={12} />
     </NavigationMenuPrimitive.Icon>
   </NavigationMenuPrimitive.Trigger>
@@ -128,32 +136,40 @@ const NavigationMenuIndicator = React.forwardRef<
     )}
     {...props}
   >
-    <div className="h-2 w-2 rotate-45 rounded-tl-sm border-l border-t border-border bg-background shadow-md" />
+    <div className="h-2 w-2 rotate-45 rounded-ss-sm border-s border-t border-border bg-background shadow-md" />
   </NavigationMenuPrimitive.Arrow>
 ));
 NavigationMenuIndicator.displayName = 'NavigationMenuIndicator';
 
 const NavigationMenuViewport = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Viewport>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
->(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.Portal>
-    <NavigationMenuPrimitive.Positioner className="z-[1]" sideOffset={6}>
-      <NavigationMenuIndicator />
-      <NavigationMenuPrimitive.Popup
-        className={cn(
-          'relative w-full origin-top overflow-hidden rounded-md border border-border bg-background text-foreground shadow-lg duration-200 data-[open]:animate-in data-[closed]:animate-out data-[open]:fade-in-0 data-[closed]:fade-out-0 data-[open]:zoom-in-90 data-[closed]:zoom-out-95 md:w-max'
-        )}
-      >
-        <NavigationMenuPrimitive.Viewport
-          ref={ref}
-          className={cn('relative', className)}
-          {...props}
-        />
-      </NavigationMenuPrimitive.Popup>
-    </NavigationMenuPrimitive.Positioner>
-  </NavigationMenuPrimitive.Portal>
-));
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport> & {
+    /** Portal container — pass a shadow-root mount for isolated-style previews. */
+    portalContainer?: NavigationMenuPrimitive.Portal.Props['container'];
+  }
+>(({ className, portalContainer, ...props }, ref) => {
+  const ctxContainer = usePortalContainer();
+  const resolvedContainer = portalContainer ?? ctxContainer;
+
+  return (
+    <NavigationMenuPrimitive.Portal container={resolvedContainer}>
+      <NavigationMenuPrimitive.Positioner className="z-[1]" sideOffset={6}>
+        <NavigationMenuIndicator />
+        <NavigationMenuPrimitive.Popup
+          className={cn(
+            'relative w-full origin-top overflow-hidden rounded-md border border-border bg-background text-foreground shadow-lg duration-200 data-[open]:animate-in data-[closed]:animate-out data-[open]:fade-in-0 data-[closed]:fade-out-0 data-[open]:zoom-in-90 data-[closed]:zoom-out-95 md:w-max'
+          )}
+        >
+          <NavigationMenuPrimitive.Viewport
+            ref={ref}
+            className={cn('relative', className)}
+            {...props}
+          />
+        </NavigationMenuPrimitive.Popup>
+      </NavigationMenuPrimitive.Positioner>
+    </NavigationMenuPrimitive.Portal>
+  );
+});
 NavigationMenuViewport.displayName = 'NavigationMenuViewport';
 
 export {

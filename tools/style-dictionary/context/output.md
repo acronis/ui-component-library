@@ -51,7 +51,7 @@ stylesheet injection.
   }
   ```
 
-- **Brand** is a **selector**, not a file. The default brand (`acronis`) renders
+- **Brand** is a **selector**, not a file. The default brand (`default`) renders
   under `:root, :host`; every other brand renders its **diff** under
   `[data-brand='<brand>'], :host([data-brand='<brand>'])`. Set `[data-brand]` on an
   ancestor to switch. A brand override block contains a declaration only when its
@@ -63,8 +63,8 @@ stylesheet injection.
   :host {
     --ui-background-brand-primary: var(--ui-palette-blue-13);
   }
-  [data-brand='deep-sky'],
-  :host([data-brand='deep-sky']) {
+  [data-brand='deep-sky-itkontoret'],
+  :host([data-brand='deep-sky-itkontoret']) {
     --ui-background-brand-primary: var(--ui-palette-teal-9);
   }
   ```

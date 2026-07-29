@@ -59,6 +59,23 @@ describe('Tree', () => {
     expect(parent).toHaveAttribute('aria-selected', 'false');
   });
 
+  it('flips the collapsed disclosure chevron and indents on the inline-start edge (RTL)', () => {
+    render(<Composable />);
+    const parent = item('Parent 1');
+    // The collapsed row shows the right-pointing chevron, which must flip under
+    // `dir="rtl"` — the breadcrumb `rtl:rotate-180` precedent.
+    const chevron = parent.querySelector('[data-slot="tree-item-chevron"] svg');
+    expect(chevron).toHaveClass('rtl:rotate-180');
+    // Depth indentation and the trailing padding are logical, so they mirror in
+    // RTL instead of pinning the tree to the physical left edge.
+    const trigger = parent.querySelector(
+      '[data-slot="tree-item-trigger"]'
+    ) as HTMLElement;
+    expect(trigger).toHaveClass('pe-2');
+    expect(trigger.getAttribute('style')).toContain('padding-inline-start');
+    expect(trigger.getAttribute('style')).not.toContain('padding-left');
+  });
+
   it('collapses children by default and expands on row click', async () => {
     const user = userEvent.setup();
     render(<Composable />);

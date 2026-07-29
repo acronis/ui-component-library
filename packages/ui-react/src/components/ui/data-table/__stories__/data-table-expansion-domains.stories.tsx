@@ -116,7 +116,7 @@ function ExpansionDomainsView() {
                 type="button"
                 onClick={() => row.detail.toggle()}
                 aria-expanded={row.detail.isExpanded}
-                className="underline-offset-2 hover:underline"
+                className="hover:underline"
               >
                 {row.data.name}
               </button>

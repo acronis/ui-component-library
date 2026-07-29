@@ -10,7 +10,13 @@
 > **Pipeline note:** the emit pipeline now lives in `tools/token-emit/`
 > (`emit-components.mjs`, `emit.mjs`, `figma-diff.mjs`, …). The
 > `packages/tokens/.tmp/scripts/…` and `figma-to-components.mjs` paths cited
-> throughout the body are the historical locations and no longer exist.
+> throughout the body are the historical locations and no longer exist. The
+> `lib/*.mjs` helpers cited in §2/§9 likewise moved to
+> `tools/token-emit/helpers/` and were renamed — notably `alias-map.mjs` →
+> `emit-alias-translator.mjs` (now the `AliasTranslator` class with
+> `.translate()`/`.validates()`, not the `has()` method the body describes) and
+> `palette-map.mjs` → `emit-palette-mapper.mjs`. Treat the `lib/…` names and
+> their APIs below as historical, not current paths.
 
 **Owner workspace of the core change:** `packages/tokens` (emitter) +
 `tools/style-dictionary` (router/partition) → ripples into `packages/tokens`

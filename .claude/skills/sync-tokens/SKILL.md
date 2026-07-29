@@ -14,20 +14,23 @@ description: >
 # Sync tokens (Figma → repo → tokens → consumers)
 
 Automates the **Figma → repo** token sync as one repeatable runbook. This skill is
-the **orchestration layer**; the authoritative reference for the mapping, snapshot
-files, helper scripts, and orphan-ID rules is
-[`packages/tokens/context/figma-sync.md`](../../../packages/tokens/context/figma-sync.md).
-**Read it before acting** — this skill tells you _what to run in what order_, that
-doc tells you _why and how_. On conflict the doc wins **except** the script paths:
-figma-sync.md writes `node ../.tmp/scripts/…`, but from `packages/tokens/`
-the working path is **`node .tmp/scripts/…`** (the `../` is an off-by-one).
+the **orchestration layer**; [`packages/tokens/context/figma-sync.md`](../../../packages/tokens/context/figma-sync.md)
+is the canonical one-command runbook (`pnpm tokens:sync`) and
+[`packages/tokens/AGENTS.md`](../../../packages/tokens/AGENTS.md) documents the
+`emit` step's script chain. **Read both before acting** — this skill expands
+those into individually-runnable steps (useful when the shortcut fails and you
+need to see which stage broke) plus the diff-review, rebuild, and
+consumer-fix-up steps neither of those docs covers. The script paths below
+(`tools/token-emit/…`) are the source of truth for step 2–3 invocations; the
+sibling [`figma-to-design-tokens`](../figma-to-design-tokens/SKILL.md) skill
+documents the same scripts in more detail.
 
 Related contracts you must not violate:
 
 - [`packages/tokens/AGENTS.md`](../../../packages/tokens/AGENTS.md)
   — **never hand-fabricate snapshot data**; `tiers/*.json` is the source of truth
   but a Figma-originated change must come through a real pull.
-- [`packages/tokens/context/token-contract.md`](../../../packages/tokens/context/token-contract.md)
+- [`packages/tokens/context/versioning.md`](../../../packages/tokens/context/versioning.md)
   — classify the change (breaking / additive / cosmetic) for the changeset(s).
 - [`packages/tokens/AGENTS.md`](../../../packages/tokens/AGENTS.md)
   — generated output is committed; CI gates on drift.
@@ -64,15 +67,18 @@ change the steps.
    plugin from manifest). Required to run a local plugin.
 2. **`FIGMA_ACCESS_TOKEN_ACRONIS`** in the environment (the plugin reads variables
    via the Plugin API; the token is for completeness).
-3. `.tmp/scripts/` is present (committed). `.tmp/figma-tokens/` may be absent on a
-   fresh clone — the pull populates it.
+3. `tools/token-emit/` is present (committed) — this is where the pull/emit
+   scripts used in steps 2–3 live. `packages/tokens/.tmp/figma-tokens/` may be
+   absent on a fresh clone — the pull populates it.
 
 If you can't get a snapshot, **stop and ask the user** — do not fabricate snapshot
 data, and do not hand-patch `tiers/*.json` to stand in for a pull.
 
 ## Runbook
 
-Run script steps from `packages/tokens/`. Paths below are relative to it.
+Step 1 runs from anywhere; steps 2–3 are `tools/token-emit/` scripts run from
+the **repo root** (they resolve their own paths via `import.meta.url`, not
+`cwd`); the rest use `pnpm --filter`, which also works from anywhere.
 
 ### 1. Pull the snapshot (figma-token-exporter)
 
@@ -85,39 +91,48 @@ Run script steps from `packages/tokens/`. Paths below are relative to it.
 - **Fallback (figma-console MCP):** `figma_export_tokens` (`format: dtcg`,
   `scope: file`, `modes: all`, `outputPath: '.tmp/figma-tokens/'`) + a
   `figma_execute` of `getLocalVariablesAsync()` → `variables-meta.json` + style
-  pulls. See `figma-sync.md` → _Pull workflow_.
+  pulls. See the [`figma-to-design-tokens`](../figma-to-design-tokens/SKILL.md)
+  skill's Phase 1 for the exact calls (`figma-sync.md` only documents the
+  exporter-plugin path, not this fallback).
 
 > **Shortcut for steps 2–4:** `pnpm --filter @constructor-lab/tokens emit`
-> runs the gate → three emitters → validate, fail-fast. Run the steps
-> individually (below) only when it fails and you need to see which stage / fix a
-> `lib/` map. (It does **not** rebuild tokens or touch consumers — steps 6–8.)
+> runs the combine-and-gate step → three emitters → `themes-import.mjs`
+> (wires sparse per-brand entries into the tiers) → validate, fail-fast. Run
+> the steps individually (below) only when it fails and you need to see which
+> stage / fix a helper map. (It does **not** rebuild tokens or touch
+> consumers — steps 6–8.)
 
-### 2. Orphan-coverage gate (loop until clean)
+### 2. Combine the snapshot (includes the meta-completeness gate)
 
 ```bash
-node .tmp/scripts/figma-pull-postprocess.mjs
+node tools/token-emit/figma-snapshot-build.mjs --tmp
 ```
 
-Renames `tokens.tokens.json` → `variables.tokens.json` and diffs VariableID
-coverage. **Exit 0** → go to step 3. **Exit 1** → it prints a paste-ready
-`figma_execute` snippet for the missing IDs (figma-console fallback only — the
-exporter already resolves orphans, so it should exit 0 first try); run it, merge
+Merges the pulled snapshot files into one normalized
+`tools/token-emit/snapshot/figma-snapshot.json` and throws `No metadata for
+VariableID:X` if any variable in the export has no `variables-meta.json`
+entry — this is today's form of the old orphan-coverage gate (no longer a
+separate script). **Exit 0** → go to step 3. On the metadata error
+(figma-console fallback only — the exporter already resolves this, so it
+should exit 0 first try): probe the missing IDs via `figma_execute`, merge
 into `variables-meta.json`, re-run until clean.
 
 ### 3. Re-emit the canonical JSON (dependency order)
 
 ```bash
-node .tmp/scripts/figma-to-primitives.mjs
-node .tmp/scripts/figma-to-semantic.mjs
-node .tmp/scripts/figma-to-components.mjs
+node tools/token-emit/emit-primitives.mjs
+node tools/token-emit/emit-semantics.mjs
+node tools/token-emit/emit-components.mjs
+node tools/token-emit/themes-import.mjs
 ```
 
-Order matters (semantic reads primitives; components reads both). These are the
-**canonical formatters** — don't reformat their output. If an emitter throws on an
-unknown palette name or alias target, extend the right `lib/` map
-(`palette-map.mjs` / `alias-map.mjs`) — never bypass it.
+Order matters (semantic reads primitives; components reads both; the theme
+import pass runs last). These are the **canonical formatters** — don't
+reformat their output. If an emitter throws on an unknown palette name or
+alias target, extend the right helper in `tools/token-emit/helpers/`
+(`emit-palette-mapper.mjs` / `emit-alias-translator.mjs`) — never bypass it.
 
-Expected, non-fatal `figma-to-components` warnings (do **not** "fix" by editing the
+Expected, non-fatal `emit-components` warnings (do **not** "fix" by editing the
 emitter unless told): skipped unmodeled `*/label/typography` **string** tokens;
 kept-both flat/nested duplicate groups (e.g. `sidebar.secondary.background`);
 inlined raw-value gaps. Components are sourced from the `brand.componentLegacy`
@@ -157,8 +172,11 @@ pnpm --filter @constructor-lab/tokens build
 git status --short ../tokens
 ```
 
-- A **new brand mode** → a new `css/<brand>.css`, **no code change** (data-driven,
-  see `brand-matrix.md`).
+- A **new brand mode** → a new `[data-brand='<brand>']` override block inside
+  the existing `semantics.css`/`components/<component>.css` (brands share one
+  bundle, there's no per-brand file), **no code change** — the brand set is
+  discovered from the tier data (see
+  [`pipeline.md`](../../../tools/style-dictionary/context/pipeline.md)).
 - `tiers/` changed but `tokens` didn't → suspicious; confirm intentional.
 - The Tailwind builder **skips unroutable component-tier color tokens** with a
   warning (semantic tokens still must route) — expected for the known
@@ -203,7 +221,7 @@ produce them.
   fixes from step 7). `.tmp/figma-tokens/` stays gitignored — never commit it.
 - Changeset **per affected published package** (`tokens`, `tokens`, and
   `ui-react` if you re-themed components), category per
-  [`token-contract.md`](../../../packages/tokens/context/token-contract.md)
+  [`versioning.md`](../../../packages/tokens/context/versioning.md)
   (pre-1.0: breaking → `minor`, additive/cosmetic → `patch`; lead the summary with
   `Add …` / `Adjust …` / `Fix …`).
 - Conventional Commit, e.g. `feat(tokens): add telstra brand mode`.
@@ -213,12 +231,15 @@ produce them.
 - **`packages/tokens/tiers` must be in `.prettierignore`.** The tiers use a
   canonical emitter layout; the pre-commit `prettier --write` reflows them and
   causes CI drift if not ignored (tokens is already ignored).
-- **AI gradients are hardcoded** in `figma-to-semantic.mjs` (`AI_GRADIENT_TRANSFORM`
-  - stops), **not pulled live** (`styles-color.json` is not consumed). The Figma
-    `Ai/*` paint styles report a 90°-rotated (vertical) transform that doesn't match
-    the intended **horizontal** look, so the constant is pinned to identity
-    (→ `linear-gradient(90deg, …)`). If the gradient looks wrong, it's this constant
-    vs the Figma style — re-orient the Figma styles and revisit making it data-driven.
+- **Gradients are string variables parsed live**, not a hardcoded constant. Each
+  `gradients.*` token is a STRING-type Figma variable holding a CSS
+  `linear-gradient(<angle>, <hex> <pct>%, …)` literal;
+  `tools/token-emit/helpers/emit-semantics-builder.mjs` (`#parseCssGradient`)
+  parses that literal on every emit into an HSL stop array and re-derives
+  `com.figma.cssGradient` from it. The angle is whatever the variable stores (the
+  parser throws on a non-`deg` angle or an unparseable stop; `styles-color.json` is
+  not consumed for gradients). So if a gradient looks wrong, fix the CSS literal on
+  the Figma variable — there is no `AI_GRADIENT_TRANSFORM` constant.
 - **Component token leaf names are pass-through** (only space→hyphen normalized),
   so any Figma component-token rename breaks ui-react in lockstep — there's no
   canonicalization layer for them (unlike palette/semantic aliases).
@@ -226,13 +247,13 @@ produce them.
 ## Output checklist (done = all green)
 
 - [ ] Snapshot pulled into `.tmp/figma-tokens/` (exporter preferred).
-- [ ] Orphan gate exits 0.
-- [ ] Three emitters run in order (paths `.tmp/scripts/…`); `tiers/*.json` re-emitted, not reformatted.
+- [ ] Combine step (`figma-snapshot-build.mjs --tmp`) exits 0 — the meta-completeness gate is clean.
+- [ ] Three emitters + `themes-import.mjs` run in order (`tools/token-emit/…`); `tiers/*.json` re-emitted, not reformatted.
 - [ ] `tokens validate` passes.
 - [ ] **Value-level** diff reviewed — only intended tokens changed.
 - [ ] `tokens` rebuilt; generated diff is the expected one; no drift.
 - [ ] If tokens were renamed/removed: broken ui-react refs fixed forward; VR baselines handled (Apple-Silicon caveat).
-- [ ] Changeset(s) added per token-contract; `tiers/` + `tokens` (+ `ui-react`) committed together; `.tmp/` not committed.
+- [ ] Changeset(s) added per `versioning.md`; `tiers/` + `tokens` (+ `ui-react`) committed together; `.tmp/` not committed.
 
 ## When NOT to use this skill
 

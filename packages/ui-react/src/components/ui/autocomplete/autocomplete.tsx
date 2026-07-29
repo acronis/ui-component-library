@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Autocomplete as AutocompletePrimitive } from '@base-ui/react/autocomplete';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // A free-text input with a filtered list of suggestions, built on Base UI's
@@ -89,27 +90,32 @@ const AutocompleteContent = React.forwardRef<
       ...props
     },
     ref
-  ) => (
-    <AutocompletePrimitive.Portal container={portalContainer}>
-      <AutocompletePrimitive.Positioner
-        sideOffset={sideOffset}
-        align={align}
-        side={side}
-        className="z-50 outline-none"
-      >
-        <AutocompletePrimitive.Popup
-          ref={ref}
-          className={cn(
-            'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
-            className
-          )}
-          {...props}
+  ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
+
+    return (
+      <AutocompletePrimitive.Portal container={resolvedContainer}>
+        <AutocompletePrimitive.Positioner
+          sideOffset={sideOffset}
+          align={align}
+          side={side}
+          className="z-50 outline-none"
         >
-          {children}
-        </AutocompletePrimitive.Popup>
-      </AutocompletePrimitive.Positioner>
-    </AutocompletePrimitive.Portal>
-  )
+          <AutocompletePrimitive.Popup
+            ref={ref}
+            className={cn(
+              'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
+              className
+            )}
+            {...props}
+          >
+            {children}
+          </AutocompletePrimitive.Popup>
+        </AutocompletePrimitive.Positioner>
+      </AutocompletePrimitive.Portal>
+    );
+  }
 );
 AutocompleteContent.displayName = 'AutocompleteContent';
 

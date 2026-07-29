@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // A contextual hint shown on hover/focus of its trigger. Wraps the Base UI
@@ -36,28 +37,33 @@ const TooltipContent = React.forwardRef<
       ...props
     },
     ref
-  ) => (
-    <TooltipPrimitive.Portal
-      container={portalContainer}
-      keepMounted={keepMounted}
-    >
-      <TooltipPrimitive.Positioner
-        sideOffset={sideOffset}
-        side={side}
-        align={align}
-        className="z-50"
+  ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
+
+    return (
+      <TooltipPrimitive.Portal
+        container={resolvedContainer}
+        keepMounted={keepMounted}
       >
-        <TooltipPrimitive.Popup
-          ref={ref}
-          className={cn(
-            'max-w-[var(--ui-tooltip-container-width-max)] min-w-[var(--ui-tooltip-container-width-min)] rounded-[var(--ui-tooltip-container-border-radius)] bg-[var(--ui-tooltip-container-color)] px-[var(--ui-tooltip-container-padding-x)] py-[var(--ui-tooltip-container-padding-y)] text-xs font-medium leading-4 text-[var(--ui-tooltip-label-color)]',
-            className
-          )}
-          {...props}
-        />
-      </TooltipPrimitive.Positioner>
-    </TooltipPrimitive.Portal>
-  )
+        <TooltipPrimitive.Positioner
+          sideOffset={sideOffset}
+          side={side}
+          align={align}
+          className="z-50"
+        >
+          <TooltipPrimitive.Popup
+            ref={ref}
+            className={cn(
+              'max-w-[var(--ui-tooltip-container-width-max)] min-w-[var(--ui-tooltip-container-width-min)] rounded-[var(--ui-tooltip-container-border-radius)] bg-[var(--ui-tooltip-container-color)] px-[var(--ui-tooltip-container-padding-x)] py-[var(--ui-tooltip-container-padding-y)] text-xs font-medium leading-4 text-[var(--ui-tooltip-label-color)]',
+              className
+            )}
+            {...props}
+          />
+        </TooltipPrimitive.Positioner>
+      </TooltipPrimitive.Portal>
+    );
+  }
 );
 TooltipContent.displayName = 'TooltipContent';
 

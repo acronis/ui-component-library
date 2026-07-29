@@ -3,6 +3,7 @@ import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // Initial version ported from the legacy shadcn UI kit's `sheet`. A modal
@@ -118,6 +119,8 @@ const SheetContent = React.forwardRef<
     },
     ref
   ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
     const popup = (
       <>
         <SheetOverlay />
@@ -133,7 +136,7 @@ const SheetContent = React.forwardRef<
 
     return portal ? (
       <DialogPrimitive.Portal
-        container={portalContainer}
+        container={resolvedContainer}
         keepMounted={keepMounted}
       >
         {popup}

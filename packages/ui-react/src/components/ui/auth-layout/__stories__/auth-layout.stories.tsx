@@ -37,7 +37,7 @@ export const SignIn: Story = {
             <Button className="w-full">Sign in</Button>
           </div>
           <AuthLayoutFooter>
-            <a className="underline underline-offset-4" href="#">
+            <a className="underline" href="#">
               Forgot password?
             </a>
           </AuthLayoutFooter>

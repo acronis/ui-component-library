@@ -10,6 +10,7 @@ import {
   TriangleWarningYellowIcon,
 } from '@constructor-lab/icons-react/stroke-multi';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 import { Spinner } from '../spinner';
 
@@ -148,7 +149,7 @@ function ToastList() {
           />
         ) : null}
         <div className="flex min-w-0 flex-1 flex-col py-2">
-          <div className="flex items-start gap-2 pl-4 pr-2">
+          <div className="flex items-start gap-2 ps-4 pe-2">
             {icon ? (
               <span className="flex h-6 shrink-0 items-center py-1 [&_svg]:size-4">
                 {icon}
@@ -162,9 +163,9 @@ function ToastList() {
               <TimesIcon className="size-4" />
             </ToastPrimitive.Close>
           </div>
-          <ToastPrimitive.Description className="pb-1 pl-10 pr-4 text-sm leading-6 text-foreground" />
+          <ToastPrimitive.Description className="pb-1 ps-10 pe-4 text-sm leading-6 text-foreground" />
           {item.actionProps ? (
-            <div className="pb-1 pl-10 pr-4">
+            <div className="pb-1 ps-10 pe-4">
               <ToastPrimitive.Action className="text-sm font-semibold text-secondary hover:underline" />
             </div>
           ) : null}
@@ -191,13 +192,15 @@ export interface ToasterProps {
  * stack and renders every queued toast. Trigger toasts with the `toast` API.
  */
 function Toaster({ timeout, limit, portalContainer }: ToasterProps) {
+  const ctxContainer = usePortalContainer();
+  const resolvedContainer = portalContainer ?? ctxContainer;
   return (
     <ToastPrimitive.Provider
       toastManager={toastManager}
       timeout={timeout}
       limit={limit}
     >
-      <ToastPrimitive.Portal container={portalContainer}>
+      <ToastPrimitive.Portal container={resolvedContainer}>
         <ToastPrimitive.Viewport className="fixed bottom-4 end-4 z-[100] flex w-[384px] max-w-[calc(100vw-2rem)] flex-col gap-3 outline-none">
           <ToastList />
         </ToastPrimitive.Viewport>

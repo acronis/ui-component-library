@@ -73,7 +73,7 @@ const WidgetAlertIcon = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'flex-shrink-0 flex items-start pl-6 pt-4 [&>svg]:h-4 [&>svg]:w-4',
+      'flex-shrink-0 flex items-start ps-6 pt-4 [&>svg]:h-4 [&>svg]:w-4',
       className
     )}
     {...props}
@@ -139,7 +139,7 @@ const WidgetAlertActions = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'flex-shrink-0 flex items-start pr-6 pt-4 text-secondary [&>svg]:h-4 [&>svg]:w-4',
+      'flex-shrink-0 flex items-start pe-6 pt-4 text-secondary [&>svg]:h-4 [&>svg]:w-4',
       className
     )}
     {...props}

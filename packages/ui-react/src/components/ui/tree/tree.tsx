@@ -414,7 +414,7 @@ const TreeItemTrigger = React.forwardRef<HTMLDivElement, TreeItemTriggerProps>(
         data-selected={item.selected || undefined}
         data-expanded={item.expanded || undefined}
         style={{
-          paddingLeft: item.level * INDENT_STEP + BASE_PADDING,
+          paddingInlineStart: item.level * INDENT_STEP + BASE_PADDING,
           ...style,
         }}
         onClick={(e) => {
@@ -428,7 +428,7 @@ const TreeItemTrigger = React.forwardRef<HTMLDivElement, TreeItemTriggerProps>(
           if (item.expandable) tree.toggleExpanded(item.value);
         }}
         className={cn(
-          'flex w-full cursor-pointer select-none items-center gap-2 rounded-md py-1.5 pr-2 text-sm leading-6 text-foreground transition-colors',
+          'flex w-full cursor-pointer select-none items-center gap-2 rounded-md py-1.5 pe-2 text-sm leading-6 text-foreground transition-colors',
           'hover:bg-[var(--ui-background-status-info)]',
           'data-[selected]:bg-[var(--ui-background-status-info-hover)]',
           // Ring only when THIS row's own treeitem is focus-visible. A direct-child
@@ -460,7 +460,7 @@ const TreeItemTrigger = React.forwardRef<HTMLDivElement, TreeItemTriggerProps>(
             {item.expanded ? (
               <ChevronDownIcon size={16} />
             ) : (
-              <ChevronRightIcon size={16} />
+              <ChevronRightIcon size={16} className="rtl:rotate-180" />
             )}
           </button>
         ) : (

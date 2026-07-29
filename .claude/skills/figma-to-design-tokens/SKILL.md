@@ -450,8 +450,8 @@ which Collection a new token belongs in.
 | Semantics  | Typography         | _(Figma Text Styles, not Variables)_ | —                              |
 | Components | \* (per component) | Brand                                | `Brand/components/<Component>` |
 
-- The **Brand** collection carries `semantics.colors`, `semantics.gradients`, and every `components.*` group; they share its mode axis (`acronis` only today).
-- **Components** are emitted only for the `COMPONENTS` allowlist in `tools/token-emit/helpers/emit-components-builder.mjs` (today: `Breadcrumb`, `Button`, `ButtonDropdown`, `ButtonIcon`, `ButtonDropdown`, `Checkbox`, `InputSearch`, `InputText`, `InputTextarea`, `Radio`, `SidebarPrimary`, `SidebarSecondary`, `Switch`, `Tag`, `Tooltip`). Extend the allowlist to pull more.
+- The **Brand** collection carries `semantics.colors`, `semantics.gradients`, and every `components.*` group; they share its mode axis, which has a **single mode named `acronis`** in Figma today. This is the raw Figma-side name and is correct as written — **do not "fix" it to `default` or to the repo's multi-brand list**. `themes-import.mjs` renames `acronis` → `default` in the committed tiers (`brand-config.mjs` → `legacyDefaultBrand`), and the repo's other named brands (`telstra`, `virtuozzo`, …) are wired in-repo from `primitives.palette.branding.*`, not from additional Figma Brand modes.
+- **Components** are emitted only for the `DEFAULT_COMPONENTS` allowlist in `tools/token-emit/helpers/emit-components-builder.mjs` (today: `Avatar`, `Breadcrumb`, `Button`, `ButtonIcon`, `ButtonMenu`, `CardFilter`, `Checkbox`, `Chip`, `Dialog`, `Icon`, `InputDatePicker`, `InputSearch`, `InputSelect`, `InputText`, `InputTextArea`, `Link`, `Loading`, `Menu`, `MenuItem`, `Radio`, `Resizable`, `SearchGlobal`, `SidebarPrimary`, `SidebarSecondary`, `Switch`, `Table`, `Tag`, `Tooltip`). Extend the allowlist to pull more.
 
 ### Name handling
 

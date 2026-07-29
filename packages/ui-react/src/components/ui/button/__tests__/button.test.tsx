@@ -36,6 +36,24 @@ describe('Button', () => {
     );
   });
 
+  it('gives every variant a pointer cursor from the shared base', () => {
+    render(<Button variant="ghost">Link</Button>);
+    expect(screen.getByRole('button', { name: 'Link' })).toHaveClass(
+      'cursor-pointer'
+    );
+  });
+
+  it('wires all four ghost text-decoration states so brand overrides are honored', () => {
+    render(<Button variant="ghost">Link</Button>);
+    const button = screen.getByRole('button', { name: 'Link' });
+    expect(button).toHaveClass(
+      '[text-decoration-line:var(--ui-button-ghost-label-text-decoration-idle)]',
+      'hover:[text-decoration-line:var(--ui-button-ghost-label-text-decoration-hover)]',
+      'active:[text-decoration-line:var(--ui-button-ghost-label-text-decoration-active)]',
+      'disabled:[text-decoration-line:var(--ui-button-ghost-label-text-decoration-disabled)]'
+    );
+  });
+
   it('applies the requested variant', () => {
     render(<Button variant="destructive">Delete</Button>);
     const button = screen.getByRole('button', { name: 'Delete' });

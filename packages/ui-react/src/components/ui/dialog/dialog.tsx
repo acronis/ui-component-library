@@ -3,6 +3,7 @@ import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 import { cva, type VariantProps } from 'class-variance-authority';
 
+import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
 
 // A modal overlay built on the Base UI Dialog primitive (keyboard, focus trap,
@@ -115,6 +116,8 @@ const DialogContent = React.forwardRef<
     },
     ref
   ) => {
+    const ctxContainer = usePortalContainer();
+    const resolvedContainer = portalContainer ?? ctxContainer;
     const popup = (
       <>
         <DialogOverlay />
@@ -130,7 +133,7 @@ const DialogContent = React.forwardRef<
 
     return portal ? (
       <DialogPrimitive.Portal
-        container={portalContainer}
+        container={resolvedContainer}
         keepMounted={keepMounted}
       >
         {popup}

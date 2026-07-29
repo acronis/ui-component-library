@@ -883,7 +883,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
         data-pinned={pin.dataPinned}
         style={pin.style}
         className={cn(
-          'h-10 px-[var(--ui-table-global-cell-padding-x)] py-[var(--ui-table-global-cell-padding-y)] align-middle text-sm [&:has([role=checkbox])]:pr-0',
+          'h-10 px-[var(--ui-table-global-cell-padding-x)] py-[var(--ui-table-global-cell-padding-y)] align-middle text-sm [&:has([role=checkbox])]:pe-0',
           pin.className,
           className
         )}

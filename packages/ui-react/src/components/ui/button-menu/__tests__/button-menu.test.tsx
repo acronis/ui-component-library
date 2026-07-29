@@ -22,6 +22,13 @@ describe('ButtonMenu', () => {
     );
   });
 
+  it('gives the button a pointer cursor from the shared base', () => {
+    render(<ButtonMenu>Actions</ButtonMenu>);
+    expect(screen.getByRole('button', { name: 'Actions' })).toHaveClass(
+      'cursor-pointer'
+    );
+  });
+
   it('applies the secondary variant token classes', () => {
     render(<ButtonMenu variant="secondary">Actions</ButtonMenu>);
     expect(screen.getByRole('button', { name: 'Actions' })).toHaveClass(

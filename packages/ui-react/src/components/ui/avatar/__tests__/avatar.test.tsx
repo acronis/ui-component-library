@@ -52,6 +52,23 @@ describe('Avatar', () => {
     );
   });
 
+  it('draws its 2px separator as an outset ring (box-shadow), not an inset border', () => {
+    // A border-box CSS border would eat 4px off the 32px box (Figma strokeAlign
+    // is OUTSIDE), rendering avatars at 28px. Assert the spread-only ring and the
+    // absence of any border utility.
+    const { container } = render(
+      <Avatar>
+        <AvatarFallback>SN</AvatarFallback>
+      </Avatar>
+    );
+    const root = container.firstElementChild as HTMLElement;
+    expect(root.className).toContain(
+      '[box-shadow:0_0_0_var(--ui-avatar-global-avatar-border-border-width)_var(--ui-avatar-global-avatar-border-color)]'
+    );
+    expect(root.className).not.toMatch(/\bborder-solid\b/);
+    expect(root.className).not.toContain('border-[length:');
+  });
+
   it('merges a custom className', () => {
     const { container } = render(
       <Avatar className="custom-x">
