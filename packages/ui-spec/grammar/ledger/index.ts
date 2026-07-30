@@ -216,25 +216,6 @@ export const ledger: LedgerEntry[] = [
     },
   },
   {
-    id: 'interactive-base-cursor-missing',
-    title:
-      'cursor-pointer missing from the BASE class of always-interactive components; only some variants carried it, and a native <button> UA cursor reset hid the gap in review',
-    checklist: 'I7',
-    rule: 'interaction/interactive-cursor',
-    severity: 'should',
-    source: {
-      ref: 'ui-react interactive base classes (button-icon, chip, dialog, input-text, sidebar-secondary, …)',
-    },
-    discovered: '2026-07-29',
-    status: 'resolved',
-    resolution: {
-      kind: 'new-rule',
-      rule: 'interaction/interactive-cursor',
-      note: 'Systemic — cursor-pointer moved to the BASE class of button/button-menu (in #116), button-icon, chip (base + remove button), sidebar-secondary rows + section trigger, and added to the dialog close + input-text clear buttons. New rule interaction/interactive-cursor (I7, detector kit-lint/interactive-cursor) statically flags a cva() base that carries a hover: state but no cursor-* utility, so component six cannot regress. Proposed should; a human ratifies whether it warrants must. Detector scope: cva() literal bases; variable-extracted and plain cn() class strings are outside the static check.',
-      date: '2026-07-29',
-    },
-  },
-  {
     id: 'trend-and-value-surface-duplication',
     title:
       'Four surfaces now cover two roles: "how a metric changed" (TrendIndicator vs widget-text WidgetTextTrend) and "labelled value tile" (Metric vs widget WidgetValue/WidgetLabel vs stat-row StatRow/StatRowStat)',
