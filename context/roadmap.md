@@ -1,6 +1,6 @@
 # UI Components library — Roadmap
 
-> Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-07-29
+> Status: **planning doc** · Owner: Leonid Romanov · Last updated: 2026-07-30
 > The roadmap substance below is current, but its GitHub tracking is **inherited
 > from the upstream `acronis/uikit` project** ("User Interface Kit Development"):
 > the 7 epics as issues **#102–108** and ~98 task sub-issues with Status / Phase
@@ -56,17 +56,17 @@ build on.** `ui-legacy` (`shadcn-uikit`) has been removed from this repo;
 
 ## Current state (baseline)
 
-| Area            | Package                                      | Version | Maturity                                                                                                         |
-| --------------- | -------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
-| **Library**     | `ui-react`                                   | 2.3.0   | **105 components in tree** (Tier 1–3 covered; charts + dashboard primitives added by the upstream borrow, below) |
-| Tokens          | `tokens`                                     | 3.0.0   | DTCG JSON, Figma-synced, ajv-validated                                                                           |
-| Token artifacts | `tokens` (built by `tools/style-dictionary`) | 3.0.0   | Per-brand CSS + Tailwind bridge                                                                                  |
-| Icons           | `icons-react`                                | 0.5.0   | Generated from `icons-svg`                                                                                       |
-| Apps            | demo · docs · demos                          | 0.1–0.4 | Scaffolded showcases                                                                                             |
+| Area            | Package                                      | Version | Maturity                                                                                                                        |
+| --------------- | -------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Library**     | `ui-react`                                   | 2.3.0   | **115 directories under `components/ui`** (Tier 1–3 covered; charts + dashboard primitives added by the upstream borrow, below) |
+| Tokens          | `tokens`                                     | 3.0.0   | DTCG JSON, Figma-synced, ajv-validated                                                                                          |
+| Token artifacts | `tokens` (built by `tools/style-dictionary`) | 3.0.0   | Per-brand CSS + Tailwind bridge                                                                                                 |
+| Icons           | `icons-react`                                | 0.5.0   | Generated from `icons-svg`                                                                                                      |
+| Apps            | demo · docs · demos                          | 0.1–0.4 | Scaffolded showcases                                                                                                            |
 
-**Where the plan now stands:** ui-react has grown from 2 to **105 components**
-(virtually all have a Vitest test and a Storybook story; most carry Figma Code
-Connect). Tier 1 (form/overlay) and Tier 2 (composites) are in tree, and most of
+**Where the plan now stands:** ui-react has grown from 2 to **115 component
+directories** (virtually all have a Vitest test and a Storybook story; most carry Figma
+Code Connect). Tier 1 (form/overlay) and Tier 2 (composites) are in tree, and most of
 Tier 3 (layout/shell/design-system) has landed. The complex set
 (Calendar · Tree · Carousel · Command) has shipped, and the upstream harvest below
 added the chart family and the dashboard primitives. The remaining roadmap work is
@@ -78,6 +78,14 @@ reliably runnable on an arm64 dev machine** (amd64 emulation plus an 8 GB Docker
 ceiling), so VR belongs on CI. Four consecutive local capture attempts failed for
 four _different_ environmental reasons and none was a code defect — see the
 outstanding-work notes below.
+
+_Amended 2026-07-30:_ unreliable, but **not impossible** — a full both-mode capture
+(765 stories × light + dark, 0 failures, 64 baselines written) did complete locally
+on arm64 with Docker at 8.3 GB / 14 CPUs. The precondition is mundane and worth
+stating because it reads as a code failure when missed: **the Docker daemon must
+actually be running** (`docker info` before invoking the runner, `open -a Docker` if
+not). So a local capture is a legitimate fallback while CI runners are down; it just
+cannot be assumed to work.
 
 ---
 
@@ -99,22 +107,38 @@ mine. Full plan and audit addendum: `.ai/explorations/upstream-borrow-audit.md`.
 | **Charts 2a** (#78)            | `ChartState` · `BarChart` · `LineChart` · `AreaChart` · `PieChart` — typed recharts compositions consuming the existing `chart/` primitives unchanged, with series marks bound to our `--ui-chart-*` palette (upstream has no such palette)                                                                                                                                                                                                                                                                                                                       |
 | **Dashboard primitives** (#79) | `TrendIndicator` · `Metric` · `Timeline` (the last derived from Figma node `7615:7791`, not ported) plus the `Avatar` fix that exposed three colour schemes whose tokens were already emitted but unreachable                                                                                                                                                                                                                                                                                                                                                     |
 | **Release gate** (#76)         | `release.yml`'s "Validate design packages" step matched **no package** and silently exited 0 — every release reported a validation it never ran                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Charts 2b** (#80, #81)       | `scatter` · `composed` · `funnel` · `radar` · `radialBar` · `treemap` · `histogram` · `confidenceCone`, plus #81's prettier fix for three chart `.mdx` pages. **Merged 2026-07-30 without the 36 dark baselines that were its own stated merge blocker** — six of the eight types shipped light-only, so the dark CI job had no coverage for them at all. Baselines captured and landed after the fact (below)                                                                                                                                                    |
+
+### On `feat/track3-input-password` — not yet merged
+
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Track 3 components**     | `ButtonIconInput` (Figma `5304:5404`) — the 20×20 in-box affordance (clear ✕ / reveal eye / search trigger); a **distinct component from `ButtonIcon`, not a size of it** (smaller container, 2px padding round a 16px glyph, and a `normal`/`error` variant whose focus ring switches with it). `InputPassword` (Figma `6325:11375`) — the password field, consuming its own `--ui-input-password-*` tier rather than the `InputBox` primitive's `--ui-input-text-*`, matching the five components that already write their own input for the same reason |
+| **The four token tiers**   | `ButtonIconInput` · `InputPassword` · `Footer` · `Popover`, cherry-picked off the agent worktree branch they were stranded on                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Dark VR backfill**       | The 36 missing charts-2b dark baselines, plus the 28 for the two Track 3 components. Captured in Docker (linux/amd64), both modes, 765/765 green                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Ledger fix**             | The duplicate `interactive-base-cursor-missing` entry that held `ui-spec` red                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ⚠️ **Also on this branch** | `d19f42e0 feat(tokens): update typography and add shadow color tokens` — committed by a **concurrent session** onto the shared worktree while this branch was checked out. Unrelated to Track 3. It changed no VR baseline (visually inert across all 765 stories), but decide whether it belongs here before merging                                                                                                                                                                                                                                      |
 
 ### Outstanding
 
-- **PR #80 — charts 2b** (`scatter` · `composed` · `funnel` · `radar` · `radialBar` ·
-  `treemap` · `histogram` · `confidenceCone`). Source complete and green; **must not merge
-  until 36 missing dark baselines land** — six of eight types are light-only, so dark-mode
-  regressions in them are invisible to CI. See the tracked task for the root cause (four
-  capture attempts, four distinct environmental causes) and the one-line fix.
-- **PR #81** — prettier fix for three chart `.mdx` pages the #78 squash carried in
-  unformatted.
-- **Track 3** — the four token tiers (`ButtonIconInput`, `InputPassword`, `Footer`,
-  `Popover`) are emitted and gate-verified additions-only; the two components are unbuilt.
-  `Footer` and `Popover` unblock Popover's Figma sync and Dialog's footer tier.
+- **GitHub Actions runners are not starting** (observed 2026-07-30). Every workflow run
+  since 2026-07-29 fails in 2–13 s with **zero steps executed** and no logs — the job
+  record exists, the runner never picks it up, which matches the unpaid-Actions-billing
+  note below. **Nothing merged in that window was verified by CI**, and that is not a
+  theoretical risk: it is how two real defects reached `main` in a week — see "two defects
+  reached `main` … purely because runners stopped starting" under the audit findings. Fix
+  this before trusting any green-looking merge.
 - **`Loading`** — approved. Its token tier emits 20 values, **all dead**, plus 5 backdrop
   semantics dead beneath it (25 total). Invisible to both existing guards because the tier
   is named `Loading` while the shipped component is `spinner`.
+- **`ui-toast--default` is a non-deterministic VR case.** Its baseline oscillates between
+  two stable renders — 13198 B with the toast visible and 6473 B captured before the toast
+  appears — so it flips on roughly every recapture (`78b1d691` flipped it one way, the
+  2026-07-30 capture flipped it back). It will fail the VR job intermittently until the
+  story's capture waits for the toast. Left uncommitted rather than flipped again.
+- **Track 3 — remaining half.** `ButtonIconInput` and `InputPassword` are **built** (on
+  `feat/track3-input-password`, above). The `Footer` and `Popover` tiers are emitted but
+  still **unconsumed**; they unblock Popover's Figma sync and Dialog's footer tier.
 - **Deferred with decisions recorded** — the sidebar label-overflow mechanism; the
   kit-wide Figma-stroke-vs-CSS-border convention (two alignments, one CSS mechanism, no
   translation rule); a reverse-direction token guard; the `release.yml` → `ci.yml`
@@ -128,6 +152,21 @@ mine. Full plan and audit addendum: `.ai/explorations/upstream-borrow-audit.md`.
   (`/token-gap-check`), **token→any consumer is not**. A dangling `var()` fails silently; an
   unconsumed token fails _invisibly_, and in two confirmed cases it capped a component's
   public API below its own design.
+- **A dark CI job cannot fail on a baseline that does not exist.** #80's own merge
+  blocker was "36 missing dark baselines", and it merged without them — the dark job
+  passed because a story with no committed baseline has nothing to compare against, so
+  absent coverage reports identically to green coverage. Counting the dark PNGs already in
+  the tree does **not** detect this either (two of the eight chart types had theirs, which
+  makes the directory look populated). The reliable check is per-story: every story id in
+  `index.json` must have both `<id>.png` and `<id>--dark.png`. Worth a drift test — it is
+  the same class of invisible-absence bug as the unconsumed-token gap above and the
+  release gate's no-match glob.
+- **Two defects reached `main` in one week purely because runners stopped starting.** #80's
+  missing baselines, and a duplicate `interactive-base-cursor-missing` ledger entry that
+  held the whole `ui-spec` suite red (`validateLedger()` → `duplicate ledger id`; fixed
+  2026-07-30). Both would have been caught by the existing checks on any PR. The lesson is
+  about the gate, not the code: when CI cannot run, the guards this repo has invested
+  heavily in are all simultaneously offline, and merges proceed looking clean.
 - **An accessibility defect no test could see.** Treemap tile labels were white on
   `--ui-chart-*` fills — failing WCAG on **13 of 15** palette colours (worst 1.63:1 against
   the yellow). A fixed on-chart text token cannot exist, because the palette spans 1.63:1 to
