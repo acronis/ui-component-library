@@ -1,3 +1,8 @@
+---
+name: token-gap-check
+description: Detect token gaps for a component — Figma colour variables its node references that have no matching generated `--ui-*` token in `@constructor-lab/tokens`, so the component silently falls back to a wrong value. The design-side mirror of /component-readiness (which checks the tokens the code references). Run it before or while building/updating a component from Figma. Invoke with /token-gap-check <ComponentName>.
+---
+
 # token-gap-check
 
 Detect **token gaps** for a component: Figma colour variables its node references
