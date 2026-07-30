@@ -19,7 +19,6 @@
     --ui-font-font-weight-regular: 400;
     --ui-font-font-weight-semibold: 600;
     --ui-font-letter-spacing-0: 0px;
-    --ui-font-letter-spacing-0-3: 0.3px;
     --ui-font-letter-spacing-1: 1px;
     --ui-font-line-height-16: 16px;
     --ui-font-line-height-20: 20px;
@@ -296,6 +295,9 @@
     --ui-palette-red-7: light-dark(rgb(226 54 54), rgb(229 77 77));
     --ui-palette-red-8: light-dark(rgb(217 38 38), rgb(237 94 94));
     --ui-palette-red-9: light-dark(rgb(195 34 34), rgb(244 154 154));
+    --ui-palette-shadow-lg-color: light-dark(rgb(0 0 0 / 0.502), rgb(0 0 0 / 0.302));
+    --ui-palette-shadow-md-color: light-dark(rgb(0 0 0 / 0.102), rgb(0 0 0 / 0.4));
+    --ui-palette-shadow-sm-color: light-dark(rgb(0 0 0 / 0.302), rgb(0 0 0 / 0.698));
     --ui-palette-teal-0: light-dark(rgb(247 253 252), rgb(0 36 33));
     --ui-palette-teal-1: light-dark(rgb(236 249 248), rgb(0 46 42));
     --ui-palette-teal-10: light-dark(rgb(10 92 85), rgb(178 230 225));
@@ -2174,14 +2176,6 @@
     letter-spacing: 0px;
   }
 
-  .ui-typography-body-heading {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0.3px;
-  }
-
   .ui-typography-body-strong {
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
@@ -2222,6 +2216,14 @@
     letter-spacing: 1px;
   }
 
+  .ui-typography-headings-caption-heading {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0px;
+  }
+
   .ui-typography-headings-display {
     font-family: Inter, system-ui, sans-serif;
     font-size: 32px;
@@ -2235,6 +2237,14 @@
     font-size: 32px;
     font-weight: 400;
     line-height: 40px;
+    letter-spacing: 0px;
+  }
+
+  .ui-typography-headings-heading {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
     letter-spacing: 0px;
   }
 
@@ -2298,14 +2308,6 @@
     font-family: Inter, system-ui, sans-serif;
     font-size: 11px;
     font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 1px;
-  }
-
-  .ui-typography-note-heading {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
     line-height: 16px;
     letter-spacing: 1px;
   }

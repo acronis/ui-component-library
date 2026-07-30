@@ -187,14 +187,6 @@
   letter-spacing: 0px;
 }
 
-.ui-typography-body-heading {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0.3px;
-}
-
 .ui-typography-body-strong {
   font-family: Inter, system-ui, sans-serif;
   font-size: 14px;
@@ -235,6 +227,14 @@
   letter-spacing: 1px;
 }
 
+.ui-typography-headings-caption-heading {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
 .ui-typography-headings-display {
   font-family: Inter, system-ui, sans-serif;
   font-size: 32px;
@@ -248,6 +248,14 @@
   font-size: 32px;
   font-weight: 400;
   line-height: 40px;
+  letter-spacing: 0px;
+}
+
+.ui-typography-headings-heading {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
   letter-spacing: 0px;
 }
 
@@ -311,14 +319,6 @@
   font-family: Inter, system-ui, sans-serif;
   font-size: 11px;
   font-weight: 600;
-  line-height: 16px;
-  letter-spacing: 1px;
-}
-
-.ui-typography-note-heading {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 700;
   line-height: 16px;
   letter-spacing: 1px;
 }
