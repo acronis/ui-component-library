@@ -1,0 +1,15 @@
+spec_version: '1.0'
+component: ButtonIconInput
+name: button-icon-input
+status: ready
+category: actions
+layer: primitive
+description: >-
+  The small icon-only affordance that lives inside an input box — a clear (✕)
+  button, a password reveal eye, a search trigger. 20×20 container with 2px
+  padding around a 16px glyph, and a `variant` (`normal` / `error`) so the
+  affordance follows the field into its error treatment.
+since: 2.4.0
+figma:
+  node: '5304-5404'
+  codeConnect: packages/ui-react/src/components/ui/button-icon-input/button-icon-input.figma.tsx

@@ -1,0 +1,17 @@
+spec_version: '1.0'
+component: InputPassword
+name: input-password
+status: ready
+category: forms
+layer: primitive
+description: >-
+  A password field: an optional label (with an optional required marker), the
+  masked input box, a reveal toggle inside the box, and an optional description
+  or error message. Uses its own `--ui-input-password-*` token tier and composes
+  `ButtonIconInput` for the reveal eye.
+since: 2.4.0
+dependencies:
+  components: [ButtonIconInput]
+figma:
+  node: '6325-11375'
+  codeConnect: packages/ui-react/src/components/ui/input-password/input-password.figma.tsx

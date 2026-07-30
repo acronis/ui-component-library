@@ -1,0 +1,85 @@
+spec_version: '1.0'
+component: InputPassword
+
+contract:
+  properties:
+    - name: label
+      type: ReactNode
+      required: false
+      description: Field label, rendered above the input and tied to it via `htmlFor`/`id`.
+    - name: required
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Appends a decorative `*` after the label and sets `aria-required` on the
+        input.
+    - name: description
+      type: ReactNode
+      required: false
+      description: Helper text below the input. Hidden while `error` is set.
+    - name: error
+      type: ReactNode
+      required: false
+      description: >-
+        Error message below the input. Its presence switches the whole field to
+        the error treatment — red box border, red reveal glyph, red message — and
+        sets `aria-invalid` on the input.
+    - name: revealed
+      type: boolean
+      required: false
+      description: >-
+        Controlled reveal state. When set, the component does not own the state:
+        the toggle only reports through `onRevealedChange`.
+    - name: defaultRevealed
+      type: boolean
+      required: false
+      default: false
+      description: Initial reveal state when uncontrolled.
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: Disables the input and its reveal toggle.
+
+  events:
+    - name: revealedChange
+      payload: boolean
+      description: >-
+        Fired with the next reveal state when the toggle is activated (React:
+        `onRevealedChange`).
+    - name: change
+      payload: Event
+      description: The native input change event, forwarded to the consumer.
+
+  content:
+    - name: label
+      description: The field label.
+    - name: description
+      description: Helper text below the input.
+    - name: error
+      description: Error message below the input.
+
+adapters:
+  react:
+    component: InputPassword
+    status: implemented
+    import: "import { InputPassword } from '@constructor-lab/ui-react'"
+    example: |
+      <InputPassword
+        label="Password"
+        placeholder="Password"
+        description="At least 8 characters."
+      />
+  vue:
+    element: AvInputPassword
+    status: planned
+    import: "import { AvInputPassword } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvInputPassword label="Password" placeholder="Password" />
+  web-components:
+    element: ui-input-password
+    status: planned
+    import: "import '@constructor-lab/ui-wc/input-password'"
+    example: |
+      <ui-input-password label="Password" placeholder="Password"></ui-input-password>

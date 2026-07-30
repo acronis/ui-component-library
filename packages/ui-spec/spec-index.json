@@ -105,6 +105,14 @@
       "since": "0.4.0"
     },
     {
+      "name": "button-icon-input",
+      "component": "ButtonIconInput",
+      "category": "actions",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "2.4.0"
+    },
+    {
       "name": "button-icon-menu",
       "component": "ButtonIconMenu",
       "category": "actions",
@@ -383,6 +391,14 @@
       "status": "ready",
       "layer": "primitive",
       "since": "0.30.0"
+    },
+    {
+      "name": "input-password",
+      "component": "InputPassword",
+      "category": "forms",
+      "status": "ready",
+      "layer": "primitive",
+      "since": "2.4.0"
     },
     {
       "name": "input-search",

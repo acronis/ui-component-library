@@ -1,0 +1,94 @@
+spec_version: '1.0'
+component: InputPassword
+
+schematic: |
+  +-------------------------------+
+  |  label  required              |   root: <div> (field, vertical stack)
+  +-------------------------------+
+  |  [ •••••••••          reveal ]|   input: the masked box; reveal: eye toggle
+  +-------------------------------+
+  |  description | error          |   description (normal) OR error (error state)
+  +-------------------------------+
+
+root:
+  element: div
+  role: group
+  description: >-
+    The field container — a vertical stack of the label, the input box, and the
+    description / error message. Width is fluid with a minimum from
+    `--ui-input-password-global-container-width-min`.
+
+parts:
+  - id: label
+    description: The field label, rendered above the input (`<label htmlFor>`).
+    element: label
+  - id: required
+    description: The required marker (`*`) after the label; shown when `required`.
+    element: span
+  - id: input
+    description: >-
+      The password input box — border, fill, masked value / placeholder, and
+      per-state treatment. Its inline-end padding reserves room for the reveal
+      toggle.
+    element: input
+  - id: reveal
+    description: >-
+      The reveal toggle inside the box (a `ButtonIconInput`); switches the input
+      between `password` and `text` and swaps the eye glyph.
+    element: button
+  - id: description
+    description: Helper text below the input (normal state).
+    element: p
+  - id: error
+    description: Error message below the input; replaces the description when `error` is set.
+    element: p
+
+layout:
+  type: stack
+  direction: vertical
+  align: start
+  order: [label, input, description, error]
+
+states:
+  - {
+      id: hover,
+      trigger: pointer hover over the field,
+      kind: pseudo,
+      pseudo: ':hover',
+      affects: [label, input, description],
+    }
+  - {
+      id: focus-visible,
+      trigger: keyboard focus on the input,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [input],
+    }
+  - {
+      id: focus-visible-reveal,
+      trigger: keyboard focus on the reveal toggle,
+      kind: pseudo,
+      pseudo: ':focus-visible',
+      affects: [reveal],
+    }
+  - {
+      id: revealed,
+      trigger: 'the reveal toggle is activated',
+      kind: prop,
+      prop: revealed,
+      affects: [input, reveal],
+    }
+  - {
+      id: error,
+      trigger: 'error is set',
+      kind: prop,
+      prop: error,
+      affects: [input, reveal, error],
+    }
+  - {
+      id: disabled,
+      trigger: 'disabled === true',
+      kind: prop,
+      prop: disabled,
+      affects: [label, input, reveal, description],
+    }

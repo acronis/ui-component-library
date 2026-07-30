@@ -1,0 +1,65 @@
+spec_version: '1.0'
+component: ButtonIconInput
+
+contract:
+  properties:
+    - name: variant
+      type: "'normal' | 'error'"
+      required: false
+      default: "'normal'"
+      description: >-
+        Visual style. `normal` paints the glyph from
+        `--ui-button-icon-input-normal-icon-color-*` with a `--ui-focus-primary`
+        ring; `error` uses the `-error-*` tokens and a `--ui-focus-error` ring, so
+        the affordance follows its field into the error treatment.
+    - name: disabled
+      type: boolean
+      required: false
+      default: false
+      description: >-
+        Disables interaction. Applies the explicit disabled tokens (not opacity)
+        and suppresses click.
+    - name: type
+      type: "'button' | 'submit' | 'reset'"
+      required: false
+      default: "'button'"
+      description: >-
+        Native HTML button type. Defaults to `button` because the control lives
+        inside a form field and must not submit it.
+    - name: aria-label
+      type: string
+      required: false
+      description: >-
+        Accessible name. Required in practice — this control is icon-only and
+        has no text to name it.
+
+  events:
+    - name: click
+      payload: MouseEvent
+      description: Fired on activation. Not fired while disabled.
+
+  content:
+    - name: default
+      description: A single icon (SVG), sized to 16px and tinted via currentColor.
+
+adapters:
+  react:
+    component: ButtonIconInput
+    status: implemented
+    import: "import { ButtonIconInput } from '@constructor-lab/ui-react'"
+    example: |
+      <ButtonIconInput aria-label="Clear">
+        <TimesIcon />
+      </ButtonIconInput>
+  vue:
+    element: AvButtonIconInput
+    status: planned
+    import: "import { AvButtonIconInput } from '@constructor-lab/ui-vue'"
+    example: |
+      <AvButtonIconInput aria-label="Clear"><TimesIcon /></AvButtonIconInput>
+  web-components:
+    element: ui-button-icon-input
+    status: planned
+    import: "import '@constructor-lab/ui-wc/button-icon-input'"
+    example: |
+      <ui-button-icon-input aria-label="Clear"><!-- icon --></ui-button-icon-input>

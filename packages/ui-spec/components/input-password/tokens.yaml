@@ -1,0 +1,91 @@
+spec_version: '1.0'
+component: InputPassword
+
+# References only — values live in @constructor-lab/tokens. This field has its own
+# `--ui-input-password-*` tier (it does not share the `Input` primitive's
+# `--ui-input-text-*` one). The reveal toggle is a `ButtonIconInput` and carries
+# that component's tokens; only the geometry it contributes to this field's box
+# padding is listed here.
+source: '@constructor-lab/tokens'
+
+tokens:
+  # ── Field container ──
+  - { name: --ui-input-password-global-container-gap, affects: root }
+  - { name: --ui-input-password-global-container-width-min, affects: root }
+  - { name: --ui-input-password-global-container-label-gap, affects: label }
+
+  # ── Label + required marker ──
+  - { name: --ui-input-password-global-label-color-idle, affects: label }
+  - { name: --ui-input-password-global-label-color-hover, affects: label }
+  - { name: --ui-input-password-global-label-color-disabled, affects: label }
+  - { name: --ui-input-password-global-required-color, affects: required }
+
+  # ── Box geometry (input) ──
+  - { name: --ui-input-password-global-box-height, affects: input }
+  - { name: --ui-input-password-global-box-border-radius, affects: input }
+  - { name: --ui-input-password-global-box-border-width, affects: input }
+  - { name: --ui-input-password-global-box-padding-x, affects: input }
+  - { name: --ui-input-password-global-box-padding-y, affects: input }
+  - {
+      name: --ui-input-password-global-box-gap,
+      affects: input,
+      description: 'Gap before the reveal toggle; part of the box inline-end padding',
+    }
+  - {
+      name: --ui-button-icon-input-global-container-width,
+      affects: input,
+      description: 'The reveal toggle width; part of the box inline-end padding',
+    }
+
+  # ── Box fill + value/placeholder text ──
+  - { name: --ui-input-password-global-box-color-idle, affects: input }
+  - { name: --ui-input-password-global-box-color-hover, affects: input }
+  - { name: --ui-input-password-global-box-color-disabled, affects: input }
+  - { name: --ui-input-password-global-value-color-idle, affects: input }
+  - { name: --ui-input-password-global-value-color-hover, affects: input }
+  - { name: --ui-input-password-global-value-color-disabled, affects: input }
+  - { name: --ui-input-password-global-placeholder-color-idle, affects: input }
+  - { name: --ui-input-password-global-placeholder-color-hover, affects: input }
+  - {
+      name: --ui-input-password-global-placeholder-color-disabled,
+      affects: input,
+    }
+
+  # ── Box border (normal + error) ──
+  - { name: --ui-input-password-normal-box-border-color-idle, affects: input }
+  - { name: --ui-input-password-normal-box-border-color-hover, affects: input }
+  - {
+      name: --ui-input-password-normal-box-border-color-disabled,
+      affects: input,
+    }
+  - {
+      name: --ui-input-password-error-msg-box-border-color-idle,
+      affects: input,
+    }
+  - {
+      name: --ui-input-password-error-msg-box-border-color-hover,
+      affects: input,
+    }
+
+  # ── Description + error message ──
+  - {
+      name: --ui-input-password-normal-description-color-idle,
+      affects: description,
+    }
+  - {
+      name: --ui-input-password-normal-description-color-hover,
+      affects: description,
+    }
+  - {
+      name: --ui-input-password-normal-description-color-disabled,
+      affects: description,
+    }
+  - { name: --ui-input-password-error-msg-error-color, affects: error }
+
+  # ── Focus rings ──
+  - { name: --ui-focus-primary, affects: input, description: Input focus ring }
+  - {
+      name: --ui-focus-error,
+      affects: input,
+      description: Error-state focus ring,
+    }
