@@ -22,6 +22,27 @@ jobs:
             filter: '@constructor-lab/ui-react'
             dir: packages/ui-react
             color_mode: dark
+          # ── The two profiles where [data-theme] and the OS DISAGREE ──────────
+          # Neither commits baselines. `system-dark` re-renders with NO
+          # `[data-theme]` on a dark machine and must reproduce the committed
+          # `--dark` PNGs; `forced-light` sets `[data-theme='light']` on a dark
+          # machine and must reproduce the light ones. Any diff is styling that
+          # keyed off the attribute instead of resolving through a token.
+          # See packages/ui-react/.storybook/visual-regression.ts.
+          #
+          # These run a curated ~16% subset, so they cost a fraction of a full
+          # leg. They also go THROUGH scripts/visual-capture.mjs rather than
+          # calling `docker compose` like the two legs above, because the script
+          # owns the subset resolver and the story-count assertion — a filtered
+          # run that silently matched fewer files would otherwise pass green.
+          - name: ui-react
+            filter: '@constructor-lab/ui-react'
+            dir: packages/ui-react
+            color_mode: system-dark
+          - name: ui-react
+            filter: '@constructor-lab/ui-react'
+            dir: packages/ui-react
+            color_mode: forced-light
     name: visual-regression (${{ matrix.name }}${{ matrix.color_mode && format(', {0}', matrix.color_mode) || '' }})
     steps:
       - uses: actions/checkout@v6
@@ -104,10 +125,18 @@ jobs:
       # Docker only serves the pre-built static output and runs Playwright.
       # --build rebuilds the image when Dockerfile or .storybook config changes.
       - name: Run visual regression tests
-        if: steps.changes.outputs[matrix.name] == 'true'
+        if: steps.changes.outputs[matrix.name] == 'true' && matrix.color_mode != 'system-dark' && matrix.color_mode != 'forced-light'
         env:
           STORYBOOK_COLOR_MODE: ${{ matrix.color_mode || 'light' }}
         run: docker compose -f ${{ matrix.dir }}/docker-compose.storybook.yml up --build --abort-on-container-exit --exit-code-from test-runner
+
+      # `--skip-build` because the cached "Build Storybook" step above already
+      # produced storybook-static; the script supplies the subset test-path
+      # pattern, refuses to run if a subset title no longer exists, and fails the
+      # job if jest ran a different number of stories than the subset defines.
+      - name: Run visual regression tests (system-theme subset)
+        if: steps.changes.outputs[matrix.name] == 'true' && (matrix.color_mode == 'system-dark' || matrix.color_mode == 'forced-light')
+        run: node ${{ matrix.dir }}/scripts/visual-capture.mjs --skip-build --mode ${{ matrix.color_mode }}
 
       - name: Upload diff artifacts on failure
         if: failure() && steps.changes.outputs[matrix.name] == 'true'

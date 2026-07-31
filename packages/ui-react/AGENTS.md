@@ -129,7 +129,23 @@ pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker
 The `storybook:test:visual[:update]` scripts run the same thing without Docker
 (host renderer) — useful for a quick local look, but their output must **not**
 be committed. See `test/__snapshots__/README.md`. CI:
-`.github/workflows/visual-regression.yml` (matrix over `ui-react`, light + dark).
+`.github/workflows/visual-regression.yml`.
+
+**Two further profiles cover the OS `prefers-color-scheme` axis** — the case
+where `[data-theme]` and the operating system disagree, which light/dark cannot
+reach because they pin the attribute:
+
+```bash
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:system-dark
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:forced-light
+```
+
+They **write no baselines** — they re-render a ~16% story sample under a
+different theme input and must reproduce the committed light/dark PNGs exactly;
+a diff means styling keyed on `[data-theme]` rather than resolved through a
+token. Hence no `:update` variant, and adding a story means running
+`…:docker:update:all` _before_ them. Details in
+`.storybook/visual-regression.ts` and `scripts/system-theme-subset.mjs`.
 
 ## When you add or change anything in `src/`
 

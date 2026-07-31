@@ -26,7 +26,8 @@
     "generate:stories": "tsx scripts/generate-stories.ts",
     "generate:spec-index": "tsx scripts/generate-spec-index.ts",
     "kit-lint": "tsx scripts/kit-lint.ts",
-    "screen-audit": "tsx scripts/screen-audit.ts"
+    "screen-audit": "tsx scripts/screen-audit.ts",
+    "story-audit": "tsx scripts/story-audit.ts"
   },
   "keywords": [
     "ui-kit",
@@ -38,6 +39,7 @@
     "@types/node": "catalog:",
     "ajv": "catalog:",
     "js-yaml": "5.2.1",
+    "playwright": "1.60.0",
     "tsx": "4.23.0",
     "typescript": "catalog:",
     "vite": "catalog:",

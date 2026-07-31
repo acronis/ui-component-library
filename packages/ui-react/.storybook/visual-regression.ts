@@ -1,11 +1,151 @@
 export type VisualColorMode = 'light' | 'dark';
 
-const DEFAULT_COLOR_MODE: VisualColorMode = 'light';
+/**
+ * A capture profile: how the runner puts the page into a theme state, and which
+ * committed baseline family that state must reproduce.
+ *
+ * ── WHY THIS IS NOT JUST A COLOUR MODE ───────────────────────────────────────
+ * Light/dark is driven by TWO independent inputs, and the pair — not either one
+ * — decides what a user sees:
+ *
+ *   1. `[data-theme]` on the root element (what a consumer sets explicitly), and
+ *   2. the OS `prefers-color-scheme`, which `color-scheme: light dark` in
+ *      `packages/tokens/css/primitives.css` defers to when NO `[data-theme]` is
+ *      present.
+ *
+ * The `light` and `dark` profiles pin input 1 and leave input 2 at its default,
+ * so between them they cover only the two states where the attribute is present.
+ * The two states where the attribute and the OS DISAGREE were never captured:
+ *
+ *   | profile        | [data-theme] | OS pref | tokens resolve | must equal    |
+ *   | -------------- | ------------ | ------- | -------------- | ------------- |
+ *   | light          | light        | light   | light          | `<id>`        |
+ *   | dark           | dark         | light   | dark           | `<id>--dark`  |
+ *   | system-dark    | (absent)     | dark    | dark           | `<id>--dark`  |
+ *   | forced-light   | light        | dark    | light          | `<id>`        |
+ *
+ * **The two new profiles write no new baselines.** `light-dark()` resolves from
+ * the *used* value of `color-scheme`, which is `dark` under both `dark` and
+ * `system-dark` (and `light` under both `light` and `forced-light`) — so every
+ * token-driven colour is identical by construction, and the render MUST match the
+ * baseline the existing profile already committed. Anything that differs is, by
+ * definition, styling that keyed off `[data-theme]` directly instead of resolving
+ * through a token — which is exactly the defect these profiles exist to find.
+ *
+ * That is why `baseline` is a separate field from `name`: it is the assertion.
+ *
+ * ── WHY `emulate` IS SET EVEN FOR `light` AND `dark` ──────────────────────────
+ * Those two profiles previously relied on Chromium's *default* `prefers-color-
+ * scheme` being light. That assumption was unstated and load-bearing: had the
+ * default ever flipped, both baseline families would have silently shifted with
+ * no code change to point at. Pinning it costs one Playwright call and turns the
+ * assumption into a declaration.
+ */
+export interface VisualProfile {
+  /** Profile name, as passed in `STORYBOOK_COLOR_MODE`. */
+  name: VisualProfileName;
+  /**
+   * `[data-theme]` to set on `<html>`, or `null` to REMOVE the attribute so the
+   * `:root` `color-scheme: light dark` defers to the OS.
+   */
+  themeAttribute: VisualColorMode | null;
+  /**
+   * Whether to also set `html.style.color-scheme` inline.
+   *
+   * `false` leaves it to the stylesheet's `[data-theme='…']` rule. That is the
+   * honest path for `forced-light`: a real consumer (see
+   * `apps/demo/src/lib/theme-switcher.ts`) sets only the attribute, and an inline
+   * `color-scheme` would bypass the very rule under test.
+   */
+  inlineColorScheme: boolean;
+  /** OS-level `prefers-color-scheme` to emulate for this capture. */
+  emulate: VisualColorMode;
+  /** The committed baseline family this profile must reproduce, byte for byte. */
+  baseline: VisualColorMode;
+  /**
+   * Run only the curated story subset (`scripts/system-theme-subset.mjs`).
+   *
+   * The two new profiles assert a property that holds per-story independently, so
+   * a representative sample tests the same claim a full corpus would — at ~16% of
+   * the cost. `light`/`dark` stay exhaustive because they own the baselines.
+   */
+  subset: boolean;
+}
 
-export function resolveVisualColorMode(
-  colorMode: string | undefined
-): VisualColorMode {
-  return colorMode === 'dark' ? 'dark' : DEFAULT_COLOR_MODE;
+export type VisualProfileName =
+  'light' | 'dark' | 'system-dark' | 'forced-light';
+
+export const VISUAL_PROFILES: Record<VisualProfileName, VisualProfile> = {
+  light: {
+    name: 'light',
+    themeAttribute: 'light',
+    inlineColorScheme: true,
+    emulate: 'light',
+    baseline: 'light',
+    subset: false,
+  },
+  dark: {
+    name: 'dark',
+    themeAttribute: 'dark',
+    inlineColorScheme: true,
+    emulate: 'light',
+    baseline: 'dark',
+    subset: false,
+  },
+  // The bug case: OS says dark, nothing says otherwise. Tokens go dark via
+  // `light-dark()`; anything keyed on `[data-theme='dark']` stays light.
+  'system-dark': {
+    name: 'system-dark',
+    themeAttribute: null,
+    inlineColorScheme: false,
+    emulate: 'dark',
+    baseline: 'dark',
+    subset: true,
+  },
+  // The guard case: a user on a dark machine who deliberately picked light. Only
+  // reachable once a `prefers-color-scheme` fallback exists, and the first thing
+  // such a fallback breaks if its `:not([data-theme='light'])` escape is wrong.
+  'forced-light': {
+    name: 'forced-light',
+    themeAttribute: 'light',
+    inlineColorScheme: false,
+    emulate: 'dark',
+    baseline: 'light',
+    subset: true,
+  },
+};
+
+const DEFAULT_PROFILE: VisualProfileName = 'light';
+
+/**
+ * Resolve `STORYBOOK_COLOR_MODE` into a profile.
+ *
+ * **An unrecognised non-empty value throws rather than falling back to light.**
+ * This used to be lenient, and with two modes the cost of a typo was bounded: you
+ * got a light run filed under light baselines — mislabelled, but not destructive.
+ * With four profiles two of them file against the *other* family's baselines, so
+ * the same typo in an `--update` run silently overwrites 765 light baselines with
+ * dark renders. A default is only safe while every branch is harmless.
+ *
+ * Empty/unset still means light: docker-compose passes
+ * `${STORYBOOK_COLOR_MODE:-light}`, but `VISUAL_TEST_ARGS` shows this stack does
+ * hand through empty strings, and an empty string is "nobody asked", not a typo.
+ */
+export function resolveVisualProfile(name: string | undefined): VisualProfile {
+  if (name === undefined || name === '')
+    return VISUAL_PROFILES[DEFAULT_PROFILE];
+
+  const profile = VISUAL_PROFILES[name as VisualProfileName];
+  if (!profile) {
+    throw new Error(
+      `Unknown STORYBOOK_COLOR_MODE '${name}'. Expected one of: ` +
+        `${Object.keys(VISUAL_PROFILES).join(', ')}.\n` +
+        'Refusing to fall back to light: two profiles compare against the ' +
+        "opposite family's baselines, so a typo in an --update run would " +
+        'overwrite them with renders from the wrong theme.'
+    );
+  }
+  return profile;
 }
 
 export function getSnapshotIdentifier(
@@ -13,6 +153,44 @@ export function getSnapshotIdentifier(
   colorMode: VisualColorMode
 ): string {
   return colorMode === 'dark' ? `${storyId}--dark` : storyId;
+}
+
+/**
+ * What `<html>` must look like for a profile. `null` means the attribute /
+ * property must be **absent**, not merely unset by us.
+ */
+export interface RootThemeState {
+  dataTheme: VisualColorMode | null;
+  inlineColorScheme: VisualColorMode | null;
+}
+
+/**
+ * The profile → DOM-state decision, as data.
+ *
+ * **Deliberately not a function that mutates the DOM.** The mutation happens
+ * inside `page.evaluate`, whose callback is serialized and run in the browser —
+ * it cannot close over an import, so a shared helper would have to be either
+ * `toString()`-smuggled across a module boundary (which breaks the moment the TS
+ * loader emits a `__name` wrapper) or copy-pasted (two sources of truth for the
+ * one thing no test can see). Returning state instead keeps the branching here,
+ * under test, and leaves the runner two unconditional writes.
+ *
+ * Both fields are always specified, never "leave it alone". Storybook's preview
+ * decorator (`globals.ts:applyColorMode`) has already set BOTH the attribute and
+ * an inline `color-scheme` by the time the runner acts, so a profile that merely
+ * declined to set them would inherit the decorator's — and `system-dark`, whose
+ * whole premise is that neither is present, would silently capture light.
+ */
+export function rootThemeState(
+  profile: Pick<VisualProfile, 'themeAttribute' | 'inlineColorScheme'>
+): RootThemeState {
+  return {
+    dataTheme: profile.themeAttribute,
+    inlineColorScheme:
+      profile.inlineColorScheme && profile.themeAttribute !== null
+        ? profile.themeAttribute
+        : null,
+  };
 }
 
 /**

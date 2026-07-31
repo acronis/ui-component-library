@@ -11,6 +11,44 @@ PNG baselines for the Storybook visual regression suite, captured by
 the CI environment — never commit baselines rendered on macOS/Windows, they will
 not match the Linux renderer.
 
+## Four capture profiles, two baseline families
+
+Light/dark has **two** inputs — `[data-theme]` on the root element, and the OS
+`prefers-color-scheme`, which the tokens' `color-scheme: light dark` defers to
+when no `[data-theme]` is set. The `light`/`dark` profiles pin the attribute and
+leave the OS at light, so they only ever covered the states where the two agree.
+
+| profile        | `[data-theme]` | OS pref  | compares against | stories |
+| -------------- | -------------- | -------- | ---------------- | ------- |
+| `light`        | `light`        | light    | `<id>.png`       | all     |
+| `dark`         | `dark`         | light    | `<id>--dark.png` | all     |
+| `system-dark`  | **absent**     | dark     | `<id>--dark.png` | subset  |
+| `forced-light` | `light`        | **dark** | `<id>.png`       | subset  |
+
+**`system-dark` and `forced-light` own no PNGs of their own** — that is the
+point. `light-dark()` resolves from the _used_ value of `color-scheme`, which is
+identical in each pair above, so every token-driven colour must come out the
+same and the render has to reproduce the committed baseline byte for byte.
+Anything that differs is styling keyed on `[data-theme]` directly instead of
+resolving through a token, which is precisely the defect that makes a component
+render half-dark for a user whose OS is set to dark.
+
+Because they assert a per-story property rather than record anything, they run a
+curated ~16% sample — 21 titles chosen one per rendering mechanism, listed with
+their rationale in `../../scripts/system-theme-subset.mjs`.
+
+```bash
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:system-dark
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:forced-light
+```
+
+There is deliberately **no `:update` variant**: the capture script refuses
+`--update` for these profiles, and the runner refuses to create a missing
+baseline from them. Both guards exist because "update" here would mean
+overwriting the light/dark corpus with renders taken under a different theme
+input — silently baking in the exact difference the profiles exist to catch. Add
+a story, run `…:docker:update:all` first, then these.
+
 ## Generate / update baselines
 
 ```bash

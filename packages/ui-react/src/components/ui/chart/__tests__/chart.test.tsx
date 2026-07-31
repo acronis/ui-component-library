@@ -52,6 +52,36 @@ describe('Chart', () => {
     expect(css).toContain('--color-desktop: #222');
   });
 
+  it('also emits the dark value under prefers-color-scheme, for a system-dark user', () => {
+    // The `[data-theme='dark']` block above is not enough. The tokens set
+    // `color-scheme: light dark` on `:root`, so an app that sets NO `[data-theme]`
+    // gets the dark `--ui-*` palette from the OS — and without this block the
+    // series colours stay light, drawing a dark chart in light-mode colours. That
+    // was reproduced as a real capture diff on `ui-chart--per-theme-series-colors`.
+    const themed = {
+      desktop: { label: 'Desktop', theme: { light: '#aaa', dark: '#222' } },
+    } satisfies ChartConfig;
+    const { container } = render(
+      <ChartContainer config={themed} id="usage">
+        <BarChart data={[]} />
+      </ChartContainer>
+    );
+    const css = container.querySelector('style')?.innerHTML ?? '';
+
+    expect(css).toContain('@media (prefers-color-scheme: dark)');
+    // Anchored on the chart element, NOT as an ancestor prefix: a prefix like
+    // `:not([data-theme='light']) [data-chart=…]` matches through <body>, which
+    // is not `[data-theme='light']` even when :root is — so it would defeat the
+    // very escape it is written to provide.
+    expect(css).toContain(
+      "[data-chart=chart-usage]:not([data-theme='light'] *, [data-theme='light'])"
+    );
+    // The dark value must appear in BOTH dark blocks, so the two ways of asking
+    // for dark agree.
+    expect(css.match(/--color-desktop: #222/g)).toHaveLength(2);
+    expect(css.match(/--color-desktop: #aaa/g)).toHaveLength(1);
+  });
+
   it('renders no <style> when the config carries no colors', () => {
     const { container } = render(
       <ChartContainer config={{ desktop: { label: 'Desktop' } }}>

@@ -40,8 +40,31 @@
 
 /* Theme switches via the `[data-theme]` attribute (set by the consumer /
    next-themes), which drives the tokens' `light-dark()` + `color-scheme` — mirror
-   that for the `dark:` variant. */
-@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+   that for the `dark:` variant.
+
+   TWO branches, because the tokens have two. `@constructor-lab/tokens` sets
+   `color-scheme: light dark` on `:root`, so with NO `[data-theme]` present the
+   whole `--ui-*` palette follows the OS through `light-dark()`. An attribute-only
+   variant does not: a user whose system is set to dark would get dark token
+   colours with light `dark:` utilities painted over them.
+
+   The `:not([data-theme='light'], …)` escape is the load-bearing half. Without
+   it, a user who deliberately picked light on a dark machine gets light tokens
+   with dark utilities — the same defect inverted, and the uglier of the two.
+   `packages/ui-react/.storybook/visual-regression.ts`'s `forced-light` capture
+   profile exists to catch exactly that regression.
+
+   `:where()` throughout so the variant stays at zero specificity, as before. */
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:not([data-theme='light'], [data-theme='light'] *)) {
+      @slot;
+    }
+  }
+}
 
 /* Indeterminate Progress bar: a sliding indicator with no known completion.
    Ported from the legacy shadcn UI kit's tailwind.preset; registered as a Tailwind v4 utility

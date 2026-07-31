@@ -1,0 +1,54 @@
+/* Storybook-only. NOT shipped — this file is imported by `.storybook/preview.ts`
+   and never by `src/styles/index.css`.
+
+   ── THE BUG ────────────────────────────────────────────────────────────────
+   Autodocs pages rendered component text invisibly in dark mode: the Accordion's
+   triggers came out `rgb(255,255,255)` on `rgb(255,255,255)`.
+
+   Two independent theming systems meet on a docs page and only one of them hears
+   about `[data-theme]`:
+
+     - the STORY inside the preview box is ours, themed by `--ui-*` tokens, so its
+       text follows the colour mode the toolbar sets;
+     - the BOX around it (`.sbdocs-preview`) is Storybook's, painted from the
+       *manager* theme, which is a separate setting that our toolbar cannot reach.
+
+   So in dark mode the text went light and the surface underneath stayed white.
+   Measured: both `.sbdocs-preview` and `.sbdocs-wrapper` compute to
+   `rgb(255,255,255)` from emotion classes, regardless of `[data-theme]`.
+
+   The canvas view was never affected — with no Storybook chrome behind it the
+   component sits on the UA canvas, which `color-scheme` already darkens.
+
+   ── WHY ONLY THE STORY SURFACES ────────────────────────────────────────────
+   This deliberately does NOT restyle the docs page itself. `.sbdocs-wrapper`
+   carries Storybook's own chrome — headings, the STORIES rule, the args table —
+   all painted with dark text from the manager theme. Darkening the page without
+   also re-theming every one of those turns the current bug around and hides
+   Storybook's text instead; re-theming them means maintaining a fork of
+   Storybook's docs stylesheet against a token set it knows nothing about.
+
+   Keeping the page light and making each story block a themed surface is both
+   smaller and more honest: it is what a docs page showing a dark component is
+   supposed to look like, and it cannot make anything less readable than it is
+   now.
+
+   ── WHY THE `html` PREFIX ──────────────────────────────────────────────────
+   Storybook's emotion rules are two-class selectors (`.sbdocs.sbdocs-preview`,
+   specificity 0-2-0) injected into <head> at RUNTIME, so they may land after this
+   stylesheet and a matching 0-2-0 rule here would lose on order. The `html`
+   prefix takes it to 0-2-1, which wins on specificity and is therefore
+   independent of injection order — the thing we cannot control. Not `!important`:
+   that would also override a story's own deliberate background. */
+
+html .sbdocs.sbdocs-preview,
+html .docs-story {
+  background-color: var(--ui-background-surface-primary);
+  color: var(--ui-text-on-surface-primary);
+}
+
+/* The preview box's own border and the divider above the "Show code" toolbar are
+   Storybook greys chosen for a white surface; on a dark one they disappear. */
+html .sbdocs.sbdocs-preview {
+  border-color: var(--ui-border-on-surface-border);
+}

@@ -53,6 +53,8 @@
     "storybook:test:visual:docker:update": "node scripts/visual-capture.mjs --update --mode light",
     "storybook:test:visual:docker:update:dark": "node scripts/visual-capture.mjs --update --mode dark",
     "storybook:test:visual:docker:update:all": "node scripts/visual-capture.mjs --update --mode both",
+    "storybook:test:visual:docker:system-dark": "node scripts/visual-capture.mjs --mode system-dark",
+    "storybook:test:visual:docker:forced-light": "node scripts/visual-capture.mjs --mode forced-light",
     "figma:connect": "figma connect parse",
     "figma:connect:publish": "figma connect publish",
     "figma:connect:unpublish": "figma connect unpublish"

@@ -13,11 +13,12 @@ import { TooltipContentProps } from 'recharts/types/component/Tooltip';
 
 import { cn } from '@/lib/utils';
 
-// Format: { THEME_NAME: CSS_SELECTOR }. ui-react flips light/dark via the
-// `[data-theme]` attribute (the tokens resolve `light-dark()` through
-// `color-scheme`), not the legacy `.dark` class — so per-series `theme` colors
-// scope their dark value under `[data-theme='dark']`.
-const THEMES = { light: '', dark: "[data-theme='dark']" } as const;
+// The two keys a caller may supply in `ChartConfig`'s `theme` map. ui-react flips
+// light/dark via the `[data-theme]` attribute (the tokens resolve `light-dark()`
+// through `color-scheme`), not the legacy `.dark` class.
+const THEMES = { light: 'light', dark: 'dark' } as const;
+
+type ThemeKey = keyof typeof THEMES;
 
 export type ChartConfig = {
   [k in string]: {
@@ -124,27 +125,48 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     return null;
   }
 
+  const declarations = (theme: ThemeKey) =>
+    colorConfig
+      .map(([key, itemConfig]) => {
+        const color = itemConfig.theme?.[theme] || itemConfig.color;
+        return color ? `  --color-${key}: ${color};` : null;
+      })
+      .filter(Boolean)
+      .join('\n');
+
+  // THREE blocks, not two — the third is the OS branch.
+  //
+  // The dark value used to be emitted ONLY under `[data-theme='dark']`. But the
+  // tokens set `color-scheme: light dark` on `:root`, so a user whose system is
+  // dark and whose app sets no `[data-theme]` gets the dark `--ui-*` palette
+  // while these series colours stay on their light value: a dark chart drawn in
+  // light-mode series colours. Verified against a real capture — see
+  // `.storybook/visual-regression.ts`'s `system-dark` profile, which reproduced
+  // it on `ui-chart--per-theme-series-colors`.
+  //
+  // `:not([data-theme='light'] *, [data-theme='light'])` is the escape that keeps
+  // an explicit light choice winning on a dark machine. It is written against the
+  // chart element itself rather than as an ancestor prefix on purpose: a prefix
+  // like `:not([data-theme='light']) [data-chart=…]` would match through <body>
+  // (which is not `[data-theme='light']` even when :root is) and defeat itself.
+  //
+  // Specificity works out without relying on order: the media rule is (0,2,0)
+  // — `:not()` contributes its most specific argument — against (0,1,0) for the
+  // light block, so it wins; and it ties the `[data-theme='dark']` block, which
+  // is emitting the same values anyway.
+  //
   // Rendered as a text child (not dangerouslySetInnerHTML): React sets it via
   // textContent, which the browser does not HTML-parse, so a `</style>` in a
   // config color can't break out of the tag.
   return (
     <style>
-      {Object.entries(THEMES)
-        .map(
-          ([theme, prefix]) => `
-            ${prefix} [data-chart=${id}] {
-            ${colorConfig
-              .map(([key, itemConfig]) => {
-                const color =
-                  itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
-                  itemConfig.color;
-                return color ? `  --color-${key}: ${color};` : null;
-              })
-              .join('\n')}
-            }
-            `
-        )
-        .join('\n')}
+      {[
+        `[data-chart=${id}] {\n${declarations(THEMES.light)}\n}`,
+        `[data-theme='dark'] [data-chart=${id}] {\n${declarations(THEMES.dark)}\n}`,
+        `@media (prefers-color-scheme: dark) {\n` +
+          `[data-chart=${id}]:not([data-theme='light'] *, [data-theme='light']) {\n` +
+          `${declarations(THEMES.dark)}\n}\n}`,
+      ].join('\n')}
     </style>
   );
 };

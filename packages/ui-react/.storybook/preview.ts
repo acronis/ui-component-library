@@ -1,10 +1,15 @@
 // @ts-expect-error -- Storybook types use package.json "exports" which require moduleResolution "bundler"
 import type { Preview } from '@storybook/react';
 import '../src/styles/index.css';
+// Storybook-only: makes autodocs story surfaces follow `[data-theme]`. Without it
+// a dark-mode docs page paints light component text on Storybook's white preview
+// box. See the file for why it themes the story surfaces and not the docs page.
+import './storybook-docs.css';
 import {
   applyBrand,
   applyColorMode,
   applyLocaleAndDirection,
+  BRAND_ITEMS,
   type Brand,
   type ColorMode,
   type Direction,
@@ -18,17 +23,11 @@ const preview: Preview = {
       toolbar: {
         title: 'Brand',
         icon: 'paintbrush',
-        items: [
-          { value: 'acronis', title: 'Default' },
-          { value: 'brown', title: 'Brown' },
-          { value: 'dark-gray', title: 'Dark Gray' },
-          { value: 'deep-purple', title: 'Deep Purple' },
-          { value: 'deep-sky-itkontoret', title: 'Deep Sky (ITKontoret)' },
-          { value: 'green-also-choise-df', title: 'Green (Also Choise DF)' },
-          { value: 'blue-yellow-uss-signal', title: 'Blue-Yellow USS Signal' },
-          { value: 'virtuozzo', title: 'Virtuozzo' },
-          { value: 'yellow-1c', title: 'Yellow 1C' },
-        ],
+        // Generated from `BRANDS`, so the toolbar cannot offer fewer brands than
+        // the token bundle ships. The hand-written list this replaced had drifted
+        // to 9 of 21 — `apps/demo` offered all of them, so the same kit looked
+        // like it had two different brand sets depending on where you opened it.
+        items: BRAND_ITEMS,
         dynamicTitle: true,
       },
     },
@@ -40,6 +39,11 @@ const preview: Preview = {
         items: [
           { value: 'light', title: 'Light', icon: 'sun' },
           { value: 'dark', title: 'Dark', icon: 'moon' },
+          // Removes `[data-theme]` entirely so the tokens' `color-scheme: light
+          // dark` defers to YOUR OS setting — the state a consumer who ships the
+          // bundle and sets nothing actually gets. Flip your system appearance to
+          // see it change; nothing in Storybook will.
+          { value: 'system', title: 'System', icon: 'browser' },
         ],
         dynamicTitle: true,
       },

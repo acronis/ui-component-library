@@ -72,6 +72,13 @@ import {
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+import {
+  buildTestPathPatterns,
+  resolveTitleIds,
+  SUBSET_TITLES,
+  subsetStoryIds,
+} from './system-theme-subset.mjs';
+
 const PACKAGE_DIR = dirname(dirname(fileURLToPath(import.meta.url)));
 const LOG_DIR = join(PACKAGE_DIR, '.visual-capture');
 // A directory, because `mkdir` is atomic on every platform we run on: it either
@@ -82,6 +89,11 @@ const LOCK_PID = join(LOCK_DIR, 'pid');
 
 const BASE_COMPOSE = './docker-compose.storybook.yml';
 const UPDATE_COMPOSE = './docker-compose.storybook.update.yml';
+
+/** Capture profiles, mirroring `VISUAL_PROFILES` in `.storybook/visual-regression.ts`. */
+const KNOWN_MODES = ['light', 'dark', 'system-dark', 'forced-light'];
+/** Profiles that own no baselines and run only the curated subset. */
+const SUBSET_MODES = ['system-dark', 'forced-light'];
 
 /**
  * Strips ANSI escapes and Compose's `service-1  | ` line prefix.
@@ -146,20 +158,35 @@ export function parseSummary(text) {
 /**
  * The overall verdict across every requested mode.
  *
- * Separate from the printing so it can be asserted directly. Two ways to fail,
- * deliberately distinct: a mode that ran and reported failures, and a mode that
- * never ran at all. Collapsing them loses the only signal that distinguishes
- * "dark has a real regression" from "dark never happened".
+ * Separate from the printing so it can be asserted directly. THREE ways to fail,
+ * deliberately distinct — collapsing them loses the only signal that
+ * distinguishes "dark has a real regression" from "dark never happened":
+ *
+ *   1. a mode that ran and reported failures,
+ *   2. a mode that never ran at all, and
+ *   3. **a subset mode that ran the wrong number of stories.**
+ *
+ * (3) exists because the subset profiles are selected by a jest test-path regex.
+ * A regex that matches fewer files than intended does not error — jest runs what
+ * it found, every one of them passes, and the run is GREEN while covering less
+ * than it claims. `scripts/system-theme-subset.mjs` already refuses to build a
+ * pattern from a stale title, but that guards the input; this guards the outcome,
+ * which is the only thing that proves the pattern reached jest intact through
+ * `VISUAL_TEST_ARGS`'s unquoted shell expansion.
  */
 export function summarise(results) {
   const notRun = results.filter((r) => !r.ran);
   const failed = results.filter((r) => r.ran && r.code !== 0);
+  const miscounted = results.filter(
+    (r) => r.ran && r.expected !== undefined && r.tests?.total !== r.expected
+  );
   return {
     requested: results.length,
     ranCount: results.filter((r) => r.ran).length,
     notRun,
     failed,
-    ok: notRun.length === 0 && failed.length === 0,
+    miscounted,
+    ok: notRun.length === 0 && failed.length === 0 && miscounted.length === 0,
   };
 }
 
@@ -264,10 +291,34 @@ async function main() {
       : ['light', 'dark'];
 
   for (const mode of modes) {
-    if (mode !== 'light' && mode !== 'dark') {
-      console.error(`Unknown --mode '${mode}'. Use light, dark, or both.`);
+    if (!KNOWN_MODES.includes(mode)) {
+      console.error(
+        `Unknown --mode '${mode}'. Use ${KNOWN_MODES.join(', ')}, or both ` +
+          '(= light + dark).'
+      );
       process.exit(2);
     }
+  }
+
+  // **`--update` is refused for the system profiles, before anything is built.**
+  // They deliberately file against the OTHER profile's committed baselines — that
+  // reuse is the whole assertion (see `.storybook/visual-regression.ts`). So
+  // `--update` here does not "regenerate their baselines": there are none. It
+  // overwrites the light or dark corpus with renders captured under a different
+  // theme input, which is exactly the diff these profiles exist to detect, now
+  // silently baked in and unrecoverable except from git.
+  const illegalUpdate = modes.filter((m) => SUBSET_MODES.includes(m));
+  if (update && illegalUpdate.length) {
+    console.error(
+      `\nREFUSING TO UPDATE: --mode ${illegalUpdate.join(', ')} owns no ` +
+        `baselines.\n\n` +
+        `These profiles re-render stories under a different theme input and\n` +
+        `assert the pixels match the light/dark baselines already committed.\n` +
+        `Running them with --update would overwrite those baselines with the\n` +
+        `very difference they exist to catch.\n\n` +
+        `To re-record baselines, use --mode light / --mode dark.\n`
+    );
+    process.exit(2);
   }
 
   // Everything after `--` is forwarded to `test-storybook` inside the container
@@ -281,13 +332,47 @@ async function main() {
   // ONE build for every mode. `STORYBOOK_COLOR_MODE` is read only by
   // `.storybook/test-runner.ts` at run time — never during the build — so the
   // static output is mode-independent and the old chain was building it twice.
-  console.log('\n=== Building Storybook (once, shared by every mode) ===');
-  const build = await run('pnpm', ['storybook:build'], {
-    logFile: join(LOG_DIR, 'storybook-build.log'),
-  });
-  if (build.code !== 0) {
-    console.error(`\nStorybook build failed (exit ${build.code}).`);
-    process.exit(build.code);
+  //
+  // `--skip-build` is for CI, which already builds `storybook-static` in its own
+  // cached step. It exists so those jobs can run THROUGH this script instead of
+  // invoking `docker compose` directly: everything below — the subset resolver,
+  // the summary parsing, the story-count assertion — is what makes a subset run
+  // trustworthy, and a job that bypasses the script gets none of it.
+  if (argv.includes('--skip-build')) {
+    console.log('\n=== Skipping Storybook build (--skip-build) ===');
+  } else {
+    console.log('\n=== Building Storybook (once, shared by every mode) ===');
+    const build = await run('pnpm', ['storybook:build'], {
+      logFile: join(LOG_DIR, 'storybook-build.log'),
+    });
+    if (build.code !== 0) {
+      console.error(`\nStorybook build failed (exit ${build.code}).`);
+      process.exit(build.code);
+    }
+  }
+
+  // Resolved from the index Storybook just emitted, so a title renamed out from
+  // under the subset fails HERE — loudly, before Docker — rather than shrinking
+  // the run. `resolveTitleIds` throws on any title it cannot find; a filter that
+  // silently matches fewer files is indistinguishable from a suite that passed.
+  let subset;
+  if (modes.some((m) => SUBSET_MODES.includes(m))) {
+    const entries = Object.values(
+      JSON.parse(
+        readFileSync(join(PACKAGE_DIR, 'storybook-static/index.json'), 'utf8')
+      ).entries
+    );
+    subset = {
+      // One pattern per title — jest ORs its positional path patterns, and a
+      // single `(a|b)` alternation does not survive the shells in between.
+      // See buildTestPathPatterns.
+      patterns: buildTestPathPatterns(resolveTitleIds(entries, SUBSET_TITLES)),
+      expected: subsetStoryIds(entries).length,
+    };
+    console.log(
+      `\nsystem-theme subset: ${SUBSET_TITLES.length} titles, ` +
+        `${subset.expected} stories.`
+    );
   }
 
   const composeFiles = update
@@ -309,10 +394,28 @@ async function main() {
 
   const results = [];
   for (const mode of modes) {
+    const isSubset = SUBSET_MODES.includes(mode);
     console.log(
-      `\n=== Capture: ${mode}${update ? ' (--updateSnapshot)' : ''} ===`
+      `\n=== Capture: ${mode}${update ? ' (--updateSnapshot)' : ''}` +
+        `${isSubset ? ` (subset: ${subset.expected} stories)` : ''} ===`
     );
     const logFile = join(LOG_DIR, `capture-${mode}.log`);
+    // jest ORs its positional test-path patterns, so appending the subset
+    // pattern to an operator's own would WIDEN the run, not narrow it. When a
+    // pattern was passed explicitly it therefore replaces the subset — and says
+    // so, because a subset run that quietly covered something else is the same
+    // silent-miscount failure the resolver above exists to prevent.
+    const operatorPattern = passthrough.some((a) => !a.startsWith('-'));
+    if (isSubset && operatorPattern) {
+      console.log(
+        `  note: using the pattern you passed after \`--\` INSTEAD of the ` +
+          `system-theme subset.`
+      );
+    }
+    const testArgs =
+      isSubset && !operatorPattern
+        ? [...passthrough, ...subset.patterns]
+        : passthrough;
     const { code, captured } = await run(
       'docker',
       [
@@ -328,7 +431,7 @@ async function main() {
         logFile,
         env: {
           STORYBOOK_COLOR_MODE: mode,
-          VISUAL_TEST_ARGS: passthrough.join(' '),
+          VISUAL_TEST_ARGS: testArgs.join(' '),
         },
       }
     );
@@ -336,7 +439,17 @@ async function main() {
     // **Every requested mode runs.** A failure here is recorded and the loop
     // continues — that single decision is the fix for (1). Aggregated into a
     // non-zero exit below, so nothing is swallowed.
-    results.push({ mode, code, logFile, ...parseSummary(captured) });
+    results.push({
+      mode,
+      code,
+      logFile,
+      // Only for an unmodified subset run: with an operator pattern the count is
+      // whatever they asked for, and asserting the subset total would be a false
+      // failure. `undefined` means "no count expectation", checked in `summarise`.
+      expected:
+        isSubset && !operatorPattern && !update ? subset.expected : undefined,
+      ...parseSummary(captured),
+    });
   }
 
   // One source for the printed verdict and the exit code: a report that can
@@ -378,6 +491,14 @@ async function main() {
     console.log(
       `FAIL: ${verdict.failed.length}/${verdict.requested} mode(s) reported ` +
         `failures — ${verdict.failed.map((r) => r.mode).join(', ')}.`
+    );
+  }
+  for (const r of verdict.miscounted) {
+    console.log(
+      `FAIL: ${r.mode} ran ${r.tests.total} tests but the subset defines ` +
+        `${r.expected}. The test-path filter did not select what it claims, so ` +
+        `a green result here would cover less than it reports. Check the ` +
+        `pattern in ${r.logFile}.`
     );
   }
   if (verdict.ok) {

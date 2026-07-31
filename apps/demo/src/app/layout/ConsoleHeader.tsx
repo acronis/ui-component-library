@@ -20,7 +20,11 @@ import {
   DropdownMenuTrigger,
   SearchGlobal,
 } from '@constructor-lab/ui-react';
-import { getCurrentColorMode, toggleColorMode } from '@/lib/theme-switcher';
+import {
+  getCurrentColorMode,
+  toggleColorMode,
+  watchSystemColorScheme,
+} from '@/lib/theme-switcher';
 import { useAuth } from '../hooks/useAuth';
 import { BrandSelector } from '../components/BrandSelector';
 import { LanguageSelector } from '../components/LanguageSelector';
@@ -36,6 +40,12 @@ export function ConsoleHeader() {
   const [mode, setMode] = React.useState<'light' | 'dark'>(() =>
     getCurrentColorMode()
   );
+
+  // While no explicit choice is stored, the page follows the OS through the
+  // tokens' `light-dark()` — it repaints with no JavaScript at all. This state
+  // does not, so without the subscription the icon would keep showing the
+  // appearance from page load while the app around it had already flipped.
+  React.useEffect(() => watchSystemColorScheme(setMode), []);
 
   const handleToggleTheme = () => setMode(toggleColorMode());
 

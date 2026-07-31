@@ -1,19 +1,107 @@
 import {
   getSnapshotIdentifier,
   isCaptureTruncated,
-  resolveVisualColorMode,
+  resolveVisualProfile,
+  rootThemeState,
+  VISUAL_PROFILES,
 } from './visual-regression';
 
-describe('visual regression helpers', () => {
-  it('defaults color mode to light', () => {
-    expect(resolveVisualColorMode(undefined)).toBe('light');
-    expect(resolveVisualColorMode('invalid')).toBe('light');
+describe('resolveVisualProfile', () => {
+  it('defaults an unset or empty mode to light', () => {
+    // docker-compose passes `${STORYBOOK_COLOR_MODE:-light}`, but this stack does
+    // hand through empty strings (see VISUAL_TEST_ARGS) — "nobody asked" is not
+    // the same as a typo.
+    expect(resolveVisualProfile(undefined).name).toBe('light');
+    expect(resolveVisualProfile('').name).toBe('light');
   });
 
-  it('resolves dark color mode', () => {
-    expect(resolveVisualColorMode('dark')).toBe('dark');
+  it('resolves every declared profile by name', () => {
+    for (const name of Object.keys(VISUAL_PROFILES)) {
+      expect(resolveVisualProfile(name).name).toBe(name);
+    }
   });
 
+  it('THROWS on an unrecognised mode instead of falling back to light', () => {
+    // This used to return light. With four profiles that is destructive, not
+    // merely mislabelled: `system-dark` and `forced-light` file against the
+    // light/dark baselines, so a typo in an `--update` run silently overwrites
+    // 765 committed PNGs with renders captured under the wrong theme input.
+    expect(() => resolveVisualProfile('sytem-dark')).toThrow(/Unknown/);
+    expect(() => resolveVisualProfile('invalid')).toThrow(/system-dark/);
+  });
+});
+
+describe('VISUAL_PROFILES', () => {
+  // These four rows ARE the specification — the table in the module docblock is
+  // prose, and prose does not fail. Each profile's `baseline` is the assertion it
+  // makes, so a wrong value here does not error: it compares a dark render
+  // against a light PNG and reports a defect that is really a config mistake.
+  it.each([
+    ['light', 'light', true, 'light', 'light', false],
+    ['dark', 'dark', true, 'light', 'dark', false],
+    ['system-dark', null, false, 'dark', 'dark', true],
+    ['forced-light', 'light', false, 'dark', 'light', true],
+  ])(
+    '%s: attr=%s inline=%s emulate=%s baseline=%s subset=%s',
+    (name, themeAttribute, inlineColorScheme, emulate, baseline, subset) => {
+      expect(VISUAL_PROFILES[name]).toMatchObject({
+        themeAttribute,
+        inlineColorScheme,
+        emulate,
+        baseline,
+        subset,
+      });
+    }
+  );
+
+  it('gives the two system profiles the OPPOSITE attribute state to their baseline owner', () => {
+    // The property that makes them worth running at all. `system-dark` must
+    // reproduce the dark baseline WITHOUT `[data-theme='dark']`, and
+    // `forced-light` must reproduce the light baseline WITH a dark OS. If either
+    // ever matched its baseline owner's inputs it would assert nothing.
+    const { dark, light } = VISUAL_PROFILES;
+    expect(VISUAL_PROFILES['system-dark'].baseline).toBe(dark.baseline);
+    expect(VISUAL_PROFILES['system-dark'].themeAttribute).not.toBe(
+      dark.themeAttribute
+    );
+    expect(VISUAL_PROFILES['forced-light'].baseline).toBe(light.baseline);
+    expect(VISUAL_PROFILES['forced-light'].emulate).not.toBe(light.emulate);
+  });
+});
+
+describe('rootThemeState', () => {
+  it('clears both inputs for system-dark', () => {
+    // `null` means ABSENT. Storybook's preview decorator has already set both by
+    // the time the runner acts, so "don't set it" would inherit light and the
+    // profile would silently capture the wrong state.
+    expect(rootThemeState(VISUAL_PROFILES['system-dark'])).toEqual({
+      dataTheme: null,
+      inlineColorScheme: null,
+    });
+  });
+
+  it('sets the attribute but NOT an inline color-scheme for forced-light', () => {
+    // An inline `color-scheme` would bypass the `[data-theme='light']` rule in
+    // primitives.css — the rule this profile exists to test.
+    expect(rootThemeState(VISUAL_PROFILES['forced-light'])).toEqual({
+      dataTheme: 'light',
+      inlineColorScheme: null,
+    });
+  });
+
+  it('sets both for the baseline-owning profiles', () => {
+    expect(rootThemeState(VISUAL_PROFILES.light)).toEqual({
+      dataTheme: 'light',
+      inlineColorScheme: 'light',
+    });
+    expect(rootThemeState(VISUAL_PROFILES.dark)).toEqual({
+      dataTheme: 'dark',
+      inlineColorScheme: 'dark',
+    });
+  });
+});
+
+describe('getSnapshotIdentifier', () => {
   it('suffixes dark snapshot identifiers', () => {
     expect(getSnapshotIdentifier('ui-button--default', 'light')).toBe(
       'ui-button--default'
@@ -21,6 +109,23 @@ describe('visual regression helpers', () => {
     expect(getSnapshotIdentifier('ui-button--default', 'dark')).toBe(
       'ui-button--default--dark'
     );
+  });
+
+  it('files a system profile under its BASELINE, not its name', () => {
+    // The reuse is the assertion: system-dark has no `--system-dark` PNGs, it
+    // must reproduce the committed dark ones.
+    expect(
+      getSnapshotIdentifier(
+        'ui-button--default',
+        VISUAL_PROFILES['system-dark'].baseline
+      )
+    ).toBe('ui-button--default--dark');
+    expect(
+      getSnapshotIdentifier(
+        'ui-button--default',
+        VISUAL_PROFILES['forced-light'].baseline
+      )
+    ).toBe('ui-button--default');
   });
 });
 

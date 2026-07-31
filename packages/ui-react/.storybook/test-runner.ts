@@ -2,12 +2,26 @@ import type { Page } from 'playwright';
 import type { TestRunnerConfig } from '@storybook/test-runner';
 import { getStoryContext } from '@storybook/test-runner';
 import * as process from 'node:process';
+import { existsSync } from 'node:fs';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import {
   getSnapshotIdentifier,
   isCaptureTruncated,
-  resolveVisualColorMode,
+  resolveVisualProfile,
+  rootThemeState,
+  type RootThemeState,
 } from './visual-regression';
+
+/**
+ * Resolved ONCE at module load, not per story.
+ *
+ * `resolveVisualProfile` throws on an unrecognised `STORYBOOK_COLOR_MODE`, and
+ * where that throw lands decides how it reads. Inside `postVisit` it would fire
+ * once per story — hundreds of identical stack traces with the real message
+ * buried, in a run the capture script then reports as a generic mode failure. At
+ * module scope it kills the runner before the first test, with the message first.
+ */
+const PROFILE = resolveVisualProfile(process.env.STORYBOOK_COLOR_MODE);
 
 /**
  * The story the preview is **actually rendering**, straight from Storybook's own
@@ -82,7 +96,6 @@ const config: TestRunnerConfig = {
   async postVisit(page, context) {
     // Wait for fonts and images to load before snapshotting.
     await page.waitForLoadState('networkidle');
-    const colorMode = resolveVisualColorMode(process.env.STORYBOOK_COLOR_MODE);
 
     const storyContext = await getStoryContext(page, context);
     const snapshotFullPage =
@@ -97,11 +110,30 @@ const config: TestRunnerConfig = {
       );
     }
 
-    await page.evaluate((mode: 'light' | 'dark') => {
+    // The OS half of the theme input. Set for EVERY profile, including light and
+    // dark — see `VisualProfile` for why an unstated Chromium default is not an
+    // acceptable input to 1530 committed baselines.
+    await page.emulateMedia({ colorScheme: PROFILE.emulate });
+
+    // The document half. The DECISION is `rootThemeState` in
+    // `visual-regression.ts` (unit-tested); this callback only applies it, because
+    // a `page.evaluate` body is serialized into the browser and cannot reference
+    // an import. Both writes are unconditional on purpose — `null` means the
+    // attribute/property must be ABSENT, which the preview decorator has already
+    // made false by the time we get here.
+    await page.evaluate((state: RootThemeState) => {
       const html = document.documentElement;
-      html.dataset.theme = mode;
-      html.style.colorScheme = mode;
-    }, colorMode);
+      if (state.dataTheme === null) {
+        delete html.dataset.theme;
+      } else {
+        html.dataset.theme = state.dataTheme;
+      }
+      if (state.inlineColorScheme === null) {
+        html.style.removeProperty('color-scheme');
+      } else {
+        html.style.setProperty('color-scheme', state.inlineColorScheme);
+      }
+    }, rootThemeState(PROFILE));
     await page.waitForTimeout(50);
 
     await assertRenderingStory(page, context.id, 'before');
@@ -199,9 +231,49 @@ const config: TestRunnerConfig = {
     // The capture window is the part that matters — see `assertRenderingStory`.
     await assertRenderingStory(page, context.id, 'after');
 
+    const snapshotsDir = `${process.cwd()}/test/__snapshots__`;
+    // `PROFILE.baseline`, not `PROFILE.name`: `system-dark` files against the
+    // committed `--dark` baselines and `forced-light` against the light ones.
+    // That reuse IS the assertion — see `VisualProfile`.
+    const snapshotIdentifier = getSnapshotIdentifier(
+      context.id,
+      PROFILE.baseline
+    );
+
+    /**
+     * **A profile that owns no baselines must never create one.**
+     *
+     * `jest-image-snapshot` WRITES a missing snapshot instead of failing (jest's
+     * usual first-run behaviour), and that is wrong here in a way no output
+     * reveals. `system-dark` and `forced-light` exist to re-render an EXISTING
+     * baseline under a different theme input; for a story that has none, there is
+     * nothing to compare, so the write records the untested state as ground truth
+     * and every later run compares against it. The story would then carry a dark
+     * baseline captured with no `[data-theme]` at all — sourced from the very
+     * profile that is supposed to be checked against it, and green forever.
+     *
+     * Caught in practice: adding one story and running `system-dark` before
+     * `--mode both --update` was enough to reach this. It also covers the wider
+     * case of a story added by someone who only ran the subset profiles.
+     */
+    if (
+      PROFILE.subset &&
+      !existsSync(`${snapshotsDir}/${snapshotIdentifier}.png`)
+    ) {
+      throw new Error(
+        `Visual regression aborted: '${context.id}' has no committed ` +
+          `'${snapshotIdentifier}.png', and the '${PROFILE.name}' profile is not ` +
+          'allowed to create one — it owns no baselines, it only re-renders ' +
+          "other profiles' baselines under a different theme input.\n" +
+          'Fix: record it first with ' +
+          '`pnpm storybook:test:visual:docker:update:all`, then re-run this ' +
+          'profile.'
+      );
+    }
+
     expect(image).toMatchImageSnapshot({
-      customSnapshotsDir: `${process.cwd()}/test/__snapshots__`,
-      customSnapshotIdentifier: getSnapshotIdentifier(context.id, colorMode),
+      customSnapshotsDir: snapshotsDir,
+      customSnapshotIdentifier: snapshotIdentifier,
       // The gate is 0.5% by default (CI and normal captures). `VISUAL_FAILURE_THRESHOLD`
       // overrides it for diagnostics — set it to 0 to expose the true per-story diff a
       // 0.5% gate is blind to (#101), e.g. `VISUAL_FAILURE_THRESHOLD=0 … -- ui-avatar`.

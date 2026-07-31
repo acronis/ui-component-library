@@ -79,19 +79,93 @@ export function collectScreenSnapshot(opts: ProbeOptions): ScreenSnapshot {
     return null;
   };
 
-  const isTransparent = (c: string): boolean =>
-    c === 'transparent' ||
-    c === 'rgba(0, 0, 0, 0)' ||
-    /,\s*0\s*\)$/.test(c.replace(/\s/g, '').replace(/,0\)$/, ', 0)'));
+  /**
+   * The colour the UA paints behind a page where nothing else does.
+   *
+   * This used to be a flat `rgb(255, 255, 255)`, which silently assumed every
+   * unpainted document is light. It is not: when the used value of
+   * `color-scheme` is dark the browser paints the canvas dark, so on a
+   * Storybook story — where nothing sets a background and the canvas IS the
+   * background — every light-on-dark label scored as ~1:1 against an imaginary
+   * white. That produced three false contrast findings on Accordion alone.
+   *
+   * `rgb(18, 18, 18)` is Chromium's dark canvas, taken empirically rather than
+   * from memory: it is the corner pixel of the committed
+   * `ui-accordion--default--dark.png`, i.e. measured from the exact renderer
+   * this repo's baselines come from (the light baseline's corner is
+   * `rgb(255, 255, 255)`, matching the other branch).
+   */
+  const canvasColor = (): string => {
+    const scheme = getComputedStyle(document.documentElement).colorScheme || '';
+    const prefersDark =
+      typeof matchMedia === 'function' &&
+      matchMedia('(prefers-color-scheme: dark)').matches;
+    // `light dark` defers to the OS; a lone `dark` (or `only dark`) does not.
+    const dark =
+      scheme.includes('dark') && (!scheme.includes('light') || prefersDark);
+    return dark ? 'rgb(18, 18, 18)' : 'rgb(255, 255, 255)';
+  };
 
+  /** `rgb()` / `rgba()` → channels + alpha, or null if unparseable. */
+  const parseColor = (
+    c: string
+  ): { r: number; g: number; b: number; a: number } | null => {
+    const m = c.match(
+      /rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:\s*[,/]\s*([\d.]+))?/
+    );
+    if (!m) return null;
+    return {
+      r: Number(m[1]),
+      g: Number(m[2]),
+      b: Number(m[3]),
+      a: m[4] === undefined ? 1 : Number(m[4]),
+    };
+  };
+
+  /**
+   * The colour actually painted behind `el`, with translucent layers composited.
+   *
+   * ── WHY THIS IS NOT "THE FIRST NON-TRANSPARENT ANCESTOR" ────────────────────
+   * It used to be, and that produced **4536 false findings in one sweep — 74% of
+   * the total**, all from a single pattern: an `rgba(0, 0, 0, 0.01)` hairline
+   * wash (Storybook's docs surfaces use one). That is not transparent by the old
+   * `isTransparent` test, which only recognised exactly-zero alpha, so the walk
+   * stopped there and handed the detector a *black* background — the alpha was
+   * dropped entirely, because the scoring code reads only the RGB channels.
+   * Near-black text on a near-invisible wash scored 1.65:1 while really sitting
+   * on white.
+   *
+   * Raising the alpha threshold would only move the cliff. The honest fix is to
+   * do what the compositor does: collect every layer up to the first fully
+   * opaque one, then blend them back down with the `over` operator. A 1%-alpha
+   * layer now shifts the result by 1%, which is what it does on screen.
+   */
   const effectiveBg = (el: Element): string => {
+    const layers: { r: number; g: number; b: number; a: number }[] = [];
     let cur: Element | null = el;
     while (cur) {
-      const bg = getComputedStyle(cur).backgroundColor;
-      if (bg && !isTransparent(bg)) return bg;
+      const c = parseColor(getComputedStyle(cur).backgroundColor);
+      if (c && c.a > 0) {
+        layers.push(c);
+        // Nothing below a fully opaque layer can show through.
+        if (c.a >= 1) break;
+      }
       cur = cur.parentElement;
     }
-    return 'rgb(255, 255, 255)';
+
+    // Base is the UA canvas; an opaque final layer simply overwrites it.
+    let base = parseColor(canvasColor()) ?? { r: 255, g: 255, b: 255, a: 1 };
+    // Composite far-to-near: the last layer collected is the furthest ancestor.
+    for (let i = layers.length - 1; i >= 0; i -= 1) {
+      const l = layers[i];
+      base = {
+        r: l.r * l.a + base.r * (1 - l.a),
+        g: l.g * l.a + base.g * (1 - l.a),
+        b: l.b * l.a + base.b * (1 - l.a),
+        a: 1,
+      };
+    }
+    return `rgb(${Math.round(base.r)}, ${Math.round(base.g)}, ${Math.round(base.b)})`;
   };
 
   const accessibleName = (el: Element): string | null => {

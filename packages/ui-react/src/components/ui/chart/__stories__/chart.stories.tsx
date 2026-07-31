@@ -273,3 +273,58 @@ export const StackedBars: Story = {
     </ChartContainer>
   ),
 };
+
+// ── The `theme` branch of ChartConfig, which nothing else covers ──────────────
+// A series can supply either a single `color` or a per-theme `theme: { light,
+// dark }` pair. Every other story here uses `color`, so `ChartStyle`'s two
+// emitted blocks carry the SAME value and the light/dark baselines are identical
+// in the one region that distinguishes them — the code path is exercised, the
+// behaviour is not.
+//
+// That matters beyond ordinary coverage: `ChartStyle` scopes the dark block with
+// a literal `[data-theme='dark']` selector rather than a token, so it is the one
+// place in the library where dark styling cannot follow the OS. This story is
+// what lets the `system-dark` capture profile SEE that — with identical colours
+// there is no pixel for it to differ on. Deliberately high-contrast between the
+// two values for the same reason: a subtle pair would sit under the 0.5% gate.
+const perThemeConfig = {
+  desktop: {
+    label: 'Desktop',
+    theme: {
+      light: 'var(--ui-background-brand-secondary)',
+      dark: 'var(--ui-background-status-strong-success)',
+    },
+  },
+  mobile: {
+    label: 'Mobile',
+    theme: {
+      light: 'var(--ui-background-status-strong-danger)',
+      dark: 'var(--ui-background-status-strong-warning)',
+    },
+  },
+} satisfies ChartConfig;
+
+export const PerThemeSeriesColors: Story = {
+  args: { config: perThemeConfig, children: <span /> },
+  render: () => (
+    <ChartContainer config={perThemeConfig} className="h-[300px] w-[500px]">
+      <BarChart data={seriesData}>
+        <CartesianGrid vertical={false} />
+        <XAxis dataKey="month" tickLine={false} axisLine={false} />
+        <ChartLegend content={<ChartLegendContent />} />
+        <Bar
+          dataKey="desktop"
+          fill="var(--color-desktop)"
+          radius={4}
+          isAnimationActive={false}
+        />
+        <Bar
+          dataKey="mobile"
+          fill="var(--color-mobile)"
+          radius={4}
+          isAnimationActive={false}
+        />
+      </BarChart>
+    </ChartContainer>
+  ),
+};
