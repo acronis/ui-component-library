@@ -14,20 +14,21 @@
   },
   "main": "./index.ts",
   "scripts": {
+    "brand-contrast": "tsx scripts/brand-contrast.ts",
     "build": "echo \"no build (spec data package)\" && exit 0",
     "clean": "echo \"nothing to clean (spec data package)\" && exit 0",
     "dev": "echo \"no dev server (spec data package)\" && exit 0",
+    "generate:spec-index": "tsx scripts/generate-spec-index.ts",
+    "generate:stories": "tsx scripts/generate-stories.ts",
+    "kit-lint": "tsx scripts/kit-lint.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
+    "screen-audit": "tsx scripts/screen-audit.ts",
+    "story-audit": "tsx scripts/story-audit.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate": "vitest run",
-    "generate:stories": "tsx scripts/generate-stories.ts",
-    "generate:spec-index": "tsx scripts/generate-spec-index.ts",
-    "kit-lint": "tsx scripts/kit-lint.ts",
-    "screen-audit": "tsx scripts/screen-audit.ts",
-    "story-audit": "tsx scripts/story-audit.ts"
+    "typecheck": "tsc --noEmit",
+    "validate": "vitest run"
   },
   "keywords": [
     "ui-kit",
@@ -35,6 +36,7 @@
     "design-system"
   ],
   "devDependencies": {
+    "@constructor-lab/tokens": "workspace:*",
     "@types/js-yaml": "4.0.9",
     "@types/node": "catalog:",
     "ajv": "catalog:",

@@ -622,6 +622,9 @@ importers:
 
   packages/ui-spec:
     devDependencies:
+      '@constructor-lab/tokens':
+        specifier: workspace:*
+        version: link:../tokens
       '@types/js-yaml':
         specifier: 4.0.9
         version: 4.0.9

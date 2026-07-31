@@ -141,6 +141,28 @@ async function auditOne(
       timeout: 30_000,
     });
 
+    // ── TRANSITIONS OFF BEFORE THE THEME FLIPS ───────────────────────────────
+    // Components in this library animate `color` (the DataTable header carries
+    // `transition: all`), so switching `[data-theme]` starts a colour animation
+    // and any measurement taken during it reads an intermediate value that
+    // belongs to NEITHER theme.
+    //
+    // That is not hypothetical: it invented a whole finding. The audit reported
+    // `rgb(44,45,47)`/`rgb(45,46,48)`/`rgb(47,48,50)` — three near-identical
+    // greys that match no palette entry — on DataTable/DataGrid headers at
+    // ~1.4:1. Settled, the same element measures 17.15:1 in dark and 17.59:1 in
+    // light. The tell was that the colours were not token values; a real finding
+    // names a colour the palette actually contains.
+    //
+    // Killing transitions is better than waiting longer: a wait is a guess that
+    // gets shorter than some future animation, and this failure mode is silent —
+    // it produces a plausible number, not an error.
+    await page.addStyleTag({
+      content:
+        '*, *::before, *::after { transition: none !important; ' +
+        'animation: none !important; }',
+    });
+
     // Storybook's preview decorator has already set BOTH `[data-theme]` and an
     // inline `color-scheme` from its default global, so every profile must state
     // both — "don't set it" means "inherit the decorator's".
