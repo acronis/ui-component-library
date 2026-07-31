@@ -1,8 +1,18 @@
 # Contrast audit — findings, causes, and fix options
 
 **Date:** 2026-07-31 · **Tool:** `pnpm --filter @constructor-lab/ui-spec story-audit`
-**Status:** findings reported, nothing fixed. Every remedy below is a **proposal**;
-the token changes are design decisions and two of them touch brand colour.
+**Last updated:** 2026-07-31, after fixing A and re-classifying C.
+
+**Status**
+
+| cause                             | state                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------- |
+| **A** — secondary text token      | **fixed** — see §4A. Token retargeted, guard test added, changeset written.     |
+| **C** — dark-on-dark table header | **withdrawn** — it was an artifact of this tool, not a product defect. See §4C. |
+| B, D, E, F                        | open. Design decisions; B and E touch brand colour.                             |
+
+Everything still marked open is a **proposal**, not a recommendation to act
+unilaterally.
 
 ---
 
@@ -42,6 +52,10 @@ Exempt, matching the detector's existing rules: icons, disabled subtrees (WCAG
 1.4.3 places no contrast requirement on inactive components), and elements that
 paint no text of their own.
 
+CSS transitions and animations are disabled before the theme is switched, so
+every measurement is of a settled colour. Skipping that step invents findings —
+see §5.
+
 **Declared coverage limits** — none of these are silent:
 
 - One story per title. A second story of the same title almost always re-tests
@@ -50,9 +64,15 @@ paint no text of their own.
   deliberately excludes Storybook's own chrome (headings, args tables, syntax
   highlighting) — see §6.
 - Static capture only: no hover, focus, or open-overlay states.
-- Single brand (`acronis`). The other 20 `[data-brand]` blocks are unmeasured.
+- Single brand (`acronis`) for the main sweep. The other 20 are now covered by
+  the `Foundations/Brand Matrix` stories and by `brand-contrast` — see §4G — but
+  only through one schematic frame, not the whole corpus.
 
 ## 3. Results
+
+Numbers below are the **pre-fix** sweep, kept as the record of what was found.
+Cause A has since been fixed and cause C withdrawn, so a re-run measures
+substantially less; the post-fix totals are recorded in §9.
 
 ```
 424 findings · 27 distinct colour pairs · 109 of 286 pages
@@ -77,14 +97,15 @@ a theme-switching one.
 
 424 findings collapse to **six causes**:
 
-| #   |       ratio | count | pages | cause                                  |
-| --- | ----------: | ----: | ----: | -------------------------------------- |
-| A   |   3.08–3.86 |   287 |   43+ | secondary text token has no dark value |
-| B   |   2.80–2.90 |    49 |    22 | white on brand blue                    |
-| C   |   1.36–1.42 |    17 |     3 | dark-on-dark table header text         |
-| D   | 2.13 / 2.66 |    16 |     6 | input placeholder, both themes         |
-| E   |        4.36 |     6 |     3 | white on danger red                    |
-| F   |        1.00 |     2 |     1 | inverse button on a light story canvas |
+| #   |       ratio | count | pages | cause                                                           |
+| --- | ----------: | ----: | ----: | --------------------------------------------------------------- |
+| A   |   3.08–3.86 |   287 |   43+ | secondary text token has no dark value                          |
+| B   |   2.80–2.90 |    49 |    22 | white on brand blue                                             |
+| C   |   1.36–1.42 |    17 |     3 | dark-on-dark table header text                                  |
+| D   | 2.13 / 2.66 |    16 |     6 | input placeholder, both themes                                  |
+| E   |        4.36 |     6 |     3 | white on danger red                                             |
+| F   |        1.00 |     2 |     1 | inverse button on a light story canvas                          |
+| G   |   1.00–4.34 |   416 |   all | fixed white foreground over per-brand fills (found later — §4G) |
 
 ---
 
@@ -131,7 +152,37 @@ behind it does:
 goes in the DTCG source tier (ultimately the Figma variable), never the emitted
 CSS. Option 1 is a semantics-tier change; option 2 is a primitives-tier change.
 
+#### Resolved — option 1, 2026-07-31
+
+`packages/tokens/tiers/semantics.json`: `colors.text.onSurface.secondary` now
+aliases `{palette.grayscale.8}`. Rebuilt through `tools/style-dictionary`;
+propagated to all 21 brands. Changeset: `.changeset/olive-pumas-repeat.md`
+(`minor` on `@constructor-lab/tokens`).
+
+**Visual-regression churn:** 30 of 766 light baselines and 35 of 766 dark. That
+undercounts the components affected — secondary text appears on far more stories,
+but on most it covers too little area to cross the 0.5% gate, so those baselines
+legitimately do not move (the `#101` floor).
+
+**Guard:** `packages/ui-react/src/styles/__tests__/token-contrast.test.ts`
+computes contrast from the generated CSS and fails if `grayscale-7` returns. This
+matters because `tiers/` is re-emitted from Figma by `pnpm tokens:sync`, and the
+sync is one-way — the next design sync will re-propose the old alias as a diff.
+The guard also asserts the general property: `grayscale-7` is the ramp's only
+fixed point, and **no** text semantic may target it. Negative-controlled by
+reverting the tier, which reproduced exactly the ratios the browser measured
+(3.36 and 3.63).
+
+**Still owed:** the Figma variable is unchanged, so the repo carries a deliberate
+deviation and the guard will go red on every token sync until design updates it.
+Request drafted at
+`.ai/explorations/design-request-secondary-text-contrast.md`.
+
 ### B — white on brand blue (49 findings, 22 pages)
+
+> **Superseded in scope by §4G.** B is what this defect looks like under the
+> default brand alone. The general form — a fixed white foreground over a
+> per-brand fill — affects all 21 brands and is far worse on the light ones.
 
 White text on `rgb(79,155,245)` / `rgb(81,157,246)` / `rgb(78,154,244)` — the
 dark-mode value of `--ui-palette-blue-4` — measures **2.80–2.90:1**.
@@ -154,19 +205,34 @@ This one is worth a deliberate decision rather than a default: it is the most
 visible control in the library, and 2.8:1 is a real readability cost, not a
 rounding error.
 
-### C — dark-on-dark table header text (17 findings, ratio ~1.4)
+### C — WITHDRAWN: dark-on-dark table header text was a measurement artifact
 
-`rgb(44,45,47)` / `rgb(45,46,48)` / `rgb(47,48,50)` on the `rgb(18,18,18)`
-canvas, at `tr > th:nth-of-type(N) > button > span` in `components-datatable--default`
-and `components-datagrid-columns-features--resizing`, dark mode only.
+Originally reported as 17 findings at ~1.4:1 on
+`tr > th:nth-of-type(N) > button > span` in `components-datatable--default` and
+`components-datagrid-columns-features--resizing`, and called "the most likely
+genuine defect in the list".
 
-Near-invisible — a dark foreground that did not flip with the theme, on a header
-row whose own background is also unpainted so the canvas shows through.
+**It is not a defect.** Measured directly in the browser after letting the page
+settle:
 
-**This is the most likely genuine defect in the list** and the one to
-investigate first: unlike A and B it is not a palette trade-off, it reads as a
-wiring mistake. Needs a look at the DataTable header's colour token before a fix
-is proposed.
+| theme | colour             | background         |  contrast |
+| ----- | ------------------ | ------------------ | --------: |
+| light | `rgb(24,25,27)`    | `rgb(255,255,255)` | **17.59** |
+| dark  | `rgb(244,245,245)` | `rgb(18,18,18)`    | **17.15** |
+
+The element carries `transition: all`, so switching `[data-theme]` animates
+`color` and the audit's 120 ms settle wait sampled mid-transition — reading a
+value that belongs to neither theme.
+
+**The tell was in the original report and was missed:** `rgb(44,45,47)`,
+`rgb(45,46,48)` and `rgb(47,48,50)` are three near-identical greys that match no
+palette entry. A real finding names a colour the palette actually contains;
+values between two token colours mean something was caught in motion.
+
+Fixed in the tool, not the component — `story-audit` now injects
+`transition: none !important` before flipping the theme. Waiting longer was
+rejected: a wait is a guess that goes stale against the next animation, and this
+failure mode is silent, producing a plausible number rather than an error.
 
 ### D — input placeholder text (16 findings)
 
@@ -202,19 +268,78 @@ confirming before treating it as a component defect.
 
 ---
 
-## 5. Two probe bugs found while building this
+### G — a fixed white foreground over 21 different brand fills
 
-Recorded because both inflated the first sweep enormously, and both were latent
-in the **shared** probe that `screen-audit` also uses.
+**Every one of the 21 brands is affected, including the default.** This was
+invisible to everything above: `story-audit` renders the `acronis` brand only, so
+the whole brand axis was unmeasured.
+
+`--ui-text-on-brand-primary` resolves to white for all brands, while
+`--ui-background-brand-*` resolves to each brand's own colour. That is safe on a
+dark brand and unreadable on a light one. `SidebarPrimary` menu items are the
+worst case; the primary Button and Tag share the pattern.
+
+Measured in a real render (light mode, `Foundations/Brand Matrix`):
+
+| brand               | foreground on background                      |    ratio |
+| ------------------- | --------------------------------------------- | -------: |
+| `telstra`           | `rgba(255,255,255,0.6)` on `rgb(255,255,255)` | **1.00** |
+| `light-gray`        | white on `rgb(195,231,249)`                   | **1.30** |
+| `yellow-1c`         | white on `rgb(236,193,9)`                     | **1.72** |
+| `virtual-one`       | white on `rgb(101,190,236)`                   | **2.07** |
+| `red-home-pl`       | white on `rgb(255,194,194)`                   | **1.53** |
+| `acronis` (default) | white on `rgb(23,99,207)`                     |   5.64 ✓ |
+
+`telstra` is white text on a white sidebar — completely invisible, not merely
+low-contrast.
+
+**Scale.** `brand-contrast` (see §8) checks the component tier statically:
+**416 pairs below threshold, 27 distinct, 21/21 brands.** The rendered audit
+confirms 24 findings across 16 of 21 brands in light mode alone.
+
+**Options**
+
+1. **Make the on-brand foreground vary with its fill** — the same shape as A's
+   fix: a foreground pinned to one value cannot serve backgrounds chosen for
+   brand identity. Requires a per-brand `text-on-brand` value, or a token that
+   selects light/dark text by the fill's luminance.
+2. **Constrain brand fills** to a luminance range where white clears 4.5:1.
+   Rejects several shipped brands outright — a brand governance decision, not a
+   token one.
+3. **Waive per brand.** Defensible only for brands not used in production.
+
+This is squarely a design decision and touches 21 brand identities. Not actioned.
+
+**Two caveats on the numbers.** `brand-contrast` infers which foreground pairs
+with which background from token naming — findings are candidates until rendered
+(the SidebarPrimary predictions were confirmed at 1.30 and 1.72, but other
+component families are unverified). And the rendered figures cover light mode
+across the brand-matrix frame, not every component in every brand.
+
+## 5. Three tool bugs found while building this
+
+Recorded because each one produced confident, plausible, wrong numbers rather
+than an error — and the first two were latent in the **shared** probe that
+`screen-audit` also uses.
 
 | bug                                                                | effect                                                                                                                          | fix                                                                                                                                                    |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `effectiveBg` fell back to white when nothing painted a background | On a Storybook story the UA canvas _is_ the background, so every light-on-dark label scored ~1:1 against an imaginary white     | Derive from the used `color-scheme`; dark canvas is `rgb(18,18,18)`, measured from the corner pixel of the committed `ui-accordion--default--dark.png` |
 | Alpha was never composited                                         | An `rgba(0,0,0,0.01)` hairline wash counted as an opaque **black** background — **4536 false findings, 74% of the first sweep** | Collect layers to the first opaque one and blend with the `over` operator                                                                              |
 
+| bug                                         | effect                                                                                                                                        | fix                                                                  |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Theme flipped without disabling transitions | `color` animates, so measurements landed mid-transition and invented **cause C** — 17 findings at ~1.4:1 on elements that really measure 17:1 | Inject `transition: none !important` before switching `[data-theme]` |
+
 First sweep: 6117 findings / 44 pairs / 172 pages.
-After both fixes and the docs rescope: **424 / 27 / 109**. 93% of the original
-was measurement error.
+After the two probe fixes and the docs rescope: 424 / 27 / 109 — 93% of the
+original was measurement error. After the transition fix, cause C's 17 go too.
+
+**The pattern is worth naming.** All three failed silently, and the audit's own
+output contained the evidence in each case: a background colour that no rule
+sets, a "docs" run whose URL said `viewMode=story`, foreground colours absent
+from the palette. A number that cannot be traced to a token is the signal that
+the measurement, not the product, is wrong.
 
 ## 6. Why Storybook's own chrome is excluded
 
@@ -232,10 +357,13 @@ can clear — so the docs pass measures `.docs-story`, the rendered story block.
 `accessibility/contrast` is severity **`must`** in the grammar registry, so
 wiring `story-audit` into CI as-is fails every PR on 424 pre-existing findings.
 
+**A is now fixed and C withdrawn**, which together account for 304 of the
+original 424. What remains is B (49), D (16), E (6), F (2) plus the long tail.
+
 Options, in rough order of preference:
 
-1. **Fix A + C first** (304 of 424, and C is a probable defect), then gate. The
-   remainder is small enough to waive explicitly.
+1. **Gate now on the remaining set**, waiving B/D/E explicitly. This is newly
+   realistic — the bulk is gone.
 2. **Gate on new findings only** — commit a baseline count or a finding
    fingerprint set, fail when it grows. Cheap, but a baseline of known-bad is the
    same "wrong oracle" pattern this tool exists to escape, so it should be
@@ -269,3 +397,50 @@ Implementation: `packages/ui-spec/scripts/story-audit.ts` (browser driver) and
 `packages/ui-spec/screens/audit/story-audit.ts` (pure selection + reporting),
 reusing `screens/audit/probe.ts` and the `accessibility/contrast` detector in
 `screens/audit/detectors.ts`.
+
+## 9. Post-fix sweep — measured 2026-07-31
+
+```
+102 findings · 10 distinct colour pairs · 36 of 286 pages
+```
+
+Down from 424 / 27 / 109. **Cause A: 0 remaining. Cause C: 0 remaining** — both
+confirmed gone by measurement rather than by assumption.
+
+| profile / view         | findings |
+| ---------------------- | -------: |
+| `dark` / story         |       28 |
+| `system-dark` / story  |       28 |
+| `light` / story        |       11 |
+| `forced-light` / story |       11 |
+| `dark` / docs          |       11 |
+| `system-dark` / docs   |       11 |
+| `light` / docs         |        1 |
+| `forced-light` / docs  |        1 |
+
+| ratio | count | pages | foreground on background                 | cause   |
+| ----: | ----: | ----: | ---------------------------------------- | ------- |
+|  2.80 |    56 |    28 | white on `rgb(81,157,246)`               | B       |
+|  2.13 |     8 |     4 | `rgb(175,178,182)` on white              | D       |
+|  2.66 |     8 |     4 | `rgb(85,89,94)` on `rgb(18,18,18)`       | D       |
+|  4.36 |     6 |     3 | white on `rgb(226,54,54)`                | E       |
+|  3.82 |     6 |     3 | white on `rgb(229,77,77)`                | E       |
+|  1.89 |     6 |     1 | `rgb(175,178,182)` on `rgb(238,242,247)` | D (new) |
+|  1.90 |     6 |     1 | `rgb(85,89,94)` on `rgb(46,47,50)`       | D (new) |
+|  1.00 |     2 |     1 | white on white                           | F       |
+|  1.48 |     2 |     1 | `rgb(190,215,244)` on white              | tail    |
+|  2.28 |     2 |     1 | `rgb(41,81,122)` on `rgb(18,18,18)`      | tail    |
+
+**B is now 55% of what is left** and the clear next decision: white on the
+dark-mode brand blue, 2.80:1, across 28 pages.
+
+Two rows are newly visible rather than new: placeholder text on a _raised_
+surface (`1.89` / `1.90`) was previously buried under cause A's volume. Same
+token pair as D, worse backdrop.
+
+The remaining 102 are small enough that gating CI is now practical — see §7.
+
+### Visual-regression cost of the A fix
+
+`--mode both --update` rewrote **65 baselines**: 30 light, 35 dark. That matches
+the check run's failure counts exactly, so nothing moved that was not predicted.
