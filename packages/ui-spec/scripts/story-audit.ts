@@ -172,8 +172,19 @@ async function auditOne(
       screen: target.title,
       story: target.id,
       colorMode: profile.emulate,
-      // Docs pages render outside #storybook-root; measure the whole document.
-      rootSelector: view === 'docs' ? 'body' : undefined,
+      // Docs pages render outside #storybook-root, but measuring `body` audits
+      // STORYBOOK'S OWN CHROME too — its headings, args tables and syntax-
+      // highlighted code blocks. Measured: that added 224 findings of
+      // `rgb(255, 68, 0)` on white at 3.45:1 across 18 docs pages, every one of
+      // them Storybook's code-block palette. We cannot fix those without forking
+      // Storybook's docs theme, and they are not this library's components — so
+      // gating on them would mean a permanently red check nobody can clear.
+      //
+      // `.docs-story` is the innermost wrapper around a rendered story, inside
+      // the preview box but outside the zoom/toolbar chrome. It keeps exactly what
+      // this audit is for — our components rendered on the docs surface, which is
+      // where the Accordion white-on-white lived — and excludes what it is not.
+      rootSelector: view === 'docs' ? '.docs-story' : undefined,
     })) as ScreenSnapshot;
 
     return {

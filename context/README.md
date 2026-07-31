@@ -53,6 +53,13 @@ Pattern → Composite → Primitive` over ambient Tokens + Icons, sourced from
   skills. Extends the component-specs proposal above; landing incrementally in
   `packages/ui-spec` (`grammar/`, `screens/audit/`, the `kit-lint` and
   `screen-audit` scripts).
+- `contrast-audit-findings.md` — results of the first repo-wide WCAG contrast
+  sweep (`story-audit`: 286 Storybook pages × 4 theme profiles). **424 findings,
+  400 of them dark-mode, collapsing to six causes** — the largest being that
+  `--ui-palette-grayscale-7` sits at the midpoint of a mirrored ramp and so has
+  the same value in light and dark. Records each cause, fix options with measured
+  ratios, and the CI-gating choices. **Nothing is fixed** — the token changes are
+  design decisions.
 - `component-layers-proposal.md` — the **Primitive vs Composite** layer
   model for components (jargon-free; no atoms/molecules), the classify-don't-move
   mechanism (a `layer` field on each `ui-spec` `index.yaml`, non-breaking), the
