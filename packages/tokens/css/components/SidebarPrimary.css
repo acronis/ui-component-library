@@ -65,3 +65,48 @@
   line-height: 24px;
   letter-spacing: 0px;
 }
+
+[data-brand='light-gray'], :host([data-brand='light-gray']) {
+  --ui-sidebar-primary-menu-item-selected-icon-color-active: var(--ui-palette-branding-light-gray-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-icon-color-hover: var(--ui-palette-branding-light-gray-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-icon-color-idle: var(--ui-palette-branding-light-gray-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-active: var(--ui-palette-branding-light-gray-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-hover: var(--ui-palette-branding-light-gray-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-idle: var(--ui-palette-branding-light-gray-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-active: var(--ui-palette-branding-light-gray-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-hover: var(--ui-palette-branding-light-gray-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-idle: var(--ui-palette-branding-light-gray-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-active: var(--ui-palette-branding-light-gray-sidebarprimary-label-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-hover: var(--ui-palette-branding-light-gray-sidebarprimary-label-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-idle: var(--ui-palette-branding-light-gray-sidebarprimary-label-idle);
+}
+
+[data-brand='telstra'], :host([data-brand='telstra']) {
+  --ui-sidebar-primary-menu-item-selected-icon-color-active: var(--ui-palette-branding-telstra-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-icon-color-hover: var(--ui-palette-branding-telstra-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-icon-color-idle: var(--ui-palette-branding-telstra-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-active: var(--ui-palette-branding-telstra-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-hover: var(--ui-palette-branding-telstra-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-idle: var(--ui-palette-branding-telstra-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-active: var(--ui-palette-branding-telstra-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-hover: var(--ui-palette-branding-telstra-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-idle: var(--ui-palette-branding-telstra-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-active: var(--ui-palette-branding-telstra-sidebarprimary-label-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-hover: var(--ui-palette-branding-telstra-sidebarprimary-label-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-idle: var(--ui-palette-branding-telstra-sidebarprimary-label-idle);
+}
+
+[data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
+  --ui-sidebar-primary-menu-item-selected-icon-color-active: var(--ui-palette-branding-yellow-1c-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-icon-color-hover: var(--ui-palette-branding-yellow-1c-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-icon-color-idle: var(--ui-palette-branding-yellow-1c-sidebarprimary-icon-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-active: var(--ui-palette-branding-yellow-1c-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-hover: var(--ui-palette-branding-yellow-1c-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-selected-label-color-idle: var(--ui-palette-branding-yellow-1c-sidebarprimary-label-active);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-active: var(--ui-palette-branding-yellow-1c-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-hover: var(--ui-palette-branding-yellow-1c-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-icon-color-idle: var(--ui-palette-branding-yellow-1c-sidebarprimary-icon-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-active: var(--ui-palette-branding-yellow-1c-sidebarprimary-label-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-hover: var(--ui-palette-branding-yellow-1c-sidebarprimary-label-idle);
+  --ui-sidebar-primary-menu-item-unselected-label-color-idle: var(--ui-palette-branding-yellow-1c-sidebarprimary-label-idle);
+}

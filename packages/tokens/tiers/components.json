@@ -12364,7 +12364,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.glyph.onBrand.primary}"
+                "default": "{colors.glyph.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.icon.active}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.icon.active}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.icon.active}"
               }
             },
             "hover": {
@@ -12381,7 +12384,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.glyph.onBrand.primary}"
+                "default": "{colors.glyph.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.icon.active}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.icon.active}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.icon.active}"
               }
             },
             "idle": {
@@ -12398,7 +12404,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.glyph.onBrand.primary}"
+                "default": "{colors.glyph.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.icon.active}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.icon.active}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.icon.active}"
               }
             }
           }
@@ -12418,7 +12427,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.text.onBrand.primary}"
+                "default": "{colors.text.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.label.active}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.label.active}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.label.active}"
               }
             },
             "hover": {
@@ -12434,7 +12446,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.text.onBrand.primary}"
+                "default": "{colors.text.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.label.active}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.label.active}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.label.active}"
               }
             },
             "idle": {
@@ -12450,7 +12465,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.text.onBrand.primary}"
+                "default": "{colors.text.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.label.active}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.label.active}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.label.active}"
               }
             }
           }
@@ -12525,7 +12543,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.glyph.onBrand.primary}"
+                "default": "{colors.glyph.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.icon.idle}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.icon.idle}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.icon.idle}"
               }
             },
             "hover": {
@@ -12542,7 +12563,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.glyph.onBrand.primary}"
+                "default": "{colors.glyph.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.icon.idle}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.icon.idle}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.icon.idle}"
               }
             },
             "idle": {
@@ -12559,7 +12583,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.glyph.onBrand.secondary}"
+                "default": "{colors.glyph.onBrand.secondary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.icon.idle}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.icon.idle}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.icon.idle}"
               }
             }
           }
@@ -12579,7 +12606,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.text.onBrand.primary}"
+                "default": "{colors.text.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.label.idle}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.label.idle}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.label.idle}"
               }
             },
             "hover": {
@@ -12595,7 +12625,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.text.onBrand.primary}"
+                "default": "{colors.text.onBrand.primary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.label.idle}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.label.idle}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.label.idle}"
               }
             },
             "idle": {
@@ -12611,7 +12644,10 @@
                 "PD"
               ],
               "values": {
-                "default": "{colors.text.onBrand.secondary}"
+                "default": "{colors.text.onBrand.secondary}",
+                "telstra": "{palette.branding.telstra.sidebarprimary.label.idle}",
+                "light-gray": "{palette.branding.light-gray.sidebarprimary.label.idle}",
+                "yellow-1c": "{palette.branding.yellow-1c.sidebarprimary.label.idle}"
               }
             }
           }

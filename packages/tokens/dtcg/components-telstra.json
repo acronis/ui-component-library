@@ -8744,7 +8744,7 @@
                 "com.figma.variableId": "VariableID:2463:56504"
               },
               "$type": "color",
-              "$value": "{colors.glyph.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.icon.active}"
             },
             "hover": {
               "$extensions": {
@@ -8756,7 +8756,7 @@
                 "com.figma.variableId": "VariableID:2463:56503"
               },
               "$type": "color",
-              "$value": "{colors.glyph.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.icon.active}"
             },
             "idle": {
               "$extensions": {
@@ -8768,7 +8768,7 @@
                 "com.figma.variableId": "VariableID:2463:56502"
               },
               "$type": "color",
-              "$value": "{colors.glyph.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.icon.active}"
             }
           }
         },
@@ -8783,7 +8783,7 @@
                 "com.figma.variableId": "VariableID:2463:56507"
               },
               "$type": "color",
-              "$value": "{colors.text.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.label.active}"
             },
             "hover": {
               "$extensions": {
@@ -8794,7 +8794,7 @@
                 "com.figma.variableId": "VariableID:2463:56506"
               },
               "$type": "color",
-              "$value": "{colors.text.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.label.active}"
             },
             "idle": {
               "$extensions": {
@@ -8805,7 +8805,7 @@
                 "com.figma.variableId": "VariableID:2463:56505"
               },
               "$type": "color",
-              "$value": "{colors.text.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.label.active}"
             }
           }
         }
@@ -8860,7 +8860,7 @@
                 "com.figma.variableId": "VariableID:2463:56495"
               },
               "$type": "color",
-              "$value": "{colors.glyph.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.icon.idle}"
             },
             "hover": {
               "$extensions": {
@@ -8872,7 +8872,7 @@
                 "com.figma.variableId": "VariableID:2463:56494"
               },
               "$type": "color",
-              "$value": "{colors.glyph.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.icon.idle}"
             },
             "idle": {
               "$extensions": {
@@ -8884,7 +8884,7 @@
                 "com.figma.variableId": "VariableID:2463:56493"
               },
               "$type": "color",
-              "$value": "{colors.glyph.onBrand.secondary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.icon.idle}"
             }
           }
         },
@@ -8899,7 +8899,7 @@
                 "com.figma.variableId": "VariableID:2463:56498"
               },
               "$type": "color",
-              "$value": "{colors.text.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.label.idle}"
             },
             "hover": {
               "$extensions": {
@@ -8910,7 +8910,7 @@
                 "com.figma.variableId": "VariableID:2463:56497"
               },
               "$type": "color",
-              "$value": "{colors.text.onBrand.primary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.label.idle}"
             },
             "idle": {
               "$extensions": {
@@ -8921,7 +8921,7 @@
                 "com.figma.variableId": "VariableID:2463:56496"
               },
               "$type": "color",
-              "$value": "{colors.text.onBrand.secondary}"
+              "$value": "{palette.branding.telstra.sidebarprimary.label.idle}"
             }
           }
         }
