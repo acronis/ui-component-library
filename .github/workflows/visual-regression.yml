@@ -128,6 +128,18 @@ jobs:
         if: steps.changes.outputs[matrix.name] == 'true' && matrix.color_mode != 'system-dark' && matrix.color_mode != 'forced-light'
         env:
           STORYBOOK_COLOR_MODE: ${{ matrix.color_mode || 'light' }}
+          # 2, not the compose default of 4. `components-datagrid-virtualization`
+          # runs in 23.8s on its own but had a single test exceed 60s AND then
+          # 120s on a full-corpus CI run — 10-25x starvation, which is
+          # oversubscription rather than slowness: four jest workers each driving
+          # Chromium, alongside the Storybook server, on a shared runner.
+          #
+          # Raising the ceiling was the wrong lever and is not what fixed it; a
+          # starved test simply burns the larger budget too (the suite went from
+          # 147s to 209s when the ceiling doubled, because the doomed test ran
+          # twice as long before being killed). Fewer workers give each suite more
+          # CPU, which is what the compose file's own note recommends.
+          VISUAL_MAX_WORKERS: 2
         run: docker compose -f ${{ matrix.dir }}/docker-compose.storybook.yml up --build --abort-on-container-exit --exit-code-from test-runner
 
       # `--skip-build` because the cached "Build Storybook" step above already
@@ -136,6 +148,8 @@ jobs:
       # job if jest ran a different number of stories than the subset defines.
       - name: Run visual regression tests (system-theme subset)
         if: steps.changes.outputs[matrix.name] == 'true' && (matrix.color_mode == 'system-dark' || matrix.color_mode == 'forced-light')
+        env:
+          VISUAL_MAX_WORKERS: 2
         run: node ${{ matrix.dir }}/scripts/visual-capture.mjs --skip-build --mode ${{ matrix.color_mode }}
 
       - name: Upload diff artifacts on failure
