@@ -1,10 +1,12 @@
 // Figma Code Connect — status: COMPLETE
-// Mapped to the "SidebarSecondary" component set in the shadcn-uikit Figma file
-// (node 2468:59502). The set's single variant property `variant`
+// Mapped to the "SidebarSecondary" component set in the ui-react Figma file
+// (node 2468:59502). The set's variant property `variant`
 // (options: expanded | collapsed — confirmed via get_context_for_code_connect)
-// maps to the React `expanded` boolean. The `sectionList` / `footerList` Figma
-// slots are composed children in code; in collapsed mode the content is the
-// CollapsedBreadcrumb (parent → ChevronRight → current page).
+// maps to the React `expanded` boolean, and its `labelHeader` /
+// `labelCurrentPage` text properties to the header + breadcrumb labels. The
+// `sectionList` / `footerList` Figma slots are composed children in code; in
+// collapsed mode the content is the CollapsedBreadcrumb (parent → a chevron
+// turned to point down the rail → current page).
 import figma from '@figma/code-connect';
 
 import {
@@ -32,10 +34,12 @@ figma.connect(
         expanded: true,
         collapsed: false,
       }),
+      label: figma.string('labelHeader'),
+      currentLabel: figma.string('labelCurrentPage'),
     },
-    example: ({ expanded }) => (
+    example: ({ expanded, label, currentLabel }) => (
       <SidebarSecondary expanded={expanded}>
-        <SidebarSecondaryHeader label="Protection" />
+        <SidebarSecondaryHeader label={label} />
         <SidebarSecondaryContent>
           <SidebarSecondarySection>
             <SidebarSecondaryMenu>
@@ -56,8 +60,8 @@ figma.connect(
           </SidebarSecondarySection>
         </SidebarSecondaryContent>
         <SidebarSecondaryCollapsedBreadcrumb
-          parentLabel="Protection"
-          currentLabel="Dashboard"
+          parentLabel={label}
+          currentLabel={currentLabel}
         />
         <SidebarSecondaryFooter>
           <SidebarSecondaryMenu>

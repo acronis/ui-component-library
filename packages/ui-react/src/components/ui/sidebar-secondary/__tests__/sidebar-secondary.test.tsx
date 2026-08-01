@@ -124,6 +124,25 @@ describe('SidebarSecondary', () => {
     );
   });
 
+  it('sizes the panel header and section headers from their design tokens', () => {
+    render(<Panel />);
+    // The design binds ONE header padding pair (`_global`, 16/16) — not the
+    // per-variant pair, whose 8px y-padding made the header 16px short.
+    const header = screen.getByRole('heading', { name: 'Protection' })
+      .parentElement as HTMLElement;
+    expect(header).toHaveClass(
+      'px-[var(--ui-sidebar-secondary-global-container-header-padding-x)]',
+      'py-[var(--ui-sidebar-secondary-global-container-header-padding-y)]'
+    );
+    // The 40px section-header floor is tokenized (Figma calls it `minWidth`),
+    // never a hardcoded min-h utility.
+    const sectionLabel = screen.getByText('Overview');
+    expect(sectionLabel).toHaveClass(
+      'min-h-[var(--ui-sidebar-secondary-section-container-header-min-width)]',
+      'py-[var(--ui-sidebar-secondary-section-container-header-padding-y)]'
+    );
+  });
+
   it('defaults to expanded and reflects a controlled collapsed state', () => {
     const { rerender } = render(<Panel />);
     expect(

@@ -181,8 +181,13 @@ const SidebarSecondaryHeader = React.forwardRef<
     className={cn(
       'flex items-center shrink-0',
       'hidden group-data-[state=expanded]/sidebar:flex',
-      'px-[var(--ui-sidebar-secondary-collapsed-container-header-padding-x)] py-[var(--ui-sidebar-secondary-collapsed-container-header-padding-y)]',
-      'group-data-[state=expanded]/sidebar:px-[var(--ui-sidebar-secondary-expanded-container-header-padding-x)] group-data-[state=expanded]/sidebar:py-[var(--ui-sidebar-secondary-expanded-container-header-padding-y)]',
+      // Secondary binds ONE header padding for both variants — the design's
+      // `_global/containerHeader/padding{X,Y}` (16/16), which is what makes the
+      // header 64px tall around the 32px title. (Primary is the one with
+      // per-variant header padding; the `expanded-`/`collapsed-` tokens exist in
+      // this tier too, but the design references neither, and the expanded pair's
+      // 8px y-padding rendered the header 16px short.)
+      'px-[var(--ui-sidebar-secondary-global-container-header-padding-x)] py-[var(--ui-sidebar-secondary-global-container-header-padding-y)]',
       className
     )}
     {...props}
@@ -385,11 +390,12 @@ export interface SidebarSecondarySectionLabelProps extends React.ComponentPropsW
 
 const sectionLabelTextClass =
   'ui-sidebar-secondary-section-label-section-text-style text-[var(--ui-sidebar-secondary-section-label-section-color)]';
-// The group header is at least 36px tall (Figma node 4011-4472), with the label
-// vertically centered. No header-height token exists, so the 36px floor is set
-// directly; horizontal padding stays tokenized.
+// The group header is at least 40px tall, with the label vertically centered.
+// The floor IS tokenized — Figma binds it as `Section/containerHeader/minWidth`
+// (a misnomer: the variable drives the row's min *height*, which the design's own
+// markup emits as `min-h-[40px]`), so it generates as `…-header-min-width`.
 const sectionHeaderPadClass =
-  'flex min-h-9 items-center px-[var(--ui-sidebar-secondary-section-container-header-padding-x)]';
+  'flex min-h-[var(--ui-sidebar-secondary-section-container-header-min-width)] items-center px-[var(--ui-sidebar-secondary-section-container-header-padding-x)] py-[var(--ui-sidebar-secondary-section-container-header-padding-y)]';
 
 const SidebarSecondarySectionLabel = React.forwardRef<
   HTMLDivElement,

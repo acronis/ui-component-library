@@ -34,25 +34,18 @@ tokens:
       description: Expanded panel width (256),
     }
   # ── header ──
+  # One padding pair for both variants — the design references no per-variant
+  # header padding here (unlike SidebarPrimary), and the header is hidden in
+  # collapsed mode anyway.
   - {
-      name: --ui-sidebar-secondary-collapsed-container-header-padding-x,
+      name: --ui-sidebar-secondary-global-container-header-padding-x,
       affects: header,
-      description: Collapsed header padding-x,
+      description: Header padding-x,
     }
   - {
-      name: --ui-sidebar-secondary-collapsed-container-header-padding-y,
+      name: --ui-sidebar-secondary-global-container-header-padding-y,
       affects: header,
-      description: Collapsed header padding-y,
-    }
-  - {
-      name: --ui-sidebar-secondary-expanded-container-header-padding-x,
-      affects: header,
-      description: Expanded header padding-x,
-    }
-  - {
-      name: --ui-sidebar-secondary-expanded-container-header-padding-y,
-      affects: header,
-      description: Expanded header padding-y,
+      description: Header padding-y (16 — makes the header 64 around the 32 title),
     }
   - {
       name: --ui-sidebar-secondary-global-header-label-color,
@@ -103,9 +96,14 @@ tokens:
     }
   # ── section label ──
   - {
+      name: --ui-sidebar-secondary-section-container-header-min-width,
+      affects: section-label,
+      description: Section header min-height (40 — Figma names the variable minWidth),
+    }
+  - {
       name: --ui-sidebar-secondary-section-container-header-padding-y,
       affects: section-label,
-      description: Section header padding-bottom,
+      description: Section header padding-y,
     }
   - {
       name: --ui-sidebar-secondary-section-container-header-padding-x,
