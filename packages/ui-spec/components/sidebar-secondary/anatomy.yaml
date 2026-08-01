@@ -114,7 +114,8 @@ parts:
       The footer "Collapse menu" affordance (`<li><button>`): a row-styled button
       that toggles the panel width via the layout context, driving the
       controlled/uncontrolled `expanded` state and emitting `expanded-change`.
-      Carries `aria-expanded`.
+      Carries `aria-expanded`. Takes an optional trailing keyboard-shortcut hint
+      (`shortcut`), hidden with the label in collapsed mode.
     element: button
     optional: true
 
