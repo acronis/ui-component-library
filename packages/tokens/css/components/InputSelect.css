@@ -148,3 +148,39 @@
   --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
   --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
 }
+
+[data-brand='light-gray'], :host([data-brand='light-gray']) {
+  --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+  --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+  --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+  --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+}
+
+[data-brand='telstra'], :host([data-brand='telstra']) {
+  --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+  --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+  --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+  --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+}
+
+[data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+  --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+  --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+  --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+  --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+}
+
+[data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
+  --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+  --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+  --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+  --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+  --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+}

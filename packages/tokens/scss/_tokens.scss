@@ -615,6 +615,26 @@
     --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
 
+  [data-brand='light-gray'], :host([data-brand='light-gray']) {
+    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='telstra'], :host([data-brand='telstra']) {
+    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
+    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
   :root, :host {
     --ui-button-icon-global-container-border-radius: var(--ui-units-radius-4);
     --ui-button-icon-global-container-color-active: var(--ui-background-surface-active);
@@ -639,6 +659,26 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='light-gray'], :host([data-brand='light-gray']) {
+    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='telstra'], :host([data-brand='telstra']) {
+    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
     --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
     --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
@@ -753,6 +793,66 @@
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
     --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
     --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='light-gray'], :host([data-brand='light-gray']) {
+    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='telstra'], :host([data-brand='telstra']) {
+    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
+    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
+    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
+  }
+
+  :root, :host {
+    --ui-calendar-body-border-color: var(--ui-border-on-surface-divider);
+    --ui-calendar-body-border-style: solid;
+    --ui-calendar-body-border-width: var(--ui-units-stroke-1);
+    --ui-calendar-body-padding-x: var(--ui-units-gap-12);
+    --ui-calendar-body-padding-y: var(--ui-units-gap-12);
+    --ui-calendar-container-border-color: var(--ui-border-on-surface-border-active);
+    --ui-calendar-container-border-radius: var(--ui-units-radius-4);
+    --ui-calendar-container-border-style: solid;
+    --ui-calendar-container-border-width: var(--ui-units-stroke-1);
+    --ui-calendar-container-color: var(--ui-background-surface-primary);
+    --ui-calendar-header-border-color: var(--ui-border-on-surface-divider);
+    --ui-calendar-header-border-style: solid;
+    --ui-calendar-header-border-width: var(--ui-units-stroke-1);
+    --ui-calendar-header-gap: var(--ui-units-gap-16);
+    --ui-calendar-header-padding-x: var(--ui-units-gap-12);
+    --ui-calendar-header-padding-y: var(--ui-units-gap-12);
+    --ui-calendar-item-border-active: var(--ui-border-on-surface-border-active);
+    --ui-calendar-item-border-hover: transparent;
+    --ui-calendar-item-border-idle: transparent;
+    --ui-calendar-item-color-active: var(--ui-background-brand-secondary);
+    --ui-calendar-item-color-hover: var(--ui-background-surface-hover);
+    --ui-calendar-item-color-idle: transparent;
+    --ui-calendar-item-height-min: var(--ui-units-size-32);
+    --ui-calendar-item-width-min: var(--ui-units-size-32);
+    --ui-calendar-value-color-active: var(--ui-text-on-brand-primary);
+    --ui-calendar-value-color-disabled: var(--ui-text-on-surface-disabled);
+    --ui-calendar-value-color-idle-primary: var(--ui-text-on-surface-primary);
+    --ui-calendar-value-color-idle-secondary: var(--ui-text-on-surface-secondary);
+    --ui-calendar-value-font-variant-numeric: tabular-nums;
+  }
+
+  .ui-calendar-value-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
   }
 
   :root, :host {
@@ -901,6 +1001,38 @@
   }
 
   [data-brand='deep-sky-itkontoret'] .ui-chip-operational-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  [data-brand='light-gray'] .ui-chip-operational-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  [data-brand='telstra'] .ui-chip-operational-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  [data-brand='virtuozzo'] .ui-chip-operational-label-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  [data-brand='yellow-1c'] .ui-chip-operational-label-text-style {
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -1318,6 +1450,42 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+  }
+
+  [data-brand='light-gray'], :host([data-brand='light-gray']) {
+    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+  }
+
+  [data-brand='telstra'], :host([data-brand='telstra']) {
+    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+  }
+
+  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
+    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
+    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
+    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
+    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
+  }
+
+  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
     --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
     --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
     --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
@@ -1864,6 +2032,22 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
+    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+  }
+
+  [data-brand='light-gray'], :host([data-brand='light-gray']) {
+    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+  }
+
+  [data-brand='telstra'], :host([data-brand='telstra']) {
+    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+  }
+
+  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+  }
+
+  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
     --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
   }
 

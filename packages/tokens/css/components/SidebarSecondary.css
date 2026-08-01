@@ -102,3 +102,19 @@
 [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
   --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
 }
+
+[data-brand='light-gray'], :host([data-brand='light-gray']) {
+  --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+}
+
+[data-brand='telstra'], :host([data-brand='telstra']) {
+  --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+}
+
+[data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
+  --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+}
+
+[data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
+  --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
+}
