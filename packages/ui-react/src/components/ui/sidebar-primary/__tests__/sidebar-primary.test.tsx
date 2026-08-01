@@ -131,6 +131,33 @@ describe('SidebarPrimary', () => {
     expect(nav).toHaveAttribute('data-state', 'expanded');
   });
 
+  it('renders the collapse trigger shortcut and hides it with the label when collapsed', () => {
+    const { rerender } = render(
+      <SidebarPrimary expanded>
+        <SidebarPrimaryFooter>
+          <SidebarPrimaryMenu>
+            <SidebarPrimaryCollapseTrigger shortcut="⌘H">
+              Collapse menu
+            </SidebarPrimaryCollapseTrigger>
+          </SidebarPrimaryMenu>
+        </SidebarPrimaryFooter>
+      </SidebarPrimary>
+    );
+    expect(screen.getByText('⌘H')).not.toHaveClass('sr-only');
+    rerender(
+      <SidebarPrimary expanded={false}>
+        <SidebarPrimaryFooter>
+          <SidebarPrimaryMenu>
+            <SidebarPrimaryCollapseTrigger shortcut="⌘H">
+              Collapse menu
+            </SidebarPrimaryCollapseTrigger>
+          </SidebarPrimaryMenu>
+        </SidebarPrimaryFooter>
+      </SidebarPrimary>
+    );
+    expect(screen.getByText('⌘H')).toHaveClass('sr-only');
+  });
+
   it('controlled: the collapse trigger calls onExpandedChange with the next value and the prop drives state', async () => {
     const onExpandedChange = vi.fn();
     const { rerender } = render(

@@ -58,7 +58,10 @@ contract:
       type: string
       required: false
       default: undefined
-      description: Keyboard-shortcut text for the extras `shortcut` variant.
+      description: >-
+        Keyboard-shortcut text: on the extras part for its `shortcut` variant,
+        and on the collapse-trigger part as its trailing hint (the design's
+        footer row is `Collapse menu ⌘H`). Hidden with the label when collapsed.
     - name: tag
       type: ReactNode
       required: false

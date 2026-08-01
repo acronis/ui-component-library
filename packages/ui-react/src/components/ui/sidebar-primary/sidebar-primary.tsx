@@ -393,6 +393,12 @@ export interface SidebarPrimaryCollapseTriggerProps extends Omit<
 > {
   /** Leading 16px icon (e.g. a panel-left glyph). */
   icon?: React.ReactNode;
+  /**
+   * Optional trailing keyboard-shortcut hint (e.g. `⌘H`), right-aligned and
+   * hidden alongside the label in collapsed mode. The design's footer row is
+   * `Collapse menu ⌘H` (node 2092:5372).
+   */
+  shortcut?: React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -403,7 +409,7 @@ export interface SidebarPrimaryCollapseTriggerProps extends Omit<
 const SidebarPrimaryCollapseTrigger = React.forwardRef<
   HTMLButtonElement,
   SidebarPrimaryCollapseTriggerProps
->(({ className, icon, children, onClick, ...props }, ref) => {
+>(({ className, icon, shortcut, children, onClick, ...props }, ref) => {
   const { expanded, toggleExpanded } = useSidebarPrimaryContext();
 
   return (
@@ -436,6 +442,16 @@ const SidebarPrimaryCollapseTrigger = React.forwardRef<
         <span className={cn('flex-1 truncate', !expanded && 'sr-only')}>
           {children}
         </span>
+        {shortcut != null && (
+          <span
+            className={cn(
+              'shrink-0 ui-sidebar-primary-menu-item-extras-global-shortcut-text-style text-[var(--ui-sidebar-primary-menu-item-extras-global-shortcut-color)]',
+              !expanded && 'sr-only'
+            )}
+          >
+            {shortcut}
+          </span>
+        )}
       </button>
     </li>
   );

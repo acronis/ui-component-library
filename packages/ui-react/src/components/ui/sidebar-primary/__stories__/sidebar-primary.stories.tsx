@@ -167,8 +167,12 @@ function FooterNav() {
         <SidebarPrimaryMenuItem href="#" icon={<CircleHelpIcon />}>
           Help
         </SidebarPrimaryMenuItem>
-        {/* Uncontrolled rail: the trigger toggles `expanded` via context. */}
-        <SidebarPrimaryCollapseTrigger icon={<ChevronsLeftIcon />}>
+        {/* Uncontrolled rail: the trigger toggles `expanded` via context. The
+            shortcut hint matches the design's footer row (node 2092:5372). */}
+        <SidebarPrimaryCollapseTrigger
+          icon={<ChevronsLeftIcon />}
+          shortcut="⌘H"
+        >
           Collapse menu
         </SidebarPrimaryCollapseTrigger>
       </SidebarPrimaryMenu>
