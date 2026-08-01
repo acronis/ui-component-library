@@ -60,6 +60,13 @@ Pattern → Composite → Primitive` over ambient Tokens + Icons, sourced from
   the same value in light and dark. Records each cause, fix options with measured
   ratios, and the CI-gating choices. **Nothing is fixed** — the token changes are
   design decisions.
+- `design-request-brand-and-text-contrast.md` — the outbound ask to design +
+  `acronis/uikit`, arising from the contrast audit. Three items: retarget
+  `text/onSurface/secondary` (specified, already applied in code); supply
+  `sidebarprimary-label/icon` for the **13 brands** that ship none (values
+  needed); and confirm whether every brand's sidebar collapsing to one blue in
+  dark mode is intentional (decision needed). **Nothing has been sent** — this is
+  a draft, and the Figma file is shared with `acronis/uikit`.
 - `component-layers-proposal.md` — the **Primitive vs Composite** layer
   model for components (jargon-free; no atoms/molecules), the classify-don't-move
   mechanism (a `layer` field on each `ui-spec` `index.yaml`, non-breaking), the

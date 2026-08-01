@@ -176,7 +176,7 @@ reverting the tier, which reproduced exactly the ratios the browser measured
 **Still owed:** the Figma variable is unchanged, so the repo carries a deliberate
 deviation and the guard will go red on every token sync until design updates it.
 Request drafted at
-`.ai/explorations/design-request-secondary-text-contrast.md`.
+`design-request-brand-and-text-contrast.md`.
 
 ### B — white on brand blue (49 findings, 22 pages)
 
