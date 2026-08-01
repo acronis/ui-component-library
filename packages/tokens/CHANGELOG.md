@@ -1,5 +1,120 @@
 # @constructor-lab/design-tokens
 
+## 3.1.0
+
+### Minor Changes
+
+- [#83](https://github.com/constructor-lab/ui-component-library/pull/83) [`ba53236`](https://github.com/constructor-lab/ui-component-library/commit/ba5323610064ea0aab88a1671135be7bb083e894) Thanks [@leonid](https://github.com/leonid)! - Wire per-brand sidebar foregrounds for telstra, light-gray and yellow-1c
+
+  `SidebarPrimary` menu items took their label and icon colour from
+  `--ui-text-on-brand-{primary,secondary}` — white for all 21 brands — while their
+  container took each brand's own fill. Fine on a dark brand; on the three brands
+  with light sidebar fills it produced unreadable or invisible text. `telstra`
+  rendered **white on white**: three of four nav items were gone, at 1.00:1.
+
+  The token bundle already shipped the fix. `--ui-palette-branding-<brand>-
+sidebarprimary-{label,icon}-{idle,active}` exists for exactly those three
+  brands — the ones that need it — and the component tier never referenced it.
+
+  Now wired, per brand and per variant, because the two variants sit on different
+  fills: `unselected` on `background-idle`/`-hover` takes the `-idle` foreground,
+  `selected` on `background-active` takes `-active`.
+
+  | brand               | before | after |
+  | ------------------- | ------ | ----- |
+  | telstra unselected  | 1.00   | 7.09  |
+  | light-gray selected | 1.30   | 13.19 |
+  | yellow-1c selected  | 1.72   | 9.98  |
+
+  The other 18 brands are unchanged: they ship no per-brand foreground, so there
+  is nothing to wire. Several still fail with white (`red-home-pl` 1.53,
+  `virtual-one` 2.07, `sand` 2.85) and need design to supply the values.
+
+- [#83](https://github.com/constructor-lab/ui-component-library/pull/83) [`d7e04a2`](https://github.com/constructor-lab/ui-component-library/commit/d7e04a298b47b9bba952b0dba4cc255d2941f277) Thanks [@leonid](https://github.com/leonid)! - Fix `--ui-text-on-surface-secondary` failing WCAG AA in dark mode
+
+  It resolved to `--ui-palette-grayscale-7`, which measures 4.85:1 on the light
+  surface but only **3.36:1** on the dark one — below the 4.5:1 AA minimum for
+  normal text. A repo-wide contrast sweep found 287 occurrences across 43+
+  Storybook pages, making it the single largest source of contrast failures in
+  the library.
+
+  The cause is structural rather than a mistyped value. The grayscale ramp is
+  mirrored — index _N_'s light value is index _14−N_'s dark value — and 7 is the
+  midpoint of a 15-step ramp, so it maps onto itself and is the one grey that is
+  identical in both themes. A foreground that never changes cannot contrast
+  against surfaces that do.
+
+  Retargeted to `--ui-palette-grayscale-8`, one step along the existing ramp:
+  5.86:1 light, 4.77:1 dark surface, 5.48:1 dark canvas. No colour value was
+  invented, and the three other semantics that ride `grayscale-7`
+  (`--ui-background-status-strong-neutral`,
+  `--ui-border-on-surface-border-active`,
+  `--ui-glyph-on-backdrop-element-primary`) are untouched.
+
+  **Visible change:** secondary/muted text is one step darker in light mode and
+  one step lighter in dark mode.
+
+- [#82](https://github.com/constructor-lab/ui-component-library/pull/82) [`7416b3a`](https://github.com/constructor-lab/ui-component-library/commit/7416b3addb3e68d89facbdd8f6b982dddab8beb7) Thanks [@leonid](https://github.com/leonid)! - feat(tokens): emit the ButtonIconInput, InputPassword, Footer and Popover component tiers
+
+  Adds four component token tiers that already existed in the Figma variable snapshot
+  but were absent from the emitter allowlist (`DEFAULT_COMPONENTS` in
+  `tools/token-emit/helpers/emit-components-builder.mjs`, now 32 names / 28 emitting).
+
+  - **`--ui-button-icon-input-*`** and **`--ui-input-password-*`** gate the
+    `ButtonIconInput` + `InputPassword` components — neither can be themed without them.
+  - **`--ui-popover-*`** and **`--ui-footer-*`** are emitted alongside because they gate
+    four separately-confirmed fixes (Popover's Figma sync, and Dialog's footer tier).
+    No component consumes them yet; they are published so that work can proceed.
+
+  Six component groups present in the snapshot remain deliberately ungated:
+  `ButtonGroup`, `Carousel`, `Chat`, `InputOTP`, `SegmentControl`, `SearchGlobal`.
+
+  **Strictly additive — verified at the value level, not the text level.** The
+  re-emit reflows JSON lines, so `git diff` reports deletions that are pure
+  re-serialization. Flattening every modified file to leaf paths and comparing
+  against `HEAD` gives, across all 22 changed JSON files: **3375 leaves added, 0
+  removed, 0 changed, and 0 additions outside the four new groups.** A control emit
+  with the allowlist unchanged reproduced the committed tiers byte-for-byte first,
+  which is what makes that attribution sound — it rules out the snapshot being ahead
+  of `main`.
+
+  Output: four new `css/components/*.css` files, four `@import` lines in
+  `css/index.css`, plus additive-only entries in `tiers/components.json`,
+  `scss/_tokens.scss`, `js/tokens.js` and `dtcg/components-*.json` (×21 brands).
+  No existing token's name or value moves, so no consumer needs to change.
+
+### Patch Changes
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Fixed the dark value of `palette.transparent.dark.fixed.90`, which drives the
+  screen backdrop scrim (`--ui-background-backdrop-screen`).
+
+  Its dark mode resolved to a mid gray (hsl `212.73 4.8% 44.9%`) while every other
+  step in the `transparent.dark.fixed` ramp — 60, 70, 80, 100 — is
+  `228 16.67% 11.76%` in **both** modes, as a `fixed` (mode-invariant) token should
+  be. The odd value washed out the backdrop behind every dark-mode overlay: Dialog,
+  AlertDialog, Drawer, Sheet, SheetDetails, ConfirmDialog, and the Tour scrim. Its
+  dark value now matches the rest of the ramp, so the scrim is the intended
+  near-black again.
+
+  Meaning is unchanged, so this is a patch.
+
+  The value came in from a Figma sync, so the source variable was corrected too:
+  `Transparent/dark/fixed-90` in the **Theme** collection of the `ui-react` file now
+  carries the same channels as the rest of its ramp in the Dark mode, and
+  `semantics/colors/background/backdrop/screen` resolves through it to
+  `rgb(25 27 35 / 0.9)` in both modes. A future sync will therefore reproduce this
+  value instead of reintroducing the regression. The library still needs publishing
+  in Figma for the corrected scrim to reach consuming design files.
+
+- [#58](https://github.com/constructor-lab/ui-component-library/pull/58) [`b8071ac`](https://github.com/constructor-lab/ui-component-library/commit/b8071acfac66cd794a4a102ef308a570c74dfdb8) Thanks [@leonid](https://github.com/leonid)! - chore(tokens): sync brand tokens from Figma (normalized slugs)
+
+  Re-syncs the primitives/semantics/components tiers from the latest Figma export
+  and re-emits the generated css/scss/js/dtcg. Brand value updates only — no brands
+  added or removed. The raw export arrived with underscore brand slugs
+  (`deep_sky_itkontoret`) and a duplicated deep-sky entry; both are normalized to
+  the canonical hyphen slugs here (and prevented at the source by the token-emit
+  palette-mapper fix).
+
 ## 3.0.0
 
 ### Major Changes

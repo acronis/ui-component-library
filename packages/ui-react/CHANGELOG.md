@@ -1,5 +1,2695 @@
 # @constructor-lab/ui-react
 
+## 2.4.0
+
+### Minor Changes
+
+- [#72](https://github.com/constructor-lab/ui-component-library/pull/72) [`cc33034`](https://github.com/constructor-lab/ui-component-library/commit/cc33034391780f1f83823c16e9a6c00aa7f14335) Thanks [@leonid](https://github.com/leonid)! - feat(alert): reconcile against the redesigned Figma (node 6768-67288)
+
+  Restyle `Alert` to the new design language — non-breaking (all 7 variants and all
+  exports retained):
+
+  - **White surface** (`bg-background`) with a **strong status border**
+    (`--ui-border-on-status-*-strong`) and a **6px left accent bar** in the strong
+    status background (`--ui-background-status-strong-*`) — replacing the previous
+    pale status fill.
+  - **Variant-driven full-color status icon**: an empty `<AlertIcon />` now renders
+    the variant's default multicolor glyph (CircleInfoBlue, CircleCheckGreen,
+    TriangleWarningYellow, CircleWarningOrange, DiamondWarningRed, CircleMinusGray,
+    AcronisAiMulti); pass children to override.
+  - **Compact dismiss button**: `AlertClose` is now a 32px `ButtonIcon` (neutral
+    glyph, hover surface, focus ring) instead of a full-height edge cell.
+  - `ai` keeps its branded treatment (pale border + gradient accent bar) since it
+    has no solid `-strong` token pair.
+
+  Code Connect completed against the new node; ui-spec (anatomy/tokens/index)
+  updated; visual-regression baselines regenerated.
+
+- [#61](https://github.com/constructor-lab/ui-component-library/pull/61) [`b85e708`](https://github.com/constructor-lab/ui-component-library/commit/b85e708e6fba897b2886b240f40a4d50744aea7e) Thanks [@leonid](https://github.com/leonid)! - feat(app-shell): add `AppShellPanel` right-rail region for the AI/chat panel
+
+  The Figma app-shell layouts (Basic layout node 6226-24149, Inner page node
+  6226-24150) model the shell as a three-region row — sidebars, body, and a
+  right-hand "Acronis AI" chat rail — but `AppShell` only had the sidebar + body
+  columns. `AppShellPanel` is the new `<aside>` for that rail.
+
+  The panel has a built-in three-way state — `docked` (fixed rail), `collapsed`
+  (~48px icon rail), and `full` (fills the body, which hides). Because the panel
+  and the body coordinate, the state lives on the `AppShell` root
+  (`panelState` / `defaultPanelState` / `onPanelStateChange`, controllable) and is
+  shared via context. New parts drive it: `AppShellPanelContent` (docked/full),
+  `AppShellPanelCollapsed` (the rail), `AppShellPanelTrigger` (`to`-target button),
+  and the `useAppShell()` hook. The AppShell stories are rebuilt to cover every
+  unique layout state from both mockups (primary expanded/collapsed, one or two
+  secondary panels — the tertiary role, chat docked/collapsed/full/absent, and the
+  inner-page breadcrumb variants).
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`dffb78e`](https://github.com/constructor-lab/ui-component-library/commit/dffb78e4fd3e711c1fe0181494a69bfe8f85585a) Thanks [@leonid](https://github.com/leonid)! - Add `AreaChart` — a typed area-chart composition over the shared `Chart`
+  primitives. Takes `data` + `config` + `dataKeys` + `xKey` and renders a themed
+  recharts `AreaChart` with tooltip, legend, axes, and grid. Variants: `layout`
+  (single / stacked) and `fill` (solid / gradient). Supports `curve`, `strokeWidth`,
+  `fillOpacity`, `showDots`, `connectNulls`, axis titles + a Y unit, chrome toggles,
+  and a `tooltipContent` passthrough. Series colors bind to the theme-invariant
+  `--ui-chart-*` palette.
+
+- [#79](https://github.com/constructor-lab/ui-component-library/pull/79) [`9bf46c4`](https://github.com/constructor-lab/ui-component-library/commit/9bf46c40d12a9071f2abe7ba4b37efac3676d364) Thanks [@leonid](https://github.com/leonid)! - `Avatar`: expose all eight color schemes the `--ui-avatar-*` tier emits. The
+  token tier defines `--ui-avatar-color-*` / `--ui-avatar-label-color-*` for
+  `blue`, `gray` and `green` as well, but `avatarVariants` only surfaced five
+  (`teal`, `violet`, `red`, `yellow`, `orange`) — so those six tokens were dead:
+  emitted by the pipeline and referenced by nothing. Widening the enum is purely
+  additive (no existing `color` value changes meaning or rendering) and needs no
+  token work.
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`b0ca626`](https://github.com/constructor-lab/ui-component-library/commit/b0ca6261f7d472ac4137b23ab34aedd17ab0c3a8) Thanks [@leonid](https://github.com/leonid)! - Add `BarChart` — a typed bar-chart composition over the shared `Chart`
+  primitives. Takes `data` + `config` + `dataKeys` + `xKey` and renders a themed
+  recharts `BarChart` with tooltip, legend, axes, and grid. Variants: `orientation`
+  (vertical / horizontal) and `layout` (grouped / stacked). Supports dashed
+  reference/average lines, axis titles + unit suffixes, chrome toggles
+  (`showGrid` / `showTooltip` / `showLegend`), a `barRadius`, and a `tooltipContent`
+  passthrough. Series colors bind to the theme-invariant `--ui-chart-*` palette.
+
+- [#82](https://github.com/constructor-lab/ui-component-library/pull/82) [`6fa6462`](https://github.com/constructor-lab/ui-component-library/commit/6fa6462449e01f48a12f0d747b6f045621f0c465) Thanks [@leonid](https://github.com/leonid)! - Add `ButtonIconInput` and `InputPassword`, the two components behind the Track 3
+  token tiers.
+
+  `ButtonIconInput` is the 20×20 icon affordance that lives inside an input box (a
+  clear ✕, a reveal eye, a search trigger) — a distinct component from
+  `ButtonIcon`, not a size of it: a smaller container, 2px padding around a 16px
+  glyph, and a `normal` / `error` variant so the affordance follows its field into
+  the error treatment (including the focus ring, which switches to
+  `--ui-focus-error`).
+
+  `InputPassword` is the password field: label, required marker, masked box, the
+  reveal toggle, and a description or error message. It consumes its own
+  `--ui-input-password-*` tier rather than the `Input` primitive's
+  `--ui-input-text-*` one, and its box reserves inline-end room for the toggle
+  computed from tokens. The reveal state is uncontrolled by default and can be
+  driven via `revealed` / `onRevealedChange`.
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`b0c8132`](https://github.com/constructor-lab/ui-component-library/commit/b0c8132510ed1d5e05e1d7f47ba0ddc33f355bfd) Thanks [@leonid](https://github.com/leonid)! - Add `ChartState` — a shared loading / empty / error placeholder for the chart
+  types, rendered in place of a chart inside the same sized slot. A compact status
+  block (spinner / inbox / warning glyph over a centered label) with an optional
+  retry action for the error state. Themes from the status/text semantic tokens;
+  the `--ui-chart-*` data-viz palette is deliberately reserved for series identity.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`b328219`](https://github.com/constructor-lab/ui-component-library/commit/b3282192a3e504fb7ecd0f61aad843cc52aa7f71) Thanks [@leonid](https://github.com/leonid)! - Add `ComposedChart` — a typed composed (mixed) chart over the shared `Chart`
+  primitives. Plots a `series` list over one shared category axis where each entry
+  picks its own render `type` (bar / line / area), with tooltip, legend, axes, and
+  grid. Series render in array order (later entries paint on top). Supports `curve`,
+  `barRadius`, `fillOpacity`, axis titles + a Y unit, chrome toggles, and a
+  `tooltipContent` passthrough. No CVA variants (the mix is data-driven). Series
+  colors bind to the theme-invariant `--ui-chart-*` palette.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`8ecbd99`](https://github.com/constructor-lab/ui-component-library/commit/8ecbd9904170ad84bb8750c1961d1b521e62409a) Thanks [@leonid](https://github.com/leonid)! - Add `ConfidenceCone` — a typed forecast/uncertainty chart over the shared
+  `Chart` primitives. Plots a central estimate (`valueKey`) as a line inside a
+  shaded band between `lowerKey` and `upperKey` (a range `Area` fed a
+  `[lower, upper]` tuple) — the widening cone of a projection — with an optional
+  dashed `forecastStart` divider, tooltip, and legend. No variant axis — its
+  expressiveness is the data mapping plus `bandOpacity` / `curve` / chrome toggles
+  and a `tooltipContent` passthrough. The line + band bind to the theme-invariant
+  `--ui-chart-*` palette; the divider/axes/chrome resolve to semantic tokens.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): actions grouped form and preset normalization (P0.7)
+
+  Completes the grouped-config normalization with the last delivered group and the
+  preset layer above it.
+
+  `actions` now matches the design's union: `false | DataGridActionsConfig`, where
+  the config carries **exactly one** of `items` (the built-in menu) or `render`
+  (a typed escape hatch owning the whole cell), plus `placement` and `onAction`.
+  The custom renderer gets the same propagation isolation as the menu — its
+  controls never toggle row selection or fire the row click/activate handlers — and
+  the cell now justifies to the side `placement` puts the column on. Development
+  validation reports action items combined with a renderer, and duplicate item ids.
+
+  `presets` adds named grouped-config bundles:
+
+  ```tsx
+  presets={{
+    definitions: [{ id: 'reviewable', config: { selection: { mode: 'multiple' }, … } }],
+    apply: ['reviewable'],
+    detect: ({ columns, rows }) => (rows.length > 20 ? ['paged'] : []),
+  }}
+  ```
+
+  Precedence rises with explicitness: detected presets apply first, then `apply`
+  left-to-right (later writes win), then any group the caller supplied — by grouped
+  prop **or** deprecated alias — which a preset never overrides. That last rule
+  also means a preset can't manufacture a spurious grouped-vs-alias duplicate
+  warning. `detect` runs exactly once against the initial columns/rows, so it can
+  never observe mutable state. Development validation reports an applied preset
+  that is not defined and a preset carrying anything but a grouped config
+  (`state`, `defaultState`, `server`, `columns`, `rows`, `callbacks`).
+
+  `DataGridProps` now extends the new exported `DataGridGroupedConfig`, so the prop
+  surface and what a preset may set cannot drift. `DataGridGroupedConfig`,
+  `DataGridPreset`, `DataGridPresetsInput`, `DataGridFiltersConfig`,
+  `DataGridPaginationConfig`, and `DataGridToolbarConfig` are exported.
+
+  Remaining P0.7 (follow-up): the P1 feature groups (`detailExpansion`, `tree`,
+  `grouping`, `virtualization`, `columnsFeatures`, `persistence`, `footer`), the
+  required-`getRowId` API change, and the `table-view`/`data-table` screen
+  migrations.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): chrome ownership + config validation (P0.7, partial)
+
+  - New `chrome` prop implements canonical chrome ownership (design §5.1). It
+    defaults to built-in (DataGrid renders its toolbar, filters, bulk bar, and
+    pagination). `chrome.mode="external"` keeps the engine state but suppresses
+    every built-in control and calls `render(context)` with the shared controller
+    plus the current selection, query, and state — so a screen composes its own
+    toolbar/pagination without a second engine. The empty/error rows and footer
+    stay inside the table. `DataGridChrome` and `DataGridChromeContext` are
+    exported.
+  - Development-time validation of invalid combinations: `chrome.mode="external"`
+    with `toolbar`/`searchKey`, and bulk actions without multiple selection, each
+    emit a descriptive `console.error`.
+  - The DataGrid public type continues to expose neither `engineOptions` nor
+    `plugins` (advanced engine extension stays on custom DataTable composition),
+    now covered by the table-family public-type characterization test.
+
+  Story added: `ExternalChrome`.
+
+  Remaining P0.7 (its own pass): the full 16-group grouped-config normalization
+  with precedence/presets, deprecated-alias→grouped duplicate errors, and the
+  `table-view` / `data-table` screen migrations.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataGrid: `columnsFeatures` gains its header chrome — a resize handle, a reorder
+  grip, keyboard operation, and one live region per grid.
+
+  With `columnsFeatures: { resizing: true }` every unlocked column's header carries
+  a focusable resize handle: pointer drag (TanStack's own maths, committing per
+  `resizeMode`) plus Left/Right arrows for a 16px step. With
+  `columnsFeatures: { reordering: true }` it carries a grip; activate it and the
+  arrow keys move the column one **visible** position inside its own pin region,
+  with Enter or Escape ending the interaction. Pointer drag-and-drop reorder is not
+  part of this release.
+
+  - **The controls are siblings of the sort affordance, not children of it.** They
+    mount through the header-cell adornment seam with `placement: 'edge'`, which is
+    `TableHead`'s `trailing` slot — so on a sortable column a pointer release does
+    not sort, Enter/Space acts instead of sorting, and the header's accessible name
+    stays the column label rather than absorbing the control's.
+  - **Announcements go to one live region per grid**, mounted by the group itself,
+    and shared with the column-settings menu. Widths, moves, pin changes and
+    visibility changes are announced in the logical vocabulary (`pinned to start`,
+    never `left`).
+  - **`aria-valuemax` is emitted only for a column the caller capped.** The
+    engine's resolved maximum is `Number.MAX_SAFE_INTEGER`, which is a safe clamp
+    and a nonsense thing to publish.
+  - **Locked columns offer no controls at all**, resizing included, so the default
+    `lockSystemColumns` leaves the selection and actions columns untouched.
+
+  For a hand-composed `DataTable`, the same commands are on the header render
+  context as `columns` (`resizeTo`, `moveTo`, `moveBy`, `pin`, plus `size`,
+  `minSize`, `maxSize`, `position`, `total`). Each returns a structured
+  announcement intent, or `undefined` when nothing changed — the engine renders no
+  handle and no live region, so a custom composer owns the wording exactly as
+  DataGrid does.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataTable/DataGrid: add the `columnsFeatures` behavior group — engine wiring and
+  config resolution.
+
+  `DataGrid` gains a `columnsFeatures` prop (`visibility`, `pinning`, `resizing`,
+  `reordering`, `resizeMode`, `fit`, `overflowTooltip`, `lockSystemColumns`), and
+  the DataTable feature module turns on TanStack's column pinning and resizing and
+  exposes pin/size/order commands on the header render context.
+
+  Three behavioral notes:
+
+  - `resizeMode` defaults to `'onEnd'`, not TanStack's `'onChange'`. The library
+    default commits sizing state on every pointer move, which re-renders every row
+    per frame; pass `resizeMode: 'onChange'` to opt back in.
+  - Only `enableColumnPinning` is set. TanStack's `enablePinning` is deprecated in
+    favour of the per-axis flags, and row pinning is not in scope.
+  - `lockSystemColumns` defaults to on, so the selection and actions columns cannot
+    be moved, pinned or resized, and offer no header controls, unless it is
+    explicitly `false`.
+
+  The presentation half — pinned columns and their offsets, resolved widths, and
+  the header resize handle and reorder grip — is in this release too; see the
+  `columnsFeatures` header-chrome entry.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): config registry + `toolbar.columnFilters`/`viewOptions` members
+
+  **New: the toolbar's own members are now configurable (design §5.2).**
+
+  `DataGridToolbarConfig` gains `columnFilters` and `viewOptions`:
+
+  ```tsx
+  <DataGrid
+    columns={columns}
+    rows={rows}
+    filters={{ columns: filterDefinitions }}
+    toolbar={{ columnFilters: true, viewOptions: false }}
+  />
+  ```
+
+  **Migration — `toolbar.columnFilters` defaults to `false`.** Defining column
+  filters and _surfacing_ their controls are now separate decisions, as the design
+  specifies. Previously the controls rendered whenever `filters` carried column
+  definitions, with no way to turn them off; now `toolbar.columnFilters` governs it
+  and defaults to off.
+
+  If you pass `filters` with `columns` (or the deprecated bare
+  `DataGridColumnFilterDef[]` form) and want the controls, add
+  `toolbar={{ columnFilters: true }}`. In development DataGrid logs an error when
+  filter definitions would render nowhere, so an un-migrated grid reports itself
+  rather than silently dropping its filter row. `filters.global` (the toolbar
+  search box) is unaffected.
+
+  `toolbar.viewOptions` defaults to `true` — the previous, unconditional behavior —
+  and set to `false` hides the column-visibility menu. DataGrid now renders its own
+  toolbar row rather than the frozen `DataTableToolbar` adapter, which is unchanged;
+  direct DataTable composition is unaffected.
+
+  **Internal: DataGrid's behavior groups are now a config registry.**
+
+  No public API change. `data-grid.tsx` hand-listed every behavior group in eight
+  places — the `DataGridGroupedConfig` interface, a total-record `satisfies` over
+  its keys, the resolved shape, the resolver, the resolved-field destructure, the
+  `useDataTable({…})` assembly, the column assembly, and the render body. All eight
+  are now derived from one module per group under `data-grid-config/`, each
+  declaring its own prop surface, resolution, controller options, column
+  injection, view props, and chrome. Adding a behavior group is a new file plus one
+  line in the module list.
+
+  Two behavior-adjacent consequences worth knowing:
+
+  - Config resolution is memoized on the props the registry actually reads instead
+    of on the props object, and the named callbacks are read through a stable
+    accessor. Both make the assembled column set referentially stable in cases
+    where it previously churned — notably when `callbacks` is passed as an object
+    literal, which used to reset TanStack row selection on re-render.
+  - A module may not overwrite another module's controller option or view prop; a
+    collision throws in development rather than letting one silently win.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): `detailExpansion` — caller-rendered detail panels (U1)
+
+  ```tsx
+  <DataGrid
+    columns={columns}
+    rows={rows}
+    getRowId={(row) => row.id}
+    detailExpansion={{
+      render: (row) => <InvoiceSummary invoice={row} />,
+      isExpandable: (row) => row.hasDetail,
+      mode: 'multiple',
+    }}
+    callbacks={{ onDetailExpansionChange: (event) => persist(event.value) }}
+  />
+  ```
+
+  A disclosure control appears in a `__detail__` system column behind the selection
+  checkbox, and opening it reveals `render(row)` in a full-width row beneath the
+  record.
+
+  **`render` is required** at the DataGrid layer — a detail group with nothing to
+  render is a configuration mistake. `isExpandable` decides which records get a
+  control at all; `reserve` retains expanded ids across a data replacement.
+  `mode: 'accordion'` keeps at most one panel open and is **proposed-only** in the
+  design, with `multiple` the shipped default.
+
+  `detailExpansion` is identity-bearing, so it requires `getRowId` — expanded ids
+  have to survive a data change, and an index cannot do that.
+
+  Three properties worth knowing because they are easy to assume wrong:
+
+  - **A detail row consumes no pagination slot.** It is a presentation of a record
+    already on the page, not a record entering the row model, so `pageSize: 25`
+    still means 25 records. This is deliberately the opposite of the answer for tree
+    descendants, which are real records.
+  - **Detail and tree expansion are fully independent** — separate state slice,
+    separate callback, separate display-row kind. Toggling a panel leaves
+    `treeExpanded` untouched, and accordion mode can never collapse a tree node.
+  - **`aria-controls` is emitted exactly while the panel is mounted**, never
+    pointing at an element that does not exist, while `aria-expanded` always
+    reflects logical state. The control and the panel derive the id from one shared
+    function, so they cannot disagree.
+
+  `onDetailExpansionChange` joins the named callbacks, carrying the same enriched
+  event shape as the rest of the family.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): faceted filter options and multi-column global search (U7)
+
+  **Faceted option sources.** A column filter can now say where its options come
+  from, which is what turns a free-text control into a set-membership one:
+
+  ```tsx
+  <DataGrid
+    columns={columns}
+    rows={rows}
+    getRowId={(row) => row.id}
+    filters={{
+      columns: [
+        { columnId: 'category', label: 'Category', facet: 'unique' },
+        {
+          columnId: 'status',
+          label: 'Status',
+          facet: ['active', 'paused', 'archived'],
+        },
+      ],
+    }}
+    toolbar={{ columnFilters: true }}
+  />
+  ```
+
+  `'unique'` offers the column's distinct values **with their counts**, `'min-max'`
+  its numeric range, and an explicit list supplies fixed options verbatim —
+  including ones that occur in no row. This is shipped legacy parity with
+  `filterStats`.
+
+  The values come from the **pre-filter** row model, so the option list keeps
+  showing every choice, with accurate counts, while a filter is applied. Facets need
+  client-side filtering and are inactive in server mode, where the client holds only
+  one page and any facet computed from it would be wrong.
+
+  **Multi-column global search.** `filters.global.columnIds` matches one query,
+  case-insensitively, across every listed column:
+
+  ```tsx
+  filters={{ global: { columnIds: ['name', 'category', 'status'] } }}
+  toolbar={{ globalSearch: true }}
+  ```
+
+  A term matching any one of those columns matches the row, so a screen no longer
+  needs to hand-roll an OR inside a single column's `filterFn`. Per-column
+  customization is a `globalFilterFn` on that column's metadata, which keeps the
+  query descriptor `{ q, columnIds }` serializable — server mode round-trips it
+  unchanged.
+
+  The deprecated singular `filters.global.columnId` still works. Supplying both
+  warns and `columnIds` wins.
+
+  **Behaviour change: the toolbar search box now drives the engine's global filter**
+  rather than one column's filter. For a single-column configuration this is
+  equivalent, and it is what makes the multi-column form work at all — previously the
+  box could only ever have matched one column. The reset control now clears the
+  global query as well as the column filters; before, a global query could be left
+  active with no way to clear it from the toolbar.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): grouped-config union forms for filters/pagination/toolbar (P0.7)
+
+  The three prototype props whose names clash by type now accept both their
+  deprecated legacy shape and the design's grouped config, normalized together:
+
+  - `filters`: `false | DataGridColumnFilterDef[] | DataGridFiltersConfig`. The
+    config adds `{ columns, global: { columnId, placeholder } }`; the bare array is
+    the deprecated alias for `{ columns }`.
+  - `pagination`: `boolean | DataGridPaginationConfig` (`{ pageSize, pageSizeOptions }`).
+    The boolean plus the separate `pageSize`/`pageSizeOptions` props are deprecated.
+  - `toolbar`: `boolean | DataGridToolbarConfig` (`{ globalSearch, bulkActions }`).
+    `globalSearch` shows the search box (its column comes from `filters.global` or
+    the deprecated `searchKey`); `toolbar.bulkActions` supersedes the deprecated
+    top-level `bulkActions`. `toolbar: {}` renders view options only.
+
+  Precedence follows the design: a grouped config wins over its deprecated alias
+  and supplying both emits a development warning (`filters.global` vs
+  `searchKey`/`searchPlaceholder`, `toolbar.bulkActions` vs `bulkActions`, the
+  `pagination` config vs `pageSize`/`pageSizeOptions`). `DataGridFiltersConfig`,
+  `DataGridPaginationConfig`, and `DataGridToolbarConfig` are exported. An unfiltered
+  grid now keeps a stable `columnFilters` reference so the memoized column set
+  (and TanStack row selection) survives re-renders.
+
+  Remaining P0.7 (follow-up): `actions` grouped form, `presets`, the P1 feature
+  groups, and the `table-view`/`data-table` screen migrations.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): grouped-config API for delivered features (P0.7)
+
+  DataGrid now accepts the design's grouped, object-form configs for the delivered
+  features, and the flat prototype props become deprecated aliases that normalize
+  into them:
+
+  - `selection` (`false | { mode, showSelectAll, isRowSelectable }`) ← `selectable`
+    / `selectionMode` / `isRowSelectable`
+  - `sorting` (`false | { mode }`) ← `sortable` / `multiSort`
+  - `appearance` (`{ striped }`) ← `striped`
+  - `dataState` (`{ status, skeletonRows, empty, error, onRetry }`) ← `state` /
+    `error` / `onRetry` / `skeletonRows` / `emptyMessage`
+  - `rowInteraction` (`{ current, onClick, onActivate, onHover }`) ← `currentRow` /
+    `onRowClick` / `onRowActivate` / `onRowHover`
+
+  Precedence follows the design: a grouped config wins over its deprecated alias,
+  and supplying both emits a development warning. The grouped config types are
+  exported (`DataGridSelectionConfig`, `DataGridSortingConfig`,
+  `DataGridAppearanceConfig`, `DataGridDataStateConfig`,
+  `DataGridRowInteractionConfig`). `selection.showSelectAll` can now hide the header
+  select-all in multiple mode.
+
+  Story added: `GroupedConfig`.
+
+  Not yet migrated to grouped form (follow-up, some pending P1 engine features):
+  `filters`/`pagination`/`toolbar` (need `legacy | config` union props), `actions`,
+  `presets`, and the P1 groups (tree/grouping/virtualization/columns/persistence/
+  detailExpansion). The `table-view` / `data-table` screen migrations also remain.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataTable/DataGrid: add the `grouping` behavior group — row grouping with
+  collapsible, sticky group headers, a group-scoped select-all, and the ungrouped
+  bucket policy.
+
+  `DataGrid` gains a `grouping` prop (`allowedColumns` required; `renderGroup`,
+  `collapsible`, `sticky`, `selectionScope`, `ungrouped` optional). `DataTable`
+  gains the matching `grouping` config, a `groupCollapsed` state slice, and a
+  working `toggle-group` imperative action. Root records group while each root's
+  descendant tree stays attached; a group's members render underneath its header
+  and collapse into it.
+
+  `grouping` does **not** require `getRowId`: collapse is keyed by the synthetic
+  group id, not by row identity. A grid that groups _and_ selects needs `getRowId`
+  because of `selection`.
+
+  Five notes worth reading before you use it:
+
+  - **Grouping is switched on through the `grouping` state slice, not the config.**
+    `allowedColumns` says which columns _may_ group; pass
+    `defaultState={{ grouping: ['status'] }}` (or a controlled `state.grouping`) to
+    group by one. This mirrors `sorting`, where the config carries behavior and the
+    slice carries the current value. There is no built-in group-by control in this
+    release.
+  - **`getGroupedRowModel()` alone shows group headers with no members.** The
+    grouped row model nests each group's members in `subRows`, and TanStack's stock
+    expand stage returns early while nothing is expanded, so this release installs
+    its own expand stage — owned by the `grouping` feature module and shared with
+    `tree`, which no longer installs one. Tree expansion is unchanged.
+  - **`groupedColumnMode` is set to `false`.** TanStack's default (`'reorder'`)
+    hoists every grouped column to the front of the column order the moment
+    grouping activates, silently overriding `columnsFeatures.columnOrder`. The
+    group header shows the value already, so the caller's order is kept.
+  - **`selectionScope` defaults to `'all-loaded-leaves'`**, so a collapsed group is
+    still selectable. `'visible-leaves'` restricts the group select-all to rows
+    currently on screen, which means a collapsed group's control is empty and
+    disabled.
+  - **A sticky group header needs `appearance.height` or `appearance.maxHeight`**,
+    and with `appearance.stickyHeader` it slides under the table header rather than
+    stacking below it (the fixed z-ladder puts the header above group rows). There
+    is no offset member for clearing the header.
+
+  Two inherited limitations, recorded rather than left to be discovered: a real
+  `null` and the string `"null"` land in the **same** group, because the row model
+  keys groups by the stringified value above this layer; and `allowedColumns` is
+  enforced when the grouping slice is written through the engine, so a value pushed
+  directly into a controlled `state.grouping` is honoured as the caller's own
+  assertion.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): `state`/`defaultState` exposure + the `getRowId` identity rule
+
+  **New: `state` and `defaultState` on DataGrid.**
+
+  ```tsx
+  <DataGrid
+    columns={columns}
+    rows={rows}
+    getRowId={(row) => row.id}
+    selection={{ mode: 'multiple' }}
+    state={{ selection }} // controlled: requests, never commits
+    defaultState={{ pagination: { pageIndex: 0, pageSize: 25 } }}
+    callbacks={{ onSelectionChange: (event) => setSelection(event.value) }}
+  />
+  ```
+
+  A slice in `state` is controlled: DataGrid emits the change event so the screen can
+  apply it, but commits nothing internally. A slice absent from `state` is
+  uncontrolled and initializes once from `defaultState`. The same slice in both is a
+  development error and the controlled value wins. The controller already implemented
+  all three rules — this exposes them at the DataGrid layer.
+
+  Two precedence rules resolve the overlaps DataGrid adds on top. Server mode
+  controls the query slices exclusively, so a caller controlling one of those is
+  reported rather than silently overridden. And a caller `defaultState` slice beats a
+  group's own initial value — `defaultState.pagination` wins over
+  `pagination.pageSize`.
+
+  **`state` keeps its deprecated string form.** `state="loading"` is still the
+  data-status alias for `dataState.status` and still warns when combined with
+  `dataState`. The prop is now a structural union of the status string and the
+  controlled-slice object, discriminated by `typeof state === 'string'`; the two are
+  disjoint, so no caller needs to change.
+
+  **Migration: `getRowId` is now required by the grouped API when a feature needs row
+  identity.** `DataGridProps` is a discriminated union implementing design §3.1:
+  `getRowId` is optional only while every identity-bearing feature is disabled, and
+  required as soon as one is enabled — `selection`, `actions`, `rowInteraction.current`,
+  `server`, or a controlled `selection`/`currentRowId`/`detailExpanded`/`treeExpanded`
+  slice. Omitting it is a compile error naming the missing prop.
+
+  Nothing needs to change today: **every existing call site already complies.** The
+  deprecated flat aliases (`selectable`, `currentRow`, `onRowClick`, …) stay
+  source-compatible for one minor line, as the design requires. They now log a
+  development warning explaining that identity falls back to the row index and cannot
+  survive a data change, and the fix is either `getRowId` or the grouped config.
+
+  The rule is deliberately finer than the design sketch in one place:
+  `rowInteraction`'s `onClick`/`onActivate`/`onHover` receive the row _object_, not an
+  id, so they remain available without `getRowId`. Only `current` requires it.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): named screen callbacks (P0.7)
+
+  Adds the `callbacks` prop — the surface a screen binds to (design §5.3). Each
+  callback carries the enriched event (`cause`, the complete next `state`, the
+  `query`, and its `requestKey`) instead of a bare value:
+
+  ```tsx
+  callbacks={{
+    onSelectionChange: (event) => setSelected(event.value),
+    onQueryChange: (event) => syncUrl(event.query),
+    onColumnStateChange: (event) => persist(event.slice, event.value),
+    onRowAction: ({ actionId, row }) => run(actionId, row),
+  }}
+  ```
+
+  Implemented: `onStateChange`, `onQueryChange`, `onSelectionChange`,
+  `onCurrentRowChange`, `onPaginationChange`, `onColumnStateChange`, `onRowHover`,
+  `onRowClick`, `onRowActivate`, `onCellHover`, `onCellClick`, `onRowAction`,
+  `onDataStateAction`.
+
+  **One ordering rule throughout: a config-level handler owns the behavior and runs
+  first; the named callback observes afterwards.** So `server.onQueryChange`
+  refetches and `callbacks.onQueryChange` only observes the same event (it must not
+  start a second request), `rowInteraction.on*` runs before `onRow*`,
+  `actions.onAction` before `onRowAction`, and `dataState.onRetry` before
+  `onDataStateAction`. Binding both is supported and expected — the config handler
+  gets the row, the callback gets the full event.
+
+  Every slice-derived event reuses the controller's own `DataTableChangeEvent`
+  narrowed to its slice, so the family has one event shape rather than a parallel
+  vocabulary. The four column slices fan into a single `onColumnStateChange`
+  discriminated by `event.slice`, so persisting column preferences is one handler.
+  Binding no callbacks installs no per-slice handlers on the controller.
+
+  The design's `onDetailExpansionChange`, `onTreeExpansionChange`, `onTreeLoad`,
+  `onGroupingChange`, and `onScroll` are deliberately **not** included: their
+  features are P1, and they will land with the behavior that emits them rather than
+  as callbacks that can never fire. `onDataStateAction`'s `append-retry` action
+  likewise arrives with the P1 append state.
+
+  Exports `DataGridCallbacks` plus the event types
+  (`DataGridSelectionChangeEvent`, `DataGridCurrentRowChangeEvent`,
+  `DataGridPaginationChangeEvent`, `DataGridColumnStateChangeEvent`,
+  `DataGridColumnSlice`, `DataGridRowActionEvent`,
+  `DataGridDataStateActionEvent`).
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataGrid: add the `persistence` behavior group (U10, DataGrid half).
+
+  `<DataGrid persistence={{ key, version, storage }} />` restores stored column
+  preferences on mount and saves them as they change. `key`, `version` and `storage`
+  are required (design §8); `include`, `migrate` and `onError` are optional.
+
+  ```tsx
+  <DataGrid
+    columns={columns}
+    rows={rows}
+    persistence={{
+      key: 'servers-grid',
+      version: 2,
+      storage: {
+        read: (key) => localStorage.getItem(key),
+        write: (key, value) => localStorage.setItem(key, value),
+      },
+    }}
+  />
+  ```
+
+  - **Defaults to the four column slices** — visibility, order, sizing and pinning.
+    Sorting, filters, grouping and the page index are opt-in through `include`;
+    selection, detail/tree expansion and the current row cannot be named at all
+    (design §5.2).
+  - **No `getRowId` required.** Every persistable slice is keyed by column id, so
+    the group is deliberately absent from the identity rule — a caller may persist
+    column preferences without supplying row identity.
+  - **The group renders no chrome.** A restore is visible only as the ordinary
+    chrome of whatever slice it restored into, so it contributes a config prop and
+    nothing else; all mechanics are the DataTable engine's.
+  - **It warns rather than half-configuring.** A JS caller missing `key`, `version`
+    or `storage` disables the group with a message naming the missing members, and
+    an `include` entry the library does not recognise is reported — the engine drops
+    an unknown slice name silently, so the warning is the only signal a caller gets.
+  - **Precedence is `state` > `defaultState` > stored payload > config defaults.** A
+    slice the caller controls is neither restored into nor saved; a slice the caller
+    gave a `defaultState` is not restored into but _is_ still saved once the user
+    changes it.
+
+  New public type: `DataGridPersistenceConfig`. Its barrel re-export is batched with
+  the other public-type lines at branch close, so reach it from
+  `@constructor-lab/ui-react` only after that lands.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): reorder columns by dragging the header grip
+
+  `columnsFeatures.reordering` now offers a pointer gesture as well as the keyboard
+  one. Drag a column's reorder grip onto another column: that column's header is
+  outlined as the drop target, release moves the dragged column into its place, and
+  Escape (or a cancelled pointer) abandons the drag with nothing moved.
+
+  - **A gesture layer over the existing commands, not new reorder logic.** Release
+    calls the engine's own `moveTo`, which stays the authority on legality — a move
+    is still clamped to the column's pin region and still refuses a locked target
+    (design §6.9). Both paths announce through the same intent, so a pointer user and
+    a keyboard user hear the same sentence.
+  - **The keyboard path is unchanged.** A press below a 4px threshold is still a
+    click, and a click still engages arrow-key reordering. A keyboard activation is
+    never consumed by the pointer path.
+  - **New, and useful to a composer**: every header cell now publishes
+    `data-column-id`, and — with `reordering` on — carries the drop-target paint rule
+    keyed on `data-reorder-target`. A composer that maps its own gesture onto
+    `moveTo`/`moveBy` can identify the column under a pointer and mark it without
+    authoring colour of its own.
+
+  Nothing is added at rest beyond the grip's grab cursor: the drop outline exists
+  only while a pointer is down.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): build DataGrid on the shared DataTable controller
+
+  DataGrid no longer creates its own separate TanStack instance. It now composes
+  the one canonical `useDataTable` controller plus `DataTableRoot`/`DataTableView`,
+  so its toolbar, grid body, and pagination all read and mutate a single engine
+  that owns the normalized state, query, and controlled/uncontrolled semantics —
+  the "one engine only" rule from the table-feature-parity design. Its public prop
+  surface (`columns`, `rows`, `state`, `selectable`, `toolbar`, `searchKey`,
+  `pagination`, `onRowClick`, `striped`, …) is unchanged, and every existing
+  behavior is preserved. Because the shared controller installs no pagination model
+  unless requested, DataGrid renders every row when `pagination` is not set rather
+  than silently truncating to a default page.
+
+  `DataTableView` gains an `onRowClick(context)` prop that fires with the clicked
+  row's typed context and composes with `highlightCurrentRow`; DataGrid maps it to
+  its `onRowClick(row)` callback.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Add the `tree` behavior group to `DataGrid`, and complete the eager half of the
+  `tree` feature in the `DataTable` engine.
+
+  ```tsx
+  <DataGrid
+    columns={columns}
+    rows={regions}
+    getRowId={(row) => row.id}
+    tree={{ getChildren: (row) => row.reports, indent: 24 }}
+    callbacks={{ onTreeExpansionChange: (event) => save(event.value) }}
+  />
+  ```
+
+  - `tree.getChildren` supplies descendant relationships (the DataTable-level
+    `getSubRows` prop still works and is now the fallback, not the only route).
+  - `tree.indent` sets the per-level step, default 20px. It reaches the row as the
+    `--table-tree-indent` custom property alongside `--table-tree-depth`, so a
+    direct `DataTable` composition can indent from a column class with
+    `calc(var(--table-tree-depth) * var(--table-tree-indent))`.
+  - `tree.column` names which column carries the disclosure and the indentation,
+    defaulting to the first **declared** data column. Note this is not necessarily
+    the leftmost _rendered_ one once `columnsFeatures` reorders or hides columns —
+    and **hiding the tree column removes the disclosure entirely**, so the tree
+    becomes unexpandable rather than merely un-indented.
+  - `tree.reserve` keeps expanded ids that are absent after a data replacement.
+  - `callbacks.onTreeExpansionChange` reports `treeExpanded` transitions. Tree and
+    detail expansion share no slice, callback, or id namespace, so subscribing to
+    one never delivers the other's events, and both may be enabled at once.
+
+  The disclosure is an **in-cell** control on the tree column rather than a leading
+  system column, because indentation and disclosure have to move together and a
+  fixed leading column cannot indent. It wraps the column's own cell renderer, so a
+  custom `cell` is preserved.
+
+  Accessibility: a plain grid with an in-cell disclosure button carrying
+  `aria-expanded`. `role="treegrid"` is deliberately not adopted, and the disclosure
+  emits no `aria-controls` — a tree parent reveals a variable set of sibling rows,
+  and several `<tr>` elements cannot share one id. Because `aria-level` is
+  meaningful only inside a `treegrid`, the nesting level is carried in the
+  disclosure's accessible name instead.
+
+  Tree descendants **consume pagination slots**: a page size of 4 over an expanded
+  parent with two children renders the parent, both children, and one more root.
+  This is the opposite of detail rows, which are a presentation of a record already
+  on the page.
+
+  ### Lazy children
+
+  `tree.loadChildren` fetches children for a record that has none yet. Expanding a
+  childless row triggers it; each request is keyed, and a superseded result is
+  dropped, so a slow first response cannot overwrite a newer one.
+
+  ```tsx
+  <DataGrid
+    columns={columns}
+    rows={regions}
+    getRowId={(row) => row.id}
+    tree={{
+      getChildren: (row) => row.reports,
+      loadChildren: (row) =>
+        fetch(`/api/regions/${row.id}/children`).then(toJson),
+    }}
+    callbacks={{ onTreeLoad: (event) => track(event.status, event.requestKey) }}
+  />
+  ```
+
+  - While a request is in flight the branch shows a spinner row; on failure it shows
+    an Alert with a Retry control. `tree.renderLoadError` replaces the failure
+    content only — the spinner is not overridable, and retry cannot be suppressed.
+  - `callbacks.onTreeLoad` reports each transition (`loading`, then `loaded` or
+    `error`) with the request key that identifies the attempt. A superseded result
+    emits nothing, so the event stream is a faithful trace of what actually landed.
+  - **With a loader configured, every not-yet-resolved row gets a disclosure**, since
+    the library cannot know whether a childless record has children until it asks. A
+    row whose load completed with no children becomes a leaf and loses the control.
+  - Request status is deliberately **not** part of `treeExpanded` or any other state
+    slice, so persisting or restoring table state never restores a stale load state.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): pagination `showPageSize`/`showFirstLast`/`unknownTotal` and server directional capabilities (U8)
+
+  **`pagination.showPageSize`** and **`pagination.showFirstLast`** drop the
+  rows-per-page select and the first/last page buttons. Both default to `true`, so
+  nothing changes for an existing caller:
+
+  ```tsx
+  pagination={{ pageSize: 25, showPageSize: false, showFirstLast: false }}
+  ```
+
+  **`pagination.unknownTotal`** is for a cursor-style backend that can answer "is
+  there another page" but never "how many". It announces no page count and hides
+  first/last, and it is valid **only** in server mode with both new capabilities
+  supplied:
+
+  ```tsx
+  pagination={{ unknownTotal: true }}
+  server={{
+    query,
+    hasNextPage: cursor.next !== null,
+    hasPreviousPage: cursor.previous !== null,
+    onQueryChange,
+  }}
+  ```
+
+  **`server.hasNextPage`** and **`server.hasPreviousPage`** are the owner's
+  directional capabilities. They are authoritative when supplied and they have to
+  be, because the engine's answer in this configuration is not missing — it is
+  wrong. With manual pagination and neither `rowCount` nor `pageCount`, TanStack's
+  `getRowCount()` falls back to the length of the row model it was handed, so
+  `getPageCount()` becomes `ceil(loadedWindow / pageSize)`. A 500-result query
+  served 10 rows at a time reports a page count of **1**: the footer announces
+  "Page 1 of 1" and `getCanNextPage()` is `false`, so Next is dead on every page.
+  Supplying the two capabilities is what fixes both, and `unknownTotal` is what
+  stops the fabricated count being announced.
+
+  `unknownTotal` also passes `pageCount: -1` to the engine, so `getPageCount()`
+  reports genuinely-unknown rather than a count derived from the current window,
+  and page navigation is not clamped to it.
+
+  **New: `DataGrid` renders its own pagination row.** The frozen
+  `DataTablePagination` companion adapter takes exactly `{ table, pageSizeOptions }`
+  and is marked "do not add new features here", so the three members needed
+  DataGrid-owned chrome — the same move `toolbar.viewOptions` made for the toolbar
+  row. **At the defaults the two render identical markup**, and a test asserts that
+  byte-for-byte through one shared controller, so no existing DataGrid rendering
+  changes and no visual baseline moves. `DataTablePagination` stays exported for
+  external callers; DataGrid no longer consumes it.
+
+  **Deviation from the design contract, recorded deliberately.** Design §5.2 lists
+  `unknownTotal` outside server mode as an invalid combination, which implies only
+  that it is reported. It is reported — and it is also **not honored**: outside
+  server mode the member resolves to `false`. The client row model knows the real
+  total, so suppressing the count there would replace a correct answer with no
+  answer, which is strictly worse than the warning. Resolving it away also keeps the
+  invalid state out of everything downstream, so neither the chrome nor the
+  controller ever sees an unknown total it cannot support.
+
+  Four development warnings cover §5.2's invalid combinations for `unknownTotal`:
+  outside server mode, without both directional capabilities, alongside
+  `server.rowCount`/`server.pageCount`, and with an explicit `showFirstLast: true`.
+  The last keys off the caller having _set_ the member rather than off its resolved
+  value — `showFirstLast` defaults to `true`, so a resolved-value check would warn
+  on every correctly configured unknown-total grid. A fifth reports a `server`
+  config that supplies neither totals nor capabilities, which is the configuration
+  that silently produces the fabricated count above.
+
+  **None of the three members has a deprecated flat alias.** `pagination`'s flat
+  form is a boolean plus `pageSize`/`pageSizeOptions`, and it carries nowhere to put
+  a presentation flag, so the grouped config is the only route to all three — a
+  limit of the alias form rather than an omission here.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): `selection.selectAll` — page, loaded, and all-results scopes (U8)
+
+  **`selection.selectAll`** says what the header select-all covers:
+
+  ```tsx
+  selection={{ mode: 'multiple', selectAll: 'loaded' }}
+  ```
+
+  - **`page`** — the current page's eligible rows. What already shipped.
+  - **`loaded`** — every eligible loaded row, across pages.
+  - **`all-results`** — everything the query matches.
+
+  Unset means **page when paginated, loaded otherwise** (design §6.1), so nothing
+  changes for an existing caller.
+
+  **`all-results` is the one that needed new machinery**, because its member set is
+  exactly what DataGrid has never seen. It requires an application-issued
+  `server.selection` token scoped to the current `query.requestKey`; DataGrid never
+  invents one and never labels the loaded window as all server results. With a valid
+  token:
+
+  - each row checkbox is derived from `!excludedIds.has(row.id)` rather than from any
+    engine slice — the token can describe rows that were never loaded;
+  - toggling a row emits an **exclusion delta** through `server.onSelectionChange`
+    and commits nothing to the engine, so the controlled token stays authoritative;
+  - the header control is fully checked only when there are no exclusions, clears
+    the exclusions when activated from its mixed state, and requests
+    `selection: undefined` — the absence of a selection — when deselecting
+    everything. That last encoding is deliberate: an all-results token excluding
+    every _loaded_ id would claim exclusions for rows the application may never have
+    sent.
+
+  This completes `ui-spec/…/data-table/behavior.md`'s "All-results token cannot cross
+  a query", whose last clause — "toggled exclusions emit against the authoritative
+  token without mutating it internally" — was the part deferred when `server.selection`
+  shipped.
+
+  **Without a usable token, `all-results` degrades to the default scope and reports
+  the combination** (design §5.2). It does not disable the control and it does not
+  fake the claim.
+
+  **One asymmetry worth knowing.** The all-results toggle reports
+  `cause: 'pointer'`, because it emits from the click handler. Every other selection
+  change reports `'api'`, because it goes through `row.toggleSelected()` and the
+  controller cannot see what drove it. Both values are honest; the difference is that
+  the engine round-trip loses the provenance the call site had.
+
+  **Also recorded rather than relied on:** the `loaded` half of the default has no
+  observable consequence today. Without a pagination row model, TanStack's
+  page-scoped predicates and toggles already cover the whole row model, so `page` and
+  `loaded` coincide exactly when the grid does not paginate. The distinction is
+  reachable only through an explicit `selectAll: 'loaded'` on a paginated grid. The
+  code follows §6.1 anyway, because agreeing with the spec costs nothing.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): controlled server selection and `server.onSelectionChange` (U8)
+
+  **`server.selection`** hands selection ownership to the application, in the two
+  shapes design §3.6 specifies:
+
+  ```tsx
+  server={{
+    query,
+    rowCount,
+    selection: { mode: 'explicit', ids: new Set(['d-2']) },
+    onSelectionChange: (event) => {
+      // event.previous is the authoritative selection; event.selection is the request
+      if (event.selection?.mode === 'explicit') setIds(event.selection.ids);
+    },
+    onQueryChange,
+  }}
+  ```
+
+  An **`explicit`** selection is enumerable, so it becomes a controlled `selection`
+  slice: the boxes it names are ticked, and a click **requests** a change without
+  committing one. Nothing moves until the owner supplies a new `server.selection` —
+  so an owner that ignores the event gets a grid whose selection never changes,
+  which is the point rather than a bug.
+
+  An **`all-results`** selection means "everything the query matches, except these".
+  DataGrid cannot make that claim on its own — it has only ever seen the loaded
+  window — so the `token` is application-issued and scoped to the exact
+  `queryRequestKey` it was issued for. **A token whose key does not match the current
+  `query.requestKey` is stale and reports nothing**, until the owner supplies one for
+  the new key. DataGrid never invents a token and never labels loaded rows as all
+  server results.
+
+  **`server.onSelectionChange`** reports requested changes, carrying the
+  authoritative `previous`, the requested `selection`, and the `cause`/`query`/
+  `requestKey` of the transition. It runs **before** `callbacks.onSelectionChange`,
+  which only observes — the same authoritative-then-observe ordering
+  `server.onQueryChange` already has (design §5.3). Supplying it without
+  `server.selection` logs a development error: with no controlled selection the
+  engine owns selection outright and `callbacks.onSelectionChange` already reports
+  it, so firing here too would be a second event for one transition.
+
+  Controlling the same slice from both sides — `server.selection` and
+  `state.selection` — is design §5.2's invalid combination and is reported, which
+  falls out of the existing server/state overlap rule now that `selection` joins the
+  controlled slices.
+
+  **Not shipped, and named rather than left to be discovered: the `all-results`
+  toggle path.** Adjusting `excludedIds` when a row is toggled needs the loaded row
+  ids, and the one place a row id is in hand at that moment is the selection column's
+  cell renderer. So exclusion toggling lands with `selection.selectAll:
+'all-results'`, and until it does an `all-results` token is reported and
+  staleness-checked but drives no checkbox. If that work ships without consuming
+  `ResolvedDataGridServer.selection`, the member and the `all-results` shape should
+  be deleted rather than left declared.
+
+  **Known limitation, pre-existing and now pinned by a test:** the `cause` on a
+  selection change driven by the row checkbox is `api`, not `pointer`, because the
+  checkbox calls `row.toggleSelected()` and the controller cannot see what drove it.
+  A screen therefore cannot currently distinguish a user click from a programmatic
+  selection.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): sorting cycle/maxColumns and the appearance cluster (U9)
+
+  **`sorting`** gains `cycle` and `maxColumns`:
+
+  ```tsx
+  sorting={{ mode: 'multiple', cycle: ['asc', 'desc'], maxColumns: 2 }}
+  ```
+
+  `cycle` sets the direction sequence on repeated header activation — dropping
+  `'none'` makes sorting non-removable, and leading with `'desc'` sorts descending
+  first. `maxColumns` caps a multi-sort. Both are carried even when the sortable
+  header affordance is off, because a controlled `sorting` slice still cycles.
+
+  **`appearance`** gains the rest of the cluster beyond `striped`: `size`,
+  `background` (transparent / accent / subtle / surface), `showHeader`,
+  `stickyHeader`, independent `borders` strengths for the top, bottom, horizontal
+  and vertical edges, `width` / `height` / `maxHeight`, and the six
+  `rowClassName` / `rowStyle` / `cellClassName` / `cellStyle` / `headerClassName` /
+  `headerStyle` callbacks — each taking the same typed render context the rest of
+  the family uses.
+
+  An unset member is passed as absent rather than as an explicit `undefined`, so the
+  `Table` primitive's own defaults still apply and today's markup is unchanged.
+
+  `appearance.stickyHeader` without `height` or `maxHeight` now logs a development
+  error: with no bounded height the table never scrolls, so a sticky header has
+  nothing to stick to and the member would appear to do nothing.
+
+  **Fix:** the `detailExpansion` expander column's header cell had no accessible
+  name, failing axe's `empty-table-header` rule and leaving the column unnamed to a
+  screen reader. It now carries a visually-hidden label, so the header row still
+  reads as a bare expander gutter.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-grid): selection `selectByRow`, `reserve`, and the indeterminate policy (U9)
+
+  **`selection.selectByRow`** toggles a row's selection when its body row is
+  clicked:
+
+  ```tsx
+  selection={{ mode: 'multiple', selectByRow: true }}
+  ```
+
+  The checkbox column stays the accessible primary control — the row gets a pointer
+  cursor and a click handler, and deliberately **no tab stop and no keyboard
+  binding**, so it does not become an unlabelled focus target. Action controls, the
+  detail expander and the row checkbox all isolate propagation, so none of them
+  selects on the way through. Eligibility comes from `isRowSelectable` and
+  single-selection mode replaces rather than accumulates, both straight from the
+  engine.
+
+  Composes with a row-click handler rather than replacing it: with both
+  `selection.selectByRow` and `rowInteraction.onClick`, the toggle runs first and the
+  handler observes the post-toggle state. On a double-click activation the row is
+  toggled twice and therefore ends where it started, so double-clicking to open does
+  not disturb selection.
+
+  **`selection.reserve`** keeps selected ids whose records are absent after a data
+  replacement, instead of pruning them:
+
+  ```tsx
+  selection={{ mode: 'multiple', reserve: true }}
+  ```
+
+  The pruning behavior itself is the controller's and unchanged — this is the config
+  surface that reaches it from `DataGrid`. Default stays `false`, so a selected id
+  whose record disappears is still dropped with cause `data-reconcile`.
+
+  **`selection.selectAllOnIndeterminate`** picks what the header select-all does
+  when it is in the mixed state: select every eligible row (`true`, the default), or
+  clear the selection (`false`).
+
+  ```tsx
+  // the new opt-in: a mixed header control clears instead of selecting
+  selection={{ mode: 'multiple', selectAllOnIndeterminate: false }}
+  ```
+
+  **No behavior change.** The default matches what already ships, so existing callers
+  see nothing new. Only the mixed state is governed at all: an unchecked header
+  control still selects the page and a fully checked one still clears it, under either
+  policy, and select-all skips rows excluded by `isRowSelectable` either way.
+
+  _Deviation from the design contract, recorded deliberately._ Design §5.2 defaults
+  this member to `false`. Shipping that default would have changed behavior for every
+  existing caller with no code change on their part — the most invisible kind of
+  breaking change — and both behaviors are defensible UX with no correctness argument
+  for either, so the shipped one wins and the member exists for callers who want the
+  other. (Today's behavior is `true` by accident rather than by decision: an
+  indeterminate checkbox reports `checked: true` and that value was passed straight
+  through. Consumers depend on observed behavior regardless of whether it was
+  intended.)
+
+  Setting `selectAllOnIndeterminate` where the header control does not render — in
+  single mode, or with `showSelectAll: false` — logs a development error, since the
+  policy governs exactly that one control. The check keys off the caller having _set_
+  the member rather than off its resolved value, because with a `true` default a
+  resolved-value check would fire for every single-mode grid.
+
+  **Fix, and a second behavior change: the row checkbox now isolates event
+  propagation.** `DataTableViewProps.onRowClick` has always documented that
+  "interactive descendants that stop propagation (checkboxes, action buttons) do not
+  trigger it". That was true of the actions cell and the detail expander but not of
+  the selection checkbox, so ticking a row's box also ran the row-click handler and,
+  with roving focus on, moved the current row. It no longer does. If you were relying
+  on a checkbox click to reach `rowInteraction.onClick` (or the deprecated
+  `onRowClick`), read the selection change from `callbacks.onSelectionChange`
+  instead — it reports the transition the checkbox actually caused.
+
+  The selection cell now wraps its checkbox in a `<span class="contents">` to carry
+  that isolation. It has `display: contents`, so it generates no box and the cell's
+  layout is unchanged — but it is a new node, so a DOM query for the cell's first
+  element child now finds the span rather than the checkbox. The handler cannot go on
+  the checkbox itself: Base UI renders the visible `<span role="checkbox">` and a
+  hidden native `<input>` as siblings, and activating the box dispatches a click from
+  the input, which does not pass through the box.
+
+  **None of the three members has a deprecated flat alias**, and that is a limit of
+  the alias form rather than an omission: `selectable` / `selectionMode` /
+  `isRowSelectable` are flat and carry no place for a policy flag. A caller on the
+  aliases migrates to the grouped `selection` config to reach any of them, which also
+  brings `getRowId` with it under the identity rule.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataGrid: add the public `virtualization` prop — row windowing over the engine's
+  existing seam.
+
+  `DataGrid` gains `virtualization` (`estimateRowHeight`, `measure`, `overscan`,
+  `scrollToIndex`; every member optional). The windowing mechanism already shipped in
+  `DataTable`; this is the config route to it, so a grid virtualizes with
+  `virtualization={{}}` plus a bounded height.
+
+  - **A bounded height is required** — either `appearance.height` or
+    `appearance.maxHeight`. Without a bound there is no viewport to window against and
+    every row renders. The value must be an **absolute length**: a percentage resolves
+    against an indefinite containing block, so the scroll viewport grows to its content,
+    reports itself bounded, and never scrolls. The engine reports both failures against
+    the DOM rather than guessing from the config.
+  - **`virtualization={{}}` is a complete configuration.** Design §5.2's defaults (40px
+    row estimate, `fixed` measurement, overscan 8) live in the engine, and this layer
+    passes through only what the caller set rather than restating them — so one default
+    has one home, and "the caller chose 40" stays distinguishable from "nobody chose".
+  - **No `getRowId` required.** Windowing is presentation keyed by row index, not by row
+    identity.
+  - Windowing applies to the **display-row** list rather than to the records, so row
+    index and count metadata survive (design §7), and pagination plus virtualization
+    windows the current page.
+
+  `measure: 'dynamic'` measures each rendered row instead of trusting the estimate; use
+  it for variable-height content. `scrollToIndex` scrolls a row into view and again
+  whenever the value changes, so it reads as state rather than as a one-shot command.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-table): publish the flexible DataTable composition API
+
+  The table-feature-parity foundation (one controller owning the normalized state
+  and single TanStack instance, framework-neutral state/change/query contract,
+  seven-key engine-option allowlist, and analyzable custom-feature plugin surface)
+  was implemented and tested but never exported. It is now public from
+  `@constructor-lab/ui-react`:
+
+  - `useDataTable` controller hook (`DataTableController`, its options unions, the
+    `IdentityFreeDataTableState` helper, and the `DataTableToggleAction` imperative
+    actions), plus the deprecated compatibility overload.
+  - `DataTableRoot` / `useDataTableRoot` / `DataTableView` composition primitives.
+  - Typed render contexts (`createHeaderContext`, `createRowContext`,
+    `createCellContext`, `createStateContext`) that expose values/metadata/commands
+    only — never preassembled product chrome.
+  - The framework-neutral contract (`DataTableState`, `DataTableSlice`,
+    `DataTableQuery`, `DataTableChangeEvent`, descriptors, serializable types),
+    query helpers (`createDataTableQuery`, `createDataTableRequestKey`,
+    `serializeDataTableRequest`), and state helpers
+    (`createDefaultDataTableState`, `useControllableDataTableSlice`).
+  - The React-only engine escape hatches: `DataTableEngineOptions` allowlist
+    (`DATA_TABLE_SAFE_ENGINE_OPTION_KEYS`, `normalizeDataTableEngineOptions`,
+    `TANSTACK_TABLE_OPTION_CLASSIFICATION`) and the custom-feature plugin surface
+    (`DataTableEnginePlugin`, its manifest/registrar types,
+    `inspectDataTablePluginTopology`, `prepareDataTableExtensions`).
+
+  The existing `DataTable`, `DataTableToolbar`, `DataTablePagination`,
+  `DataTableViewOptions`, and `DataTableColumnHeader` exports are unchanged; the
+  standard product-chrome companions remain frozen one-minor compatibility
+  adapters that move behind DataGrid and are removed next major.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataTable: split the expansion domains so `detailExpansion` and `tree` are
+  independent (ADR-0001).
+
+  TanStack Table ships one expand/collapse feature and its row model walks
+  `row.subRows` only, so it is an identity transform for detail expansion and
+  exactly what a tree needs. The controller now binds `state.expanded`,
+  `getExpandedRowModel()` and `onExpandedChange` to the **`treeExpanded`** slice,
+  and detail expansion became a library-owned render-layer projection over
+  **`detailExpanded`** — a detail row never enters `getRowModel().rows`,
+  `flatRows` or `rowsById`, and it consumes no pagination slot.
+
+  `DataTableRowContext` gains two namespaces:
+
+  - `row.detail` — `{ isExpanded, canExpand, toggle }`
+  - `row.tree` — `{ isExpanded, canExpand, toggle, depth, hasChildren, loadState }`
+
+  `row.isExpanded`, `row.canExpand` and `row.toggleExpanded` are kept as
+  **deprecated aliases of the `detail` domain** for this compatibility line and
+  are removed in the same major as the other table compatibility adapters. Because
+  those values were already driven by `detailExpanded`, aliasing them to detail is
+  a zero-behavior-change migration.
+
+  `DataTableController` gains `getExpansion()`, reporting `treeEnabled`,
+  `detailEnabled` and the detail-domain `canExpandDetail` predicate.
+
+  Migration notes:
+
+  - The deprecated `getRowCanExpand` / `renderExpandedRow` props are unchanged:
+    while no tree is configured they keep TanStack's `expanded` on the detail
+    slice, so column cells that call `row.getIsExpanded()` /
+    `row.toggleExpanded()` behave exactly as before.
+  - Supplying **both** `getSubRows` and `renderExpandedRow` previously produced a
+    single conflated expand state. It now produces two independent ones: the tree
+    disclosure drives `treeExpanded` and the detail panel drives `detailExpanded`.
+    No known call site combines them.
+  - **`getSubRows` on its own now counts as a tree**, with or without a `tree`
+    config — subrows are what the expand row model walks, so supplying them is
+    what declares a tree. Two consequences for a `getSubRows`-only caller:
+    `getExpandedRowModel()` is now installed where it previously was not, and
+    `state.expanded` is sourced from `treeExpanded`. **Nothing renders
+    differently** while `treeExpanded` is empty, which it is until something
+    writes to it: the stage short-circuits on an empty expanded state and returns
+    its input row model, so only root rows are visible exactly as before. What
+    changes is that expanding a row through `treeExpanded` now actually reveals
+    its descendants, which is the wire this split existed to connect.
+  - `getExpandedRowModel()` is no longer installed for detail-only expansion. It
+    was an identity transform there — no dataset without `getSubRows` has subrows
+    for it to walk — so rendered output is unchanged.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataTable: an internal feature-module registry, a display-row list, two named
+  seams, and the `appearance` pass-through (ADR-0002, DataTable half).
+
+  This is a characterization-preserving refactor with one additive public surface.
+  It exists so the remaining behavior groups can be built in parallel: adding a
+  feature is now one new module file plus one manifest line, instead of edits to
+  `data-table-controller.ts`, `data-table-view.tsx` and
+  `data-table-render-context.ts` all at once.
+
+  **Internal, no behavior change.** The conditional `useReactTable` option spreads
+  and every `on*Change` handler moved into per-feature modules under
+  `data-table/data-table-features/`, composed in design §3.5's committed pipeline
+  order. Contributions are additive and collision-checked across modules — two
+  features setting the same option throws, naming both, rather than letting the
+  later one silently win. `data-table-view.tsx` now renders a **display-row list**
+  derived over the engine's record rows, so `detail`, `group`, `tree-status` and
+  `footer` rows are explicit kinds instead of one hard-coded special case.
+  Pagination still counts records, and keyboard roving focus and striping still
+  index records, not display rows.
+
+  **New public API, all additive:**
+
+  - `DataTableController.tableId` — a stable DOM id root, so the design §7 ARIA id
+    schemes (`${tableId}--detail--${base64url(rowId)}`) have something to root at.
+    The detail panel now carries that id, which is what lets an expander button
+    point `aria-controls` at an element that exists exactly when the panel is
+    mounted.
+  - `DataTableController.getFeatures()` — the library-internal registry runtime.
+    Not an extension point; the public one is still `plugins` (design §4.1).
+  - `DataTableController.getViewBridge()` — the channel the view publishes its
+    imperative window operations through. The controller owns the toggle-action
+    union but cannot reach the view's scroll container, so `measure-layout` and
+    `scroll-to-row` dispatch here. Library-internal.
+  - `DataTableView` gains **`stickyFooter`**, the only route by which a footer
+    feature's `sticky` option reaches `TableFooter`: a feature renders the
+    `<TableRow>` _inside_ `<TableFooter>` and cannot reach the section element.
+  - `DataTableView` **appearance pass-through**: `size`, `background`, `borders`,
+    `width`, `height`, `maxHeight`, `stickyHeader` and `showHeader` now reach the
+    `Table` primitive, plus the `rowClassName` / `rowStyle` / `cellClassName` /
+    `cellStyle` / `headerClassName` / `headerStyle` resolvers. Previously the view
+    rendered `<Table>` bare inside a hardcoded wrapper, so the primitive's
+    presentation and scroll-container props were reachable from a hand-written
+    composition and unreachable from DataGrid. Setting `height` or `maxHeight` is
+    also what bounds the scroll container, which is the precondition for sticky
+    sections and windowed rendering.
+  - **Behavior-group keys pre-declared** on the controller options:
+    `columnsFeatures`, `grouping`, `footer`, `virtualization` and `persistence`,
+    each typed against a config interface owned by its own feature module; and
+    `filtering` / `pagination` widened from `boolean` to `boolean | Config`. All
+    five new groups are keyed by column ID or index rather than row ID, so they sit
+    on the base options and do **not** require `getRowId`. Every member of every
+    config is optional at this layer.
+  - **`DataTableToggleAction` pre-declared members**: `measure-layout`,
+    `scroll-to-row` and `toggle-group`. The two windowing actions dispatch through
+    `getViewBridge()`, so implementing them needs no controller change;
+    `toggle-group` needs a state slice that does not exist yet. All three throw a
+    "not implemented yet" `TypeError` until their owner lands, rather than silently
+    doing nothing.
+  - `createHeaderContext` takes an optional second `controller` argument. Omitting
+    it keeps the previous behavior.
+
+  Migration notes:
+
+  - Nothing is required. Default rendered output is unchanged, and every existing
+    suite passes unmodified.
+  - If you supplied `filtering` or `pagination` as a boolean, that still works —
+    the config object form is new, not a replacement.
+  - `DataTableController` gained members, so a hand-written object literal typed as
+    `DataTableController` (rather than one returned by `useDataTable`) needs
+    `tableId`, `getFeatures` and `getViewBridge`. Test doubles are the realistic
+    case.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataTable: whole-table footer summaries (U5).
+
+  `TableFooter` already existed and was exported; `DataTableView` simply never
+  rendered it. The footer is now a `kind: 'footer'` display row emitted from the
+  registry's `tableDisplayRows` point, and the view routes that kind into
+  `<TableFooter>` rather than `<TableBody>` — so a footer is never counted as a
+  record row by anything walking the body.
+
+  **New controller config, `footer`:**
+
+  - `summaries` — one entry per column, each naming a `columnId` and an
+    `aggregate`: `sum`, `avg`, `min`, `max`, `count`, `countDistinct`, or a reducer
+    `(rows) => SerializableValue` for anything the named set cannot express. The
+    named forms are serializable so a server can compute them instead.
+  - `scope` per summary — `'filtered'` (the default) totals every row after
+    filtering, sorting and tree expansion but **before** the page slice, so a
+    paginated grid shows the grand total; `'page'` totals the visible page only.
+  - `render` — owns the footer's cells, receiving the typed footer context.
+  - `sticky` — pins the section, mapped onto the view's `stickyFooter` prop.
+
+  **The footer render context** (`DataTableFooterContext`) exposes `summaries`,
+  `summaryFor(columnId)`, `rows`, `pageRows`, `visibleColumnIds` and
+  `visibleColumnCount`. Each computed `DataTableSummaryValue` carries its `value`,
+  its `aggregate` (`'custom'` for a reducer), its `scope` and the `rowCount` it saw,
+  so a formatter can branch without re-deriving anything.
+
+  Two behaviors worth knowing:
+
+  - **An empty table has no total, and says so.** Every numeric aggregation returns
+    `undefined` rather than `0` for an empty input, because a footer showing `0` for
+    an empty table states something false. A column that genuinely sums to zero
+    still shows `0`.
+  - **Cells follow column _visibility_, not the column definitions.** The footer
+    emits one cell per visible column so it lines up with the body; an unsummarized
+    column contributes an empty cell rather than being omitted.
+
+  Not included, deliberately: **group-scoped footers.** The design does not address
+  them. The display-row kind carries `scope: 'table' | 'group'` so the shape need
+  not change later, but only the table scope is emitted.
+
+  One deviation from design §5.2, recorded rather than silent: §5.2 makes
+  `summaries` and `render` mutually exclusive, and that rule is enforced at the
+  **DataGrid** layer where the caller sits. At the DataTable layer they compose —
+  `summaries` is the model and `render` is the presentation — because DataGrid
+  itself relies on that composition to format a caller's summaries, and enforcing
+  the exclusion here would leave `DataTableFooterContext.summaries` permanently
+  empty for every renderer.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-table): manual/server query contract + DataGrid data states (P0.6)
+
+  **DataTable (model):**
+
+  - `useDataTable` gains independent manual modes — `manualSorting`,
+    `manualFiltering`, `manualPagination`, `manualGrouping` — plus `rowCount` /
+    `pageCount` for manual pagination. A manual stage tracks its slice/state and
+    emits changes but leaves the client rows untouched (the caller processes them
+    server-side); no client row model is installed for that stage.
+  - New `onQueryChange` callback fires once per atomic query transition (a change
+    to sorting, filters, global filter, grouping, or pagination), carrying the
+    previous and next `DataTableQuery` and the canonical request key of the next
+    query. A query-changing sort/filter/group resets `pageIndex` in the same
+    transition, so only the post-reset key is emitted. The caller owns
+    fetch/cancellation and stale-result handling (compare against the latest
+    `requestKey`).
+
+  **DataGrid (composed chrome):**
+
+  - New `state="error"` renders an `Alert` (with optional `error` content and an
+    `onRetry` button). Loading never infers empty and an error is never treated as
+    empty — the engine is fed no rows in the empty/error states so counts and
+    pagination stay consistent.
+  - New `server` config (`DataGridServerConfig`: `query`, `rowCount?`, `pageCount?`,
+    `onQueryChange`) puts the grid in all-manual mode — the query slices are
+    controlled from `server.query`, pagination controls drive server navigation,
+    and every atomic query transition calls `server.onQueryChange`. DataGrid never
+    sorts, filters, or slices client rows in server mode.
+
+  Stories added: `ErrorState`, `Server`. The all-results server-selection token
+  (design §3.6) remains a follow-up.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataTable: add the `persistence` restore/save engine (U10, DataTable half).
+
+  Persisted table preferences behind a versioned storage envelope (design §8). The
+  mechanism lives in DataTable so a direct `useDataTable` caller gets it without
+  DataGrid; the `persistence` config prop on DataGrid follows separately.
+
+  - **New `data-table-persistence.ts`** — the engine. `planDataTableRestore` turns a
+    stored payload into a list of slice writes (validate → migrate → prune), and
+    `useDataTablePersistence` runs it from the `persistence` feature module's
+    `effects` hook, then saves whenever a managed slice changes.
+  - **Restore lands after the column model normalizes and before interaction**
+    (§6.13) by virtue of being a mount effect, and emits `requestChange(…,
+'restore')` — the first emitter of a `DataTableChangeCause` that has existed
+    since F1 with nothing producing it.
+  - **Validation and pruning are distinct.** An unknown column id is schema
+    evolution: the entry is pruned and the rest of the slice restores. A wrong type
+    is corruption: the whole slice is discarded. Pruning is against
+    `getAllLeafColumns`, so a hidden column's stored width still restores.
+  - **No live row state by default, enforced at compile time.** Selection,
+    detail/tree expansion and the current row are not merely absent from the default
+    `include` set — they cannot be named in it, and adding one fails to compile
+    (`_AssertNoRowStatePersisted`). `pagination` is nameable but not default.
+  - **Two new `DataTableFeatureGates` members**, `controlledSlices` and
+    `defaultedSlices`, derived from the own-keys of the controller's `state` and
+    `defaultState` props. A resolved state snapshot cannot express "the caller did
+    not ask for this", so neither exclusion is derivable from it.
+    - A **controlled** slice is excluded from restore **and** save: the controller
+      declines to commit one but still emits its change event, and a controlled
+      caller applying that event is the overwrite `behavior.md:462-468` forbids.
+    - A **`defaultState`** slice is excluded from **restore only**. It is just the
+      caller's initial value, so later user changes to it are still saved —
+      collapsing the two sets would silently disable persistence for any slice the
+      caller gave a default.
+  - **Write discipline:** nothing is written before the restore attempt settles (a
+    mount write would delete the payload before reading it), and a restore itself
+    writes nothing. Storage is touched only inside effects, so server rendering
+    never reaches an adapter.
+
+  No public API change in this changeset — `DataTablePersistenceConfig` is reachable
+  through `DataTableControllerOptions` and the DataGrid prop lands with the config
+  group.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-table): show a column's prospective width while a resize handle is dragged
+
+  A thin vertical line, spanning the whole table, marks where the dragged column's
+  edge will land. **Not decoration:** `columnsFeatures` defaults
+  `columnResizeMode` to `'onEnd'`, so the column does not move until release — until
+  now, grabbing a handle produced no response at all and the new width appeared with
+  the pointer already up. In that mode the line is the interaction's only visible
+  half.
+
+  - It tracks the **prospective** width, `clamp(startSize + delta, minSize,
+maxSize)`, mirroring `table-core`'s own arithmetic (the `-0.999999` floor and the
+    two-decimal rounding included). The clamp is load-bearing: TanStack writes the
+    dragged width unclamped and clamps on _read_, so an unclamped line keeps
+    travelling after the column has stopped at its minimum — asserting a width the
+    release cannot produce.
+  - It is painted on the **container box** (`[data-slot="table-container"]`) as an
+    `::after`, at the z ladder's new `55` rung — above every sticky rule, below the
+    scrollbar. Hosting it inside a header cell would have grown the viewport's
+    scrollable overflow and resized the scrollbar mid-drag.
+  - Available to any composer, not just `DataGrid`: it keys off the engine's own
+    drag state, so wiring a handle to `resizeHandleProps` is enough.
+  - Styled from the `Resizable` token tier (`--ui-resizable-border-width` /
+    `-color-active`), which is the kit's existing vocabulary for a resize divider
+    being dragged.
+
+  **New:** `Table.containerStyle` — the counterpart to `containerClassName`, for
+  giving the scroll container's box a value a class cannot express (a computed
+  length, or a custom property driving a rule `containerClassName` declares).
+  `containerProps` remains the escape hatch for the _scrolling element_, which is a
+  different node. `width` still wins over `containerStyle` on conflict.
+
+  Not covered by visual regression: a screenshot cannot capture a drag, so those
+  baselines are unchanged and say nothing about this feature.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-table): selection model + DataGrid selection/actions/bulk chrome (P0.5)
+
+  **DataTable (model):**
+
+  - `useDataTable`'s `selection` option now accepts a config —
+    `{ mode?: 'single' | 'multiple'; isRowSelectable?; reserve? }` — mapping to the
+    engine's single/multi row selection and per-row eligibility. `reserve` keeps
+    selected IDs absent after a data replacement instead of pruning them.
+    `DataTableSelectionConfig` is exported.
+
+  **DataGrid (composed chrome):**
+
+  - Now runs on the identity controller branch (a `getRowId`, defaulting to the row
+    index) so selection, actions, and bulk operations have stable row identity.
+  - New `selectionMode` (`single` hides the header select-all and keeps one row
+    selected) and `isRowSelectable` (ineligible rows get a disabled checkbox and
+    are skipped by select-all).
+  - New `actions` prop renders a per-row action menu (`ButtonIconMenu` +
+    `DropdownMenu`) with per-row disabled predicates; destructive items route
+    through `ConfirmDialog`. Action controls stop row click/selection propagation.
+  - New `bulkActions` prop renders a selection bulk-action bar (`Button`s + a
+    selected-count + clear) shown while rows are selected, with destructive actions
+    confirmed via `ConfirmDialog`. Each action receives the selected rows.
+  - Exports: `DataGridActionsConfig`, `DataGridRowAction`, `DataGridBulkAction`,
+    `DataGridActionConfirm`, `createActionsColumn`, `DataGridBulkActions`.
+
+  **Row/cell interaction (DataTableView + DataGrid):**
+
+  - `DataTableView` gains typed pointer/activation events — `onRowHover`,
+    `onRowActivate` (Enter while the row is focused, or double-click), `onCellClick`,
+    and `onCellHover` — and `onRowClick` now receives a `DataTableRowPointerEvent`
+    carrying the row context and native event. New event types
+    `DataTableRowPointerEvent`, `DataTableRowActivationEvent`, and
+    `DataTableCellPointerEvent` are exported.
+  - New `currentRow` prop enables current-row **roving focus**: body rows share one
+    tab stop, Up/Down move the current row one visible record, Home/End jump to the
+    first/last, Enter activates, and the current row carries `aria-current`.
+    Interactive descendants stay tabbable and do not activate the row.
+  - DataGrid exposes `currentRow`, `onRowActivate`, `onRowHover`, `onCellClick`,
+    and `onCellHover` (called with the row data / column id) over the shared
+    controller.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-table): sorting model + DataGrid sortable-header and column-filter controls (P0.4)
+
+  **DataTable / Table (model + presentation):**
+
+  - `useDataTable`'s `sorting` option now accepts a config —
+    `{ mode?: 'single' | 'multiple'; cycle?; maxColumns? }` — in addition to
+    `boolean`. It maps to the engine's multi-sort, sort-removal, desc-first, and
+    multi-sort column cap. `DataTableSortingConfig` is exported.
+  - The header render context gains `sortCount` and a `sortDescription`
+    (`"sorted descending, priority 2"`) for accessible multi-sort priority.
+  - `DataTableView` gains a `sortable` prop that presents the standard
+    sortable-header affordance for every sortable column (driving the Table
+    primitive's sort button/icon/`aria-sort`), with Shift-activation adding to a
+    multi-sort. `renderHeader` now also receives the column's default rendered
+    content so a projection can wrap rather than replace the label.
+  - The `Table` primitive's `TableHead` presents multi-sort priority via a new
+    `sortPriority` prop, and its `onSort` now receives the originating mouse event
+    (so callers can detect Shift for multi-sort). Backward compatible.
+
+  **DataGrid (composed chrome):**
+
+  - New `sortable` and `multiSort` props present sortable headers on the shared
+    controller, with visible 1-based priority for multi-column sorts.
+  - New `filters` prop renders per-column filter controls (a `Filter` +
+    `Popover` with an operator `Select` and value `Input`), applied-filter
+    `Chip`s, and a reset control — all driving the one DataTable engine with AND
+    logic. Supported operators: `equals`, `notEquals`, `contains`, `startsWith`,
+    `greaterThan(OrEqual)`, `lessThan(OrEqual)`, `in`, plus `isEmpty`/`isNotEmpty`.
+    `DataGridColumnFilterDef`, `DataGridFilterOperator`, `DataGridFilterValue`,
+    `operatorFilterFn`, `evaluateFilterOperator`, and `FILTER_OPERATOR_LABELS` are
+    exported.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-table): window the body over `@tanstack/react-virtual` (U6a)
+
+  `DataTable`'s body-window seam is now a real windowing implementation. Reachable
+  today through the controller — `useDataTable({ virtualization: { … } })`; the public
+  `DataGrid` `virtualization` prop is deliberately **not** declared yet (U6b), so that
+  it never ships with a known gap in the focus rules the kit enforces on itself.
+
+  ```tsx
+  const controller = useDataTable({
+    columns,
+    data: rows, // 10,000 of them
+    virtualization: { estimateRowHeight: 40, measure: 'fixed', overscan: 8 },
+  });
+  // height, NOT maxHeight — see the precondition below.
+  <DataTableView height={400} />;
+  ```
+
+  Defaults are `api.yaml`'s: **40px / `fixed` / overscan 8**. `measure: 'dynamic'`
+  re-measures each rendered row and corrects the reserved scroll height; `scrollToIndex`
+  scrolls when it changes. Windowing applies to the **display-row** list, so record
+  counts, selection, filtering, expansion and page counts continue to use the full row
+  model — verified with a 500-row table selecting a row far outside the window.
+
+  The pre-declared **`measure-layout`** and **`scroll-to-row`** toggle actions now reach
+  the seam through the view bridge instead of throwing. They still throw with the
+  feature off, and again after the view unmounts, rather than quietly no-opping.
+
+  **The bounded-container precondition is `height`, not `maxHeight` — and this is a
+  correction to `api.yaml`, which says either will do.** A `maxHeight` on its own clamps
+  the scroll container but leaves its `height` at `auto`, so the viewport's `height: 100%`
+  has no definite parent to resolve against and grows to its content instead. Measured in
+  a browser at `maxHeight={400}` over 10,000 rows: container 400px, **viewport 400040px**,
+  no spacers, all 10,000 rows in the DOM — and the table could not be scrolled at all.
+  Virtualization is completely inert in that configuration.
+
+  Two development errors therefore guard it, because one of them can pass while the
+  feature is dead:
+
+  - no `height`/`maxHeight` at all — the container never asked to be bounded;
+  - **the viewport is taller than the container that bounds it** — it asked, but the
+    geometry did not follow. This is the one that catches the `maxHeight` case, and it
+    names both measured heights, because the failure is otherwise silent.
+
+  The underlying container behaviour belongs to `Table`/`ScrollArea` rather than to the
+  seam, and is filed separately; the second error makes it loud in the meantime.
+
+  **Design §7 focus clauses 1 and 2**, which are one mechanism rather than two — "pinning
+  cannot retain the focused row" is the same condition as "the pin budget is exhausted":
+
+  - A focused row is **pinned outside the overscan** by _extending the contiguous range_
+    through the virtualizer's own `rangeExtractor`, never by appending out of order.
+    `bodyWindow.rows` stays one flat index space, and the spacers stay exact by
+    construction rather than by care. Verified in a browser with `overscan: 2` over 10,000
+    rows: the window extended to keep the focused row mounted and `document.activeElement`
+    unchanged.
+  - Past a bounded pin budget the row is released and **focus moves to the scroll
+    container**, without touching the logical current row — the seam cannot reach that
+    state at all. The guard is "focus was ours and has since been lost to `<body>`", not
+    "focus is still inside the container": by the time any effect runs the row is gone and
+    the browser has already moved focus to `<body>`, so the latter is false exactly when
+    the hand-off is needed.
+
+  Focus is tracked from a `focusin` listener on the scroll container. Recording it while
+  attaching row refs cannot work — that happens during commit, but the range is decided
+  during render, and focusing a row causes no render, so the value would always be one
+  render stale and in practice never set at all.
+
+  `@tanstack/react-virtual` moves from `devDependencies` to **`dependencies`**, matching
+  `@tanstack/react-table`. It was already imported by shipped source (`tree.tsx`) and
+  resolved only because the bundler inlines it; this seam adds a second import. It is
+  deliberately still not externalised — that is a separate question about consumer
+  bundles.
+
+  Clauses 3 and 4 of §7 (the same-index → previous-last → toolbar → scroll-container
+  fallback after data removes the focused row, and the single `data-reconcile` event) are
+  **not** in this change.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - feat(data-table): fall back to a neighbouring row when data removes the current one (§7 clauses 3–4)
+
+  When a data change removes the row that holds roving focus, `DataTable` no longer just
+  **clears** the current row — which stranded the keyboard user, because the next arrow
+  key had nowhere to resume from. It now falls back, per design §7 clause 3
+  (`data-grid/behavior.md:275-276`):
+
+  - **rung 1, same index** — the row that shifted into the vacated position becomes
+    current;
+  - **rung 2, previous last** — when the vacated index no longer exists (the removed row
+    was at or past the new end), the last surviving row becomes current;
+  - **rung 3, the toolbar** — with no row surviving, DOM focus moves to the first
+    focusable control of the `DataGrid` toolbar, found by query
+    (`[data-slot="data-grid-toolbar"]`) rather than by any new prop or ref;
+  - **rung 4, the scroll container** — when there is no toolbar, or its controls are all
+    inert, or it holds none at all, focus moves to the table's scroll container instead.
+
+  The current row is still **cleared** when no row survives: rungs 3 and 4 move DOM focus
+  and touch no state, which is design §7's "without changing logical current row".
+
+  **Position is measured over the visible list — `getRowModel().rows`, with group headers
+  excluded — not over `data`.** Roving focus is a visual affordance, so the index a user
+  perceives is the one in the post-filter/sort/pagination list they can see. Group rows
+  are in that list and cannot hold roving focus, so counting them would land rung 1 on a
+  group header. Tree descendants **are** records and **do** occupy positions, so they are
+  counted.
+
+  **§7 clause 4 — "exactly one `data-reconcile` event updates the current row"** — holds
+  structurally rather than by care: the whole chain resolves to a single value before one
+  request is issued, so there is no branch that can emit a clear followed by a set. A
+  controlled caller applying both would otherwise see the current row blink out and back.
+
+  **Behaviour change for controlled callers.** A caller that mirrors `currentRowId` will
+  now receive a row id where it previously received `undefined` after a removal. The
+  `cause` is still `data-reconcile`, and `rowInteraction: { reserve: true }` still opts out
+  of reconciliation entirely.
+
+  **A rung-3 miss falls THROUGH to rung 4; it is never a landing.** That path is the
+  ordinary one, not an edge case, and in two different ways: `DataGrid` renders no toolbar
+  row at all unless `toolbar` is passed or a search column exists, and a toolbar that does
+  render can still hold no focusable control (`toolbar={{ viewOptions: false }}` with no
+  search column and no active filter). Focusing the toolbar row itself was considered and
+  rejected — an empty layout div announces nothing to a screen reader, so it would turn a
+  miss into a silent dead end. Controls that are `disabled` or `aria-disabled` are skipped
+  for the same reason: `.focus()` on an inert control leaves focus where it was.
+
+  **Focus is only taken when it was lost from this table.** Two conditions, and they reject
+  different mistakes: focus must have been inside the table and not deliberately moved out
+  of it since, and the removed current row must have been one the person could actually see
+  (a current row that was filtered out or on another page never held DOM focus, so moving
+  focus would take it from wherever they are). Without the first, a background refresh that
+  empties an untouched table would pull focus into it out of nowhere.
+
+  `DataGridToolbar` now carries `data-slot="data-grid-toolbar"`. It is the only markup
+  difference between it and the frozen `DataTableToolbar` adapter, which is asserted in
+  both directions.
+
+  **Not verified in a browser.** happy-dom has no layout engine, so the tests assert which
+  element receives focus and in what order — not that the scroll container can then be
+  scrolled, which is part of why rung 4 is useful to a person. See the CI gap in the
+  project's issue [#78](https://github.com/constructor-lab/ui-component-library/issues/78).
+
+- [#61](https://github.com/constructor-lab/ui-component-library/pull/61) [`b85e708`](https://github.com/constructor-lab/ui-component-library/commit/b85e708e6fba897b2886b240f40a4d50744aea7e) Thanks [@leonid](https://github.com/leonid)! - feat(search-global): deprecate `SearchGlobal`
+
+  `SearchGlobal` is retired — it is gone from the app-shell layouts (Figma nodes
+  6226-24149 / 6226-24150), where search now lives in the sidebar rather than the
+  top bar. The component and its `SearchGlobalProps` are marked `@deprecated` (IDE
+  strikethrough + a deprecation note); it still renders for now but should not be
+  used in new work, and existing usages should move to their surface's own search
+  affordance. Slated for removal in a future major.
+
+- [#62](https://github.com/constructor-lab/ui-component-library/pull/62) [`bb636fb`](https://github.com/constructor-lab/ui-component-library/commit/bb636fb58da6bdf85e59ae2d28836497b5ab1594) Thanks [@leonid](https://github.com/leonid)! - feat(fitted-actions): add `FittedActions`
+
+  A responsive action row that collapses overflowing actions into a "More" dropdown
+  menu, recomputing on resize (ResizeObserver + off-screen measurement). Config-driven
+  via an `actions` array (`{ id, label, icon?, isDisplayed?, divided?, disabled?,
+onSelect? }`), with `renderAction` / `renderTrigger` overrides and a `showDropdown`
+  toggle; the pure fit math is exported as `computeFittedVisibleCount`. A React
+  reimplementation of the ui-kit Vue `AvFittedActions`; it also backs the Toolbar's
+  `ToolbarActions` responsive overflow. Initial version; design reconciliation pending.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`054ed24`](https://github.com/constructor-lab/ui-component-library/commit/054ed24bbd26044d6718a251e74225aa491df83f) Thanks [@leonid](https://github.com/leonid)! - Add `FunnelChart` — a typed funnel-chart composition over the shared `Chart`
+  primitives. Plots a `data` list of stages (sized by `dataKey`, named by
+  `nameKey`) as a narrowing funnel with tooltip and on-chart labels. Variant:
+  `lastShape` (triangle point / flat rectangle); `reversed` flips the taper;
+  `showLabels` / `showTooltip` toggle chrome; `tooltipContent` passthrough. Stage
+  colors bind to the theme-invariant `--ui-chart-*` palette.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`b0de040`](https://github.com/constructor-lab/ui-component-library/commit/b0de0402077f5cb26a8d5667fe64cb4df9897135) Thanks [@leonid](https://github.com/leonid)! - Add `Histogram` — a typed histogram over the shared `Chart` primitives. Buckets
+  a flat numeric `data` distribution into `bins` equal-width buckets and plots the
+  count per bucket as touching bars, with axes and a tooltip. No variant axis — its
+  expressiveness is the binning (`bins`) plus `showGrid` / `showTooltip` toggles
+  and a `tooltipContent` passthrough; the binning is a pure exported
+  `computeHistogramBins` helper. The count series binds to the theme-invariant
+  `--ui-chart-*` palette; axes/grid/chrome resolve to semantic tokens.
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`c6fedc2`](https://github.com/constructor-lab/ui-component-library/commit/c6fedc272e03e2c9b7ded46df75544f96bff1c5b) Thanks [@leonid](https://github.com/leonid)! - Add `LineChart` — a typed line-chart composition over the shared `Chart`
+  primitives. Takes `data` + `config` + `dataKeys` + `xKey` and renders a themed
+  recharts `LineChart` with tooltip, legend, axes, and grid. Variants: `curve`
+  (linear / monotone / step) and `lineStyle` (solid / dashed). Supports
+  previous-period comparison overlays (`comparisonKeys`, dashed + dimmed), shaded
+  delta bands (`deltaBands`), axis titles + a Y unit, `strokeWidth` / `showDots` /
+  `connectNulls`, chrome toggles, and a `tooltipContent` passthrough. Series colors
+  bind to the theme-invariant `--ui-chart-*` palette.
+
+- [#79](https://github.com/constructor-lab/ui-component-library/pull/79) [`fd5fe77`](https://github.com/constructor-lab/ui-component-library/commit/fd5fe7765424b958ebcd7b6d741b7288d1868294) Thanks [@leonid](https://github.com/leonid)! - Add `Metric` — a presentational metric card built on `Card`: a label (+ optional
+  info tooltip and top-right caption) over a primary value with an optional
+  status-tinted icon badge, unit, metadata badge and a composed `TrendIndicator`,
+  plus optional supporting text and a composable `children` body (a chart, a
+  `Meter` breakdown, a `Separator`, an insight line). `size` scales the typography;
+  `loading` swaps the value for a skeleton.
+
+  `status` (neutral / info / success / warning / danger / critical) tints **only**
+  the icon badge — the `--ui-background-status-<s>-pressed` fill with the
+  `--ui-text-on-status-<s>` icon color — never a full fill, so many metrics read
+  calmly on one dashboard. `Timeline`'s status marker uses the same pairing.
+
+  Design-pending v1: no Figma node exists for a metric card, so there is no
+  `--ui-metric-*` tier — the composed `Card` supplies the surface and the shared
+  semantic tokens supply the rest.
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`f91c4c4`](https://github.com/constructor-lab/ui-component-library/commit/f91c4c4f148a4a3da1263c3cd7c7d45705fff9cc) Thanks [@leonid](https://github.com/leonid)! - Add `PieChart` — a typed pie/donut-chart composition over the shared `Chart`
+  primitives. Takes `data` + `config` + `dataKey` (slice value) + `nameKey` (slice
+  label) and renders a themed recharts `PieChart` with tooltip and legend. One
+  variant: `shape` (pie / donut). Supports a donut `centerLabel` (headline value +
+  caption, legend-aware centering), `innerRadius` / `outerRadius` / `paddingAngle`,
+  chrome toggles, and a `tooltipContent` passthrough. Slice colors bind to the
+  theme-invariant `--ui-chart-*` palette.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`c9fd237`](https://github.com/constructor-lab/ui-component-library/commit/c9fd2372815dd89d8be29bb419ebda2fbc9a7f6e) Thanks [@leonid](https://github.com/leonid)! - Add `RadarChart` — a typed radar (spider) chart over the shared `Chart`
+  primitives (the kit's first polar type). Plots one radar area per `dataKeys`
+  entry around a categorical `angleKey` web, with tooltip and legend. Variant:
+  `gridType` (polygon / circle web); `fillOpacity` / `strokeWidth` / `showDots` and
+  chrome toggles; `tooltipContent` passthrough. Series colors bind to the
+  theme-invariant `--ui-chart-*` palette. Polar spoke labels are themed via a local
+  workaround for a shared-primitives gap (the container themes cartesian ticks, not
+  polar ones) — the shared `chart.tsx` is left untouched.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`e32e2e3`](https://github.com/constructor-lab/ui-component-library/commit/e32e2e3266777baa76853665996b38573bdf2d07) Thanks [@leonid](https://github.com/leonid)! - Add `RadialBarChart` — a typed radial-bar chart over the shared `Chart`
+  primitives (a polar type). Plots one concentric arc per `data` row, sized by
+  `dataKey` and named by `nameKey`, with a background track, tooltip, and legend.
+  No variant axis — its expressiveness is geometry (`startAngle` / `endAngle` +
+  `innerRadius` / `outerRadius`, so a caller can build a full ring or a half-circle
+  gauge) plus `showBackground` / chrome toggles and a `tooltipContent` passthrough.
+  Arc colors bind to the theme-invariant `--ui-chart-*` palette.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`b99a594`](https://github.com/constructor-lab/ui-component-library/commit/b99a5944ca23044a705c76e9fbc4eeed0fa96ea1) Thanks [@leonid](https://github.com/leonid)! - Add `ScatterChart` — a typed scatter/bubble-chart composition over the shared
+  `Chart` primitives. Takes a `series` list (each `{ key, data }`) + `config` +
+  numeric `xKey` / `yKey` and renders a themed recharts `ScatterChart` with
+  tooltip, legend, axes, and grid. Optional `zKey` (+ `zRange`) maps a third field
+  to point size (a bubble chart); `shape` sets the marker; axis titles + unit
+  suffixes and chrome toggles are supported. No CVA variants (expressiveness is in
+  the data mapping). Series colors bind to the theme-invariant `--ui-chart-*`
+  palette.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - ScrollArea: expose the viewport, and stop scrolled content painting over the
+  scrollbar.
+
+  **`viewportRef` and `viewportProps`.** `ref` reaches the root, which is
+  `overflow: hidden` and never scrolls — it reports `scrollTop: 0` and
+  `scrollHeight === clientHeight` forever. Anything that measures, observes or
+  programmatically scrolls the region needs the viewport: a virtualizer's scroll
+  element, an infinite-scroll observer, a scroll-to-item call. `viewportProps`
+  carries a scroll handler, a tab index, or `data-*` attributes that have to sit on
+  the element that actually scrolls.
+
+  **Fix: the scrollbar is no longer painted over by scrolled content.** `ScrollBar`
+  was `z-index: auto` and the root was `position: relative` with no z-index —
+  therefore not a stacking context — so any z-index used by content _inside_ the
+  scroll area outranked the scrollbar, and outranked everything outside the scroll
+  area too. A sticky table header is the case that surfaced it: the header stacked
+  above the bar and hid its top edge exactly where a long table is most likely to be
+  scrolled.
+
+  Two changes together: the root now sets `isolation: isolate`, and `ScrollBar`
+  takes a z-index above content. Isolating is what keeps the second change local —
+  the scrollbar only outranks content in its own scroll area, and content inside can
+  no longer outrank overlays outside.
+
+  `isolation` is used deliberately rather than `contain` or a `transform`: those
+  create a containing block and would break `position: sticky` inside the viewport.
+  Verified in a browser that sticky positioning and both horizontal pin directions
+  are unaffected.
+
+  **Possible behavior change for consumers:** if you relied on a z-index inside a
+  `ScrollArea` to paint above something outside it, it no longer will. In practice
+  the root has always been `overflow: hidden`, so non-portalled content could never
+  escape the box anyway; Base UI overlays portal out and are unaffected.
+
+  **Measured, not assumed: nothing in this kit changes appearance.** Isolating can
+  only alter painting where a descendant inside the scroll area carries a `z-index`.
+  Every current consumer was checked in a browser — `SidebarSecondary`,
+  `SidebarPrimary`, `AppShell` and `Tree` — and **none has a single z-indexed
+  descendant inside a scroll area**, so for all of them the change is provably inert.
+  Screenshots with and without `isolation` are byte-identical for `SidebarSecondary`
+  and `AppShell`. `Table` is the only consumer that stacks inside its scroll area,
+  which is the case this exists for.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Table: add `TableHead`'s `trailing` slot, for controls that must sit outside the
+  sort button.
+
+  `children` is the column label, and a `sortable` header wraps its label in a
+  `<button>`. A control passed as `children` therefore became a descendant of that
+  button, where a pointer release fires `onSort`, Enter/Space sorts instead of
+  acting, and the button's accessible name absorbs the control's label. Since a
+  records grid is normally sortable _and_ resizable, that was the common case
+  rather than an edge case.
+
+  `trailing` renders as a sibling of the sort button, so its content keeps its own
+  events, focus and accessible name. Non-interactive decoration of the label (a
+  unit hint, an info icon) can stay in `children`; only controls must not nest.
+
+  Additive and layout-neutral — the slot adds no wrapper element, so a header cell
+  without `trailing` renders exactly as before.
+
+  This is the primitive half of the column-resize seam: `DataTableView` routes
+  `ColumnPresentation`'s `placement: 'edge'` header adornments into it, so a
+  column resize handle or reorder grip mounts there.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Table: add the presentation cluster and the scroll/sticky container.
+
+  `Table`, `TableRow` and `TableHead` had fixed classes against `--ui-table-*` and
+  no variants at all. This adds the box/surface cluster the table-parity design
+  calls `appearance`, plus the sticky and pin surfaces that virtualization,
+  footers and grouping all need. Everything is additive and every default
+  preserves today's rendered output.
+
+  `Table`:
+
+  - `size` — `'small' | 'medium' | 'large'` cell density. `medium` is the shipped
+    metric set.
+  - `background` — `'transparent' | 'accent' | 'subtle' | 'surface'`. Legacy
+    `backgroundColor` (transparent / solid-brand-accent / solid-brand-lightest /
+    fixed-white) normalizes onto these. The variant also publishes the surface a
+    sticky or pinned cell paints over scrolling content.
+  - `borders` — independent `top` / `bottom` / `horizontal` / `vertical`, each
+    `false | true | 'subtle' | 'default' | 'strong'`. Each dimension resolves on
+    its own; only `horizontal` is on by default (the shipped row divider).
+  - `width` / `height` / `maxHeight` on the scroll container (a bare number is
+    px), plus `containerRef`, `containerClassName` and `containerProps`. The
+    container reports `data-bounded` once a height is set — the precondition for
+    sticky sections and for windowed rendering.
+
+  `TableHeader` / `TableFooter`: `sticky` pins the section to the top / bottom of
+  a bounded container.
+
+  `TableRow`: `current` (`aria-current` + `data-current` and a layout-neutral
+  leading marker; never `aria-selected`, so current and selected stay
+  independent), `expanded` (`aria-expanded` + `data-expanded`; Table never renders
+  or toggles the child content), and `sticky` + `stickyOffset` for group headers.
+
+  `TableHead` / `TableCell`: `pinned` (`'start' | 'end'`) + `pinOffset`. Table
+  presents the pin and marks the cell `data-pinned`; the owner decides which
+  columns are pinned and supplies the accumulated offset.
+
+  Notes:
+
+  - `border-collapse: collapse` paints row borders on the table's border grid, so
+    a sticky header's divider would scroll away with the content. Sticky sections
+    draw it as an inset hairline in the same row-divider token instead, and
+    `borders.horizontal: false` removes that hairline too.
+  - The stacking order is fixed so the three sticky mechanisms compose: pinned
+    body cell < sticky group row (pinned within) < sticky header/footer (pinned
+    within).
+  - `Table` now exports `tableVariants` and the `TableProps`,
+    `TableHeaderProps`, `TableFooterProps`, `TableCellProps`, `TableBorders`,
+    `TableBorderValue`, `TableBorderStrength` and `TableColumnPin` types.
+  - No `showHeader` property: a header Table is not given is a header it does not
+    render, so hiding it stays the owner's composition.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Table: the scroll container is now `ScrollArea`, so table scrollbars match the
+  rest of the kit.
+
+  Previously the container was a plain `div` with `overflow: auto`, which meant
+  every table showed whatever scrollbar the platform draws. It is now the kit's own
+  `ScrollArea`, with overlay scrollbars that reserve no layout space.
+
+  **`containerRef` and `containerProps` now reach the element that actually
+  scrolls.** `ScrollArea`'s outer box is `overflow: hidden`; the viewport inside it
+  is the scroller. Both are wired to the viewport, so a ref you hold reports real
+  `scrollTop`/`scrollHeight` and an `onScroll` you pass fires for the scroll you can
+  observe. `data-bounded` moved to the viewport for the same reason — it marks the
+  element an owner is given, not the wrapper around it.
+
+  **`containerClassName`, `width`, `height` and `maxHeight` still apply to the outer
+  box**, which is what sizes the region.
+
+  **Why the container is two elements.** The box that sizes the region and the
+  element that scrolls cannot be the same node: an element carries exactly one
+  `data-slot`, the viewport already carries `data-slot="scroll-area-viewport"`, and
+  overriding that would break `ScrollArea`'s own contract. So
+  `data-slot="table-container"` names the outer box and the viewport does the
+  scrolling. This is not a side effect of where the box styles went — putting
+  `height`/`maxHeight` on the viewport measures identically and would still leave
+  the slot on the box.
+
+  **Breaking for anyone attached to the container element.** `Table` is published,
+  and the element that scrolls has moved _inside_ the chain: it is now
+  `ScrollArea`'s viewport rather than the outer box. A scroll listener, an
+  `IntersectionObserver`, a `scrollTo` call, or CSS written against the container
+  now targets a node that no longer scrolls, and will silently do nothing rather
+  than error. Use `containerRef` — it points at the scrolling element — or query
+  `[data-slot="scroll-area-viewport"]`.
+
+  Migration, for anyone reaching into the DOM:
+
+  - `table.parentElement` is **no longer** the scroll container — the table's parent
+    is `ScrollArea`'s content wrapper. Use `[data-slot="table-container"]` for the
+    box, or `[data-slot="scroll-area-viewport"]` for the scroller.
+  - The box no longer has `overflow-auto`; it is `overflow-hidden`, and the viewport
+    scrolls.
+  - The box always carries an inline `style` now (`ScrollArea` sets its position and
+    corner-size custom properties), so asserting the style attribute is absent no
+    longer works — assert on the specific properties you care about.
+
+  Sticky headers, sticky footers, sticky group rows and both column pin directions
+  are unaffected: verified in a browser under simultaneous vertical and horizontal
+  scroll, positioned identically to the previous container. `ScrollArea` isolates
+  its stacking context rather than using `contain` or a `transform`, which would
+  create a containing block and break sticky.
+
+- [#79](https://github.com/constructor-lab/ui-component-library/pull/79) [`fd5fe77`](https://github.com/constructor-lab/ui-component-library/commit/fd5fe7765424b958ebcd7b6d741b7288d1868294) Thanks [@leonid](https://github.com/leonid)! - Add `Timeline` — a chronological event list for activity feeds, audit logs and
+  status history. `Timeline` is a semantic `<ol>`; each `TimelineItem` is an `<li>`
+  laying out a 32px marker, a 1px connector rail (hidden on the last item, and
+  positioned with a logical inset so it follows the marker under RTL), and a
+  bordered content card holding a header (title + optional inline `tag` ·
+  right-aligned `timestamp`) over a free-form body, with an optional `actions` row.
+  Purely presentational — it never sorts, groups, paginates, fetches, or formats a
+  date. `TimelineMarker` is exported for standalone use.
+
+  Derived from the Figma `TimelineItem` component (page `6025:24403`, node
+  `7615:7791`) with a real Code Connect mapping. Because the marker there is an
+  `Avatar` **instance**, `marker` is a slot; omitting it renders the built-in
+  status-tinted mark, whose `--ui-background-status-<s>-pressed` +
+  `--ui-text-on-status-<s>` pairing matches `Metric`'s icon badge. No
+  `--ui-timeline-*` tier — every colour in the design resolves to an existing shared
+  semantic token.
+
+  v1 ships **no `size` / `density` / `current` axes**: the Figma component is a
+  single symbol with no variant set, so nothing in the design backs them.
+
+- [#73](https://github.com/constructor-lab/ui-component-library/pull/73) [`21f2b1c`](https://github.com/constructor-lab/ui-component-library/commit/21f2b1cd297a24a3eb220677a2e845fcd0d3f737) Thanks [@leonid](https://github.com/leonid)! - feat(toast): reconcile against the redesigned Figma "Notification" (node 6946-25164) + add `Notification` alias
+
+  - **Restyle** toasts to the new design language (shared with the redesigned
+    Alert): white surface (`bg-background`) + **strong status border**
+    (`--ui-border-on-status-*-strong`) + a **6px left accent bar**
+    (`--ui-background-status-strong-*`) + a **full-color status icon**
+    (CircleInfoBlue / CircleCheckGreen / TriangleWarningYellow / DiamondWarningRed)
+    - a **compact 32px ButtonIcon** close + a floating shadow. Status maps:
+      `success`/`info`/`warning` as-is; `error` → the danger tokens; `loading` and
+      untyped toasts stay neutral (plain `border-border`, no accent).
+  - **Add `Notification` / `notification` aliases** (the Figma component is named
+    "Notification", and toasts are this kit's notification pattern):
+    `Notification` = `Toaster` (the region), `notification` = `toast` (the trigger
+    API, with `.success`/`.error`/… helpers), `NotificationProps` = `ToasterProps`.
+
+  Code Connect completed (node 6946-25164); ui-spec index/tokens/anatomy updated;
+  VR baselines regenerated.
+
+- [#62](https://github.com/constructor-lab/ui-component-library/pull/62) [`bb636fb`](https://github.com/constructor-lab/ui-component-library/commit/bb636fb58da6bdf85e59ae2d28836497b5ab1594) Thanks [@leonid](https://github.com/leonid)! - feat(toolbar): add `Toolbar`
+
+  A horizontal action bar for selection / list contexts (Figma node 3897-7199),
+  built on the Base UI Toolbar primitive — `role="toolbar"` with roving-tabindex
+  arrow-key navigation. Composable parts: `Toolbar`, `ToolbarGroup`,
+  `ToolbarButton`, `ToolbarLink`, `ToolbarSeparator`, and a non-interactive
+  `ToolbarStatus` label. Actions reuse the Button `ghost` tokens (no Toolbar token
+  tier); the `disabled` prop maps to the Figma `state` (active | disabled) and greys
+  every action while keeping it focusable (`aria-disabled`).
+
+  Also adds `ToolbarActions` — a config-driven, width-aware action list with a
+  "priority+" overflow menu (the Figma breakpoints behavior, node 6262-28276). It
+  is backed by the new `FittedActions` component: overflowing actions collapse into
+  a "More actions" menu, recomputing on resize.
+
+- [#76](https://github.com/constructor-lab/ui-component-library/pull/76) [`5f1f208`](https://github.com/constructor-lab/ui-component-library/commit/5f1f2084d824c27dec22c4764da1a2d24508a3db) Thanks [@leonid](https://github.com/leonid)! - feat(ui-react): cross-cutting CSS base reset, breakpoint scale, portal provider, RTL sweep
+
+  Four cross-cutting gaps borrowed from upstream `acronis/uikit`, all non-breaking.
+
+  - **`@layer base` reset** (`styles/index.css`): font-smoothing on
+    `*, *::before, *::after` (widened from `body` so shadow-root content is
+    covered), a single global `text-underline-offset: 3px` (retires three ad-hoc
+    `underline-offset-*` utilities), and `font-family: Inter, system-ui, sans-serif`
+    on `:root, :host` so isolated shadow-DOM mounts get Inter instead of Tailwind
+    preflight's generic stack. The font stack matches the generated
+    `.ui-typography-*` chain so text agrees inside and outside those classes.
+
+  - **Pinned breakpoint scale**, published three ways and kept in sync: a
+    compile-time `@theme { --breakpoint-lg..4xl }` block, a runtime-readable
+    `:root, :host { --ui-breakpoint-lg..4xl }` mirror, and JS constants in the new
+    `breakpoints.ts` (`BREAKPOINT_LG..BREAKPOINT_4XL`, `ROOT_FONT_SIZE_PX`,
+    `getViewportWidth()`), re-exported from the barrel. lg/xl equal Tailwind v4's
+    defaults; 2xl/3xl/4xl are the design team's wider ranges (1440/1680/1920).
+
+  - **`PortalContainerProvider` + `usePortalContainer`** (new `portal-container.tsx`,
+    exported from the barrel): a shadow-DOM / micro-frontend host wraps the tree
+    once instead of threading `portalContainer` through every call site. Wired as
+    the default into all 12 portaling components (`Dialog`, `AlertDialog`,
+    `Popover`, `Tooltip`, `Menu`, `InputSelect`, `Drawer`, `Sheet`, `Toast`,
+    `Combobox`, `Autocomplete`, `Tour`); each component's explicit `portalContainer`
+    prop still wins, so nothing breaks. `NavigationMenu` gains a `portalContainer`
+    prop for the first time (it portaled with no escape hatch before).
+
+  - **RTL sweep**: converted the remaining physical-direction utilities to logical
+    properties across `Toast`, `NavigationMenu`, `AppShell`, `WidgetAlert`,
+    `DataTableColumnHeader`, `Calendar`, `Carousel`, `Tour`, `InputText`, `Tree`,
+    `Chip`, and `Table`. The `Tree` disclosure chevron now flips under `dir="rtl"`
+    and its depth indentation uses `padding-inline-start`. Deliberately physical
+    usages (dialog centering, spinner border, `data-[side]` slide animations,
+    `Sheet` and `Drawer` documented physical edges) are unchanged.
+
+- [#80](https://github.com/constructor-lab/ui-component-library/pull/80) [`672683a`](https://github.com/constructor-lab/ui-component-library/commit/672683af355e227e9c8a36d50c2471948cbd0dcf) Thanks [@leonid](https://github.com/leonid)! - Add `Treemap` — a typed treemap over the shared `Chart` primitives. Packs a
+  hierarchical `data` array into nested rectangles sized by `dataKey`, named by
+  `nameKey`, with on-tile labels and a tooltip. Each top-level category owns a
+  color and its leaves inherit it, separated by a surface-colored gutter. No
+  variant axis — its expressiveness is the hierarchy plus the tile `aspectRatio`
+  and `showLabels` / `showTooltip` toggles and a `tooltipContent` passthrough.
+  Category colors bind to the theme-invariant `--ui-chart-*` palette; the gutter,
+  on-tile labels (on-color text token), and chrome resolve to semantic tokens.
+
+- [#79](https://github.com/constructor-lab/ui-component-library/pull/79) [`fd5fe77`](https://github.com/constructor-lab/ui-component-library/commit/fd5fe7765424b958ebcd7b6d741b7288d1868294) Thanks [@leonid](https://github.com/leonid)! - Add `TrendIndicator` — a small presentational trend/delta indicator: a direction
+  glyph, an already-formatted change value, and an optional comparison label. It
+  separates **`direction`** (up / down / flat — the arithmetic) from
+  **`sentiment`** (positive / negative / neutral — good or bad), because the kit
+  cannot assume up = good: revenue ↑ is positive, threats ↑ is negative, MTTR ↓ is
+  positive. Two sizes, an `inline` or tinted `badge` variant, an optional tooltip
+  (which makes the root keyboard-reachable), and an `ariaLabel` for a full
+  accessible sentence.
+
+  Design-pending v1: no Figma node exists for a trend indicator, so there is no
+  `--ui-trend-indicator-*` tier — sentiment resolves the semantic
+  `--ui-text-on-status-*` colors and the badge their matching
+  `--ui-background-status-*`. The `--ui-chart-*` palette is deliberately unused; it
+  is reserved for data-series marks.
+
+### Patch Changes
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-grid): `columnsFeatures.fit` and `overflowTooltip` now work on their own
+
+  Both are documented props that did nothing unless an unrelated column feature
+  happened to be switched on. `columnsFeatures={{ fit: 'content' }}` and
+  `{{ overflowTooltip: true }}` reached the engine only alongside `visibility`,
+  `pinning`, `resizing` or `reordering`.
+
+  The config layer resolved both members and carried them in the resolved value, but
+  the guard in `controllerOptions` discarded the entire config unless one of the four
+  _affordances_ was on — so the two members were computed, stored, and thrown away.
+
+  Fixed at that guard, whose question is "does the engine need this config?" — not by
+  adding the members to the shared `enabled` flag. `enabled` has three readers and they
+  do not ask the same thing: `toolbar` uses it to decide whether a grid opted in at all,
+  and widening it would have flipped that ternary and **silently removed the column
+  list from the settings menu** of any `{ fit: ... }` caller. That is measured, and a
+  test pins it so the predicate cannot be collapsed back into `enabled`.
+
+  `enabled`'s docstring said "any sub-feature enabled", which was false; it is the four
+  affordances, and reading it as true is what made the discard guard look correct.
+
+  No behaviour change for a grid that sets neither member, including
+  `columnsFeatures={{}}`.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - docs(data-grid): `columnsFeatures.fit` and `.overflowTooltip` document what they actually do
+
+  Both prop docstrings ship in the `.d.ts`, so this is what an editor shows a consumer —
+  and both were making a promise the props do not keep.
+
+  **`overflowTooltip`** said "Show a tooltip when a cell's content is truncated", which
+  reads as "this flag produces truncation". It does not. It adds `truncate`
+  (`white-space: nowrap` + `text-overflow: ellipsis`), and `nowrap` makes the column's
+  min-content width the entire string — so under `w-full` + `table-layout: auto` the
+  browser widens the column to fit it and nothing ever reaches an overflow edge.
+  Measured on deliberately long values with no `maxSize`: the table grew past its
+  container and **0 of 16 body cells clipped**. `appearance.width` is not a way round it
+  either — that width lands on the bordered box and the table scrolls inside it,
+  unclipped. **Declare `maxSize` on the columns that should truncate**; with every column
+  capped, 12 of those same 16 cells clip.
+
+  **`fit`** did not say that `'content'` and `'container'` render identically today.
+  They produce byte-identical captures (0 of 1,024,000 pixels) with column widths
+  agreeing to the decimal: `'content'` emits `min-width: fit-content` and `'container'`
+  emits nothing, and a `min-width` floor below the width auto-layout already distributes
+  is inert. What both arms _do_ change is dropping the default `min-width: 150px` floor,
+  which visibly redistributes unsized columns from even to content-driven — so `fit` is
+  worth setting, just not for a difference between its two string values.
+
+  No behaviour change. The two `columnsFeatures` stories added alongside this exercise
+  both props standalone, which no story did before.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-grid): the pager counts a server-owned selection instead of reporting 0
+
+  User-reported: the pagination row read **"0 of 4 row(s) selected."** over a grid with
+  everything selected.
+
+  `server.selection` in `all-results` mode means "everything the query matches except
+  `excludedIds`", and the engine's `rowSelection` slice is **deliberately never
+  written** in that mode — the controlled token stays authoritative and nothing is
+  committed internally. The pager asked `getFilteredSelectedRowModel()`, which counts
+  per-row selection, so the numerator was 0 however much was selected. Nothing was
+  broken; the pager was asking a question the mode cannot answer.
+
+  `DataGridPagination` takes a new optional `selectedCount` prop, resolved by the config
+  layer from the **effective** `resolved.server.selection` — `all-results` counts as
+  total minus exclusions, `explicit` counts the owner's enumerated ids, and an
+  `all-results` token scoped to a stale `queryRequestKey` resolves away rather than
+  being attributed to the current query. A resolved number rather than the
+  `DataGridServerSelection` union, so the pager learns no server-selection semantics.
+
+  Absent the prop, the engine's own count stands, so every client-side grid is
+  unchanged.
+
+  Known limitation, logged rather than fixed: a caller composing `DataGridPagination`
+  directly without supplying `selectedCount` still gets the engine's count, which sees
+  only ids inside the loaded window.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-grid): the pager's "of N" reports the result total, not the loaded window
+
+  Second, independent half of the pager-label defect. `getFilteredRowModel().rows.length`
+  is the **loaded** row set, so under server pagination the label announced one window as
+  the whole result set.
+
+  It is self-proving: a grid with `server.rowCount: 4821` and a 4-row window rendered
+  "0 of 4 row(s) selected." while its own page counter rendered "Page 1 of 483" — two
+  numbers in one component describing the same total, and the component already held the
+  right one.
+
+  Now `table.getRowCount()`, which is `options.rowCount ?? prePaginationRowModel.rows.length`
+  — the filtered count client-side and the owner's total in server mode. Correct in both
+  without a branch and without new plumbing, since `server.ts` already forwards
+  `rowCount`. Client-side grids are unchanged.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-grid): anchor the column-resize indicator to the column's rendered edge
+
+  User-reported, after the resize fix: "for others its shown at place of previous column
+  but resizing properly". The drag indicator was drawn one column to the left for every
+  column except the first.
+
+  The line's position was `anchor + prospective width`, where the width came from
+  `columnSizingInfo.startSize` — TanStack's **notional** `column.getSize()`. For a
+  column with no declared `size` that is the 150px default, while the cell renders at
+  whatever `table-layout: auto` distributes to it. The two are unrelated, so the line
+  landed short of the column's true trailing edge by `rendered − 150`: measured
+  **-198.7px at a 1280px viewport and -412px at 1920px**, which puts it nearer the
+  column's leading edge — the previous column's boundary — than its own. The first
+  column looked correct because it declares `size: 200` and renders at exactly 200, so
+  notional and rendered agree there and nowhere else.
+
+  The anchor was never wrong: measured per column, it equals each column's true left
+  edge. The fix separates the two coordinate systems the calculation had been mixing —
+  the notional side now contributes only the _displacement_ the commit is allowed to
+  make (bounded by `minSize`/`maxSize`, as before), and the measured client rect
+  contributes the _origin_. For a column whose declared size the browser honours the two
+  are equal and the result is unchanged.
+
+  Measured after the fix, +60 drag: the line sits exactly on the column's trailing edge
+  plus the pointer travel for every column, at both 1280px and 1920px.
+
+  **Known residual, for unsized columns only.** The commit is still a notional width, and
+  because the unsized presentation arm publishes only `min-width`, `table-layout: auto`
+  redistributes the surplus — so after release the edge lands 6–72px from where the line
+  was (measured). That is a much smaller and differently-caused error than the -412px it
+  replaces, and closing it means giving unsized columns a real `width`, which would change
+  at-rest rendering across the kit.
+
+  At-rest rendering is untouched: the indicator only exists during a drag.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-grid): a column with an explicit `size` can now actually be resized
+
+  User-reported: dragging the resize handle on a column whose def declares a `size`
+  moved the drag indicator but never changed the column's width — "indicator appears
+  at a new spot each time but table column width visually not changing".
+
+  `columnPresentation` built the explicitly-sized `<th>` style from the column
+  definition's own `size` instead of from `column.getSize()`, which is the only value
+  a committed resize updates. The definition's number is a constant, so the emitted
+  `width` never moved — and because `minWidth` was pinned to the same constant, the
+  column could not be narrowed either. Inert in both directions, while every other
+  half of the feature (handle, drag, `columnSizing`, indicator) worked.
+
+  `width`/`minWidth` now read the live `column.getSize()`, so a resize is reflected in
+  both the header and the body cells, and the committed width honours the caller's
+  `minSize`/`maxSize` via TanStack's own clamp. `maxWidth` deliberately keeps reading
+  the caller's `maxSize`, because the resolved column def defaults `maxSize` to
+  `Number.MAX_SAFE_INTEGER` and a value with a default cannot express "unset".
+
+  Also: **the drag indicator is no longer drawn for the column at the table's trailing
+  edge.** The table is `w-full`, so that column's right edge is fixed by the container
+  and a line claiming it is about to move cannot be honoured. The column is identified
+  by measuring its trailing edge against the table's, not by index — reordering,
+  pinning and horizontal scroll all move the trailing column without moving any index.
+
+  At-rest rendering is unchanged: with nothing recorded in `columnSizing`,
+  `getSize()` returns the declared `size`. Verified against the committed visual
+  baselines, which are byte-identical.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-table): a chosen column width is honoured as a width, not as a floor
+
+  "Restore column preferences" did not restore the width. Storage returned
+  `columnSizing: { name: 320 }` and the column rendered at **643.1px**, because a column
+  that declares no `size` took the presentation arm that publishes `min-width` only —
+  and under `w-full` + `table-layout: auto` a floor below the width the browser already
+  distributes does nothing at all.
+
+  The same mismatch made pointer resizing unreliable on any column without a declared
+  size, because TanStack computes a drag as `startSize + delta` where `startSize` is
+  `columnSizing[id] ?? columnDef.size` — a notional number, its own 150px default for an
+  unsized column, while that column renders at something else entirely. Measured at a
+  1280px viewport:
+
+  |                                      | before             | after              |
+  | ------------------------------------ | ------------------ | ------------------ |
+  | restored width of 320 renders at     | 643.1px            | 320.0px            |
+  | 60px drag moves the edge             | 82.0px             | 60.3px             |
+  | two consecutive 40px drags move it   | 56.9px then 48.3px | 40.3px then 40.0px |
+  | 40px drag under `fit: 'container'`   | 0.0px — a no-op    | 40.4px             |
+  | drag-indicator residual, 1280 / 1920 | 22.0px / 72.2px    | 0.0px / 0.0px      |
+
+  Two coupled changes, and neither is correct without the other:
+
+  - `columnSizing` holds a width somebody chose — restored from storage, committed by a
+    drag, or set through `resizeTo` — so it is now published as a real `width` (with the
+    matching `minWidth` floor, so §6.10's "a minimum causes horizontal scroll rather
+    than compression" still holds).
+  - The resize handle's new `onPointerDown` writes the column's rendered width into
+    `columnSizing` as the gesture begins, so the engine's notional size and the edge on
+    screen are the same number before the engine reads either. `pointerdown` precedes
+    `mousedown`, which is what makes it visible to the engine's own read.
+
+  A column that declares a `size` is unaffected: it already published a real width and
+  already resized exactly. A column with no sizing entry is unaffected at rest, so `fit`
+  and the default floor behave as before.
+
+  Composers spreading `resizeHandleProps` onto their handle get this automatically. One
+  that hand-picks `onMouseDown` will not — `DataTableColumnResizeHandleProps` now
+  documents that.
+
+  **One behaviour change worth knowing about, because it can surprise you.** Pressing a
+  resize handle and releasing it **without moving** now commits a binding width, which
+  takes that column out of `fit` redistribution from then on. The state write itself is
+  not new — the engine has always committed a `columnSizing` entry on release, with a
+  zero delta, writing its own notional size. What is new is that the value now _binds_.
+  So a column that stops participating in `fit` after an accidental click on its handle
+  is doing that for this reason. Reset it with `resetColumnSizing`, or by clearing the
+  column's entry in the `columnSizing` slice.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-table): a record row with an open detail panel is now painted as expanded
+
+  A table could hold two disclosure mechanisms and paint only one of them open: a
+  grouping header already looked expanded, and a record row whose detail panel was open
+  did not. Both now carry `data-expanded`, so a row that is disclosing looks like it.
+
+  - Only when a panel is actually **rendered**. `detailExpansion: {}` with no `render`
+    and no `renderExpandedRow` is a supported configuration — the caller wants expansion
+    state and no panel row — and such a row discloses nothing, so it is not painted.
+  - **Styling only.** `data-expanded` is not `aria-expanded`, which is invalid on a row
+    inside `role="table"`; disclosure semantics stay on the expander button.
+  - Selection still wins over expansion.
+
+  ⚠ **Known and accepted**: the expanded tint is `--ui-table-data-row-color-hover`, the
+  hover token, so an open row reads as hover-tinted while the pointer is elsewhere. That
+  trade-off was chosen deliberately in favour of matching group headers rather than
+  introducing a new token.
+
+  Visual-regression baselines for one story change with this.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-table): `DataTablePagination`'s "of N" reports the result total, not the loaded window
+
+  The DataTable half of the pager-label defect fixed on `DataGridPagination`. The two
+  components carried the identical expression, and the denominator half is reachable in
+  DataTable today: `manualPagination` and `rowCount` are supported controller options and
+  `DataTablePagination` is a public export, so a table paginating server-side announced
+  one loaded window as the whole result set — "of 4" beside its own "Page 1 of 483".
+
+  Now `table.getRowCount()`, which is `options.rowCount ?? prePaginationRowModel.rows.length`
+  — the owner's total when supplied and the client total when not, so client tables are
+  unchanged.
+
+  The numerator is deliberately left on the engine here. The grid's new `selectedCount`
+  prop exists because a _server selection token_ leaves the engine's `rowSelection` slice
+  unwritten, and DataTable has no server-selection path — the engine-options contract
+  rejects the options that would create one, so the prop would have no producer.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-table): give the keyboard-focusable row the kit focus ring
+
+  Current-row navigation puts a roving `tabIndex` on the `<tr>`, making the row
+  itself focusable — but the row carried no focus style, so browsers painted their
+  own default outline (a solid black box in Chromium light mode) instead of the
+  kit's focus treatment.
+
+  The row now takes `--ui-focus-primary` on `focus-visible`, matching the sortable
+  column header and every other focusable control. It uses `outline` rather than
+  `ring` because box-shadow on a `<tr>` is unreliable across engines, and the
+  outline is inset so a focused first/last row is not clipped by the table border.
+  Rows are left untouched when row navigation is off.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-table): a column-resize drag no longer runs backwards in a right-to-left document
+
+  Dragging a resize handle in a right-to-left locale moved the column's edge the wrong
+  way: pulling the handle in the direction that should widen the column narrowed it by
+  exactly the same amount. The keyboard path (Tab to a handle, Left/Right) was always
+  correct, so the two disagreed.
+
+  Measured in Chromium on a 348.7px column, dragging 60px in the widening direction:
+
+  |               | before              | after               |
+  | ------------- | ------------------- | ------------------- |
+  | left-to-right | 408.7px (+60.0)     | 408.7px (+60.0)     |
+  | right-to-left | **288.7px (−60.0)** | **408.7px (+60.0)** |
+
+  **The cause was two sources of truth, not a missing sign.** The keyboard path read the
+  rendered direction live; the drag inherited `@tanstack/react-table`'s
+  `columnResizeDirection` option, which this library never set — so it kept the
+  library's `'ltr'` default and multiplied every delta by `+1` even where the handle
+  had moved to the opposite physical edge. Both paths now resolve direction from one
+  element-level read, so they cannot disagree.
+
+  No API change, and nothing to configure: direction is observed from the rendered
+  document, exactly as the keyboard path already did. A caller still cannot pass
+  `columnResizeDirection` through `controllerOptions` — keeping it in sync with the
+  document by hand is the defect this replaces.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - DataTable: `toggle({ type: 'select-row' })` and `toggle({ type: 'select-all' })` now
+  go through the engine, so they agree with the selection checkbox.
+
+  Both actions wrote the selection slice by hand, which re-implemented TanStack's own
+  selection mutation while omitting everything it does. A caller driving selection
+  through these public actions got a selection model that **disagreed with the
+  checkbox** in three configurations:
+
+  - **single-select mode now replaces rather than accumulates.** Selecting a second row
+    used to leave both selected.
+  - **a row your `isRowSelectable` rejects is now refused.** It used to be selected
+    anyway — while its checkbox stayed disabled, so the two paths disagreed about a row
+    the user cannot click.
+  - **selection now cascades to sub-rows** where the engine allows it. A parent selected
+    through the action used to leave its descendants behind, while the same parent
+    selected through its checkbox took them.
+
+  `select-all` additionally resolves its toggle direction from the engine, so a page
+  whose only unselected rows are ineligible now counts as fully selected and toggling it
+  clears the page instead of doing nothing visible.
+
+  Both actions also stop hardcoding the change cause, so a caller that claims a
+  provenance for a wrapped call now has it reported instead of overwritten. A bare
+  action still reports `api`, which is the honest answer for a programmatic change.
+
+  One deliberate difference from the engine: `select-row` with an id no row has is a
+  no-op rather than an exception. The engine's own lookup throws; the previous behaviour
+  added the phantom id, which the data-reconcile pass pruned on the next data change
+  anyway, so raising inside a caller's event handler would be a new failure mode rather
+  than a fix.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(selection): a pointer-driven selection change now reports `cause: 'pointer'`
+  instead of `'api'`.
+
+  Every selection control goes through the engine — `row.toggleSelected()`,
+  `table.toggleAll*RowsSelected()` — so by the time the controller saw the change it
+  knew only _that_ the engine asked, not _what_ asked it. Each one reported
+  `cause: 'api'`, which is the single thing `cause` exists to distinguish from: a
+  consumer could not tell a user's click from a programmatic selection. In one click
+  handler the same pointer event produced `'pointer'` for the current row and
+  `'api'` for the selection two lines apart.
+
+  Three call sites are fixed together — the row checkbox, the header select-all, and
+  `selection.selectByRow` — because a partial fix is worse than uniform dishonesty:
+  it reads as a deliberate distinction.
+
+  **The engine still decides _which_ rows change.** The provenance is carried across
+  the round-trip rather than replacing it, so single-selection replacement,
+  `isRowSelectable` eligibility and the sub-row cascade all keep living in TanStack's
+  own `mutateRowIsSelected`. Writing the slice directly from the control — the
+  obvious fix — would have traded a wrong string for those three behaviours.
+
+  A change nothing drove still reports `'api'`, which is the honest answer for a
+  genuinely programmatic selection.
+
+  For a hand-composed `DataTable`, the same treatment is available: wrap an engine
+  call in `withSelectionCause(cause, act)`. It is scoped to selection deliberately —
+  a general "cause of the next change" would be an untyped side channel every feature
+  could reach into.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(data-table): a virtualized table now reports its true row positions to assistive technology
+
+  A windowed table renders a slice of real rows between two `aria-hidden` spacers, so
+  assistive technology counted only what was in the accessibility tree — announcing
+  "row 3 of 20" where the truth was row 1,847 of 4,821. That is not an imprecise
+  number; it is a different quantity.
+
+  With `virtualization` on, the table now publishes `aria-rowcount` and every rendered
+  row publishes `aria-rowindex` — the mechanism ARIA provides for a table whose rows
+  are not all in the DOM. Header rows are numbered too, and group-header, detail and
+  footer rows get indices alongside records, so the sequence has no holes.
+
+  **Nothing changes when virtualization is off**, and that is deliberate rather than an
+  oversight: when every row is in the DOM the browser's own count is already correct, so
+  publishing an explicit one could only replace a right implicit number with a chance to
+  be wrong. Per MDN, the attribute is not needed in that case.
+
+  No visual change and no API change.
+
+  **Verified as emitted, not as announced.** The attributes and their values are
+  asserted in a rendered DOM, including the off-by-one that a variable header-row count
+  introduces. Whether a given screen reader honours them over its own count of the
+  accessibility tree is not covered by any automated check in this repository.
+
+- [#76](https://github.com/constructor-lab/ui-component-library/pull/76) [`5f1f208`](https://github.com/constructor-lab/ui-component-library/commit/5f1f2084d824c27dec22c4764da1a2d24508a3db) Thanks [@leonid](https://github.com/leonid)! - fix(ui-react): six confirmed Figma design-parity divergences (non-breaking)
+
+  - **Avatar sizing.** The 2px separator was a border-box CSS border, so with
+    `box-sizing: border-box` it ate 2px off each edge and the painted fill rendered
+    at 28px inside the (already 32px) box, against a designed 32px fill (Figma
+    stroke is `strokeAlign: OUTSIDE`). It is now a spread-only outset ring via a
+    raw `box-shadow` arbitrary property (not `shadow-[…]`, which routes through
+    `--tw-shadow-color` and resolves inconsistently for spread-only rings across
+    engine versions), so the fill fills the full 32px and the ring sits outside —
+    matching upstream [#543](https://github.com/constructor-lab/ui-component-library/issues/543). This changes only the painted stroke; it does **not**
+    change `AvatarGroup` spacing, which is driven by the separate
+    `--ui-avatar-global-avatar-group-gap` token (−6px, a 26px step) and is left
+    untouched. (Measured in a browser: element box 32×32 before and after; fill
+    28→32; group step 26px unchanged.)
+  - **`Button` / `ButtonMenu` cursor.** Added `cursor-pointer` to each component's
+    shared base class so every variant shows the pointer cursor.
+  - **Ghost button underline.** The ghost variant now wires all four
+    `--ui-button-ghost-label-text-decoration-*` states (hover underlines; idle /
+    active / disabled are `none`). All four are referenced — even the `none` ones —
+    because a brand override is only honored if the matching state token is
+    referenced.
+  - **Checkbox focus ring.** `focus-visible:ring-2` → `ring-[3px]` per Figma.
+  - **Breadcrumb link.** Underline is now hover-only (removed the focus-visible
+    underline); the focus ring is a 3px flush ring on `--ui-focus-primary` (was
+    `ring-2` + `ring-offset-2` on `--ui-focus-brand`).
+
+- [#69](https://github.com/constructor-lab/ui-component-library/pull/69) [`f89c216`](https://github.com/constructor-lab/ui-component-library/commit/f89c216cf8ba43a88fcfb17949bbcdf7a97a0305) Thanks [@leonid](https://github.com/leonid)! - fix(dialog): reconcile against Figma — rewire to the `--ui-dialog-*` token tier
+
+  Reconciled `Dialog` against the Figma design (node 6343:58898) and completed its
+  Code Connect. The component previously themed from semantic tokens with a "no
+  `--ui-dialog-*` tier exists yet" note; that tier now ships in
+  `@constructor-lab/tokens`, so the container, header, title, and body are wired to
+  it — which also corrects real geometry drift:
+
+  - **container** → `--ui-dialog-container-{color,border-radius,width-min}`; the
+    `sm`/`md` sizes → `--ui-dialog-container-size-{sm,md}` (`md` 672 → **632px**).
+  - **header** → `--ui-dialog-header-{color,border-color,border-width,gap,height,
+padding-x}` (padding **20 → 16px**); title → `--ui-dialog-header-title-color`.
+  - **body** → `--ui-dialog-body-{gap,padding-y,height-min}` (padding **24 → 16px**,
+    **72px** min-height, content vertically centered).
+
+  The footer keeps the shared semantic vocabulary (Figma's Footer tier has no
+  `--ui-footer-*` counterpart yet), with its horizontal padding corrected to 16px.
+  Code Connect completed (`status: COMPLETE`, real node URL); the ui-spec
+  index/tokens/anatomy were updated to match. Visual-regression baselines
+  regenerated (light + dark). The close glyph still uses the muted treatment rather
+  than Figma's plain-blue `ButtonIcon` idle — a separate button-icon token
+  discrepancy, tracked out of this change.
+
+- [#65](https://github.com/constructor-lab/ui-component-library/pull/65) [`8bf0312`](https://github.com/constructor-lab/ui-component-library/commit/8bf03129edb0d5d862ca16fadcf2bb8c8b532953) Thanks [@leonid](https://github.com/leonid)! - fix(calendar, widget-table-data, chip): rewire dangling `--ui-*` token references
+
+  The `/component-readiness` audit flagged two components referencing tokens that no
+  longer resolve (silent fallbacks):
+
+  - **widget-table-data** — `--ui-table-global-cell-border-color` →
+    `--ui-table-global-row-border-color` (thead / row divider / footer borders) and
+    `--ui-table-global-row-color-hover` → `--ui-table-data-row-color-hover` (row
+    hover). These were live refs, so the borders/hover now render their intended
+    colors instead of falling back.
+  - **calendar** — a comment referenced the retired `--ui-text-on-surface-link`;
+    updated to the current `--ui-text-on-surface-link-idle` (comment only, no render
+    change).
+  - **chip** — the latest token update renamed `--ui-chip-global-box-icon-size` →
+    `--ui-chip-global-icon-size`; the component (and its spec `tokens.yaml`) still
+    referenced the old name, so the leading/remove-glyph icon size had no longer
+    resolved. Rewired to the current name (same `var(--ui-units-size-16)` value —
+    restores the intended 16px icon sizing).
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`82fd4f5`](https://github.com/constructor-lab/ui-component-library/commit/82fd4f534a82b51bc6257947013b763b6d0284b8) Thanks [@leonid](https://github.com/leonid)! - fix(ui-react): declare cursor-pointer on the base class of every interactive component
+
+  `cursor-pointer` was missing from the base class of several always-interactive
+  surfaces — a native `<button>`'s UA cursor reset hides the gap in code review
+  while it renders wrong in the browser. Moved/added it to the **base** (not a
+  subset of variants) for `ButtonIcon`, `Chip` (base + remove button),
+  `DialogCloseButton`, `InputText`'s clear button, `SidebarSecondary` rows +
+  section-label trigger, `Filter`, `Link`, and the `NavigationMenu` trigger.
+  (`Button`/`ButtonMenu` were fixed in the prior parity batch.) Cursor is not
+  captured by visual regression, so no baselines move.
+
+  Guarded against regression by a new `@constructor-lab/ui-spec` grammar rule
+  (`interaction/interactive-cursor`, checklist I7) with a static `kit-lint`
+  detector that flags a `cva()` base carrying a `hover:` state but no `cursor-*`.
+
+- [#56](https://github.com/constructor-lab/ui-component-library/pull/56) [`21f088b`](https://github.com/constructor-lab/ui-component-library/commit/21f088b283334526bf5db359bc3eda34e44ea6eb) Thanks [@leonid](https://github.com/leonid)! - fix(page-header): PageHeader is no longer a `banner` landmark
+
+  `PageHeader` rendered `role="banner"`, which added a second `banner` landmark
+  alongside the app header on every screen — an ARIA landmark-uniqueness violation
+  (and it made the screen-audit conflate the two headers). It is now a
+  non-landmark `<div>`; the page's sole `banner` is the app header, and the `<h1>`
+  in `PageHeaderTitle` remains the page heading. Enforced by the new
+  `accessibility/landmark-uniqueness` grammar rule (I6, `must`).
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`8ca474c`](https://github.com/constructor-lab/ui-component-library/commit/8ca474cbf0610d7069abd51748f924b312fdeaab) Thanks [@leonid](https://github.com/leonid)! - fix(ui-react): Figma parity batch 2 — card-filter ARIA + selected, clear buttons, link, chip
+
+  - **CardFilter**: `type="button"` is now gated on `!render`, so
+    `render={<a href/>}` no longer stamps an invalid `type` onto the anchor. Added
+    a controlled `selected` prop (sets `aria-pressed` + a `data-selected`
+    attribute that drives the active border/background) for a clickable card used
+    as a toggle. Additive, non-breaking.
+  - **InputText / Search** clear buttons: a proper 20px hit target (`size-5 p-0.5`)
+    with a hover/active background from `--ui-button-icon-global-container-color-*`,
+    and the icon now references the component-tier
+    `--ui-button-icon-global-icon-color-idle` instead of the generic
+    `--ui-glyph-on-surface-primary`.
+  - **Chip**: `[&_svg]:pointer-events-none` so a click on the icon falls through to
+    the chip.
+  - **Link**: removed the stray `[text-underline-position:from-font]` — redundant
+    against the global `text-underline-offset` and divergent from ButtonGhost.
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`624b5f8`](https://github.com/constructor-lab/ui-component-library/commit/624b5f8b3903bddaa459faec9176c9d3bb9ea5d2) Thanks [@leonid](https://github.com/leonid)! - fix(ui-react): parity batch 3 — chart tooltip tokens, menu focus ring, view options
+
+  - Chart tooltip: radius and padding now come from the Tooltip tier tokens
+    (`--ui-tooltip-container-border-radius` / `-padding-x` / `-padding-y`),
+    `shadow-xl` → `shadow-md`, and the value span drops `font-mono`. Added a
+    `TooltipOpen` story (the tooltip is hover-only, so `defaultIndex` forces it
+    open for the visual-regression snapshot).
+  - Menu items: a 3px inset keyboard-only focus ring
+    (`focus-visible:not(:hover)`), which they lacked.
+  - DataTableViewOptions: removed the "Toggle columns" heading (and its orphaned
+    separator) that the current Figma does not have. Kept
+    `DropdownMenuCheckboxItem` — it already renders a checkmark, stays open across
+    toggles, and carries `aria-checked`, so it _is_ the design's "item with a
+    checkmark"; a plain item would lose all three. Exports unchanged.
+
+- [#78](https://github.com/constructor-lab/ui-component-library/pull/78) [`582e06f`](https://github.com/constructor-lab/ui-component-library/commit/582e06f1f26c594ce77aa55a6f6be2e361d5a7f8) Thanks [@leonid](https://github.com/leonid)! - fix(ui-react): pixel-snap the resizable divider with a logical border
+
+  The `ResizableHandle` divider line was a 1px-wide background box centred with a
+  `-translate-x-1/2` transform, so at fractional handle positions the line
+  straddled two device pixels and rendered blurry. It is now a zero-width box
+  painted by its logical `border-inline-start` (block-start for the stacked
+  orientation), which the browser snaps to the pixel grid. Keyboard focus paints a
+  3px `--ui-focus-primary` ring as a `box-shadow` on the line itself (auto-centred),
+  removed while dragging (`active:after:shadow-none`). Same tokens, same geometry —
+  crisper line. No API change.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(search-global): re-theme off the removed `--ui-search-global-*` tier
+
+  `SearchGlobal` is retired (deprecated, slated for removal) and its dedicated
+  component token tier was removed from `@constructor-lab/tokens` — but the
+  component still referenced 15 of those tokens plus two generated
+  `.ui-search-global-*-text-style` classes that went with them. Every one of those
+  `var()` lookups resolved to nothing, so the field rendered with no fill, size,
+  radius, gradient border, or text colors.
+
+  Each reference now points at the shared token that tier used to alias — the AI
+  gradients, the `--ui-units-*` sizes, and the AI-purple glyph/text semantics — so
+  the field resolves through generated tokens again and renders as designed. The
+  two text-style classes become their equivalent utilities. No component tier is
+  reintroduced, and its `ui-spec` `tokens.yaml`/anatomy/accessibility/README are
+  updated to name the tokens that actually exist.
+
+- [`b8fde72`](https://github.com/constructor-lab/ui-component-library/commit/b8fde722858687e1b03f811fd29adb1d6bcadb5b) Thanks [@m231-a](https://github.com/m231-a)! - `SidebarPrimaryCollapseTrigger` accepts a `shortcut` hint
+
+  The design's footer row is `Collapse menu ⌘H` (Figma node 2092:5372), but the
+  primary rail's collapse trigger had no way to render the trailing shortcut —
+  only its `SidebarSecondaryCollapseTrigger` counterpart did. It now takes the
+  same optional `shortcut` node, right-aligned via the existing
+  `--ui-sidebar-primary-menu-item-extras-global-shortcut-*` tokens and hidden
+  with the label (`sr-only`) in collapsed mode.
+
+- [`ccbfe9d`](https://github.com/constructor-lab/ui-component-library/commit/ccbfe9d52ab392eed7e01a3d420e2c3d356a45e1) Thanks [@m231-a](https://github.com/m231-a)! - `SidebarSecondary` header metrics now come from the design's tokens
+
+  Two silent geometry drifts against Figma node 2468:59502, both invisible to
+  visual regression (each delta sits under the 0.5%-of-canvas threshold):
+
+  - **Panel header was 16px short.** It applied the per-variant
+    `--ui-sidebar-secondary-expanded-container-header-padding-y` (8px), but the
+    design binds one pair for both variants —
+    `--ui-sidebar-secondary-global-container-header-padding-{x,y}` (16/16) — which
+    is what makes the header 64px tall around its 32px title. (The per-variant
+    tokens belong to `SidebarPrimary`, whose design does reference them.)
+  - **Section headers were 36px instead of 40px, with no vertical padding.** The
+    floor was a hardcoded `min-h-9` under a comment claiming no header-height token
+    existed; `--ui-sidebar-secondary-section-container-header-min-width` (40px) had
+    been generated all along — Figma names the variable `minWidth` although it
+    drives the row's min _height_. `…-header-padding-y` (2px) was likewise defined
+    but unused.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Fix a render loop that froze the browser when a group row was collapsed.
+
+  Toggling a group in a grouped `DataGrid` locked the page: 11,293 controller state
+  writes in 8 seconds, with a stable DOM and a flat heap — a render loop, not a leak.
+  TanStack auto-resets its `expanded` state whenever the row model is invalidated, that
+  reset reached `onExpandedChange`, and `requestChange` allocated a fresh state object
+  even when the value had not changed, so React never bailed out and the re-render
+  invalidated the row model again.
+
+  Two independent fixes, each verified to break the loop on its own:
+
+  - `autoResetExpanded: false` — the controller _derives_ `expanded` from
+    `treeExpanded`/`detailExpanded`, so a slice the engine does not own must not be
+    auto-reset by it. Correct regardless of the loop.
+  - `requestChange` now skips the write, and the change callbacks, when a slice's value
+    is unchanged. It bails only where equality can be positively established; slices
+    carrying arbitrary values (`columnFilters`, `globalFilter`) always write, because a
+    wrong "equal" would silently drop a caller's update.
+
+  A no-op request no longer emits `onStateChange`, `onSliceChange` or `onQueryChange`.
+  Nothing else about the public surface changes, and at-rest rendering is unaffected
+  (measured: zero guard bails at mount across all 111 table-family stories).
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Table: `TableHead`'s accessible name no longer absorbs `trailing` content.
+
+  A header cell's accessible name is computed from its contents, so a control in the
+  `trailing` slot with an `aria-label` — a resize handle, say — was folded into it:
+  the column header announced as "Name Resize name column". That is worse than it
+  sounds, because a screen reader repeats the column header for **every cell** in
+  the column, so the handle's label was announced on every row.
+
+  When `trailing` content is present, `TableHead` now names the header from its label
+  region explicitly, which structurally excludes the slot. The control keeps its own
+  accessible name.
+
+  A header with no `trailing` content is unchanged — no `aria-labelledby`, no
+  wrapper element, name still computed from content — so nothing about the common
+  case moves.
+
+  This is deliberately automatic rather than a prop. Anything mounted in `trailing`
+  gets the correct naming without the caller knowing the hazard exists; an opt-in
+  would have meant every future consumer rediscovering it.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - fix(Table): `maxHeight` now bounds the element that scrolls, so a bounded table
+  can actually scroll.
+
+  `maxHeight` alone produced a table that **clipped instead of scrolling**. The
+  constraint was applied to the scroll container's outer box, leaving that box
+  `max-height: 320px` with `height: auto` — and the inner viewport's `height: 100%`
+  needs a _definite_ parent height, so it resolved to auto and grew to its content.
+  Measured in a browser with 60 rows in a 320px box: box 320px against a **2440px**
+  viewport whose `scrollHeight === clientHeight`, so `scrollTop` never left 0 and
+  the box's `overflow: hidden` clipped the remaining rows.
+
+  `height` was unaffected, because a definite length is inheritable — which is why
+  the two placements looked interchangeable when only `height` was measured.
+
+  Three consequences of the fix:
+
+  - **Any `maxHeight` table whose content exceeds the bound now scrolls.** This was
+    never virtualization-specific, though it did make windowed rendering inert:
+    `data-bounded` read `true` throughout, so every precondition guard keyed on it
+    passed while the feature was dead.
+  - **`height`/`maxHeight` now land on the viewport; `width` stays on the outer
+    box.** `data-slot="table-container"` stays on the box (an element carries one
+    slot and the viewport already has ScrollArea's), and `data-bounded` plus
+    `containerRef` stay on the viewport. If you assert on inline styles, a height
+    constraint you used to read off `[data-slot="table-container"]` is now on
+    `[data-slot="scroll-area-viewport"]`.
+  - **`containerProps.style` moves with them**, onto the scrolling element that prop
+    is documented to reach — it previously landed on the outer box.
+
+  Sticky headers, sticky footers and pinned columns were re-verified in a browser
+  under simultaneous vertical and horizontal scroll: the sticky header holds at the
+  top of the scrollport and the start/end-pinned columns hold at its edges while the
+  unpinned columns scroll under them.
+
+  Three stories were added whose content actually overflows
+  (`BoundedByHeightOverflowing`, `BoundedByMaxHeightOverflowing`,
+  `BoundedByMaxHeightBothAxes`). Their absence is why this shipped: every existing
+  bounded story holds eight rows in a 200–240px box, and a story that cannot exhibit
+  a failure certifies its absence.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - `Table`: `height` and `maxHeight` require a **definite** length, and a percentage
+  now says so in development.
+
+  A percentage never bounded the scroll container, and after the constraint moved to
+  the element that scrolls it stopped even _looking_ bounded. Measured for both
+  members — 60 rows, `50%`, a 400px parent — the scrolling element comes out 2440px
+  with `scrollHeight === clientHeight` and `scrollTop` stuck at 0. Percentages
+  resolve against that element's containing block, whose height is `auto`, so they
+  compute as no constraint at all.
+
+  **A percentage previously appeared to work, and that is the part worth stating.**
+  When the constraint sat on the outer box it resolved against the app's own
+  definite-height parent, so the box came out the right size and **clipped** its
+  overflow. It was never scrolling; it only looked bounded. A layout that has just
+  started overflowing was showing you clipped content before.
+
+  Use a length (`320`, `'20rem'`) or a viewport unit (`'50vh'`). A percentage logs a
+  development-only error naming the prop and the value.
+
+  No behaviour change for any definite value, and nothing in this repo passed a
+  percentage.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - Table: `TableRow`'s `expanded` no longer emits `aria-expanded`.
+
+  `aria-expanded` is only valid on a `treegrid` row. On a row inside a
+  `role="table"` it is invalid, and axe reports it as `aria-conditional-attr` at
+  **serious** impact. `expanded` now sets `data-expanded` only, which is what the
+  styling hooks use.
+
+  The attribute belongs on the **disclosure control**, alongside `aria-controls`
+  pointing at the revealed row — which is what the component spec's anatomy already
+  specifies for the expander parts, and what DataGrid's expander implements. So this
+  aligns the primitive with a contract it was contradicting rather than changing the
+  family's accessible behaviour.
+
+  If the table family later adopts `role="treegrid"`, the attribute returns to the
+  row gated on that role, which needs a `Table`-level prop: a row cannot know the
+  role of the table containing it.
+
+  No consumer migration — `expanded` shipped on this release line only, and nothing
+  reads `aria-expanded` from a row.
+
+- [#74](https://github.com/constructor-lab/ui-component-library/pull/74) [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086) Thanks [@leonid](https://github.com/leonid)! - **DataGrid/DataTable: `appearance.width` now bounds the bordered box, and the
+  generated chrome columns are 40px instead of ~100–210px.**
+
+  Two instances of one defect — a sizing constraint landing on a different element
+  than the one that presents the region.
+
+  `appearance.width` reached the scroll container while the border was drawn by a
+  wrapper `<div>` that took no width, so a narrow grid rendered as a full-width
+  bordered box containing a narrow scroll region, with the horizontal scrollbar
+  ending short of the border it appeared to belong to. The wrapper is gone: the
+  scroll container carries the border, the radius and the width. Two consequences
+  worth knowing — the width now _includes_ the 2px border (`box-sizing:
+border-box`), and `ScrollArea`'s viewport `rounded-[inherit]` finally resolves to
+  the container's radius instead of `0`.
+
+  The generated selection, detail-expander and row-actions columns declared no
+  width, so they inherited TanStack's 150px default and rendered 92.6–209.2px
+  around 16–24px controls. They are now pinned to 40px — square to the table's
+  row-height floor (`h-10`) at the default `medium` density.
+
+  Also fixes a second case of the same root cause: **a caller's `size` on a column
+  now reaches the DOM in a plain `<DataGrid>`.** Column widths were published only
+  when `columnsFeatures` enabled one of `visibility`/`pinning`/`resizing`/
+  `reordering`, so `size: 200` on an otherwise plain grid silently did nothing. An
+  _unsized_ column is unchanged and still publishes no width.
+
+  **Behaviour change, stated because it is not a side effect:** the detail-expander
+  column (`__detail__`) is now **locked by default** alongside the selection and
+  actions columns — it can no longer be moved, pinned or resized unless the caller
+  sets `columnsFeatures.lockSystemColumns: false`. Its absence from that set was an
+  oversight rather than a decision: the expander was the only generated chrome
+  column a user could drag out of place. The invariant is now that the locked set
+  matches the generated set. This reaches the column-settings menu and the column
+  announcer; the menu's visual baseline captures it closed, so no pixel change is
+  expected there.
+
+- Updated dependencies [[`ba53236`](https://github.com/constructor-lab/ui-component-library/commit/ba5323610064ea0aab88a1671135be7bb083e894), [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086), [`e7caa81`](https://github.com/constructor-lab/ui-component-library/commit/e7caa813840069a33bb409cbd7aee93c3aee6086), [`d7e04a2`](https://github.com/constructor-lab/ui-component-library/commit/d7e04a298b47b9bba952b0dba4cc255d2941f277), [`7416b3a`](https://github.com/constructor-lab/ui-component-library/commit/7416b3addb3e68d89facbdd8f6b982dddab8beb7), [`b8071ac`](https://github.com/constructor-lab/ui-component-library/commit/b8071acfac66cd794a4a102ef308a570c74dfdb8)]:
+  - @constructor-lab/tokens@3.1.0
+  - @constructor-lab/icons-react@1.0.1
+
 ## 2.3.0
 
 ### Minor Changes
