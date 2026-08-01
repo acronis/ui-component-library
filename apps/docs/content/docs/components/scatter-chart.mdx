@@ -38,8 +38,20 @@ Two groups plotted on shared numeric axes:
 
 ```tsx
 const series = [
-  { key: 'classA', data: [{ hours: 2, score: 55 }, { hours: 6, score: 78 }] },
-  { key: 'classB', data: [{ hours: 1, score: 70 }, { hours: 9, score: 95 }] },
+  {
+    key: 'classA',
+    data: [
+      { hours: 2, score: 55 },
+      { hours: 6, score: 78 },
+    ],
+  },
+  {
+    key: 'classB',
+    data: [
+      { hours: 1, score: 70 },
+      { hours: 9, score: 95 },
+    ],
+  },
 ];
 
 const config = {
@@ -47,14 +59,27 @@ const config = {
   classB: { label: 'Class B', color: 'var(--ui-chart-2)' },
 } satisfies ChartConfig;
 
-<ScatterChart config={config} series={series} xKey="hours" yKey="score" className="h-[360px] w-[520px]" />;
+<ScatterChart
+  config={config}
+  series={series}
+  xKey="hours"
+  yKey="score"
+  className="h-[360px] w-[520px]"
+/>;
 ```
 
 Size points by a third field with `zKey` (a bubble chart), tuning the size range
 with `zRange`:
 
 ```tsx
-<ScatterChart config={config} series={series} xKey="hours" yKey="score" zKey="weight" zRange={[60, 500]} />
+<ScatterChart
+  config={config}
+  series={series}
+  xKey="hours"
+  yKey="score"
+  zKey="weight"
+  zRange={[60, 500]}
+/>
 ```
 
 Change the marker with `shape` (`circle` · `square` · `triangle` · `diamond` ·

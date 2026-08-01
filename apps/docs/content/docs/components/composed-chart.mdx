@@ -91,7 +91,10 @@ import { ComposedChart, ChartTooltipContent } from '@constructor-lab/ui-react';
 <ComposedChart
   config={config}
   data={data}
-  series={[{ key: 'revenue', type: 'bar' }, { key: 'profit', type: 'line' }]}
+  series={[
+    { key: 'revenue', type: 'bar' },
+    { key: 'profit', type: 'line' },
+  ]}
   xKey="month"
   tooltipContent={
     <ChartTooltipContent
