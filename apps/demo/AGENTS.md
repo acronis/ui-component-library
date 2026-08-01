@@ -41,6 +41,7 @@ Component-level coverage belongs in `packages/ui-react`'s Vitest + Storybook sui
 
 ## zod version note
 
-This workspace uses **zod 4** (pinned at `4.2.1`, matching the library).
-`apps/demos` still uses zod 3 — see its `AGENTS.md` and the catalog note
-in `pnpm-workspace.yaml` for context. Don't try to align them in passing.
+This workspace uses **zod 4** (pinned at `4.4.3`). `apps/demos` is on the same
+major now — the 3→4 alignment has landed. `zod` is still deliberately outside
+the `pnpm-workspace.yaml` catalog, so each workspace pins its own version:
+read `package.json` rather than assuming.

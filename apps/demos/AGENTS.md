@@ -35,22 +35,22 @@ The only scripts that actually run are `lint`, `lint:fix`, and
 - React 19 (peer dep, supplied by the consumer).
 - **TanStack Form** + **TanStack zod adapter** alongside **react-hook-form**
   — both are showcased to compare patterns.
-- **zod 3** (pinned at `3.25.76`). **Intentionally different from**
-  `apps/demo`, which is on zod 4. The form
-  libraries' adapters in this workspace haven't been upgraded yet.
-  Aligning is a tracked follow-up — see the catalog comment in
-  `pnpm-workspace.yaml`. Don't try to bump it in passing.
+- **zod 4** (pinned at `4.4.3`), aligned with `apps/demo` and the UI lib —
+  the 3→4 follow-up has landed. Still **not** in the `pnpm-workspace.yaml`
+  catalog, so the version is per-workspace; read `package.json` rather
+  than assuming.
 - **`react-router-dom` 7** for any demos that need routing context.
 
 ## Adding a new demo
 
 1. Create `src/<component>/<Demo>.tsx`.
 2. Re-export from `src/<component>/index.ts`.
-3. In `apps/docs`, add a thin client wrapper under
-   `apps/docs/src/components/demos/` that adds `'use client'` and
-   re-exports the demo. Then reference it from an MDX page with
-   `<DemoPreview sourcePath="apps/demos/src/<component>/<Demo>.tsx" ... />`
-   (see `apps/docs/AGENTS.md` for the path conventions).
+3. In `apps/docs`, add a thin `'use client'` **render-wrapper** under
+   `apps/docs/src/components/demos-react/` (pattern demos live in
+   `demos-react/patterns/`) — a wrapper that _renders_ the shared demo,
+   **never a bare re-export**: Next drops a re-exported client component
+   from its client manifest. Then render it from an MDX page inside
+   `<DemoReact>` (see `apps/docs/AGENTS.md` for the conventions).
 4. In `apps/demo`, the demo can be imported directly without a wrapper.
 
 ## What this workspace is NOT for
