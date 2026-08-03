@@ -1,5 +1,61 @@
 # @constructor-lab/ui-react
 
+## 2.5.0
+
+### Minor Changes
+
+- [#86](https://github.com/constructor-lab/ui-component-library/pull/86) [`48e191d`](https://github.com/constructor-lab/ui-component-library/commit/48e191ddf43eab38e6a11263de373104113c52c9) Thanks [@leonid](https://github.com/leonid)! - `Calendar` reconciled with its design, on a real `--ui-calendar-*` tier
+
+  Figma node 8148:10167 defines a `components/Calendar/*` variable tier that
+  `@constructor-lab/tokens` had never emitted (`Calendar` was missing from the
+  token-emit allowlist), so the v1 port approximated the design with semantic
+  tokens. With the tier emitted, the component now binds it — and follows the
+  design's anatomy, which changes several defaults:
+
+  - **The caption is two `InputSelect`s** (month + year) and the chevron nav is
+    hidden, because that is how the design navigates. `captionLayout="label"`
+    restores react-day-picker's caption label plus prev/next buttons.
+  - **Weeks start on Monday** (`weekStartsOn` defaults to `1`) with two-letter
+    weekday labels. A `locale` still overrides both.
+  - **`mode="range"` shows two months** side by side (`numberOfMonths` defaults to
+    2 in that mode).
+  - **The panel is bordered**: container fill, 1px border and 4px radius, a ruled
+    caption band and a padded body band.
+  - **Day cells are the tier's 32×32 box** — transparent idle, surface-hover on
+    hover, the active fill when selected, with value colors split
+    primary / secondary (outside) / active / disabled and tabular numerals.
+  - **`footer` is banded with the Footer tier**, for the design's Cancel/Apply row
+    on the multiple and range variants. The buttons stay the host's.
+  - **Today no longer carries a marker.** The v1 port underlined it; the design's
+    item has idle / hover / active / disabled and no today state. The cell is still
+    marked `.rdp-today`, so a host that wants a marker can style it.
+
+### Patch Changes
+
+- [#86](https://github.com/constructor-lab/ui-component-library/pull/86) [`1ad4a81`](https://github.com/constructor-lab/ui-component-library/commit/1ad4a8152d91515c14f87a1094c82c7291c43117) Thanks [@leonid](https://github.com/leonid)! - List popups scroll in a `ScrollArea` instead of a native gutter
+
+  `InputSelect` (and its `Select` alias), `Combobox` and `Autocomplete` dropped
+  `overflow-y-auto` on the Base UI popup in favour of the kit's `ScrollArea`. Its
+  overlay scrollbar reserves **zero** layout space, so the full-bleed item rows keep
+  their edge-to-edge background instead of being inset by a native scrollbar gutter
+  on platforms that reserve one — the same reason `SidebarPrimary`,
+  `SidebarSecondary`, `Table` and `Tree` already use it. It also makes the bar
+  consistent with those regions: token-coloured, revealed on hover/scroll.
+
+  The height bound moved with it, onto the scroll **viewport** rather than the
+  popup. That placement matters: `ScrollArea`'s root is `height: auto`, so a
+  max-height there leaves the viewport's `height: 100%` unresolved, the viewport
+  grows to the full content height, and the overflow is clipped away unreachable
+  with no scrollbar at all.
+
+  Keyboard behaviour is unchanged — Base UI's scroll-into-view walks the new
+  scrollable ancestor. Verified in a browser for all three: driving the highlight to
+  the last item scrolls the viewport to exactly its maximum and leaves that item in
+  view (`InputSelect` via `End`, `Combobox`/`Autocomplete` via `ArrowUp` wrap-around).
+
+- Updated dependencies [[`0b329d6`](https://github.com/constructor-lab/ui-component-library/commit/0b329d6fb0bed12ce96624b48ec96fd527e12be9)]:
+  - @constructor-lab/tokens@3.1.1
+
 ## 2.4.0
 
 ### Minor Changes

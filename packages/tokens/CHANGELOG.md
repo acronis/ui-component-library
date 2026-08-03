@@ -1,5 +1,25 @@
 # @constructor-lab/design-tokens
 
+## 3.1.1
+
+### Patch Changes
+
+- [#86](https://github.com/constructor-lab/ui-component-library/pull/86) [`0b329d6`](https://github.com/constructor-lab/ui-component-library/commit/0b329d6fb0bed12ce96624b48ec96fd527e12be9) Thanks [@leonid](https://github.com/leonid)! - Generated CSS no longer breaks on a malformed Figma variable name
+
+  A Figma variable whose name contains a space — a duplicate like `content/gap 2`
+  in the `Notification` tier — emitted as `--ui-notification-global-content-gap 2`,
+  which postcss cannot parse. That did not merely lose one token: it failed the
+  whole stylesheet, so `@import`-ing `@constructor-lab/tokens/css` took down every
+  consumer's build (`Unknown word 2`). The CSS builder now skips any token whose
+  name is not a valid CSS ident and reports it in the build's skipped-token
+  summary, so one bad name upstream costs that token instead of the bundle.
+
+  Also regenerates the committed CSS/SCSS/JS/DTCG output from the current tiers.
+  It had drifted: ten newly-allowlisted component tiers had never been rendered,
+  and several `Button` / `ButtonIcon` / `ButtonMenu` / `Chip` / `InputSelect` /
+  `SidebarSecondary` brand override blocks referenced brands the tiers no longer
+  declare.
+
 ## 3.1.0
 
 ### Minor Changes
