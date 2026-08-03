@@ -1,5 +1,21 @@
 # @constructor-lab/design-tokens
 
+## 3.1.2
+
+### Patch Changes
+
+- [#89](https://github.com/constructor-lab/ui-component-library/pull/89) [`01f6031`](https://github.com/constructor-lab/ui-component-library/commit/01f6031cde2d7b92ea3819c4e78354591efbfa2c) Thanks [@leonid](https://github.com/leonid)! - Drop the empty `Notification` stylesheet from the CSS bundle
+
+  The `Notification` tier consists entirely of two malformed Figma duplicates
+  (`content/gap 2`, `success/icon 2`), so after both were skipped as unrepresentable
+  it rendered an empty `:root, :host {}` that `index.css` still imported. A tier with
+  nothing renderable now emits no file and no import; the build's skipped-token
+  report is where the reason belongs.
+
+  No token is lost — `--ui-notification-*` never had a consumer (Figma's
+  "Notification" component is implemented as `Toast`, on its own healthy tier), and
+  the compiled `ui-react` bundle referenced none of them before or after.
+
 ## 3.1.1
 
 ### Patch Changes

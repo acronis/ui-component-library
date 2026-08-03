@@ -1,5 +1,12 @@
 # @constructor-lab/ui-react
 
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies [[`01f6031`](https://github.com/constructor-lab/ui-component-library/commit/01f6031cde2d7b92ea3819c4e78354591efbfa2c)]:
+  - @constructor-lab/tokens@3.1.2
+
 ## 2.5.0
 
 ### Minor Changes
