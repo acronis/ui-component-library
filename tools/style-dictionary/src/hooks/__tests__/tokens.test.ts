@@ -164,6 +164,35 @@ describe('aliasTarget', () => {
 });
 
 describe('collectDecls', () => {
+  it('skips a token whose name is not a valid CSS ident instead of poisoning the file', () => {
+    // A Figma variable named `content/gap 2` (a duplicate) transforms into a
+    // name with a space. Emitted, postcss rejects the declaration and the whole
+    // stylesheet fails to parse — which took down every consumer's build.
+    const { vars, skipped } = collect(
+      [
+        token({
+          name: 'ui-notification-global-content-gap 2',
+          path: ['Notification', 'global', 'content', 'gap 2'],
+          $type: 'dimension',
+          $value: '0px',
+        }),
+        token({
+          name: 'ui-notification-global-content-gap',
+          path: ['Notification', 'global', 'content', 'gap'],
+          $type: 'dimension',
+          $value: '0px',
+        }),
+      ],
+      {}
+    );
+    expect(vars.has('ui-notification-global-content-gap 2')).toBe(false);
+    expect(skipped).toEqual([
+      'ui-notification-global-content-gap 2 (invalid CSS custom-property name)',
+    ]);
+    // The well-formed sibling in the same tier still emits.
+    expect(vars.get('ui-notification-global-content-gap')).toBe('0px');
+  });
+
   it('emits a var() reference for a single-alias token (preserving the chain)', () => {
     const { vars } = collect(
       [

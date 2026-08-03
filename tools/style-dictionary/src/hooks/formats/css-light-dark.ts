@@ -29,6 +29,13 @@ export interface Decls {
   skipped: string[];
 }
 
+/**
+ * A CSS ident, as a custom-property name or class must be: letters, digits,
+ * hyphens and underscores only. Anything else (notably a space) makes the
+ * declaration unparseable and fails the entire stylesheet.
+ */
+const CSS_IDENT = /^[A-Za-z_-][\w-]*$/;
+
 /** A single full `{group.token}` alias → the referenced path; else null. */
 const FULL_ALIAS = /^\{([^{}]+)\}$/;
 export function aliasTarget(original: unknown): string | null {
@@ -62,6 +69,17 @@ export function collectDecls(
   const skipped: string[] = [];
 
   for (const token of tokens) {
+    // A custom-property name (and a class selector) has to be a valid CSS ident.
+    // A Figma variable whose name contains a space — a duplicate like
+    // `content/gap 2` — transforms into `--ui-…-content-gap 2`, and that does not
+    // merely lose one token: postcss rejects the declaration ("Unknown word 2")
+    // and the failure takes down the whole stylesheet, so every consumer's build
+    // dies on it. Skip it; an unparseable declaration was never usable.
+    if (!CSS_IDENT.test(token.name)) {
+      skipped.push(`${token.name} (invalid CSS custom-property name)`);
+      continue;
+    }
+
     if (token.$type === 'typography') {
       // `typography/css-class` transformed the composite into a declaration block
       // (`property: value;` lines). Only emit a class when the value actually is
