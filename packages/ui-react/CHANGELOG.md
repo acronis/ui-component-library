@@ -1,5 +1,36 @@
 # @constructor-lab/ui-react
 
+## 2.6.0
+
+### Minor Changes
+
+- [#93](https://github.com/constructor-lab/ui-component-library/pull/93) [`d0397f4`](https://github.com/constructor-lab/ui-component-library/commit/d0397f49f4e8f305d1606c306d0f0690b6fb70ec) Thanks [@leonid](https://github.com/leonid)! - Bind `Toast` to its own `--ui-toast-*` token tier and add the design's `critical`
+  status.
+
+  The component themed from the shared semantic status vocabulary, so the generated
+  `--ui-toast-*` tier had no consumer and a brand re-pointing any of its values
+  changed nothing. Every card metric now comes from the tier (surface, radius,
+  border width, min-width, paddings, gaps, status-bar width, icon box, content and
+  actions metrics) plus the per-status `border-color` / `left-line` pairs, and the
+  dismiss control sits on the ButtonIcon tier.
+
+  Reconciled against Figma node `7421:126262` in the process:
+
+  - **New `toast.critical(...)`** (and `'critical'` on `ToastType`) — the design's
+    fifth status, between `warning` and `error`. `error` keeps its name and binds
+    the design's `danger` tokens.
+  - The status bar now overlays the card's leading edge instead of taking layout
+    width, so the text keeps the container's `paddingX` from the card edge.
+  - An action button aligns with the text instead of with the icon.
+  - The title uses the design's applied `headings/body-heading` style (16/500).
+  - The dismiss glyph is `TimesSmall`, the design's mark; plain `Times` filled the
+    32px box and read far too heavy.
+  - The dismiss control and the action are instances of shipped components in the
+    design, so they now render the ghost variants of `ButtonIcon` and `Button`.
+    The action had been hand-styled onto ButtonIcon's _icon_ colour as a label
+    colour, with no hover/active/disabled state bound at all; it now takes the
+    ghost label tokens and the design's 32px height.
+
 ## 2.5.1
 
 ### Patch Changes
