@@ -82,6 +82,8 @@ export class ComponentsEmitter {
   #aliasTranslator;
   #validTypoRefs; // Set<string> of known "{typography.G.N}" refs
   #typoFallback; // Map<dottedLeaf, canonicalRef> for hyphen-as-dot mismatches
+  #effectStyleNames; // Set<string> of the file's effect-style names (shadow-sm/md/lg)
+  #seenWarnings; // Set<string> so one defect reported across N modes warns once
 
   // `primitives`/`semantics` are injectable for tests; entry scripts pass nothing
   // and they read the committed tiers (alias-resolution + typography sources).
@@ -97,8 +99,17 @@ export class ComponentsEmitter {
     this.#allowlist = new Set(components);
     /** Source-data problems worth a human's attention, printed by the entry script. */
     this.warnings = [];
+    /** Dedupe key set: a per-mode defect is ONE source problem, not seven. */
+    this.#seenWarnings = new Set();
     this.#aliasTranslator = new AliasTranslator(this.#primitives);
     this.#buildTypoIndex();
+    // Figma has no shadow variable type, so an effect style can only be
+    // referenced by NAME from a string variable. Knowing the names lets the
+    // emitter tell such a pointer apart from a real string value (`solid`,
+    // `underline`, `tabular-nums`, …) — see #rejectNonValue.
+    this.#effectStyleNames = new Set(
+      (snapshot.styles?.effect ?? []).map((s) => s.name)
+    );
   }
 
   /**
@@ -165,14 +176,18 @@ export class ComponentsEmitter {
       // buried in a build log, so surface it HERE, at the pull, where the fix
       // (rename or delete it in Figma) actually lives.
       if (!CSS_SAFE_SEGMENT.test(k)) {
-        this.warnings.push(
+        this.#warn(
           `${[...path, k].join('/')} — name is not CSS-safe; it will be dropped from the CSS output`
         );
       }
 
       if ('$value' in v || '$extensions' in v) {
         // Leaf token. Figma segment names are already camelCase — use as-is.
-        out[k] = this.#buildLeaf(v);
+        // A leaf whose every value is a pointer into Figma rather than a value
+        // yields nothing renderable, so it is left out entirely (see
+        // #rejectNonValue) instead of emitted as a dead custom property.
+        const built = this.#buildLeaf(v, [...path, k].join('/'));
+        if (built !== undefined) out[k] = built;
       } else {
         // Group. Figma segment names are already camelCase — use as-is.
         out[k] = {};
@@ -181,8 +196,8 @@ export class ComponentsEmitter {
     }
   }
 
-  #buildLeaf(leaf) {
-    const value = this.#translateValue(leaf.$value);
+  #buildLeaf(leaf, path = '') {
+    const value = this.#rejectNonValue(this.#translateValue(leaf.$value), path);
 
     const token = {};
     if (leaf.$type) token.$type = leaf.$type;
@@ -213,9 +228,9 @@ export class ComponentsEmitter {
       for (const [modeKey, modeRef] of Object.entries(allModes)) {
         // kebab-case per schema `Modes` pattern; fold spaces and underscores.
         const normalizedKey = modeKey.toLowerCase().replace(/[\s_]+/g, '-');
-        const normalized = this.#normalizeModeValue(
-          this.#translateValue(modeRef),
-          leaf.$type
+        const normalized = this.#rejectNonValue(
+          this.#normalizeModeValue(this.#translateValue(modeRef), leaf.$type),
+          path
         );
         // A dropped mode must not leave an `undefined` hole: the schema requires
         // exactly one value carrier, and an empty `values` with no `$value`
@@ -231,7 +246,12 @@ export class ComponentsEmitter {
     // axis) when modes exist, else a single `$value`. Figma exports both a
     // default `$value` and a `modes` map, so prefer `values` and drop the
     // redundant `$value` to satisfy the schema's one-carrier rule.
-    if (!token.values) token.$value = value;
+    if (!token.values) {
+      // Every value was rejected — there is no token to emit. Returning it with
+      // `$value: undefined` would serialize a carrier-less token that fails ajv.
+      if (value === undefined) return undefined;
+      token.$value = value;
+    }
 
     // A token whose value references a typography composite is itself typography
     // (Figma stores it in a string Variable, so its source $type is "string").
@@ -260,10 +280,63 @@ export class ComponentsEmitter {
   #normalizeModeValue(value, $type) {
     if (typeof value !== 'number') return value;
     if ($type === 'dimension') return { value, unit: 'px' };
-    this.warnings.push(
+    this.#warn(
       `a ${$type ?? 'untyped'} token has the bare number ${value} in one mode — dropped (only dimensions can be read as px)`
     );
     return undefined;
+  }
+
+  /**
+   * Reject a value that is a *pointer to something in Figma* rather than a value
+   * this pipeline can render. Figma has no shadow or text-style variable type, so
+   * designers express those bindings as STRING variables holding a name — and a
+   * name is not a CSS value:
+   *
+   *   - `shadow-md` names an effect style. Emitted verbatim it became
+   *     `--ui-toast-global-container-shadow: shadow-md`: a dead custom property
+   *     that reads like a bound shadow. The shadow itself is bridged from the
+   *     `palette.shadow.*` primitives instead (see the Tailwind bridge).
+   *   - `Assets/CircleInfoBlue` names an exported asset (an icon instance).
+   *   - `{typography.body.heading}` is a text-style hint that resolves to NO
+   *     semantics token — a typo in the Figma variable. Emitting it produced a
+   *     dangling alias, so the style silently vanished from the output instead of
+   *     anyone hearing about it.
+   *
+   * Legitimate string values — `solid`, `underline`, `none`, `tabular-nums`,
+   * `space-between`, `ew-resize` — are values, not pointers, and pass through.
+   */
+  /** Record a source problem once, however many modes carry it. */
+  #warn(message) {
+    if (this.#seenWarnings.has(message)) return;
+    this.#seenWarnings.add(message);
+    this.warnings.push(message);
+  }
+
+  #rejectNonValue(value, path) {
+    if (typeof value !== 'string') return value;
+
+    if (this.#effectStyleNames.has(value)) {
+      this.#warn(
+        `${path} — value "${value}" names a Figma effect style, not a CSS value; dropped (bind the palette.shadow.* primitives instead)`
+      );
+      return undefined;
+    }
+
+    if (value.startsWith('Assets/')) {
+      this.#warn(
+        `${path} — value "${value}" names a Figma asset, not a CSS value; dropped (icons are supplied by the component)`
+      );
+      return undefined;
+    }
+
+    if (value.startsWith('{typography.') && !this.#validTypoRefs.has(value)) {
+      this.#warn(
+        `${path} — text-style hint "${value.slice(1, -1)}" matches no semantics typography token; dropped (fix the hint in Figma)`
+      );
+      return undefined;
+    }
+
+    return value;
   }
 
   // Translate a single component value to our alias/literal form:

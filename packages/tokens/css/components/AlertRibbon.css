@@ -2,19 +2,39 @@
 /* Source: @constructor-lab/tokens • tier: AlertRibbon */
 
 :root, :host {
-  --ui-alert-ribbon-ai-background: var(--ui-background-status-ai);
   --ui-alert-ribbon-critical-background: var(--ui-background-status-critical);
+  --ui-alert-ribbon-critical-carousel: var(--ui-background-status-critical);
+  --ui-alert-ribbon-critical-divider: var(--ui-border-on-status-critical);
   --ui-alert-ribbon-danger-background: var(--ui-background-status-danger);
-  --ui-alert-ribbon-global-container-gap: var(--ui-units-gap-48);
+  --ui-alert-ribbon-danger-carousel: var(--ui-background-status-danger);
+  --ui-alert-ribbon-danger-divider: var(--ui-border-on-status-danger);
+  --ui-alert-ribbon-global-carousel-counter-text-color: var(--ui-text-on-surface-primary);
+  --ui-alert-ribbon-global-carousel-gap: var(--ui-units-gap-8);
+  --ui-alert-ribbon-global-container-gap: var(--ui-units-gap-32);
   --ui-alert-ribbon-global-container-height: var(--ui-units-size-48);
-  --ui-alert-ribbon-global-container-padding-x: var(--ui-units-gap-16);
-  --ui-alert-ribbon-global-container-padding-y: var(--ui-units-gap-8);
+  --ui-alert-ribbon-global-container-padding-xleft: var(--ui-units-gap-16);
+  --ui-alert-ribbon-global-container-padding-xright: var(--ui-units-gap-0);
+  --ui-alert-ribbon-global-container-padding-y: var(--ui-units-gap-0);
   --ui-alert-ribbon-global-container-width-min: var(--ui-units-size-512);
   --ui-alert-ribbon-global-content-description-color-color: var(--ui-text-on-surface-primary);
   --ui-alert-ribbon-global-content-gap: var(--ui-units-gap-8);
   --ui-alert-ribbon-info-background: var(--ui-background-status-info);
+  --ui-alert-ribbon-info-carousel: var(--ui-background-status-info);
+  --ui-alert-ribbon-info-divider: var(--ui-border-on-status-info);
   --ui-alert-ribbon-success-background: var(--ui-background-status-success);
+  --ui-alert-ribbon-success-carousel: var(--ui-background-status-success);
+  --ui-alert-ribbon-success-divider: var(--ui-border-on-status-success);
   --ui-alert-ribbon-warning-background: var(--ui-background-status-warning);
+  --ui-alert-ribbon-warning-carousel: var(--ui-background-status-warning);
+  --ui-alert-ribbon-warning-divider: var(--ui-border-on-status-warning);
+}
+
+.ui-alert-ribbon-global-carousel-counter-text-style {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
 }
 
 .ui-alert-ribbon-global-content-description-text-style {
@@ -23,8 +43,4 @@
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0px;
-}
-
-[data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
-  --ui-alert-ribbon-global-container-padding-x: var(--ui-units-gap-8);
 }

@@ -11,8 +11,9 @@ import { ComponentsEmitter } from '../helpers/emit-components-builder.mjs';
 // must not translate them into a silently wrong value or an unparseable
 // stylesheet, and it must say so where someone can act on it.
 
-const snapshotWith = (components) => ({
+const snapshotWith = (components, effect = [{ name: 'shadow-md' }]) => ({
   variables: { brand: { components } },
+  styles: { effect },
 });
 
 const leaf = (over) => ({
@@ -22,11 +23,11 @@ const leaf = (over) => ({
   ...over,
 });
 
-const emitterFor = (components) =>
+const emitterFor = (components, semantics = {}) =>
   new ComponentsEmitter(snapshotWith(components), {
     components: Object.keys(components),
     primitives: { units: { gap: { 0: { $value: { value: 0, unit: 'px' } } } } },
-    semantics: {},
+    semantics,
   });
 
 describe('emit — malformed Figma source', () => {
@@ -86,6 +87,124 @@ describe('emit — malformed Figma source', () => {
   it('says nothing for well-formed source', () => {
     const emitter = emitterFor({ Widget: { gap: leaf({}) } });
     emitter.build({});
+    expect(emitter.warnings).toEqual([]);
+  });
+
+  it('reports a per-mode defect once, not once per mode', () => {
+    // Seven brands carrying the same broken value is ONE thing to fix in Figma.
+    const emitter = emitterFor({
+      Widget: {
+        shadow: leaf({
+          $type: 'string',
+          $value: 'shadow-md',
+          $extensions: {
+            'com.figma.variableId': 'VariableID:9',
+            modes: {
+              default: 'shadow-md',
+              telstra: 'shadow-md',
+              virtuozzo: 'shadow-md',
+            },
+          },
+        }),
+      },
+    });
+    emitter.build({});
+    expect(emitter.warnings).toHaveLength(1);
+  });
+});
+
+// Figma has no shadow or text-style variable type, so those bindings are STRING
+// variables holding a NAME. A name is a pointer into Figma, not a CSS value, and
+// emitting it verbatim produced a custom property that looks bound and does
+// nothing (`--ui-toast-…-shadow: shadow-md`).
+describe('emit — values that are pointers, not values', () => {
+  it('drops a string that names an effect style, and the token with it', () => {
+    const emitter = emitterFor({
+      Widget: {
+        shadow: leaf({ $type: 'string', $value: 'shadow-md', $extensions: {} }),
+      },
+    });
+    const out = emitter.build({});
+    expect(out.Widget.shadow).toBeUndefined();
+    expect(emitter.warnings[0]).toContain('names a Figma effect style');
+  });
+
+  it('drops a string that names an exported asset', () => {
+    const emitter = emitterFor({
+      Widget: {
+        icon: leaf({
+          $type: 'string',
+          $value: 'Assets/CircleInfoBlue',
+          $extensions: {},
+        }),
+      },
+    });
+    const out = emitter.build({});
+    expect(out.Widget.icon).toBeUndefined();
+    expect(emitter.warnings[0]).toContain('names a Figma asset');
+  });
+
+  it('drops a text-style hint that resolves to no semantics token', () => {
+    // The real case: `typography.body.heading` was typed into two Figma
+    // variables, but the token is `typography.headings.heading`. Emitting the
+    // hint verbatim produced a dangling alias, so the title's text style
+    // silently disappeared from the CSS instead of anyone being told.
+    const emitter = emitterFor(
+      {
+        Widget: {
+          textStyle: leaf({
+            $type: 'string',
+            $value: 'typography.body.heading',
+            $extensions: {},
+          }),
+        },
+      },
+      { typography: { headings: { heading: { $value: {} } } } }
+    );
+    const out = emitter.build({});
+    expect(out.Widget.textStyle).toBeUndefined();
+    expect(emitter.warnings[0]).toContain('matches no semantics typography');
+  });
+
+  it('keeps a text-style hint that does resolve', () => {
+    const emitter = emitterFor(
+      {
+        Widget: {
+          textStyle: leaf({
+            $type: 'string',
+            $value: 'typography.headings.heading',
+            $extensions: {},
+          }),
+        },
+      },
+      { typography: { headings: { heading: { $value: {} } } } }
+    );
+    const out = emitter.build({});
+    expect(out.Widget.textStyle.$value).toBe('{typography.headings.heading}');
+    expect(out.Widget.textStyle.$type).toBe('typography');
+    expect(emitter.warnings).toEqual([]);
+  });
+
+  it('keeps real string values — they are values, not pointers', () => {
+    // `solid`, `underline`, `tabular-nums`, `space-between`, `ew-resize` are all
+    // live in the tier today; a blanket "drop strings" rule would break them.
+    const strings = [
+      'solid',
+      'underline',
+      'tabular-nums',
+      'space-between',
+      'ew-resize',
+    ];
+    const emitter = emitterFor({
+      Widget: Object.fromEntries(
+        strings.map((v, i) => [
+          `k${i}`,
+          leaf({ $type: 'string', $value: v, $extensions: {} }),
+        ])
+      ),
+    });
+    const out = emitter.build({});
+    expect(strings.map((_, i) => out.Widget[`k${i}`].$value)).toEqual(strings);
     expect(emitter.warnings).toEqual([]);
   });
 });

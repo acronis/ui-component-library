@@ -83,11 +83,48 @@ export class PrimitivesEmitter {
 
     for (const { path, leaf } of DtcgWalker.walk(themeNode)) {
       const ourPath = PaletteMapper.map(path);
+      const variableId = leaf.$extensions?.['com.figma.variableId'];
+      const ext = this.#buildFigmaExt(leaf.$extensions, variableId);
+
+      // The theme collection is not colors-only: `Shadow/<size>/*` carries the
+      // shadow GEOMETRY (positionX / positionY / blur / spread) as dimensions
+      // alongside its color. Those leaves must carry their own `$type`, because
+      // the `palette` group declares `$type: color` and a number read as a color
+      // is unrepresentable — the CSS build silently skipped all 12 of them, which
+      // is why no component could bind a real design shadow and every elevated
+      // surface fell back to a hand-picked Tailwind shadow utility.
+      if (leaf.$type && leaf.$type !== 'color') {
+        const lightRaw = leaf.$extensions?.modes?.Light ?? leaf.$value;
+        const darkRaw = leaf.$extensions?.modes?.Dark ?? leaf.$value;
+        // A bare Figma number is a px dimension; `dimension/px` reads `.value` /
+        // `.unit` off the value, so it has to be wrapped or it renders
+        // `undefinedundefined`.
+        const asDimension = (raw) =>
+          typeof raw === 'number' ? { value: raw, unit: 'px' } : raw;
+        // Geometry is theme-invariant today (light === dark for all of it), so it
+        // emits a single mode-invariant `$value` like `units.*` — but stay honest
+        // if a future mode ever diverges.
+        const node =
+          JSON.stringify(lightRaw) === JSON.stringify(darkRaw)
+            ? { $value: asDimension(lightRaw) }
+            : {
+                values: {
+                  light: asDimension(lightRaw),
+                  dark: asDimension(darkRaw),
+                },
+              };
+        TreeUtils.setPath(out, ['palette', ...ourPath], {
+          $type: leaf.$type,
+          ...node,
+          platforms: ['PD'],
+          $extensions: ext,
+        });
+        continue;
+      }
+
       // Snapshot colors are already normalized to DTCG HSL by ColorNormalizer.
       const light = colorValue(leaf.$value);
       const dark = colorValue(leaf.$extensions?.modes?.Dark ?? leaf.$value);
-      const variableId = leaf.$extensions?.['com.figma.variableId'];
-      const ext = this.#buildFigmaExt(leaf.$extensions, variableId);
 
       TreeUtils.setPath(out, ['palette', ...ourPath], {
         values: { light, dark },

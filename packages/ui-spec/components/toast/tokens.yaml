@@ -9,23 +9,27 @@ component: Toast
 # semantic status vocabulary instead, so the generated tier went unconsumed and a
 # brand re-pointing a `--ui-toast-*` value changed nothing.
 #
-# Two design values are deliberately NOT bound, because the tier holds something
-# that is not a CSS value: `--ui-toast-global-container-shadow-shadow` is the
-# string `shadowRegular` (a Figma effect-style name), so the card keeps a Tailwind
-# shadow utility; and the per-status icons are Figma asset instances, supplied
-# from `@constructor-lab/icons-react/stroke-multi` by name.
+# The card's elevation is the design's `shadow-md`, reached through Tailwind's
+# `--shadow-md` (the token build bridges the three `palette.shadow.*` groups onto
+# that namespace), so it is not listed as a `--ui-toast-*` token here. Figma has no
+# shadow variable type: the tier's `container/shadow` is a string naming the effect
+# style, which the emitter drops rather than emit as a dead custom property.
 #
-# The tier's title typography token is also unbound, for a different reason: it
-# aliases `typography.body.strong` (14/600), but the design node's title text
-# applies `headings/body-heading` (16/500). The node is what the component
-# reproduces (`.ui-typography-headings-heading`); the tier variable is the
-# Figma-side value to correct. The description's tier text style agrees with the
-# node (`body/default`), so it IS bound.
+# The per-status icons are Figma asset instances, supplied from
+# `@constructor-lab/icons-react/stroke-multi` by name.
+#
+# The title's text style is not bound to the tier yet. Its Figma hint read
+# `typography.body.heading`, which matches no token (the style `headings/body-heading`
+# is `typography.headings.heading`); the emitter now drops such a hint instead of
+# emitting a dangling alias. The hint has been corrected in Figma, so the token
+# returns on the next export — meanwhile the component applies the same style
+# directly via `.ui-typography-headings-heading`. The description's hint always
+# resolved (`typography.body.default`), so its text style IS bound.
 source: '@constructor-lab/tokens'
 
 tokens:
   # ── card ──
-  - name: --ui-toast-global-container-color-background
+  - name: --ui-toast-global-container-background
     affects: toast
     description: Card surface.
   - name: --ui-toast-global-container-border-width
@@ -82,25 +86,25 @@ tokens:
     affects: icon
 
   # ── content container (title + description) ──
-  - name: --ui-toast-global-content-container-gap
+  - name: --ui-toast-global-content-text-container-gap
     affects: content
-  - name: --ui-toast-global-content-container-padding-x
+  - name: --ui-toast-global-content-text-container-padding-x
     affects: content
-  - name: --ui-toast-global-content-container-padding-y
+  - name: --ui-toast-global-content-text-container-padding-y
     affects: content
-  - name: --ui-toast-global-content-container-title-color
+  - name: --ui-toast-global-content-text-container-title-color
     affects: title
-  - name: --ui-toast-global-content-container-description-color
+  - name: --ui-toast-global-content-text-container-description-color
     affects: description
 
   # ── actions row ──
-  - name: --ui-toast-global-actions-gap-x
+  - name: --ui-toast-global-content-actions-container-gap-x
     affects: action
-  - name: --ui-toast-global-actions-gap-y
+  - name: --ui-toast-global-content-actions-container-gap-y
     affects: action
-  - name: --ui-toast-global-actions-padding-x
+  - name: --ui-toast-global-content-actions-container-padding-x
     affects: action
-  - name: --ui-toast-global-actions-padding-y
+  - name: --ui-toast-global-content-actions-container-padding-y
     affects: action
 
   # ── close button + action ──

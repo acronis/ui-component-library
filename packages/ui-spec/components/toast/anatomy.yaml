@@ -46,7 +46,7 @@ parts:
     element: div
     description: >-
       The content column. It holds the text block (title + description, carrying
-      the tier's `content-container` gap and padding) and, below it, the actions
+      the tier's `content/textContainer` gap and padding) and, below it, the actions
       row — so an action lines up with the text rather than with the icon.
   - id: title
     element: div

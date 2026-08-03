@@ -90,7 +90,7 @@ describe('Toast', () => {
     expect(card).toBeTruthy();
     // The design's card metrics come from the tier, not hardcoded utilities.
     expect(card.className).toContain(
-      'bg-[var(--ui-toast-global-container-color-background)]'
+      'bg-[var(--ui-toast-global-container-background)]'
     );
     expect(card.className).toContain(
       'min-w-[var(--ui-toast-global-container-width-min)]'

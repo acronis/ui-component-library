@@ -24,7 +24,7 @@ import { Spinner } from '../spinner';
 //
 // Bound to the dedicated `--ui-toast-*` tier (Figma node 7421:126262), which
 // carries the whole card: container radius / border / surface / gaps / padding,
-// the status bar width, the content-container and actions metrics, the icon box,
+// the status bar width, the content/text/actions container metrics, the icon box,
 // and per-status `left-line` + `border-color`. Before this it themed from the
 // shared semantic status vocabulary, so the generated tier was unconsumed and a
 // brand re-pointing any `--ui-toast-*` value had no effect.
@@ -36,11 +36,14 @@ import { Spinner } from '../spinner';
 // stay deliberately neutral: a plain `border-border` card with no status bar, so
 // `toast(title)` and `toast.loading(...)` keep working.
 //
-// Two design values are NOT bound, both because the tier holds something that is
-// not a CSS value:
-//   - `--ui-toast-global-container-shadow-shadow` is the string `shadowRegular`
-//     (a Figma effect-style name). Binding it would silently kill the shadow, so
-//     the card keeps Tailwind's `shadow-md`.
+// `shadow-md` is the design's own elevation, not a Tailwind default: the token
+// build bridges the three `palette.shadow.*` groups onto Tailwind's `--shadow-*`
+// namespace, so the utility resolves to `0 16px 32px` in the design's shadow
+// colour and follows the theme. (Figma has no shadow variable type, so the tier's
+// `container/shadow` is a string naming the effect style; the emitter drops it
+// rather than emit a dead custom property.)
+//
+// One design value is NOT bound:
 //   - the status icons are Figma asset instances, so they come from
 //     `@constructor-lab/icons-react/stroke-multi` by name. The dismiss glyph is
 //     the design's `TimesSmall` (a small mark in a 16px box) — plain `Times`
@@ -182,11 +185,11 @@ function ToastList() {
           // The card itself is the padded row (icon · content · dismiss) — the
           // status bar overlays it rather than taking layout width, so the text
           // is `paddingX` from the card edge, not from the bar.
-          // The shadow stays a Tailwind utility — see the header note on
-          // `--ui-toast-global-container-shadow-shadow`.
+          // `shadow-md` is the design's elevation via the token bridge — see the
+          // header note.
           'relative flex w-full items-start overflow-hidden shadow-md',
           'gap-[var(--ui-toast-global-container-gap)] px-[var(--ui-toast-global-container-padding-x)] py-[var(--ui-toast-global-container-padding-y)]',
-          'min-w-[var(--ui-toast-global-container-width-min)] rounded-[var(--ui-toast-global-container-border-radius)] border-[length:var(--ui-toast-global-container-border-width)] border-solid bg-[var(--ui-toast-global-container-color-background)]',
+          'min-w-[var(--ui-toast-global-container-width-min)] rounded-[var(--ui-toast-global-container-border-radius)] border-[length:var(--ui-toast-global-container-border-width)] border-solid bg-[var(--ui-toast-global-container-background)]',
           style?.border ?? 'border-border',
           'transition-all data-[ending-style]:opacity-0 data-[starting-style]:opacity-0',
           'ltr:data-[starting-style]:translate-x-4 rtl:data-[starting-style]:-translate-x-4 ltr:data-[ending-style]:translate-x-4 rtl:data-[ending-style]:-translate-x-4'
@@ -199,17 +202,17 @@ function ToastList() {
         ) : null}
         {/* The design's `content`: the text block and the actions row share one
             column, so the actions align with the text rather than the icon. */}
-        <div className="flex min-w-0 flex-1 flex-col">
-          <div className="flex w-full flex-col gap-[var(--ui-toast-global-content-container-gap)] px-[var(--ui-toast-global-content-container-padding-x)] py-[var(--ui-toast-global-content-container-padding-y)]">
+        <div className="flex min-w-0 flex-1 flex-col gap-[var(--ui-toast-global-content-gap)] px-[var(--ui-toast-global-content-padding-x)] py-[var(--ui-toast-global-content-padding-y)]">
+          <div className="flex w-full flex-col gap-[var(--ui-toast-global-content-text-container-gap)] px-[var(--ui-toast-global-content-text-container-padding-x)] py-[var(--ui-toast-global-content-text-container-padding-y)]">
             {/* The title carries the design's applied `headings/body-heading`
                 style (16/500). The tier's own `…-title-text-style` says 14/600
                 (it aliases `typography.body.strong`) — it disagrees with the
                 node, so it is the Figma-side value to fix, not the render. */}
-            <ToastPrimitive.Title className="ui-typography-headings-heading text-[var(--ui-toast-global-content-container-title-color)]" />
-            <ToastPrimitive.Description className="ui-toast-global-content-container-description-text-style text-[var(--ui-toast-global-content-container-description-color)]" />
+            <ToastPrimitive.Title className="ui-typography-headings-heading text-[var(--ui-toast-global-content-text-container-title-color)]" />
+            <ToastPrimitive.Description className="ui-toast-global-content-text-container-description-text-style text-[var(--ui-toast-global-content-text-container-description-color)]" />
           </div>
           {item.actionProps ? (
-            <div className="flex w-full flex-wrap items-center gap-x-[var(--ui-toast-global-actions-gap-x)] gap-y-[var(--ui-toast-global-actions-gap-y)] px-[var(--ui-toast-global-actions-padding-x)] py-[var(--ui-toast-global-actions-padding-y)]">
+            <div className="flex w-full flex-wrap items-center gap-x-[var(--ui-toast-global-content-actions-container-gap-x)] gap-y-[var(--ui-toast-global-content-actions-container-gap-y)] px-[var(--ui-toast-global-content-actions-container-padding-x)] py-[var(--ui-toast-global-content-actions-container-padding-y)]">
               <ToastPrimitive.Action render={<Button variant="ghost" />} />
             </div>
           ) : null}

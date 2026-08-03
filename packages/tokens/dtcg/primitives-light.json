@@ -4778,8 +4778,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30708"
           },
-          "$type": "color",
-          "$value": 48
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 48
+          }
         },
         "color": {
           "$extensions": {
@@ -4806,8 +4809,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30706"
           },
-          "$type": "color",
-          "$value": 0
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 0
+          }
         },
         "positiony": {
           "$extensions": {
@@ -4816,8 +4822,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30707"
           },
-          "$type": "color",
-          "$value": 24
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 24
+          }
         },
         "spread": {
           "$extensions": {
@@ -4826,8 +4835,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30709"
           },
-          "$type": "color",
-          "$value": 0
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 0
+          }
         }
       },
       "md": {
@@ -4838,8 +4850,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30703"
           },
-          "$type": "color",
-          "$value": 32
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 32
+          }
         },
         "color": {
           "$extensions": {
@@ -4866,8 +4881,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30701"
           },
-          "$type": "color",
-          "$value": 0
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 0
+          }
         },
         "positiony": {
           "$extensions": {
@@ -4876,8 +4894,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30702"
           },
-          "$type": "color",
-          "$value": 16
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 16
+          }
         },
         "spread": {
           "$extensions": {
@@ -4886,8 +4907,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30704"
           },
-          "$type": "color",
-          "$value": 0
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 0
+          }
         }
       },
       "sm": {
@@ -4898,8 +4922,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30698"
           },
-          "$type": "color",
-          "$value": 16
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 16
+          }
         },
         "color": {
           "$extensions": {
@@ -4926,8 +4953,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30694"
           },
-          "$type": "color",
-          "$value": 0
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 0
+          }
         },
         "positiony": {
           "$extensions": {
@@ -4936,8 +4966,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30697"
           },
-          "$type": "color",
-          "$value": 8
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 8
+          }
         },
         "spread": {
           "$extensions": {
@@ -4946,8 +4979,11 @@
             ],
             "com.figma.variableId": "VariableID:7653:30700"
           },
-          "$type": "color",
-          "$value": 0
+          "$type": "dimension",
+          "$value": {
+            "unit": "px",
+            "value": 0
+          }
         }
       }
     },
