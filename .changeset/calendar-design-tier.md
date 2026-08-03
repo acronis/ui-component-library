@@ -24,3 +24,6 @@ design's anatomy, which changes several defaults:
   primary / secondary (outside) / active / disabled and tabular numerals.
 - **`footer` is banded with the Footer tier**, for the design's Cancel/Apply row
   on the multiple and range variants. The buttons stay the host's.
+- **Today no longer carries a marker.** The v1 port underlined it; the design's
+  item has idle / hover / active / disabled and no today state. The cell is still
+  marked `.rdp-today`, so a host that wants a marker can style it.

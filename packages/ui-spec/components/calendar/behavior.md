@@ -13,8 +13,8 @@ contract a consumer sees. It is typically **controlled** (`selected` + `onSelect
 - **Given** `mode="multiple"` **when** days are toggled **then** `onSelect` fires
   with the array of selected `Date`s.
 - **Given** a `selected` value **when** rendered **then** the matching day(s) show
-  the brand fill; the `today` day is underlined (and loses the underline when it
-  is also selected).
+  the active fill. The `today` day gets no treatment of its own — the design
+  specifies none — though its cell stays marked for a host that wants one.
 
 ## Month navigation
 

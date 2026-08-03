@@ -57,8 +57,9 @@ parts:
       middle takes the hover fill; `outside` (adjacent-month) and `disabled` days
       both take the disabled value color. Cells are SQUARE — the design gives a
       radius to the panel, never to an item. Numerals use the tier's tabular-nums
-      text style. `today` is underlined, which the design does not specify (its
-      variants depict no today state) but which is kept as an affordance.
+      text style. `today` carries NO visual treatment — the design's item has
+      idle / hover / active / disabled and no today state — but the cell stays
+      marked (`.rdp-today`) so a host can add one.
   - id: footer
     element: div
     description: >-

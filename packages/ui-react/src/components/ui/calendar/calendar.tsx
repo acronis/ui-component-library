@@ -179,10 +179,11 @@ function Calendar({
         range_start: cn(defaultClassNames.range_start),
         range_middle: cn(defaultClassNames.range_middle),
         range_end: cn(defaultClassNames.range_end),
-        today: cn(
-          'font-semibold underline data-[selected=true]:no-underline',
-          defaultClassNames.today
-        ),
+        // No today treatment: the design's CalendarItem has idle / hover /
+        // active / disabled and nothing else, so today renders as an ordinary
+        // day. react-day-picker still marks the cell, so a host that wants a
+        // marker can style `.rdp-today` itself.
+        today: cn(defaultClassNames.today),
         // Design: a day outside the shown month takes the DISABLED value color
         // (not the secondary one, which is the weekday header's).
         outside: cn(

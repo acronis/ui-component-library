@@ -16,12 +16,14 @@ import {
 import { Calendar } from '@constructor-lab/ui-react';
 ```
 
-`Calendar` wraps [`react-day-picker`](https://daypicker.dev) with `--ui-*` token
-styling and the design system's chevron icons. It's the inline month view —
-selected/range days use the brand fill, `today` is underlined, and disabled /
-outside days are muted. It's usually **controlled**: hold `selected` in state and
-update it from `onSelect`. This is a **design-pending v1** ported from the legacy
-kit; `react-day-picker@10` is a dependency of `@constructor-lab/ui-react`.
+`Calendar` wraps [`react-day-picker`](https://daypicker.dev) with the
+`--ui-calendar-*` token tier. It's the inline month view — a bordered panel with a
+month + year select caption, Monday-first weeks, selected days and range endpoints
+in the active fill, and adjacent-month / disabled days muted. Today gets no marker
+of its own (the design specifies none); its cell is still marked `.rdp-today` if
+you want to add one. It's usually **controlled**: hold `selected` in state and
+update it from `onSelect`. `react-day-picker@10` is a dependency of
+`@constructor-lab/ui-react`.
 
 ## Examples
 

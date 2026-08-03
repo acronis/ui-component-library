@@ -44,6 +44,23 @@ describe('Calendar', () => {
     );
   });
 
+  it('gives today no treatment of its own, but keeps the cell marked', () => {
+    const { container } = render(
+      <Calendar
+        mode="single"
+        defaultMonth={JAN_2024}
+        today={new Date(2024, 0, 10)}
+      />
+    );
+    // The design's item has idle / hover / active / disabled and no today state.
+    const cell = container.querySelector('.rdp-today') as HTMLElement;
+    expect(cell).toBeInTheDocument();
+    expect(cell.className).not.toMatch(/underline|font-semibold/);
+    expect((cell.querySelector('button') as HTMLElement).className).not.toMatch(
+      /underline/
+    );
+  });
+
   it('keeps day cells square — the design gives radius to the panel only', () => {
     render(
       <Calendar
