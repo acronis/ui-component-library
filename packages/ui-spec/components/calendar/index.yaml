@@ -14,6 +14,12 @@ since: 0.55.0
 dependencies:
   components: []
 # Runtime dep: react-day-picker@10 (see README).
-# Design-pending v1: ported from the legacy shadcn UI kit without a "ready for dev" Figma node,
-# so there is no `figma:` block. Reconcile with
-# /figma-component Calendar <url> --update once mockups land.
+figma:
+  node: '8148:10167'
+  codeConnect: packages/ui-react/src/components/ui/calendar/calendar.figma.tsx
+# Reconciled with the design (node 8148:10167): the `--ui-calendar-*` tier is
+# emitted and bound, the caption is the design's month/year select pair, weeks
+# start on Monday, `range` shows two months, and the action row uses the Footer
+# tier. Remaining design detail NOT implemented: the caption selects are the
+# generic `InputSelect` at its default size rather than a calendar-specific
+# compact variant.

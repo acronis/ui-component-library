@@ -3,46 +3,69 @@ component: Calendar
 
 schematic: |
   +------------------------------------------+
-  | [<]        caption (Month YYYY)      [>]  |  nav: prev / next + caption
+  | [ Month v ]        [ YYYY v ]             |  caption: two selects, 1px rule
   +------------------------------------------+
   |  Mo  Tu  We  Th  Fr  Sa  Su               |  weekday header row
-  +------------------------------------------+
   |   1   2   3   4   5   6   7    <- grid     |  grid: weeks of `day` cells
   |   8  [9] 10  11  12  13  14                |  [ ] = today; filled = selected
   |  15  16  17  18  19  20  21                |
   +------------------------------------------+
+  |                     [Cancel]  [Apply]     |  footer (optional action row)
+  +------------------------------------------+
+  ( [<] caption [>] = the `nav` part, only with captionLayout="label" )
 
 root:
   element: div
   description: >-
-    The calendar container (`data-slot="calendar"`) wrapping react-day-picker's
-    month view. Background from `--ui-background-surface-primary`.
+    The calendar panel (`data-slot="calendar"`) wrapping react-day-picker's month
+    view: container background, 1px border, 4px radius and the shared md
+    elevation, from the `--ui-calendar-container-*` tier. 248px wide per month
+    (7 × 32px items + the body band's 12px sides).
 
 parts:
-  - id: nav
-    element: button
-    description: >-
-      Previous / next month buttons (chevron icons), neutral with a
-      surface-hover state and a token focus ring.
   - id: caption
     element: div
     description: >-
-      The month/year label — a static label or, with `captionLayout="dropdown"`,
-      month/year `<select>` dropdowns.
+      The header band (12px padding, 16px gap, 1px bottom rule). By default it
+      holds two `InputSelect`s — month and year — which is how the design
+      navigates; in a multi-month view each caption drives its own month.
+  - id: nav
+    element: button
+    description: >-
+      Previous / next month buttons (chevron icons). Present only with
+      `captionLayout="label"`; the default select caption hides them.
+    optional: true
   - id: grid
     element: table
-    description: The month grid (`role="grid"`) of week rows and `day` cells.
+    description: >-
+      The month grid (`role="grid"`) of week rows and `day` cells, wrapped in the
+      design's body band (12px padding — on the wrapper, not the table). In a
+      multi-month view the months are separated by the body border's 1px rule
+      with no gap.
   - id: weekday
-    element: div
-    description: Weekday header labels (Mo–Su), muted text.
+    element: th
+    description: >-
+      Weekday header labels — two letters, Monday-first, in the secondary value
+      color. react-day-picker renders the row `aria-hidden`.
   - id: day
     element: button
     description: >-
-      A single day cell. Neutral by default; `hover` uses the surface-hover
-      token. Internal (react-day-picker-driven) render states: `selected` and
-      range start/end use the brand fill (`--ui-background-brand-primary` /
-      `--ui-glyph-on-brand-primary`); range middle uses the surface-hover fill;
-      `today` is underlined; `outside`/`disabled` days are muted.
+      A single day cell: the tier's 32×32 item box, transparent when idle,
+      surface-hover on hover, and the active fill when selected. Internal
+      (react-day-picker-driven) render states: `selected` and range start/end
+      take `--ui-calendar-item-color-active` with the active value color; range
+      middle takes the hover fill; `outside` (adjacent-month) and `disabled` days
+      both take the disabled value color. Cells are SQUARE — the design gives a
+      radius to the panel, never to an item. Numerals use the tier's tabular-nums
+      text style. `today` is underlined, which the design does not specify (its
+      variants depict no today state) but which is kept as an affordance.
+  - id: footer
+    element: div
+    description: >-
+      The design's action row (Cancel / Apply on the multiple and range
+      variants) — react-day-picker's `footer` slot, banded with the Footer tier.
+      The buttons themselves belong to the composition around the calendar.
+    optional: true
 
 # Selection/today/range/disabled are internal render states owned by
 # react-day-picker (driven by `selected`/`disabled`/date props), not discrete

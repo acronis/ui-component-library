@@ -22,17 +22,37 @@ contract:
     - name: captionLayout
       type: "'label' | 'dropdown' | 'dropdown-months' | 'dropdown-years'"
       required: false
-      default: label
-      description: A static month/year label, or month/year `<select>` dropdowns.
+      default: dropdown
+      description: >-
+        `dropdown` (the design, and the default) captions the month with two
+        `InputSelect`s and hides the chevron nav — navigation happens through
+        them. `label` restores react-day-picker's own caption label plus prev /
+        next buttons.
     - name: showOutsideDays
       type: boolean
       required: false
       default: true
       description: Render the trailing/leading days of adjacent months.
+    - name: weekStartsOn
+      type: '0 | 1 | 2 | 3 | 4 | 5 | 6'
+      required: false
+      default: 1
+      description: >-
+        First day of the week; 1 (Monday) per the design. A `locale` overrides
+        it with the locale's own first day.
     - name: numberOfMonths
       type: number
       required: false
-      description: How many months to display side by side.
+      description: >-
+        How many months to display side by side. Defaults to 2 when
+        `mode="range"` (the design's range variant), otherwise 1.
+    - name: footer
+      type: ReactNode
+      required: false
+      description: >-
+        The design's action row (Cancel / Apply on the multiple and range
+        variants), banded with the Footer tier. Content is the host's; the
+        calendar only styles the band.
     - name: disabled
       type: 'Matcher | Matcher[]'
       required: false

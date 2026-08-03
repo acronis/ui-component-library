@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { arSA, de } from 'react-day-picker/locale';
 
 import { Calendar } from '../calendar';
+import { Button } from '../../button';
 import { InputDatePicker } from '../../input-date-picker';
 import { Popover, PopoverContent, PopoverTrigger } from '../../popover';
 
@@ -16,7 +17,7 @@ const meta = {
   title: 'UI/Calendar',
   component: Calendar,
   tags: ['autodocs'],
-  args: { mode: 'single', captionLayout: 'label', showOutsideDays: true },
+  args: { mode: 'single', captionLayout: 'dropdown', showOutsideDays: true },
   argTypes: {
     mode: {
       control: 'inline-radio',
@@ -32,14 +33,24 @@ const meta = {
       control: 'select',
       options: ['label', 'dropdown', 'dropdown-months', 'dropdown-years'],
       description:
-        'Month/year caption: a static label or month/year dropdowns.',
+        "Month/year caption. `dropdown` (the default) renders the design's two `InputSelect`s and hides the chevron nav; `label` restores react-day-picker's own caption + prev/next buttons.",
       table: {
         type: {
           summary:
             "'label' | 'dropdown' | 'dropdown-months' | 'dropdown-years'",
         },
-        defaultValue: { summary: 'label' },
+        defaultValue: { summary: 'dropdown' },
         category: 'Appearance',
+      },
+    },
+    weekStartsOn: {
+      control: { type: 'number', min: 0, max: 6 },
+      description:
+        'First day of the week (0 = Sunday). Defaults to 1 (Monday), per the design; a `locale` overrides it.',
+      table: {
+        type: { summary: '0 | 1 | 2 | 3 | 4 | 5 | 6' },
+        defaultValue: { summary: '1' },
+        category: 'Behavior',
       },
     },
     showOutsideDays: {
@@ -84,14 +95,34 @@ export const Range: Story = {
   },
 };
 
-export const DropdownCaption: Story = {
+// The opt-out: react-day-picker's own caption label + chevron nav, for hosts
+// that want arrows instead of the design's month/year selects.
+export const LabelCaption: Story = {
   args: {
     mode: 'single',
-    captionLayout: 'dropdown',
+    captionLayout: 'label',
     defaultMonth: MONTH,
     today: TODAY,
     selected: new Date(2024, 0, 15),
     onSelect: () => {},
+  },
+};
+
+// `multiple` and `range` carry the design's action footer. The buttons live in
+// the composition around the calendar; `footer` is react-day-picker's own slot.
+export const WithFooter: Story = {
+  args: {
+    mode: 'multiple',
+    defaultMonth: MONTH,
+    today: TODAY,
+    selected: [new Date(2024, 0, 9), new Date(2024, 0, 15)],
+    onSelect: () => {},
+    footer: (
+      <>
+        <Button variant="secondary">Cancel</Button>
+        <Button>Apply</Button>
+      </>
+    ),
   },
 };
 

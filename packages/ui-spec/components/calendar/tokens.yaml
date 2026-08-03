@@ -4,37 +4,94 @@ component: Calendar
 # References only. Values live in @constructor-lab/tokens and resolve per brand/theme at
 # paint time. The token schema forbids a value/default key here.
 #
-# Calendar has no dedicated `--ui-calendar-*` tier yet (design-pending v1); it
-# binds the shared SEMANTIC vocabulary via bridged Tailwind names. Day/nav
-# geometry is a local `--cell-size` (not a token) + react-day-picker defaults.
+# Calendar now binds its OWN `--ui-calendar-*` tier (Figma node 8148:10167,
+# emitted into tiers/components.json). Only two things come from elsewhere: the
+# shared focus token, and the footer band — the design's action row is a
+# DialogFooterDefault, so it uses the Footer tier.
 source: '@constructor-lab/tokens'
 
 tokens:
-  # ── surface + text ──
-  - name: --ui-background-surface-primary # calendar background (bg-background)
+  # ── container (the bordered panel) ──
+  - name: --ui-calendar-container-color
     affects: root
-  - name: --ui-text-on-surface-primary # day / nav text (text-foreground)
+  - name: --ui-calendar-container-border-color
+    affects: root
+  - name: --ui-calendar-container-border-width
+    affects: root
+  - name: --ui-calendar-container-border-style
+    affects: root
+  - name: --ui-calendar-container-border-radius # the panel only — items are square
+    affects: root
+
+  # ── header (the month/year caption band) ──
+  - name: --ui-calendar-header-padding-x
+    affects: caption
+  - name: --ui-calendar-header-padding-y
+    affects: caption
+  - name: --ui-calendar-header-gap # between the month and year selects
+    affects: caption
+  - name: --ui-calendar-header-border-color # rule under the caption
+    affects: caption
+  - name: --ui-calendar-header-border-width
+    affects: caption
+  - name: --ui-calendar-header-border-style
+    affects: caption
+
+  # ── body (the grid band) ──
+  - name: --ui-calendar-body-padding-x
+    affects: grid
+  - name: --ui-calendar-body-padding-y
+    affects: grid
+  - name: --ui-calendar-body-border-color
+    affects: grid
+  - name: --ui-calendar-body-border-width
+    affects: grid
+  - name: --ui-calendar-body-border-style
+    affects: grid
+
+  # ── day cell (the 32×32 item box) ──
+  - name: --ui-calendar-item-width-min
     affects: day
-  - name: --ui-text-on-surface-secondary # weekday / outside / disabled (text-muted-foreground)
+  - name: --ui-calendar-item-height-min
+    affects: day
+  - name: --ui-calendar-item-color-idle
+    affects: day
+  - name: --ui-calendar-item-color-hover # also the range-middle track
+    affects: day
+  - name: --ui-calendar-item-color-active # selected day / range endpoints
+    affects: day
+  - name: --ui-calendar-item-border-idle
+    affects: day
+  - name: --ui-calendar-item-border-hover
+    affects: day
+  - name: --ui-calendar-item-border-active
+    affects: day
+
+  # ── day value (the numeral) ──
+  - name: --ui-calendar-value-color-idle-primary # in-month day
+    affects: day
+  - name: --ui-calendar-value-color-idle-secondary # weekday header labels
     affects: weekday
-  - name: --ui-background-surface-hover # day / nav hover (bg-accent)
+  - name: --ui-calendar-value-color-active # selected day glyph
+    affects: day
+  - name: --ui-calendar-value-color-disabled # disabled AND adjacent-month days
+    affects: day
+  - name: --ui-calendar-value-font-variant-numeric # tabular-nums
     affects: day
 
-  # ── selection (blue / electricblue-info gamma, not the acronis brand navy) ──
-  - name: --ui-background-status-strong-info # selected / range start-end fill
-    affects: day
-  - name: --ui-glyph-on-brand-primary # selected day glyph (white on the blue fill)
-    affects: day
-  - name: --ui-background-status-info # range track (endpoints' cell + range middle)
-    affects: day
-  - name: --ui-text-on-status-info # range-middle glyph (blue on soft-info)
-    affects: day
-
-  # ── dropdown caption (captionLayout="dropdown") ──
-  - name: --ui-border-on-surface-border # dropdown border (border-input)
-    affects: caption
-  - name: --ui-border-on-surface-border-active # dropdown focus ring (ring-ring / border-ring)
-    affects: caption
+  # ── footer band (the design's action row — the Footer tier) ──
+  - name: --ui-footer-global-height
+    affects: footer
+  - name: --ui-footer-global-padding-x
+    affects: footer
+  - name: --ui-footer-global-gap
+    affects: footer
+  - name: --ui-footer-default-color
+    affects: footer
+  - name: --ui-footer-default-border-color
+    affects: footer
+  - name: --ui-footer-default-border-width
+    affects: footer
 
   # ── focus ring (day + nav) ──
   - name: --ui-focus-primary

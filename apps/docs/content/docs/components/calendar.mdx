@@ -37,17 +37,25 @@ const [date, setDate] = React.useState<Date>();
 <Calendar mode="single" selected={date} onSelect={setDate} />;
 ```
 
-Range selection with month/year dropdowns:
+Range selection — two months side by side, per the design:
 
 ```tsx
 const [range, setRange] = React.useState<DateRange>();
 
+<Calendar mode="range" selected={range} onSelect={setRange} />;
+```
+
+The caption is a month + year select pair by default (and the chevron nav is
+hidden, since the selects navigate). Pass `captionLayout="label"` for
+react-day-picker's own caption label plus prev/next buttons:
+
+```tsx
 <Calendar
-  mode="range"
-  captionLayout="dropdown"
-  selected={range}
-  onSelect={setRange}
-/>;
+  mode="single"
+  captionLayout="label"
+  selected={date}
+  onSelect={setDate}
+/>
 ```
 
 Disable days (e.g. weekends) and show two months:
