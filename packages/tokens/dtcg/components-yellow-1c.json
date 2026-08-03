@@ -144,6 +144,19 @@
           "$type": "dimension",
           "$value": "{units.gap.8}"
         }
+      },
+      "icon": {
+        "size": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [
+              "WIDTH_HEIGHT"
+            ],
+            "com.figma.variableId": "VariableID:8378:34767"
+          },
+          "$type": "dimension",
+          "$value": "{units.size.16}"
+        }
       }
     },
     "critical": {
@@ -1578,7 +1591,7 @@
               "com.figma.variableId": "VariableID:2468:91033"
             },
             "$type": "color",
-            "$value": "{palette.grayscale.3}"
+            "$value": "{palette.electricblue.electricblue-3}"
           },
           "hover": {
             "$extensions": {
@@ -1600,7 +1613,7 @@
               "com.figma.variableId": "VariableID:2468:91030"
             },
             "$type": "color",
-            "$value": "{palette.grayscale.3}"
+            "$value": "{palette.electricblue.electricblue-3}"
           }
         },
         "borderStyle": {
@@ -2128,7 +2141,7 @@
               "com.figma.variableId": "VariableID:2236:5671"
             },
             "$type": "color",
-            "$value": "{palette.grayscale.3}"
+            "$value": "{palette.electricblue.electricblue-3}"
           },
           "hover": {
             "$extensions": {
@@ -2150,7 +2163,7 @@
               "com.figma.variableId": "VariableID:2236:5668"
             },
             "$type": "color",
-            "$value": "{palette.grayscale.3}"
+            "$value": "{palette.electricblue.electricblue-3}"
           }
         },
         "borderStyle": {
@@ -2969,7 +2982,7 @@
               "com.figma.variableId": "VariableID:2542:219"
             },
             "$type": "color",
-            "$value": "{palette.grayscale.3}"
+            "$value": "{palette.electricblue.electricblue-3}"
           },
           "hover": {
             "$extensions": {
@@ -2991,7 +3004,7 @@
               "com.figma.variableId": "VariableID:2542:216"
             },
             "$type": "color",
-            "$value": "{palette.grayscale.3}"
+            "$value": "{palette.electricblue.electricblue-3}"
           }
         },
         "borderStyle": {
@@ -4821,7 +4834,7 @@
             "com.figma.variableId": "VariableID:4090:4825"
           },
           "$type": "typography",
-          "$value": "{typography.link.default}"
+          "$value": "{typography.link.strong}"
         }
       }
     },
@@ -6986,7 +6999,7 @@
             "com.figma.variableId": "VariableID:3202:824"
           },
           "$type": "dimension",
-          "$value": "{units.size.8}"
+          "$value": "{units.gap.8}"
         },
         "paddingX": {
           "$extensions": {
@@ -7008,7 +7021,7 @@
             "com.figma.variableId": "VariableID:3202:822"
           },
           "$type": "dimension",
-          "$value": "{units.size.16}"
+          "$value": "{units.gap.16}"
         },
         "widthMin": {
           "$extensions": {
@@ -7080,7 +7093,7 @@
             "com.figma.variableId": "VariableID:3064:21377"
           },
           "$type": "color",
-          "$value": "{colors.text.onSurface.primary}"
+          "$value": "{colors.glyph.onSurface.primary}"
         },
         "iconCollapse": {
           "$extensions": {
@@ -7091,7 +7104,7 @@
             "com.figma.variableId": "VariableID:3202:923"
           },
           "$type": "color",
-          "$value": "{colors.text.onSurface.primary}"
+          "$value": "{colors.glyph.onSurface.primary}"
         },
         "iconTenant": {
           "$extensions": {
@@ -7102,7 +7115,7 @@
             "com.figma.variableId": "VariableID:3202:917"
           },
           "$type": "color",
-          "$value": "{colors.text.onSurface.primary}"
+          "$value": "{colors.glyph.onSurface.primary}"
         },
         "label": {
           "color": {
@@ -7817,7 +7830,7 @@
               "com.figma.variableId": "VariableID:3299:8951"
             },
             "$type": "color",
-            "$value": "{colors.text.onSurface.disabled}"
+            "$value": "{colors.glyph.onSurface.disabled}"
           },
           "hover": {
             "$extensions": {
@@ -9372,10 +9385,7 @@
             "com.figma.variableId": "VariableID:7358:93139"
           },
           "$type": "dimension",
-          "$value": {
-            "unit": "px",
-            "value": 0
-          }
+          "$value": "{units.gap.0}"
         }
       }
     }
@@ -11118,7 +11128,7 @@
                 "com.figma.variableId": "VariableID:2468:145021"
               },
               "$type": "color",
-              "$value": "{colors.background.surface.active}"
+              "$value": "{colors.background.surface.hover}"
             },
             "hover": {
               "$extensions": {
@@ -13216,6 +13226,17 @@
               },
               "$type": "color",
               "$value": "{colors.text.onSurface.primary}"
+            },
+            "textStyle": {
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true,
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.variableId": "VariableID:8349:48642"
+              },
+              "$type": "typography",
+              "$value": "{typography.headings.heading}"
             }
           }
         }

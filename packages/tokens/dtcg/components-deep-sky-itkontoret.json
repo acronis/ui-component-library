@@ -144,6 +144,19 @@
           "$type": "dimension",
           "$value": "{units.gap.8}"
         }
+      },
+      "icon": {
+        "size": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [
+              "WIDTH_HEIGHT"
+            ],
+            "com.figma.variableId": "VariableID:8378:34767"
+          },
+          "$type": "dimension",
+          "$value": "{units.size.16}"
+        }
       }
     },
     "critical": {
@@ -13216,6 +13229,17 @@
               },
               "$type": "color",
               "$value": "{colors.text.onSurface.primary}"
+            },
+            "textStyle": {
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true,
+                "com.figma.scopes": [
+                  "ALL_SCOPES"
+                ],
+                "com.figma.variableId": "VariableID:8349:48642"
+              },
+              "$type": "typography",
+              "$value": "{typography.headings.heading}"
             }
           }
         }

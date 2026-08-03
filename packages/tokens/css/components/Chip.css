@@ -54,35 +54,3 @@
   line-height: 24px;
   letter-spacing: 0px;
 }
-
-[data-brand='light-gray'] .ui-chip-operational-label-text-style {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
-}
-
-[data-brand='telstra'] .ui-chip-operational-label-text-style {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
-}
-
-[data-brand='virtuozzo'] .ui-chip-operational-label-text-style {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
-}
-
-[data-brand='yellow-1c'] .ui-chip-operational-label-text-style {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
-}

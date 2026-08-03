@@ -447,6 +447,7 @@
     --ui-alert-ribbon-global-container-width-min: var(--ui-units-size-512);
     --ui-alert-ribbon-global-content-description-color-color: var(--ui-text-on-surface-primary);
     --ui-alert-ribbon-global-content-gap: var(--ui-units-gap-8);
+    --ui-alert-ribbon-global-icon-size: var(--ui-units-size-16);
     --ui-alert-ribbon-info-background: var(--ui-background-status-info);
     --ui-alert-ribbon-info-carousel: var(--ui-background-status-info);
     --ui-alert-ribbon-info-divider: var(--ui-border-on-status-info);
@@ -671,26 +672,6 @@
     --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
 
-  [data-brand='light-gray'], :host([data-brand='light-gray']) {
-    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='telstra'], :host([data-brand='telstra']) {
-    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
-    --ui-button-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
   :root, :host {
     --ui-button-group-global-box-color-active: var(--ui-background-surface-active);
     --ui-button-group-global-box-color-hover: var(--ui-background-surface-hover);
@@ -733,26 +714,6 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
-    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='light-gray'], :host([data-brand='light-gray']) {
-    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='telstra'], :host([data-brand='telstra']) {
-    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
     --ui-button-icon-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
     --ui-button-icon-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
@@ -865,26 +826,6 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
-    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='light-gray'], :host([data-brand='light-gray']) {
-    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='telstra'], :host([data-brand='telstra']) {
-    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
-    --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
-  }
-
-  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
     --ui-button-menu-secondary-container-border-color-disabled: var(--ui-palette-grayscale-3);
     --ui-button-menu-secondary-container-border-color-idle: var(--ui-palette-grayscale-3);
   }
@@ -1121,38 +1062,6 @@
   }
 
   [data-brand='deep-sky-itkontoret'] .ui-chip-operational-label-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-  }
-
-  [data-brand='light-gray'] .ui-chip-operational-label-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-  }
-
-  [data-brand='telstra'] .ui-chip-operational-label-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-  }
-
-  [data-brand='virtuozzo'] .ui-chip-operational-label-text-style {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-  }
-
-  [data-brand='yellow-1c'] .ui-chip-operational-label-text-style {
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -1605,42 +1514,6 @@
   }
 
   [data-brand='deep-sky-itkontoret'], :host([data-brand='deep-sky-itkontoret']) {
-    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
-    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
-    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
-    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
-  }
-
-  [data-brand='light-gray'], :host([data-brand='light-gray']) {
-    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
-    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
-    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
-    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
-  }
-
-  [data-brand='telstra'], :host([data-brand='telstra']) {
-    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
-    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
-    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
-    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
-  }
-
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
-    --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
-    --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-collapse: var(--ui-text-on-surface-primary);
-    --ui-input-select-dropdown-item-global-icon-tenant: var(--ui-text-on-surface-primary);
-    --ui-input-select-normal-icon-color-disabled: var(--ui-text-on-surface-disabled);
-  }
-
-  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
     --ui-input-select-dropdown-container-status-gap: var(--ui-units-size-8);
     --ui-input-select-dropdown-container-status-padding-y: var(--ui-units-size-16);
     --ui-input-select-dropdown-item-global-icon-checked: var(--ui-text-on-surface-primary);
@@ -2242,22 +2115,6 @@
     --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
   }
 
-  [data-brand='light-gray'], :host([data-brand='light-gray']) {
-    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
-  }
-
-  [data-brand='telstra'], :host([data-brand='telstra']) {
-    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
-  }
-
-  [data-brand='virtuozzo'], :host([data-brand='virtuozzo']) {
-    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
-  }
-
-  [data-brand='yellow-1c'], :host([data-brand='yellow-1c']) {
-    --ui-sidebar-secondary-menu-item-unselected-container-color-active: var(--ui-background-surface-active);
-  }
-
   :root, :host {
     --ui-switch-global-box-border-color-active: var(--ui-border-transparent);
     --ui-switch-global-box-border-color-disabled: var(--ui-border-on-surface-border);
@@ -2458,6 +2315,14 @@
     font-family: Inter, system-ui, sans-serif;
     font-size: 14px;
     font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .ui-toast-global-content-text-container-title-text-style {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
     line-height: 24px;
     letter-spacing: 0px;
   }

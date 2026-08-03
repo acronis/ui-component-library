@@ -18,6 +18,7 @@ export const tokens = {
   "ui-alert-ribbon-global-container-width-min": "var(--ui-alert-ribbon-global-container-width-min)",
   "ui-alert-ribbon-global-content-description-color-color": "var(--ui-alert-ribbon-global-content-description-color-color)",
   "ui-alert-ribbon-global-content-gap": "var(--ui-alert-ribbon-global-content-gap)",
+  "ui-alert-ribbon-global-icon-size": "var(--ui-alert-ribbon-global-icon-size)",
   "ui-alert-ribbon-info-background": "var(--ui-alert-ribbon-info-background)",
   "ui-alert-ribbon-info-carousel": "var(--ui-alert-ribbon-info-carousel)",
   "ui-alert-ribbon-info-divider": "var(--ui-alert-ribbon-info-divider)",

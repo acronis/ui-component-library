@@ -18,6 +18,7 @@
   --ui-alert-ribbon-global-container-width-min: var(--ui-units-size-512);
   --ui-alert-ribbon-global-content-description-color-color: var(--ui-text-on-surface-primary);
   --ui-alert-ribbon-global-content-gap: var(--ui-units-gap-8);
+  --ui-alert-ribbon-global-icon-size: var(--ui-units-size-16);
   --ui-alert-ribbon-info-background: var(--ui-background-status-info);
   --ui-alert-ribbon-info-carousel: var(--ui-background-status-info);
   --ui-alert-ribbon-info-divider: var(--ui-border-on-status-info);
