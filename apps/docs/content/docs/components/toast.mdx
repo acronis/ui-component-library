@@ -14,10 +14,13 @@ import { Toaster, toast } from '@constructor-lab/ui-react';
 
 Render a single `<Toaster />` near the app root, then call the imperative
 `toast(...)` API from anywhere — including outside React, since the manager is
-module-level. Rebuilt on the Base UI toast primitive (no Sonner dependency). This
-is a design-pending v1 on semantic tokens: a neutral card surface with the status
-conveyed by a colored leading icon; a `--ui-toast-*` tier and per-status tinting
-are pending a Figma pass.
+module-level. Rebuilt on the Base UI toast primitive (no Sonner dependency).
+
+Themed by the `--ui-toast-*` token tier: a white card with a 1px status border, a
+status bar down its leading edge, a full-color status icon, and a compact dismiss
+button. The five design statuses are `info`, `success`, `warning`, `critical` and
+`danger` — the last is called `error` here. `toast()` and `toast.loading()` have
+no design counterpart and stay neutral (a plain border, no status bar).
 
 ```tsx
 // once, near the app root
@@ -37,6 +40,7 @@ toast.success('Profile saved', { description: 'Your changes were saved.' });
 toast('Event created', { description: 'Monday, January 3rd at 6:00 PM' });
 toast.success('Profile saved');
 toast.error('Delete failed', { description: 'Please try again.' });
+toast.critical('Backup at risk', { description: 'The last two runs failed.' });
 toast.info('Event created', {
   description: 'Monday at 6:00 PM',
   action: { label: 'Undo', onClick: undo },
@@ -48,7 +52,7 @@ toast.info('Event created', {
 | Method                                                | Description                                     |
 | ----------------------------------------------------- | ----------------------------------------------- |
 | `toast(title, options?)`                              | A neutral toast. Returns the toast id.          |
-| `toast.success / info / warning / error`              | Status variants (sets the icon).                |
+| `toast.success / info / warning / critical / error`   | Status variants (icon, border, status bar).     |
 | `toast.loading(title, options?)`                      | A persistent spinner toast (no auto-dismiss).   |
 | `toast.dismiss(id?)`                                  | Dismiss one toast, or all when `id` is omitted. |
 | `toast.promise(promise, { loading, success, error })` | Tie a toast to a promise's lifecycle.           |

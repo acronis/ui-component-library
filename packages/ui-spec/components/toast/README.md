@@ -3,12 +3,13 @@
 A transient notification shown in a corner stack — triggered imperatively with
 the `toast(...)` API and rendered by a single `<Toaster>` region.
 
-> **Status: draft (design-pending v1).** Ported from the legacy
-> the legacy shadcn UI kit `sonner` wrapper, rebuilt on the Base UI toast
-> manager (no Sonner dependency). No `--ui-toast-*` tier; a neutral card surface
-> with the status conveyed by a colored icon (per-status surface tinting is
-> design-pending). Reconcile with `/figma-component Toast <url> --update` once a
-> mockup lands.
+> **Status: ready.** Ported from the legacy shadcn UI kit `sonner` wrapper,
+> rebuilt on the Base UI toast manager (no Sonner dependency) and bound to its own
+> `--ui-toast-*` tier (Figma node `7421:126262`): a white card with a 1px status
+> border, a status bar down the leading edge, a full-color status icon and a
+> compact dismiss button. The five design statuses are `info`, `success`,
+> `warning`, `critical` and `danger` (called `error` here); `toast()` and
+> `toast.loading()` have no design counterpart and stay neutral.
 
 ## When to use
 
@@ -33,6 +34,7 @@ import { Toaster, toast } from '@constructor-lab/ui-react';
 
 // anywhere
 toast.success('Profile saved', { description: 'Your changes were saved.' });
+toast.critical('Backup at risk', { description: 'The last two runs failed.' });
 toast('Event created', {
   description: 'Monday at 6:00 PM',
   action: { label: 'Undo', onClick: undo },
@@ -48,12 +50,14 @@ toast.promise(save(), {
 
 ## Parts
 
-| Part          | Element | Purpose                                     |
-| ------------- | ------- | ------------------------------------------- |
-| `root`        | div     | The `role="region"` viewport / toast stack. |
-| `toast`       | div     | A single notification card.                 |
-| `icon`        | span    | Leading status glyph / spinner.             |
-| `title`       | div     | Bold first line.                            |
-| `description` | div     | Muted secondary line.                       |
-| `action`      | button  | Optional inline action.                     |
-| `close`       | button  | Dismiss (✕) button.                         |
+| Part           | Element | Purpose                                     |
+| -------------- | ------- | ------------------------------------------- |
+| `root`         | div     | The `role="region"` viewport / toast stack. |
+| `toast`        | div     | A single notification card.                 |
+| `toast-accent` | span    | Status bar over the card's leading edge.    |
+| `icon`         | span    | Leading status glyph / spinner.             |
+| `content`      | div     | Column holding the text block and actions.  |
+| `title`        | div     | First line (`headings/body-heading`).       |
+| `description`  | div     | Secondary line.                             |
+| `action`       | button  | Optional inline action, aligned with text.  |
+| `close`        | button  | Dismiss (✕) button (`TimesSmall`).          |

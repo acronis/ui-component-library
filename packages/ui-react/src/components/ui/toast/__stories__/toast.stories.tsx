@@ -53,6 +53,9 @@ export const Variants: Story = {
           toast.warning('Disk space low', {
             description: 'Less than 10% remaining.',
           });
+          toast.critical('Backup at risk', {
+            description: 'The last two runs did not complete.',
+          });
           toast.error('Delete failed', {
             description: 'Please try again or contact support.',
           });
@@ -60,7 +63,9 @@ export const Variants: Story = {
       >
         Show variants
       </Button>
-      <Toaster />
+      {/* The provider's default limit is 3, which silently dropped the two
+          oldest of the five statuses — including from the VR baseline. */}
+      <Toaster limit={5} />
     </div>
   ),
   play: async ({ canvasElement }) => {

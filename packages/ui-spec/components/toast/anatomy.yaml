@@ -3,13 +3,16 @@ component: Toast
 
 schematic: |
   root: <div role="region" aria-label="Notifications"> fixed bottom-right stack
-    toast: <div> card (strong status border, white surface, shadow), one per notification
-      toast-accent: 6px left bar in the strong status color (status types only)
-      icon:        leading full-color status glyph (success/info/warning/error) or spinner
-      title:       bold first line
-      description: secondary line
-      action:      optional inline button (e.g. Undo)
+    toast: <div> card (strong status border, white surface, shadow) — itself the padded
+           icon · content · close row, one per notification
+      icon:        leading full-color status glyph (info/success/warning/critical/error) or spinner
+      content:     the column holding the text block and the actions row
+        title:       first line, `headings/body-heading` (16/500)
+        description: secondary line, the tier's description text style
+        action:      optional inline button (e.g. Undo) — aligned with the text, not the icon
       close:       trailing compact dismiss (✕) button
+      toast-accent: status bar overlaying the card's leading edge, `container/statusWidth`
+                    wide (status types only)
 
 root:
   element: div
@@ -28,18 +31,28 @@ parts:
   - id: toast-accent
     element: span
     description: >-
-      The 6px left bar in the strong status background
-      (--ui-background-status-strong-*), shown for the colored status types;
-      decorative (aria-hidden).
+      The status bar — `--ui-toast-global-container-status-width` wide, filled with
+      the status's `--ui-toast-<status>-left-line`. Positioned over the card's
+      leading edge (it takes no layout width, so the text keeps the container's
+      `paddingX` from the card edge) and spans its full height. Shown for the
+      colored status types only; decorative (aria-hidden).
   - id: icon
     element: span
     description: >-
       Leading full-color status glyph — CircleCheckGreen (success), CircleInfoBlue
-      (info), TriangleWarningYellow (warning), DiamondWarningRed (error); a Spinner
-      for the loading type.
+      (info), TriangleWarningYellow (warning), CircleWarningOrange (critical),
+      DiamondWarningRed (error); a Spinner for the loading type.
+  - id: content
+    element: div
+    description: >-
+      The content column. It holds the text block (title + description, carrying
+      the tier's `content-container` gap and padding) and, below it, the actions
+      row — so an action lines up with the text rather than with the icon.
   - id: title
     element: div
-    description: The bold first line.
+    description: >-
+      The first line, in the design's applied `headings/body-heading` style
+      (`.ui-typography-headings-heading`).
   - id: description
     element: div
     description: Optional secondary line (foreground text).
@@ -48,9 +61,15 @@ parts:
     description: Optional inline action button (e.g. Undo).
   - id: close
     element: button
-    description: Trailing dismiss (✕) button.
+    description: >-
+      Trailing dismiss button on the ButtonIcon tier's box, holding the design's
+      `TimesSmall` glyph.
 
 # A toast's `type` (default / success / info / warning / error / loading) and its
 # enter/auto-dismiss/exit lifecycle are runtime facets of the imperative API, not
 # props on a rendered component — see behavior.md.
+# The status types are DATA (the `type` passed to `toast(...)`), not prop-states of
+# a rendered element, so they are not listed here — see api.yaml + behavior.md.
+# The design's five statuses are info / success / warning / critical / danger; this
+# component names the last one `error`.
 states: []

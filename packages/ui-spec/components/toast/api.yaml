@@ -33,9 +33,16 @@ contract:
     - name: toast.warning
       signature: 'toast.warning(title, options?) => string'
       description: Show a warning toast.
+    - name: toast.critical
+      signature: 'toast.critical(title, options?) => string'
+      description: >-
+        Show a critical toast — the design's `Critical` status, between warning
+        and error.
     - name: toast.error
       signature: 'toast.error(title, options?) => string'
-      description: Show an error toast.
+      description: >-
+        Show an error toast. `error` is this component's name for the design's
+        `danger` status and binds the danger tokens.
     - name: toast.loading
       signature: 'toast.loading(title, options?) => string'
       description: Show a persistent loading toast (spinner; no auto-dismiss).

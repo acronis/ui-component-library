@@ -30,6 +30,26 @@ export function ToastDemo() {
       <Button
         variant="secondary"
         onClick={() =>
+          toast.warning('Disk space low', {
+            description: 'Less than 10% remaining.',
+          })
+        }
+      >
+        Warning
+      </Button>
+      <Button
+        variant="secondary"
+        onClick={() =>
+          toast.critical('Backup at risk', {
+            description: 'The last two runs did not complete.',
+          })
+        }
+      >
+        Critical
+      </Button>
+      <Button
+        variant="secondary"
+        onClick={() =>
           toast.error('Delete failed', {
             description: 'Please try again or contact support.',
           })

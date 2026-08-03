@@ -14,9 +14,16 @@ Scenario: Show a toast
 
 ```gherkin
 Scenario: Status variants
-  Given toast.success / info / warning / error is called
-  Then the card shows the matching status icon (check / info / warning / error)
-  Colored by --ui-text-on-status-*
+  Given toast.success / info / warning / critical / error is called
+  Then the card shows that status's full-color icon
+  And its border takes --ui-toast-<status>-border-color
+  And a status bar over the card's leading edge takes --ui-toast-<status>-left-line
+  # `error` is this component's name for the design's `danger` status.
+
+Scenario: No status
+  Given toast(...) or toast.loading(...) is called
+  Then the card takes the neutral border and renders no status bar
+  # Neither has a design counterpart — see tokens.yaml.
 ```
 
 ```gherkin

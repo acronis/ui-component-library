@@ -28,9 +28,14 @@ afterEach(async () => {
     toast.dismiss();
   });
   await waitFor(() => {
-    expect(document.body.querySelectorAll('[class*="shadow-lg"]')).toHaveLength(
-      0
-    );
+    // Anchored on a tier class the card always carries — `shadow-lg` was the old
+    // anchor and matches nothing now, which made this guard silently pass
+    // without ever waiting for the toast to leave.
+    expect(
+      document.body.querySelectorAll(
+        '[class*="ui-toast-global-container-border-radius"]'
+      )
+    ).toHaveLength(0);
   });
 });
 
@@ -73,6 +78,62 @@ describe('Toast', () => {
     expect(container.ownerDocument.querySelector('svg')).toBeTruthy();
   });
 
+  it('binds the card and status bar to the --ui-toast-* tier', async () => {
+    const { container } = render(<Toaster />);
+    act(() => {
+      toast.error('Delete failed');
+    });
+    await screen.findByText('Delete failed');
+    const card = container.ownerDocument.querySelector(
+      '[class*="ui-toast-global-container-border-radius"]'
+    ) as HTMLElement;
+    expect(card).toBeTruthy();
+    // The design's card metrics come from the tier, not hardcoded utilities.
+    expect(card.className).toContain(
+      'bg-[var(--ui-toast-global-container-color-background)]'
+    );
+    expect(card.className).toContain(
+      'min-w-[var(--ui-toast-global-container-width-min)]'
+    );
+    // `error` is the API name for the design's `danger` status.
+    expect(card.className).toContain(
+      'border-[var(--ui-toast-danger-border-color)]'
+    );
+    const bar = card.querySelector(
+      '[class*="ui-toast-global-container-status-width"]'
+    );
+    expect(bar?.className).toContain('bg-[var(--ui-toast-danger-left-line)]');
+  });
+
+  it("renders the design's critical status with its own tokens", async () => {
+    const { container } = render(<Toaster />);
+    act(() => {
+      toast.critical('Backup at risk');
+    });
+    await screen.findByText('Backup at risk');
+    const card = container.ownerDocument.querySelector(
+      '[class*="ui-toast-critical-border-color"]'
+    );
+    expect(card).toBeTruthy();
+    expect(
+      card?.querySelector('[class*="ui-toast-critical-left-line"]')
+    ).toBeTruthy();
+  });
+
+  it('leaves a neutral toast without a status bar', async () => {
+    const { container } = render(<Toaster />);
+    act(() => {
+      toast('Just so you know');
+    });
+    await screen.findByText('Just so you know');
+    // `loading` and the untyped default have no design status.
+    expect(
+      container.ownerDocument.querySelector(
+        '[class*="ui-toast-global-container-status-width"]'
+      )
+    ).toBeNull();
+  });
+
   it('dismisses a toast via its close button', async () => {
     render(<Toaster />);
     act(() => {
@@ -81,7 +142,9 @@ describe('Toast', () => {
     const title = await screen.findByText('Dismiss me');
     // The visible toast's controls are aria-hidden (Base UI announces via an
     // offscreen copy), so they have no accessible name — query by attribute.
-    const root = title.closest('[class*="shadow-lg"]') as HTMLElement;
+    const root = title.closest(
+      '[class*="ui-toast-global-container-border-radius"]'
+    ) as HTMLElement;
     const close = root.querySelector(
       'button[aria-label="Close"]'
     ) as HTMLElement;
@@ -100,7 +163,9 @@ describe('Toast', () => {
       });
     });
     const title = await screen.findByText('Event created');
-    const root = title.closest('[class*="shadow-lg"]') as HTMLElement;
+    const root = title.closest(
+      '[class*="ui-toast-global-container-border-radius"]'
+    ) as HTMLElement;
     await userEvent.click(within(root).getByText('Undo'));
     expect(onClick).toHaveBeenCalledOnce();
   });

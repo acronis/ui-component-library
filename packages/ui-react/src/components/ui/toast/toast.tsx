@@ -2,10 +2,11 @@
 
 import * as React from 'react';
 import { Toast as ToastPrimitive } from '@base-ui/react/toast';
-import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
+import { TimesSmallIcon } from '@constructor-lab/icons-react/stroke-mono';
 import {
   CircleCheckGreenIcon,
   CircleInfoBlueIcon,
+  CircleWarningOrangeIcon,
   DiamondWarningRedIcon,
   TriangleWarningYellowIcon,
 } from '@constructor-lab/icons-react/stroke-multi';
@@ -19,21 +20,45 @@ import { Spinner } from '../spinner';
 // `<Toaster />` at the app root and call the imperative `toast(...)` /
 // `toast.success(...)` API from anywhere.
 //
-// Reconciled with the redesigned Figma "Notification" set (node 6946-25164) —
-// which shares the redesigned Alert's visual language: a white surface
-// (bg-background) with a strong status border (--ui-border-on-status-*-strong), a
-// 6px left accent bar in the strong status background
-// (--ui-background-status-strong-*), and a variant-driven full-color status icon;
-// a toast adds a floating drop shadow. Status maps: success/info/warning →
-// same; `error` → the danger tokens; `loading` and the untyped default stay
-// neutral (border-border, no accent). Auto-dismiss after `timeout` (default
-// 5000ms); `loading` toasts persist until updated or dismissed.
+// Bound to the dedicated `--ui-toast-*` tier (Figma node 7421:126262), which
+// carries the whole card: container radius / border / surface / gaps / padding,
+// the status bar width, the content-container and actions metrics, the icon box,
+// and per-status `left-line` + `border-color`. Before this it themed from the
+// shared semantic status vocabulary, so the generated tier was unconsumed and a
+// brand re-pointing any `--ui-toast-*` value had no effect.
+//
+// The design's five statuses are info / success / warning / critical / danger.
+// This component's public `type` names them success / info / warning / critical /
+// error, keeping `error` (not `danger`) for API compatibility — it binds the
+// danger tokens. `loading` and the untyped default have no design counterpart and
+// stay deliberately neutral: a plain `border-border` card with no status bar, so
+// `toast(title)` and `toast.loading(...)` keep working.
+//
+// Two design values are NOT bound, both because the tier holds something that is
+// not a CSS value:
+//   - `--ui-toast-global-container-shadow-shadow` is the string `shadowRegular`
+//     (a Figma effect-style name). Binding it would silently kill the shadow, so
+//     the card keeps Tailwind's `shadow-md`.
+//   - the status icons are Figma asset instances, so they come from
+//     `@constructor-lab/icons-react/stroke-multi` by name. The dismiss glyph is
+//     the design's `TimesSmall` (a small mark in a 16px box) — plain `Times`
+//     fills the box and reads far too heavy at this size.
+//
+// Auto-dismiss after `timeout` (default 5000ms); `loading` persists until
+// updated or dismissed.
 
 // A module-level manager so `toast(...)` works outside React (like Sonner's
 // `toast`). `<Toaster />` subscribes this manager to its provider.
 const toastManager = ToastPrimitive.createToastManager();
 
-export type ToastType = 'success' | 'info' | 'warning' | 'error' | 'loading';
+export type ToastType =
+  | 'success'
+  | 'info'
+  | 'warning'
+  /** The design's `Critical` status — between `warning` and `error`. */
+  | 'critical'
+  | 'error'
+  | 'loading';
 
 export interface ToastOptions {
   /** Secondary line under the title. */
@@ -78,6 +103,8 @@ const toast = Object.assign(
       add(title, 'info', options),
     warning: (title: React.ReactNode, options?: ToastOptions) =>
       add(title, 'warning', options),
+    critical: (title: React.ReactNode, options?: ToastOptions) =>
+      add(title, 'critical', options),
     error: (title: React.ReactNode, options?: ToastOptions) =>
       add(title, 'error', options),
     loading: (title: React.ReactNode, options?: ToastOptions) =>
@@ -87,33 +114,39 @@ const toast = Object.assign(
   }
 );
 
-// The four colored status types → strong border + accent-bar tokens + a
-// full-color status icon (matching the design). `loading` and the untyped
-// default stay neutral (no accent, a plain border-border card).
-type ToastStatus = 'success' | 'info' | 'warning' | 'error';
+// Each status binds its own pair from the tier — the card border and the left
+// status bar — plus the design's full-color status icon. `loading` and the
+// untyped default are not design statuses and take neither (see the header).
+type ToastStatus = 'success' | 'info' | 'warning' | 'critical' | 'error';
 const TOAST_STYLE: Record<
   ToastStatus,
   { border: string; accent: string; icon: React.ReactNode }
 > = {
   success: {
-    border: 'border-[var(--ui-border-on-status-success-strong)]',
-    accent: 'bg-[var(--ui-background-status-strong-success)]',
-    icon: <CircleCheckGreenIcon className="size-4" />,
+    border: 'border-[var(--ui-toast-success-border-color)]',
+    accent: 'bg-[var(--ui-toast-success-left-line)]',
+    icon: <CircleCheckGreenIcon />,
   },
   info: {
-    border: 'border-[var(--ui-border-on-status-info-strong)]',
-    accent: 'bg-[var(--ui-background-status-strong-info)]',
-    icon: <CircleInfoBlueIcon className="size-4" />,
+    border: 'border-[var(--ui-toast-info-border-color)]',
+    accent: 'bg-[var(--ui-toast-info-left-line)]',
+    icon: <CircleInfoBlueIcon />,
   },
   warning: {
-    border: 'border-[var(--ui-border-on-status-warning-strong)]',
-    accent: 'bg-[var(--ui-background-status-strong-warning)]',
-    icon: <TriangleWarningYellowIcon className="size-4" />,
+    border: 'border-[var(--ui-toast-warning-border-color)]',
+    accent: 'bg-[var(--ui-toast-warning-left-line)]',
+    icon: <TriangleWarningYellowIcon />,
   },
+  critical: {
+    border: 'border-[var(--ui-toast-critical-border-color)]',
+    accent: 'bg-[var(--ui-toast-critical-left-line)]',
+    icon: <CircleWarningOrangeIcon />,
+  },
+  // `error` is the API name for the design's `danger` status.
   error: {
-    border: 'border-[var(--ui-border-on-status-danger-strong)]',
-    accent: 'bg-[var(--ui-background-status-strong-danger)]',
-    icon: <DiamondWarningRedIcon className="size-4" />,
+    border: 'border-[var(--ui-toast-danger-border-color)]',
+    accent: 'bg-[var(--ui-toast-danger-left-line)]',
+    icon: <DiamondWarningRedIcon />,
   },
 };
 
@@ -136,40 +169,62 @@ function ToastList() {
         key={item.id}
         toast={item}
         className={cn(
-          'relative flex w-full items-stretch overflow-hidden rounded-lg border border-solid bg-background shadow-lg',
+          // The design's card: surface, 1px status border, 8px radius, min 384px.
+          // The card itself is the padded row (icon · content · dismiss) — the
+          // status bar overlays it rather than taking layout width, so the text
+          // is `paddingX` from the card edge, not from the bar.
+          // The shadow stays a Tailwind utility — see the header note on
+          // `--ui-toast-global-container-shadow-shadow`.
+          'relative flex w-full items-start overflow-hidden shadow-md',
+          'gap-[var(--ui-toast-global-container-gap)] px-[var(--ui-toast-global-container-padding-x)] py-[var(--ui-toast-global-container-padding-y)]',
+          'min-w-[var(--ui-toast-global-container-width-min)] rounded-[var(--ui-toast-global-container-border-radius)] border-[length:var(--ui-toast-global-container-border-width)] border-solid bg-[var(--ui-toast-global-container-color-background)]',
           style?.border ?? 'border-border',
           'transition-all data-[ending-style]:opacity-0 data-[starting-style]:opacity-0',
           'ltr:data-[starting-style]:translate-x-4 rtl:data-[starting-style]:-translate-x-4 ltr:data-[ending-style]:translate-x-4 rtl:data-[ending-style]:-translate-x-4'
         )}
       >
-        {style ? (
-          <span
-            aria-hidden
-            className={cn('w-1.5 shrink-0 self-stretch', style.accent)}
-          />
+        {icon ? (
+          <span className="flex shrink-0 items-start px-[var(--ui-toast-global-icon-padding-x)] py-[var(--ui-toast-global-icon-padding-y)] [&_svg]:size-[var(--ui-toast-global-icon-size)]">
+            {icon}
+          </span>
         ) : null}
-        <div className="flex min-w-0 flex-1 flex-col py-2">
-          <div className="flex items-start gap-2 ps-4 pe-2">
-            {icon ? (
-              <span className="flex h-6 shrink-0 items-center py-1 [&_svg]:size-4">
-                {icon}
-              </span>
-            ) : null}
-            <ToastPrimitive.Title className="flex-1 py-1 text-sm font-semibold leading-6 text-foreground" />
-            <ToastPrimitive.Close
-              aria-label="Close"
-              className="flex size-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)]"
-            >
-              <TimesIcon className="size-4" />
-            </ToastPrimitive.Close>
+        {/* The design's `content`: the text block and the actions row share one
+            column, so the actions align with the text rather than the icon. */}
+        <div className="flex min-w-0 flex-1 flex-col">
+          <div className="flex w-full flex-col gap-[var(--ui-toast-global-content-container-gap)] px-[var(--ui-toast-global-content-container-padding-x)] py-[var(--ui-toast-global-content-container-padding-y)]">
+            {/* The title carries the design's applied `headings/body-heading`
+                style (16/500). The tier's own `…-title-text-style` says 14/600
+                (it aliases `typography.body.strong`) — it disagrees with the
+                node, so it is the Figma-side value to fix, not the render. */}
+            <ToastPrimitive.Title className="ui-typography-headings-heading text-[var(--ui-toast-global-content-container-title-color)]" />
+            <ToastPrimitive.Description className="ui-toast-global-content-container-description-text-style text-[var(--ui-toast-global-content-container-description-color)]" />
           </div>
-          <ToastPrimitive.Description className="pb-1 ps-10 pe-4 text-sm leading-6 text-foreground" />
           {item.actionProps ? (
-            <div className="pb-1 ps-10 pe-4">
-              <ToastPrimitive.Action className="text-sm font-semibold text-secondary hover:underline" />
+            <div className="flex w-full flex-wrap items-center gap-x-[var(--ui-toast-global-actions-gap-x)] gap-y-[var(--ui-toast-global-actions-gap-y)] px-[var(--ui-toast-global-actions-padding-x)] py-[var(--ui-toast-global-actions-padding-y)]">
+              <ToastPrimitive.Action className="cursor-pointer text-sm font-semibold text-[var(--ui-button-icon-global-icon-color-idle)] hover:underline" />
             </div>
           ) : null}
         </div>
+        {/* The design's dismiss control is a ghost ButtonIcon, so it takes that
+            tier's box + icon colours rather than inventing its own. */}
+        <ToastPrimitive.Close
+          aria-label="Close"
+          className="flex shrink-0 cursor-pointer items-center justify-center rounded-[var(--ui-button-icon-global-container-border-radius)] size-[var(--ui-button-icon-global-container-height)] bg-[var(--ui-button-icon-global-container-color-idle)] text-[var(--ui-button-icon-global-icon-color-idle)] transition-colors hover:bg-[var(--ui-button-icon-global-container-color-hover)] hover:text-[var(--ui-button-icon-global-icon-color-hover)] active:bg-[var(--ui-button-icon-global-container-color-active)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)] [&_svg]:size-[var(--ui-button-icon-global-icon-size)]"
+        >
+          <TimesSmallIcon />
+        </ToastPrimitive.Close>
+        {/* The status bar: `statusWidth` wide, spanning the card's full height in
+            the status's `left-line` colour (absolute, so it overlays the border
+            like the design's `leftLine`). A neutral toast has none. */}
+        {style ? (
+          <span
+            aria-hidden
+            className={cn(
+              'absolute inset-y-0 start-0 w-[var(--ui-toast-global-container-status-width)]',
+              style.accent
+            )}
+          />
+        ) : null}
       </ToastPrimitive.Root>
     );
   });
@@ -201,7 +256,7 @@ function Toaster({ timeout, limit, portalContainer }: ToasterProps) {
       limit={limit}
     >
       <ToastPrimitive.Portal container={resolvedContainer}>
-        <ToastPrimitive.Viewport className="fixed bottom-4 end-4 z-[100] flex w-[384px] max-w-[calc(100vw-2rem)] flex-col gap-3 outline-none">
+        <ToastPrimitive.Viewport className="fixed bottom-4 end-4 z-[100] flex w-[var(--ui-toast-global-container-width-min)] max-w-[calc(100vw-2rem)] flex-col gap-3 outline-none">
           <ToastList />
         </ToastPrimitive.Viewport>
       </ToastPrimitive.Portal>

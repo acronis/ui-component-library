@@ -740,7 +740,7 @@
       "name": "toast",
       "component": "Toast",
       "category": "feedback",
-      "status": "draft",
+      "status": "ready",
       "layer": "primitive",
       "since": "0.41.0"
     },

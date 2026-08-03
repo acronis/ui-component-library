@@ -1,55 +1,126 @@
 spec_version: '1.0'
 component: Toast
 
-# References only. Values live in @constructor-lab/tokens. Reconciled with the
-# redesigned Figma "Notification" set (node 6946-25164), sharing the redesigned
-# Alert's language: a white surface (--ui-background-surface-primary, bridged
-# bg-background) with a STRONG status border (--ui-border-on-status-*-strong), a
-# 6px left accent bar in the strong status background
-# (--ui-background-status-strong-*), a variant-driven full-color status icon (no
-# token — it carries its own colors), and a floating drop shadow. The compact
-# close uses the neutral glyph (text-muted-foreground → text-foreground on hover)
-# over the surface-hover background. `loading` / untyped toasts stay neutral
-# (border-border, no accent).
+# References only. Values live in @constructor-lab/tokens and resolve per
+# brand/theme at paint time. The token schema forbids a value/default key here.
+#
+# Toast binds its OWN `--ui-toast-*` tier (Figma node 7421:126262 — the set the
+# design calls "Toast"/"Notification"). It previously described the shared
+# semantic status vocabulary instead, so the generated tier went unconsumed and a
+# brand re-pointing a `--ui-toast-*` value changed nothing.
+#
+# Two design values are deliberately NOT bound, because the tier holds something
+# that is not a CSS value: `--ui-toast-global-container-shadow-shadow` is the
+# string `shadowRegular` (a Figma effect-style name), so the card keeps a Tailwind
+# shadow utility; and the per-status icons are Figma asset instances, supplied
+# from `@constructor-lab/icons-react/stroke-multi` by name.
+#
+# The tier's title typography token is also unbound, for a different reason: it
+# aliases `typography.body.strong` (14/600), but the design node's title text
+# applies `headings/body-heading` (16/500). The node is what the component
+# reproduces (`.ui-typography-headings-heading`); the tier variable is the
+# Figma-side value to correct. The description's tier text style agrees with the
+# node (`body/default`), so it IS bound.
 source: '@constructor-lab/tokens'
 
 tokens:
-  - name: --ui-background-surface-primary
+  # ── card ──
+  - name: --ui-toast-global-container-color-background
     affects: toast
-    description: Toast card background (bridged as `bg-background`).
-  - name: --ui-border-on-surface-border
+    description: Card surface.
+  - name: --ui-toast-global-container-border-width
     affects: toast
-    description: Neutral (loading / untyped) card border (bridged as `border-border`).
-  - name: --ui-text-on-surface-primary
+    description: Card border width; its color is the per-status `border-color`.
+  - name: --ui-toast-global-container-border-radius
+    affects: toast
+    description: Card corner radius.
+  - name: --ui-toast-global-container-width-min
+    affects: toast
+    description: Minimum card width; also the viewport column width.
+  - name: --ui-toast-global-container-padding-x
+    affects: content
+    description: Inset of the card content, right of the status bar.
+  - name: --ui-toast-global-container-padding-y
+    affects: content
+    description: Vertical inset of the card content.
+  - name: --ui-toast-global-container-gap
+    affects: content
+    description: Gap between the status icon, the text block and the close button.
+
+  # ── status bar + per-status colors ──
+  - name: --ui-toast-global-container-status-width
+    affects: toast-accent
+    description: Width of the full-height status bar.
+  - name: --ui-toast-info-left-line
+    affects: toast-accent
+  - name: --ui-toast-info-border-color
+    affects: toast
+  - name: --ui-toast-success-left-line
+    affects: toast-accent
+  - name: --ui-toast-success-border-color
+    affects: toast
+  - name: --ui-toast-warning-left-line
+    affects: toast-accent
+  - name: --ui-toast-warning-border-color
+    affects: toast
+  - name: --ui-toast-critical-left-line
+    affects: toast-accent
+  - name: --ui-toast-critical-border-color
+    affects: toast
+  # The design's `danger` status is this component's `error` type.
+  - name: --ui-toast-danger-left-line
+    affects: toast-accent
+  - name: --ui-toast-danger-border-color
+    affects: toast
+
+  # ── status icon box ──
+  - name: --ui-toast-global-icon-size
+    affects: icon
+  - name: --ui-toast-global-icon-padding-x
+    affects: icon
+  - name: --ui-toast-global-icon-padding-y
+    affects: icon
+
+  # ── content container (title + description) ──
+  - name: --ui-toast-global-content-container-gap
+    affects: content
+  - name: --ui-toast-global-content-container-padding-x
+    affects: content
+  - name: --ui-toast-global-content-container-padding-y
+    affects: content
+  - name: --ui-toast-global-content-container-title-color
     affects: title
-    description: Title + description text (bridged as `text-foreground`).
-  - name: --ui-text-on-surface-secondary
-    affects: close
-    description: Idle close-glyph color (bridged as `text-muted-foreground`).
-  - name: --ui-background-surface-hover
-    affects: close
-    description: Close-button hover surface (bridged as `bg-accent`).
-  - name: --ui-background-brand-secondary
+  - name: --ui-toast-global-content-container-description-color
+    affects: description
+
+  # ── actions row ──
+  - name: --ui-toast-global-actions-gap-x
     affects: action
-    description: Action-button label, the brand action blue (bridged as `text-secondary`).
+  - name: --ui-toast-global-actions-gap-y
+    affects: action
+  - name: --ui-toast-global-actions-padding-x
+    affects: action
+  - name: --ui-toast-global-actions-padding-y
+    affects: action
+
+  # ── close button (the design uses a ghost ButtonIcon) ──
+  - name: --ui-button-icon-global-container-height
+    affects: close
+  - name: --ui-button-icon-global-container-border-radius
+    affects: close
+  - name: --ui-button-icon-global-container-color-idle
+    affects: close
+  - name: --ui-button-icon-global-container-color-hover
+    affects: close
+  - name: --ui-button-icon-global-container-color-active
+    affects: close
+  - name: --ui-button-icon-global-icon-color-idle
+    affects: close
+  - name: --ui-button-icon-global-icon-color-hover
+    affects: close
+  - name: --ui-button-icon-global-icon-size
+    affects: close
+
+  # ── focus ──
   - name: --ui-focus-primary
     affects: close
-    description: Close-button keyboard focus ring.
-
-  # ── border (strong) + accent bar (strong bg), per status type ──
-  - name: --ui-border-on-status-success-strong
-    affects: toast
-  - name: --ui-background-status-strong-success
-    affects: toast-accent
-  - name: --ui-border-on-status-info-strong
-    affects: toast
-  - name: --ui-background-status-strong-info
-    affects: toast-accent
-  - name: --ui-border-on-status-warning-strong
-    affects: toast
-  - name: --ui-background-status-strong-warning
-    affects: toast-accent
-  - name: --ui-border-on-status-danger-strong
-    affects: toast
-  - name: --ui-background-status-strong-danger
-    affects: toast-accent
