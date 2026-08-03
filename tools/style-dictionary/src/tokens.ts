@@ -28,6 +28,7 @@ import {
   collectDecls,
   type Decls,
   serializeSlice,
+  isEmptySlice,
   type StyleModel,
   type WriteFile,
 } from './hooks/formats/css-light-dark';
@@ -460,6 +461,15 @@ export async function buildCss(filter: Filter): Promise<void> {
   // semantics.css + one file per component (all brands inside via selectors).
   const componentTiers: string[] = [];
   for (const { tier, base, overrides } of model.slices) {
+    // A tier with nothing renderable produces an empty `:root, :host {}` and an
+    // `@import` of it — valid CSS that states nothing, and a standing puzzle for
+    // the next reader ("why is this file empty?"). Skip the file and its import;
+    // the emit's skipped-token report is where the reason belongs. Semantics is
+    // never skipped: it is a fixed part of the manifest.
+    if (tier !== 'semantics' && isEmptySlice({ base, overrides })) {
+      console.log(`· skipped ${tier} (no renderable tokens)`);
+      continue;
+    }
     if (tier !== 'semantics') componentTiers.push(tier);
     write(
       tier === 'semantics' ? semanticsCssFile() : componentCssFile(tier),

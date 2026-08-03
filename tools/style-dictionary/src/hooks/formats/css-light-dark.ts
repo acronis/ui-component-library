@@ -173,6 +173,22 @@ export interface StyleModel {
 /** A writer that ensures the parent dir exists and logs the relative path. */
 export type WriteFile = (dest: string, content: string) => void;
 
+/**
+ * True when a slice would render nothing — no default-brand declarations and no
+ * brand that overrides any. Such a file is an empty `:root, :host {}` plus an
+ * `@import` of it: valid CSS that states nothing and reads as a mystery. It
+ * happens when every token in a tier was skipped as unrepresentable (the
+ * `Notification` tier is entirely two malformed Figma duplicates), so the
+ * explanation belongs in the build's skipped-token report, not in a stub file.
+ */
+export const isEmptySlice = (slice: {
+  base: Pick<Decls, 'vars' | 'classes'>;
+  overrides: BrandOverride[];
+}): boolean =>
+  slice.base.vars.size === 0 &&
+  slice.base.classes.size === 0 &&
+  slice.overrides.every((o) => o.vars.size === 0 && o.classes.size === 0);
+
 const brandSelector = (brand: string): string =>
   `[data-brand='${brand}'], :host([data-brand='${brand}'])`;
 

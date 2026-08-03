@@ -10,6 +10,7 @@ import { describe, expect, it } from 'vitest';
 import {
   aliasTarget,
   collectDecls,
+  isEmptySlice,
   serializeSlice,
 } from '../formats/css-light-dark';
 import { normalizeTree } from '../preprocessors/acronis-dtcg';
@@ -297,6 +298,39 @@ describe('collectDecls', () => {
       }),
     ]);
     expect(skipped).toContain('grad (gradient)');
+  });
+});
+
+describe('isEmptySlice', () => {
+  const decls = (vars: string[] = [], classes: string[] = []) => ({
+    vars: new Map(vars.map((v) => [v, '0px'])),
+    classes: new Map(classes.map((c) => [c, 'font-size: 14px;'])),
+  });
+
+  it('is true when neither the default brand nor any override renders anything', () => {
+    // The `Notification` tier's every token was skipped as unrepresentable, so a
+    // file would be an empty `:root, :host {}` plus an @import of nothing.
+    expect(
+      isEmptySlice({
+        base: decls(),
+        overrides: [{ brand: 'telstra', ...decls() }],
+      })
+    ).toBe(true);
+  });
+
+  it('is false when only a non-default brand overrides something', () => {
+    expect(
+      isEmptySlice({
+        base: decls(),
+        overrides: [{ brand: 'telstra', ...decls(['ui-x-y']) }],
+      })
+    ).toBe(false);
+  });
+
+  it('is false for a typography-only slice (classes, no vars)', () => {
+    expect(
+      isEmptySlice({ base: decls([], ['.ui-typography-body']), overrides: [] })
+    ).toBe(false);
   });
 });
 

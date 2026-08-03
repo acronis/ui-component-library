@@ -9,6 +9,10 @@ import { TreeUtils } from './utils-tree.mjs';
 import { DtcgFormatter } from './utils-dtcg-formatter.mjs';
 import { AliasTranslator } from './emit-alias-translator.mjs';
 
+// A Figma name segment that survives into a CSS ident (custom property or class).
+// Anything else — a space above all — makes the declaration unparseable.
+const CSS_SAFE_SEGMENT = /^[A-Za-z0-9_-]+$/;
+
 // Figma "units" collection sections → our `units.<section>` group.
 const UNIT_SECTIONS = new Set(['gap', 'size', 'radius', 'stroke']);
 
@@ -91,6 +95,8 @@ export class ComponentsEmitter {
     this.#semantics =
       semantics ?? JSON.parse(fs.readFileSync(SEMANTICS_PATH, 'utf8'));
     this.#allowlist = new Set(components);
+    /** Source-data problems worth a human's attention, printed by the entry script. */
+    this.warnings = [];
     this.#aliasTranslator = new AliasTranslator(this.#primitives);
     this.#buildTypoIndex();
   }
@@ -140,16 +146,29 @@ export class ComponentsEmitter {
 
   #emitComponent(figmaName, subtree) {
     const result = {};
-    this.#walk(subtree, result);
+    this.#walk(subtree, result, 0, [figmaName]);
     return result;
   }
 
-  #walk(node, out, depth = 0) {
+  #walk(node, out, depth = 0, path = []) {
     if (!node || typeof node !== 'object') return;
 
     for (const [k, v] of Object.entries(node)) {
       if (k.startsWith('$')) continue;
       if (!v || typeof v !== 'object') continue;
+
+      // A Figma variable name has to survive into a CSS custom-property name.
+      // One containing a space — typically a duplicate Figma made for you, like
+      // `gap 2` — becomes `--ui-…-gap 2`, which postcss cannot parse; that
+      // failure is not scoped to the token or even its file, it fails the whole
+      // stylesheet. The CSS builder skips such names, but by then the signal is
+      // buried in a build log, so surface it HERE, at the pull, where the fix
+      // (rename or delete it in Figma) actually lives.
+      if (!CSS_SAFE_SEGMENT.test(k)) {
+        this.warnings.push(
+          `${[...path, k].join('/')} — name is not CSS-safe; it will be dropped from the CSS output`
+        );
+      }
 
       if ('$value' in v || '$extensions' in v) {
         // Leaf token. Figma segment names are already camelCase — use as-is.
@@ -157,7 +176,7 @@ export class ComponentsEmitter {
       } else {
         // Group. Figma segment names are already camelCase — use as-is.
         out[k] = {};
-        this.#walk(v, out[k], depth + 1);
+        this.#walk(v, out[k], depth + 1, [...path, k]);
       }
     }
   }
@@ -194,7 +213,15 @@ export class ComponentsEmitter {
       for (const [modeKey, modeRef] of Object.entries(allModes)) {
         // kebab-case per schema `Modes` pattern; fold spaces and underscores.
         const normalizedKey = modeKey.toLowerCase().replace(/[\s_]+/g, '-');
-        translatedValues[normalizedKey] = this.#translateValue(modeRef);
+        const normalized = this.#normalizeModeValue(
+          this.#translateValue(modeRef),
+          leaf.$type
+        );
+        // A dropped mode must not leave an `undefined` hole: the schema requires
+        // exactly one value carrier, and an empty `values` with no `$value`
+        // would satisfy neither.
+        if (normalized !== undefined)
+          translatedValues[normalizedKey] = normalized;
       }
       if (Object.keys(translatedValues).length > 0)
         token.values = translatedValues;
@@ -216,6 +243,27 @@ export class ComponentsEmitter {
     token.platforms = ['PD'];
     if (Object.keys(ext).length > 0) token.$extensions = ext;
     return token;
+  }
+
+  /**
+   * Bring a per-mode value into the shape the downstream CSS transforms expect.
+   *
+   * Figma hands a brand mode a **bare number** where the default mode has an
+   * alias — `{ default: '{gap.gap-0}', deep_sky_itkontoret: 0 }`. Left alone it
+   * reached `dimension/px`, which reads `.value` / `.unit` off it and rendered
+   * the string `undefinedundefined`: a silently wrong value that passes ajv, the
+   * build, and every test. A dimension's bare number is px, so give it the DTCG
+   * `{ value, unit }` form the primitives already use. Any other type carrying a
+   * number is not something we can guess at, so it is reported and dropped
+   * rather than guessed.
+   */
+  #normalizeModeValue(value, $type) {
+    if (typeof value !== 'number') return value;
+    if ($type === 'dimension') return { value, unit: 'px' };
+    this.warnings.push(
+      `a ${$type ?? 'untyped'} token has the bare number ${value} in one mode — dropped (only dimensions can be read as px)`
+    );
+    return undefined;
   }
 
   // Translate a single component value to our alias/literal form:

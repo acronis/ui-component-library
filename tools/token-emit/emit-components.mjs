@@ -33,3 +33,13 @@ const opts = componentArg ? { components: [componentArg] } : {};
 const emitter = new ComponentsEmitter(snapshot, opts);
 emitter.emit();
 console.log(`Wrote ${emitter.outputPath}`);
+
+// Source-data problems, reported at the pull rather than three stages later in a
+// stylesheet that fails to parse. These are Figma fixes (rename or delete the
+// variable), not repo fixes, so they warn instead of failing the emit.
+if (emitter.warnings.length > 0) {
+  console.warn(
+    `\n⚠ ${emitter.warnings.length} source problem(s) in the Figma variables — fix upstream:`
+  );
+  for (const warning of emitter.warnings) console.warn(`  ${warning}`);
+}
