@@ -58,12 +58,16 @@ parts:
     description: Optional secondary line (foreground text).
   - id: action
     element: button
-    description: Optional inline action button (e.g. Undo).
+    description: >-
+      Optional inline action — a `Button` with the design's `ghost` variant, so it
+      carries that tier's label colours and 32px height rather than restating
+      them.
   - id: close
     element: button
     description: >-
-      Trailing dismiss button on the ButtonIcon tier's box, holding the design's
-      `TimesSmall` glyph.
+      Trailing dismiss control — a `ButtonIcon` with the design's `ghost` variant
+      (the design makes it an instance of that component), holding the `TimesSmall`
+      glyph.
 
 # A toast's `type` (default / success / info / warning / error / loading) and its
 # enter/auto-dismiss/exit lifecycle are runtime facets of the imperative API, not

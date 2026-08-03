@@ -23,3 +23,8 @@ Reconciled against Figma node `7421:126262` in the process:
 - The title uses the design's applied `headings/body-heading` style (16/500).
 - The dismiss glyph is `TimesSmall`, the design's mark; plain `Times` filled the
   32px box and read far too heavy.
+- The dismiss control and the action are instances of shipped components in the
+  design, so they now render the ghost variants of `ButtonIcon` and `Button`.
+  The action had been hand-styled onto ButtonIcon's _icon_ colour as a label
+  colour, with no hover/active/disabled state bound at all; it now takes the
+  ghost label tokens and the design's 32px height.

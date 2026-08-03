@@ -103,24 +103,39 @@ tokens:
   - name: --ui-toast-global-actions-padding-y
     affects: action
 
-  # ── close button (the design uses a ghost ButtonIcon) ──
+  # ── close button + action ──
+  # Both are instances of a shipped component in the design, so Toast composes
+  # `ButtonIcon variant="ghost"` / `Button variant="ghost"` and those components
+  # own their tiers (container box + glyph colour per state; label colour, height
+  # and padding per state). Listed here as the tokens that reach a Toast part, not
+  # as tokens Toast itself references — see ../button-icon/tokens.yaml and
+  # ../button/tokens.yaml for the full per-state sets.
   - name: --ui-button-icon-global-container-height
     affects: close
+    description: Dismiss box, via ButtonIcon.
   - name: --ui-button-icon-global-container-border-radius
     affects: close
+    description: Dismiss corner radius, via ButtonIcon.
   - name: --ui-button-icon-global-container-color-idle
     affects: close
-  - name: --ui-button-icon-global-container-color-hover
-    affects: close
-  - name: --ui-button-icon-global-container-color-active
-    affects: close
+    description: Dismiss fill, via ButtonIcon (hover/active/disabled likewise).
   - name: --ui-button-icon-global-icon-color-idle
     affects: close
-  - name: --ui-button-icon-global-icon-color-hover
-    affects: close
+    description: Dismiss glyph colour, via ButtonIcon (per state likewise).
   - name: --ui-button-icon-global-icon-size
     affects: close
+    description: Dismiss glyph size, via ButtonIcon.
+  - name: --ui-button-ghost-label-color-idle
+    affects: action
+    description: Action label, via Button's ghost variant (per state likewise).
+  - name: --ui-button-ghost-container-padding-x
+    affects: action
+    description: Action horizontal padding, via Button's ghost variant.
+  - name: --ui-button-global-container-height
+    affects: action
+    description: Action height, via Button.
 
   # ── focus ──
   - name: --ui-focus-primary
     affects: close
+    description: Focus ring on either control, via its component.

@@ -13,6 +13,8 @@ import {
 
 import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
+import { Button } from '../button';
+import { ButtonIcon } from '../button-icon';
 import { Spinner } from '../spinner';
 
 // Ported from the legacy shadcn UI kit's `sonner`, rebuilt on the Base UI toast
@@ -43,6 +45,13 @@ import { Spinner } from '../spinner';
 //     `@constructor-lab/icons-react/stroke-multi` by name. The dismiss glyph is
 //     the design's `TimesSmall` (a small mark in a 16px box) — plain `Times`
 //     fills the box and reads far too heavy at this size.
+//
+// The dismiss control and the action are instances of shipped components in the
+// design (`ButtonIcon` node 2236:6286, `variant: secondary | ghost`; the toast
+// uses `ghost` for both), so they render `ButtonIcon` / `Button` instead of
+// restating those tiers here. Restating them is how the action ended up wearing
+// ButtonIcon's *icon* colour as a label colour, with no hover / active / disabled
+// state bound at all.
 //
 // Auto-dismiss after `timeout` (default 5000ms); `loading` persists until
 // updated or dismissed.
@@ -201,18 +210,20 @@ function ToastList() {
           </div>
           {item.actionProps ? (
             <div className="flex w-full flex-wrap items-center gap-x-[var(--ui-toast-global-actions-gap-x)] gap-y-[var(--ui-toast-global-actions-gap-y)] px-[var(--ui-toast-global-actions-padding-x)] py-[var(--ui-toast-global-actions-padding-y)]">
-              <ToastPrimitive.Action className="cursor-pointer text-sm font-semibold text-[var(--ui-button-icon-global-icon-color-idle)] hover:underline" />
+              <ToastPrimitive.Action render={<Button variant="ghost" />} />
             </div>
           ) : null}
         </div>
-        {/* The design's dismiss control is a ghost ButtonIcon, so it takes that
-            tier's box + icon colours rather than inventing its own. */}
+        {/* Both controls are instances of shipped components in the design, so they
+            render those rather than restating their tokens here. */}
         <ToastPrimitive.Close
           aria-label="Close"
-          className="flex shrink-0 cursor-pointer items-center justify-center rounded-[var(--ui-button-icon-global-container-border-radius)] size-[var(--ui-button-icon-global-container-height)] bg-[var(--ui-button-icon-global-container-color-idle)] text-[var(--ui-button-icon-global-icon-color-idle)] transition-colors hover:bg-[var(--ui-button-icon-global-container-color-hover)] hover:text-[var(--ui-button-icon-global-icon-color-hover)] active:bg-[var(--ui-button-icon-global-container-color-active)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ui-focus-primary)] [&_svg]:size-[var(--ui-button-icon-global-icon-size)]"
-        >
-          <TimesSmallIcon />
-        </ToastPrimitive.Close>
+          render={
+            <ButtonIcon variant="ghost">
+              <TimesSmallIcon />
+            </ButtonIcon>
+          }
+        />
         {/* The status bar: `statusWidth` wide, spanning the card's full height in
             the status's `left-line` colour (absolute, so it overlays the border
             like the design's `leftLine`). A neutral toast has none. */}

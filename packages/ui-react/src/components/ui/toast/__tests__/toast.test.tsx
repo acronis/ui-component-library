@@ -154,6 +154,39 @@ describe('Toast', () => {
     });
   });
 
+  it('renders both controls as the shipped ghost components', async () => {
+    render(<Toaster />);
+    act(() => {
+      toast.info('Event created', { action: { label: 'Undo' } });
+    });
+    const title = await screen.findByText('Event created');
+    const root = title.closest(
+      '[class*="ui-toast-global-container-border-radius"]'
+    ) as HTMLElement;
+    // The design makes both an instance of a shipped component, so they must wear
+    // those tiers' own state tokens — not a local copy of the idle value. The
+    // action previously took ButtonIcon's *icon* colour as its label colour.
+    const action = within(root).getByText('Undo');
+    expect(action.className).toContain(
+      'text-[var(--ui-button-ghost-label-color-idle)]'
+    );
+    expect(action.className).toContain(
+      'hover:text-[var(--ui-button-ghost-label-color-hover)]'
+    );
+    expect(action.className).toContain(
+      'h-[var(--ui-button-global-container-height)]'
+    );
+    const close = root.querySelector(
+      'button[aria-label="Close"]'
+    ) as HTMLElement;
+    expect(close.className).toContain(
+      'size-[var(--ui-button-icon-global-container-height)]'
+    );
+    expect(close.className).toContain(
+      'hover:bg-[var(--ui-button-icon-global-container-color-hover)]'
+    );
+  });
+
   it('renders an action button and invokes its handler', async () => {
     const onClick = vi.fn();
     render(<Toaster />);
