@@ -10,6 +10,7 @@ import {
 
 import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
+import { ScrollArea } from '../scroll-area';
 
 // The next-gen select, themed by the dedicated `--ui-input-select-*` tier (global /
 // normal / error / dropdown). It composes Base UI `Select` and adds the field
@@ -167,12 +168,30 @@ const InputSelectContent = React.forwardRef<
           <SelectPrimitive.Popup
             ref={ref}
             className={cn(
-              'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
+              'min-w-[var(--anchor-width)] overflow-hidden rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] text-sm shadow-md outline-none',
               className
             )}
             {...props}
           >
-            {children}
+            {/* The list scrolls in a `ScrollArea`, not on the popup itself: its
+                overlay bar reserves no layout space, so the full-bleed item rows
+                keep their edge-to-edge background instead of being inset by a
+                native gutter (the same reason the sidebars use it). The height
+                bound must live HERE — the popup is `height: auto`, so a `h-full`
+                child would have nothing to resolve against and the overflow
+                would be clipped away unreachable. */}
+            <ScrollArea
+              // The clamp must sit on the VIEWPORT — the element that actually
+              // scrolls. On the Root it does nothing: the Root is `height: auto`,
+              // so the viewport's `height: 100%` has no definite height to
+              // resolve against, grows to the full content height, and the
+              // overflow is simply clipped away unreachable with no scrollbar.
+              viewportProps={{ className: 'max-h-[var(--available-height)]' }}
+            >
+              <div className="py-[var(--ui-input-select-dropdown-container-padding-y)]">
+                {children}
+              </div>
+            </ScrollArea>
           </SelectPrimitive.Popup>
         </SelectPrimitive.Positioner>
       </SelectPrimitive.Portal>

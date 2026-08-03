@@ -77,6 +77,30 @@ describe('InputSelect', () => {
     );
   });
 
+  it('scrolls the dropdown in a ScrollArea, with the clamp on the viewport', async () => {
+    render(<Field />);
+    await userEvent.click(screen.getByRole('combobox', { name: 'Fruit' }));
+    const viewport = document.querySelector(
+      '[data-slot="scroll-area-viewport"]'
+    ) as HTMLElement;
+    const root = document.querySelector('[data-slot="scroll-area"]');
+    expect(viewport).toBeInTheDocument();
+    expect(viewport).toContainElement(
+      screen.getByRole('option', { name: 'Apple' })
+    );
+    // The height bound belongs on the viewport — the element that scrolls. On
+    // the Root it silently does nothing (Root is `height: auto`, so the
+    // viewport's `height: 100%` grows to the full content height and the
+    // overflow is clipped away with no scrollbar). jsdom cannot see that, so
+    // pin the class placement instead.
+    expect(viewport).toHaveClass('max-h-[var(--available-height)]');
+    expect(root).not.toHaveClass('max-h-[var(--available-height)]');
+    // The popup itself must not scroll natively any more.
+    expect(
+      document.querySelector('[role="listbox"]')?.className ?? ''
+    ).not.toMatch(/overflow-y-auto/);
+  });
+
   it('applies the idle input-select token classes to the trigger', () => {
     render(<Field />);
     expect(screen.getByRole('combobox', { name: 'Fruit' })).toHaveClass(

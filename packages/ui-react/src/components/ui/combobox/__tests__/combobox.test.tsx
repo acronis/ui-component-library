@@ -51,6 +51,26 @@ describe('Combobox', () => {
     expect(screen.getByRole('option', { name: 'Astro' })).toBeInTheDocument();
   });
 
+  it('scrolls the list in a ScrollArea, with the clamp on the viewport', async () => {
+    render(<Demo />);
+    await userEvent.click(screen.getByPlaceholderText('Search framework…'));
+    const viewport = document.querySelector(
+      '[data-slot="scroll-area-viewport"]'
+    ) as HTMLElement;
+    expect(viewport).toBeInTheDocument();
+    expect(viewport).toContainElement(
+      screen.getByRole('option', { name: 'Next.js' })
+    );
+    // The bound must be on the viewport, not the Root: the Root is
+    // `height: auto`, so a max-height there leaves the viewport unbounded and
+    // the overflow clipped away unreachable. jsdom has no layout, so pin the
+    // class placement.
+    expect(viewport).toHaveClass('max-h-[var(--available-height)]');
+    expect(document.querySelector('[data-slot="scroll-area"]')).not.toHaveClass(
+      'max-h-[var(--available-height)]'
+    );
+  });
+
   it('filters the list by the typed text', async () => {
     render(<Demo />);
     await userEvent.type(

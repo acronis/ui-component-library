@@ -41,6 +41,23 @@ describe('Autocomplete', () => {
     expect(screen.getByRole('option', { name: 'Canada' })).toBeInTheDocument();
   });
 
+  it('scrolls the list in a ScrollArea, with the clamp on the viewport', async () => {
+    render(<Demo />);
+    await userEvent.type(screen.getByPlaceholderText('Search country…'), 'a');
+    const viewport = document.querySelector(
+      '[data-slot="scroll-area-viewport"]'
+    ) as HTMLElement;
+    expect(viewport).toBeInTheDocument();
+    expect(viewport).toContainElement(
+      screen.getByRole('option', { name: 'Australia' })
+    );
+    // See input-select: on the Root this bound silently does nothing.
+    expect(viewport).toHaveClass('max-h-[var(--available-height)]');
+    expect(document.querySelector('[data-slot="scroll-area"]')).not.toHaveClass(
+      'max-h-[var(--available-height)]'
+    );
+  });
+
   it('filters suggestions by the typed value', async () => {
     render(<Demo />);
     await userEvent.type(screen.getByPlaceholderText('Search country…'), 'Aus');

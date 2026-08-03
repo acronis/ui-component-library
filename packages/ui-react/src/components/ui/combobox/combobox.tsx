@@ -10,6 +10,7 @@ import {
 
 import { usePortalContainer } from '@/lib/portal-container';
 import { cn } from '@/lib/utils';
+import { ScrollArea } from '../scroll-area';
 
 // A searchable single/multi-select built on Base UI's Combobox primitive. The
 // legacy `combobox` was only a hardcoded Popover + cmdk demo; this is a real,
@@ -121,12 +122,26 @@ const ComboboxContent = React.forwardRef<
           <ComboboxPrimitive.Popup
             ref={ref}
             className={cn(
-              'max-h-[var(--available-height)] min-w-[var(--anchor-width)] overflow-y-auto rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] py-[var(--ui-input-select-dropdown-container-padding-y)] text-sm shadow-md outline-none',
+              'min-w-[var(--anchor-width)] overflow-hidden rounded-[var(--ui-input-select-dropdown-container-border-radius)] border border-[var(--ui-input-select-dropdown-container-border-color)] bg-[var(--ui-input-select-dropdown-container-color)] text-sm shadow-md outline-none',
               className
             )}
             {...props}
           >
-            {children}
+            {/* Overlay scrollbar instead of a native gutter — see the same
+                wrapper in `input-select.tsx` for why the height bound sits on
+                the ScrollArea rather than on the popup. */}
+            <ScrollArea
+              // The clamp must sit on the VIEWPORT — the element that actually
+              // scrolls. On the Root it does nothing: the Root is `height: auto`,
+              // so the viewport's `height: 100%` has no definite height to
+              // resolve against, grows to the full content height, and the
+              // overflow is simply clipped away unreachable with no scrollbar.
+              viewportProps={{ className: 'max-h-[var(--available-height)]' }}
+            >
+              <div className="py-[var(--ui-input-select-dropdown-container-padding-y)]">
+                {children}
+              </div>
+            </ScrollArea>
           </ComboboxPrimitive.Popup>
         </ComboboxPrimitive.Positioner>
       </ComboboxPrimitive.Portal>
