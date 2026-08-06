@@ -40,9 +40,9 @@
     "@types/js-yaml": "4.0.9",
     "@types/node": "catalog:",
     "ajv": "catalog:",
-    "js-yaml": "5.2.1",
-    "playwright": "1.60.0",
-    "tsx": "4.23.0",
+    "js-yaml": "5.2.3",
+    "playwright": "1.62.1",
+    "tsx": "4.23.5",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"
