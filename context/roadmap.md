@@ -5,7 +5,7 @@
 > from the upstream `acronis/uikit` project** ("User Interface Kit Development"):
 > the 7 epics as issues **#102–108** and ~98 task sub-issues with Status / Phase
 > (P1–P5) / Size. That board and those issues are **not set up in
-> `constructor-lab/ui-component-library`** (which currently has no issues or project board), so
+> `acronis/ui-component-library`** (which currently has no issues or project board), so
 > treat every `#nnn` in these context docs as a historical reference, not a live
 > link.
 

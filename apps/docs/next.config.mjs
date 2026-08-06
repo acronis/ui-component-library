@@ -23,7 +23,7 @@ const config = {
   // Expose the basePath to client code. basePath auto-applies to <Link>,
   // next/image, and `_next` assets, but NOT to manual fetch() — the shadow-DOM
   // previews fetch /api/ui-react-css, which must be prefixed when deployed
-  // under a subpath (e.g. /uikit/docs on GitHub Pages).
+  // under a subpath (e.g. /ui-component-library/docs on GitHub Pages).
   env: {
     NEXT_PUBLIC_DOCS_BASE_PATH: basePath,
   },

@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/constructor-lab/ui-component-library.git",
+    "url": "git+https://github.com/acronis/ui-component-library.git",
     "directory": "packages/tokens"
   },
   "description": "UI Components library design tokens: the DTCG source tiers plus the generated CSS (reference-based, brand + light/dark via selectors), SCSS mixins, JS token map, and Tailwind bridge — built by @constructor-lab/style-dictionary.",

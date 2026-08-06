@@ -83,7 +83,7 @@ Two workflows can publish; both attach build provenance.
   Packages PR merge with **no npm token**: GitHub's OIDC token is exchanged for
   a short-lived npm credential. This is the normal path for packages that
   already exist on npm. Provenance validates each package's `repository.url`
-  against `https://github.com/acronis/uikit`, so the `repository` field must be
+  against `https://github.com/acronis/ui-component-library`, so the `repository` field must be
   present.
 - **`release-token.yml` — token auth (manual bootstrap / fallback).**
   Dispatched manually (`workflow_dispatch`) with a static automation token and a

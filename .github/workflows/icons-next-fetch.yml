@@ -32,7 +32,7 @@ permissions:
 jobs:
   fetch:
     # Don't run on forks — only the canonical repo holds the Figma token.
-    if: github.repository == 'constructor-lab/ui-component-library'
+    if: github.repository == 'acronis/ui-component-library'
     runs-on: ubuntu-latest
 
     steps:

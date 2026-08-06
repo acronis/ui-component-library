@@ -34,7 +34,7 @@ permissions:
 
 jobs:
   release:
-    if: github.repository == 'constructor-lab/ui-component-library'
+    if: github.repository == 'acronis/ui-component-library'
     runs-on: ubuntu-latest
     permissions:
       contents: write

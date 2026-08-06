@@ -125,8 +125,9 @@ import it.
 Docs content is served at the app **root** (`/<slug>`), not under `/docs` —
 Fumadocs `source` uses `baseUrl: '/'` and the catch-all lives at
 `src/app/[...slug]/`. The marketing landing is `src/app/page.tsx` at `/`. This
-keeps URLs single-segment under the deploy basePath (`/uikit/docs/<page>`, not
-`/uikit/docs/docs/<page>`). Internal links therefore point at `/<page>` (e.g.
+keeps URLs single-segment under the deploy basePath
+(`/ui-component-library/docs/<page>`, not
+`/ui-component-library/docs/docs/<page>`). Internal links therefore point at `/<page>` (e.g.
 `/components/button`), never `/docs/<page>`.
 
 ## Search

@@ -1,7 +1,7 @@
 # E1 — Theme delivery: implementation proposal
 
 > Issue numbers (`#102`, `#172`, `#173`, …) are inherited from the upstream
-> `acronis/uikit` project and are not live in `constructor-lab/ui-component-library` — see the
+> `acronis/uikit` project and are not live in `acronis/ui-component-library` — see the
 > tracking note in [`roadmap.md`](./roadmap.md).
 
 Companion to [`roadmap.md`](./roadmap.md) for epic **E1 (#102)**. Turns the open

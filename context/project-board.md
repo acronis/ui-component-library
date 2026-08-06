@@ -3,7 +3,7 @@
 > The operating model for the **`acronis/uikit`** GitHub Project ("User Interface
 > Kit Development") behind the roadmap in [`roadmap.md`](./roadmap.md). This board
 > and its issues (**#102–108** + sub-issues) are **not yet set up in
-> `constructor-lab/ui-component-library`** — this is inherited process guidance, kept for when the
+> `acronis/ui-component-library`** — this is inherited process guidance, kept for when the
 > board is recreated here. Last updated: 2026-06-05.
 
 ## Epics vs tasks
@@ -67,7 +67,7 @@
 
 Enable these built-in workflows (not settable via API):
 
-1. **Auto-add** — add newly-opened `constructor-lab/ui-component-library` issues to the project.
+1. **Auto-add** — add newly-opened `acronis/ui-component-library` issues to the project.
 2. **Item closed → Status: Done.**
 3. **Pull request merged → Status: Done** (for the linked issue).
 4. **Auto-archive items** — `Status is Done` AND `updated > 2 weeks ago`. Keeps the

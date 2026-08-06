@@ -59,9 +59,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build demo
-        run: VITE_BASE_PATH=/uikit/ pnpm --filter ./apps/demo run build
+        run: VITE_BASE_PATH=/ui-component-library/ pnpm --filter ./apps/demo run build
 
-      # ui-react Storybook, served at /uikit/storybook-react.
+      # ui-react Storybook, served at /ui-component-library/storybook-react.
       # ui-react consumes its generated deps (icons-react, which pulls in
       # tokens/style-dictionary) from dist, so build those first;
       # ui-react's own source is bundled by Storybook via the .storybook alias.
@@ -86,7 +86,7 @@ jobs:
         run: pnpm --filter "@constructor-lab/ui-react..." run build
 
       - name: Build docs
-        run: DOCS_STATIC_EXPORT=true DOCS_BASE_PATH=/uikit/docs pnpm --filter ./apps/docs run build
+        run: DOCS_STATIC_EXPORT=true DOCS_BASE_PATH=/ui-component-library/docs pnpm --filter ./apps/docs run build
 
       - name: Copy docs to demo dist
         run: cp -r apps/docs/out apps/demo/dist/docs
