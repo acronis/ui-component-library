@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "constructor-lab/ui-component-library" }
+    { "repo": "acronis/ui-component-library" }
   ],
   "commit": false,
   "fixed": [],

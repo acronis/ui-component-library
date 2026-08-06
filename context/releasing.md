@@ -68,12 +68,12 @@ Two workflows can publish to npm; both attach build provenance.
   npm**. Requirements (all in place): the job has `permissions: id-token:
 write`, npm is upgraded to a Trusted-Publishing-capable version, and each
   package declares a `repository` field (provenance validates `repository.url`
-  against `https://github.com/constructor-lab/ui-component-library` — an empty/missing one fails with
+  against `https://github.com/acronis/ui-component-library` — an empty/missing one fails with
   `E422`).
 
 - **`release-token.yml` — token auth (manual; bootstrap / fallback).**
   Dispatched manually (`workflow_dispatch`). Publishes an explicit, fixed list
-  of packages with a static automation token (`NPM_PUBLISH_TOKEN_2`) and a
+  of packages with a static automation token (`NPM_PUBLISH_TOKEN`) and a
   per-package skip-if-already-published guard, so it is safe to re-run. Use it
   for a package's **first-ever publish** — OIDC Trusted Publishing cannot
   bootstrap a package that doesn't exist on npm yet — or if OIDC config is

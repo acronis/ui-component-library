@@ -5,7 +5,7 @@
 #
 # How it differs from release.yml:
 #   - Triggered manually (workflow_dispatch) instead of on every push.
-#   - Authenticates with a static Automation token (NPM_PUBLISH_TOKEN_2).
+#   - Authenticates with a static Automation token (NPM_PUBLISH_TOKEN).
 #   - Publishes an explicit, fixed list of packages — safe to re-run because
 #     each package is skipped when its current version is already on npm.
 #   - Does NOT publish @constructor-lab/shadcn-uikit (ui-legacy) — that
@@ -17,7 +17,7 @@
 #   @constructor-lab/ui-react
 #
 # Required secrets:
-#   NPM_PUBLISH_TOKEN_2   npm Automation token (NOT a classic Publish token —
+#   NPM_PUBLISH_TOKEN   npm Automation token (NOT a classic Publish token —
 #                         classic tokens require 2FA and will hit EOTP).
 #
 # Provenance attestation is still enabled: the job already holds
@@ -34,7 +34,7 @@ permissions:
 
 jobs:
   release:
-    if: github.repository == 'constructor-lab/ui-component-library'
+    if: github.repository == 'acronis/ui-component-library'
     runs-on: ubuntu-latest
 
     steps:
@@ -88,6 +88,6 @@ jobs:
           publish @constructor-lab/icons-react    packages/icons-react
           publish @constructor-lab/ui-react       packages/ui-react
         env:
-          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN_2 }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN_2 }}
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           NPM_CONFIG_PROVENANCE: true

@@ -44,7 +44,7 @@ per-workspace `AGENTS.md` files for area-specific conventions.
 
 ```bash
 # Clone the repository
-git clone https://github.com/constructor-lab/ui-component-library.git
+git clone https://github.com/acronis/ui-component-library.git
 cd uikit
 
 # Install dependencies

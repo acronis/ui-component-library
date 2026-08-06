@@ -3,7 +3,7 @@
   "version": "2.7.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/constructor-lab/ui-component-library.git",
+    "url": "git+https://github.com/acronis/ui-component-library.git",
     "directory": "packages/ui-react"
   },
   "description": "UI Components library, React component library — a Base UI implementation, themed by @constructor-lab/tokens.",

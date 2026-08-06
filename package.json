@@ -35,10 +35,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/constructor-lab/ui-component-library.git"
+    "url": "git+https://github.com/acronis/ui-component-library.git"
   },
   "bugs": {
-    "url": "https://github.com/constructor-lab/ui-component-library/issues"
+    "url": "https://github.com/acronis/ui-component-library/issues"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.7.0",

@@ -171,10 +171,11 @@ const muted = 'var(--color-fd-muted-foreground, #64748b)';
 const primary = 'var(--color-fd-primary)';
 
 // Storybook and the demo SPA are sibling apps deployed alongside the docs (one
-// level up from the docs basePath: /uikit/docs -> /uikit). They are NOT under
-// the docs basePath, so link to them as external — otherwise Fumadocs prefixes
-// the basePath and produces /uikit/docs/storybook-react instead of
-// /uikit/storybook-react.
+// level up from the docs basePath: /ui-component-library/docs ->
+// /ui-component-library). They are NOT under the docs basePath, so link to them
+// as external — otherwise Fumadocs prefixes the basePath and produces
+// /ui-component-library/docs/storybook-react instead of
+// /ui-component-library/storybook-react.
 const siteRoot = (process.env.NEXT_PUBLIC_DOCS_BASE_PATH ?? '').replace(
   /\/[^/]+$/,
   ''
@@ -184,7 +185,7 @@ export default function HomePage() {
   return (
     <HomeLayout
       nav={{ title: 'UI Components library', transparentMode: 'top' }}
-      githubUrl="https://github.com/acronis/uikit"
+      githubUrl="https://github.com/acronis/ui-component-library"
       links={[
         { type: 'main', text: 'Documentation', url: '/getting-started' },
         { type: 'main', text: 'Components', url: '/components' },
@@ -654,7 +655,7 @@ export default function HomePage() {
         </a>
         {'  ·  '}
         <a
-          href="https://github.com/acronis/uikit"
+          href="https://github.com/acronis/ui-component-library"
           className="underline underline-offset-4 hover:text-fd-foreground"
           target="_blank"
           rel="noopener noreferrer"

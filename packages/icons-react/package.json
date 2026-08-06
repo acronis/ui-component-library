@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/constructor-lab/ui-component-library.git",
+    "url": "git+https://github.com/acronis/ui-component-library.git",
     "directory": "packages/icons-react"
   },
   "description": "UI Components library React icon components, generated from @constructor-lab/icons-svg.",

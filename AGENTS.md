@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Single source of truth for AI agents working in `constructor-lab/ui-component-library`.
+Single source of truth for AI agents working in `acronis/ui-component-library`.
 
 This file is the **root index**. It is intentionally short (~120 lines) so
 it fits in any context window. Specifics live in:
@@ -14,7 +14,7 @@ workspace's context when you work inside that subtree.
 
 ## Repository overview
 
-`constructor-lab/ui-component-library` is a pnpm monorepo containing a React component
+`acronis/ui-component-library` is a pnpm monorepo containing a React component
 library, its framework-agnostic component specs, a demo SPA, a
 documentation site, a shared demos package, a design-tokens package, an
 icon set (SVG sources + generated React components), and a build-tooling
