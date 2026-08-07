@@ -22,9 +22,22 @@ overlay scrollbars. The bar is hidden at rest and revealed on hover/scroll.
 The all-in-one `ScrollArea` renders the viewport, content, and built-in
 scrollbar(s); `orientation` (`'vertical'` default · `'horizontal'` · `'both'`)
 selects which bars appear, and `'both'` also renders the corner. For custom
-scrollbar placement, compose the exported `ScrollBar` part directly. The thumb
-is themed by `--ui-border-on-surface-border` (and `--ui-border-on-surface-border-active`
-on hover); the focused viewport shows a `--ui-focus-brand` ring.
+scrollbar placement, compose the exported `ScrollBar` part directly. The focused
+viewport shows a `--ui-focus-brand` ring.
+
+The thumb is **translucent**, because an overlay bar floats over content it does
+not control: it mixes `--ui-background-inverse-primary` down to 40% alpha (60% on
+hover), a token that is already near-black in light mode and white in dark, so
+one token covers both themes. `tone="inverse"` switches it to
+`--ui-glyph-on-brand-primary` (white, fixed in both themes) for a surface that is
+dark in light mode too — a brand-colored sidebar, where the themed value would
+paint near-black on brand. `SidebarPrimary` sets it for exactly that reason.
+
+The bar is a **6px track held 2px off the viewport edges**, and the thumb grows
+to **10px while pointed at or dragged** — a hairline that stays out of the way
+until you aim at it, then becomes a target worth hitting. The growth is inward,
+so the thumb's outer edge stays flush with the viewport edge and the bar never
+shifts under the pointer.
 
 > Design-pending v1: ported from the legacy shadcn-uikit `ScrollArea`.
 
@@ -48,6 +61,16 @@ on hover); the focused viewport shows a `--ui-focus-brand` ring.
 ```
 
 ```tsx
+// Over a surface that is dark in both themes
+<ScrollArea
+  tone="inverse"
+  className="h-72 bg-[var(--ui-background-brand-primary)]"
+>
+  {longList}
+</ScrollArea>
+```
+
+```tsx
 // Compose the parts directly
 import { ScrollArea, ScrollBar } from '@constructor-lab/ui-react';
 
@@ -65,4 +88,5 @@ import { ScrollArea, ScrollBar } from '@constructor-lab/ui-react';
 />
 
 `ScrollBar` accepts the Base UI `ScrollArea.Scrollbar` props (notably
-`orientation` and `keepMounted`).
+`orientation` and `keepMounted`) plus the same `tone`, for when the bars are
+composed by hand rather than rendered by `ScrollArea`.

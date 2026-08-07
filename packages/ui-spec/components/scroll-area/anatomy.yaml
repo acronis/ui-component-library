@@ -15,9 +15,11 @@ schematic: |
      root      -> position: relative; overflow: hidden
      viewport  -> the actual scroll container (focusable); clips to root radius
      content   -> wrapper around children; drives scroll size
-     scrollbar -> absolutely positioned overlay track (no reserved gutter);
+     scrollbar -> absolutely positioned overlay track (no reserved gutter),
+                  6px wide, held 2px off the viewport edges;
                   opacity 0 at rest, 100 on hover/scroll
-     thumb     -> bg-[--ui-border-on-surface-border]; hover -> *-border-active
+     thumb     -> translucent inverse-of-surface (40%, 60% pointed at/dragged);
+                  6px at rest, 10px pointed at/dragged, growing inward
      corner    -> fills the gap where the two scrollbars meet (orientation=both)
 
 root:
@@ -41,14 +43,18 @@ parts:
   - id: scrollbar
     description: >-
       An absolutely positioned overlay track that floats over the content and
-      reserves no layout space. Hidden at rest (opacity 0), revealed on hover or
-      while scrolling. One per axis; `orientation` selects vertical/horizontal.
+      reserves no layout space. 6px across, held 2px off the viewport edges.
+      Hidden at rest (opacity 0), revealed on hover or while scrolling. One per
+      axis; `orientation` selects vertical/horizontal.
     element: div
     optional: true
   - id: thumb
     description: >-
-      The draggable handle inside the scrollbar; sized to the visible/total
-      ratio by the primitive. Uses the shared border token, darkening on hover.
+      The draggable handle inside the scrollbar; its length is set to the
+      visible/total ratio by the primitive. Translucent, so it reads over
+      whatever content it crosses. 6px across at rest and 10px while pointed at
+      or dragged — the growth is inward, so the outer edge stays flush with the
+      viewport edge — and the radius follows the size (3px, then 5px).
     element: div
     optional: true
   - id: corner
@@ -71,6 +77,19 @@ states:
     trigger: the viewport is being scrolled
     kind: internal
     affects: [scrollbar, thumb]
+  # Both grow the thumb from 6px to 10px and deepen its alpha from 40% to 60%.
+  # They are the thumb's OWN pseudo-classes, not the scroll area's: the bar
+  # appears when the region is hovered, but only aiming at the thumb grows it.
+  - id: thumb-hover
+    trigger: the pointer is over the thumb itself
+    kind: pseudo
+    pseudo: ':hover'
+    affects: [thumb]
+  - id: thumb-active
+    trigger: the thumb is being dragged
+    kind: pseudo
+    pseudo: ':active'
+    affects: [thumb]
 
 internal_state:
   - id: hovering

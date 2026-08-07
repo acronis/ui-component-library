@@ -11,6 +11,16 @@ contract:
         Which scrollbar(s) the all-in-one `ScrollArea` renders. `both` also
         renders the corner. For finer control, compose the exported `ScrollBar`
         part directly.
+    - name: tone
+      type: "'surface' | 'inverse'"
+      required: false
+      default: "'surface'"
+      description: >-
+        Which surface the overlay scrollbar floats over, forwarded to every bar
+        rendered. `surface` follows the theme (dark thumb in light mode, light
+        thumb in dark). `inverse` pins it to the on-brand white for a surface
+        that is dark in BOTH themes — a brand-colored sidebar — where the themed
+        value would be invisible.
   content:
     - name: children
       description: The content to be scrolled, wrapped in the viewport/content parts.

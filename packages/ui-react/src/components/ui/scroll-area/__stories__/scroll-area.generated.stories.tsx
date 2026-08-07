@@ -31,3 +31,39 @@ export const States: Story = {
     </div>
   ),
 };
+
+export const Hover: Story = {
+  parameters: { pseudo: { hover: true } },
+  render: () => (
+    <ScrollArea className="h-48 w-64 rounded-md border border-border [&_[data-slot=scroll-area-scrollbar]]:opacity-100">
+      <div className="flex flex-col gap-2 p-4">
+        {Array.from({ length: 16 }, (_, i) => (
+          <div
+            key={i}
+            className="rounded-md bg-[var(--ui-background-surface-secondary)] px-3 py-2 text-sm"
+          >
+            Item {i + 1}
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+  ),
+};
+
+export const Active: Story = {
+  parameters: { pseudo: { active: true } },
+  render: () => (
+    <ScrollArea className="h-48 w-64 rounded-md border border-border [&_[data-slot=scroll-area-scrollbar]]:opacity-100">
+      <div className="flex flex-col gap-2 p-4">
+        {Array.from({ length: 16 }, (_, i) => (
+          <div
+            key={i}
+            className="rounded-md bg-[var(--ui-background-surface-secondary)] px-3 py-2 text-sm"
+          >
+            Item {i + 1}
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+  ),
+};

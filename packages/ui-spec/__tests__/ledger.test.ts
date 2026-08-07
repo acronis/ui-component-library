@@ -38,7 +38,7 @@ describe('the shipped ledger', () => {
 
   it('lookups work', () => {
     expect(getLedgerEntry('scroll-area-hover-active-token')?.status).toBe(
-      'open'
+      'resolved'
     );
     expect(getLedgerEntry('nope')).toBeUndefined();
     expect(

@@ -176,7 +176,16 @@ const SidebarPrimaryContent = React.forwardRef<
   // The section list scrolls inside a ScrollArea: its overlay scrollbar floats
   // over the content and reserves no gutter, so the full-bleed selected row is
   // never cropped — on every OS, unlike a native `overflow` scrollbar.
-  <ScrollArea ref={ref} className={cn('min-h-0 flex-1', className)} {...props}>
+  //
+  // `tone="inverse"`: this sidebar's container is `--ui-background-brand-primary`,
+  // which is dark in **both** themes, so the default themed thumb would paint
+  // near-black on brand navy in light mode.
+  <ScrollArea
+    ref={ref}
+    tone="inverse"
+    className={cn('min-h-0 flex-1', className)}
+    {...props}
+  >
     <div className="flex flex-col gap-[var(--ui-sidebar-primary-global-section-list-gap)]">
       {children}
     </div>
