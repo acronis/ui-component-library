@@ -7,14 +7,22 @@ source: '@constructor-lab/tokens'
 
 tokens:
   - {
-      name: --ui-border-on-surface-border,
+      name: --ui-background-inverse-primary,
       affects: thumb,
-      description: Scrollbar thumb color at rest (bridged as bg-border).,
+      description:
+        'Scrollbar thumb color — the inverse of the surface (near-black in light
+        mode, white in dark), mixed down to 40% alpha at rest and 60% on hover.
+        Translucency is required, not decorative: the bar is an overlay and must
+        stay legible over arbitrary scrolled content.',
     }
   - {
-      name: --ui-border-on-surface-border-active,
+      name: --ui-glyph-on-brand-primary,
       affects: thumb,
-      description: Scrollbar thumb color on hover.,
+      description:
+        'Scrollbar thumb color for tone="inverse" — white, fixed across both
+        themes, mixed to the same 40%/60% alphas. For a surface that stays dark
+        in light mode too (a brand-colored sidebar), where the themed token
+        above would paint near-black on brand.',
     }
   - {
       name: --ui-focus-brand,

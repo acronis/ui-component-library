@@ -68,11 +68,12 @@ export const ledger: LedgerEntry[] = [
       file: 'packages/ui-react/src/components/ui/scroll-area/scroll-area.tsx',
     },
     discovered: '2026-06-28',
-    status: 'open',
+    status: 'resolved',
     resolution: {
       kind: 'detector',
       detector: 'kit-lint/state-token-wiring',
-      note: 'The new T4 detector surfaces it as a should-warning. Awaiting a dedicated -hover border token, a code fix, or an approved override — the loop working as intended.',
+      note: 'Fixed by the translucent-thumb rework: idle and hover now reference the SAME token (--ui-background-inverse-primary, or --ui-glyph-on-brand-primary for tone="inverse") at 40% and 60% alpha, so the hover step is an alpha step rather than a second token — no -active reference is left to mis-wire. The missing dedicated -hover border token this waited on is no longer needed. The T4 detector still guards the file.',
+      date: '2026-08-07',
     },
   },
   {

@@ -112,6 +112,90 @@ describe('ScrollArea', () => {
     ).toHaveClass('z-[60]');
   });
 
+  // The thumb color is the whole point of `tone`, and it is not observable from
+  // the DOM beyond the class, so assert the token each tone resolves to. Both
+  // states are wired to the same token at different alphas deliberately: the
+  // hover step is an alpha step, not a different color.
+  it('paints the thumb from the themed token by default', () => {
+    const { container } = render(
+      <ScrollArea>
+        <ScrollBar keepMounted />
+      </ScrollArea>
+    );
+    const thumb = container.querySelector('[data-slot="scroll-area-thumb"]');
+    expect(thumb?.className).toContain(
+      'color-mix(in_oklab,var(--ui-background-inverse-primary)_40%,transparent)'
+    );
+    expect(thumb?.className).toContain(
+      'hover:[background-color:color-mix(in_oklab,var(--ui-background-inverse-primary)_60%,transparent)]'
+    );
+  });
+
+  // A brand surface is dark in BOTH themes, so the themed token would be
+  // invisible there — `inverse` pins the thumb to the on-brand (white) token.
+  it('paints the thumb from the on-brand token for tone="inverse"', () => {
+    const { container } = render(
+      <ScrollArea tone="inverse">
+        <ScrollBar keepMounted tone="inverse" />
+      </ScrollArea>
+    );
+    for (const thumb of container.querySelectorAll(
+      '[data-slot="scroll-area-thumb"]'
+    )) {
+      expect(thumb.className).toContain(
+        'color-mix(in_oklab,var(--ui-glyph-on-brand-primary)_40%,transparent)'
+      );
+      expect(thumb.className).not.toContain('--ui-background-inverse-primary');
+    }
+  });
+
+  // The bar is a 6px track that grows to a 10px thumb while pointed at. happy-dom
+  // has no layout, so this asserts the classes; the measured behaviour (6px → 10px,
+  // outer edge staying flush with the viewport edge) was verified in a browser.
+  it.each([
+    ['vertical', 'w-1.5', 'hover:w-2.5', 'hover:-ms-0.5'],
+    ['horizontal', 'h-1.5', 'hover:h-2.5', 'hover:-mt-0.5'],
+  ] as const)(
+    'grows the %s thumb inward when pointed at',
+    (orientation, rest, grown, shift) => {
+      const { container } = render(
+        <ScrollArea>
+          <ScrollBar orientation={orientation} keepMounted />
+        </ScrollArea>
+      );
+      const thumb = container.querySelector('[data-slot="scroll-area-thumb"]');
+      expect(thumb).toHaveClass(rest, grown, shift);
+      // The growth is a flex item exceeding its track, so without this it is
+      // shrunk back to 8px — measurably wrong rather than visibly broken.
+      expect(thumb).toHaveClass('shrink-0');
+      // `active:` too, so the thumb stays grown for the whole drag.
+      expect(thumb?.className).toContain(grown.replace('hover:', 'active:'));
+    }
+  );
+
+  // The 2px gutter has to be margin: Base UI pins the bar with inline
+  // `top`/`bottom`/`inset-inline-end`, which a class cannot override.
+  it('insets the bar from the viewport edges with margin, not offsets', () => {
+    const { container } = render(
+      <ScrollArea>
+        <ScrollBar keepMounted />
+      </ScrollArea>
+    );
+    const bar = container.querySelector('[data-slot="scroll-area-scrollbar"]');
+    expect(bar).toHaveClass('m-0.5', 'w-1.5');
+    // A 100% cross size would over-constrain the box against that inline `top`,
+    // and the browser would drop the `bottom` that reserves the corner.
+    expect(bar).not.toHaveClass('h-full');
+  });
+
+  // The remaining hop — `ScrollArea`'s own `tone` reaching the bars it renders
+  // itself — is NOT asserted here, deliberately. happy-dom has no layout, so
+  // Base UI never sees overflow and never mounts those bars; every assertion
+  // above works only because it mounts a `ScrollBar` explicitly with
+  // `keepMounted`. That hop is covered where a bar actually exists: the `Tones`
+  // story's light and dark baselines, and the SidebarPrimary stories, which are
+  // the reason `inverse` exists.
+
   it('renders a standalone ScrollBar with the requested orientation', () => {
     const { container } = render(
       <ScrollArea orientation="vertical">

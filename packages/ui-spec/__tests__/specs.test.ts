@@ -292,6 +292,23 @@ describe('cva ↔ contract conformance', () => {
     expect(groups.size.sort()).toEqual(enumMembers(api, 'size').sort());
   });
 
+  it('ScrollArea: api.yaml tone enum matches the cva keys in ui-react', () => {
+    const source = readFileSync(
+      resolve(
+        HERE,
+        '../../ui-react/src/components/ui/scroll-area/scroll-area.tsx'
+      ),
+      'utf8'
+    );
+    const groups = extractCvaGroups(source);
+    const api = loadSpec('scroll-area').api;
+
+    // `orientation` is deliberately NOT a cva axis — it picks which bars render
+    // and their layout, not the thumb color the cva drives.
+    expect(Object.keys(groups)).toEqual(['tone']);
+    expect(groups.tone.sort()).toEqual(enumMembers(api, 'tone').sort());
+  });
+
   it('ProgressCircle: api.yaml size enum matches the cva keys in ui-react', () => {
     const source = readFileSync(
       resolve(
