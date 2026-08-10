@@ -10,7 +10,6 @@
   "circle-stop-red",
   "circle-times-red",
   "circle-warning-orange",
-  "circles-multi",
   "diamond-warning-red",
   "dot-blue",
   "dot-gray",
@@ -18,5 +17,6 @@
   "dot-orange",
   "dot-red",
   "dot-yellow",
+  "shapes-multi",
   "triangle-warning-yellow"
 ]

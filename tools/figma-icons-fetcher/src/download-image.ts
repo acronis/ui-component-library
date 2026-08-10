@@ -3,6 +3,7 @@ import path from 'node:path';
 
 import { optimize, type Config } from 'svgo';
 
+import { fixDegenerateCloses } from './fix-degenerate-close';
 import { escapeRegExp, formatName, isMulticolor } from './helpers';
 import type { FetcherConfig, DownloadedIcon, IconWithUrl } from './types';
 
@@ -107,17 +108,22 @@ export async function downloadImage(
     // Optimize SVG
     const optimizedSvg = optimize(svgText, { plugins });
 
+    // SVGO's relative-coordinate output can leave a sub-epsilon `Z` segment,
+    // which browsers render as a miter spike at the subpath start. Snap those
+    // closes shut before anything else looks at the markup.
+    const optimizedData = fixDegenerateCloses(optimizedSvg.data);
+
     // Detect multicolor before any color substitution so the system color is
     // counted as a real color (it contributes to the palette in multicolor icons).
-    const iconIsMulticolor = isMulticolor(optimizedSvg.data);
+    const iconIsMulticolor = isMulticolor(optimizedData);
 
     // Replace system color with currentColor for theming — monocolor icons only.
     // Multicolor icons intentionally use the system color as a fill/accent, so
     // replacing it would break their appearance (e.g. a blue circle becoming black).
     const systemColorRegex = new RegExp(escapeRegExp(config.systemColor), 'gi');
     const content = iconIsMulticolor
-      ? optimizedSvg.data
-      : optimizedSvg.data.replace(systemColorRegex, 'currentColor');
+      ? optimizedData
+      : optimizedData.replace(systemColorRegex, 'currentColor');
 
     // Determine output directories (excluding mono/multi - those are handled separately)
     const outputDirs = [config.outputDir, ...config.outputDirs];

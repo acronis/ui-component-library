@@ -49,8 +49,10 @@ and [`README.md`](./README.md) for the full table.
      "Selection strategies".
 2. `get-figma-images.ts` — resolves SVG render URLs (batched 200/req).
 3. `download-chunks.ts` → `download-image.ts` — downloads + SVGO-optimizes each
-   icon (viewBox kept, IDs prefixed, system color → `currentColor`), writes to
-   `outputDir` (+ extra dirs).
+   icon (viewBox kept, IDs prefixed, system color → `currentColor`), repairs
+   degenerate closepaths (`fix-degenerate-close.ts` — SVGO's relative
+   coordinates can leave a sub-epsilon `Z` segment that browsers render as a
+   miter spike), writes to `outputDir` (+ extra dirs).
 4. `save-new-icons-to-categories.ts` — copies only **new** icons into the
    mono/multicolor dirs (those dirs are never cleaned).
 5. `generate-manifests.ts` — per-page + combined `icons.json`.
