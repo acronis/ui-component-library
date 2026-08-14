@@ -1,7 +1,7 @@
 import type { Column, Table } from '@tanstack/react-table';
 import { CogIcon } from '@constructor-lab/icons-react/stroke-mono';
 
-import { Button } from '@constructor-lab/ui-react';
+import { Button } from '../button';
 import { columnAnnouncerFor } from './data-grid-column-announcer';
 import {
   DropdownMenu,
