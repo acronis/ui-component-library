@@ -2,8 +2,8 @@ import type { ReactNode } from 'react';
 import type { Table } from '@tanstack/react-table';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
-import { Button } from '@constructor-lab/ui-react';
-import { InputText } from '@constructor-lab/ui-react';
+import { Button } from '../button';
+import { InputText } from '../input-text';
 
 // Private DataGrid chrome (design §4.3, "Toolbar"): the toolbar row, owned by
 // DataGrid like `data-grid-column-filters.tsx` and `data-grid-actions.tsx`.

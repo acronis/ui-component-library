@@ -2,10 +2,10 @@ import { type ReactNode, useState } from 'react';
 import type { ColumnDef } from '@tanstack/react-table';
 import { TimesIcon } from '@constructor-lab/icons-react/stroke-mono';
 
-import { cn } from '@constructor-lab/ui-react';
+import { cn } from '@/lib/utils';
 
 import type { DataTableController } from '../data-table';
-import { Button } from '@constructor-lab/ui-react';
+import { Button } from '../button';
 import { ButtonIconMenu } from '../button-icon-menu';
 import { ConfirmDialog } from '../confirm-dialog';
 import {

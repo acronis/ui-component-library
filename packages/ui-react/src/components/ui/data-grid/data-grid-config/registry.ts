@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react';
 import type { ColumnDef } from '@tanstack/react-table';
-import type { TooltipContent } from '@constructor-lab/ui-react';
+import type { TooltipContent } from '../../tooltip';
 
 import type {
   DataTableController,
