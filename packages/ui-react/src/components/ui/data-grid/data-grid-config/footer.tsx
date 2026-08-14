@@ -47,14 +47,19 @@ export interface DataGridSummary<TData>
  */
 export type DataGridFooterConfig<TData> =
   | {
+      /** One computed summary cell per entry, formatted by this layer. */
       readonly summaries: readonly DataGridSummary<TData>[];
+      /** Unavailable alongside `summaries` — the two forms are exclusive. */
       readonly render?: never;
+      /** Pin the footer while the body scrolls. */
       readonly sticky?: boolean;
     }
   | {
+      /** Unavailable alongside `render` — the two forms are exclusive. */
       readonly summaries?: never;
       /** Own the whole footer row. Receives the rows behind the grand total. */
       readonly render: (rows: readonly TData[]) => React.ReactNode;
+      /** Pin the footer while the body scrolls. */
       readonly sticky?: boolean;
     };
 

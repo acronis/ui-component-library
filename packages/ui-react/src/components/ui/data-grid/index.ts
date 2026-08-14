@@ -41,6 +41,7 @@ export {
   type DataGridDetailExpansionConfig,
   type DataGridFacetSource,
   type DataGridGroupingConfig,
+  type DataGridLabels,
   type DataGridPersistenceConfig,
   type DataGridServerSelection,
   type DataGridServerSelectionChangeEvent,
@@ -60,6 +61,8 @@ export {
   // recorded figure stayed at two. Both are now exported; they are different types.
   //
   // Type-only, so nothing rendered changes and no baseline moves.
+  type DataGridTruncateCellContext,
+  type DataGridTruncateColumnMeta,
 } from './data-grid';
 export {
   createActionsColumn,

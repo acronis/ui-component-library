@@ -30,6 +30,12 @@ import {
 // and mutates the ONE shared DataTable controller: each control drives a column
 // filter through the engine, and the applied-filter chips reflect the engine's
 // committed `columnFilters` state.
+//
+// **Two exported halves, in two different rows** (PLTFRM-93130): the triggers go in
+// the toolbar row so a bulk selection replaces them, the chips stay under it so the
+// active filter set remains readable while acting on that selection. They were one
+// component in one row until then. Both take the same props and read the same
+// controller; only the placement differs.
 
 export interface ResolvedColumnFilterDef {
   readonly columnId: string;
@@ -78,7 +84,7 @@ function summarizeFilter(label: string, filter: DataGridFilterValue): string {
   const operator = FILTER_OPERATOR_LABELS[filter.operator];
   return isValuelessOperator(filter.operator)
     ? `${label} ${operator}`
-    : `${label} ${operator} “${filter.value ?? ''}”`;
+    : `${label} ${operator} "${filter.value ?? ''}"`;
 }
 
 function ColumnFilterControl<TData>({
@@ -213,15 +219,24 @@ function ColumnFilterControl<TData>({
   );
 }
 
-export function DataGridColumnFilters<TData>({
+/**
+ * The filter **triggers** — one popover control per definition. Rendered inside the
+ * toolbar row (PLTFRM-93130), next to search and whatever `toolbar.trailing`
+ * carries, so a selection's bulk actions replace them the way Figma specifies. They
+ * used to sit in the `under-toolbar` slot together with the chips below, where a
+ * bulk selection could not cover them.
+ */
+export function DataGridColumnFilterTriggers<TData>({
   controller,
   filters,
 }: DataGridColumnFiltersProps<TData>) {
-  const activeFilters = controller.getState().columnFilters;
-  const labelById = new Map(filters.map((def) => [def.columnId, def.label]));
-
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    // `shrink-0`, not `min-w-0`: the triggers do not shrink individually, so a
+    // shrinkable wrapper just overflows its own box and paints over whatever sits
+    // next to it in the row — measured as the search input landing on top of a
+    // trigger. Holding their width makes the search box (which *can* shrink) give
+    // way instead.
+    <div className="flex shrink-0 items-center gap-2">
       {filters.map((def) => (
         <ColumnFilterControl
           key={def.columnId}
@@ -229,7 +244,35 @@ export function DataGridColumnFilters<TData>({
           def={def}
         />
       ))}
+    </div>
+  );
+}
 
+/**
+ * The **applied-filter chips**, plus `Clear all`. Stays in the `under-toolbar` slot
+ * and is deliberately *not* replaced while rows are selected: the chips say which
+ * result set the selection was drawn from, which is exactly what a person needs
+ * while deciding whether to act on it.
+ *
+ * ⚠ Renders nothing when no filter is applied, so the first chip still adds a row
+ * and shifts the table down. That is a **second, separate** jump source from the one
+ * PLTFRM-93130 fixed — it fires on a deliberate filter action rather than on an
+ * incidental row click — and it is knowingly left alone here rather than reserving
+ * an always-empty strip under every filterable grid. See ui-blocks ADR-0003.
+ */
+export function DataGridColumnFilterChips<TData>({
+  controller,
+  filters,
+}: DataGridColumnFiltersProps<TData>) {
+  const activeFilters = controller.getState().columnFilters;
+  const labelById = new Map(filters.map((def) => [def.columnId, def.label]));
+
+  if (activeFilters.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="flex flex-wrap items-center gap-2">
       {activeFilters.map((filter) => {
         const label = labelById.get(filter.id) ?? filter.id;
         const summary = summarizeFilter(
@@ -250,15 +293,15 @@ export function DataGridColumnFilters<TData>({
         );
       })}
 
-      {activeFilters.length > 0 && (
-        <Button
-          variant="ghost"
-          className="h-8"
-          onClick={() => controller.table.resetColumnFilters()}
-        >
-          Clear all
-        </Button>
-      )}
+      {/* Unconditional now: the early return above already established that at
+          least one filter is applied. */}
+      <Button
+        variant="ghost"
+        className="h-8"
+        onClick={() => controller.table.resetColumnFilters()}
+      >
+        Clear all
+      </Button>
     </div>
   );
 }

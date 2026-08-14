@@ -1,6 +1,12 @@
-import type { DataTableColumnsFeaturesConfig } from '../../data-table';
+import type { ColumnDef } from '@tanstack/react-table';
+
+import type {
+  DataTableColumnPinningState,
+  DataTableColumnsFeaturesConfig,
+} from '../../data-table';
 import type { DataTableColumnControls } from '../../data-table/data-table-features/columns';
 import { DATA_GRID_ACTIONS_COLUMN_ID } from './actions';
+import type { ResolvedDataGridLabels } from './labels';
 import { DataGridColumnAnnouncer } from '../data-grid-column-announcer';
 import { DataGridColumnHeaderControls } from '../data-grid-column-header-controls';
 import { defineDataGridConfig } from './registry';
@@ -89,6 +95,18 @@ export interface DataGridColumnsFeaturesConfig {
    */
   overflowTooltip?: boolean;
   /**
+   * When the divider on a pinned region's inner edge is drawn (PLTFRM-93276).
+   *
+   * `'auto'` (default) draws it only while columns are actually hidden beneath that
+   * edge — which is the defect it fixes: a column sliding under a pinned one with no
+   * seam. `'always'` draws it whenever a pinned boundary exists, and is the only way
+   * to keep the divider on a table that also passes `borders={false}`.
+   *
+   * There is deliberately no `false`. Silently vanishing columns is the bug, not a
+   * configuration.
+   */
+  pinnedDivider?: 'auto' | 'always';
+  /**
    * Keep the selection, detail-expander and actions columns in place. Defaults
    * to `true` (design §6.9).
    */
@@ -115,8 +133,19 @@ export interface ResolvedDataGridColumnsFeatures {
   readonly resizeMode: 'onChange' | 'onEnd';
   readonly fit: 'content' | 'container' | false;
   readonly overflowTooltip: boolean;
+  /** Resolved divider mode — see {@link DataGridColumnsFeaturesConfig.pinnedDivider}. */
+  readonly pinnedDivider: 'auto' | 'always';
   /** Columns the engine must refuse to move, pin or resize (design §6.9). */
   readonly lockedColumnIds: readonly string[];
+  /**
+   * The initial `columnPinning` slice this group contributes to `defaultState`
+   * from `meta.pin`, or `undefined` when no column carries it.
+   *
+   * Exposed as data for the same reason `pagination.initialSlice` is: `state.ts`
+   * owns `defaultState`, and a caller's own slice beats a group default
+   * (design §5.1).
+   */
+  readonly initialSlice?: DataTableColumnPinningState;
 }
 
 /* eslint-disable unused-imports/no-unused-vars -- declaration merging requires
@@ -152,9 +181,128 @@ declare module './registry' {
  *
  * Declared at module scope so its identity is stable across renders.
  */
-function renderColumnHeaderControls(controls: DataTableColumnControls) {
-  if (!controls.canResize && !controls.canReorder) return undefined;
-  return <DataGridColumnHeaderControls controls={controls} />;
+function headerControlsRenderer(labels: ResolvedDataGridLabels) {
+  return function renderColumnHeaderControls(
+    controls: DataTableColumnControls
+  ) {
+    if (!controls.canResize && !controls.canReorder) return undefined;
+    return <DataGridColumnHeaderControls controls={controls} labels={labels} />;
+  };
+}
+
+/**
+ * The id TanStack will derive for a column def.
+ *
+ * Mirrors the engine's own rule — an explicit `id`, else the `accessorKey` — so a
+ * def written as `{ accessorKey: 'connect', meta: { pin: 'right' } }` pins the
+ * column it names rather than being dropped for having no `id`.
+ */
+function columnIdOf(def: {
+  id?: string;
+  accessorKey?: unknown;
+}): string | undefined {
+  if (def.id !== undefined) return def.id;
+  return typeof def.accessorKey === 'string' ? def.accessorKey : undefined;
+}
+
+/**
+ * Initial column pinning, read from `columnDef.meta.pin` (PLTFRM-93016).
+ *
+ * `DataTable` in the published design system honours `meta.pin`, so a consumer
+ * migrating to DataGrid arrives with it already on their column defs — and it was
+ * read by nothing here. Not an error, a *silent* no-op: their pinned actions
+ * column simply became the last column and scrolled out of reach.
+ *
+ * ── THE VOCABULARY IS NOT OURS TO PICK ──────────────────────────────────────
+ * `'left' | 'right'`, physical, and deliberately not the logical `'start'/'end'`
+ * pair the rest of this grid speaks (`columnControls.pin('end')`). The design
+ * system augments TanStack's `ColumnMeta` globally with `pin?: 'left' | 'right'`
+ * (`@constructor-lab/ui-react/dist/src/components/ui/data-table/data-table.d.ts`),
+ * every consumer has that augmentation because ui-react is a peer dependency, and
+ * declaration merging cannot widen an already-declared property — a second
+ * `pin?: 'start' | …` is a compile error, not an addition. So this reads the key
+ * the DS published, at the type the DS gave it. Accepting `'start'`/`'end'` here
+ * would have typechecked for nobody; the attempt is what surfaced the constraint.
+ *
+ * The runtime check below therefore guards JS callers and any future widening,
+ * not the typed path.
+ *
+ * ── IT REQUIRES `columnsFeatures.pinning`, WHICH IS A DEVIATION ─────────────
+ * The published `DataTable` pins imperatively — an effect calling
+ * `column.pin(meta?.pin ?? false)`, gated on nothing. This grid cannot copy that,
+ * because the vendored engine applies pinned styling only when the feature is on:
+ * `data-table-features/columns.tsx` derives both
+ * `pinned = Boolean(config.pinning && region)` and
+ * `canPin = Boolean(config?.pinning) && !locked` from that one flag. Seeding the
+ * slice with the flag off would write state that renders nothing — the same silent
+ * no-op one layer along.
+ *
+ * So the seed applies when pinning is on, and warns naming the line to add when it
+ * is not. Turning the flag on from column metadata was the other candidate and was
+ * rejected: it would materialise affordances the caller never asked for (the header
+ * pin control, the toolbar's "Pin columns" section) and flip `enabled`, whose three
+ * readers do not ask the same question. Separating "apply" from "offer" in the
+ * engine feature would let `meta.pin` stand alone; that is a change to vendored
+ * mechanics, so it is not this one.
+ *
+ * Both failure modes warn rather than pass silently: an unrecognised edge, and a
+ * `meta.pin` on a def with neither `id` nor a string `accessorKey` (a display
+ * column), which the engine has no id to pin by.
+ */
+function pinningSeedOf<TData, TValue>(
+  columns: readonly ColumnDef<TData, TValue>[],
+  warnings: string[]
+): DataTableColumnPinningState | undefined {
+  const left: string[] = [];
+  const right: string[] = [];
+
+  for (const def of columns) {
+    const pin = def.meta?.pin;
+    if (pin === undefined) continue;
+
+    const id = columnIdOf(def);
+
+    if (pin !== 'left' && pin !== 'right') {
+      warnings.push(
+        `DataGrid: \`meta.pin\` on the ${
+          id === undefined ? 'unnamed' : `\`${id}\``
+        } column is \`${String(pin)}\`; expected 'left' or 'right'.`
+      );
+      continue;
+    }
+    if (id === undefined) {
+      warnings.push(
+        'DataGrid: `meta.pin` needs a column with an `id` or a string `accessorKey`; the engine pins by id and this def has neither.'
+      );
+      continue;
+    }
+
+    (pin === 'left' ? left : right).push(id);
+  }
+
+  return left.length === 0 && right.length === 0 ? undefined : { left, right };
+}
+
+/**
+ * Say so when `meta.pin` was asked for and pinning is off.
+ *
+ * The seeded slice would render nothing in that configuration (see
+ * `DataGridColumnPinMeta`), and a seed that silently renders nothing is the defect
+ * PLTFRM-93016 reported, one layer along. The message names the line to add.
+ */
+function warnPinningDisabled(
+  requested: DataTableColumnPinningState | undefined,
+  warnings: string[]
+): string[] {
+  if (requested === undefined) return warnings;
+  const pinned = [...requested.left, ...requested.right]
+    .map((id) => `\`${id}\``)
+    .join('/');
+  warnings.push(
+    `DataGrid: ${pinned} asked to be pinned through \`meta.pin\`, but pinning is ` +
+      'off, so nothing is pinned. Add `columnsFeatures={{ pinning: true }}`.'
+  );
+  return warnings;
 }
 
 export const columnsFeaturesConfig = defineDataGridConfig({
@@ -164,6 +312,13 @@ export const columnsFeaturesConfig = defineDataGridConfig({
 
   resolve({ props }) {
     const config = props.columnsFeatures;
+    const warnings: string[] = [];
+
+    // Read before the early return, so that the case this exists for is not the
+    // case it misses: a consumer migrating from `DataTable` arrives with `meta.pin`
+    // on a column def and no `columnsFeatures` at all (PLTFRM-93016). That caller
+    // gets the warning below rather than silence, which is the whole defect.
+    const requested = pinningSeedOf(props.columns, warnings);
 
     if (config === undefined || config === false) {
       return {
@@ -176,8 +331,11 @@ export const columnsFeaturesConfig = defineDataGridConfig({
           resizeMode: 'onEnd',
           fit: false,
           overflowTooltip: false,
+          pinnedDivider: 'auto',
           lockedColumnIds: [],
+          initialSlice: undefined,
         },
+        warnings: warnPinningDisabled(requested, warnings),
       };
     }
 
@@ -220,9 +378,23 @@ export const columnsFeaturesConfig = defineDataGridConfig({
         resizeMode: config.resizeMode ?? 'onEnd',
         fit: config.fit ?? false,
         overflowTooltip: config.overflowTooltip ?? false,
+        pinnedDivider: config.pinnedDivider ?? 'auto',
         lockedColumnIds,
+        initialSlice: pinning ? requested : undefined,
       },
+      warnings: pinning ? warnings : warnPinningDisabled(requested, warnings),
     };
+  },
+
+  /**
+   * The divider mode reaches `Table` as a view prop (PLTFRM-93276), the same route
+   * `borders` and `stickyHeader` take. Contributed unconditionally rather than only
+   * when `pinning` is on: `defaultState.columnPinning` and `meta.pin` can pin a
+   * column with the *feature* off, and a divider on a pinned column that the user
+   * cannot unpin is exactly as necessary as one they can.
+   */
+  viewProps({ resolved }) {
+    return { pinnedDivider: resolved.columnsFeatures.pinnedDivider };
   },
 
   controllerOptions({ resolved }) {
@@ -290,7 +462,7 @@ export const columnsFeaturesConfig = defineDataGridConfig({
       fit,
       overflowTooltip,
       lockedColumnIds,
-      renderHeaderControls: renderColumnHeaderControls,
+      renderHeaderControls: headerControlsRenderer(resolved.labels),
     };
     return { columnsFeatures };
   },

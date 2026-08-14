@@ -1,7 +1,7 @@
 import type { FilterFn } from '@tanstack/react-table';
 
 import {
-  DataGridColumnFilters,
+  DataGridColumnFilterChips,
   type ResolvedColumnFilterDef,
 } from '../data-grid-column-filters';
 import {
@@ -10,16 +10,23 @@ import {
 } from '../data-grid-filter-operators';
 import { defineDataGridConfig } from './registry';
 
-// OWNERSHIP: created by F4 with the shipped wiring; **U7 owns this file** —
-// `facet` and the multi-column `global.columnIds` semantics land here.
+// OWNERSHIP: created by F4 with the shipped wiring; **U7 owns this file**.
 
 // The `filters` behavior group (design §5.2): per-column operator controls plus
-// the column the toolbar search box drives.
+// the columns the toolbar search box drives.
 //
-// P1 note: `facet` (unique / min-max / fixed list) and the multi-column
-// `global.columnIds` semantics are U7's, and land by extending the two
-// interfaces below plus this module's `controllerOptions`. Nothing outside this
-// file changes.
+// `facet` and the multi-column `global.columnIds` semantics are **both
+// implemented** — see `facet` on `DataGridColumnFilterDef` and `columnIds` on
+// `global` below, `hasFacets`/`facets` in `controllerOptions`, and
+// `__tests__/data-grid-filters-facets.test.tsx`.
+//
+// This header used to carry a "P1 note" listing both as U7's future work, left
+// behind when they landed. That is not a harmless stale comment: PLTFRM-93016 was
+// filed against the published package reporting "global search covers only one
+// column", citing this note as the source's own admission. The note was the
+// evidence; `columnIds` had shipped a day before the ticket. If either of these
+// grows a follow-up, describe what is missing — never restate the whole feature
+// as unbuilt.
 
 /** Enables an operator-driven filter control for one column. */
 export interface DataGridColumnFilterDef {
@@ -50,7 +57,9 @@ export type DataGridFacetSource =
  * `DataGridColumnFilterDef[]` (equivalent to `{ columns }`).
  */
 export interface DataGridFiltersConfig {
+  /** One operator-driven filter control per entry. */
   columns?: readonly DataGridColumnFilterDef[];
+  /** The toolbar search box. Omit it and no global filter is offered. */
   global?: {
     /**
      * Columns the toolbar search box matches against: case-insensitive substring,
@@ -61,6 +70,7 @@ export interface DataGridFiltersConfig {
     columnIds?: readonly string[];
     /** @deprecated Use `columnIds`. Single-column form, kept for one minor line. */
     columnId?: string;
+    /** Placeholder text for the search box. */
     placeholder?: string;
   };
 }
@@ -236,7 +246,11 @@ export const filtersConfig = defineDataGridConfig({
   },
 
   chrome(slot, { controller, resolved }) {
-    // The controls sit between the toolbar and the table, and are surfaced by
+    // **Chips only.** The trigger controls moved up into the toolbar row
+    // (PLTFRM-93130) so that a selection's bulk actions replace them, and the
+    // `toolbar` module mounts them from the same `definitions` this group resolves;
+    // what stays here is the applied-filter summary, which deliberately survives a
+    // selection so the acting-on set stays legible. Still gated by
     // `toolbar.columnFilters` (design §5.2 defaults it to false).
     if (slot !== 'under-toolbar' || !resolved.toolbar.columnFilters) {
       return null;
@@ -246,7 +260,10 @@ export const filtersConfig = defineDataGridConfig({
       return null;
     }
     return (
-      <DataGridColumnFilters controller={controller} filters={definitions} />
+      <DataGridColumnFilterChips
+        controller={controller}
+        filters={definitions}
+      />
     );
   },
 });

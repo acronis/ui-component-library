@@ -98,7 +98,10 @@ export const actionsConfig = defineDataGridConfig({
             },
           } as DataGridActionsConfig<unknown>);
 
-    const column = createActionsColumn<unknown, unknown>(effective);
+    const column = createActionsColumn<unknown, unknown>(
+      effective,
+      resolved.labels
+    );
     return config.placement === 'start'
       ? [column, ...columns]
       : [...columns, column];

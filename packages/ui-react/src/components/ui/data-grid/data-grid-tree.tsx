@@ -24,6 +24,11 @@ import { Spinner } from '../spinner';
 import { TableCell, TableRow } from '../table';
 import type { DataGridTreeLoadErrorContext } from './data-grid-config/tree';
 
+import {
+  DATA_GRID_DEFAULT_LABELS,
+  type ResolvedDataGridLabels,
+} from './data-grid-config/labels';
+
 // Private DataGrid chrome (design §4.3): the tree disclosure and the depth
 // indentation, wrapped around the tree column's own cell content by
 // `data-grid-config/tree.tsx`.
@@ -71,6 +76,8 @@ const INDENT_STYLE = {
 };
 
 export interface DataGridTreeCellProps<TData> {
+  /** The strings this part renders (PLTFRM-93117); `tree.tsx` passes `resolved.labels`. */
+  readonly labels?: ResolvedDataGridLabels;
   readonly row: Row<TData>;
   /**
    * Whether a `loadChildren` is configured, which changes **which rows get a
@@ -86,6 +93,7 @@ export interface DataGridTreeCellProps<TData> {
 }
 
 export function DataGridTreeCell<TData>({
+  labels = DATA_GRID_DEFAULT_LABELS,
   row,
   lazy = false,
   children,
@@ -113,7 +121,11 @@ export function DataGridTreeCell<TData>({
     <span className="flex min-w-0 items-center gap-1" style={INDENT_STYLE}>
       {canDisclose ? (
         <ButtonIcon
-          aria-label={`${tree.isExpanded ? 'Collapse' : 'Expand'} children, level ${level}`}
+          aria-label={
+            tree.isExpanded
+              ? labels.collapseChildren(level)
+              : labels.expandChildren(level)
+          }
           aria-expanded={tree.isExpanded}
           className="size-6 shrink-0"
           onClick={(event) => {
@@ -155,6 +167,8 @@ export function DataGridTreeCell<TData>({
  * no way back is not a supported shape.
  */
 export interface DataGridTreeStatusRowProps<TData> {
+  /** The strings this part renders (PLTFRM-93117); `tree.tsx` passes `resolved.labels`. */
+  readonly labels?: ResolvedDataGridLabels;
   readonly context: DataTableTreeStatusContext<TData>;
   readonly renderLoadError?: (
     context: DataGridTreeLoadErrorContext<TData>
@@ -162,6 +176,7 @@ export interface DataGridTreeStatusRowProps<TData> {
 }
 
 export function DataGridTreeStatusRow<TData>({
+  labels = DATA_GRID_DEFAULT_LABELS,
   context,
   renderLoadError,
 }: DataGridTreeStatusRowProps<TData>) {
@@ -176,19 +191,23 @@ export function DataGridTreeStatusRow<TData>({
     <TableRow id={domId} data-slot="tree-status-row">
       <TableCell colSpan={colSpan}>
         {status === 'loading' ? (
-          <span className="text-muted-foreground flex items-center gap-2 text-sm">
-            {/* `Spinner` already carries `role="status"` and an sr-only "Loading…",
-                so the visible label here is deliberately DIFFERENT — repeating it
-                gave two "Loading…" nodes and would have announced twice. */}
-            <Spinner className="size-4" />
-            Loading child items…
+          /* `Loading` is spinner-plus-label as one part, which is exactly what
+             this row used to assemble by hand out of `Spinner` and a sibling
+             text node. It owns the `role="status"` live region and names it from
+             `label`, so there is one announcement rather than the two the old
+             arrangement had to work around. Dropped `Spinner` in
+             `@constructor-lab/ui-react` 0.61.0 (PLTFRM-93378): the component
+             still ships but the package barrel no longer re-exports it. */
+          <span className="flex items-center gap-2">
+            <Spinner />
+            <span>Loading child items…</span>
           </span>
         ) : renderLoadError !== undefined ? (
           renderLoadError({ row: row.original, error, retry })
         ) : (
           <Alert variant="critical" className="text-start">
             <AlertContent>
-              <AlertTitle>Could not load child items</AlertTitle>
+              <AlertTitle>{labels.treeLoadError}</AlertTitle>
               {error !== undefined && (
                 <AlertDescription>{String(error)}</AlertDescription>
               )}

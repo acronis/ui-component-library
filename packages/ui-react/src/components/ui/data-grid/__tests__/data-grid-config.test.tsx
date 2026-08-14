@@ -61,6 +61,9 @@ describe('DataGrid config registry', () => {
       DATA_GRID_CONFIG_MODULES.map((module) => module.key),
       PIN_FIX
     ).toEqual([
+      // First by design: every string-rendering group reads `resolved.labels`
+      // (PLTFRM-93117), and resolution runs in this order.
+      'labels',
       'dataState',
       'appearance',
       'rowInteraction',
@@ -99,6 +102,9 @@ describe('DataGrid config registry', () => {
       buildGroupedConfigAliases(DATA_GRID_CONFIG_MODULES),
       PIN_FIX
     ).toEqual({
+      // No aliases: `labels` is new surface (PLTFRM-93117), so there is no shipped
+      // flat prop for it to normalize.
+      labels: [],
       selection: ['selectable', 'selectionMode', 'isRowSelectable'],
       sorting: ['sortable', 'multiSort'],
       filters: ['searchKey', 'searchPlaceholder'],

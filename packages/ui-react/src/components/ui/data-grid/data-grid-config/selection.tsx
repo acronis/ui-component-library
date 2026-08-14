@@ -1,6 +1,6 @@
 import type { ColumnDef } from '@tanstack/react-table';
 
-import { Checkbox } from '../../checkbox';
+import { Checkbox } from '@constructor-lab/ui-react';
 import { withSelectionCause } from '../../data-table/data-table-selection-cause';
 import { defineDataGridConfig } from './registry';
 import { DATA_GRID_CHROME_COLUMN_SIZING } from './chrome-column';
@@ -50,6 +50,10 @@ export const DATA_GRID_SELECTION_COLUMN_ID = '__select__';
 
 /** `false` disables selection; a config enables it with these behaviors. */
 export interface DataGridSelectionConfig<TData> {
+  /**
+   * Single- or multi-row selection. Default `multiple`. In `single` mode the
+   * header select-all is never rendered.
+   */
   mode?: 'single' | 'multiple';
   /** Show the header select-all (multiple mode only). Default true. */
   showSelectAll?: boolean;
@@ -101,6 +105,12 @@ export interface DataGridSelectionConfig<TData> {
    * complete resolved map.
    */
   selectAll?: 'page' | 'loaded' | 'all-results';
+  /**
+   * Per-row eligibility. A row this returns `false` for renders **no checkbox**
+   * and is excluded from select-all — prefer this over validating a selection
+   * afterwards, which leaves the user to discover that some of what they picked
+   * did not count.
+   */
   isRowSelectable?: (row: TData) => boolean;
 }
 
@@ -347,7 +357,7 @@ export const selectionConfig = defineDataGridConfig({
           const excluded = allResults.excludedIds.size > 0;
           return (
             <Checkbox
-              aria-label="Select all rows"
+              aria-label={resolved.labels.selectAllRows}
               checked={!excluded}
               indeterminate={excluded}
               onCheckedChange={(checked) => {
@@ -380,7 +390,7 @@ export const selectionConfig = defineDataGridConfig({
 
         return (
           <Checkbox
-            aria-label="Select all rows"
+            aria-label={resolved.labels.selectAllRows}
             checked={allSelected}
             indeterminate={indeterminate}
             onCheckedChange={(checked) => {
@@ -434,7 +444,7 @@ export const selectionConfig = defineDataGridConfig({
         <span className="contents" onClick={(event) => event.stopPropagation()}>
           {allResults === undefined ? (
             <Checkbox
-              aria-label="Select row"
+              aria-label={resolved.labels.selectRow}
               checked={row.getIsSelected()}
               disabled={!row.getCanSelect()}
               // Reports `cause: 'pointer'`, because the wrapper carries the
@@ -451,7 +461,7 @@ export const selectionConfig = defineDataGridConfig({
             />
           ) : (
             <Checkbox
-              aria-label="Select row"
+              aria-label={resolved.labels.selectRow}
               // Selected means "matched the query and not excluded". Derived from
               // `row.id` at render time rather than from an engine slice, which is
               // the whole reason this branch exists: the engine cannot hold a set

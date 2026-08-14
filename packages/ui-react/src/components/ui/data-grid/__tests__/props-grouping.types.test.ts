@@ -41,6 +41,9 @@ describe('DataGrid props — grouping', () => {
     // reference it, per registry rule 5.
     expectTypeOf<DataGridGroupingConfig<Person>>().toEqualTypeOf<{
       allowedColumns: readonly string[];
+      // Per-group paging (PLTFRM-93295). Optional, and `0`/omitted is off, so every
+      // existing caller keeps the behaviour they had.
+      pageSize?: number;
       renderGroup?: (context: DataGridGroupContext<Person>) => ReactNode;
       collapsible?: boolean;
       sticky?: boolean;

@@ -47,16 +47,33 @@ export interface DataGridAppearanceConfig<TData> {
   stickyHeader?: boolean;
   /** Independent top/bottom/horizontal/vertical border strengths. */
   borders?: DataGridBorders;
+  /** Fixed width. Unset lets the grid fill its container. */
   width?: DataTableViewProps<TData>['width'];
   /** Fixed height. A bounded height is what makes scrolling and stickiness work. */
   height?: DataTableViewProps<TData>['height'];
+  /**
+   * Upper bound on height, growing to fit until then. Prefer this over `height`
+   * when the row count varies — and pair either with `stickyHeader`, which has
+   * nothing to stick within otherwise.
+   */
   maxHeight?: DataTableViewProps<TData>['maxHeight'];
   /** Per-row class from its typed context. */
   rowClassName?: (row: DataTableRowContext<TData>) => string | undefined;
+  /**
+   * Per-row inline style. Prefer `rowClassName` where a class exists; this is for
+   * values a stylesheet cannot know, such as a computed offset.
+   */
   rowStyle?: (row: DataTableRowContext<TData>) => CSSProperties | undefined;
+  /**
+   * Per-cell class. The context carries the column id and the row, so a rule can
+   * branch on either.
+   */
   cellClassName?: (cell: DataTableCellContext<TData>) => string | undefined;
+  /** Per-cell inline style, from the same context as `cellClassName`. */
   cellStyle?: (cell: DataTableCellContext<TData>) => CSSProperties | undefined;
+  /** Per-header-cell class. */
   headerClassName?: (header: DataTableHeaderContext) => string | undefined;
+  /** Per-header-cell inline style. */
   headerStyle?: (header: DataTableHeaderContext) => CSSProperties | undefined;
 }
 

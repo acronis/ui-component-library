@@ -7,6 +7,11 @@ import { ButtonIcon } from '../button-icon';
 import { Checkbox } from '../checkbox';
 import type { DataTableGroupContext } from '../data-table/data-table-features/grouping';
 
+import {
+  DATA_GRID_DEFAULT_LABELS,
+  type ResolvedDataGridLabels,
+} from './data-grid-config/labels';
+
 // Private DataGrid chrome (design §4.3): the group row's disclosure, its
 // group-scoped select-all, and its label. The engine half renders the `<TableRow>`
 // and the spanning `<TableCell>` — it has to, because only the feature that emits
@@ -36,6 +41,11 @@ import type { DataTableGroupContext } from '../data-table/data-table-features/gr
 // transfer to the checkbox.
 
 export interface DataGridGroupHeaderProps<TData> {
+  /**
+   * The strings this header renders (PLTFRM-93117). `grouping.tsx` passes
+   * `resolved.labels`; a direct composer passes `DATA_GRID_DEFAULT_LABELS`.
+   */
+  readonly labels?: ResolvedDataGridLabels;
   readonly context: DataTableGroupContext<TData>;
   /**
    * Render the group-scoped select-all. Resolved by the config module from
@@ -48,6 +58,7 @@ export interface DataGridGroupHeaderProps<TData> {
 export function DataGridGroupHeader<TData>({
   context,
   showSelection = false,
+  labels = DATA_GRID_DEFAULT_LABELS,
 }: DataGridGroupHeaderProps<TData>) {
   const { name, rowCount, collapsed, collapsible, toggle, selection } = context;
 
@@ -60,7 +71,9 @@ export function DataGridGroupHeader<TData>({
           // emits `data-expanded` alone. No `aria-controls` — a group discloses a
           // variable set of sibling `<tr>`s and several rows cannot share one id,
           // exactly as the tree disclosure documents.
-          aria-label={`${collapsed ? 'Expand' : 'Collapse'} group ${name}`}
+          aria-label={
+            collapsed ? labels.expandGroup(name) : labels.collapseGroup(name)
+          }
           aria-expanded={!collapsed}
           className="size-6 shrink-0"
           onClick={toggle}
@@ -81,7 +94,7 @@ export function DataGridGroupHeader<TData>({
         <Checkbox
           // Named per group, because every group row carries one of these and an
           // accessible name has to distinguish them.
-          aria-label={`Select all rows in group ${name}`}
+          aria-label={labels.selectAllRowsInGroup(name)}
           checked={selection.state === 'all'}
           indeterminate={selection.state === 'some'}
           // Nothing to select is stated rather than silently inert. It happens

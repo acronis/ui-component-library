@@ -484,14 +484,24 @@ describe('§7 clause 3 — rung 3, the toolbar', () => {
     // REACHABLE by the query. Neither alone would catch the hook moving to an inner
     // wrapper, or the contract selector failing to match a Base UI trigger.
     const { calls, landed } = focusChain({
-      toolbar: (controller) => <DataGridToolbar table={controller.table} />,
+      toolbar: (controller) => (
+        <DataGridToolbar
+          table={controller.table}
+          trailing={<button type="button">Add node</button>}
+        />
+      ),
     });
 
-    // The column-settings trigger — the only control a default toolbar renders,
-    // since `globalSearch` needs a search column and there is no active filter.
+    // A member is now required to make this case non-empty. It used to be the
+    // column-settings trigger, which a default toolbar always rendered — PLTFRM-93130
+    // moved that control into the trailing column's header, so the *default* real
+    // toolbar renders no control at all and belongs with the miss cases below. What
+    // this still pins is the part the stub cannot: the shipped row carries the
+    // `data-slot` hook where the ancestor walk looks for it, and the contract
+    // selector matches a control inside it.
     expect(calls).toHaveLength(1);
     expect(landed).toBe('button');
-    expect(document.activeElement?.textContent).toBe('View');
+    expect(document.activeElement?.textContent).toBe('Add node');
   });
 });
 

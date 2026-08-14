@@ -32,6 +32,24 @@ import { defineDataTableFeature } from './registry';
 // `recordIndex`.
 
 /**
+ * The rendered row range, as published by the body-window seam.
+ *
+ * Display-row indices, not record indices — the same space `windowStart` and
+ * `aria-rowindex` use, so group headers, detail rows and the footer row all count.
+ * `endIndex` is the last overscanned index rather than the last visible one,
+ * which is what the seam actually renders and is why a range-driven fetch trigger
+ * runs `overscan` rows early by construction.
+ */
+export interface DataTableRowRange {
+  readonly startIndex: number;
+  readonly endIndex: number;
+  readonly count: number;
+}
+
+/** Rows from the end at which `onEndReached` fires. */
+export const DEFAULT_END_REACHED_THRESHOLD = 8;
+
+/**
  * Virtualization behavior: row-height estimation, measurement mode and overscan.
  *
  * Every member is optional by design — the owning unit tightens optionality
@@ -42,6 +60,18 @@ export interface DataTableVirtualizationConfig {
   readonly measure?: 'fixed' | 'dynamic';
   readonly overscan?: number;
   readonly scrollToIndex?: number;
+  /**
+   * Fires whenever the rendered range moves. Inert when windowing is off —
+   * without a virtualizer there is no range to report.
+   */
+  readonly onRangeChange?: (range: DataTableRowRange) => void;
+  /**
+   * Fires once when the window reaches within `endReachedThreshold` rows of the
+   * end, and re-arms only when `count` changes.
+   */
+  readonly onEndReached?: (range: DataTableRowRange) => void;
+  /** Rows from the end. Default 8. */
+  readonly endReachedThreshold?: number;
 }
 
 export const virtualizationFeature = defineDataTableFeature({

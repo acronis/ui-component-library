@@ -10,9 +10,18 @@ import { defineDataGridConfig } from './registry';
 // the enriched event. Either alone is enough to install the handler.
 
 export interface DataGridRowInteractionConfig<TData> {
+  /**
+   * Enable the current-row roving focus: arrow keys move it, and the current row
+   * is tracked in state. **The only identity-bearing member here** — it keys a row
+   * id, so it requires `getRowId`; the three handlers below receive the row object
+   * and work without identity.
+   */
   current?: boolean;
+  /** A body row was clicked. */
   onClick?: (row: TData) => void;
+  /** A row was activated — Enter on the current row, or a double click. */
   onActivate?: (row: TData) => void;
+  /** The pointer entered a body row. */
   onHover?: (row: TData) => void;
 }
 

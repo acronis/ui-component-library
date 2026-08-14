@@ -58,6 +58,13 @@ import {
 } from './data-table-render-context';
 
 export interface DataTableViewProps<TData> {
+  /**
+   * Forwarded to `Table`'s `pinnedDivider`. A feature module contributes it —
+   * `data-grid-config/columns-features.tsx` maps `columnsFeatures.pinnedDivider`
+   * onto it — so the divider mode travels the same route as `borders` and
+   * `stickyHeader` rather than through a second seam.
+   */
+  readonly pinnedDivider?: 'auto' | 'always';
   readonly renderExpandedRow?: (row: Row<TData>) => ReactNode;
   /**
    * Projects a header cell from its typed context. Receives the column def's

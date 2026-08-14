@@ -15,6 +15,11 @@ import {
   SelectValue,
 } from '../select';
 
+import {
+  DATA_GRID_DEFAULT_LABELS,
+  type ResolvedDataGridLabels,
+} from './data-grid-config/labels';
+
 // Private DataGrid chrome (design §4.3, "Pagination"): the pagination row, owned
 // by DataGrid like `data-grid-toolbar.tsx`, `data-grid-column-filters.tsx` and
 // `data-grid-actions.tsx`.
@@ -108,6 +113,15 @@ interface DataGridPaginationProps<TData> {
    * unattributable.
    */
   readonly selectedCount?: number;
+  /**
+   * The strings this component renders (PLTFRM-93117).
+   *
+   * Optional, defaulting to the shared `DATA_GRID_DEFAULT_LABELS` — not a second copy
+   * of the English strings, the same object the `labels` group starts from. Optional
+   * because this component is exported and composable on its own, so requiring it
+   * would be a breaking signature change for a caller who has no translations.
+   */
+  readonly labels?: ResolvedDataGridLabels;
 }
 
 export function DataGridPagination<TData>({
@@ -119,6 +133,7 @@ export function DataGridPagination<TData>({
   hasNextPage,
   hasPreviousPage,
   selectedCount,
+  labels = DATA_GRID_DEFAULT_LABELS,
 }: DataGridPaginationProps<TData>) {
   // An explicitly supplied capability wins over the engine's guess, which is the
   // whole point of the member. Absent one, the engine's own predicate stands, so
@@ -127,38 +142,45 @@ export function DataGridPagination<TData>({
   const canNextPage = hasNextPage ?? table.getCanNextPage();
   const firstLast = showFirstLast && !unknownTotal;
 
+  // `?? `, not `||`: a resolved count of 0 is a real answer — "nothing is selected
+  // out of 4821" — and truthiness would discard it and fall back to the engine,
+  // which is the same class of bug as a value with a default being unable to
+  // express "unset".
+  //
+  // `getRowCount()`, not `getFilteredRowModel().rows.length` (#94). The row model is
+  // the **loaded** row set, so under server pagination this announced one window as
+  // the whole result set. Measured: a grid with `server.rowCount: 4821` and a 4-row
+  // window rendered "0 of 4" while its OWN page counter, four elements away,
+  // rendered "Page 1 of 483" — two numbers in one component disagreeing about the
+  // same total, and the component already held the right one.
+  //
+  // `getRowCount()` is `options.rowCount ?? prePaginationRowModel.rows.length`, so
+  // it is the filtered count client-side and the owner's total in server mode.
+  // Correct in both without a branch here, and without new plumbing — `server.ts`
+  // already forwards `rowCount`.
+  //
+  // Built here rather than inline because it is now a call into `labels`
+  // (PLTFRM-93117), and a JSX comment cannot live inside an argument list.
+  const selectionSummary = labels.selectedCount(
+    selectedCount ?? table.getFilteredSelectedRowModel().rows.length,
+    table.getRowCount()
+  );
+
   return (
     <div className="flex items-center justify-between px-2">
       <div className="flex-1 text-sm text-muted-foreground">
-        {/* `?? `, not `||`: a resolved count of 0 is a real answer — "nothing is
-            selected out of 4821" — and truthiness would discard it and fall back
-            to the engine, which is the same class of bug as a value with a default
-            being unable to express "unset". */}
-        {selectedCount ?? table.getFilteredSelectedRowModel().rows.length} of{' '}
-        {/* `getRowCount()`, not `getFilteredRowModel().rows.length` (#94). The row
-            model is the **loaded** row set, so under server pagination this
-            announced one window as the whole result set. Measured: a grid with
-            `server.rowCount: 4821` and a 4-row window rendered "0 of 4" while its
-            OWN page counter, four elements away, rendered "Page 1 of 483" — two
-            numbers in one component disagreeing about the same total, and the
-            component already held the right one.
-
-            `getRowCount()` is `options.rowCount ?? prePaginationRowModel.rows.length`,
-            so it is the filtered count client-side and the owner's total in server
-            mode. Correct in both without a branch here, and without new plumbing —
-            `server.ts` already forwards `rowCount`. */}
-        {table.getRowCount()} row(s) selected.
+        {selectionSummary}
       </div>
       <div className="flex items-center gap-6 lg:gap-8">
         {showPageSize && (
           <div className="flex items-center gap-2">
-            <p className="text-sm font-medium">Rows per page</p>
+            <p className="text-sm font-medium">{labels.rowsPerPage}</p>
             <Select
               value={`${table.getState().pagination.pageSize}`}
               onValueChange={(value) => table.setPageSize(Number(value))}
             >
               <SelectTrigger
-                aria-label="Rows per page"
+                aria-label={labels.rowsPerPage}
                 className="h-8 w-[70px]"
               >
                 <SelectValue />
@@ -174,20 +196,18 @@ export function DataGridPagination<TData>({
           </div>
         )}
         <div className="flex w-[100px] items-center justify-center text-sm font-medium">
-          {unknownTotal ? (
-            <>Page {table.getState().pagination.pageIndex + 1}</>
-          ) : (
-            <>
-              Page {table.getState().pagination.pageIndex + 1} of{' '}
-              {table.getPageCount()}
-            </>
-          )}
+          {unknownTotal
+            ? labels.page(table.getState().pagination.pageIndex + 1)
+            : labels.pageOf(
+                table.getState().pagination.pageIndex + 1,
+                table.getPageCount()
+              )}
         </div>
         <div className="flex items-center gap-2">
           {firstLast && (
             <ButtonIcon
               variant="secondary"
-              aria-label="Go to first page"
+              aria-label={labels.firstPage}
               className="hidden lg:inline-flex"
               onClick={() => table.setPageIndex(0)}
               disabled={!canPreviousPage}
@@ -197,7 +217,7 @@ export function DataGridPagination<TData>({
           )}
           <ButtonIcon
             variant="secondary"
-            aria-label="Go to previous page"
+            aria-label={labels.previousPage}
             onClick={() => table.previousPage()}
             disabled={!canPreviousPage}
           >
@@ -205,7 +225,7 @@ export function DataGridPagination<TData>({
           </ButtonIcon>
           <ButtonIcon
             variant="secondary"
-            aria-label="Go to next page"
+            aria-label={labels.nextPage}
             onClick={() => table.nextPage()}
             disabled={!canNextPage}
           >
@@ -214,7 +234,7 @@ export function DataGridPagination<TData>({
           {firstLast && (
             <ButtonIcon
               variant="secondary"
-              aria-label="Go to last page"
+              aria-label={labels.lastPage}
               className="hidden lg:inline-flex"
               onClick={() => table.setPageIndex(table.getPageCount() - 1)}
               disabled={!canNextPage}

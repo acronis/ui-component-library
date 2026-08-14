@@ -66,3 +66,36 @@ export const DATA_GRID_CHROME_COLUMN_SIZING = {
   minSize: DATA_GRID_CHROME_COLUMN_WIDTH,
   maxSize: DATA_GRID_CHROME_COLUMN_WIDTH,
 } as const;
+
+/**
+ * Wrapper class for the control inside a chrome cell: **centre it, and cancel the
+ * table's horizontal cell padding.**
+ *
+ * The padding cancellation is the load-bearing half, and the width above cannot
+ * work without it. `table.tsx` gives every `<th>`/`<td>` `px-[var(--ui-table-global-cell-padding-x)]`,
+ * which resolves to **16px a side**. A 32px control therefore has a min-content of
+ * `16 + 32 + 16 = 64px` in a column capped at 40 — and `max-width` cannot shrink a
+ * box below its min-content, so the cell wins at 64, the table's minimum width grows,
+ * and a narrow grid scrolls horizontally. Measured on the settings column before this:
+ * a 40px cell whose 32px button started 16px in and whose right edge sat **8px past
+ * the cell's own right edge**. The same arithmetic hits the actions column (32px
+ * `ButtonIconMenu`, 24px over) and the detail expander (24px button, 16px over); the
+ * `#91` note above measured each *control's* min-content and never the cell around it,
+ * which is why 40px looked settled.
+ *
+ * Negative margins rather than a `px-0` override because a column def has no seam for
+ * putting a class on its own cells — and they do the better thing anyway: the child
+ * may spill into the padding box, so the cell's content contribution drops to
+ * `max(0, 32 - 32) = 0` and its min-content becomes 32px, under the 40px cap. The
+ * control then sits centred with 4px of real breathing room a side, equal by
+ * construction rather than by a hand-tuned padding pair.
+ *
+ * **`--ui-table-global-cell-padding-x`, not `-mx-4`.** A literal would silently
+ * decouple from the token the primitive actually applies; the calc tracks a brand
+ * override.
+ *
+ * Not applied to the selection column: its checkbox is 16px and `table.tsx` already
+ * drops the trailing padding on a checkbox cell, so it measures 32px and fits.
+ */
+export const DATA_GRID_CHROME_CELL_CLASS =
+  'flex items-center justify-center mx-[calc(var(--ui-table-global-cell-padding-x)*-1)]';

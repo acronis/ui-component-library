@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { DataTableRoot, DataTableView, useDataTable } from '../data-table';
@@ -16,6 +16,7 @@ import {
   type DataGridProps,
   type ResolvedDataGrid,
 } from './data-grid-config';
+import { applyTruncateColumns } from './data-grid-truncate-columns';
 
 // PROTOTYPE (see context/opinionated-composites-proposal.md, Phase 1).
 //
@@ -40,6 +41,14 @@ import {
 // from that registry (ADR-0002), so adding a group is one new module file plus
 // one line in `data-grid-config/index.ts` — never an edit here.
 
+// Not a behavior group (see `data-grid-truncate-columns.tsx`'s header), so not
+// part of the block below — but still needs a name a consumer can import, same
+// as every type in it.
+export type {
+  DataGridTruncateCellContext,
+  DataGridTruncateColumnMeta,
+} from './data-grid-truncate-columns';
+
 // Public surface. The behavior groups own their own config types, and this
 // block is what keeps `data-grid/index.ts` (a manifest file) unchanged when a
 // group moves or a new one lands.
@@ -58,6 +67,7 @@ export type {
   DataGridFooterConfig,
   DataGridGroupedConfig,
   DataGridGroupingConfig,
+  DataGridLabels,
   DataGridPaginationConfig,
   DataGridPersistenceConfig,
   DataGridPreset,
@@ -151,14 +161,47 @@ function useDataGridValidation(input: {
   ]);
 }
 
-export function DataGrid<TData, TValue>(props: DataGridProps<TData, TValue>) {
-  const { columns, rows, getRowId = defaultRowId, chrome, callbacks } = props;
+// `TValue = unknown` for the same reason `DataGridProps` carries the default
+// (PLTFRM-93046): without it, `<DataGrid<Person> …/>` — the one form a consumer
+// reaches for when inference needs a nudge on an empty `columns`/`rows` array —
+// failed with TS2558 "Expected 2 type arguments, but got 1".
+export function DataGrid<TData, TValue = unknown>(
+  props: DataGridProps<TData, TValue>
+) {
+  const {
+    columns,
+    rows,
+    getRowId = defaultRowId,
+    chrome,
+    callbacks,
+    portalContainer,
+  } = props;
 
   // Feature detection runs exactly once per grid, against the initial columns
   // and rows — it must never observe mutable state (design §5.2).
   const [detectedPresetIds] = useState<readonly string[]>(
     () => props.presets?.detect?.({ columns, rows }) ?? EMPTY_PRESET_IDS
   );
+
+  // Feeds `applyTruncateColumns` below — a plain measured value, not a config
+  // module contribution, because no module needs it and nothing here is
+  // caller-configured through a prop. Measuring the grid's own root rather than
+  // anything inside it: the columns it feeds have to exist before the table
+  // that would otherwise be the more obvious thing to measure ever mounts, and
+  // the root's width does not depend on how those columns render, which is
+  // exactly the property a stable measurement needs.
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const [tableWidth, setTableWidth] = useState(0);
+
+  useEffect(() => {
+    const element = rootRef.current;
+    if (element === null || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(([entry]) => {
+      if (entry) setTableWidth(entry.contentRect.width);
+    });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   // Presets fill in the groups the caller left alone; the config modules then
   // normalize the grouped configs and their deprecated flat aliases into one
@@ -218,7 +261,18 @@ export function DataGrid<TData, TValue>(props: DataGridProps<TData, TValue>) {
     [columns, resolved, callbacks]
   );
 
-  const engineColumns = resolvedColumns as ColumnDef<TData, unknown>[];
+  // Applied after the registry's own transforms, not folded into one of them —
+  // see `data-grid-truncate-columns.tsx`'s header for why this isn't a config
+  // module at all. `resolvedColumns`, not the caller's `columns`: a column
+  // `filters`/`actions`/`selection` rewrote or spliced must still see its own
+  // `meta.truncate` honored, and this only reads `meta`, which none of those
+  // transforms touch.
+  const truncatedColumns = useMemo(
+    () => applyTruncateColumns(resolvedColumns, tableWidth, portalContainer),
+    [resolvedColumns, tableWidth, portalContainer]
+  );
+
+  const engineColumns = truncatedColumns as ColumnDef<TData, unknown>[];
   const { data, ...controllerOptions } = composeControllerOptions(
     DATA_GRID_CONFIG_MODULES,
     { resolved, callbacks, rows, columns: engineColumns }
@@ -234,7 +288,11 @@ export function DataGrid<TData, TValue>(props: DataGridProps<TData, TValue>) {
   const externalChrome = chrome?.mode === 'external';
   useDataGridValidation({
     externalChrome,
-    hasToolbar: resolved.toolbar.enabled,
+    // `requested`, not `enabled`: the conflict is that the caller asked for a
+    // built-in toolbar while also owning chrome externally. Since PLTFRM-93130
+    // `enabled` only says whether the row has an occupant, so a `toolbar` whose
+    // single control now lives in a column header would have slipped past this.
+    hasToolbar: resolved.toolbar.requested,
     hasBulkActions: Boolean(
       resolved.toolbar.bulkActions && resolved.toolbar.bulkActions.length > 0
     ),
@@ -261,7 +319,7 @@ export function DataGrid<TData, TValue>(props: DataGridProps<TData, TValue>) {
         }).map(({ key, node }) => <Fragment key={key}>{node}</Fragment>);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div ref={rootRef} className="flex flex-col gap-4">
       {externalChrome
         ? chrome.render({
             controller,

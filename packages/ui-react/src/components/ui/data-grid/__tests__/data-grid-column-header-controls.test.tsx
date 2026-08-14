@@ -953,7 +953,7 @@ describe('DataGrid column header controls — what does not render one', () => {
       container.querySelectorAll('[data-slot="data-grid-column-announcer"]')
     ).toHaveLength(1);
 
-    await user.click(screen.getByRole('button', { name: /view/i }));
+    await user.click(screen.getByRole('button', { name: 'Column settings' }));
     await user.click(screen.getByRole('menuitemcheckbox', { name: 'team' }));
     expect(liveRegion(container)).toHaveTextContent('team column hidden');
 

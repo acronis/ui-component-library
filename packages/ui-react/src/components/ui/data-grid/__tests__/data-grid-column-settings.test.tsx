@@ -73,8 +73,11 @@ function renderSettings(
 const liveRegion = (container: HTMLElement) =>
   container.querySelector('[data-slot="data-grid-column-announcer"]');
 
+// "Column settings", not /view/i: the trigger is icon-only since PLTFRM-93130
+// moved it into the trailing column's header, where a labelled button does not
+// fit, so `aria-label` is now the only source of its accessible name.
 const openMenu = async (user: ReturnType<typeof userEvent.setup>) => {
-  await user.click(screen.getByRole('button', { name: /view/i }));
+  await user.click(screen.getByRole('button', { name: 'Column settings' }));
 };
 
 describe('DataGridColumnSettings', () => {

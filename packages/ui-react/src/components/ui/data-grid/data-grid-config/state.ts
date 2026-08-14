@@ -124,8 +124,15 @@ export const stateConfig = defineDataGridConfig({
     }
 
     // A caller slice is more explicit than a group's initial value, so it wins
-    // (design §5.1). Pagination's initial page is the only such default today.
+    // (design §5.1). Two groups contribute one today: `pagination`'s initial page,
+    // and `columnsFeatures`' pinning seed read from `meta.pin` (PLTFRM-93016).
+    //
+    // The merge below is per slice, not deep, which is what makes the precedence
+    // legible: a caller's `defaultState.columnPinning` replaces the `meta.pin`
+    // seed outright rather than being merged edge-by-edge with it. Two sources
+    // half-describing one slice is the kind of state nobody can reason about.
     const groupDefaults = resolved.pagination?.initialSlice;
+    const pinningDefaults = resolved.columnsFeatures?.initialSlice;
 
     const identityInCaller = IDENTITY_SLICES.filter(
       (slice) =>
@@ -147,10 +154,13 @@ export const stateConfig = defineDataGridConfig({
         ? undefined
         : { ...caller, ...server };
     const defaultState =
-      callerDefault === undefined && groupDefaults === undefined
+      callerDefault === undefined &&
+      groupDefaults === undefined &&
+      pinningDefaults === undefined
         ? undefined
         : {
             ...(groupDefaults ? { pagination: groupDefaults } : {}),
+            ...(pinningDefaults ? { columnPinning: pinningDefaults } : {}),
             ...callerDefault,
           };
 

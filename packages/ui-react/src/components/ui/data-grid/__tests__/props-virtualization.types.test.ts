@@ -5,6 +5,7 @@ import type { DataGridProps } from '../data-grid';
 // staged `data-grid/index.ts` line (a manifest file), and `data-grid.tsx`'s
 // re-export block is closed to units.
 import type { DataGridVirtualizationConfig } from '../data-grid-config';
+import type { DataTableRowRange } from '../../data-table/data-table-features/virtualization';
 
 // Per-group prop-surface assertions.
 //
@@ -43,6 +44,7 @@ describe('DataGrid props — virtualization', () => {
       measure?: 'fixed' | 'dynamic';
       overscan?: number;
       scrollToIndex?: number;
+      onRangeChange?: (range: DataTableRowRange) => void;
     }>();
   });
 

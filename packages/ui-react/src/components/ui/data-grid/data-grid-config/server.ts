@@ -5,6 +5,7 @@ import type {
   DataTableQueryChangeEvent,
   DataTableStateInput,
 } from '../../data-table';
+import type { DataTableRowRange } from '../../data-table/data-table-features/virtualization';
 import { defineDataGridConfig } from './registry';
 
 // OWNERSHIP: created by F4 with the shipped wiring; **U8 owns this file** —
@@ -65,9 +66,15 @@ export interface DataGridServerSelectionChangeEvent {
 
 /**
  * All-manual server mode: the caller owns the query and the rows. DataGrid tracks
- * sort/filter/page state, emits `onQueryChange` on every atomic query transition
- * (with the canonical request key), and drives server pagination — but never
- * sorts, filters, or slices client rows.
+ * sort/filter/group/page state, emits `onQueryChange` on every atomic query
+ * transition (with the canonical request key), and drives server pagination — but
+ * never sorts, filters, groups, or slices client rows.
+ *
+ * **All four stages, grouping included.** A grid that groups client-side while
+ * reporting `query.grouping` is grouping the loaded window, not the result set, so
+ * the two disagree the moment a group spans a page. In server mode the caller
+ * returns rows already in group order and renders the grouping itself — through
+ * `tree` for a real hierarchy, or as ordinary rows.
  */
 export interface DataGridServerConfig {
   /** The controlled query (sorting, filters, global filter, grouping, pagination). */
@@ -109,6 +116,37 @@ export interface DataGridServerConfig {
   onSelectionChange?: (event: DataGridServerSelectionChangeEvent) => void;
   /** Fires once per atomic query transition; the caller refetches from it. */
   onQueryChange: (event: DataTableQueryChangeEvent) => void;
+  /**
+   * LOCAL(ui_tools): fires when the rendered window nears the end of the loaded
+   * rows — the "fetch the next slice as the user scrolls" trigger.
+   *
+   * **The mechanism is windowing, so this needs `virtualization`** and, through
+   * it, a bounded `appearance.height`/`maxHeight`. Without a virtualizer every row
+   * renders and there is no range to reach the end of; the grid reports that
+   * rather than failing quietly.
+   *
+   * It fires **once per loaded row count** and re-arms when the count changes, so
+   * appending rows is what asks for the next call. Nothing else has to be tracked:
+   * a caller that appends nothing (the last page) is never called again.
+   *
+   * This does not replace `onQueryChange`. An infinite list still owns its
+   * `query` — it advances `pagination` (or its own cursor) inside this handler and
+   * appends the result to `rows`, rather than replacing the window. Pair it with
+   * `pagination: false`, since a page footer navigates the same data by replacing
+   * the window.
+   */
+  onEndReached?: (range: DataTableRowRange) => void;
+  /**
+   * LOCAL(ui_tools): how many rows from the end `onEndReached` fires at. Default
+   * 8, counted in **display rows** and measured against the last *overscanned*
+   * row, so the effective lead is this plus `virtualization.overscan`.
+   *
+   * ⚠ **Keep it below your page size**, `overscan` included. Appending a page
+   * re-arms the trigger, and if the window is still inside the band after the
+   * append the next call fires at once — which loads every remaining page in one
+   * cascade rather than as the user scrolls.
+   */
+  endReachedThreshold?: number;
 }
 
 export interface ResolvedDataGridServer {
@@ -311,6 +349,21 @@ export const serverConfig = defineDataGridConfig({
       manualSorting: true,
       manualFiltering: true,
       manualPagination: true,
+      // LOCAL(ui_tools). `manualGrouping` was missing here, and its absence was a
+      // real divergence from the spec rather than a deliberate omission:
+      //
+      //   ui-spec/components/data-grid/behavior.md — "Server facade is all-manual"
+      //   When sorting, filtering, GROUPING, or pagination changes
+      //   Then DataGrid emits exactly one atomic query …
+      //   And **no matching client transform is installed**
+      //
+      // Without it the grid reported `query.grouping` to the caller AND grouped
+      // the rows the caller sent back — a client transform on a manual stage. The
+      // failure is quiet and only appears at a page boundary: the engine groups
+      // the loaded window, so a group split across two pages renders as two
+      // separate groups with the same key, each announcing a partial member count.
+      // Nothing on screen says the number is of the page rather than of the group.
+      manualGrouping: true,
       ...(config.rowCount !== undefined ? { rowCount: config.rowCount } : {}),
       ...(config.pageCount !== undefined
         ? { pageCount: config.pageCount }

@@ -1,3 +1,4 @@
+import type { DataTableRowRange } from '../../data-table/data-table-features/virtualization';
 import { defineDataGridConfig } from './registry';
 
 // OWNERSHIP: **U6**. The `virtualization` behavior group (design §5.2).
@@ -74,6 +75,19 @@ export interface DataGridVirtualizationConfig {
   overscan?: number;
   /** Scrolls this row index into view, and again whenever the value changes. */
   scrollToIndex?: number;
+  /**
+   * LOCAL(ui_tools): observes the rendered row range as it moves.
+   *
+   * Purely an observer. The fetch trigger built on the same signal is
+   * `server.onEndReached`, which this module composes ahead of this handler in
+   * exactly the way `callbacks.ts` composes `server.onQueryChange` ahead of
+   * `callbacks.onQueryChange` — one signal, an authoritative consumer and an
+   * observing one, rather than two mechanisms.
+   *
+   * Indices are **display-row** indices and `endIndex` is the last overscanned
+   * row; see `DataTableRowRange`.
+   */
+  onRangeChange?: (range: DataTableRowRange) => void;
 }
 
 export interface ResolvedDataGridVirtualization {
@@ -87,6 +101,15 @@ export interface ResolvedDataGridVirtualization {
   readonly measure?: 'fixed' | 'dynamic';
   readonly overscan?: number;
   readonly scrollToIndex?: number;
+  readonly onRangeChange?: (range: DataTableRowRange) => void;
+  /**
+   * LOCAL(ui_tools): the composed range handler this module hands the seam, or
+   * `undefined` when neither a server fetch trigger nor an observer is
+   * configured. Published as a ready-made closure so nothing downstream — and
+   * nothing in the seam — learns what a server config is.
+   */
+  readonly onEndReached?: (range: DataTableRowRange) => void;
+  readonly endReachedThreshold?: number;
 }
 
 /* eslint-disable unused-imports/no-unused-vars -- declaration merging requires
@@ -125,17 +148,47 @@ export const virtualizationConfig = defineDataGridConfig({
   // no shipped boolean prop for it to normalize.
   aliases: [],
 
-  resolve({ props }) {
+  resolve({ props, resolved }) {
     const config =
       props.virtualization !== undefined && props.virtualization !== false
         ? props.virtualization
         : undefined;
+    const enabled = config !== undefined;
+
+    /* ── LOCAL(ui_tools): the server fetch trigger, composed here ─────────────
+       `server.onEndReached` is a server member and its mechanism is a windowing
+       one, so the two have to meet somewhere. Here rather than in `server.ts`,
+       for the same reason `pagination.tsx` reads `server` rather than the other
+       way round: the manifest puts `server` first, so this module can see it and
+       it cannot see this one. Composing here also keeps the seam ignorant of
+       server mode — it receives one closure and one number. */
+    const server = resolved.server?.config;
+    const warnings: string[] = [];
+
+    if (server?.onEndReached !== undefined && !enabled) {
+      warnings.push(
+        'DataGrid: `server.onEndReached` needs `virtualization` — the trigger is the rendered row range, and an unwindowed grid renders every row, so there is no range to reach the end of. Enable `virtualization` (with `appearance.height`/`appearance.maxHeight`), or drive loading from `server.onQueryChange` instead.'
+      );
+    }
+
+    // Both affordances navigate the same result set, in incompatible ways: the
+    // footer replaces the window, the scroll trigger extends it. Keyed to the
+    // resolved chrome flag rather than to the prop, because in server mode the
+    // footer is on unless the caller passed `pagination: false`.
+    if (server?.onEndReached !== undefined && resolved.pagination?.chrome) {
+      warnings.push(
+        'DataGrid: `server.onEndReached` renders alongside the pagination footer, which offers the same navigation by replacing the loaded window rather than extending it. Pass `pagination: false` for an infinite list, or drop `onEndReached` for a paged one.'
+      );
+    }
+
+    const observe = config?.onRangeChange;
+    const authoritative = server?.onEndReached;
 
     // Conditional spreads rather than `?? default`: an absent member must stay absent
     // all the way to the seam, or its default moves here.
     return {
       value: {
-        enabled: config !== undefined,
+        enabled,
         ...(config?.estimateRowHeight === undefined
           ? {}
           : { estimateRowHeight: config.estimateRowHeight }),
@@ -146,13 +199,27 @@ export const virtualizationConfig = defineDataGridConfig({
         ...(config?.scrollToIndex === undefined
           ? {}
           : { scrollToIndex: config.scrollToIndex }),
+        ...(observe === undefined ? {} : { onRangeChange: observe }),
+        ...(authoritative === undefined ? {} : { onEndReached: authoritative }),
+        ...(server?.endReachedThreshold === undefined
+          ? {}
+          : { endReachedThreshold: server.endReachedThreshold }),
       },
+      warnings,
     };
   },
 
   controllerOptions({ resolved }) {
-    const { enabled, estimateRowHeight, measure, overscan, scrollToIndex } =
-      resolved.virtualization;
+    const {
+      enabled,
+      estimateRowHeight,
+      measure,
+      overscan,
+      scrollToIndex,
+      onRangeChange,
+      onEndReached,
+      endReachedThreshold,
+    } = resolved.virtualization;
 
     // `false` when off, not an omitted key: the seam treats *any* object as enabled
     // (`enabled: value !== undefined`), so an empty object would turn windowing on
@@ -164,6 +231,11 @@ export const virtualizationConfig = defineDataGridConfig({
             ...(measure === undefined ? {} : { measure }),
             ...(overscan === undefined ? {} : { overscan }),
             ...(scrollToIndex === undefined ? {} : { scrollToIndex }),
+            ...(onRangeChange === undefined ? {} : { onRangeChange }),
+            ...(onEndReached === undefined ? {} : { onEndReached }),
+            ...(endReachedThreshold === undefined
+              ? {}
+              : { endReachedThreshold }),
           }
         : false,
     };

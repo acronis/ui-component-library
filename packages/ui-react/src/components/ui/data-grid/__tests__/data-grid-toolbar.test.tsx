@@ -1,24 +1,27 @@
+import type { ReactNode } from 'react';
 import type { ColumnDef } from '@tanstack/react-table';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { DataTableToolbar, useDataTable } from '../../data-table';
+import { useDataTable } from '../../data-table';
 import { DataGridToolbar } from '../data-grid-toolbar';
 
 // DataGrid owns its toolbar row rather than reusing the frozen `DataTableToolbar`
-// adapter, because `toolbar.viewOptions` is a new feature and
-// `data-table/index.ts` marks that whole companion suite "do not add new features
-// here" (design §1: the library publishes no batteries-included DataTable
-// companion suite; those pieces move behind DataGrid and are removed next major).
+// adapter, because the row carries features that suite may not grow —
+// `data-table/index.ts` marks it "do not add new features here" (design §1: the
+// library publishes no batteries-included DataTable companion suite; those pieces
+// move behind DataGrid and are removed next major).
 //
-// The cost of that choice is divergence, so this pins the absence of it *in
-// markup*: at the default `viewOptions` the two render the same DOM, which is what
-// keeps the visual-regression baselines for every unchanged DataGrid story safe.
-//
-// They now diverge deliberately in **behavior**: U7 rewired DataGrid's search box
-// to the engine's global filter, because `filters.global.columnIds` ORs a query
-// across several columns and the frozen adapter drives a single column's filter.
-// The markup is unchanged, so the assertion below still holds.
+// **The markup-parity assertion that used to live here is gone, and its absence is
+// the point.** Worth stating plainly because it was *live* when removed, not already
+// dead: PR #33 (PLTFRM-93128) had just repaired its id normalization and un-skipped
+// it. It pinned "at the default `viewOptions` the two render the same DOM",
+// which stopped being true — and stopped being desirable — with PLTFRM-93130: the
+// column-settings menu moved out of this row into the trailing column's header, and
+// the row gained a selected state that replaces its contents. There is no longer a
+// configuration in which the two are equivalent, so a parity test would only pin
+// coincidence. What is worth pinning instead is below: the focus hook, and the
+// constant-height swap that the ticket was about.
 
 interface Person {
   id: string;
@@ -31,13 +34,15 @@ const columns: ColumnDef<Person, unknown>[] = [
 const rows: Person[] = [{ id: '1', name: 'Ada' }];
 
 function Harness({
-  which,
-  viewOptions,
   globalSearch = true,
+  bulk,
+  leading,
+  trailing,
 }: {
-  which: 'grid' | 'table';
-  viewOptions?: boolean;
   globalSearch?: boolean;
+  bulk?: ReactNode;
+  leading?: ReactNode;
+  trailing?: ReactNode;
 }) {
   const controller = useDataTable<Person>({
     columns,
@@ -46,88 +51,97 @@ function Harness({
     sorting: true,
     filtering: true,
   });
-  return which === 'grid' ? (
+  return (
     <DataGridToolbar
       table={controller.table}
       globalSearch={globalSearch}
-      viewOptions={viewOptions}
+      {...(bulk === undefined ? {} : { bulk })}
+      {...(leading === undefined ? {} : { leading })}
+      {...(trailing === undefined ? {} : { trailing })}
     />
-  ) : (
-    <DataTableToolbar table={controller.table} searchKey="name" />
   );
 }
 
-/** React and Base UI mint per-render ids; everything else must match exactly. */
-function withoutGeneratedIds(html: string): string {
-  return html
-    .replace(/id="[^"]*_r_[^"]*"/g, 'id="[generated]"')
-    .replace(/aria-controls="[^"]*"/g, 'aria-controls="[generated]"');
-}
-
-/**
- * The ONE attribute the two are now allowed to differ by, normalized away so the
- * equality above keeps its value over everything else.
- *
- * `data-slot="data-grid-toolbar"` is design §7 clause 3 rung 3's query hook — the
- * focus fallback resolves the toolbar from the table's own root, with no prop and
- * no ref chain (U6.md §3). The frozen `DataTableToolbar` deliberately does not get
- * it: adding one would be a new feature in the suite `data-table/index.ts` freezes.
- *
- * Stripped rather than ignored, and the presence of it is asserted separately —
- * a normalizer that quietly tolerated the attribute's ABSENCE would let the rung
- * lose its hook without a single test noticing.
- */
-function withoutFocusHook(html: string): string {
-  return html.replace(' data-slot="data-grid-toolbar"', '');
-}
+const ROW = '[data-slot="data-grid-toolbar"]';
 
 describe('DataGridToolbar', () => {
-  // Still true after U3 replaced the column control with
-  // `DataGridColumnSettings`, and worth saying why rather than leaving a reader to
-  // wonder: the menu is closed at rest, so only the trigger is in the DOM and the
-  // trigger is byte-identical. The divergence — a pinning section and a reset —
-  // lives inside the content, which `data-grid-column-settings.test.tsx` covers.
-  // So this keeps its original value: guarding the parts that should still match.
-  it('renders the same markup as the frozen DataTableToolbar it replaced', () => {
-    const grid = render(<Harness which="grid" />);
-    const gridHtml = withoutGeneratedIds(grid.container.innerHTML);
-    grid.unmount();
-
-    const table = render(<Harness which="table" />);
-    const tableHtml = withoutGeneratedIds(table.container.innerHTML);
-
-    // Exactly one allowed divergence, and it is verified to BE the only one: strip
-    // the focus hook from the grid's markup and the two are byte-identical again.
-    expect(withoutFocusHook(gridHtml)).toBe(tableHtml);
-  });
-
-  it('carries the focus-fallback hook that the frozen adapter does not', () => {
-    // The positive half of the exception above. Design §7 clause 3's rung 3 finds
-    // this row by query, so losing the attribute would silently drop the toolbar out
-    // of the chain — the fallback would fall straight through to the scroll
-    // container and no assertion about markup equality could tell.
-    const grid = render(<Harness which="grid" />);
-    const row = grid.container.querySelector('[data-slot="data-grid-toolbar"]');
-    expect(row).not.toBeNull();
-    // On the row itself, not on some inner wrapper: rung 3 queries for focusable
+  it('carries the focus-fallback hook, on the row element itself', () => {
+    // Design §7 clause 3's rung 3 finds this row by query, so losing the attribute
+    // would silently drop the toolbar out of the chain — the fallback would fall
+    // straight through to the scroll container and no assertion about markup could
+    // tell. On the row itself, not an inner wrapper: rung 3 queries for focusable
     // controls INSIDE this element, so a hook one level off would find none.
+    const grid = render(<Harness />);
+    const row = grid.container.querySelector(ROW);
+    expect(row).not.toBeNull();
     expect(row).toBe(grid.container.firstElementChild);
-    // And there is something for the rung to land on in the default `viewOptions`
-    // configuration — `globalSearch` being false does not empty the row.
-    grid.unmount();
-
-    const bare = render(<Harness which="grid" globalSearch={false} />);
-    expect(
-      bare.container
-        .querySelector('[data-slot="data-grid-toolbar"]')!
-        .querySelector('button:not([disabled])')
-    ).not.toBeNull();
   });
 
-  it('drops only the view-options menu when `viewOptions` is false', () => {
-    render(<Harness which="grid" viewOptions={false} />);
-    expect(screen.queryByRole('button', { name: 'View' })).toBeNull();
-    // The search box is untouched.
+  it('has no focusable control when every member is off, and that is a valid rung-3 miss', () => {
+    // It used to be impossible to render this row empty: the column-settings menu
+    // defaulted on and always left a button behind. With the gear in a column header
+    // (PLTFRM-93130) an empty row is reachable — `toolbar={{ bulkActions }}` with
+    // nothing selected renders exactly this — and rung 3 documents `null` as a MISS
+    // that must fall through to rung 4 rather than a landing. Focusing the row div
+    // instead would announce nothing, which is why it deliberately has no
+    // `tabIndex`.
+    const bare = render(<Harness globalSearch={false} />);
+    const row = bare.container.querySelector(ROW)!;
+    expect(row.querySelector('button:not([disabled])')).toBeNull();
+    expect(row).not.toHaveAttribute('tabindex');
+  });
+
+  it('renders leading and trailing members around the search box', () => {
+    render(
+      <Harness
+        leading={<span>123 loaded</span>}
+        trailing={<button type="button">Add node</button>}
+      />
+    );
+    expect(screen.getByText('123 loaded')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Add node' })).toBeVisible();
     expect(screen.getByPlaceholderText('Filter…')).toBeVisible();
+  });
+
+  it('replaces every idle member with the bulk strip, in the same row element', () => {
+    // The whole point of the ticket: same node, so the table below it cannot move.
+    const idle = render(
+      <Harness
+        leading={<span>123 loaded</span>}
+        trailing={<span>+ Add</span>}
+      />
+    );
+    const rowBefore = idle.container.querySelector(ROW);
+    expect(screen.getByPlaceholderText('Filter…')).toBeVisible();
+
+    idle.rerender(
+      <Harness
+        leading={<span>123 loaded</span>}
+        trailing={<span>+ Add</span>}
+        bulk={<span>4 items selected</span>}
+      />
+    );
+
+    expect(idle.container.querySelector(ROW)).toBe(rowBefore);
+    expect(screen.getByText('4 items selected')).toBeVisible();
+    expect(screen.queryByPlaceholderText('Filter…')).not.toBeInTheDocument();
+    expect(screen.queryByText('123 loaded')).not.toBeInTheDocument();
+    expect(screen.queryByText('+ Add')).not.toBeInTheDocument();
+  });
+
+  it('keeps a constant minimum height across both states', () => {
+    // happy-dom has no layout engine, so height is asserted as the class contract
+    // rather than measured: both states share one container, and `min-h-10` is what
+    // holds the row open when a state is empty — and what stops the row SHRINKING
+    // from a 40px filter trigger to a 32px button when the bulk strip takes over,
+    // which is a jump this suite cannot see and a browser can.
+    const idle = render(<Harness globalSearch={false} />);
+    const row = idle.container.querySelector(ROW)!;
+    expect(row.className).toContain('min-h-10');
+
+    idle.rerender(
+      <Harness globalSearch={false} bulk={<span>1 item selected</span>} />
+    );
+    expect(idle.container.querySelector(ROW)!.className).toContain('min-h-10');
   });
 });

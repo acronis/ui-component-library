@@ -12,6 +12,11 @@ import {
 } from '../data-table/data-table-inline-direction';
 import { useDataGridColumnAnnounce } from './data-grid-column-announcer';
 
+import {
+  DATA_GRID_DEFAULT_LABELS,
+  type ResolvedDataGridLabels,
+} from './data-grid-config/labels';
+
 // OWNERSHIP: **U3.** Private DataGrid chrome (design §4.3) — the per-column resize
 // handle and reorder grip, mounted into `<TableHead>`'s `trailing` slot through
 // `ColumnPresentation.headerAdornments` with `placement: 'edge'`.
@@ -51,16 +56,19 @@ const RESIZE_STEP = 16;
  * in a right-to-left locale the start-pinned column appears on the right. The two
  * disagreeing is correct; see the note at the `pin` command.
  */
-function announcementFor(intent: DataTableColumnIntent): string {
+function announcementFor(
+  intent: DataTableColumnIntent,
+  labels: ResolvedDataGridLabels
+): string {
   switch (intent.kind) {
     case 'resize':
-      return `${intent.columnId} column width ${intent.size} pixels`;
+      return labels.columnResized(intent.columnId, intent.size);
     case 'pin':
       return intent.pinned === false
-        ? `${intent.columnId} column unpinned`
-        : `${intent.columnId} column pinned to ${intent.pinned}`;
+        ? labels.columnUnpinned(intent.columnId)
+        : labels.columnPinned(intent.columnId, intent.pinned);
     case 'reorder':
-      return `${intent.columnId} column moved to position ${intent.position} of ${intent.total}`;
+      return labels.columnMoved(intent.columnId, intent.position, intent.total);
   }
 }
 
@@ -478,12 +486,18 @@ function usePointerReorder(
 }
 
 export interface DataGridColumnHeaderControlsProps {
+  /**
+   * The strings this adornment renders and announces (PLTFRM-93117).
+   * `columns-features.tsx` closes over `resolved.labels` to supply it.
+   */
+  readonly labels?: ResolvedDataGridLabels;
   /** The engine's constrained commands for this column. */
   readonly controls: DataTableColumnControls;
 }
 
 export function DataGridColumnHeaderControls({
   controls,
+  labels = DATA_GRID_DEFAULT_LABELS,
 }: DataGridColumnHeaderControlsProps) {
   const announce = useDataGridColumnAnnounce();
   // Arrow keys move the column only while the grip is engaged. Two reasons were
@@ -507,13 +521,17 @@ export function DataGridColumnHeaderControls({
     // `undefined` means nothing changed — locked column, region edge, or a width
     // already at its clamp. Announcing anyway would report a move that did not
     // happen.
-    if (intent !== undefined) announce(announcementFor(intent));
+    if (intent !== undefined) announce(announcementFor(intent, labels));
   };
 
   const endReordering = () => {
     setReordering(false);
     announce(
-      `${controls.columnId} column at position ${controls.position} of ${controls.total}`
+      labels.columnPosition(
+        controls.columnId,
+        controls.position,
+        controls.total
+      )
     );
   };
 
@@ -534,7 +552,7 @@ export function DataGridColumnHeaderControls({
           // A fixed name. The state travels through `aria-pressed` and the live
           // region, because a name change on the element that already has focus is
           // not reliably announced.
-          aria-label={`Reorder ${controls.columnId} column`}
+          aria-label={labels.reorderColumn(controls.columnId)}
           {...pointerReorder.gripProps}
           onClick={(event) => {
             // A press that became a drag has already done its work on release.
@@ -547,9 +565,7 @@ export function DataGridColumnHeaderControls({
               return;
             }
             setReordering(true);
-            announce(
-              `${controls.columnId} column: use the arrow keys to move it, then Enter or Escape to finish`
-            );
+            announce(labels.columnReorderHint(controls.columnId));
           }}
           onKeyDown={(event) => {
             if (event.key === 'Escape') {
@@ -596,7 +612,7 @@ export function DataGridColumnHeaderControls({
           // technology has something to report while focus is on the handle.
           role="separator"
           aria-orientation="vertical"
-          aria-label={`Resize ${controls.columnId} column`}
+          aria-label={labels.resizeColumn(controls.columnId)}
           aria-valuenow={controls.size}
           aria-valuemin={controls.minSize}
           // Only when the caller capped the column. The engine's resolved maximum

@@ -3,7 +3,10 @@ import type { ColumnDef } from '@tanstack/react-table';
 
 import { DataGridDetailExpander } from '../data-grid-detail-expansion';
 import { defineDataGridConfig } from './registry';
-import { DATA_GRID_CHROME_COLUMN_SIZING } from './chrome-column';
+import {
+  DATA_GRID_CHROME_CELL_CLASS,
+  DATA_GRID_CHROME_COLUMN_SIZING,
+} from './chrome-column';
 
 // OWNERSHIP: **U1**. The `detailExpansion` behavior group (design §5.2).
 //
@@ -121,14 +124,30 @@ export const detailExpansionConfig = defineDataGridConfig({
       enableSorting: false,
       enableHiding: false,
       enableColumnFilter: false,
-      // #91. Measured 143.5px around a 24×24 expander before this. Its min-content
-      // floor is 32px, so 40 does not clip the button.
+      // #91. Measured 143.5px around a 24×24 expander before this.
+      //
+      // The "its min-content floor is 32px, so 40 does not clip the button" that
+      // used to stand here measured the **button**, not the cell around it: the
+      // 16px-a-side cell padding put the cell's min-content at 56px, over the 40px
+      // cap, so it overhung and widened the table. `DATA_GRID_CHROME_CELL_CLASS` on
+      // the cell content is what makes 40 true.
       ...DATA_GRID_CHROME_COLUMN_SIZING,
       // Not `null`: an empty `<th>` fails axe's `empty-table-header` rule, and a
       // screen reader announces the column as unnamed. The text is visually hidden
       // so the header row still looks like a bare expander gutter.
-      header: () => <span className="sr-only">Details</span>,
-      cell: ({ row }) => <DataGridDetailExpander row={row} />,
+      header: () => (
+        <span className="sr-only">{resolved.labels.detailColumnHeader}</span>
+      ),
+      // Wrapped here rather than inside the expander, which is also usable on its
+      // own where the chrome-cell geometry would not apply.
+      cell: ({ row }) => (
+        <div className={DATA_GRID_CHROME_CELL_CLASS}>
+          <DataGridDetailExpander
+            row={row}
+            label={resolved.labels.toggleDetails}
+          />
+        </div>
+      ),
     } satisfies ColumnDef<unknown, unknown>;
 
     return [expanderColumn, ...columns];

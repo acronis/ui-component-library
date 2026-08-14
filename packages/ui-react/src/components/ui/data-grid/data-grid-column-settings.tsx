@@ -1,7 +1,7 @@
 import type { Column, Table } from '@tanstack/react-table';
 import { CogIcon } from '@constructor-lab/icons-react/stroke-mono';
 
-import { Button } from '../button';
+import { Button } from '@constructor-lab/ui-react';
 import { columnAnnouncerFor } from './data-grid-column-announcer';
 import {
   DropdownMenu,
@@ -14,8 +14,21 @@ import {
   DropdownMenuTrigger,
 } from '../dropdown-menu';
 
+import {
+  DATA_GRID_DEFAULT_LABELS,
+  type ResolvedDataGridLabels,
+} from './data-grid-config/labels';
+
 // OWNERSHIP: **U3.** Private DataGrid chrome (design §4.3, "Column settings"),
 // alongside `data-grid-toolbar.tsx` and `data-grid-actions.tsx`.
+//
+// **Mounted in the header cell of the trailing column, not in the toolbar row**
+// (PLTFRM-93130) — the design-system table places the gear above the row-actions
+// column (`ui-react` Figma node 4567-6801), and moving it there is also what frees
+// the toolbar row to be swapped wholesale by the bulk-action strip. The
+// `toolbar.viewOptions` config member still decides whether it renders; only its
+// placement changed. See `data-grid-config/toolbar.tsx`'s `columns` transform for
+// which column hosts it.
 //
 // This replaces `DataTableViewOptions` in DataGrid's toolbar. That component is a
 // `DataTable*` product-chrome component, which design §1 lists among the things
@@ -34,6 +47,12 @@ import {
 
 export interface DataGridColumnSettingsProps<TData> {
   readonly table: Table<TData>;
+  /**
+   * The strings this menu renders (PLTFRM-93117). Supplied by `toolbar.tsx`'s
+   * `columns` from `resolved.labels`; a direct composer passes
+   * `DATA_GRID_DEFAULT_LABELS` or its own.
+   */
+  readonly labels?: ResolvedDataGridLabels;
   /** Offer show/hide per column. `columnsFeatures.visibility`. */
   readonly visibility?: boolean;
   /** Offer pin-to-start / pin-to-end / unpin. `columnsFeatures.pinning`. */
@@ -62,6 +81,7 @@ function settableColumns<TData>(
 
 export function DataGridColumnSettings<TData>({
   table,
+  labels = DATA_GRID_DEFAULT_LABELS,
   visibility = true,
   pinning = false,
   lockedColumnIds = [],
@@ -76,21 +96,26 @@ export function DataGridColumnSettings<TData>({
 
   return (
     <DropdownMenu>
+      {/* Icon-only, and no `lg:` breakpoint gate. It lives in the 40px header cell
+          of the trailing column now (PLTFRM-93130), where a labelled button does
+          not fit and where hiding it below `lg` would leave the cell empty on small
+          screens with no other route to column settings. `aria-label` carries the
+          name the visible "View" text used to. */}
       <DropdownMenuTrigger
         render={
           <Button
-            variant="secondary"
-            className="ms-auto hidden h-8 gap-2 lg:flex"
+            variant="ghost"
+            aria-label={labels.columnSettings}
+            className="size-8 p-0"
           />
         }
       >
         <CogIcon />
-        View
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[220px]">
         {visibility && (
           <DropdownMenuGroup>
-            <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+            <DropdownMenuLabel>{labels.toggleColumns}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             {columns
               .filter((column) => column.getCanHide())
@@ -115,7 +140,7 @@ export function DataGridColumnSettings<TData>({
         {pinning && (
           <DropdownMenuGroup>
             {visibility && <DropdownMenuSeparator />}
-            <DropdownMenuLabel>Pin columns</DropdownMenuLabel>
+            <DropdownMenuLabel>{labels.pinColumns}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             {columns
               .filter((column) => column.getCanPin())
@@ -153,10 +178,10 @@ export function DataGridColumnSettings<TData>({
             <DropdownMenuItem
               onClick={() => {
                 table.resetColumnPinning();
-                announce('All columns unpinned');
+                announce(labels.allColumnsUnpinned);
               }}
             >
-              Unpin all
+              {labels.unpinAll}
             </DropdownMenuItem>
           </>
         )}

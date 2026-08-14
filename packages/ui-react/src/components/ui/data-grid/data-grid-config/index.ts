@@ -7,6 +7,7 @@ import { detailExpansionConfig } from './detail-expansion';
 import { filtersConfig } from './filters';
 import { footerConfig } from './footer';
 import { groupingConfig } from './grouping';
+import { labelsConfig } from './labels';
 import { paginationConfig } from './pagination';
 import { persistenceConfig } from './persistence';
 import { rowInteractionConfig } from './row-interaction';
@@ -45,8 +46,9 @@ import type {
  *
  * **Resolution** — a module may read the values resolved before it:
  * `pagination` and `callbacks` read `server`; `toolbar` reads `filters`; and
- * `state` is last because it merges `server`'s controlled query slices and
- * `pagination`'s initial page into the two state options it owns.
+ * `state` is last because it merges `server`'s controlled query slices,
+ * `pagination`'s initial page and `columnsFeatures`' `meta.pin` pinning seed into
+ * the two state options it owns.
  *
  * **Columns** — the pipeline is a fold, so **position is placement**, and that
  * makes this array semantic rather than cosmetic. `filters` rewrites the caller's
@@ -64,6 +66,12 @@ import type {
  * their own entry here rather than staging it.
  */
 export const DATA_GRID_CONFIG_MODULES = [
+  // FIRST, and this position is load-bearing rather than alphabetical: resolution
+  // runs in this order and every module sees the `resolved` object built so far, so
+  // any group that renders a string needs `labels` already resolved. Nothing here
+  // fails the typecheck if it moves — `resolved.labels` simply becomes `undefined`
+  // in whichever string-rendering group now runs first (PLTFRM-93117).
+  labelsConfig,
   dataStateConfig,
   appearanceConfig,
   rowInteractionConfig,
@@ -234,6 +242,11 @@ export {
   type DataGridFiltersConfig,
   type ResolvedDataGridFilters,
 } from './filters';
+export {
+  DATA_GRID_DEFAULT_LABELS,
+  type DataGridLabels,
+  type ResolvedDataGridLabels,
+} from './labels';
 export {
   DATA_GRID_UNGROUPED_DEFAULT_NAME,
   type DataGridGroupContext,

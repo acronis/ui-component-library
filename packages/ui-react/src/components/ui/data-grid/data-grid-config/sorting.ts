@@ -12,6 +12,10 @@ import { defineDataGridConfig } from './registry';
 // carry them across without re-deriving anything.
 
 export interface DataGridSortingConfig {
+  /**
+   * `single` replaces the sort on each header activation; `multiple` appends,
+   * building a precedence order. Default `single`.
+   */
   mode?: 'single' | 'multiple';
   /**
    * Direction cycle on repeated activation of a header. Defaults to

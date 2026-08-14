@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import type { ColumnDef } from '@tanstack/react-table';
+import type { TooltipContent } from '@constructor-lab/ui-react';
 
 import type {
   DataTableController,
@@ -243,9 +244,17 @@ export interface DataGridChromeContext<TData> {
  * mode — the renderer owns toolbar composition.
  */
 export type DataGridChrome<TData> =
-  | { mode?: 'built-in' }
   | {
+      /** DataGrid renders its own toolbar, filters, bulk bar and pagination. */
+      mode?: 'built-in';
+    }
+  | {
+      /**
+       * Suppress the built-in controls and render your own. `toolbar` and
+       * `searchKey` become invalid — the renderer owns toolbar composition.
+       */
       mode: 'external';
+      /** Composes the chrome from the shared controller, selection and query. */
       render: (context: DataGridChromeContext<TData>) => ReactNode;
     };
 
@@ -254,7 +263,9 @@ export type DataGridChrome<TData> =
  * `defaultState`, `server`, rows/columns, or callbacks (design §5.2).
  */
 export interface DataGridPreset<TData> {
+  /** The name `presets.apply` and `presets.detect` refer to. */
   id: string;
+  /** The behavior groups this preset sets. */
   config: Readonly<DataGridGroupedConfig<TData>>;
 }
 
@@ -267,20 +278,39 @@ export interface DataGridPreset<TData> {
  * grouped config (or deprecated alias) the caller passed.
  */
 export interface DataGridPresetsInput<TData, TValue = unknown> {
+  /** The presets available to `apply` and `detect`. */
   definitions: readonly DataGridPreset<TData>[];
+  /** Preset ids to apply, left to right. Later ids win. */
   apply: readonly string[];
+  /**
+   * Infers extra preset ids from the initial columns and rows. Runs **once** and
+   * cannot observe mutable state, so it can never react to a later change.
+   */
   detect?: (input: {
     columns: readonly ColumnDef<TData, TValue>[];
     rows: readonly TData[];
   }) => readonly string[];
 }
 
-/** The DataGrid props that are not contributed by a config module. */
-export interface DataGridOwnProps<TData, TValue> {
+/**
+ * The DataGrid props that are not contributed by a config module.
+ *
+ * `columns`/`rows` are `readonly` (PLTFRM-93046). Every seam downstream already
+ * takes them that way — `composeColumns` and `DataGridControllerContext.rows`
+ * both declare `readonly`, and `DataGridPresetsInput.detect` above receives
+ * `readonly` copies of the same two values — so the mutable public signature was
+ * the outlier, not the constraint. It rejected the ordinary consumer shapes:
+ * a `readonly ColumnDef<T>[]` module constant, or rows off a `ReadonlyArray`
+ * selector, failed with TS4104 and had to be spread into a fresh array. Spread at
+ * the call site — the obvious place — that allocates a new `columns` identity on
+ * every render and so invalidates TanStack's memoized row model, which is the
+ * exact churn `data-grid.tsx` memoizes to avoid.
+ */
+export interface DataGridOwnProps<TData, TValue = unknown> {
   /** TanStack column definitions (the same `ColumnDef[]` DataTable accepts). */
-  columns: ColumnDef<TData, TValue>[];
+  columns: readonly ColumnDef<TData, TValue>[];
   /** Row data. */
-  rows: TData[];
+  rows: readonly TData[];
   /** Named grouped-config bundles applied before the caller's own configs. */
   presets?: DataGridPresetsInput<TData, TValue>;
   /**
@@ -295,6 +325,13 @@ export interface DataGridOwnProps<TData, TValue> {
    * controller; it is incompatible with `toolbar`/`searchKey`.
    */
   chrome?: DataGridChrome<TData>;
+  /**
+   * Portal target for tooltips DataGrid renders on its own behalf — currently
+   * only `meta.truncate`'s. Pass a Shadow DOM host's root; omit it there and
+   * the tooltip portals to `document.body`, outside the root that carries the
+   * page's styles.
+   */
+  portalContainer?: ComponentProps<typeof TooltipContent>['portalContainer'];
 }
 
 /**
@@ -302,7 +339,10 @@ export interface DataGridOwnProps<TData, TValue> {
  * groups, the module-contributed top-level inputs, and the deprecated flat
  * aliases. The last three are derived from the config registry.
  */
-export type DataGridBaseProps<TData, TValue> = DataGridOwnProps<TData, TValue> &
+export type DataGridBaseProps<TData, TValue = unknown> = DataGridOwnProps<
+  TData,
+  TValue
+> &
   DataGridGroupedConfig<TData> &
   DataGridTopLevelConfig<TData> &
   DataGridDeprecatedAliases<TData>;
@@ -318,7 +358,7 @@ export type DataGridBaseProps<TData, TValue> = DataGridOwnProps<TData, TValue> &
  * `false | DataGridSelectionConfig<T> | (DataGridSelectionConfig<T> & false)` —
  * and that noise reaches consumers through hover text and the emitted `.d.ts`.
  */
-export type DataGridIdentityFreeProps<TData, TValue> = Omit<
+export type DataGridIdentityFreeProps<TData, TValue = unknown> = Omit<
   DataGridBaseProps<TData, TValue>,
   keyof DataGridIdentityFreeMap<TData>
 > & { getRowId?: never } & {
@@ -346,8 +386,16 @@ export interface DataGridIdentityProps<TData> {
  * the shared base and stay source-compatible for one minor line, as §3.1
  * requires — they warn at runtime and are documented as non-reserving instead.
  * Only the grouped API is enforced at compile time.
+ *
+ * `TValue` defaults to `unknown` (PLTFRM-93046). It is the *cell* value type,
+ * which for a heterogeneous column set is never one type a consumer would want to
+ * name — so `DataGridProps<Person>` is the only spelling anyone writes, and
+ * without the default it failed with TS2314 "requires 2 type argument(s)".
+ * `DataGridPresetsInput` above already defaulted it; the prop types did not, and
+ * the mismatch was invisible in-tree because every internal reference spells
+ * `<Person, unknown>` out.
  */
-export type DataGridProps<TData, TValue> =
+export type DataGridProps<TData, TValue = unknown> =
   | DataGridIdentityFreeProps<TData, TValue>
   | (DataGridBaseProps<TData, TValue> & DataGridIdentityProps<TData>);
 
@@ -454,11 +502,23 @@ export type _AssertEveryControllerOptionListed = AssertTrue<
 
 /** Where a module may mount chrome in the DataGrid body. */
 export type DataGridChromeSlot =
-  /** Above the toolbar. The bulk-action bar lives here. */
+  /**
+   * Above the toolbar. **Free — nothing built-in mounts here.**
+   *
+   * The bulk-action bar did until PLTFRM-93130, and that was the defect: every slot
+   * is a sibling row inside one `flex-col`, so a module that renders here
+   * conditionally moves the toolbar, the filter chips and the whole table each time
+   * its condition flips. The bulk bar flipped on the first selected row. Anything
+   * mounted here should therefore either always render or be laid out so its
+   * appearance costs no height.
+   */
   | 'top'
-  /** The toolbar row. */
+  /**
+   * The toolbar row: filter triggers, search, `leading`/`trailing`, and — while rows
+   * are selected — the bulk-action strip that replaces them.
+   */
   | 'toolbar'
-  /** Between the toolbar and the table. The column-filter controls live here. */
+  /** Between the toolbar and the table. The applied-filter chips live here. */
   | 'under-toolbar'
   /** Below the table. Pagination lives here. */
   | 'bottom';

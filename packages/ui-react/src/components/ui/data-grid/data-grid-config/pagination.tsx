@@ -1,5 +1,6 @@
 import { DataGridPagination } from '../data-grid-pagination';
 import { defineDataGridConfig } from './registry';
+import { resolveSelectedCount } from './selected-count';
 
 // OWNERSHIP: created by F4 with the shipped wiring; **U8 owns this file** —
 // `unknownTotal`, `showPageSize` and `showFirstLast` landed here.
@@ -25,7 +26,12 @@ import { defineDataGridConfig } from './registry';
  * `pageSize`/`pageSizeOptions` props.
  */
 export interface DataGridPaginationConfig {
+  /** Rows per page. */
   pageSize?: number;
+  /**
+   * Choices offered by the page-size control. Supplying this does not render the
+   * control — `showPageSize` does.
+   */
   pageSizeOptions?: readonly number[];
   /** Show the rows-per-page select. Default true (design §5.2). */
   showPageSize?: boolean;
@@ -48,10 +54,21 @@ export interface DataGridPaginationConfig {
 
 export interface ResolvedDataGridPagination {
   /**
-   * Whether the engine paginates and the footer renders. Server mode paginates
-   * even when the caller did not ask for the `pagination` group.
+   * Whether the **engine** paginates. Server mode paginates even when the caller
+   * did not ask for the `pagination` group, and that is not optional there:
+   * `pagination` is a required member of `DataTableQuery`, so the page slice has
+   * to be tracked whatever the footer does.
    */
   readonly enabled: boolean;
+  /**
+   * LOCAL(ui_tools): whether the **footer** renders. Split from `enabled` because
+   * the two answered one question and needed to answer two: an infinite list is
+   * server mode (so the engine must paginate) with `pagination: false` (so the
+   * footer must not appear). Before the split `enabled` was
+   * `configured || serverDriven` and gated both, which made the footer
+   * unsuppressable in server mode.
+   */
+  readonly chrome: boolean;
   /** Whether the caller configured the group (server mode alone does not). */
   readonly configured: boolean;
   readonly pageSize: number;
@@ -173,10 +190,17 @@ export const paginationConfig = defineDataGridConfig({
     // the chrome nor the controller ever sees an unknown total it cannot support.
     const unknownTotal = requestedUnknownTotal && serverDriven;
 
+    // LOCAL(ui_tools). An explicit `false` suppresses the footer even in server
+    // mode; anything else leaves it where it was. Keyed to the prop rather than
+    // to `configured`, which cannot tell "the caller said false" from "the caller
+    // said nothing" — and only the first of those is a request.
+    const suppressed = props.pagination === false;
+
     return {
       value: {
         configured,
         enabled: configured || serverDriven,
+        chrome: !suppressed && (configured || serverDriven),
         pageSize,
         pageSizeOptions: config?.pageSizeOptions ?? props.pageSizeOptions,
         showPageSize,
@@ -203,7 +227,7 @@ export const paginationConfig = defineDataGridConfig({
   },
 
   chrome(slot, { controller, resolved }) {
-    if (slot !== 'bottom' || !resolved.pagination.enabled) {
+    if (slot !== 'bottom' || !resolved.pagination.chrome) {
       return null;
     }
     const { pageSizeOptions, showPageSize, showFirstLast, unknownTotal } =
@@ -215,30 +239,12 @@ export const paginationConfig = defineDataGridConfig({
 
     // #94: how many rows are selected, when the engine cannot answer it.
     //
-    // **`resolved.server.selection`, never `server.selection`.** The resolved
-    // member is the *effective* token — `server.ts` returns `undefined` for an
-    // `all-results` token scoped to a different `queryRequestKey`, so a stale token
-    // cannot be counted as a live selection. The config member is the request; this
-    // is the verdict.
-    //
-    // Resolved to a number here rather than handed down as the union, so the pager
-    // learns no server-selection semantics — see the prop's docblock.
-    //
-    //  • `all-results` — "everything the query matches except these", so the count
-    //    is the total minus the exclusions. `getRowCount()` is the total the owner
-    //    supplied (`server.rowCount`); it is the only number in scope that means
-    //    "all results" rather than "the loaded window".
-    //  • `explicit` — the owner enumerated the ids, so `ids.size` is their truth,
-    //    including ids outside the loaded window that the engine cannot see.
-    //  • absent — no controlled selection, so the engine owns it outright and the
-    //    prop is omitted rather than passed as 0.
-    const serverSelection = resolved.server.selection;
-    const selectedCount =
-      serverSelection === undefined
-        ? undefined
-        : serverSelection.mode === 'all-results'
-          ? controller.table.getRowCount() - serverSelection.excludedIds.size
-          : serverSelection.ids.size;
+    // Resolved to a number rather than handed down as the union, so the pager learns
+    // no server-selection semantics — see the prop's docblock. The resolution itself
+    // lives in `./selected-count.ts`, which spells out each mode, because
+    // PLTFRM-93130 gave the toolbar row a count too and two copies of these
+    // semantics would drift.
+    const selectedCount = resolveSelectedCount(resolved, controller);
     return (
       <DataGridPagination
         table={controller.table}
@@ -253,6 +259,7 @@ export const paginationConfig = defineDataGridConfig({
           ? {}
           : { hasPreviousPage: server.hasPreviousPage })}
         {...(selectedCount === undefined ? {} : { selectedCount })}
+        labels={resolved.labels}
       />
     );
   },

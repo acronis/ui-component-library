@@ -46,6 +46,16 @@ export type DataGridGroupContext<TData> = DataTableGroupContext<TData>;
 
 export interface DataGridGroupingConfig<TData> {
   /**
+   * Page each group's members independently, this many rows at a time
+   * (PLTFRM-93295). Omitted means no per-group paging.
+   *
+   * Independent of `pagination`, which pages the grid as a whole. The two compose in
+   * one direction: grid pagination slices the flat row list first, so a group's own
+   * pager then pages whatever survived. Configuring both is legal and almost
+   * certainly not what anyone wants, so it warns.
+   */
+  pageSize?: number;
+  /**
    * Which columns may be grouped. **Required** (design §5.2): a grouping config
    * that permits nothing describes no feature.
    *
@@ -84,6 +94,8 @@ export interface DataGridGroupingConfig<TData> {
 }
 
 export interface ResolvedDataGridGrouping<TData> {
+  /** Per-group page size; `0` means per-group paging is off. */
+  readonly pageSize: number;
   readonly enabled: boolean;
   readonly allowedColumns: readonly string[];
   readonly collapsible: boolean;
@@ -138,6 +150,21 @@ export const groupingConfig = defineDataGridConfig({
         ? props.grouping
         : undefined;
 
+    // Per-group paging composes with grid pagination in one direction only, and the
+    // result is almost never what anyone means: grid pagination slices the flat row
+    // list first, so each group's pager then pages whatever survived that slice —
+    // "page 1 of 3" inside a group that is itself only part of page 1.
+    if (
+      config?.pageSize !== undefined &&
+      config.pageSize > 0 &&
+      props.pagination !== undefined &&
+      props.pagination !== false
+    ) {
+      warnings.push(
+        'DataGrid: `grouping.pageSize` pages each group and `pagination` pages the whole grid; the grid slices first, so a group pager then pages only what survived that slice. Use one or the other.'
+      );
+    }
+
     if (config !== undefined && config.allowedColumns.length === 0) {
       warnings.push(
         'DataGrid: `grouping.allowedColumns` is required and cannot be empty; a grouping group that permits no column groups nothing.'
@@ -177,6 +204,10 @@ export const groupingConfig = defineDataGridConfig({
         collapsible: config?.collapsible ?? true,
         sticky: config?.sticky ?? false,
         selectionScope: config?.selectionScope ?? 'all-loaded-leaves',
+        // Floored and clamped at resolve time so every reader downstream — the
+        // engine, the pager, the warning below — sees one number rather than each
+        // coercing a caller's value its own way.
+        pageSize: Math.max(0, Math.floor(config?.pageSize ?? 0)),
         ungrouped: {
           show: config?.ungrouped?.show ?? true,
           name: config?.ungrouped?.name ?? DATA_GRID_UNGROUPED_DEFAULT_NAME,
@@ -199,6 +230,7 @@ export const groupingConfig = defineDataGridConfig({
       selectionScope,
       ungrouped,
       renderGroup,
+      pageSize,
     } = resolved.grouping;
     if (!enabled) {
       return { grouping: false };
@@ -213,6 +245,7 @@ export const groupingConfig = defineDataGridConfig({
         sticky,
         selectionScope,
         ungrouped,
+        pageSize,
         // Threaded, not re-decided: the same policy the header select-all uses,
         // so the two controls cannot resolve a mixed state opposite ways.
         selectAllOnIndeterminate: resolved.selection.selectAllOnIndeterminate,
@@ -225,6 +258,7 @@ export const groupingConfig = defineDataGridConfig({
             <DataGridGroupHeader
               context={context}
               showSelection={showSelection}
+              labels={resolved.labels}
             />
           ) : (
             renderGroup(context)

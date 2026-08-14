@@ -22,11 +22,46 @@ import { defineDataGridConfig } from './registry';
 
 export type DataGridDataStatus = 'loading' | 'empty' | 'loaded' | 'error';
 
+/**
+ * Which of the four states the body renders. A discriminated union on `status`,
+ * so each state carries only the members that mean something for it — the
+ * alternative is one flat config where most members are inert at any moment.
+ *
+ * Forcing a state replaces the rows the grid was given rather than filtering
+ * them, so `rows` can stay as-is while a request is in flight.
+ */
 export type DataGridDataStateConfig =
-  | { status?: 'loaded'; empty?: ReactNode; skeletonRows?: number }
-  | { status: 'loading'; skeletonRows?: number }
-  | { status: 'empty'; empty?: ReactNode }
-  | { status: 'error'; error?: ReactNode; onRetry?: () => void };
+  | {
+      /** Render the supplied rows. The default when `dataState` is omitted. */
+      status?: 'loaded';
+      /** Message shown if `rows` turns out to be empty anyway. */
+      empty?: ReactNode;
+      /** Placeholder row count, used if this later becomes `loading`. */
+      skeletonRows?: number;
+    }
+  | {
+      /** Render placeholder skeleton rows instead of data. */
+      status: 'loading';
+      /** How many skeleton rows to render. */
+      skeletonRows?: number;
+    }
+  | {
+      /** Render the empty message instead of rows. */
+      status: 'empty';
+      /** What to show in place of the rows. */
+      empty?: ReactNode;
+    }
+  | {
+      /** Render an error alert instead of rows. */
+      status: 'error';
+      /** The message shown in the alert. */
+      error?: ReactNode;
+      /**
+       * Adds a retry control to the alert. Omit it and the alert carries no
+       * action. Owns the behavior; `callbacks.onDataStateAction` observes.
+       */
+      onRetry?: () => void;
+    };
 
 export interface ResolvedDataGridDataState {
   readonly status: DataGridDataStatus;
@@ -127,7 +162,7 @@ export const dataStateConfig = defineDataGridConfig({
           ? () => (
               <Alert variant="critical" className="text-start">
                 <AlertContent>
-                  <AlertTitle>Something went wrong</AlertTitle>
+                  <AlertTitle>{resolved.labels.errorTitle}</AlertTitle>
                   {error !== undefined && (
                     <AlertDescription>{error}</AlertDescription>
                   )}

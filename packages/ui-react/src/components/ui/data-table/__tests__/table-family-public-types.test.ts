@@ -105,7 +105,12 @@ describe('table family public types', () => {
     // branches of `DataGridProps` (design §3.1) rather than sitting on the shared
     // base, so it cannot be declared here.
     expectTypeOf<keyof DataGridOwnProps<Person, unknown>>().toEqualTypeOf<
-      'columns' | 'rows' | 'presets' | 'callbacks' | 'chrome'
+      | 'columns'
+      | 'rows'
+      | 'presets'
+      | 'callbacks'
+      | 'chrome'
+      | 'portalContainer'
     >();
   });
 

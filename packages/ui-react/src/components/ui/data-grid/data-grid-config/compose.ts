@@ -5,12 +5,12 @@ import type { DataTableViewProps } from '../../data-table';
 import {
   DATA_GRID_CONTRIBUTABLE_CONTROLLER_OPTIONS,
   type DataGridChromeSlot,
-  DataGridChromeSlotContext,
-  DataGridColumnContext,
-  DataGridConfigModule,
-  DataGridControllerContext,
-  DataGridControllerOptionsContribution,
-  DataGridProps,
+  type DataGridChromeSlotContext,
+  type DataGridColumnContext,
+  type DataGridConfigModule,
+  type DataGridControllerContext,
+  type DataGridControllerOptionsContribution,
+  type DataGridProps,
   type DataGridViewContext,
   type ResolvedDataGrid,
 } from './registry';

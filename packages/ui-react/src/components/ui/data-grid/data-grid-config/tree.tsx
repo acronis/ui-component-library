@@ -188,6 +188,7 @@ export const treeConfig = defineDataGridConfig({
               <DataGridTreeCell
                 row={context.row}
                 lazy={loadChildren !== undefined}
+                labels={resolved.labels}
               >
                 {
                   // `flexRender` rather than calling the template directly: a
@@ -239,6 +240,7 @@ export const treeConfig = defineDataGridConfig({
               renderStatus: (context: DataTableTreeStatusContext<unknown>) => (
                 <DataGridTreeStatusRow
                   context={context}
+                  labels={resolved.labels}
                   {...(renderLoadError ? { renderLoadError } : {})}
                 />
               ),

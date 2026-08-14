@@ -126,7 +126,7 @@ describe('DataGrid', () => {
     const user = userEvent.setup();
     render(<DataGrid columns={columns} rows={rows} toolbar />);
     expect(screen.getByRole('columnheader', { name: 'Role' })).toBeVisible();
-    await user.click(screen.getByRole('button', { name: /View/ }));
+    await user.click(screen.getByRole('button', { name: 'Column settings' }));
     await user.click(screen.getByRole('menuitemcheckbox', { name: 'role' }));
     expect(
       screen.queryByRole('columnheader', { name: 'Role' })
@@ -359,12 +359,14 @@ describe('DataGrid', () => {
 
     await user.click(screen.getByLabelText('Select all rows'));
     const bar = screen.getByRole('toolbar', { name: 'Bulk actions' });
-    expect(within(bar).getByText('2 selected')).toBeVisible();
+    expect(within(bar).getByText('2 items selected')).toBeVisible();
 
     await user.click(within(bar).getByRole('button', { name: 'Archive' }));
     expect(onBulk).toHaveBeenCalledWith(rows);
 
-    await user.click(within(bar).getByRole('button', { name: 'Clear' }));
+    await user.click(
+      within(bar).getByRole('button', { name: 'Clear selection' })
+    );
     expect(
       screen.queryByRole('toolbar', { name: 'Bulk actions' })
     ).not.toBeInTheDocument();
@@ -985,7 +987,7 @@ describe('DataGrid named callbacks', () => {
       />
     );
 
-    await user.click(screen.getByRole('button', { name: /View/ }));
+    await user.click(screen.getByRole('button', { name: 'Column settings' }));
     await user.click(screen.getByRole('menuitemcheckbox', { name: /role/i }));
 
     expect(onColumnStateChange).toHaveBeenCalledWith(
@@ -1419,16 +1421,25 @@ describe('DataGrid toolbar members', () => {
     error.mockRestore();
   });
 
-  it('shows the view-options menu by default and hides it on request', () => {
+  it('shows the column-settings menu by default and hides it on request', () => {
+    // PLTFRM-93130 moved this control out of the toolbar row and into the header
+    // cell of the trailing column, and made it icon-only. `toolbar.viewOptions`
+    // still decides whether it renders — only the placement and the accessible
+    // name changed, which is why this test kept its shape.
     const { rerender } = render(
       <DataGrid columns={columns} rows={rows} toolbar />
     );
-    expect(screen.getByRole('button', { name: 'View' })).toBeVisible();
+    const trigger = () =>
+      screen.queryByRole('button', { name: 'Column settings' });
+    expect(trigger()).toBeVisible();
+    // In a column header, not in the toolbar row.
+    expect(trigger()!.closest('th')).not.toBeNull();
+    expect(trigger()!.closest('[data-slot="data-grid-toolbar"]')).toBeNull();
 
     rerender(
       <DataGrid columns={columns} rows={rows} toolbar={{ viewOptions: true }} />
     );
-    expect(screen.getByRole('button', { name: 'View' })).toBeVisible();
+    expect(trigger()).toBeVisible();
 
     rerender(
       <DataGrid
@@ -1437,7 +1448,7 @@ describe('DataGrid toolbar members', () => {
         toolbar={{ viewOptions: false }}
       />
     );
-    expect(screen.queryByRole('button', { name: 'View' })).toBeNull();
+    expect(trigger()).toBeNull();
   });
 
   it('keeps the search box when the view-options menu is hidden', async () => {
@@ -1451,7 +1462,9 @@ describe('DataGrid toolbar members', () => {
       />
     );
 
-    expect(screen.queryByRole('button', { name: 'View' })).toBeNull();
+    expect(
+      screen.queryByRole('button', { name: 'Column settings' })
+    ).toBeNull();
     await user.type(screen.getByPlaceholderText('Find'), 'Ada');
     expect(screen.getByText('Ada Lovelace')).toBeVisible();
     expect(screen.queryByText('Grace Hopper')).not.toBeInTheDocument();

@@ -13,6 +13,7 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     setupFiles: ['./vitest.setup.ts'],
+    exclude: ['**/node_modules/**', '**/*.browser.test.{ts,tsx}'],
     // `expectTypeOf` / `assertType` assertions are compile-time only: at runtime
     // they are no-ops, so a false one passes and the runtime suite reports green.
     // This block is what runs them — but it is **off by default**, and `pnpm

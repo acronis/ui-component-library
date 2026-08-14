@@ -125,10 +125,22 @@ export interface DataGridCallbacks<TData, RowId extends string = string> {
    * request.
    */
   onQueryChange?: (event: DataTableQueryChangeEvent) => void;
+  /**
+   * The selected-row-id set changed. `event.cause` distinguishes a user action
+   * from a programmatic reset, which is usually what a screen needs to know.
+   */
   onSelectionChange?: (event: DataGridSelectionChangeEvent<RowId>) => void;
+  /**
+   * The set of rows with an open detail panel changed. Fires for `detailExpanded`
+   * only — detail and tree expansion share no slice or id namespace (ADR-0001).
+   */
   onDetailExpansionChange?: (
     event: DataGridDetailExpansionChangeEvent<RowId>
   ) => void;
+  /**
+   * The set of expanded tree rows changed. Fires for `treeExpanded` only; a caller
+   * subscribing to this never hears detail expansion.
+   */
   onTreeExpansionChange?: (
     event: DataGridTreeExpansionChangeEvent<RowId>
   ) => void;
@@ -141,15 +153,42 @@ export interface DataGridCallbacks<TData, RowId extends string = string> {
    * `controllerOptions` member rather than a slice handler.
    */
   onTreeLoad?: (event: DataTableTreeLoadEvent<TData>) => void;
+  /**
+   * The current (roving-focus) row changed. `event.value` is the next row id, or
+   * `undefined` once nothing is current.
+   */
   onCurrentRowChange?: (event: DataGridCurrentRowChangeEvent<RowId>) => void;
+  /** The page index or the page size changed. */
   onPaginationChange?: (event: DataGridPaginationChangeEvent<RowId>) => void;
+  /**
+   * A column preference changed — visibility, order, sizing or pinning. All four
+   * fan into this one callback and `event.slice` says which, so a screen
+   * persisting column preferences branches here instead of subscribing four
+   * times.
+   */
   onColumnStateChange?: (event: DataGridColumnStateChangeEvent<RowId>) => void;
+  /** The pointer entered a body row. Observes `rowInteraction.onHover`. */
   onRowHover?: (event: DataTableRowPointerEvent<TData>) => void;
+  /** A body row was clicked. Observes `rowInteraction.onClick`. */
   onRowClick?: (event: DataTableRowPointerEvent<TData>) => void;
+  /**
+   * A row was activated — Enter, or a double click. Observes
+   * `rowInteraction.onActivate`, which owns the behavior and runs first.
+   */
   onRowActivate?: (event: DataTableRowActivationEvent<TData>) => void;
+  /** The pointer entered a body cell. Carries the column id as well as the row. */
   onCellHover?: (event: DataTableCellPointerEvent<TData>) => void;
+  /** A body cell was clicked. Carries the column id as well as the row. */
   onCellClick?: (event: DataTableCellPointerEvent<TData>) => void;
+  /**
+   * A row action was invoked, **after** any confirmation dialog was accepted.
+   * `actions.onAction` owns the behavior and runs first.
+   */
   onRowAction?: (event: DataGridRowActionEvent<TData>) => void;
+  /**
+   * A data-state recovery control was activated — today only the error state's
+   * retry. `dataState.onRetry` owns the behavior and runs first.
+   */
   onDataStateAction?: (event: DataGridDataStateActionEvent) => void;
 }
 
