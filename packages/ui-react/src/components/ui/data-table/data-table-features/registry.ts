@@ -393,6 +393,18 @@ export interface ColumnPresentation {
    * before this one. The owner computes it; `Table` holds no column model.
    */
   readonly pinOffset?: number | string;
+  /**
+   * Set only on the column at a pinned region's **inner boundary**: the last
+   * start-pinned column, and the first end-pinned column. Reaches
+   * `TableHead`/`TableCell`'s `pinnedEdge` hook, which renders it as
+   * `data-pinned-edge` for the divider rule to key off (PLTFRM-93276).
+   *
+   * Computed here rather than in `Table` for the same reason as `pinOffset`:
+   * `Table` holds no column model, so it cannot know which pinned column is last
+   * — and the answer depends on **visibility**, since a hidden column must not
+   * hold the boundary. A region of exactly one column is both first and last.
+   */
+  readonly pinnedEdge?: TableColumnPin;
 }
 
 /**
@@ -934,7 +946,12 @@ export function composeColumnPresentation<TData, RowId extends string>(
     }
     // Same rule as `rowPresentation`'s discrete flags: two features disagreeing
     // about which edge a column is pinned to is a bug, not something to merge.
-    for (const key of ['pinned', 'pinOffset'] as const) {
+    // `pinnedEdge` is in this list for the same reason as the other two: the merge
+    // copies a whitelist, so a presentation key missing from it is dropped in
+    // silence. Adding `pinnedEdge` to `ColumnPresentation` and forgetting this line
+    // produced a flag the engine computed correctly, the view forwarded, and no cell
+    // ever received (PLTFRM-93276).
+    for (const key of ['pinned', 'pinOffset', 'pinnedEdge'] as const) {
       const value = contribution[key];
       if (value === undefined) {
         continue;

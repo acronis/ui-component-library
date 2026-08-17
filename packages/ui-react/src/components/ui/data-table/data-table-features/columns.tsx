@@ -235,6 +235,43 @@ function pinOffsetOf<TData>(
   return offset;
 }
 
+/**
+ * Is this column at its pinned region's **inner boundary** (PLTFRM-93276)?
+ *
+ * `'start'` for the last start-pinned column, `'end'` for the first end-pinned
+ * column, `false` for everything else. That boundary is where scrolled columns
+ * disappear under the pinned block, so it is the only edge that needs a divider.
+ *
+ * **Visible leaves only, and that is the whole subtlety.** `getLeftLeafColumns()`
+ * includes hidden columns, so a table whose last start-pinned column is hidden
+ * would hand the boundary to an element that renders nothing and the divider would
+ * vanish with it. Filtering by `getIsVisible()` also makes the flag follow a
+ * visibility toggle with no extra wiring, because presentation re-runs on it.
+ *
+ * A region of exactly one column is both first and last, so it takes the boundary
+ * — asserted in `data-table/__tests__/data-table-pinned-divider.test.tsx`.
+ */
+function pinnedEdgeOf<TData>(
+  table: Table<TData>,
+  column: Column<TData, unknown>
+): DataTableColumnPinRegion {
+  const region = pinRegionOf(column);
+  if (!region) return false;
+
+  const visible = (
+    region === 'start'
+      ? table.getLeftLeafColumns()
+      : table.getRightLeafColumns()
+  ).filter((candidate) => candidate.getIsVisible());
+
+  // The boundary column is the one nearest the scrollable middle: the last of the
+  // start region, the first of the end region. Indexed rather than `.at()` —
+  // this package targets ES2020.
+  const boundary =
+    region === 'start' ? visible[visible.length - 1] : visible[0];
+  return boundary?.id === column.id ? region : false;
+}
+
 /* ══════════════════════════════════════════════════════════════════════════════
    ⚠⚠ INVARIANT — TWO HALVES, AND REMOVING EITHER ONE MAKES THINGS WORSE THAN
        LEAVING BOTH OUT. Read this before deleting anything below (#107).
@@ -955,7 +992,15 @@ export const columnsFeature = defineDataTableFeature({
       // this file: `data-pinned` is what the z-ladder and the row's tint rules
       // key off, and it is not expressible as CSS.
       ...(pinned && region
-        ? { pinned: region, pinOffset: pinOffsetOf(table, column) }
+        ? {
+            pinned: region,
+            pinOffset: pinOffsetOf(table, column),
+            // Only on the boundary column; `false` from `pinnedEdgeOf` means "not
+            // the boundary" and must not reach the DOM as an attribute.
+            ...(pinnedEdgeOf(table, column) === region
+              ? { pinnedEdge: region }
+              : {}),
+          }
         : {}),
     };
   },

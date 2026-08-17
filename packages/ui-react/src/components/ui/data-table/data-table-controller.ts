@@ -391,6 +391,18 @@ export type DataTableToggleAction<RowId extends string = string> =
       readonly type: 'toggle-group';
       readonly groupId: string;
       readonly expanded?: boolean;
+    }
+  /**
+   * Moves one group to a page, for per-group paging (PLTFRM-93295).
+   *
+   * Absolute rather than a delta: a relative "next page" would need the caller to
+   * know the group's current page and its row count, and a click arriving twice
+   * would advance twice. The pager knows both, so it sends where it wants to be.
+   */
+  | {
+      readonly type: 'set-group-page';
+      readonly groupId: string;
+      readonly page: number;
     };
 
 export interface DataTableController<TData, RowId extends string = string> {
@@ -601,6 +613,21 @@ function sliceValueUnchanged(
     case 'columnFilters':
     case 'globalFilter':
       return false;
+
+    // Per-group page indices (PLTFRM-93295). Compared by content rather than by
+    // reference because the reducer rebuilds the map on every page change, so a
+    // reference check would report "changed" for a no-op page set — and a no-op
+    // write here re-renders every row of every group.
+    case 'groupPagination': {
+      const before = left as ReadonlyMap<string, number>;
+      const after = right as ReadonlyMap<string, number>;
+      if (before.size !== after.size) return false;
+      for (const [groupId, page] of before) {
+        if (after.get(groupId) !== page) return false;
+      }
+
+      return true;
+    }
 
     default: {
       // A new slice must state its comparison. This assignment is the forcing
@@ -1403,6 +1430,30 @@ export function useDataTable<TData, RowId extends string = string>(
           // Unlike the two windowing arms this one needs no bridge: the state is
           // the whole mechanism, so the action works whether or not a view is
           // mounted, and there is nothing that could go stale.
+          // Per-group paging (PLTFRM-93295). Like `toggle-group` this needs no view
+          // bridge: the state is the whole mechanism, and the row model reads it
+          // through the memo key.
+          case 'set-group-page': {
+            request(
+              'groupPagination',
+              (previous) => {
+                const next = new Map(previous);
+                const page = Math.max(0, Math.floor(action.page));
+                // Page 0 is the default, so it is stored as *absence*. Without this
+                // the map grows a key per group the user ever paged and then paged
+                // back, and a persisted state slice would carry them forever.
+                if (page === 0) {
+                  next.delete(action.groupId);
+                } else {
+                  next.set(action.groupId, page);
+                }
+
+                return next;
+              },
+              'api'
+            );
+            break;
+          }
           case 'toggle-group': {
             // Reads as the `expand-row` arm above does, and the inversion sits in
             // exactly one place: omitting `expanded` toggles, and a group that is

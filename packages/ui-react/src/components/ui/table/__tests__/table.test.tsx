@@ -341,8 +341,11 @@ describe('Table — independent borders', () => {
     render(<Table borders={{ horizontal: false }} />);
     expect(screen.getByRole('table')).toHaveClass(
       '[&_tr]:border-b-0',
-      '[&_thead_th]:shadow-none',
-      '[&_tfoot_td]:shadow-none'
+      // Empties the **y slot** rather than wiping `box-shadow` (PLTFRM-93276):
+      // `shadow-none` would also erase a `pinnedDivider: 'always'` line, which
+      // lives in the x slot of the same composed declaration.
+      '[&_thead_th]:[--table-shadow-y:initial]',
+      '[&_tfoot_td]:[--table-shadow-y:initial]'
     );
   });
 });
@@ -653,7 +656,7 @@ describe('TableHeader / TableFooter — sticky', () => {
     expect(tfoot).toHaveClass(
       '[&_td]:sticky',
       '[&_td]:bottom-0',
-      '[&_td]:shadow-[inset_0_1px_0_0_var(--ui-table-global-row-border-color)]'
+      '[&_td]:[--table-shadow-y:inset_0_1px_0_0_var(--ui-table-global-row-border-color)]'
     );
     // The collapsed section border would scroll away and double up.
     expect(tfoot.className).not.toMatch(/\bborder-t\b/);
@@ -682,7 +685,7 @@ describe('TableRow — current, expanded, sticky', () => {
     expect(row).not.toHaveAttribute('aria-selected');
     expect(row).not.toHaveAttribute('data-state');
     expect(row).toHaveClass(
-      '[&>*:first-child]:shadow-[inset_2px_0_0_0_var(--ui-border-on-surface-border-active)]'
+      '[&>*:first-child]:[--table-shadow-marker:inset_2px_0_0_0_var(--ui-border-on-surface-border-active)]'
     );
   });
 

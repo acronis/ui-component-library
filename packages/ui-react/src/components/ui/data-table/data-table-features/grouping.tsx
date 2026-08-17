@@ -170,6 +170,22 @@ export interface DataTableGroupContext<TData> {
  * layer is type-erased to `unknown` regardless.
  */
 export interface DataTableGroupingConfig<TData = unknown> {
+  /**
+   * Page each group's members independently, this many rows at a time
+   * (PLTFRM-93295). Omitted or `0` means no per-group paging, which is the default
+   * and what every existing caller gets.
+   *
+   * **This is the page size only; the page indices are state** — the
+   * `groupPagination` slice, keyed by group ID. Configuration decides the window,
+   * state decides which window, exactly as `pagination` splits `pageSize` from
+   * `pageIndex`.
+   *
+   * Independent of grid-wide `pagination`, and the two compose in one direction
+   * only: grid pagination slices the flat row list first, so a group's own pager
+   * pages what survived that slice. Running both is legal and confusing, which is
+   * why the DataGrid layer warns.
+   */
+  readonly pageSize?: number;
   readonly allowedColumns?: readonly string[];
   readonly collapsible?: boolean;
   readonly sticky?: boolean;
@@ -222,6 +238,9 @@ interface ResolvedGrouping<TData> {
   readonly allowedColumns?: readonly string[];
   readonly renderGroup?: (context: DataTableGroupContext<TData>) => ReactNode;
 }
+
+/** Shared empty map, so an unpaged table allocates nothing per memo pass. */
+const EMPTY_GROUP_PAGES: ReadonlyMap<string, number> = new Map();
 
 const EMPTY_COLLAPSED: ReadonlySet<string> = new Set<string>();
 
@@ -284,7 +303,10 @@ function resolvePolicy<TData>(
  * module-level store and no unmount cleanup.
  */
 interface ControllerCarriedOptions {
-  readonly __dataTableState?: Pick<DataTableState, 'groupCollapsed'>;
+  readonly __dataTableState?: Pick<
+    DataTableState,
+    'groupCollapsed' | 'groupPagination'
+  >;
   readonly __dataTableFeatures?: {
     readonly configs: { readonly grouping?: unknown };
   };
@@ -302,14 +324,22 @@ interface ControllerCarriedOptions {
 function liveGrouping<TData>(table: Table<TData>): {
   readonly collapsed: ReadonlySet<string>;
   readonly ungrouped: ResolvedUngrouped;
+  /** 0 disables per-group paging (PLTFRM-93295). */
+  readonly groupPageSize: number;
+  readonly groupPages: ReadonlyMap<string, number>;
 } {
   const options = table.options as unknown as ControllerCarriedOptions;
+  const config =
+    configOf<unknown>(options.__dataTableFeatures?.configs.grouping) ?? {};
 
   return {
     collapsed: options.__dataTableState?.groupCollapsed ?? EMPTY_COLLAPSED,
-    ungrouped: resolvePolicy(
-      configOf<unknown>(options.__dataTableFeatures?.configs.grouping) ?? {}
-    ).ungrouped,
+    ungrouped: resolvePolicy(config).ungrouped,
+    // Coerced here rather than trusted: a negative or fractional page size would
+    // make the slice arithmetic produce an empty window, which looks like the group
+    // lost its rows.
+    groupPageSize: Math.max(0, Math.floor(config.pageSize ?? 0)),
+    groupPages: options.__dataTableState?.groupPagination ?? EMPTY_GROUP_PAGES,
   };
 }
 
@@ -393,10 +423,68 @@ function applyUngroupedPolicy<TData>(
  * `getIsRowExpanded` option would push group state back through `state.expanded`,
  * the row-ID-keyed slice §6.5 keeps group IDs out of.
  */
+/**
+ * A paged group's visible children, and the arithmetic around them (PLTFRM-93295).
+ *
+ * **One implementation, two callers**, and that is the point: `flattenGroups` decides
+ * which rows render, and `displayRows` decides where the pager goes. Computing the
+ * window twice is how the pager ends up on the wrong row after a filter narrows a
+ * group — the split-brain this file's neighbours warn about repeatedly.
+ *
+ * `undefined` when the group is not pageable: paging off, no children, or children
+ * that are themselves groups (an outer level slicing inner groups would hide whole
+ * groups and read as data loss).
+ */
+export function groupPageWindow<TData>(
+  groupRow: Row<TData>,
+  children: readonly Row<TData>[],
+  paging: { pageSize: number; pageOf: (groupId: string) => number }
+):
+  | {
+      readonly rows: readonly Row<TData>[];
+      readonly page: number;
+      readonly pageCount: number;
+    }
+  | undefined {
+  if (
+    paging.pageSize <= 0 ||
+    children.length === 0 ||
+    children[0]!.getIsGrouped()
+  ) {
+    return undefined;
+  }
+
+  const pageCount = Math.max(1, Math.ceil(children.length / paging.pageSize));
+  // Clamped read, never a write: a filter that shrinks a group must not silently
+  // rewrite the page the user chose, so undoing the filter restores it.
+  const page = Math.min(
+    Math.max(0, Math.floor(paging.pageOf(groupRow.id))),
+    pageCount - 1
+  );
+  const start = page * paging.pageSize;
+
+  return {
+    rows: children.slice(start, start + paging.pageSize),
+    page,
+    pageCount,
+  };
+}
+
 function flattenGroups<TData>(
   rowModel: RowModel<TData>,
   collapsed: ReadonlySet<string>,
-  ungrouped: ResolvedUngrouped
+  ungrouped: ResolvedUngrouped,
+  /**
+   * Per-group paging (PLTFRM-93295). `pageSize` of 0 disables it, which is the
+   * default and leaves this function behaving exactly as it did.
+   *
+   * The slice happens **here**, in the same walk that honours collapse, because it
+   * is the same kind of decision: which of a group's members are visible. TanStack's
+   * own `getPaginationRowModel` cannot do it — that slices the flat list *after*
+   * grouping, so its page 1 is "the first N rows wherever they fall" rather than
+   * "the first N of each group".
+   */
+  paging: { pageSize: number; pageOf: (groupId: string) => number }
 ): RowModel<TData> {
   const rows: Row<TData>[] = [];
 
@@ -413,7 +501,9 @@ function flattenGroups<TData>(
     const children = isGroup
       ? applyUngroupedPolicy(row.subRows, ungrouped)
       : row.subRows;
-    children.forEach(push);
+
+    const window = isGroup ? groupPageWindow(row, children, paging) : undefined;
+    (window?.rows ?? children).forEach(push);
   };
 
   applyUngroupedPolicy(rowModel.rows, ungrouped).forEach(push);
@@ -438,12 +528,22 @@ function groupAwareExpandedRowModel<TData>(): (
     memo(
       () => {
         const { expanded } = table.getState();
-        const { collapsed, ungrouped } = liveGrouping(table);
+        const { collapsed, ungrouped, groupPageSize, groupPages } =
+          liveGrouping(table);
 
         return [
           table.getPreExpandedRowModel(),
           expanded === true ? 'all' : Object.keys(expanded).sort().join(' '),
           [...collapsed].sort().join(' '),
+          // Per-group paging is part of the row list (PLTFRM-93295), so both the
+          // window size and every group's page index belong in this key. Omitting
+          // them memoises the *previous* page: the state changes, the flatten never
+          // re-runs, and the pager appears to do nothing.
+          String(groupPageSize),
+          [...groupPages]
+            .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+            .map(([groupId, page]) => `${groupId}=${page}`)
+            .join(' '),
           // `show` and `position` change the row list; `name` cannot, so it is
           // deliberately absent — including it would rebuild the list whenever a
           // caller renamed the bucket.
@@ -451,9 +551,13 @@ function groupAwareExpandedRowModel<TData>(): (
         ];
       },
       (rowModel) => {
-        const { collapsed, ungrouped } = liveGrouping(table);
+        const { collapsed, ungrouped, groupPageSize, groupPages } =
+          liveGrouping(table);
 
-        return flattenGroups(rowModel, collapsed, ungrouped);
+        return flattenGroups(rowModel, collapsed, ungrouped, {
+          pageSize: groupPageSize,
+          pageOf: (groupId) => groupPages.get(groupId) ?? 0,
+        });
       },
       getMemoOptions(table.options, 'debugTable', 'groupAwareExpandedRowModel')
     );
@@ -610,6 +714,54 @@ export const groupingFeature = defineDataTableFeature({
     };
   },
 
+  /**
+   * The per-group pager row (PLTFRM-93295), emitted after the last member of a
+   * paged group's window.
+   *
+   * Anchored to the last *member* rather than to the group row, because the pager
+   * belongs below the rows it pages — and `displayRows` runs per record row, so this
+   * is the only place that knows which row that is.
+   *
+   * The `footer` kind with `scope: 'group'` is not new surface: the display-row type
+   * has carried it since U5, and `footer.tsx` deliberately passes group-scoped rows
+   * on rather than swallowing them, saying the owning feature was unspecified. This
+   * is that feature.
+   */
+  displayRows(ctx) {
+    const config = configOf<unknown>(ctx.config);
+    if (config === undefined) {
+      return [];
+    }
+
+    const parent = ctx.row.getParentRow();
+    if (parent === undefined || !parent.getIsGrouped()) {
+      return [];
+    }
+
+    const policy = resolvePolicy(config);
+    const pageSize = Math.max(0, Math.floor(config.pageSize ?? 0));
+    const children = applyUngroupedPolicy(parent.subRows, policy.ungrouped);
+    const window = groupPageWindow(parent, children, {
+      pageSize,
+      pageOf: (groupId) => ctx.state.groupPagination.get(groupId) ?? 0,
+    });
+
+    // One pager per group, so only the last row of the window carries it. A group
+    // whose rows all fit on one page gets none — a pager that can never move is
+    // furniture.
+    if (
+      window === undefined ||
+      window.pageCount <= 1 ||
+      window.rows[window.rows.length - 1]?.id !== ctx.row.id
+    ) {
+      return [];
+    }
+
+    return [
+      { kind: 'footer' as const, scope: 'group' as const, groupId: parent.id },
+    ];
+  },
+
   classifyDisplayRow(ctx) {
     // A reclassification, not an insertion: the grouped row model puts group rows
     // *into* `getRowModel().rows`, so the row is already in the list.
@@ -627,6 +779,90 @@ export const groupingFeature = defineDataTableFeature({
   },
 
   renderDisplayRow(displayRow, ctx) {
+    // The per-group pager (PLTFRM-93295). Claimed here because `footer.tsx` emits
+    // only table-scoped rows and passes these on by design.
+    if (displayRow.kind === 'footer' && displayRow.scope === 'group') {
+      const config = configOf<unknown>(ctx.config);
+      const groupId = displayRow.groupId;
+      if (config === undefined || groupId === undefined) {
+        return undefined;
+      }
+
+      const pageSize = Math.max(0, Math.floor(config.pageSize ?? 0));
+      const groupRow = ctx
+        .table()
+        .getRowModel()
+        .rows.find((row: Row<unknown>) => row.id === groupId);
+      if (groupRow === undefined || pageSize <= 0) {
+        return undefined;
+      }
+
+      const children = applyUngroupedPolicy(
+        groupRow.subRows,
+        resolvePolicy(config).ungrouped
+      );
+      const window = groupPageWindow(groupRow, children, {
+        pageSize,
+        pageOf: (id) => ctx.state.groupPagination.get(id) ?? 0,
+      });
+      if (window === undefined) {
+        return undefined;
+      }
+
+      const goTo = (page: number) => {
+        ctx.requestChange(
+          'groupPagination',
+          (previous) => {
+            const next = new Map(previous);
+            // Page 0 stored as absence, matching the controller's own arm — so a
+            // user paging back to the start leaves no residue in a persisted slice.
+            if (page === 0) {
+              next.delete(groupId);
+            } else {
+              next.set(groupId, page);
+            }
+
+            return next;
+          },
+          // A click, so `pointer` — the cause vocabulary is
+          // pointer/keyboard/api/data-reconcile/restore/reset, and observers filter
+          // on it.
+          'pointer'
+        );
+      };
+
+      return (
+        <TableRow key={`group-pager:${groupId}`}>
+          <TableCell colSpan={ctx.visibleColumnCount}>
+            {/* Buttons rather than links, and disabled at the ends rather than
+                hidden: a control that disappears moves the two beside it, and the
+                pager sits between rows where that reads as the table jumping. */}
+            <span className="flex items-center gap-2 text-sm">
+              <button
+                type="button"
+                disabled={window.page === 0}
+                onClick={() => goTo(window.page - 1)}
+                aria-label={`Previous page of group ${groupRow.groupingValue ?? groupId}`}
+              >
+                ‹
+              </button>
+              <span>
+                Page {window.page + 1} of {window.pageCount}
+              </span>
+              <button
+                type="button"
+                disabled={window.page >= window.pageCount - 1}
+                onClick={() => goTo(window.page + 1)}
+                aria-label={`Next page of group ${groupRow.groupingValue ?? groupId}`}
+              >
+                ›
+              </button>
+            </span>
+          </TableCell>
+        </TableRow>
+      );
+    }
+
     if (displayRow.kind !== 'group') {
       // Not mine — the dispatcher moves on to the next module.
       return undefined;

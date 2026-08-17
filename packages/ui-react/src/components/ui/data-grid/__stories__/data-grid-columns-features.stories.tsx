@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ColumnDef } from '@tanstack/react-table';
 
@@ -400,4 +401,156 @@ export const OverflowTooltipOnly: Story = {
     columns: cappedForTooltipColumns as ColumnDef<unknown, unknown>[],
     columnsFeatures: { overflowTooltip: true },
   },
+};
+
+/* -------------------------------------------------------------------------- */
+/*                    Pinned-region divider (PLTFRM-93276)                    */
+/* -------------------------------------------------------------------------- */
+
+interface WideServer {
+  id: string;
+  host: string;
+  role: string;
+  region: string;
+  ip: string;
+  os: string;
+  agent: string;
+  status: string;
+}
+
+const wideServers: WideServer[] = [
+  {
+    id: 's1',
+    host: 'db-primary-01',
+    role: 'Database',
+    region: 'Frankfurt',
+    ip: '10.14.2.11',
+    os: 'Ubuntu 24.04',
+    agent: '15.0.38',
+    status: 'Protected',
+  },
+  {
+    id: 's2',
+    host: 'db-replica-01',
+    role: 'Database',
+    region: 'Frankfurt',
+    ip: '10.14.2.12',
+    os: 'Ubuntu 24.04',
+    agent: '15.0.38',
+    status: 'Protected',
+  },
+  {
+    id: 's3',
+    host: 'web-edge-07',
+    role: 'Web',
+    region: 'Berlin',
+    ip: '10.22.7.4',
+    os: 'Debian 12',
+    agent: '14.9.02',
+    status: 'Warning',
+  },
+  {
+    id: 's4',
+    host: 'batch-runner-02',
+    role: 'Batch',
+    region: 'Hamburg',
+    ip: '10.31.1.9',
+    os: 'RHEL 9',
+    agent: '15.0.38',
+    status: 'Protected',
+  },
+];
+
+// Wide enough that the middle columns cannot all fit, which is the only situation
+// the divider is about.
+const wideColumns: ColumnDef<WideServer>[] = [
+  { accessorKey: 'host', header: 'Host', size: 200 },
+  { accessorKey: 'role', header: 'Role', size: 160 },
+  { accessorKey: 'region', header: 'Region', size: 160 },
+  { accessorKey: 'ip', header: 'IP address', size: 160 },
+  { accessorKey: 'os', header: 'Operating system', size: 200 },
+  { accessorKey: 'agent', header: 'Agent', size: 160 },
+  { accessorKey: 'status', header: 'Status', size: 160 },
+];
+
+/**
+ * Starts part-scrolled, so both dividers show on the first frame — the state worth
+ * looking at, and the state the baseline captures.
+ *
+ * The scroll is set in an **effect, not a play function**: a play function races the
+ * screenshot, which upstream recorded as CI non-determinism. An effect runs before
+ * the first frame a capture can see.
+ *
+ * `DataGrid` exposes no ref for `ScrollArea`'s viewport, so it is found by the
+ * property that defines it — the descendant that actually overflows.
+ */
+function ScrolledGrid(props: {
+  readonly pinnedDivider?: 'auto' | 'always';
+  readonly scrollTo: number;
+  readonly stickyHeader?: boolean;
+}) {
+  const wrapper = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const scroller = [...(wrapper.current?.querySelectorAll('div') ?? [])].find(
+      (element) => element.scrollWidth > element.clientWidth + 1
+    );
+    scroller?.scrollTo({ left: props.scrollTo });
+  }, [props.scrollTo]);
+
+  return (
+    <div ref={wrapper}>
+      <DataGrid
+        columns={wideColumns as ColumnDef<unknown, unknown>[]}
+        rows={wideServers}
+        getRowId={(row: unknown) => (row as WideServer).id}
+        appearance={
+          props.stickyHeader === true
+            ? // `stickyHeader` warns without a bounded height — the header would have
+              // nothing to stick to.
+              { width: 720, height: 220, stickyHeader: true }
+            : { width: 720 }
+        }
+        columnsFeatures={{
+          pinning: true,
+          ...(props.pinnedDivider === undefined
+            ? {}
+            : { pinnedDivider: props.pinnedDivider }),
+        }}
+        // `host` stays readable while scrolling; `status` stays reachable. Both are
+        // region boundaries, so both take a divider.
+        defaultState={{
+          columnPinning: { left: ['host'], right: ['status'] },
+        }}
+      />
+    </div>
+  );
+}
+
+/**
+ * A pinned column keeps a 1px divider on its inner edge **while columns are hidden
+ * underneath it**. Without it those columns simply stop existing: a pinned cell
+ * paints an opaque surface, so there is no seam saying the table continues under
+ * there.
+ *
+ * Nothing here switches it on — `pinnedDivider` defaults to `'auto'`, and `'auto'`
+ * means "while something is hidden past that edge". Scroll back to the start and
+ * the start divider disappears, because then nothing is under it.
+ */
+export const PinnedColumnDivider: Story = {
+  render: () => <ScrolledGrid scrollTo={220} />,
+};
+
+/**
+ * The composition case: a boundary pinned cell inside a **sticky header** carries
+ * the header's bottom line and the divider at once.
+ *
+ * This is why the cell shadow is composed from custom-property slots rather than
+ * written directly — `box-shadow` is one property, and before the slots whichever
+ * feature wrote it last silently erased the other.
+ */
+export const PinnedAndSticky: Story = {
+  render: () => (
+    <ScrolledGrid pinnedDivider="always" scrollTo={0} stickyHeader />
+  ),
 };
