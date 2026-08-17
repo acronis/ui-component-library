@@ -1,8 +1,11 @@
 import type { ColumnDef } from '@tanstack/react-table';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { userEvent as browserUserEvent } from '@vitest/browser/context';
 import { describe, expect, it } from 'vitest';
+// `vitest/browser`, not `@vitest/browser/context`: the latter is the Vitest 3
+// path this suite was written against. Vitest 4 moved the context onto the
+// runner and re-exports it from the active provider package.
+import { userEvent as browserUserEvent } from 'vitest/browser';
 
 import { DataGrid } from '../data-grid';
 

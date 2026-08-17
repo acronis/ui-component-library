@@ -68,14 +68,37 @@ Components can be linked to their Figma counterparts via co-located
 
 ## Which command carries which guarantee
 
-Three commands overlap here and it is not obvious which one would catch a given
+Four commands overlap here and it is not obvious which one would catch a given
 mistake, so:
 
-| Command           | Runs                                   | Catches                                                                  |
-| ----------------- | -------------------------------------- | ------------------------------------------------------------------------ |
-| `pnpm test`       | runtime suites only — **no** typecheck | anything a rendered assertion can see. Fast; use it while iterating.     |
-| `pnpm typecheck`  | `tsc --noEmit` over the whole package  | **every type error, including every `expectTypeOf` failure.** ~18 s.     |
-| `pnpm test:types` | the vitest `typecheck` block, only     | the same failures as above, with per-file and per-test-name attribution. |
+| Command             | Runs                                               | Catches                                                                   |
+| ------------------- | -------------------------------------------------- | ------------------------------------------------------------------------- |
+| `pnpm test`         | runtime suites only — **no** typecheck, no browser | anything a rendered assertion can see. Fast; use it while iterating.      |
+| `pnpm typecheck`    | `tsc --noEmit` over the whole package              | **every type error, including every `expectTypeOf` failure.** ~18 s.      |
+| `pnpm test:types`   | the vitest `typecheck` block, only                 | the same failures as above, with per-file and per-test-name attribution.  |
+| `pnpm test:browser` | `*.browser.test.tsx` in real Chromium              | **anything that needs real layout** — happy-dom reports every box as 0×0. |
+
+**`pnpm test` does not run the browser suites either.** `vitest.config.ts` excludes
+`**/*.browser.test.{ts,tsx}`; they have their own config
+(`vitest.browser.config.ts`, vitest browser mode + `@vitest/browser-playwright`)
+and their own script, because browser mode boots Chromium per file and that cost
+does not belong on every headless `vitest run`. Both are gated separately in
+`.github/workflows/ci.yml`.
+
+**Write a `*.browser.test.tsx` only when happy-dom would make the assertion
+meaningless, not merely awkward** — resolved column widths, truncation at a given
+container width, scroll geometry, a pointer drag needing real capture. happy-dom
+performs no layout, so `scrollWidth`/`clientWidth`/`getBoundingClientRect` are all
+0 and such a test would pass against logic that never ran. These suites import
+`src/styles/index.css` for the same reason: a real browser measuring an unstyled
+table measures the wrong thing. Note the import path — there is no
+`.storybook/preview.css` in this repo.
+
+Two of these suites are **`.skip`ped against unported features** (the pinned-column
+`data-overflow-*` attributes, and `meta.truncate`'s `'middle'` mode, which
+`applyTruncateColumns` currently accepts and discards). Each carries a comment
+saying what must land to unskip it. They are specs, not dead weight — don't relax
+their assertions to make them green.
 
 **`pnpm test` does not typecheck, and that is deliberate.** The vitest `typecheck`
 block matches every test file, so leaving it on made each `vitest run` also run

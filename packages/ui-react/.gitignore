@@ -5,3 +5,9 @@ node_modules
 test/__snapshots__/__diff_output__/
 # Per-mode capture logs + the exclusive-run lock (scripts/visual-capture.mjs)
 .visual-capture/
+# Vitest browser mode (vitest.browser.config.ts) writes both of these next to the
+# suite that produced them: attachments, and a PNG per failed assertion. They are
+# debugging output for one run — unlike test/__snapshots__/, nothing compares
+# against them, so committing them would just add churn.
+.vitest-attachments/
+src/**/__screenshots__/
