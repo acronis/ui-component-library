@@ -34,6 +34,42 @@ top of this file.
   `VariantProps`. Merge classes with `cn()` (`src/lib/utils.ts`).
 - **Tailwind CSS v4** utilities. PascalCase component names; kebab-case files.
 
+## Porting from upstream `ui-blocks`
+
+`acronis/uikit`'s `packages/ui-blocks` is an actively-developed sibling built from
+the same Figma source, so its per-component fixes are candidate work here. Two
+things about that have already cost real time — read both before syncing anything.
+
+### A ui-blocks feature usually spans more directories than its own
+
+The data-grid sync (`a7c05232`) was scoped to `data-grid/`, so it brought over
+every config module, type, doc comment and test — and none of the engines, which
+upstream keeps in `table/`, `data-table-features/` and `truncate-text/`. Three
+features shipped as pure surface: a prop the caller could set, that was validated,
+resolved, threaded onward, and then read by nothing. Both
+`columnsFeatures.pinnedDivider` and `grouping.pageSize` were accepted-and-ignored,
+the latter while _warning_ against combining it with `pagination`, which implied it
+worked.
+
+Nothing catches that shape on its own: types pass, `pnpm test` passes, the config's
+own unit tests pass. So when porting, **check each config key has a reader**, not
+just a declaration — `viewProps()` contributions in particular, since
+`composeColumnPresentation` copies a **whitelist** and silently drops any key
+missing from it. Fixed in `cb56face`; the audit trail is in that commit message.
+
+### Upstream's `TruncateText` is deliberately not ported as a component
+
+Upstream ships middle-ellipsis truncation as a separate `TruncateText`. This repo
+already had **`TruncatedText`** — one letter apart — so that component would
+duplicate its entire end-truncation path and its name. Middle truncation lives
+here as **`TruncatedText`'s `mode?: 'middle' | 'end'`** instead
+(`truncated-text/middle-truncate.ts` + `text-width.ts` are the machinery), and
+`meta.truncate` passes the mode straight through.
+
+**A future sync will therefore report `truncate-text/` as "missing". It is not.**
+Take upstream's _changes_ to that component into `truncated-text/`'s middle half;
+do not recreate the directory. See `6a855ac1`.
+
 ## The shared demos package
 
 The `@constructor-lab/ui-kit-demos` workspace (consumed by `apps/demo`) now
