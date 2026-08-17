@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ColumnDef } from '@tanstack/react-table';
 
-import { Button } from '@constructor-lab/ui-react';
+import { Button } from '../../button';
 import {
   createDataTableQuery,
   createDefaultDataTableState,

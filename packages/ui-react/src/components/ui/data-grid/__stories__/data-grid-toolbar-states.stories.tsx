@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ColumnDef } from '@tanstack/react-table';
 
-import { Button } from '@constructor-lab/ui-react';
+import { Button } from '../../button';
 import { DataGrid } from '../data-grid';
 
 // PLTFRM-93130's rendered cases, for the layer that can see them.
