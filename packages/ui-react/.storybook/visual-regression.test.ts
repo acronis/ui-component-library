@@ -22,17 +22,33 @@ describe('resolveVisualProfile', () => {
   });
 
   it('THROWS on an unrecognised mode instead of falling back to light', () => {
-    // This used to return light. With four profiles that is destructive, not
-    // merely mislabelled: `system-dark` and `forced-light` file against the
-    // light/dark baselines, so a typo in an `--update` run silently overwrites
-    // 765 committed PNGs with renders captured under the wrong theme input.
+    // This used to return light. With four non-baseline profiles that is
+    // destructive, not merely mislabelled: each files against the light/dark
+    // baselines, so a typo in an `--update` run silently overwrites 765 committed
+    // PNGs with renders captured under the wrong theme input.
     expect(() => resolveVisualProfile('sytem-dark')).toThrow(/Unknown/);
     expect(() => resolveVisualProfile('invalid')).toThrow(/system-dark/);
+  });
+
+  it('names every profile in the error, so a typo shows the real vocabulary', () => {
+    // The list is generated from VISUAL_PROFILES, so this also fails if a new
+    // profile is added without the operator-facing message learning about it.
+    const message = (() => {
+      try {
+        resolveVisualProfile('nope');
+        return '';
+      } catch (error) {
+        return (error as Error).message;
+      }
+    })();
+    for (const name of Object.keys(VISUAL_PROFILES)) {
+      expect(message).toContain(name);
+    }
   });
 });
 
 describe('VISUAL_PROFILES', () => {
-  // These four rows ARE the specification — the table in the module docblock is
+  // These six rows ARE the specification — the table in the module docblock is
   // prose, and prose does not fail. Each profile's `baseline` is the assertion it
   // makes, so a wrong value here does not error: it compares a dark render
   // against a light PNG and reports a defect that is really a config mistake.
@@ -40,7 +56,9 @@ describe('VISUAL_PROFILES', () => {
     ['light', 'light', true, 'light', 'light', false],
     ['dark', 'dark', true, 'light', 'dark', false],
     ['system-dark', null, false, 'dark', 'dark', true],
+    ['system-light', null, false, 'light', 'light', true],
     ['forced-light', 'light', false, 'dark', 'light', true],
+    ['forced-dark', 'dark', false, 'dark', 'dark', true],
   ])(
     '%s: attr=%s inline=%s emulate=%s baseline=%s subset=%s',
     (name, themeAttribute, inlineColorScheme, emulate, baseline, subset) => {
@@ -67,6 +85,68 @@ describe('VISUAL_PROFILES', () => {
     expect(VISUAL_PROFILES['forced-light'].baseline).toBe(light.baseline);
     expect(VISUAL_PROFILES['forced-light'].emulate).not.toBe(light.emulate);
   });
+
+  it('covers the [data-theme] × OS cross product exactly once', () => {
+    // The reason there are six profiles and not "a few useful ones": the two
+    // inputs have 3 × 2 states and each is reachable by a real consumer. A
+    // duplicate pair means two legs paying for the same evidence; a missing pair
+    // means a state a user can be in that nothing captures. Both are invisible
+    // from the profile list alone, which is why this counts rather than reads.
+    const inputs = Object.values(VISUAL_PROFILES).map(
+      (p) => `${p.themeAttribute ?? 'absent'}/${p.emulate}`
+    );
+    expect([...inputs].sort()).toEqual(
+      [
+        'absent/dark',
+        'absent/light',
+        'dark/dark',
+        'dark/light',
+        'light/dark',
+        'light/light',
+      ].sort()
+    );
+  });
+
+  it('derives every baseline from the theme the used color-scheme resolves to', () => {
+    // The invariant behind the whole scheme. With no attribute the OS decides;
+    // with one, it wins. So `baseline` is not a free choice — it is a function of
+    // the two inputs, and a row that disagrees is a config error that presents as
+    // a component defect (a dark render diffed against a light PNG).
+    for (const profile of Object.values(VISUAL_PROFILES)) {
+      expect(profile.baseline).toBe(profile.themeAttribute ?? profile.emulate);
+    }
+  });
+
+  it('lets only the two exhaustive profiles own baselines', () => {
+    // `subset: false` means "writes PNGs". Exactly light and dark may, and they
+    // must stay exhaustive: a sample cannot own a corpus, because the stories it
+    // skips would have no baseline at all.
+    const owners = Object.values(VISUAL_PROFILES)
+      .filter((p) => !p.subset)
+      .map((p) => p.name);
+    expect(owners.sort()).toEqual(['dark', 'light']);
+  });
+
+  it('gives every non-baseline profile an input its baseline owner does not have', () => {
+    // Generalises the system-dark/forced-light pair above to the whole set: a
+    // profile whose attribute AND emulated OS both matched its baseline owner
+    // would re-run an identical render and assert nothing, while costing a leg.
+    for (const profile of Object.values(VISUAL_PROFILES).filter(
+      (p) => p.subset
+    )) {
+      const owner = VISUAL_PROFILES[profile.baseline];
+      expect({
+        sameAttribute: profile.themeAttribute === owner.themeAttribute,
+        sameEmulate: profile.emulate === owner.emulate,
+        sameInlineColorScheme:
+          profile.inlineColorScheme === owner.inlineColorScheme,
+      }).not.toEqual({
+        sameAttribute: true,
+        sameEmulate: true,
+        sameInlineColorScheme: true,
+      });
+    }
+  });
 });
 
 describe('rootThemeState', () => {
@@ -85,6 +165,26 @@ describe('rootThemeState', () => {
     // primitives.css — the rule this profile exists to test.
     expect(rootThemeState(VISUAL_PROFILES['forced-light'])).toEqual({
       dataTheme: 'light',
+      inlineColorScheme: null,
+    });
+  });
+
+  it('clears both inputs for system-light too', () => {
+    // Same premise as system-dark, opposite OS: the CSS-native path is only
+    // reachable while neither input is present.
+    expect(rootThemeState(VISUAL_PROFILES['system-light'])).toEqual({
+      dataTheme: null,
+      inlineColorScheme: null,
+    });
+  });
+
+  it('sets the attribute but NOT an inline color-scheme for forced-dark', () => {
+    // Withholding the inline property is the entire difference from the `dark`
+    // profile: it leaves the stylesheet's `[data-theme='dark']` rule and any
+    // `prefers-color-scheme: dark` fallback both live, which is the collision
+    // this profile exists to capture.
+    expect(rootThemeState(VISUAL_PROFILES['forced-dark'])).toEqual({
+      dataTheme: 'dark',
       inlineColorScheme: null,
     });
   });

@@ -11,27 +11,40 @@ PNG baselines for the Storybook visual regression suite, captured by
 the CI environment — never commit baselines rendered on macOS/Windows, they will
 not match the Linux renderer.
 
-## Four capture profiles, two baseline families
+## Six capture profiles, two baseline families
 
 Light/dark has **two** inputs — `[data-theme]` on the root element, and the OS
 `prefers-color-scheme`, which the tokens' `color-scheme: light dark` defers to
 when no `[data-theme]` is set. The `light`/`dark` profiles pin the attribute and
-leave the OS at light, so they only ever covered the states where the two agree.
+leave the OS at light, so they only ever covered two of the six states the pair
+can be in. The profiles are that cross product in full:
 
 | profile        | `[data-theme]` | OS pref  | compares against | stories |
 | -------------- | -------------- | -------- | ---------------- | ------- |
 | `light`        | `light`        | light    | `<id>.png`       | all     |
 | `dark`         | `dark`         | light    | `<id>--dark.png` | all     |
 | `system-dark`  | **absent**     | dark     | `<id>--dark.png` | subset  |
+| `system-light` | **absent**     | light    | `<id>.png`       | subset  |
 | `forced-light` | `light`        | **dark** | `<id>.png`       | subset  |
+| `forced-dark`  | `dark`         | **dark** | `<id>--dark.png` | subset  |
 
-**`system-dark` and `forced-light` own no PNGs of their own** — that is the
-point. `light-dark()` resolves from the _used_ value of `color-scheme`, which is
-identical in each pair above, so every token-driven colour must come out the
-same and the render has to reproduce the committed baseline byte for byte.
-Anything that differs is styling keyed on `[data-theme]` directly instead of
-resolving through a token, which is precisely the defect that makes a component
-render half-dark for a user whose OS is set to dark.
+The name is the mechanism, not the colour: a `system-*` profile removes the
+attribute so the OS decides; a `forced-*` profile sets an attribute the OS
+**contradicts**. `forced-dark` is therefore not a duplicate of `dark` — `dark`
+leaves the OS at light and pins `color-scheme` inline, so it never exercises the
+stylesheet's `[data-theme='dark']` rule against a dark machine, and never sees a
+`prefers-color-scheme` fallback fire on top of an explicit attribute.
+`system-light` is the control for `system-dark`: a fallback that over-reaches or
+inverts its condition renders dark here, and `system-dark` alone cannot tell that
+apart from a correct implementation.
+
+**The four subset profiles own no PNGs of their own** — that is the point.
+`light-dark()` resolves from the _used_ value of `color-scheme`, which is
+identical within each baseline family above, so every token-driven colour must
+come out the same and the render has to reproduce the committed baseline byte for
+byte. Anything that differs is styling keyed on `[data-theme]` directly instead
+of resolving through a token, which is precisely the defect that makes a
+component render half-dark for a user whose OS is set to dark.
 
 Because they assert a per-story property rather than record anything, they run a
 curated ~16% sample — 21 titles chosen one per rendering mechanism, listed with
@@ -39,7 +52,12 @@ their rationale in `../../scripts/system-theme-subset.mjs`.
 
 ```bash
 pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:system-dark
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:system-light
 pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:forced-light
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:forced-dark
+
+# all four in one run (`--mode themes`); `--mode all` adds light + dark
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:themes
 ```
 
 There is deliberately **no `:update` variant**: the capture script refuses
@@ -69,7 +87,9 @@ STORYBOOK_COLOR_MODE=dark pnpm --filter @constructor-lab/ui-react storybook:test
 ```
 
 On failure, diff images are written to `__diff_output__/` (gitignored) and, in
-CI, uploaded as `visual-regression-diffs-ui-react-{light|dark}` artifacts.
+CI, uploaded as `visual-regression-diffs-ui-react-<profile>` artifacts (one
+per matrix leg, so `-light`, `-dark`, `-system-dark`, `-system-light`,
+`-forced-light`, `-forced-dark`).
 
 ## The 0.5% gate and sub-threshold residuals (#101)
 

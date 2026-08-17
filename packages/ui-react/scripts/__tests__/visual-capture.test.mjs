@@ -11,7 +11,19 @@
 // is precisely the layer that decides whether a summary line is found at all.
 import { describe, expect, it } from 'vitest';
 
-import { clean, parseSummary, summarise } from '../visual-capture.mjs';
+import {
+  clean,
+  KNOWN_MODES,
+  MODE_GROUPS,
+  parseSummary,
+  resolveModes,
+  SUBSET_MODES,
+  summarise,
+} from '../visual-capture.mjs';
+// The TS module this script mirrors. Imported from the `.mjs` test rather than
+// the reverse: vitest transforms the TS for us, while a `.ts` test importing an
+// untyped `.mjs` would have to enter the type program (see the header note).
+import { VISUAL_PROFILES } from '../../.storybook/visual-regression';
 
 const E = '\u001b';
 
@@ -136,5 +148,76 @@ describe('summarise', () => {
       ranCount: 1,
       ok: true,
     });
+  });
+});
+
+/**
+ * The mode vocabulary this script accepts, and the fact that it still describes
+ * the profiles the runner implements.
+ *
+ * Two lists in two languages (`.mjs` here, `.ts` in `.storybook/`) cannot import
+ * each other in production — the script runs under bare Node, outside any TS
+ * loader — so the mirror is checked here instead of trusted to a comment. The two
+ * halves fail asymmetrically, which is why this matters: an unknown profile name
+ * is refused loudly, but a subset profile that this script does not KNOW is a
+ * subset profile is treated as a baseline owner, and then `--update` is no longer
+ * refused for it.
+ */
+describe('mode vocabulary mirrors VISUAL_PROFILES', () => {
+  it('knows exactly the profiles the runner declares', () => {
+    expect([...KNOWN_MODES].sort()).toEqual(
+      Object.keys(VISUAL_PROFILES).sort()
+    );
+  });
+
+  it('marks exactly the non-baseline profiles as subset modes', () => {
+    const declared = Object.values(VISUAL_PROFILES)
+      .filter((p) => p.subset)
+      .map((p) => p.name);
+    expect([...SUBSET_MODES].sort()).toEqual(declared.sort());
+  });
+});
+
+describe('resolveModes', () => {
+  it('defaults to the baseline-owning pair when --mode is absent', () => {
+    expect(resolveModes(undefined)).toEqual(['light', 'dark']);
+  });
+
+  it('expands each group', () => {
+    expect(resolveModes('both')).toEqual(['light', 'dark']);
+    expect(resolveModes('themes')).toEqual(SUBSET_MODES);
+    expect(resolveModes('all')).toEqual(KNOWN_MODES);
+  });
+
+  it('covers every profile across both and themes, with no overlap', () => {
+    // `all` is the union by construction; this asserts the partition, so a
+    // profile cannot go missing from BOTH groups (unreachable except by naming it
+    // directly) or sit in both (paid for twice per `all` run).
+    const partition = [...MODE_GROUPS.both, ...MODE_GROUPS.themes];
+    expect([...partition].sort()).toEqual([...KNOWN_MODES].sort());
+    expect(new Set(partition).size).toBe(partition.length);
+  });
+
+  it('accepts any single profile by name', () => {
+    for (const mode of KNOWN_MODES) {
+      expect(resolveModes(mode)).toEqual([mode]);
+    }
+  });
+
+  it('throws on an unknown mode, naming every profile and group', () => {
+    // Not a fallback to light: `--mode` typos reach a runner where four profiles
+    // file against baselines they do not own.
+    expect(() => resolveModes('forced')).toThrow(/Unknown --mode 'forced'/);
+    const message = (() => {
+      try {
+        resolveModes('sytem-dark');
+        return '';
+      } catch (error) {
+        return error.message;
+      }
+    })();
+    for (const name of [...KNOWN_MODES, ...Object.keys(MODE_GROUPS)]) {
+      expect(message).toContain(name);
+    }
   });
 });
