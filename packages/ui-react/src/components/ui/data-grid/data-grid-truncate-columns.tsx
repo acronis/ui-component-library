@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import type { CellContext, ColumnDef } from '@tanstack/react-table';
 
-import { TruncateText } from '../truncate-text';
-import type { TruncateTextProps } from '../truncate-text';
+import { TruncatedText } from '../truncated-text';
+import type { TruncatedTextProps } from '../truncated-text';
 
 // Deliberately not a `data-grid-config/` module: those are caller-configured
 // through a top-level `<DataGrid>` prop (`columnsFeatures`, `filters`, …), and
@@ -15,14 +15,14 @@ import type { TruncateTextProps } from '../truncate-text';
 export interface DataGridTruncateColumnMeta {
   /**
    * Truncate this column instead of wrapping or overflowing — see
-   * `TruncateText`. `'middle'` keeps both ends of the value visible (a URL, a
+   * `TruncatedText`. `'middle'` keeps both ends of the value visible (a URL, a
    * hash); `'end'` is the familiar CSS ellipsis. Anything else — omitted,
    * `undefined`, or an unrecognized value from an untyped caller — renders the
    * column exactly as it would with no `truncate` at all.
    *
    * Setting it to `'middle'` or `'end'` does two things, both handled here,
    * neither requiring anything else from the caller — not even importing
-   * `TruncateText`:
+   * `TruncatedText`:
    *
    * 1. The column gets an explicit `size`, computed from the table's own
    *    measured width. Not a cosmetic default: without one, this column's width
@@ -34,12 +34,12 @@ export interface DataGridTruncateColumnMeta {
    *    rest, the table not adapting to a resize at all, staying stuck until a
    *    hard refresh). An explicit `size` breaks the loop.
    * 2. If the column declares no `cell`, its default (raw accessor value)
-   *    rendering is replaced with `<TruncateText>`. A column that *does*
+   *    rendering is replaced with `<TruncatedText>`. A column that *does*
    *    declare one keeps it, but its `cell` context gains a `truncate`
    *    function — see `DataGridTruncateCellContext` — for wrapping just the
    *    text node it wants truncated, so a caller whose cell renders more than
    *    plain text (an icon button alongside a link, say) never has to import
-   *    `TruncateText` itself.
+   *    `TruncatedText` itself.
    */
   readonly truncate?: 'middle' | 'end';
 }
@@ -114,7 +114,7 @@ function truncateColumnSize(tableWidth: number): number {
 export function applyTruncateColumns<TData, TValue>(
   columns: readonly ColumnDef<TData, TValue>[],
   tableWidth: number,
-  portalContainer: TruncateTextProps['portalContainer']
+  portalContainer: TruncatedTextProps['portalContainer']
 ): readonly ColumnDef<TData, TValue>[] {
   return columns.map((column) => {
     const meta = column.meta as DataGridTruncateColumnMeta | undefined;
@@ -122,9 +122,9 @@ export function applyTruncateColumns<TData, TValue>(
     if (truncate !== 'middle' && truncate !== 'end') return column;
 
     const renderTruncated = (text: string) => (
-      <TruncateText mode={truncate} portalContainer={portalContainer}>
+      <TruncatedText mode={truncate} portalContainer={portalContainer}>
         {text}
-      </TruncateText>
+      </TruncatedText>
     );
     const originalCell = column.cell;
 

@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { TruncateText } from '../truncate-text';
+import { TruncatedText } from '../truncated-text';
 
 // happy-dom performs no layout, so scroll*/client* are always 0 (== "fits").
 // Override them on the prototype to simulate an overflowing element, restore after.
@@ -29,16 +29,16 @@ afterEach(() => {
   }
 });
 
-describe('TruncateText', () => {
+describe('TruncatedText', () => {
   it('renders the text', () => {
-    render(<TruncateText>Acme Corporation</TruncateText>);
+    render(<TruncatedText>Acme Corporation</TruncatedText>);
     expect(screen.getByText('Acme Corporation')).toBeVisible();
   });
 
   it('does not attach a tooltip when the text fits', async () => {
     // happy-dom default: scrollWidth === clientWidth === 0 → not truncated.
     const user = userEvent.setup();
-    render(<TruncateText>Short</TruncateText>);
+    render(<TruncatedText>Short</TruncatedText>);
     await user.hover(screen.getByText('Short'));
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });
@@ -46,13 +46,13 @@ describe('TruncateText', () => {
   it('reveals the full text in a tooltip when truncated', async () => {
     simulateOverflow({ scrollWidth: 240, clientWidth: 100 });
     const full = 'A very long customer name that does not fit in its column';
-    render(<TruncateText defaultOpen>{full}</TruncateText>);
+    render(<TruncatedText defaultOpen>{full}</TruncatedText>);
     // Once open, the full text appears in both the trigger and the popup.
     await waitFor(() => expect(screen.getAllByText(full)).toHaveLength(2));
   });
 
   it('uses a single-line ellipsis by default', () => {
-    render(<TruncateText data-testid="single">Label</TruncateText>);
+    render(<TruncatedText data-testid="single">Label</TruncatedText>);
     const el = screen.getByText('Label');
     expect(el).toHaveClass('truncate');
     expect(el).not.toHaveClass('overflow-hidden');
@@ -60,9 +60,9 @@ describe('TruncateText', () => {
 
   it('switches to a multi-line clamp when `lines > 1`', () => {
     render(
-      <TruncateText lines={3}>
+      <TruncatedText lines={3}>
         Some multi-line content that should clamp
-      </TruncateText>
+      </TruncatedText>
     );
     const el = screen.getByText('Some multi-line content that should clamp');
     // happy-dom rejects the `-webkit-box` model, so assert the stable contract:
@@ -73,13 +73,13 @@ describe('TruncateText', () => {
   });
 
   it('merges an extra className onto the span', () => {
-    render(<TruncateText className="extra-class">Label</TruncateText>);
+    render(<TruncatedText className="extra-class">Label</TruncatedText>);
     expect(screen.getByText('Label')).toHaveClass('extra-class', 'truncate');
   });
 
   it('forwards the ref to the underlying span', () => {
     const ref = React.createRef<HTMLSpanElement>();
-    render(<TruncateText ref={ref}>Ref target</TruncateText>);
+    render(<TruncatedText ref={ref}>Ref target</TruncatedText>);
     expect(ref.current).toBeInstanceOf(HTMLSpanElement);
     expect(ref.current).toHaveTextContent('Ref target');
   });
@@ -90,7 +90,7 @@ describe('TruncateText', () => {
   // branch is wired: given room to fit, the text renders unchanged, same as
   // the `'end'` default above.
   it('renders unchanged when it fits in `mode: "middle"`', () => {
-    render(<TruncateText mode="middle">Acme Corporation</TruncateText>);
+    render(<TruncatedText mode="middle">Acme Corporation</TruncatedText>);
     expect(screen.getByText('Acme Corporation')).toBeVisible();
   });
 });

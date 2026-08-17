@@ -24,10 +24,15 @@ prop, resolved it, threaded it onward, and then did nothing.
   controller options and ignored, while still warning you not to combine it with
   `pagination` — which implied it worked.
 
-- **`meta.truncate: 'middle'` now truncates in the middle.** The `TruncateText`
-  component it needs was never ported, so the declared `'middle' | 'end'` union
-  fell back to CSS end-truncation. `TruncateText` ships now (middle/end, canvas
-  text measurement, binary search over the kept-character count) and is exported.
+- **`meta.truncate: 'middle'` now truncates in the middle.** The middle-ellipsis
+  implementation it needs was never ported, so the declared `'middle' | 'end'`
+  union fell back to CSS end-truncation. `TruncatedText` gains a
+  **`mode?: 'middle' | 'end'`** prop (default `'end'`, unchanged behaviour) backed
+  by canvas text measurement and a binary search over the kept-character count.
+  Deliberately a new mode on the existing component rather than a second
+  component: upstream ships this as a separate `TruncateText`, but that would sit
+  one letter away from this repo's `TruncatedText` and duplicate its whole
+  end-truncation path.
 
 `Table`'s cell `box-shadow` is now **composed from custom-property slots**
 (`--table-shadow-y`, `--table-shadow-x`, `--table-shadow-marker`) rather than

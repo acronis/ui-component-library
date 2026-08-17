@@ -8,7 +8,7 @@ import { describe, expect, it } from 'vitest';
 // happy-dom does not perform.
 import '../../../../styles/index.css';
 
-import { TruncateText } from '../truncate-text';
+import { TruncatedText } from '../truncated-text';
 
 const LONG =
   'Acme Corporation International Holdings & Subsidiaries — Global Compliance Division';
@@ -26,13 +26,13 @@ function displayedText(): string {
   return span.textContent ?? '';
 }
 
-describe('TruncateText', () => {
+describe('TruncatedText', () => {
   // Unlike `mode: 'middle'`, CSS `text-overflow: ellipsis` never touches the
   // DOM text — it paints the ellipsis at render time over content that stays
   // wider than the box. `scrollWidth > clientWidth` is therefore the actual
   // truncation signal here, not a textContent change.
   it('end mode: paints an ellipsis over the full text, which stays intact in the DOM', async () => {
-    renderAt(150, <TruncateText>{LONG}</TruncateText>);
+    renderAt(150, <TruncatedText>{LONG}</TruncatedText>);
     await waitFor(() => {
       const span = document.querySelector('span');
       if (span === null) throw new Error('expected a rendered span');
@@ -42,7 +42,7 @@ describe('TruncateText', () => {
   });
 
   it('middle mode: keeps both ends, ellipsis in the middle', async () => {
-    renderAt(150, <TruncateText mode="middle">{LONG}</TruncateText>);
+    renderAt(150, <TruncatedText mode="middle">{LONG}</TruncatedText>);
     await waitFor(() => {
       const shown = displayedText();
       expect(shown).not.toBe(LONG);
@@ -58,7 +58,7 @@ describe('TruncateText', () => {
   // asked for. `overflow: hidden` on the span is what keeps the host at the
   // width it was given despite the (wider) nowrap content underneath.
   it('does not let the overflowing content inflate its host', async () => {
-    const { host } = renderAt(150, <TruncateText>{LONG}</TruncateText>);
+    const { host } = renderAt(150, <TruncatedText>{LONG}</TruncatedText>);
     await waitFor(() => {
       const span = document.querySelector('span');
       if (span === null) throw new Error('expected a rendered span');
@@ -71,7 +71,9 @@ describe('TruncateText', () => {
     const host = document.createElement('div');
     host.style.width = '150px';
     document.body.append(host);
-    render(<TruncateText lines={2}>{LONG}</TruncateText>, { container: host });
+    render(<TruncatedText lines={2}>{LONG}</TruncatedText>, {
+      container: host,
+    });
 
     await waitFor(() => {
       const span = document.querySelector('span');
@@ -84,7 +86,7 @@ describe('TruncateText', () => {
 
   it('reveals the full text in a tooltip once truncated', async () => {
     const user = userEvent.setup();
-    renderAt(150, <TruncateText>{LONG}</TruncateText>);
+    renderAt(150, <TruncatedText>{LONG}</TruncatedText>);
 
     await waitFor(() => {
       const span = document.querySelector('span');
@@ -97,7 +99,7 @@ describe('TruncateText', () => {
 
   it('reveals no tooltip when nothing is truncated', async () => {
     const user = userEvent.setup();
-    renderAt(1000, <TruncateText>short-value</TruncateText>);
+    renderAt(1000, <TruncatedText>short-value</TruncatedText>);
     await waitFor(() => expect(displayedText()).toBe('short-value'));
 
     await user.hover(screen.getByText('short-value'));
@@ -106,9 +108,9 @@ describe('TruncateText', () => {
   });
 });
 
-describe('TruncateText — mode="middle"', () => {
+describe('TruncatedText — mode="middle"', () => {
   it('never renders something that overflows its own box', async () => {
-    renderAt(150, <TruncateText mode="middle">{LONG}</TruncateText>);
+    renderAt(150, <TruncatedText mode="middle">{LONG}</TruncatedText>);
     await waitFor(() => {
       const span = document.querySelector('span');
       if (span === null) throw new Error('expected a rendered span');
@@ -122,7 +124,7 @@ describe('TruncateText — mode="middle"', () => {
   it('re-truncates less aggressively when the container grows', async () => {
     const { host } = renderAt(
       150,
-      <TruncateText mode="middle">{LONG}</TruncateText>
+      <TruncatedText mode="middle">{LONG}</TruncatedText>
     );
 
     let narrow = '';
@@ -160,7 +162,7 @@ describe('TruncateText — mode="middle"', () => {
     document.body.append(host);
     render(
       <div style={{ display: 'flex', width: '100%', minWidth: 0 }}>
-        <TruncateText mode="middle">{LONG}</TruncateText>
+        <TruncatedText mode="middle">{LONG}</TruncatedText>
         <span style={{ flexShrink: 0, width: 24 }}>btn</span>
       </div>,
       { container: host }
@@ -182,7 +184,7 @@ describe('TruncateText — mode="middle"', () => {
 
   it('reveals the full text in a tooltip once truncated', async () => {
     const user = userEvent.setup();
-    renderAt(150, <TruncateText mode="middle">{LONG}</TruncateText>);
+    renderAt(150, <TruncatedText mode="middle">{LONG}</TruncatedText>);
 
     await waitFor(() => expect(displayedText()).not.toBe(LONG));
 
@@ -207,7 +209,7 @@ describe('TruncateText — mode="middle"', () => {
         <tbody>
           <tr>
             <td>
-              <TruncateText mode="middle">{LONG}</TruncateText>
+              <TruncatedText mode="middle">{LONG}</TruncatedText>
             </td>
             <td style={{ width: 150 }}>fixed column</td>
           </tr>
@@ -232,7 +234,10 @@ describe('TruncateText — mode="middle"', () => {
 
   it('reveals no tooltip when nothing is truncated', async () => {
     const user = userEvent.setup();
-    renderAt(1000, <TruncateText mode="middle">short-value.txt</TruncateText>);
+    renderAt(
+      1000,
+      <TruncatedText mode="middle">short-value.txt</TruncatedText>
+    );
     await waitFor(() => expect(displayedText()).toBe('short-value.txt'));
 
     await user.hover(screen.getByText('short-value.txt'));
