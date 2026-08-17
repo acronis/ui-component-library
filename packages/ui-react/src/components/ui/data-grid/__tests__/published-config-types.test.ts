@@ -1,24 +1,35 @@
-// PLTFRM-93014 — the config registry must survive the dts bundler.
+// PLTFRM-93014 — the config registry must survive the dts step.
 //
 // Every `data-grid-config/<group>.ts` contributes its slice of the public prop
 // surface with `declare module './registry' { interface DataGridGroupedConfigMap
-// … }`. tsup's dts step flattens all declarations into one file but copied those
-// blocks across verbatim, and in the flattened file `'./registry'` resolves to
-// nothing — TypeScript ignores an augmentation of an unresolvable module in
-// silence. All 19 blocks evaporated, every config key fell off `DataGridProps`,
-// and a consumer got 21 unknown-prop errors against a runtime that reads all of
-// them. `scripts/inline-dts-augmentations.mjs` unwraps the blocks after the
-// build; this is the check that it worked.
+// … }`. Two different build shapes have broken that, both silently, because
+// TypeScript ignores an augmentation it cannot resolve without a word:
 //
-// The expectation is **derived from src, not hardcoded**. A frozen list of keys
-// would go stale the first time a unit lands a group — `registry.ts` says exactly
-// this about tallies — and a stale list is worse than none, because it passes.
-// So: read what the source declares, then require dist to declare the same.
+//  1. tsup's `dts` flattened every declaration into one file per entry and copied
+//     the blocks across verbatim. In the flattened file `'./registry'` resolved to
+//     nothing, so all 19 evaporated and every config key fell off `DataGridProps`.
+//     `scripts/inline-dts-augmentations.mjs` unwrapped the blocks to fix it — once
+//     flattened, the target sat in the *same* module, so bare interfaces merged.
+//  2. The build then moved to Vite + `unplugin-dts`, which emits **one `.d.ts` per
+//     module**. `'./registry'` resolves again — and the unwrapping became the
+//     defect: an unwrapped block declares a *local* `DataGridGroupedConfigMap` in
+//     `pagination.d.ts` that merges with nothing, leaving the registry's map empty
+//     for consumers exactly as in (1). The script is gone; the blocks now ship
+//     as-authored.
 //
-// Nothing here can be replaced by a `src`-side type test. The whole defect lives
-// between src and the published artifact: the workspace typecheck and all 19
-// `props-<group>.types.test.ts` files passed the entire time the published types
-// were broken.
+// The previous guard could not see either failure. It collected interface members
+// **textually, merged across all of dist** — which is not what the type checker
+// does — so an augmentation stranded in the wrong module still counted. Both this
+// package's `typecheck` and all 19 `props-<group>.types.test.ts` files also passed
+// the whole time the published types were broken: the defect lives strictly
+// between src and the artifact.
+//
+// So this asks the type checker instead: it compiles probe modules against the
+// built `.d.ts` and requires every key src declares to be a key of the published
+// `DataGridProps`. The expectation stays **derived from src, not hardcoded** — a
+// frozen list would go stale the first time a unit lands a group, and a stale list
+// is worse than none because it passes. A deliberately wrong probe is compiled
+// alongside, so a probe that can no longer fail is itself a failure.
 
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
@@ -64,6 +75,17 @@ const REGISTRY_MAPS = [
 
 type MapName = (typeof REGISTRY_MAPS)[number];
 type Surface = Record<MapName, Set<string>>;
+
+/**
+ * The three maps whose members are **props**. The other two are internal: the
+ * resolved map is what modules read after resolution, and the identity-free map
+ * only re-types props the prop maps already declare.
+ */
+const PROP_MAPS = [
+  'DataGridGroupedConfigMap',
+  'DataGridTopLevelConfigMap',
+  'DataGridDeprecatedAliasMap',
+] as const satisfies readonly MapName[];
 
 const emptySurface = (): Surface =>
   Object.fromEntries(
@@ -129,26 +151,145 @@ function declarationFiles(dir: string): string[] {
   return found;
 }
 
-/** What the published declarations declare, merged across every dist `.d.ts`. */
-function surfaceFromDist(files: string[]) {
-  const surface = emptySurface();
-  const survivingAugmentations: string[] = [];
-  for (const file of files) {
-    const source = parse(file, readFileSync(file, 'utf8'));
-    collectMembers(source, source.statements, surface);
-    for (const statement of source.statements) {
-      if (
-        ts.isModuleDeclaration(statement) &&
-        ts.isStringLiteral(statement.name) &&
-        statement.name.text.startsWith('.')
-      ) {
-        survivingAugmentations.push(
-          `${relative(packageRoot, file)}: declare module '${statement.name.text}'`
-        );
-      }
-    }
+/**
+ * A path as an import specifier: POSIX separators, no `.d.ts` extension.
+ * A regex over `replaceAll` because this package targets ES2020.
+ */
+const specifier = (path: string) =>
+  path.replace(/\\/g, '/').replace(/\.d\.ts$/, '');
+
+/**
+ * A key as an identifier fragment, so the alias naming a failed check points at
+ * the key that failed. Config keys are already identifiers; a quoted or symbol
+ * member would not be.
+ */
+const identifierPart = (key: string) => key.replace(/[^A-Za-z0-9_$]/g, '_');
+
+const PROBE_PREAMBLE = `
+type Row = { id: string };
+type Assert<T extends true> = T;
+`;
+
+/** Probes: one deliberately-wrong module proves the mechanism can still fail. */
+function probeModules(declared: Surface) {
+  const propKeys = [
+    ...new Set(PROP_MAPS.flatMap((map) => [...declared[map]])),
+  ].sort();
+
+  const publicProbe = `
+import type { DataGridProps } from '${specifier(join(distDir, 'index.d.ts'))}';
+${PROBE_PREAMBLE}
+type PropKey<K extends PropertyKey> = K extends keyof DataGridProps<Row>
+  ? true
+  : false;
+${propKeys
+  .map(
+    (key) =>
+      `type Prop_${identifierPart(key)} = Assert<PropKey<'${key}'>>; // ${key}`
+  )
+  .join('\n')}
+`;
+
+  // The internal maps never reach a consumer as props, but a stranded
+  // augmentation would leave them empty too — and an empty resolved map is how a
+  // group's own module silently stops seeing its config.
+  const internalProbe = `
+import type {
+  DataGridIdentityFreeMap,
+  DataGridResolvedConfigMap,
+} from '${specifier(join(distDir, 'components/ui/data-grid/data-grid-config/index.d.ts'))}';
+${PROBE_PREAMBLE}
+type ResolvedKey<K extends PropertyKey> =
+  K extends keyof DataGridResolvedConfigMap<Row> ? true : false;
+type IdentityFreeKey<K extends PropertyKey> =
+  K extends keyof DataGridIdentityFreeMap<Row> ? true : false;
+${[...declared.DataGridResolvedConfigMap]
+  .sort()
+  .map(
+    (key) =>
+      `type Resolved_${identifierPart(key)} = Assert<ResolvedKey<'${key}'>>; // ${key}`
+  )
+  .join('\n')}
+${[...declared.DataGridIdentityFreeMap]
+  .sort()
+  .map(
+    (key) =>
+      `type IdentityFree_${identifierPart(key)} = Assert<IdentityFreeKey<'${key}'>>; // ${key}`
+  )
+  .join('\n')}
+`;
+
+  const negativeProbe = `
+import type { DataGridProps } from '${specifier(join(distDir, 'index.d.ts'))}';
+${PROBE_PREAMBLE}
+type PropKey<K extends PropertyKey> = K extends keyof DataGridProps<Row>
+  ? true
+  : false;
+// Must NOT compile. If it does, every check above passed vacuously — the import
+// resolved to \`any\`, or \`Assert\` stopped constraining.
+type Missing = Assert<PropKey<'notARealDataGridProp'>>;
+`;
+
+  return {
+    [join(packageRoot, '__probe-published-props.ts')]: publicProbe,
+    [join(packageRoot, '__probe-published-internal.ts')]: internalProbe,
+    [join(packageRoot, '__probe-published-negative.ts')]: negativeProbe,
+  };
+}
+
+/** Type-check the probes against dist, and report their diagnostics per file. */
+function checkProbes(probes: Record<string, string>) {
+  const options: ts.CompilerOptions = {
+    strict: true,
+    noEmit: true,
+    // The published declarations reference React and TanStack types; checking
+    // those is not this test's job, and it dominates the run time.
+    skipLibCheck: true,
+    module: ts.ModuleKind.ESNext,
+    moduleResolution: ts.ModuleResolutionKind.Bundler,
+    target: ts.ScriptTarget.ES2022,
+    // Nothing here needs an ambient global, and pulling every @types package in
+    // makes the program much larger.
+    types: [],
+  };
+
+  const host = ts.createCompilerHost(options, true);
+  const readProbe = (fileName: string) => probes[fileName];
+  const originalGetSourceFile = host.getSourceFile.bind(host);
+  host.getSourceFile = (fileName, languageVersion, ...rest) => {
+    const overlay = readProbe(fileName);
+    return overlay === undefined
+      ? originalGetSourceFile(fileName, languageVersion, ...rest)
+      : ts.createSourceFile(fileName, overlay, languageVersion, true);
+  };
+  host.fileExists = (fileName) =>
+    readProbe(fileName) !== undefined || ts.sys.fileExists(fileName);
+  host.readFile = (fileName) =>
+    readProbe(fileName) ?? ts.sys.readFile(fileName);
+
+  const program = ts.createProgram(Object.keys(probes), options, host);
+  const diagnostics = ts.getPreEmitDiagnostics(program);
+
+  const byFile = Object.fromEntries(
+    Object.keys(probes).map((file) => [file, [] as string[]])
+  );
+  for (const diagnostic of diagnostics) {
+    const file = diagnostic.file?.fileName;
+    if (file === undefined || byFile[file] === undefined) continue;
+    const { line } = diagnostic.file!.getLineAndCharacterOfPosition(
+      diagnostic.start ?? 0
+    );
+    // The offending line verbatim, not just its number: the probe is generated,
+    // so a bare `probe.ts:18 Type 'false' does not satisfy 'true'` names nothing
+    // a reader can act on. The line *is* the `Prop_<key>` alias.
+    const offending = probes[file].split('\n')[line]?.trim() ?? '';
+    byFile[file].push(
+      `${relative(packageRoot, file)}:${line + 1} ` +
+        ts.flattenDiagnosticMessageText(diagnostic.messageText, ' ') +
+        (offending === '' ? '' : ` — ${offending}`)
+    );
   }
-  return { surface, survivingAugmentations };
+  return byFile;
 }
 
 // The build has to have run. Skipping quietly is the right call for a bare
@@ -157,28 +298,29 @@ function surfaceFromDist(files: string[]) {
 const built = existsSync(distDir) && declarationFiles(distDir).length > 0;
 
 describe.skipIf(!built)('published DataGrid config types', () => {
-  const files = built ? declarationFiles(distDir) : [];
-  const { surface: published, survivingAugmentations } = surfaceFromDist(files);
   const declared = surfaceFromSource();
+  const probes = probeModules(declared);
+  const [propsProbe, internalProbe, negativeProbe] = Object.keys(probes);
+  const diagnostics = checkProbes(probes);
 
-  it('leaves no relative `declare module` in the published declarations', () => {
-    // A relative specifier that resolved in src resolves to nothing once
-    // flattened, and TypeScript drops the augmentation without a word. This is
-    // the exact shape of PLTFRM-93014.
-    expect(survivingAugmentations).toEqual([]);
-  });
-
-  it.each(REGISTRY_MAPS)('publishes every member src declares on %s', (map) => {
-    const missing = [...declared[map]]
-      .filter((key) => !published[map].has(key))
-      .sort();
-    expect(missing).toEqual([]);
-  });
-
-  it('publishes a non-empty grouped-config map', () => {
-    // The failure mode was an *empty* map — belt and braces, in case the source
-    // side of this test ever reads zero modules and vacuously agrees.
-    expect(published.DataGridGroupedConfigMap.size).toBeGreaterThan(0);
+  it('declares a non-empty surface in src', () => {
+    // Belt and braces: everything below is derived from these, so a source-side
+    // read of zero modules would otherwise agree vacuously.
     expect(declared.DataGridGroupedConfigMap.size).toBeGreaterThan(0);
+    expect(declared.DataGridResolvedConfigMap.size).toBeGreaterThan(0);
+  });
+
+  it('publishes every src-declared config key on `DataGridProps`', () => {
+    // Each diagnostic names the `Prop_<key>` alias that failed, so the message
+    // says which group fell off.
+    expect(diagnostics[propsProbe]).toEqual([]);
+  });
+
+  it('publishes the internal registry maps intact', () => {
+    expect(diagnostics[internalProbe]).toEqual([]);
+  });
+
+  it('would notice a key that is genuinely absent', () => {
+    expect(diagnostics[negativeProbe].length).toBeGreaterThan(0);
   });
 });

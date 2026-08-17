@@ -32,7 +32,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "vite build -c vite.lib.config.ts && node scripts/inline-dts-augmentations.mjs",
+    "build": "vite build -c vite.lib.config.ts",
     "dev": "vite build -c vite.lib.config.ts --watch",
     "clean": "rm -rf dist storybook-static node_modules/.vite *.tsbuildinfo",
     "typecheck": "tsc --noEmit",
