@@ -14,17 +14,27 @@ export type VisualColorMode = 'light' | 'dark';
  *      present.
  *
  * The `light` and `dark` profiles pin input 1 and leave input 2 at its default,
- * so between them they cover only the two states where the attribute is present.
- * The two states where the attribute and the OS DISAGREE were never captured:
+ * so between them they cover only two of the six states the pair can be in. The
+ * profiles below are that cross product, in full — `[data-theme]` ∈ {light, dark,
+ * absent} × OS ∈ {light, dark}:
  *
  *   | profile        | [data-theme] | OS pref | tokens resolve | must equal    |
  *   | -------------- | ------------ | ------- | -------------- | ------------- |
  *   | light          | light        | light   | light          | `<id>`        |
  *   | dark           | dark         | light   | dark           | `<id>--dark`  |
  *   | system-dark    | (absent)     | dark    | dark           | `<id>--dark`  |
+ *   | system-light   | (absent)     | light   | light          | `<id>`        |
  *   | forced-light   | light        | dark    | light          | `<id>`        |
+ *   | forced-dark    | dark         | dark    | dark           | `<id>--dark`  |
  *
- * **The two new profiles write no new baselines.** `light-dark()` resolves from
+ * The naming is the mechanism, not the colour: a `system-*` profile removes the
+ * attribute so the OS decides, a `forced-*` profile sets an attribute that the OS
+ * CONTRADICTS. Which is why `forced-dark` is not a duplicate of `dark` — `dark`
+ * leaves the OS at light and pins `color-scheme` inline, so it never exercises the
+ * stylesheet's `[data-theme='dark']` rule against a dark machine, and never sees a
+ * `prefers-color-scheme` fallback fire on top of an explicit attribute.
+ *
+ * **The four non-baseline profiles write no new baselines.** `light-dark()` resolves from
  * the *used* value of `color-scheme`, which is `dark` under both `dark` and
  * `system-dark` (and `light` under both `light` and `forced-light`) — so every
  * token-driven colour is identical by construction, and the render MUST match the
@@ -65,15 +75,21 @@ export interface VisualProfile {
   /**
    * Run only the curated story subset (`scripts/system-theme-subset.mjs`).
    *
-   * The two new profiles assert a property that holds per-story independently, so
-   * a representative sample tests the same claim a full corpus would — at ~16% of
-   * the cost. `light`/`dark` stay exhaustive because they own the baselines.
+   * The four non-baseline profiles assert a property that holds per-story
+   * independently, so a representative sample tests the same claim a full corpus
+   * would — at ~16% of the cost each. `light`/`dark` stay exhaustive because they
+   * own the baselines.
    */
   subset: boolean;
 }
 
 export type VisualProfileName =
-  'light' | 'dark' | 'system-dark' | 'forced-light';
+  | 'light'
+  | 'dark'
+  | 'system-dark'
+  | 'system-light'
+  | 'forced-light'
+  | 'forced-dark';
 
 export const VISUAL_PROFILES: Record<VisualProfileName, VisualProfile> = {
   light: {
@@ -102,6 +118,21 @@ export const VISUAL_PROFILES: Record<VisualProfileName, VisualProfile> = {
     baseline: 'dark',
     subset: true,
   },
+  // The other half of the system case: OS says light, nothing says otherwise.
+  // Weaker than `system-dark` on its own — a stylesheet that ignores the OS
+  // entirely still passes it, because the default it falls back to IS light. It
+  // earns its place as the control: a `prefers-color-scheme` fallback that
+  // over-reaches (matching when it should not, or inverting its condition) turns
+  // this into a dark render against a light baseline, and `system-dark` alone
+  // cannot tell that apart from a correct implementation.
+  'system-light': {
+    name: 'system-light',
+    themeAttribute: null,
+    inlineColorScheme: false,
+    emulate: 'light',
+    baseline: 'light',
+    subset: true,
+  },
   // The guard case: a user on a dark machine who deliberately picked light. Only
   // reachable once a `prefers-color-scheme` fallback exists, and the first thing
   // such a fallback breaks if its `:not([data-theme='light'])` escape is wrong.
@@ -111,6 +142,20 @@ export const VISUAL_PROFILES: Record<VisualProfileName, VisualProfile> = {
     inlineColorScheme: false,
     emulate: 'dark',
     baseline: 'light',
+    subset: true,
+  },
+  // The attribute and the OS AGREE on dark — and the inline `color-scheme` is
+  // withheld, unlike the `dark` profile. So this is the only profile where a
+  // `prefers-color-scheme: dark` fallback and the `[data-theme='dark']` rule are
+  // both live at once: a fallback that fights the attribute (double-applied
+  // inversion, or a UA-painted control taking its `color-scheme` from the media
+  // query rather than the rule) shows up here and nowhere else.
+  'forced-dark': {
+    name: 'forced-dark',
+    themeAttribute: 'dark',
+    inlineColorScheme: false,
+    emulate: 'dark',
+    baseline: 'dark',
     subset: true,
   },
 };
@@ -123,9 +168,10 @@ const DEFAULT_PROFILE: VisualProfileName = 'light';
  * **An unrecognised non-empty value throws rather than falling back to light.**
  * This used to be lenient, and with two modes the cost of a typo was bounded: you
  * got a light run filed under light baselines — mislabelled, but not destructive.
- * With four profiles two of them file against the *other* family's baselines, so
- * the same typo in an `--update` run silently overwrites 765 light baselines with
- * dark renders. A default is only safe while every branch is harmless.
+ * With six profiles, four of them file against a baseline family they do not own
+ * — two of those against the *opposite* family — so the same typo in an `--update`
+ * run silently overwrites 765 light baselines with dark renders. A default is only
+ * safe while every branch is harmless.
  *
  * Empty/unset still means light: docker-compose passes
  * `${STORYBOOK_COLOR_MODE:-light}`, but `VISUAL_TEST_ARGS` shows this stack does
@@ -140,7 +186,7 @@ export function resolveVisualProfile(name: string | undefined): VisualProfile {
     throw new Error(
       `Unknown STORYBOOK_COLOR_MODE '${name}'. Expected one of: ` +
         `${Object.keys(VISUAL_PROFILES).join(', ')}.\n` +
-        'Refusing to fall back to light: two profiles compare against the ' +
+        'Refusing to fall back to light: four profiles compare against the ' +
         "opposite family's baselines, so a typo in an --update run would " +
         'overwrite them with renders from the wrong theme.'
     );

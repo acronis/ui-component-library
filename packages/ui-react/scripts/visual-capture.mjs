@@ -90,10 +90,70 @@ const LOCK_PID = join(LOCK_DIR, 'pid');
 const BASE_COMPOSE = './docker-compose.storybook.yml';
 const UPDATE_COMPOSE = './docker-compose.storybook.update.yml';
 
-/** Capture profiles, mirroring `VISUAL_PROFILES` in `.storybook/visual-regression.ts`. */
-const KNOWN_MODES = ['light', 'dark', 'system-dark', 'forced-light'];
+/**
+ * Capture profiles, mirroring `VISUAL_PROFILES` in `.storybook/visual-regression.ts`.
+ *
+ * Exported, and cross-checked against that module in
+ * `__tests__/visual-capture.test.mjs`. The mirror used to be a comment asking to
+ * be kept in sync, and the two halves fail differently when it is not: a profile
+ * missing from `KNOWN_MODES` is refused loudly (harmless), but a *subset* profile
+ * missing from `SUBSET_MODES` is treated as a baseline owner — `--update` is no
+ * longer refused and the story-count assertion no longer applies, so the run can
+ * overwrite the corpus it was supposed to be checked against.
+ */
+export const KNOWN_MODES = [
+  'light',
+  'dark',
+  'system-dark',
+  'system-light',
+  'forced-light',
+  'forced-dark',
+];
 /** Profiles that own no baselines and run only the curated subset. */
-const SUBSET_MODES = ['system-dark', 'forced-light'];
+export const SUBSET_MODES = [
+  'system-dark',
+  'system-light',
+  'forced-light',
+  'forced-dark',
+];
+
+/**
+ * Aliases that expand to several profiles, so a leg does not have to be spelled
+ * out (and cannot be spelled out incompletely).
+ *
+ * `both` predates the other two and keeps its meaning — light + dark, the pair
+ * that owns the baselines — because it is what every `…:all` package script and
+ * every operator habit already means by it. `themes` is the complement: the four
+ * profiles that own nothing and only re-render. `all` is the full cross product.
+ */
+export const MODE_GROUPS = {
+  both: ['light', 'dark'],
+  themes: SUBSET_MODES,
+  all: KNOWN_MODES,
+};
+
+/**
+ * `--mode <arg>` → the profiles to run, in order.
+ *
+ * Pure and exported so the expansion is asserted directly: a group that silently
+ * dropped a profile would leave a CI leg reporting green over less than it names,
+ * which is the same class of failure as the subset miscount `summarise` guards.
+ * Throws with the full vocabulary rather than falling back to a default — see
+ * `resolveVisualProfile` for why a lenient default stopped being safe once
+ * profiles started filing against other profiles' baselines.
+ */
+export function resolveModes(modeArg) {
+  if (modeArg === undefined) return MODE_GROUPS.both;
+  if (Object.hasOwn(MODE_GROUPS, modeArg)) return MODE_GROUPS[modeArg];
+  if (KNOWN_MODES.includes(modeArg)) return [modeArg];
+  throw new Error(
+    `Unknown --mode '${modeArg}'. Use a profile ` +
+      `(${KNOWN_MODES.join(', ')}) or a group ` +
+      `(${Object.entries(MODE_GROUPS)
+        .map(([group, modes]) => `${group} = ${modes.join(' + ')}`)
+        .join('; ')}).`
+  );
+}
 
 /**
  * Strips ANSI escapes and Compose's `service-1  | ` line prefix.
@@ -284,20 +344,14 @@ function acquireLock() {
 async function main() {
   const argv = process.argv.slice(2);
   const update = argv.includes('--update');
-  const modeArg = argv[argv.indexOf('--mode') + 1];
-  const modes =
-    argv.includes('--mode') && modeArg !== 'both'
-      ? [modeArg]
-      : ['light', 'dark'];
-
-  for (const mode of modes) {
-    if (!KNOWN_MODES.includes(mode)) {
-      console.error(
-        `Unknown --mode '${mode}'. Use ${KNOWN_MODES.join(', ')}, or both ` +
-          '(= light + dark).'
-      );
-      process.exit(2);
-    }
+  let modes;
+  try {
+    modes = resolveModes(
+      argv.includes('--mode') ? argv[argv.indexOf('--mode') + 1] : undefined
+    );
+  } catch (error) {
+    console.error(error.message);
+    process.exit(2);
   }
 
   // **`--update` is refused for the system profiles, before anything is built.**
@@ -466,14 +520,14 @@ async function main() {
   for (const r of results) {
     if (!r.ran) {
       console.log(
-        `  ${r.mode.padEnd(5)}  DID NOT RUN — no jest summary in the output ` +
+        `  ${r.mode.padEnd(12)}  DID NOT RUN — no jest summary in the output ` +
           `(exit ${r.code}). See ${r.logFile}`
       );
       continue;
     }
     const s = r.snapshots ?? { written: 0, passed: 0, failed: 0, total: 0 };
     console.log(
-      `  ${r.mode.padEnd(5)}  tests ${r.tests.failed} failed / ` +
+      `  ${r.mode.padEnd(12)}  tests ${r.tests.failed} failed / ` +
         `${r.tests.passed} passed / ${r.tests.total} total   ` +
         `snapshots ${s.written} written / ${s.passed} passed / ` +
         `${s.failed} failed / ${s.total} total   exit ${r.code}`

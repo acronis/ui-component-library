@@ -190,16 +190,22 @@ The `storybook:test:visual[:update]` scripts run the same thing without Docker
 be committed. See `test/__snapshots__/README.md`. CI:
 `.github/workflows/visual-regression.yml`.
 
-**Two further profiles cover the OS `prefers-color-scheme` axis** — the case
-where `[data-theme]` and the operating system disagree, which light/dark cannot
-reach because they pin the attribute:
+**Four further profiles cover the OS `prefers-color-scheme` axis** — the states
+where `[data-theme]` is absent (the OS decides) or disagrees with the OS, none of
+which light/dark can reach because they pin the attribute and leave the OS at
+light. Together with light/dark they are the full `[data-theme]` × OS cross
+product:
 
 ```bash
 pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:system-dark
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:system-light
 pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:forced-light
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:forced-dark
+# all four in one run (the capture script's `--mode themes`)
+pnpm --filter @constructor-lab/ui-react storybook:test:visual:docker:themes
 ```
 
-They **write no baselines** — they re-render a ~16% story sample under a
+They **write no baselines** — each re-renders a ~16% story sample under a
 different theme input and must reproduce the committed light/dark PNGs exactly;
 a diff means styling keyed on `[data-theme]` rather than resolved through a
 token. Hence no `:update` variant, and adding a story means running
