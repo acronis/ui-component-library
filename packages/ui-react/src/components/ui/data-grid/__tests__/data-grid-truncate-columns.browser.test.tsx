@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 // Real styles — same reason `data-grid-toolbar-bulk.browser.test.tsx` loads them:
 // this suite's whole point is measuring real layout, which happy-dom cannot do.
-import '../../../../../.storybook/preview.css';
+import '../../../../styles/index.css';
 
 import { DataGrid } from '../data-grid';
 

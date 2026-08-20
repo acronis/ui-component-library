@@ -7,7 +7,7 @@ import { describe, expect, it } from 'vitest';
 // The real stylesheet, for the same reason `data-grid-toolbar-bulk.browser.test.tsx`
 // loads it: every assertion below is a measurement, and unstyled markup lays out
 // nothing like the shipped menu.
-import '../../../../../.storybook/preview.css';
+import '../../../../styles/index.css';
 
 import { DataGrid } from '../data-grid';
 

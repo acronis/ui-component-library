@@ -216,8 +216,16 @@ const HORIZONTAL_BORDER: Record<TableBorderStrength, string> = {
 
 // Suppress the dividers *and* the sticky sections' stand-in shadow — the two
 // together are what "no horizontal borders" means once a header is sticky.
+//
+// Clears the **y slot**, not `box-shadow` itself (PLTFRM-93276). `shadow-none` here
+// used to wipe every shadow on those cells, which would now also erase a pinned
+// divider the caller asked for explicitly with `pinnedDivider: 'always'`. Emptying
+// the slot suppresses exactly the horizontal line this prop is about and leaves the
+// vertical one to its own rule.
 const HORIZONTAL_BORDER_OFF =
-  '[&_tr]:border-b-0 [&_thead_th]:shadow-none [&_tfoot_td]:shadow-none [&_tfoot_th]:shadow-none';
+  '[&_tr]:border-b-0 ' +
+  '[&_thead_th]:[--table-shadow-y:initial] ' +
+  '[&_tfoot_td]:[--table-shadow-y:initial] [&_tfoot_th]:[--table-shadow-y:initial]';
 
 const VERTICAL_BORDER: Record<TableBorderStrength, string> = {
   subtle:
@@ -354,6 +362,19 @@ export interface TableProps
    * fires for the scroll an owner can observe.
    */
   containerProps?: React.HTMLAttributes<HTMLDivElement>;
+  /**
+   * How the pinned-region divider behaves (PLTFRM-93276).
+   *
+   * `'auto'` (default) draws it only while columns are actually hidden past that
+   * edge — the defect it exists for is a column sliding under a pinned one with no
+   * seam, and a table that cannot scroll has no such column. `'always'` draws it
+   * whenever a boundary column exists, and is also the one way to keep the divider
+   * under `borders={false}`.
+   *
+   * Requires the owner to mark the boundary column with `pinnedEdge`; `Table` holds
+   * no column model and cannot work out which pinned column is last.
+   */
+  pinnedDivider?: 'auto' | 'always';
 }
 
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
@@ -370,6 +391,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       containerClassName,
       containerStyle,
       containerProps,
+      pinnedDivider = 'auto',
       ...props
     },
     ref
@@ -379,6 +401,108 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       style: containerPropsStyle,
       ...restContainerProps
     } = containerProps ?? {};
+
+    // ── Horizontal overflow state for the pinned divider (PLTFRM-93276) ───────
+    //
+    // Written as attributes straight onto the viewport node, never through React
+    // state. Column resize and reorder run at pointer speed through this component
+    // and a `setState` per scroll frame would re-render every cell in the table on
+    // paths that are already the most performance-sensitive here.
+    //
+    // A `ResizeObserver` as well as a scroll listener, because `scrollWidth` changes
+    // with no scroll event: hiding a column, resizing one, or the container itself
+    // being resized all change whether anything is hidden past an edge.
+    //
+    // A ref, and the caller's ref merged **synchronously** in a ref callback —
+    // not state, and not an effect. Both alternatives were tried and both are wrong:
+    // holding the node in state makes the `dataset` writes below "mutating a value
+    // returned from useState" to `react-hooks/immutability`, and forwarding
+    // `containerRef` from an effect populates it one tick late, which breaks every
+    // consumer that measures on mount (24 unit failures, virtualization worst —
+    // a virtualizer whose scroll container is null on first measure measures
+    // nothing).
+    //
+    // `useCallback` so the identity is stable: a new ref callback each render would
+    // detach and reattach the node, tearing down the observer continuously.
+    //
+    // The disable covers what the rule cannot see — a ref callback populating our own
+    // ref and the caller's is precisely what a ref callback is for. Same class of
+    // rule-cannot-see-it as the `set-state-in-effect` disable in `truncated-text.tsx`.
+    const viewportNodeRef = React.useRef<HTMLDivElement | null>(null);
+    /* eslint-disable react-hooks/immutability -- a ref callback populating our own ref and the caller's */
+    const setViewportRef = React.useCallback(
+      (node: HTMLDivElement | null) => {
+        viewportNodeRef.current = node;
+        if (typeof containerRef === 'function') containerRef(node);
+        else if (containerRef) containerRef.current = node;
+      },
+      [containerRef]
+    );
+    /* eslint-enable react-hooks/immutability */
+
+    React.useEffect(() => {
+      const node = viewportNodeRef.current;
+      if (node === null) return;
+
+      // Last written values, so an unchanged edge writes nothing. **This guard is
+      // load-bearing, not an optimisation.** Writing `dataset` unconditionally
+      // invalidates style on every scroll frame and every observer callback, and a
+      // windowed table's spacers resize constantly — measured upstream, that starved
+      // the virtualization stories badly enough that 43 of them hit the runner's
+      // 120s timeout while the same suite passed in the other colour mode.
+      let lastStart: boolean | undefined;
+      let lastEnd: boolean | undefined;
+
+      const sync = () => {
+        // A 1px tolerance on both edges: at fractional zoom `scrollLeft` rests at
+        // values like 0.5 and `scrollWidth - clientWidth` carries the same rounding,
+        // so a strict `> 0` would draw a divider on a table nobody has scrolled.
+        //
+        // `Math.abs` on the start edge because a right-to-left viewport reports
+        // `scrollLeft` as negative in every engine except legacy WebKit.
+        const start = Math.abs(node.scrollLeft) > 1;
+        const end =
+          node.scrollWidth - node.clientWidth - Math.abs(node.scrollLeft) > 1;
+
+        if (start !== lastStart) {
+          lastStart = start;
+          node.dataset.overflowStart = start ? 'true' : 'false';
+        }
+        if (end !== lastEnd) {
+          lastEnd = end;
+          node.dataset.overflowEnd = end ? 'true' : 'false';
+        }
+      };
+
+      sync();
+      node.addEventListener('scroll', sync, { passive: true });
+
+      // Observer callbacks run through a frame rather than measuring inline. A
+      // `ResizeObserver` that writes to the DOM it observes is the classic
+      // "undelivered notifications" loop; deferring to the next frame breaks the
+      // re-entrancy, and coalesces a burst of spacer resizes into one measurement.
+      let frame = 0;
+      const scheduleSync = () => {
+        if (frame !== 0) return;
+        frame = requestAnimationFrame(() => {
+          frame = 0;
+          sync();
+        });
+      };
+
+      const observer = new ResizeObserver(scheduleSync);
+      observer.observe(node);
+      // The table itself, not only the viewport: a column resize changes the
+      // content width while the viewport's own box stays put.
+      const table = node.querySelector('table');
+      if (table) observer.observe(table);
+
+      return () => {
+        node.removeEventListener('scroll', sync);
+        observer.disconnect();
+        if (frame !== 0) cancelAnimationFrame(frame);
+      };
+    }, []);
 
     const cssWidth = toCssLength(width);
     const cssHeight = toCssLength(height);
@@ -439,7 +563,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         // not the root: the root is `overflow: hidden` and never scrolls, so a
         // ref there reports `scrollTop: 0` forever and a virtualizer pointed at
         // it would measure nothing.
-        viewportRef={containerRef}
+        viewportRef={setViewportRef}
         viewportProps={{
           // The seam virtualization keys off: a bounded container is the one
           // precondition windowed rendering cannot supply for itself. It lives
@@ -457,6 +581,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           className={cn(
             tableVariants({ size, background }),
             borderClasses(borders),
+            CELL_SHADOW_SLOTS,
+            pinnedDivider === 'always'
+              ? PINNED_DIVIDER_ALWAYS
+              : PINNED_DIVIDER_AUTO,
             className
           )}
           {...props}
@@ -474,15 +602,15 @@ Table.displayName = 'Table';
 const STICKY_HEADER =
   '[&_th]:sticky [&_th]:top-0 [&_th]:z-40 [&_th[data-pinned]]:z-50 ' +
   '[&_th]:bg-[var(--table-sticky-surface,var(--ui-background-surface-primary))] ' +
-  '[&_th]:shadow-[inset_0_-1px_0_0_var(--ui-table-global-row-border-color)]';
+  '[&_th]:[--table-shadow-y:inset_0_-1px_0_0_var(--ui-table-global-row-border-color)]';
 
 const STICKY_FOOTER =
   '[&_th]:sticky [&_td]:sticky [&_th]:bottom-0 [&_td]:bottom-0 ' +
   '[&_th]:z-40 [&_td]:z-40 [&_th[data-pinned]]:z-50 [&_td[data-pinned]]:z-50 ' +
   '[&_th]:bg-[var(--table-sticky-surface,var(--ui-background-surface-primary))] ' +
   '[&_td]:bg-[var(--table-sticky-surface,var(--ui-background-surface-primary))] ' +
-  '[&_th]:shadow-[inset_0_1px_0_0_var(--ui-table-global-row-border-color)] ' +
-  '[&_td]:shadow-[inset_0_1px_0_0_var(--ui-table-global-row-border-color)]';
+  '[&_th]:[--table-shadow-y:inset_0_1px_0_0_var(--ui-table-global-row-border-color)] ' +
+  '[&_td]:[--table-shadow-y:inset_0_1px_0_0_var(--ui-table-global-row-border-color)]';
 
 export interface TableHeaderProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   /**
@@ -552,8 +680,8 @@ TableFooter.displayName = 'TableFooter';
 // than a border, so turning it on never reflows the cell. `box-shadow` has no
 // logical form, hence the mirrored `rtl:` variant.
 const CURRENT_ROW_MARKER =
-  '[&>*:first-child]:shadow-[inset_2px_0_0_0_var(--ui-border-on-surface-border-active)] ' +
-  'rtl:[&>*:first-child]:shadow-[inset_-2px_0_0_0_var(--ui-border-on-surface-border-active)]';
+  '[&>*:first-child]:[--table-shadow-marker:inset_2px_0_0_0_var(--ui-border-on-surface-border-active)] ' +
+  'rtl:[&>*:first-child]:[--table-shadow-marker:inset_-2px_0_0_0_var(--ui-border-on-surface-border-active)]';
 
 // See the comment at the call site: a pinned cell is opaque, so the row has to
 // re-apply its state tint to its own pinned children.
@@ -667,6 +795,54 @@ TableRow.displayName = 'TableRow';
 /** Which edge of the scroll container a column is pinned to. */
 export type TableColumnPin = 'start' | 'end' | false;
 
+/**
+ * One `box-shadow` per cell, composed from the slots above.
+ *
+ * `box-shadow` is one property and four features here want a piece of it: the
+ * sticky header's bottom line, the sticky footer's top line, the current-row
+ * marker, and (PLTFRM-93276) the pinned-region divider. Whoever wrote
+ * `box-shadow` last used to win, and the collision that matters is a boundary
+ * pinned cell inside a sticky header, where one of the two lines silently
+ * disappeared. So each writes its own custom property and this composes them.
+ *
+ * `0 0 transparent` is the fallback for an unset slot — a transparent shadow, so a cell
+ * with no slot filled renders exactly as it did before this existed. Spelled
+ * `transparent` rather than `#0000` because this repo forbids hard-coded colour
+ * literals outright (`tokens/no-hardcoded-color`, a CI-blocking `must`), and the
+ * keyword is identical for a no-op shadow. Layer order
+ * is list order, first on top; the marker is last because it is 2px wide and
+ * should not be overdrawn by a 1px divider.
+ */
+const CELL_SHADOW_SLOTS =
+  '[&_th]:shadow-[var(--table-shadow-y,0_0_transparent),var(--table-shadow-x,0_0_transparent),var(--table-shadow-marker,0_0_transparent)] ' +
+  '[&_td]:shadow-[var(--table-shadow-y,0_0_transparent),var(--table-shadow-x,0_0_transparent),var(--table-shadow-marker,0_0_transparent)]';
+
+/**
+ * The pinned-region divider (PLTFRM-93276): a 1px line on the inner edge of the
+ * boundary column, so columns scrolling underneath stop disappearing silently.
+ *
+ * **Logical sides, physical shadow.** `box-shadow` has no logical form, so the
+ * start-edge rule uses a negative x offset and the end-edge rule a positive one,
+ * each mirrored under `rtl:` — the same treatment `CURRENT_ROW_MARKER` already
+ * needs, for the same reason.
+ *
+ * **`auto` keys off the ancestor overflow attributes** that `Table` writes on its
+ * viewport, so the line appears only while columns are actually hidden past that
+ * edge, and disappears at the end of the scroll. No React state is involved: the
+ * attributes are written imperatively, and the browser re-evaluates the selector.
+ */
+const PINNED_DIVIDER_AUTO =
+  '[[data-overflow-start=true]_&_[data-pinned-edge=start]]:[--table-shadow-x:inset_-1px_0_0_0_var(--ui-table-global-row-border-color)] ' +
+  'rtl:[[data-overflow-start=true]_&_[data-pinned-edge=start]]:[--table-shadow-x:inset_1px_0_0_0_var(--ui-table-global-row-border-color)] ' +
+  '[[data-overflow-end=true]_&_[data-pinned-edge=end]]:[--table-shadow-x:inset_1px_0_0_0_var(--ui-table-global-row-border-color)] ' +
+  'rtl:[[data-overflow-end=true]_&_[data-pinned-edge=end]]:[--table-shadow-x:inset_-1px_0_0_0_var(--ui-table-global-row-border-color)]';
+
+const PINNED_DIVIDER_ALWAYS =
+  '[&_[data-pinned-edge=start]]:[--table-shadow-x:inset_-1px_0_0_0_var(--ui-table-global-row-border-color)] ' +
+  'rtl:[&_[data-pinned-edge=start]]:[--table-shadow-x:inset_1px_0_0_0_var(--ui-table-global-row-border-color)] ' +
+  '[&_[data-pinned-edge=end]]:[--table-shadow-x:inset_1px_0_0_0_var(--ui-table-global-row-border-color)] ' +
+  'rtl:[&_[data-pinned-edge=end]]:[--table-shadow-x:inset_-1px_0_0_0_var(--ui-table-global-row-border-color)]';
+
 /** Pin presentation shared by `TableHead` and `TableCell`. */
 const PINNED_CELL =
   'sticky z-10 bg-[var(--table-sticky-surface,var(--ui-background-surface-primary))]';
@@ -679,11 +855,13 @@ const PINNED_CELL =
 function pinAttributes(
   pinned: TableColumnPin | undefined,
   pinOffset: CssLength | undefined,
-  style: React.CSSProperties | undefined
+  style: React.CSSProperties | undefined,
+  pinnedEdge: TableColumnPin | undefined
 ): {
   className: string | undefined;
   style: React.CSSProperties | undefined;
   dataPinned?: string;
+  dataPinnedEdge?: string;
 } {
   if (!pinned) return { className: undefined, style };
   const offset = toCssLength(pinOffset) ?? '0px';
@@ -696,6 +874,9 @@ function pinAttributes(
         : { insetInlineEnd: offset }),
     },
     dataPinned: pinned,
+    // Independent of `pinned`: a caller may pin three columns and mark only the
+    // boundary one, and the divider rule needs to distinguish them (PLTFRM-93276).
+    ...(pinnedEdge ? { dataPinnedEdge: pinnedEdge } : {}),
   };
 }
 
@@ -727,6 +908,14 @@ export interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElem
   pinned?: TableColumnPin;
   /** Distance from the pinned edge. A bare number is px. Defaults to `0`. */
   pinOffset?: CssLength;
+  /**
+   * Marks this cell as its pinned region's inner boundary, so the divider rule
+   * can draw a line where scrolled columns pass underneath (PLTFRM-93276). Set by
+   * the owner — `Table` holds no column model and cannot know which pinned column
+   * is last. Independent of `pinned`: several columns may be pinned and only one
+   * of them is the boundary.
+   */
+  pinnedEdge?: TableColumnPin;
   /**
    * Content rendered inside the header cell but **outside** the sort control —
    * a resize handle, a reorder grip, anything focusable or clickable.
@@ -794,13 +983,14 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
       onSort,
       pinned,
       pinOffset,
+      pinnedEdge,
       trailing,
       style,
       ...props
     },
     ref
   ) => {
-    const pin = pinAttributes(pinned, pinOffset, style);
+    const pin = pinAttributes(pinned, pinOffset, style, pinnedEdge);
     // The header's accessible name must come from its **label**, not from
     // everything inside the cell. Without this, an `aria-label`led control in
     // `trailing` — a resize handle, say — is folded into the name, and a screen
@@ -825,6 +1015,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
                 : undefined
         }
         data-pinned={pin.dataPinned}
+        data-pinned-edge={pin.dataPinnedEdge}
         style={pin.style}
         className={cn(
           'h-10 px-[var(--ui-table-global-cell-padding-x)] text-start align-middle text-sm font-semibold text-[var(--ui-table-header-label-color)] [&:has([role=checkbox])]:pe-0',
@@ -872,15 +1063,18 @@ export interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElem
   pinned?: TableColumnPin;
   /** Distance from the pinned edge. A bare number is px. Defaults to `0`. */
   pinOffset?: CssLength;
+  /** Boundary marker — see {@link TableHeadProps.pinnedEdge}. */
+  pinnedEdge?: TableColumnPin;
 }
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
-  ({ className, pinned, pinOffset, style, ...props }, ref) => {
-    const pin = pinAttributes(pinned, pinOffset, style);
+  ({ className, pinned, pinOffset, pinnedEdge, style, ...props }, ref) => {
+    const pin = pinAttributes(pinned, pinOffset, style, pinnedEdge);
     return (
       <td
         ref={ref}
         data-pinned={pin.dataPinned}
+        data-pinned-edge={pin.dataPinnedEdge}
         style={pin.style}
         className={cn(
           'h-10 px-[var(--ui-table-global-cell-padding-x)] py-[var(--ui-table-global-cell-padding-y)] align-middle text-sm [&:has([role=checkbox])]:pe-0',

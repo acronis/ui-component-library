@@ -247,6 +247,7 @@ export function DataTableView<TData, RowId extends string = string>(
     width,
     height,
     maxHeight,
+    pinnedDivider,
     stickyHeader = false,
     stickyFooter = false,
     showHeader = true,
@@ -392,12 +393,17 @@ export function DataTableView<TData, RowId extends string = string>(
     displayRow,
     displayIndex,
   }));
-  const bodyRows = windowRows.filter(
-    (entry) => entry.displayRow.kind !== 'footer'
-  );
-  const footerRows = windowRows.filter(
-    (entry) => entry.displayRow.kind === 'footer'
-  );
+  //
+  // Routed by kind **and scope** (PLTFRM-93295). A table-scoped footer is a total and
+  // belongs in `<TableFooter>`; a *group*-scoped one is a per-group pager and belongs
+  // in the body, immediately after the rows it pages. Splitting on kind alone sent
+  // every pager to the bottom of the table, where each one looked like a second
+  // table footer and none sat next to its group.
+  const isTableFooter = (entry: { displayRow: DataTableDisplayRow<TData> }) =>
+    entry.displayRow.kind === 'footer' && entry.displayRow.scope === 'table';
+
+  const bodyRows = windowRows.filter((entry) => !isTableFooter(entry));
+  const footerRows = windowRows.filter(isTableFooter);
 
   // Publish the seam's imperative operations to the controller, which owns the
   // toggle-action union but cannot reach this scroll container. Assigning into a
@@ -718,6 +724,9 @@ export function DataTableView<TData, RowId extends string = string>(
               {...(columnPresentation.pinOffset === undefined
                 ? {}
                 : { pinOffset: columnPresentation.pinOffset })}
+              {...(columnPresentation.pinnedEdge === undefined
+                ? {}
+                : { pinnedEdge: columnPresentation.pinnedEdge })}
               className={cn(
                 columnPresentation.className,
                 cellClassName?.(cellContext)
@@ -827,6 +836,7 @@ export function DataTableView<TData, RowId extends string = string>(
       {...(width === undefined ? {} : { width })}
       {...(height === undefined ? {} : { height })}
       {...(maxHeight === undefined ? {} : { maxHeight })}
+      {...(pinnedDivider === undefined ? {} : { pinnedDivider })}
     >
       {showHeader ? (
         <TableHeader sticky={stickyHeader || undefined}>
@@ -926,6 +936,9 @@ export function DataTableView<TData, RowId extends string = string>(
                     {...(presentation.pinOffset === undefined
                       ? {}
                       : { pinOffset: presentation.pinOffset })}
+                    {...(presentation.pinnedEdge === undefined
+                      ? {}
+                      : { pinnedEdge: presentation.pinnedEdge })}
                     trailing={adornmentsAt(presentation, 'edge')}
                   >
                     {/* The header-cell seam (ADR-0002, BL-3a). Only

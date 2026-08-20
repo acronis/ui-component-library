@@ -1,6 +1,6 @@
 import type { ColumnDef } from '@tanstack/react-table';
 
-import { Checkbox } from '@constructor-lab/ui-react';
+import { Checkbox } from '../../checkbox';
 import { withSelectionCause } from '../../data-table/data-table-selection-cause';
 import { defineDataGridConfig } from './registry';
 import { DATA_GRID_CHROME_COLUMN_SIZING } from './chrome-column';

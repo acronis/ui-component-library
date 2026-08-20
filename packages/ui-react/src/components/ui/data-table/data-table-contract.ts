@@ -60,6 +60,22 @@ export interface DataTableState<RowId extends string = string> {
    *    expanded-ID slice would start with every group shut.
    */
   readonly groupCollapsed: ReadonlySet<string>;
+  /**
+   * Per-group page index, by group ID, for grouped tables paging each group
+   * independently (PLTFRM-93295). Absent keys mean page 0, so the empty default is
+   * "every group on its first page" — the same reasoning as `groupCollapsed`
+   * recording what is *shut* rather than what is open.
+   *
+   * A `Map` rather than a record: a group ID is `` `${columnId}:${value}` ``, so a
+   * value containing a dot or a prototype-ish name ("constructor", "__proto__") is a
+   * legitimate key that an object literal would either mangle or inherit.
+   *
+   * Keyed by group ID and therefore **not** an identity slice — no `getRowId`
+   * needed, exactly as `groupCollapsed` is not one. The page **size** is not here:
+   * it is configuration, not state, and lives on `grouping.pageSize`.
+   */
+  readonly groupPagination: ReadonlyMap<string, number>;
+  /** Current page index (zero-based) and page size. */
   readonly pagination: DataTablePaginationState;
   readonly currentRowId?: RowId;
 }
@@ -79,6 +95,7 @@ export function assertDataTableStateIntegrity<RowId extends string>(
     'treeExpanded',
     'grouping',
     'groupCollapsed',
+    'groupPagination',
     'pagination',
   ] as const;
 

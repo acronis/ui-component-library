@@ -14,11 +14,11 @@ import type { TruncatedTextProps } from '../truncated-text';
 /** Per-column escape hatch, read from `columnDef.meta`. */
 export interface DataGridTruncateColumnMeta {
   /**
-   * Truncate this column instead of wrapping or overflowing. `'end'` is the
-   * familiar CSS ellipsis. `'middle'` is not yet supported locally (falls back
-   * to end truncation). Anything else — omitted, `undefined`, or an
-   * unrecognized value from an untyped caller — renders the column exactly as
-   * it would with no `truncate` at all.
+   * Truncate this column instead of wrapping or overflowing — see
+   * `TruncatedText`. `'middle'` keeps both ends of the value visible (a URL, a
+   * hash); `'end'` is the familiar CSS ellipsis. Anything else — omitted,
+   * `undefined`, or an unrecognized value from an untyped caller — renders the
+   * column exactly as it would with no `truncate` at all.
    *
    * Setting it to `'middle'` or `'end'` does two things, both handled here,
    * neither requiring anything else from the caller — not even importing
@@ -122,7 +122,9 @@ export function applyTruncateColumns<TData, TValue>(
     if (truncate !== 'middle' && truncate !== 'end') return column;
 
     const renderTruncated = (text: string) => (
-      <TruncatedText portalContainer={portalContainer}>{text}</TruncatedText>
+      <TruncatedText mode={truncate} portalContainer={portalContainer}>
+        {text}
+      </TruncatedText>
     );
     const originalCell = column.cell;
 

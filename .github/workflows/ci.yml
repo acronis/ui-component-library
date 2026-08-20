@@ -183,3 +183,19 @@ jobs:
       # redundancy true.
       - name: Type tests (ui-react)
         run: pnpm --filter @constructor-lab/ui-react test:types
+
+      # `*.browser.test.tsx` — suites that assert real layout (resolved column
+      # widths, truncation at a given container width, pinned-column geometry,
+      # pointer drags with real capture). `vitest.config.ts` excludes them from
+      # `pnpm test` on purpose, so without this step they run nowhere: the
+      # ui-blocks DataGrid sync added 948 lines of them that no runner had ever
+      # executed. See `packages/ui-react/vitest.browser.config.ts`.
+      #
+      # ui-react only, for the same reason as the type tests: it is the only
+      # workspace with the script, and `pnpm --filter` fails outright on a package
+      # that has none.
+      - name: Install Chromium for browser tests
+        run: pnpm --filter @constructor-lab/ui-react exec playwright install --with-deps chromium
+
+      - name: Browser tests (ui-react)
+        run: pnpm --filter @constructor-lab/ui-react test:browser

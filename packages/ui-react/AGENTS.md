@@ -34,6 +34,42 @@ top of this file.
   `VariantProps`. Merge classes with `cn()` (`src/lib/utils.ts`).
 - **Tailwind CSS v4** utilities. PascalCase component names; kebab-case files.
 
+## Porting from upstream `ui-blocks`
+
+`acronis/uikit`'s `packages/ui-blocks` is an actively-developed sibling built from
+the same Figma source, so its per-component fixes are candidate work here. Two
+things about that have already cost real time — read both before syncing anything.
+
+### A ui-blocks feature usually spans more directories than its own
+
+The data-grid sync (`a7c05232`) was scoped to `data-grid/`, so it brought over
+every config module, type, doc comment and test — and none of the engines, which
+upstream keeps in `table/`, `data-table-features/` and `truncate-text/`. Three
+features shipped as pure surface: a prop the caller could set, that was validated,
+resolved, threaded onward, and then read by nothing. Both
+`columnsFeatures.pinnedDivider` and `grouping.pageSize` were accepted-and-ignored,
+the latter while _warning_ against combining it with `pagination`, which implied it
+worked.
+
+Nothing catches that shape on its own: types pass, `pnpm test` passes, the config's
+own unit tests pass. So when porting, **check each config key has a reader**, not
+just a declaration — `viewProps()` contributions in particular, since
+`composeColumnPresentation` copies a **whitelist** and silently drops any key
+missing from it. Fixed in `cb56face`; the audit trail is in that commit message.
+
+### Upstream's `TruncateText` is deliberately not ported as a component
+
+Upstream ships middle-ellipsis truncation as a separate `TruncateText`. This repo
+already had **`TruncatedText`** — one letter apart — so that component would
+duplicate its entire end-truncation path and its name. Middle truncation lives
+here as **`TruncatedText`'s `mode?: 'middle' | 'end'`** instead
+(`truncated-text/middle-truncate.ts` + `text-width.ts` are the machinery), and
+`meta.truncate` passes the mode straight through.
+
+**A future sync will therefore report `truncate-text/` as "missing". It is not.**
+Take upstream's _changes_ to that component into `truncated-text/`'s middle half;
+do not recreate the directory. See `6a855ac1`.
+
 ## The shared demos package
 
 The `@constructor-lab/ui-kit-demos` workspace (consumed by `apps/demo`) now
@@ -68,14 +104,37 @@ Components can be linked to their Figma counterparts via co-located
 
 ## Which command carries which guarantee
 
-Three commands overlap here and it is not obvious which one would catch a given
+Four commands overlap here and it is not obvious which one would catch a given
 mistake, so:
 
-| Command           | Runs                                   | Catches                                                                  |
-| ----------------- | -------------------------------------- | ------------------------------------------------------------------------ |
-| `pnpm test`       | runtime suites only — **no** typecheck | anything a rendered assertion can see. Fast; use it while iterating.     |
-| `pnpm typecheck`  | `tsc --noEmit` over the whole package  | **every type error, including every `expectTypeOf` failure.** ~18 s.     |
-| `pnpm test:types` | the vitest `typecheck` block, only     | the same failures as above, with per-file and per-test-name attribution. |
+| Command             | Runs                                               | Catches                                                                   |
+| ------------------- | -------------------------------------------------- | ------------------------------------------------------------------------- |
+| `pnpm test`         | runtime suites only — **no** typecheck, no browser | anything a rendered assertion can see. Fast; use it while iterating.      |
+| `pnpm typecheck`    | `tsc --noEmit` over the whole package              | **every type error, including every `expectTypeOf` failure.** ~18 s.      |
+| `pnpm test:types`   | the vitest `typecheck` block, only                 | the same failures as above, with per-file and per-test-name attribution.  |
+| `pnpm test:browser` | `*.browser.test.tsx` in real Chromium              | **anything that needs real layout** — happy-dom reports every box as 0×0. |
+
+**`pnpm test` does not run the browser suites either.** `vitest.config.ts` excludes
+`**/*.browser.test.{ts,tsx}`; they have their own config
+(`vitest.browser.config.ts`, vitest browser mode + `@vitest/browser-playwright`)
+and their own script, because browser mode boots Chromium per file and that cost
+does not belong on every headless `vitest run`. Both are gated separately in
+`.github/workflows/ci.yml`.
+
+**Write a `*.browser.test.tsx` only when happy-dom would make the assertion
+meaningless, not merely awkward** — resolved column widths, truncation at a given
+container width, scroll geometry, a pointer drag needing real capture. happy-dom
+performs no layout, so `scrollWidth`/`clientWidth`/`getBoundingClientRect` are all
+0 and such a test would pass against logic that never ran. These suites import
+`src/styles/index.css` for the same reason: a real browser measuring an unstyled
+table measures the wrong thing. Note the import path — there is no
+`.storybook/preview.css` in this repo.
+
+Two of these suites are **`.skip`ped against unported features** (the pinned-column
+`data-overflow-*` attributes, and `meta.truncate`'s `'middle'` mode, which
+`applyTruncateColumns` currently accepts and discards). Each carries a comment
+saying what must land to unskip it. They are specs, not dead weight — don't relax
+their assertions to make them green.
 
 **`pnpm test` does not typecheck, and that is deliberate.** The vitest `typecheck`
 block matches every test file, so leaving it on made each `vitest run` also run

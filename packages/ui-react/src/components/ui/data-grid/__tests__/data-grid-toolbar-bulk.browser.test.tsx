@@ -17,7 +17,7 @@ import { describe, expect, it } from 'vitest';
 //
 // **This is a new pattern in the package** — nothing else in the browser tier loads
 // CSS — so it is worth saying what earns it, below.
-import '../../../../../.storybook/preview.css';
+import '../../../../styles/index.css';
 
 import { DataGrid } from '../data-grid';
 

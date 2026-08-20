@@ -8,6 +8,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '../tooltip';
+import { middleTruncate } from './middle-truncate';
+import { measureTextWidth } from './text-width';
 
 type TooltipContentProps = React.ComponentPropsWithoutRef<
   typeof TooltipContent
@@ -16,11 +18,21 @@ type TooltipContentProps = React.ComponentPropsWithoutRef<
 export interface TruncatedTextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** The text to display. Also used verbatim as the tooltip body when truncated. */
   children: string;
+  /**
+   * Where the ellipsis goes. `'end'` (default) is the familiar CSS
+   * `text-overflow: ellipsis` — reach for `'middle'` when the distinguishing part
+   * of the value is at the tail (a URL, a hash) rather than the start. There is no
+   * native CSS middle-ellipsis, so `'middle'` measures a real font metric via
+   * canvas and re-measures on resize.
+   */
+  mode?: 'middle' | 'end';
   /** Which side the tooltip opens on. Defaults to `top`. */
   side?: 'top' | 'bottom' | 'left' | 'right';
   /**
-   * Max lines before truncating. `1` (default) = single-line ellipsis; `>1` = a
-   * multi-line clamp. The tooltip appears only when the text is actually clipped.
+   * Max lines before truncating, in `'end'` mode only: `1` (default) =
+   * single-line ellipsis; `>1` = a multi-line clamp. Ignored in `'middle'` mode,
+   * which is inherently single-line. The tooltip appears only when the text is
+   * actually clipped.
    */
   lines?: number;
   /**
@@ -41,13 +53,29 @@ export interface TruncatedTextProps extends React.HTMLAttributes<HTMLSpanElement
  * **only when it's actually clipped** — the tooltip is skipped when everything
  * fits, so short cells don't get a pointless hover target. Ideal for table cells.
  *
- * Truncation is detected by comparing scroll vs client size and re-checked on
- * resize, so it stays correct as columns / viewport change.
+ * `'end'`-mode truncation is detected by comparing scroll vs client size and
+ * re-checked on resize; `'middle'` measures a real font metric via canvas (there
+ * is no native CSS middle-ellipsis) and re-measures the same way.
  */
 export const TruncatedText = React.forwardRef<
   HTMLSpanElement,
   TruncatedTextProps
->(function TruncatedText(
+>(function TruncatedText({ mode = 'end', ...props }, forwardedRef) {
+  return mode === 'middle' ? (
+    <TruncatedTextMiddle ref={forwardedRef} {...props} />
+  ) : (
+    <TruncatedTextEnd ref={forwardedRef} {...props} />
+  );
+});
+TruncatedText.displayName = 'TruncatedText';
+
+type TruncatedTextHalfProps = Omit<TruncatedTextProps, 'mode'>;
+
+/** The CSS end-ellipsis / multi-line-clamp half. */
+const TruncatedTextEnd = React.forwardRef<
+  HTMLSpanElement,
+  TruncatedTextHalfProps
+>(function TruncatedTextEnd(
   {
     children,
     className,
@@ -132,4 +160,149 @@ export const TruncatedText = React.forwardRef<
     </TooltipProvider>
   );
 });
-TruncatedText.displayName = 'TruncatedText';
+TruncatedTextEnd.displayName = 'TruncatedTextEnd';
+
+/**
+ * The middle-ellipsis half. Sizes to the container, not the
+ * other way around — it needs no `size`/`maxSize` on a column or wrapper to
+ * have something to truncate against: it measures whatever width it is
+ * actually rendered at, however that width was arrived at, and re-measures
+ * via `ResizeObserver` if it changes.
+ */
+const TruncatedTextMiddle = React.forwardRef<
+  HTMLSpanElement,
+  TruncatedTextHalfProps
+>(function TruncatedTextMiddle(
+  {
+    children: text,
+    side = 'top',
+    portalContainer,
+    className,
+    // `lines` and `defaultOpen` are end-mode only — pulled out of `rest` so they
+    // cannot reach the DOM as attributes.
+    lines: _lines,
+    defaultOpen: _defaultOpen,
+    ...rest
+  },
+  forwardedRef
+) {
+  const [node, setNode] = React.useState<HTMLSpanElement | null>(null);
+  const [display, setDisplay] = React.useState(text);
+  // Distinct from `display !== text`: that's also true before the first
+  // measurement (the initial state is the untruncated `text`), and this needs
+  // to tell "genuinely fits, confirmed by measuring" apart from "haven't
+  // measured yet" — see the class-name comment below for why they can't share
+  // one flag.
+  const [measured, setMeasured] = React.useState(false);
+
+  const setRefs = React.useCallback(
+    (element: HTMLSpanElement | null) => {
+      setNode(element);
+      if (typeof forwardedRef === 'function') forwardedRef(element);
+      else if (forwardedRef) forwardedRef.current = element;
+    },
+    [forwardedRef]
+  );
+
+  // Depends on `node`, not just `text` — the trigger/no-trigger branch below
+  // swaps this span between being `<Tooltip>`'s child and being the whole
+  // return value, which are different positions in the tree, so React remounts
+  // it (a new DOM node) rather than reusing the old one. A `[text]`-only effect
+  // would keep observing the now-detached old node and never see the
+  // replacement, silently going stale the moment truncation state flips.
+  /* eslint-disable @eslint-react/set-state-in-effect -- measure-then-set is the
+     point of this effect: a middle ellipsis has no CSS form, so the displayed
+     string can only be computed after the browser reports a real width. */
+  React.useLayoutEffect(() => {
+    setMeasured(false);
+    if (node === null || typeof ResizeObserver === 'undefined') {
+      setDisplay(text);
+      return;
+    }
+
+    const recompute = () => {
+      const width = node.clientWidth;
+      // 0 during the node's first layout tick (or while a hidden ancestor is
+      // still collapsed) — skip rather than truncate against a width that
+      // isn't real yet; the observer fires again once it settles.
+      if (width === 0) return;
+      const font = getComputedStyle(node).font;
+      setDisplay(
+        middleTruncate(text, width, {
+          measure: (candidate) => measureTextWidth(candidate, font),
+        })
+      );
+      setMeasured(true);
+    };
+
+    recompute();
+    const observer = new ResizeObserver(recompute);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [node, text]);
+  /* eslint-enable @eslint-react/set-state-in-effect */
+
+  const span = (
+    <span
+      ref={setRefs}
+      className={cn(
+        // `flex-1` (`flex: 1 1 0%`) only takes effect when the parent this
+        // renders into happens to itself be a flex container — inert
+        // otherwise, so it's safe alongside `block`. It's not decorative:
+        // without it, a `display: block` element with no explicit width
+        // only *auto-fills a plain block parent* — the browser's default
+        // "fill available width" rule for `width: auto` is specific to
+        // block layout. Nested inside a flex parent (a caller's own cell
+        // wrapping this next to an icon button, say), the same element
+        // becomes a flex item instead, where `flex-basis: auto` means
+        // "size to your own content" — and this component's own content
+        // is whatever it truncated itself to *last* time. Once shrunk, it
+        // would then measure its own shrunken self forever, growing back
+        // only if some ancestor's width changed enough to force a reflow
+        // for an unrelated reason — not when the column actually had more
+        // room to give it all along.
+        'block min-w-0 flex-1',
+        // Nowrap + clip only once `measured` — *before* that, this is the
+        // string's first-ever render, and if it already clips and refuses to
+        // wrap, it dictates its own column's width to `table-layout: auto`
+        // before `ResizeObserver` ever gets a turn: nowrap makes an unbroken
+        // string's min-content the string's *entire* rendered width, so the
+        // browser hands the column exactly that much room — measuring
+        // `clientWidth` after the fact just reads back the width this same
+        // element inflated the column to, not the width some other column
+        // needed and this one gave up.
+        //
+        // Left at the browser's own default on the unmeasured pass rather than
+        // forced to `overflow-wrap: anywhere` — tried that first, and it
+        // overcorrects: telling `auto`-layout this column's min-content is a
+        // single character makes it treat the column as free to take almost
+        // nothing, starving it in favor of siblings with a normal (space- and
+        // punctuation-driven) min-content. The browser's own line-breaking
+        // already finds break opportunities in a URL — after `/`, around `?`,
+        // `=`, `_` — without being told everything is breakable, which is
+        // exactly the multi-line wrap this component exists to replace: worse
+        // than what `nowrap` would give it, but a real, usable column width to
+        // hand to the first `ResizeObserver` measurement, not a starved one.
+        measured && 'overflow-hidden whitespace-nowrap',
+        className
+      )}
+      {...rest}
+    >
+      {display}
+    </span>
+  );
+
+  if (display === text) return span;
+
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger render={span} />
+        <TooltipContent side={side} portalContainer={portalContainer}>
+          {text}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+});
+TruncatedTextMiddle.displayName = 'TruncatedTextMiddle';

@@ -72,6 +72,9 @@ export function createDefaultDataTableState<RowId extends string = string>(
     // Not `Set<RowId>`: a group ID is synthetic (`${columnId}:${value}`) and must
     // not be assignable to a row ID. See the member's doc in the contract.
     groupCollapsed: new Set<string>(),
+    // Empty means every group sits on page 0 — see the slice's docblock for why the
+    // default has to be the permissive one.
+    groupPagination: new Map<string, number>(),
     pagination: { pageIndex: 0, pageSize: DEFAULT_PAGE_SIZE },
     ...overrides,
   };
