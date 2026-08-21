@@ -96,6 +96,20 @@
           "value": 18
         }
       },
+      "20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": true,
+          "com.figma.scopes": [
+            "FONT_SIZE"
+          ],
+          "com.figma.variableId": "VariableID:10012:196027"
+        },
+        "$type": "dimension",
+        "$value": {
+          "unit": "px",
+          "value": 20
+        }
+      },
       "24": {
         "$extensions": {
           "com.figma.hiddenFromPublishing": true,
@@ -4773,8 +4787,9 @@
       "lg": {
         "blur": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30708"
           },
@@ -4786,9 +4801,8 @@
         },
         "color": {
           "$extensions": {
-            "com.figma.scopes": [
-              "ALL_SCOPES"
-            ],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:7653:30710"
           },
           "$type": "color",
@@ -4804,8 +4818,9 @@
         },
         "positionx": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30706"
           },
@@ -4817,8 +4832,9 @@
         },
         "positiony": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30707"
           },
@@ -4830,8 +4846,9 @@
         },
         "spread": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30709"
           },
@@ -4845,8 +4862,9 @@
       "md": {
         "blur": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30703"
           },
@@ -4858,9 +4876,8 @@
         },
         "color": {
           "$extensions": {
-            "com.figma.scopes": [
-              "ALL_SCOPES"
-            ],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:7653:30705"
           },
           "$type": "color",
@@ -4876,8 +4893,9 @@
         },
         "positionx": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30701"
           },
@@ -4889,8 +4907,9 @@
         },
         "positiony": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30702"
           },
@@ -4902,8 +4921,9 @@
         },
         "spread": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30704"
           },
@@ -4917,8 +4937,9 @@
       "sm": {
         "blur": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30698"
           },
@@ -4930,9 +4951,8 @@
         },
         "color": {
           "$extensions": {
-            "com.figma.scopes": [
-              "ALL_SCOPES"
-            ],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:7653:30690"
           },
           "$type": "color",
@@ -4948,8 +4968,9 @@
         },
         "positionx": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30694"
           },
@@ -4961,8 +4982,9 @@
         },
         "positiony": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30697"
           },
@@ -4974,8 +4996,9 @@
         },
         "spread": {
           "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
             "com.figma.scopes": [
-              "ALL_SCOPES"
+              "EFFECT_FLOAT"
             ],
             "com.figma.variableId": "VariableID:7653:30700"
           },

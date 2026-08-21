@@ -68,6 +68,15 @@
         "$value": { "unit": "px", "value": 18 },
         "platforms": ["PD"]
       },
+      "20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": true,
+          "com.figma.scopes": ["FONT_SIZE"],
+          "com.figma.variableId": "VariableID:10012:196027"
+        },
+        "$value": { "unit": "px", "value": 20 },
+        "platforms": ["PD"]
+      },
       "24": {
         "$extensions": {
           "com.figma.hiddenFromPublishing": true,
@@ -4091,7 +4100,8 @@
       "lg": {
         "blur": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30708"
           },
           "$type": "dimension",
@@ -4100,7 +4110,8 @@
         },
         "color": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:7653:30710"
           },
           "platforms": ["PD"],
@@ -4119,7 +4130,8 @@
         },
         "positionx": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30706"
           },
           "$type": "dimension",
@@ -4128,7 +4140,8 @@
         },
         "positiony": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30707"
           },
           "$type": "dimension",
@@ -4137,7 +4150,8 @@
         },
         "spread": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30709"
           },
           "$type": "dimension",
@@ -4148,7 +4162,8 @@
       "md": {
         "blur": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30703"
           },
           "$type": "dimension",
@@ -4157,7 +4172,8 @@
         },
         "color": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:7653:30705"
           },
           "platforms": ["PD"],
@@ -4176,7 +4192,8 @@
         },
         "positionx": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30701"
           },
           "$type": "dimension",
@@ -4185,7 +4202,8 @@
         },
         "positiony": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30702"
           },
           "$type": "dimension",
@@ -4194,7 +4212,8 @@
         },
         "spread": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30704"
           },
           "$type": "dimension",
@@ -4205,7 +4224,8 @@
       "sm": {
         "blur": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30698"
           },
           "$type": "dimension",
@@ -4214,7 +4234,8 @@
         },
         "color": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [],
             "com.figma.variableId": "VariableID:7653:30690"
           },
           "platforms": ["PD"],
@@ -4233,7 +4254,8 @@
         },
         "positionx": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30694"
           },
           "$type": "dimension",
@@ -4242,7 +4264,8 @@
         },
         "positiony": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30697"
           },
           "$type": "dimension",
@@ -4251,7 +4274,8 @@
         },
         "spread": {
           "$extensions": {
-            "com.figma.scopes": ["ALL_SCOPES"],
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": ["EFFECT_FLOAT"],
             "com.figma.variableId": "VariableID:7653:30700"
           },
           "$type": "dimension",

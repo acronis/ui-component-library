@@ -18,13 +18,13 @@ component: Toast
 # The per-status icons are Figma asset instances, supplied from
 # `@constructor-lab/icons-react/stroke-multi` by name.
 #
-# The title's text style is not bound to the tier yet. Its Figma hint read
-# `typography.body.heading`, which matches no token (the style `headings/body-heading`
-# is `typography.headings.heading`); the emitter now drops such a hint instead of
-# emitting a dangling alias. The hint has been corrected in Figma, so the token
-# returns on the next export — meanwhile the component applies the same style
-# directly via `.ui-typography-headings-heading`. The description's hint always
-# resolved (`typography.body.default`), so its text style IS bound.
+# Both text styles are bound to the tier and emit as classes rather than custom
+# properties, so neither is listed below: `.ui-toast-global-content-text-container-title-text-style`
+# (aliases `typography.headings.lead`) and `…-description-text-style` (aliases
+# `typography.body.default`). The title's hint used to read `typography.body.heading`,
+# which matched no token, so the emitter dropped it and the component hardcoded
+# `.ui-typography-headings-heading`; that style has since been removed from Figma
+# and the corrected hint now resolves, so the component uses the tier class.
 source: '@constructor-lab/tokens'
 
 tokens:

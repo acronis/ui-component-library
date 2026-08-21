@@ -204,11 +204,10 @@ function ToastList() {
             column, so the actions align with the text rather than the icon. */}
         <div className="flex min-w-0 flex-1 flex-col gap-[var(--ui-toast-global-content-gap)] px-[var(--ui-toast-global-content-padding-x)] py-[var(--ui-toast-global-content-padding-y)]">
           <div className="flex w-full flex-col gap-[var(--ui-toast-global-content-text-container-gap)] px-[var(--ui-toast-global-content-text-container-padding-x)] py-[var(--ui-toast-global-content-text-container-padding-y)]">
-            {/* The title carries the design's applied `headings/body-heading`
-                style (16/500). The tier's own `…-title-text-style` says 14/600
-                (it aliases `typography.body.strong`) — it disagrees with the
-                node, so it is the Figma-side value to fix, not the render. */}
-            <ToastPrimitive.Title className="ui-typography-headings-heading text-[var(--ui-toast-global-content-text-container-title-color)]" />
+            {/* The title's text style is now bound to the tier (it aliases
+                `typography.headings.lead`), so it renders through the tier's own
+                class like the description does — no hardcoded semantic style. */}
+            <ToastPrimitive.Title className="ui-toast-global-content-text-container-title-text-style text-[var(--ui-toast-global-content-text-container-title-color)]" />
             <ToastPrimitive.Description className="ui-toast-global-content-text-container-description-text-style text-[var(--ui-toast-global-content-text-container-description-color)]" />
           </div>
           {item.actionProps ? (
