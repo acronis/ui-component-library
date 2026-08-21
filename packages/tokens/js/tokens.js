@@ -503,6 +503,7 @@ export const tokens = {
   "ui-font-font-size-12": "var(--ui-font-font-size-12)",
   "ui-font-font-size-14": "var(--ui-font-font-size-14)",
   "ui-font-font-size-18": "var(--ui-font-font-size-18)",
+  "ui-font-font-size-20": "var(--ui-font-font-size-20)",
   "ui-font-font-size-24": "var(--ui-font-font-size-24)",
   "ui-font-font-size-32": "var(--ui-font-font-size-32)",
   "ui-font-font-weight-bold": "var(--ui-font-font-weight-bold)",
