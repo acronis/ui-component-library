@@ -51,8 +51,9 @@ parts:
   - id: title
     element: div
     description: >-
-      The first line, in the design's applied `headings/body-heading` style
-      (`.ui-typography-headings-heading`).
+      The first line, in the tier's own bound text style
+      (`.ui-toast-global-content-text-container-title-text-style`, which aliases
+      `typography.headings.lead`).
   - id: description
     element: div
     description: Optional secondary line (foreground text).
