@@ -4,50 +4,9 @@ import path from 'node:path';
 import { optimize, type Config } from 'svgo';
 
 import { fixDegenerateCloses } from './fix-degenerate-close';
+import { fetchWithRetry } from './http';
 import { escapeRegExp, formatName, isMulticolor } from './helpers';
 import type { FetcherConfig, DownloadedIcon, IconWithUrl } from './types';
-
-const MAX_ATTEMPTS = 5;
-const BASE_DELAY_MS = 500;
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-/**
- * Fetches an SVG with retry + exponential backoff. Figma's image CDN
- * intermittently drops connections (ECONNRESET) or rate-limits (429) during
- * large batch downloads, and a single transient failure would otherwise reject
- * the whole chunk. Only transient failures (network errors, 429, 5xx) are
- * retried; a definitive 4xx fails fast.
- */
-async function fetchSvgWithRetry(url: string): Promise<string> {
-  let lastErr: unknown;
-
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
-    try {
-      const response = await fetch(url);
-      if (response.ok) {
-        return await response.text();
-      }
-      // A definitive 4xx (other than 429) won't succeed on retry — fail fast.
-      const transient = response.status === 429 || response.status >= 500;
-      lastErr = new Error(`HTTP ${response.status}: ${response.statusText}`);
-      if (!transient) {
-        throw lastErr;
-      }
-    } catch (err) {
-      // Re-throw the non-transient HTTP error so it isn't silently retried.
-      if (err === lastErr) throw err;
-      // Otherwise a network-level failure (e.g. ECONNRESET) — retry it.
-      lastErr = err;
-    }
-
-    if (attempt < MAX_ATTEMPTS) {
-      await delay(BASE_DELAY_MS * 2 ** (attempt - 1));
-    }
-  }
-
-  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
-}
 
 /**
  * Downloads an SVG icon from Figma and saves it as an optimized SVG file.
@@ -66,9 +25,10 @@ export async function downloadImage(
   }
 
   try {
-    // Fetch SVG content (with retry — Figma's image CDN drops connections
-    // intermittently during large batch downloads).
-    const svgText = await fetchSvgWithRetry(url);
+    // Retry + the configured timeout both come from `http.ts`: Figma's image CDN
+    // drops connections and rate-limits during large batch downloads, and a
+    // single transient failure would otherwise reject the whole chunk.
+    const svgText = await (await fetchWithRetry(url)).text();
 
     // Build SVGO plugins list
     const plugins: Config['plugins'] = [
