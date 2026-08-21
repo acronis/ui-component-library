@@ -667,6 +667,9 @@ importers:
       svgo:
         specifier: 'catalog:'
         version: 4.0.1
+      undici:
+        specifier: 7.28.0
+        version: 7.28.0
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
