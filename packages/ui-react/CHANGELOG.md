@@ -1,5 +1,177 @@
 # @constructor-lab/ui-react
 
+## 2.8.0
+
+### Minor Changes
+
+- [#8](https://github.com/acronis/ui-component-library/pull/8) [`52ede0a`](https://github.com/acronis/ui-component-library/commit/52ede0a72dc7542f950db5ee9ee95d49fbf96f47) Thanks [@leonid](https://github.com/leonid)! - **DataGrid / DataTable / Table**: finish the ui-blocks port. Three features had
+  arrived as configuration with no implementation behind them — each accepted a
+  prop, resolved it, threaded it onward, and then did nothing.
+
+  - **`columnsFeatures.pinnedDivider` (PLTFRM-93276) now draws.** A pinned cell
+    paints an opaque surface, so columns scrolling beneath it had no seam and
+    simply stopped existing. The boundary column of each pinned region takes a 1px
+    divider on its inner edge — `'auto'` (the default) only while columns are
+    actually hidden past that edge, `'always'` whenever a boundary exists, which is
+    also the one way to keep it under `borders={false}`. What was missing here was
+    the whole engine: `Table` had no such prop, `data-overflow-start`/`-end` existed
+    nowhere, no code computed which pinned column is the boundary, and
+    `DataTableView` forwarded neither the mode nor the per-cell flag.
+
+  - **`grouping.pageSize` (PLTFRM-93295) now pages.** Each group pages its members
+    independently, as its own `groupPagination` state slice keyed by group ID —
+    configuration for the size, state for the indices, the same split grid-wide
+    `pagination` makes. Omitted or `0` is off, so every existing caller keeps the
+    behaviour it had. Previously the value was validated, floored, threaded into
+    controller options and ignored, while still warning you not to combine it with
+    `pagination` — which implied it worked.
+
+  - **`meta.truncate: 'middle'` now truncates in the middle.** The middle-ellipsis
+    implementation it needs was never ported, so the declared `'middle' | 'end'`
+    union fell back to CSS end-truncation. `TruncatedText` gains a
+    **`mode?: 'middle' | 'end'`** prop (default `'end'`, unchanged behaviour) backed
+    by canvas text measurement and a binary search over the kept-character count.
+    Deliberately a new mode on the existing component rather than a second
+    component: upstream ships this as a separate `TruncateText`, but that would sit
+    one letter away from this repo's `TruncatedText` and duplicate its whole
+    end-truncation path.
+
+  `Table`'s cell `box-shadow` is now **composed from custom-property slots**
+  (`--table-shadow-y`, `--table-shadow-x`, `--table-shadow-marker`) rather than
+  written directly. Four features want a piece of one property — the sticky
+  header's line, the sticky footer's line, the current-row marker, and this divider
+  — and whoever wrote it last won. The collision that matters is a boundary pinned
+  cell inside a sticky header, where one of the two lines silently disappeared.
+  `borders={{ horizontal: false }}` correspondingly empties the y slot instead of
+  using `shadow-none`, which would also erase a divider the caller asked for
+  explicitly. Verified behaviour-preserving: all 148 existing table-family visual
+  baselines pass unchanged in both colour modes, with 4 new ones added for the
+  divider.
+
+  Also recovers test coverage the port had left behind: `data-grid-labels`
+  (15 assertions — the labels group previously had type coverage only),
+  `data-table-pinned-divider` (9), `data-table-group-pagination` (10), and the 7
+  browser assertions that were skipped because the features they describe did not
+  exist yet.
+
+- [#5](https://github.com/acronis/ui-component-library/pull/5) [`a9284f0`](https://github.com/acronis/ui-component-library/commit/a9284f05fdf49e576f54a1e6c0add62997836cc8) Thanks [@leonid](https://github.com/leonid)! - **ScrollArea**: the overlay scrollbar is now a translucent, theme-aware hairline
+  that grows when pointed at, and gains a `tone` prop.
+
+  The bar is a 6px track held 2px off the viewport edges (previously a 10px track
+  with a 1px gutter), and the thumb grows to 10px while pointed at or dragged,
+  matching the legacy Vue kit. The growth is inward — the thumb's outer edge stays
+  flush with the viewport edge — so the target never shifts under the pointer. The
+  radius follows the size (3px, then 5px) out of `rounded-full`.
+
+  The thumb was an opaque border grey (`--ui-border-on-surface-border`), which
+  disappeared over content of a similar tone — a real hazard for a bar that floats
+  over content it does not control. It now mixes `--ui-background-inverse-primary`
+  down to 40% alpha (60% on hover), reproducing the legacy Vue kit's
+  `--av-scroll-thumb` treatment through the token system: that token is already
+  near-black in light mode and white in dark, so one token covers the light/dark
+  flip the Vue kit needed a second variable for.
+
+  `tone="inverse"` covers what the theme cannot decide on its own — a surface that
+  is dark in **both** themes, where the light-mode value would paint near-black on
+  brand. It pins the thumb to `--ui-glyph-on-brand-primary` (white, fixed) at the
+  same alphas. `SidebarPrimary` now sets it, since its container is
+  `--ui-background-brand-primary`.
+
+### Patch Changes
+
+- [#8](https://github.com/acronis/ui-component-library/pull/8) [`52ede0a`](https://github.com/acronis/ui-component-library/commit/52ede0a72dc7542f950db5ee9ee95d49fbf96f47) Thanks [@leonid](https://github.com/leonid)! - **DataGrid**: every grouped config prop (`selection`, `pagination`, `toolbar`,
+  `dataState`, `filters`, …) is back on the published `DataGridProps`, and the
+  library build no longer fails on the ported data-grid files.
+
+  Two separate defects, both invisible to this package's own `typecheck`:
+
+  - Five ported files imported from `@constructor-lab/ui-react` — their own
+    package. Rolldown cannot resolve that during the library build (there is no
+    `dist` yet), so the build failed outright.
+  - `scripts/inline-dts-augmentations.mjs` unwrapped each
+    `declare module './registry'` block out of the emitted `.d.ts`. That was
+    correct under tsup, which flattened every declaration into one file — the
+    augmentation and its target ended up in the same module, so bare `interface`
+    declarations merged. The build now uses Vite + `unplugin-dts`, which emits one
+    `.d.ts` per module: `'./registry'` resolves again, and unwrapping instead
+    stranded each block as a _local_ interface that merged with nothing. The
+    registry maps shipped empty, so `DataGridProps` carried only `columns`/`rows`
+    and a consumer passing any config prop got an unknown-prop error against a
+    runtime that reads all of them. The script is gone; the blocks ship as
+    authored.
+
+  The guard test that was supposed to catch this compared interface members
+  textually, merged across all of `dist` — which is not what the type checker does,
+  so an augmentation stranded in the wrong module still counted. It now compiles
+  probe modules against the built declarations and asks the checker, with a
+  deliberately-wrong probe alongside so a check that can no longer fail is itself a
+  failure.
+
+- [#12](https://github.com/acronis/ui-component-library/pull/12) [`562fb4f`](https://github.com/acronis/ui-component-library/commit/562fb4fecd757508490a7d85361bf2228b07629c) Thanks [@leonid](https://github.com/leonid)! - **Toast**: the title renders through its own tier class again, instead of a
+  semantic class that no longer exists.
+
+  `ToastPrimitive.Title` hardcoded `.ui-typography-headings-heading`. That style
+  has been deleted from Figma and `@constructor-lab/tokens` no longer emits the
+  class, so the title was falling back to inherited typography — no font-family,
+  size, weight, line-height or letter-spacing of its own.
+
+  The hardcoding was a documented workaround: the tier's own
+  `content/textContainer/title/textStyle` used to carry a Figma hint naming a
+  token that did not exist, so the emitter dropped it and left the title unbound.
+  That hint has since been corrected upstream, so the title now uses
+  `.ui-toast-global-content-text-container-title-text-style` — the same shape the
+  description already used, and re-pointable per brand rather than pinned to a
+  shared semantic style. It resolves to `18px / 400` via
+  `typography.headings.lead`.
+
+  Nothing caught this: no unit test, lint rule or spec check asserts that a class
+  a component names actually exists in the token output. The six Toast visual
+  baselines did not catch it either — the stories screenshot `fullPage`, so the
+  title's contribution landed under the committed `failureThreshold` of `0.005`.
+  They are regenerated here with the scoped `VISUAL_FAILURE_THRESHOLD=0` override
+  that `.storybook/test-runner.ts` prescribes for exactly this case.
+
+- [#9](https://github.com/acronis/ui-component-library/pull/9) [`d83a997`](https://github.com/acronis/ui-component-library/commit/d83a99764197c6b7105f271326741825f50e1680) Thanks [@leonid](https://github.com/leonid)! - **Visual regression**: complete the `[data-theme]` × OS `prefers-color-scheme`
+  cross product with two new capture profiles, `system-light` and `forced-dark`.
+
+  Light/dark is decided by two independent inputs — the `[data-theme]` attribute a
+  consumer sets, and the OS preference the tokens' `color-scheme: light dark`
+  defers to when that attribute is absent. Six states are reachable; four were
+  captured. The two that were not:
+
+  - **`system-light`** — no attribute, OS light, compares against the light
+    baselines. The control for `system-dark`: a `prefers-color-scheme` fallback
+    that over-reaches or inverts its condition renders dark here, and `system-dark`
+    passing cannot distinguish that from a correct implementation.
+  - **`forced-dark`** — `[data-theme='dark']` with the OS **also** dark and no
+    inline `color-scheme`. Not a duplicate of `dark`, which pins `color-scheme`
+    inline and leaves the OS at light: this is the only profile where the
+    stylesheet's `[data-theme='dark']` rule and a `prefers-color-scheme: dark`
+    fallback are both live, so a fallback that fights the attribute shows up here
+    and nowhere else.
+
+  Both own no baselines and run the same curated ~16% story subset as the existing
+  two, so each costs a fraction of a full leg. Verified against the current corpus:
+  all four subset profiles pass 127/127 stories with 0 snapshots written.
+
+  Also in the capture script (`scripts/visual-capture.mjs`):
+
+  - `--mode themes` runs all four non-baseline profiles, `--mode all` runs all six;
+    `--mode both` keeps its meaning (light + dark). Mode resolution is now a pure,
+    unit-tested function that throws — naming the whole vocabulary — instead of a
+    scattered `includes` check.
+  - Its mode lists are now exported and **cross-checked against `VISUAL_PROFILES`**
+    in a test. The mirror was previously a comment; the two halves fail
+    asymmetrically, because a subset profile the script does not know to be one is
+    treated as a baseline owner, and then `--update` is no longer refused for it.
+  - The CI matrix routes a leg by a `subset: true` field rather than by listing
+    profile names in each step's `if:`, so adding a profile cannot silently run it
+    as a baseline-owning leg.
+
+- Updated dependencies [[`562fb4f`](https://github.com/acronis/ui-component-library/commit/562fb4fecd757508490a7d85361bf2228b07629c), [`c1aa20e`](https://github.com/acronis/ui-component-library/commit/c1aa20ec3fc2e39d353bd2e46c7b1495ac007bc7)]:
+  - @constructor-lab/tokens@4.1.0
+  - @constructor-lab/icons-react@1.1.0
+
 ## 2.7.0
 
 ### Minor Changes
