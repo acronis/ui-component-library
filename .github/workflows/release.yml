@@ -86,7 +86,7 @@ jobs:
           title: 'chore(release): version packages'
           createGithubReleases: true
         env:
-          GITHUB_TOKEN: ${{ secrets.FACET_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACV_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
           # Trusted Publishing (OIDC) is the active auth path. npm uses a
           # token over OIDC whenever one is present, so these stay commented
