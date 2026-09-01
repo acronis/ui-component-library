@@ -21,14 +21,14 @@
     "@hookform/resolvers": "catalog:",
     "@constructor-lab/icons-react": "workspace:*",
     "@constructor-lab/ui-react": "workspace:*",
-    "@tanstack/react-form": "1.33.1",
+    "@tanstack/react-form": "1.33.5",
     "@tanstack/react-table": "catalog:",
     "date-fns": "catalog:",
     "react-hook-form": "catalog:",
-    "react-router-dom": "7.18.1",
+    "react-router-dom": "7.18.3",
     "recharts": "catalog:",
     "sonner": "catalog:",
-    "zod": "4.4.3"
+    "zod": "4.5.2"
   },
   "devDependencies": {
     "@types/react": "catalog:",
